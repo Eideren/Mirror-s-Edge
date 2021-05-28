@@ -1,0 +1,30 @@
+namespace MEdge.Engine{
+using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+
+public partial class ParticleModuleLocationEmitter : ParticleModuleLocationBase/*
+		native
+		editinlinenew
+		hidecategories(Object,Object,Object)*/{
+	public enum ELocationEmitterSelectionMethod 
+	{
+		ELESM_Random,
+		ELESM_Sequential,
+		ELESM_MAX
+	};
+	
+	public/*(Location)*/ /*noclear export */name EmitterName;
+	public/*(Location)*/ ParticleModuleLocationEmitter.ELocationEmitterSelectionMethod SelectionMethod;
+	public/*(Location)*/ bool InheritSourceVelocity;
+	public/*(Location)*/ bool bInheritSourceRotation;
+	public/*(Location)*/ float InheritSourceVelocityScale;
+	public/*(Location)*/ float InheritSourceRotationScale;
+	
+	public ParticleModuleLocationEmitter()
+	{
+		// Object Offset:0x0037E51C
+		InheritSourceVelocityScale = 1.0f;
+		InheritSourceRotationScale = 1.0f;
+		bSpawnModule = true;
+	}
+}
+}

@@ -1,0 +1,21 @@
+namespace MEdge.Engine{
+using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+
+public partial class ParticleModuleCollisionBase : ParticleModule/*
+		abstract
+		native
+		editinlinenew
+		hidecategories(Object,Object)*/{
+	public enum EParticleCollisionComplete 
+	{
+		EPCC_Kill,
+		EPCC_Freeze,
+		EPCC_HaltCollisions,
+		EPCC_FreezeTranslation,
+		EPCC_FreezeRotation,
+		EPCC_FreezeMovement,
+		EPCC_MAX
+	};
+	
+}
+}

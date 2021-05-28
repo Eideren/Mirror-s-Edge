@@ -1,0 +1,2504 @@
+// NO OVERWRITE
+
+namespace MEdge.Engine{
+using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+
+public partial class Actor : Object/*
+		abstract
+		native
+		nativereplication
+		hidecategories(Navigation)*/{
+	public const int TRACEFLAG_Bullet = 1;
+	public const int TRACEFLAG_PhysicsVolumes = 2;
+	public const int TRACEFLAG_SkipMovers = 4;
+	public const int TRACEFLAG_Blocking = 8;
+	public const int TRACEFLAG_AIBlocking = 16;
+	public const double REP_RBLOCATION_ERROR_TOLERANCE_SQ = 16.0f;
+	public const double MINFLOORZ = 0.7;
+	public const double ACTORMAXSTEPHEIGHT = 35.0;
+	public const double RBSTATE_LINVELSCALE = 10.0;
+	public const double RBSTATE_ANGVELSCALE = 1000.0;
+	public const int RB_None = 0x00;
+	public const int RB_NeedsUpdate = 0x01;
+	public const int RB_Sleeping = 0x02;
+	
+	public enum EPhysics 
+	{
+		PHYS_None,
+		PHYS_Walking,
+		PHYS_Falling,
+		PHYS_Swimming,
+		PHYS_Flying,
+		PHYS_Rotating,
+		PHYS_Projectile,
+		PHYS_Interpolating,
+		PHYS_Spider,
+		PHYS_Ladder,
+		PHYS_RigidBody,
+		PHYS_SoftBody,
+		PHYS_WallRunning,
+		PHYS_WallClimbing,
+		PHYS_Unused,
+		PHYS_MAX
+	};
+	
+	public enum EMoveDir 
+	{
+		MD_Stationary,
+		MD_Forward,
+		MD_Backward,
+		MD_Left,
+		MD_Right,
+		MD_Up,
+		MD_Down,
+		MD_MAX
+	};
+	
+	public enum ENetRole 
+	{
+		ROLE_None,
+		ROLE_SimulatedProxy,
+		ROLE_AutonomousProxy,
+		ROLE_Authority,
+		ROLE_MAX
+	};
+	
+	public enum ECollisionType 
+	{
+		COLLIDE_CustomDefault,
+		COLLIDE_NoCollision,
+		COLLIDE_BlockAll,
+		COLLIDE_BlockWeapons,
+		COLLIDE_TouchAll,
+		COLLIDE_TouchWeapons,
+		COLLIDE_BlockAllButWeapons,
+		COLLIDE_TouchAllButWeapons,
+		COLLIDE_MAX
+	};
+	
+	public enum ETravelType 
+	{
+		TRAVEL_Absolute,
+		TRAVEL_Partial,
+		TRAVEL_Relative,
+		TRAVEL_MAX
+	};
+	
+	public enum EDoubleClickDir 
+	{
+		DCLICK_None,
+		DCLICK_Left,
+		DCLICK_Right,
+		DCLICK_Forward,
+		DCLICK_Back,
+		DCLICK_Active,
+		DCLICK_Done,
+		DCLICK_MAX
+	};
+	
+	public partial struct /*native */TimerData
+	{
+		public bool bLoop;
+		public name FuncName;
+		public float Rate;
+		public float Count;
+		public Object TimerObj;
+	
+	//	structdefaultproperties
+	//	{
+	//		// Object Offset:0x0024B242
+	//		bLoop = false;
+	//		FuncName = (name)"None";
+	//		Rate = 0.0f;
+	//		Count = 0.0f;
+	//		TimerObj = default;
+	//	}
+	};
+	
+	public partial struct /*native transient */TraceHitInfo
+	{
+		public /*init */Material Material;
+		public /*init */PhysicalMaterial PhysMaterial;
+		public /*init */int Item;
+		public /*init */int LevelIndex;
+		public /*init */name BoneName;
+		public /*init export editinline */PrimitiveComponent HitComponent;
+	
+	//	structdefaultproperties
+	//	{
+	//		// Object Offset:0x0024B45E
+	//		Material = default;
+	//		PhysMaterial = default;
+	//		Item = 0;
+	//		LevelIndex = 0;
+	//		BoneName = (name)"None";
+	//		HitComponent = default;
+	//	}
+	};
+	
+	public partial struct /*native transient */ImpactInfo
+	{
+		public /*init */Actor HitActor;
+		public /*init */Object.Vector HitLocation;
+		public /*init */Object.Vector HitNormal;
+		public /*init */Object.Vector RayDir;
+		public /*init */Actor.TraceHitInfo HitInfo;
+		public /*init */float TracedDistance;
+	
+	//	structdefaultproperties
+	//	{
+	//		// Object Offset:0x0024B65E
+	//		HitActor = default;
+	//		HitLocation = new Vector
+	//		{
+	//			X=0.0f,
+	//			Y=0.0f,
+	//			Z=0.0f
+	//		};
+	//		HitNormal = new Vector
+	//		{
+	//			X=0.0f,
+	//			Y=0.0f,
+	//			Z=0.0f
+	//		};
+	//		RayDir = new Vector
+	//		{
+	//			X=0.0f,
+	//			Y=0.0f,
+	//			Z=0.0f
+	//		};
+	//		HitInfo = new Actor.TraceHitInfo
+	//		{
+	//			Material = default,
+	//			PhysMaterial = default,
+	//			Item = 0,
+	//			LevelIndex = 0,
+	//			BoneName = (name)"None",
+	//			HitComponent = default,
+	//		};
+	//		TracedDistance = 0.0f;
+	//	}
+	};
+	
+	public partial struct /*native transient */AnimSlotInfo
+	{
+		public /*init */name SlotName;
+		public /*init */array<float> ChannelWeights;
+	
+	//	structdefaultproperties
+	//	{
+	//		// Object Offset:0x0024B8AE
+	//		SlotName = (name)"None";
+	//		ChannelWeights = default;
+	//	}
+	};
+	
+	public partial struct /*native transient */AnimSlotDesc
+	{
+		public /*init */name SlotName;
+		public /*init */int NumChannels;
+	
+	//	structdefaultproperties
+	//	{
+	//		// Object Offset:0x0024B97A
+	//		SlotName = (name)"None";
+	//		NumChannels = 0;
+	//	}
+	};
+	
+	public partial struct RigidBodyState
+	{
+		public Object.Vector Position;
+		public Object.Quat Quaternion;
+		public Object.Vector LinVel;
+		public Object.Vector AngVel;
+		public byte bNewData;
+	
+	//	structdefaultproperties
+	//	{
+	//		// Object Offset:0x0024BBB3
+	//		Position = new Vector
+	//		{
+	//			X=0.0f,
+	//			Y=0.0f,
+	//			Z=0.0f
+	//		};
+	//		Quaternion = new Quat
+	//		{
+	//			X=0.0f,
+	//			Y=0.0f,
+	//			Z=0.0f,
+	//			W=0.0f
+	//		};
+	//		LinVel = new Vector
+	//		{
+	//			X=0.0f,
+	//			Y=0.0f,
+	//			Z=0.0f
+	//		};
+	//		AngVel = new Vector
+	//		{
+	//			X=0.0f,
+	//			Y=0.0f,
+	//			Z=0.0f
+	//		};
+	//		bNewData = 0;
+	//	}
+	};
+	
+	public partial struct RigidBodyContactInfo
+	{
+		public Object.Vector ContactPosition;
+		public Object.Vector ContactNormal;
+		public float ContactPenetration;
+		public StaticArray<Object.Vector, Object.Vector>/*[2]*/ ContactVelocity;
+		public StaticArray<PhysicalMaterial, PhysicalMaterial>/*[2]*/ PhysMaterial;
+	
+	//	structdefaultproperties
+	//	{
+	//		// Object Offset:0x0024BDFB
+	//		ContactPosition = new Vector
+	//		{
+	//			X=0.0f,
+	//			Y=0.0f,
+	//			Z=0.0f
+	//		};
+	//		ContactNormal = new Vector
+	//		{
+	//			X=0.0f,
+	//			Y=0.0f,
+	//			Z=0.0f
+	//		};
+	//		ContactPenetration = 0.0f;
+	//		ContactVelocity = new StaticArray<Object.Vector, Object.Vector>/*[2]*/()
+	//		{ 
+	//			[0] = new Vector
+	//			{
+	//				X=0.0f,
+	//				Y=0.0f,
+	//				Z=0.0f
+	//			},
+	//			[1] = new Vector
+	//			{
+	//				X=0.0f,
+	//				Y=0.0f,
+	//				Z=0.0f
+	//			},
+	// 		};
+	//		PhysMaterial = new StaticArray<PhysicalMaterial, PhysicalMaterial>/*[2]*/()
+	//		{ 
+	//			[0] = default,
+	//			[1] = default,
+	// 		};
+	//	}
+	};
+	
+	public partial struct CollisionImpactData
+	{
+		public array<Actor.RigidBodyContactInfo> ContactInfos;
+		public Object.Vector TotalNormalForceVector;
+		public Object.Vector TotalFrictionForceVector;
+	
+	//	structdefaultproperties
+	//	{
+	//		// Object Offset:0x0024BFF7
+	//		ContactInfos = default;
+	//		TotalNormalForceVector = new Vector
+	//		{
+	//			X=0.0f,
+	//			Y=0.0f,
+	//			Z=0.0f
+	//		};
+	//		TotalFrictionForceVector = new Vector
+	//		{
+	//			X=0.0f,
+	//			Y=0.0f,
+	//			Z=0.0f
+	//		};
+	//	}
+	};
+	
+	public partial struct AsyncLineCheckResult
+	{
+		public int bCheckStarted;
+		public int bCheckCompleted;
+		public int bHit;
+	
+	//	structdefaultproperties
+	//	{
+	//		// Object Offset:0x0024C127
+	//		bCheckStarted = 0;
+	//		bCheckCompleted = 0;
+	//		bHit = 0;
+	//	}
+	};
+	
+	public partial struct /*native */ReplicatedHitImpulse
+	{
+		public Object.Vector AppliedImpulse;
+		public Object.Vector HitLocation;
+		public name BoneName;
+		public byte ImpulseCount;
+		public bool bRadialImpulse;
+	
+	//	structdefaultproperties
+	//	{
+	//		// Object Offset:0x0024C29B
+	//		AppliedImpulse = new Vector
+	//		{
+	//			X=0.0f,
+	//			Y=0.0f,
+	//			Z=0.0f
+	//		};
+	//		HitLocation = new Vector
+	//		{
+	//			X=0.0f,
+	//			Y=0.0f,
+	//			Z=0.0f
+	//		};
+	//		BoneName = (name)"None";
+	//		ImpulseCount = 0;
+	//		bRadialImpulse = false;
+	//	}
+	};
+	
+	public partial struct /*native */NavReference
+	{
+		public/*()*/ NavigationPoint Nav;
+		public/*()*/ /*const editconst */Object.Guid Guid;
+	
+	//	structdefaultproperties
+	//	{
+	//		// Object Offset:0x0024C470
+	//		Nav = default;
+	//		Guid = new Guid
+	//		{
+	//			A=0,
+	//			B=0,
+	//			C=0,
+	//			D=0
+	//		};
+	//	}
+	};
+	
+	public/*()*/ bool bExludeHandMoves;
+	public/*()*/ bool bExludeFootMoves;
+	public/*()*/ bool bPhysXMutatable;
+	public /*const */bool bStatic;
+	public/*(Display)*/ /*const */bool bHidden;
+	public /*const */bool bNoDelete;
+	public /*const */bool bDeleteMe;
+	public /*const transient */bool bTicked;
+	public /*const */bool bOnlyOwnerSee;
+	public bool bStasis;
+	public bool bWorldGeometry;
+	public bool bIgnoreRigidBodyPawns;
+	public bool bOrientOnSlope;
+	public /*const */bool bIgnoreEncroachers;
+	public bool bPushedByEncroachers;
+	public bool bDestroyedByInterpActor;
+	public /*const */bool bRouteBeginPlayEvenIfStatic;
+	public /*const */bool bIsMoving;
+	public bool bAlwaysEncroachCheck;
+	public bool bHasAlternateTargetLocation;
+	public /*const */bool bNetTemporary;
+	public /*const */bool bOnlyRelevantToOwner;
+	public /*transient */bool bNetDirty;
+	public bool bAlwaysRelevant;
+	public bool bReplicateInstigator;
+	public bool bReplicateMovement;
+	public bool bSkipActorPropertyReplication;
+	public bool bUpdateSimulatedPosition;
+	public bool bTearOff;
+	public bool bOnlyDirtyReplication;
+	public /*transient */bool bDemoRecording;
+	public bool bDemoOwner;
+	public bool bForceDemoRelevant;
+	public /*const */bool bNetInitialRotation;
+	public bool bReplicateRigidBodyLocation;
+	public bool bKillDuringLevelTransition;
+	public /*const */bool bExchangedRoles;
+	public/*(Advanced)*/ bool bConsiderAllStaticMeshComponentsForStreaming;
+	public/*(AI)*/ bool bIgnoreForAITraces;
+	public/*(Interaction)*/ bool bInteractable;
+	public/*(Interaction)*/ /*const */bool bLOIObject;
+	public/*(Debug)*/ bool bDebug;
+	public bool bPostRenderIfNotVisible;
+	public /*transient */bool bForceNetUpdate;
+	public /*const transient */bool bPendingNetUpdate;
+	public/*(Attachment)*/ /*const */bool bHardAttach;
+	public/*(Attachment)*/ bool bIgnoreBaseRotation;
+	public/*(Attachment)*/ bool bShadowParented;
+	public bool bCanBeAdheredTo;
+	public bool bCanBeFrictionedTo;
+	public bool bHurtEntry;
+	public bool bGameRelevant;
+	public /*const */bool bMovable;
+	public bool bDestroyInPainVolume;
+	public bool bCanBeDamaged;
+	public bool bShouldBaseAtStartup;
+	public bool bPendingDelete;
+	public bool bCanTeleport;
+	public /*const */bool bAlwaysTick;
+	public/*(Navigation)*/ bool bBlocksNavigation;
+	public/*(Collision)*/ /*const transient */bool BlockRigidBody;
+	public bool bCollideWhenPlacing;
+	public /*const */bool bCollideActors;
+	public bool bCollideWorld;
+	public/*(Collision)*/ bool bCollideComplex;
+	public bool bBlockActors;
+	public bool bProjTarget;
+	public bool bBlocksTeleport;
+	public/*(Collision)*/ bool bNoEncroachCheck;
+	public/*(Collision)*/ bool bPhysRigidBodyOutOfWorldCheck;
+	public /*const */bool bComponentOutsideWorld;
+	public bool bBounce;
+	public /*const */bool bJustTeleported;
+	public /*const */bool bNetInitial;
+	public /*const */bool bNetOwner;
+	public/*(Advanced)*/ /*const */bool bHiddenEd;
+	public/*(Advanced)*/ /*const */bool bHiddenEdGroup;
+	public /*const */bool bHiddenEdCustom;
+	public/*(Advanced)*/ bool bEdShouldSnap;
+	public /*const transient */bool bTempEditor;
+	public/*(Collision)*/ bool bPathColliding;
+	public /*transient */bool bPathTemp;
+	public bool bScriptInitialized;
+	public/*(Advanced)*/ bool bLockLocation;
+	public /*private const export editinline */array</*export editinline */ActorComponent> Components;
+	public /*private const export editinline transient */array</*export editinline */ActorComponent> AllComponents;
+	public /*private native const */Object.RenderCommandFence DetachFence;
+	public float CustomTimeDilation;
+	public/*(Movement)*/ /*const */Actor.EPhysics Physics;
+	public Actor.ENetRole RemoteRole;
+	public Actor.ENetRole Role;
+	public/*(Collision)*/ /*const transient */Actor.ECollisionType CollisionType;
+	public /*const */Object.ETickingGroup TickGroup;
+	public /*const */Actor Owner;
+	public/*(Attachment)*/ /*const */Actor Base;
+	public /*const */array<Actor.TimerData> Timers;
+	public /*const transient */int NetTag;
+	public /*const */float NetUpdateTime;
+	public float NetUpdateFrequency;
+	public float NetPriority;
+	public /*const transient */float LastNetUpdateTime;
+	public Pawn Instigator;
+	public /*const transient */WorldInfo WorldInfo;
+	public float LifeSpan;
+	public /*const */float CreationTime;
+	public /*transient */float LastRenderTime;
+	public/*(Object)*/ name Tag;
+	public name InitialState;
+	public/*(Object)*/ name Group;
+	public /*const transient */array<Actor> Touching;
+	public /*const transient */array<Actor> Children;
+	public /*const */float LatentFloat;
+	public /*const */AnimNodeSequence LatentSeqNode;
+	public /*const transient */PhysicsVolume PhysicsVolume;
+	public/*(Movement)*/ /*const */Object.Vector Location;
+	public/*(Movement)*/ /*const */Object.Rotator Rotation;
+	public Object.Vector Velocity;
+	public Object.Vector Acceleration;
+	public /*const transient */Object.Vector AngularVelocity;
+	public/*(Attachment)*/ /*export editinline */SkeletalMeshComponent BaseSkelComponent;
+	public/*(Attachment)*/ name BaseBoneName;
+	public /*const */array<Actor> Attached;
+	public /*const */Object.Vector RelativeLocation;
+	public /*const */Object.Rotator RelativeRotation;
+	public/*(Display)*/ /*interp const */float DrawScale;
+	public/*(Display)*/ /*interp const */Object.Vector DrawScale3D;
+	public/*(Display)*/ /*const */Object.Vector PrePivot;
+	public/*(Collision)*/ /*export editinline */PrimitiveComponent CollisionComponent;
+	public /*native */int OverlapTag;
+	public/*(Movement)*/ Object.Rotator RotationRate;
+	public/*(Movement)*/ Object.Rotator DesiredRotation;
+	public Actor PendingTouch;
+	public/*(Physics)*/ float MinDistForNetRBCorrection;
+	public Core.ClassT<LocalMessage> MessageClass;
+	public /*const */array< Core.ClassT<SequenceEvent> > SupportedEvents;
+	public /*const */array<SequenceEvent> GeneratedEvents;
+	public array<SeqAct_Latent> LatentActions;
+	
+	//replication
+	//{
+	//	 if(((!bSkipActorPropertyReplication || bNetInitial) && bReplicateMovement) && ((((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_AutonomousProxy/*2*/)) && bNetInitial) || ((((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_SimulatedProxy/*1*/)) && bNetInitial || bUpdateSimulatedPosition) && (Base == default) || Base.bWorldGeometry)
+	//		Location, Rotation;
+	//
+	//	 if(((!bSkipActorPropertyReplication || bNetInitial) && bReplicateMovement) && ((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_SimulatedProxy/*1*/))
+	//		Base;
+	//
+	//	 if((((((!bSkipActorPropertyReplication || bNetInitial) && bReplicateMovement) && bNetInitial || bUpdateSimulatedPosition) && ((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_SimulatedProxy/*1*/)) && Base != default) && !Base.bWorldGeometry)
+	//		RelativeLocation, RelativeRotation;
+	//
+	//	 if(((!bSkipActorPropertyReplication || bNetInitial) && bReplicateMovement) && (((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_SimulatedProxy/*1*/)) && bNetInitial || bUpdateSimulatedPosition)
+	//		Physics, Velocity;
+	//
+	//	 if((!bSkipActorPropertyReplication || bNetInitial) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
+	//		bHardAttach;
+	//
+	//	 if(((!bSkipActorPropertyReplication || bNetInitial) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty)
+	//		bHidden;
+	//
+	//	 if((((!bSkipActorPropertyReplication || bNetInitial) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty) && bCollideActors || bCollideWorld)
+	//		bBlockActors, bProjTarget;
+	//
+	//	 if((!bSkipActorPropertyReplication || bNetInitial) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
+	//		RemoteRole, Role, 
+	//		bNetOwner, bTearOff;
+	//
+	//	 if((((!bSkipActorPropertyReplication || bNetInitial) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty) && bReplicateInstigator)
+	//		Instigator;
+	//
+	//	 if(((!bSkipActorPropertyReplication || bNetInitial) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty)
+	//		DrawScale, bCollideActors, 
+	//		bCollideWorld;
+	//
+	//	 if(((bNetOwner && !bSkipActorPropertyReplication || bNetInitial) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty)
+	//		Owner;
+	//}
+	
+	// Export UActor::execForceUpdateComponents(FFrame&, void* const)
+	public virtual /*native function */void ForceUpdateComponents(/*optional */bool bCollisionUpdate = default, /*optional */bool bTransformOnly = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execConsoleCommand(FFrame&, void* const)
+	public virtual /*native function */string ConsoleCommand(string Command, /*optional */bool bWriteToLog = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execSleep(FFrame&, void* const)
+	public virtual /*native(256) final latent function */Flow Sleep(float Seconds)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execFinishAnim(FFrame&, void* const)
+	public virtual /*native(261) final latent function */Flow FinishAnim(AnimNodeSequence SeqNode)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execSetCollision(FFrame&, void* const)
+	public virtual /*native(262) final function */void SetCollision(/*optional */bool bNewColActors = default, /*optional */bool bNewBlockActors = default, /*optional */bool bNewIgnoreEncroachers = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execSetCollisionSize(FFrame&, void* const)
+	public virtual /*native(283) final function */void SetCollisionSize(float NewRadius, float NewHeight)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execSetCollisionType(FFrame&, void* const)
+	public virtual /*native final function */void SetCollisionType(Actor.ECollisionType NewCollisionType)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execSetDrawScale(FFrame&, void* const)
+	public virtual /*native final function */void SetDrawScale(float NewScale)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execSetDrawScale3D(FFrame&, void* const)
+	public virtual /*native final function */void SetDrawScale3D(Object.Vector NewScale3D)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execMove(FFrame&, void* const)
+	public virtual /*native(266) final function */bool Move(Object.Vector Delta)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execSetLocation(FFrame&, void* const)
+	public virtual /*native(267) final function */bool SetLocation(Object.Vector NewLocation)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execSetRotation(FFrame&, void* const)
+	public virtual /*native(299) final function */bool SetRotation(Object.Rotator NewRotation)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execMovingWhichWay(FFrame&, void* const)
+	public virtual /*native function */Actor.EMoveDir MovingWhichWay(ref float Amount)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execSetZone(FFrame&, void* const)
+	public virtual /*native final function */void SetZone(bool bForceRefresh)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execSetRelativeRotation(FFrame&, void* const)
+	public virtual /*native final function */bool SetRelativeRotation(Object.Rotator NewRotation)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execSetRelativeLocation(FFrame&, void* const)
+	public virtual /*native final function */bool SetRelativeLocation(Object.Vector NewLocation)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execSetHardAttach(FFrame&, void* const)
+	public virtual /*native final function */void SetHardAttach(/*optional */bool bNewHardAttach = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execMoveSmooth(FFrame&, void* const)
+	public virtual /*native(3969) final function */bool MoveSmooth(Object.Vector Delta)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execAutonomousPhysics(FFrame&, void* const)
+	public virtual /*native(3971) final function */void AutonomousPhysics(float DeltaSeconds)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execGetTerminalVelocity(FFrame&, void* const)
+	public virtual /*native function */float GetTerminalVelocity()
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execSetBase(FFrame&, void* const)
+	public virtual /*native(298) final function */void SetBase(Actor NewBase, /*optional */Object.Vector NewFloor = default, /*optional */SkeletalMeshComponent SkelComp = default, /*optional */name AttachName = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execSetOwner(FFrame&, void* const)
+	public virtual /*native(272) final function */void SetOwner(Actor NewOwner)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execFindBase(FFrame&, void* const)
+	public virtual /*native function */void FindBase()
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execIsBasedOn(FFrame&, void* const)
+	public virtual /*native final function */bool IsBasedOn(Actor TestActor)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execGetBaseMost(FFrame&, void* const)
+	public virtual /*native function */Actor GetBaseMost()
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execIsOwnedBy(FFrame&, void* const)
+	public virtual /*native final function */bool IsOwnedBy(Actor TestActor)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	public virtual /*simulated event */void ReplicatedEvent(name VarName)
+	{
+	
+	}
+	
+	// Export UActor::execSetForcedInitialReplicatedProperty(FFrame&, void* const)
+	public virtual /*native final function */void SetForcedInitialReplicatedProperty(Property PropToReplicate, bool bAdd)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execFlushPersistentDebugLines(FFrame&, void* const)
+	public /*native final function */static void FlushPersistentDebugLines()
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execDrawDebugLine(FFrame&, void* const)
+	public /*native final function */static void DrawDebugLine(Object.Vector LineStart, Object.Vector LineEnd, byte R, byte G, byte B, /*optional */bool bPersistentLines = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execDrawDebugLineTime(FFrame&, void* const)
+	public /*native final function */static void DrawDebugLineTime(Object.Vector LineStart, Object.Vector LineEnd, byte R, byte G, byte B, /*optional */float timeToLive = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execDrawDebugBoxTime(FFrame&, void* const)
+	public /*native final function */static void DrawDebugBoxTime(Object.Vector Center, Object.Vector Extent, byte R, byte G, byte B, /*optional */float timeToLive = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execDrawDebugBox(FFrame&, void* const)
+	public /*native final function */static void DrawDebugBox(Object.Vector Center, Object.Vector Extent, byte R, byte G, byte B, /*optional */bool bPersistentLines = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execDrawDebugCoordinateSystem(FFrame&, void* const)
+	public /*native final function */static void DrawDebugCoordinateSystem(Object.Vector AxisLoc, Object.Rotator AxisRot, float Scale, /*optional */bool bPersistentLines = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execDrawDebugSphere(FFrame&, void* const)
+	public /*native final function */static void DrawDebugSphere(Object.Vector Center, float Radius, int Segments, byte R, byte G, byte B, /*optional */bool bPersistentLines = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execDrawDebugSphereTime(FFrame&, void* const)
+	public /*native final function */static void DrawDebugSphereTime(Object.Vector Center, float Radius, int Segments, byte R, byte G, byte B, /*optional */float timeToLive = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execDrawDebugCylinder(FFrame&, void* const)
+	public /*native final function */static void DrawDebugCylinder(Object.Vector Start, Object.Vector End, float Radius, int Segments, byte R, byte G, byte B, /*optional */bool bPersistentLines = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execDrawDebugCone(FFrame&, void* const)
+	public /*native final function */static void DrawDebugCone(Object.Vector Origin, Object.Vector Direction, float Length, float AngleWidth, float AngleHeight, int NumSides, Object.Color DrawColor, /*optional */bool bPersistentLines = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execDrawDebugArc(FFrame&, void* const)
+	public /*native final function */static void DrawDebugArc(Object.Vector Origin, Object.Vector Up, Object.Vector Forward, float Size, int Degrees, int ArcDegreesResolution, byte R, byte G, byte B, /*optional */bool bUseDistanceMarker = default, /*optional */bool bPersistentLines = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execChartData(FFrame&, void* const)
+	public virtual /*native final function */void ChartData(string DataName, float DataValue)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execSetHidden(FFrame&, void* const)
+	public virtual /*native final function */void SetHidden(bool bNewHidden)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execSetOnlyOwnerSee(FFrame&, void* const)
+	public virtual /*native final function */void SetOnlyOwnerSee(bool bNewOnlyOwnerSee)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execSetPhysics(FFrame&, void* const)
+	public virtual /*native(3970) final function */void SetPhysics(Actor.EPhysics newPhysics)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execClock(FFrame&, void* const)
+	public virtual /*native final function */void Clock(ref float Time)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execUnClock(FFrame&, void* const)
+	public virtual /*native final function */void UnClock(ref float Time)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execAttachComponent(FFrame&, void* const)
+	public virtual /*native final function */void AttachComponent(ActorComponent NewComponent)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execDetachComponent(FFrame&, void* const)
+	public virtual /*native final function */void DetachComponent(ActorComponent ExComponent)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execSetTickGroup(FFrame&, void* const)
+	public virtual /*native final function */void SetTickGroup(Object.ETickingGroup NewTickGroup)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	public virtual /*event */void Destroyed()
+	{
+	
+	}
+	
+	public virtual /*event */void GainedChild(Actor Other)
+	{
+	
+	}
+	
+	public virtual /*event */void LostChild(Actor Other)
+	{
+	
+	}
+	
+	public delegate void Tick_del(float DeltaTime);
+	public virtual Tick_del Tick { get => bfield_Tick ?? Actor_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public virtual Tick_del global_Tick => Actor_Tick;
+	public /*event */void Actor_Tick(float DeltaTime)
+	{
+	
+	}
+	
+	public delegate void Timer_del();
+	public virtual Timer_del Timer { get => bfield_Timer ?? Actor_Timer; set => bfield_Timer = value; } Timer_del bfield_Timer;
+	public virtual Timer_del global_Timer => Actor_Timer;
+	public /*event */void Actor_Timer()
+	{
+	
+	}
+	
+	public virtual /*event */void HitWall(Object.Vector HitNormal, Actor Wall, PrimitiveComponent WallComp)
+	{
+	
+	}
+	
+	public virtual /*event */void Falling()
+	{
+	
+	}
+	
+	public delegate void Landed_del(Object.Vector HitNormal, Actor FloorActor);
+	public virtual Landed_del Landed { get => bfield_Landed ?? Actor_Landed; set => bfield_Landed = value; } Landed_del bfield_Landed;
+	public virtual Landed_del global_Landed => Actor_Landed;
+	public /*event */void Actor_Landed(Object.Vector HitNormal, Actor FloorActor)
+	{
+	
+	}
+	
+	public virtual /*event */void PhysicsVolumeChange(PhysicsVolume NewVolume)
+	{
+	
+	}
+	
+	public delegate void Touch_del(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal);
+	public virtual Touch_del Touch { get => bfield_Touch ?? Actor_Touch; set => bfield_Touch = value; } Touch_del bfield_Touch;
+	public virtual Touch_del global_Touch => Actor_Touch;
+	public /*event */void Actor_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)
+	{
+	
+	}
+	
+	public virtual /*event */void PostTouch(Actor Other)
+	{
+	
+	}
+	
+	public delegate void UnTouch_del(Actor Other);
+	public virtual UnTouch_del UnTouch { get => bfield_UnTouch ?? Actor_UnTouch; set => bfield_UnTouch = value; } UnTouch_del bfield_UnTouch;
+	public virtual UnTouch_del global_UnTouch => Actor_UnTouch;
+	public /*event */void Actor_UnTouch(Actor Other)
+	{
+	
+	}
+	
+	public virtual /*event */void Bump(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitNormal)
+	{
+	
+	}
+	
+	public delegate void BaseChange_del();
+	public virtual BaseChange_del BaseChange { get => bfield_BaseChange ?? Actor_BaseChange; set => bfield_BaseChange = value; } BaseChange_del bfield_BaseChange;
+	public virtual BaseChange_del global_BaseChange => Actor_BaseChange;
+	public /*event */void Actor_BaseChange()
+	{
+	
+	}
+	
+	public virtual /*event */void Attach(Actor Other)
+	{
+	
+	}
+	
+	public virtual /*event */void Detach(Actor Other)
+	{
+	
+	}
+	
+	public virtual /*event */Actor SpecialHandling(Pawn Other)
+	{
+	
+		return default;
+	}
+	
+	public virtual /*event */void CollisionChanged()
+	{
+	
+	}
+	
+	public virtual /*event */bool EncroachingOn(Actor Other)
+	{
+	
+		return default;
+	}
+	
+	public virtual /*event */void EncroachedBy(Actor Other)
+	{
+	
+	}
+	
+	public virtual /*event */void RanInto(Actor Other)
+	{
+	
+	}
+	
+	// Export UActor::execClampRotation(FFrame&, void* const)
+	public virtual /*native final simulated function */bool ClampRotation(ref Object.Rotator out_Rot, Object.Rotator rBase, Object.Rotator rUpperLimits, Object.Rotator rLowerLimits)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	public virtual /*simulated event */bool OverRotated(ref Object.Rotator out_Desired, ref Object.Rotator out_Actual)
+	{
+	
+		return default;
+	}
+	
+	public virtual /*function */bool UsedBy(Pawn User)
+	{
+		return TriggerEventClass(ClassT<SeqEvent_Used>(), User, -1, default(bool), ref/*probably?*/ /*null*/NullRef.array_SequenceEvent_);
+	}
+	
+	public virtual /*simulated function */void VolumeBasedDestroy(PhysicsVolume PV)
+	{
+		Destroy();
+	}
+	
+	public delegate void FellOutOfWorld_del(Core.ClassT<DamageType> dmgType);
+	public virtual FellOutOfWorld_del FellOutOfWorld { get => bfield_FellOutOfWorld ?? Actor_FellOutOfWorld; set => bfield_FellOutOfWorld = value; } FellOutOfWorld_del bfield_FellOutOfWorld;
+	public virtual FellOutOfWorld_del global_FellOutOfWorld => Actor_FellOutOfWorld;
+	public /*simulated event */void Actor_FellOutOfWorld(Core.ClassT<DamageType> dmgType)
+	{
+		SetPhysics(Actor.EPhysics.PHYS_None/*0*/);
+		SetHidden(true);
+		SetCollision(false, false, default(bool));
+		Destroy();
+	}
+	
+	public delegate void OutsideWorldBounds_del();
+	public virtual OutsideWorldBounds_del OutsideWorldBounds { get => bfield_OutsideWorldBounds ?? Actor_OutsideWorldBounds; set => bfield_OutsideWorldBounds = value; } OutsideWorldBounds_del bfield_OutsideWorldBounds;
+	public virtual OutsideWorldBounds_del global_OutsideWorldBounds => Actor_OutsideWorldBounds;
+	public /*simulated event */void Actor_OutsideWorldBounds()
+	{
+		Destroy();
+	}
+	
+	// Export UActor::execTrace(FFrame&, void* const)
+	public virtual /*native(277) final function */Actor Trace(ref Object.Vector HitLocation, ref Object.Vector HitNormal, Object.Vector TraceEnd, /*optional */Object.Vector TraceStart/* = default*/, /*optional */bool bTraceActors/* = default*/, /*optional */Object.Vector Extent/* = default*/, /*optional */ref Actor.TraceHitInfo HitInfo/* = default*/, /*optional */int ExtraTraceFlags = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execTraceComponent(FFrame&, void* const)
+	public virtual /*native final function */bool TraceComponent(ref Object.Vector HitLocation, ref Object.Vector HitNormal, PrimitiveComponent InComponent, Object.Vector TraceEnd, /*optional */Object.Vector TraceStart/* = default*/, /*optional */Object.Vector Extent/* = default*/, /*optional */ref Actor.TraceHitInfo HitInfo/* = default*/)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execPointCheckComponent(FFrame&, void* const)
+	public virtual /*native final function */bool PointCheckComponent(PrimitiveComponent InComponent, Object.Vector PointLocation, Object.Vector PointExtent)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execFastTrace(FFrame&, void* const)
+	public virtual /*native(548) final function */bool FastTrace(Object.Vector TraceEnd, /*optional */Object.Vector TraceStart = default, /*optional */Object.Vector BoxExtent = default, /*optional */bool bTraceBullet = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execFindSpot(FFrame&, void* const)
+	public virtual /*native final function */bool FindSpot(Object.Vector BoxExtent, ref Object.Vector SpotLocation)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execContainsPoint(FFrame&, void* const)
+	public virtual /*native final function */bool ContainsPoint(Object.Vector Spot)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execIsOverlapping(FFrame&, void* const)
+	public virtual /*native final function */bool IsOverlapping(Actor A)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execGetComponentsBoundingBox(FFrame&, void* const)
+	public virtual /*native final function */void GetComponentsBoundingBox(ref Object.Box ActorBox)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execGetBoundingCylinder(FFrame&, void* const)
+	public virtual /*native function */void GetBoundingCylinder(ref float CollisionRadius, ref float CollisionHeight)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	public virtual /*event */void TornOff()
+	{
+	
+	}
+	
+	// Export UActor::execSetTimer(FFrame&, void* const)
+	public virtual /*native(280) final function */void SetTimer(float InRate, /*optional */bool inbLoop = default, /*optional */name inTimerFunc = default, /*optional */Object inObj = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execClearTimer(FFrame&, void* const)
+	public virtual /*native final function */void ClearTimer(/*optional */name inTimerFunc = default, /*optional */Object inObj = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execIsTimerActive(FFrame&, void* const)
+	public virtual /*native final function */bool IsTimerActive(/*optional */name inTimerFunc = default, /*optional */Object inObj = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execGetTimerCount(FFrame&, void* const)
+	public virtual /*native final function */float GetTimerCount(/*optional */name inTimerFunc = default, /*optional */Object inObj = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execGetTimerRate(FFrame&, void* const)
+	public virtual /*native final function */float GetTimerRate(/*optional */name TimerFuncName = default, /*optional */Object inObj = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execCreateAudioComponent(FFrame&, void* const)
+	public virtual /*native final function */AudioComponent CreateAudioComponent(SoundCue InSoundCue, /*optional */bool bPlay = default, /*optional */bool bStopWhenOwnerDestroyed = default, /*optional */bool bUseLocation = default, /*optional */Object.Vector SourceLocation = default, /*optional */bool bAttachToSelf = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execPlaySound(FFrame&, void* const)
+	public virtual /*native final function */void PlaySound(SoundCue InSoundCue, /*optional */bool bNotReplicated = default, /*optional */bool bNoRepToOwner = default, /*optional */bool bStopWhenOwnerDestroyed = default, /*optional */Object.Vector SoundLocation = default, /*optional */bool bNoRepToRelevant = default, /*optional */bool bPlayOnSelf = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execMakeNoise(FFrame&, void* const)
+	public virtual /*native(512) final function */void MakeNoise(float Loudness, /*optional */name NoiseType = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execPlayerCanSeeMe(FFrame&, void* const)
+	public virtual /*native(532) final function */bool PlayerCanSeeMe()
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execSuggestTossVelocity(FFrame&, void* const)
+	public virtual /*native final function */bool SuggestTossVelocity(ref Object.Vector TossVelocity, Object.Vector Destination, Object.Vector Start, float TossSpeed, /*optional */float BaseTossZ = default, /*optional */float DesiredZPct = default, /*optional */Object.Vector CollisionSize = default, /*optional */float TerminalVelocity = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execGetDestination(FFrame&, void* const)
+	public virtual /*native final function */Object.Vector GetDestination(Controller C)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	public virtual /*function */bool PreTeleport(Teleporter InTeleporter)
+	{
+	
+		return default;
+	}
+	
+	public virtual /*function */void PostTeleport(Teleporter OutTeleporter)
+	{
+	
+	}
+	
+	// Export UActor::execGetURLMap(FFrame&, void* const)
+	public virtual /*native(547) final function */string GetURLMap()
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execAllActors(FFrame&, void* const)
+	public virtual /*native(304) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> AllActors(Core.ClassT<Actor> BaseClass)
+	{
+		#warning NATIVE FUNCTION !
+		yield return default;
+	}
+	
+	// Export UActor::execDynamicActors(FFrame&, void* const)
+	public virtual /*native(313) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> DynamicActors(Core.ClassT<Actor> BaseClass)
+	{
+		#warning NATIVE FUNCTION !
+		yield return default;
+	}
+	
+	// Export UActor::execChildActors(FFrame&, void* const)
+	public virtual /*native(305) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> ChildActors(Core.ClassT<Actor> BaseClass)
+	{
+		#warning NATIVE FUNCTION !
+		yield return default;
+	}
+	
+	// Export UActor::execBasedActors(FFrame&, void* const)
+	public virtual /*native(306) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> BasedActors(Core.ClassT<Actor> BaseClass)
+	{
+		#warning NATIVE FUNCTION !
+		yield return default;
+	}
+	
+	// Export UActor::execTouchingActors(FFrame&, void* const)
+	public virtual /*native(307) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> TouchingActors(Core.ClassT<Actor> BaseClass)
+	{
+		#warning NATIVE FUNCTION !
+		yield return default;
+	}
+	
+	// Export UActor::execTraceActors(FFrame&, void* const)
+	public virtual /*native(309) final iterator function */System.Collections.Generic.IEnumerable<(Actor/* Actor*/,Object.Vector/* HitLoc*/,Object.Vector/* HitNorm*/,Actor.TraceHitInfo/* HitInfo*/)> TraceActors(Core.ClassT<Actor> BaseClass, Object.Vector End, /*optional */Object.Vector Start/* = default*/, /*optional */Object.Vector Extent/* = default*/, /*optional */int ExtraTraceFlags = default)
+	{
+		#warning NATIVE FUNCTION !
+		yield return default;
+	}
+	
+	// Export UActor::execVisibleActors(FFrame&, void* const)
+	public virtual /*native(311) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> VisibleActors(Core.ClassT<Actor> BaseClass, /*optional */float Radius = default, /*optional */Object.Vector Loc = default)
+	{
+		#warning NATIVE FUNCTION !
+		yield return default;
+	}
+	
+	// Export UActor::execVisibleCollidingActors(FFrame&, void* const)
+	public virtual /*native(312) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> VisibleCollidingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector Loc = default, /*optional */bool bIgnoreHidden = default)
+	{
+		#warning NATIVE FUNCTION !
+		yield return default;
+	}
+	
+	// Export UActor::execCollidingActors(FFrame&, void* const)
+	public virtual /*native(321) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> CollidingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector Loc = default, /*optional */bool bUseOverlapCheck = default)
+	{
+		#warning NATIVE FUNCTION !
+		yield return default;
+	}
+	
+	// Export UActor::execOverlappingActors(FFrame&, void* const)
+	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Actor/* out_Actor*/> OverlappingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector Loc = default, /*optional */bool bIgnoreHidden = default)
+	{
+		#warning NATIVE FUNCTION !
+		yield return default;
+	}
+	
+	// Export UActor::execComponentList(FFrame&, void* const)
+	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<ActorComponent/* out_Component*/> ComponentList(Class BaseClass)
+	{
+		#warning NATIVE FUNCTION !
+		yield return default;
+	}
+	
+	// Export UActor::execAllOwnedComponents(FFrame&, void* const)
+	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<ActorComponent/* OutComponent*/> AllOwnedComponents(Core.ClassT<Component> BaseClass)
+	{
+		#warning NATIVE FUNCTION !
+		yield return default;
+	}
+	
+	// Export UActor::execLocalPlayerControllers(FFrame&, void* const)
+	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<PlayerController/* PC*/> LocalPlayerControllers(Core.ClassT<PlayerController> BaseClass)
+	{
+		#warning NATIVE FUNCTION !
+		yield return default;
+	}
+	
+	public virtual /*final function */bool FindActorsOfClass(Core.ClassT<Actor> ActorClass, ref array<Actor> out_Actors)
+	{
+		/*local */Actor TestActor = default;
+	
+		out_Actors.Length = 0;
+		
+		// foreach AllActors(ActorClass, ref/*probably?*/ TestActor)
+		using var e8 = AllActors(ActorClass).GetEnumerator();
+		while(e8.MoveNext() && (TestActor = (Actor)e8.Current) == TestActor)
+		{
+			out_Actors[out_Actors.Length] = TestActor;		
+		}	
+		return out_Actors.Length > 0;
+	}
+	
+	public virtual /*event */void PreBeginPlay()
+	{
+		if(bPhysXMutatable && bStatic)
+		{
+			if(!WorldInfo.Game.CheckRelevance(this))
+			{
+				SetHidden(true);
+				SetCollisionType(Actor.ECollisionType.COLLIDE_NoCollision/*1*/);
+			}		
+		}
+		else
+		{
+			if((bPhysXMutatable || (!bGameRelevant && !bStatic) && ((int)WorldInfo.NetMode) != ((int)WorldInfo.ENetMode.NM_Client/*3*/)) && !WorldInfo.Game.CheckRelevance(this))
+			{
+				if(bNoDelete)
+				{
+					ShutDown();				
+				}
+				else
+				{
+					Destroy();
+				}
+			}
+		}
+	}
+	
+	public virtual /*event */void BroadcastLocalizedMessage(Core.ClassT<LocalMessage> InMessageClass, /*optional */int Switch = default, /*optional */PlayerReplicationInfo RelatedPRI_1 = default, /*optional */PlayerReplicationInfo RelatedPRI_2 = default, /*optional */Object OptionalObject = default)
+	{
+		WorldInfo.Game.BroadcastLocalized(this, InMessageClass, Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject);
+	}
+	
+	public virtual /*event */void BroadcastLocalizedTeamMessage(int TeamIndex, Core.ClassT<LocalMessage> InMessageClass, /*optional */int Switch = default, /*optional */PlayerReplicationInfo RelatedPRI_1 = default, /*optional */PlayerReplicationInfo RelatedPRI_2 = default, /*optional */Object OptionalObject = default)
+	{
+		WorldInfo.Game.BroadcastLocalizedTeam(TeamIndex, this, InMessageClass, Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject);
+	}
+	
+	public virtual /*event */void PostBeginPlay()
+	{
+	
+	}
+	
+	public delegate void SetInitialState_del();
+	public virtual SetInitialState_del SetInitialState { get => bfield_SetInitialState ?? Actor_SetInitialState; set => bfield_SetInitialState = value; } SetInitialState_del bfield_SetInitialState;
+	public virtual SetInitialState_del global_SetInitialState => Actor_SetInitialState;
+	public /*simulated event */void Actor_SetInitialState()
+	{
+		bScriptInitialized = true;
+		if(InitialState != "None")
+		{
+			GotoState(InitialState, default(name), default(bool), default(bool));		
+		}
+		else
+		{
+			GotoState("Auto", default(name), default(bool), default(bool));
+		}
+	}
+	
+	public virtual /*simulated event */void ConstraintBrokenNotify(Actor ConOwner, RB_ConstraintSetup ConSetup, RB_ConstraintInstance ConInstance)
+	{
+	
+	}
+	
+	public virtual /*simulated event */void NotifySkelControlBeyondLimit(SkelControlLookAt LookAt)
+	{
+	
+	}
+	
+	public virtual /*simulated function */bool StopsProjectile(Projectile P)
+	{
+		return bProjTarget || bBlockActors;
+	}
+	
+	public virtual /*simulated function */bool HurtRadius(float BaseDamage, float DamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, /*optional */Actor IgnoredActor = default, /*optional */Controller InstigatedByController = default, /*optional */bool bDoFullDamage = default)
+	{
+		/*local */Actor Victim = default;
+		/*local */bool bCausedDamage = default;
+	
+		InstigatedByController = ((Instigator != default) ? Instigator.Controller : default);	
+		if(bHurtEntry)
+		{
+			return false;
+		}
+		bHurtEntry = true;
+		bCausedDamage = false;
+		
+		// foreach VisibleCollidingActors(ClassT<Actor>(), ref/*probably?*/ Victim, DamageRadius, HurtOrigin, default(bool))
+		using var e62 = VisibleCollidingActors(ClassT<Actor>(), DamageRadius, HurtOrigin, default(bool)).GetEnumerator();
+		while(e62.MoveNext() && (Victim = (Actor)e62.Current) == Victim)
+		{
+			if(((!Victim.bWorldGeometry && Victim != this) && Victim != IgnoredActor) && Victim.bProjTarget || ((Victim) as NavigationPoint) == default)
+			{
+				Victim.TakeRadiusDamage(InstigatedByController, BaseDamage, DamageRadius, DamageType, Momentum, HurtOrigin, bDoFullDamage, this);
+				bCausedDamage = bCausedDamage || Victim.bProjTarget;
+			}		
+		}	
+		bHurtEntry = false;
+		return bCausedDamage;
+	}
+	
+	public delegate void KilledBy_del(Pawn EventInstigator);
+	public virtual KilledBy_del KilledBy { get => bfield_KilledBy ?? Actor_KilledBy; set => bfield_KilledBy = value; } KilledBy_del bfield_KilledBy;
+	public virtual KilledBy_del global_KilledBy => Actor_KilledBy;
+	public /*function */void Actor_KilledBy(Pawn EventInstigator)
+	{
+	
+	}
+	
+	public delegate void TakeDamage_del(int DamageAmount, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default, /*optional */Actor DamageCauser = default);
+	public virtual TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? Actor_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
+	public virtual TakeDamage_del global_TakeDamage => Actor_TakeDamage;
+	public /*event */void Actor_TakeDamage(int DamageAmount, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default, /*optional */Actor DamageCauser = default)
+	{
+		/*local */int Idx = default;
+		/*local */SeqEvent_TakeDamage dmgEvent = default;
+	
+		Idx = 0;
+		J0x09:{}
+		if(Idx < GeneratedEvents.Length)
+		{
+			dmgEvent = ((GeneratedEvents[Idx]) as SeqEvent_TakeDamage);
+			if(dmgEvent != default)
+			{
+				dmgEvent.HandleDamage(this, EventInstigator, DamageType, DamageAmount);
+			}
+			++ Idx;
+			goto J0x09;
+		}
+	}
+	
+	public virtual /*function */bool HealDamage(int Amount, Controller Healer, Core.ClassT<DamageType> DamageType)
+	{
+	
+		return default;
+	}
+	
+	public virtual /*simulated function */void TakeRadiusDamage(Controller InstigatedBy, float BaseDamage, float DamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, bool bFullDamage, Actor DamageCauser)
+	{
+		/*local */float ColRadius = default, ColHeight = default, DamageScale = default, Dist = default;
+		/*local */Object.Vector Dir = default;
+	
+		GetBoundingCylinder(ref/*probably?*/ ColRadius, ref/*probably?*/ ColHeight);
+		Dir = Location - HurtOrigin;
+		Dist = VSize(Dir);
+		Dir = Normal(Dir);
+		if(bFullDamage)
+		{
+			DamageScale = 1.0f;		
+		}
+		else
+		{
+			Dist = FClamp(Dist - ColRadius, 0.0f, DamageRadius);
+			DamageScale = 1.0f - (Dist / DamageRadius);
+		}
+		if(DamageScale > 0.0f)
+		{
+			TakeDamage(((int)(DamageScale * BaseDamage)), InstigatedBy, Location - ((0.50f * (ColHeight + ColRadius)) * Dir), (DamageScale * Momentum) * Dir, DamageType, default(Actor.TraceHitInfo), DamageCauser);
+		}
+	}
+	
+	public virtual /*final simulated function */void CheckHitInfo(ref Actor.TraceHitInfo HitInfo, PrimitiveComponent FallBackComponent, Object.Vector Dir, ref Object.Vector out_HitLocation)
+	{
+		/*local */Object.Vector out_NewHitLocation = default, out_HitNormal = default, TraceEnd = default, TraceStart = default;
+		/*local */Actor.TraceHitInfo newHitInfo = default;
+	
+		if((((HitInfo.HitComponent) as SkeletalMeshComponent) != default) && HitInfo.BoneName != "None")
+		{
+			return;
+		}
+		if((HitInfo.HitComponent == default) || (((HitInfo.HitComponent) as SkeletalMeshComponent) == default) && ((FallBackComponent) as SkeletalMeshComponent) != default)
+		{
+			HitInfo.HitComponent = FallBackComponent;
+		}
+		if((((HitInfo.HitComponent) as SkeletalMeshComponent) != default) && HitInfo.BoneName == "None")
+		{
+			if(IsZero(Dir))
+			{
+				Dir = ((Vector)(Rotation));
+			}
+			if(IsZero(out_HitLocation))
+			{
+				out_HitLocation = Location;
+			}
+			TraceStart = out_HitLocation - (((float)(128)) * Normal(Dir));
+			TraceEnd = out_HitLocation + (((float)(128)) * Normal(Dir));
+			if(TraceComponent(ref/*probably?*/ out_NewHitLocation, ref/*probably?*/ out_HitNormal, HitInfo.HitComponent, TraceEnd, TraceStart, vect(0.0f, 0.0f, 0.0f), ref/*probably?*/ newHitInfo))
+			{
+				HitInfo.BoneName = newHitInfo.BoneName;
+				HitInfo.PhysMaterial = newHitInfo.PhysMaterial;
+				out_HitLocation = out_NewHitLocation;
+			}
+		}
+	}
+	
+	// Export UActor::execGetGravityZ(FFrame&, void* const)
+	public virtual /*native function */float GetGravityZ()
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	public virtual /*function */void DebugFreezeGame()
+	{
+		/*local */PlayerController PC = default;
+	
+		ScriptTrace();
+		
+		// foreach LocalPlayerControllers(ClassT<PlayerController>(), ref/*probably?*/ PC)
+		using var e6 = LocalPlayerControllers(ClassT<PlayerController>()).GetEnumerator();
+		while(e6.MoveNext() && (PC = (PlayerController)e6.Current) == PC)
+		{
+			PC.ConsoleCommand("PlayersOnly", default(bool));		
+			return;		
+		}	
+	}
+	
+	public virtual /*function */bool CheckForErrors()
+	{
+	
+		return default;
+	}
+	
+	public virtual /*event */void BecomeViewTarget(PlayerController PC)
+	{
+	
+	}
+	
+	public virtual /*event */void EndViewTarget(PlayerController PC)
+	{
+	
+	}
+	
+	public virtual /*simulated function */bool CalcCamera(float fDeltaTime, ref Object.Vector out_CamLoc, ref Object.Rotator out_CamRot, ref float out_FOV)
+	{
+		/*local */Object.Vector HitNormal = default;
+		/*local */float Radius = default, Height = default;
+	
+		GetBoundingCylinder(ref/*probably?*/ Radius, ref/*probably?*/ Height);
+		if(Trace(ref/*probably?*/ out_CamLoc, ref/*probably?*/ HitNormal, Location - ((((Vector)(out_CamRot)) * Radius) * ((float)(20))), Location, false, default(Object.Vector), ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, default(int)) == default)
+		{
+			out_CamLoc = Location - ((((Vector)(out_CamRot)) * Radius) * ((float)(20)));		
+		}
+		else
+		{
+			out_CamLoc = Location + (Height * ((Vector)(Rotation)));
+		}
+		return false;
+	}
+	
+	public virtual /*simulated function */string GetItemName(string FullName)
+	{
+		/*local */int pos = default;
+	
+		pos = InStr(FullName, ".", default(bool));
+		J0x11:{}
+		if(pos != -1)
+		{
+			FullName = Right(FullName, (Len(FullName) - pos) - 1);
+			pos = InStr(FullName, ".", default(bool));
+			goto J0x11;
+		}
+		return FullName;
+	}
+	
+	public virtual /*simulated function */string GetHumanReadableName()
+	{
+		return GetItemName(((Class)).ToString());
+	}
+	
+	public /*function */static void ReplaceText(ref string Text, string Replace, string With)
+	{
+		/*local */int I = default;
+		/*local */string Input = default;
+	
+		Input = Text;
+		Text = "";
+		I = InStr(Input, Replace, default(bool));
+		J0x26:{}
+		if(I != -1)
+		{
+			Text = (Text + Left(Input, I)) + With;
+			Input = Mid(Input, I + Len(Replace), default(int));
+			I = InStr(Input, Replace, default(bool));
+			goto J0x26;
+		}
+		Text = Text + Input;
+	}
+	
+	public /*function */static string GetLocalString(/*optional */int Switch = default, /*optional */PlayerReplicationInfo RelatedPRI_1 = default, /*optional */PlayerReplicationInfo RelatedPRI_2 = default)
+	{
+		return "";
+	}
+	
+	public delegate void MatchStarting_del();
+	public virtual MatchStarting_del MatchStarting { get => bfield_MatchStarting ?? Actor_MatchStarting; set => bfield_MatchStarting = value; } MatchStarting_del bfield_MatchStarting;
+	public virtual MatchStarting_del global_MatchStarting => Actor_MatchStarting;
+	public /*function */void Actor_MatchStarting()
+	{
+	
+	}
+	
+	public virtual /*function */void SetGRI(GameReplicationInfo GRI)
+	{
+	
+	}
+	
+	public virtual /*function */string GetDebugName()
+	{
+		return GetItemName(((this)).ToString());
+	}
+	
+	public virtual /*simulated function */void DisplayDebug(HUD HUD, ref float out_YL, ref float out_YPos)
+	{
+		/*local */string T = default;
+		/*local */Actor A = default;
+		/*local */float MyRadius = default, MyHeight = default;
+		/*local */Canvas Canvas = default;
+	
+		Canvas = HUD.Canvas;
+		Canvas.SetPos(4.0f, out_YPos);
+		Canvas.SetDrawColor(255, 0, 0, (byte)default(byte));
+		T = GetDebugName();
+		if(bDeleteMe)
+		{
+			T = T + " DELETED (bDeleteMe == true)";
+		}
+		if(T != "")
+		{
+			Canvas.DrawText(T, false, default(float), default(float));
+			out_YPos += out_YL;
+			Canvas.SetPos(4.0f, out_YPos);
+		}
+		Canvas.SetDrawColor(255, 255, 255, (byte)default(byte));
+		if(HUD.ShouldDisplayDebug("net"))
+		{
+			if(((int)WorldInfo.NetMode) != ((int)WorldInfo.ENetMode.NM_Standalone/*0*/))
+			{
+				T = (((("ROLE:" + " " + ((Role)).ToString()) + " " + "RemoteRole:") + " " + ((RemoteRole)).ToString()) + " " + "NetMode:") + " " + ((WorldInfo.NetMode)).ToString();
+				if(bTearOff)
+				{
+					T = T + " " + "Tear Off";
+				}
+				Canvas.DrawText(T, false, default(float), default(float));
+				out_YPos += out_YL;
+				Canvas.SetPos(4.0f, out_YPos);
+			}
+		}
+		Canvas.DrawText((("Location:" + " " + ((Location)).ToString()) + " " + "Rotation:") + " " + ((Rotation)).ToString(), false, default(float), default(float));
+		out_YPos += out_YL;
+		Canvas.SetPos(4.0f, out_YPos);
+		if(HUD.ShouldDisplayDebug("Physics"))
+		{
+			T = (((((("Physics" + " " + (GetPhysicsName())) + " " + "in physicsvolume") + " " + (GetItemName(((PhysicsVolume)).ToString()))) + " " + "on base") + " " + (GetItemName(((Base)).ToString()))) + " " + "gravity") + " " + ((GetGravityZ())).ToString();
+			if(bBounce)
+			{
+				T = T + " - will bounce";
+			}
+			Canvas.DrawText(T, false, default(float), default(float));
+			out_YPos += out_YL;
+			Canvas.SetPos(4.0f, out_YPos);
+			Canvas.DrawText((((((((("bHardAttach:" + " " + ((bHardAttach)).ToString()) + " " + "RelativeLoc:") + " " + ((RelativeLocation)).ToString()) + " " + "RelativeRot:") + " " + ((RelativeRotation)).ToString()) + " " + "SkelComp:") + " " + ((BaseSkelComponent)).ToString()) + " " + "Bone:") + " " + ((BaseBoneName)).ToString(), false, default(float), default(float));
+			out_YPos += out_YL;
+			Canvas.SetPos(4.0f, out_YPos);
+			Canvas.DrawText((((("Velocity:" + " " + ((Velocity)).ToString()) + " " + "Speed:") + " " + ((VSize(Velocity))).ToString()) + " " + "Speed2D:") + " " + ((VSize2D(Velocity))).ToString(), false, default(float), default(float));
+			out_YPos += out_YL;
+			Canvas.SetPos(4.0f, out_YPos);
+			Canvas.DrawText("Acceleration:" + " " + ((Acceleration)).ToString(), false, default(float), default(float));
+			out_YPos += out_YL;
+			Canvas.SetPos(4.0f, out_YPos);
+		}
+		if(HUD.ShouldDisplayDebug("Collision"))
+		{
+			Canvas.DrawColor.B = 0;
+			GetBoundingCylinder(ref/*probably?*/ MyRadius, ref/*probably?*/ MyHeight);
+			Canvas.DrawText((("Collision Radius:" + " " + ((MyRadius)).ToString()) + " " + "Height:") + " " + ((MyHeight)).ToString(), default(bool), default(float), default(float));
+			out_YPos += out_YL;
+			Canvas.SetPos(4.0f, out_YPos);
+			Canvas.DrawText((((("Collides with Actors:" + " " + ((bCollideActors)).ToString()) + " " + " world:") + " " + ((bCollideWorld)).ToString()) + " " + "proj. target:") + " " + ((bProjTarget)).ToString(), default(bool), default(float), default(float));
+			out_YPos += out_YL;
+			Canvas.SetPos(4.0f, out_YPos);
+			Canvas.DrawText("Blocks Actors:" + " " + ((bBlockActors)).ToString(), default(bool), default(float), default(float));
+			out_YPos += out_YL;
+			Canvas.SetPos(4.0f, out_YPos);
+			T = "Touching ";
+			
+			// foreach TouchingActors(ClassT<Actor>(), ref/*probably?*/ A)
+			using var e1617 = TouchingActors(ClassT<Actor>()).GetEnumerator();
+			while(e1617.MoveNext() && (A = (Actor)e1617.Current) == A)
+			{
+				T = (T + (GetItemName(((A)).ToString()))) + " ";			
+			}		
+			if(T == "Touching ")
+			{
+				T = "Touching nothing";
+			}
+			Canvas.DrawText(T, false, default(float), default(float));
+			out_YPos += out_YL;
+			Canvas.SetPos(4.0f, out_YPos);
+		}
+		Canvas.DrawColor.B = 255;
+		Canvas.DrawText(" STATE:" + " " + ((GetStateName())).ToString(), false, default(float), default(float));
+		out_YPos += out_YL;
+		Canvas.SetPos(4.0f, out_YPos);
+		Canvas.DrawText(((" Instigator:" + " " + (GetItemName(((Instigator)).ToString()))) + " " + "Owner:") + " " + (GetItemName(((Owner)).ToString())), default(bool), default(float), default(float));
+		out_YPos += out_YL;
+		Canvas.SetPos(4.0f, out_YPos);
+	}
+	
+	public virtual /*simulated function */string GetPhysicsName()
+	{
+		switch(Physics)
+		{
+			case Actor.EPhysics.PHYS_None/*0*/:
+				return "None";
+				break;
+			case Actor.EPhysics.PHYS_Walking/*1*/:
+				return "Walking";
+				break;
+			case Actor.EPhysics.PHYS_Falling/*2*/:
+				return "Falling";
+				break;
+			case Actor.EPhysics.PHYS_Swimming/*3*/:
+				return "Swimming";
+				break;
+			case Actor.EPhysics.PHYS_Flying/*4*/:
+				return "Flying";
+				break;
+			case Actor.EPhysics.PHYS_Rotating/*5*/:
+				return "Rotating";
+				break;
+			case Actor.EPhysics.PHYS_Projectile/*6*/:
+				return "Projectile";
+				break;
+			case Actor.EPhysics.PHYS_Interpolating/*7*/:
+				return "Interpolating";
+				break;
+			case Actor.EPhysics.PHYS_Spider/*8*/:
+				return "Spider";
+				break;
+			case Actor.EPhysics.PHYS_Ladder/*9*/:
+				return "Ladder";
+				break;
+			case Actor.EPhysics.PHYS_RigidBody/*10*/:
+				return "RigidBody";
+				break;
+			case Actor.EPhysics.PHYS_Unused/*14*/:
+				return "Unused";
+				break;
+			default:
+				break;
+		}
+		return "Unknown";
+	}
+	
+	public virtual /*simulated event */void ModifyHearSoundComponent(AudioComponent AC)
+	{
+	
+	}
+	
+	public virtual /*simulated event */AudioComponent GetFaceFXAudioComponent()
+	{
+		return default;
+	}
+	
+	public delegate void Reset_del();
+	public virtual Reset_del Reset { get => bfield_Reset ?? Actor_Reset; set => bfield_Reset = value; } Reset_del bfield_Reset;
+	public virtual Reset_del global_Reset => Actor_Reset;
+	public /*event */void Actor_Reset()
+	{
+	
+	}
+	
+	public virtual /*function */bool IsInVolume(Volume aVolume)
+	{
+		/*local */Volume V = default;
+	
+		
+		// foreach TouchingActors(ClassT<Volume>(), ref/*probably?*/ V)
+		using var e0 = TouchingActors(ClassT<Volume>()).GetEnumerator();
+		while(e0.MoveNext() && (V = (Volume)e0.Current) == V)
+		{
+			if(V == aVolume)
+			{			
+				return true;
+			}		
+		}	
+		return false;
+	}
+	
+	public virtual /*function */bool IsInPain()
+	{
+		/*local */PhysicsVolume V = default;
+	
+		
+		// foreach TouchingActors(ClassT<PhysicsVolume>(), ref/*probably?*/ V)
+		using var e0 = TouchingActors(ClassT<PhysicsVolume>()).GetEnumerator();
+		while(e0.MoveNext() && (V = (PhysicsVolume)e0.Current) == V)
+		{
+			if(V.bPainCausing && V.DamagePerSec > ((float)(0)))
+			{			
+				return true;
+			}		
+		}	
+		return false;
+	}
+	
+	public virtual /*function */void PlayTeleportEffect(bool bOut, bool bSound)
+	{
+	
+	}
+	
+	public virtual /*simulated function */bool CanSplash()
+	{
+		return false;
+	}
+	
+	public virtual /*simulated function */bool CheckMaxEffectDistance(PlayerController P, Object.Vector SpawnLocation, /*optional */float CullDistance = default)
+	{
+		/*local */float Dist = default;
+	
+		if(P.ViewTarget == default)
+		{
+			return true;
+		}
+		if((Dot(((Vector)(P.Rotation)), (SpawnLocation - P.ViewTarget.Location))) < 0.0f)
+		{
+			return VSize(P.ViewTarget.Location - SpawnLocation) < ((float)(1600));
+		}
+		Dist = VSize(SpawnLocation - P.ViewTarget.Location);
+		if((CullDistance > ((float)(0))) && CullDistance < (Dist * P.LODDistanceFactor))
+		{
+			return false;
+		}
+		return !P.BeyondFogDistance(P.ViewTarget.Location, SpawnLocation);
+	}
+	
+	public virtual /*simulated function */bool EffectIsRelevant(Object.Vector SpawnLocation, bool bForceDedicated, /*optional */float CullDistance = default)
+	{
+		/*local */PlayerController P = default;
+		/*local */bool bResult = default;
+	
+		if(((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/))
+		{
+			return bForceDedicated;
+		}
+		if((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_ListenServer/*2*/)) && WorldInfo.Game.NumPlayers > 1)
+		{
+			if(bForceDedicated)
+			{
+				return true;
+			}
+			if(((Instigator != default) && Instigator.IsHumanControlled()) && Instigator.IsLocallyControlled())
+			{
+				return true;
+			}		
+		}
+		else
+		{
+			if((Instigator != default) && Instigator.IsHumanControlled())
+			{
+				return true;
+			}
+		}
+		if(SpawnLocation == Location)
+		{
+			bResult = (WorldInfo.TimeSeconds - LastRenderTime) < 0.50f;		
+		}
+		else
+		{
+			if((Instigator != default) && (WorldInfo.TimeSeconds - Instigator.LastRenderTime) < 1.0f)
+			{
+				bResult = true;
+			}
+		}
+		if(bResult)
+		{
+			bResult = false;
+			
+			// foreach LocalPlayerControllers(ClassT<PlayerController>(), ref/*probably?*/ P)
+			using var e330 = LocalPlayerControllers(ClassT<PlayerController>()).GetEnumerator();
+			while(e330.MoveNext() && (P = (PlayerController)e330.Current) == P)
+			{
+				if(P.ViewTarget != default)
+				{
+					if((P.Pawn == Instigator) && Instigator != default)
+					{					
+						return true;
+						continue;
+					}
+					bResult = CheckMaxEffectDistance(P, SpawnLocation, CullDistance);
+					break;
+				}			
+			}		
+		}
+		return bResult;
+	}
+	
+	public virtual /*final simulated function */float TimeSince(float Time)
+	{
+		return WorldInfo.TimeSeconds - Time;
+	}
+	
+	public virtual /*simulated function */bool TriggerEventClass(Core.ClassT<SequenceEvent> InEventClass, Actor InInstigator, /*optional */int ActivateIndex/* = default*/, /*optional */bool bTest/* = default*/, /*optional */ref array<SequenceEvent> ActivatedEvents/* = default*/)
+	{
+		/*local */array<int> ActivateIndices = default;
+	
+		ActivateIndex = -1;		
+		if(ActivateIndex >= 0)
+		{
+			ActivateIndices[0] = ActivateIndex;
+		}
+		return ActivateEventClass(InEventClass, InInstigator, ref/*probably?*/ GeneratedEvents, ref/*probably?*/ ActivateIndices, bTest, ref/*probably?*/ ActivatedEvents);
+	}
+	
+	public virtual /*final simulated function */bool ActivateEventClass(Core.ClassT<SequenceEvent> InClass, Actor InInstigator, /*const */ref array<SequenceEvent> EventList, /*const optional */ref array<int> ActivateIndices/* = default*/, /*optional */bool bTest/* = default*/, /*optional */ref array<SequenceEvent> ActivatedEvents/* = default*/)
+	{
+		/*local */SequenceEvent Evt = default;
+	
+		ActivatedEvents.Length = 0;
+		using var v = EventList.GetEnumerator();while(v.MoveNext() && (Evt = (SequenceEvent)v.Current) == Evt)
+		{
+			if(ClassIsChildOf(Evt.Class, InClass) && Evt.CheckActivate(this, InInstigator, bTest, ref/*probably?*/ ActivateIndices, default(bool)))
+			{
+				ActivatedEvents.AddItem(Evt);
+			}		
+		}	
+		return ActivatedEvents.Length > 0;
+	}
+	
+	public virtual /*final simulated function */bool FindEventsOfClass(Core.ClassT<SequenceEvent> EventClass, /*optional */ref array<SequenceEvent> out_EventList/* = default*/, /*optional */bool bIncludeDisabled = default)
+	{
+		/*local */SequenceEvent Evt = default;
+		/*local */bool bFoundEvent = default;
+	
+		using var v = GeneratedEvents.GetEnumerator();while(v.MoveNext() && (Evt = (SequenceEvent)v.Current) == Evt)
+		{
+			if((((Evt != default) && Evt.bEnabled || bIncludeDisabled) && ClassIsChildOf(Evt.Class, EventClass)) && (Evt.MaxTriggerCount == 0) || Evt.MaxTriggerCount > Evt.TriggerCount)
+			{
+				out_EventList.AddItem(Evt);
+				bFoundEvent = true;
+			}		
+		}	
+		return bFoundEvent;
+	}
+	
+	public virtual /*final simulated function */void ClearLatentAction(Core.ClassT<SeqAct_Latent> actionClass, /*optional */bool bAborted = default, /*optional */SeqAct_Latent exceptionAction = default)
+	{
+		/*local */int Idx = default;
+	
+		Idx = 0;
+		J0x09:{}
+		if(Idx < LatentActions.Length)
+		{
+			if(LatentActions[Idx] == default)
+			{
+				LatentActions.Remove(-- Idx, 1);
+				goto J0xA4;
+			}
+			if(ClassIsChildOf(LatentActions[Idx].Class, actionClass) && LatentActions[Idx] != exceptionAction)
+			{
+				if(bAborted)
+				{
+					LatentActions[Idx].AbortFor(this);
+				}
+				LatentActions.Remove(-- Idx, 1);
+			}
+			J0xA4:{}
+			++ Idx;
+			goto J0x09;
+		}
+	}
+	
+	public virtual /*simulated function */void OnDestroy(SeqAct_Destroy Action)
+	{
+		if(bNoDelete || ((int)Role) < ((int)Actor.ENetRole.ROLE_Authority/*3*/))
+		{
+			ShutDown();		
+		}
+		else
+		{
+			if(!bDeleteMe)
+			{
+				Destroy();
+			}
+		}
+	}
+	
+	public virtual /*function */void ForceNetRelevant()
+	{
+		if(((((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_None/*0*/)) && bNoDelete) && !bStatic)
+		{
+			RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy/*1*/;
+			bAlwaysRelevant = true;
+			NetUpdateFrequency = 0.10f;
+		}
+		bForceNetUpdate = true;
+	}
+	
+	// Export UActor::execSetNetUpdateTime(FFrame&, void* const)
+	public virtual /*native final function */void SetNetUpdateTime(float NewUpdateTime)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	public virtual /*simulated event */void ShutDown()
+	{
+		SetPhysics(Actor.EPhysics.PHYS_None/*0*/);
+		SetCollision(false, false, default(bool));
+		if(CollisionComponent != default)
+		{
+			CollisionComponent.SetBlockRigidBody(false);
+		}
+		SetHidden(true);
+		bStasis = true;
+		ForceNetRelevant();
+		if(((int)RemoteRole) != ((int)Actor.ENetRole.ROLE_None/*0*/))
+		{
+			SetForcedInitialReplicatedProperty(ObjectConst<BoolProperty>("bCollideActors"), bCollideActors == DefaultAs<Actor>().bCollideActors);
+			SetForcedInitialReplicatedProperty(ObjectConst<BoolProperty>("bBlockActors"), bBlockActors == DefaultAs<Actor>().bBlockActors);
+			SetForcedInitialReplicatedProperty(ObjectConst<BoolProperty>("bHidden"), bHidden == DefaultAs<Actor>().bHidden);
+			SetForcedInitialReplicatedProperty(ObjectConst<ByteProperty>("Physics"), ((int)Physics) == ((int)DefaultAs<Actor>().Physics));
+		}
+		NetUpdateFrequency = 0.10f;
+		bForceNetUpdate = true;
+	}
+	
+	public virtual /*simulated function */void OnCauseDamage(SeqAct_CauseDamage Action)
+	{
+		/*local */Controller InstigatorController = default;
+		/*local */Pawn InstigatorPawn = default;
+	
+		InstigatorController = ((Action.Instigator) as Controller);
+		if(InstigatorController == default)
+		{
+			InstigatorPawn = ((Action.Instigator) as Pawn);
+			if(InstigatorPawn != default)
+			{
+				InstigatorController = InstigatorPawn.Controller;
+			}
+		}
+		TakeDamage(((int)(Action.DamageAmount)), InstigatorController, Location, ((Vector)(Rotation)) * -Action.Momentum, Action.DamageType, default(Actor.TraceHitInfo), default(Actor));
+	}
+	
+	public virtual /*function */void OnHealDamage(SeqAct_HealDamage Action)
+	{
+		/*local */Controller InstigatorController = default;
+		/*local */Pawn InstigatorPawn = default;
+	
+		InstigatorController = ((Action.Instigator) as Controller);
+		if(InstigatorController == default)
+		{
+			InstigatorPawn = ((Action.Instigator) as Pawn);
+			if(InstigatorPawn != default)
+			{
+				InstigatorController = InstigatorPawn.Controller;
+			}
+		}
+		HealDamage(Action.HealAmount, InstigatorController, Action.DamageType);
+	}
+	
+	public virtual /*simulated function */void OnTeleport(SeqAct_Teleport Action)
+	{
+		/*local */array<Object> objVars = default;
+		/*local */int Idx = default;
+		/*local */Actor destActor = default;
+		/*local */Controller C = default;
+	
+		Action.GetObjectVars(ref/*probably?*/ objVars, "Destination");
+		Idx = 0;
+		J0x29:{}
+		if((Idx < objVars.Length) && destActor == default)
+		{
+			destActor = ((objVars[Idx]) as Actor);
+			C = ((destActor) as Controller);
+			if((C != default) && C.Pawn != default)
+			{
+				destActor = C.Pawn;
+			}
+			ForceNetRelevant();
+			bUpdateSimulatedPosition = true;
+			++ Idx;
+			goto J0x29;
+		}
+		if((destActor != default) && SetLocation(destActor.Location))
+		{
+			PlayTeleportEffect(false, true);
+			if(Action.bUpdateRotation)
+			{
+				SetRotation(destActor.Rotation);
+			}
+			ForceNetRelevant();
+			bUpdateSimulatedPosition = true;		
+		}
+	}
+	
+	public virtual /*simulated function */void OnSetBlockRigidBody(SeqAct_SetBlockRigidBody Action)
+	{
+		if(CollisionComponent != default)
+		{
+			if(Action.InputLinks[0].bHasImpulse)
+			{
+				CollisionComponent.SetBlockRigidBody(true);			
+			}
+			else
+			{
+				if(Action.InputLinks[1].bHasImpulse)
+				{
+					CollisionComponent.SetBlockRigidBody(false);
+				}
+			}
+		}
+	}
+	
+	public virtual /*simulated function */void OnSetPhysics(SeqAct_SetPhysics Action)
+	{
+		ForceNetRelevant();
+		SetPhysics(((Actor.EPhysics)Action.newPhysics));
+		if(((int)RemoteRole) != ((int)Actor.ENetRole.ROLE_None/*0*/))
+		{
+			SetForcedInitialReplicatedProperty(ObjectConst<ByteProperty>("Physics"), ((int)Physics) == ((int)DefaultAs<Actor>().Physics));
+		}
+	}
+	
+	public virtual /*function */void OnChangeCollision(SeqAct_ChangeCollision Action)
+	{
+		if(Action.ObjInstanceVersion < Action.ObjClassVersion)
+		{
+			SetCollision(Action.bCollideActors, Action.bBlockActors, Action.bIgnoreEncroachers);		
+		}
+		else
+		{
+			SetCollisionType(((Actor.ECollisionType)Action.CollisionType));
+		}
+		ForceNetRelevant();
+		if(((int)RemoteRole) != ((int)Actor.ENetRole.ROLE_None/*0*/))
+		{
+			SetForcedInitialReplicatedProperty(ObjectConst<BoolProperty>("bCollideActors"), bCollideActors == DefaultAs<Actor>().bCollideActors);
+			SetForcedInitialReplicatedProperty(ObjectConst<BoolProperty>("bBlockActors"), bBlockActors == DefaultAs<Actor>().bBlockActors);
+		}
+	}
+	
+	public virtual /*simulated function */void OnToggleHidden(SeqAct_ToggleHidden Action)
+	{
+		if(Action.InputLinks[0].bHasImpulse)
+		{
+			SetHidden(true);		
+		}
+		else
+		{
+			if(Action.InputLinks[1].bHasImpulse)
+			{
+				SetHidden(false);			
+			}
+			else
+			{
+				SetHidden(!bHidden);
+			}
+		}
+		ForceNetRelevant();
+		if(((int)RemoteRole) != ((int)Actor.ENetRole.ROLE_None/*0*/))
+		{
+			SetForcedInitialReplicatedProperty(ObjectConst<BoolProperty>("bHidden"), bHidden == DefaultAs<Actor>().bHidden);
+		}
+	}
+	
+	public virtual /*function */void OnAttachToActor(SeqAct_AttachToActor Action)
+	{
+		/*local */int Idx = default;
+		/*local */Actor Attachment = default;
+		/*local */Controller C = default;
+		/*local */array<Object> objVars = default;
+	
+		Action.GetObjectVars(ref/*probably?*/ objVars, "Attachment");
+		Idx = 0;
+		J0x28:{}
+		if((Idx < objVars.Length) && Attachment == default)
+		{
+			Attachment = ((objVars[Idx]) as Actor);
+			C = ((Attachment) as Controller);
+			if((C != default) && C.Pawn != default)
+			{
+				Attachment = C.Pawn;
+			}
+			if(Attachment != default)
+			{
+				if(Action.bDetach)
+				{
+					Attachment.SetBase(default(Actor), default(Object.Vector), default(SkeletalMeshComponent), default(name));
+					goto J0x141;
+				}
+				C = ((this) as Controller);
+				if((C != default) && C.Pawn != default)
+				{
+					C.Pawn.DoKismetAttachment(Attachment, Action);
+					goto J0x141;
+				}
+				DoKismetAttachment(Attachment, Action);
+			}
+			J0x141:{}
+			++ Idx;
+			goto J0x28;
+		}
+	}
+	
+	public virtual /*function */void DoKismetAttachment(Actor Attachment, SeqAct_AttachToActor Action)
+	{
+		/*local */bool bOldCollideActors = default, bOldBlockActors = default;
+		/*local */Object.Vector X = default, Y = default, Z = default;
+	
+		Attachment.SetBase(default(Actor), default(Object.Vector), default(SkeletalMeshComponent), default(name));
+		Attachment.SetHardAttach(Action.bHardAttach);
+		if(Action.bUseRelativeOffset || Action.bUseRelativeRotation)
+		{
+			bOldCollideActors = Attachment.bCollideActors;
+			bOldBlockActors = Attachment.bBlockActors;
+			Attachment.SetCollision(false, false, default(bool));
+			if(Action.bUseRelativeRotation)
+			{
+				Attachment.SetRotation(Rotation + Action.RelativeRotation);
+			}
+			if(Action.bUseRelativeOffset)
+			{
+				GetAxes(Rotation, ref/*probably?*/ X, ref/*probably?*/ Y, ref/*probably?*/ Z);
+				Attachment.SetLocation(((Location + (Action.RelativeOffset.X * X)) + (Action.RelativeOffset.Y * Y)) + (Action.RelativeOffset.Z * Z));
+			}
+			Attachment.SetCollision(bOldCollideActors, bOldBlockActors, default(bool));
+		}
+		Attachment.SetBase(this, default(Object.Vector), default(SkeletalMeshComponent), default(name));
+	}
+	
+	public virtual /*simulated function */void OnMakeNoise(SeqAct_MakeNoise Action)
+	{
+		MakeNoise(Action.Loudness, "ScriptNoise");
+	}
+	
+	public virtual /*event */void OnAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
+	{
+	
+	}
+	
+	public virtual /*event */void OnAnimPlay(AnimNodeSequence SeqNode)
+	{
+	
+	}
+	
+	public virtual /*event */void BeginAnimControl(array<AnimSet> InAnimSets)
+	{
+	
+	}
+	
+	public virtual /*event */void SetAnimPosition(name SlotName, int ChannelIndex, name InAnimSeqName, float InPosition, bool bFireNotifies, bool bLooping)
+	{
+	
+	}
+	
+	public virtual /*event */void SetAnimWeights(array<Actor.AnimSlotInfo> SlotInfos)
+	{
+	
+	}
+	
+	public virtual /*event */void FinishAnimControl()
+	{
+	
+	}
+	
+	public virtual /*event */bool PlayActorFaceFXAnim(FaceFXAnimSet AnimSet, string GroupName, string SeqName)
+	{
+	
+		return default;
+	}
+	
+	public virtual /*event */void StopActorFaceFXAnim()
+	{
+	
+	}
+	
+	public virtual /*event */void SetMorphWeight(name MorphNodeName, float MorphWeight)
+	{
+	
+	}
+	
+	public virtual /*event */void SetSkelControlScale(name SkelControlName, float Scale)
+	{
+	
+	}
+	
+	public virtual /*simulated function */bool IsActorPlayingFaceFXAnim()
+	{
+		return false;
+	}
+	
+	public virtual /*event */FaceFXAsset GetActorFaceFXAsset()
+	{
+	
+		return default;
+	}
+	
+	public virtual /*function */bool IsStationary()
+	{
+		return true;
+	}
+	
+	public virtual /*simulated event */void GetActorEyesViewPoint(ref Object.Vector out_Location, ref Object.Rotator out_Rotation)
+	{
+		out_Location = Location;
+		out_Rotation = Rotation;
+	}
+	
+	// Export UActor::execIsPlayerOwned(FFrame&, void* const)
+	public virtual /*native simulated function */bool IsPlayerOwned()
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	public virtual /*function */void PawnBaseDied()
+	{
+	
+	}
+	
+	// Export UActor::execGetTeamNum(FFrame&, void* const)
+	public virtual /*native simulated function */byte GetTeamNum()
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	public virtual /*simulated event */byte ScriptGetTeamNum()
+	{
+		return 255;
+	}
+	
+	public virtual /*simulated function */string GetLocationStringFor(PlayerReplicationInfo PRI)
+	{
+		return "";
+	}
+	
+	public virtual /*simulated function */void NotifyLocalPlayerTeamReceived()
+	{
+	
+	}
+	
+	public virtual /*simulated function */void FindGoodEndView(PlayerController PC, ref Object.Rotator GoodRotation)
+	{
+		GoodRotation = PC.Rotation;
+	}
+	
+	// Export UActor::execGetTargetLocation(FFrame&, void* const)
+	public virtual /*native simulated function */Object.Vector GetTargetLocation(/*optional */Actor RequestedBy = default, /*optional */bool bRequestAlternateLoc = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	public virtual /*event */void SpawnedByKismet()
+	{
+	
+	}
+	
+	public virtual /*function */void PickedUpBy(Pawn P)
+	{
+	
+	}
+	
+	public virtual /*simulated event */void InterpolationStarted(SeqAct_Interp InterpAction)
+	{
+	
+	}
+	
+	public virtual /*simulated event */void InterpolationFinished(SeqAct_Interp InterpAction)
+	{
+	
+	}
+	
+	public virtual /*simulated event */void InterpolationChanged(SeqAct_Interp InterpAction)
+	{
+	
+	}
+	
+	public delegate void RigidBodyCollision_del(PrimitiveComponent HitComponent, PrimitiveComponent OtherComponent, /*const */ref Actor.CollisionImpactData RigidCollisionData, int ContactIndex);
+	public virtual RigidBodyCollision_del RigidBodyCollision { get => bfield_RigidBodyCollision ?? Actor_RigidBodyCollision; set => bfield_RigidBodyCollision = value; } RigidBodyCollision_del bfield_RigidBodyCollision;
+	public virtual RigidBodyCollision_del global_RigidBodyCollision => Actor_RigidBodyCollision;
+	public /*event */void Actor_RigidBodyCollision(PrimitiveComponent HitComponent, PrimitiveComponent OtherComponent, /*const */ref Actor.CollisionImpactData RigidCollisionData, int ContactIndex)
+	{
+	
+	}
+	
+	public virtual /*event */void OnRanOver(SVehicle Vehicle, PrimitiveComponent RunOverComponent, int WheelIndex)
+	{
+	
+	}
+	
+	// Export UActor::execSetHUDLocation(FFrame&, void* const)
+	public virtual /*native simulated function */void SetHUDLocation(Object.Vector NewHUDLocation)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execNativePostRenderFor(FFrame&, void* const)
+	public virtual /*native simulated function */void NativePostRenderFor(PlayerController PC, Canvas Canvas, Object.Vector CameraPosition, Object.Vector CameraDir)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	public virtual /*simulated event */void PostRenderFor(PlayerController PC, Canvas Canvas, Object.Vector CameraPosition, Object.Vector CameraDir)
+	{
+	
+	}
+	
+	public virtual /*simulated event */void RootMotionModeChanged(SkeletalMeshComponent SkelComp)
+	{
+	
+	}
+	
+	public virtual /*simulated event */void RootMotionExtracted(SkeletalMeshComponent SkelComp, ref AnimNode.BoneAtom ExtractedRootMotionDelta)
+	{
+	
+	}
+	
+	public virtual /*event */void PostInitAnimTree(SkeletalMeshComponent SkelComp)
+	{
+	
+	}
+	
+	// Export UActor::execGetPackageGuid(FFrame&, void* const)
+	public /*native final function */static Object.Guid GetPackageGuid(name PackageName)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	public virtual /*function */void InitLOI()
+	{
+		/*local */PlayerController PC = default;
+	
+		
+		// foreach LocalPlayerControllers(ClassT<PlayerController>(), ref/*probably?*/ PC)
+		using var e0 = LocalPlayerControllers(ClassT<PlayerController>()).GetEnumerator();
+		while(e0.MoveNext() && (PC = (PlayerController)e0.Current) == PC)
+		{
+			if(PC.bCanSeeLOI)
+			{
+				AssignPlayerToLOI(PC);
+				break;
+				continue;
+			}		
+		}	
+	}
+	
+	public virtual /*function */void AssignPlayerToLOI(Actor Player)
+	{
+	
+	}
+	
+	public virtual /*event */void ActivateLOI()
+	{
+	
+	}
+	
+	public virtual /*function */void OnDeactivateLOI(SeqAct_DeactivateLOI Sender)
+	{
+	
+	}
+	
+	public virtual /*function */void OnActivateLOI(SeqAct_ActivateLOI Sender)
+	{
+	
+	}
+	protected override void RestoreDefaultFunction()
+	{
+		Tick = null;
+		Timer = null;
+		Landed = null;
+		Touch = null;
+		UnTouch = null;
+		BaseChange = null;
+		FellOutOfWorld = null;
+		OutsideWorldBounds = null;
+		SetInitialState = null;
+		KilledBy = null;
+		TakeDamage = null;
+		MatchStarting = null;
+		Reset = null;
+		RigidBodyCollision = null;
+	
+	}
+	public Actor()
+	{
+		// Object Offset:0x002583C0
+		bPushedByEncroachers = true;
+		bRouteBeginPlayEvenIfStatic = true;
+		bReplicateMovement = true;
+		bMovable = true;
+		bJustTeleported = true;
+		CustomTimeDilation = 1.0f;
+		Role = Actor.ENetRole.ROLE_Authority;
+		NetUpdateFrequency = 100.0f;
+		NetPriority = 1.0f;
+		DrawScale = 1.0f;
+		DrawScale3D = new Vector
+		{
+			X=1.0f,
+			Y=1.0f,
+			Z=1.0f
+		};
+		MessageClass = ClassT<LocalMessage>()/*Ref Class'LocalMessage'*/;
+		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
+		{
+			ClassT<SeqEvent_Touch>(),
+			ClassT<SeqEvent_Destroyed>(),
+			ClassT<SeqEvent_TakeDamage>(),
+		};
+	}
+}
+}

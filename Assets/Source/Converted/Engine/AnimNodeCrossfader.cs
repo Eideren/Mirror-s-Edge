@@ -1,0 +1,38 @@
+namespace MEdge.Engine{
+using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+
+public partial class AnimNodeCrossfader : AnimNodeBlend/*
+		native
+		hidecategories(Object,Object,Object,Object)*/{
+	public/*()*/ name DefaultAnimSeqName;
+	public /*const */bool bDontBlendOutOneShot;
+	public /*const */float PendingBlendOutTimeOneShot;
+	
+	// Export UAnimNodeCrossfader::execPlayOneShotAnim(FFrame&, void* const)
+	public virtual /*native final function */void PlayOneShotAnim(name AnimSeqName, /*optional */float BlendInTime = default, /*optional */float BlendOutTime = default, /*optional */bool bDontBlendOut = default, /*optional */float Rate = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UAnimNodeCrossfader::execBlendToLoopingAnim(FFrame&, void* const)
+	public virtual /*native final function */void BlendToLoopingAnim(name AnimSeqName, /*optional */float BlendInTime = default, /*optional */float Rate = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UAnimNodeCrossfader::execGetAnimName(FFrame&, void* const)
+	public virtual /*native final function */name GetAnimName()
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UAnimNodeCrossfader::execGetActiveChild(FFrame&, void* const)
+	public virtual /*native final function */AnimNodeSequence GetActiveChild()
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+}
+}

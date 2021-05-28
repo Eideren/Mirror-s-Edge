@@ -1,0 +1,48 @@
+namespace MEdge.TdGame{
+using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+
+public partial class TdAI_Assault : TdAIController/*
+		native
+		config(AI)
+		notplaceable
+		hidecategories(Navigation)*/{
+	public bool bGrenadeExploded;
+	public Object.Vector Explosion;
+	
+	public override /*event */bool ThrowGrenadeRequest(TdGrenadeTargetArea TargetArea)
+	{
+	
+		return default;
+	}
+	
+	public override /*function */void NotifyGrenadeExploded(Object.Vector ExplosionLocation, float Lifetime)
+	{
+	
+	}
+	
+	public virtual /*function */void ResetCombatRange()
+	{
+	
+	}
+	
+	public override Tick_del Tick { get => bfield_Tick ?? TdAI_Assault_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del global_Tick => TdAI_Assault_Tick;
+	public /*event */void TdAI_Assault_Tick(float DeltaTime)
+	{
+	
+	}
+	protected override void RestoreDefaultFunction()
+	{
+		Tick = null;
+	
+	}
+	public TdAI_Assault()
+	{
+		// Object Offset:0x004D0DEF
+		Components = new array</*export editinline */ActorComponent>
+		{
+			LoadAsset<SpriteComponent>("Default__TdAI_Assault.Sprite")/*Ref SpriteComponent'Default__TdAI_Assault.Sprite'*/,
+		};
+	}
+}
+}

@@ -1,0 +1,177 @@
+namespace MEdge.Engine{
+using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+
+public partial class UIEditBox : UIObject, 
+		UIDataStorePublisher/*
+		native
+		hidecategories(Object,UIRoot,Object)*/{
+	public enum EEditBoxCharacterSet 
+	{
+		CHARSET_All,
+		CHARSET_NoSpecial,
+		CHARSET_AlphaOnly,
+		CHARSET_NumericOnly,
+		CHARSET_AlphaNumeric,
+		CHARSET_MAX
+	};
+	
+	public /*private native const noexport */Object.Pointer VfTable_IUIDataStorePublisher;
+	public/*(Data)*/ /*private */UIRoot.UIDataStoreBinding DataSource;
+	public/*(Data)*/ /*noclear const export editinline */UIComp_DrawStringEditbox StringRenderComponent;
+	public/*(Image)*/ /*const export editinline */UIComp_DrawImage BackgroundImageComponent;
+	public/*(Text)*/ /*const localized */string InitialValue;
+	public/*(Text)*/ /*private */bool bReadOnly;
+	public/*(Text)*/ bool bPasswordMode;
+	public/*(Text)*/ int MaxCharacters;
+	public/*(Text)*/ UIEditBox.EEditBoxCharacterSet CharacterSet;
+	public /*delegate*/UIEditBox.OnSubmitText __OnSubmitText__Delegate;
+	
+	public delegate bool OnSubmitText(UIEditBox Sender, int PlayerIndex);
+	
+	public virtual /*final function */void SetBackgroundImage(Surface NewImage)
+	{
+	
+	}
+	
+	// Export UUIEditBox::execSetValue(FFrame&, void* const)
+	public virtual /*native final function */void SetValue(string NewText, /*optional */int PlayerIndex = default, /*optional */bool bSkipNotification = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UUIEditBox::execGetValue(FFrame&, void* const)
+	public virtual /*native final function */string GetValue(/*optional */bool bReturnUserText = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UUIEditBox::execCalculateCaretPositionFromCursorLocation(FFrame&, void* const)
+	public virtual /*native function */int CalculateCaretPositionFromCursorLocation(/*optional */int PlayerIndex = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UUIEditBox::execSetDataStoreBinding(FFrame&, void* const)
+	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int BindingIndex = default)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UUIEditBox::execGetDataStoreBinding(FFrame&, void* const)
+	public virtual /*native final function */string GetDataStoreBinding(/*optional */int BindingIndex = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UUIEditBox::execRefreshSubscriberValue(FFrame&, void* const)
+	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int BindingIndex = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UUIEditBox::execNotifyDataStoreValueUpdated(FFrame&, void* const)
+	public virtual /*native final function */void NotifyDataStoreValueUpdated(UIDataStore SourceDataStore, bool bValuesInvalidated, name PropertyTag, UIDataProvider SourceProvider, int ArrayIndex)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UUIEditBox::execGetBoundDataStores(FFrame&, void* const)
+	public virtual /*native function */void GetBoundDataStores(ref array<UIDataStore> out_BoundDataStores)
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UUIEditBox::execClearBoundDataStores(FFrame&, void* const)
+	public virtual /*native final function */void ClearBoundDataStores()
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UUIEditBox::execSaveSubscriberValue(FFrame&, void* const)
+	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int BindingIndex = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	public override /*event */void Initialized()
+	{
+	
+	}
+	
+	public virtual /*final function */bool IsReadOnly()
+	{
+	
+		return default;
+	}
+	
+	public virtual /*function */void SetReadOnly(bool bShouldBeReadOnly)
+	{
+	
+	}
+	
+	public virtual /*final function */void IgnoreMarkup(bool bShouldIgnoreMarkup)
+	{
+	
+	}
+	
+	public virtual /*function */void OnSetLabelText(UIAction_SetLabelText Action)
+	{
+	
+	}
+	
+	public virtual /*function */void OnGetTextValue(UIAction_GetTextValue Action)
+	{
+	
+	}
+	
+	public UIEditBox()
+	{
+		// Object Offset:0x002E2970
+		DataSource = new UIRoot.UIDataStoreBinding
+		{
+			Subscriber = default,
+			RequiredFieldType = UIRoot.EUIDataProviderFieldType.DATATYPE_Property,
+			MarkupString = "",
+			BindingIndex = -1,
+			DataStoreName = (name)"None",
+			DataStoreField = (name)"None",
+			ResolvedDataStore = default,
+		};
+		StringRenderComponent = new UIComp_DrawStringEditbox
+		{
+			// Object Offset:0x00444B23
+			StringCaret = new UIRoot.UIStringCaretParameters
+			{
+				bDisplayCaret = true,
+			},
+			bIgnoreMarkup = true,
+		}/* Reference: UIComp_DrawStringEditbox'Default__UIEditBox.EditboxStringRenderer' */;
+		BackgroundImageComponent = new UIComp_DrawImage
+		{
+			// Object Offset:0x00444B9B
+			StyleResolverTag = (name)"Background Image Style",
+		}/* Reference: UIComp_DrawImage'Default__UIEditBox.EditboxBackgroundTemplate' */;
+		InitialValue = "Initial Editbox Value";
+		PrimaryStyle = new UIRoot.UIStyleReference
+		{
+			DefaultStyleTag = (name)"DefaultEditboxStyle",
+			RequiredStyleClass = ClassT<UIStyle_Combo>()/*Ref Class'UIStyle_Combo'*/,
+		};
+		bSupportsPrimaryStyle = false;
+		DefaultStates = new array< Core.ClassT<UIState> >
+		{
+			ClassT<UIState_Enabled>(),
+			ClassT<UIState_Disabled>(),
+			ClassT<UIState_Focused>(),
+			ClassT<UIState_Active>(),
+			ClassT<UIState_Pressed>(),
+		};
+		EventProvider = LoadAsset<UIComp_Event>("Default__UIEditBox.WidgetEventComponent")/*Ref UIComp_Event'Default__UIEditBox.WidgetEventComponent'*/;
+	}
+}
+}

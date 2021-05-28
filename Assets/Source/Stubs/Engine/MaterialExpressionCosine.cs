@@ -1,0 +1,19 @@
+namespace MEdge.Engine{
+using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+
+public partial class MaterialExpressionCosine : MaterialExpression/* within Material*//*
+		native
+		collapsecategories
+		hidecategories(Object)*/{
+	public new Material Outer => base.Outer as Material;
+	
+	public MaterialExpression.ExpressionInput Input;
+	public/*()*/ float Period;
+	
+	public MaterialExpressionCosine()
+	{
+		// Object Offset:0x00356C5F
+		Period = 1.0f;
+	}
+}
+}

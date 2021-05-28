@@ -1,0 +1,31 @@
+namespace MEdge.TdGame{
+using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+
+public partial class UIDataStore_TdGameResource : UIDataStore_GameResource/*
+		transient
+		native
+		config(Game)
+		hidecategories(Object,UIRoot)*/{
+	// Export UUIDataStore_TdGameResource::execGetProviderCount(FFrame&, void* const)
+	public virtual /*native function */int GetProviderCount(name FieldName, /*optional */bool bDoNotFilter = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UUIDataStore_TdGameResource::execGetValueFromProviderSet(FFrame&, void* const)
+	public virtual /*native function */bool GetValueFromProviderSet(name ProviderFieldName, name SearchTag, int ListIndex, ref UIRoot.UIProviderFieldValue OutValue)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UUIDataStore_TdGameResource::execGetStringValueFromProviderSet(FFrame&, void* const)
+	public virtual /*native function */bool GetStringValueFromProviderSet(name ProviderFieldName, name SearchTag, int ListIndex, ref string OutString)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+}
+}

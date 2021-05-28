@@ -1,0 +1,12 @@
+namespace MEdge.TdGame{
+using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+
+public partial class SeqEvt_TdMovementChallengeStarted : SeqEvt_TdMovementChallengeEvent/*
+		hidecategories(Object)*/{
+	public SeqEvt_TdMovementChallengeStarted()
+	{
+		// Object Offset:0x004A7E77
+		ObjName = "Movement Challenge Started";
+	}
+}
+}
