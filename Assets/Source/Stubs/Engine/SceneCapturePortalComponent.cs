@@ -9,7 +9,7 @@ public partial class SceneCapturePortalComponent : SceneCaptureComponent/*
 	public/*(Capture)*/ /*const */Actor ViewDestination;
 	
 	// Export USceneCapturePortalComponent::execSetCaptureParameters(FFrame&, void* const)
-	public virtual /*native final function */void SetCaptureParameters(/*optional */TextureRenderTarget2D NewTextureTarget = default, /*optional */float NewScaleFOV = default, /*optional */Actor NewViewDest = default)
+	public virtual /*native final function */void SetCaptureParameters(/*optional */TextureRenderTarget2D? _NewTextureTarget = default, /*optional */float? _NewScaleFOV = default, /*optional */Actor? _NewViewDest = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

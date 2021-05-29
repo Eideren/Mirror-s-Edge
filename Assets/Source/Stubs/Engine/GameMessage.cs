@@ -26,7 +26,7 @@ public partial class GameMessage : LocalMessage{
 	public /*const localized */string NewSpecMessage;
 	public /*const localized */string SpecEnteredMessage;
 	
-	public /*function */static string GetString(/*optional */int Switch = default, /*optional */bool bPRI1HUD = default, /*optional */PlayerReplicationInfo RelatedPRI_1 = default, /*optional */PlayerReplicationInfo RelatedPRI_2 = default, /*optional */Object OptionalObject = default)
+	public /*function */static string GetString(/*optional */int? _Switch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;

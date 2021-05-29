@@ -21,7 +21,7 @@ public partial class TdMPTeamPursuitGame : TdMPTeamGame/*
 		base.PreBeginPlay();
 		PursuitLogic =  ClassT<TdPursuitLogic>().New();
 		PursuitLogic.Initialize(this);
-		TdPursuitMessageClass = ((DynamicLoadObject("TdMpContent.TdPursuitMessage", ClassT<Class>(), default(bool))) as ClassT<TdLocalMessage>);
+		TdPursuitMessageClass = ((DynamicLoadObject("TdMpContent.TdPursuitMessage", ClassT<Class>(), default)) as ClassT<TdLocalMessage>);
 	}
 	
 	public override /*function */void EndGame(PlayerReplicationInfo Winner, string Reason)
@@ -29,13 +29,14 @@ public partial class TdMPTeamPursuitGame : TdMPTeamGame/*
 		base.EndGame(Winner, Reason);
 	}
 	
-	public override /*function */PlayerStart ChoosePlayerStart(Controller Player, /*optional */byte InTeam = default)
+	public override /*function */PlayerStart ChoosePlayerStart(Controller Player, /*optional */byte? _InTeam = default)
 	{
 		/*local */PlayerStart P = default, BestStart = default;
 		/*local */float BestRating = default, NewRating = default;
 		/*local */int Idx = default;
 		/*local */byte Team = default;
 	
+		var InTeam = _InTeam ?? default;
 		BestRating = -1.0f;
 		Team = (byte)((((Player != default) && Player.PlayerReplicationInfo != default) && Player.PlayerReplicationInfo.Team != default) ? ((byte)(Player.PlayerReplicationInfo.Team.TeamIndex)) : InTeam);
 		Idx = 0;
@@ -100,15 +101,15 @@ public partial class TdMPTeamPursuitGame : TdMPTeamGame/*
 	{
 		if(Killer == Other)
 		{
-			TdAnnouncerBase.Play3DLocationalAnnouncement(Other.Pawn, DeathMessageClass, 12, true, true, Other.PlayerReplicationInfo, default(PlayerReplicationInfo));
-			BroadcastLocalized(this, DeathMessageClass, 14, default(PlayerReplicationInfo), Other.PlayerReplicationInfo, DamageType);		
+			TdAnnouncerBase.Play3DLocationalAnnouncement(Other.Pawn, DeathMessageClass, 12, true, true, Other.PlayerReplicationInfo, default);
+			BroadcastLocalized(this, DeathMessageClass, 14, default, Other.PlayerReplicationInfo, DamageType);		
 		}
 		else
 		{
 			if(Killer == default)
 			{
-				TdAnnouncerBase.Play3DLocationalAnnouncement(Other.Pawn, DeathMessageClass, 12, true, true, Other.PlayerReplicationInfo, default(PlayerReplicationInfo));
-				BroadcastLocalized(this, DeathMessageClass, 13, default(PlayerReplicationInfo), Other.PlayerReplicationInfo, DamageType);			
+				TdAnnouncerBase.Play3DLocationalAnnouncement(Other.Pawn, DeathMessageClass, 12, true, true, Other.PlayerReplicationInfo, default);
+				BroadcastLocalized(this, DeathMessageClass, 13, default, Other.PlayerReplicationInfo, DamageType);			
 			}
 			else
 			{
@@ -126,19 +127,19 @@ public partial class TdMPTeamPursuitGame : TdMPTeamGame/*
 					{
 						if(Killer.PlayerReplicationInfo.Team == Other.PlayerReplicationInfo.Team)
 						{
-							TdAnnouncerBase.Play3DLocationalAnnouncement(Other.Pawn, DeathMessageClass, 12, true, true, Other.PlayerReplicationInfo, default(PlayerReplicationInfo));
+							TdAnnouncerBase.Play3DLocationalAnnouncement(Other.Pawn, DeathMessageClass, 12, true, true, Other.PlayerReplicationInfo, default);
 							BroadcastLocalized(this, DeathMessageClass, 15, Killer.PlayerReplicationInfo, Other.PlayerReplicationInfo, DamageType);						
 						}
 						else
 						{
 							if(((DamageType) as ClassT<TdDmgType_Melee>) != default)
 							{
-								TdAnnouncerBase.Play3DLocationalAnnouncement(Killer.Pawn, DeathMessageClass, 16, true, true, Killer.PlayerReplicationInfo, default(PlayerReplicationInfo));
+								TdAnnouncerBase.Play3DLocationalAnnouncement(Killer.Pawn, DeathMessageClass, 16, true, true, Killer.PlayerReplicationInfo, default);
 								BroadcastLocalized(this, DeathMessageClass, 16, Killer.PlayerReplicationInfo, Other.PlayerReplicationInfo, DamageType);							
 							}
 							else
 							{
-								TdAnnouncerBase.Play3DLocationalAnnouncement(Other.Pawn, DeathMessageClass, 12, true, true, Other.PlayerReplicationInfo, default(PlayerReplicationInfo));
+								TdAnnouncerBase.Play3DLocationalAnnouncement(Other.Pawn, DeathMessageClass, 12, true, true, Other.PlayerReplicationInfo, default);
 								BroadcastLocalized(this, DeathMessageClass, 12, Killer.PlayerReplicationInfo, Other.PlayerReplicationInfo, DamageType);
 							}
 						}
@@ -178,7 +179,7 @@ public partial class TdMPTeamPursuitGame : TdMPTeamGame/*
 							ClassName = PoliceClasses[RandIndex];
 						}
 					}
-					ResultClass = ((DynamicLoadObject(ClassName, ClassT<Class>(), default(bool))) as ClassT<Pawn>);
+					ResultClass = ((DynamicLoadObject(ClassName, ClassT<Class>(), default)) as ClassT<Pawn>);
 				}
 			}
 			if(ResultClass == default)
@@ -223,7 +224,7 @@ public partial class TdMPTeamPursuitGame : TdMPTeamGame/*
 		PursuitLogic.OnStartMatchInProgress();
 		DeadControllers.Remove(0, DeadControllers.Length);
 		RunnerInitialSpawn();
-		SetTimer(((float)(CopOffsetSpawnTime)), false, "CopInitialSpawn", default(Object));
+		SetTimer(((float)(CopOffsetSpawnTime)), false, "CopInitialSpawn", default);
 	}
 	
 	protected /*function */void TdMPTeamPursuitGame_MatchInProgress_RunnerInitialSpawn()// state function
@@ -231,7 +232,7 @@ public partial class TdMPTeamPursuitGame : TdMPTeamGame/*
 		bInitialSpawn = true;
 		InitialTeamSpawn(0);
 		bInitialSpawn = false;
-		SetTimer(((float)(RunnerRespawnTime)), true, "RunnerRespawnTimer", default(Object));
+		SetTimer(((float)(RunnerRespawnTime)), true, "RunnerRespawnTimer", default);
 	}
 	
 	protected /*function */void TdMPTeamPursuitGame_MatchInProgress_CopInitialSpawn()// state function
@@ -239,7 +240,7 @@ public partial class TdMPTeamPursuitGame : TdMPTeamGame/*
 		bInitialSpawn = true;
 		InitialTeamSpawn(1);
 		bInitialSpawn = false;
-		SetTimer(((float)(CopRespawnTime)), true, "CopRespawnTimer", default(Object));
+		SetTimer(((float)(CopRespawnTime)), true, "CopRespawnTimer", default);
 	}
 	
 	protected /*function */void TdMPTeamPursuitGame_MatchInProgress_CopRespawnTimer()// state function
@@ -278,7 +279,7 @@ public partial class TdMPTeamPursuitGame : TdMPTeamGame/*
 					goto J0x51;
 				}
 				J0xC0:{}
-				C.ClientPlayAnnouncement(TdPursuitMessageClass, 23, C.PlayerReplicationInfo, default(PlayerReplicationInfo));
+				C.ClientPlayAnnouncement(TdPursuitMessageClass, 23, C.PlayerReplicationInfo, default);
 			}		
 		}	
 	}

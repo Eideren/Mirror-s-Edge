@@ -36,7 +36,7 @@ public partial class UINumericEditBox : UIEditBox/*
 	}
 	
 	// Export UUINumericEditBox::execSetNumericValue(FFrame&, void* const)
-	public virtual /*native final function */bool SetNumericValue(float NewValue, /*optional */bool bForceRefreshString = default)
+	public virtual /*native final function */bool SetNumericValue(float NewValue, /*optional */bool? _bForceRefreshString = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

@@ -43,12 +43,12 @@ public partial class TdMove_DodgeJump : TdPhysicsMove/*
 		if(((int)PawnOwner.MoveActionHint) == ((int)TdPawn.EMoveActionHint.MAH_Left/*1*/))
 		{
 			DodgeDirection = (((float)(-1)) * JumpAddXY) * Normal(Cross(vect(0.0f, 0.0f, 1.0f), ((Vector)(PawnOwner.Rotation))));
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("dodgejumpleft")), 1.0f, JumpBlendInTime, JumpBlendOutTime, default(bool), default(bool));		
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("dodgejumpleft")), 1.0f, JumpBlendInTime, JumpBlendOutTime, default, default);		
 		}
 		else
 		{
 			DodgeDirection = JumpAddXY * Normal(Cross(vect(0.0f, 0.0f, 1.0f), ((Vector)(PawnOwner.Rotation))));
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("dodgejumpright")), 1.0f, JumpBlendInTime, JumpBlendOutTime, default(bool), default(bool));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("dodgejumpright")), 1.0f, JumpBlendInTime, JumpBlendOutTime, default, default);
 		}
 		PawnOwner.LastJumpLocation = PawnOwner.Location;
 		PawnOwner.Velocity = DodgeDirection + (DodgeJumpInertiaConservation * PawnOwner.Velocity);

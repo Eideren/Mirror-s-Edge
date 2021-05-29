@@ -231,7 +231,7 @@ public partial class UIComp_ListPresenter : UIComp_ListComponentBase,
 	public/*(Image)*/ StaticArray<UIRoot.TextureCoordinates, UIRoot.TextureCoordinates, UIRoot.TextureCoordinates, UIRoot.TextureCoordinates>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/ ListItemOverlayCoordinates;
 	
 	// Export UUIComp_ListPresenter::execEnableColumnHeaderRendering(FFrame&, void* const)
-	public virtual /*native final function */void EnableColumnHeaderRendering(/*optional */bool bShouldRenderColHeaders = default)
+	public virtual /*native final function */void EnableColumnHeaderRendering(/*optional */bool? _bShouldRenderColHeaders = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

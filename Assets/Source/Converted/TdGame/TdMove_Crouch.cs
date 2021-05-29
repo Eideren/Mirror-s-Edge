@@ -28,16 +28,16 @@ public partial class TdMove_Crouch : TdPhysicsMove/*
 		if(((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_Walking/*1*/))
 		{
 			((PawnOwner) as TdPlayerPawn).EnableFootPlacement(0.10f);
-			PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 15.0f), 0.10f, ((SkelControlBase.EBoneControlSpace)default(SkelControlBase.EBoneControlSpace)));
+			PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 15.0f), 0.10f, default);
 			SetMoveTimer(0.150f, false, "DisableRootOffset");
-			PawnOwner.SetTimer(0.20f, false, "DisableFootPlacement", default(Object));
+			PawnOwner.SetTimer(0.20f, false, "DisableFootPlacement", default);
 		}
 		PawnOwner.OnTutorialEvent(12);
 	}
 	
 	public virtual /*simulated function */void DisableRootOffset()
 	{
-		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.10f, ((SkelControlBase.EBoneControlSpace)default(SkelControlBase.EBoneControlSpace)));
+		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.10f, default);
 	}
 	
 	public override /*simulated function */void StopMove()
@@ -46,11 +46,11 @@ public partial class TdMove_Crouch : TdPhysicsMove/*
 		if(((int)PawnOwner.PendingMovementState) == ((int)TdPawn.EMovement.MOVE_Walking/*1*/))
 		{
 			((PawnOwner) as TdPlayerPawn).EnableFootPlacement(0.0f);
-			PawnOwner.SetTimer(0.20f, false, "DisableFootPlacement", default(Object));
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_Camera/*6*/, "CrouchIntoStand", 1.0f, 0.20f, 0.20f, false, default(bool));
+			PawnOwner.SetTimer(0.20f, false, "DisableFootPlacement", default);
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_Camera/*6*/, "CrouchIntoStand", 1.0f, 0.20f, 0.20f, false, default);
 		}
 		PawnOwner.bAvoidLedges = true;
-		PawnOwner.SetHipsOffset(vect(0.0f, 0.0f, 0.0f), default(float), default(bool));
+		PawnOwner.SetHipsOffset(vect(0.0f, 0.0f, 0.0f), default, default);
 	}
 	
 	public override /*simulated function */void HandleMoveAction(TdPawn.EMovementAction Action)
@@ -103,7 +103,7 @@ public partial class TdMove_Crouch : TdPhysicsMove/*
 		base.UpdateViewRotation(ref/*probably?*/ out_Rotation, DeltaTime, ref/*probably?*/ DeltaRot);
 		if((((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_Slide/*16*/)) && MoveActiveTime < 0.30f)
 		{
-			PawnOwner.SetHipsOffset(vect(0.0f, 0.0f, 0.0f), default(float), default(bool));		
+			PawnOwner.SetHipsOffset(vect(0.0f, 0.0f, 0.0f), default, default);		
 		}
 		else
 		{

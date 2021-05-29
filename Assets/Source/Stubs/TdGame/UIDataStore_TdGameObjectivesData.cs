@@ -37,7 +37,7 @@ public partial class UIDataStore_TdGameObjectivesData : UIDataStore_TdGameResour
 	}
 	
 	// Export UUIDataStore_TdGameObjectivesData::execGetSubObjectives(FFrame&, void* const)
-	public virtual /*native function */bool GetSubObjectives(name FieldName, ref array<UIDataProvider_TdGameObjectiveProvider.SubObjectiveStruct> Objectives, /*optional */bool bFilter = default)
+	public virtual /*native function */bool GetSubObjectives(name FieldName, ref array<UIDataProvider_TdGameObjectiveProvider.SubObjectiveStruct> Objectives, /*optional */bool? _bFilter = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -51,7 +51,7 @@ public partial class UIDataStore_TdGameObjectivesData : UIDataStore_TdGameResour
 	}
 	
 	// Export UUIDataStore_TdGameObjectivesData::execSetActiveSubObjective(FFrame&, void* const)
-	public virtual /*native function */void SetActiveSubObjective(name FieldName, name SubObjectiveTag, /*optional */bool bOnlyHigher = default)
+	public virtual /*native function */void SetActiveSubObjective(name FieldName, name SubObjectiveTag, /*optional */bool? _bOnlyHigher = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -68,7 +68,7 @@ public partial class UIDataStore_TdGameObjectivesData : UIDataStore_TdGameResour
 		return default;
 	}
 	
-	public virtual /*function */void ResolveAndSetCheckpointObjective(name ObjectiveGameType, name CheckpointName, /*optional */bool bOnlyHigher = default)
+	public virtual /*function */void ResolveAndSetCheckpointObjective(name ObjectiveGameType, name CheckpointName, /*optional */bool? _bOnlyHigher = default)
 	{
 	
 	}

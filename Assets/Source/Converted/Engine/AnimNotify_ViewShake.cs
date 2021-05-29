@@ -25,7 +25,7 @@ public partial class AnimNotify_ViewShake : AnimNotify_Scripted/*
 	
 		if((bUseBoneLocation && AnimSeqInstigator != default) && AnimSeqInstigator.SkelComponent != default)
 		{
-			ViewShakeOrigin = AnimSeqInstigator.SkelComponent.GetBoneLocation(BoneName, default(int));		
+			ViewShakeOrigin = AnimSeqInstigator.SkelComponent.GetBoneLocation(BoneName, default);		
 		}
 		else
 		{

@@ -245,6 +245,9 @@
         
         
         public static MEdge.Engine.ChildConnection AsChildConnection(MEdge.Engine.Player p)
+        
+        
+        public static MEdge.Engine.NetConnection AsNetConnection(MEdge.Engine.Player p)
 	
         // Export UObject::execRepl(FFrame&, void* const)
         /// <summary>

@@ -11,7 +11,7 @@ public interface UIStyleResolver : Interface/*
 	public /*native function */bool SetStyleResolverTag(name NewResolverTag);
 	
 	// Export UUIStyleResolver::execNotifyResolveStyle(FFrame&, void* const)
-	public /*native function */bool NotifyResolveStyle(UISkin ActiveSkin, bool bClearExistingValue, /*optional */UIState CurrentMenuState = default, /*const optional */name StylePropertyName = default);
+	public /*native function */bool NotifyResolveStyle(UISkin ActiveSkin, bool bClearExistingValue, /*optional */UIState? _CurrentMenuState = default, /*const optional */name? _StylePropertyName = default);
 	
 }
 }

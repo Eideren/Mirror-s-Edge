@@ -40,7 +40,7 @@ public partial class TdMovementVolume : PhysicsVolume/*
 	}
 	
 	// Export UTdMovementVolume::execFindClosestPointOnDSpline(FFrame&, void* const)
-	public virtual /*native function */void FindClosestPointOnDSpline(Object.Vector InLocation, ref Object.Vector ClosestLocation, ref float NParamT, /*optional */int LowestIndexHint = default)
+	public virtual /*native function */void FindClosestPointOnDSpline(Object.Vector InLocation, ref Object.Vector ClosestLocation, ref float NParamT, /*optional */int? _LowestIndexHint = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

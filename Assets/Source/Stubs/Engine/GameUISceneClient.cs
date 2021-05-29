@@ -56,21 +56,21 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	}
 	
 	// Export UGameUISceneClient::execCreateScene(FFrame&, void* const)
-	public virtual /*native final function */UIScene CreateScene(Core.ClassT<UIScene> SceneClass, /*optional */name SceneTag = default, /*optional */UIScene SceneTemplate = default)
+	public virtual /*native final function */UIScene CreateScene(Core.ClassT<UIScene> SceneClass, /*optional */name? _SceneTag = default, /*optional */UIScene? _SceneTemplate = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UGameUISceneClient::execCreateTransientWidget(FFrame&, void* const)
-	public virtual /*native final function */UIObject CreateTransientWidget(Core.ClassT<UIObject> WidgetClass, name WidgetTag, /*optional */UIObject Owner = default)
+	public virtual /*native final function */UIObject CreateTransientWidget(Core.ClassT<UIObject> WidgetClass, name WidgetTag, /*optional */UIObject? _Owner = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UGameUISceneClient::execFindSceneByTag(FFrame&, void* const)
-	public virtual /*native final function */UIScene FindSceneByTag(name SceneTag, /*optional */LocalPlayer SceneOwner = default)
+	public virtual /*native final function */UIScene FindSceneByTag(name SceneTag, /*optional */LocalPlayer? _SceneOwner = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -165,7 +165,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	
 	}
 	
-	public virtual /*function */void RestoreMenuProgression(/*optional */UIScene BaseScene = default)
+	public virtual /*function */void RestoreMenuProgression(/*optional */UIScene? _BaseScene = default)
 	{
 	
 	}
@@ -185,17 +185,17 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	
 	}
 	
-	public virtual /*exec function */void ToggleDebugInput(/*optional */bool bEnable = default)
+	public virtual /*exec function */void ToggleDebugInput(/*optional */bool? _bEnable = default)
 	{
 	
 	}
 	
-	public virtual /*exec function */void CreateMenu(Core.ClassT<UIScene> SceneClass, /*optional */int PlayerIndex = default)
+	public virtual /*exec function */void CreateMenu(Core.ClassT<UIScene> SceneClass, /*optional */int? _PlayerIndex = default)
 	{
 	
 	}
 	
-	public virtual /*exec function */void OpenMenu(string MenuPath, /*optional */int PlayerIndex = default)
+	public virtual /*exec function */void OpenMenu(string MenuPath, /*optional */int? _PlayerIndex = default)
 	{
 	
 	}
@@ -215,7 +215,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	
 	}
 	
-	public virtual /*exec function */void ShowDataStores(/*optional */bool bVerbose = default)
+	public virtual /*exec function */void ShowDataStores(/*optional */bool? _bVerbose = default)
 	{
 	
 	}

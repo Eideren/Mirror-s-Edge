@@ -65,7 +65,7 @@ public partial class UITabControl : UIObject/*
 	}
 	
 	// Export UUITabControl::execCreateTabPage(FFrame&, void* const)
-	public virtual /*native function */UITabPage CreateTabPage(Core.ClassT<UITabPage> TabPageClass, /*optional */UITabPage PagePrefab = default)
+	public virtual /*native function */UITabPage CreateTabPage(Core.ClassT<UITabPage> TabPageClass, /*optional */UITabPage? _PagePrefab = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -76,7 +76,7 @@ public partial class UITabControl : UIObject/*
 	
 	}
 	
-	public virtual /*event */bool InsertPage(UITabPage PageToInsert, int PlayerIndex, /*optional */int InsertIndex = default, /*optional */bool bActivateImmediately = default)
+	public virtual /*event */bool InsertPage(UITabPage PageToInsert, int PlayerIndex, /*optional */int? _InsertIndex = default, /*optional */bool? _bActivateImmediately = default)
 	{
 	
 		return default;
@@ -88,31 +88,31 @@ public partial class UITabControl : UIObject/*
 		return default;
 	}
 	
-	public virtual /*event */bool ReplacePage(UITabPage ExistingPage, UITabPage NewPage, int PlayerIndex, /*optional */bool bFocusPage = default)
+	public virtual /*event */bool ReplacePage(UITabPage ExistingPage, UITabPage NewPage, int PlayerIndex, /*optional */bool? _bFocusPage = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*event */bool ActivatePage(UITabPage PageToActivate, int PlayerIndex, /*optional */bool bFocusPage = default)
+	public virtual /*event */bool ActivatePage(UITabPage PageToActivate, int PlayerIndex, /*optional */bool? _bFocusPage = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*event */bool ActivateNextPage(int PlayerIndex, /*optional */bool bFocusPage = default, /*optional */bool bAllowWrapping = default)
+	public virtual /*event */bool ActivateNextPage(int PlayerIndex, /*optional */bool? _bFocusPage = default, /*optional */bool? _bAllowWrapping = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*event */bool ActivatePreviousPage(int PlayerIndex, /*optional */bool bFocusPage = default, /*optional */bool bAllowWrapping = default)
+	public virtual /*event */bool ActivatePreviousPage(int PlayerIndex, /*optional */bool? _bFocusPage = default, /*optional */bool? _bAllowWrapping = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*event */bool EnableTabPage(UITabPage PageToEnable, int PlayerIndex, /*optional */bool bEnablePage = default, /*optional */bool bActivatePage = default, /*optional */bool bFocusPage = default)
+	public virtual /*event */bool EnableTabPage(UITabPage PageToEnable, int PlayerIndex, /*optional */bool? _bEnablePage = default, /*optional */bool? _bActivatePage = default, /*optional */bool? _bFocusPage = default)
 	{
 	
 		return default;
@@ -128,19 +128,19 @@ public partial class UITabControl : UIObject/*
 	
 	}
 	
-	public virtual /*function */bool ActivatePageByCaption(string PageCaption, int PlayerIndex, /*optional */bool bFocusPage = default)
+	public virtual /*function */bool ActivatePageByCaption(string PageCaption, int PlayerIndex, /*optional */bool? _bFocusPage = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool ActivateBestTab(int PlayerIndex, /*optional */bool bFocusPage = default, /*optional */int StartIndex = default)
+	public virtual /*function */bool ActivateBestTab(int PlayerIndex, /*optional */bool? _bFocusPage = default, /*optional */int? _StartIndex = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */int FindPageIndexByCaption(string PageCaption, /*optional */bool bMarkupString = default)
+	public virtual /*function */int FindPageIndexByCaption(string PageCaption, /*optional */bool? _bMarkupString = default)
 	{
 	
 		return default;
@@ -181,15 +181,15 @@ public partial class UITabControl : UIObject/*
 			ScaleType = UIRoot.EUIExtentEvalType.UIEXTENTEVAL_PercentOwner,
 			Orientation = UIRoot.EUIOrientation.UIORIENT_Vertical,
 		};
-		TabButtonPadding = new StaticArray<UIScreenValue_Extent, UIScreenValue_Extent>()
+		TabButtonPadding = new StaticArray<UIRoot.UIScreenValue_Extent, UIRoot.UIScreenValue_Extent>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/()
 		{ 
-			[3] = new UIScreenValue_Extent()
+			[0] = new UIRoot.UIScreenValue_Extent
 			{
 				Value = 0.020f,
 				ScaleType = UIRoot.EUIExtentEvalType.UIEXTENTEVAL_PercentOwner,
 				Orientation = UIRoot.EUIOrientation.UIORIENT_Horizontal,
 			},
-			[4] = new UIScreenValue_Extent()
+			[1] = new UIRoot.UIScreenValue_Extent
 			{
 				Value = 0.020f,
 				ScaleType = UIRoot.EUIExtentEvalType.UIEXTENTEVAL_PercentOwner,

@@ -25,20 +25,20 @@ public partial class UIProgressBar : UIObject,
 	}
 	
 	// Export UUIProgressBar::execSetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int BindingIndex = default)
+	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIProgressBar::execGetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */string GetDataStoreBinding(/*optional */int BindingIndex = default)
+	public virtual /*native final function */string GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIProgressBar::execRefreshSubscriberValue(FFrame&, void* const)
-	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int BindingIndex = default)
+	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -63,21 +63,21 @@ public partial class UIProgressBar : UIObject,
 	}
 	
 	// Export UUIProgressBar::execSaveSubscriberValue(FFrame&, void* const)
-	public virtual /*native final function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int BindingIndex = default)
+	public virtual /*native final function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIProgressBar::execSetValue(FFrame&, void* const)
-	public virtual /*native final function */bool SetValue(/*coerce */float NewValue, /*optional */bool bPercentageValue = default)
+	public virtual /*native final function */bool SetValue(/*coerce */float NewValue, /*optional */bool? _bPercentageValue = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIProgressBar::execGetValue(FFrame&, void* const)
-	public virtual /*native final function */float GetValue(/*optional */bool bPercentageValue = default)
+	public virtual /*native final function */float GetValue(/*optional */bool? _bPercentageValue = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

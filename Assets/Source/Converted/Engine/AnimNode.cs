@@ -89,7 +89,7 @@ public partial class AnimNode : Object/*
 	}
 	
 	// Export UAnimNode::execPlayAnim(FFrame&, void* const)
-	public virtual /*native function */void PlayAnim(/*optional */bool bLoop = default, /*optional */float Rate = default, /*optional */float StartTime = default)
+	public virtual /*native function */void PlayAnim(/*optional */bool? _bLoop = default, /*optional */float? _Rate = default, /*optional */float? _StartTime = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

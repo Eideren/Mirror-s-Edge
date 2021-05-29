@@ -40,7 +40,7 @@ public partial class TdSPLevelRace : TdSPStoryGame/*
 		DataStoreManager = UIInteraction.GetDataStoreClient();
 		if((TimeTrialData == default) && DataStoreManager != default)
 		{
-			TimeTrialData = ((DataStoreManager.FindDataStore("TdTimeTrialData", default(LocalPlayer))) as UIDataStore_TdTimeTrialData);
+			TimeTrialData = ((DataStoreManager.FindDataStore("TdTimeTrialData", default)) as UIDataStore_TdTimeTrialData);
 			TargetTime = TimeTrialData.GetTargetRaceData().TotalTime;
 			if(TargetTime == 3599.990f)
 			{
@@ -69,7 +69,7 @@ public partial class TdSPLevelRace : TdSPStoryGame/*
 	
 	public override /*function */void OnPlayerDead()
 	{
-		SetTimer(PlayerRespawnTime, false, "ResetLevel", default(Object));
+		SetTimer(PlayerRespawnTime, false, "ResetLevel", default);
 	}
 	
 	public virtual /*function */void RestartRace()
@@ -91,8 +91,10 @@ public partial class TdSPLevelRace : TdSPStoryGame/*
 		return /*Transformed 'base.' to specific call*/TdSPGame_CanOpenPauseMenu() && PostProcess == default;
 	}
 	
-	public override /*function */void OnLevelCompleted(TdPlayerController PC, string CurrentLevelName, /*optional */string InNextLevelName = default, /*optional */string InNextCheckpointName = default)
+	public override /*function */void OnLevelCompleted(TdPlayerController PC, string CurrentLevelName, /*optional */string? _InNextLevelName = default, /*optional */string? _InNextCheckpointName = default)
 	{
+		var InNextLevelName = _InNextLevelName ?? default;
+		var InNextCheckpointName = _InNextCheckpointName ?? default;
 		bRaceOver = true;
 		if(TimeTrialData.TTOnlineInput != default)
 		{
@@ -101,7 +103,7 @@ public partial class TdSPLevelRace : TdSPStoryGame/*
 		}
 		else
 		{
-			OnOnlinePostProcessDone(default(TdTTResult));
+			OnOnlinePostProcessDone(default);
 		}
 	}
 	
@@ -132,7 +134,7 @@ public partial class TdSPLevelRace : TdSPStoryGame/*
 		SC = ((UIRoot.GetSceneClient()) as TdGameUISceneClient);
 		if(SC != default)
 		{
-			SC.OpenSceneEx(TdHUDContent.GetUISceneByName("TdEndOfLevelRace", "TdSpContent.TdHUDContentSP"), SC.Outer.Outer.Outer.GamePlayers[0], ((UIScene.ESceneTransitionAnim)default(UIScene.ESceneTransitionAnim)), default(/*delegate*/UIScene.OnSceneActivated));
+			SC.OpenSceneEx(TdHUDContent.GetUISceneByName("TdEndOfLevelRace", "TdSpContent.TdHUDContentSP"), SC.Outer.Outer.Outer.GamePlayers[0], default, default);
 		}
 	}
 	

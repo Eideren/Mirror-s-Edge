@@ -558,13 +558,13 @@ public partial class Actor : Object/*
 	//}
 	
 	// Export UActor::execForceUpdateComponents(FFrame&, void* const)
-	public virtual /*native function */void ForceUpdateComponents(/*optional */bool bCollisionUpdate = default, /*optional */bool bTransformOnly = default)
+	public virtual /*native function */void ForceUpdateComponents(/*optional */bool? _bCollisionUpdate = default, /*optional */bool? _bTransformOnly = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execConsoleCommand(FFrame&, void* const)
-	public virtual /*native function */string ConsoleCommand(string Command, /*optional */bool bWriteToLog = default)
+	public virtual /*native function */string ConsoleCommand(string Command, /*optional */bool? _bWriteToLog = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -585,7 +585,7 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execSetCollision(FFrame&, void* const)
-	public virtual /*native(262) final function */void SetCollision(/*optional */bool bNewColActors = default, /*optional */bool bNewBlockActors = default, /*optional */bool bNewIgnoreEncroachers = default)
+	public virtual /*native(262) final function */void SetCollision(/*optional */bool? _bNewColActors = default, /*optional */bool? _bNewBlockActors = default, /*optional */bool? _bNewIgnoreEncroachers = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -663,7 +663,7 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execSetHardAttach(FFrame&, void* const)
-	public virtual /*native final function */void SetHardAttach(/*optional */bool bNewHardAttach = default)
+	public virtual /*native final function */void SetHardAttach(/*optional */bool? _bNewHardAttach = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -689,7 +689,7 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execSetBase(FFrame&, void* const)
-	public virtual /*native(298) final function */void SetBase(Actor NewBase, /*optional */Object.Vector NewFloor = default, /*optional */SkeletalMeshComponent SkelComp = default, /*optional */name AttachName = default)
+	public virtual /*native(298) final function */void SetBase(Actor NewBase, /*optional */Object.Vector? _NewFloor = default, /*optional */SkeletalMeshComponent? _SkelComp = default, /*optional */name? _AttachName = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -745,61 +745,61 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execDrawDebugLine(FFrame&, void* const)
-	public /*native final function */static void DrawDebugLine(Object.Vector LineStart, Object.Vector LineEnd, byte R, byte G, byte B, /*optional */bool bPersistentLines = default)
+	public /*native final function */static void DrawDebugLine(Object.Vector LineStart, Object.Vector LineEnd, byte R, byte G, byte B, /*optional */bool? _bPersistentLines = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugLineTime(FFrame&, void* const)
-	public /*native final function */static void DrawDebugLineTime(Object.Vector LineStart, Object.Vector LineEnd, byte R, byte G, byte B, /*optional */float timeToLive = default)
+	public /*native final function */static void DrawDebugLineTime(Object.Vector LineStart, Object.Vector LineEnd, byte R, byte G, byte B, /*optional */float? _timeToLive = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugBoxTime(FFrame&, void* const)
-	public /*native final function */static void DrawDebugBoxTime(Object.Vector Center, Object.Vector Extent, byte R, byte G, byte B, /*optional */float timeToLive = default)
+	public /*native final function */static void DrawDebugBoxTime(Object.Vector Center, Object.Vector Extent, byte R, byte G, byte B, /*optional */float? _timeToLive = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugBox(FFrame&, void* const)
-	public /*native final function */static void DrawDebugBox(Object.Vector Center, Object.Vector Extent, byte R, byte G, byte B, /*optional */bool bPersistentLines = default)
+	public /*native final function */static void DrawDebugBox(Object.Vector Center, Object.Vector Extent, byte R, byte G, byte B, /*optional */bool? _bPersistentLines = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugCoordinateSystem(FFrame&, void* const)
-	public /*native final function */static void DrawDebugCoordinateSystem(Object.Vector AxisLoc, Object.Rotator AxisRot, float Scale, /*optional */bool bPersistentLines = default)
+	public /*native final function */static void DrawDebugCoordinateSystem(Object.Vector AxisLoc, Object.Rotator AxisRot, float Scale, /*optional */bool? _bPersistentLines = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugSphere(FFrame&, void* const)
-	public /*native final function */static void DrawDebugSphere(Object.Vector Center, float Radius, int Segments, byte R, byte G, byte B, /*optional */bool bPersistentLines = default)
+	public /*native final function */static void DrawDebugSphere(Object.Vector Center, float Radius, int Segments, byte R, byte G, byte B, /*optional */bool? _bPersistentLines = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugSphereTime(FFrame&, void* const)
-	public /*native final function */static void DrawDebugSphereTime(Object.Vector Center, float Radius, int Segments, byte R, byte G, byte B, /*optional */float timeToLive = default)
+	public /*native final function */static void DrawDebugSphereTime(Object.Vector Center, float Radius, int Segments, byte R, byte G, byte B, /*optional */float? _timeToLive = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugCylinder(FFrame&, void* const)
-	public /*native final function */static void DrawDebugCylinder(Object.Vector Start, Object.Vector End, float Radius, int Segments, byte R, byte G, byte B, /*optional */bool bPersistentLines = default)
+	public /*native final function */static void DrawDebugCylinder(Object.Vector Start, Object.Vector End, float Radius, int Segments, byte R, byte G, byte B, /*optional */bool? _bPersistentLines = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugCone(FFrame&, void* const)
-	public /*native final function */static void DrawDebugCone(Object.Vector Origin, Object.Vector Direction, float Length, float AngleWidth, float AngleHeight, int NumSides, Object.Color DrawColor, /*optional */bool bPersistentLines = default)
+	public /*native final function */static void DrawDebugCone(Object.Vector Origin, Object.Vector Direction, float Length, float AngleWidth, float AngleHeight, int NumSides, Object.Color DrawColor, /*optional */bool? _bPersistentLines = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugArc(FFrame&, void* const)
-	public /*native final function */static void DrawDebugArc(Object.Vector Origin, Object.Vector Up, Object.Vector Forward, float Size, int Degrees, int ArcDegreesResolution, byte R, byte G, byte B, /*optional */bool bUseDistanceMarker = default, /*optional */bool bPersistentLines = default)
+	public /*native final function */static void DrawDebugArc(Object.Vector Origin, Object.Vector Up, Object.Vector Forward, float Size, int Degrees, int ArcDegreesResolution, byte R, byte G, byte B, /*optional */bool? _bUseDistanceMarker = default, /*optional */bool? _bPersistentLines = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -998,7 +998,7 @@ public partial class Actor : Object/*
 	
 	public virtual /*function */bool UsedBy(Pawn User)
 	{
-		return TriggerEventClass(ClassT<SeqEvent_Used>(), User, -1, default(bool), ref/*probably?*/ /*null*/NullRef.array_SequenceEvent_);
+		return TriggerEventClass(ClassT<SeqEvent_Used>(), User, -1, default, ref/*probably?*/ /*null*/NullRef.array_SequenceEvent_);
 	}
 	
 	public virtual /*simulated function */void VolumeBasedDestroy(PhysicsVolume PV)
@@ -1013,7 +1013,7 @@ public partial class Actor : Object/*
 	{
 		SetPhysics(Actor.EPhysics.PHYS_None/*0*/);
 		SetHidden(true);
-		SetCollision(false, false, default(bool));
+		SetCollision(false, false, default);
 		Destroy();
 	}
 	
@@ -1026,14 +1026,14 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execTrace(FFrame&, void* const)
-	public virtual /*native(277) final function */Actor Trace(ref Object.Vector HitLocation, ref Object.Vector HitNormal, Object.Vector TraceEnd, /*optional */Object.Vector TraceStart/* = default*/, /*optional */bool bTraceActors/* = default*/, /*optional */Object.Vector Extent/* = default*/, /*optional */ref Actor.TraceHitInfo HitInfo/* = default*/, /*optional */int ExtraTraceFlags = default)
+	public virtual /*native(277) final function */Actor Trace(ref Object.Vector HitLocation, ref Object.Vector HitNormal, Object.Vector TraceEnd, /*optional */Object.Vector? _TraceStart/* = default*/, /*optional */bool? _bTraceActors/* = default*/, /*optional */Object.Vector? _Extent/* = default*/, /*optional */ref Actor.TraceHitInfo HitInfo/* = default*/, /*optional */int? _ExtraTraceFlags = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execTraceComponent(FFrame&, void* const)
-	public virtual /*native final function */bool TraceComponent(ref Object.Vector HitLocation, ref Object.Vector HitNormal, PrimitiveComponent InComponent, Object.Vector TraceEnd, /*optional */Object.Vector TraceStart/* = default*/, /*optional */Object.Vector Extent/* = default*/, /*optional */ref Actor.TraceHitInfo HitInfo/* = default*/)
+	public virtual /*native final function */bool TraceComponent(ref Object.Vector HitLocation, ref Object.Vector HitNormal, PrimitiveComponent InComponent, Object.Vector TraceEnd, /*optional */Object.Vector? _TraceStart/* = default*/, /*optional */Object.Vector? _Extent/* = default*/, /*optional */ref Actor.TraceHitInfo HitInfo/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -1047,7 +1047,7 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execFastTrace(FFrame&, void* const)
-	public virtual /*native(548) final function */bool FastTrace(Object.Vector TraceEnd, /*optional */Object.Vector TraceStart = default, /*optional */Object.Vector BoxExtent = default, /*optional */bool bTraceBullet = default)
+	public virtual /*native(548) final function */bool FastTrace(Object.Vector TraceEnd, /*optional */Object.Vector? _TraceStart = default, /*optional */Object.Vector? _BoxExtent = default, /*optional */bool? _bTraceBullet = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -1092,53 +1092,53 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execSetTimer(FFrame&, void* const)
-	public virtual /*native(280) final function */void SetTimer(float InRate, /*optional */bool inbLoop = default, /*optional */name inTimerFunc = default, /*optional */Object inObj = default)
+	public virtual /*native(280) final function */void SetTimer(float InRate, /*optional */bool? _inbLoop = default, /*optional */name? _inTimerFunc = default, /*optional */Object? _inObj = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execClearTimer(FFrame&, void* const)
-	public virtual /*native final function */void ClearTimer(/*optional */name inTimerFunc = default, /*optional */Object inObj = default)
+	public virtual /*native final function */void ClearTimer(/*optional */name? _inTimerFunc = default, /*optional */Object? _inObj = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execIsTimerActive(FFrame&, void* const)
-	public virtual /*native final function */bool IsTimerActive(/*optional */name inTimerFunc = default, /*optional */Object inObj = default)
+	public virtual /*native final function */bool IsTimerActive(/*optional */name? _inTimerFunc = default, /*optional */Object? _inObj = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execGetTimerCount(FFrame&, void* const)
-	public virtual /*native final function */float GetTimerCount(/*optional */name inTimerFunc = default, /*optional */Object inObj = default)
+	public virtual /*native final function */float GetTimerCount(/*optional */name? _inTimerFunc = default, /*optional */Object? _inObj = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execGetTimerRate(FFrame&, void* const)
-	public virtual /*native final function */float GetTimerRate(/*optional */name TimerFuncName = default, /*optional */Object inObj = default)
+	public virtual /*native final function */float GetTimerRate(/*optional */name? _TimerFuncName = default, /*optional */Object? _inObj = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execCreateAudioComponent(FFrame&, void* const)
-	public virtual /*native final function */AudioComponent CreateAudioComponent(SoundCue InSoundCue, /*optional */bool bPlay = default, /*optional */bool bStopWhenOwnerDestroyed = default, /*optional */bool bUseLocation = default, /*optional */Object.Vector SourceLocation = default, /*optional */bool bAttachToSelf = default)
+	public virtual /*native final function */AudioComponent CreateAudioComponent(SoundCue InSoundCue, /*optional */bool? _bPlay = default, /*optional */bool? _bStopWhenOwnerDestroyed = default, /*optional */bool? _bUseLocation = default, /*optional */Object.Vector? _SourceLocation = default, /*optional */bool? _bAttachToSelf = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execPlaySound(FFrame&, void* const)
-	public virtual /*native final function */void PlaySound(SoundCue InSoundCue, /*optional */bool bNotReplicated = default, /*optional */bool bNoRepToOwner = default, /*optional */bool bStopWhenOwnerDestroyed = default, /*optional */Object.Vector SoundLocation = default, /*optional */bool bNoRepToRelevant = default, /*optional */bool bPlayOnSelf = default)
+	public virtual /*native final function */void PlaySound(SoundCue InSoundCue, /*optional */bool? _bNotReplicated = default, /*optional */bool? _bNoRepToOwner = default, /*optional */bool? _bStopWhenOwnerDestroyed = default, /*optional */Object.Vector? _SoundLocation = default, /*optional */bool? _bNoRepToRelevant = default, /*optional */bool? _bPlayOnSelf = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execMakeNoise(FFrame&, void* const)
-	public virtual /*native(512) final function */void MakeNoise(float Loudness, /*optional */name NoiseType = default)
+	public virtual /*native(512) final function */void MakeNoise(float Loudness, /*optional */name? _NoiseType = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -1151,7 +1151,7 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execSuggestTossVelocity(FFrame&, void* const)
-	public virtual /*native final function */bool SuggestTossVelocity(ref Object.Vector TossVelocity, Object.Vector Destination, Object.Vector Start, float TossSpeed, /*optional */float BaseTossZ = default, /*optional */float DesiredZPct = default, /*optional */Object.Vector CollisionSize = default, /*optional */float TerminalVelocity = default)
+	public virtual /*native final function */bool SuggestTossVelocity(ref Object.Vector TossVelocity, Object.Vector Destination, Object.Vector Start, float TossSpeed, /*optional */float? _BaseTossZ = default, /*optional */float? _DesiredZPct = default, /*optional */Object.Vector? _CollisionSize = default, /*optional */float? _TerminalVelocity = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -1218,35 +1218,35 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execTraceActors(FFrame&, void* const)
-	public virtual /*native(309) final iterator function */System.Collections.Generic.IEnumerable<(Actor/* Actor*/,Object.Vector/* HitLoc*/,Object.Vector/* HitNorm*/,Actor.TraceHitInfo/* HitInfo*/)> TraceActors(Core.ClassT<Actor> BaseClass, Object.Vector End, /*optional */Object.Vector Start/* = default*/, /*optional */Object.Vector Extent/* = default*/, /*optional */int ExtraTraceFlags = default)
+	public virtual /*native(309) final iterator function */System.Collections.Generic.IEnumerable<(Actor/* Actor*/,Object.Vector/* HitLoc*/,Object.Vector/* HitNorm*/,Actor.TraceHitInfo/* HitInfo*/)> TraceActors(Core.ClassT<Actor> BaseClass, Object.Vector End, /*optional */Object.Vector? _Start/* = default*/, /*optional */Object.Vector? _Extent/* = default*/, /*optional */int? _ExtraTraceFlags = default)
 	{
 		#warning NATIVE FUNCTION !
 		yield return default;
 	}
 	
 	// Export UActor::execVisibleActors(FFrame&, void* const)
-	public virtual /*native(311) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> VisibleActors(Core.ClassT<Actor> BaseClass, /*optional */float Radius = default, /*optional */Object.Vector Loc = default)
+	public virtual /*native(311) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> VisibleActors(Core.ClassT<Actor> BaseClass, /*optional */float? _Radius = default, /*optional */Object.Vector? _Loc = default)
 	{
 		#warning NATIVE FUNCTION !
 		yield return default;
 	}
 	
 	// Export UActor::execVisibleCollidingActors(FFrame&, void* const)
-	public virtual /*native(312) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> VisibleCollidingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector Loc = default, /*optional */bool bIgnoreHidden = default)
+	public virtual /*native(312) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> VisibleCollidingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector? _Loc = default, /*optional */bool? _bIgnoreHidden = default)
 	{
 		#warning NATIVE FUNCTION !
 		yield return default;
 	}
 	
 	// Export UActor::execCollidingActors(FFrame&, void* const)
-	public virtual /*native(321) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> CollidingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector Loc = default, /*optional */bool bUseOverlapCheck = default)
+	public virtual /*native(321) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> CollidingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector? _Loc = default, /*optional */bool? _bUseOverlapCheck = default)
 	{
 		#warning NATIVE FUNCTION !
 		yield return default;
 	}
 	
 	// Export UActor::execOverlappingActors(FFrame&, void* const)
-	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Actor/* out_Actor*/> OverlappingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector Loc = default, /*optional */bool bIgnoreHidden = default)
+	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Actor/* out_Actor*/> OverlappingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector? _Loc = default, /*optional */bool? _bIgnoreHidden = default)
 	{
 		#warning NATIVE FUNCTION !
 		yield return default;
@@ -1314,13 +1314,21 @@ public partial class Actor : Object/*
 		}
 	}
 	
-	public virtual /*event */void BroadcastLocalizedMessage(Core.ClassT<LocalMessage> InMessageClass, /*optional */int Switch = default, /*optional */PlayerReplicationInfo RelatedPRI_1 = default, /*optional */PlayerReplicationInfo RelatedPRI_2 = default, /*optional */Object OptionalObject = default)
+	public virtual /*event */void BroadcastLocalizedMessage(Core.ClassT<LocalMessage> InMessageClass, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
+		var Switch = _Switch ?? default;
+		var RelatedPRI_1 = _RelatedPRI_1 ?? default;
+		var RelatedPRI_2 = _RelatedPRI_2 ?? default;
+		var OptionalObject = _OptionalObject ?? default;
 		WorldInfo.Game.BroadcastLocalized(this, InMessageClass, Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject);
 	}
 	
-	public virtual /*event */void BroadcastLocalizedTeamMessage(int TeamIndex, Core.ClassT<LocalMessage> InMessageClass, /*optional */int Switch = default, /*optional */PlayerReplicationInfo RelatedPRI_1 = default, /*optional */PlayerReplicationInfo RelatedPRI_2 = default, /*optional */Object OptionalObject = default)
+	public virtual /*event */void BroadcastLocalizedTeamMessage(int TeamIndex, Core.ClassT<LocalMessage> InMessageClass, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
+		var Switch = _Switch ?? default;
+		var RelatedPRI_1 = _RelatedPRI_1 ?? default;
+		var RelatedPRI_2 = _RelatedPRI_2 ?? default;
+		var OptionalObject = _OptionalObject ?? default;
 		WorldInfo.Game.BroadcastLocalizedTeam(TeamIndex, this, InMessageClass, Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject);
 	}
 	
@@ -1337,11 +1345,11 @@ public partial class Actor : Object/*
 		bScriptInitialized = true;
 		if(InitialState != "None")
 		{
-			GotoState(InitialState, default(name), default(bool), default(bool));		
+			GotoState(InitialState, default, default, default);		
 		}
 		else
 		{
-			GotoState("Auto", default(name), default(bool), default(bool));
+			GotoState("Auto", default, default, default);
 		}
 	}
 	
@@ -1360,12 +1368,14 @@ public partial class Actor : Object/*
 		return bProjTarget || bBlockActors;
 	}
 	
-	public virtual /*simulated function */bool HurtRadius(float BaseDamage, float DamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, /*optional */Actor IgnoredActor = default, /*optional */Controller InstigatedByController = default, /*optional */bool bDoFullDamage = default)
+	public virtual /*simulated function */bool HurtRadius(float BaseDamage, float DamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, /*optional */Actor? _IgnoredActor = default, /*optional */Controller? _InstigatedByController = default, /*optional */bool? _bDoFullDamage = default)
 	{
 		/*local */Actor Victim = default;
 		/*local */bool bCausedDamage = default;
 	
-		InstigatedByController = ((Instigator != default) ? Instigator.Controller : default);	
+		var IgnoredActor = _IgnoredActor ?? default;
+		var InstigatedByController = _InstigatedByController ?? ((Instigator != default) ? Instigator.Controller : default);
+		var bDoFullDamage = _bDoFullDamage ?? default;
 		if(bHurtEntry)
 		{
 			return false;
@@ -1373,8 +1383,8 @@ public partial class Actor : Object/*
 		bHurtEntry = true;
 		bCausedDamage = false;
 		
-		// foreach VisibleCollidingActors(ClassT<Actor>(), ref/*probably?*/ Victim, DamageRadius, HurtOrigin, default(bool))
-		using var e62 = VisibleCollidingActors(ClassT<Actor>(), DamageRadius, HurtOrigin, default(bool)).GetEnumerator();
+		// foreach VisibleCollidingActors(ClassT<Actor>(), ref/*probably?*/ Victim, DamageRadius, HurtOrigin, default)
+		using var e62 = VisibleCollidingActors(ClassT<Actor>(), DamageRadius, HurtOrigin, default).GetEnumerator();
 		while(e62.MoveNext() && (Victim = (Actor)e62.Current) == Victim)
 		{
 			if(((!Victim.bWorldGeometry && Victim != this) && Victim != IgnoredActor) && Victim.bProjTarget || ((Victim) as NavigationPoint) == default)
@@ -1395,14 +1405,16 @@ public partial class Actor : Object/*
 	
 	}
 	
-	public delegate void TakeDamage_del(int DamageAmount, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default, /*optional */Actor DamageCauser = default);
+	public delegate void TakeDamage_del(int DamageAmount, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default);
 	public virtual TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? Actor_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public virtual TakeDamage_del global_TakeDamage => Actor_TakeDamage;
-	public /*event */void Actor_TakeDamage(int DamageAmount, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default, /*optional */Actor DamageCauser = default)
+	public /*event */void Actor_TakeDamage(int DamageAmount, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
 		/*local */int Idx = default;
 		/*local */SeqEvent_TakeDamage dmgEvent = default;
 	
+		var HitInfo = _HitInfo ?? default;
+		var DamageCauser = _DamageCauser ?? default;
 		Idx = 0;
 		J0x09:{}
 		if(Idx < GeneratedEvents.Length)
@@ -1443,7 +1455,7 @@ public partial class Actor : Object/*
 		}
 		if(DamageScale > 0.0f)
 		{
-			TakeDamage(((int)(DamageScale * BaseDamage)), InstigatedBy, Location - ((0.50f * (ColHeight + ColRadius)) * Dir), (DamageScale * Momentum) * Dir, DamageType, default(Actor.TraceHitInfo), DamageCauser);
+			TakeDamage(((int)(DamageScale * BaseDamage)), InstigatedBy, Location - ((0.50f * (ColHeight + ColRadius)) * Dir), (DamageScale * Momentum) * Dir, DamageType, default, DamageCauser);
 		}
 	}
 	
@@ -1498,7 +1510,7 @@ public partial class Actor : Object/*
 		using var e6 = LocalPlayerControllers(ClassT<PlayerController>()).GetEnumerator();
 		while(e6.MoveNext() && (PC = (PlayerController)e6.Current) == PC)
 		{
-			PC.ConsoleCommand("PlayersOnly", default(bool));		
+			PC.ConsoleCommand("PlayersOnly", default);		
 			return;		
 		}	
 	}
@@ -1525,7 +1537,7 @@ public partial class Actor : Object/*
 		/*local */float Radius = default, Height = default;
 	
 		GetBoundingCylinder(ref/*probably?*/ Radius, ref/*probably?*/ Height);
-		if(Trace(ref/*probably?*/ out_CamLoc, ref/*probably?*/ HitNormal, Location - ((((Vector)(out_CamRot)) * Radius) * ((float)(20))), Location, false, default(Object.Vector), ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, default(int)) == default)
+		if(Trace(ref/*probably?*/ out_CamLoc, ref/*probably?*/ HitNormal, Location - ((((Vector)(out_CamRot)) * Radius) * ((float)(20))), Location, false, default, ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, default) == default)
 		{
 			out_CamLoc = Location - ((((Vector)(out_CamRot)) * Radius) * ((float)(20)));		
 		}
@@ -1540,12 +1552,12 @@ public partial class Actor : Object/*
 	{
 		/*local */int pos = default;
 	
-		pos = InStr(FullName, ".", default(bool));
+		pos = InStr(FullName, ".", default);
 		J0x11:{}
 		if(pos != -1)
 		{
 			FullName = Right(FullName, (Len(FullName) - pos) - 1);
-			pos = InStr(FullName, ".", default(bool));
+			pos = InStr(FullName, ".", default);
 			goto J0x11;
 		}
 		return FullName;
@@ -1563,20 +1575,23 @@ public partial class Actor : Object/*
 	
 		Input = Text;
 		Text = "";
-		I = InStr(Input, Replace, default(bool));
+		I = InStr(Input, Replace, default);
 		J0x26:{}
 		if(I != -1)
 		{
 			Text = (Text + Left(Input, I)) + With;
-			Input = Mid(Input, I + Len(Replace), default(int));
-			I = InStr(Input, Replace, default(bool));
+			Input = Mid(Input, I + Len(Replace), default);
+			I = InStr(Input, Replace, default);
 			goto J0x26;
 		}
 		Text = Text + Input;
 	}
 	
-	public /*function */static string GetLocalString(/*optional */int Switch = default, /*optional */PlayerReplicationInfo RelatedPRI_1 = default, /*optional */PlayerReplicationInfo RelatedPRI_2 = default)
+	public /*function */static string GetLocalString(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default)
 	{
+		var Switch = _Switch ?? default;
+		var RelatedPRI_1 = _RelatedPRI_1 ?? default;
+		var RelatedPRI_2 = _RelatedPRI_2 ?? default;
 		return "";
 	}
 	
@@ -1607,7 +1622,7 @@ public partial class Actor : Object/*
 	
 		Canvas = HUD.Canvas;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.SetDrawColor(255, 0, 0, (byte)default(byte));
+		Canvas.SetDrawColor(255, 0, 0, (byte)default);
 		T = GetDebugName();
 		if(bDeleteMe)
 		{
@@ -1615,11 +1630,11 @@ public partial class Actor : Object/*
 		}
 		if(T != "")
 		{
-			Canvas.DrawText(T, false, default(float), default(float));
+			Canvas.DrawText(T, false, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 		}
-		Canvas.SetDrawColor(255, 255, 255, (byte)default(byte));
+		Canvas.SetDrawColor(255, 255, 255, (byte)default);
 		if(HUD.ShouldDisplayDebug("net"))
 		{
 			if(((int)WorldInfo.NetMode) != ((int)WorldInfo.ENetMode.NM_Standalone/*0*/))
@@ -1629,12 +1644,12 @@ public partial class Actor : Object/*
 				{
 					T = T + " " + "Tear Off";
 				}
-				Canvas.DrawText(T, false, default(float), default(float));
+				Canvas.DrawText(T, false, default, default);
 				out_YPos += out_YL;
 				Canvas.SetPos(4.0f, out_YPos);
 			}
 		}
-		Canvas.DrawText((("Location:" + " " + ((Location)).ToString()) + " " + "Rotation:") + " " + ((Rotation)).ToString(), false, default(float), default(float));
+		Canvas.DrawText((("Location:" + " " + ((Location)).ToString()) + " " + "Rotation:") + " " + ((Rotation)).ToString(), false, default, default);
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
 		if(HUD.ShouldDisplayDebug("Physics"))
@@ -1644,16 +1659,16 @@ public partial class Actor : Object/*
 			{
 				T = T + " - will bounce";
 			}
-			Canvas.DrawText(T, false, default(float), default(float));
+			Canvas.DrawText(T, false, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			Canvas.DrawText((((((((("bHardAttach:" + " " + ((bHardAttach)).ToString()) + " " + "RelativeLoc:") + " " + ((RelativeLocation)).ToString()) + " " + "RelativeRot:") + " " + ((RelativeRotation)).ToString()) + " " + "SkelComp:") + " " + ((BaseSkelComponent)).ToString()) + " " + "Bone:") + " " + ((BaseBoneName)).ToString(), false, default(float), default(float));
+			Canvas.DrawText((((((((("bHardAttach:" + " " + ((bHardAttach)).ToString()) + " " + "RelativeLoc:") + " " + ((RelativeLocation)).ToString()) + " " + "RelativeRot:") + " " + ((RelativeRotation)).ToString()) + " " + "SkelComp:") + " " + ((BaseSkelComponent)).ToString()) + " " + "Bone:") + " " + ((BaseBoneName)).ToString(), false, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			Canvas.DrawText((((("Velocity:" + " " + ((Velocity)).ToString()) + " " + "Speed:") + " " + ((VSize(Velocity))).ToString()) + " " + "Speed2D:") + " " + ((VSize2D(Velocity))).ToString(), false, default(float), default(float));
+			Canvas.DrawText((((("Velocity:" + " " + ((Velocity)).ToString()) + " " + "Speed:") + " " + ((VSize(Velocity))).ToString()) + " " + "Speed2D:") + " " + ((VSize2D(Velocity))).ToString(), false, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			Canvas.DrawText("Acceleration:" + " " + ((Acceleration)).ToString(), false, default(float), default(float));
+			Canvas.DrawText("Acceleration:" + " " + ((Acceleration)).ToString(), false, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 		}
@@ -1661,13 +1676,13 @@ public partial class Actor : Object/*
 		{
 			Canvas.DrawColor.B = 0;
 			GetBoundingCylinder(ref/*probably?*/ MyRadius, ref/*probably?*/ MyHeight);
-			Canvas.DrawText((("Collision Radius:" + " " + ((MyRadius)).ToString()) + " " + "Height:") + " " + ((MyHeight)).ToString(), default(bool), default(float), default(float));
+			Canvas.DrawText((("Collision Radius:" + " " + ((MyRadius)).ToString()) + " " + "Height:") + " " + ((MyHeight)).ToString(), default, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			Canvas.DrawText((((("Collides with Actors:" + " " + ((bCollideActors)).ToString()) + " " + " world:") + " " + ((bCollideWorld)).ToString()) + " " + "proj. target:") + " " + ((bProjTarget)).ToString(), default(bool), default(float), default(float));
+			Canvas.DrawText((((("Collides with Actors:" + " " + ((bCollideActors)).ToString()) + " " + " world:") + " " + ((bCollideWorld)).ToString()) + " " + "proj. target:") + " " + ((bProjTarget)).ToString(), default, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			Canvas.DrawText("Blocks Actors:" + " " + ((bBlockActors)).ToString(), default(bool), default(float), default(float));
+			Canvas.DrawText("Blocks Actors:" + " " + ((bBlockActors)).ToString(), default, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 			T = "Touching ";
@@ -1682,15 +1697,15 @@ public partial class Actor : Object/*
 			{
 				T = "Touching nothing";
 			}
-			Canvas.DrawText(T, false, default(float), default(float));
+			Canvas.DrawText(T, false, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 		}
 		Canvas.DrawColor.B = 255;
-		Canvas.DrawText(" STATE:" + " " + ((GetStateName())).ToString(), false, default(float), default(float));
+		Canvas.DrawText(" STATE:" + " " + ((GetStateName())).ToString(), false, default, default);
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText(((" Instigator:" + " " + (GetItemName(((Instigator)).ToString()))) + " " + "Owner:") + " " + (GetItemName(((Owner)).ToString())), default(bool), default(float), default(float));
+		Canvas.DrawText(((" Instigator:" + " " + (GetItemName(((Instigator)).ToString()))) + " " + "Owner:") + " " + (GetItemName(((Owner)).ToString())), default, default, default);
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
 	}
@@ -1803,10 +1818,11 @@ public partial class Actor : Object/*
 		return false;
 	}
 	
-	public virtual /*simulated function */bool CheckMaxEffectDistance(PlayerController P, Object.Vector SpawnLocation, /*optional */float CullDistance = default)
+	public virtual /*simulated function */bool CheckMaxEffectDistance(PlayerController P, Object.Vector SpawnLocation, /*optional */float? _CullDistance = default)
 	{
 		/*local */float Dist = default;
 	
+		var CullDistance = _CullDistance ?? default;
 		if(P.ViewTarget == default)
 		{
 			return true;
@@ -1823,11 +1839,12 @@ public partial class Actor : Object/*
 		return !P.BeyondFogDistance(P.ViewTarget.Location, SpawnLocation);
 	}
 	
-	public virtual /*simulated function */bool EffectIsRelevant(Object.Vector SpawnLocation, bool bForceDedicated, /*optional */float CullDistance = default)
+	public virtual /*simulated function */bool EffectIsRelevant(Object.Vector SpawnLocation, bool bForceDedicated, /*optional */float? _CullDistance = default)
 	{
 		/*local */PlayerController P = default;
 		/*local */bool bResult = default;
 	
+		var CullDistance = _CullDistance ?? default;
 		if(((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/))
 		{
 			return bForceDedicated;
@@ -1889,11 +1906,13 @@ public partial class Actor : Object/*
 		return WorldInfo.TimeSeconds - Time;
 	}
 	
-	public virtual /*simulated function */bool TriggerEventClass(Core.ClassT<SequenceEvent> InEventClass, Actor InInstigator, /*optional */int ActivateIndex/* = default*/, /*optional */bool bTest/* = default*/, /*optional */ref array<SequenceEvent> ActivatedEvents/* = default*/)
+	public virtual /*simulated function */bool TriggerEventClass(Core.ClassT<SequenceEvent> InEventClass, Actor InInstigator, /*optional */int? _ActivateIndex/* = default*/, /*optional */bool? _bTest/* = default*/, /*optional */ref array<SequenceEvent> ActivatedEvents/* = default*/)
 	{
 		/*local */array<int> ActivateIndices = default;
 	
-		ActivateIndex = -1;		
+		var ActivateIndex = _ActivateIndex ?? -1;
+		var bTest = _bTest ?? default;
+		//var ActivatedEvents = _ActivatedEvents ?? default;
 		if(ActivateIndex >= 0)
 		{
 			ActivateIndices[0] = ActivateIndex;
@@ -1901,14 +1920,17 @@ public partial class Actor : Object/*
 		return ActivateEventClass(InEventClass, InInstigator, ref/*probably?*/ GeneratedEvents, ref/*probably?*/ ActivateIndices, bTest, ref/*probably?*/ ActivatedEvents);
 	}
 	
-	public virtual /*final simulated function */bool ActivateEventClass(Core.ClassT<SequenceEvent> InClass, Actor InInstigator, /*const */ref array<SequenceEvent> EventList, /*const optional */ref array<int> ActivateIndices/* = default*/, /*optional */bool bTest/* = default*/, /*optional */ref array<SequenceEvent> ActivatedEvents/* = default*/)
+	public virtual /*final simulated function */bool ActivateEventClass(Core.ClassT<SequenceEvent> InClass, Actor InInstigator, /*const */ref array<SequenceEvent> EventList, /*const optional */ref array<int> ActivateIndices/* = default*/, /*optional */bool? _bTest/* = default*/, /*optional */ref array<SequenceEvent> ActivatedEvents/* = default*/)
 	{
 		/*local */SequenceEvent Evt = default;
 	
+		//var ActivateIndices = _ActivateIndices ?? default;
+		var bTest = _bTest ?? default;
+		//var ActivatedEvents = _ActivatedEvents ?? default;
 		ActivatedEvents.Length = 0;
 		using var v = EventList.GetEnumerator();while(v.MoveNext() && (Evt = (SequenceEvent)v.Current) == Evt)
 		{
-			if(ClassIsChildOf(Evt.Class, InClass) && Evt.CheckActivate(this, InInstigator, bTest, ref/*probably?*/ ActivateIndices, default(bool)))
+			if(ClassIsChildOf(Evt.Class, InClass) && Evt.CheckActivate(this, InInstigator, bTest, ref/*probably?*/ ActivateIndices, default))
 			{
 				ActivatedEvents.AddItem(Evt);
 			}		
@@ -1916,11 +1938,13 @@ public partial class Actor : Object/*
 		return ActivatedEvents.Length > 0;
 	}
 	
-	public virtual /*final simulated function */bool FindEventsOfClass(Core.ClassT<SequenceEvent> EventClass, /*optional */ref array<SequenceEvent> out_EventList/* = default*/, /*optional */bool bIncludeDisabled = default)
+	public virtual /*final simulated function */bool FindEventsOfClass(Core.ClassT<SequenceEvent> EventClass, /*optional */ref array<SequenceEvent> out_EventList/* = default*/, /*optional */bool? _bIncludeDisabled = default)
 	{
 		/*local */SequenceEvent Evt = default;
 		/*local */bool bFoundEvent = default;
 	
+		//var out_EventList = _out_EventList ?? default;
+		var bIncludeDisabled = _bIncludeDisabled ?? default;
 		using var v = GeneratedEvents.GetEnumerator();while(v.MoveNext() && (Evt = (SequenceEvent)v.Current) == Evt)
 		{
 			if((((Evt != default) && Evt.bEnabled || bIncludeDisabled) && ClassIsChildOf(Evt.Class, EventClass)) && (Evt.MaxTriggerCount == 0) || Evt.MaxTriggerCount > Evt.TriggerCount)
@@ -1932,10 +1956,12 @@ public partial class Actor : Object/*
 		return bFoundEvent;
 	}
 	
-	public virtual /*final simulated function */void ClearLatentAction(Core.ClassT<SeqAct_Latent> actionClass, /*optional */bool bAborted = default, /*optional */SeqAct_Latent exceptionAction = default)
+	public virtual /*final simulated function */void ClearLatentAction(Core.ClassT<SeqAct_Latent> actionClass, /*optional */bool? _bAborted = default, /*optional */SeqAct_Latent? _exceptionAction = default)
 	{
 		/*local */int Idx = default;
 	
+		var bAborted = _bAborted ?? default;
+		var exceptionAction = _exceptionAction ?? default;
 		Idx = 0;
 		J0x09:{}
 		if(Idx < LatentActions.Length)
@@ -1994,7 +2020,7 @@ public partial class Actor : Object/*
 	public virtual /*simulated event */void ShutDown()
 	{
 		SetPhysics(Actor.EPhysics.PHYS_None/*0*/);
-		SetCollision(false, false, default(bool));
+		SetCollision(false, false, default);
 		if(CollisionComponent != default)
 		{
 			CollisionComponent.SetBlockRigidBody(false);
@@ -2027,7 +2053,7 @@ public partial class Actor : Object/*
 				InstigatorController = InstigatorPawn.Controller;
 			}
 		}
-		TakeDamage(((int)(Action.DamageAmount)), InstigatorController, Location, ((Vector)(Rotation)) * -Action.Momentum, Action.DamageType, default(Actor.TraceHitInfo), default(Actor));
+		TakeDamage(((int)(Action.DamageAmount)), InstigatorController, Location, ((Vector)(Rotation)) * -Action.Momentum, Action.DamageType, default, default);
 	}
 	
 	public virtual /*function */void OnHealDamage(SeqAct_HealDamage Action)
@@ -2174,7 +2200,7 @@ public partial class Actor : Object/*
 			{
 				if(Action.bDetach)
 				{
-					Attachment.SetBase(default(Actor), default(Object.Vector), default(SkeletalMeshComponent), default(name));
+					Attachment.SetBase(default, default, default, default);
 					goto J0x141;
 				}
 				C = ((this) as Controller);
@@ -2196,13 +2222,13 @@ public partial class Actor : Object/*
 		/*local */bool bOldCollideActors = default, bOldBlockActors = default;
 		/*local */Object.Vector X = default, Y = default, Z = default;
 	
-		Attachment.SetBase(default(Actor), default(Object.Vector), default(SkeletalMeshComponent), default(name));
+		Attachment.SetBase(default, default, default, default);
 		Attachment.SetHardAttach(Action.bHardAttach);
 		if(Action.bUseRelativeOffset || Action.bUseRelativeRotation)
 		{
 			bOldCollideActors = Attachment.bCollideActors;
 			bOldBlockActors = Attachment.bBlockActors;
-			Attachment.SetCollision(false, false, default(bool));
+			Attachment.SetCollision(false, false, default);
 			if(Action.bUseRelativeRotation)
 			{
 				Attachment.SetRotation(Rotation + Action.RelativeRotation);
@@ -2212,9 +2238,9 @@ public partial class Actor : Object/*
 				GetAxes(Rotation, ref/*probably?*/ X, ref/*probably?*/ Y, ref/*probably?*/ Z);
 				Attachment.SetLocation(((Location + (Action.RelativeOffset.X * X)) + (Action.RelativeOffset.Y * Y)) + (Action.RelativeOffset.Z * Z));
 			}
-			Attachment.SetCollision(bOldCollideActors, bOldBlockActors, default(bool));
+			Attachment.SetCollision(bOldCollideActors, bOldBlockActors, default);
 		}
-		Attachment.SetBase(this, default(Object.Vector), default(SkeletalMeshComponent), default(name));
+		Attachment.SetBase(this, default, default, default);
 	}
 	
 	public virtual /*simulated function */void OnMakeNoise(SeqAct_MakeNoise Action)
@@ -2335,7 +2361,7 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execGetTargetLocation(FFrame&, void* const)
-	public virtual /*native simulated function */Object.Vector GetTargetLocation(/*optional */Actor RequestedBy = default, /*optional */bool bRequestAlternateLoc = default)
+	public virtual /*native simulated function */Object.Vector GetTargetLocation(/*optional */Actor? _RequestedBy = default, /*optional */bool? _bRequestAlternateLoc = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

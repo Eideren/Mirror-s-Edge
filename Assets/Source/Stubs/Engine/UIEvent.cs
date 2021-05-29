@@ -29,21 +29,21 @@ public partial class UIEvent : SequenceEvent/*
 	}
 	
 	// Export UUIEvent::execCanBeActivated(FFrame&, void* const)
-	public virtual /*native final function */bool CanBeActivated(int ControllerIndex, UIScreenObject InEventOwner, /*optional */Object InEventActivator/* = default*/, /*optional */bool bActivateImmediately/* = default*/, /*const optional */ref array<int> IndicesToActivate/* = default*/)
+	public virtual /*native final function */bool CanBeActivated(int ControllerIndex, UIScreenObject InEventOwner, /*optional */Object? _InEventActivator/* = default*/, /*optional */bool? _bActivateImmediately/* = default*/, /*const optional */ref array<int> IndicesToActivate/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIEvent::execConditionalActivateUIEvent(FFrame&, void* const)
-	public virtual /*native final function */bool ConditionalActivateUIEvent(int ControllerIndex, UIScreenObject InEventOwner, /*optional */Object InEventActivator/* = default*/, /*optional */bool bActivateImmediately/* = default*/, /*const optional */ref array<int> IndicesToActivate/* = default*/)
+	public virtual /*native final function */bool ConditionalActivateUIEvent(int ControllerIndex, UIScreenObject InEventOwner, /*optional */Object? _InEventActivator/* = default*/, /*optional */bool? _bActivateImmediately/* = default*/, /*const optional */ref array<int> IndicesToActivate/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIEvent::execActivateUIEvent(FFrame&, void* const)
-	public virtual /*native final function */bool ActivateUIEvent(int ControllerIndex, UIScreenObject InEventOwner, /*optional */Object InEventActivator/* = default*/, /*optional */bool bActivateImmediately/* = default*/, /*const optional */ref array<int> IndicesToActivate/* = default*/)
+	public virtual /*native final function */bool ActivateUIEvent(int ControllerIndex, UIScreenObject InEventOwner, /*optional */Object? _InEventActivator/* = default*/, /*optional */bool? _bActivateImmediately/* = default*/, /*const optional */ref array<int> IndicesToActivate/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -55,7 +55,7 @@ public partial class UIEvent : SequenceEvent/*
 		return default;
 	}
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
 	
 		return default;

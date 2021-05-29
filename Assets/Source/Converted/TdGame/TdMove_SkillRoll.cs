@@ -18,7 +18,7 @@ public partial class TdMove_SkillRoll : TdPhysicsMove/*
 	{
 		base.StartMove();
 		PawnOwner.UseRootMotion(true);
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("fallinglandroll")), 1.0f, 0.20f, 0.20f, true, default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("fallinglandroll")), 1.0f, 0.20f, 0.20f, true, default);
 		PawnOwner.SetIgnoreMoveInput(-1.0f);
 		PawnOwner.SetIgnoreLookInput(-1.0f);
 		ResetCameraLook(0.20f);
@@ -54,7 +54,7 @@ public partial class TdMove_SkillRoll : TdPhysicsMove/*
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 	}
 	
 	public override /*simulated function */void OnCeaseRelevantRootMotion(AnimNodeSequence SeqNode)
@@ -63,7 +63,7 @@ public partial class TdMove_SkillRoll : TdPhysicsMove/*
 		PawnOwner.StopIgnoreMoveInput();
 		PawnOwner.Acceleration = Normal(PawnOwner.Velocity);
 		PawnOwner.UseRootMotion(false);
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 	}
 	
 	public override /*simulated function */bool CanUseLookAtHint()

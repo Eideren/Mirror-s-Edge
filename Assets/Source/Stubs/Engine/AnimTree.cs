@@ -72,7 +72,7 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	}
 	
 	// Export UAnimTree::execSetAnimGroupForNode(FFrame&, void* const)
-	public virtual /*native final function */bool SetAnimGroupForNode(AnimNodeSequence SeqNode, name GroupName, /*optional */bool bCreateIfNotFound = default)
+	public virtual /*native final function */bool SetAnimGroupForNode(AnimNodeSequence SeqNode, name GroupName, /*optional */bool? _bCreateIfNotFound = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

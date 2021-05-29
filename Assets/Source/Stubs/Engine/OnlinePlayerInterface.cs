@@ -29,9 +29,9 @@ public interface OnlinePlayerInterface : Interface/*
 	
 	public delegate void OnFriendsChange();
 	
-	public /*function */bool ShowLoginUI(/*optional */bool bShowOnlineOnly = default);
+	public /*function */bool ShowLoginUI(/*optional */bool? _bShowOnlineOnly = default);
 	
-	public /*function */bool Login(byte LocalUserNum, string LoginName, string Password, /*optional */bool bWantsLocalOnly = default);
+	public /*function */bool Login(byte LocalUserNum, string LoginName, string Password, /*optional */bool? _bWantsLocalOnly = default);
 	
 	public /*function */bool AutoLogin();
 	
@@ -75,9 +75,9 @@ public interface OnlinePlayerInterface : Interface/*
 	
 	public /*function */bool ShowFriendsUI(byte LocalUserNum);
 	
-	public /*function */void AddLoginChangeDelegate(/*delegate*/OnlinePlayerInterface.OnLoginChange LoginDelegate, /*optional */byte LocalUserNum = default);
+	public /*function */void AddLoginChangeDelegate(/*delegate*/OnlinePlayerInterface.OnLoginChange LoginDelegate, /*optional */byte? _LocalUserNum = default);
 	
-	public /*function */void ClearLoginChangeDelegate(/*delegate*/OnlinePlayerInterface.OnLoginChange LoginDelegate, /*optional */byte LocalUserNum = default);
+	public /*function */void ClearLoginChangeDelegate(/*delegate*/OnlinePlayerInterface.OnLoginChange LoginDelegate, /*optional */byte? _LocalUserNum = default);
 	
 	public /*function */void AddLoginCancelledDelegate(/*delegate*/OnlinePlayerInterface.OnLoginCancelled CancelledDelegate);
 	
@@ -109,7 +109,7 @@ public interface OnlinePlayerInterface : Interface/*
 	
 	public /*function */void ClearWriteProfileSettingsCompleteDelegate(byte LocalUserNum, /*delegate*/OnlinePlayerInterface.OnWriteProfileSettingsComplete WriteProfileSettingsCompleteDelegate);
 	
-	public /*function */bool ReadFriendsList(byte LocalUserNum, /*optional */int Count = default, /*optional */int StartingAt = default);
+	public /*function */bool ReadFriendsList(byte LocalUserNum, /*optional */int? _Count = default, /*optional */int? _StartingAt = default);
 	
 	public delegate void OnReadFriendsComplete(bool bWasSuccessful);
 	
@@ -117,11 +117,11 @@ public interface OnlinePlayerInterface : Interface/*
 	
 	public /*function */void ClearReadFriendsCompleteDelegate(byte LocalUserNum, /*delegate*/OnlinePlayerInterface.OnReadFriendsComplete ReadFriendsCompleteDelegate);
 	
-	public /*function */OnlineSubsystem.EOnlineEnumerationReadState GetFriendsList(byte LocalUserNum, ref array<OnlineSubsystem.OnlineFriend> Friends, /*optional */int Count = default, /*optional */int StartingAt = default);
+	public /*function */OnlineSubsystem.EOnlineEnumerationReadState GetFriendsList(byte LocalUserNum, ref array<OnlineSubsystem.OnlineFriend> Friends, /*optional */int? _Count = default, /*optional */int? _StartingAt = default);
 	
 	public /*function */void SetOnlineStatus(byte LocalUserNum, int StatusId, /*const */ref array<Settings.LocalizedStringSetting> LocalizedStringSettings, /*const */ref array<Settings.SettingsProperty> Properties);
 	
-	public /*function */bool ShowKeyboardUI(byte LocalUserNum, string TitleText, string DescriptionText, /*optional */bool bIsPassword = default, /*optional */bool bShouldValidate = default, /*optional */string DefaultText = default, /*optional */int MaxResultLength = default);
+	public /*function */bool ShowKeyboardUI(byte LocalUserNum, string TitleText, string DescriptionText, /*optional */bool? _bIsPassword = default, /*optional */bool? _bShouldValidate = default, /*optional */string? _DefaultText = default, /*optional */int? _MaxResultLength = default);
 	
 	public /*function */void AddKeyboardInputDoneDelegate(/*delegate*/OnlinePlayerInterface.OnKeyboardInputComplete InputDelegate);
 	
@@ -131,9 +131,9 @@ public interface OnlinePlayerInterface : Interface/*
 	
 	public delegate void OnKeyboardInputComplete(bool bWasSuccessful);
 	
-	public /*function */bool AddFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId NewFriend, /*optional */string Message = default);
+	public /*function */bool AddFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId NewFriend, /*optional */string? _Message = default);
 	
-	public /*function */bool AddFriendByName(byte LocalUserNum, string FriendName, /*optional */string Message = default);
+	public /*function */bool AddFriendByName(byte LocalUserNum, string FriendName, /*optional */string? _Message = default);
 	
 	public delegate void OnAddFriendByNameComplete(bool bWasSuccessful);
 	
@@ -163,9 +163,9 @@ public interface OnlinePlayerInterface : Interface/*
 	
 	public /*function */void ClearSendMessageByUsernameDelegate(byte LocalUserNum, /*delegate*/OnlinePlayerInterface.OnSendMessageByUsername SendMessageDelegate);
 	
-	public /*function */bool SendGameInviteToFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId Friend, /*optional */string Text = default);
+	public /*function */bool SendGameInviteToFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId Friend, /*optional */string? _Text = default);
 	
-	public /*function */bool SendGameInviteToFriends(byte LocalUserNum, array<OnlineSubsystem.UniqueNetId> Friends, /*optional */string Text = default);
+	public /*function */bool SendGameInviteToFriends(byte LocalUserNum, array<OnlineSubsystem.UniqueNetId> Friends, /*optional */string? _Text = default);
 	
 	public delegate void OnReceivedGameInvite(byte LocalUserNum, string InviterName);
 	
@@ -181,7 +181,7 @@ public interface OnlinePlayerInterface : Interface/*
 	
 	public /*function */void ClearJoinFriendGameCompleteDelegate(/*delegate*/OnlinePlayerInterface.OnJoinFriendGameComplete JoinFriendGameCompleteDelegate);
 	
-	public /*function */bool ReadPlayersList(byte LocalUserNum, /*optional */int Count = default, /*optional */int StartingAt = default);
+	public /*function */bool ReadPlayersList(byte LocalUserNum, /*optional */int? _Count = default, /*optional */int? _StartingAt = default);
 	
 	public delegate void OnReadPlayersComplete();
 	
@@ -189,7 +189,7 @@ public interface OnlinePlayerInterface : Interface/*
 	
 	public /*function */void ClearReadPlayersCompleteDelegate(byte LocalUserNum, /*delegate*/OnlinePlayerInterface.OnReadPlayersComplete ReadPlayersCompleteDelegate);
 	
-	public /*function */OnlineSubsystem.EOnlineEnumerationReadState GetPlayersList(byte LocalUserNum, ref array<OnlineSubsystem.OnlinePlayer> Players, /*optional */int Count = default, /*optional */int StartingAt = default);
+	public /*function */OnlineSubsystem.EOnlineEnumerationReadState GetPlayersList(byte LocalUserNum, ref array<OnlineSubsystem.OnlinePlayer> Players, /*optional */int? _Count = default, /*optional */int? _StartingAt = default);
 	
 	public /*function */void GetFriendMessages(byte LocalUserNum, ref array<OnlineSubsystem.OnlineFriendMessage> FriendMessages);
 	

@@ -48,7 +48,7 @@ public partial class PhysicsAssetInstance : Object/*
 	}
 	
 	// Export UPhysicsAssetInstance::execSetNamedBodiesFixed(FFrame&, void* const)
-	public virtual /*native final function */void SetNamedBodiesFixed(bool bNewFixed, array<name> BoneNames, SkeletalMeshComponent SkelMesh, /*optional */bool bSetOtherBodiesToComplement = default)
+	public virtual /*native final function */void SetNamedBodiesFixed(bool bNewFixed, array<name> BoneNames, SkeletalMeshComponent SkelMesh, /*optional */bool? _bSetOtherBodiesToComplement = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -60,7 +60,7 @@ public partial class PhysicsAssetInstance : Object/*
 	}
 	
 	// Export UPhysicsAssetInstance::execSetNamedMotorsAngularPositionDrive(FFrame&, void* const)
-	public virtual /*native final function */void SetNamedMotorsAngularPositionDrive(bool bEnableSwingDrive, bool bEnableTwistDrive, array<name> BoneNames, SkeletalMeshComponent SkelMeshComp, /*optional */bool bSetOtherBodiesToComplement = default)
+	public virtual /*native final function */void SetNamedMotorsAngularPositionDrive(bool bEnableSwingDrive, bool bEnableTwistDrive, array<name> BoneNames, SkeletalMeshComponent SkelMeshComp, /*optional */bool? _bSetOtherBodiesToComplement = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

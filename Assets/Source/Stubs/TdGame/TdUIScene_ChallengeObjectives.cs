@@ -9,7 +9,7 @@ public partial class TdUIScene_ChallengeObjectives : TdUIScene_ObjectivesScene/*
 	
 	}
 	
-	public virtual /*function */void OnFinishedObjectivesList_SubmitSelection(UIList Sender, /*optional */int PlayerIndex = default)
+	public virtual /*function */void OnFinishedObjectivesList_SubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
 	
 	}

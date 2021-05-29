@@ -126,7 +126,7 @@ public partial class TdUIScene_SPLevelRace : TdUIScene_SubMenu/*
 	
 	}
 	
-	public virtual /*function */void StretchList_OnSubmitSelection(UIList Sender, /*optional */int PlayerIndex = default)
+	public virtual /*function */void StretchList_OnSubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
 	
 	}

@@ -119,7 +119,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	
 		OldStretch = ((TdSPTimeTrialGame.ETTStretch)ActiveTTStretch);
 		ActiveTTStretch = ((TdSPTimeTrialGame.ETTStretch)((byte)(Stretch)));
-		TData = CheckpointManager.GetTrackData(Stretch, ChoosePlayerStart(default(Controller), (byte)default(byte)));
+		TData = CheckpointManager.GetTrackData(Stretch, ChoosePlayerStart(default, (byte)default));
 		ActiveTTStretch = ((TdSPTimeTrialGame.ETTStretch)OldStretch);
 		return TData;
 	}
@@ -180,22 +180,22 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	
 		base.PreBeginPlay();
 		AccuireSpectatorPoints();
-		CheckpointManager = Spawn(ClassT<TdPlaceableCheckpointManager>(), this, default(name), default(Object.Vector), default(Object.Rotator), default(Actor), default(bool));
+		CheckpointManager = Spawn(ClassT<TdPlaceableCheckpointManager>(), this, default, default, default, default, default);
 		CheckpointManager.Initialize(ClassT<TdTimerCheckpoint>(), this);
 		if(((((int)ActiveTTStretch) > ((int)TdSPTimeTrialGame.ETTStretch.ETTS_None/*0*/)) && ((int)ActiveTTStretch) < ((int)TdSPTimeTrialGame.ETTStretch.ETTS_Max/*25*/)) && CheckpointManager.CanFindTrack(((int)ActiveTTStretch)))
 		{
 			CheckpointManager.ShowTrack(((int)ActiveTTStretch), true);
 		}
-		CheckpointLookAtHelper = Spawn(ClassT<TdLookAtPointSpawnable>(), this, default(name), default(Object.Vector), default(Object.Rotator), default(Actor), default(bool));
-		GhostManager = Spawn(ClassT<TdGhostManager>(), default(Actor), default(name), default(Object.Vector), default(Object.Rotator), default(Actor), default(bool));
-		TdTTMessageClass = ((DynamicLoadObject("TdTTContent.TdTimeTrialMessage", ClassT<Class>(), default(bool))) as ClassT<TdLocalMessage>);
-		VictoryMessageClass = ((DynamicLoadObject("TdTTContent.TdTTVictoryMessage", ClassT<Class>(), default(bool))) as ClassT<TdVictoryMessage>);
-		TimeMessageClass = ((DynamicLoadObject("TdTTContent.TdTimeMessage", ClassT<Class>(), default(bool))) as ClassT<TdLocalMessage>);
-		TimeFinishMessageClass = ((DynamicLoadObject("TdTTContent.TdFinishlineTimeMessage", ClassT<Class>(), default(bool))) as ClassT<TdLocalMessage>);
+		CheckpointLookAtHelper = Spawn(ClassT<TdLookAtPointSpawnable>(), this, default, default, default, default, default);
+		GhostManager = Spawn(ClassT<TdGhostManager>(), default, default, default, default, default, default);
+		TdTTMessageClass = ((DynamicLoadObject("TdTTContent.TdTimeTrialMessage", ClassT<Class>(), default)) as ClassT<TdLocalMessage>);
+		VictoryMessageClass = ((DynamicLoadObject("TdTTContent.TdTTVictoryMessage", ClassT<Class>(), default)) as ClassT<TdVictoryMessage>);
+		TimeMessageClass = ((DynamicLoadObject("TdTTContent.TdTimeMessage", ClassT<Class>(), default)) as ClassT<TdLocalMessage>);
+		TimeFinishMessageClass = ((DynamicLoadObject("TdTTContent.TdFinishlineTimeMessage", ClassT<Class>(), default)) as ClassT<TdLocalMessage>);
 		DataStoreManager = UIInteraction.GetDataStoreClient();
 		if((TimeTrialData == default) && DataStoreManager != default)
 		{
-			TimeTrialData = ((DataStoreManager.FindDataStore("TdTimeTrialData", default(LocalPlayer))) as UIDataStore_TdTimeTrialData);
+			TimeTrialData = ((DataStoreManager.FindDataStore("TdTimeTrialData", default)) as UIDataStore_TdTimeTrialData);
 		}
 	}
 	
@@ -213,7 +213,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	{
 		/*Transformed 'base.' to specific call*/GameInfo_PostLogin(NewPlayer);
 		RacingPlayer = ((NewPlayer) as TdPlayerController);
-		RacingPlayer.SetViewTarget(GetFirstSpectatorPoint(), default(Camera.ViewTargetTransitionParams));
+		RacingPlayer.SetViewTarget(GetFirstSpectatorPoint(), default);
 		RacingPlayer.ClientOpenScene("TdStartRace");
 	}
 	
@@ -231,12 +231,13 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	
 	}
 	
-	public override /*function */PlayerStart ChoosePlayerStart(Controller Player, /*optional */byte InTeam = default)
+	public override /*function */PlayerStart ChoosePlayerStart(Controller Player, /*optional */byte? _InTeam = default)
 	{
 		/*local */PlayerStart CurrentStart = default;
 		/*local */TdTimeTrialStart BestTTStart = default;
 		/*local */int Idx = default;
 	
+		var InTeam = _InTeam ?? default;
 		Idx = 0;
 		J0x08:{}
 		if(Idx < StartPoints.Length)
@@ -262,11 +263,12 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		return CurrentStart;
 	}
 	
-	public virtual /*function */void ResetPlayer(TdPlayerPawn PawnToReset, /*optional */NavigationPoint StartSpot = default)
+	public virtual /*function */void ResetPlayer(TdPlayerPawn PawnToReset, /*optional */NavigationPoint? _StartSpot = default)
 	{
 		/*local */NavigationPoint PlayerStartPoint = default;
 		/*local */Object.Rotator ControllerRotation = default;
 	
+		var StartSpot = _StartSpot ?? default;
 		PawnToReset.LastResetTimeStamp = WorldInfo.TimeSeconds;
 		if(StartSpot == default)
 		{
@@ -277,7 +279,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 			PlayerStartPoint = StartSpot;
 		}
 		PawnToReset.SetLocation(PlayerStartPoint.Location);
-		if((NextCheckPoint != default) && !IsInState("RaceCountDown", default(bool)))
+		if((NextCheckPoint != default) && !IsInState("RaceCountDown", default))
 		{
 			ControllerRotation = ((Rotator)(NextCheckPoint.Location - PawnToReset.Location));
 			ControllerRotation.Pitch = Clamp(ControllerRotation.Pitch, -8192, 8192);
@@ -294,8 +296,8 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 			PawnToReset.SetRotation(ControllerRotation);
 			PawnToReset.Controller.SetRotation(ControllerRotation);
 		}
-		PawnToReset.GotoState("None", default(name), default(bool), default(bool));
-		PawnToReset.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+		PawnToReset.GotoState("None", default, default, default);
+		PawnToReset.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 		PawnToReset.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, 0.0f);
 		PawnToReset.Velocity = vect(0.0f, 0.0f, 0.0f);
 		PawnToReset.Acceleration = vect(0.0f, 0.0f, 0.0f);
@@ -320,9 +322,9 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		/*local */TdPlayerPawn KilledPlayerPawn = default;
 	
 		KilledPlayerPawn = ((KilledPawn) as TdPlayerPawn);
-		ResetPlayer(KilledPlayerPawn, default(NavigationPoint));
+		ResetPlayer(KilledPlayerPawn, default);
 		((RacingPlayer.myHUD) as TdHUD).Reset();
-		((RacingPlayer.myHUD) as TdHUD).TriggerCustomColorFadeIn(1.50f, MakeLinearColor(0.0f, 0.0f, 0.0f, 1.0f), default(bool), default(/*delegate*/TdHUD.OnMaxFade), true);
+		((RacingPlayer.myHUD) as TdHUD).TriggerCustomColorFadeIn(1.50f, MakeLinearColor(0.0f, 0.0f, 0.0f, 1.0f), default, default, true);
 		return true;
 	}
 	
@@ -356,7 +358,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	
 	public virtual /*exec function */void StartRaceCountDown()
 	{
-		GotoState("RaceCountDown", default(name), default(bool), default(bool));
+		GotoState("RaceCountDown", default, default, default);
 	}
 	
 	public delegate void PrepareRace_del();
@@ -422,7 +424,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 			J0x50:{}
 			if(I < Events.Length)
 			{
-				((Events[I]) as SeqEvent_LevelLoaded).CheckActivate(WorldInfo, default(Actor), default(bool), ref/*probably?*/ /*null*/NullRef.array_int_, default(bool));
+				((Events[I]) as SeqEvent_LevelLoaded).CheckActivate(WorldInfo, default, default, ref/*probably?*/ /*null*/NullRef.array_int_, default);
 				++ I;
 				goto J0x50;
 			}
@@ -438,7 +440,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	
 		bOldInitailRaceSpawn = bOldInitailRaceSpawn;
 		bInitailRaceSpawn = true;
-		CurrentTackData = CheckpointManager.GetTrackData(((int)Stretch), ChoosePlayerStart(default(Controller), (byte)default(byte)));
+		CurrentTackData = CheckpointManager.GetTrackData(((int)Stretch), ChoosePlayerStart(default, (byte)default));
 		bInitailRaceSpawn = bOldInitailRaceSpawn;
 		NewTimeData.IntermediateTimes.Insert(0, CurrentTackData.IntermediateDistance.Length);
 		NewTimeData.TotalTime = TimeToBeat;
@@ -525,7 +527,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		/*local */int Idx = default;
 	
 		bInitailRaceSpawn = true;
-		CurrentTackData = CheckpointManager.GetTrackData(Stretch, ChoosePlayerStart(default(Controller), (byte)default(byte)));
+		CurrentTackData = CheckpointManager.GetTrackData(Stretch, ChoosePlayerStart(default, (byte)default));
 		bInitailRaceSpawn = false;
 		TargetTTData = TimeTrialData.GetTargetRaceData();
 		CreateTimeData(CurrentTackData, TargetTTData.TotalTime, TargetTTData.IntermediateTimes, ref/*probably?*/ NewTimeData);
@@ -555,12 +557,12 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 			}
 			else
 			{
-				OnOnlinePostProcessDone(default(TdTTResult));
+				OnOnlinePostProcessDone(default);
 			}		
 		}
 		else
 		{
-			OnAllPostProcessDone(default(TdTTResult));
+			OnAllPostProcessDone(default);
 		}
 	}
 	
@@ -667,7 +669,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		J0x38:{}
 		if(Index < TimeTrialEvents.Length)
 		{
-			((TimeTrialEvents[Index]) as SequenceEvent).CheckActivate(this, this, default(bool), ref/*probably?*/ /*null*/NullRef.array_int_, default(bool));
+			((TimeTrialEvents[Index]) as SequenceEvent).CheckActivate(this, this, default, ref/*probably?*/ /*null*/NullRef.array_int_, default);
 			++ Index;
 			goto J0x38;
 		}
@@ -795,7 +797,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		bDelayPauseUntilRaceStarted = (byte)0;
 		if(!CheckpointManager.ActivateTrack(((int)ActiveTTStretch)))
 		{
-			GotoState("PreRace", default(name), default(bool), default(bool));
+			GotoState("PreRace", default, default, default);
 			return;
 		}
 		NumPassedCheckPoints = 0;
@@ -803,7 +805,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		NumCheckPoints = CheckpointManager.GetTrackSize();
 		LastCheckPoint = default;
 		NextCheckPoint = CheckpointManager.GetFirstCheckpoint();
-		NextCheckPoint.Show(true, ((int)ActiveTTStretch), default(bool));
+		NextCheckPoint.Show(true, ((int)ActiveTTStretch), default);
 		RaceStartTimeStamp = -1.0f;
 		RaceEndTimeStamp = -1.0f;
 		CurrentTimeData = ZeroTimeData;
@@ -815,7 +817,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 			bRestartLevel = DefaultAs<GameInfo>().bRestartLevel;
 		}
 		bInitailRaceSpawn = true;
-		StartSpot = ChoosePlayerStart(default(Controller), (byte)default(byte));
+		StartSpot = ChoosePlayerStart(default, (byte)default);
 		if(!IsSpectatingGhost())
 		{
 			ResetPlayer(RacingPawn, StartSpot);
@@ -825,11 +827,11 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		}
 		else
 		{
-			RacingPlayer.SetViewTarget(GetFirstSpectatorPoint(), default(Camera.ViewTargetTransitionParams));
+			RacingPlayer.SetViewTarget(GetFirstSpectatorPoint(), default);
 		}
 		CurrentTackData = CheckpointManager.GetTrackData(((int)ActiveTTStretch), StartSpot);
 		bInitailRaceSpawn = false;
-		SetTimer(1.0f, true, "CountDownTimer", default(Object));
+		SetTimer(1.0f, true, "CountDownTimer", default);
 		RaceCountDownTimer = RaceCountDownTime + 1;
 		SendKismetEvent(ClassT<SeqEvt_TTRaceCountDownStarted>());
 		RacingPawn.UnCrouch();
@@ -843,8 +845,8 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	
 	protected /*exec function */void TdSPTimeTrialGame_RaceCountDown_PrepareRace()// state function
 	{
-		GotoState("PreRace", default(name), default(bool), default(bool));
-		ClearTimer("CountDownTimer", default(Object));
+		GotoState("PreRace", default, default, default);
+		ClearTimer("CountDownTimer", default);
 		global_PrepareRace();
 	}
 	
@@ -866,14 +868,14 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		{
 			if(RaceCountDownTimer == 2)
 			{
-				BroadcastLocalizedMessage(TdTTMessageClass, 26, default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));			
+				BroadcastLocalizedMessage(TdTTMessageClass, 26, default, default, default);			
 			}
 			else
 			{
 				if(RaceCountDownTimer == 1)
 				{
 					bDelayPauseUntilRaceStarted = (byte)1;
-					BroadcastLocalizedMessage(TdTTMessageClass, 25, default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));
+					BroadcastLocalizedMessage(TdTTMessageClass, 25, default, default, default);
 				}
 			}
 		}
@@ -881,8 +883,8 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	
 	protected /*function */void TdSPTimeTrialGame_RaceCountDown_StartRace()// state function
 	{
-		ClearTimer("CountDownTimer", default(Object));
-		BroadcastLocalizedMessage(TdTTMessageClass, 24, default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));
+		ClearTimer("CountDownTimer", default);
+		BroadcastLocalizedMessage(TdTTMessageClass, 24, default, default, default);
 		SendKismetEvent(ClassT<SeqEvt_TTRaceStarted>());
 		if(!IsSpectatingGhost())
 		{
@@ -894,7 +896,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 			GhostManager.StopGhostPlayback();
 			GhostManager.PlaybackGhost();
 		}
-		GotoState("RaceInProgress", default(name), default(bool), default(bool));
+		GotoState("RaceInProgress", default, default, default);
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) RaceCountDown()/*state RaceCountDown*/
@@ -950,11 +952,11 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 			WorldInfo.MyEmitterPool.ResetPool();
 			RacingPawn.ResetMoves();
 			RacingPlayer.bDuck = (byte)0;
-			ResetPlayer(RacingPawn, default(NavigationPoint));
+			ResetPlayer(RacingPawn, default);
 			SetIgnoreInput(true);
-			SetTimer(0.80f, false, "DisableIgnoreInputTimer", default(Object));
+			SetTimer(0.80f, false, "DisableIgnoreInputTimer", default);
 			((RacingPlayer.myHUD) as TdHUD).Reset();
-			((RacingPlayer.myHUD) as TdHUD).TriggerCustomColorFadeIn(1.50f, MakeLinearColor(0.0f, 0.0f, 0.0f, 1.0f), default(bool), default(/*delegate*/TdHUD.OnMaxFade), true);
+			((RacingPlayer.myHUD) as TdHUD).TriggerCustomColorFadeIn(1.50f, MakeLinearColor(0.0f, 0.0f, 0.0f, 1.0f), default, default, true);
 		}
 	}
 	
@@ -1070,7 +1072,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 			{
 				if(CheckpointManager.GetFinalCheckpoint() != NextCheckPoint)
 				{
-					BroadcastLocalizedMessage(TimeMessageClass, 2147483647, default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));
+					BroadcastLocalizedMessage(TimeMessageClass, 2147483647, default, default, default);
 				}
 			}
 			++ NumPassedCheckPoints;
@@ -1102,27 +1104,27 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		LastCheckpointTimeStamp = WorldInfo.TimeSeconds;
 		if(CheckpointManager.GetFinalCheckpoint() != NextCheckPoint)
 		{
-			BroadcastLocalizedMessage(TimeMessageClass, Round(ImtermediateDiffTime * ((float)(100))), default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));
+			BroadcastLocalizedMessage(TimeMessageClass, Round(ImtermediateDiffTime * ((float)(100))), default, default, default);
 		}
 	}
 	
 	protected /*function */void TdSPTimeTrialGame_RaceInProgress_ProcessCheckpointCompleted(TdPlaceableCheckpoint Checkpoint, TdPlayerPawn Pawn, TdPlayerController Controller)// state function
 	{
 		LastCheckPoint = NextCheckPoint;
-		LastCheckPoint.Show(false, ((int)ActiveTTStretch), default(bool));
+		LastCheckPoint.Show(false, ((int)ActiveTTStretch), default);
 		NextCheckPoint = CheckpointManager.GetNextCheckpoint(NextCheckPoint);
-		NextCheckPoint.Show(true, ((int)ActiveTTStretch), default(bool));
+		NextCheckPoint.Show(true, ((int)ActiveTTStretch), default);
 		((Controller.myHUD) as TdTimeTrialHUD).TriggerCheckPointEffect();
 	}
 	
 	protected /*function */void TdSPTimeTrialGame_RaceInProgress_ProcessLastCheckpointCompleted(TdPlaceableCheckpoint Checkpoint, TdPlayerPawn Pawn, TdPlayerController Controller)// state function
 	{
-		Checkpoint.Show(false, ((int)ActiveTTStretch), default(bool));
+		Checkpoint.Show(false, ((int)ActiveTTStretch), default);
 		if(!IsSpectatingGhost())
 		{
 			RaceCompleted(Controller);
 		}
-		GotoState("RaceFinishLine", default(name), default(bool), default(bool));
+		GotoState("RaceFinishLine", default, default, default);
 	}
 	
 	protected /*function */void TdSPTimeTrialGame_RaceInProgress_RaceCompleted(TdPlayerController Controller)// state function
@@ -1138,15 +1140,15 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		}
 		if(TimeDifference < 0.0f)
 		{
-			BroadcastLocalizedMessage(VictoryMessageClass, 28, default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));
+			BroadcastLocalizedMessage(VictoryMessageClass, 28, default, default, default);
 			SendFinishlineKismet(true);		
 		}
 		else
 		{
-			BroadcastLocalizedMessage(VictoryMessageClass, 31, default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));
+			BroadcastLocalizedMessage(VictoryMessageClass, 31, default, default, default);
 			SendFinishlineKismet(false);
 		}
-		BroadcastLocalizedMessage(TimeFinishMessageClass, Round(TimeDifference * ((float)(100))), default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));
+		BroadcastLocalizedMessage(TimeFinishMessageClass, Round(TimeDifference * ((float)(100))), default, default, default);
 	}
 	
 	protected /*function */void TdSPTimeTrialGame_RaceInProgress_SendFinishlineKismet(bool bNewRecord)// state function
@@ -1170,7 +1172,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 			{
 				OutputLinks[0] = 1;
 			}
-			((TimeTrialEvents[Index]) as SequenceEvent).CheckActivate(this, this, default(bool), ref/*probably?*/ OutputLinks, default(bool));
+			((TimeTrialEvents[Index]) as SequenceEvent).CheckActivate(this, this, default, ref/*probably?*/ OutputLinks, default);
 			++ Index;
 			goto J0x38;
 		}
@@ -1221,7 +1223,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		RaceFinishLineTimer = 0.0f;
 		((RacingPlayer.myHUD) as TdHUD).ToggleReactionTime(true);
 		SetIgnoreInput(true);
-		RacingPlayer.SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_REACTION_TIME/*3*/, default(float), default(bool), default(float));
+		RacingPlayer.SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_REACTION_TIME/*3*/, default, default, default);
 	}
 	
 	protected /*event */void TdSPTimeTrialGame_RaceFinishLine_Tick(float DeltaTime)// state function
@@ -1236,7 +1238,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		{
 			GhostManager.StopGhostPlayback();
 			GhostManager.StopGhostRecording(RacingPawn);
-			GotoState("EndAnimation", default(name), default(bool), default(bool));		
+			GotoState("EndAnimation", default, default, default);		
 		}
 		else
 		{
@@ -1290,10 +1292,10 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		((RacingPlayer.myHUD) as TdHUD).ClearLocalMessages();
 		((RacingPlayer.myHUD) as TdHUD).ToggleReactionTime(false);
 		((RacingPlayer.myHUD) as TdHUD).EffectManager.ReactionTimeEffect.Hide();
-		RacingPlayer.SetViewTarget(GetLastSpectatorPoint(), default(Camera.ViewTargetTransitionParams));
+		RacingPlayer.SetViewTarget(GetLastSpectatorPoint(), default);
 		SetGameSpeed(1.0f);
-		GotoState("RaceOver", default(name), default(bool), default(bool));
-		RacingPlayer.SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_NORMAL/*0*/, default(float), default(bool), default(float));
+		GotoState("RaceOver", default, default, default);
+		RacingPlayer.SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_NORMAL/*0*/, default, default, default);
 	}
 	
 	protected /*function */void TdSPTimeTrialGame_EndAnimation_EndState(name NextStateName)// state function
@@ -1330,7 +1332,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		LastCheckPoint = default;
 		EndGame(RacingPlayer.PlayerReplicationInfo, "RaceOver");
 		KillRacingPawn();
-		RacingPlayer.SetViewTarget(GetLastSpectatorPoint(), default(Camera.ViewTargetTransitionParams));
+		RacingPlayer.SetViewTarget(GetLastSpectatorPoint(), default);
 		if(((((int)ActiveTTStretch) > ((int)TdSPTimeTrialGame.ETTStretch.ETTS_None/*0*/)) && ((int)ActiveTTStretch) < ((int)TdSPTimeTrialGame.ETTStretch.ETTS_Max/*25*/)) && CheckpointManager.CanFindTrack(((int)ActiveTTStretch)))
 		{
 			CheckpointManager.ShowTrack(((int)ActiveTTStretch), true);

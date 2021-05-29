@@ -15,8 +15,9 @@ public partial class TdMPDMGame : TdMPGame/*
 		base.PreBeginPlay();
 	}
 	
-	public override /*function */PlayerStart ChoosePlayerStart(Controller Player, /*optional */byte InTeam = default)
+	public override /*function */PlayerStart ChoosePlayerStart(Controller Player, /*optional */byte? _InTeam = default)
 	{
+		var InTeam = _InTeam ?? default;
 		return StartPoints[Rand(StartPoints.Length)];
 	}
 	

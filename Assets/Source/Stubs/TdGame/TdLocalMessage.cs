@@ -52,13 +52,13 @@ public partial class TdLocalMessage : LocalMessage{
 	public float RadioAnnouncementVolume;
 	public TdLocalMessage.EMessageArea MessageArea;
 	
-	public /*simulated function */static SoundNodeWave GetAnnouncementSound(PlayerController P, /*optional */int Switch = default, /*optional */PlayerReplicationInfo PitcherPRI = default, /*optional */PlayerReplicationInfo RecieverPRI = default, /*optional */Object OptionalObject = default)
+	public /*simulated function */static SoundNodeWave GetAnnouncementSound(PlayerController P, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _PitcherPRI = default, /*optional */PlayerReplicationInfo? _RecieverPRI = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;
 	}
 	
-	public /*function */static int GetMessageArea(/*optional */int Switch = default)
+	public /*function */static int GetMessageArea(/*optional */int? _Switch = default)
 	{
 	
 		return default;

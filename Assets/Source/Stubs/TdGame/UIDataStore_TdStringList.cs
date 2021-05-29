@@ -47,31 +47,31 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 	}
 	
 	// Export UUIDataStore_TdStringList::execAddStr(FFrame&, void* const)
-	public virtual /*native function */void AddStr(name FieldName, string NewString, /*optional */bool bBatchOp = default)
+	public virtual /*native function */void AddStr(name FieldName, string NewString, /*optional */bool? _bBatchOp = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIDataStore_TdStringList::execInsertStr(FFrame&, void* const)
-	public virtual /*native function */void InsertStr(name FieldName, string NewString, int InsertIndex, /*optional */bool bBatchOp = default)
+	public virtual /*native function */void InsertStr(name FieldName, string NewString, int InsertIndex, /*optional */bool? _bBatchOp = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIDataStore_TdStringList::execRemoveStr(FFrame&, void* const)
-	public virtual /*native function */void RemoveStr(name FieldName, string StringToRemove, /*optional */bool bBatchOp = default)
+	public virtual /*native function */void RemoveStr(name FieldName, string StringToRemove, /*optional */bool? _bBatchOp = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIDataStore_TdStringList::execRemoveStrByIndex(FFrame&, void* const)
-	public virtual /*native function */void RemoveStrByIndex(name FieldName, int Index, /*optional */int Count = default, /*optional */bool bBatchOp = default)
+	public virtual /*native function */void RemoveStrByIndex(name FieldName, int Index, /*optional */int? _Count = default, /*optional */bool? _bBatchOp = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIDataStore_TdStringList::execEmpty(FFrame&, void* const)
-	public virtual /*native function */void Empty(name FieldName, /*optional */bool bBatchOp = default)
+	public virtual /*native function */void Empty(name FieldName, /*optional */bool? _bBatchOp = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

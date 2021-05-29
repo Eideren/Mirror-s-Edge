@@ -90,13 +90,13 @@ public partial class TdMove_AutoStepUp : TdPhysicsMove/*
 	public override /*simulated function */void StartMove()
 	{
 		base.StartMove();
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("autostepuprightleg")), 0.80f, 0.150f, 0.250f, false, default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("autostepuprightleg")), 0.80f, 0.150f, 0.250f, false, default);
 		SetPreciseLocation(EndPosition, TdMove.EPreciseLocationMode.PLM_Jump/*2*/, ((float)(Max(200, ((int)(VSize2D(SavedVelocity)))))));
 	}
 	
 	public override /*simulated event */void ReachedPreciseLocation()
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 		return;
 	}
 	

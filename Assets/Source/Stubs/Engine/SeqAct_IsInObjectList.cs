@@ -7,7 +7,7 @@ public partial class SeqAct_IsInObjectList : SequenceAction/*
 	public/*()*/ bool bCheckForAllObjects;
 	public /*private transient */bool bObjectFound;
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
 	
 		return default;

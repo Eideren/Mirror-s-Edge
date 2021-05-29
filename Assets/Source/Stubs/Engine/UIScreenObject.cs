@@ -52,7 +52,7 @@ public partial class UIScreenObject : UIRoot/*
 	
 	public delegate void NotifyResolutionChanged(/*const */ref Object.Vector2D OldViewportsize, /*const */ref Object.Vector2D NewViewportSize);
 	
-	public delegate void NotifyActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState PreviouslyActiveState = default);
+	public delegate void NotifyActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default);
 	
 	public delegate void NotifyVisibilityChanged(UIScreenObject SourceWidget, bool bIsVisible);
 	
@@ -84,41 +84,41 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execGetPlayerOwner(FFrame&, void* const)
-	public virtual /*native final function */LocalPlayer GetPlayerOwner(/*optional */int PlayerIndex = default)
+	public virtual /*native final function */LocalPlayer GetPlayerOwner(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execPlayUISound(FFrame&, void* const)
-	public /*native final function */static bool PlayUISound(name SoundCueName, /*optional */int PlayerIndex = default)
+	public /*native final function */static bool PlayUISound(name SoundCueName, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execCreateWidget(FFrame&, void* const)
-	public virtual /*native final function */UIObject CreateWidget(UIScreenObject Owner, Core.ClassT<UIObject> WidgetClass, /*optional */Object WidgetArchetype = default, /*optional */name WidgetName = default)
+	public virtual /*native final function */UIObject CreateWidget(UIScreenObject Owner, Core.ClassT<UIObject> WidgetClass, /*optional */Object? _WidgetArchetype = default, /*optional */name? _WidgetName = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execInitialize(FFrame&, void* const)
-	public virtual /*native final function */void Initialize(UIScene inOwnerScene, /*optional */UIObject inOwner = default)
+	public virtual /*native final function */void Initialize(UIScene inOwnerScene, /*optional */UIObject? _inOwner = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIScreenObject::execInsertChild(FFrame&, void* const)
-	public virtual /*native function */int InsertChild(UIObject NewChild, /*optional */int InsertIndex = default, /*optional */bool bRenameExisting = default)
+	public virtual /*native function */int InsertChild(UIObject NewChild, /*optional */int? _InsertIndex = default, /*optional */bool? _bRenameExisting = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execRemoveChild(FFrame&, void* const)
-	public virtual /*native final function */bool RemoveChild(UIObject ExistingChild, /*optional */array<UIObject> ExclusionSet = default)
+	public virtual /*native final function */bool RemoveChild(UIObject ExistingChild, /*optional */array<UIObject>? _ExclusionSet = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -139,14 +139,14 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execFindChild(FFrame&, void* const)
-	public virtual /*native final function */UIObject FindChild(name WidgetName, /*optional */bool bRecurse = default)
+	public virtual /*native final function */UIObject FindChild(name WidgetName, /*optional */bool? _bRecurse = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execFindChildUsingID(FFrame&, void* const)
-	public virtual /*native final function */UIObject FindChildUsingID(UIRoot.WIDGET_ID WidgetID, /*optional */bool bRecurse = default)
+	public virtual /*native final function */UIObject FindChildUsingID(UIRoot.WIDGET_ID WidgetID, /*optional */bool? _bRecurse = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -160,21 +160,21 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execContainsChild(FFrame&, void* const)
-	public virtual /*native final function */bool ContainsChild(UIObject Child, /*optional */bool bRecurse = default)
+	public virtual /*native final function */bool ContainsChild(UIObject Child, /*optional */bool? _bRecurse = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execContainsChildOfClass(FFrame&, void* const)
-	public virtual /*native final function */bool ContainsChildOfClass(Core.ClassT<UIObject> SearchClass, /*optional */bool bRecurse = default)
+	public virtual /*native final function */bool ContainsChildOfClass(Core.ClassT<UIObject> SearchClass, /*optional */bool? _bRecurse = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execGetChildren(FFrame&, void* const)
-	public virtual /*native final function */array<UIObject> GetChildren(/*optional */bool bRecurse = default, /*optional */array<UIObject> ExclusionSet = default)
+	public virtual /*native final function */array<UIObject> GetChildren(/*optional */bool? _bRecurse = default, /*optional */array<UIObject>? _ExclusionSet = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -188,7 +188,7 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execRequestSceneUpdate(FFrame&, void* const)
-	public virtual /*native final function */void RequestSceneUpdate(bool bDockingStackChanged, bool bPositionsChanged, /*optional */bool bNavLinksOutdated = default, /*optional */bool bWidgetStylesChanged = default)
+	public virtual /*native final function */void RequestSceneUpdate(bool bDockingStackChanged, bool bPositionsChanged, /*optional */bool? _bNavLinksOutdated = default, /*optional */bool? _bWidgetStylesChanged = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -254,26 +254,26 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execActivateEventByClass(FFrame&, void* const)
-	public virtual /*native final function */void ActivateEventByClass(int PlayerIndex, Core.ClassT<UIEvent> EventClassToActivate, /*optional */Object InEventActivator/* = default*/, /*optional */bool bActivateImmediately/* = default*/, /*optional */array<int> IndicesToActivate/* = default*/, /*optional */ref array<UIEvent> out_ActivatedEvents/* = default*/)
+	public virtual /*native final function */void ActivateEventByClass(int PlayerIndex, Core.ClassT<UIEvent> EventClassToActivate, /*optional */Object? _InEventActivator/* = default*/, /*optional */bool? _bActivateImmediately/* = default*/, /*optional */array<int>? _IndicesToActivate/* = default*/, /*optional */ref array<UIEvent> out_ActivatedEvents/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIScreenObject::execFindEventsOfClass(FFrame&, void* const)
-	public virtual /*native final function */void FindEventsOfClass(Core.ClassT<UIEvent> EventClassToFind, ref array<UIEvent> out_EventInstances, /*optional */UIState LimitScope = default, /*optional */bool bExactClass = default)
+	public virtual /*native final function */void FindEventsOfClass(Core.ClassT<UIEvent> EventClassToFind, ref array<UIEvent> out_EventInstances, /*optional */UIState? _LimitScope = default, /*optional */bool? _bExactClass = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIScreenObject::execSetEnabled(FFrame&, void* const)
-	public virtual /*native function */bool SetEnabled(bool bEnabled, /*optional */int PlayerIndex = default)
+	public virtual /*native function */bool SetEnabled(bool bEnabled, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execGetCurrentState(FFrame&, void* const)
-	public virtual /*native final function */UIState GetCurrentState(/*optional */int PlayerIndex = default)
+	public virtual /*native final function */UIState GetCurrentState(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -315,7 +315,7 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execConditionalPropagateEnabledState(FFrame&, void* const)
-	public virtual /*native final function */bool ConditionalPropagateEnabledState(int PlayerIndex, /*optional */bool bForce = default)
+	public virtual /*native final function */bool ConditionalPropagateEnabledState(int PlayerIndex, /*optional */bool? _bForce = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -343,35 +343,35 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execFocusFirstControl(FFrame&, void* const)
-	public virtual /*native function */bool FocusFirstControl(UIScreenObject Sender, /*optional */int PlayerIndex = default)
+	public virtual /*native function */bool FocusFirstControl(UIScreenObject Sender, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execFocusLastControl(FFrame&, void* const)
-	public virtual /*native function */bool FocusLastControl(UIScreenObject Sender, /*optional */int PlayerIndex = default)
+	public virtual /*native function */bool FocusLastControl(UIScreenObject Sender, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execNextControl(FFrame&, void* const)
-	public virtual /*native function */bool NextControl(UIScreenObject Sender, /*optional */int PlayerIndex = default)
+	public virtual /*native function */bool NextControl(UIScreenObject Sender, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execPrevControl(FFrame&, void* const)
-	public virtual /*native function */bool PrevControl(UIScreenObject Sender, /*optional */int PlayerIndex = default)
+	public virtual /*native function */bool PrevControl(UIScreenObject Sender, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execNavigateFocus(FFrame&, void* const)
-	public virtual /*native function */bool NavigateFocus(UIScreenObject Sender, UIRoot.EUIWidgetFace Direction, /*optional */int PlayerIndex = default)
+	public virtual /*native function */bool NavigateFocus(UIScreenObject Sender, UIRoot.EUIWidgetFace Direction, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -385,7 +385,7 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execCanAcceptFocus(FFrame&, void* const)
-	public virtual /*native function */bool CanAcceptFocus(/*optional */int PlayerIndex = default)
+	public virtual /*native function */bool CanAcceptFocus(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -399,35 +399,35 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execSetFocus(FFrame&, void* const)
-	public virtual /*native function */bool SetFocus(UIScreenObject Sender, /*optional */int PlayerIndex = default)
+	public virtual /*native function */bool SetFocus(UIScreenObject Sender, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execSetFocusToChild(FFrame&, void* const)
-	public virtual /*native function */bool SetFocusToChild(/*optional */UIObject ChildToFocus = default, /*optional */int PlayerIndex = default)
+	public virtual /*native function */bool SetFocusToChild(/*optional */UIObject? _ChildToFocus = default, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execKillFocus(FFrame&, void* const)
-	public virtual /*native function */bool KillFocus(UIScreenObject Sender, /*optional */int PlayerIndex = default)
+	public virtual /*native function */bool KillFocus(UIScreenObject Sender, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execGetFocusedControl(FFrame&, void* const)
-	public virtual /*native final function */UIObject GetFocusedControl(/*optional */bool bRecurse = default, /*optional */int PlayerIndex = default)
+	public virtual /*native final function */UIObject GetFocusedControl(/*optional */bool? _bRecurse = default, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execGetLastFocusedControl(FFrame&, void* const)
-	public virtual /*native final function */UIObject GetLastFocusedControl(/*optional */bool bRecurse = default, /*optional */int PlayerIndex = default)
+	public virtual /*native final function */UIObject GetLastFocusedControl(/*optional */bool? _bRecurse = default, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -440,28 +440,28 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execIsEnabled(FFrame&, void* const)
-	public virtual /*native final function */bool IsEnabled(/*optional */int PlayerIndex = default, /*optional */bool bCheckOwnerChain = default)
+	public virtual /*native final function */bool IsEnabled(/*optional */int? _PlayerIndex = default, /*optional */bool? _bCheckOwnerChain = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execIsFocused(FFrame&, void* const)
-	public virtual /*native final function */bool IsFocused(/*optional */int PlayerIndex = default)
+	public virtual /*native final function */bool IsFocused(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execIsActive(FFrame&, void* const)
-	public virtual /*native final function */bool IsActive(/*optional */int PlayerIndex = default)
+	public virtual /*native final function */bool IsActive(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execIsPressed(FFrame&, void* const)
-	public virtual /*native final function */bool IsPressed(/*optional */int PlayerIndex = default)
+	public virtual /*native final function */bool IsPressed(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -496,34 +496,34 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execSetPosition(FFrame&, void* const)
-	public virtual /*native final function */void SetPosition(float NewValue, UIRoot.EUIWidgetFace Face, /*optional */UIRoot.EPositionEvalType InputType = default, /*optional */bool bZeroOrigin = default)
+	public virtual /*native final function */void SetPosition(float NewValue, UIRoot.EUIWidgetFace Face, /*optional */UIRoot.EPositionEvalType? _InputType = default, /*optional */bool? _bZeroOrigin = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIScreenObject::execGetPosition(FFrame&, void* const)
-	public virtual /*native final function */float GetPosition(UIRoot.EUIWidgetFace Face, /*optional */UIRoot.EPositionEvalType OutputType = default, /*optional */bool bZeroOrigin = default, /*optional */bool bIgnoreDockPadding = default)
+	public virtual /*native final function */float GetPosition(UIRoot.EUIWidgetFace Face, /*optional */UIRoot.EPositionEvalType? _OutputType = default, /*optional */bool? _bZeroOrigin = default, /*optional */bool? _bIgnoreDockPadding = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execGetBounds(FFrame&, void* const)
-	public virtual /*native final function */float GetBounds(UIRoot.EUIOrientation Dimension, /*optional */UIRoot.EPositionEvalType OutputType = default, /*optional */bool bIgnoreDockPadding = default)
+	public virtual /*native final function */float GetBounds(UIRoot.EUIOrientation Dimension, /*optional */UIRoot.EPositionEvalType? _OutputType = default, /*optional */bool? _bIgnoreDockPadding = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execGetPositionVector(FFrame&, void* const)
-	public virtual /*native final function */Object.Vector GetPositionVector(/*optional */bool bIncludeParentPosition = default)
+	public virtual /*native final function */Object.Vector GetPositionVector(/*optional */bool? _bIncludeParentPosition = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScreenObject::execGetDockedWidgets(FFrame&, void* const)
-	public virtual /*native final function */void GetDockedWidgets(ref array<UIObject> out_DockedWidgets, /*optional */UIRoot.EUIWidgetFace SourceFace = default, /*optional */UIRoot.EUIWidgetFace TargetFace = default)
+	public virtual /*native final function */void GetDockedWidgets(ref array<UIObject> out_DockedWidgets, /*optional */UIRoot.EUIWidgetFace? _SourceFace = default, /*optional */UIRoot.EUIWidgetFace? _TargetFace = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -592,7 +592,7 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execGetAspectRatioAutoScaleFactor(FFrame&, void* const)
-	public virtual /*native final function */float GetAspectRatioAutoScaleFactor(/*optional */Font BaseFont = default)
+	public virtual /*native final function */float GetAspectRatioAutoScaleFactor(/*optional */Font? _BaseFont = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -620,7 +620,7 @@ public partial class UIScreenObject : UIRoot/*
 	
 	}
 	
-	public virtual /*event */void RemovedChild(UIScreenObject WidgetOwner, UIObject OldChild, /*optional */array<UIObject> ExclusionSet = default)
+	public virtual /*event */void RemovedChild(UIScreenObject WidgetOwner, UIObject OldChild, /*optional */array<UIObject>? _ExclusionSet = default)
 	{
 	
 	}
@@ -630,7 +630,7 @@ public partial class UIScreenObject : UIRoot/*
 	
 	}
 	
-	public virtual /*event */bool IsLoggedIn(/*optional */int ControllerId = default, /*optional */bool bRequireOnlineLogin = default)
+	public virtual /*event */bool IsLoggedIn(/*optional */int? _ControllerId = default, /*optional */bool? _bRequireOnlineLogin = default)
 	{
 	
 		return default;
@@ -658,17 +658,17 @@ public partial class UIScreenObject : UIRoot/*
 		return default;
 	}
 	
-	public virtual /*final event */void EnablePlayerInput(byte PlayerIndex, /*optional */bool bRecurse = default)
+	public virtual /*final event */void EnablePlayerInput(byte PlayerIndex, /*optional */bool? _bRecurse = default)
 	{
 	
 	}
 	
-	public virtual /*final event */void DisablePlayerInput(byte PlayerIndex, /*optional */bool bRecurse = default)
+	public virtual /*final event */void DisablePlayerInput(byte PlayerIndex, /*optional */bool? _bRecurse = default)
 	{
 	
 	}
 	
-	public virtual /*event */void SetInputMask(byte NewInputMask, /*optional */bool bRecurse = default)
+	public virtual /*event */void SetInputMask(byte NewInputMask, /*optional */bool? _bRecurse = default)
 	{
 	
 	}
@@ -712,7 +712,7 @@ public partial class UIScreenObject : UIRoot/*
 		return default;
 	}
 	
-	public virtual /*function */OnlineSubsystem.ELoginStatus GetLoginStatus(/*optional */int ControllerId = default)
+	public virtual /*function */OnlineSubsystem.ELoginStatus GetLoginStatus(/*optional */int? _ControllerId = default)
 	{
 	
 		return default;
@@ -724,7 +724,7 @@ public partial class UIScreenObject : UIRoot/*
 		return default;
 	}
 	
-	public virtual /*function */bool CanPlayOnline(/*optional */int ControllerId = default)
+	public virtual /*function */bool CanPlayOnline(/*optional */int? _ControllerId = default)
 	{
 	
 		return default;

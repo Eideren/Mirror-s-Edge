@@ -23,7 +23,7 @@ public partial class TdUITabPage_FinishedObjectives : TdUITabPage/*
 	
 	}
 	
-	public virtual /*function */void FinishedObjectivesList_OnSubmitSelection(UIList Sender, /*optional */int PlayerIndex = default)
+	public virtual /*function */void FinishedObjectivesList_OnSubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
 	
 	}

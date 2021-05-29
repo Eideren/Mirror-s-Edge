@@ -2244,7 +2244,7 @@ public partial class UIRoot : Object/*
 	//	}
 	};
 	
-	public /*final function */static bool IsConsole(/*optional */WorldInfo.EConsoleType ConsoleType = default)
+	public /*final function */static bool IsConsole(/*optional */WorldInfo.EConsoleType? _ConsoleType = default)
 	{
 	
 		return default;
@@ -2272,7 +2272,7 @@ public partial class UIRoot : Object/*
 	}
 	
 	// Export UUIRoot::execGetCursorPosition(FFrame&, void* const)
-	public /*native final function */static bool GetCursorPosition(ref int CursorX, ref int CursorY, /*const optional */UIScene Scene = default)
+	public /*native final function */static bool GetCursorPosition(ref int CursorX, ref int CursorY, /*const optional */UIScene? _Scene = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -2292,33 +2292,33 @@ public partial class UIRoot : Object/*
 	}
 	
 	// Export UUIRoot::execGetPrimitiveTransform(FFrame&, void* const)
-	public /*native final function */static Object.Matrix GetPrimitiveTransform(UIObject Widget, /*optional */bool bIncludeAnchorPosition = default, /*optional */bool bIncudeRotation = default, /*optional */bool bIncludeScale = default)
+	public /*native final function */static Object.Matrix GetPrimitiveTransform(UIObject Widget, /*optional */bool? _bIncludeAnchorPosition = default, /*optional */bool? _bIncudeRotation = default, /*optional */bool? _bIncludeScale = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIRoot::execSetDataStoreFieldValue(FFrame&, void* const)
-	public /*native final function */static bool SetDataStoreFieldValue(string InDataStoreMarkup, /*const */ref UIRoot.UIProviderFieldValue InFieldValue, /*optional */UIScene OwnerScene = default, /*optional */LocalPlayer OwnerPlayer = default)
+	public /*native final function */static bool SetDataStoreFieldValue(string InDataStoreMarkup, /*const */ref UIRoot.UIProviderFieldValue InFieldValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
-	public /*function */static bool SetDataStoreStringValue(string InDataStoreMarkup, string InStringValue, /*optional */UIScene OwnerScene = default, /*optional */LocalPlayer OwnerPlayer = default)
+	public /*function */static bool SetDataStoreStringValue(string InDataStoreMarkup, string InStringValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
 	{
 	
 		return default;
 	}
 	
 	// Export UUIRoot::execGetDataStoreFieldValue(FFrame&, void* const)
-	public /*native final function */static bool GetDataStoreFieldValue(string InDataStoreMarkup, ref UIRoot.UIProviderFieldValue OutFieldValue, /*optional */UIScene OwnerScene = default, /*optional */LocalPlayer OwnerPlayer = default)
+	public /*native final function */static bool GetDataStoreFieldValue(string InDataStoreMarkup, ref UIRoot.UIProviderFieldValue OutFieldValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
-	public /*function */static bool GetDataStoreStringValue(string InDataStoreMarkup, ref string OutStringValue, /*optional */UIScene OwnerScene = default, /*optional */LocalPlayer OwnerPlayer = default)
+	public /*function */static bool GetDataStoreStringValue(string InDataStoreMarkup, ref string OutStringValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
 	{
 	
 		return default;

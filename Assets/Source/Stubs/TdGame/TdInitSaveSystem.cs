@@ -12,7 +12,7 @@ public partial class TdInitSaveSystem : Object{
 	
 	public delegate void OnInitSavefileSystemDone();
 	
-	public virtual /*function */void InitSavefileSystem(/*optional */bool bAutoReplaceCorrupt = default)
+	public virtual /*function */void InitSavefileSystem(/*optional */bool? _bAutoReplaceCorrupt = default)
 	{
 	
 	}

@@ -44,26 +44,26 @@ public partial class UIContextMenu : UIList/*
 	}
 	
 	// Export UUIContextMenu::execOpen(FFrame&, void* const)
-	public virtual /*native final function */bool Open(/*optional */int PlayerIndex = default)
+	public virtual /*native final function */bool Open(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIContextMenu::execClose(FFrame&, void* const)
-	public virtual /*native final function */bool Close(/*optional */int PlayerIndex = default)
+	public virtual /*native final function */bool Close(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
-	public virtual /*event */bool SetMenuItems(UIObject Widget, array<string> NewMenuItems, /*optional */bool bClearExisting = default, /*optional */int InsertIndex = default)
+	public virtual /*event */bool SetMenuItems(UIObject Widget, array<string> NewMenuItems, /*optional */bool? _bClearExisting = default, /*optional */int? _InsertIndex = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*event */bool InsertMenuItem(UIObject Widget, string Item, /*optional */int InsertIndex = default, /*optional */bool bAllowDuplicates = default)
+	public virtual /*event */bool InsertMenuItem(UIObject Widget, string Item, /*optional */int? _InsertIndex = default, /*optional */bool? _bAllowDuplicates = default)
 	{
 	
 		return default;

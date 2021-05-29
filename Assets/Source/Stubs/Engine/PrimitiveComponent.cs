@@ -172,19 +172,19 @@ public partial class PrimitiveComponent : ActorComponent/*
 	public float ScriptRigidBodyCollisionThreshold;
 	
 	// Export UPrimitiveComponent::execAddImpulse(FFrame&, void* const)
-	public virtual /*native final function */void AddImpulse(Object.Vector Impulse, /*optional */Object.Vector Position = default, /*optional */name BoneName = default, /*optional */bool bVelChange = default)
+	public virtual /*native final function */void AddImpulse(Object.Vector Impulse, /*optional */Object.Vector? _Position = default, /*optional */name? _BoneName = default, /*optional */bool? _bVelChange = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UPrimitiveComponent::execAddRadialImpulse(FFrame&, void* const)
-	public virtual /*native final function */void AddRadialImpulse(Object.Vector Origin, float Radius, float Strength, PrimitiveComponent.ERadialImpulseFalloff Falloff, /*optional */bool bVelChange = default)
+	public virtual /*native final function */void AddRadialImpulse(Object.Vector Origin, float Radius, float Strength, PrimitiveComponent.ERadialImpulseFalloff Falloff, /*optional */bool? _bVelChange = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UPrimitiveComponent::execAddForce(FFrame&, void* const)
-	public virtual /*native final function */void AddForce(Object.Vector Force, /*optional */Object.Vector Position = default, /*optional */name BoneName = default)
+	public virtual /*native final function */void AddForce(Object.Vector Force, /*optional */Object.Vector? _Position = default, /*optional */name? _BoneName = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -196,43 +196,43 @@ public partial class PrimitiveComponent : ActorComponent/*
 	}
 	
 	// Export UPrimitiveComponent::execSetRBLinearVelocity(FFrame&, void* const)
-	public virtual /*native final function */void SetRBLinearVelocity(Object.Vector NewVel, /*optional */bool bAddToCurrent = default)
+	public virtual /*native final function */void SetRBLinearVelocity(Object.Vector NewVel, /*optional */bool? _bAddToCurrent = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UPrimitiveComponent::execSetRBAngularVelocity(FFrame&, void* const)
-	public virtual /*native final function */void SetRBAngularVelocity(Object.Vector NewAngVel, /*optional */bool bAddToCurrent = default)
+	public virtual /*native final function */void SetRBAngularVelocity(Object.Vector NewAngVel, /*optional */bool? _bAddToCurrent = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UPrimitiveComponent::execSetRBPosition(FFrame&, void* const)
-	public virtual /*native final function */void SetRBPosition(Object.Vector NewPos, /*optional */name BoneName = default)
+	public virtual /*native final function */void SetRBPosition(Object.Vector NewPos, /*optional */name? _BoneName = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UPrimitiveComponent::execSetRBRotation(FFrame&, void* const)
-	public virtual /*native final function */void SetRBRotation(Object.Rotator NewRot, /*optional */name BoneName = default)
+	public virtual /*native final function */void SetRBRotation(Object.Rotator NewRot, /*optional */name? _BoneName = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UPrimitiveComponent::execWakeRigidBody(FFrame&, void* const)
-	public virtual /*native final function */void WakeRigidBody(/*optional */name BoneName = default)
+	public virtual /*native final function */void WakeRigidBody(/*optional */name? _BoneName = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UPrimitiveComponent::execPutRigidBodyToSleep(FFrame&, void* const)
-	public virtual /*native final function */void PutRigidBodyToSleep(/*optional */name BoneName = default)
+	public virtual /*native final function */void PutRigidBodyToSleep(/*optional */name? _BoneName = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UPrimitiveComponent::execRigidBodyIsAwake(FFrame&, void* const)
-	public virtual /*native final function */bool RigidBodyIsAwake(/*optional */name BoneName = default)
+	public virtual /*native final function */bool RigidBodyIsAwake(/*optional */name? _BoneName = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -384,7 +384,7 @@ public partial class PrimitiveComponent : ActorComponent/*
 	}
 	
 	// Export UPrimitiveComponent::execSetAbsolute(FFrame&, void* const)
-	public virtual /*native function */void SetAbsolute(/*optional */bool NewAbsoluteTranslation = default, /*optional */bool NewAbsoluteRotation = default, /*optional */bool NewAbsoluteScale = default)
+	public virtual /*native function */void SetAbsolute(/*optional */bool? _NewAbsoluteTranslation = default, /*optional */bool? _NewAbsoluteRotation = default, /*optional */bool? _NewAbsoluteScale = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

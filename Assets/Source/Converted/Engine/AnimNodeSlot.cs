@@ -13,14 +13,14 @@ public partial class AnimNodeSlot : AnimNodeBlendBase/*
 	public /*const transient */AnimNodeSynch SynchNode;
 	
 	// Export UAnimNodeSlot::execPlayCustomAnim(FFrame&, void* const)
-	public virtual /*native final function */float PlayCustomAnim(name AnimName, float Rate, /*optional */float BlendInTime = default, /*optional */float BlendOutTime = default, /*optional */bool bLooping = default, /*optional */bool bOverride = default)
+	public virtual /*native final function */float PlayCustomAnim(name AnimName, float Rate, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bLooping = default, /*optional */bool? _bOverride = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UAnimNodeSlot::execPlayCustomAnimByDuration(FFrame&, void* const)
-	public virtual /*native final function */void PlayCustomAnimByDuration(name AnimName, float Duration, /*optional */float BlendInTime = default, /*optional */float BlendOutTime = default, /*optional */bool bLooping = default, /*optional */bool bOverride = default)
+	public virtual /*native final function */void PlayCustomAnimByDuration(name AnimName, float Duration, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bLooping = default, /*optional */bool? _bOverride = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -58,7 +58,7 @@ public partial class AnimNodeSlot : AnimNodeBlendBase/*
 	}
 	
 	// Export UAnimNodeSlot::execSetRootBoneAxisOption(FFrame&, void* const)
-	public virtual /*native final function */void SetRootBoneAxisOption(/*optional */AnimNodeSequence.ERootBoneAxis AxisX = default, /*optional */AnimNodeSequence.ERootBoneAxis AxisY = default, /*optional */AnimNodeSequence.ERootBoneAxis AxisZ = default)
+	public virtual /*native final function */void SetRootBoneAxisOption(/*optional */AnimNodeSequence.ERootBoneAxis? _AxisX = default, /*optional */AnimNodeSequence.ERootBoneAxis? _AxisY = default, /*optional */AnimNodeSequence.ERootBoneAxis? _AxisZ = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

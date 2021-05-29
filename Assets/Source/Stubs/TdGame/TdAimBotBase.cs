@@ -43,7 +43,7 @@ public partial class TdAimBotBase : Object/* within TdAIController*//*
 	
 	}
 	
-	public virtual /*function */Object.Vector GetAimLocation(TdPlayerPawn Target, /*optional */bool bUseFullDispersion = default)
+	public virtual /*function */Object.Vector GetAimLocation(TdPlayerPawn Target, /*optional */bool? _bUseFullDispersion = default)
 	{
 	
 		return default;

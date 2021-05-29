@@ -55,7 +55,7 @@ public partial class TdPlayerCamera : Camera/*
 				}
 				if(((OutVT.Target) as TdPawn) != default)
 				{
-					TargetLocation = ((OutVT.Target) as TdPawn).Mesh.GetBoneLocation("Hips", default(int));				
+					TargetLocation = ((OutVT.Target) as TdPawn).Mesh.GetBoneLocation("Hips", default);				
 				}
 				else
 				{
@@ -105,7 +105,7 @@ public partial class TdPlayerCamera : Camera/*
 						}
 						Loc += (/*>>*/ShiftR(FreeCamOffset, Rot));
 						pos = Loc - (((Vector)(Rot)) * FreeCamDistance);
-						HitActor = Trace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, pos, Loc, false, vect(0.0f, 0.0f, 0.0f), ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, default(int));
+						HitActor = Trace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, pos, Loc, false, vect(0.0f, 0.0f, 0.0f), ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, default);
 						if(HitActor != default)
 						{
 							Loc = HitLocation + (HitNormal * ((float)(2)));						

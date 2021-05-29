@@ -11,7 +11,7 @@ public partial class TdAnimNodeBlendList : AnimNodeBlendList/*
 	public /*transient */TdPawn TdPawnOwner;
 	
 	// Export UTdAnimNodeBlendList::execSetActiveMove(FFrame&, void* const)
-	public virtual /*native function */bool SetActiveMove(int ChildIndex, /*optional */bool ForceActive = default)
+	public virtual /*native function */bool SetActiveMove(int ChildIndex, /*optional */bool? _ForceActive = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

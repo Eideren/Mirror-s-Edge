@@ -210,7 +210,7 @@ public partial class TdUIScene_SPLeaderboard : TdUIScene_Leaderboard/*
 	
 	}
 	
-	public virtual /*function */void LeaderboardList_OnSubmitSelection(UIList Sender, /*optional */int PlayerIndex = default)
+	public virtual /*function */void LeaderboardList_OnSubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
 	
 	}

@@ -12,7 +12,7 @@ public partial class TdUIImage : TdUIObject/*
 	public float Scale;
 	
 	// Export UTdUIImage::execSetImage(FFrame&, void* const)
-	public virtual /*native function */void SetImage(Surface _newImage, /*optional */UIRoot.TextureCoordinates _newCoordinates = default)
+	public virtual /*native function */void SetImage(Surface _newImage, /*optional */UIRoot.TextureCoordinates? __newCoordinates = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

@@ -20,7 +20,7 @@ public partial class TdGhostStorageManager : Object/*
 	
 	public delegate void OnReadGhostComplete(TdGhostStorageManager.EGhostStorageResult Result, TdGhost Ghost);
 	
-	public delegate void OnWriteGhostComplete(TdGhostStorageManager.EGhostStorageResult Result, /*optional */int GhostTag = default);
+	public delegate void OnWriteGhostComplete(TdGhostStorageManager.EGhostStorageResult Result, /*optional */int? _GhostTag = default);
 	
 	public virtual /*function */void OnConnectionLost()
 	{

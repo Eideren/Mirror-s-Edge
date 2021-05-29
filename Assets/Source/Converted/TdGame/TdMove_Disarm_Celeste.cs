@@ -30,9 +30,9 @@ public partial class TdMove_Disarm_Celeste : TdMOVE_Disarm/*
 		Hit.BoneName = "Neck";
 		Hit.HitComponent = PawnOwner.Mesh3p;
 		ImpactMomentum = -((Vector)(PawnOwner.Rotation)) * 600.0f;
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 		((Instigator) as TdBotPawn).bShouldNextMeleeCausePlayerFall = true;
-		PawnOwner.TakeDamage(10, Instigator.Controller, HitLocation, ImpactMomentum, ClassT<TdDmgType_MeleeLeft>(), Hit, default(Actor));
+		PawnOwner.TakeDamage(10, Instigator.Controller, HitLocation, ImpactMomentum, ClassT<TdDmgType_MeleeLeft>(), Hit, default);
 	}
 	
 	public override /*function */void ChooseDisarmType(ref Object.Rotator YawOffset)

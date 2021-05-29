@@ -36,7 +36,7 @@ public partial class TdMove_WallClimbDodgeJump : TdPhysicsMove/*
 		{
 			DodgeDirection = JumpAddXY * Normal(Cross(vect(0.0f, 0.0f, 1.0f), ((Vector)(PawnOwner.Rotation))));
 		}
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("JumpSlow")), 1.0f, JumpBlendInTime, JumpBlendOutTime, default(bool), default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("JumpSlow")), 1.0f, JumpBlendInTime, JumpBlendOutTime, default, default);
 		SetLookAtTargetAngle(((Rotator)(DodgeDirection)), 0.10f, 1.0f);
 		PawnOwner.LastJumpLocation = PawnOwner.Location;
 		PawnOwner.Velocity = DodgeDirection + (DodgeJumpInertiaConservation * PawnOwner.Velocity);

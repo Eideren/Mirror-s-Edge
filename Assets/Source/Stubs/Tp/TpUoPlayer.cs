@@ -117,13 +117,13 @@ public partial class TpUoPlayer : TpSystemHandler,
 	}
 	
 	// Export UTpUoPlayer::execShowLoginUI(FFrame&, void* const)
-	public virtual /*native simulated function */bool ShowLoginUI(/*optional */bool bShowOnlineOnly = default)
+	public virtual /*native simulated function */bool ShowLoginUI(/*optional */bool? _bShowOnlineOnly = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
-	public virtual /*function */bool Login(byte LocalUserNum, string LoginName, string Password, /*optional */bool bWantsLocalOnly = default)
+	public virtual /*function */bool Login(byte LocalUserNum, string LoginName, string Password, /*optional */bool? _bWantsLocalOnly = default)
 	{
 	
 		return default;
@@ -270,12 +270,12 @@ public partial class TpUoPlayer : TpSystemHandler,
 		return default;
 	}
 	
-	public virtual /*simulated function */void AddLoginChangeDelegate(/*delegate*/OnlinePlayerInterface.OnLoginChange LoginDelegate, /*optional */byte LocalUserNum = default)
+	public virtual /*simulated function */void AddLoginChangeDelegate(/*delegate*/OnlinePlayerInterface.OnLoginChange LoginDelegate, /*optional */byte? _LocalUserNum = default)
 	{
 	
 	}
 	
-	public virtual /*simulated function */void ClearLoginChangeDelegate(/*delegate*/OnlinePlayerInterface.OnLoginChange LoginDelegate, /*optional */byte LocalUserNum = default)
+	public virtual /*simulated function */void ClearLoginChangeDelegate(/*delegate*/OnlinePlayerInterface.OnLoginChange LoginDelegate, /*optional */byte? _LocalUserNum = default)
 	{
 	
 	}
@@ -398,7 +398,7 @@ public partial class TpUoPlayer : TpSystemHandler,
 	
 	}
 	
-	public virtual /*simulated function */bool ReadFriendsList(byte LocalUserNum, /*optional */int Count = default, /*optional */int StartingAt = default)
+	public virtual /*simulated function */bool ReadFriendsList(byte LocalUserNum, /*optional */int? _Count = default, /*optional */int? _StartingAt = default)
 	{
 	
 		return default;
@@ -434,7 +434,7 @@ public partial class TpUoPlayer : TpSystemHandler,
 	
 	}
 	
-	public virtual /*simulated function */OnlineSubsystem.EOnlineEnumerationReadState GetFriendsList(byte LocalUserNum, ref array<OnlineSubsystem.OnlineFriend> Friends, /*optional */int Count = default, /*optional */int StartingAt = default)
+	public virtual /*simulated function */OnlineSubsystem.EOnlineEnumerationReadState GetFriendsList(byte LocalUserNum, ref array<OnlineSubsystem.OnlineFriend> Friends, /*optional */int? _Count = default, /*optional */int? _StartingAt = default)
 	{
 	
 		return default;
@@ -446,7 +446,7 @@ public partial class TpUoPlayer : TpSystemHandler,
 	}
 	
 	// Export UTpUoPlayer::execShowKeyboardUI(FFrame&, void* const)
-	public virtual /*native function */bool ShowKeyboardUI(byte LocalUserNum, string TitleText, string DescriptionText, /*optional */bool bIsPassword = default, /*optional */bool bShouldValidate = default, /*optional */string DefaultText = default, /*optional */int MaxResultLength = default)
+	public virtual /*native function */bool ShowKeyboardUI(byte LocalUserNum, string TitleText, string DescriptionText, /*optional */bool? _bIsPassword = default, /*optional */bool? _bShouldValidate = default, /*optional */string? _DefaultText = default, /*optional */int? _MaxResultLength = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -490,13 +490,13 @@ public partial class TpUoPlayer : TpSystemHandler,
 		#warning NATIVE FUNCTION !
 	}
 	
-	public virtual /*function */bool AddFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId NewFriend, /*optional */string Message = default)
+	public virtual /*function */bool AddFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId NewFriend, /*optional */string? _Message = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*simulated function */bool AddFriendByName(byte LocalUserNum, string FriendName, /*optional */string Message = default)
+	public virtual /*simulated function */bool AddFriendByName(byte LocalUserNum, string FriendName, /*optional */string? _Message = default)
 	{
 	
 		return default;
@@ -631,13 +631,13 @@ public partial class TpUoPlayer : TpSystemHandler,
 	
 	}
 	
-	public virtual /*function */bool SendGameInviteToFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId Friend, /*optional */string Text = default)
+	public virtual /*function */bool SendGameInviteToFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId Friend, /*optional */string? _Text = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool SendGameInviteToFriends(byte LocalUserNum, array<OnlineSubsystem.UniqueNetId> Friends, /*optional */string Text = default)
+	public virtual /*function */bool SendGameInviteToFriends(byte LocalUserNum, array<OnlineSubsystem.UniqueNetId> Friends, /*optional */string? _Text = default)
 	{
 	
 		return default;
@@ -710,7 +710,7 @@ public partial class TpUoPlayer : TpSystemHandler,
 		return default;
 	}
 	
-	public virtual /*function */bool ReadPlayersList(byte LocalUserNum, /*optional */int Count = default, /*optional */int StartingAt = default)
+	public virtual /*function */bool ReadPlayersList(byte LocalUserNum, /*optional */int? _Count = default, /*optional */int? _StartingAt = default)
 	{
 	
 		return default;
@@ -741,7 +741,7 @@ public partial class TpUoPlayer : TpSystemHandler,
 	
 	}
 	
-	public virtual /*function */OnlineSubsystem.EOnlineEnumerationReadState GetPlayersList(byte LocalUserNum, ref array<OnlineSubsystem.OnlinePlayer> Players, /*optional */int Count = default, /*optional */int StartingAt = default)
+	public virtual /*function */OnlineSubsystem.EOnlineEnumerationReadState GetPlayersList(byte LocalUserNum, ref array<OnlineSubsystem.OnlinePlayer> Players, /*optional */int? _Count = default, /*optional */int? _StartingAt = default)
 	{
 	
 		return default;

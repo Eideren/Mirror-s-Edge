@@ -5,7 +5,7 @@ public partial class TdAimBot_Perfect : TdAimBotBase/* within TdAIController*//*
 		native*/{
 	public new TdAIController Outer => base.Outer as TdAIController;
 	
-	public override /*function */Object.Vector GetAimLocation(TdPlayerPawn Target, /*optional */bool bUseFullDispersion = default)
+	public override /*function */Object.Vector GetAimLocation(TdPlayerPawn Target, /*optional */bool? _bUseFullDispersion = default)
 	{
 	
 		return default;

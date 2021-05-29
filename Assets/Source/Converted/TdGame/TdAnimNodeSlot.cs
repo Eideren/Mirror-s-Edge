@@ -17,7 +17,7 @@ public partial class TdAnimNodeSlot : AnimNodeSlot/*
 	}
 	
 	// Export UTdAnimNodeSlot::execSetRootBoneRotationAxisOption(FFrame&, void* const)
-	public virtual /*native final function */void SetRootBoneRotationAxisOption(/*optional */AnimNodeSequence.ERootRotationOption AxisX = default, /*optional */AnimNodeSequence.ERootRotationOption AxisY = default, /*optional */AnimNodeSequence.ERootRotationOption AxisZ = default)
+	public virtual /*native final function */void SetRootBoneRotationAxisOption(/*optional */AnimNodeSequence.ERootRotationOption? _AxisX = default, /*optional */AnimNodeSequence.ERootRotationOption? _AxisY = default, /*optional */AnimNodeSequence.ERootRotationOption? _AxisZ = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

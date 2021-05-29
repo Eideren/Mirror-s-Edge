@@ -41,28 +41,28 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 		return default;
 	}
 	
-	public virtual /*function */void OpenSceneEx(UIScene SceneToOpen, /*optional */LocalPlayer Player = default, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated SceneDelegate = default)
+	public virtual /*function */void OpenSceneEx(UIScene SceneToOpen, /*optional */LocalPlayer? _Player = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
 	{
 	
 	}
 	
-	public virtual /*function */UIScene InstantOpenScene(UIScene SceneToOpen, LocalPlayer Player, /*optional *//*delegate*/UIScene.OnSceneActivated SceneDelegate = default, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */UIScene InstantOpenScene(UIScene SceneToOpen, LocalPlayer Player, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */void OpenMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */void OpenMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 	}
 	
-	public virtual /*function */void OpenTinyMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */void OpenTinyMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 	}
 	
-	public virtual /*function */void OpenImageMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */void OpenImageMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 	}
@@ -72,7 +72,7 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 	
 	}
 	
-	public virtual /*function */void OpenLoadingScene(string Text, LocalPlayer Player, /*optional *//*delegate*/TdGameUISceneClient.LoadingSceneOpened SceneOpened = default, /*optional *//*delegate*/TdUIScene.OnSceneFullyOpened SceneFullyOpened = default)
+	public virtual /*function */void OpenLoadingScene(string Text, LocalPlayer Player, /*optional *//*delegate*/TdGameUISceneClient.LoadingSceneOpened? _SceneOpened = default, /*optional *//*delegate*/TdUIScene.OnSceneFullyOpened? _SceneFullyOpened = default)
 	{
 	
 	}
@@ -87,7 +87,7 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 	
 	}
 	
-	public virtual /*function */UIDataStore FindDataStore(name DataStoreTag, /*optional */LocalPlayer InPlayerOwner = default)
+	public virtual /*function */UIDataStore FindDataStore(name DataStoreTag, /*optional */LocalPlayer? _InPlayerOwner = default)
 	{
 	
 		return default;

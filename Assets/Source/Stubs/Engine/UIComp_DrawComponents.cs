@@ -28,7 +28,7 @@ public partial class UIComp_DrawComponents : UIComponent/* within UIObject*//*
 	}
 	
 	// Export UUIComp_DrawComponents::execPulse(FFrame&, void* const)
-	public virtual /*native final function */void Pulse(/*optional */float MaxAlpha = default, /*optional */float MinAlpha = default, /*optional */float PulseRate = default)
+	public virtual /*native final function */void Pulse(/*optional */float? _MaxAlpha = default, /*optional */float? _MinAlpha = default, /*optional */float? _PulseRate = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

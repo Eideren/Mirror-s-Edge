@@ -405,13 +405,13 @@ public partial class Settings : Object/*
 	}
 	
 	// Export USettings::execUpdateStringSettings(FFrame&, void* const)
-	public virtual /*native function */void UpdateStringSettings(/*const */ref array<Settings.LocalizedStringSetting> Settings, /*optional */bool bShouldAddIfMissing = default)
+	public virtual /*native function */void UpdateStringSettings(/*const */ref array<Settings.LocalizedStringSetting> Settings, /*optional */bool? _bShouldAddIfMissing = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export USettings::execUpdateProperties(FFrame&, void* const)
-	public virtual /*native function */void UpdateProperties(/*const */ref array<Settings.SettingsProperty> Props, /*optional */bool bShouldAddIfMissing = default)
+	public virtual /*native function */void UpdateProperties(/*const */ref array<Settings.SettingsProperty> Props, /*optional */bool? _bShouldAddIfMissing = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

@@ -16,7 +16,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 	public delegate bool OnPlayClickNotification(/*const */ref UIRoot.InputEventParameters EventParms);
 	
 	// Export UTdUIButtonBar::execCanAcceptFocus(FFrame&, void* const)
-	public override /*native function */bool CanAcceptFocus(/*optional */int PlayerIndex = default)
+	public override /*native function */bool CanAcceptFocus(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -98,9 +98,9 @@ public partial class TdUIButtonBar : TdUIObject/*
 	public TdUIButtonBar()
 	{
 		// Object Offset:0x00681F3E
-		Buttons = new StaticArray<TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton>()
+		Buttons = new StaticArray<TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton>/*[6]*/()
 		{ 
-			[0] = new TdUIButtonBarButton()
+			[0] = new TdUIButtonBarButton
 			{
 				// Object Offset:0x03135CA2
 				CaptionDataSource = new UIRoot.UIDataStoreBinding
@@ -113,7 +113,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 				TabIndex = 0,
 				Position = new UIRoot.UIScreenValue_Bounds
 				{
-					Value = new StaticArray<float, float, float, float>()
+					Value = new StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/()
 					{
 						[0] = 0.90f,
 						[2] = 0.10f,
@@ -122,7 +122,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 				},
 				EventProvider = LoadAsset<UIComp_Event>("Default__TdUIButtonBar.ButtonTemplate0.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIButtonBar.ButtonTemplate0.WidgetEventComponent'*/,
 			}/* Reference: TdUIButtonBarButton'Default__TdUIButtonBar.ButtonTemplate0' */,
-			[1] = new TdUIButtonBarButton()
+			[1] = new TdUIButtonBarButton
 			{
 				// Object Offset:0x03135DEB
 				CaptionDataSource = new UIRoot.UIDataStoreBinding
@@ -135,7 +135,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 				TabIndex = 1,
 				Position = new UIRoot.UIScreenValue_Bounds
 				{
-					Value = new StaticArray<float, float, float, float>()
+					Value = new StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/()
 					{
 						[0] = 0.90f,
 						[2] = 0.10f,
@@ -144,7 +144,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 				},
 				EventProvider = LoadAsset<UIComp_Event>("Default__TdUIButtonBar.ButtonTemplate1.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIButtonBar.ButtonTemplate1.WidgetEventComponent'*/,
 			}/* Reference: TdUIButtonBarButton'Default__TdUIButtonBar.ButtonTemplate1' */,
-			[2] = new TdUIButtonBarButton()
+			[2] = new TdUIButtonBarButton
 			{
 				// Object Offset:0x03135F34
 				CaptionDataSource = new UIRoot.UIDataStoreBinding
@@ -157,7 +157,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 				TabIndex = 2,
 				Position = new UIRoot.UIScreenValue_Bounds
 				{
-					Value = new StaticArray<float, float, float, float>()
+					Value = new StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/()
 					{
 						[0] = 0.90f,
 						[2] = 0.10f,
@@ -166,7 +166,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 				},
 				EventProvider = LoadAsset<UIComp_Event>("Default__TdUIButtonBar.ButtonTemplate2.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIButtonBar.ButtonTemplate2.WidgetEventComponent'*/,
 			}/* Reference: TdUIButtonBarButton'Default__TdUIButtonBar.ButtonTemplate2' */,
-			[3] = new TdUIButtonBarButton()
+			[3] = new TdUIButtonBarButton
 			{
 				// Object Offset:0x0313607D
 				CaptionDataSource = new UIRoot.UIDataStoreBinding
@@ -179,7 +179,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 				TabIndex = 3,
 				Position = new UIRoot.UIScreenValue_Bounds
 				{
-					Value = new StaticArray<float, float, float, float>()
+					Value = new StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/()
 					{
 						[0] = 0.90f,
 						[2] = 0.10f,
@@ -188,7 +188,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 				},
 				EventProvider = LoadAsset<UIComp_Event>("Default__TdUIButtonBar.ButtonTemplate3.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIButtonBar.ButtonTemplate3.WidgetEventComponent'*/,
 			}/* Reference: TdUIButtonBarButton'Default__TdUIButtonBar.ButtonTemplate3' */,
-			[4] = new TdUIButtonBarButton()
+			[4] = new TdUIButtonBarButton
 			{
 				// Object Offset:0x031361C6
 				CaptionDataSource = new UIRoot.UIDataStoreBinding
@@ -201,7 +201,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 				TabIndex = 4,
 				Position = new UIRoot.UIScreenValue_Bounds
 				{
-					Value = new StaticArray<float, float, float, float>()
+					Value = new StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/()
 					{
 						[0] = 0.90f,
 						[2] = 0.10f,
@@ -210,7 +210,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 				},
 				EventProvider = LoadAsset<UIComp_Event>("Default__TdUIButtonBar.ButtonTemplate4.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIButtonBar.ButtonTemplate4.WidgetEventComponent'*/,
 			}/* Reference: TdUIButtonBarButton'Default__TdUIButtonBar.ButtonTemplate4' */,
-			[5] = new TdUIButtonBarButton()
+			[5] = new TdUIButtonBarButton
 			{
 				// Object Offset:0x0313630F
 				CaptionDataSource = new UIRoot.UIDataStoreBinding
@@ -223,7 +223,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 				TabIndex = 5,
 				Position = new UIRoot.UIScreenValue_Bounds
 				{
-					Value = new StaticArray<float, float, float, float>()
+					Value = new StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/()
 					{
 						[0] = 0.90f,
 						[2] = 0.10f,
@@ -235,7 +235,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 	 	};
 		Position = new UIRoot.UIScreenValue_Bounds
 		{
-			Value = new StaticArray<float, float, float, float>()
+			Value = new StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/()
 			{
 				[1] = 0.950f,
 				[3] = 0.050f,

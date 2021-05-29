@@ -51,7 +51,7 @@ public partial class TdUITabPage_UnlockedMusic : TdUITabPage/*
 	
 	}
 	
-	public virtual /*function */void MusicList_OnSubmitSelection(UIList Sender, /*optional */int PlayerIndex = default)
+	public virtual /*function */void MusicList_OnSubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
 	
 	}

@@ -7,7 +7,7 @@ public partial class Goal_AtActor : PathGoalEvaluator/*
 	public float GoalDist;
 	public bool bKeepPartial;
 	
-	public /*function */static bool AtActor(Pawn P, Actor Goal, /*optional */float Dist = default, /*optional */bool bReturnPartial = default)
+	public /*function */static bool AtActor(Pawn P, Actor Goal, /*optional */float? _Dist = default, /*optional */bool? _bReturnPartial = default)
 	{
 	
 		return default;

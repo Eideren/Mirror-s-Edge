@@ -19,7 +19,7 @@ public partial class ConsoleEntry : UIObject/*
 	
 	}
 	
-	public override /*event */void RemovedChild(UIScreenObject WidgetOwner, UIObject OldChild, /*optional */array<UIObject> ExclusionSet = default)
+	public override /*event */void RemovedChild(UIScreenObject WidgetOwner, UIObject OldChild, /*optional */array<UIObject>? _ExclusionSet = default)
 	{
 	
 	}

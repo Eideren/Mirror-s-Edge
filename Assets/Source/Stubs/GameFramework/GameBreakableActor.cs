@@ -66,7 +66,7 @@ public partial class GameBreakableActor : KActor/*
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? GameBreakableActor_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => GameBreakableActor_TakeDamage;
-	public /*event */void GameBreakableActor_TakeDamage(int Damage, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default, /*optional */Actor DamageCauser = default)
+	public /*event */void GameBreakableActor_TakeDamage(int Damage, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
 	
 	}

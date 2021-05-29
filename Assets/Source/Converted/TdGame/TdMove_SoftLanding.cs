@@ -17,7 +17,7 @@ public partial class TdMove_SoftLanding : TdPhysicsMove/*
 		base.StartMove();
 		if(((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_180TurnInAir/*25*/))
 		{
-			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_180TurnInAir/*25*/, default(float));
+			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_180TurnInAir/*25*/, default);
 			bMovingBackwards = true;		
 		}
 		else

@@ -25,7 +25,7 @@ public partial class DataStoreClient : UIRoot/*
 	public /*const */array<DataStoreClient.PlayerDataStoreGroup> PlayerDataStores;
 	
 	// Export UDataStoreClient::execFindDataStore(FFrame&, void* const)
-	public virtual /*native final function */UIDataStore FindDataStore(name DataStoreTag, /*optional */LocalPlayer PlayerOwner = default)
+	public virtual /*native final function */UIDataStore FindDataStore(name DataStoreTag, /*optional */LocalPlayer? _PlayerOwner = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -39,7 +39,7 @@ public partial class DataStoreClient : UIRoot/*
 	}
 	
 	// Export UDataStoreClient::execRegisterDataStore(FFrame&, void* const)
-	public virtual /*native final function */bool RegisterDataStore(UIDataStore DataStore, /*optional */LocalPlayer PlayerOwner = default)
+	public virtual /*native final function */bool RegisterDataStore(UIDataStore DataStore, /*optional */LocalPlayer? _PlayerOwner = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

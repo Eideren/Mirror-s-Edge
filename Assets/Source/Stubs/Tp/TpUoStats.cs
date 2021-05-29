@@ -27,13 +27,13 @@ public partial class TpUoStats : TpSystemHandler,
 		return default;
 	}
 	
-	public virtual /*function */bool ReadOnlineStatsByRank(OnlineStatsRead StatsRead, /*optional */int StartIndex = default, /*optional */int NumToRead = default)
+	public virtual /*function */bool ReadOnlineStatsByRank(OnlineStatsRead StatsRead, /*optional */int? _StartIndex = default, /*optional */int? _NumToRead = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool ReadOnlineStatsByRankAroundPlayer(byte LocalUserNum, OnlineStatsRead StatsRead, /*optional */int NumRows = default)
+	public virtual /*function */bool ReadOnlineStatsByRankAroundPlayer(byte LocalUserNum, OnlineStatsRead StatsRead, /*optional */int? _NumRows = default)
 	{
 	
 		return default;

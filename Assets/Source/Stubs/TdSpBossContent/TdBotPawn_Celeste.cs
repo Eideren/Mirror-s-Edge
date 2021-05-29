@@ -13,7 +13,7 @@ public partial class TdBotPawn_Celeste : TdBotPawn_PursuitCop/*
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? TdBotPawn_Celeste_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => TdBotPawn_Celeste_TakeDamage;
-	public /*function */void TdBotPawn_Celeste_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default, /*optional */Actor DamageCauser = default)
+	public /*function */void TdBotPawn_Celeste_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
 	
 	}

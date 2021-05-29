@@ -34,7 +34,7 @@ public partial class TdMove_Balance : TdPhysicsMove/*
 		/*local */float NormalizedParam = default, Forwardness = default;
 	
 		base.StartMove();
-		Volume.FindClosestPointOnDSpline(PawnOwner.Location, ref/*probably?*/ PointOnSpline, ref/*probably?*/ CurrentParamOnCurve, default(int));
+		Volume.FindClosestPointOnDSpline(PawnOwner.Location, ref/*probably?*/ PointOnSpline, ref/*probably?*/ CurrentParamOnCurve, default);
 		NormalizedParam = CurrentParamOnCurve / ((float)(Volume.NumSplineSegments));
 		SplineDirection = Volume.GetSlopeOnSpline(NormalizedParam);
 		Forwardness = Dot(((Vector)(PawnOwner.Rotation)), Normal(SplineDirection));
@@ -84,11 +84,11 @@ public partial class TdMove_Balance : TdPhysicsMove/*
 		PawnOwner.SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
 		if(BalanceFactor < 0.0f)
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("walkbalancefalloffleft")), 1.0f, 0.30f, 0.30f, true, default(bool));		
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("walkbalancefalloffleft")), 1.0f, 0.30f, 0.30f, true, default);		
 		}
 		else
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("walkbalancefalloffright")), 1.0f, 0.30f, 0.30f, true, default(bool));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("walkbalancefalloffright")), 1.0f, 0.30f, 0.30f, true, default);
 		}
 		PawnOwner.UseRootMotion(true);
 	}
@@ -96,18 +96,18 @@ public partial class TdMove_Balance : TdPhysicsMove/*
 	public override /*simulated function */void OnCeaseRelevantRootMotion(AnimNodeSequence SeqNode)
 	{
 		SetMoveTimer(0.10f, false, "GoIntoFalling");
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Falling/*2*/, default(float));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Falling/*2*/, default);
 	}
 	
 	public virtual /*simulated function */void GoIntoFalling()
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 	}
 	
 	public override /*simulated event */void HitWall(Object.Vector HitNormal, Actor Wall)
 	{
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, 0.10f);
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Landing/*20*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Landing/*20*/, default, default);
 	}
 	
 	public TdMove_Balance()

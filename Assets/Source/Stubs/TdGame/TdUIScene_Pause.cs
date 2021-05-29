@@ -99,7 +99,7 @@ public partial class TdUIScene_Pause : TdUIScene/*
 	
 	}
 	
-	public override /*function */bool CloseScene(UIScene SceneToClose, /*optional */bool bSkipKismetNotify = default, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public override /*function */bool CloseScene(UIScene SceneToClose, /*optional */bool? _bSkipKismetNotify = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 		return default;

@@ -30,7 +30,7 @@ public partial class TpMessageService : TpSystemHandler/*
 	public delegate void OnCheckInbox();
 	
 	// Export UTpMessageService::execFriendRequestAsync(FFrame&, void* const)
-	public virtual /*native simulated function */bool FriendRequestAsync(OnlineSubsystem.UniqueNetId NewFriend, /*optional */string Message = default)
+	public virtual /*native simulated function */bool FriendRequestAsync(OnlineSubsystem.UniqueNetId NewFriend, /*optional */string? _Message = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

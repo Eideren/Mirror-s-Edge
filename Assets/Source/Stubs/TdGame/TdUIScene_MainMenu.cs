@@ -73,7 +73,7 @@ public partial class TdUIScene_MainMenu : TdUIScene/*
 	
 	}
 	
-	public virtual /*function */void ButtonStateChange(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState PreviouslyActiveState = default)
+	public virtual /*function */void ButtonStateChange(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
 	{
 	
 	}
@@ -268,27 +268,27 @@ public partial class TdUIScene_MainMenu : TdUIScene/*
 	
 	}
 	
-	public virtual /*function */void OpenTimeTrialSceneCallback(/*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */void OpenTimeTrialSceneCallback(/*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 	}
 	
-	public virtual /*function */void OpenTimeTrialOfflineSceneCallback(/*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */void OpenTimeTrialOfflineSceneCallback(/*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 	}
 	
-	public virtual /*function */void OpenLevelRaceSceneCallback(/*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */void OpenLevelRaceSceneCallback(/*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 	}
 	
-	public virtual /*function */void OpenLevelRaceOfflineSceneCallback(/*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */void OpenLevelRaceOfflineSceneCallback(/*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 	}
 	
-	public virtual /*function */void OpenLeaderboardSceneCallback(/*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */void OpenLeaderboardSceneCallback(/*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 	}
@@ -357,7 +357,7 @@ public partial class TdUIScene_MainMenu : TdUIScene/*
 	
 	}
 	
-	public virtual /*function */void SetActivePanel(int PanelIndex, /*optional */bool Silent = default)
+	public virtual /*function */void SetActivePanel(int PanelIndex, /*optional */bool? _Silent = default)
 	{
 	
 	}

@@ -89,7 +89,7 @@ public partial class TdLadderVolume : TdMovementVolume/*
 		((TdP.Moves[21]) as TdMove_Climb).Ladder = this;
 		if(TdP.Moves[22].CanDoMove())
 		{
-			TdP.SetMove(TdPawn.EMovement.MOVE_IntoClimb/*22*/, default(bool), default(bool));
+			TdP.SetMove(TdPawn.EMovement.MOVE_IntoClimb/*22*/, default, default);
 			TdP.ActiveMovementVolume = default;		
 		}
 		else

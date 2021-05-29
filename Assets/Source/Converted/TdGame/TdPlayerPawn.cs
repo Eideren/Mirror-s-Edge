@@ -246,18 +246,19 @@ public partial class TdPlayerPawn : TdPawn/*
 		return false;
 	}
 	
-	public virtual /*simulated function */void ForceDropBag(/*optional */Object.Vector Force = default)
+	public virtual /*simulated function */void ForceDropBag(/*optional */Object.Vector? _Force = default)
 	{
 		/*local */Object.Vector WeaponLocation = default;
 		/*local */Object.Rotator WeaponRotation = default;
 		/*local */Inventory Bag = default;
 		/*local */Core.ClassT<TdWeapon> BagClass = default;
 	
+		var Force = _Force ?? default;
 		if(((int)Role) < ((int)Actor.ENetRole.ROLE_Authority/*3*/))
 		{
 			return;
 		}
-		BagClass = ((DynamicLoadObject("TdMpContent.TdWeapon_Bag", ClassT<Class>(), default(bool))) as ClassT<TdWeapon>);
+		BagClass = ((DynamicLoadObject("TdMpContent.TdWeapon_Bag", ClassT<Class>(), default)) as ClassT<TdWeapon>);
 		
 		// foreach InvManager.InventoryActors(BagClass, ref/*probably?*/ Bag)
 		using var e68 = InvManager.InventoryActors(BagClass).GetEnumerator();
@@ -280,7 +281,7 @@ public partial class TdPlayerPawn : TdPawn/*
 			if(!CheckValidFloor(Normal(Velocity), Floor, true))
 			{
 				SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
-				SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), true);
+				SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, true);
 			}
 		}
 	}
@@ -350,8 +351,8 @@ public partial class TdPlayerPawn : TdPawn/*
 			{
 				return;
 			}
-			SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
-			SetBase(((ObjectVariables[0]) as Actor), default(Object.Vector), default(SkeletalMeshComponent), default(name));
+			SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+			SetBase(((ObjectVariables[0]) as Actor), default, default, default);
 			bLockBase = true;
 			bAllowMoveChange = false;		
 		}
@@ -375,7 +376,7 @@ public partial class TdPlayerPawn : TdPawn/*
 	{
 		if(CanDoMove(TdPawn.EMovement.MOVE_LayOnGround/*26*/))
 		{
-			SetMove(TdPawn.EMovement.MOVE_LayOnGround/*26*/, default(bool), default(bool));
+			SetMove(TdPawn.EMovement.MOVE_LayOnGround/*26*/, default, default);
 		}
 	}
 	
@@ -386,8 +387,10 @@ public partial class TdPlayerPawn : TdPawn/*
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? TdPlayerPawn_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => TdPlayerPawn_TakeDamage;
-	public /*event */void TdPlayerPawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default, /*optional */Actor DamageCauser = default)
+	public /*event */void TdPlayerPawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
+		var HitInfo = _HitInfo ?? default;
+		var DamageCauser = _DamageCauser ?? default;
 		if(((InstigatedBy) as TdAIController) != default)
 		{
 			if(!((InstigatedBy) as TdAIController).IsHitRelevant(DamageType, HitInfo.BoneName))
@@ -401,7 +404,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		}
 		if(!DamageType.IsA("TdDmgType_Fell"))
 		{
-			PlaySound(ObjectConst<SoundCue>("Hard"), false, true, false, Location, default(bool), default(bool));
+			PlaySound(ObjectConst<SoundCue>("Hard"), false, true, false, Location, default, default);
 		}
 		/*Transformed 'base.' to specific call*/TdPawn_TakeDamage(Damage, InstigatedBy, HitLocation, damageMomentum, DamageType, HitInfo, DamageCauser);
 		if((Health < 40) && Weapon != default)
@@ -410,9 +413,10 @@ public partial class TdPlayerPawn : TdPawn/*
 		}
 	}
 	
-	public override /*function */void PlayMeleeImpact(PhysicalMaterial PhysMat, TdPawn.EMeleeImpactType Type, Object.Vector TargetHitLocation, Object.Vector TargetHitNormal, Object.Vector TargetHitMomentum, name TargetHitBone, /*optional */Core.ClassT<DamageType> DamageType = default)
+	public override /*function */void PlayMeleeImpact(PhysicalMaterial PhysMat, TdPawn.EMeleeImpactType Type, Object.Vector TargetHitLocation, Object.Vector TargetHitNormal, Object.Vector TargetHitMomentum, name TargetHitBone, /*optional */Core.ClassT<DamageType>? _DamageType = default)
 	{
-		PlaySound(ObjectConst<SoundCue>("Fist_Head"), false, true, false, TargetHitLocation, default(bool), default(bool));
+		var DamageType = _DamageType ?? default;
+		PlaySound(ObjectConst<SoundCue>("Fist_Head"), false, true, false, TargetHitLocation, default, default);
 	}
 	
 	public override Died_del Died { get => bfield_Died ?? TdPlayerPawn_Died; set => bfield_Died = value; } Died_del bfield_Died;
@@ -437,7 +441,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		if(Index < SequenceEvents.Length)
 		{
 			DeathEvent = ((SequenceEvents[Index]) as SeqEvt_TdPlayerDeath);
-			DeathEvent.CheckActivate(this, this, false, ref/*probably?*/ /*null*/NullRef.array_int_, default(bool));
+			DeathEvent.CheckActivate(this, this, false, ref/*probably?*/ /*null*/NullRef.array_int_, default);
 			++ Index;
 			goto J0x38;
 		}
@@ -462,7 +466,7 @@ public partial class TdPlayerPawn : TdPawn/*
 	
 		FallHeight = EnterFallingHeight - Location.Z;
 		bLandedOnSoftSurface = ((Moves[20]) as TdMove_Landing).IsLandingOnSoftObject();
-		bDeathFall = ((((int)MovementState) == ((int)TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/)) && IsInState("UncontrolledFall", default(bool))) || FallHeight >= FallingUncontrolledHeight;
+		bDeathFall = ((((int)MovementState) == ((int)TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/)) && IsInState("UncontrolledFall", default)) || FallHeight >= FallingUncontrolledHeight;
 		if(bLandedOnSoftSurface || (!bDeathFall && FallHeight < ((Moves[20]) as TdMove_Landing).HardLandingHeight) || CanSkillRoll())
 		{
 			MakeNoise(0.50f, "PlayerMovementNoise");		
@@ -477,16 +481,16 @@ public partial class TdPlayerPawn : TdPawn/*
 			{
 				Damage = ((Moves[20]) as TdMove_Landing).HardLandingDamage;
 			}
-			TakeDamage(((int)(Damage)), default(Controller), Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Fell>(), default(Actor.TraceHitInfo), default(Actor));
+			TakeDamage(((int)(Damage)), default, Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Fell>(), default, default);
 		}
 	}
 	
 	public override /*simulated function */void GoIntoUncontrolledFall()
 	{
-		if(!IsInState("UncontrolledFall", default(bool)))
+		if(!IsInState("UncontrolledFall", default))
 		{
-			((Controller) as TdPlayerController).SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_FALLING_TO_DEATH/*6*/, default(float), default(bool), 0.50f);
-			GotoState("UncontrolledFall", default(name), default(bool), default(bool));
+			((Controller) as TdPlayerController).SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_FALLING_TO_DEATH/*6*/, default, default, 0.50f);
+			GotoState("UncontrolledFall", default, default, default);
 		}
 	}
 	
@@ -509,7 +513,7 @@ public partial class TdPlayerPawn : TdPawn/*
 				BlinkControl.BlendInTime = (WorldInfo.TimeSeconds + 1.0f) + (FRand() * 5.0f);
 			}
 		}
-		bAllowAgainstWall = ((Moves[((int)MovementState)].bEnableAgainstWall && !IsInState("UncontrolledFall", default(bool))) && !IsInState("Dying", default(bool))) && ((int)WeaponAnimState) != ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/);
+		bAllowAgainstWall = ((Moves[((int)MovementState)].bEnableAgainstWall && !IsInState("UncontrolledFall", default)) && !IsInState("Dying", default)) && ((int)WeaponAnimState) != ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/);
 		if((((int)Physics) == ((int)Actor.EPhysics.PHYS_Falling/*2*/)) && VSize2D(Velocity) > 400.0f)
 		{
 			bAllowAgainstWall = false;
@@ -528,7 +532,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		}
 		if(WindSound == default)
 		{
-			WindSound = this.CreateAudioComponent(WindSoundSC, false, true, default(bool), default(Object.Vector), default(bool));
+			WindSound = this.CreateAudioComponent(WindSoundSC, false, true, default, default, default);
 			if(WindSound != default)
 			{
 				AttachComponent(WindSound);
@@ -560,7 +564,7 @@ public partial class TdPlayerPawn : TdPawn/*
 			}
 		}
 		PlayerController = ((Controller) as TdPlayerController);
-		if((PlayerController != default) && !IsInState("UncontrolledFall", default(bool)) || IsInState("Dying", default(bool)))
+		if((PlayerController != default) && !IsInState("UncontrolledFall", default) || IsInState("Dying", default))
 		{
 			if(!RollTriggerPressed && ((int)PlayerController.bDuck) == ((int)1))
 			{
@@ -602,7 +606,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		}
 		else
 		{
-			SetTimer(0.150f, false, "StopAgainstWall", default(Object));
+			SetTimer(0.150f, false, "StopAgainstWall", default);
 		}
 	}
 	
@@ -684,10 +688,10 @@ public partial class TdPlayerPawn : TdPawn/*
 		}
 	}
 	
-	public override /*simulated function */void SetHipsOffset(Object.Vector Offset, /*optional */float BlendTime = default, /*optional */bool bFirstPersonMeshOnly = default)
+	public override /*simulated function */void SetHipsOffset(Object.Vector Offset, /*optional */float? _BlendTime = default, /*optional */bool? _bFirstPersonMeshOnly = default)
 	{
-		BlendTime = 0.30f;
-		bFirstPersonMeshOnly = false;
+		var BlendTime = _BlendTime ?? 0.30f;
+		var bFirstPersonMeshOnly = _bFirstPersonMeshOnly ?? false;
 		if(VSize(Offset) > 0.10f)
 		{
 			if(HipsControl1p != default)
@@ -967,8 +971,9 @@ public partial class TdPlayerPawn : TdPawn/*
 		return retval;
 	}
 	
-	public override /*function */void AddVelocity(Object.Vector NewVelocity, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default)
+	public override /*function */void AddVelocity(Object.Vector NewVelocity, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default)
 	{
+		var HitInfo = _HitInfo ?? default;
 		return;
 	}
 	
@@ -990,13 +995,13 @@ public partial class TdPlayerPawn : TdPawn/*
 		}
 		else
 		{
-			EnableFootPlacement(default(float));
+			EnableFootPlacement(default);
 		}
 	}
 	
-	public virtual /*simulated function */void EnableFootPlacement(/*optional */float BlendTime = default)
+	public virtual /*simulated function */void EnableFootPlacement(/*optional */float? _BlendTime = default)
 	{
-		BlendTime = 0.20f;
+		var BlendTime = _BlendTime ?? 0.20f;
 		if((LeftLegControl3p != default) && RightLegControl3p != default)
 		{
 			LeftLegControl3p.SetSkelControlStrength(1.0f, BlendTime);
@@ -1049,7 +1054,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		{
 			EnableHairRagdoll();
 		}
-		SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+		SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 		LastEnemyHitTimeOut = WorldInfo.TimeSeconds;
 		DisableFootPlacement();
 	}
@@ -1289,22 +1294,22 @@ public partial class TdPlayerPawn : TdPawn/*
 	
 	public override /*simulated function */void PlayDying(Core.ClassT<DamageType> DamageType, Object.Vector HitLoc)
 	{
-		SetIgnoreMoveInput(default(float));
-		SetIgnoreLookInput(default(float));
-		UpdateAnimSets(default(TdWeapon));
+		SetIgnoreMoveInput(default);
+		SetIgnoreLookInput(default);
+		UpdateAnimSets(default);
 		if((((int)MovementState) == ((int)TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/)) || ((int)MovementState) == ((int)TdPawn.EMovement.MOVE_180TurnInAir/*25*/))
 		{
-			((Controller) as TdPlayerController).SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_DEATH_BY_FALLING/*8*/, default(float), default(bool), 1.50f);
-			SetTimer(0.010f, false, "PlayDeathAnim", default(Object));		
+			((Controller) as TdPlayerController).SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_DEATH_BY_FALLING/*8*/, default, default, 1.50f);
+			SetTimer(0.010f, false, "PlayDeathAnim", default);		
 		}
 		else
 		{
-			((Controller) as TdPlayerController).SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_GENERIC_DEATH/*9*/, default(float), default(bool), 1.0f);
-			SetTimer(0.50f, false, "PlayDeathAnim", default(Object));
+			((Controller) as TdPlayerController).SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_GENERIC_DEATH/*9*/, default, default, 1.0f);
+			SetTimer(0.50f, false, "PlayDeathAnim", default);
 		}
 		bCollideWorld = true;
-		SetCollision(bCollideActors, true, default(bool));
-		Controller.GotoState("PlayerDying", default(name), default(bool), default(bool));
+		SetCollision(bCollideActors, true, default);
+		Controller.GotoState("PlayerDying", default, default, default);
 		base.PlayDying(DamageType, HitLoc);
 	}
 	
@@ -1317,31 +1322,31 @@ public partial class TdPlayerPawn : TdPawn/*
 		DeathMove = ((TdPawn.EMovement)MovementState);
 		if(((int)MovementState) != ((int)TdPawn.EMovement.MOVE_LayOnGround/*26*/))
 		{
-			SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+			SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 		}
 		Moves[((int)MovementState)].ResetCameraLook(0.20f);
 		switch(DeathMove)
 		{
 			case TdPawn.EMovement.MOVE_180TurnInAir/*25*/:
-				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDieBwd", 1.0f, 0.30f, -1.0f, false, true, false, default(bool));
+				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDieBwd", 1.0f, 0.30f, -1.0f, false, true, false, default);
 				SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
 				break;
 			case TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/:
-				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDie", 1.0f, 0.30f, -1.0f, false, true, false, default(bool));
+				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDie", 1.0f, 0.30f, -1.0f, false, true, false, default);
 				SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
 				break;
 			case TdPawn.EMovement.MOVE_Crouch/*15*/:
 			case TdPawn.EMovement.MOVE_Slide/*16*/:
-				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "diecrouch", 1.0f, 0.30f, -1.0f, false, true, true, default(bool));
+				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "diecrouch", 1.0f, 0.30f, -1.0f, false, true, true, default);
 				bUseRootMotion = true;
 				break;
 			case TdPawn.EMovement.MOVE_LayOnGround/*26*/:
-				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "DiePursuitFinish", 1.0f, 0.30f, -1.0f, false, true, false, default(bool));
+				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "DiePursuitFinish", 1.0f, 0.30f, -1.0f, false, true, false, default);
 				SetPhysics(Actor.EPhysics.PHYS_Flying/*4*/);
 				bUseRootMotion = true;
 				break;
 			case TdPawn.EMovement.MOVE_Falling/*2*/:
-				SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default(float));
+				SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default);
 				break;
 			case TdPawn.EMovement.MOVE_LedgeWalk/*30*/:
 				if(((int)AgainstWallState) != ((int)TdPawn.EAgainstWallState.AW_None/*0*/))
@@ -1351,7 +1356,7 @@ public partial class TdPlayerPawn : TdPawn/*
 				}
 				goto default;// UnrealScript fallthrough
 			default:
-				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "die", 1.0f, 0.30f, -1.0f, false, true, true, default(bool));
+				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "die", 1.0f, 0.30f, -1.0f, false, true, true, default);
 				bUseRootMotion = true;
 				break;
 		}
@@ -1360,7 +1365,7 @@ public partial class TdPlayerPawn : TdPawn/*
 			Velocity = vect(0.0f, 0.0f, 0.0f);
 			SetPhysics(Actor.EPhysics.PHYS_Flying/*4*/);
 			UseRootMotion(true);
-			SetTimer(2.0f, false, "TurnOffRootMotion", default(Object));
+			SetTimer(2.0f, false, "TurnOffRootMotion", default);
 		}
 	}
 	
@@ -1397,11 +1402,11 @@ public partial class TdPlayerPawn : TdPawn/*
 	
 	public override /*event */void BeginAnimControl(array<AnimSet> InAnimSets)
 	{
-		SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+		SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 		Velocity = vect(0.0f, 0.0f, 0.0f);
 		Acceleration = vect(0.0f, 0.0f, 0.0f);
 		SetPhysics(Actor.EPhysics.PHYS_None/*0*/);
-		SetCollision(bCollideActors, false, default(bool));
+		SetCollision(bCollideActors, false, default);
 		bCollideWorld = false;
 		if(InAnimSets.Length > 0)
 		{
@@ -1413,7 +1418,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		}
 		SetFirstPersonDPG(Scene.ESceneDepthPriorityGroup.SDPG_Intermediate/*2*/);
 		MAT_BeginAnimControl(InAnimSets);
-		SetTimer(0.50f, false, "CheckForSkippableCutscene", default(Object));
+		SetTimer(0.50f, false, "CheckForSkippableCutscene", default);
 	}
 	
 	public virtual /*simulated function */void CheckForSkippableCutscene()
@@ -1442,8 +1447,8 @@ public partial class TdPlayerPawn : TdPawn/*
 	public override /*event */void FinishAnimControl()
 	{
 		MAT_FinishAnimControl();
-		SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
-		SetCollision(bCollideActors, true, default(bool));
+		SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+		SetCollision(bCollideActors, true, default);
 		bCollideWorld = true;
 		UseRootMotion(false);
 		UseRootRotation(false);
@@ -1469,15 +1474,15 @@ public partial class TdPlayerPawn : TdPawn/*
 		/*local */Canvas Canvas = default;
 	
 		Canvas = HUD.Canvas;
-		Canvas.SetDrawColor(0, 255, 0, (byte)default(byte));
+		Canvas.SetDrawColor(0, 255, 0, (byte)default);
 		if(HUD.ShouldDisplayDebug("Health"))
 		{
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			Canvas.DrawText("timeSinceLastDamage: " + ((TimeSinceLastDamage)).ToString(), default(bool), default(float), default(float));
+			Canvas.DrawText("timeSinceLastDamage: " + ((TimeSinceLastDamage)).ToString(), default, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			Canvas.DrawText("healthFrac: " + ((HealthFrac)).ToString(), default(bool), default(float), default(float));
+			Canvas.DrawText("healthFrac: " + ((HealthFrac)).ToString(), default, default, default);
 		}
 		base.DisplayDebug(HUD, ref/*probably?*/ out_YL, ref/*probably?*/ out_YPos);
 	}
@@ -1512,7 +1517,7 @@ public partial class TdPlayerPawn : TdPawn/*
 			{
 				goto J0xD8;
 			}
-			PlayerSwitchedWeaponEvent.CheckActivate(this, PlayerWeapon, default(bool), ref/*probably?*/ /*null*/NullRef.array_int_, default(bool));
+			PlayerSwitchedWeaponEvent.CheckActivate(this, PlayerWeapon, default, ref/*probably?*/ /*null*/NullRef.array_int_, default);
 			J0xD8:{}
 			++ Index;
 			goto J0x38;
@@ -1543,12 +1548,12 @@ public partial class TdPlayerPawn : TdPawn/*
 	{
 		if(PreviousStateName == "UncontrolledFall")
 		{
-			SetTimer(0.40f, false, "DestroyPawn", default(Object));		
+			SetTimer(0.40f, false, "DestroyPawn", default);		
 		}
 		else
 		{
 			PlayDeathEffect();
-			SetTimer(2.50f, false, "DestroyPawn", default(Object));
+			SetTimer(2.50f, false, "DestroyPawn", default);
 		}
 	}
 	
@@ -1572,26 +1577,26 @@ public partial class TdPlayerPawn : TdPawn/*
 		SetPhysics(Actor.EPhysics.PHYS_Flying/*4*/);
 		UseRootMotion(true);
 		Velocity = vect(0.0f, 0.0f, 0.0f);
-		SetTimer(2.0f, false, "TurnOffRootMotion", default(Object));
+		SetTimer(2.0f, false, "TurnOffRootMotion", default);
 		if((((int)OldMovementState) == ((int)TdPawn.EMovement.MOVE_Grabbing/*3*/)) || ((int)OldMovementState) == ((int)TdPawn.EMovement.MOVE_Climb/*21*/))
 		{
-			PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "die", 1.0f, 0.30f, -1.0f, false, true, true, default(bool));		
+			PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "die", 1.0f, 0.30f, -1.0f, false, true, true, default);		
 		}
 		else
 		{
 			if((((int)MovementState) == ((int)TdPawn.EMovement.MOVE_Falling/*2*/)) || ((int)MovementState) == ((int)TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/))
 			{
-				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDie", 1.0f, 0.30f, -1.0f, false, true, true, default(bool));			
+				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDie", 1.0f, 0.30f, -1.0f, false, true, true, default);			
 			}
 			else
 			{
 				if(((int)MovementState) == ((int)TdPawn.EMovement.MOVE_180TurnInAir/*25*/))
 				{
-					PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDieBwd", 1.0f, 0.30f, -1.0f, false, true, true, default(bool));				
+					PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDieBwd", 1.0f, 0.30f, -1.0f, false, true, true, default);				
 				}
 				else
 				{
-					PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "die", 1.0f, 0.30f, -1.0f, false, true, true, default(bool));
+					PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "die", 1.0f, 0.30f, -1.0f, false, true, true, default);
 				}
 			}
 		}
@@ -1616,10 +1621,10 @@ public partial class TdPlayerPawn : TdPawn/*
 	}
 	
 	
-	protected /*simulated event */bool TdPlayerPawn_UncontrolledFall_SetMove(TdPawn.EMovement NewMove, /*optional */bool bViaReplication = default, /*optional */bool bCheckCanDo = default)// state function
+	protected /*simulated event */bool TdPlayerPawn_UncontrolledFall_SetMove(TdPawn.EMovement NewMove, /*optional */bool? _bViaReplication = default, /*optional */bool? _bCheckCanDo = default)// state function
 	{
-		bViaReplication = false;
-		bCheckCanDo = false;
+		var bViaReplication = _bViaReplication ?? false;
+		var bCheckCanDo = _bCheckCanDo ?? false;
 		if((((int)NewMove) != ((int)TdPawn.EMovement.MOVE_Landing/*20*/)) && ((int)NewMove) != ((int)TdPawn.EMovement.MOVE_SoftLanding/*78*/))
 		{
 			return false;
@@ -1631,7 +1636,7 @@ public partial class TdPlayerPawn : TdPawn/*
 	{
 		SetIgnoreMoveInput(-1.0f);
 		SetIgnoreLookInput(-1.0f);
-		FallingSound = CreateAudioComponent(ObjectConst<SoundCue>("Death_Fall"), true, true, default(bool), default(Object.Vector), default(bool));
+		FallingSound = CreateAudioComponent(ObjectConst<SoundCue>("Death_Fall"), true, true, default, default, default);
 	}
 	
 	protected /*function */void TdPlayerPawn_UncontrolledFall_EndState(name NextStateName)// state function
@@ -1647,15 +1652,15 @@ public partial class TdPlayerPawn : TdPawn/*
 		}
 		if(Moves[20].CanDoMove())
 		{
-			SetMove(TdPawn.EMovement.MOVE_Landing/*20*/, default(bool), default(bool));
+			SetMove(TdPawn.EMovement.MOVE_Landing/*20*/, default, default);
 		}
 		if(Health > 0)
 		{
-			GotoState("None", default(name), default(bool), default(bool));		
+			GotoState("None", default, default, default);		
 		}
 		else
 		{
-			PlaySound(ObjectConst<SoundCue>("Death_Impact"), true, false, false, default(Object.Vector), default(bool), default(bool));
+			PlaySound(ObjectConst<SoundCue>("Death_Impact"), true, false, false, default, default, default);
 		}
 	}
 	

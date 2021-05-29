@@ -35,7 +35,7 @@ public partial class TdSPPostProcessingBase : Object/* within TdSPGame*//*
 	
 	}
 	
-	public virtual /*protected function */void UpdateOnlineStats(TdTTInput TTOnlineInput, bool bOnlyAllTime, /*optional */int InGhostTag = default)
+	public virtual /*protected function */void UpdateOnlineStats(TdTTInput TTOnlineInput, bool bOnlyAllTime, /*optional */int? _InGhostTag = default)
 	{
 	
 	}

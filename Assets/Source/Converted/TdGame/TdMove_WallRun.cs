@@ -157,8 +157,8 @@ public partial class TdMove_WallRun : TdPhysicsMove/*
 	
 	public override /*simulated function */int HandleDeath(int Damage)
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default(float));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default);
 		return base.HandleDeath(Damage);
 	}
 	
@@ -175,13 +175,13 @@ public partial class TdMove_WallRun : TdPhysicsMove/*
 		{
 			if(((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_WallRunningRight/*4*/))
 			{
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_Camera/*6*/, "wallrunimpactright", 1.0f, 0.150f, 0.150f, default(bool), default(bool));			
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_Camera/*6*/, "wallrunimpactright", 1.0f, 0.150f, 0.150f, default, default);			
 			}
 			else
 			{
 				if(((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_WallRunningLeft/*5*/))
 				{
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_Camera/*6*/, "wallrunimpactleft", 1.0f, 0.150f, 0.150f, default(bool), default(bool));
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_Camera/*6*/, "wallrunimpactleft", 1.0f, 0.150f, 0.150f, default, default);
 				}
 			}
 		}
@@ -227,7 +227,7 @@ public partial class TdMove_WallRun : TdPhysicsMove/*
 		Start = PawnOwner.Location;
 		End = Start;
 		End.Z += WallRunningHorisontalInitialZHeight;
-		if(MovementTrace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, End, Start, PawnOwner.GetCollisionExtent(), default(bool)))
+		if(MovementTrace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, End, Start, PawnOwner.GetCollisionExtent(), default))
 		{
 			WallRunHeight = HitLocation.Z - PawnOwner.Location.Z;		
 		}
@@ -243,7 +243,7 @@ public partial class TdMove_WallRun : TdPhysicsMove/*
 		{
 			PawnOwner.Velocity.Z = Speed;
 		}
-		PawnOwner.SetBase(PawnOwner.MovementActor, WallNormal, default(SkeletalMeshComponent), default(name));
+		PawnOwner.SetBase(PawnOwner.MovementActor, WallNormal, default, default);
 		SetTimer(WallRunningDelayPawnRotationTime);
 		Extent.X = PawnOwner.CylinderComponent.CollisionRadius;
 		Extent.Y = PawnOwner.CylinderComponent.CollisionRadius;
@@ -258,7 +258,7 @@ public partial class TdMove_WallRun : TdPhysicsMove/*
 		}
 		if(((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_WallRunningRight/*4*/))
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "wallrunrightstart", AnimPlayRate, WallRunningIntoWallrunBlendInTime, WallRunningIntoWallrunBlendOutTime, default(bool), default(bool));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "wallrunrightstart", AnimPlayRate, WallRunningIntoWallrunBlendInTime, WallRunningIntoWallrunBlendOutTime, default, default);
 			MinContraintWorld = NormalizeRotAxis(((Rotator)(WallNormal)).Yaw);
 			MaxContraintWorld = NormalizeRotAxis(((Rotator)(WallNormal)).Yaw + 16384);		
 		}
@@ -266,7 +266,7 @@ public partial class TdMove_WallRun : TdPhysicsMove/*
 		{
 			if(((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_WallRunningLeft/*5*/))
 			{
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "wallrunleftstart", AnimPlayRate, WallRunningIntoWallrunBlendInTime, WallRunningIntoWallrunBlendOutTime, default(bool), default(bool));
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "wallrunleftstart", AnimPlayRate, WallRunningIntoWallrunBlendInTime, WallRunningIntoWallrunBlendOutTime, default, default);
 				MinContraintWorld = NormalizeRotAxis(((Rotator)(WallNormal)).Yaw - 16384);
 				MaxContraintWorld = NormalizeRotAxis(((Rotator)(WallNormal)).Yaw);
 			}
@@ -337,7 +337,7 @@ public partial class TdMove_WallRun : TdPhysicsMove/*
 	{
 		if(PawnOwner.Moves[2].CanDoMove())
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 		}
 	}
 	

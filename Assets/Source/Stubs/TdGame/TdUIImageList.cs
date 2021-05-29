@@ -5,7 +5,7 @@ public partial class TdUIImageList : TdUIListBase/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
 	// Export UTdUIImageList::execGetRowHeight(FFrame&, void* const)
-	public override /*native function */float GetRowHeight(/*optional */int RowIndex = default, /*optional */bool bColHeader = default, /*optional */bool bReturnUnformattedValue = default)
+	public override /*native function */float GetRowHeight(/*optional */int? _RowIndex = default, /*optional */bool? _bColHeader = default, /*optional */bool? _bReturnUnformattedValue = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

@@ -26,7 +26,7 @@ public partial class TdWeapon_Machinegun_FNMinimi : TdWeapon_Heavy/*
 			// Object Offset:0x0001350E
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
 			{
-				new ForceFeedbackWaveform.WaveformSample()
+				new ForceFeedbackWaveform.WaveformSample
 				{
 					LeftAmplitude = 20,
 					RightAmplitude = 0,
@@ -34,7 +34,7 @@ public partial class TdWeapon_Machinegun_FNMinimi : TdWeapon_Heavy/*
 					RightFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
 					Duration = 0.20f,
 				},
-				new ForceFeedbackWaveform.WaveformSample()
+				new ForceFeedbackWaveform.WaveformSample
 				{
 					LeftAmplitude = 0,
 					RightAmplitude = 20,

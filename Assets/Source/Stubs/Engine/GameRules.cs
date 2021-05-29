@@ -11,7 +11,7 @@ public partial class GameRules : Info/*
 	
 	}
 	
-	public virtual /*function */NavigationPoint FindPlayerStart(Controller Player, /*optional */byte InTeam = default, /*optional */string IncomingName = default)
+	public virtual /*function */NavigationPoint FindPlayerStart(Controller Player, /*optional */byte? _InTeam = default, /*optional */string? _IncomingName = default)
 	{
 	
 		return default;

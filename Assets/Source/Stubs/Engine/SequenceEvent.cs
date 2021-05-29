@@ -42,7 +42,7 @@ public partial class SequenceEvent : SequenceOp/*
 	}
 	
 	// Export USequenceEvent::execCheckActivate(FFrame&, void* const)
-	public virtual /*native final function */bool CheckActivate(Actor InOriginator, Actor InInstigator, /*optional */bool bTest/* = default*/, /*const optional */ref array<int> ActivateIndices/* = default*/, /*optional */bool bPushTop = default)
+	public virtual /*native final function */bool CheckActivate(Actor InOriginator, Actor InInstigator, /*optional */bool? _bTest/* = default*/, /*const optional */ref array<int> ActivateIndices/* = default*/, /*optional */bool? _bPushTop = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

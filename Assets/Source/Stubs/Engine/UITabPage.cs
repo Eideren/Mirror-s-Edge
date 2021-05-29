@@ -16,7 +16,7 @@ public partial class UITabPage : UIContainer,
 	public/*(Data)*/ /*private */UIRoot.UIDataStoreBinding ButtonToolTip;
 	public/*(Data)*/ /*private */UIRoot.UIDataStoreBinding PageDescription;
 	
-	public virtual /*event */bool ActivatePage(int PlayerIndex, bool bActivate, /*optional */bool bTakeFocus = default)
+	public virtual /*event */bool ActivatePage(int PlayerIndex, bool bActivate, /*optional */bool? _bTakeFocus = default)
 	{
 	
 		return default;
@@ -46,27 +46,27 @@ public partial class UITabPage : UIContainer,
 		return default;
 	}
 	
-	public virtual /*function */UITabButton GetTabButton(/*optional */UITabControl TabControl = default)
+	public virtual /*function */UITabButton GetTabButton(/*optional */UITabControl? _TabControl = default)
 	{
 	
 		return default;
 	}
 	
 	// Export UUITabPage::execSetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int BindingIndex = default)
+	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUITabPage::execGetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */string GetDataStoreBinding(/*optional */int BindingIndex = default)
+	public virtual /*native final function */string GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUITabPage::execRefreshSubscriberValue(FFrame&, void* const)
-	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int BindingIndex = default)
+	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -101,7 +101,7 @@ public partial class UITabPage : UIContainer,
 		return default;
 	}
 	
-	public virtual /*function */void OnActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState PreviouslyActiveState = default)
+	public virtual /*function */void OnActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
 	{
 	
 	}

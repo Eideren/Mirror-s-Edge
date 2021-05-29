@@ -11,21 +11,29 @@ public partial class Interaction : UIRoot/*
 	public /*delegate*/Interaction.OnReceivedNativeInputAxis __OnReceivedNativeInputAxis__Delegate;
 	public /*delegate*/Interaction.OnReceivedNativeInputChar __OnReceivedNativeInputChar__Delegate;
 	public /*delegate*/Interaction.OnInitialize __OnInitialize__Delegate;
-
-
-
-	public delegate bool OnReceivedNativeInputKey( int ControllerId, name Key, Object.EInputEvent EventType, /*optional */float AmountDepressed = default, /*optional */bool bGamepad = default );
+	
+	public delegate bool OnReceivedNativeInputKey(int ControllerId, name Key, Object.EInputEvent EventType, /*optional */float? _AmountDepressed = default, /*optional */bool? _bGamepad = default);
 	
 	#warning default implementation of above delegate
-	public bool OnReceivedNativeInputKey_Default(int ControllerId, name Key, Object.EInputEvent EventType, /*optional */float AmountDepressed = default, /*optional */bool bGamepad = default)
+	public bool OnReceivedNativeInputKey_Default(int ControllerId, name Key, Object.EInputEvent EventType, /*optional */float? _AmountDepressed = default, /*optional */bool? _bGamepad = default)
 	{
-		AmountDepressed = 1.0f;	
+		var AmountDepressed = _AmountDepressed ?? 1.0f;
+		var bGamepad = _bGamepad ?? default;
 		#warning decompiling process did not include a return on the last line, added default return
 	
 		return default;
 	}
+
+
+
+	public delegate bool OnReceivedNativeInputAxis( int ControllerId, name Key, float Delta, float DeltaTime, /*optional */bool? _bGamepad = default );
+	public bool OnReceivedNativeInputAxis_Default(int ControllerId, name Key, float Delta, float DeltaTime, /*optional */bool? _bGamepad = default)
+	{
+		var bGamepad = _bGamepad ?? default;
+		#warning decompiling process did not include a return on the last line, added default return
 	
-	public delegate bool OnReceivedNativeInputAxis(int ControllerId, name Key, float Delta, float DeltaTime, /*optional */bool bGamepad = default);
+		return default;
+	}
 	
 	public delegate bool OnReceivedNativeInputChar(int ControllerId, string Unicode);
 	

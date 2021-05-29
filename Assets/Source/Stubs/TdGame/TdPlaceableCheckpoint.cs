@@ -62,7 +62,7 @@ public partial class TdPlaceableCheckpoint : NavigationPoint,
 	
 	}
 	
-	public virtual /*function */void Show(bool bShow, /*optional */int Track = default, /*optional */bool bNoFade = default)
+	public virtual /*function */void Show(bool bShow, /*optional */int? _Track = default, /*optional */bool? _bNoFade = default)
 	{
 	
 	}

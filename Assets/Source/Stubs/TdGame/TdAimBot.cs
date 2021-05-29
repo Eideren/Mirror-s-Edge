@@ -20,7 +20,7 @@ public partial class TdAimBot : TdAimBotBase/* within TdAIController*//*
 		return default;
 	}
 	
-	public override /*function */Object.Vector GetAimLocation(TdPlayerPawn Target, /*optional */bool bUseFullDispersion = default)
+	public override /*function */Object.Vector GetAimLocation(TdPlayerPawn Target, /*optional */bool? _bUseFullDispersion = default)
 	{
 	
 		return default;

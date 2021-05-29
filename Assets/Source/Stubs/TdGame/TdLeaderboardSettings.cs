@@ -34,7 +34,7 @@ public partial class TdLeaderboardSettings : Settings/*
 		GMS_MAX
 	};
 	
-	public virtual /*function */void StepSettingValue(int SettingId, /*optional */bool bIncrease = default)
+	public virtual /*function */void StepSettingValue(int SettingId, /*optional */bool? _bIncrease = default)
 	{
 	
 	}

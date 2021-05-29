@@ -129,7 +129,7 @@ public partial class TdUIScene_OptionMenu : TdUIScene_SubMenu/*
 	
 	}
 	
-	public virtual /*function */void OnCloseScene(/*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */void OnCloseScene(/*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 	}

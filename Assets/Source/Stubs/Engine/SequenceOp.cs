@@ -132,32 +132,32 @@ public partial class SequenceOp : SequenceObject/*
 	public /*protected duplicatetransient const transient */int SearchTag;
 	
 	// Export USequenceOp::execHasLinkedOps(FFrame&, void* const)
-	public virtual /*native final function */bool HasLinkedOps(/*optional */bool bConsiderInputLinks = default)
+	public virtual /*native final function */bool HasLinkedOps(/*optional */bool? _bConsiderInputLinks = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export USequenceOp::execGetLinkedObjects(FFrame&, void* const)
-	public virtual /*native final function */void GetLinkedObjects(ref array<SequenceObject> out_Objects, /*optional */Core.ClassT<SequenceObject> ObjectType = default, /*optional */bool bRecurse = default)
+	public virtual /*native final function */void GetLinkedObjects(ref array<SequenceObject> out_Objects, /*optional */Core.ClassT<SequenceObject>? _ObjectType = default, /*optional */bool? _bRecurse = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export USequenceOp::execGetObjectVars(FFrame&, void* const)
-	public virtual /*native final function */void GetObjectVars(ref array<Object> objVars, /*optional */string inDesc = default)
+	public virtual /*native final function */void GetObjectVars(ref array<Object> objVars, /*optional */string? _inDesc = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export USequenceOp::execGetBoolVars(FFrame&, void* const)
-	public virtual /*native final function */void GetBoolVars(ref array<byte> boolVars, /*optional */string inDesc = default)
+	public virtual /*native final function */void GetBoolVars(ref array<byte> boolVars, /*optional */string? _inDesc = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export USequenceOp::execLinkedVariables(FFrame&, void* const)
-	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<SequenceVariable/* OutVariable*/> LinkedVariables(Core.ClassT<SequenceVariable> VarClass, /*optional */string inDesc = default)
+	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<SequenceVariable/* OutVariable*/> LinkedVariables(Core.ClassT<SequenceVariable> VarClass, /*optional */string? _inDesc = default)
 	{
 		#warning NATIVE FUNCTION !
 		yield return default;

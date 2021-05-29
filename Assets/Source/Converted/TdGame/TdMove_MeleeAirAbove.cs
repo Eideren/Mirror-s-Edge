@@ -12,17 +12,17 @@ public partial class TdMove_MeleeAirAbove : TdMove_MeleeBase/*
 	
 		if((TargetPawn == default) || TargetPawn.IsPendingKill())
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 			return;
 		}
 		if(!((TargetPawn.Controller) as TdAIController).StartCannedMove(82))
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 			return;
 		}
 		TargetPawnCached = TargetPawn;
 		base.StartMove();
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Jump/*11*/, default(float));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Jump/*11*/, default);
 		TargetPawn = TargetPawnCached;
 		ResetCameraLook(0.20f);
 		TargetLocation = TargetPawn.Location + (vect(0.0f, 0.0f, 1.0f) * (TargetPawn.GetCollisionHeight() + PawnOwner.GetCollisionHeight()));
@@ -33,13 +33,13 @@ public partial class TdMove_MeleeAirAbove : TdMove_MeleeBase/*
 	
 	public override /*simulated event */void ReachedPreciseLocation()
 	{
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default(float));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default);
 		PlayCannedAnim();
 	}
 	
 	public override /*simulated event */void FailedToReachPreciseLocation()
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 	}
 	
 	public override /*simulated function */void UpdateViewRotation(ref Object.Rotator out_Rotation, float DeltaTime, ref Object.Rotator DeltaRot)
@@ -81,7 +81,7 @@ public partial class TdMove_MeleeAirAbove : TdMove_MeleeBase/*
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 	}
 	
 	public override /*event */void TriggerDamage(TdPawn Victim)
@@ -95,7 +95,7 @@ public partial class TdMove_MeleeAirAbove : TdMove_MeleeBase/*
 			return;
 		}
 		((PawnOwner.Controller) as TdPlayerController).AddStatsEvent(SeqAct_TdRegisterStat.EAchievementStatsID.EASID_LandingOnEnemyHead/*9*/);
-		HitLocation = PawnOwner.Mesh3p.GetBoneLocation("RightFoot", default(int));
+		HitLocation = PawnOwner.Mesh3p.GetBoneLocation("RightFoot", default);
 		Hit.Material = default;
 		Hit.PhysMaterial = TargetPawn.Mesh3p.GetPhysicalMaterialFromBone("Neck");
 		Hit.BoneName = "Neck";

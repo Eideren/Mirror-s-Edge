@@ -78,7 +78,7 @@ public partial class TdCheckpointManager : Object/*
 		return default;
 	}
 	
-	public virtual /*event */void SetNewCheckpoint(TdCheckpoint NewCheckpoint, TdPlayerController PC, /*optional */bool skipSaveToDisk = default)
+	public virtual /*event */void SetNewCheckpoint(TdCheckpoint NewCheckpoint, TdPlayerController PC, /*optional */bool? _skipSaveToDisk = default)
 	{
 	
 	}

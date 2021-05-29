@@ -17,7 +17,7 @@ public partial class TdMove_Stumble : TdMove_StumbleBase/*
 	
 	public override /*simulated function */bool CanDoMove()
 	{
-		if(((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Crouch/*15*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_MeleeCrouch/*63*/)) && CanStand(PawnOwner.Location + vect(0.0f, 0.0f, 30.0f), default(bool)))
+		if(((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Crouch/*15*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_MeleeCrouch/*63*/)) && CanStand(PawnOwner.Location + vect(0.0f, 0.0f, 30.0f), default))
 		{
 			return true;
 		}
@@ -49,13 +49,13 @@ public partial class TdMove_Stumble : TdMove_StumbleBase/*
 	{
 		if(((int)PawnOwner.AnimationMovementState) != ((int)TdPawn.EMovement.MOVE_180TurnInAir/*25*/))
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));		
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);		
 		}
 		else
 		{
 			if(((int)PawnOwner.Physics) != ((int)Actor.EPhysics.PHYS_Falling/*2*/))
 			{
-				Landed(vect(0.0f, 0.0f, 1.0f), default(Actor));
+				Landed(vect(0.0f, 0.0f, 1.0f), default);
 			}
 		}
 	}
@@ -97,7 +97,7 @@ public partial class TdMove_Stumble : TdMove_StumbleBase/*
 				{
 					if(bInAir)
 					{
-						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "gethitleft", 1.0f, 0.10f, 0.20f, true, default(bool));
+						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "gethitleft", 1.0f, 0.10f, 0.20f, true, default);
 						PawnOwner.Velocity = ((Instigator != default) ? ((Vector)(Instigator.Rotation)) : -((Vector)(PawnOwner.Rotation))) * 300.0f;
 						PawnOwner.Velocity.Z = 80.0f;					
 					}
@@ -106,7 +106,7 @@ public partial class TdMove_Stumble : TdMove_StumbleBase/*
 						PawnOwner.UseRootMotion(true);
 						ResetCameraLook(0.20f);
 						StumbleFar = ((Instigator != default) && Instigator.IsA("TdBotPawn")) && ((Instigator) as TdBotPawn).ShouldMeleeCauseStumbleFar();
-						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((StumbleFar) ? "GetHitStumbleBwdFar" : "GetHitStumbleBwd"), 1.0f, 0.10f, 0.20f, true, default(bool));
+						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((StumbleFar) ? "GetHitStumbleBwdFar" : "GetHitStumbleBwd"), 1.0f, 0.10f, 0.20f, true, default);
 						SetTimer(((StumbleFar) ? 0.80f : 0.50f));
 						if(PawnOwner.Weapon != default)
 						{
@@ -119,10 +119,10 @@ public partial class TdMove_Stumble : TdMove_StumbleBase/*
 			case TdMove_StumbleBase.EStumbleState.ESS_HitMeleeBack/*1*/:
 			case TdMove_StumbleBase.EStumbleState.ESS_HitMeleeBackHead/*2*/:
 				PawnOwner.UseRootMotion(true);
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "StumbleFwd", 1.0f, 0.30f, 0.20f, true, default(bool));
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "StumbleFwd", 1.0f, 0.30f, 0.20f, true, default);
 				break;
 			default:
-				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 				break;
 		}
 	}
@@ -138,7 +138,7 @@ public partial class TdMove_Stumble : TdMove_StumbleBase/*
 		}
 		if((CurrentCustomAnimName == "GetHitStumbleBwdFar") || CurrentCustomAnimName == "GetHitStumbleBwd")
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));		
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);		
 		}
 		else
 		{
@@ -193,7 +193,7 @@ public partial class TdMove_Stumble : TdMove_StumbleBase/*
 	{
 		if(((int)PawnOwner.Physics) != ((int)Actor.EPhysics.PHYS_Falling/*2*/))
 		{
-			Landed(vect(0.0f, 0.0f, 1.0f), default(Actor));
+			Landed(vect(0.0f, 0.0f, 1.0f), default);
 		}
 	}
 	

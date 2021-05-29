@@ -217,20 +217,20 @@ public partial class NavigationPoint : Actor/*
 		return default;
 	}
 	
-	public /*final function */static NavigationPoint GetNearestNavToActor(Actor chkActor, /*optional */Core.ClassT<NavigationPoint> RequiredClass = default, /*optional */array<NavigationPoint> ExcludeList = default, /*optional */float MinDist = default)
+	public /*final function */static NavigationPoint GetNearestNavToActor(Actor chkActor, /*optional */Core.ClassT<NavigationPoint>? _RequiredClass = default, /*optional */array<NavigationPoint>? _ExcludeList = default, /*optional */float? _MinDist = default)
 	{
 	
 		return default;
 	}
 	
-	public /*final function */static NavigationPoint GetNearestNavToPoint(Actor chkActor, Object.Vector ChkPoint, /*optional */Core.ClassT<NavigationPoint> RequiredClass = default, /*optional */array<NavigationPoint> ExcludeList = default)
+	public /*final function */static NavigationPoint GetNearestNavToPoint(Actor chkActor, Object.Vector ChkPoint, /*optional */Core.ClassT<NavigationPoint>? _RequiredClass = default, /*optional */array<NavigationPoint>? _ExcludeList = default)
 	{
 	
 		return default;
 	}
 	
 	// Export UNavigationPoint::execGetAllNavInRadius(FFrame&, void* const)
-	public /*native final function */static bool GetAllNavInRadius(Actor chkActor, Object.Vector ChkPoint, float Radius, ref array<NavigationPoint> out_NavList, /*optional */bool bSkipBlocked = default, /*optional */int inNetworkID = default, /*optional */Object.Cylinder MinSize = default)
+	public /*native final function */static bool GetAllNavInRadius(Actor chkActor, Object.Vector ChkPoint, float Radius, ref array<NavigationPoint> out_NavList, /*optional */bool? _bSkipBlocked = default, /*optional */int? _inNetworkID = default, /*optional */Object.Cylinder? _MinSize = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

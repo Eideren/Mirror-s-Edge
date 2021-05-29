@@ -41,9 +41,9 @@ public partial class TdOnlineLoginHandler : Object{
 	public /*delegate*/TdOnlineLoginHandler.OnModalBoxOpened __OnModalBoxOpened__Delegate;
 	public /*delegate*/TdOnlineLoginHandler.OnModalBoxClosed __OnModalBoxClosed__Delegate;
 	
-	public delegate void OnPlayOffline(/*optional */UIScene.ESceneTransitionAnim SceneAnim = default);
+	public delegate void OnPlayOffline(/*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default);
 	
-	public delegate void OnConnectedAndFriendsLoaded(/*optional */UIScene.ESceneTransitionAnim SceneAnim = default);
+	public delegate void OnConnectedAndFriendsLoaded(/*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default);
 	
 	public delegate void OnModalBoxOpened();
 	
@@ -490,7 +490,7 @@ public partial class TdOnlineLoginHandler : Object{
 	
 	}
 	
-	public virtual /*private final function */void ShowModalBox(/*delegate*/TdOnlineLoginHandler.OnModalBoxOpened ModalBoxOpened, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*private final function */void ShowModalBox(/*delegate*/TdOnlineLoginHandler.OnModalBoxOpened ModalBoxOpened, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 	}

@@ -114,7 +114,7 @@ public partial class UIDataStore_TdTimeTrialData : UIDataStore_TdGameResource/*
 		return default;
 	}
 	
-	public virtual /*function */void SetStretchReadParams(int ControllerId, int StretchProviderIndex, name FieldName, /*optional */OnlineSubsystem.UniqueNetId PlayerNetId = default, /*optional */string PlayerName = default, /*optional */TdLeaderboardSettings.ETdTimeFilterSettings TimeFrame = default)
+	public virtual /*function */void SetStretchReadParams(int ControllerId, int StretchProviderIndex, name FieldName, /*optional */OnlineSubsystem.UniqueNetId? _PlayerNetId = default, /*optional */string? _PlayerName = default, /*optional */TdLeaderboardSettings.ETdTimeFilterSettings? _TimeFrame = default)
 	{
 	
 	}

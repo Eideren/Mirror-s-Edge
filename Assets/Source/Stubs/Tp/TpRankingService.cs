@@ -31,14 +31,14 @@ public partial class TpRankingService : TpSystemHandler/*
 	}
 	
 	// Export UTpRankingService::execReadOnlineStatsByRank(FFrame&, void* const)
-	public virtual /*native function */bool ReadOnlineStatsByRank(OnlineStatsRead StatsRead, /*optional */int StartIndex = default, /*optional */int NumToRead = default)
+	public virtual /*native function */bool ReadOnlineStatsByRank(OnlineStatsRead StatsRead, /*optional */int? _StartIndex = default, /*optional */int? _NumToRead = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTpRankingService::execReadOnlineStatsByRankAroundPlayer(FFrame&, void* const)
-	public virtual /*native function */bool ReadOnlineStatsByRankAroundPlayer(OnlineStatsRead StatsRead, /*optional */int NumRows = default)
+	public virtual /*native function */bool ReadOnlineStatsByRankAroundPlayer(OnlineStatsRead StatsRead, /*optional */int? _NumRows = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

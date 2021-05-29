@@ -373,7 +373,7 @@ public partial class TdBotPawn : TdPawn/*
 		return default;
 	}
 	
-	public override /*simulated function */void PlayCustomAnim(TdPawn.CustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool bRootRotation = default)
+	public override /*simulated function */void PlayCustomAnim(TdPawn.CustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool? _bRootRotation = default)
 	{
 	
 	}
@@ -398,7 +398,7 @@ public partial class TdBotPawn : TdPawn/*
 	
 	public override SetMove_del SetMove { get => bfield_SetMove ?? TdBotPawn_SetMove; set => bfield_SetMove = value; } SetMove_del bfield_SetMove;
 	public override SetMove_del global_SetMove => TdBotPawn_SetMove;
-	public /*simulated event */bool TdBotPawn_SetMove(TdPawn.EMovement NewMove, /*optional */bool bViaReplication = default, /*optional */bool bCheckCanDo = default)
+	public /*simulated event */bool TdBotPawn_SetMove(TdPawn.EMovement NewMove, /*optional */bool? _bViaReplication = default, /*optional */bool? _bCheckCanDo = default)
 	{
 	
 		return default;
@@ -544,7 +544,7 @@ public partial class TdBotPawn : TdPawn/*
 	
 	}
 	
-	public override /*simulated function */void UpdateAnimSets(/*optional */TdWeapon NewWeapon = default)
+	public override /*simulated function */void UpdateAnimSets(/*optional */TdWeapon? _NewWeapon = default)
 	{
 	
 	}
@@ -647,7 +647,7 @@ public partial class TdBotPawn : TdPawn/*
 	
 	}
 	
-	public override /*simulated function */void WeaponFired(bool bViaReplication, /*optional */Object.Vector HitLocation = default)
+	public override /*simulated function */void WeaponFired(bool bViaReplication, /*optional */Object.Vector? _HitLocation = default)
 	{
 	
 	}
@@ -667,7 +667,7 @@ public partial class TdBotPawn : TdPawn/*
 	
 	}
 	
-	public override /*simulated function */name PlayFireAnimation(name WeaponAnimSeqName, /*optional */bool bPlayWeaponAnimSeq = default)
+	public override /*simulated function */name PlayFireAnimation(name WeaponAnimSeqName, /*optional */bool? _bPlayWeaponAnimSeq = default)
 	{
 	
 		return default;
@@ -679,7 +679,7 @@ public partial class TdBotPawn : TdPawn/*
 		return default;
 	}
 	
-	public override /*simulated function */name PlayReloadAnimation(name WeaponAnimSeqName, /*optional */bool bPlayWeaponAnimSeq = default)
+	public override /*simulated function */name PlayReloadAnimation(name WeaponAnimSeqName, /*optional */bool? _bPlayWeaponAnimSeq = default)
 	{
 	
 		return default;
@@ -784,14 +784,14 @@ public partial class TdBotPawn : TdPawn/*
 		return default;
 	}
 	
-	public override /*function */void AdjustDamage(ref int inDamage, ref Object.Vector OutMomentum, Controller InstigatedBy, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default)
+	public override /*function */void AdjustDamage(ref int inDamage, ref Object.Vector OutMomentum, Controller InstigatedBy, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default)
 	{
 	
 	}
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? TdBotPawn_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => TdBotPawn_TakeDamage;
-	public /*function */void TdBotPawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default, /*optional */Actor DamageCauser = default)
+	public /*function */void TdBotPawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
 	
 	}
@@ -888,7 +888,7 @@ public partial class TdBotPawn : TdPawn/*
 		return default;
 	}
 	
-	public override /*function */void AddVelocity(Object.Vector NewVelocity, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default)
+	public override /*function */void AddVelocity(Object.Vector NewVelocity, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default)
 	{
 	
 	}
@@ -1005,7 +1005,7 @@ public partial class TdBotPawn : TdPawn/*
 	
 	}
 	
-	public override /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon CurrentWeapon = default)
+	public override /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon? _CurrentWeapon = default)
 	{
 	
 		return default;
@@ -1195,12 +1195,12 @@ public partial class TdBotPawn : TdPawn/*
 	
 	}
 	
-	public virtual /*simulated function */void PlayVOAnimation(name VOAnimSeqName, /*optional */bool bLooping = default, /*optional */float BlendInTime = default, /*optional */float BlendOutTime = default)
+	public virtual /*simulated function */void PlayVOAnimation(name VOAnimSeqName, /*optional */bool? _bLooping = default, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default)
 	{
 	
 	}
 	
-	public virtual /*simulated event */void StopVOAnimation(name VOAnimSeqName, /*optional */float BlendOutTime = default)
+	public virtual /*simulated event */void StopVOAnimation(name VOAnimSeqName, /*optional */float? _BlendOutTime = default)
 	{
 	
 	}
@@ -1285,7 +1285,7 @@ public partial class TdBotPawn : TdPawn/*
 		#warning NATIVE FUNCTION !
 	}
 	
-	public override /*function */void TossInventory(Inventory Inv, /*optional */Object.Vector ForceVelocity = default, /*optional */Core.ClassT<DamageType> DamageType = default)
+	public override /*function */void TossInventory(Inventory Inv, /*optional */Object.Vector? _ForceVelocity = default, /*optional */Core.ClassT<DamageType>? _DamageType = default)
 	{
 	
 	}
@@ -1331,7 +1331,7 @@ public partial class TdBotPawn : TdPawn/*
 	}
 	
 	// Export UTdBotPawn::execGetViewpointLocation(FFrame&, void* const)
-	public override /*native function */Object.Vector GetViewpointLocation(/*optional */bool ForceCrouch = default)
+	public override /*native function */Object.Vector GetViewpointLocation(/*optional */bool? _ForceCrouch = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -1488,7 +1488,7 @@ public partial class TdBotPawn : TdPawn/*
 	
 	}
 	
-	public override /*function */void DetachFromController(/*optional */bool bDestroyController = default)
+	public override /*function */void DetachFromController(/*optional */bool? _bDestroyController = default)
 	{
 	
 	}

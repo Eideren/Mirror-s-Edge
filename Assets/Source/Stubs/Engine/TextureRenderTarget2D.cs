@@ -12,7 +12,7 @@ public partial class TextureRenderTarget2D : TextureRenderTarget/*
 	public /*const */Object.LinearColor ClearColor;
 	
 	// Export UTextureRenderTarget2D::execCreate(FFrame&, void* const)
-	public /*native final function */static TextureRenderTarget2D Create(int InSizeX, int InSizeY, /*optional */Texture.EPixelFormat InFormat = default, /*optional */Object.LinearColor InClearColor = default, /*optional */bool bOnlyRenderOnce = default)
+	public /*native final function */static TextureRenderTarget2D Create(int InSizeX, int InSizeY, /*optional */Texture.EPixelFormat? _InFormat = default, /*optional */Object.LinearColor? _InClearColor = default, /*optional */bool? _bOnlyRenderOnce = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

@@ -103,7 +103,7 @@ public partial class GameViewportClient : Object/* within Engine*//*
 	public /*delegate*/GameViewportClient.HandleInputAxis __HandleInputAxis__Delegate;
 	public /*delegate*/GameViewportClient.HandleInputChar __HandleInputChar__Delegate;
 	
-	public delegate bool HandleInputKey(int ControllerId, name Key, Object.EInputEvent EventType, float AmountDepressed, /*optional */bool bGamepad = default);
+	public delegate bool HandleInputKey(int ControllerId, name Key, Object.EInputEvent EventType, float AmountDepressed, /*optional */bool? _bGamepad = default);
 	
 	public delegate bool HandleInputAxis(int ControllerId, name Key, float Delta, float DeltaTime, bool bGamepad);
 	
@@ -183,7 +183,7 @@ public partial class GameViewportClient : Object/* within Engine*//*
 		return default;
 	}
 	
-	public virtual /*event */int InsertInteraction(Interaction NewInteraction, /*optional */int InIndex = default)
+	public virtual /*event */int InsertInteraction(Interaction NewInteraction, /*optional */int? _InIndex = default)
 	{
 	
 		return default;
@@ -250,13 +250,13 @@ public partial class GameViewportClient : Object/* within Engine*//*
 	
 	}
 	
-	public virtual /*final function */float CalculateDeadZone(LocalPlayer LPlayer, GameViewportClient.ESafeZoneType SZType, Canvas Canvas, /*optional */bool bUseMaxPercent = default)
+	public virtual /*final function */float CalculateDeadZone(LocalPlayer LPlayer, GameViewportClient.ESafeZoneType SZType, Canvas Canvas, /*optional */bool? _bUseMaxPercent = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */void CalculatePixelCenter(ref float out_CenterX, ref float out_CenterY, LocalPlayer LPlayer, Canvas Canvas, /*optional */bool bUseMaxPercent = default)
+	public virtual /*final function */void CalculatePixelCenter(ref float out_CenterX, ref float out_CenterY, LocalPlayer LPlayer, Canvas Canvas, /*optional */bool? _bUseMaxPercent = default)
 	{
 	
 	}

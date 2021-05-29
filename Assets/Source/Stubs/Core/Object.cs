@@ -322,7 +322,7 @@ public partial class Object/*
 	//	structdefaultproperties
 	//	{
 	//		// Object Offset:0x0001DE97
-	//		V = new()
+	//		V = new StaticArray<float, float, float, float, float, float, float, float, float>/*[9]*/()
 	//		{ 
 	//			[0] = 0.0f,
 	//			[1] = 0.0f,
@@ -348,7 +348,7 @@ public partial class Object/*
 	//		// Object Offset:0x0001E05B
 	//		R = new Object.SHVector
 	//		{
-	//			V = new()
+	//			V = new StaticArray<float, float, float, float, float, float, float, float, float>/*[9]*/()
 	//			{
 	//				[0] = 0.0f,
 	//				[1] = 0.0f,
@@ -363,7 +363,7 @@ public partial class Object/*
 	//		};
 	//		G = new Object.SHVector
 	//		{
-	//			V = new()
+	//			V = new StaticArray<float, float, float, float, float, float, float, float, float>/*[9]*/()
 	//			{
 	//				[0] = 0.0f,
 	//				[1] = 0.0f,
@@ -378,7 +378,7 @@ public partial class Object/*
 	//		};
 	//		B = new Object.SHVector
 	//		{
-	//			V = new()
+	//			V = new StaticArray<float, float, float, float, float, float, float, float, float>/*[9]*/()
 	//			{
 	//				[0] = 0.0f,
 	//				[1] = 0.0f,
@@ -1760,7 +1760,7 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execRotRand(FFrame&, void* const)
-	public /*native(320) final function */static Object.Rotator RotRand(/*optional */bool bRoll = default)
+	public /*native(320) final function */static Object.Rotator RotRand(/*optional */bool? _bRoll = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -1781,14 +1781,14 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execRLerp(FFrame&, void* const)
-	public /*native final function */static Object.Rotator RLerp(Object.Rotator A, Object.Rotator B, float Alpha, /*optional */bool bShortestPath = default)
+	public /*native final function */static Object.Rotator RLerp(Object.Rotator A, Object.Rotator B, float Alpha, /*optional */bool? _bShortestPath = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execRSmerp(FFrame&, void* const)
-	public /*native final function */static Object.Rotator RSmerp(Object.Rotator A, Object.Rotator B, float Alpha, /*optional */bool bShortestPath = default)
+	public /*native final function */static Object.Rotator RSmerp(Object.Rotator A, Object.Rotator B, float Alpha, /*optional */bool? _bShortestPath = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -1936,14 +1936,14 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execInStr(FFrame&, void* const)
-	public /*native(126) final function */static int InStr(/*coerce */string S, /*coerce */string T, /*optional */bool bSearchFromRight = default)
+	public /*native(126) final function */static int InStr(/*coerce */string S, /*coerce */string T, /*optional */bool? _bSearchFromRight = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execMid(FFrame&, void* const)
-	public /*native(127) final function */static string Mid(/*coerce */string S, int I, /*optional */int J = default)
+	public /*native(127) final function */static string Mid(/*coerce */string S, int I, /*optional */int? _J = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -1992,13 +1992,13 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execRepl(FFrame&, void* const)
-	public /*native(201) final function */static string Repl(/*coerce */string Src, /*coerce */string Match, /*coerce */string With, /*optional */bool bCaseSensitive = default)
+	public /*native(201) final function */static string Repl(/*coerce */string Src, /*coerce */string Match, /*coerce */string With, /*optional */bool? _bCaseSensitive = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
-	public /*final function */static string Split(/*coerce */string Text, /*coerce */string SplitStr, /*optional */bool bOmitSplitStr = default)
+	public /*final function */static string Split(/*coerce */string Text, /*coerce */string SplitStr, /*optional */bool? _bOmitSplitStr = default)
 	{
 	
 		return default;
@@ -2010,7 +2010,7 @@ public partial class Object/*
 		return default;
 	}
 	
-	public /*final function */static void JoinArray(array<string> StringArray, ref string out_Result, /*optional */string delim = default, /*optional */bool bIgnoreBlanks = default)
+	public /*final function */static void JoinArray(array<string> StringArray, ref string out_Result, /*optional */string? _delim = default, /*optional */bool? _bIgnoreBlanks = default)
 	{
 	
 	}
@@ -2197,7 +2197,7 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execQuatSlerp(FFrame&, void* const)
-	public /*native final function */static Object.Quat QuatSlerp(Object.Quat A, Object.Quat B, float Alpha, /*optional */bool bShortestPath = default)
+	public /*native final function */static Object.Quat QuatSlerp(Object.Quat A, Object.Quat B, float Alpha, /*optional */bool? _bShortestPath = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -2259,7 +2259,7 @@ public partial class Object/*
 		return default;
 	}
 	
-	public /*final function */static Object.Color MakeColor(byte R, byte G, byte B, /*optional */byte A = default)
+	public /*final function */static Object.Color MakeColor(byte R, byte G, byte B, /*optional */byte? _A = default)
 	{
 	
 		return default;
@@ -2290,7 +2290,7 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execLogInternal(FFrame&, void* const)
-	public /*private native(231) final function */static void LogInternal(/*coerce */string S, /*optional */name Tag = default)
+	public /*private native(231) final function */static void LogInternal(/*coerce */string S, /*optional */name? _Tag = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -2342,13 +2342,13 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execGotoState(FFrame&, void* const)
-	public virtual /*native(113) final function */void GotoState(/*optional */name NewState = default, /*optional */name Label = default, /*optional */bool bForceEvents = default, /*optional */bool bKeepStack = default)
+	public virtual /*native(113) final function */void GotoState(/*optional */name? _NewState = default, /*optional */name? _Label = default, /*optional */bool? _bForceEvents = default, /*optional */bool? _bKeepStack = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UObject::execIsInState(FFrame&, void* const)
-	public virtual /*native(281) final function */bool IsInState(name TestState, /*optional */bool bTestStateStack = default)
+	public virtual /*native(281) final function */bool IsInState(name TestState, /*optional */bool? _bTestStateStack = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -2383,13 +2383,13 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execPushState(FFrame&, void* const)
-	public virtual /*native final function */void PushState(name NewState, /*optional */name NewLabel = default)
+	public virtual /*native final function */void PushState(name NewState, /*optional */name? _NewLabel = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UObject::execPopState(FFrame&, void* const)
-	public virtual /*native final function */void PopState(/*optional */bool bPopAll = default)
+	public virtual /*native final function */void PopState(/*optional */bool? _bPopAll = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -2468,7 +2468,7 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execDynamicLoadObject(FFrame&, void* const)
-	public /*native final function */static Object DynamicLoadObject(string ObjectName, Class ObjectClass, /*optional */bool MayFail = default)
+	public /*native final function */static Object DynamicLoadObject(string ObjectName, Class ObjectClass, /*optional */bool? _MayFail = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -2494,7 +2494,7 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execGetPerObjectConfigSections(FFrame&, void* const)
-	public /*native final function */static bool GetPerObjectConfigSections(Class SearchClass, ref array<string> out_SectionNames, /*optional */Object ObjectOuter = default, /*optional */int MaxResults = default)
+	public /*native final function */static bool GetPerObjectConfigSections(Class SearchClass, ref array<string> out_SectionNames, /*optional */Object? _ObjectOuter = default, /*optional */int? _MaxResults = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -2562,13 +2562,13 @@ public partial class Object/*
 		return default;
 	}
 	
-	public virtual /*final simulated function */byte FloatToByte(float inputFloat, /*optional */bool bSigned = default)
+	public virtual /*final simulated function */byte FloatToByte(float inputFloat, /*optional */bool? _bSigned = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final simulated function */float ByteToFloat(byte inputByte, /*optional */bool bSigned = default)
+	public virtual /*final simulated function */float ByteToFloat(byte inputByte, /*optional */bool? _bSigned = default)
 	{
 	
 		return default;
@@ -2588,7 +2588,7 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execTransformVectorByRotation(FFrame&, void* const)
-	public virtual /*native final function */Object.Vector TransformVectorByRotation(Object.Rotator SourceRotation, Object.Vector SourceVector, /*optional */bool bInverse = default)
+	public virtual /*native final function */Object.Vector TransformVectorByRotation(Object.Rotator SourceRotation, Object.Vector SourceVector, /*optional */bool? _bInverse = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

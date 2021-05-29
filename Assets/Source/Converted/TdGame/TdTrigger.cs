@@ -77,7 +77,7 @@ public partial class TdTrigger : Trigger/*
 		/*local */int Idx = default;
 		/*local */array<SequenceEvent> out_EventList = default;
 	
-		FindEventsOfClass(ClassT<SeqEvent_TdTouch>(), ref/*probably?*/ out_EventList, default(bool));
+		FindEventsOfClass(ClassT<SeqEvent_TdTouch>(), ref/*probably?*/ out_EventList, default);
 		Idx = 0;
 		J0x18:{}
 		if(Idx < out_EventList.Length)

@@ -376,7 +376,7 @@ public partial class TdWeapon : Weapon/*
 		return default;
 	}
 	
-	public override /*simulated function */bool PassThroughDamage(Actor HitActor, /*optional */Actor.TraceHitInfo HitInfo = default)
+	public override /*simulated function */bool PassThroughDamage(Actor HitActor, /*optional */Actor.TraceHitInfo? _HitInfo = default)
 	{
 	
 		return default;
@@ -413,7 +413,7 @@ public partial class TdWeapon : Weapon/*
 	
 	}
 	
-	public virtual /*simulated function */void AttachWeaponComponentsToPlayer(/*optional */bool bIsFirstPerson = default)
+	public virtual /*simulated function */void AttachWeaponComponentsToPlayer(/*optional */bool? _bIsFirstPerson = default)
 	{
 	
 	}
@@ -448,7 +448,7 @@ public partial class TdWeapon : Weapon/*
 	
 	}
 	
-	public override /*simulated function */void PlayFireEffects(byte FireModeNum, /*optional */Object.Vector HitLocation = default)
+	public override /*simulated function */void PlayFireEffects(byte FireModeNum, /*optional */Object.Vector? _HitLocation = default)
 	{
 	
 	}
@@ -481,7 +481,7 @@ public partial class TdWeapon : Weapon/*
 		return default;
 	}
 	
-	public virtual /*simulated function */void WeaponFired(byte FiringMode, /*optional */Object.Vector HitLocation = default)
+	public virtual /*simulated function */void WeaponFired(byte FiringMode, /*optional */Object.Vector? _HitLocation = default)
 	{
 	
 	}
@@ -554,7 +554,7 @@ public partial class TdWeapon : Weapon/*
 	
 	}
 	
-	public override /*simulated function */bool EffectIsRelevant(Object.Vector SpawnLocation, bool bForceDedicated, /*optional */float CullDistance = default)
+	public override /*simulated function */bool EffectIsRelevant(Object.Vector SpawnLocation, bool bForceDedicated, /*optional */float? _CullDistance = default)
 	{
 	
 		return default;
@@ -583,13 +583,13 @@ public partial class TdWeapon : Weapon/*
 	
 	}
 	
-	public virtual /*simulated function */bool IsDecalRelevant(Object.Vector SpawnLocation, /*optional */float CullDistance = default)
+	public virtual /*simulated function */bool IsDecalRelevant(Object.Vector SpawnLocation, /*optional */float? _CullDistance = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*simulated function */DecalComponent GetDecalData(Actor.TraceHitInfo HitInfo, /*optional */float ImpactAngle = default)
+	public virtual /*simulated function */DecalComponent GetDecalData(Actor.TraceHitInfo HitInfo, /*optional */float? _ImpactAngle = default)
 	{
 	
 		return default;
@@ -650,7 +650,7 @@ public partial class TdWeapon : Weapon/*
 		return default;
 	}
 	
-	public virtual /*simulated function */void StopFiring(/*optional */float BlendTime = default)
+	public virtual /*simulated function */void StopFiring(/*optional */float? _BlendTime = default)
 	{
 	
 	}
@@ -673,12 +673,12 @@ public partial class TdWeapon : Weapon/*
 		return default;
 	}
 	
-	public virtual /*simulated function */void StopReloading(/*optional */float BlendTime = default, /*optional */bool SuccessfulReload = default)
+	public virtual /*simulated function */void StopReloading(/*optional */float? _BlendTime = default, /*optional */bool? _SuccessfulReload = default)
 	{
 	
 	}
 	
-	public override /*simulated function */bool HasAmmo(byte FireModeNum, /*optional */int Amount = default)
+	public override /*simulated function */bool HasAmmo(byte FireModeNum, /*optional */int? _Amount = default)
 	{
 	
 		return default;
@@ -722,10 +722,10 @@ public partial class TdWeapon : Weapon/*
 	
 	}
 	
-	public delegate void WeaponReloaded_del(/*optional */bool SuccessfulReload = default);
+	public delegate void WeaponReloaded_del(/*optional */bool? _SuccessfulReload = default);
 	public virtual WeaponReloaded_del WeaponReloaded { get => bfield_WeaponReloaded ?? TdWeapon_WeaponReloaded; set => bfield_WeaponReloaded = value; } WeaponReloaded_del bfield_WeaponReloaded;
 	public virtual WeaponReloaded_del global_WeaponReloaded => TdWeapon_WeaponReloaded;
-	public /*simulated function */void TdWeapon_WeaponReloaded(/*optional */bool SuccessfulReload = default)
+	public /*simulated function */void TdWeapon_WeaponReloaded(/*optional */bool? _SuccessfulReload = default)
 	{
 	
 	}
@@ -869,7 +869,7 @@ public partial class TdWeapon : Weapon/*
 	
 	}
 	
-	public virtual /*simulated function */void WeaponStartReloading(/*optional */float WaitTime = default)
+	public virtual /*simulated function */void WeaponStartReloading(/*optional */float? _WaitTime = default)
 	{
 	
 	}
@@ -1024,7 +1024,7 @@ public partial class TdWeapon : Weapon/*
 		return default;
 	}
 	
-	protected /*simulated function */void TdWeapon_WeaponLoopReloading_WeaponReloaded(/*optional */bool SuccessfulReload = default)// state function
+	protected /*simulated function */void TdWeapon_WeaponLoopReloading_WeaponReloaded(/*optional */bool? _SuccessfulReload = default)// state function
 	{
 	
 	}
@@ -1158,7 +1158,7 @@ public partial class TdWeapon : Weapon/*
 			// Object Offset:0x01B6CFF4
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
 			{
-				new ForceFeedbackWaveform.WaveformSample()
+				new ForceFeedbackWaveform.WaveformSample
 				{
 					LeftAmplitude = 10,
 					RightAmplitude = 5,

@@ -14,7 +14,7 @@ public partial class TdMove_AirBarge : TdMove_Barge/*
 	public override /*simulated function */void StopMove()
 	{
 		base.StopMove();
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default(float));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default);
 	}
 	
 	public override /*simulated function */void StartBargin()
@@ -25,7 +25,7 @@ public partial class TdMove_AirBarge : TdMove_Barge/*
 		HeightBoostLeft = TotalHeightBoost;
 		bIsLanding = false;
 		ResetCameraLook(0.30f);
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Crouch/*15*/, default(float));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Crouch/*15*/, default);
 		bUseAirBargeAnim = false;
 		Idx = 0;
 		J0x44:{}
@@ -49,7 +49,7 @@ public partial class TdMove_AirBarge : TdMove_Barge/*
 			++ Idx;
 			goto J0x44;
 		}
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((bUseAirBargeAnim) ? "AirBargeIdle" : "MeleeInAir"), 1.0f, 0.150f, 0.150f, default(bool), default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((bUseAirBargeAnim) ? "AirBargeIdle" : "MeleeInAir"), 1.0f, 0.150f, 0.150f, default, default);
 	}
 	
 	public virtual /*function */PhysicalMaterial FindPhysicalMaterial(Actor A)
@@ -115,7 +115,7 @@ public partial class TdMove_AirBarge : TdMove_Barge/*
 		if(bUseAirBargeAnim)
 		{
 			PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, 0.0f);
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "AirBargeImpact", 1.0f, 0.0f, 0.10f, default(bool), default(bool));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "AirBargeImpact", 1.0f, 0.0f, 0.10f, default, default);
 		}
 	}
 	
@@ -128,7 +128,7 @@ public partial class TdMove_AirBarge : TdMove_Barge/*
 	{
 		if(SeqNode.AnimSeqName == "AirBargeLand")
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));		
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);		
 		}
 		else
 		{
@@ -138,7 +138,7 @@ public partial class TdMove_AirBarge : TdMove_Barge/*
 			}
 			else
 			{
-				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 			}
 		}
 	}
@@ -146,15 +146,15 @@ public partial class TdMove_AirBarge : TdMove_Barge/*
 	public virtual /*simulated function */void PlayLanded()
 	{
 		bIsLanding = true;
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, default(float));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, default);
 		PawnOwner.UseRootMotion(true);
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "AirBargeLand", 1.0f, 0.10f, 0.10f, true, default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "AirBargeLand", 1.0f, 0.10f, 0.10f, true, default);
 	}
 	
 	public override /*simulated event */void AbortBarge()
 	{
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, 0.50f);
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 	}
 	
 	public TdMove_AirBarge()

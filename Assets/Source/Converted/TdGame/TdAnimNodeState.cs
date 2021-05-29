@@ -13,7 +13,7 @@ public partial class TdAnimNodeState : TdAnimNodeBlendList/*
 	public bool bUseCustomBlend;
 	
 	// Export UTdAnimNodeState::execSetActiveMove(FFrame&, void* const)
-	public override /*native function */bool SetActiveMove(int ChildIndex, /*optional */bool ForceActive = default)
+	public override /*native function */bool SetActiveMove(int ChildIndex, /*optional */bool? _ForceActive = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

@@ -68,14 +68,14 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	}
 	
 	// Export UUIDataStore_TdGameData::execGetRolesList(FFrame&, void* const)
-	public virtual /*native function */array<int> GetRolesList(/*optional */int Team = default)
+	public virtual /*native function */array<int> GetRolesList(/*optional */int? _Team = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdGameData::execGetNumRoles(FFrame&, void* const)
-	public virtual /*native function */int GetNumRoles(/*optional */int Team = default)
+	public virtual /*native function */int GetNumRoles(/*optional */int? _Team = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -171,7 +171,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 		return default;
 	}
 	
-	public virtual /*function */void StartNewGameWithTutorial(/*optional */bool bPlayCutScene = default)
+	public virtual /*function */void StartNewGameWithTutorial(/*optional */bool? _bPlayCutScene = default)
 	{
 	
 	}
@@ -181,7 +181,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	
 	}
 	
-	public virtual /*function */void StartGame(string LevelName, /*optional */string CheckpointName = default, /*optional */string GameMode = default, /*optional */string URL = default, /*optional */bool bShouldSaveCheckpointProgress = default, /*optional */bool bAllowSPLevelAchievements = default)
+	public virtual /*function */void StartGame(string LevelName, /*optional */string? _CheckpointName = default, /*optional */string? _GameMode = default, /*optional */string? _URL = default, /*optional */bool? _bShouldSaveCheckpointProgress = default, /*optional */bool? _bAllowSPLevelAchievements = default)
 	{
 	
 	}
@@ -191,7 +191,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	
 	}
 	
-	public virtual /*function */void RestartFromLastCheckpoint(/*optional */bool bShouldSaveCheckpointProgress = default, /*optional */bool bAllowSPLevelAchievements = default)
+	public virtual /*function */void RestartFromLastCheckpoint(/*optional */bool? _bShouldSaveCheckpointProgress = default, /*optional */bool? _bAllowSPLevelAchievements = default)
 	{
 	
 	}

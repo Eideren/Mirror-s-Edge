@@ -175,7 +175,7 @@ public partial class TdAIAnimationController : Actor/*
 		return default;
 	}
 	
-	public virtual /*function */bool StopCoverAnimation(/*optional */float StopTime = default)
+	public virtual /*function */bool StopCoverAnimation(/*optional */float? _StopTime = default)
 	{
 	
 		return default;
@@ -187,7 +187,7 @@ public partial class TdAIAnimationController : Actor/*
 		return default;
 	}
 	
-	public virtual /*function */void PlayCoverAnimation(TdAIAnimationController.ECoverAnimation CoverAnimation, TdAIAnimationController.ECoverDirectionState CoverAnimationDirectionState, CoverLink.ECoverType CoverType, /*optional */bool Short = default)
+	public virtual /*function */void PlayCoverAnimation(TdAIAnimationController.ECoverAnimation CoverAnimation, TdAIAnimationController.ECoverDirectionState CoverAnimationDirectionState, CoverLink.ECoverType CoverType, /*optional */bool? _Short = default)
 	{
 	
 	}
@@ -288,7 +288,7 @@ public partial class TdAIAnimationController : Actor/*
 	
 	}
 	
-	public virtual /*function */void PlayFaceAnimation(name AnimName, /*optional */bool bLooping = default)
+	public virtual /*function */void PlayFaceAnimation(name AnimName, /*optional */bool? _bLooping = default)
 	{
 	
 	}
@@ -331,7 +331,7 @@ public partial class TdAIAnimationController : Actor/*
 	
 	}
 	
-	public virtual /*function */void SetUseLazySpring(bool bUse, /*optional */float Time = default)
+	public virtual /*function */void SetUseLazySpring(bool bUse, /*optional */float? _Time = default)
 	{
 	
 	}

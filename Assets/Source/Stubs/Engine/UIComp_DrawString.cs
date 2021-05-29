@@ -30,7 +30,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	}
 	
 	// Export UUIComp_DrawString::execGetValue(FFrame&, void* const)
-	public virtual /*native final function */string GetValue(/*optional */bool bReturnProcessedText = default)
+	public virtual /*native final function */string GetValue(/*optional */bool? _bReturnProcessedText = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -50,14 +50,14 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	}
 	
 	// Export UUIComp_DrawString::execGetSubregionSize(FFrame&, void* const)
-	public virtual /*native final function */float GetSubregionSize(UIRoot.EUIOrientation Orientation, /*optional */UIRoot.EUIExtentEvalType OutputType = default)
+	public virtual /*native final function */float GetSubregionSize(UIRoot.EUIOrientation Orientation, /*optional */UIRoot.EUIExtentEvalType? _OutputType = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIComp_DrawString::execGetSubregionOffset(FFrame&, void* const)
-	public virtual /*native final function */float GetSubregionOffset(UIRoot.EUIOrientation Orientation, /*optional */UIRoot.EUIExtentEvalType OutputType = default)
+	public virtual /*native final function */float GetSubregionOffset(UIRoot.EUIOrientation Orientation, /*optional */UIRoot.EUIExtentEvalType? _OutputType = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -71,7 +71,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	}
 	
 	// Export UUIComp_DrawString::execEnableSubregion(FFrame&, void* const)
-	public virtual /*native final function */void EnableSubregion(UIRoot.EUIOrientation Orientation, /*optional */bool bShouldEnable = default)
+	public virtual /*native final function */void EnableSubregion(UIRoot.EUIOrientation Orientation, /*optional */bool? _bShouldEnable = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -143,7 +143,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	}
 	
 	// Export UUIComp_DrawString::execSetAutoScaling(FFrame&, void* const)
-	public virtual /*native final function */void SetAutoScaling(UIRoot.ETextAutoScaleMode NewAutoScaleMode, /*optional */float NewMinScaleValue = default)
+	public virtual /*native final function */void SetAutoScaling(UIRoot.ETextAutoScaleMode NewAutoScaleMode, /*optional */float? _NewMinScaleValue = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -234,7 +234,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	}
 	
 	// Export UUIComp_DrawString::execGetAppliedStringStyle(FFrame&, void* const)
-	public virtual /*native final function */UIStyle_Combo GetAppliedStringStyle(/*optional */UIState DesiredMenuState = default)
+	public virtual /*native final function */UIStyle_Combo GetAppliedStringStyle(/*optional */UIState? _DesiredMenuState = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -262,7 +262,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	}
 	
 	// Export UUIComp_DrawString::execNotifyResolveStyle(FFrame&, void* const)
-	public virtual /*native final function */bool NotifyResolveStyle(UISkin ActiveSkin, bool bClearExistingValue, /*optional */UIState CurrentMenuState = default, /*const optional */name StylePropertyName = default)
+	public virtual /*native final function */bool NotifyResolveStyle(UISkin ActiveSkin, bool bClearExistingValue, /*optional */UIState? _CurrentMenuState = default, /*const optional */name? _StylePropertyName = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -280,7 +280,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 		return default;
 	}
 	
-	public virtual /*final event */void EnableAutoSizing(UIRoot.EUIOrientation Orientation, /*optional */bool bShouldEnable = default)
+	public virtual /*final event */void EnableAutoSizing(UIRoot.EUIOrientation Orientation, /*optional */bool? _bShouldEnable = default)
 	{
 	
 	}

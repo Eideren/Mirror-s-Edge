@@ -40,7 +40,7 @@ public partial class TdMove_MeleeVault : TdMove_MeleeBase/*
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 		PawnOwner.Moves[1].ResetCameraLook(0.60f);
 	}
 	
@@ -59,7 +59,7 @@ public partial class TdMove_MeleeVault : TdMove_MeleeBase/*
 	public override /*simulated function */void TriggerMove()
 	{
 		base.TriggerMove();
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeVaultOver", 1.0f, 0.10f, 0.10f, false, default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeVaultOver", 1.0f, 0.10f, 0.10f, false, default);
 		HitDetectionBone = "RightFoot";
 		bHitDetection = true;
 		ImpactMomentum = ((Vector)(PawnOwner.Rotation)) * ((float)(200));
@@ -86,7 +86,7 @@ public partial class TdMove_MeleeVault : TdMove_MeleeBase/*
 		bVerifyHit = ((Dot(Normal(ToTarget), ((Vector)(PawnOwner.Rotation)))) > 0.40f) && VSize(ToTarget) < 140.0f;
 		if(bVerifyHit)
 		{
-			HitLocation = PawnOwner.Mesh3p.GetBoneLocation("RightFoot", default(int));
+			HitLocation = PawnOwner.Mesh3p.GetBoneLocation("RightFoot", default);
 			Hit.Material = default;
 			Hit.PhysMaterial = TargetPawn.Mesh3p.GetPhysicalMaterialFromBone("Neck");
 			Hit.BoneName = "Neck";

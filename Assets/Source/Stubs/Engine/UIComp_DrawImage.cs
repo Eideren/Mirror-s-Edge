@@ -17,7 +17,7 @@ public partial class UIComp_DrawImage : UIComp_DrawComponents,
 	public /*private */UIRoot.UIStyleReference ImageStyle;
 	
 	// Export UUIComp_DrawImage::execGetAppliedImageStyle(FFrame&, void* const)
-	public virtual /*native final function */UIStyle_Image GetAppliedImageStyle(/*optional */UIState DesiredMenuState = default)
+	public virtual /*native final function */UIStyle_Image GetAppliedImageStyle(/*optional */UIState? _DesiredMenuState = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -111,7 +111,7 @@ public partial class UIComp_DrawImage : UIComp_DrawComponents,
 	}
 	
 	// Export UUIComp_DrawImage::execNotifyResolveStyle(FFrame&, void* const)
-	public virtual /*native final function */bool NotifyResolveStyle(UISkin ActiveSkin, bool bClearExistingValue, /*optional */UIState CurrentMenuState = default, /*const optional */name StylePropertyName = default)
+	public virtual /*native final function */bool NotifyResolveStyle(UISkin ActiveSkin, bool bClearExistingValue, /*optional */UIState? _CurrentMenuState = default, /*const optional */name? _StylePropertyName = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

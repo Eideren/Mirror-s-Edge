@@ -9,7 +9,7 @@ public partial class TdTutorialPawn : TdPlayerPawn/*
 	
 	public override SetMove_del SetMove { get => bfield_SetMove ?? TdTutorialPawn_SetMove; set => bfield_SetMove = value; } SetMove_del bfield_SetMove;
 	public override SetMove_del global_SetMove => TdTutorialPawn_SetMove;
-	public /*simulated event */bool TdTutorialPawn_SetMove(TdPawn.EMovement NewMove, /*optional */bool bViaReplication = default, /*optional */bool bCheckCanDo = default)
+	public /*simulated event */bool TdTutorialPawn_SetMove(TdPawn.EMovement NewMove, /*optional */bool? _bViaReplication = default, /*optional */bool? _bCheckCanDo = default)
 	{
 	
 		return default;
@@ -28,12 +28,12 @@ public partial class TdTutorialPawn : TdPlayerPawn/*
 		return default;
 	}
 	
-	public override /*function */void TossWeapon(Weapon Weap, /*optional */Object.Vector ForceVelocity = default)
+	public override /*function */void TossWeapon(Weapon Weap, /*optional */Object.Vector? _ForceVelocity = default)
 	{
 	
 	}
 	
-	public override /*simulated function */void UpdateAnimSets(/*optional */TdWeapon iWeapon = default)
+	public override /*simulated function */void UpdateAnimSets(/*optional */TdWeapon? _iWeapon = default)
 	{
 	
 	}

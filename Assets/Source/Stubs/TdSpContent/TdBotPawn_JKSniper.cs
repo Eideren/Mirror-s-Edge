@@ -10,7 +10,7 @@ public partial class TdBotPawn_JKSniper : TdBotPawnNoPhysics/*
 	
 	}
 	
-	public override /*event */Object.Vector GetViewpointLocation(/*optional */bool ForceCrouch = default)
+	public override /*event */Object.Vector GetViewpointLocation(/*optional */bool? _ForceCrouch = default)
 	{
 	
 		return default;

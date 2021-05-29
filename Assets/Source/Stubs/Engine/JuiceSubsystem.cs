@@ -100,7 +100,7 @@ public partial class JuiceSubsystem : Subsystem/*
 	}
 	
 	// Export UJuiceSubsystem::execOpenFile(FFrame&, void* const)
-	public /*native function */static int OpenFile(string Filename, /*optional */bool bOpenForWrite = default, /*optional */bool bText = default)
+	public /*native function */static int OpenFile(string Filename, /*optional */bool? _bOpenForWrite = default, /*optional */bool? _bText = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

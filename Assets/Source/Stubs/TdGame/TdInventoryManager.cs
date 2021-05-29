@@ -18,7 +18,7 @@ public partial class TdInventoryManager : InventoryManager/*
 	
 	}
 	
-	public override /*simulated function */void SwitchToBestWeapon(/*optional */bool bForceADifferentWeapon = default)
+	public override /*simulated function */void SwitchToBestWeapon(/*optional */bool? _bForceADifferentWeapon = default)
 	{
 	
 	}

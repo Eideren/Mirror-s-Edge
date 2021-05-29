@@ -9,12 +9,12 @@ public partial class TdMove_StumbleHard : TdMove_Stumble/*
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, 0.20f);
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, 0.20f);
 		PawnOwner.UseRootMotion(true);
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "GetHitStumbleBwdFar2", 1.0f, 0.10f, 0.20f, true, default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "GetHitStumbleBwdFar2", 1.0f, 0.10f, 0.20f, true, default);
 		SetTimer(0.80f);
 		if(((int)PawnOwner.GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/))
 		{
 			ResetCameraLook(0.250f);
-			PawnOwner.TossWeapon(PawnOwner.Weapon, default(Object.Vector));
+			PawnOwner.TossWeapon(PawnOwner.Weapon, default);
 			PawnOwner.RemoveWeaponAfterDrop();
 		}
 	}

@@ -24,7 +24,7 @@ public partial class TdUIScene_LoadIndicator : TdUIScene/*
 	public /*transient */MaterialInterface LoadMaterial;
 	public /*transient */MaterialInterface LoadMaterialBlack;
 	
-	public virtual /*function */void Setup(string Message, bool bSaving, /*optional */bool bBlack = default)
+	public virtual /*function */void Setup(string Message, bool bSaving, /*optional */bool? _bBlack = default)
 	{
 	
 	}

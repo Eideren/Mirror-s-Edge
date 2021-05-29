@@ -105,7 +105,7 @@ public partial class UIScene : UIScreenObject/*
 	}
 	
 	// Export UUIScene::execSaveSceneDataValues(FFrame&, void* const)
-	public virtual /*native final function */void SaveSceneDataValues(/*optional */bool bUnbindSubscribers = default)
+	public virtual /*native final function */void SaveSceneDataValues(/*optional */bool? _bUnbindSubscribers = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -117,14 +117,14 @@ public partial class UIScene : UIScreenObject/*
 	}
 	
 	// Export UUIScene::execResolveDataStore(FFrame&, void* const)
-	public virtual /*native final function */UIDataStore ResolveDataStore(name DataStoreTag, /*optional */LocalPlayer InPlayerOwner = default)
+	public virtual /*native final function */UIDataStore ResolveDataStore(name DataStoreTag, /*optional */LocalPlayer? _InPlayerOwner = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIScene::execGetPreviousScene(FFrame&, void* const)
-	public virtual /*native final function */UIScene GetPreviousScene(/*optional */bool bRequireMatchingPlayerOwner = default)
+	public virtual /*native final function */UIScene GetPreviousScene(/*optional */bool? _bRequireMatchingPlayerOwner = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -144,7 +144,7 @@ public partial class UIScene : UIScreenObject/*
 	}
 	
 	// Export UUIScene::execIsSceneActive(FFrame&, void* const)
-	public virtual /*native final function */bool IsSceneActive(/*optional */bool bTopmostScene = default)
+	public virtual /*native final function */bool IsSceneActive(/*optional */bool? _bTopmostScene = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -223,7 +223,7 @@ public partial class UIScene : UIScreenObject/*
 	
 	}
 	
-	public override /*event */void SetInputMask(byte NewInputMask, /*optional */bool bRecurse = default)
+	public override /*event */void SetInputMask(byte NewInputMask, /*optional */bool? _bRecurse = default)
 	{
 	
 	}
@@ -253,13 +253,13 @@ public partial class UIScene : UIScreenObject/*
 	
 	}
 	
-	public virtual /*function */UIScene OpenScene(UIScene SceneToOpen, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated SceneDelegate = default)
+	public virtual /*function */UIScene OpenScene(UIScene SceneToOpen, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool CloseScene(UIScene SceneToClose, /*optional */bool bSkipKismetNotify = default, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */bool CloseScene(UIScene SceneToClose, /*optional */bool? _bSkipKismetNotify = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 		return default;

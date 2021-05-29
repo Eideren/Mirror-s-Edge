@@ -108,7 +108,7 @@ public partial class TpConnection : TpSystemHandler/*
 	}
 	
 	// Export UTpConnection::execConnectSilentAsync(FFrame&, void* const)
-	public virtual /*native simulated function */void ConnectSilentAsync(/*optional */string EncLogin = default, /*optional */string Persona = default)
+	public virtual /*native simulated function */void ConnectSilentAsync(/*optional */string? _EncLogin = default, /*optional */string? _Persona = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

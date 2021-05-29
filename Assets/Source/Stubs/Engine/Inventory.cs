@@ -94,7 +94,7 @@ public partial class Inventory : Actor/*
 	
 	}
 	
-	public virtual /*function */void GivenTo(Pawn thisPawn, /*optional */bool bDoNotActivate = default)
+	public virtual /*function */void GivenTo(Pawn thisPawn, /*optional */bool? _bDoNotActivate = default)
 	{
 	
 	}
@@ -120,7 +120,7 @@ public partial class Inventory : Actor/*
 	
 	}
 	
-	public /*function */static string GetLocalString(/*optional */int Switch = default, /*optional */PlayerReplicationInfo RelatedPRI_1 = default, /*optional */PlayerReplicationInfo RelatedPRI_2 = default)
+	public /*function */static string GetLocalString(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default)
 	{
 	
 		return default;

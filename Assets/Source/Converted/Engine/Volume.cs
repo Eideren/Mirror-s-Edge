@@ -24,7 +24,7 @@ public partial class Volume : Brush/*
 		base.PostBeginPlay();
 		if(AssociatedActor != default)
 		{
-			GotoState("AssociatedTouch", default(name), default(bool), default(bool));
+			GotoState("AssociatedTouch", default, default, default);
 			InitialState = GetStateName();
 		}
 	}
@@ -37,7 +37,7 @@ public partial class Volume : Brush/*
 	public override /*simulated function */void DisplayDebug(HUD HUD, ref float out_YL, ref float out_YPos)
 	{
 		base.DisplayDebug(HUD, ref/*probably?*/ out_YL, ref/*probably?*/ out_YPos);
-		HUD.Canvas.DrawText("AssociatedActor " + ((AssociatedActor)).ToString(), false, default(float), default(float));
+		HUD.Canvas.DrawText("AssociatedActor " + ((AssociatedActor)).ToString(), false, default, default);
 		out_YPos += out_YL;
 		HUD.Canvas.SetPos(4.0f, out_YPos);
 	}
@@ -48,7 +48,7 @@ public partial class Volume : Brush/*
 		{
 			if(!bCollideActors)
 			{
-				SetCollision(true, bBlockActors, default(bool));
+				SetCollision(true, bBlockActors, default);
 			}
 			CollisionComponent.SetBlockRigidBody(true);		
 		}
@@ -58,7 +58,7 @@ public partial class Volume : Brush/*
 			{
 				if(bCollideActors)
 				{
-					SetCollision(false, bBlockActors, default(bool));
+					SetCollision(false, bBlockActors, default);
 				}
 				CollisionComponent.SetBlockRigidBody(false);			
 			}
@@ -66,7 +66,7 @@ public partial class Volume : Brush/*
 			{
 				if(Action.InputLinks[2].bHasImpulse)
 				{
-					SetCollision(!bCollideActors, bBlockActors, default(bool));
+					SetCollision(!bCollideActors, bBlockActors, default);
 					CollisionComponent.SetBlockRigidBody(!CollisionComponent.BlockRigidBody);
 				}
 			}
@@ -105,7 +105,7 @@ public partial class Volume : Brush/*
 		using var e0 = TouchingActors(ClassT<Actor>()).GetEnumerator();
 		while(e0.MoveNext() && (A = (Actor)e0.Current) == A)
 		{
-			Touch(A, default(PrimitiveComponent), A.Location, vect(0.0f, 0.0f, 1.0f));		
+			Touch(A, default, A.Location, vect(0.0f, 0.0f, 1.0f));		
 		}	
 	}
 	

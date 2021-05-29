@@ -8,7 +8,7 @@ public partial class TdBotPawnNoPhysics : TdBotPawn/*
 		hidecategories(Navigation)*/{
 	public override SetMove_del SetMove { get => bfield_SetMove ?? TdBotPawnNoPhysics_SetMove; set => bfield_SetMove = value; } SetMove_del bfield_SetMove;
 	public override SetMove_del global_SetMove => TdBotPawnNoPhysics_SetMove;
-	public /*simulated event */bool TdBotPawnNoPhysics_SetMove(TdPawn.EMovement NewMove, /*optional */bool bViaReplication = default, /*optional */bool bCheckCanDo = default)
+	public /*simulated event */bool TdBotPawnNoPhysics_SetMove(TdPawn.EMovement NewMove, /*optional */bool? _bViaReplication = default, /*optional */bool? _bCheckCanDo = default)
 	{
 	
 		return default;

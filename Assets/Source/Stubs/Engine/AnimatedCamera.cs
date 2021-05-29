@@ -35,14 +35,14 @@ public partial class AnimatedCamera : Camera/*
 	}
 	
 	// Export UAnimatedCamera::execPlayCameraAnim(FFrame&, void* const)
-	public virtual /*native simulated function */bool PlayCameraAnim(CameraAnim Anim, /*optional */float Rate = default, /*optional */float Scale = default, /*optional */float BlendInTime = default, /*optional */float BlendOutTime = default, /*optional */bool bLoop = default, /*optional */bool bRandomStartTime = default, /*optional */float Duration = default)
+	public virtual /*native simulated function */bool PlayCameraAnim(CameraAnim Anim, /*optional */float? _Rate = default, /*optional */float? _Scale = default, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bLoop = default, /*optional */bool? _bRandomStartTime = default, /*optional */float? _Duration = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UAnimatedCamera::execStopCameraAnim(FFrame&, void* const)
-	public virtual /*native simulated function */void StopCameraAnim(CameraAnim Anim, /*optional */bool bImmediate = default)
+	public virtual /*native simulated function */void StopCameraAnim(CameraAnim Anim, /*optional */bool? _bImmediate = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

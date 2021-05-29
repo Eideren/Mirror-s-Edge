@@ -30,20 +30,20 @@ public partial class UIOptionListBase : UIObject,
 	public delegate UIOptionListButton CreateCustomIncrementButton(UIOptionListBase ButtonOwner);
 	
 	// Export UUIOptionListBase::execSetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int BindingIndex = default)
+	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIOptionListBase::execGetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */string GetDataStoreBinding(/*optional */int BindingIndex = default)
+	public virtual /*native final function */string GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIOptionListBase::execRefreshSubscriberValue(FFrame&, void* const)
-	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int BindingIndex = default)
+	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -68,7 +68,7 @@ public partial class UIOptionListBase : UIObject,
 	}
 	
 	// Export UUIOptionListBase::execSaveSubscriberValue(FFrame&, void* const)
-	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int BindingIndex = default)
+	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

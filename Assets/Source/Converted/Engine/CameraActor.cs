@@ -35,7 +35,7 @@ public partial class CameraActor : Actor/*
 		Canvas.StrLen("TEST", ref/*probably?*/ XL, ref/*probably?*/ out_YL);
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText("FOV:" + ((FOVAngle)).ToString(), false, default(float), default(float));
+		Canvas.DrawText("FOV:" + ((FOVAngle)).ToString(), false, default, default);
 	}
 	
 	public CameraActor()

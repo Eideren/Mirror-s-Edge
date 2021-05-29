@@ -51,7 +51,7 @@ public partial class SeqAct_Interp : SeqAct_Latent/*
 	public /*const */MatineeActor ReplicatedActor;
 	
 	// Export USeqAct_Interp::execSetPosition(FFrame&, void* const)
-	public virtual /*native final function */void SetPosition(float NewPosition, /*optional */bool bJump = default)
+	public virtual /*native final function */void SetPosition(float NewPosition, /*optional */bool? _bJump = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

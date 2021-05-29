@@ -48,7 +48,7 @@ public partial class TdUIScene_MiniMenu : TdUIScene_Overlay/*
 	
 	}
 	
-	public virtual /*function */void OnOptionsList_SubmitSelection(UIList Sender, /*optional */int PlayerIndex = default)
+	public virtual /*function */void OnOptionsList_SubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
 	
 	}

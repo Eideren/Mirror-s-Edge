@@ -12,7 +12,7 @@ public partial class EmitterSpawnable : Emitter/*
 	//		ParticleTemplate;
 	//}
 	
-	public override /*simulated event */void SetTemplate(ParticleSystem NewTemplate, /*optional */bool bDestroyOnFinish = default)
+	public override /*simulated event */void SetTemplate(ParticleSystem NewTemplate, /*optional */bool? _bDestroyOnFinish = default)
 	{
 	
 	}

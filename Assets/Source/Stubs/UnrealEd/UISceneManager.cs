@@ -102,7 +102,7 @@ public partial class UISceneManager : Object/*
 	public /*private native const transient */Object.Pointer DlgUIDataStoreBrowser;
 	
 	// Export UUISceneManager::execGetSupportedUIStates(FFrame&, void* const)
-	public virtual /*native final function */void GetSupportedUIStates(ref array<UISceneManager.UIStateResourceInfo> out_SupportedStates, /*optional */Core.ClassT<UIScreenObject> WidgetClass = default)
+	public virtual /*native final function */void GetSupportedUIStates(ref array<UISceneManager.UIStateResourceInfo> out_SupportedStates, /*optional */Core.ClassT<UIScreenObject>? _WidgetClass = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

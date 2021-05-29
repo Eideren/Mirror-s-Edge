@@ -32,7 +32,7 @@ public partial class TdLedgeWalkVolume : TdMovementVolume/*
 			{
 				if(TdP.Moves[30].CanDoMove())
 				{
-					TdP.SetMove(TdPawn.EMovement.MOVE_LedgeWalk/*30*/, default(bool), default(bool));				
+					TdP.SetMove(TdPawn.EMovement.MOVE_LedgeWalk/*30*/, default, default);				
 				}
 				else
 				{
@@ -68,7 +68,7 @@ public partial class TdLedgeWalkVolume : TdMovementVolume/*
 		((TdP.Moves[30]) as TdMove_LedgeWalk).Volume = this;
 		if(TdP.Moves[30].CanDoMove())
 		{
-			TdP.SetMove(TdPawn.EMovement.MOVE_LedgeWalk/*30*/, default(bool), default(bool));
+			TdP.SetMove(TdPawn.EMovement.MOVE_LedgeWalk/*30*/, default, default);
 		}
 	}
 	

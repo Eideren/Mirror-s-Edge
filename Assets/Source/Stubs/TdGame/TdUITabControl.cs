@@ -13,13 +13,13 @@ public partial class TdUITabControl : UITabControl/*
 	
 	}
 	
-	public override /*event */bool ActivatePage(UITabPage PageToActivate, int PlayerIndex, /*optional */bool bFocusPage = default)
+	public override /*event */bool ActivatePage(UITabPage PageToActivate, int PlayerIndex, /*optional */bool? _bFocusPage = default)
 	{
 	
 		return default;
 	}
 	
-	public override /*function */bool ActivateBestTab(int PlayerIndex, /*optional */bool bFocusPage = default, /*optional */int StartIndex = default)
+	public override /*function */bool ActivateBestTab(int PlayerIndex, /*optional */bool? _bFocusPage = default, /*optional */int? _StartIndex = default)
 	{
 	
 		return default;
@@ -31,13 +31,13 @@ public partial class TdUITabControl : UITabControl/*
 		return default;
 	}
 	
-	public virtual /*function */bool ActivateTabByTag(name TabTag, /*optional */int PlayerIndex = default, /*optional */bool bFocusPage = default)
+	public virtual /*function */bool ActivateTabByTag(name TabTag, /*optional */int? _PlayerIndex = default, /*optional */bool? _bFocusPage = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */void RemoveTabByTag(name TabTag, /*optional */int PlayerIndex = default)
+	public virtual /*function */void RemoveTabByTag(name TabTag, /*optional */int? _PlayerIndex = default)
 	{
 	
 	}

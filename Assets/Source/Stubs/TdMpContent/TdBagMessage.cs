@@ -17,19 +17,19 @@ public partial class TdBagMessage : TdLocalMessage{
 	public StaticArray<SoundCue, SoundCue>/*[2]*/ VOBagPassed;
 	public StaticArray<SoundCue, SoundCue>/*[2]*/ VOBagCatched;
 	
-	public /*simulated function */static SoundCue Get3DAnnouncementSound(/*optional */int Switch = default, /*optional */PlayerReplicationInfo AnnouncerPRI = default, /*optional */PlayerReplicationInfo OtherPRI = default)
+	public /*simulated function */static SoundCue Get3DAnnouncementSound(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _AnnouncerPRI = default, /*optional */PlayerReplicationInfo? _OtherPRI = default)
 	{
 	
 		return default;
 	}
 	
-	public /*simulated function */static SoundNodeWave GetAnnouncementSound(PlayerController LocalController, /*optional */int Switch = default, /*optional */PlayerReplicationInfo PitcherPRI = default, /*optional */PlayerReplicationInfo RecieverPRI = default, /*optional */Object OptionalObject = default)
+	public /*simulated function */static SoundNodeWave GetAnnouncementSound(PlayerController LocalController, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _PitcherPRI = default, /*optional */PlayerReplicationInfo? _RecieverPRI = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;
 	}
 	
-	public /*simulated function */static void ClientReceive(PlayerController P, /*optional */int Switch = default, /*optional */PlayerReplicationInfo PitcherPRI = default, /*optional */PlayerReplicationInfo RecieverPRI = default, /*optional */Object OptionalObject = default)
+	public /*simulated function */static void ClientReceive(PlayerController P, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _PitcherPRI = default, /*optional */PlayerReplicationInfo? _RecieverPRI = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 	}
@@ -40,7 +40,7 @@ public partial class TdBagMessage : TdLocalMessage{
 		return default;
 	}
 	
-	public /*function */static Object.Color GetColor(/*optional */int Switch = default, /*optional */PlayerReplicationInfo PitcherPRI = default, /*optional */PlayerReplicationInfo RecieverPRI = default, /*optional */Object OptionalObject = default)
+	public /*function */static Object.Color GetColor(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _PitcherPRI = default, /*optional */PlayerReplicationInfo? _RecieverPRI = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;
@@ -52,7 +52,7 @@ public partial class TdBagMessage : TdLocalMessage{
 		return default;
 	}
 	
-	public /*function */static string GetString(/*optional */int InSwitch = default, /*optional */bool bPRI1HUD = default, /*optional */PlayerReplicationInfo PitcherPRI = default, /*optional */PlayerReplicationInfo RecieverPRI = default, /*optional */Object OptionalObject = default)
+	public /*function */static string GetString(/*optional */int? _InSwitch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _PitcherPRI = default, /*optional */PlayerReplicationInfo? _RecieverPRI = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;

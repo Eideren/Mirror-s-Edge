@@ -41,25 +41,25 @@ public partial class OnlineStatsWrite : OnlineStats/*
 	}
 	
 	// Export UOnlineStatsWrite::execIncrementFloatStat(FFrame&, void* const)
-	public virtual /*native function */void IncrementFloatStat(int StatId, /*optional */float IncBy = default)
+	public virtual /*native function */void IncrementFloatStat(int StatId, /*optional */float? _IncBy = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UOnlineStatsWrite::execIncrementIntStat(FFrame&, void* const)
-	public virtual /*native function */void IncrementIntStat(int StatId, /*optional */int IncBy = default)
+	public virtual /*native function */void IncrementIntStat(int StatId, /*optional */int? _IncBy = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UOnlineStatsWrite::execDecrementFloatStat(FFrame&, void* const)
-	public virtual /*native function */void DecrementFloatStat(int StatId, /*optional */float DecBy = default)
+	public virtual /*native function */void DecrementFloatStat(int StatId, /*optional */float? _DecBy = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UOnlineStatsWrite::execDecrementIntStat(FFrame&, void* const)
-	public virtual /*native function */void DecrementIntStat(int StatId, /*optional */int DecBy = default)
+	public virtual /*native function */void DecrementIntStat(int StatId, /*optional */int? _DecBy = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

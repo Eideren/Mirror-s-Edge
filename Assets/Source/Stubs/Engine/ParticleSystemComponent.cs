@@ -96,7 +96,7 @@ public partial class ParticleSystemComponent : PrimitiveComponent/*
 	}
 	
 	// Export UParticleSystemComponent::execActivateSystem(FFrame&, void* const)
-	public virtual /*native final function */void ActivateSystem(/*optional */bool bFlagAsJustAttached = default)
+	public virtual /*native final function */void ActivateSystem(/*optional */bool? _bFlagAsJustAttached = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -302,7 +302,7 @@ public partial class ParticleSystemComponent : PrimitiveComponent/*
 	}
 	
 	// Export UParticleSystemComponent::execClearParameter(FFrame&, void* const)
-	public virtual /*native final function */void ClearParameter(name ParameterName, /*optional */ParticleSystemComponent.EParticleSysParamType ParameterType = default)
+	public virtual /*native final function */void ClearParameter(name ParameterName, /*optional */ParticleSystemComponent.EParticleSysParamType? _ParameterType = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

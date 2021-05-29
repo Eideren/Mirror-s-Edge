@@ -24,13 +24,13 @@ public interface OnlinePlayerInterfaceEx : Interface/*
 	
 	public /*function */bool ShowAchievementsUI(byte LocalUserNum);
 	
-	public /*function */bool ShowInviteUI(byte LocalUserNum, /*optional */string InviteText = default);
+	public /*function */bool ShowInviteUI(byte LocalUserNum, /*optional */string? _InviteText = default);
 	
 	public /*function */bool ShowContentMarketplaceUI(byte LocalUserNum);
 	
 	public /*function */bool ShowMembershipMarketplaceUI(byte LocalUserNum);
 	
-	public /*function */bool ShowDeviceSelectionUI(byte LocalUserNum, int SizeNeeded, /*optional */bool bForceShowUI = default);
+	public /*function */bool ShowDeviceSelectionUI(byte LocalUserNum, int SizeNeeded, /*optional */bool? _bForceShowUI = default);
 	
 	public /*function */void AddDeviceSelectionDoneDelegate(byte LocalUserNum, /*delegate*/OnlinePlayerInterfaceEx.OnDeviceSelectionComplete DeviceDelegate);
 	

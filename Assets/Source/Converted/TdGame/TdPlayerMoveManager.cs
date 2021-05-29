@@ -26,19 +26,19 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 					Outer.bFoundLedge = Outer.Moves[((int)Outer.MovementState)].FindLedgeInFrontOfPlayer(ref/*probably?*/ Outer.MoveLedgeLocation, ref/*probably?*/ Outer.MoveLedgeNormal, ref/*probably?*/ Outer.MoveNormal);
 					if(Outer.Moves[33].CanDoMove())
 					{
-						Outer.SetMove(TdPawn.EMovement.MOVE_DodgeJump/*33*/, default(bool), default(bool));					
+						Outer.SetMove(TdPawn.EMovement.MOVE_DodgeJump/*33*/, default, default);					
 					}
 					else
 					{
 						if(Outer.Moves[7].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_SpringBoarding/*7*/, default(bool), default(bool));						
+							Outer.SetMove(TdPawn.EMovement.MOVE_SpringBoarding/*7*/, default, default);						
 						}
 						else
 						{
 							if(Outer.Moves[11].CanDoMove())
 							{
-								Outer.SetMove(TdPawn.EMovement.MOVE_Jump/*11*/, default(bool), default(bool));
+								Outer.SetMove(TdPawn.EMovement.MOVE_Jump/*11*/, default, default);
 							}
 						}
 					}				
@@ -49,13 +49,13 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 					{
 						if(Outer.Moves[16].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_Slide/*16*/, default(bool), default(bool));						
+							Outer.SetMove(TdPawn.EMovement.MOVE_Slide/*16*/, default, default);						
 						}
 						else
 						{
 							if(Outer.Moves[15].CanDoMove())
 							{
-								Outer.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default(bool), default(bool));
+								Outer.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default, default);
 							}
 						}					
 					}
@@ -65,13 +65,13 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 						{
 							if(Outer.Moves[19].CanDoMove())
 							{
-								Outer.SetMove(TdPawn.EMovement.MOVE_Barge/*19*/, default(bool), default(bool));							
+								Outer.SetMove(TdPawn.EMovement.MOVE_Barge/*19*/, default, default);							
 							}
 							else
 							{
 								if(Outer.Moves[17].CanDoMove())
 								{
-									Outer.SetMove(TdPawn.EMovement.MOVE_Melee/*17*/, default(bool), default(bool));
+									Outer.SetMove(TdPawn.EMovement.MOVE_Melee/*17*/, default, default);
 								}
 							}						
 						}
@@ -81,7 +81,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 							{
 								if(Outer.Moves[18].CanDoMove())
 								{
-									Outer.SetMove(TdPawn.EMovement.MOVE_Snatch/*18*/, default(bool), default(bool));
+									Outer.SetMove(TdPawn.EMovement.MOVE_Snatch/*18*/, default, default);
 								}							
 							}
 							else
@@ -90,7 +90,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 								{
 									if(Outer.Moves[24].CanDoMove())
 									{
-										Outer.SetMove(TdPawn.EMovement.MOVE_180Turn/*24*/, default(bool), default(bool));
+										Outer.SetMove(TdPawn.EMovement.MOVE_180Turn/*24*/, default, default);
 									}								
 								}
 								else
@@ -99,7 +99,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 									{
 										if(Outer.Moves[35].CanDoMove())
 										{
-											Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default(bool), default(bool));
+											Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default, default);
 										}									
 									}
 									else
@@ -108,7 +108,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 										{
 											if(Outer.Moves[55].CanDoMove())
 											{
-												Outer.SetMove(TdPawn.EMovement.MOVE_StumbleHard/*55*/, default(bool), default(bool));
+												Outer.SetMove(TdPawn.EMovement.MOVE_StumbleHard/*55*/, default, default);
 											}
 										}
 									}
@@ -123,7 +123,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 				{
 					if(Outer.Moves[24].CanDoMove())
 					{
-						Outer.SetMove(TdPawn.EMovement.MOVE_180Turn/*24*/, default(bool), default(bool));
+						Outer.SetMove(TdPawn.EMovement.MOVE_180Turn/*24*/, default, default);
 					}
 				}
 				break;
@@ -132,7 +132,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 				{
 					if(Outer.Moves[61].CanDoMove())
 					{
-						Outer.SetMove(TdPawn.EMovement.MOVE_Coil/*61*/, default(bool), default(bool));
+						Outer.SetMove(TdPawn.EMovement.MOVE_Coil/*61*/, default, default);
 					}
 				}
 				break;
@@ -147,7 +147,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 				{
 					if(Outer.Moves[61].CanDoMove())
 					{
-						Outer.SetMove(TdPawn.EMovement.MOVE_Coil/*61*/, default(bool), default(bool));
+						Outer.SetMove(TdPawn.EMovement.MOVE_Coil/*61*/, default, default);
 					}				
 				}
 				else
@@ -156,7 +156,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 					{
 						if(Outer.Moves[23].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_WallKick/*23*/, default(bool), default(bool));
+							Outer.SetMove(TdPawn.EMovement.MOVE_WallKick/*23*/, default, default);
 						}					
 					}
 					else
@@ -165,13 +165,13 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 						{
 							if(Outer.Moves[85].CanDoMove())
 							{
-								Outer.SetMove(TdPawn.EMovement.MOVE_AirBarge/*85*/, default(bool), default(bool));							
+								Outer.SetMove(TdPawn.EMovement.MOVE_AirBarge/*85*/, default, default);							
 							}
 							else
 							{
 								if(Outer.Moves[32].CanDoMove())
 								{
-									Outer.SetMove(TdPawn.EMovement.MOVE_MeleeAir/*32*/, default(bool), default(bool));
+									Outer.SetMove(TdPawn.EMovement.MOVE_MeleeAir/*32*/, default, default);
 								}
 							}						
 						}
@@ -181,7 +181,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 							{
 								if(Outer.Moves[25].CanDoMove())
 								{
-									Outer.SetMove(TdPawn.EMovement.MOVE_180TurnInAir/*25*/, default(bool), default(bool));
+									Outer.SetMove(TdPawn.EMovement.MOVE_180TurnInAir/*25*/, default, default);
 								}							
 							}
 							else
@@ -194,7 +194,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 										{
 											((Outer.Moves[35]) as TdMove_Stumble).bInAir = true;
 										}
-										Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default(bool), default(bool));
+										Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default, default);
 									}
 								}
 							}
@@ -209,13 +209,13 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 					{
 						if(Outer.Moves[1].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));						
+							Outer.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);						
 						}
 						else
 						{
 							if(Outer.Moves[15].CanDoMove())
 							{
-								Outer.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default(bool), default(bool));
+								Outer.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default, default);
 							}
 						}
 					}				
@@ -226,7 +226,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 					{
 						if(Outer.Moves[48].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_MeleeSlide/*48*/, default(bool), default(bool));
+							Outer.SetMove(TdPawn.EMovement.MOVE_MeleeSlide/*48*/, default, default);
 						}
 					}
 				}
@@ -236,7 +236,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 				{
 					if(Outer.Moves[11].CanDoMove())
 					{
-						Outer.SetMove(TdPawn.EMovement.MOVE_Jump/*11*/, default(bool), default(bool));
+						Outer.SetMove(TdPawn.EMovement.MOVE_Jump/*11*/, default, default);
 					}
 				}
 				break;
@@ -247,14 +247,14 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 					{
 						if(Outer.Moves[2].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+							Outer.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 						}					
 					}
 					else
 					{
 						if(Outer.Moves[1].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+							Outer.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 						}
 					}				
 				}
@@ -264,7 +264,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 					{
 						if(Outer.Moves[63].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_MeleeCrouch/*63*/, default(bool), default(bool));
+							Outer.SetMove(TdPawn.EMovement.MOVE_MeleeCrouch/*63*/, default, default);
 						}					
 					}
 					else
@@ -273,7 +273,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 						{
 							if(Outer.Moves[35].CanDoMove())
 							{
-								Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default(bool), default(bool));
+								Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default, default);
 							}						
 						}
 						else
@@ -282,7 +282,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 							{
 								if(Outer.Moves[55].CanDoMove())
 								{
-									Outer.SetMove(TdPawn.EMovement.MOVE_StumbleHard/*55*/, default(bool), default(bool));
+									Outer.SetMove(TdPawn.EMovement.MOVE_StumbleHard/*55*/, default, default);
 								}
 							}
 						}
@@ -291,11 +291,12 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 				break;
 			#warning Duplicate definition, requires in-game testing to confirm which one is the right one
 			//case TdPawn.EMovement.MOVE_MeleeCrouch/*63*/:
+			//case TdPawn.EMovement.MOVE_MeleeCrouch/*63*/:
 			//	if(((int)Action) == ((int)TdPawn.EMovementAction.MA_Stumble/*17*/))
 			//	{
 			//		if(Outer.Moves[35].CanDoMove())
 			//		{
-			//			Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default(bool), default(bool));
+			//			Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default, default);
 			//		}
 			//	}
 			//	break;
@@ -304,19 +305,19 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 				{
 					if(Outer.Moves[31].CanDoMove())
 					{
-						Outer.SetMove(TdPawn.EMovement.MOVE_GrabTransfer/*31*/, default(bool), default(bool));					
+						Outer.SetMove(TdPawn.EMovement.MOVE_GrabTransfer/*31*/, default, default);					
 					}
 					else
 					{
 						if(Outer.Moves[10].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_GrabPullUp/*10*/, default(bool), default(bool));						
+							Outer.SetMove(TdPawn.EMovement.MOVE_GrabPullUp/*10*/, default, default);						
 						}
 						else
 						{
 							if(Outer.Moves[13].CanDoMove())
 							{
-								Outer.SetMove(TdPawn.EMovement.MOVE_GrabJump/*13*/, default(bool), default(bool));
+								Outer.SetMove(TdPawn.EMovement.MOVE_GrabJump/*13*/, default, default);
 							}
 						}
 					}				
@@ -333,7 +334,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 						{
 							if(Outer.Moves[10].CanDoMove())
 							{
-								Outer.SetMove(TdPawn.EMovement.MOVE_GrabPullUp/*10*/, default(bool), default(bool));
+								Outer.SetMove(TdPawn.EMovement.MOVE_GrabPullUp/*10*/, default, default);
 							}
 						}
 					}
@@ -344,13 +345,13 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 				{
 					if(Outer.Moves[31].CanDoMove())
 					{
-						Outer.SetMove(TdPawn.EMovement.MOVE_GrabTransfer/*31*/, default(bool), default(bool));					
+						Outer.SetMove(TdPawn.EMovement.MOVE_GrabTransfer/*31*/, default, default);					
 					}
 					else
 					{
 						if(Outer.Moves[13].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_GrabJump/*13*/, default(bool), default(bool));
+							Outer.SetMove(TdPawn.EMovement.MOVE_GrabJump/*13*/, default, default);
 						}
 					}
 				}
@@ -361,13 +362,13 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 				{
 					if(Outer.Moves[34].CanDoMove())
 					{
-						Outer.SetMove(TdPawn.EMovement.MOVE_WallRunDodgeJump/*34*/, default(bool), default(bool));					
+						Outer.SetMove(TdPawn.EMovement.MOVE_WallRunDodgeJump/*34*/, default, default);					
 					}
 					else
 					{
 						if(Outer.Moves[12].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_WallRunJump/*12*/, default(bool), default(bool));
+							Outer.SetMove(TdPawn.EMovement.MOVE_WallRunJump/*12*/, default, default);
 						}
 					}				
 				}
@@ -377,7 +378,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 					{
 						if(Outer.Moves[2].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+							Outer.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 						}					
 					}
 					else
@@ -386,7 +387,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 						{
 							if(Outer.Moves[62].CanDoMove())
 							{
-								Outer.SetMove(TdPawn.EMovement.MOVE_MeleeWallrun/*62*/, default(bool), default(bool));
+								Outer.SetMove(TdPawn.EMovement.MOVE_MeleeWallrun/*62*/, default, default);
 							}
 						}
 					}
@@ -397,7 +398,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 				{
 					if(Outer.Moves[49].CanDoMove())
 					{
-						Outer.SetMove(TdPawn.EMovement.MOVE_WallClimbDodgeJump/*49*/, default(bool), default(bool));
+						Outer.SetMove(TdPawn.EMovement.MOVE_WallClimbDodgeJump/*49*/, default, default);
 					}				
 				}
 				else
@@ -406,7 +407,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 					{
 						if(Outer.Moves[50].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_WallClimb180TurnJump/*50*/, default(bool), default(bool));
+							Outer.SetMove(TdPawn.EMovement.MOVE_WallClimb180TurnJump/*50*/, default, default);
 						}
 					}
 				}
@@ -416,7 +417,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 				{
 					if(Outer.Moves[2].CanDoMove())
 					{
-						Outer.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+						Outer.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 					}
 				}
 				break;
@@ -434,7 +435,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 					{
 						if(Outer.Moves[55].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_StumbleHard/*55*/, default(bool), default(bool));
+							Outer.SetMove(TdPawn.EMovement.MOVE_StumbleHard/*55*/, default, default);
 						}
 					}
 				}
@@ -442,19 +443,19 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 			case TdPawn.EMovement.MOVE_Melee/*17*/:
 				if((((int)Action) == ((int)TdPawn.EMovementAction.MA_Snatch/*4*/)) && Outer.Moves[18].CanDoMove())
 				{
-					Outer.SetMove(TdPawn.EMovement.MOVE_Snatch/*18*/, default(bool), default(bool));				
+					Outer.SetMove(TdPawn.EMovement.MOVE_Snatch/*18*/, default, default);				
 				}
 				else
 				{
 					if((((int)Action) == ((int)TdPawn.EMovementAction.MA_Stumble/*17*/)) && Outer.Moves[35].CanDoMove())
 					{
-						Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default(bool), default(bool));					
+						Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default, default);					
 					}
 					else
 					{
 						if((((int)Action) == ((int)TdPawn.EMovementAction.MA_StumbleHard/*18*/)) && Outer.Moves[55].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_StumbleHard/*55*/, default(bool), default(bool));
+							Outer.SetMove(TdPawn.EMovement.MOVE_StumbleHard/*55*/, default, default);
 						}
 					}
 				}
@@ -463,13 +464,13 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 			case TdPawn.EMovement.MOVE_MeleeCrouch/*63*/:
 				if((((int)Action) == ((int)TdPawn.EMovementAction.MA_Stumble/*17*/)) && Outer.Moves[35].CanDoMove())
 				{
-					Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default(bool), default(bool));				
+					Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default, default);				
 				}
 				else
 				{
 					if((((int)Action) == ((int)TdPawn.EMovementAction.MA_StumbleHard/*18*/)) && Outer.Moves[55].CanDoMove())
 					{
-						Outer.SetMove(TdPawn.EMovement.MOVE_StumbleHard/*55*/, default(bool), default(bool));
+						Outer.SetMove(TdPawn.EMovement.MOVE_StumbleHard/*55*/, default, default);
 					}
 				}
 				break;
@@ -478,13 +479,13 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 				{
 					if((((int)Action) == ((int)TdPawn.EMovementAction.MA_Stumble/*17*/)) && Outer.Moves[35].CanDoMove())
 					{
-						Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default(bool), default(bool));					
+						Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default, default);					
 					}
 					else
 					{
 						if((((int)Action) == ((int)TdPawn.EMovementAction.MA_StumbleHard/*18*/)) && Outer.Moves[55].CanDoMove())
 						{
-							Outer.SetMove(TdPawn.EMovement.MOVE_StumbleHard/*55*/, default(bool), default(bool));
+							Outer.SetMove(TdPawn.EMovement.MOVE_StumbleHard/*55*/, default, default);
 						}
 					}
 				}
@@ -498,7 +499,7 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 						{
 							((Outer.Moves[35]) as TdMove_Stumble).bInAir = true;
 						}
-						Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default(bool), default(bool));
+						Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default, default);
 					}
 				}
 				break;

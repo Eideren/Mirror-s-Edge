@@ -21,7 +21,7 @@ public partial class GameHUD : HUD/*
 	public string ChapterTitleString;
 	public string ActTitleString;
 	
-	public virtual /*function */void SetHUDDrawColor(GameHUD.EGameHUDColor eColor, /*optional */byte Alpha = default)
+	public virtual /*function */void SetHUDDrawColor(GameHUD.EGameHUDColor eColor, /*optional */byte? _Alpha = default)
 	{
 	
 	}

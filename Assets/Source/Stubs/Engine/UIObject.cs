@@ -103,7 +103,7 @@ public partial class UIObject : UIScreenObject/*
 	}
 	
 	// Export UUIObject::execGenerateSceneDataStoreMarkup(FFrame&, void* const)
-	public virtual /*native function */string GenerateSceneDataStoreMarkup(/*optional */string Group = default)
+	public virtual /*native function */string GenerateSceneDataStoreMarkup(/*optional */string? _Group = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -117,20 +117,20 @@ public partial class UIObject : UIScreenObject/*
 	}
 	
 	// Export UUIObject::execHasTransform(FFrame&, void* const)
-	public virtual /*native final function */bool HasTransform(/*optional */bool bIncludeParentTransforms = default)
+	public virtual /*native final function */bool HasTransform(/*optional */bool? _bIncludeParentTransforms = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIObject::execSetAnchorPosition(FFrame&, void* const)
-	public virtual /*native final function */void SetAnchorPosition(Object.Vector NewAnchorPosition, /*optional */UIRoot.EPositionEvalType InputType = default)
+	public virtual /*native final function */void SetAnchorPosition(Object.Vector NewAnchorPosition, /*optional */UIRoot.EPositionEvalType? _InputType = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIObject::execRotateWidget(FFrame&, void* const)
-	public virtual /*native final function */void RotateWidget(Object.Rotator NewRotationAmount, /*optional */bool bAccumulateRotation = default)
+	public virtual /*native final function */void RotateWidget(Object.Rotator NewRotationAmount, /*optional */bool? _bAccumulateRotation = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -142,28 +142,28 @@ public partial class UIObject : UIScreenObject/*
 	}
 	
 	// Export UUIObject::execGetAnchorPosition(FFrame&, void* const)
-	public virtual /*native final function */Object.Vector GetAnchorPosition(/*optional */bool bRelativeToWidget = default, /*optional */bool bPixelSpace = default)
+	public virtual /*native final function */Object.Vector GetAnchorPosition(/*optional */bool? _bRelativeToWidget = default, /*optional */bool? _bPixelSpace = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIObject::execGenerateTransformMatrix(FFrame&, void* const)
-	public virtual /*native final function */Object.Matrix GenerateTransformMatrix(/*optional */bool bIncludeParentTransforms = default)
+	public virtual /*native final function */Object.Matrix GenerateTransformMatrix(/*optional */bool? _bIncludeParentTransforms = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIObject::execGetRotationMatrix(FFrame&, void* const)
-	public virtual /*native final function */Object.Matrix GetRotationMatrix(/*optional */bool bIncludeParentRotations = default)
+	public virtual /*native final function */Object.Matrix GetRotationMatrix(/*optional */bool? _bIncludeParentRotations = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIObject::execNotifyValueChanged(FFrame&, void* const)
-	public virtual /*native function */void NotifyValueChanged(/*optional */int PlayerIndex = default, /*optional */int NotifyFlags = default)
+	public virtual /*native function */void NotifyValueChanged(/*optional */int? _PlayerIndex = default, /*optional */int? _NotifyFlags = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -183,21 +183,21 @@ public partial class UIObject : UIScreenObject/*
 	}
 	
 	// Export UUIObject::execSetDockPadding(FFrame&, void* const)
-	public virtual /*native function */bool SetDockPadding(UIRoot.EUIWidgetFace SourceFace, float PaddingValue, /*optional */UIRoot.EUIDockPaddingEvalType PaddingInputType = default, /*optional */bool bModifyPaddingScaleType = default)
+	public virtual /*native function */bool SetDockPadding(UIRoot.EUIWidgetFace SourceFace, float PaddingValue, /*optional */UIRoot.EUIDockPaddingEvalType? _PaddingInputType = default, /*optional */bool? _bModifyPaddingScaleType = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIObject::execSetDockParameters(FFrame&, void* const)
-	public virtual /*native final function */bool SetDockParameters(UIRoot.EUIWidgetFace SourceFace, UIScreenObject Target, UIRoot.EUIWidgetFace TargetFace, float PaddingValue, /*optional */UIRoot.EUIDockPaddingEvalType PaddingInputType = default, /*optional */bool bModifyPaddingScaleType = default)
+	public virtual /*native final function */bool SetDockParameters(UIRoot.EUIWidgetFace SourceFace, UIScreenObject Target, UIRoot.EUIWidgetFace TargetFace, float PaddingValue, /*optional */UIRoot.EUIDockPaddingEvalType? _PaddingInputType = default, /*optional */bool? _bModifyPaddingScaleType = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIObject::execIsDockedTo(FFrame&, void* const)
-	public virtual /*native final function */bool IsDockedTo(/*const */UIScreenObject TargetWidget, /*optional */UIRoot.EUIWidgetFace SourceFace = default, /*optional */UIRoot.EUIWidgetFace TargetFace = default)
+	public virtual /*native final function */bool IsDockedTo(/*const */UIScreenObject TargetWidget, /*optional */UIRoot.EUIWidgetFace? _SourceFace = default, /*optional */UIRoot.EUIWidgetFace? _TargetFace = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -211,14 +211,14 @@ public partial class UIObject : UIScreenObject/*
 	}
 	
 	// Export UUIObject::execSetForcedNavigationTarget(FFrame&, void* const)
-	public virtual /*native final function */bool SetForcedNavigationTarget(UIRoot.EUIWidgetFace Face, UIObject NavTarget, /*optional */bool bIsNullOverride = default)
+	public virtual /*native final function */bool SetForcedNavigationTarget(UIRoot.EUIWidgetFace Face, UIObject NavTarget, /*optional */bool? _bIsNullOverride = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIObject::execCanAcceptFocus(FFrame&, void* const)
-	public override /*native function */bool CanAcceptFocus(/*optional */int PlayerIndex = default)
+	public override /*native function */bool CanAcceptFocus(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -232,7 +232,7 @@ public partial class UIObject : UIScreenObject/*
 	}
 	
 	// Export UUIObject::execSetPrivateBehavior(FFrame&, void* const)
-	public virtual /*native final function */void SetPrivateBehavior(int Behavior, bool Value, /*optional */bool bRecurse = default)
+	public virtual /*native final function */void SetPrivateBehavior(int Behavior, bool Value, /*optional */bool? _bRecurse = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -251,13 +251,13 @@ public partial class UIObject : UIScreenObject/*
 	}
 	
 	// Export UUIObject::execGetPositionExtents(FFrame&, void* const)
-	public virtual /*native final function */void GetPositionExtents(ref float MinX, ref float MaxX, ref float MinY, ref float MaxY, /*optional */bool bIncludeRotation = default)
+	public virtual /*native final function */void GetPositionExtents(ref float MinX, ref float MaxX, ref float MinY, ref float MaxY, /*optional */bool? _bIncludeRotation = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIObject::execGetPositionExtent(FFrame&, void* const)
-	public virtual /*native final function */float GetPositionExtent(UIRoot.EUIWidgetFace Face, /*optional */bool bIncludeRotation = default)
+	public virtual /*native final function */float GetPositionExtent(UIRoot.EUIWidgetFace Face, /*optional */bool? _bIncludeRotation = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -396,17 +396,17 @@ public partial class UIObject : UIScreenObject/*
 		#warning NATIVE FUNCTION !
 	}
 	
-	public virtual /*event */void PlayUIAnimation(name AnimName, /*optional */UIAnimationSeq AnimSeqTemplate = default, /*optional */float PlaybackRate = default, /*optional */bool bLoop = default, /*optional */float InitialPosition = default)
+	public virtual /*event */void PlayUIAnimation(name AnimName, /*optional */UIAnimationSeq? _AnimSeqTemplate = default, /*optional */float? _PlaybackRate = default, /*optional */bool? _bLoop = default, /*optional */float? _InitialPosition = default)
 	{
 	
 	}
 	
-	public virtual /*event */void StopUIAnimation(name AnimName, /*optional */UIAnimationSeq AnimSeq = default, /*optional */bool bFinalize = default)
+	public virtual /*event */void StopUIAnimation(name AnimName, /*optional */UIAnimationSeq? _AnimSeq = default, /*optional */bool? _bFinalize = default)
 	{
 	
 	}
 	
-	public virtual /*event */void ClearUIAnimation(name AnimName, /*optional */UIAnimationSeq AnimSeq = default)
+	public virtual /*event */void ClearUIAnimation(name AnimName, /*optional */UIAnimationSeq? _AnimSeq = default)
 	{
 	
 	}

@@ -21,7 +21,7 @@ public partial class TdBubbleStack : Object{
 	public /*private */bool myStartValue;
 	public /*private */array<TdBubbleStack.BoolItem> BoolStack;
 	
-	public virtual /*function */void Initialize(bool StartValue, /*optional */int MaxDepth = default, /*optional */TdAIController DebugController = default, /*optional */name DebugFilter = default)
+	public virtual /*function */void Initialize(bool StartValue, /*optional */int? _MaxDepth = default, /*optional */TdAIController? _DebugController = default, /*optional */name? _DebugFilter = default)
 	{
 	
 	}
@@ -43,12 +43,12 @@ public partial class TdBubbleStack : Object{
 		return default;
 	}
 	
-	public virtual /*function */void PushBool(bool flag, name Identifier, /*optional */bool bDebug = default)
+	public virtual /*function */void PushBool(bool flag, name Identifier, /*optional */bool? _bDebug = default)
 	{
 	
 	}
 	
-	public virtual /*function */void PopBool(name Identifier, /*optional */bool bDebug = default)
+	public virtual /*function */void PopBool(name Identifier, /*optional */bool? _bDebug = default)
 	{
 	
 	}

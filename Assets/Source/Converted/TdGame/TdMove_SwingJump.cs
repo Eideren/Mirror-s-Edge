@@ -19,7 +19,7 @@ public partial class TdMove_SwingJump : TdPhysicsMove/*
 		/*local */float DistanceToTarget = default;
 	
 		PawnOwner.SetWeaponAnimState(TdPawn.EWeaponAnimState.WS_Relaxed/*1*/);
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Swing/*60*/, default(float));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Swing/*60*/, default);
 		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, 0.30f);
 		base.StartMove();
 		if(TargetVolume != default)
@@ -30,7 +30,7 @@ public partial class TdMove_SwingJump : TdPhysicsMove/*
 			PawnToSwing = TargetVolume.Location - PawnOwner.Location;
 			DistanceToTarget = VSize2D(TargetVolume.Location - PawnOwner.Location);
 			SetPreciseLocation((TargetVolume.Location + (Normal(PawnToSwing) * TargetVolumeOffset.X)) + (vect(0.0f, 0.0f, 1.0f) * TargetVolumeOffset.Z), TdMove.EPreciseLocationMode.PLM_SimJump/*3*/, DistanceToTarget / 0.90f);
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("SwingOff")), 1.0f, 0.20f, 0.20f, false, default(bool));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("SwingOff")), 1.0f, 0.20f, 0.20f, false, default);
 			SetTimer(0.90f);
 			if(PawnOwner.Weapon != default)
 			{

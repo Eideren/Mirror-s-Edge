@@ -56,10 +56,10 @@ public partial class TdMove_Disarmed : TdPhysicsMove/*
 		PawnOwner.DesiredRotation = LookAtDirection;
 	}
 	
-	public virtual /*function */void PlayDisarmStart(name DisarmAnim, /*optional */bool bUseRootMotion = default, /*optional */bool bUseRootRotation = default)
+	public virtual /*function */void PlayDisarmStart(name DisarmAnim, /*optional */bool? _bUseRootMotion = default, /*optional */bool? _bUseRootRotation = default)
 	{
-		bUseRootMotion = false;
-		bUseRootRotation = false;
+		var bUseRootMotion = _bUseRootMotion ?? false;
+		var bUseRootRotation = _bUseRootRotation ?? false;
 		if(PawnOwner.Weapon.IsA("TdWeapon_Shotgun_Remington870"))
 		{
 			SetTimer(0.80f);		
@@ -108,13 +108,13 @@ public partial class TdMove_Disarmed : TdPhysicsMove/*
 			Killer = BotVictim.Enemy.Controller;
 		}
 		BotOwner.ActiveDeathAnimType = TdBotPawn.DeathAnimType.DAT_Ragdoll/*0*/;
-		PawnOwner.TakeDamage(PawnOwner.Health, Killer, PawnOwner.Mesh3p.GetBoneLocation("Neck", default(int)), damageMomentum, ClassT<TdDmgType_MeleeDisarm>(), HitInfo, default(Actor));
+		PawnOwner.TakeDamage(PawnOwner.Health, Killer, PawnOwner.Mesh3p.GetBoneLocation("Neck", default), damageMomentum, ClassT<TdDmgType_MeleeDisarm>(), HitInfo, default);
 	}
 	
 	public virtual /*function */void AbortDisarm()
 	{
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, 0.20f);
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 	}
 	
 	public TdMove_Disarmed()

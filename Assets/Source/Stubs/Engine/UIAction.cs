@@ -28,7 +28,7 @@ public partial class UIAction : SequenceAction/*
 		return default;
 	}
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
 	
 		return default;

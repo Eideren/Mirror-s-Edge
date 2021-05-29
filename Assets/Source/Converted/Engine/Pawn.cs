@@ -246,7 +246,7 @@ public partial class Pawn : Actor/*
 									Controller.Pawn = this;
 									if((((Controller) as PlayerController) != default) && ((Controller) as PlayerController).ViewTarget == Controller)
 									{
-										((Controller) as PlayerController).SetViewTarget(this, default(Camera.ViewTargetTransitionParams));
+										((Controller) as PlayerController).SetViewTarget(this, default);
 									}
 								}
 							}
@@ -387,7 +387,7 @@ public partial class Pawn : Actor/*
 	
 	public virtual /*function */void PlayerChangedTeam()
 	{
-		Died(default(Controller), ClassT<DamageType>(), Location);
+		Died(default, ClassT<DamageType>(), Location);
 	}
 	
 	public override Reset_del Reset { get => bfield_Reset ?? Pawn_Reset; set => bfield_Reset = value; } Reset_del bfield_Reset;
@@ -396,7 +396,7 @@ public partial class Pawn : Actor/*
 	{
 		if((Controller == default) || Controller.bIsPlayer)
 		{
-			DetachFromController(default(bool));
+			DetachFromController(default);
 			Destroy();		
 		}
 		else
@@ -512,7 +512,7 @@ public partial class Pawn : Actor/*
 	{
 		if(((int)FlashCount) > ((int)0))
 		{
-			WeaponFired(bViaReplication, default(Object.Vector));		
+			WeaponFired(bViaReplication, default);		
 		}
 		else
 		{
@@ -532,8 +532,9 @@ public partial class Pawn : Actor/*
 		}
 	}
 	
-	public virtual /*simulated function */void WeaponFired(bool bViaReplication, /*optional */Object.Vector HitLocation = default)
+	public virtual /*simulated function */void WeaponFired(bool bViaReplication, /*optional */Object.Vector? _HitLocation = default)
 	{
+		var HitLocation = _HitLocation ?? default;
 		++ ShotCount;
 		if(Weapon != default)
 		{
@@ -622,7 +623,7 @@ public partial class Pawn : Actor/*
 	
 	public override /*function */void PlayTeleportEffect(bool bOut, bool bSound)
 	{
-		MakeNoise(1.0f, default(name));
+		MakeNoise(1.0f, default);
 	}
 	
 	public virtual /*simulated function */void NotifyTeamChanged()
@@ -676,7 +677,7 @@ public partial class Pawn : Actor/*
 			NetUpdateFrequency = 5.0f;
 		}
 		PlayerReplicationInfo = default;
-		SetOwner(default(Actor));
+		SetOwner(default);
 		Controller = default;
 	}
 	
@@ -694,11 +695,11 @@ public partial class Pawn : Actor/*
 		bCollideWorld = true;
 		if(Health > 0)
 		{
-			SetCollision(true, true, default(bool));
+			SetCollision(true, true, default);
 			SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
 			if(IsHumanControlled())
 			{
-				Controller.GotoState(LandMovementState, default(name), default(bool), default(bool));
+				Controller.GotoState(LandMovementState, default, default, default);
 			}
 		}
 	}
@@ -760,7 +761,7 @@ public partial class Pawn : Actor/*
 		SetPhysics(Actor.EPhysics.PHYS_Ladder/*9*/);
 		if(IsHumanControlled())
 		{
-			Controller.GotoState("PlayerClimbing", default(name), default(bool), default(bool));
+			Controller.GotoState("PlayerClimbing", default, default, default);
 		}
 	}
 	
@@ -774,7 +775,7 @@ public partial class Pawn : Actor/*
 		Canvas = HUD.Canvas;
 		if(PlayerReplicationInfo == default)
 		{
-			Canvas.DrawText("NO PLAYERREPLICATIONINFO", false, default(float), default(float));
+			Canvas.DrawText("NO PLAYERREPLICATIONINFO", false, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);		
 		}
@@ -783,13 +784,13 @@ public partial class Pawn : Actor/*
 			PlayerReplicationInfo.DisplayDebug(HUD, ref/*probably?*/ out_YL, ref/*probably?*/ out_YPos);
 		}
 		base.DisplayDebug(HUD, ref/*probably?*/ out_YL, ref/*probably?*/ out_YPos);
-		Canvas.SetDrawColor(255, 255, 255, (byte)default(byte));
-		Canvas.DrawText("Health " + ((Health)).ToString(), default(bool), default(float), default(float));
+		Canvas.SetDrawColor(255, 255, 255, (byte)default);
+		Canvas.DrawText("Health " + ((Health)).ToString(), default, default, default);
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
 		if(HUD.ShouldDisplayDebug("AI"))
 		{
-			Canvas.DrawText((((("Anchor " + ((Anchor)).ToString()) + " Serpentine Dist ") + ((SerpentineDist)).ToString()) + " Time ") + ((SerpentineTime)).ToString(), default(bool), default(float), default(float));
+			Canvas.DrawText((((("Anchor " + ((Anchor)).ToString()) + " Serpentine Dist ") + ((SerpentineDist)).ToString()) + " Time ") + ((SerpentineTime)).ToString(), default, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 		}
@@ -800,35 +801,35 @@ public partial class Pawn : Actor/*
 			{
 				T = (T + " on ladder ") + ((OnLadder)).ToString();
 			}
-			Canvas.DrawText(T, default(bool), default(float), default(float));
+			Canvas.DrawText(T, default, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 			T = "Collision Component:" + " " + ((CollisionComponent)).ToString();
-			Canvas.DrawText(T, default(bool), default(float), default(float));
+			Canvas.DrawText(T, default, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 			T = "bForceMaxAccel:" + " " + ((bForceMaxAccel)).ToString();
-			Canvas.DrawText(T, default(bool), default(float), default(float));
+			Canvas.DrawText(T, default, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 			if(Mesh != default)
 			{
 				T = (("RootMotionMode:" + " " + ((Mesh.RootMotionMode)).ToString()) + " " + "RootMotionVelocity:") + " " + ((Mesh.RootMotionVelocity)).ToString();
-				Canvas.DrawText(T, default(bool), default(float), default(float));
+				Canvas.DrawText(T, default, default, default);
 				out_YPos += out_YL;
 				Canvas.SetPos(4.0f, out_YPos);
 			}
 		}
 		if(HUD.ShouldDisplayDebug("Camera"))
 		{
-			Canvas.DrawText((("EyeHeight " + ((EyeHeight)).ToString()) + " BaseEyeHeight ") + ((BaseEyeHeight)).ToString(), default(bool), default(float), default(float));
+			Canvas.DrawText((("EyeHeight " + ((EyeHeight)).ToString()) + " BaseEyeHeight ") + ((BaseEyeHeight)).ToString(), default, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 		}
 		if(Controller == default)
 		{
-			Canvas.SetDrawColor(255, 0, 0, (byte)default(byte));
-			Canvas.DrawText("NO CONTROLLER", default(bool), default(float), default(float));
+			Canvas.SetDrawColor(255, 0, 0, (byte)default);
+			Canvas.DrawText("NO CONTROLLER", default, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 			HUD.PlayerOwner.DisplayDebug(HUD, ref/*probably?*/ out_YL, ref/*probably?*/ out_YPos);		
@@ -841,8 +842,8 @@ public partial class Pawn : Actor/*
 		{
 			if(Weapon == default)
 			{
-				Canvas.SetDrawColor(0, 255, 0, (byte)default(byte));
-				Canvas.DrawText("NO WEAPON", default(bool), default(float), default(float));
+				Canvas.SetDrawColor(0, 255, 0, (byte)default);
+				Canvas.DrawText("NO WEAPON", default, default, default);
 				out_YPos += out_YL;
 				Canvas.SetPos(4.0f, out_YPos);			
 			}
@@ -858,14 +859,14 @@ public partial class Pawn : Actor/*
 				AnimTreeRootNode = ((Mesh.Animations) as AnimTree);
 				if(AnimTreeRootNode != default)
 				{
-					Canvas.DrawText("AnimGroups count:" + " " + ((AnimTreeRootNode.AnimGroups.Length)).ToString(), default(bool), default(float), default(float));
+					Canvas.DrawText("AnimGroups count:" + " " + ((AnimTreeRootNode.AnimGroups.Length)).ToString(), default, default, default);
 					out_YPos += out_YL;
 					Canvas.SetPos(4.0f, out_YPos);
 					I = 0;
 					J0x6B4:{}
 					if(I < AnimTreeRootNode.AnimGroups.Length)
 					{
-						Canvas.DrawText(((((" GroupName:" + " " + ((AnimTreeRootNode.AnimGroups[I].GroupName)).ToString()) + " " + "NodeCount:") + " " + ((AnimTreeRootNode.AnimGroups[I].SeqNodes.Length)).ToString()) + " " + "RateScale:") + " " + ((AnimTreeRootNode.AnimGroups[I].RateScale)).ToString(), default(bool), default(float), default(float));
+						Canvas.DrawText(((((" GroupName:" + " " + ((AnimTreeRootNode.AnimGroups[I].GroupName)).ToString()) + " " + "NodeCount:") + " " + ((AnimTreeRootNode.AnimGroups[I].SeqNodes.Length)).ToString()) + " " + "RateScale:") + " " + ((AnimTreeRootNode.AnimGroups[I].RateScale)).ToString(), default, default, default);
 						out_YPos += out_YL;
 						Canvas.SetPos(4.0f, out_YPos);
 						++ I;
@@ -958,11 +959,12 @@ public partial class Pawn : Actor/*
 		return Location + (vect(0.0f, 0.0f, 1.0f) * BaseEyeHeight);
 	}
 	
-	public virtual /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon CurrentWeapon = default)
+	public virtual /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon? _CurrentWeapon = default)
 	{
 		/*local */Object.Vector POVLoc = default;
 		/*local */Object.Rotator POVRot = default;
 	
+		var CurrentWeapon = _CurrentWeapon ?? default;
 		if(Controller != default)
 		{
 			Controller.GetPlayerViewPoint(ref/*probably?*/ POVLoc, ref/*probably?*/ POVRot);
@@ -1061,7 +1063,7 @@ public partial class Pawn : Actor/*
 	
 	public virtual /*function */bool LineOfSightTo(Actor Other)
 	{
-		return (Controller != default) && Controller.LineOfSightTo(Other, default(Object.Vector), default(bool));
+		return (Controller != default) && Controller.LineOfSightTo(Other, default, default);
 	}
 	
 	public virtual /*function */float AdjustedStrength()
@@ -1071,26 +1073,31 @@ public partial class Pawn : Actor/*
 	
 	public virtual /*function */void HandlePickup(Inventory Inv)
 	{
-		MakeNoise(0.20f, default(name));
+		MakeNoise(0.20f, default);
 		if(Controller != default)
 		{
 			Controller.HandlePickup(Inv);
 		}
 	}
 	
-	public virtual /*function */void ReceiveLocalizedMessage(Core.ClassT<LocalMessage> Message, /*optional */int Switch = default, /*optional */PlayerReplicationInfo RelatedPRI_1 = default, /*optional */PlayerReplicationInfo RelatedPRI_2 = default, /*optional */Object OptionalObject = default)
+	public virtual /*function */void ReceiveLocalizedMessage(Core.ClassT<LocalMessage> Message, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
+		var Switch = _Switch ?? default;
+		var RelatedPRI_1 = _RelatedPRI_1 ?? default;
+		var RelatedPRI_2 = _RelatedPRI_2 ?? default;
+		var OptionalObject = _OptionalObject ?? default;
 		if(((Controller) as PlayerController) != default)
 		{
 			((Controller) as PlayerController).ReceiveLocalizedMessage(Message, Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject);
 		}
 	}
 	
-	public virtual /*event */void ClientMessage(/*coerce */string S, /*optional */name Type = default)
+	public virtual /*event */void ClientMessage(/*coerce */string S, /*optional */name? _Type = default)
 	{
+		var Type = _Type ?? default;
 		if(((Controller) as PlayerController) != default)
 		{
-			((Controller) as PlayerController).ClientMessage(S, Type, default(float));
+			((Controller) as PlayerController).ClientMessage(S, Type, default);
 		}
 	}
 	
@@ -1120,7 +1127,7 @@ public partial class Pawn : Actor/*
 		if(((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
 		{
 			Health = -1;
-			Died(default(Controller), dmgType, Location);
+			Died(default, dmgType, Location);
 			if(dmgType == default)
 			{
 				SetPhysics(Actor.EPhysics.PHYS_None/*0*/);
@@ -1175,8 +1182,9 @@ public partial class Pawn : Actor/*
 	
 	}
 	
-	public virtual /*function */void AddVelocity(Object.Vector NewVelocity, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default)
+	public virtual /*function */void AddVelocity(Object.Vector NewVelocity, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default)
 	{
+		var HitInfo = _HitInfo ?? default;
 		if(bIgnoreForces || NewVelocity == vect(0.0f, 0.0f, 0.0f))
 		{
 			return;
@@ -1215,7 +1223,7 @@ public partial class Pawn : Actor/*
 		{
 			if(((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
 			{
-				MakeNoise(1.0f, default(name));
+				MakeNoise(1.0f, default);
 				if(Velocity.Z < (((float)(-1)) * MaxFallSpeed))
 				{
 					EffectiveSpeed = Velocity.Z;
@@ -1225,7 +1233,7 @@ public partial class Pawn : Actor/*
 					}
 					if(EffectiveSpeed < (((float)(-1)) * MaxFallSpeed))
 					{
-						TakeDamage(((int)((((float)(-100)) * (EffectiveSpeed + MaxFallSpeed)) / MaxFallSpeed)), default(Controller), Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Fell>(), default(Actor.TraceHitInfo), default(Actor));
+						TakeDamage(((int)((((float)(-100)) * (EffectiveSpeed + MaxFallSpeed)) / MaxFallSpeed)), default, Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Fell>(), default, default);
 					}
 				}
 			}		
@@ -1234,13 +1242,13 @@ public partial class Pawn : Actor/*
 		{
 			if(Velocity.Z < (-1.40f * JumpZ))
 			{
-				MakeNoise(0.50f, default(name));			
+				MakeNoise(0.50f, default);			
 			}
 			else
 			{
 				if(Velocity.Z < (-0.80f * JumpZ))
 				{
-					MakeNoise(0.20f, default(name));
+					MakeNoise(0.20f, default);
 				}
 			}
 		}
@@ -1270,7 +1278,7 @@ public partial class Pawn : Actor/*
 	{
 		if(Controller != default)
 		{
-			Controller.ClientSetRotation(NewRotation, default(bool));
+			Controller.ClientSetRotation(NewRotation, default);
 		}
 	}
 	
@@ -1326,7 +1334,7 @@ public partial class Pawn : Actor/*
 		}
 		else
 		{
-			Died(default(Controller), ClassT<DmgType_Telefragged>(), Location);
+			Died(default, ClassT<DmgType_Telefragged>(), Location);
 		}
 	}
 	
@@ -1374,13 +1382,14 @@ public partial class Pawn : Actor/*
 	
 	public virtual /*function */void CrushedBy(Pawn OtherPawn)
 	{
-		TakeDamage(((int)(((((float)(1)) - (OtherPawn.Velocity.Z / ((float)(400)))) * OtherPawn.Mass) / Mass)), OtherPawn.Controller, Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Crushed>(), default(Actor.TraceHitInfo), default(Actor));
+		TakeDamage(((int)(((((float)(1)) - (OtherPawn.Velocity.Z / ((float)(400)))) * OtherPawn.Mass) / Mass)), OtherPawn.Controller, Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Crushed>(), default, default);
 	}
 	
-	public virtual /*function */void DetachFromController(/*optional */bool bDestroyController = default)
+	public virtual /*function */void DetachFromController(/*optional */bool? _bDestroyController = default)
 	{
 		/*local */Controller OldController = default;
 	
+		var bDestroyController = _bDestroyController ?? default;
 		if((Controller != default) && Controller.Pawn == this)
 		{
 			OldController = Controller;
@@ -1399,7 +1408,7 @@ public partial class Pawn : Actor/*
 	
 	public override /*simulated event */void Destroyed()
 	{
-		DetachFromController(default(bool));
+		DetachFromController(default);
 		if(((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Client/*3*/))
 		{
 			return;
@@ -1408,8 +1417,8 @@ public partial class Pawn : Actor/*
 		{
 			InvManager.Destroy();
 		}
-		SetAnchor(default(NavigationPoint));
-		SetWeapon(default(Weapon));
+		SetAnchor(default);
+		SetWeapon(default);
 		ClearPathStep();
 		base.Destroyed();
 	}
@@ -1443,7 +1452,7 @@ public partial class Pawn : Actor/*
 		}
 		if(((((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && InvManager == default) && InventoryManagerClass != default)
 		{
-			InvManager = Spawn(InventoryManagerClass, this, default(name), default(Object.Vector), default(Object.Rotator), default(Actor), default(bool));
+			InvManager = Spawn(InventoryManagerClass, this, default, default, default, default, default);
 			if(InvManager == default)
 			{			
 			}
@@ -1463,7 +1472,7 @@ public partial class Pawn : Actor/*
 		}
 		if(ControllerClass != default)
 		{
-			Controller = Spawn(ControllerClass, default(Actor), default(name), default(Object.Vector), default(Object.Rotator), default(Actor), default(bool));
+			Controller = Spawn(ControllerClass, default, default, default, default, default, default);
 		}
 		if(Controller != default)
 		{
@@ -1479,7 +1488,7 @@ public partial class Pawn : Actor/*
 			{
 				DetachFromController(true);
 			}
-			Controller = Spawn(inAction.ControllerClass, default(Actor), default(name), default(Object.Vector), default(Object.Rotator), default(Actor), default(bool));
+			Controller = Spawn(inAction.ControllerClass, default, default, default, default, default, default);
 			Controller.Possess(this, false);
 			if(Controller.IsA("AIController"))
 			{
@@ -1508,11 +1517,11 @@ public partial class Pawn : Actor/*
 				{
 					if(FindInventoryType(InvClass, false) == default)
 					{
-						CreateInventory(InvClass, default(bool));
+						CreateInventory(InvClass, default);
 					}
 					goto J0xE3;
 				}
-				inAction.ScriptLog("WARNING: Attempting to give NULL inventory!", default(bool));
+				inAction.ScriptLog("WARNING: Attempting to give NULL inventory!", default);
 				J0xE3:{}
 				++ Idx;
 				goto J0x44;
@@ -1520,7 +1529,7 @@ public partial class Pawn : Actor/*
 		}
 		else
 		{
-			inAction.ScriptLog("WARNING: Give Inventory without any inventory specified!", default(bool));
+			inAction.ScriptLog("WARNING: Give Inventory without any inventory specified!", default);
 		}
 	}
 	
@@ -1544,9 +1553,9 @@ public partial class Pawn : Actor/*
 		}
 	}
 	
-	public virtual /*function */void AdjustDamage(ref int inDamage, ref Object.Vector Momentum, Controller InstigatedBy, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default)
+	public virtual /*function */void AdjustDamage(ref int inDamage, ref Object.Vector Momentum, Controller InstigatedBy, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default)
 	{
-	
+		var HitInfo = _HitInfo ?? default;
 	}
 	
 	public override /*function */bool HealDamage(int Amount, Controller Healer, Core.ClassT<DamageType> DamageType)
@@ -1585,7 +1594,7 @@ public partial class Pawn : Actor/*
 		{
 			HitInfo.BoneName = Bones[Idx];
 			HitInfo.HitComponent = Mesh;
-			BoneLoc = Mesh.GetBoneLocation(Bones[Idx], default(int));
+			BoneLoc = Mesh.GetBoneLocation(Bones[Idx], default);
 			Dir = BoneLoc - HurtOrigin;
 			Dist = VSize(Dir);
 			Dir = Normal(Dir);
@@ -1634,12 +1643,14 @@ public partial class Pawn : Actor/*
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? Pawn_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => Pawn_TakeDamage;
-	public /*event */void Pawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default, /*optional */Actor DamageCauser = default)
+	public /*event */void Pawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
 		/*local */int actualDamage = default;
 		/*local */PlayerController PC = default;
 		/*local */Controller Killer = default;
 	
+		var HitInfo = _HitInfo ?? default;
+		var DamageCauser = _DamageCauser ?? default;
 		if((((int)Role) < ((int)Actor.ENetRole.ROLE_Authority/*3*/)) || Health <= 0)
 		{
 			return;
@@ -1696,7 +1707,7 @@ public partial class Pawn : Actor/*
 			}
 		}
 		PlayHit(((float)(actualDamage)), InstigatedBy, HitLocation, DamageType, Momentum, HitInfo);
-		MakeNoise(1.0f, default(name));
+		MakeNoise(1.0f, default);
 	}
 	
 	// Export UPawn::execGetTeamNum(FFrame&, void* const)
@@ -1769,7 +1780,7 @@ public partial class Pawn : Actor/*
 			return false;
 		}
 		Health = Min(0, Health);
-		TriggerEventClass(ClassT<SeqEvent_Death>(), this, default(int), default(bool), ref/*probably?*/ /*null*/NullRef.array_SequenceEvent_);
+		TriggerEventClass(ClassT<SeqEvent_Death>(), this, default, default, ref/*probably?*/ /*null*/NullRef.array_SequenceEvent_);
 		using var v = LatentActions.GetEnumerator();while(v.MoveNext() && (Action = (SeqAct_Latent)v.Current) == Action)
 		{
 			Action.AbortFor(this);		
@@ -1954,7 +1965,7 @@ public partial class Pawn : Actor/*
 			Start = Location;
 			Start.Z += MaxOutOfWaterStepHeight;
 			Checkpoint = Start + ((3.20f * CylinderComponent.CollisionRadius) * WallNormal);
-			HitActor = Trace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, Checkpoint, Start, true, default(Object.Vector), ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, 8);
+			HitActor = Trace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, Checkpoint, Start, true, default, ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, 8);
 			if((HitActor == default) || HitNormal.Z > 0.70f)
 			{
 				return true;
@@ -2028,7 +2039,7 @@ public partial class Pawn : Actor/*
 				Mesh.bUpdateKinematicBonesFromAnimation = false;
 			}
 		}
-		SetCollision(true, false, default(bool));
+		SetCollision(true, false, default);
 		bNoWeaponFiring = true;
 		Velocity = vect(0.0f, 0.0f, 0.0f);
 		SetPhysics(Actor.EPhysics.PHYS_None/*0*/);
@@ -2041,7 +2052,7 @@ public partial class Pawn : Actor/*
 	
 	public virtual /*simulated function */void PlayDying(Core.ClassT<DamageType> DamageType, Object.Vector HitLoc)
 	{
-		GotoState("Dying", default(name), default(bool), default(bool));
+		GotoState("Dying", default, default, default);
 		bReplicateMovement = false;
 		bTearOff = true;
 		Velocity += TearOffMomentum;
@@ -2110,7 +2121,7 @@ public partial class Pawn : Actor/*
 		if(Mesh != default)
 		{
 			Mesh.SetCullDistance(DefaultAs<Pawn>().Mesh.CachedCullDistance);
-			Mesh.SetShadowParent(default(PrimitiveComponent));
+			Mesh.SetShadowParent(default);
 		}
 		bForceNetUpdate = true;
 		if(V != default)
@@ -2130,7 +2141,7 @@ public partial class Pawn : Actor/*
 		{
 			V.DetachDriver(this);
 		}
-		SetCollision(true, true, default(bool));
+		SetCollision(true, true, default);
 		if(((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
 		{
 			if(PhysicsVolume.bWaterVolume && Health > 0)
@@ -2141,7 +2152,7 @@ public partial class Pawn : Actor/*
 			{
 				SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
 			}
-			SetBase(default(Actor), default(Object.Vector), default(SkeletalMeshComponent), default(name));
+			SetBase(default, default, default, default);
 			SetHidden(false);
 		}
 	}
@@ -2151,8 +2162,9 @@ public partial class Pawn : Actor/*
 	
 	}
 	
-	public virtual /*final event */Inventory CreateInventory(Core.ClassT<Inventory> NewInvClass, /*optional */bool bDoNotActivate = default)
+	public virtual /*final event */Inventory CreateInventory(Core.ClassT<Inventory> NewInvClass, /*optional */bool? _bDoNotActivate = default)
 	{
+		var bDoNotActivate = _bDoNotActivate ?? default;
 		if(InvManager != default)
 		{
 			return InvManager.CreateInventory(NewInvClass, bDoNotActivate);
@@ -2160,8 +2172,9 @@ public partial class Pawn : Actor/*
 		return default;
 	}
 	
-	public virtual /*final simulated function */Inventory FindInventoryType(Core.ClassT<Inventory> DesiredClass, /*optional */bool bAllowSubclass = default)
+	public virtual /*final simulated function */Inventory FindInventoryType(Core.ClassT<Inventory> DesiredClass, /*optional */bool? _bAllowSubclass = default)
 	{
+		var bAllowSubclass = _bAllowSubclass ?? default;
 		return ((InvManager != default) ? InvManager.FindInventoryType(DesiredClass, bAllowSubclass) : default);
 	}
 	
@@ -2173,20 +2186,23 @@ public partial class Pawn : Actor/*
 		}
 	}
 	
-	public virtual /*function */void ThrowActiveWeapon(/*optional */Core.ClassT<DamageType> DamageType = default)
+	public virtual /*function */void ThrowActiveWeapon(/*optional */Core.ClassT<DamageType>? _DamageType = default)
 	{
+		var DamageType = _DamageType ?? default;
 		if(Weapon != default)
 		{
-			TossInventory(Weapon, default(Object.Vector), DamageType);
+			TossInventory(Weapon, default, DamageType);
 		}
 	}
 	
-	public virtual /*function */void TossInventory(Inventory Inv, /*optional */Object.Vector ForceVelocity = default, /*optional */Core.ClassT<DamageType> DamageType = default)
+	public virtual /*function */void TossInventory(Inventory Inv, /*optional */Object.Vector? _ForceVelocity = default, /*optional */Core.ClassT<DamageType>? _DamageType = default)
 	{
 		/*local */Object.Vector POVLoc = default, TossVel = default;
 		/*local */Object.Rotator POVRot = default;
 		/*local */Object.Vector X = default, Y = default, Z = default;
 	
+		var ForceVelocity = _ForceVelocity ?? default;
+		var DamageType = _DamageType ?? default;
 		if(ForceVelocity != vect(0.0f, 0.0f, 0.0f))
 		{
 			TossVel = ForceVelocity;		
@@ -2220,7 +2236,7 @@ public partial class Pawn : Actor/*
 	public virtual /*function */bool CheatWalk()
 	{
 		UnderWaterTime = DefaultAs<Pawn>().UnderWaterTime;
-		SetCollision(true, true, default(bool));
+		SetCollision(true, true, default);
 		SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
 		bCollideWorld = true;
 		SetPushesRigidBodies(DefaultAs<Pawn>().bPushesRigidBodies);
@@ -2230,7 +2246,7 @@ public partial class Pawn : Actor/*
 	public virtual /*function */bool CheatGhost()
 	{
 		UnderWaterTime = -1.0f;
-		SetCollision(false, false, default(bool));
+		SetCollision(false, false, default);
 		bCollideWorld = false;
 		SetPushesRigidBodies(false);
 		return true;
@@ -2239,7 +2255,7 @@ public partial class Pawn : Actor/*
 	public virtual /*function */bool CheatFly()
 	{
 		UnderWaterTime = DefaultAs<Pawn>().UnderWaterTime;
-		SetCollision(true, true, default(bool));
+		SetCollision(true, true, default);
 		bCollideWorld = true;
 		return true;
 	}
@@ -2292,20 +2308,20 @@ public partial class Pawn : Actor/*
 		{
 			bOldCollideActors = Attachment.bCollideActors;
 			bOldBlockActors = Attachment.bBlockActors;
-			Attachment.SetCollision(false, false, default(bool));
+			Attachment.SetCollision(false, false, default);
 			Attachment.SetHardAttach(Action.bHardAttach);
 			if(bValidBone && !bValidSocket)
 			{
 				if(Action.bUseRelativeOffset)
 				{
-					Attachment.SetLocation(Mesh.GetBoneLocation(Action.BoneName, default(int)));
+					Attachment.SetLocation(Mesh.GetBoneLocation(Action.BoneName, default));
 				}
 				if(Action.bUseRelativeRotation)
 				{
-					Attachment.SetRotation(QuatToRotator(Mesh.GetBoneQuaternion(Action.BoneName, default(int))));
+					Attachment.SetRotation(QuatToRotator(Mesh.GetBoneQuaternion(Action.BoneName, default)));
 				}
 			}
-			Attachment.SetBase(this, default(Object.Vector), Mesh, Action.BoneName);
+			Attachment.SetBase(this, default, Mesh, Action.BoneName);
 			if(Action.bUseRelativeRotation)
 			{
 				Attachment.SetRelativeRotation(Attachment.RelativeRotation + Action.RelativeRotation);
@@ -2314,7 +2330,7 @@ public partial class Pawn : Actor/*
 			{
 				Attachment.SetRelativeLocation(Attachment.RelativeLocation + Action.RelativeOffset);
 			}
-			Attachment.SetCollision(bOldCollideActors, bOldBlockActors, default(bool));		
+			Attachment.SetCollision(bOldCollideActors, bOldBlockActors, default);		
 		}
 		else
 		{
@@ -2375,20 +2391,21 @@ public partial class Pawn : Actor/*
 				if(Controller != default)
 				{
 					Controller.SetRotation(destActor.Rotation);
-					Controller.ClientSetRotation(destActor.Rotation, default(bool));
+					Controller.ClientSetRotation(destActor.Rotation, default);
 				}
 			}		
 		}
 		if(Controller != default)
 		{
-			Controller.OnTeleport(default(SeqAct_Teleport));
+			Controller.OnTeleport(default);
 		}
 	}
 	
-	public override /*simulated function */bool EffectIsRelevant(Object.Vector SpawnLocation, bool bForceDedicated, /*optional */float CullDistance = default)
+	public override /*simulated function */bool EffectIsRelevant(Object.Vector SpawnLocation, bool bForceDedicated, /*optional */float? _CullDistance = default)
 	{
 		/*local */PlayerController P = default;
 	
+		var CullDistance = _CullDistance ?? default;
 		if(((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/))
 		{
 			return bForceDedicated;
@@ -2544,12 +2561,14 @@ public partial class Pawn : Actor/*
 		}
 		else
 		{
-			SetTimer(2.0f, false, default(name), default(Object));
+			SetTimer(2.0f, false, default, default);
 		}
 	}
 	
-	protected /*event */void Pawn_Dying_TakeDamage(int Damage, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default, /*optional */Actor DamageCauser = default)// state function
+	protected /*event */void Pawn_Dying_TakeDamage(int Damage, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)// state function
 	{
+		var HitInfo = _HitInfo ?? default;
+		var DamageCauser = _DamageCauser ?? default;
 		SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
 		if((((int)Physics) == ((int)Actor.EPhysics.PHYS_None/*0*/)) && Momentum.Z < ((float)(0)))
 		{
@@ -2576,18 +2595,18 @@ public partial class Pawn : Actor/*
 		}
 		else
 		{
-			SetTimer(5.0f, false, default(name), default(Object));
+			SetTimer(5.0f, false, default, default);
 		}
 		if(((int)Physics) != ((int)Actor.EPhysics.PHYS_RigidBody/*10*/))
 		{
 			SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
 		}
-		SetCollision(true, false, default(bool));
+		SetCollision(true, false, default);
 		if(Controller != default)
 		{
 			if(Controller.bIsPlayer)
 			{
-				DetachFromController(default(bool));			
+				DetachFromController(default);			
 			}
 			else
 			{
@@ -2599,7 +2618,7 @@ public partial class Pawn : Actor/*
 		using var e146 = TouchingActors(ClassT<Actor>()).GetEnumerator();
 		while(e146.MoveNext() && (A = (Actor)e146.Current) == A)
 		{
-			if(A.FindEventsOfClass(ClassT<SeqEvent_Touch>(), ref/*probably?*/ TouchEvents, default(bool)))
+			if(A.FindEventsOfClass(ClassT<SeqEvent_Touch>(), ref/*probably?*/ TouchEvents, default))
 			{
 				I = 0;
 				J0xC7:{}

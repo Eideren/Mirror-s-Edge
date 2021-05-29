@@ -327,7 +327,7 @@ public partial class TdSPTutorialGame : TdSPGame,
 	
 	}
 	
-	public virtual /*function */void ResetPlayer(TdPlayerPawn PawnToReset, /*optional */NavigationPoint StartSpot = default)
+	public virtual /*function */void ResetPlayer(TdPlayerPawn PawnToReset, /*optional */NavigationPoint? _StartSpot = default)
 	{
 	
 	}
@@ -340,12 +340,12 @@ public partial class TdSPTutorialGame : TdSPGame,
 		return default;
 	}
 	
-	public virtual /*function */void SendMCKismetEvent(TdSPTutorialGame.EMovementChallenge MovementChallange, Core.ClassT<SeqEvt_TdMovementChallengeEvent> EventClass, /*optional */TdTutorialCheckpoint Sender = default)
+	public virtual /*function */void SendMCKismetEvent(TdSPTutorialGame.EMovementChallenge MovementChallange, Core.ClassT<SeqEvt_TdMovementChallengeEvent> EventClass, /*optional */TdTutorialCheckpoint? _Sender = default)
 	{
 	
 	}
 	
-	public virtual /*function */void SendTutorialKismetEvent(TdSPTutorialGame.EMovementChallenge MovementChallange, int TutorialEvent, /*optional */TdTutorialCheckpoint Sender = default)
+	public virtual /*function */void SendTutorialKismetEvent(TdSPTutorialGame.EMovementChallenge MovementChallange, int TutorialEvent, /*optional */TdTutorialCheckpoint? _Sender = default)
 	{
 	
 	}
@@ -418,12 +418,12 @@ public partial class TdSPTutorialGame : TdSPGame,
 		return default;
 	}
 	
-	public virtual /*function */void OnTutorialCompleted(/*delegate*/TdSPTutorialGame.OnStayInTutorial InOnStayInTutorial, /*optional */string NextLevelName = default)
+	public virtual /*function */void OnTutorialCompleted(/*delegate*/TdSPTutorialGame.OnStayInTutorial InOnStayInTutorial, /*optional */string? _NextLevelName = default)
 	{
 	
 	}
 	
-	public override /*function */void OnLevelCompleted(TdPlayerController PC, string CurrentLevelName, /*optional */string InNextLevelName = default, /*optional */string InNextCheckpointName = default)
+	public override /*function */void OnLevelCompleted(TdPlayerController PC, string CurrentLevelName, /*optional */string? _InNextLevelName = default, /*optional */string? _InNextCheckpointName = default)
 	{
 	
 	}

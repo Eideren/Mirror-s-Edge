@@ -44,12 +44,12 @@ public partial class TdSPGame : TdGameInfo/*
 	
 	public virtual /*function */void InitAI()
 	{
-		AIManager = Spawn(ClassT<TdAIManager>(), default(Actor), default(name), default(Object.Vector), default(Object.Rotator), default(Actor), default(bool));
+		AIManager = Spawn(ClassT<TdAIManager>(), default, default, default, default, default, default);
 	}
 	
 	public virtual /*function */void OnPlayerDead()
 	{
-		SetTimer(PlayerRespawnTime, false, "ResetLevel", default(Object));
+		SetTimer(PlayerRespawnTime, false, "ResetLevel", default);
 	}
 	
 	public virtual /*function */void RestartFromLastCheckpoint()
@@ -61,9 +61,9 @@ public partial class TdSPGame : TdGameInfo/*
 		using var e0 = WorldInfo.AllControllers(ClassT<TdPlayerController>()).GetEnumerator();
 		while(e0.MoveNext() && (C = (TdPlayerController)e0.Current) == C)
 		{
-			((C.myHUD) as TdHUD).TriggerCustomColorFadeOut(0.50f, MakeLinearColor(1.0f, 1.0f, 1.0f, 1.0f), default(bool), default(/*delegate*/TdHUD.OnMaxFade));		
+			((C.myHUD) as TdHUD).TriggerCustomColorFadeOut(0.50f, MakeLinearColor(1.0f, 1.0f, 1.0f, 1.0f), default, default);		
 		}	
-		SetTimer(0.50f, false, "RestartFromLastCheckpointDead", default(Object));
+		SetTimer(0.50f, false, "RestartFromLastCheckpointDead", default);
 	}
 	
 	public virtual /*function */void RestartFromLastCheckpointDead()
@@ -75,7 +75,7 @@ public partial class TdSPGame : TdGameInfo/*
 		using var e0 = WorldInfo.AllControllers(ClassT<TdPlayerController>()).GetEnumerator();
 		while(e0.MoveNext() && (C = (TdPlayerController)e0.Current) == C)
 		{
-			C.GotoState("Dead", default(name), default(bool), default(bool));
+			C.GotoState("Dead", default, default, default);
 			C.LoadStatsFromProfile(bShouldSaveCheckpointProgress, bShouldSaveCheckpointProgress, true);		
 		}	
 	}
@@ -96,10 +96,10 @@ public partial class TdSPGame : TdGameInfo/*
 				DataStoreManager = UIInteraction.GetDataStoreClient();
 				if(DataStoreManager != default)
 				{
-					GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer))) as UIDataStore_TdGameData);
+					GameData = ((DataStoreManager.FindDataStore("TdGameData", default)) as UIDataStore_TdGameData);
 					if(GameData != default)
 					{
-						GameData.RestartFromLastCheckpoint(default(bool), default(bool));					
+						GameData.RestartFromLastCheckpoint(default, default);					
 					}
 					continue;
 				}
@@ -165,17 +165,19 @@ public partial class TdSPGame : TdGameInfo/*
 		return /*Transformed 'base.' to specific call*/GameInfo_CanOpenPauseMenu() && OnLCAsyncHelper == ZeroHelper;
 	}
 	
-	public virtual /*function */void OnLevelCompleted(TdPlayerController PC, string CurrentLevelName, /*optional */string InNextLevelName = default, /*optional */string InNextCheckpointName = default)
+	public virtual /*function */void OnLevelCompleted(TdPlayerController PC, string CurrentLevelName, /*optional */string? _InNextLevelName = default, /*optional */string? _InNextCheckpointName = default)
 	{
 		/*local */int LevelIndex = default;
 		/*local */DataStoreClient DataStoreManager = default;
 		/*local */UIDataStore_TdGameData GameData = default;
 	
+		var InNextLevelName = _InNextLevelName ?? default;
+		var InNextCheckpointName = _InNextCheckpointName ?? default;
 		LevelIndex = -1;
 		DataStoreManager = UIInteraction.GetDataStoreClient();
 		if(DataStoreManager != default)
 		{
-			GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer))) as UIDataStore_TdGameData);
+			GameData = ((DataStoreManager.FindDataStore("TdGameData", default)) as UIDataStore_TdGameData);
 			if(GameData != default)
 			{
 				LevelIndex = GameData.GetMapIndexFromFileName(CurrentLevelName);
@@ -222,10 +224,10 @@ public partial class TdSPGame : TdGameInfo/*
 			DataStoreManager = UIInteraction.GetDataStoreClient();
 			if(DataStoreManager != default)
 			{
-				GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer))) as UIDataStore_TdGameData);
+				GameData = ((DataStoreManager.FindDataStore("TdGameData", default)) as UIDataStore_TdGameData);
 				if(GameData != default)
 				{
-					bIsGameComplete = GameData.GetMapIndexFromFileName(WorldInfo.GetMapName(default(bool))) == 10;
+					bIsGameComplete = GameData.GetMapIndexFromFileName(WorldInfo.GetMapName(default)) == 10;
 				}
 			}
 			if(bIsGameComplete)
@@ -236,7 +238,7 @@ public partial class TdSPGame : TdGameInfo/*
 				using var e269 = WorldInfo.AllControllers(ClassT<PlayerController>()).GetEnumerator();
 				while(e269.MoveNext() && (PC = (PlayerController)e269.Current) == PC)
 				{
-					SceneClient.OpenSceneEx(TdHUDContent.GetUISceneByName("TdCredits", default(string)), ((PC.Player) as LocalPlayer), UIScene.ESceneTransitionAnim.ANIM_All/*0*/, OnCreditsOpened);				
+					SceneClient.OpenSceneEx(TdHUDContent.GetUISceneByName("TdCredits", default), ((PC.Player) as LocalPlayer), UIScene.ESceneTransitionAnim.ANIM_All/*0*/, OnCreditsOpened);				
 				}						
 			}
 			else
@@ -271,7 +273,7 @@ public partial class TdSPGame : TdGameInfo/*
 		/*local */TdUIScene_MessageBox ErrorMessageBox = default;
 	
 		ErrorMessageBox = ((OpenedScene) as TdUIScene_MessageBox);
-		ErrorMessageBox.DisplayAcceptCancelRetryBox("<Strings:TdGameUI.TdMessageBox.FailedToWriteProfileProgress_Message>", "<Strings:TdGameUI.TdMessageBox.FailedToWriteProfile_Title>", OnErrorMessageBoxClosed, default(bool));
+		ErrorMessageBox.DisplayAcceptCancelRetryBox("<Strings:TdGameUI.TdMessageBox.FailedToWriteProfileProgress_Message>", "<Strings:TdGameUI.TdMessageBox.FailedToWriteProfile_Title>", OnErrorMessageBoxClosed, default);
 	}
 	
 	public virtual /*private final function */void OnErrorMessageBoxClosed(TdUIScene_MessageBox InMessageBox, int SelectedOption, int PlayerIndex)
@@ -295,7 +297,7 @@ public partial class TdSPGame : TdGameInfo/*
 		DataStoreManager = UIInteraction.GetDataStoreClient();
 		if(DataStoreManager != default)
 		{
-			GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer))) as UIDataStore_TdGameData);
+			GameData = ((DataStoreManager.FindDataStore("TdGameData", default)) as UIDataStore_TdGameData);
 			if(GameData != default)
 			{
 				GameData.CheckpointManager.SetActiveCheckpoint(StartLocation);
@@ -316,10 +318,10 @@ public partial class TdSPGame : TdGameInfo/*
 				if(DataStoreManager != default)
 				{
 					OnLCAsyncHelper.PC = default;
-					GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer))) as UIDataStore_TdGameData);
+					GameData = ((DataStoreManager.FindDataStore("TdGameData", default)) as UIDataStore_TdGameData);
 					if(GameData != default)
 					{
-						GameData.StartGame(OnLCAsyncHelper.NextLevelName, OnLCAsyncHelper.NextCheckpointName, default(string), "?PlayCutSceneMovie", bShouldSaveCheckpointProgress, true);
+						GameData.StartGame(OnLCAsyncHelper.NextLevelName, OnLCAsyncHelper.NextCheckpointName, default, "?PlayCutSceneMovie", bShouldSaveCheckpointProgress, true);
 					}
 				}
 			}		
@@ -328,7 +330,7 @@ public partial class TdSPGame : TdGameInfo/*
 		{
 			DataStoreManager = UIInteraction.GetDataStoreClient();
 			OnLCAsyncHelper.PC = default;
-			GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer))) as UIDataStore_TdGameData);
+			GameData = ((DataStoreManager.FindDataStore("TdGameData", default)) as UIDataStore_TdGameData);
 			GameData.QuitToMainMenu();
 		}
 	}

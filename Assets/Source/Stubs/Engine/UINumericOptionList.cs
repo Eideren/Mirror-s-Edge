@@ -7,14 +7,14 @@ public partial class UINumericOptionList : UIOptionListBase/*
 	public/*(Data)*/ UIRoot.UIRangeData RangeValue;
 	
 	// Export UUINumericOptionList::execSetValue(FFrame&, void* const)
-	public virtual /*native final function */bool SetValue(/*coerce */float NewValue, /*optional */bool bPercentageValue = default)
+	public virtual /*native final function */bool SetValue(/*coerce */float NewValue, /*optional */bool? _bPercentageValue = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUINumericOptionList::execGetValue(FFrame&, void* const)
-	public virtual /*native final function */float GetValue(/*optional */bool bPercentageValue = default)
+	public virtual /*native final function */float GetValue(/*optional */bool? _bPercentageValue = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

@@ -34,7 +34,7 @@ public partial class TdWeapon_Grenade : TdWeapon/*
 	
 	}
 	
-	public override /*simulated function */Object.Vector GetPhysicalFireStartLoc(/*optional */Object.Vector AimDir = default)
+	public override /*simulated function */Object.Vector GetPhysicalFireStartLoc(/*optional */Object.Vector? _AimDir = default)
 	{
 	
 		return default;

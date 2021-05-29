@@ -56,7 +56,7 @@ public partial class TdGhostPawnBase : TdPawn/*
 	
 	}
 	
-	public override /*simulated function */void ActuallyPlayFootParticleEffect(int FootDown, Actor.TraceHitInfo HitInfo, /*optional */Object.Vector HitLoc = default, /*optional */Object.Vector HitNormal = default)
+	public override /*simulated function */void ActuallyPlayFootParticleEffect(int FootDown, Actor.TraceHitInfo HitInfo, /*optional */Object.Vector? _HitLoc = default, /*optional */Object.Vector? _HitNormal = default)
 	{
 	
 	}

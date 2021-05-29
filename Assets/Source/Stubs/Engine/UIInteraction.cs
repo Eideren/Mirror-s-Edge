@@ -96,14 +96,14 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	}
 	
 	// Export UUIInteraction::execIsMenuLevel(FFrame&, void* const)
-	public /*native final function */static bool IsMenuLevel(/*optional */string MapName = default)
+	public /*native final function */static bool IsMenuLevel(/*optional */string? _MapName = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIInteraction::execPlayUISound(FFrame&, void* const)
-	public virtual /*native final function */bool PlayUISound(name SoundCueName, /*optional */int PlayerIndex = default)
+	public virtual /*native final function */bool PlayUISound(name SoundCueName, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -120,7 +120,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	}
 	
 	// Export UUIInteraction::execCreateTransientWidget(FFrame&, void* const)
-	public virtual /*native final function */UIObject CreateTransientWidget(Core.ClassT<UIObject> WidgetClass, name WidgetTag, /*optional */UIObject Owner = default)
+	public virtual /*native final function */UIObject CreateTransientWidget(Core.ClassT<UIObject> WidgetClass, name WidgetTag, /*optional */UIObject? _Owner = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -138,19 +138,19 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	}
 	
 	// Export UUIInteraction::execCreateScene(FFrame&, void* const)
-	public virtual /*native final function */UIScene CreateScene(Core.ClassT<UIScene> SceneClass, /*optional */name SceneTag = default, /*optional */UIScene SceneTemplate = default)
+	public virtual /*native final function */UIScene CreateScene(Core.ClassT<UIScene> SceneClass, /*optional */name? _SceneTag = default, /*optional */UIScene? _SceneTemplate = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
-	public virtual /*final function */bool OpenScene(UIScene Scene, /*optional */LocalPlayer SceneOwner/* = default*/, /*optional */ref UIScene OpenedScene/* = default*/)
+	public virtual /*final function */bool OpenScene(UIScene Scene, /*optional */LocalPlayer? _SceneOwner/* = default*/, /*optional */ref UIScene OpenedScene/* = default*/)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool MergeScene(UIScene SourceScene, /*optional */UIScene SceneTarget = default)
+	public virtual /*function */bool MergeScene(UIScene SourceScene, /*optional */UIScene? _SceneTarget = default)
 	{
 	
 		return default;
@@ -162,7 +162,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 		return default;
 	}
 	
-	public virtual /*final function */UIScene FindSceneByTag(name SceneTag, /*optional */LocalPlayer SceneOwner = default)
+	public virtual /*final function */UIScene FindSceneByTag(name SceneTag, /*optional */LocalPlayer? _SceneOwner = default)
 	{
 	
 		return default;
@@ -180,7 +180,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 		return default;
 	}
 	
-	public /*final event */static bool IsLoggedIn(int ControllerId, /*optional */bool bRequireOnlineLogin = default)
+	public /*final event */static bool IsLoggedIn(int ControllerId, /*optional */bool? _bRequireOnlineLogin = default)
 	{
 	
 		return default;

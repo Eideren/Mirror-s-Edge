@@ -66,7 +66,7 @@ public partial class TdGameInfo : GameInfo/*
 	
 	}
 	
-	public virtual /*function */void RegisterLookAtPoint(TdLookAtPoint Point, /*optional */bool bForceLookAtNow = default)
+	public virtual /*function */void RegisterLookAtPoint(TdLookAtPoint Point, /*optional */bool? _bForceLookAtNow = default)
 	{
 	
 	}

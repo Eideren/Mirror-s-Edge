@@ -9,7 +9,7 @@ public partial class TdProjectile : Projectile/*
 	public float OuterCoreDamage;
 	public int OuterCoreDamageRadius;
 	
-	public override /*simulated function */bool HurtRadius(float BaseDamage, float InDamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, /*optional */Actor IgnoredActor = default, /*optional */Controller InstigatedByController = default, /*optional */bool bDoFullDamage = default)
+	public override /*simulated function */bool HurtRadius(float BaseDamage, float InDamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, /*optional */Actor? _IgnoredActor = default, /*optional */Controller? _InstigatedByController = default, /*optional */bool? _bDoFullDamage = default)
 	{
 	
 		return default;

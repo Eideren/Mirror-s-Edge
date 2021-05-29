@@ -43,7 +43,7 @@ public partial class TdMPGame : TdGameInfo/*
 		MinWarmupPlayersNeeded = Max(0, GetIntOption(Options, "MinWarmupPlayersNeeded", MinWarmupPlayersNeeded));
 		MinWarmupPlayersNeeded = Min(MinWarmupPlayersNeeded, MaxPlayers);
 		bUseWarmup = ApproximatelyEqual((ParseOption(Options, "bUseWarmup")), "1");
-		DeathMessageClass = ((DynamicLoadObject("TdMpContent.TdDeathMessage", ClassT<Class>(), default(bool))) as ClassT<TdLocalMessage>);
+		DeathMessageClass = ((DynamicLoadObject("TdMpContent.TdDeathMessage", ClassT<Class>(), default)) as ClassT<TdLocalMessage>);
 	}
 	
 	public override /*function */void PreBeginPlay()
@@ -83,9 +83,9 @@ public partial class TdMPGame : TdGameInfo/*
 		}	
 		bWaitingToStartMatch = false;
 		RoundCount = 0;
-		GotoState("MatchInProgress", default(name), default(bool), default(bool));
+		GotoState("MatchInProgress", default, default, default);
 		StartOnlineGame();
-		WorldInfo.NotifyMatchStarted(default(bool), default(bool), default(bool));
+		WorldInfo.NotifyMatchStarted(default, default, default);
 	}
 	
 	public override /*function */bool CheckEndGame(PlayerReplicationInfo Winner, string Reason)
@@ -99,7 +99,7 @@ public partial class TdMPGame : TdGameInfo/*
 		base.EndGame(Winner, Reason);
 		if(bGameEnded)
 		{
-			GotoState("MatchOver", default(name), default(bool), default(bool));
+			GotoState("MatchOver", default, default, default);
 		}
 	}
 	
@@ -160,7 +160,7 @@ public partial class TdMPGame : TdGameInfo/*
 				RandIndex = Rand(PoliceClasses.Length);
 				ClassName = PoliceClasses[RandIndex];
 			}
-			ResultClass = ((DynamicLoadObject(ClassName, ClassT<Class>(), default(bool))) as ClassT<Pawn>);
+			ResultClass = ((DynamicLoadObject(ClassName, ClassT<Class>(), default)) as ClassT<Pawn>);
 		}
 		if(ResultClass == default)
 		{
@@ -182,7 +182,7 @@ public partial class TdMPGame : TdGameInfo/*
 		J0x32:{}
 		if(Attempts < 5)
 		{
-			ResultPawn = Spawn(GetDefaultPlayerClass(NewPlayer), default(Actor), default(name), StartSpot.Location + SpawnOffset, StartRotation, default(Actor), false);
+			ResultPawn = Spawn(GetDefaultPlayerClass(NewPlayer), default, default, StartSpot.Location + SpawnOffset, StartRotation, default, false);
 			if(ResultPawn == default)
 			{
 				if(((StartSpot) as TdPlayerStart) != default)
@@ -265,13 +265,13 @@ public partial class TdMPGame : TdGameInfo/*
 	{
 		if(Killer == Other)
 		{
-			BroadcastLocalized(this, DeathMessageClass, 14, default(PlayerReplicationInfo), Other.PlayerReplicationInfo, DamageType);		
+			BroadcastLocalized(this, DeathMessageClass, 14, default, Other.PlayerReplicationInfo, DamageType);		
 		}
 		else
 		{
 			if(Killer == default)
 			{
-				BroadcastLocalized(this, DeathMessageClass, 13, default(PlayerReplicationInfo), Other.PlayerReplicationInfo, DamageType);			
+				BroadcastLocalized(this, DeathMessageClass, 13, default, Other.PlayerReplicationInfo, DamageType);			
 			}
 			else
 			{
@@ -327,10 +327,10 @@ public partial class TdMPGame : TdGameInfo/*
 		return true;
 	}
 	
-	public virtual /*function */void SetGameTimer(bool bEnable, /*optional */float RemainingTime = default, /*optional */float RemainingMinute = default)
+	public virtual /*function */void SetGameTimer(bool bEnable, /*optional */float? _RemainingTime = default, /*optional */float? _RemainingMinute = default)
 	{
-		RemainingTime = -1.0f;
-		RemainingMinute = -1.0f;
+		var RemainingTime = _RemainingTime ?? -1.0f;
+		var RemainingMinute = _RemainingMinute ?? -1.0f;
 		GameReplicationInfo.bStopCountDown = !bEnable;
 		if(RemainingTime >= ((float)(0)))
 		{
@@ -387,7 +387,7 @@ public partial class TdMPGame : TdGameInfo/*
 	{
 		/*local */TdPlayerController C = default;
 	
-		SetGameTimer(false, default(float), default(float));
+		SetGameTimer(false, default, default);
 		((GameReplicationInfo) as TdGameReplicationInfo).bMatchIsInWarmup = true;
 		
 		// foreach WorldInfo.AllControllers(ClassT<TdPlayerController>(), ref/*probably?*/ C)
@@ -493,13 +493,13 @@ public partial class TdMPGame : TdGameInfo/*
 		bInitialSpawn = true;
 		InitialSpawn();
 		bInitialSpawn = false;
-		SetTimer(GlobalPlayerRespawnTime, true, "RespawnTimer", default(Object));
+		SetTimer(GlobalPlayerRespawnTime, true, "RespawnTimer", default);
 	}
 	
 	protected /*simulated function */void TdMPGame_MatchInProgress_EndState(name NextStateName)// state function
 	{
 		DeadControllers.Remove(0, DeadControllers.Length);
-		ClearTimer("RespawnTimer", default(Object));
+		ClearTimer("RespawnTimer", default);
 	}
 	
 	protected /*event */void TdMPGame_MatchInProgress_PostLogin(PlayerController NewPlayer)// state function
@@ -554,7 +554,7 @@ public partial class TdMPGame : TdGameInfo/*
 			GameReplicationInfo.bStopCountDown = false;
 			if(GameReplicationInfo.RemainingTime <= 0)
 			{
-				EndGame(default(PlayerReplicationInfo), "TimeLimit");
+				EndGame(default, "TimeLimit");
 			}
 		}
 	}

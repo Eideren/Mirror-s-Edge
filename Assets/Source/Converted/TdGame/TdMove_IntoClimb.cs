@@ -85,13 +85,13 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 		AtBottomStep = CurrentLadderStep == 0;
 		ResetCameraLook(0.30f);
 		Angle = Dot(((Vector)(PawnOwner.Rotation)), ((Vector)(Ladder.Rotation)));
-		PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default(bool));
+		PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default);
 		PawnOwner.bCollideWorld = false;
 		PawnOwner.MoveNormal = Ladder.WallNormal;
 		if((((int)Ladder.LadderType) != ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) && (Angle < -0.850f) && Ladder.GetLadderLocation(Ladder.PawnLadderLocations.Length - 1).Z < PawnOwner.Location.Z)
 		{
 			ClimbState = TdMove_IntoClimb.EClimbEnterState.CES_EnteringAtTop/*0*/;
-			PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default(bool));
+			PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default);
 			PawnOwner.bCollideWorld = false;
 			SetPreciseLocation((Ladder.GetLadderLocation(Ladder.PawnLadderLocations.Length - 1) - (Ladder.WallNormal * 93.50f)) + (Ladder.MoveDirection * 90.0f), TdMove.EPreciseLocationMode.PLM_Fly/*0*/, 500.0f);		
 		}
@@ -110,14 +110,14 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 	{
 		if(((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_WallRunningLeft/*5*/))
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbHangStartLeft" : "LadderClimbHangStartLeft"), 1.0f, 0.150f, 0.250f, default(bool), default(bool));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbHangStartLeft" : "LadderClimbHangStartLeft"), 1.0f, 0.150f, 0.250f, default, default);
 			bPlayingImpact = true;		
 		}
 		else
 		{
 			if(((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_WallRunningRight/*4*/))
 			{
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbHangStartRight" : "LadderClimbHangStartRight"), 1.0f, 0.150f, 0.250f, default(bool), default(bool));
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbHangStartRight" : "LadderClimbHangStartRight"), 1.0f, 0.150f, 0.250f, default, default);
 				bPlayingImpact = true;			
 			}
 			else
@@ -126,11 +126,11 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 				{
 					if((Dot((Cross(((Vector)(Ladder.Rotation)), vect(0.0f, 0.0f, 1.0f))), ((Vector)(PawnOwner.Rotation)))) > 0.0f)
 					{
-						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbHangStartRight" : "LadderClimbHangStartRight"), 1.0f, 0.150f, 0.250f, default(bool), default(bool));					
+						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbHangStartRight" : "LadderClimbHangStartRight"), 1.0f, 0.150f, 0.250f, default, default);					
 					}
 					else
 					{
-						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbHangStartLeft" : "LadderClimbHangStartLeft"), 1.0f, 0.150f, 0.250f, default(bool), default(bool));
+						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbHangStartLeft" : "LadderClimbHangStartLeft"), 1.0f, 0.150f, 0.250f, default, default);
 					}
 					bPlayingImpact = true;				
 				}
@@ -138,8 +138,8 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 				{
 					if(PawnOwner.Velocity.Z < -800.0f)
 					{
-						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbHangStartHard" : "LadderClimbHangStartHard"), 1.0f, 0.10f, 0.250f, default(bool), default(bool));
-						PawnOwner.TakeDamage(1, default(Controller), PawnOwner.Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Fell>(), default(Actor.TraceHitInfo), default(Actor));
+						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbHangStartHard" : "LadderClimbHangStartHard"), 1.0f, 0.10f, 0.250f, default, default);
+						PawnOwner.TakeDamage(1, default, PawnOwner.Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Fell>(), default, default);
 						((PawnOwner.Controller) as TdPlayerController).ClientPlayForceFeedbackWaveform(ImpactHardWaveform);
 						bPlayingImpact = true;					
 					}
@@ -147,7 +147,7 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 					{
 						if((PawnOwner.Velocity.Z < -200.0f) || ((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_GrabTransfer/*31*/))
 						{
-							PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbHangStart" : "LadderClimbHangStart"), 1.0f, 0.10f, 0.250f, default(bool), default(bool));
+							PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbHangStart" : "LadderClimbHangStart"), 1.0f, 0.10f, 0.250f, default, default);
 							((PawnOwner.Controller) as TdPlayerController).ClientPlayForceFeedbackWaveform(ImpactSoftWaveform);
 							bPlayingImpact = true;						
 						}
@@ -155,7 +155,7 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 						{
 							if(((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/))
 							{
-								PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbStart" : "PipeClimbStart"), 1.0f, 0.150f, 0.250f, default(bool), default(bool));
+								PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbStart" : "PipeClimbStart"), 1.0f, 0.150f, 0.250f, default, default);
 							}
 						}
 					}
@@ -168,7 +168,7 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 	public override /*simulated function */void StopMove()
 	{
 		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, 0.20f);
-		PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default(bool));
+		PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default);
 		PawnOwner.bCollideWorld = true;
 		Ladder = default;
 		base.StopMove();
@@ -202,7 +202,7 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 		PawnOwner.SetLocation(Ladder.GetLadderLocation(Ladder.GetClosestStep(PawnOwner.Location.Z)));
 		if(PawnOwner.Moves[21].CanDoMove() && Ladder != default)
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Climb/*21*/, default(bool), default(bool));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Climb/*21*/, default, default);
 			if(bPlayingImpact)
 			{
 				AnimSeq1p = ((PawnOwner.CustomFullBodyNode1p.GetCustomAnimNodeSeq()) as TdAnimNodeSequence);
@@ -211,7 +211,7 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 		}
 		else
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 		}
 	}
 	
@@ -229,12 +229,12 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 	
 		if((((int)ClimbState) == ((int)TdMove_IntoClimb.EClimbEnterState.CES_EnteringAtTop/*0*/)) || ((int)ClimbState) == ((int)TdMove_IntoClimb.EClimbEnterState.CES_EnteringAtBottom/*1*/))
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 			return;
 		}
 		if(AtBottomStep)
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 			return;
 		}
 		CurrentLadderStep = Ladder.GetClosestStep(PawnOwner.Location.Z);

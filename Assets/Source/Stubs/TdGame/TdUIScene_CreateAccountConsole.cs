@@ -85,7 +85,7 @@ public partial class TdUIScene_CreateAccountConsole : TdUIScene_SubMenu,
 	
 	}
 	
-	public virtual /*function */void CreateAccountDone(int Error, /*optional */string LocError = default)
+	public virtual /*function */void CreateAccountDone(int Error, /*optional */string? _LocError = default)
 	{
 	
 	}

@@ -47,7 +47,7 @@ public partial class PhysicsVolume : Volume/*
 		}
 		if(bPainCausing)
 		{
-			PainTimer = Spawn(ClassT<VolumeTimer>(), this, default(name), default(Object.Vector), default(Object.Rotator), default(Actor), default(bool));
+			PainTimer = Spawn(ClassT<VolumeTimer>(), this, default, default, default, default, default);
 		}
 	}
 	
@@ -181,7 +181,7 @@ public partial class PhysicsVolume : Volume/*
 			{
 				return;
 			}
-			Other.TakeDamage(((int)(DamagePerSec)), DamageInstigator, Location, vect(0.0f, 0.0f, 0.0f), DamageType, default(Actor.TraceHitInfo), default(Actor));		
+			Other.TakeDamage(((int)(DamagePerSec)), DamageInstigator, Location, vect(0.0f, 0.0f, 0.0f), DamageType, default, default);		
 		}
 		else
 		{

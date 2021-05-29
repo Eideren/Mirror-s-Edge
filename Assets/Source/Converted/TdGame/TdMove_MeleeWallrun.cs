@@ -17,14 +17,14 @@ public partial class TdMove_MeleeWallrun : TdMove_MeleeBase/*
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 	}
 	
 	public override /*simulated function */void Landed(Object.Vector aNormal, Actor anActor)
 	{
 		if(((int)MeleeState) == ((int)TdMove_MeleeBase.EMeleeState.MS_MeleePending/*0*/))
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 		}
 	}
 	
@@ -56,7 +56,7 @@ public partial class TdMove_MeleeWallrun : TdMove_MeleeBase/*
 			case TdMove_MeleeBase.EMeleeState.MS_MeleeAttackFinishing/*2*/:
 				ResetCameraLook(0.10f);
 				HitDetectionBone = ((bLeft) ? "LeftLeg" : "RightLeg");
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((bLeft) ? "MeleeWallRunLeft" : "MeleeWallRunRight"), 1.0f, 0.10f, 0.20f, false, default(bool));
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((bLeft) ? "MeleeWallRunLeft" : "MeleeWallRunRight"), 1.0f, 0.10f, 0.20f, false, default);
 				break;
 			default:
 				break;
@@ -76,7 +76,7 @@ public partial class TdMove_MeleeWallrun : TdMove_MeleeBase/*
 		ToTarget = TargetPawn.Location - PawnOwner.Location;
 		if(((Dot(Normal(ToTarget), ((Vector)(PawnOwner.Rotation)))) > 0.40f) && VSize(ToTarget) < 140.0f)
 		{
-			HitLocation = PawnOwner.Mesh3p.GetBoneLocation(HitDetectionBone, default(int));
+			HitLocation = PawnOwner.Mesh3p.GetBoneLocation(HitDetectionBone, default);
 			Hit.Material = default;
 			Hit.PhysMaterial = TargetPawn.Mesh3p.GetPhysicalMaterialFromBone("Neck");
 			Hit.BoneName = "Neck";

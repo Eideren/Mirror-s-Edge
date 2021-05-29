@@ -64,7 +64,7 @@ public partial class TdHUDDebug : Object/* within TdHUD*//*
 	
 	}
 	
-	public virtual /*exec function */void ShowAnims(/*optional */name StartingPoint = default)
+	public virtual /*exec function */void ShowAnims(/*optional */name? _StartingPoint = default)
 	{
 	
 	}
@@ -79,7 +79,7 @@ public partial class TdHUDDebug : Object/* within TdHUD*//*
 	
 	}
 	
-	public virtual /*exec function */void SetShowDebug(bool flag, /*optional */name DebugType = default)
+	public virtual /*exec function */void SetShowDebug(bool flag, /*optional */name? _DebugType = default)
 	{
 	
 	}
@@ -114,7 +114,7 @@ public partial class TdHUDDebug : Object/* within TdHUD*//*
 	
 	}
 	
-	public virtual /*exec function */void PlayAnimation(name AnimationName, /*optional */TdPawn.CustomNodeType AnimationType = default, /*optional */bool RootMotion = default, /*optional */bool RootRotation = default, /*optional */float BlendTime = default, /*optional */int Index = default)
+	public virtual /*exec function */void PlayAnimation(name AnimationName, /*optional */TdPawn.CustomNodeType? _AnimationType = default, /*optional */bool? _RootMotion = default, /*optional */bool? _RootRotation = default, /*optional */float? _BlendTime = default, /*optional */int? _Index = default)
 	{
 	
 	}
@@ -129,7 +129,7 @@ public partial class TdHUDDebug : Object/* within TdHUD*//*
 	
 	}
 	
-	public virtual /*function */void DrawPath(Pawn Target, /*optional */float Time = default)
+	public virtual /*function */void DrawPath(Pawn Target, /*optional */float? _Time = default)
 	{
 	
 	}

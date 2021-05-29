@@ -11,9 +11,9 @@ public interface OnlineStatsInterface : Interface/*
 	
 	public /*function */bool ReadOnlineStatsForFriends(byte LocalUserNum, OnlineStatsRead StatsRead);
 	
-	public /*function */bool ReadOnlineStatsByRank(OnlineStatsRead StatsRead, /*optional */int StartIndex = default, /*optional */int NumToRead = default);
+	public /*function */bool ReadOnlineStatsByRank(OnlineStatsRead StatsRead, /*optional */int? _StartIndex = default, /*optional */int? _NumToRead = default);
 	
-	public /*function */bool ReadOnlineStatsByRankAroundPlayer(byte LocalUserNum, OnlineStatsRead StatsRead, /*optional */int NumRows = default);
+	public /*function */bool ReadOnlineStatsByRankAroundPlayer(byte LocalUserNum, OnlineStatsRead StatsRead, /*optional */int? _NumRows = default);
 	
 	public /*function */void AddReadOnlineStatsCompleteDelegate(/*delegate*/OnlineStatsInterface.OnReadOnlineStatsComplete ReadOnlineStatsCompleteDelegate);
 	

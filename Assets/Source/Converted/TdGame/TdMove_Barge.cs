@@ -95,7 +95,7 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 		/*local */Actor.TraceHitInfo Hit = default;
 		/*local */Object.Vector HitL = default, HitN = default;
 	
-		BargableActor = PawnOwner.Trace(ref/*probably?*/ HitL, ref/*probably?*/ HitN, EndTrace, StartTrace, true, default(Object.Vector), ref/*probably?*/ Hit, 1);
+		BargableActor = PawnOwner.Trace(ref/*probably?*/ HitL, ref/*probably?*/ HitN, EndTrace, StartTrace, true, default, ref/*probably?*/ Hit, 1);
 		if(BargableActor == default)
 		{
 			return;
@@ -194,12 +194,12 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 				++ Idx;
 				goto J0x101;
 			}
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, ((name)("BargeInLeft")), AnimPlayRate, 0.20f, 0.0f, false, default(bool));		
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, ((name)("BargeInLeft")), AnimPlayRate, 0.20f, 0.0f, false, default);		
 		}
 		else
 		{
 			ResetCameraLook(0.20f);
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("MeleeKickObject")), 1.0f, 0.10f, 0.10f, false, default(bool));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("MeleeKickObject")), 1.0f, 0.10f, 0.10f, false, default);
 			PawnOwner.SetIgnoreMoveInput(0.60f);
 		}
 	}
@@ -207,7 +207,7 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, 0.20f);
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 	}
 	
 	public override /*simulated function */void StopMove()
@@ -220,7 +220,7 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 	public virtual /*simulated event */void AbortBarge()
 	{
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, 0.50f);
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 	}
 	
 	public virtual /*simulated function */void BargeHitNotify()
@@ -274,7 +274,7 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 				++ Idx;
 				goto J0x80;
 			}
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, ((name)("BargeOutLeft")), 1.0f, 0.0f, 0.20f, false, default(bool));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, ((name)("BargeOutLeft")), 1.0f, 0.0f, 0.20f, false, default);
 		}
 	}
 	
@@ -282,11 +282,11 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 	{
 		/*local */KActor RBActor = default;
 	
-		Victim.TakeDamage(100, PawnOwner.Controller, HitLocation, -HitNormal, inDamageType, default(Actor.TraceHitInfo), default(Actor));
+		Victim.TakeDamage(100, PawnOwner.Controller, HitLocation, -HitNormal, inDamageType, default, default);
 		RBActor = ((Victim) as KActor);
 		if(RBActor != default)
 		{
-			RBActor.ApplyImpulse(-HitNormal, inDamageType.DefaultAs<DamageType>().KDamageImpulse, HitLocation, default(Actor.TraceHitInfo));
+			RBActor.ApplyImpulse(-HitNormal, inDamageType.DefaultAs<DamageType>().KDamageImpulse, HitLocation, default);
 		}
 	}
 	

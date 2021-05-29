@@ -26,7 +26,7 @@ public partial class TdZiplineVolume : TdMovementVolume/*
 		((TdP.Moves[27]) as TdMove_IntoZipLine).ZipLine = this;
 		if(TdP.Moves[27].CanDoMove())
 		{
-			TdP.SetMove(TdPawn.EMovement.MOVE_IntoZipLine/*27*/, default(bool), default(bool));
+			TdP.SetMove(TdPawn.EMovement.MOVE_IntoZipLine/*27*/, default, default);
 			TdP.ActiveMovementVolume = default;		
 		}
 		else

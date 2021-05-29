@@ -55,8 +55,8 @@ public partial class TdMove_IntoZipLine : TdPhysicsMove/*
 		/*local */float TimeToDestination = default;
 	
 		base.StartMove();
-		ZipLine.FindClosestPointOnDSpline(PawnOwner.Location, ref/*probably?*/ DestinationToReach, ref/*probably?*/ EnterZipLineParam, default(int));
-		ZipLine.FindClosestPointOnDSpline(DestinationToReach + (ZipLine.MoveDirection * ((float)(100))), ref/*probably?*/ DestinationToReach, ref/*probably?*/ EnterZipLineParam, default(int));
+		ZipLine.FindClosestPointOnDSpline(PawnOwner.Location, ref/*probably?*/ DestinationToReach, ref/*probably?*/ EnterZipLineParam, default);
+		ZipLine.FindClosestPointOnDSpline(DestinationToReach + (ZipLine.MoveDirection * ((float)(100))), ref/*probably?*/ DestinationToReach, ref/*probably?*/ EnterZipLineParam, default);
 		DestinationToReach.Z += HangOffset.Z;
 		LastZipLineVolumeName = ZipLine.Name;
 		IntoClimbSpeed = FMax(VSize2D(PawnOwner.Velocity), 400.0f);
@@ -67,7 +67,7 @@ public partial class TdMove_IntoZipLine : TdPhysicsMove/*
 		SetPreciseRotation(WantedRotation, TimeToDestination);
 		SavedInitial2DVelocity.X = PawnOwner.Velocity.X;
 		SavedInitial2DVelocity.Y = PawnOwner.Velocity.Y;
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("ZiplineStart")), FClamp(0.30f / TimeToDestination, 0.20f, 2.0f), 0.20f, 0.40f, default(bool), default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("ZiplineStart")), FClamp(0.30f / TimeToDestination, 0.20f, 2.0f), 0.20f, 0.40f, default, default);
 		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_IntoZipLine/*27*/, 0.20f);
 		if(PawnOwner.Velocity.Z < ((float)(0)))
 		{
@@ -83,14 +83,14 @@ public partial class TdMove_IntoZipLine : TdPhysicsMove/*
 	public override /*simulated function */void HitWall(Object.Vector HitNormal, Actor Wall)
 	{
 		base.HitWall(HitNormal, Wall);
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
 		base.StopMove();
 		ZipLine = default;
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default(float));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default);
 	}
 	
 	public override /*simulated function */int HandleDeath(int Damage)
@@ -116,7 +116,7 @@ public partial class TdMove_IntoZipLine : TdPhysicsMove/*
 		/*local */float NormalizedStartPosition = default;
 	
 		PawnOwner.StopIgnoreMoveInput();
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default(float));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default);
 		if(PawnOwner.Moves[28].CanDoMove())
 		{
 			((PawnOwner.Moves[28]) as TdMove_ZipLine).ZipLine = ZipLine;
@@ -134,20 +134,20 @@ public partial class TdMove_IntoZipLine : TdPhysicsMove/*
 				SavedInitial2DVelocity = vect(0.0f, 0.0f, 0.0f);
 			}
 			PawnOwner.Velocity = ZipLineDir * (VSize2D(SavedInitial2DVelocity) * FMax(Dot(ZipLineDir, Normal(SavedInitial2DVelocity)), 0.0f));
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_ZipLine/*28*/, default(bool), default(bool));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_ZipLine/*28*/, default, default);
 			NormalizedStartPosition = ((bEnterFromLeft) ? 0.50f : 0.0f);
 			ZipLineIdleAnimation1p.NormalizedStartPosition = NormalizedStartPosition;
 			ZipLineIdleAnimation3p.NormalizedStartPosition = NormalizedStartPosition;		
 		}
 		else
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 		}
 	}
 	
 	public override /*simulated event */void FailedToReachPreciseLocation()
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 	}
 	
 	public override /*function */void DrawAnimDebugInfo(HUD HUD, ref float out_YL, ref float out_YPos)

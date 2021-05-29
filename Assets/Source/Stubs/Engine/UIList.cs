@@ -99,12 +99,12 @@ public partial class UIList : UIObject,
 	public /*delegate*/UIList.OnSubmitSelection __OnSubmitSelection__Delegate;
 	public /*delegate*/UIList.OnListElementsSorted __OnListElementsSorted__Delegate;
 	
-	public delegate void OnSubmitSelection(UIList Sender, /*optional */int PlayerIndex = default);
+	public delegate void OnSubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default);
 	
 	public delegate void OnListElementsSorted(UIList Sender);
 	
 	// Export UUIList::execScrollVertical(FFrame&, void* const)
-	public virtual /*native final function */bool ScrollVertical(UIScrollbar Sender, float PositionChange, /*optional */bool bPositionMaxed = default)
+	public virtual /*native final function */bool ScrollVertical(UIScrollbar Sender, float PositionChange, /*optional */bool? _bPositionMaxed = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -172,14 +172,14 @@ public partial class UIList : UIObject,
 	}
 	
 	// Export UUIList::execGetColumnWidth(FFrame&, void* const)
-	public virtual /*native final function */float GetColumnWidth(/*optional */int ColumnIndex = default, /*optional */bool bColHeader = default, /*optional */bool bReturnUnformattedValue = default)
+	public virtual /*native final function */float GetColumnWidth(/*optional */int? _ColumnIndex = default, /*optional */bool? _bColHeader = default, /*optional */bool? _bReturnUnformattedValue = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIList::execGetRowHeight(FFrame&, void* const)
-	public virtual /*native function */float GetRowHeight(/*optional */int RowIndex = default, /*optional */bool bColHeader = default, /*optional */bool bReturnUnformattedValue = default)
+	public virtual /*native function */float GetRowHeight(/*optional */int? _RowIndex = default, /*optional */bool? _bColHeader = default, /*optional */bool? _bReturnUnformattedValue = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -193,7 +193,7 @@ public partial class UIList : UIObject,
 	}
 	
 	// Export UUIList::execCalculateIndexFromCursorLocation(FFrame&, void* const)
-	public virtual /*native function */int CalculateIndexFromCursorLocation(/*optional */bool bRequireValidIndex = default)
+	public virtual /*native function */int CalculateIndexFromCursorLocation(/*optional */bool? _bRequireValidIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -221,28 +221,28 @@ public partial class UIList : UIObject,
 	}
 	
 	// Export UUIList::execGetElementValue(FFrame&, void* const)
-	public virtual /*native final function */string GetElementValue(int ElementIndex, /*optional */int CellIndex = default)
+	public virtual /*native final function */string GetElementValue(int ElementIndex, /*optional */int? _CellIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIList::execFindItemIndex(FFrame&, void* const)
-	public virtual /*native final function */int FindItemIndex(string ItemValue, /*optional */int CellIndex = default)
+	public virtual /*native final function */int FindItemIndex(string ItemValue, /*optional */int? _CellIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIList::execSetIndex(FFrame&, void* const)
-	public virtual /*native final function */bool SetIndex(int NewIndex, /*optional */bool bClampValue = default, /*optional */bool bSkipNotification = default)
+	public virtual /*native final function */bool SetIndex(int NewIndex, /*optional */bool? _bClampValue = default, /*optional */bool? _bSkipNotification = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIList::execSetTopIndex(FFrame&, void* const)
-	public virtual /*native final function */bool SetTopIndex(int NewTopIndex, /*optional */bool bClampValue = default)
+	public virtual /*native final function */bool SetTopIndex(int NewTopIndex, /*optional */bool? _bClampValue = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -276,20 +276,20 @@ public partial class UIList : UIObject,
 	}
 	
 	// Export UUIList::execSetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int BindingIndex = default)
+	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIList::execGetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */string GetDataStoreBinding(/*optional */int BindingIndex = default)
+	public virtual /*native final function */string GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIList::execRefreshSubscriberValue(FFrame&, void* const)
-	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int BindingIndex = default)
+	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -321,7 +321,7 @@ public partial class UIList : UIObject,
 	}
 	
 	// Export UUIList::execSaveSubscriberValue(FFrame&, void* const)
-	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int BindingIndex = default)
+	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -358,7 +358,7 @@ public partial class UIList : UIObject,
 	
 	}
 	
-	public virtual /*final event */void DecrementAllMutexes(/*optional */bool bDispatchUpdates = default)
+	public virtual /*final event */void DecrementAllMutexes(/*optional */bool? _bDispatchUpdates = default)
 	{
 	
 	}
@@ -395,7 +395,7 @@ public partial class UIList : UIObject,
 		return default;
 	}
 	
-	public virtual /*final function */void EnableColumnHeaderRendering(/*optional */bool bShouldRenderColHeaders = default)
+	public virtual /*final function */void EnableColumnHeaderRendering(/*optional */bool? _bShouldRenderColHeaders = default)
 	{
 	
 	}
@@ -411,7 +411,7 @@ public partial class UIList : UIObject,
 	
 	}
 	
-	public virtual /*final function */void OnStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState PreviouslyActiveState = default)
+	public virtual /*final function */void OnStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
 	{
 	
 	}

@@ -9,9 +9,9 @@ public interface OnlineContentInterface : Interface/*
 	
 	public delegate void OnContentChange();
 	
-	public /*function */void AddContentChangeDelegate(/*delegate*/OnlineContentInterface.OnContentChange ContentDelegate, /*optional */byte LocalUserNum = default);
+	public /*function */void AddContentChangeDelegate(/*delegate*/OnlineContentInterface.OnContentChange ContentDelegate, /*optional */byte? _LocalUserNum = default);
 	
-	public /*function */void ClearContentChangeDelegate(/*delegate*/OnlineContentInterface.OnContentChange ContentDelegate, /*optional */byte LocalUserNum = default);
+	public /*function */void ClearContentChangeDelegate(/*delegate*/OnlineContentInterface.OnContentChange ContentDelegate, /*optional */byte? _LocalUserNum = default);
 	
 	public delegate void OnReadContentComplete(bool bWasSuccessful);
 	

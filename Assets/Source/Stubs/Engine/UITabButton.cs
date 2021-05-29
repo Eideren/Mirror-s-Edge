@@ -14,7 +14,7 @@ public partial class UITabButton : UILabelButton/*
 	
 	}
 	
-	public override /*event */void RemovedChild(UIScreenObject WidgetOwner, UIObject OldChild, /*optional */array<UIObject> ExclusionSet = default)
+	public override /*event */void RemovedChild(UIScreenObject WidgetOwner, UIObject OldChild, /*optional */array<UIObject>? _ExclusionSet = default)
 	{
 	
 	}
@@ -32,7 +32,7 @@ public partial class UITabButton : UILabelButton/*
 	}
 	
 	// Export UUITabButton::execIsTargeted(FFrame&, void* const)
-	public virtual /*native final function */bool IsTargeted(/*optional */int PlayerIndex/* = default*/, /*optional */ref int StateIndex/* = default*/)
+	public virtual /*native final function */bool IsTargeted(/*optional */int? _PlayerIndex/* = default*/, /*optional */ref int StateIndex/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -44,7 +44,7 @@ public partial class UITabButton : UILabelButton/*
 		return default;
 	}
 	
-	public virtual /*function */void OnStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState PreviouslyActiveState = default)
+	public virtual /*function */void OnStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
 	{
 	
 	}

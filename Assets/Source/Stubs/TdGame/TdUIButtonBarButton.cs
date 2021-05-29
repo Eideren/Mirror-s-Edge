@@ -9,7 +9,7 @@ public partial class TdUIButtonBarButton : UILabelButton/*
 	public delegate void OnClickNotification(UIScreenObject EventObject, UIRoot.InputEventParameters EventParms);
 	
 	// Export UTdUIButtonBarButton::execCanAcceptFocus(FFrame&, void* const)
-	public override /*native function */bool CanAcceptFocus(/*optional */int PlayerIndex = default)
+	public override /*native function */bool CanAcceptFocus(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

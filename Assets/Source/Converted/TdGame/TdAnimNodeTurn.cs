@@ -22,7 +22,7 @@ public partial class TdAnimNodeTurn : TdAnimNodeBlendList/*
 	public override /*event */void OnCeaseRelevant()
 	{
 		PlayingTurnAnimation = false;
-		SetActiveMove(0, default(bool));
+		SetActiveMove(0, default);
 	}
 	
 	public TdAnimNodeTurn()

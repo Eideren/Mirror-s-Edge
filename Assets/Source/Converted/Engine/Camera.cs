@@ -125,7 +125,7 @@ public partial class Camera : Actor/*
 	{
 		CameraCache.POV.FOV = DefaultFOV;
 		PCOwner = PC;
-		SetViewTarget(PC.ViewTarget, default(Camera.ViewTargetTransitionParams));
+		SetViewTarget(PC.ViewTarget, default);
 		SetDesiredColorScale(WorldInfo.DefaultColorScale, 5.0f);
 		UpdateCamera(0.0f);
 	}
@@ -301,7 +301,7 @@ public partial class Camera : Actor/*
 						}
 						Loc += (/*>>*/ShiftR(FreeCamOffset, Rot));
 						pos = Loc - (((Vector)(Rot)) * FreeCamDistance);
-						HitActor = Trace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, pos, Loc, false, vect(12.0f, 12.0f, 12.0f), ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, default(int));
+						HitActor = Trace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, pos, Loc, false, vect(12.0f, 12.0f, 12.0f), ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, default);
 						OutVT.POV.Location = ((HitActor == default) ? pos : HitLocation);
 						OutVT.POV.Rotation = Rot;
 						break;
@@ -320,7 +320,7 @@ public partial class Camera : Actor/*
 	}
 	
 	// Export UCamera::execSetViewTarget(FFrame&, void* const)
-	public virtual /*native final function */void SetViewTarget(Actor NewViewTarget, /*optional */Camera.ViewTargetTransitionParams TransitionParams = default)
+	public virtual /*native final function */void SetViewTarget(Actor NewViewTarget, /*optional */Camera.ViewTargetTransitionParams? _TransitionParams = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -379,20 +379,20 @@ public partial class Camera : Actor/*
 		/*local */Canvas Canvas = default;
 	
 		Canvas = HUD.Canvas;
-		Canvas.SetDrawColor(255, 255, 255, (byte)default(byte));
-		Canvas.DrawText((("\\tCamera Style:" + ((CameraStyle)).ToString()) + " " + "main ViewTarget:") + ((ViewTarget.Target)).ToString(), default(bool), default(float), default(float));
+		Canvas.SetDrawColor(255, 255, 255, (byte)default);
+		Canvas.DrawText((("\\tCamera Style:" + ((CameraStyle)).ToString()) + " " + "main ViewTarget:") + ((ViewTarget.Target)).ToString(), default, default, default);
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText((((("   CamLoc:" + ((CameraCache.POV.Location)).ToString()) + " " + "CamRot:") + ((CameraCache.POV.Rotation)).ToString()) + " " + "FOV:") + ((CameraCache.POV.FOV)).ToString(), default(bool), default(float), default(float));
+		Canvas.DrawText((((("   CamLoc:" + ((CameraCache.POV.Location)).ToString()) + " " + "CamRot:") + ((CameraCache.POV.Rotation)).ToString()) + " " + "FOV:") + ((CameraCache.POV.FOV)).ToString(), default, default, default);
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText("   AspectRatio:" + ((ConstrainedAspectRatio)).ToString(), default(bool), default(float), default(float));
+		Canvas.DrawText("   AspectRatio:" + ((ConstrainedAspectRatio)).ToString(), default, default, default);
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
 		if(ViewTarget.Target != default)
 		{
 			ViewTarget.Target.GetActorEyesViewPoint(ref/*probably?*/ EyesLoc, ref/*probably?*/ EyesRot);
-			Canvas.DrawText((("   EyesLoc:" + ((EyesLoc)).ToString()) + " " + "EyesRot:") + ((EyesRot)).ToString(), default(bool), default(float), default(float));
+			Canvas.DrawText((("   EyesLoc:" + ((EyesLoc)).ToString()) + " " + "EyesRot:") + ((EyesRot)).ToString(), default, default, default);
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 		}

@@ -36,7 +36,7 @@ public partial class TdMove_WallrunDodgeJump : TdPhysicsMove/*
 		{
 			PawnOwner.Velocity.Z += PawnOwner.Base.Velocity.Z;
 		}
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)PawnOwner.MoveActionHint) == ((int)TdPawn.EMoveActionHint.MAH_Left/*1*/)) ? ((name)("dodgejumpleft")) : ((name)("dodgejumpright"))), 1.0f, 0.20f, 0.20f, default(bool), default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)PawnOwner.MoveActionHint) == ((int)TdPawn.EMoveActionHint.MAH_Left/*1*/)) ? ((name)("dodgejumpleft")) : ((name)("dodgejumpright"))), 1.0f, 0.20f, 0.20f, default, default);
 	}
 	
 	public override /*simulated function */void StopMove()

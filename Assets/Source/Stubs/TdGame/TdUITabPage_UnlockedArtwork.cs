@@ -76,7 +76,7 @@ public partial class TdUITabPage_UnlockedArtwork : TdUITabPage/*
 	
 	}
 	
-	public virtual /*function */void ArtworkList_OnSubmitSelection(UIList Sender, /*optional */int PlayerIndex = default)
+	public virtual /*function */void ArtworkList_OnSubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
 	
 	}

@@ -33,7 +33,7 @@ public partial class UIDataStore_StringAliasMap : UIDataStore/*
 	}
 	
 	// Export UUIDataStore_StringAliasMap::execFindMappingWithFieldName(FFrame&, void* const)
-	public virtual /*native final function */int FindMappingWithFieldName(/*optional */string FieldName = default, /*optional */string SetName = default)
+	public virtual /*native final function */int FindMappingWithFieldName(/*optional */string? _FieldName = default, /*optional */string? _SetName = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

@@ -110,7 +110,7 @@ public partial class Controller : Actor/*
 	}
 	
 	// Export UController::execRouteCache_InsertItem(FFrame&, void* const)
-	public virtual /*native function */void RouteCache_InsertItem(NavigationPoint Nav, /*optional */int Idx = default)
+	public virtual /*native function */void RouteCache_InsertItem(NavigationPoint Nav, /*optional */int? _Idx = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -122,7 +122,7 @@ public partial class Controller : Actor/*
 	}
 	
 	// Export UController::execRouteCache_RemoveIndex(FFrame&, void* const)
-	public virtual /*native function */void RouteCache_RemoveIndex(int InIndex, /*optional */int Count = default)
+	public virtual /*native function */void RouteCache_RemoveIndex(int InIndex, /*optional */int? _Count = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -144,7 +144,7 @@ public partial class Controller : Actor/*
 	
 	}
 	
-	public virtual /*reliable client simulated function */void ClientSetRotation(Object.Rotator NewRotation, /*optional */bool bResetCamera = default)
+	public virtual /*reliable client simulated function */void ClientSetRotation(Object.Rotator NewRotation, /*optional */bool? _bResetCamera = default)
 	{
 	
 	}
@@ -261,7 +261,7 @@ public partial class Controller : Actor/*
 	
 	}
 	
-	public virtual /*function */void GameHasEnded(/*optional */Actor EndGameFocus = default, /*optional */bool bIsWinner = default)
+	public virtual /*function */void GameHasEnded(/*optional */Actor? _EndGameFocus = default, /*optional */bool? _bIsWinner = default)
 	{
 	
 	}
@@ -301,7 +301,7 @@ public partial class Controller : Actor/*
 	
 	}
 	
-	public virtual /*function */void RoundHasEnded(/*optional */Actor EndRoundFocus = default)
+	public virtual /*function */void RoundHasEnded(/*optional */Actor? _EndRoundFocus = default)
 	{
 	
 	}
@@ -343,15 +343,15 @@ public partial class Controller : Actor/*
 	
 	}
 	
-	public delegate void SwitchToBestWeapon_del(/*optional */bool bForceNewWeapon = default);
+	public delegate void SwitchToBestWeapon_del(/*optional */bool? _bForceNewWeapon = default);
 	public virtual SwitchToBestWeapon_del SwitchToBestWeapon { get => bfield_SwitchToBestWeapon ?? Controller_SwitchToBestWeapon; set => bfield_SwitchToBestWeapon = value; } SwitchToBestWeapon_del bfield_SwitchToBestWeapon;
 	public virtual SwitchToBestWeapon_del global_SwitchToBestWeapon => Controller_SwitchToBestWeapon;
-	public /*exec function */void Controller_SwitchToBestWeapon(/*optional */bool bForceNewWeapon = default)
+	public /*exec function */void Controller_SwitchToBestWeapon(/*optional */bool? _bForceNewWeapon = default)
 	{
 	
 	}
 	
-	public virtual /*reliable client simulated function */void ClientSwitchToBestWeapon(/*optional */bool bForceNewWeapon = default)
+	public virtual /*reliable client simulated function */void ClientSwitchToBestWeapon(/*optional */bool? _bForceNewWeapon = default)
 	{
 	
 	}
@@ -367,7 +367,7 @@ public partial class Controller : Actor/*
 	}
 	
 	// Export UController::execLineOfSightTo(FFrame&, void* const)
-	public virtual /*native(514) final function */bool LineOfSightTo(Actor Other, /*optional */Object.Vector chkLocation = default, /*optional */bool bTryAlternateTargetLoc = default)
+	public virtual /*native(514) final function */bool LineOfSightTo(Actor Other, /*optional */Object.Vector? _chkLocation = default, /*optional */bool? _bTryAlternateTargetLoc = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -394,7 +394,7 @@ public partial class Controller : Actor/*
 		return default;
 	}
 	
-	public virtual /*event */void HearNoise(float Loudness, Actor NoiseMaker, /*optional */name NoiseType = default)
+	public virtual /*event */void HearNoise(float Loudness, Actor NoiseMaker, /*optional */name? _NoiseType = default)
 	{
 	
 	}
@@ -418,14 +418,14 @@ public partial class Controller : Actor/*
 	}
 	
 	// Export UController::execMoveTo(FFrame&, void* const)
-	public virtual /*native(500) final latent function */Flow MoveTo(Object.Vector NewDestination, /*optional */Actor ViewFocus = default, /*optional */bool bShouldWalk = default)
+	public virtual /*native(500) final latent function */Flow MoveTo(Object.Vector NewDestination, /*optional */Actor? _ViewFocus = default, /*optional */bool? _bShouldWalk = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UController::execMoveToward(FFrame&, void* const)
-	public virtual /*native(502) final latent function */Flow MoveToward(Actor NewTarget, /*optional */Actor ViewFocus = default, /*optional */float DestinationOffset = default, /*optional */bool bUseStrafing = default, /*optional */bool bShouldWalk = default)
+	public virtual /*native(502) final latent function */Flow MoveToward(Actor NewTarget, /*optional */Actor? _ViewFocus = default, /*optional */float? _DestinationOffset = default, /*optional */bool? _bUseStrafing = default, /*optional */bool? _bShouldWalk = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -444,21 +444,21 @@ public partial class Controller : Actor/*
 	}
 	
 	// Export UController::execFindPathTo(FFrame&, void* const)
-	public virtual /*native(518) final function */Actor FindPathTo(Object.Vector aPoint, /*optional */int MaxPathLength = default, /*optional */bool bReturnPartial = default)
+	public virtual /*native(518) final function */Actor FindPathTo(Object.Vector aPoint, /*optional */int? _MaxPathLength = default, /*optional */bool? _bReturnPartial = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UController::execFindPathToward(FFrame&, void* const)
-	public virtual /*native(517) final function */Actor FindPathToward(Actor anActor, /*optional */bool bWeightDetours = default, /*optional */int MaxPathLength = default, /*optional */bool bReturnPartial = default)
+	public virtual /*native(517) final function */Actor FindPathToward(Actor anActor, /*optional */bool? _bWeightDetours = default, /*optional */int? _MaxPathLength = default, /*optional */bool? _bReturnPartial = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UController::execFindPathTowardNearest(FFrame&, void* const)
-	public virtual /*native final function */Actor FindPathTowardNearest(Core.ClassT<NavigationPoint> GoalClass, /*optional */bool bWeightDetours = default, /*optional */int MaxPathLength = default, /*optional */bool bReturnPartial = default)
+	public virtual /*native final function */Actor FindPathTowardNearest(Core.ClassT<NavigationPoint> GoalClass, /*optional */bool? _bWeightDetours = default, /*optional */int? _MaxPathLength = default, /*optional */bool? _bReturnPartial = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -472,7 +472,7 @@ public partial class Controller : Actor/*
 	}
 	
 	// Export UController::execFindPathToIntercept(FFrame&, void* const)
-	public virtual /*native final function */Actor FindPathToIntercept(Pawn P, Actor InRouteGoal, /*optional */bool bWeightDetours = default, /*optional */int MaxPathLength = default, /*optional */bool bReturnPartial = default)
+	public virtual /*native final function */Actor FindPathToIntercept(Pawn P, Actor InRouteGoal, /*optional */bool? _bWeightDetours = default, /*optional */int? _MaxPathLength = default, /*optional */bool? _bReturnPartial = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -505,7 +505,7 @@ public partial class Controller : Actor/*
 	}
 	
 	// Export UController::execWaitForLanding(FFrame&, void* const)
-	public virtual /*native(527) final latent function */Flow WaitForLanding(/*optional */float waitDuration = default)
+	public virtual /*native(527) final latent function */Flow WaitForLanding(/*optional */float? _waitDuration = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -743,7 +743,7 @@ public partial class Controller : Actor/*
 	
 	}
 	
-	public virtual /*function */void SendMessage(PlayerReplicationInfo Recipient, name MessageType, float Wait, /*optional */Core.ClassT<DamageType> DamageType = default)
+	public virtual /*function */void SendMessage(PlayerReplicationInfo Recipient, name MessageType, float Wait, /*optional */Core.ClassT<DamageType>? _DamageType = default)
 	{
 	
 	}

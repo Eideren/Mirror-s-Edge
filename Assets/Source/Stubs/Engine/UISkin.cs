@@ -28,7 +28,7 @@ public partial class UISkin : UIDataStore/*
 	public /*native const transient *//*map<0,0>*/map<object, object> SoundCueMap;
 	
 	// Export UUISkin::execGetAvailableStyles(FFrame&, void* const)
-	public virtual /*native final function */void GetAvailableStyles(ref array<UIStyle> out_Styles, /*optional */bool bIncludeInheritedStyles = default)
+	public virtual /*native final function */void GetAvailableStyles(ref array<UIStyle> out_Styles, /*optional */bool? _bIncludeInheritedStyles = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -110,7 +110,7 @@ public partial class UISkin : UIDataStore/*
 	}
 	
 	// Export UUISkin::execGetStyleGroups(FFrame&, void* const)
-	public virtual /*native final function */void GetStyleGroups(ref array<string> StyleGroupArray, /*optional */bool bIncludeInheritedGroups = default)
+	public virtual /*native final function */void GetStyleGroups(ref array<string> StyleGroupArray, /*optional */bool? _bIncludeInheritedGroups = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

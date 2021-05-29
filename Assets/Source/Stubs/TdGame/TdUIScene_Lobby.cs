@@ -57,12 +57,12 @@ public partial class TdUIScene_Lobby : TdUIScene,
 	
 	}
 	
-	public virtual /*function */void OnMapOptionList_ActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState PreviouslyActiveState = default)
+	public virtual /*function */void OnMapOptionList_ActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
 	{
 	
 	}
 	
-	public virtual /*function */void OnButtonsPanel_ActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState PreviouslyActiveState = default)
+	public virtual /*function */void OnButtonsPanel_ActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
 	{
 	
 	}

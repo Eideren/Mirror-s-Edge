@@ -7,7 +7,7 @@ public partial class UIEvent_ListIndexChanged : UIEvent_ValueChanged/*
 	public /*transient */int PreviousIndex;
 	public /*transient */int CurrentIndex;
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
 	
 		return default;

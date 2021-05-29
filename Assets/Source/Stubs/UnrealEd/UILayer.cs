@@ -25,7 +25,7 @@ public partial class UILayer : UILayerBase/*
 	public array<UILayer.UILayerNode> LayerNodes;
 	
 	// Export UUILayer::execInsertNode(FFrame&, void* const)
-	public virtual /*native final function */bool InsertNode(/*const */ref UILayer.UILayerNode NodeToInsert, /*optional */int InsertIndex = default)
+	public virtual /*native final function */bool InsertNode(/*const */ref UILayer.UILayerNode NodeToInsert, /*optional */int? _InsertIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

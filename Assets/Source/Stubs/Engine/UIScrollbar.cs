@@ -27,7 +27,7 @@ public partial class UIScrollbar : UIObject/*
 	public /*delegate*/UIScrollbar.OnScrollActivity __OnScrollActivity__Delegate;
 	public /*delegate*/UIScrollbar.OnClickedScrollZone __OnClickedScrollZone__Delegate;
 	
-	public delegate bool OnScrollActivity(UIScrollbar Sender, float PositionChange, /*optional */bool bPositionMaxed = default);
+	public delegate bool OnScrollActivity(UIScrollbar Sender, float PositionChange, /*optional */bool? _bPositionMaxed = default);
 	
 	public delegate void OnClickedScrollZone(UIScrollbar Sender, float PositionPerc, int PlayerIndex);
 	

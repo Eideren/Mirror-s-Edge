@@ -15,7 +15,7 @@ public partial class TdLookAtPoint : Keypoint/*
 	{
 		if(!bDoNotRegisterAsLookAt && bAutoRegisterOnStartup)
 		{
-			RegisterLookAtPoint(default(bool));
+			RegisterLookAtPoint(default);
 		}
 	}
 	
@@ -51,7 +51,7 @@ public partial class TdLookAtPoint : Keypoint/*
 			{
 				if(Action.InputLinks[0].bHasImpulse)
 				{
-					RegisterLookAtPoint(default(bool));				
+					RegisterLookAtPoint(default);				
 				}
 				else
 				{
@@ -64,10 +64,11 @@ public partial class TdLookAtPoint : Keypoint/*
 		}
 	}
 	
-	public virtual /*function */void RegisterLookAtPoint(/*optional */bool bForceLookAt = default)
+	public virtual /*function */void RegisterLookAtPoint(/*optional */bool? _bForceLookAt = default)
 	{
 		/*local */TdGameInfo GInfo = default;
 	
+		var bForceLookAt = _bForceLookAt ?? default;
 		GInfo = ((WorldInfo.Game) as TdGameInfo);
 		if(GInfo != default)
 		{

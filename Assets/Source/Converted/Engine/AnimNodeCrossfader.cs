@@ -9,13 +9,13 @@ public partial class AnimNodeCrossfader : AnimNodeBlend/*
 	public /*const */float PendingBlendOutTimeOneShot;
 	
 	// Export UAnimNodeCrossfader::execPlayOneShotAnim(FFrame&, void* const)
-	public virtual /*native final function */void PlayOneShotAnim(name AnimSeqName, /*optional */float BlendInTime = default, /*optional */float BlendOutTime = default, /*optional */bool bDontBlendOut = default, /*optional */float Rate = default)
+	public virtual /*native final function */void PlayOneShotAnim(name AnimSeqName, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bDontBlendOut = default, /*optional */float? _Rate = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UAnimNodeCrossfader::execBlendToLoopingAnim(FFrame&, void* const)
-	public virtual /*native final function */void BlendToLoopingAnim(name AnimSeqName, /*optional */float BlendInTime = default, /*optional */float Rate = default)
+	public virtual /*native final function */void BlendToLoopingAnim(name AnimSeqName, /*optional */float? _BlendInTime = default, /*optional */float? _Rate = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

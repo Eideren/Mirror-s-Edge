@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdTutorialMessage : TdLocalMessage{
 	public /*const localized */array</*localized */string> MCDesc;
 	
-	public /*function */static string GetString(/*optional */int Switch = default, /*optional */bool bPRI1HUD = default, /*optional */PlayerReplicationInfo Killer = default, /*optional */PlayerReplicationInfo Victim = default, /*optional */Object OptionalObject = default)
+	public /*function */static string GetString(/*optional */int? _Switch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _Killer = default, /*optional */PlayerReplicationInfo? _Victim = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;

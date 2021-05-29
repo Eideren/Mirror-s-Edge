@@ -52,7 +52,7 @@ public partial class TdMove_Landing : TdMove/*
 		{
 			if(((PawnOwner.Controller) as TdPlayerController) != default)
 			{
-				((PawnOwner.Controller) as TdPlayerController).SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_NORMAL/*0*/, default(float), true, default(float));
+				((PawnOwner.Controller) as TdPlayerController).SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_NORMAL/*0*/, default, true, default);
 			}
 		}
 		base.StartMove();
@@ -67,7 +67,7 @@ public partial class TdMove_Landing : TdMove/*
 		bMovingBackwards = (((DotHeadingAndVel < -0.30f) && ((int)PawnOwner.CurrentWalkingState) >= ((int)TdPawn.WalkingState.WAS_Run/*4*/)) || bCameFrom180InAir) || (((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_SoftLanding/*78*/)) && SoftLandingMove.bMovingBackwards;
 		if(bSkillRollLanding && !bMovingBackwards)
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_SkillRoll/*91*/, default(bool), default(bool));		
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_SkillRoll/*91*/, default, default);		
 		}
 		else
 		{
@@ -116,8 +116,8 @@ public partial class TdMove_Landing : TdMove/*
 	
 		SpawnLocation = PawnOwner.Location;
 		SpawnLocation.Z -= 90.0f;
-		PSC = PawnOwner.WorldInfo.MyEmitterPool.SpawnEmitter(SoftLandingEffect, SpawnLocation, PawnOwner.Rotation, default(Actor));
-		PSC.ActivateSystem(default(bool));
+		PSC = PawnOwner.WorldInfo.MyEmitterPool.SpawnEmitter(SoftLandingEffect, SpawnLocation, PawnOwner.Rotation, default);
+		PSC.ActivateSystem(default);
 	}
 	
 	public virtual /*simulated function */void SubtractLandingSpeed()
@@ -193,13 +193,13 @@ public partial class TdMove_Landing : TdMove/*
 	
 	public virtual /*simulated function */void EndLanding()
 	{
-		if(CanStand(PawnOwner.Location, default(bool)))
+		if(CanStand(PawnOwner.Location, default))
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));		
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);		
 		}
 		else
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default(bool), default(bool));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default, default);
 		}
 	}
 	
@@ -209,11 +209,11 @@ public partial class TdMove_Landing : TdMove/*
 	
 		if((((int)PawnOwner.GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)) || FRand() < 0.50f)
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("FallingLandHard")), 1.0f, 0.050f, 0.20f, false, default(bool));		
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("FallingLandHard")), 1.0f, 0.050f, 0.20f, false, default);		
 		}
 		else
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("FallingLandHard2")), 1.0f, 0.050f, 0.20f, false, default(bool));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("FallingLandHard2")), 1.0f, 0.050f, 0.20f, false, default);
 		}
 		PawnOwner.SetIgnoreMoveInput(-1.0f);
 		PawnOwner.SetIgnoreLookInput(-1.0f);
@@ -227,7 +227,7 @@ public partial class TdMove_Landing : TdMove/*
 	
 	public virtual /*simulated function */void LandOnSoftObject()
 	{
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("FallingLandSoftLanding")), 1.0f, 0.10f, 0.10f, false, default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("FallingLandSoftLanding")), 1.0f, 0.10f, 0.10f, false, default);
 		PawnOwner.SetIgnoreMoveInput(-1.0f);
 		PawnOwner.SetIgnoreLookInput(-1.0f);
 		((PawnOwner.Controller) as TdPlayerController).ClientPlayForceFeedbackWaveform(ImpactMediumWaveform);
@@ -239,8 +239,8 @@ public partial class TdMove_Landing : TdMove/*
 	
 	public virtual /*simulated function */void LandBackwards()
 	{
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("JumpTurnLanding")), 1.0f, 0.10f, 0.10f, false, default(bool));
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_LayOnGround/*26*/, default(bool), default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("JumpTurnLanding")), 1.0f, 0.10f, 0.10f, false, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_LayOnGround/*26*/, default, default);
 		((PawnOwner.Controller) as TdPlayerController).ClientPlayForceFeedbackWaveform(ImpactMediumWaveform);
 		PawnOwner.Velocity = vect(0.0f, 0.0f, 0.0f);
 		PawnOwner.Acceleration = PawnOwner.Velocity;
@@ -249,7 +249,7 @@ public partial class TdMove_Landing : TdMove/*
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 	}
 	
 	public override /*simulated function */void OnCeaseRelevantRootMotion(AnimNodeSequence SeqNode)
@@ -258,7 +258,7 @@ public partial class TdMove_Landing : TdMove/*
 		PawnOwner.StopIgnoreMoveInput();
 		PawnOwner.Acceleration = Normal(PawnOwner.Velocity);
 		PawnOwner.UseRootMotion(false);
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 	}
 	
 	public override /*function */void DrawAnimDebugInfo(HUD HUD, ref float out_YL, ref float out_YPos)

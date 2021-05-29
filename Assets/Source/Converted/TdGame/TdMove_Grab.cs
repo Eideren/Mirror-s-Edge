@@ -181,7 +181,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		TransferMove = default;
 		if((((int)PawnOwner.PendingMovementState) != ((int)TdPawn.EMovement.MOVE_GrabPullUp/*10*/)) && !bRequestDropDown)
 		{
-			PawnOwner.DisableHandsWorldIK(default(float));
+			PawnOwner.DisableHandsWorldIK(default);
 		}
 		if(((int)CurrentFoldedType) != ((int)TdMove_Grab.EGrabFoldedType.GFT_Start/*1*/))
 		{
@@ -225,17 +225,17 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		UpdateViewConstraints();
 		if(PawnOwner.GrabAnimNode1p != default)
 		{
-			PawnOwner.GrabAnimNode1p.SetActiveMove(((((int)GrabType) == ((int)TdMove_Grab.EGrabType.GT_LegsOnWall/*0*/)) ? 0 : 1), default(bool));
+			PawnOwner.GrabAnimNode1p.SetActiveMove(((((int)GrabType) == ((int)TdMove_Grab.EGrabType.GT_LegsOnWall/*0*/)) ? 0 : 1), default);
 		}
 		if(PawnOwner.GrabAnimNode3p != default)
 		{
-			PawnOwner.GrabAnimNode3p.SetActiveMove(((((int)GrabType) == ((int)TdMove_Grab.EGrabType.GT_LegsOnWall/*0*/)) ? 0 : 1), default(bool));
+			PawnOwner.GrabAnimNode3p.SetActiveMove(((((int)GrabType) == ((int)TdMove_Grab.EGrabType.GT_LegsOnWall/*0*/)) ? 0 : 1), default);
 		}
 		AnimNodeSeq1pPrev = ((PawnOwner.CustomFullBodyNode1p.GetCustomAnimNodeSeq()) as TdAnimNodeSequence);
 		AnimNodeSeq3pPrev = ((PawnOwner.CustomFullBodyNode3p.GetCustomAnimNodeSeq()) as TdAnimNodeSequence);
 		PawnOwner.CustomFullBodyNode1p.SetBlendOutTime(-1.0f);
 		PawnOwner.CustomFullBodyNode3p.SetBlendOutTime(-1.0f);
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((IsHangingFree()) ? ((bMovingLeft) ? "HangFreeStrafeLeft" : "HangFreeStrafe") : ((bMovingLeft) ? "HangStrafeLeft" : "HangStrafeRight")), 1.0f, 0.20f, 0.0f, default(bool), default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((IsHangingFree()) ? ((bMovingLeft) ? "HangFreeStrafeLeft" : "HangFreeStrafe") : ((bMovingLeft) ? "HangStrafeLeft" : "HangStrafeRight")), 1.0f, 0.20f, 0.0f, default, default);
 		PrevNormalizedPosition = AnimNodeSeq1pPrev.GetNormalizedPosition();
 		AnimNodeSeq1p = ((PawnOwner.CustomFullBodyNode1p.GetCustomAnimNodeSeq()) as TdAnimNodeSequence);
 		AnimNodeSeq3p = ((PawnOwner.CustomFullBodyNode3p.GetCustomAnimNodeSeq()) as TdAnimNodeSequence);
@@ -244,7 +244,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		AnimNodeSeq1p.bResetOnBecomeRelevant = false;
 		AnimNodeSeq3p.bResetOnBecomeRelevant = false;
 		RootOffset.X += ((IsHangingFree()) ? -1.0f : 1.0f);
-		PawnOwner.SetRootOffset(RootOffset, 0.30f, ((SkelControlBase.EBoneControlSpace)default(SkelControlBase.EBoneControlSpace)));
+		PawnOwner.SetRootOffset(RootOffset, 0.30f, default);
 	}
 	
 	public virtual /*simulated function */void SetGrabType(TdMove_Grab.EGrabType NewGrabType)
@@ -266,7 +266,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 	public virtual /*simulated function */void EnableFoldedHang()
 	{
 		CurrentFoldedType = TdMove_Grab.EGrabFoldedType.GFT_Start/*1*/;
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("HangFoldedStart")), 1.0f, 0.20f, 0.0f, default(bool), default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("HangFoldedStart")), 1.0f, 0.20f, 0.0f, default, default);
 		bConstrainLook = false;
 	}
 	
@@ -324,7 +324,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		{
 			if(((((int)CurrentShimmyMove) != ((int)TdMove_Grab.EShimmyType.ShimmyAroundCorner/*2*/)) && ((int)PawnOwner.CurrentGrabTurnType) == ((int)TdPawn.EGrabTurnType.GTT_None/*0*/)) && !bGrabFromVerticalWallrun || bGrabFromVerticalWallrun && MoveActiveTime > 1.0f)
 			{
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((IsHangingFree()) ? "HangFreeEnd" : "HangEnd"), 1.0f, 0.10f, 0.20f, default(bool), default(bool));
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((IsHangingFree()) ? "HangFreeEnd" : "HangEnd"), 1.0f, 0.10f, 0.20f, default, default);
 				PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Falling/*2*/, 0.20f);
 				SetMoveTimer(0.20f, false, "OnChangeDPGTimer");			
 			}
@@ -350,7 +350,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 	
 	public virtual /*private final simulated function */void DropDown()
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 	}
 	
 	public override /*simulated function */void UpdateViewRotation(ref Object.Rotator out_Rotation, float DeltaTime, ref Object.Rotator DeltaRot)
@@ -381,7 +381,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 			{
 				if(((float)(ControllerDeltaRot.Yaw)) > StartTurningAngle)
 				{
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "HangTurnRightStart", 1.0f, 0.20f, 0.20f, default(bool), default(bool));
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "HangTurnRightStart", 1.0f, 0.20f, 0.20f, default, default);
 					PawnOwner.CurrentGrabTurnType = TdPawn.EGrabTurnType.GTT_Start/*1*/;
 					SetTimer(0.20f);				
 				}
@@ -389,7 +389,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 				{
 					if(((float)(ControllerDeltaRot.Yaw)) < -StartTurningAngle)
 					{
-						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "HangTurnLeftStart", 1.0f, 0.20f, 0.20f, default(bool), default(bool));
+						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "HangTurnLeftStart", 1.0f, 0.20f, 0.20f, default, default);
 						PawnOwner.CurrentGrabTurnType = TdPawn.EGrabTurnType.GTT_Start/*1*/;
 						SetTimer(0.20f);					
 					}
@@ -408,7 +408,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 				{
 					if(((int)PawnOwner.CurrentGrabTurnType) == ((int)TdPawn.EGrabTurnType.GTT_Idle/*3*/))
 					{
-						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((bIsTurnedRight) ? "HangTurnRightEnd" : "HangTurnLeftEnd"), 1.0f, 0.20f, 0.20f, default(bool), default(bool));
+						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((bIsTurnedRight) ? "HangTurnRightEnd" : "HangTurnLeftEnd"), 1.0f, 0.20f, 0.20f, default, default);
 						PawnOwner.CurrentGrabTurnType = TdPawn.EGrabTurnType.GTT_End/*2*/;
 						SetTimer(0.60f);					
 					}
@@ -434,7 +434,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		if(bShouldTriggerHangFreeTurn)
 		{
 			bHangFreeVertigoEffect = true;
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((bIsTurnedRight) ? "HangFreeTurnRight" : "HangFreeTurnLeft"), 1.0f, 0.20f, 0.20f, default(bool), default(bool));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((bIsTurnedRight) ? "HangFreeTurnRight" : "HangFreeTurnLeft"), 1.0f, 0.20f, 0.20f, default, default);
 			LookAtAfterVertigo = PawnOwner.Rotation;
 			LookAtAfterVertigo.Pitch = 0;
 			SetLookAtTargetAngle(LookAtAfterVertigo, 0.20f, 0.20f);
@@ -503,7 +503,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		bClimpUpFoldedActionReceived = ((int)Action) == ((int)TdPawn.EMovementAction.MA_ClimbUp/*7*/);
 		if((((int)CurrentShimmyMove) == ((int)TdMove_Grab.EShimmyType.Shimmy/*0*/)) && ((int)Action) == ((int)TdPawn.EMovementAction.MA_None/*0*/))
 		{
-			AbortShimmy(default(bool));
+			AbortShimmy(default);
 			return;
 		}
 		if(((((int)CurrentShimmyMove) == ((int)TdMove_Grab.EShimmyType.ShimmyAroundCorner/*2*/)) || bHangFreeVertigoEffect) || ((int)CurrentFoldedType) == ((int)TdMove_Grab.EGrabFoldedType.GFT_Start/*1*/))
@@ -530,7 +530,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 			LookAtAngle = PawnOwner.Rotation;
 			LookAtAngle.Yaw += ((bIsTurnedRight) ? MaxLookConstraint.Yaw : MinLookConstraint.Yaw);
 			AbortLookAtTarget();
-			SetLookAtTargetAngle(Normalize(LookAtAngle), 0.20f, default(float));
+			SetLookAtTargetAngle(Normalize(LookAtAngle), 0.20f, default);
 		}
 		if((MoveLeft || MoveRight) && (PawnOwner.WorldInfo.TimeSeconds - LastShimmyTimeSeconds) > 0.50f)
 		{
@@ -540,7 +540,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 			}
 			else
 			{
-				AbortShimmy(default(bool));
+				AbortShimmy(default);
 			}
 		}
 	}
@@ -627,7 +627,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 			ShimmyTime = 1.0f;
 			LastShimmyTimeSeconds = PawnOwner.WorldInfo.TimeSeconds;
 			PawnOwner.SetPhysics(Actor.EPhysics.PHYS_Flying/*4*/);
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((IsHangingFree()) ? ((MoveLeft) ? "HangFreeStrafeLeft" : "HangFreeStrafe") : ((MoveLeft) ? "HangStrafeLeft" : "HangStrafeRight")), 1.0f, 0.20f, 0.0f, default(bool), default(bool));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((IsHangingFree()) ? ((MoveLeft) ? "HangFreeStrafeLeft" : "HangFreeStrafe") : ((MoveLeft) ? "HangStrafeLeft" : "HangStrafeRight")), 1.0f, 0.20f, 0.0f, default, default);
 			CustomAnimNode = ((PawnOwner.GetCustomAnimation(TdPawn.CustomNodeType.CNT_FullBody/*2*/)) as TdAnimNodeSequence);
 		}
 	}
@@ -671,12 +671,12 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, PendingShimmyCornerAnimation, 1.0f, 0.150f, 0.150f, true, true);
 	}
 	
-	public virtual /*simulated event */void AbortShimmy(/*optional */bool bForceVelStop = default)
+	public virtual /*simulated event */void AbortShimmy(/*optional */bool? _bForceVelStop = default)
 	{
 		/*local */float NormalizedPosition = default;
 		/*local */Object.Vector ZeroSpeed = default;
 	
-		bForceVelStop = false;
+		var bForceVelStop = _bForceVelStop ?? false;
 		if(((int)CurrentShimmyMove) != ((int)TdMove_Grab.EShimmyType.ShimmyAroundCorner/*2*/))
 		{
 			if(bForceVelStop)
@@ -738,18 +738,18 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 			if(bClimpUpFoldedActionReceived && PawnOwner.Moves[10].CanDoMove())
 			{
 				bClimpUpFoldedActionReceived = false;
-				PawnOwner.SetMove(TdPawn.EMovement.MOVE_GrabPullUp/*10*/, default(bool), default(bool));			
+				PawnOwner.SetMove(TdPawn.EMovement.MOVE_GrabPullUp/*10*/, default, default);			
 			}
 			else
 			{
 				if(IsHangingFree())
 				{
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("HangFreeFoldedEndHangFree")), 1.0f, 0.0f, 0.20f, default(bool), default(bool));
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("HangFreeFoldedEndHangFree")), 1.0f, 0.0f, 0.20f, default, default);
 					SetTimer(1.50f);				
 				}
 				else
 				{
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("HangFoldedEndHang")), 1.0f, 0.0f, 0.20f, default(bool), default(bool));
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("HangFoldedEndHang")), 1.0f, 0.0f, 0.20f, default, default);
 				}
 				CurrentFoldedType = TdMove_Grab.EGrabFoldedType.GFT_End/*2*/;
 				bConstrainLook = false;
@@ -802,7 +802,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 	{
 		if(PawnOwner.Moves[2].CanDoMove())
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 		}
 	}
 	
@@ -814,8 +814,8 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		}
 		else
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
-			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default(float));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
+			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default);
 		}
 		return base.HandleDeath(Damage);
 	}

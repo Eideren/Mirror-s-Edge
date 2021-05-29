@@ -58,7 +58,7 @@ public partial class AnimNodeSequence : AnimNode/*
 	}
 	
 	// Export UAnimNodeSequence::execPlayAnim(FFrame&, void* const)
-	public override /*native function */void PlayAnim(/*optional */bool bLoop = default, /*optional */float InRate = default, /*optional */float StartTime = default)
+	public override /*native function */void PlayAnim(/*optional */bool? _bLoop = default, /*optional */float? _InRate = default, /*optional */float? _StartTime = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

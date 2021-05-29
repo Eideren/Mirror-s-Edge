@@ -119,7 +119,7 @@ public partial class TdKillZoneVolume : Volume/*
 	{
 		/*local */TdEmitter TheEmitter = default;
 	
-		TheEmitter = Spawn(ClassT<TdEmitter>(), default(Actor), default(name), default(Object.Vector), default(Object.Rotator), default(Actor), default(bool));
+		TheEmitter = Spawn(ClassT<TdEmitter>(), default, default, default, default, default, default);
 		TheEmitter.SetTemplate(Template, false);
 		TheEmitter.bDestroyOnSystemFinish = false;
 		TheEmitter.LifeSpan = 0.0f;
@@ -127,7 +127,7 @@ public partial class TdKillZoneVolume : Volume/*
 		TheEmitter.SetHidden(true);
 		TheEmitter.SetLocation(Loc);
 		TheEmitter.SetDrawScale3D(vect(1.0f, 1.0f, 1.0f));
-		TheEmitter.ParticleSystemComponent.ActivateSystem(default(bool));
+		TheEmitter.ParticleSystemComponent.ActivateSystem(default);
 		return TheEmitter;
 	}
 	
@@ -152,14 +152,14 @@ public partial class TdKillZoneVolume : Volume/*
 		PlayFireSound(LI);
 		if(Player != default)
 		{
-			Player.TakeDamage(((int)(DamagePerShot)), default(Controller), LI.HitLocation, (LI.HitLocation - LI.Location) * 700.0f, ClassT<TdDmgType_Sniper_Bullet>(), default(Actor.TraceHitInfo), default(Actor));
+			Player.TakeDamage(((int)(DamagePerShot)), default, LI.HitLocation, (LI.HitLocation - LI.Location) * 700.0f, ClassT<TdDmgType_Sniper_Bullet>(), default, default);
 		}
 	}
 	
 	public virtual /*function */void PlayFireSound(TdKillZoneVolume.LaserInfo LI)
 	{
-		PlaySound(WeaponSound, false, true, false, LI.Location, default(bool), false);
-		PlaySound(WeaponReverbSound, false, true, false, LI.Location, default(bool), false);
+		PlaySound(WeaponSound, false, true, false, LI.Location, default, false);
+		PlaySound(WeaponReverbSound, false, true, false, LI.Location, default, false);
 		PlaySlapback(LI, WeaponSlapBackSound);
 	}
 	
@@ -185,16 +185,16 @@ public partial class TdKillZoneVolume : Volume/*
 			AimDir.X = Cos(usedangle);
 			AimDir.Y = Sin(usedangle);
 			EndTrace = RealStartLoc + (AimDir * RangeOfSlapBackRays);
-			HitObject = Trace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, EndTrace, RealStartLoc, false, default(Object.Vector), ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, default(int));
+			HitObject = Trace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, EndTrace, RealStartLoc, false, default, ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, default);
 			if(HitObject != default)
 			{
 				++ Counter;
 				if(((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/))
 				{
-					PlaySound(SC, false, true, false, HitLocation, default(bool), default(bool));
+					PlaySound(SC, false, true, false, HitLocation, default, default);
 					goto J0x19C;
 				}
-				PlaySound(SC, false, false, false, HitLocation, default(bool), default(bool));
+				PlaySound(SC, false, false, false, HitLocation, default, default);
 			}
 			J0x19C:{}
 			++ I;
@@ -208,7 +208,7 @@ public partial class TdKillZoneVolume : Volume/*
 		Fire(LaserInfos[CurrentFire]);
 		++ CurrentFire;
 		CurrentFire = CurrentFire % LaserInfos.Length;
-		SetTimer(0.30f + (0.30f * FRand()), false, "TimedFire", default(Object));
+		SetTimer(0.30f + (0.30f * FRand()), false, "TimedFire", default);
 	}
 	
 	public virtual /*private final function */void StartLasers()
@@ -226,7 +226,7 @@ public partial class TdKillZoneVolume : Volume/*
 			goto J0x07;
 		}
 		bActive = true;
-		SetTimer(1.0f, false, "TimedFire", default(Object));
+		SetTimer(1.0f, false, "TimedFire", default);
 	}
 	
 	public virtual /*private final function */void StopLasers()
@@ -241,7 +241,7 @@ public partial class TdKillZoneVolume : Volume/*
 			++ I;
 			goto J0x07;
 		}
-		ClearTimer("TimedFire", default(Object));
+		ClearTimer("TimedFire", default);
 		bActive = false;
 	}
 	

@@ -23,7 +23,7 @@ public partial class SequenceObject : Object/*
 	public int DrawHeight;
 	
 	// Export USequenceObject::execScriptLog(FFrame&, void* const)
-	public virtual /*native final function */void ScriptLog(string LogText, /*optional */bool bWarning = default)
+	public virtual /*native final function */void ScriptLog(string LogText, /*optional */bool? _bWarning = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -41,7 +41,7 @@ public partial class SequenceObject : Object/*
 		return default;
 	}
 	
-	public virtual /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject TargetObject = default)
+	public virtual /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
 	
 		return default;

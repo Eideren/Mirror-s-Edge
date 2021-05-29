@@ -34,22 +34,22 @@ public partial class UIFrameBox : UIContainer/*
 	//	structdefaultproperties
 	//	{
 	//		// Object Offset:0x00437C40
-	//		TopLeft = new()
+	//		TopLeft = new StaticArray<float, float>/*[2]*/()
 	//		{ 
 	//			[0] = 0.0f,
 	//			[1] = 0.0f,
 	// 		};
-	//		TopRight = new()
+	//		TopRight = new StaticArray<float, float>/*[2]*/()
 	//		{ 
 	//			[0] = 0.0f,
 	//			[1] = 0.0f,
 	// 		};
-	//		BottomLeft = new()
+	//		BottomLeft = new StaticArray<float, float>/*[2]*/()
 	//		{ 
 	//			[0] = 0.0f,
 	//			[1] = 0.0f,
 	// 		};
-	//		BottomRight = new()
+	//		BottomRight = new StaticArray<float, float>/*[2]*/()
 	//		{ 
 	//			[0] = 0.0f,
 	//			[1] = 0.0f,
@@ -72,9 +72,9 @@ public partial class UIFrameBox : UIContainer/*
 	public UIFrameBox()
 	{
 		// Object Offset:0x00437EF6
-		BackgroundImageComponent = new StaticArray<UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage>()
+		BackgroundImageComponent = new StaticArray<UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage>/*[9]*/()
 		{ 
-			[0] = new UIComp_DrawImage()
+			[0] = new UIComp_DrawImage
 			{
 				// Object Offset:0x005D181A
 				StyleResolverTag = (name)"Top Left Style",
@@ -83,7 +83,7 @@ public partial class UIFrameBox : UIContainer/*
 					DefaultStyleTag = (name)"PanelBackground",
 				},
 			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateTopLeft' */,
-			[1] = new UIComp_DrawImage()
+			[1] = new UIComp_DrawImage
 			{
 				// Object Offset:0x005D179A
 				StyleResolverTag = (name)"Top Style",
@@ -92,7 +92,7 @@ public partial class UIFrameBox : UIContainer/*
 					DefaultStyleTag = (name)"PanelBackground",
 				},
 			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateTop' */,
-			[2] = new UIComp_DrawImage()
+			[2] = new UIComp_DrawImage
 			{
 				// Object Offset:0x005D189A
 				StyleResolverTag = (name)"Top Right Style",
@@ -101,7 +101,7 @@ public partial class UIFrameBox : UIContainer/*
 					DefaultStyleTag = (name)"PanelBackground",
 				},
 			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateTopRight' */,
-			[3] = new UIComp_DrawImage()
+			[3] = new UIComp_DrawImage
 			{
 				// Object Offset:0x005D169A
 				StyleResolverTag = (name)"Center Left Style",
@@ -110,7 +110,7 @@ public partial class UIFrameBox : UIContainer/*
 					DefaultStyleTag = (name)"PanelBackground",
 				},
 			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateCenterLeft' */,
-			[4] = new UIComp_DrawImage()
+			[4] = new UIComp_DrawImage
 			{
 				// Object Offset:0x005D161A
 				StyleResolverTag = (name)"Center Style",
@@ -119,7 +119,7 @@ public partial class UIFrameBox : UIContainer/*
 					DefaultStyleTag = (name)"PanelBackground",
 				},
 			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateCenter' */,
-			[5] = new UIComp_DrawImage()
+			[5] = new UIComp_DrawImage
 			{
 				// Object Offset:0x005D171A
 				StyleResolverTag = (name)"Center Right Style",
@@ -128,7 +128,7 @@ public partial class UIFrameBox : UIContainer/*
 					DefaultStyleTag = (name)"PanelBackground",
 				},
 			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateCenterRight' */,
-			[6] = new UIComp_DrawImage()
+			[6] = new UIComp_DrawImage
 			{
 				// Object Offset:0x005D151A
 				StyleResolverTag = (name)"Bottom Left Style",
@@ -137,7 +137,7 @@ public partial class UIFrameBox : UIContainer/*
 					DefaultStyleTag = (name)"PanelBackground",
 				},
 			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateBottomLeft' */,
-			[7] = new UIComp_DrawImage()
+			[7] = new UIComp_DrawImage
 			{
 				// Object Offset:0x005D149A
 				StyleResolverTag = (name)"Bottom Style",
@@ -146,7 +146,7 @@ public partial class UIFrameBox : UIContainer/*
 					DefaultStyleTag = (name)"PanelBackground",
 				},
 			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateBottom' */,
-			[8] = new UIComp_DrawImage()
+			[8] = new UIComp_DrawImage
 			{
 				// Object Offset:0x005D159A
 				StyleResolverTag = (name)"Bottom Right Style",
@@ -158,22 +158,22 @@ public partial class UIFrameBox : UIContainer/*
 	 	};
 		BackgroundCornerSizes = new UIFrameBox.CornerSizes
 		{
-			TopLeft = new StaticArray<float, float>()
+			TopLeft = new StaticArray<float, float>/*[2]*/()
 			{
 				[0] = 16.0f,
 				[1] = 16.0f,
 			},
-			TopRight = new StaticArray<float, float>()
+			TopRight = new StaticArray<float, float>/*[2]*/()
 			{
 				[0] = 16.0f,
 				[1] = 16.0f,
 			},
-			BottomLeft = new StaticArray<float, float>()
+			BottomLeft = new StaticArray<float, float>/*[2]*/()
 			{
 				[0] = 16.0f,
 				[1] = 16.0f,
 			},
-			BottomRight = new StaticArray<float, float>()
+			BottomRight = new StaticArray<float, float>/*[2]*/()
 			{
 				[0] = 16.0f,
 				[1] = 16.0f,

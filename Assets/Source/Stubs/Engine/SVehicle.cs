@@ -164,7 +164,7 @@ public partial class SVehicle : Vehicle/*
 		#warning NATIVE FUNCTION !
 	}
 	
-	public override /*function */void AddVelocity(Object.Vector NewVelocity, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default)
+	public override /*function */void AddVelocity(Object.Vector NewVelocity, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default)
 	{
 	
 	}

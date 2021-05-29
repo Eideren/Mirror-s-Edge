@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_ToggleHidden : SeqAct_Toggle/*
 		hidecategories(Object)*/{
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
 	
 		return default;

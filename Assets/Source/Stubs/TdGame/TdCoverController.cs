@@ -243,7 +243,7 @@ public partial class TdCoverController : Actor/*
 	
 	}
 	
-	public virtual /*private final function */void SetPawnCoverPosition(TdCoverController.ECoverControllerPosition CoverPosition, /*optional */bool bIgnoreInPosition = default)
+	public virtual /*private final function */void SetPawnCoverPosition(TdCoverController.ECoverControllerPosition CoverPosition, /*optional */bool? _bIgnoreInPosition = default)
 	{
 	
 	}

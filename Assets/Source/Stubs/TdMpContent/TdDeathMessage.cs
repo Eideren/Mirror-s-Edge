@@ -15,30 +15,30 @@ public partial class TdDeathMessage : TdLocalMessage{
 	public StaticArray<SoundCue, SoundCue>/*[2]*/ VOMeleeKill;
 	public StaticArray<SoundCue, SoundCue>/*[2]*/ VOKill;
 	
-	public /*simulated function */static SoundCue Get3DAnnouncementSound(/*optional */int Switch = default, /*optional */PlayerReplicationInfo AnnouncerPRI = default, /*optional */PlayerReplicationInfo OtherPRI = default)
+	public /*simulated function */static SoundCue Get3DAnnouncementSound(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _AnnouncerPRI = default, /*optional */PlayerReplicationInfo? _OtherPRI = default)
 	{
 	
 		return default;
 	}
 	
-	public /*function */static string GetString(/*optional */int Switch = default, /*optional */bool bPRI1HUD = default, /*optional */PlayerReplicationInfo Killer = default, /*optional */PlayerReplicationInfo Victim = default, /*optional */Object OptionalObject = default)
+	public /*function */static string GetString(/*optional */int? _Switch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _Killer = default, /*optional */PlayerReplicationInfo? _Victim = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;
 	}
 	
-	public /*simulated function */static SoundNodeWave GetAnnouncementSound(PlayerController LocalController, /*optional */int Switch = default, /*optional */PlayerReplicationInfo Killer = default, /*optional */PlayerReplicationInfo Victim = default, /*optional */Object OptionalObject = default)
+	public /*simulated function */static SoundNodeWave GetAnnouncementSound(PlayerController LocalController, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _Killer = default, /*optional */PlayerReplicationInfo? _Victim = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;
 	}
 	
-	public /*simulated function */static void ClientReceive(PlayerController P, /*optional */int Switch = default, /*optional */PlayerReplicationInfo PitcherPRI = default, /*optional */PlayerReplicationInfo RecieverPRI = default, /*optional */Object OptionalObject = default)
+	public /*simulated function */static void ClientReceive(PlayerController P, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _PitcherPRI = default, /*optional */PlayerReplicationInfo? _RecieverPRI = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 	}
 	
-	public /*function */static Object.Color GetColor(/*optional */int Switch = default, /*optional */PlayerReplicationInfo RelatedPRI_1 = default, /*optional */PlayerReplicationInfo RelatedPRI_2 = default, /*optional */Object OptionalObject = default)
+	public /*function */static Object.Color GetColor(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;

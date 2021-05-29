@@ -25,7 +25,7 @@ public partial class TdWeapon_AssaultRifle_MP5K : TdWeapon_Heavy/*
 			// Object Offset:0x000133A2
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
 			{
-				new ForceFeedbackWaveform.WaveformSample()
+				new ForceFeedbackWaveform.WaveformSample
 				{
 					LeftAmplitude = 10,
 					RightAmplitude = 0,
@@ -33,7 +33,7 @@ public partial class TdWeapon_AssaultRifle_MP5K : TdWeapon_Heavy/*
 					RightFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
 					Duration = 0.20f,
 				},
-				new ForceFeedbackWaveform.WaveformSample()
+				new ForceFeedbackWaveform.WaveformSample
 				{
 					LeftAmplitude = 0,
 					RightAmplitude = 10,

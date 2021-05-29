@@ -205,7 +205,7 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	public /*export editinline */AudioComponent CachedFaceFXAudioComp;
 	
 	// Export USkeletalMeshComponent::execAttachComponent(FFrame&, void* const)
-	public virtual /*native final function */void AttachComponent(ActorComponent Component, name BoneName, /*optional */Object.Vector RelativeLocation = default, /*optional */Object.Rotator RelativeRotation = default, /*optional */Object.Vector RelativeScale = default)
+	public virtual /*native final function */void AttachComponent(ActorComponent Component, name BoneName, /*optional */Object.Vector? _RelativeLocation = default, /*optional */Object.Rotator? _RelativeRotation = default, /*optional */Object.Vector? _RelativeScale = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -244,7 +244,7 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	}
 	
 	// Export USkeletalMeshComponent::execIsComponentAttached(FFrame&, void* const)
-	public virtual /*native final function */bool IsComponentAttached(ActorComponent Component, /*optional */name BoneName = default)
+	public virtual /*native final function */bool IsComponentAttached(ActorComponent Component, /*optional */name? _BoneName = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -258,13 +258,13 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	}
 	
 	// Export USkeletalMeshComponent::execSetSkeletalMesh(FFrame&, void* const)
-	public virtual /*native final simulated function */void SetSkeletalMesh(SkeletalMesh NewMesh, /*optional */bool bKeepSpaceBases = default)
+	public virtual /*native final simulated function */void SetSkeletalMesh(SkeletalMesh NewMesh, /*optional */bool? _bKeepSpaceBases = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export USkeletalMeshComponent::execSetPhysicsAsset(FFrame&, void* const)
-	public virtual /*native final simulated function */void SetPhysicsAsset(PhysicsAsset NewPhysicsAsset, /*optional */bool bForceReInit = default)
+	public virtual /*native final simulated function */void SetPhysicsAsset(PhysicsAsset NewPhysicsAsset, /*optional */bool? _bForceReInit = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -601,14 +601,14 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	}
 	
 	// Export USkeletalMeshComponent::execGetBoneQuaternion(FFrame&, void* const)
-	public virtual /*native final function */Object.Quat GetBoneQuaternion(name BoneName, /*optional */int Space = default)
+	public virtual /*native final function */Object.Quat GetBoneQuaternion(name BoneName, /*optional */int? _Space = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export USkeletalMeshComponent::execGetBoneLocation(FFrame&, void* const)
-	public virtual /*native final function */Object.Vector GetBoneLocation(name BoneName, /*optional */int Space = default)
+	public virtual /*native final function */Object.Vector GetBoneLocation(name BoneName, /*optional */int? _Space = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -661,7 +661,7 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	}
 	
 	// Export USkeletalMeshComponent::execFindClosestBone(FFrame&, void* const)
-	public virtual /*native final function */name FindClosestBone(Object.Vector TestLocation, /*optional */ref Object.Vector BoneLocation/* = default*/, /*optional */float IgnoreScale = default)
+	public virtual /*native final function */name FindClosestBone(Object.Vector TestLocation, /*optional */ref Object.Vector BoneLocation/* = default*/, /*optional */float? _IgnoreScale = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -777,7 +777,7 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	}
 	
 	// Export USkeletalMeshComponent::execSetFaceFXRegister(FFrame&, void* const)
-	public virtual /*native final function */void SetFaceFXRegister(string RegName, float RegVal, SkeletalMeshComponent.EFaceFXRegOp RegOp, /*optional */float InterpDuration = default)
+	public virtual /*native final function */void SetFaceFXRegister(string RegName, float RegVal, SkeletalMeshComponent.EFaceFXRegOp RegOp, /*optional */float? _InterpDuration = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -788,12 +788,14 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 		#warning NATIVE FUNCTION !
 	}
 	
-	public virtual /*function */void PlayAnim(name AnimName, /*optional */float Duration = default, /*optional */bool bLoop = default, /*optional */bool bRestartIfAlreadyPlaying = default)
+	public virtual /*function */void PlayAnim(name AnimName, /*optional */float? _Duration = default, /*optional */bool? _bLoop = default, /*optional */bool? _bRestartIfAlreadyPlaying = default)
 	{
 		/*local */AnimNodeSequence AnimNode = default;
 		/*local */float DesiredRate = default;
 	
-		bRestartIfAlreadyPlaying = true;
+		var Duration = _Duration ?? default;
+		var bLoop = _bLoop ?? default;
+		var bRestartIfAlreadyPlaying = _bRestartIfAlreadyPlaying ?? true;
 		AnimNode = ((Animations) as AnimNodeSequence);
 		if((AnimNode == default) && Animations.IsA("AnimTree"))
 		{
@@ -809,7 +811,7 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 				DesiredRate = ((Duration > 0.0f) ? AnimNode.AnimSeq.SequenceLength / Duration : 1.0f);
 				if(bRestartIfAlreadyPlaying || !AnimNode.bPlaying)
 				{
-					AnimNode.PlayAnim(bLoop, DesiredRate, default(float));				
+					AnimNode.PlayAnim(bLoop, DesiredRate, default);				
 				}
 				else
 				{
@@ -823,7 +825,7 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 				if(AnimNode.AnimSeq != default)
 				{
 					DesiredRate = ((Duration > 0.0f) ? AnimNode.AnimSeq.SequenceLength / Duration : 1.0f);
-					AnimNode.PlayAnim(bLoop, DesiredRate, default(float));
+					AnimNode.PlayAnim(bLoop, DesiredRate, default);
 				}
 			}
 		}

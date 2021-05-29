@@ -18,7 +18,7 @@ public partial class TdMove_MeleeSlide : TdMove_MeleeBase/*
 		}
 		if(((int)MeleeState) == ((int)TdMove_MeleeBase.EMeleeState.MS_MeleeAttackFinishing/*2*/))
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("CrouchSlideToCrouch")), 1.0f, 0.10f, 0.10f, default(bool), default(bool));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("CrouchSlideToCrouch")), 1.0f, 0.10f, 0.10f, default, default);
 			MeleeState = TdMove_MeleeBase.EMeleeState.MS_MeleePending/*0*/;		
 		}
 		else
@@ -30,7 +30,7 @@ public partial class TdMove_MeleeSlide : TdMove_MeleeBase/*
 	public override /*simulated function */void StopMove()
 	{
 		base.StopMove();
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default(float));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default);
 	}
 	
 	public virtual /*simulated function */void FindBargeTarget()
@@ -65,11 +65,11 @@ public partial class TdMove_MeleeSlide : TdMove_MeleeBase/*
 	{
 		/*local */KActor RBActor = default;
 	
-		HitInfo.BargeActor.TakeDamage(100, PawnOwner.Controller, HitInfo.HitLocation, -HitInfo.HitNormal, ClassT<TdDmgType_Barge>(), default(Actor.TraceHitInfo), default(Actor));
+		HitInfo.BargeActor.TakeDamage(100, PawnOwner.Controller, HitInfo.HitLocation, -HitInfo.HitNormal, ClassT<TdDmgType_Barge>(), default, default);
 		RBActor = ((HitInfo.BargeActor) as KActor);
 		if(RBActor != default)
 		{
-			RBActor.ApplyImpulse(-HitInfo.HitNormal, ClassT<TdDmgType_Barge>().DefaultAs<DamageType>().KDamageImpulse, HitInfo.HitLocation, default(Actor.TraceHitInfo));
+			RBActor.ApplyImpulse(-HitInfo.HitNormal, ClassT<TdDmgType_Barge>().DefaultAs<DamageType>().KDamageImpulse, HitInfo.HitLocation, default);
 		}
 	}
 	
@@ -77,11 +77,11 @@ public partial class TdMove_MeleeSlide : TdMove_MeleeBase/*
 	{
 		/*local */KActor RBActor = default;
 	
-		Victim.TakeDamage(100, PawnOwner.Controller, HitLocation, -HitNormal, inDamageType, default(Actor.TraceHitInfo), default(Actor));
+		Victim.TakeDamage(100, PawnOwner.Controller, HitLocation, -HitNormal, inDamageType, default, default);
 		RBActor = ((Victim) as KActor);
 		if(RBActor != default)
 		{
-			RBActor.ApplyImpulse(-HitNormal, inDamageType.DefaultAs<DamageType>().KDamageImpulse, HitLocation, default(Actor.TraceHitInfo));
+			RBActor.ApplyImpulse(-HitNormal, inDamageType.DefaultAs<DamageType>().KDamageImpulse, HitLocation, default);
 		}
 	}
 	
@@ -97,13 +97,13 @@ public partial class TdMove_MeleeSlide : TdMove_MeleeBase/*
 			case TdMove_MeleeBase.EMeleeState.MS_MeleeAttackNormal/*1*/:
 			case TdMove_MeleeBase.EMeleeState.MS_MeleeHitFinishing/*4*/:
 			case TdMove_MeleeBase.EMeleeState.MS_MeleeMissFinishing/*6*/:
-				if(CanStand(PawnOwner.Location, default(bool)))
+				if(CanStand(PawnOwner.Location, default))
 				{
-					PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));				
+					PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);				
 				}
 				else
 				{
-					PawnOwner.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default(bool), default(bool));
+					PawnOwner.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default, default);
 				}
 				break;
 			default:
@@ -120,15 +120,15 @@ public partial class TdMove_MeleeSlide : TdMove_MeleeBase/*
 	{
 		if(((int)MeleeState) == ((int)TdMove_MeleeBase.EMeleeState.MS_MeleeAttackFinishing/*2*/))
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeSlideHard", 1.0f, 0.10f, 0.10f, default(bool), default(bool));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeSlideHard", 1.0f, 0.10f, 0.10f, default, default);
 			HitDetectionBone = "LeftHand";
-			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, default(float));		
+			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, default);		
 		}
 		else
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeSlide", 1.0f, 0.10f, 0.10f, default(bool), default(bool));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeSlide", 1.0f, 0.10f, 0.10f, default, default);
 			HitDetectionBone = "RightFoot";
-			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Slide/*16*/, default(float));
+			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Slide/*16*/, default);
 		}
 		bInMove = true;
 		SetTimer(0.25420f);
@@ -168,7 +168,7 @@ public partial class TdMove_MeleeSlide : TdMove_MeleeBase/*
 		if(((Dot(Normal(ToTarget), ((Vector)(PawnOwner.Rotation)))) > 0.40f) && VSize(ToTarget) < 140.0f)
 		{
 			HitBoneName = "LeftLeg";
-			HitLocation = PawnOwner.Mesh3p.GetBoneLocation("RightFoot", default(int));
+			HitLocation = PawnOwner.Mesh3p.GetBoneLocation("RightFoot", default);
 			Hit.Material = default;
 			Hit.PhysMaterial = TargetPawn.Mesh3p.GetPhysicalMaterialFromBone(HitBoneName);
 			Hit.BoneName = HitBoneName;

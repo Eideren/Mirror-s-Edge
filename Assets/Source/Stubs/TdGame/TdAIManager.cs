@@ -168,7 +168,7 @@ public partial class TdAIManager : Actor/*
 	}
 	
 	// Export UTdAIManager::execGetBlockingPawn(FFrame&, void* const)
-	public virtual /*native function */TdBotPawn GetBlockingPawn(TdAIController me, bool bCrouching, /*optional */bool UpdateMoveDir = default)
+	public virtual /*native function */TdBotPawn GetBlockingPawn(TdAIController me, bool bCrouching, /*optional */bool? _UpdateMoveDir = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -270,7 +270,7 @@ public partial class TdAIManager : Actor/*
 	}
 	
 	// Export UTdAIManager::execSetLastSeenLocation(FFrame&, void* const)
-	public virtual /*native final function */void SetLastSeenLocation(/*optional */TdPawn aPawn = default, /*optional */Object.Vector L = default)
+	public virtual /*native final function */void SetLastSeenLocation(/*optional */TdPawn? _aPawn = default, /*optional */Object.Vector? _L = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -361,7 +361,7 @@ public partial class TdAIManager : Actor/*
 		return default;
 	}
 	
-	public virtual /*function */bool IsAnyoneDoingAFinishingAttack(/*optional */TdAIController exclude = default)
+	public virtual /*function */bool IsAnyoneDoingAFinishingAttack(/*optional */TdAIController? _exclude = default)
 	{
 	
 		return default;
@@ -391,14 +391,14 @@ public partial class TdAIManager : Actor/*
 	}
 	
 	// Export UTdAIManager::execFindBestTaserSpot(FFrame&, void* const)
-	public virtual /*native final function */bool FindBestTaserSpot(TdAIController C, ref NavigationPoint np, Object.Vector Point, int NetworkID, /*optional */float MaxDist = default, /*optional */float MaxDistZ = default)
+	public virtual /*native final function */bool FindBestTaserSpot(TdAIController C, ref NavigationPoint np, Object.Vector Point, int NetworkID, /*optional */float? _MaxDist = default, /*optional */float? _MaxDistZ = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdAIManager::execIsGoalForAnyBot(FFrame&, void* const)
-	public virtual /*native final function */bool IsGoalForAnyBot(NavigationPoint np, /*optional */TdAIController exclude = default)
+	public virtual /*native final function */bool IsGoalForAnyBot(NavigationPoint np, /*optional */TdAIController? _exclude = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

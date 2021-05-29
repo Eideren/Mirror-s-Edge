@@ -50,7 +50,7 @@ public partial class UIDataStore_OnlineGameSearch : UIDataStore_Remote,
 		return default;
 	}
 	
-	public virtual /*event */bool SubmitGameSearch(byte ControllerIndex, /*optional */bool bInvalidateExistingSearchResults = default)
+	public virtual /*event */bool SubmitGameSearch(byte ControllerIndex, /*optional */bool? _bInvalidateExistingSearchResults = default)
 	{
 	
 		return default;
@@ -103,22 +103,22 @@ public partial class UIDataStore_OnlineGameSearch : UIDataStore_Remote,
 		return default;
 	}
 	
-	public virtual /*event */void SetCurrentByIndex(int NewIndex, /*optional */bool bInvalidateExistingSearchResults = default)
+	public virtual /*event */void SetCurrentByIndex(int NewIndex, /*optional */bool? _bInvalidateExistingSearchResults = default)
 	{
 	
 	}
 	
-	public virtual /*event */void SetCurrentByName(name SearchName, /*optional */bool bInvalidateExistingSearchResults = default)
+	public virtual /*event */void SetCurrentByName(name SearchName, /*optional */bool? _bInvalidateExistingSearchResults = default)
 	{
 	
 	}
 	
-	public virtual /*event */void MoveToNext(/*optional */bool bInvalidateExistingSearchResults = default)
+	public virtual /*event */void MoveToNext(/*optional */bool? _bInvalidateExistingSearchResults = default)
 	{
 	
 	}
 	
-	public virtual /*event */void MoveToPrevious(/*optional */bool bInvalidateExistingSearchResults = default)
+	public virtual /*event */void MoveToPrevious(/*optional */bool? _bInvalidateExistingSearchResults = default)
 	{
 	
 	}

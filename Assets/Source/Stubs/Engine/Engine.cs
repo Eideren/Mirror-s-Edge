@@ -320,24 +320,24 @@ public partial class Engine : Subsystem/*
 		#warning Exception thrown while deserializing LightComplexityColors
 		/*System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
 		   at System.Collections.Generic.List`1.get_Item(Int32 index)
-		   at UELib.UName.Deserialize(IUnrealStream stream)
-		   at UELib.UName..ctor(IUnrealStream stream)
-		   at UELib.UObjectStream.ReadNameReference()
-		   at UELib.Core.UDefaultProperty.Deserialize()
-		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags)
-		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) */;
+		   at UELib.UName.Deserialize(IUnrealStream stream) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Types\UName.cs:line 65
+		   at UELib.UName..ctor(IUnrealStream stream) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Types\UName.cs:line 46
+		   at UELib.UObjectStream.ReadNameReference() in D:\MirrorsEdge\Sources\Unreal-Library\src\UnrealStream.cs:line 961
+		   at UELib.Core.UDefaultProperty.Deserialize() in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 151
+		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 657
+		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 773 */;
 		ShaderComplexityColors = new array</*config */Object.Color>
 		{
 		}
 		#warning Exception thrown while deserializing ShaderComplexityColors
 		/*System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
 		   at System.Collections.Generic.List`1.get_Item(Int32 index)
-		   at UELib.UName.Deserialize(IUnrealStream stream)
-		   at UELib.UName..ctor(IUnrealStream stream)
-		   at UELib.UObjectStream.ReadNameReference()
-		   at UELib.Core.UDefaultProperty.Deserialize()
-		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags)
-		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) */;
+		   at UELib.UName.Deserialize(IUnrealStream stream) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Types\UName.cs:line 65
+		   at UELib.UName..ctor(IUnrealStream stream) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Types\UName.cs:line 46
+		   at UELib.UObjectStream.ReadNameReference() in D:\MirrorsEdge\Sources\Unreal-Library\src\UnrealStream.cs:line 961
+		   at UELib.Core.UDefaultProperty.Deserialize() in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 151
+		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 657
+		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 773 */;
 		bUsePixelShaderComplexity = true;
 		bUseAdditiveComplexity = true;
 		bCaptureCharacterLighting = true;

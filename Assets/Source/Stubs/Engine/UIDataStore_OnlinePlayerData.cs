@@ -53,7 +53,7 @@ public partial class UIDataStore_OnlinePlayerData : UIDataStore_Remote,
 	
 	}
 	
-	public virtual /*function */void OnProviderChanged(UIDataProvider SourceProvider, /*optional */name PropTag = default)
+	public virtual /*function */void OnProviderChanged(UIDataProvider SourceProvider, /*optional */name? _PropTag = default)
 	{
 	
 	}

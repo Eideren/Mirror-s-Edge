@@ -87,10 +87,10 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 	
 	}
 	
-	public delegate bool InputKey_del(int ControllerId, name Key, Object.EInputEvent Event, /*optional */float AmountDepressed = default, /*optional */bool bGamepad = default);
+	public delegate bool InputKey_del(int ControllerId, name Key, Object.EInputEvent Event, /*optional */float? _AmountDepressed = default, /*optional */bool? _bGamepad = default);
 	public virtual InputKey_del InputKey { get => bfield_InputKey ?? Console_InputKey; set => bfield_InputKey = value; } InputKey_del bfield_InputKey;
 	public virtual InputKey_del global_InputKey => Console_InputKey;
-	public /*function */bool Console_InputKey(int ControllerId, name Key, Object.EInputEvent Event, /*optional */float AmountDepressed = default, /*optional */bool bGamepad = default)
+	public /*function */bool Console_InputKey(int ControllerId, name Key, Object.EInputEvent Event, /*optional */float? _AmountDepressed = default, /*optional */bool? _bGamepad = default)
 	{
 	
 		return default;
@@ -135,7 +135,7 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 		return default;
 	}
 	
-	protected /*function */bool Console_Typing_InputKey(int ControllerId, name Key, Object.EInputEvent Event, /*optional */float AmountDepressed = default, /*optional */bool bGamepad = default)// state function
+	protected /*function */bool Console_Typing_InputKey(int ControllerId, name Key, Object.EInputEvent Event, /*optional */float? _AmountDepressed = default, /*optional */bool? _bGamepad = default)// state function
 	{
 	
 		return default;
@@ -168,7 +168,7 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 		return default;
 	}
 	
-	protected /*function */bool Console_Open_InputKey(int ControllerId, name Key, Object.EInputEvent Event, /*optional */float AmountDepressed = default, /*optional */bool bGamepad = default)// state function
+	protected /*function */bool Console_Open_InputKey(int ControllerId, name Key, Object.EInputEvent Event, /*optional */float? _AmountDepressed = default, /*optional */bool? _bGamepad = default)// state function
 	{
 	
 		return default;

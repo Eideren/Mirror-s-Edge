@@ -209,12 +209,12 @@ public partial class TdAIVoiceOverManager : Actor/*
 		return default;
 	}
 	
-	public virtual /*function */void TriggerVO(Pawn Bot, int VO, int voice, /*optional */int answer = default)
+	public virtual /*function */void TriggerVO(Pawn Bot, int VO, int voice, /*optional */int? _answer = default)
 	{
 	
 	}
 	
-	public virtual /*private final function */TdAIVoiceOverManager.AIVoiceItem InitItem(TdAIVoiceOverManager.EVoiceOver VO, Pawn Bot, float TimeTriggered, int voice, /*optional */TdAIVoiceOverManager.EVoiceOver answer = default)
+	public virtual /*private final function */TdAIVoiceOverManager.AIVoiceItem InitItem(TdAIVoiceOverManager.EVoiceOver VO, Pawn Bot, float TimeTriggered, int voice, /*optional */TdAIVoiceOverManager.EVoiceOver? _answer = default)
 	{
 	
 		return default;

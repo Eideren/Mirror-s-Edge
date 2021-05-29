@@ -145,7 +145,7 @@ public partial class TdHudEffectManager : Object/* within TdHUD*//*
 		return default;
 	}
 	
-	public virtual /*event */void FadeOutHelper(float Time, Object.LinearColor FadeColor, /*optional */bool bRealTime = default)
+	public virtual /*event */void FadeOutHelper(float Time, Object.LinearColor FadeColor, /*optional */bool? _bRealTime = default)
 	{
 	
 	}

@@ -249,7 +249,7 @@ public partial class TdPlayerInput : PlayerInput/* within TdPlayerController*//*
 	}
 	
 	// Export UTdPlayerInput::execGetTdBindNameFromCommand(FFrame&, void* const)
-	public virtual /*native function */string GetTdBindNameFromCommand(string BindCommand, /*optional */bool bForceUsingGamepad = default)
+	public virtual /*native function */string GetTdBindNameFromCommand(string BindCommand, /*optional */bool? _bForceUsingGamepad = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

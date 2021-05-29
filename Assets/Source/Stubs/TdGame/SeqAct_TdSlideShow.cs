@@ -9,7 +9,7 @@ public partial class SeqAct_TdSlideShow : SequenceAction/*
 	public/*()*/ bool bBlackStart;
 	public/*()*/ SoundCue SoundCue;
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
 	
 		return default;

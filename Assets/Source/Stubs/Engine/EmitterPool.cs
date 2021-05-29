@@ -65,7 +65,7 @@ public partial class EmitterPool : Actor/*
 	}
 	
 	// Export UEmitterPool::execGetFreeStaticMeshComponent(FFrame&, void* const)
-	public virtual /*protected native final function */StaticMeshComponent GetFreeStaticMeshComponent(/*optional */bool bCreateNewObject = default)
+	public virtual /*protected native final function */StaticMeshComponent GetFreeStaticMeshComponent(/*optional */bool? _bCreateNewObject = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -78,7 +78,7 @@ public partial class EmitterPool : Actor/*
 	}
 	
 	// Export UEmitterPool::execGetFreeMatInstConsts(FFrame&, void* const)
-	public virtual /*protected native final function */MaterialInstanceConstant GetFreeMatInstConsts(/*optional */bool bCreateNewObject = default)
+	public virtual /*protected native final function */MaterialInstanceConstant GetFreeMatInstConsts(/*optional */bool? _bCreateNewObject = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -91,7 +91,7 @@ public partial class EmitterPool : Actor/*
 		return default;
 	}
 	
-	public virtual /*function */ParticleSystemComponent SpawnEmitter(ParticleSystem EmitterTemplate, Object.Vector SpawnLocation, /*optional */Object.Rotator SpawnRotation = default, /*optional */Actor AttachToActor = default)
+	public virtual /*function */ParticleSystemComponent SpawnEmitter(ParticleSystem EmitterTemplate, Object.Vector SpawnLocation, /*optional */Object.Rotator? _SpawnRotation = default, /*optional */Actor? _AttachToActor = default)
 	{
 	
 		return default;

@@ -143,19 +143,19 @@ public partial class TdSavedMove : SavedMove{
 			switch(((int)Flags) & ((int)7))
 			{
 				case 0:
-					TdP.SetMoveActionHint(TdPawn.EMoveActionHint.MAH_None/*0*/, default(bool));
+					TdP.SetMoveActionHint(TdPawn.EMoveActionHint.MAH_None/*0*/, default);
 					break;
 				case 1:
-					TdP.SetMoveActionHint(TdPawn.EMoveActionHint.MAH_Left/*1*/, default(bool));
+					TdP.SetMoveActionHint(TdPawn.EMoveActionHint.MAH_Left/*1*/, default);
 					break;
 				case 2:
-					TdP.SetMoveActionHint(TdPawn.EMoveActionHint.MAH_Right/*2*/, default(bool));
+					TdP.SetMoveActionHint(TdPawn.EMoveActionHint.MAH_Right/*2*/, default);
 					break;
 				case 3:
-					TdP.SetMoveActionHint(TdPawn.EMoveActionHint.MAH_Up/*3*/, default(bool));
+					TdP.SetMoveActionHint(TdPawn.EMoveActionHint.MAH_Up/*3*/, default);
 					break;
 				case 4:
-					TdP.SetMoveActionHint(TdPawn.EMoveActionHint.MAH_Down/*4*/, default(bool));
+					TdP.SetMoveActionHint(TdPawn.EMoveActionHint.MAH_Down/*4*/, default);
 					break;
 				default:
 					break;

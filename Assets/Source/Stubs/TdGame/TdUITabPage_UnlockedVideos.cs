@@ -69,7 +69,7 @@ public partial class TdUITabPage_UnlockedVideos : TdUITabPage/*
 	
 	}
 	
-	public virtual /*function */void VideosList_OnSubmitSelection(UIList Sender, /*optional */int PlayerIndex = default)
+	public virtual /*function */void VideosList_OnSubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
 	
 	}

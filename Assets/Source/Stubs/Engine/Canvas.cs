@@ -51,13 +51,13 @@ public partial class Canvas : Object/*
 	}
 	
 	// Export UCanvas::execDrawMaterialTile(FFrame&, void* const)
-	public virtual /*native final function */void DrawMaterialTile(MaterialInterface Mat, float XL, float YL, /*optional */float U = default, /*optional */float V = default, /*optional */float UL = default, /*optional */float VL = default)
+	public virtual /*native final function */void DrawMaterialTile(MaterialInterface Mat, float XL, float YL, /*optional */float? _U = default, /*optional */float? _V = default, /*optional */float? _UL = default, /*optional */float? _VL = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawMaterialTileClipped(FFrame&, void* const)
-	public virtual /*native final function */void DrawMaterialTileClipped(MaterialInterface Mat, float XL, float YL, /*optional */float U = default, /*optional */float V = default, /*optional */float UL = default, /*optional */float VL = default)
+	public virtual /*native final function */void DrawMaterialTileClipped(MaterialInterface Mat, float XL, float YL, /*optional */float? _U = default, /*optional */float? _V = default, /*optional */float? _UL = default, /*optional */float? _VL = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -75,18 +75,18 @@ public partial class Canvas : Object/*
 	}
 	
 	// Export UCanvas::execDrawText(FFrame&, void* const)
-	public virtual /*native final function */void DrawText(/*coerce */string Text, /*optional */bool CR = default, /*optional */float XScale = default, /*optional */float YScale = default)
+	public virtual /*native final function */void DrawText(/*coerce */string Text, /*optional */bool? _CR = default, /*optional */float? _XScale = default, /*optional */float? _YScale = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawTextClipped(FFrame&, void* const)
-	public virtual /*native final function */void DrawTextClipped(/*coerce */string Text, /*optional */bool bCheckHotKey = default, /*optional */float XScale = default, /*optional */float YScale = default)
+	public virtual /*native final function */void DrawTextClipped(/*coerce */string Text, /*optional */bool? _bCheckHotKey = default, /*optional */float? _XScale = default, /*optional */float? _YScale = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
-	public virtual /*final function */void DrawTextRA(/*coerce */string Text, /*optional */bool CR = default)
+	public virtual /*final function */void DrawTextRA(/*coerce */string Text, /*optional */bool? _CR = default)
 	{
 	
 	}
@@ -117,7 +117,7 @@ public partial class Canvas : Object/*
 	}
 	
 	// Export UCanvas::execDrawTileStretched(FFrame&, void* const)
-	public virtual /*native final function */void DrawTileStretched(Texture2D Tex, float XL, float YL, float U, float V, float UL, float VL, Object.LinearColor LColor, /*optional */bool bStretchHorizontally = default, /*optional */bool bStretchVertically = default, /*optional */float ScalingFactor = default)
+	public virtual /*native final function */void DrawTileStretched(Texture2D Tex, float XL, float YL, float U, float V, float UL, float VL, Object.LinearColor LColor, /*optional */bool? _bStretchHorizontally = default, /*optional */bool? _bStretchVertically = default, /*optional */float? _ScalingFactor = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -128,7 +128,7 @@ public partial class Canvas : Object/*
 		#warning NATIVE FUNCTION !
 	}
 	
-	public virtual /*event */void Reset(/*optional */bool bKeepOrigin = default)
+	public virtual /*event */void Reset(/*optional */bool? _bKeepOrigin = default)
 	{
 	
 	}
@@ -154,23 +154,23 @@ public partial class Canvas : Object/*
 	
 	}
 	
-	public virtual /*final function */Canvas.CanvasIcon MakeIcon(Texture2D Texture, /*optional */float U = default, /*optional */float V = default, /*optional */float UL = default, /*optional */float VL = default)
+	public virtual /*final function */Canvas.CanvasIcon MakeIcon(Texture2D Texture, /*optional */float? _U = default, /*optional */float? _V = default, /*optional */float? _UL = default, /*optional */float? _VL = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */void DrawIcon(Canvas.CanvasIcon Icon, float X, float Y, /*optional */float Scale = default)
+	public virtual /*final function */void DrawIcon(Canvas.CanvasIcon Icon, float X, float Y, /*optional */float? _Scale = default)
 	{
 	
 	}
 	
-	public virtual /*final function */void DrawIconSection(Canvas.CanvasIcon Icon, float X, float Y, float UStartPct, float VStartPct, float UEndPct, float VEndPct, /*optional */float Scale = default)
+	public virtual /*final function */void DrawIconSection(Canvas.CanvasIcon Icon, float X, float Y, float UStartPct, float VStartPct, float UEndPct, float VEndPct, /*optional */float? _Scale = default)
 	{
 	
 	}
 	
-	public virtual /*final function */void DrawRect(float RectX, float RectY, /*optional */Texture2D Tex = default)
+	public virtual /*final function */void DrawRect(float RectX, float RectY, /*optional */Texture2D? _Tex = default)
 	{
 	
 	}
@@ -181,19 +181,19 @@ public partial class Canvas : Object/*
 	}
 	
 	// Export UCanvas::execSetDrawColor(FFrame&, void* const)
-	public virtual /*native final function */void SetDrawColor(byte R, byte G, byte B, /*optional */byte A = default)
+	public virtual /*native final function */void SetDrawColor(byte R, byte G, byte B, /*optional */byte? _A = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawRotatedTile(FFrame&, void* const)
-	public virtual /*native final function */void DrawRotatedTile(Texture2D Tex, Object.Rotator Rotation, float XL, float YL, float U, float V, float UL, float VL, /*optional */float AnchorX = default, /*optional */float AnchorY = default)
+	public virtual /*native final function */void DrawRotatedTile(Texture2D Tex, Object.Rotator Rotation, float XL, float YL, float U, float V, float UL, float VL, /*optional */float? _AnchorX = default, /*optional */float? _AnchorY = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawRotatedMaterialTile(FFrame&, void* const)
-	public virtual /*native final function */void DrawRotatedMaterialTile(MaterialInterface Mat, Object.Rotator Rotation, float XL, float YL, /*optional */float U = default, /*optional */float V = default, /*optional */float UL = default, /*optional */float VL = default, /*optional */float AnchorX = default, /*optional */float AnchorY = default)
+	public virtual /*native final function */void DrawRotatedMaterialTile(MaterialInterface Mat, Object.Rotator Rotation, float XL, float YL, /*optional */float? _U = default, /*optional */float? _V = default, /*optional */float? _UL = default, /*optional */float? _VL = default, /*optional */float? _AnchorX = default, /*optional */float? _AnchorY = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

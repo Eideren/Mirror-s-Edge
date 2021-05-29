@@ -19,12 +19,12 @@ public partial class ForceFeedbackManager : Object/* within PlayerController*//*
 	
 	}
 	
-	public virtual /*simulated function */void StopForceFeedbackWaveform(/*optional */ForceFeedbackWaveform Waveform = default)
+	public virtual /*simulated function */void StopForceFeedbackWaveform(/*optional */ForceFeedbackWaveform? _Waveform = default)
 	{
 	
 	}
 	
-	public virtual /*simulated function */void PauseWaveform(/*optional */bool bPause = default)
+	public virtual /*simulated function */void PauseWaveform(/*optional */bool? _bPause = default)
 	{
 	
 	}

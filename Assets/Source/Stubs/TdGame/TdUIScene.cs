@@ -86,7 +86,7 @@ public partial class TdUIScene : UIScene/*
 	}
 	
 	// Export UTdUIScene::execGetTdPlayerController(FFrame&, void* const)
-	public virtual /*native function */TdPlayerController GetTdPlayerController(/*optional */int PlayerIndex = default)
+	public virtual /*native function */TdPlayerController GetTdPlayerController(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -143,7 +143,7 @@ public partial class TdUIScene : UIScene/*
 	}
 	
 	// Export UTdUIScene::execStartMovie(FFrame&, void* const)
-	public virtual /*native function */void StartMovie(string MovieName, /*optional */bool bForceSkippable = default, /*optional */bool bBlockInput = default)
+	public virtual /*native function */void StartMovie(string MovieName, /*optional */bool? _bForceSkippable = default, /*optional */bool? _bBlockInput = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -261,12 +261,12 @@ public partial class TdUIScene : UIScene/*
 		return default;
 	}
 	
-	public virtual /*function */void OpenSceneByName(string SceneToOpen, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated SceneDelegate = default)
+	public virtual /*function */void OpenSceneByName(string SceneToOpen, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
 	{
 	
 	}
 	
-	public override /*function */UIScene OpenScene(UIScene SceneToOpen, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated SceneDelegate = default)
+	public override /*function */UIScene OpenScene(UIScene SceneToOpen, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
 	{
 	
 		return default;
@@ -283,7 +283,7 @@ public partial class TdUIScene : UIScene/*
 		return default;
 	}
 	
-	public override /*function */bool CloseScene(UIScene SceneToClose, /*optional */bool bSkipKismetNotify = default, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public override /*function */bool CloseScene(UIScene SceneToClose, /*optional */bool? _bSkipKismetNotify = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 		return default;
@@ -299,13 +299,13 @@ public partial class TdUIScene : UIScene/*
 	
 	}
 	
-	public virtual /*final function */bool BeginShowAnimation(/*optional */bool bInitialActivation = default)
+	public virtual /*final function */bool BeginShowAnimation(/*optional */bool? _bInitialActivation = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */bool BeginHideAnimation(/*optional */bool bClosingScene = default)
+	public virtual /*final function */bool BeginHideAnimation(/*optional */bool? _bClosingScene = default)
 	{
 	
 		return default;
@@ -343,17 +343,17 @@ public partial class TdUIScene : UIScene/*
 		return default;
 	}
 	
-	public virtual /*function */void OpenMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */void OpenMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 	}
 	
-	public virtual /*function */void OpenTinyMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */void OpenTinyMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 	}
 	
-	public virtual /*function */void OpenImageMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */void OpenImageMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 	}
@@ -368,7 +368,7 @@ public partial class TdUIScene : UIScene/*
 	
 	}
 	
-	public virtual /*function */void DisplaySimpleMessageBox(string Message, /*optional */string Title = default, /*optional *//*delegate*/TdUIScene.OnMessageBoxClosedCallback OnMessageBoxClosed = default)
+	public virtual /*function */void DisplaySimpleMessageBox(string Message, /*optional */string? _Title = default, /*optional *//*delegate*/TdUIScene.OnMessageBoxClosedCallback? _OnMessageBoxClosed = default)
 	{
 	
 	}
@@ -383,7 +383,7 @@ public partial class TdUIScene : UIScene/*
 	
 	}
 	
-	public virtual /*function */void ShowFriendsScene(/*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */void ShowFriendsScene(/*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 	}
@@ -393,7 +393,7 @@ public partial class TdUIScene : UIScene/*
 	
 	}
 	
-	public virtual /*function */void OpenFriendsScene(/*delegate*/UIScene.OnSceneActivated FriendsInit, /*optional */UIScene.ESceneTransitionAnim SceneAnim = default)
+	public virtual /*function */void OpenFriendsScene(/*delegate*/UIScene.OnSceneActivated FriendsInit, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 	
 	}
@@ -443,7 +443,7 @@ public partial class TdUIScene : UIScene/*
 	
 	}
 	
-	public virtual /*function */UIDataStore FindDataStore(name DataStoreTag, /*optional */LocalPlayer InPlayerOwner = default)
+	public virtual /*function */UIDataStore FindDataStore(name DataStoreTag, /*optional */LocalPlayer? _InPlayerOwner = default)
 	{
 	
 		return default;
@@ -479,7 +479,7 @@ public partial class TdUIScene : UIScene/*
 		return default;
 	}
 	
-	public virtual /*function */TdProfileSettings GetProfileSettings(/*optional */int PlayerIndex = default)
+	public virtual /*function */TdProfileSettings GetProfileSettings(/*optional */int? _PlayerIndex = default)
 	{
 	
 		return default;

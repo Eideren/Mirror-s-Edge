@@ -140,7 +140,7 @@ public partial class LightComponent : ActorComponent/*
 	}
 	
 	// Export ULightComponent::execSetLightProperties(FFrame&, void* const)
-	public virtual /*native final function */void SetLightProperties(/*optional */float NewBrightness = default, /*optional */Object.Color NewLightColor = default, /*optional */LightFunction NewLightFunction = default)
+	public virtual /*native final function */void SetLightProperties(/*optional */float? _NewBrightness = default, /*optional */Object.Color? _NewLightColor = default, /*optional */LightFunction? _NewLightFunction = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

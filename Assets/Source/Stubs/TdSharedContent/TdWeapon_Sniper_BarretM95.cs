@@ -151,7 +151,7 @@ public partial class TdWeapon_Sniper_BarretM95 : TdWeapon_Heavy/*
 			// Object Offset:0x00013BBC
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
 			{
-				new ForceFeedbackWaveform.WaveformSample()
+				new ForceFeedbackWaveform.WaveformSample
 				{
 					LeftAmplitude = 100,
 					RightAmplitude = 0,
@@ -159,7 +159,7 @@ public partial class TdWeapon_Sniper_BarretM95 : TdWeapon_Heavy/*
 					RightFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
 					Duration = 0.20f,
 				},
-				new ForceFeedbackWaveform.WaveformSample()
+				new ForceFeedbackWaveform.WaveformSample
 				{
 					LeftAmplitude = 0,
 					RightAmplitude = 15,

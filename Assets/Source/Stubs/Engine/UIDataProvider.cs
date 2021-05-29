@@ -32,9 +32,9 @@ public partial class UIDataProvider : UIRoot/*
 	public array< /*delegate*/UIDataProvider.OnDataProviderPropertyChange > ProviderChangedNotifies;
 	public /*delegate*/UIDataProvider.OnDataProviderPropertyChange __OnDataProviderPropertyChange__Delegate;
 	
-	public delegate void OnDataProviderPropertyChange(UIDataProvider SourceProvider, /*optional */name PropTag = default);
+	public delegate void OnDataProviderPropertyChange(UIDataProvider SourceProvider, /*optional */name? _PropTag = default);
 	
-	public virtual /*event */void NotifyPropertyChanged(/*optional */name PropTag = default)
+	public virtual /*event */void NotifyPropertyChanged(/*optional */name? _PropTag = default)
 	{
 	
 	}
@@ -54,13 +54,13 @@ public partial class UIDataProvider : UIRoot/*
 	
 	}
 	
-	public virtual /*event */bool GetFieldValue(string FieldName, ref UIRoot.UIProviderScriptFieldValue FieldValue, /*optional */int ArrayIndex = default)
+	public virtual /*event */bool GetFieldValue(string FieldName, ref UIRoot.UIProviderScriptFieldValue FieldValue, /*optional */int? _ArrayIndex = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*event */bool SetFieldValue(string FieldName, /*const */ref UIRoot.UIProviderScriptFieldValue FieldValue, /*optional */int ArrayIndex = default)
+	public virtual /*event */bool SetFieldValue(string FieldName, /*const */ref UIRoot.UIProviderScriptFieldValue FieldValue, /*optional */int? _ArrayIndex = default)
 	{
 	
 		return default;
@@ -79,7 +79,7 @@ public partial class UIDataProvider : UIRoot/*
 	}
 	
 	// Export UUIDataProvider::execGetFieldValueFromScript(FFrame&, void* const)
-	public virtual /*native function */bool GetFieldValueFromScript(string FieldName, ref UIRoot.UIProviderFieldValue FieldValue, /*optional */int ArrayIndex = default)
+	public virtual /*native function */bool GetFieldValueFromScript(string FieldName, ref UIRoot.UIProviderFieldValue FieldValue, /*optional */int? _ArrayIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

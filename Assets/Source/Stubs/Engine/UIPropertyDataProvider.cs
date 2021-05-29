@@ -8,7 +8,7 @@ public partial class UIPropertyDataProvider : UIDataProvider/*
 		hidecategories(Object,UIRoot)*/{
 	public /*const */array< Core.ClassT<Property> > ComplexPropertyTypes;
 	
-	public virtual /*event */bool GetCustomPropertyValue(ref UIRoot.UIProviderScriptFieldValue PropertyValue, /*optional */int ArrayIndex = default)
+	public virtual /*event */bool GetCustomPropertyValue(ref UIRoot.UIProviderScriptFieldValue PropertyValue, /*optional */int? _ArrayIndex = default)
 	{
 	
 		return default;

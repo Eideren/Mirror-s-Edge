@@ -23,7 +23,7 @@ public partial class RB_ConstraintActor : Actor/*
 	}
 	
 	// Export URB_ConstraintActor::execInitConstraint(FFrame&, void* const)
-	public virtual /*native final function */void InitConstraint(Actor Actor1, Actor Actor2, /*optional */name Actor1Bone = default, /*optional */name Actor2Bone = default, /*optional */float BreakThreshold = default)
+	public virtual /*native final function */void InitConstraint(Actor Actor1, Actor Actor2, /*optional */name? _Actor1Bone = default, /*optional */name? _Actor2Bone = default, /*optional */float? _BreakThreshold = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

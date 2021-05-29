@@ -55,7 +55,7 @@ public partial class SkelControlLookAt : SkelControlBase/*
 	}
 	
 	// Export USkelControlLookAt::execCanLookAtPoint(FFrame&, void* const)
-	public virtual /*native final function */bool CanLookAtPoint(Object.Vector PointLoc, /*optional */bool bDrawDebugInfo = default, /*optional */bool bDebugUsePersistentLines = default, /*optional */bool bDebugFlushLinesFirst = default)
+	public virtual /*native final function */bool CanLookAtPoint(Object.Vector PointLoc, /*optional */bool? _bDrawDebugInfo = default, /*optional */bool? _bDebugUsePersistentLines = default, /*optional */bool? _bDebugFlushLinesFirst = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

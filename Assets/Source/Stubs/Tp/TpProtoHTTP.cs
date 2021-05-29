@@ -14,7 +14,7 @@ public partial class TpProtoHTTP : TpSystemHandler/*
 	}
 	
 	// Export UTpProtoHTTP::execGetCurrentVersion(FFrame&, void* const)
-	public virtual /*native simulated function */void GetCurrentVersion(/*optional */string Param = default)
+	public virtual /*native simulated function */void GetCurrentVersion(/*optional */string? _Param = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

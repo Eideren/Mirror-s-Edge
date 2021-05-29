@@ -49,7 +49,7 @@ public partial class TdMove_LedgeWalk : TdPhysicsMove/*
 		if(((int)Volume.LedgeWalkType) == ((int)TdLedgeWalkVolume.ELedgeWalkType.LWT_Ledge/*0*/))
 		{
 			LookAtAngle.Pitch = MinLookConstraint.Pitch + 7000;
-			SetLookAtTargetAngle(LookAtAngle, 0.20f, default(float));		
+			SetLookAtTargetAngle(LookAtAngle, 0.20f, default);		
 		}
 		else
 		{
@@ -63,13 +63,13 @@ public partial class TdMove_LedgeWalk : TdPhysicsMove/*
 			}
 			if(VSize2D(PawnOwner.Velocity) > 50.0f)
 			{
-				SetLookAtTargetAngle(LookAtAngle, 0.20f, default(float));
+				SetLookAtTargetAngle(LookAtAngle, 0.20f, default);
 			}
 		}
 		PawnOwner.Velocity = vect(0.0f, 0.0f, 0.0f);
 		PawnOwner.Acceleration = vect(0.0f, 0.0f, 0.0f);
 		bPendingLeavingVolume = false;
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("LedgeInto")), 1.0f, 0.20f, 0.30f, false, default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("LedgeInto")), 1.0f, 0.20f, 0.30f, false, default);
 		CheckLedgeWalkType();
 	}
 	
@@ -98,7 +98,7 @@ public partial class TdMove_LedgeWalk : TdPhysicsMove/*
 			if(PawnOwner.Moves[11].CanDoMove())
 			{
 				PawnOwner.Velocity = ((Vector)(PawnOwner.Rotation)) * 200.0f;
-				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Jump/*11*/, default(bool), default(bool));
+				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Jump/*11*/, default, default);
 			}
 			return;
 		}
@@ -145,7 +145,7 @@ public partial class TdMove_LedgeWalk : TdPhysicsMove/*
 	{
 		if(bPendingLeavingVolume)
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool), default(bool));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
 		}
 	}
 	

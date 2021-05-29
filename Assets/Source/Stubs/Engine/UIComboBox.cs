@@ -33,20 +33,20 @@ public partial class UIComboBox : UIObject,
 	public delegate UIList CreateCustomComboList(UIComboBox ListOwner);
 	
 	// Export UUIComboBox::execSetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int BindingIndex = default)
+	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIComboBox::execGetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */string GetDataStoreBinding(/*optional */int BindingIndex = default)
+	public virtual /*native final function */string GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIComboBox::execRefreshSubscriberValue(FFrame&, void* const)
-	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int BindingIndex = default)
+	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -71,7 +71,7 @@ public partial class UIComboBox : UIObject,
 	}
 	
 	// Export UUIComboBox::execSaveSubscriberValue(FFrame&, void* const)
-	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int BindingIndex = default)
+	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -87,17 +87,17 @@ public partial class UIComboBox : UIObject,
 	
 	}
 	
-	public virtual /*event */void ShowList(/*optional */int PlayerIndex = default)
+	public virtual /*event */void ShowList(/*optional */int? _PlayerIndex = default)
 	{
 	
 	}
 	
-	public virtual /*event */void HideList(/*optional */int PlayerIndex = default)
+	public virtual /*event */void HideList(/*optional */int? _PlayerIndex = default)
 	{
 	
 	}
 	
-	public virtual /*function */void SetEditboxText(string NewText, int PlayerIndex, /*optional */bool bListItemsOnly = default, /*optional */bool bSkipNotification = default)
+	public virtual /*function */void SetEditboxText(string NewText, int PlayerIndex, /*optional */bool? _bListItemsOnly = default, /*optional */bool? _bSkipNotification = default)
 	{
 	
 	}
@@ -139,7 +139,7 @@ public partial class UIComboBox : UIObject,
 	
 	}
 	
-	public virtual /*function */void ListItemSelected(UIList Sender, /*optional */int PlayerIndex = default)
+	public virtual /*function */void ListItemSelected(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
 	
 	}

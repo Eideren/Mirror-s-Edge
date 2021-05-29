@@ -15,19 +15,19 @@ public partial class UIScrollFrame : UIContainer/*
 	public /*private const transient */bool bRecalculateClientRegion;
 	
 	// Export UUIScrollFrame::execRefreshScrollbars(FFrame&, void* const)
-	public virtual /*native final function */void RefreshScrollbars(/*optional */bool bImmediately = default)
+	public virtual /*native final function */void RefreshScrollbars(/*optional */bool? _bImmediately = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIScrollFrame::execReapplyFormatting(FFrame&, void* const)
-	public virtual /*native final function */void ReapplyFormatting(/*optional */bool bImmediately = default)
+	public virtual /*native final function */void ReapplyFormatting(/*optional */bool? _bImmediately = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIScrollFrame::execScrollRegion(FFrame&, void* const)
-	public virtual /*native final function */bool ScrollRegion(UIScrollbar Sender, float PositionChange, /*optional */bool bPositionMaxed = default)
+	public virtual /*native final function */bool ScrollRegion(UIScrollbar Sender, float PositionChange, /*optional */bool? _bPositionMaxed = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -93,7 +93,7 @@ public partial class UIScrollFrame : UIContainer/*
 	
 	}
 	
-	public override /*event */void RemovedChild(UIScreenObject WidgetOwner, UIObject OldChild, /*optional */array<UIObject> ExclusionSet = default)
+	public override /*event */void RemovedChild(UIScreenObject WidgetOwner, UIObject OldChild, /*optional */array<UIObject>? _ExclusionSet = default)
 	{
 	
 	}

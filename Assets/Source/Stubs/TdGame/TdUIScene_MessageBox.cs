@@ -52,7 +52,7 @@ public partial class TdUIScene_MessageBox : TdUIScene_Overlay/*
 	
 	public delegate void OnNotifyOptionSelected(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex);
 	
-	public virtual /*function */void SetPotentialOptions(array<string> InPotentialOptions, /*optional */array<TdUIScene_MessageBox.PotentialOptionKeys> InPotentialOptionKeyMappings = default)
+	public virtual /*function */void SetPotentialOptions(array<string> InPotentialOptions, /*optional */array<TdUIScene_MessageBox.PotentialOptionKeys>? _InPotentialOptionKeyMappings = default)
 	{
 	
 	}
@@ -82,22 +82,22 @@ public partial class TdUIScene_MessageBox : TdUIScene_Overlay/*
 	
 	}
 	
-	public virtual /*function */void Close(/*optional */bool bOverrideTimeDelay = default, /*optional */bool bSimulateCancel = default, /*optional */int PlayerIndex = default)
+	public virtual /*function */void Close(/*optional */bool? _bOverrideTimeDelay = default, /*optional */bool? _bSimulateCancel = default, /*optional */int? _PlayerIndex = default)
 	{
 	
 	}
 	
-	public virtual /*function */void DisplayAcceptBox(string Message, /*optional */string Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection InSelectionDelegate = default)
+	public virtual /*function */void DisplayAcceptBox(string Message, /*optional */string? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default)
 	{
 	
 	}
 	
-	public virtual /*function */void DisplayCancelBox(string Message, /*optional */string Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection InSelectionDelegate = default)
+	public virtual /*function */void DisplayCancelBox(string Message, /*optional */string? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default)
 	{
 	
 	}
 	
-	public virtual /*function */void DisplayAcceptCancelBox(string Message, /*optional */string Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection InSelectionDelegate = default, /*optional */bool RenderParents = default)
+	public virtual /*function */void DisplayAcceptCancelBox(string Message, /*optional */string? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default, /*optional */bool? _RenderParents = default)
 	{
 	
 	}
@@ -108,17 +108,17 @@ public partial class TdUIScene_MessageBox : TdUIScene_Overlay/*
 		return default;
 	}
 	
-	public virtual /*function */void DisplayAcceptCancelRetryBoxOnline(string Message, /*optional */string Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection InSelectionDelegate = default, /*optional */bool RenderParents = default)
+	public virtual /*function */void DisplayAcceptCancelRetryBoxOnline(string Message, /*optional */string? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default, /*optional */bool? _RenderParents = default)
 	{
 	
 	}
 	
-	public virtual /*function */void DisplayAcceptCancelRetryBox(string Message, /*optional */string Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection InSelectionDelegate = default, /*optional */bool RenderParents = default)
+	public virtual /*function */void DisplayAcceptCancelRetryBox(string Message, /*optional */string? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default, /*optional */bool? _RenderParents = default)
 	{
 	
 	}
 	
-	public virtual /*function */void DisplayModalBox(string Message, /*optional */string Title = default, /*optional */float InMinDisplayTime = default)
+	public virtual /*function */void DisplayModalBox(string Message, /*optional */string? _Title = default, /*optional */float? _InMinDisplayTime = default)
 	{
 	
 	}
@@ -128,7 +128,7 @@ public partial class TdUIScene_MessageBox : TdUIScene_Overlay/*
 	
 	}
 	
-	public virtual /*function */void Display(string Message, /*optional */string Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection InSelectionDelegate = default, /*optional */bool RenderParents = default, /*optional */int InDefaultOptionIdx = default)
+	public virtual /*function */void Display(string Message, /*optional */string? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default, /*optional */bool? _RenderParents = default, /*optional */int? _InDefaultOptionIdx = default)
 	{
 	
 	}
@@ -150,7 +150,7 @@ public partial class TdUIScene_MessageBox : TdUIScene_Overlay/*
 	
 	}
 	
-	public virtual /*function */void OnCloseScene(/*optional *//*delegate*/UIScene.OnSceneDeactivated SceneClosedDelegate = default)
+	public virtual /*function */void OnCloseScene(/*optional *//*delegate*/UIScene.OnSceneDeactivated? _SceneClosedDelegate = default)
 	{
 	
 	}
@@ -171,7 +171,7 @@ public partial class TdUIScene_MessageBox : TdUIScene_Overlay/*
 		return default;
 	}
 	
-	public virtual /*function */int FindCancelButtonIndex(/*optional */string CancelButtonMarkupString = default)
+	public virtual /*function */int FindCancelButtonIndex(/*optional */string? _CancelButtonMarkupString = default)
 	{
 	
 		return default;

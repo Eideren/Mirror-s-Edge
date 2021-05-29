@@ -8,19 +8,19 @@ public partial class TdPursuitVictoryMessage : TdVictoryMessage{
 	public /*const localized */string RunnerWonRoundReason;
 	public /*const localized */string DrawRoundReason;
 	
-	public /*function */static string GetMacthVictoryMessage(/*optional */PlayerReplicationInfo Winner = default)
+	public /*function */static string GetMacthVictoryMessage(/*optional */PlayerReplicationInfo? _Winner = default)
 	{
 	
 		return default;
 	}
 	
-	public /*function */static string GetRoundVictoryMessage(/*optional */PlayerReplicationInfo Winner = default)
+	public /*function */static string GetRoundVictoryMessage(/*optional */PlayerReplicationInfo? _Winner = default)
 	{
 	
 		return default;
 	}
 	
-	public /*function */static string GetRoundVictoryReason(/*optional */PlayerReplicationInfo Winner = default)
+	public /*function */static string GetRoundVictoryReason(/*optional */PlayerReplicationInfo? _Winner = default)
 	{
 	
 		return default;

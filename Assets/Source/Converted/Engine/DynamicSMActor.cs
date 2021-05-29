@@ -90,8 +90,11 @@ public partial class DynamicSMActor : Actor/*
 		}
 	}
 	
-	public virtual /*function */void SetStaticMesh(StaticMesh NewMesh, /*optional */Object.Vector NewTranslation = default, /*optional */Object.Rotator NewRotation = default, /*optional */Object.Vector NewScale3D = default)
+	public virtual /*function */void SetStaticMesh(StaticMesh NewMesh, /*optional */Object.Vector? _NewTranslation = default, /*optional */Object.Rotator? _NewRotation = default, /*optional */Object.Vector? _NewScale3D = default)
 	{
+		var NewTranslation = _NewTranslation ?? default;
+		var NewRotation = _NewRotation ?? default;
+		var NewScale3D = _NewScale3D ?? default;
 		StaticMeshComponent.SetStaticMesh(NewMesh);
 		StaticMeshComponent.SetTranslation(NewTranslation);
 		StaticMeshComponent.SetRotation(NewRotation);
@@ -108,7 +111,7 @@ public partial class DynamicSMActor : Actor/*
 	
 	public virtual /*simulated function */bool CanBasePawn(Pawn P)
 	{
-		if(bPawnCanBaseOn || (bSafeBaseIfAsleep && StaticMeshComponent != default) && !StaticMeshComponent.RigidBodyIsAwake(default(name)))
+		if(bPawnCanBaseOn || (bSafeBaseIfAsleep && StaticMeshComponent != default) && !StaticMeshComponent.RigidBodyIsAwake(default))
 		{
 			return true;
 		}

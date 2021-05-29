@@ -22,7 +22,7 @@ public partial class UIToggleButton : UILabelButton/*
 	}
 	
 	// Export UUIToggleButton::execSetValue(FFrame&, void* const)
-	public virtual /*native final function */void SetValue(bool bShouldBeChecked, /*optional */int PlayerIndex = default)
+	public virtual /*native final function */void SetValue(bool bShouldBeChecked, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

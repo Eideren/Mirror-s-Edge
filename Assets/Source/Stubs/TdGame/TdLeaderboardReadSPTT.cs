@@ -18,31 +18,31 @@ public partial class TdLeaderboardReadSPTT : TdOnlineStatsRead{
 		};
 		ColumnMappings = new array<OnlineStatsRead.ColumnMetaData>
 		{
-			new ColumnMetaData()
+			new OnlineStatsRead.ColumnMetaData
 			{
 				Id = 19,
 				Name = (name)"Rating",
 				ColumnName = "RATING",
 			},
-			new ColumnMetaData()
+			new OnlineStatsRead.ColumnMetaData
 			{
 				Id = 20,
 				Name = (name)"TotalTime",
 				ColumnName = "TIME",
 			},
-			new ColumnMetaData()
+			new OnlineStatsRead.ColumnMetaData
 			{
 				Id = 41,
 				Name = (name)"HasGhost",
 				ColumnName = " ",
 			},
-			new ColumnMetaData()
+			new OnlineStatsRead.ColumnMetaData
 			{
 				Id = 43,
 				Name = (name)"AvgSpeed",
 				ColumnName = "AVG SPEED",
 			},
-			new ColumnMetaData()
+			new OnlineStatsRead.ColumnMetaData
 			{
 				Id = 44,
 				Name = (name)"Distance",

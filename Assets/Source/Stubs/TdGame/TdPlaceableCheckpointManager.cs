@@ -88,7 +88,7 @@ public partial class TdPlaceableCheckpointManager : Actor/*
 		return default;
 	}
 	
-	public virtual /*function */TdPlaceableCheckpointManager.TrackData GetTrackData(int TrackIndex, /*optional */PlayerStart SeperateStartSpot = default)
+	public virtual /*function */TdPlaceableCheckpointManager.TrackData GetTrackData(int TrackIndex, /*optional */PlayerStart? _SeperateStartSpot = default)
 	{
 	
 		return default;

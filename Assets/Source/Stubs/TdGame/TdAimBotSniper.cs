@@ -69,7 +69,7 @@ public partial class TdAimBotSniper : TdAimBotBase/* within TdAI_Sniper*//*
 	
 	}
 	
-	public override /*function */Object.Vector GetAimLocation(TdPlayerPawn Target, /*optional */bool bUseFullDispersion = default)
+	public override /*function */Object.Vector GetAimLocation(TdPlayerPawn Target, /*optional */bool? _bUseFullDispersion = default)
 	{
 	
 		return default;

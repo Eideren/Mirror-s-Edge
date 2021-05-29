@@ -45,7 +45,7 @@ public partial class CheatManager : Object/* within PlayerController*//*
 	
 	}
 	
-	public virtual /*exec function */void BugIt(/*optional */string ScreenShotDescription = default)
+	public virtual /*exec function */void BugIt(/*optional */string? _ScreenShotDescription = default)
 	{
 	
 	}
@@ -170,7 +170,7 @@ public partial class CheatManager : Object/* within PlayerController*//*
 	
 	}
 	
-	public virtual /*exec function */void ViewSelf(/*optional */bool bQuiet = default)
+	public virtual /*exec function */void ViewSelf(/*optional */bool? _bQuiet = default)
 	{
 	
 	}

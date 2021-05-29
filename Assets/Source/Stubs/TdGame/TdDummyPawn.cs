@@ -13,7 +13,7 @@ public partial class TdDummyPawn : GamePawn/*
 		return default;
 	}
 	
-	public override /*simulated function */void WeaponFired(bool bViaReplication, /*optional */Object.Vector HitLocation = default)
+	public override /*simulated function */void WeaponFired(bool bViaReplication, /*optional */Object.Vector? _HitLocation = default)
 	{
 	
 	}
@@ -24,7 +24,7 @@ public partial class TdDummyPawn : GamePawn/*
 		return default;
 	}
 	
-	public override /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon CurrentWeapon = default)
+	public override /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon? _CurrentWeapon = default)
 	{
 	
 		return default;

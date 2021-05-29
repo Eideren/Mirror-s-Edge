@@ -64,7 +64,7 @@ public partial class BrushBuilder : Object/*
 	}
 	
 	// Export UBrushBuilder::execBadParameters(FFrame&, void* const)
-	public virtual /*native function */bool BadParameters(/*optional */string msg = default)
+	public virtual /*native function */bool BadParameters(/*optional */string? _msg = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -85,19 +85,19 @@ public partial class BrushBuilder : Object/*
 	}
 	
 	// Export UBrushBuilder::execPoly3i(FFrame&, void* const)
-	public virtual /*native function */void Poly3i(int Direction, int I, int J, int K, /*optional */name ItemName = default, /*optional */bool bIsTwoSidedNonSolid = default)
+	public virtual /*native function */void Poly3i(int Direction, int I, int J, int K, /*optional */name? _ItemName = default, /*optional */bool? _bIsTwoSidedNonSolid = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UBrushBuilder::execPoly4i(FFrame&, void* const)
-	public virtual /*native function */void Poly4i(int Direction, int I, int J, int K, int L, /*optional */name ItemName = default, /*optional */bool bIsTwoSidedNonSolid = default)
+	public virtual /*native function */void Poly4i(int Direction, int I, int J, int K, int L, /*optional */name? _ItemName = default, /*optional */bool? _bIsTwoSidedNonSolid = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UBrushBuilder::execPolyBegin(FFrame&, void* const)
-	public virtual /*native function */void PolyBegin(int Direction, /*optional */name ItemName = default)
+	public virtual /*native function */void PolyBegin(int Direction, /*optional */name? _ItemName = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

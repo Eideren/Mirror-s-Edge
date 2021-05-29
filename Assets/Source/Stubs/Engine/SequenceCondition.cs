@@ -5,7 +5,7 @@ public partial class SequenceCondition : SequenceOp/*
 		abstract
 		native
 		hidecategories(Object)*/{
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
 	
 		return default;

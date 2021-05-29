@@ -10,12 +10,13 @@ public partial class TdMPTeamDMGame : TdMPTeamGame/*
 		base.EndGame(Winner, Reason);
 	}
 	
-	public override /*function */PlayerStart ChoosePlayerStart(Controller Player, /*optional */byte InTeam = default)
+	public override /*function */PlayerStart ChoosePlayerStart(Controller Player, /*optional */byte? _InTeam = default)
 	{
 		/*local */PlayerStart BestStart = default;
 		/*local */float BestRating = default, NewRating = default;
 		/*local */int Idx = default;
 	
+		var InTeam = _InTeam ?? default;
 		BestRating = -1.0f;
 		Idx = 0;
 		J0x13:{}

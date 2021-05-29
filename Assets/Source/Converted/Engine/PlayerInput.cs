@@ -299,7 +299,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 					Outer.InputRequests[I].MatchIdx = 0;
 					if(Outer.InputRequests[I].FailedFuncName != "None")
 					{
-						Outer.InputRequests[I].MatchActor.SetTimer(0.010f, false, Outer.InputRequests[I].FailedFuncName, default(Object));
+						Outer.InputRequests[I].MatchActor.SetTimer(0.010f, false, Outer.InputRequests[I].FailedFuncName, default);
 					}
 					goto J0x4C0;
 				}
@@ -334,7 +334,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 					{
 						if(Outer.InputRequests[I].MatchFuncName != "None")
 						{
-							Outer.InputRequests[I].MatchActor.SetTimer(0.010f, false, Outer.InputRequests[I].MatchFuncName, default(Object));
+							Outer.InputRequests[I].MatchActor.SetTimer(0.010f, false, Outer.InputRequests[I].MatchFuncName, default);
 						}
 						Outer.InputRequests[I].LastMatchTime = 0.0f;
 						Outer.InputRequests[I].MatchIdx = 0;
@@ -351,7 +351,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 	{
 		if(Outer.WorldInfo.Pauser == Outer.PlayerReplicationInfo)
 		{
-			Outer.SetPause(false, default(/*delegate*/PlayerController.CanUnpause));		
+			Outer.SetPause(false, default);		
 		}
 		else
 		{
@@ -439,7 +439,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 		MouseSamplingTotal = 0.00830f;
 		Bindings = new array</*config */Input.KeyBind>
 		{
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"D",
 				Command = "GBA_StrafeRight",
@@ -447,7 +447,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"A",
 				Command = "GBA_StrafeLeft",
@@ -455,7 +455,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"S",
 				Command = "GBA_MoveBackward",
@@ -463,7 +463,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"W",
 				Command = "GBA_MoveForward",
@@ -471,7 +471,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"SpaceBar",
 				Command = "GBA_Jump | SkipCutscene",
@@ -479,7 +479,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"SIXAXIS_AccelZ",
 				Command = "Axis aPS3AccelZ",
@@ -487,7 +487,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"SIXAXIS_AccelY",
 				Command = "Axis aPS3AccelY",
@@ -495,7 +495,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"SIXAXIS_AccelX",
 				Command = "Axis aPS3AccelX",
@@ -503,7 +503,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_DPad_Right",
 				Command = "SwitchToItemInSlot 4 | DropMe | TriggerEmoteMessage 0",
@@ -511,7 +511,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"Duck",
 				Command = "Button bDuck | Axis aUp Speed=-1.0  AbsoluteAxis=100",
@@ -519,7 +519,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"Look",
 				Command = "Button bLook",
@@ -527,7 +527,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"Pause",
 				Command = "Pause",
@@ -535,7 +535,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"LookToggle",
 				Command = "Toggle bLook",
@@ -543,7 +543,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"LookUp",
 				Command = "Axis aLookUp Speed=+25.0 AbsoluteAxis=100",
@@ -551,7 +551,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"LookDown",
 				Command = "Axis aLookUp Speed=-25.0 AbsoluteAxis=100",
@@ -559,7 +559,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"CenterView",
 				Command = "Button bSnapLevel",
@@ -567,7 +567,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"Walking",
 				Command = "Button bRun",
@@ -575,7 +575,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"Strafe",
 				Command = "Button bStrafe",
@@ -583,7 +583,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"NextWeapon",
 				Command = "NextWeapon",
@@ -591,7 +591,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"ViewTeam",
 				Command = "ViewClass Pawn",
@@ -599,7 +599,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"TurnToNearest",
 				Command = "Button bTurnToNearest",
@@ -607,7 +607,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"Turn180",
 				Command = "Button bTurn180",
@@ -615,7 +615,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_Strafe_Gamepad",
 				Command = "Axis aStrafe Speed=1.0 DeadZone=0.3",
@@ -623,7 +623,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_Pause",
 				Command = "OnRelease PauseGame",
@@ -631,7 +631,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_LookDown",
 				Command = "",
@@ -639,7 +639,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_LookUp",
 				Command = "",
@@ -647,7 +647,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_TurnRight",
 				Command = "Axis aBaseX Speed=+1500.0 AbsoluteAxis=100",
@@ -655,7 +655,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"MouseX",
 				Command = "Count bXAxis | Axis aMouseX",
@@ -663,7 +663,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"MouseY",
 				Command = "Count bYAxis | Axis aMouseY",
@@ -671,7 +671,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_Look_Gamepad",
 				Command = "Axis aLookup Speed=1.0 DeadZone=0.3",
@@ -679,7 +679,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_TurnLeft",
 				Command = "Axis aBaseX Speed=-1500.0 AbsoluteAxis=100",
@@ -687,7 +687,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_Look_MouseY",
 				Command = "Count bYAxis | Axis aMouseY",
@@ -695,7 +695,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_Look_MouseX",
 				Command = "Count bXAxis | Axis aMouseX",
@@ -703,7 +703,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_WalkMod",
 				Command = "WalkMod | OnRelease StopWalkMod",
@@ -711,7 +711,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_Start",
 				Command = "GBA_Pause",
@@ -719,7 +719,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_Move_Gamepad",
 				Command = "Axis aBaseY Speed=1.0 DeadZone=0.3",
@@ -727,7 +727,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_ZoomWeapon",
 				Command = "ZoomWeapon",
@@ -735,7 +735,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_SwitchWeapon",
 				Command = "PressedSwitchWeapon | OnRelease ReleasedSwitchWeapon",
@@ -743,7 +743,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_Turn_Gamepad",
 				Command = "Axis aTurn Speed=1.0 DeadZone=0.3",
@@ -751,7 +751,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"P",
 				Command = "TogglePhysicsMode",
@@ -759,7 +759,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_StrafeRight",
 				Command = "Axis aStrafe Speed=+1.0",
@@ -767,7 +767,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_StrafeLeft",
 				Command = "Axis aStrafe Speed=-1.0",
@@ -775,7 +775,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_MoveBackward",
 				Command = "Axis aBaseY Speed=-1.0",
@@ -783,7 +783,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_MoveForward",
 				Command = "Axis aBaseY Speed=1.0",
@@ -791,7 +791,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"LeftShift",
 				Command = "Walking",
@@ -799,7 +799,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_ReactionTime",
 				Command = "AttemptReactionTime",
@@ -807,7 +807,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_LookBehind",
 				Command = "LookBehind ",
@@ -815,7 +815,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_InGameMenu",
 				Command = "OnRelease SkipCutscene | OnRelease OpenIngameMenu",
@@ -823,7 +823,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"F5",
 				Command = "quicksave",
@@ -831,7 +831,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"F6",
 				Command = "quickload",
@@ -839,7 +839,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"F7",
 				Command = "set D3DRenderDevice bUsePostProcessEffects False",
@@ -847,7 +847,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"F8",
 				Command = "set D3DRenderDevice bUsePostProcessEffects True",
@@ -855,7 +855,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"F9",
 				Command = "shot",
@@ -863,7 +863,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"F10",
 				Command = "dumpdynamicshadowstats",
@@ -871,7 +871,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_LookAt",
 				Command = "LookAtPress | OnRelease LookAtRelease",
@@ -879,7 +879,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"End",
 				Command = "Camera FirstPerson",
@@ -887,7 +887,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_Use",
 				Command = "UsePress | OnRelease UseRelease",
@@ -895,7 +895,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_Crouch",
 				Command = "Crouch | OnRelease StopCrouch | PrevViewTarget",
@@ -903,7 +903,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_Jump",
 				Command = "Jump | OnRelease StopJump | Axis aUp Speed=1.0  AbsoluteAxis=100 | PrevStaticViewTarget",
@@ -911,7 +911,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"GBA_Fire",
 				Command = "AttackPress | OnRelease AttackRelease | NextViewTarget",
@@ -919,7 +919,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_DPad_Left",
 				Command = "SwitchToItemInSlot 3 | InvertMouseCheat | TriggerEmoteMessage 2",
@@ -927,7 +927,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_DPad_Down",
 				Command = "SwitchToItemInSlot 2 | Jesus | TriggerEmoteMessage 1",
@@ -935,7 +935,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_DPad_Up",
 				Command = "SwitchToItemInSlot 1 | God",
@@ -943,7 +943,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_Back",
 				Command = "GBA_InGameMenu",
@@ -951,7 +951,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_X",
 				Command = "GBA_ReactionTime",
@@ -959,7 +959,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_Y",
 				Command = "GBA_SwitchWeapon",
@@ -967,7 +967,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_B",
 				Command = "GBA_LookAt",
@@ -975,7 +975,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_A",
 				Command = "GBA_Use",
@@ -983,7 +983,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_LeftThumbstick",
 				Command = "",
@@ -991,7 +991,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_RightThumbstick",
 				Command = "GBA_ZoomWeapon",
@@ -999,7 +999,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_LeftTrigger",
 				Command = "GBA_Crouch",
@@ -1007,7 +1007,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_LeftShoulder",
 				Command = "GBA_Jump",
@@ -1015,7 +1015,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_RightTrigger",
 				Command = "GBA_Fire",
@@ -1023,7 +1023,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_RightShoulder",
 				Command = "GBA_LookBehind",
@@ -1031,7 +1031,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_RightY",
 				Command = "GBA_Look_Gamepad",
@@ -1039,7 +1039,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_RightX",
 				Command = "GBA_Turn_Gamepad",
@@ -1047,7 +1047,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_LeftY",
 				Command = "GBA_Move_Gamepad",
@@ -1055,7 +1055,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"XboxTypeS_LeftX",
 				Command = "GBA_Strafe_Gamepad",
@@ -1063,7 +1063,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"E",
 				Command = "GBA_Use",
@@ -1071,7 +1071,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"LeftMouseButton",
 				Command = "GBA_Fire",
@@ -1079,7 +1079,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"RightMouseButton",
 				Command = "GBA_SwitchWeapon",
@@ -1087,7 +1087,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"F",
 				Command = "GBA_ZoomWeapon",
@@ -1095,7 +1095,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"LeftShift",
 				Command = "GBA_Crouch",
@@ -1103,7 +1103,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"TAB",
 				Command = "GBA_InGameMenu",
@@ -1111,7 +1111,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"Q",
 				Command = "GBA_LookBehind",
@@ -1119,7 +1119,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"R",
 				Command = "GBA_ReactionTime",
@@ -1127,7 +1127,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"LeftAlt",
 				Command = "GBA_LookAt",
@@ -1135,7 +1135,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"LeftControl",
 				Command = "GBA_WalkMod",
@@ -1143,7 +1143,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"MouseX",
 				Command = "GBA_Look_MouseX",
@@ -1151,7 +1151,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"MouseY",
 				Command = "GBA_Look_MouseY",
@@ -1159,7 +1159,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 				Shift = false,
 				Alt = false,
 			},
-			new KeyBind()
+			new Input.KeyBind
 			{
 				Name = (name)"Escape",
 				Command = "OnRelease PauseGame",
@@ -1170,7 +1170,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 		};
 		OverrideBindings = new array</*config */Input.InputOverridePair>
 		{
-			new InputOverridePair()
+			new Input.InputOverridePair
 			{
 				Key = (name)"FRA",
 				Binding = new Input.KeyBind
@@ -1182,7 +1182,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 					Alt = false,
 				},
 			},
-			new InputOverridePair()
+			new Input.InputOverridePair
 			{
 				Key = (name)"FRA",
 				Binding = new Input.KeyBind
@@ -1194,7 +1194,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 					Alt = false,
 				},
 			},
-			new InputOverridePair()
+			new Input.InputOverridePair
 			{
 				Key = (name)"FRA",
 				Binding = new Input.KeyBind
@@ -1206,7 +1206,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 					Alt = false,
 				},
 			},
-			new InputOverridePair()
+			new Input.InputOverridePair
 			{
 				Key = (name)"FRA",
 				Binding = new Input.KeyBind
@@ -1218,7 +1218,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 					Alt = false,
 				},
 			},
-			new InputOverridePair()
+			new Input.InputOverridePair
 			{
 				Key = (name)"FRA",
 				Binding = new Input.KeyBind

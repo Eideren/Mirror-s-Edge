@@ -156,7 +156,7 @@ public partial class HUD : Actor/*
 	
 	}
 	
-	public virtual /*exec function */void ShowDebug(/*optional */name DebugType = default)
+	public virtual /*exec function */void ShowDebug(/*optional */name? _DebugType = default)
 	{
 	
 	}
@@ -222,7 +222,7 @@ public partial class HUD : Actor/*
 	
 	}
 	
-	public virtual /*function */void Message(PlayerReplicationInfo PRI, /*coerce */string msg, name MsgType, /*optional */float Lifetime = default)
+	public virtual /*function */void Message(PlayerReplicationInfo PRI, /*coerce */string msg, name MsgType, /*optional */float? _Lifetime = default)
 	{
 	
 	}
@@ -232,17 +232,17 @@ public partial class HUD : Actor/*
 	
 	}
 	
-	public virtual /*function */void AddConsoleMessage(string M, Core.ClassT<LocalMessage> InMessageClass, PlayerReplicationInfo PRI, /*optional */float Lifetime = default)
+	public virtual /*function */void AddConsoleMessage(string M, Core.ClassT<LocalMessage> InMessageClass, PlayerReplicationInfo PRI, /*optional */float? _Lifetime = default)
 	{
 	
 	}
 	
-	public virtual /*function */void LocalizedMessage(Core.ClassT<LocalMessage> InMessageClass, PlayerReplicationInfo RelatedPRI_1, string CriticalString, int Switch, float Position, float Lifetime, int FontSize, Object.Color DrawColor, /*optional */Object OptionalObject = default)
+	public virtual /*function */void LocalizedMessage(Core.ClassT<LocalMessage> InMessageClass, PlayerReplicationInfo RelatedPRI_1, string CriticalString, int Switch, float Position, float Lifetime, int FontSize, Object.Color DrawColor, /*optional */Object? _OptionalObject = default)
 	{
 	
 	}
 	
-	public virtual /*function */void AddLocalizedMessage(int Index, Core.ClassT<LocalMessage> InMessageClass, string CriticalString, int Switch, float Position, float Lifetime, int FontSize, Object.Color DrawColor, /*optional */int MessageCount = default, /*optional */Object OptionalObject = default)
+	public virtual /*function */void AddLocalizedMessage(int Index, Core.ClassT<LocalMessage> InMessageClass, string CriticalString, int Switch, float Position, float Lifetime, int FontSize, Object.Color DrawColor, /*optional */int? _MessageCount = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 	}

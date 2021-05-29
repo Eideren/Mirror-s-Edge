@@ -7,7 +7,7 @@ public partial class UIDataStore_TdGameResource : UIDataStore_GameResource/*
 		config(Game)
 		hidecategories(Object,UIRoot)*/{
 	// Export UUIDataStore_TdGameResource::execGetProviderCount(FFrame&, void* const)
-	public virtual /*native function */int GetProviderCount(name FieldName, /*optional */bool bDoNotFilter = default)
+	public virtual /*native function */int GetProviderCount(name FieldName, /*optional */bool? _bDoNotFilter = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

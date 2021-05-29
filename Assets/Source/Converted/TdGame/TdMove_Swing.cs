@@ -124,14 +124,14 @@ public partial class TdMove_Swing : TdPhysicsMove/*
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, AnimBlendTime);
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, AnimBlendTime);
 		InitSwingSound();
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((Volume.bThickGrip) ? ((name)("SwingHardStartWide")) : ((name)("SwingHardStart"))), 1.0f, AnimBlendTime, 0.20f, default(bool), default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((Volume.bThickGrip) ? ((name)("SwingHardStartWide")) : ((name)("SwingHardStart"))), 1.0f, AnimBlendTime, 0.20f, default, default);
 		SetMoveTimer(AnimBlendTime, false, "StopInterpolating");
 	}
 	
 	public override /*simulated function */void StopReplicatedMove()
 	{
 		DisableSwingControl();
-		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.10f, ((SkelControlBase.EBoneControlSpace)default(SkelControlBase.EBoneControlSpace)));
+		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.10f, default);
 	}
 	
 	public override /*simulated function */void StopMove()
@@ -139,7 +139,7 @@ public partial class TdMove_Swing : TdPhysicsMove/*
 		base.StopMove();
 		DisableSwingControl();
 		StopSwingSound();
-		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.10f, ((SkelControlBase.EBoneControlSpace)default(SkelControlBase.EBoneControlSpace)));
+		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.10f, default);
 		bIsShimmying = false;
 		bIsTurning = false;
 	}
@@ -148,7 +148,7 @@ public partial class TdMove_Swing : TdPhysicsMove/*
 	{
 		if(SwingSoundComponent == default)
 		{
-			SwingSoundComponent = PawnOwner.CreateAudioComponent(SwingSound, false, true, default(bool), default(Object.Vector), default(bool));
+			SwingSoundComponent = PawnOwner.CreateAudioComponent(SwingSound, false, true, default, default, default);
 		}
 		if(SwingSoundComponent != default)
 		{
@@ -233,7 +233,7 @@ public partial class TdMove_Swing : TdPhysicsMove/*
 								{
 									bIsShimmying = true;
 									ShimmyVelocity = 35.0f * ((MoveRight) ? 1.0f : -1.0f);
-									PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("SwingStrafe")), ((MoveRight) ? 1.0f : -1.0f), 0.20f, 0.20f, false, default(bool));
+									PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("SwingStrafe")), ((MoveRight) ? 1.0f : -1.0f), 0.20f, 0.20f, false, default);
 									CustomAnimNode = ((PawnOwner.GetCustomAnimation(TdPawn.CustomNodeType.CNT_FullBody/*2*/)) as TdAnimNodeSequence);
 									ShimmyTime = Abs(CustomAnimNode.GetAnimPlaybackLength());
 								}
@@ -253,7 +253,7 @@ public partial class TdMove_Swing : TdPhysicsMove/*
 	public override /*simulated function */void OnTimer()
 	{
 		PawnOwner.UseRootRotation(true);
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("Swing180")), 1.0f, 0.20f, 0.30f, default(bool), true);
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("Swing180")), 1.0f, 0.20f, 0.30f, default, true);
 		PawnOwner.SetRotation(((Rotator)(SwingDirection)));
 		SwingVelocity = 0.0f;
 		SwingAngle = 0.0f;
@@ -287,15 +287,15 @@ public partial class TdMove_Swing : TdPhysicsMove/*
 			PawnOwner.GravityModifier = SwingExitGravityModifier;
 			PawnOwner.GravityModifierTimer = SwingExitGravityModifierTime;
 			PawnOwner.AIAimOldMovementState = TdPawn.EMovement.MOVE_Walking/*1*/;
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("SwingJumpOff")), 1.0f, 0.20f, 0.20f, false, default(bool));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("SwingJumpOff")), 1.0f, 0.20f, 0.20f, false, default);
 		}
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_SwingJump/*73*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_SwingJump/*73*/, default, default);
 	}
 	
 	public virtual /*simulated function */void LetGo()
 	{
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("SwingEnd")), 1.0f, 0.20f, 0.20f, false, default(bool));
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("SwingEnd")), 1.0f, 0.20f, 0.20f, false, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 	}
 	
 	public virtual /*simulated event */void SetPawnRotation(float RadAngle)
@@ -326,7 +326,7 @@ public partial class TdMove_Swing : TdPhysicsMove/*
 	{
 		if(PawnOwner.Moves[2].CanDoMove())
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 		}
 	}
 	

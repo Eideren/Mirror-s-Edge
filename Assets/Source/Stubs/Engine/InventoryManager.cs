@@ -50,19 +50,19 @@ public partial class InventoryManager : Actor/*
 		return default;
 	}
 	
-	public virtual /*simulated event */Inventory FindInventoryType(Core.ClassT<Inventory> DesiredClass, /*optional */bool bAllowSubclass = default)
+	public virtual /*simulated event */Inventory FindInventoryType(Core.ClassT<Inventory> DesiredClass, /*optional */bool? _bAllowSubclass = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*simulated function */Inventory CreateInventory(Core.ClassT<Inventory> NewInventoryItemClass, /*optional */bool bDoNotActivate = default)
+	public virtual /*simulated function */Inventory CreateInventory(Core.ClassT<Inventory> NewInventoryItemClass, /*optional */bool? _bDoNotActivate = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*simulated function */bool AddInventory(Inventory NewItem, /*optional */bool bDoNotActivate = default)
+	public virtual /*simulated function */bool AddInventory(Inventory NewItem, /*optional */bool? _bDoNotActivate = default)
 	{
 	
 		return default;
@@ -116,13 +116,13 @@ public partial class InventoryManager : Actor/*
 		return default;
 	}
 	
-	public virtual /*simulated function */Weapon GetBestWeapon(/*optional */bool bForceADifferentWeapon = default)
+	public virtual /*simulated function */Weapon GetBestWeapon(/*optional */bool? _bForceADifferentWeapon = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*simulated function */void SwitchToBestWeapon(/*optional */bool bForceADifferentWeapon = default)
+	public virtual /*simulated function */void SwitchToBestWeapon(/*optional */bool? _bForceADifferentWeapon = default)
 	{
 	
 	}

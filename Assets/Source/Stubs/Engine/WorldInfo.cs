@@ -326,7 +326,7 @@ public partial class WorldInfo : ZoneInfo/*
 	}
 	
 	// Export UWorldInfo::execIsConsoleBuild(FFrame&, void* const)
-	public /*native final simulated function */static bool IsConsoleBuild(/*optional */WorldInfo.EConsoleType ConsoleType = default)
+	public /*native final simulated function */static bool IsConsoleBuild(/*optional */WorldInfo.EConsoleType? _ConsoleType = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -340,7 +340,7 @@ public partial class WorldInfo : ZoneInfo/*
 	}
 	
 	// Export UWorldInfo::execForceGarbageCollection(FFrame&, void* const)
-	public virtual /*native final simulated function */void ForceGarbageCollection(/*optional */bool bFullPurge = default)
+	public virtual /*native final simulated function */void ForceGarbageCollection(/*optional */bool? _bFullPurge = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -370,7 +370,7 @@ public partial class WorldInfo : ZoneInfo/*
 		return default;
 	}
 	
-	public virtual /*event */void ServerTravel(string URL, /*optional */bool bAbsolute = default)
+	public virtual /*event */void ServerTravel(string URL, /*optional */bool? _bAbsolute = default)
 	{
 	
 	}
@@ -425,14 +425,14 @@ public partial class WorldInfo : ZoneInfo/*
 	}
 	
 	// Export UWorldInfo::execAllPawns(FFrame&, void* const)
-	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Pawn/* P*/> AllPawns(Core.ClassT<Pawn> BaseClass, /*optional */Object.Vector TestLocation = default, /*optional */float TestRadius = default)
+	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Pawn/* P*/> AllPawns(Core.ClassT<Pawn> BaseClass, /*optional */Object.Vector? _TestLocation = default, /*optional */float? _TestRadius = default)
 	{
 		#warning NATIVE FUNCTION !
 		yield return default;
 	}
 	
 	// Export UWorldInfo::execNotifyMatchStarted(FFrame&, void* const)
-	public virtual /*native final function */void NotifyMatchStarted(/*optional */bool bShouldActivateLevelStartupEvents = default, /*optional */bool bShouldActivateLevelBeginningEvents = default, /*optional */bool bShouldActivateLevelLoadedEvents = default)
+	public virtual /*native final function */void NotifyMatchStarted(/*optional */bool? _bShouldActivateLevelStartupEvents = default, /*optional */bool? _bShouldActivateLevelBeginningEvents = default, /*optional */bool? _bShouldActivateLevelLoadedEvents = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -458,13 +458,13 @@ public partial class WorldInfo : ZoneInfo/*
 	}
 	
 	// Export UWorldInfo::execCommitMapChange(FFrame&, void* const)
-	public virtual /*native final function */void CommitMapChange(/*optional */bool bShouldSkipLevelStartupEvent = default, /*optional */bool bShouldSkipLevelBeginningEvent = default)
+	public virtual /*native final function */void CommitMapChange(/*optional */bool? _bShouldSkipLevelStartupEvent = default, /*optional */bool? _bShouldSkipLevelBeginningEvent = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UWorldInfo::execSeamlessTravel(FFrame&, void* const)
-	public virtual /*native final function */void SeamlessTravel(string URL, /*optional */bool bAbsolute = default, /*init optional */Object.Guid MapPackageGuid = default)
+	public virtual /*native final function */void SeamlessTravel(string URL, /*optional */bool? _bAbsolute = default, /*init optional */Object.Guid? _MapPackageGuid = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -496,7 +496,7 @@ public partial class WorldInfo : ZoneInfo/*
 	}
 	
 	// Export UWorldInfo::execGetMapName(FFrame&, void* const)
-	public virtual /*native final function */string GetMapName(/*optional */bool bIncludePrefix = default)
+	public virtual /*native final function */string GetMapName(/*optional */bool? _bIncludePrefix = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

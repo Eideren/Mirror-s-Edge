@@ -51,7 +51,7 @@ public partial class TdMove_GrabJump : TdPhysicsMove/*
 		Start = PawnOwner.Location;
 		End = Start;
 		End.Z += JumpHeight;
-		if(MovementTrace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, End, Start, PawnOwner.GetCollisionExtent(), default(bool)))
+		if(MovementTrace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, End, Start, PawnOwner.GetCollisionExtent(), default))
 		{
 			JumpHeight = HitLocation.Z - PawnOwner.Location.Z;
 		}
@@ -59,8 +59,8 @@ public partial class TdMove_GrabJump : TdPhysicsMove/*
 		Speed = (Gravity * 2.0f) * Sqrt(JumpHeight / Gravity);
 		JumpVelocity = camDir * Interp;
 		JumpVelocity.Z = Speed;
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("HangTurnJump")), 1.0f, 0.20f, 0.20f, default(bool), default(bool));
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Grabbing/*3*/, default(float));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("HangTurnJump")), 1.0f, 0.20f, 0.20f, default, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Grabbing/*3*/, default);
 		bDisableFaceRotation = true;
 		SetTimer(0.10f);
 		DeltaRot = Normalize(PawnOwner.Controller.Rotation) - Normalize(PawnOwner.Rotation);
@@ -96,7 +96,7 @@ public partial class TdMove_GrabJump : TdPhysicsMove/*
 		/*local */TdPlayerController PlayerController = default;
 	
 		base.StopMove();
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default(float));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default);
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, 0.20f);
 		PlayerController = ((PawnOwner.Controller) as TdPlayerController);
 		if(PlayerController != default)
@@ -107,7 +107,7 @@ public partial class TdMove_GrabJump : TdPhysicsMove/*
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 	}
 	
 	public override /*function */void DrawAnimDebugInfo(HUD HUD, ref float out_YL, ref float out_YPos)

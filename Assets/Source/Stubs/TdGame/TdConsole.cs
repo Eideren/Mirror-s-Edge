@@ -39,7 +39,7 @@ public partial class TdConsole : Console/* within GameViewportClient*//*
 	}
 	
 	
-	protected /*event */bool TdConsole_Typing_InputKey(int ControllerId, name Key, Object.EInputEvent Event, /*optional */float AmountDepressed = default, /*optional */bool bGamepad = default)// state function
+	protected /*event */bool TdConsole_Typing_InputKey(int ControllerId, name Key, Object.EInputEvent Event, /*optional */float? _AmountDepressed = default, /*optional */bool? _bGamepad = default)// state function
 	{
 	
 		return default;

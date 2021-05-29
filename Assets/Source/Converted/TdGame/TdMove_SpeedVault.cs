@@ -361,7 +361,7 @@ public partial class TdMove_SpeedVault : TdPhysicsMove/*
 		{
 			bEndMoveFalling = !bVaultOnto;
 		}
-		if(!CanStand(VaultEndPosition, default(bool)))
+		if(!CanStand(VaultEndPosition, default))
 		{
 			return false;
 		}
@@ -413,7 +413,7 @@ public partial class TdMove_SpeedVault : TdPhysicsMove/*
 				AnimToPlay = VaultTypes[ActiveVaultType].AnimName;
 			}
 		}
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, AnimToPlay, 1.0f, 0.150f, 0.20f, default(bool), default(bool));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, AnimToPlay, 1.0f, 0.150f, 0.20f, default, default);
 		UpdateVaultMovement();
 	}
 	
@@ -523,7 +523,7 @@ public partial class TdMove_SpeedVault : TdPhysicsMove/*
 					bUsePreciseLocation = false;
 					if(bVaultOnto || !bEndMoveFalling)
 					{
-						PawnOwner.SetMove(((TdPawn.EMovement)((bVaultOnto) ? 1 : 20)), default(bool), default(bool));
+						PawnOwner.SetMove(((TdPawn.EMovement)((bVaultOnto) ? 1 : 20)), default, default);
 						SavedVelocity.Z = FMax(0.0f, PawnOwner.Velocity.Z);
 						PawnOwner.Velocity = SavedVelocity;
 						PawnOwner.Acceleration = Normal(SavedVelocity);
@@ -534,7 +534,7 @@ public partial class TdMove_SpeedVault : TdPhysicsMove/*
 						PawnOwner.Velocity = Normal(PawnOwner.Velocity) * VSize2D(SavedVelocity);
 						PawnOwner.Acceleration = Normal(SavedVelocity);
 						((PawnOwner.Controller) as TdPlayerController).AccelerationTime = 0.20f;
-						PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+						PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 					}
 				}
 			}

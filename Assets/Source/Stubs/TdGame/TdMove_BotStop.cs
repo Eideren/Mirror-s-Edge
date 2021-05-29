@@ -51,7 +51,7 @@ public partial class TdMove_BotStop : TdMove/*
 		return default;
 	}
 	
-	public virtual /*function */bool WillFallDown(/*optional */float ExtraDistance = default, /*optional */bool AddMoveLength = default)
+	public virtual /*function */bool WillFallDown(/*optional */float? _ExtraDistance = default, /*optional */bool? _AddMoveLength = default)
 	{
 	
 		return default;

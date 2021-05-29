@@ -31,7 +31,7 @@ public partial class TdWeapon_Bag : TdWeapon_Light/*
 	
 	}
 	
-	public /*function */static string GetLocalString(/*optional */int Switch = default, /*optional */PlayerReplicationInfo RelatedPRI_1 = default, /*optional */PlayerReplicationInfo RelatedPRI_2 = default)
+	public /*function */static string GetLocalString(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default)
 	{
 	
 		return default;

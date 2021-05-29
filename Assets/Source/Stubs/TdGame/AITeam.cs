@@ -62,18 +62,18 @@ public partial class AITeam : Actor/*
 	}
 	
 	// Export UAITeam::execGetNearestNavToPoint(FFrame&, void* const)
-	public virtual /*native function */NavigationPoint GetNearestNavToPoint(Object.Vector ChkPoint, /*optional */Class RequiredClass = default, /*optional */array<NavigationPoint> ExcludeList = default)
+	public virtual /*native function */NavigationPoint GetNearestNavToPoint(Object.Vector ChkPoint, /*optional */Class? _RequiredClass = default, /*optional */array<NavigationPoint>? _ExcludeList = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
-	public virtual /*final event */void AILog_Internal(/*coerce */string LogText, /*optional */name LogCategory = default, /*optional */bool bForce = default)
+	public virtual /*final event */void AILog_Internal(/*coerce */string LogText, /*optional */name? _LogCategory = default, /*optional */bool? _bForce = default)
 	{
 	
 	}
 	
-	public virtual /*final function */void LogFunction_Internal(/*coerce */string FuncName, bool Start, /*coerce optional */string S = default, /*optional */name LogCategory = default)
+	public virtual /*final function */void LogFunction_Internal(/*coerce */string FuncName, bool Start, /*coerce optional */string? _S = default, /*optional */name? _LogCategory = default)
 	{
 	
 	}

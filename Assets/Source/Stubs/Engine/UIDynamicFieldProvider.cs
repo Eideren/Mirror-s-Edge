@@ -19,7 +19,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	}
 	
 	// Export UUIDynamicFieldProvider::execAddField(FFrame&, void* const)
-	public virtual /*native final function */bool AddField(name FieldName, /*optional */UIRoot.EUIDataProviderFieldType FieldType/* = default*/, /*optional */bool bPersistent/* = default*/, /*optional */ref int out_InsertPosition/* = default*/)
+	public virtual /*native final function */bool AddField(name FieldName, /*optional */UIRoot.EUIDataProviderFieldType? _FieldType/* = default*/, /*optional */bool? _bPersistent/* = default*/, /*optional */ref int out_InsertPosition/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -33,14 +33,14 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	}
 	
 	// Export UUIDynamicFieldProvider::execFindFieldIndex(FFrame&, void* const)
-	public virtual /*native final function */int FindFieldIndex(name FieldName, /*optional */bool bSearchPersistentFields = default)
+	public virtual /*native final function */int FindFieldIndex(name FieldName, /*optional */bool? _bSearchPersistentFields = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDynamicFieldProvider::execClearFields(FFrame&, void* const)
-	public virtual /*native final function */bool ClearFields(/*optional */bool bReinitializeRuntimeFields = default)
+	public virtual /*native final function */bool ClearFields(/*optional */bool? _bReinitializeRuntimeFields = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -54,7 +54,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	}
 	
 	// Export UUIDynamicFieldProvider::execSetField(FFrame&, void* const)
-	public virtual /*native final function */bool SetField(name FieldName, /*const */ref UIRoot.UIProviderScriptFieldValue FieldValue, /*optional */bool bChangeExistingOnly = default)
+	public virtual /*native final function */bool SetField(name FieldName, /*const */ref UIRoot.UIProviderScriptFieldValue FieldValue, /*optional */bool? _bChangeExistingOnly = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -67,77 +67,77 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	}
 	
 	// Export UUIDynamicFieldProvider::execGetCollectionValueSchema(FFrame&, void* const)
-	public virtual /*native final function */bool GetCollectionValueSchema(name FieldName, ref array<name> out_CellTagArray, /*optional */bool bPersistent = default)
+	public virtual /*native final function */bool GetCollectionValueSchema(name FieldName, ref array<name> out_CellTagArray, /*optional */bool? _bPersistent = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDynamicFieldProvider::execGetCollectionValueArray(FFrame&, void* const)
-	public virtual /*native final function */bool GetCollectionValueArray(name FieldName, ref array<string> out_DataValueArray, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*native final function */bool GetCollectionValueArray(name FieldName, ref array<string> out_DataValueArray, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDynamicFieldProvider::execSetCollectionValueArray(FFrame&, void* const)
-	public virtual /*native final function */bool SetCollectionValueArray(name FieldName, /*const */ref array<string> CollectionValues, /*optional */bool bClearExisting = default, /*optional */int InsertIndex = default, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*native final function */bool SetCollectionValueArray(name FieldName, /*const */ref array<string> CollectionValues, /*optional */bool? _bClearExisting = default, /*optional */int? _InsertIndex = default, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDynamicFieldProvider::execInsertCollectionValue(FFrame&, void* const)
-	public virtual /*native final function */bool InsertCollectionValue(name FieldName, /*const */ref string NewValue, /*optional */int InsertIndex = default, /*optional */bool bPersistent = default, /*optional */bool bAllowDuplicateValues = default, /*optional */name CellTag = default)
+	public virtual /*native final function */bool InsertCollectionValue(name FieldName, /*const */ref string NewValue, /*optional */int? _InsertIndex = default, /*optional */bool? _bPersistent = default, /*optional */bool? _bAllowDuplicateValues = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDynamicFieldProvider::execRemoveCollectionValue(FFrame&, void* const)
-	public virtual /*native final function */bool RemoveCollectionValue(name FieldName, /*const */ref string ValueToRemove, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*native final function */bool RemoveCollectionValue(name FieldName, /*const */ref string ValueToRemove, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDynamicFieldProvider::execRemoveCollectionValueByIndex(FFrame&, void* const)
-	public virtual /*native final function */bool RemoveCollectionValueByIndex(name FieldName, int ValueIndex, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*native final function */bool RemoveCollectionValueByIndex(name FieldName, int ValueIndex, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDynamicFieldProvider::execReplaceCollectionValue(FFrame&, void* const)
-	public virtual /*native final function */bool ReplaceCollectionValue(name FieldName, /*const */ref string CurrentValue, /*const */ref string NewValue, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*native final function */bool ReplaceCollectionValue(name FieldName, /*const */ref string CurrentValue, /*const */ref string NewValue, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDynamicFieldProvider::execReplaceCollectionValueByIndex(FFrame&, void* const)
-	public virtual /*native final function */bool ReplaceCollectionValueByIndex(name FieldName, int ValueIndex, /*const */ref string NewValue, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*native final function */bool ReplaceCollectionValueByIndex(name FieldName, int ValueIndex, /*const */ref string NewValue, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDynamicFieldProvider::execClearCollectionValueArray(FFrame&, void* const)
-	public virtual /*native final function */bool ClearCollectionValueArray(name FieldName, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*native final function */bool ClearCollectionValueArray(name FieldName, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDynamicFieldProvider::execGetCollectionValue(FFrame&, void* const)
-	public virtual /*native final function */bool GetCollectionValue(name FieldName, int ValueIndex, ref string out_Value, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*native final function */bool GetCollectionValue(name FieldName, int ValueIndex, ref string out_Value, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDynamicFieldProvider::execFindCollectionValueIndex(FFrame&, void* const)
-	public virtual /*native final function */int FindCollectionValueIndex(name FieldName, /*const */ref string ValueToFind, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*native final function */int FindCollectionValueIndex(name FieldName, /*const */ref string ValueToFind, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

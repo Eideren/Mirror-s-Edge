@@ -369,7 +369,7 @@ public partial class TdAIController : AIController,
 	}
 	
 	// Export UTdAIController::execFindGoodFiringPosition(FFrame&, void* const)
-	public virtual /*native final function */NavigationPoint FindGoodFiringPosition(int NetworkID, /*optional */Class RequiredClass = default)
+	public virtual /*native final function */NavigationPoint FindGoodFiringPosition(int NetworkID, /*optional */Class? _RequiredClass = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -443,7 +443,7 @@ public partial class TdAIController : AIController,
 	}
 	
 	// Export UTdAIController::execTdMoveTo(FFrame&, void* const)
-	public virtual /*native final latent function */Flow TdMoveTo(Object.Vector NewDestination, /*optional */Actor ViewFocus = default, /*optional */bool bShouldWalk = default)
+	public virtual /*native final latent function */Flow TdMoveTo(Object.Vector NewDestination, /*optional */Actor? _ViewFocus = default, /*optional */bool? _bShouldWalk = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -457,7 +457,7 @@ public partial class TdAIController : AIController,
 	}
 	
 	// Export UTdAIController::execIsForcedToWalkToNextNode(FFrame&, void* const)
-	public virtual /*native final function */bool IsForcedToWalkToNextNode(/*optional */int NodeOffset = default)
+	public virtual /*native final function */bool IsForcedToWalkToNextNode(/*optional */int? _NodeOffset = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -497,7 +497,7 @@ public partial class TdAIController : AIController,
 	
 	}
 	
-	public virtual /*event */void AddToScreenLog(string Text, /*optional */name Category = default)
+	public virtual /*event */void AddToScreenLog(string Text, /*optional */name? _Category = default)
 	{
 	
 	}
@@ -594,23 +594,23 @@ public partial class TdAIController : AIController,
 	
 	}
 	
-	public virtual /*final event */void AILog_Internal(/*coerce */string LogText, /*optional */name LogCategory = default, /*optional */bool bForce = default)
+	public virtual /*final event */void AILog_Internal(/*coerce */string LogText, /*optional */name? _LogCategory = default, /*optional */bool? _bForce = default)
 	{
 	
 	}
 	
-	public virtual /*final function */void LogFunction_Internal(/*coerce */string FuncName, bool Start, /*coerce optional */string S = default, /*optional */name LogCategory = default)
+	public virtual /*final function */void LogFunction_Internal(/*coerce */string FuncName, bool Start, /*coerce optional */string? _S = default, /*optional */name? _LogCategory = default)
 	{
 	
 	}
 	
-	public virtual /*function */bool TdPointReachable(Object.Vector aPoint, /*optional */bool bTestBotPawns = default, /*optional */float minTimeToCollision = default, /*optional */float minDistFromLine = default)
+	public virtual /*function */bool TdPointReachable(Object.Vector aPoint, /*optional */bool? _bTestBotPawns = default, /*optional */float? _minTimeToCollision = default, /*optional */float? _minDistFromLine = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool TdActorReachable(Actor anActor, /*optional */bool bTestBotPawns = default, /*optional */float minTimeToCollision = default, /*optional */float minDistFromLine = default)
+	public virtual /*function */bool TdActorReachable(Actor anActor, /*optional */bool? _bTestBotPawns = default, /*optional */float? _minTimeToCollision = default, /*optional */float? _minDistFromLine = default)
 	{
 	
 		return default;
@@ -622,7 +622,7 @@ public partial class TdAIController : AIController,
 		return default;
 	}
 	
-	public virtual /*function */bool IsPredictedEnemyReachable(/*optional */bool bTestBotPawns = default)
+	public virtual /*function */bool IsPredictedEnemyReachable(/*optional */bool? _bTestBotPawns = default)
 	{
 	
 		return default;
@@ -884,10 +884,10 @@ public partial class TdAIController : AIController,
 		return default;
 	}
 	
-	public delegate void Say_del(int VO, /*optional */float probability = default, /*optional */int answer = default, /*optional */float answerprob = default);
+	public delegate void Say_del(int VO, /*optional */float? _probability = default, /*optional */int? _answer = default, /*optional */float? _answerprob = default);
 	public virtual Say_del Say { get => bfield_Say ?? TdAIController_Say; set => bfield_Say = value; } Say_del bfield_Say;
 	public virtual Say_del global_Say => TdAIController_Say;
-	public /*event */void TdAIController_Say(int VO, /*optional */float probability = default, /*optional */int answer = default, /*optional */float answerprob = default)
+	public /*event */void TdAIController_Say(int VO, /*optional */float? _probability = default, /*optional */int? _answer = default, /*optional */float? _answerprob = default)
 	{
 	
 	}
@@ -1146,17 +1146,17 @@ public partial class TdAIController : AIController,
 	
 	}
 	
-	public virtual /*final function */void DebugGotoState(name NewState, /*optional */name Label = default, /*optional */string Reason = default, /*optional */bool bForceEvents = default, /*optional */bool ForceStateChange = default)
+	public virtual /*final function */void DebugGotoState(name NewState, /*optional */name? _Label = default, /*optional */string? _Reason = default, /*optional */bool? _bForceEvents = default, /*optional */bool? _ForceStateChange = default)
 	{
 	
 	}
 	
-	public virtual /*protected final function */void TdGotoState(name NewState, /*optional */name Label = default, /*optional */string Reason = default, /*optional */bool bForceEvents = default, /*optional */bool ForceStateChange = default)
+	public virtual /*protected final function */void TdGotoState(name NewState, /*optional */name? _Label = default, /*optional */string? _Reason = default, /*optional */bool? _bForceEvents = default, /*optional */bool? _ForceStateChange = default)
 	{
 	
 	}
 	
-	public virtual /*protected final function */void TdPushState(name NewState, /*optional */name NewLabel = default, /*optional */string Reason = default, /*optional */bool ForceStateChange = default)
+	public virtual /*protected final function */void TdPushState(name NewState, /*optional */name? _NewLabel = default, /*optional */string? _Reason = default, /*optional */bool? _ForceStateChange = default)
 	{
 	
 	}
@@ -1286,7 +1286,7 @@ public partial class TdAIController : AIController,
 	
 	}
 	
-	public override /*event */void HearNoise(float Loudness, Actor NoiseMaker, /*optional */name NoiseType = default)
+	public override /*event */void HearNoise(float Loudness, Actor NoiseMaker, /*optional */name? _NoiseType = default)
 	{
 	
 	}
@@ -1352,7 +1352,7 @@ public partial class TdAIController : AIController,
 	
 	public override SwitchToBestWeapon_del SwitchToBestWeapon { get => bfield_SwitchToBestWeapon ?? TdAIController_SwitchToBestWeapon; set => bfield_SwitchToBestWeapon = value; } SwitchToBestWeapon_del bfield_SwitchToBestWeapon;
 	public override SwitchToBestWeapon_del global_SwitchToBestWeapon => TdAIController_SwitchToBestWeapon;
-	public /*exec function */void TdAIController_SwitchToBestWeapon(/*optional */bool bForceNewWeapon = default)
+	public /*exec function */void TdAIController_SwitchToBestWeapon(/*optional */bool? _bForceNewWeapon = default)
 	{
 	
 	}
@@ -1422,7 +1422,7 @@ public partial class TdAIController : AIController,
 	}
 	
 	// Export UTdAIController::execIsAIBlockingPath(FFrame&, void* const)
-	public virtual /*native final function */TdBotPawn IsAIBlockingPath(Object.Vector pos, /*optional */float minTimeToCollision = default, /*optional */float minDistFromLine = default)
+	public virtual /*native final function */TdBotPawn IsAIBlockingPath(Object.Vector pos, /*optional */float? _minTimeToCollision = default, /*optional */float? _minDistFromLine = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -1441,14 +1441,14 @@ public partial class TdAIController : AIController,
 	}
 	
 	// Export UTdAIController::execSelectAdvancePoint(FFrame&, void* const)
-	public virtual /*native final function */NavigationPoint SelectAdvancePoint(int NetworkID, /*optional */float MaxDist = default, /*optional */float MinDist = default, /*optional */Class RequiredClass = default, /*optional */bool bTestVisibility = default)
+	public virtual /*native final function */NavigationPoint SelectAdvancePoint(int NetworkID, /*optional */float? _MaxDist = default, /*optional */float? _MinDist = default, /*optional */Class? _RequiredClass = default, /*optional */bool? _bTestVisibility = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdAIController::execGetNavpointClosestToPoint(FFrame&, void* const)
-	public virtual /*native final function */NavigationPoint GetNavpointClosestToPoint(Object.Vector Point, int NetworkID, /*optional */float MaxDist = default, /*optional */float MinDist = default, /*optional */float MaxDistZ = default, /*optional */float MinDistZ = default, /*optional */Class RequiredClass = default)
+	public virtual /*native final function */NavigationPoint GetNavpointClosestToPoint(Object.Vector Point, int NetworkID, /*optional */float? _MaxDist = default, /*optional */float? _MinDist = default, /*optional */float? _MaxDistZ = default, /*optional */float? _MinDistZ = default, /*optional */Class? _RequiredClass = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -2116,7 +2116,7 @@ public partial class TdAIController : AIController,
 	
 	}
 	
-	public virtual /*function */void DropCover(bool ShouldNotify, bool bShouldMarkCoverInvalid, /*optional */bool bRetreatFromCover = default)
+	public virtual /*function */void DropCover(bool ShouldNotify, bool bShouldMarkCoverInvalid, /*optional */bool? _bRetreatFromCover = default)
 	{
 	
 	}
@@ -2129,7 +2129,7 @@ public partial class TdAIController : AIController,
 	
 	}
 	
-	public virtual /*function */void ClaimCover(TdCover NewCover, /*optional */bool CheckCover = default)
+	public virtual /*function */void ClaimCover(TdCover NewCover, /*optional */bool? _CheckCover = default)
 	{
 	
 	}
@@ -2153,7 +2153,7 @@ public partial class TdAIController : AIController,
 		return default;
 	}
 	
-	public virtual /*function */bool FindNewCover(/*optional */float minDot = default)
+	public virtual /*function */bool FindNewCover(/*optional */float? _minDot = default)
 	{
 	
 		return default;
@@ -2202,7 +2202,7 @@ public partial class TdAIController : AIController,
 	
 	}
 	
-	public virtual /*function */void MoveToCover(/*optional */bool IsTeamManouver = default)
+	public virtual /*function */void MoveToCover(/*optional */bool? _IsTeamManouver = default)
 	{
 	
 	}
@@ -2254,19 +2254,19 @@ public partial class TdAIController : AIController,
 		return default;
 	}
 	
-	public virtual /*final function */bool SetMoveLocationEnemy(/*optional */Actor NewMoveFocus = default, /*optional */float OffsetDist = default, /*optional */bool HaltAfterMove = default)
+	public virtual /*final function */bool SetMoveLocationEnemy(/*optional */Actor? _NewMoveFocus = default, /*optional */float? _OffsetDist = default, /*optional */bool? _HaltAfterMove = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final event */bool SetMoveGoal(Actor NewMoveGoal, /*optional */Actor NewMoveFocus = default, /*optional */float OffsetDist = default, /*optional */bool HaltAfterMove = default)
+	public virtual /*final event */bool SetMoveGoal(Actor NewMoveGoal, /*optional */Actor? _NewMoveFocus = default, /*optional */float? _OffsetDist = default, /*optional */bool? _HaltAfterMove = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final event */bool SetMovePoint(Object.Vector NewMovePoint, /*optional */Actor NewMoveFocus = default, /*optional */float OffsetDist = default, /*optional */bool HaltAfterMove = default, /*optional */bool CanMoveDirectly = default)
+	public virtual /*final event */bool SetMovePoint(Object.Vector NewMovePoint, /*optional */Actor? _NewMoveFocus = default, /*optional */float? _OffsetDist = default, /*optional */bool? _HaltAfterMove = default, /*optional */bool? _CanMoveDirectly = default)
 	{
 	
 		return default;

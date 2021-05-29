@@ -14,7 +14,7 @@ public partial class TdLeaderboardReadTotalOnlySPTT : TdOnlineStatsRead{
 		};
 		ColumnMappings = new array<OnlineStatsRead.ColumnMetaData>
 		{
-			new ColumnMetaData()
+			new OnlineStatsRead.ColumnMetaData
 			{
 				Id = 20,
 				Name = (name)"TotalTime",

@@ -129,7 +129,7 @@ public partial class TdCheatManager : CheatManager/* within TdPlayerController*/
 	
 	}
 	
-	public virtual /*exec function */void AIGotoState(name NewState, /*optional */bool onlyFirst = default)
+	public virtual /*exec function */void AIGotoState(name NewState, /*optional */bool? _onlyFirst = default)
 	{
 	
 	}
@@ -169,7 +169,7 @@ public partial class TdCheatManager : CheatManager/* within TdPlayerController*/
 	
 	}
 	
-	public virtual /*exec function */void DebugTrace(/*optional */int Type = default)
+	public virtual /*exec function */void DebugTrace(/*optional */int? _Type = default)
 	{
 	
 	}
@@ -474,17 +474,17 @@ public partial class TdCheatManager : CheatManager/* within TdPlayerController*/
 	
 	}
 	
-	public virtual /*exec function */void Flashbang(/*optional */int dmg = default)
+	public virtual /*exec function */void Flashbang(/*optional */int? _dmg = default)
 	{
 	
 	}
 	
-	public virtual /*exec function */void Taser(/*optional */int dmg = default)
+	public virtual /*exec function */void Taser(/*optional */int? _dmg = default)
 	{
 	
 	}
 	
-	public virtual /*exec function */void Bullet(/*optional */int dmg = default)
+	public virtual /*exec function */void Bullet(/*optional */int? _dmg = default)
 	{
 	
 	}

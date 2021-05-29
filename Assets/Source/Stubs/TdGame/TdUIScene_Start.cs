@@ -91,7 +91,7 @@ public partial class TdUIScene_Start : TdUIScene/*
 	
 	}
 	
-	public virtual /*private final function */void InitSavefileSystem(/*optional */bool bAutoReplaceCorrupt = default)
+	public virtual /*private final function */void InitSavefileSystem(/*optional */bool? _bAutoReplaceCorrupt = default)
 	{
 	
 	}

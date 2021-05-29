@@ -8,12 +8,13 @@ public partial class TdMPPossessionGame : TdMPGame/*
 	public /*transient */TdPossessionLogic PossessionLogic;
 	public /*config */float MinBagSpawnRaduis;
 	
-	public override /*function */PlayerStart ChoosePlayerStart(Controller Player, /*optional */byte InTeam = default)
+	public override /*function */PlayerStart ChoosePlayerStart(Controller Player, /*optional */byte? _InTeam = default)
 	{
 		/*local */PlayerStart BestStart = default;
 		/*local */float BestRating = default, NewRating = default;
 		/*local */int Idx = default;
 	
+		var InTeam = _InTeam ?? default;
 		BestRating = -1.0f;
 		Idx = 0;
 		J0x13:{}
@@ -113,13 +114,13 @@ public partial class TdMPPossessionGame : TdMPGame/*
 	{
 		if(Killer == Other)
 		{
-			BroadcastLocalized(this, DeathMessageClass, 14, default(PlayerReplicationInfo), Other.PlayerReplicationInfo, DamageType);		
+			BroadcastLocalized(this, DeathMessageClass, 14, default, Other.PlayerReplicationInfo, DamageType);		
 		}
 		else
 		{
 			if(Killer == default)
 			{
-				BroadcastLocalized(this, DeathMessageClass, 13, default(PlayerReplicationInfo), Other.PlayerReplicationInfo, DamageType);			
+				BroadcastLocalized(this, DeathMessageClass, 13, default, Other.PlayerReplicationInfo, DamageType);			
 			}
 			else
 			{

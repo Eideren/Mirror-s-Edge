@@ -15,7 +15,7 @@ public partial class TdAI_Dummy : TdAIController/*
 	
 	}
 	
-	public override /*event */void HearNoise(float Loudness, Actor NoiseMaker, /*optional */name NoiseType = default)
+	public override /*event */void HearNoise(float Loudness, Actor NoiseMaker, /*optional */name? _NoiseType = default)
 	{
 	
 	}

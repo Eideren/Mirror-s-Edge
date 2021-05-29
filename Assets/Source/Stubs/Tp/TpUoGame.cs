@@ -159,7 +159,7 @@ public partial class TpUoGame : TpSystemHandler,
 	
 	}
 	
-	public virtual /*simulated function */bool FreeSearchResults(/*optional */OnlineGameSearch Search = default)
+	public virtual /*simulated function */bool FreeSearchResults(/*optional */OnlineGameSearch? _Search = default)
 	{
 	
 		return default;

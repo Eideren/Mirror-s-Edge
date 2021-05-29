@@ -20,7 +20,7 @@ public partial class FileWriter : Info/*
 	public /*const */FileWriter.FWFileType FileType;
 	
 	// Export UFileWriter::execOpenFile(FFrame&, void* const)
-	public virtual /*native final function */bool OpenFile(/*coerce */string InFilename, /*optional */FileWriter.FWFileType InFileType = default, /*optional */string InExtension = default, /*optional */bool bUnique = default, /*optional */bool bIncludeTimeStamp = default)
+	public virtual /*native final function */bool OpenFile(/*coerce */string InFilename, /*optional */FileWriter.FWFileType? _InFileType = default, /*optional */string? _InExtension = default, /*optional */bool? _bUnique = default, /*optional */bool? _bIncludeTimeStamp = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

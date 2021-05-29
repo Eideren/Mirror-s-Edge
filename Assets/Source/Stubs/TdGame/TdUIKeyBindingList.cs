@@ -74,18 +74,18 @@ public partial class TdUIKeyBindingList : TdUIWidgetList/*
 	
 	}
 	
-	public override /*function */bool ScrollVertical(UIScrollbar Sender, float PositionChange, /*optional */bool bPositionMaxed = default)
+	public override /*function */bool ScrollVertical(UIScrollbar Sender, float PositionChange, /*optional */bool? _bPositionMaxed = default)
 	{
 	
 		return default;
 	}
 	
-	public override /*function */void SelectNextItem(/*optional */bool bWrap = default)
+	public override /*function */void SelectNextItem(/*optional */bool? _bWrap = default)
 	{
 	
 	}
 	
-	public override /*function */void SelectPreviousItem(/*optional */bool bWrap = default)
+	public override /*function */void SelectPreviousItem(/*optional */bool? _bWrap = default)
 	{
 	
 	}

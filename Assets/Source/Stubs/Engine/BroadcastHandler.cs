@@ -19,32 +19,32 @@ public partial class BroadcastHandler : Info/*
 		return default;
 	}
 	
-	public virtual /*function */void BroadcastText(PlayerReplicationInfo SenderPRI, PlayerController Receiver, /*coerce */string msg, /*optional */name Type = default)
+	public virtual /*function */void BroadcastText(PlayerReplicationInfo SenderPRI, PlayerController Receiver, /*coerce */string msg, /*optional */name? _Type = default)
 	{
 	
 	}
 	
-	public virtual /*function */void BroadcastLocalized(Actor Sender, PlayerController Receiver, Core.ClassT<LocalMessage> Message, /*optional */int Switch = default, /*optional */PlayerReplicationInfo RelatedPRI_1 = default, /*optional */PlayerReplicationInfo RelatedPRI_2 = default, /*optional */Object OptionalObject = default)
+	public virtual /*function */void BroadcastLocalized(Actor Sender, PlayerController Receiver, Core.ClassT<LocalMessage> Message, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 	}
 	
-	public virtual /*function */void Broadcast(Actor Sender, /*coerce */string msg, /*optional */name Type = default)
+	public virtual /*function */void Broadcast(Actor Sender, /*coerce */string msg, /*optional */name? _Type = default)
 	{
 	
 	}
 	
-	public virtual /*function */void BroadcastTeam(Controller Sender, /*coerce */string msg, /*optional */name Type = default)
+	public virtual /*function */void BroadcastTeam(Controller Sender, /*coerce */string msg, /*optional */name? _Type = default)
 	{
 	
 	}
 	
-	public virtual /*event */void AllowBroadcastLocalized(Actor Sender, Core.ClassT<LocalMessage> Message, /*optional */int Switch = default, /*optional */PlayerReplicationInfo RelatedPRI_1 = default, /*optional */PlayerReplicationInfo RelatedPRI_2 = default, /*optional */Object OptionalObject = default)
+	public virtual /*event */void AllowBroadcastLocalized(Actor Sender, Core.ClassT<LocalMessage> Message, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 	}
 	
-	public virtual /*event */void AllowBroadcastLocalizedTeam(int TeamIndex, Actor Sender, Core.ClassT<LocalMessage> Message, /*optional */int Switch = default, /*optional */PlayerReplicationInfo RelatedPRI_1 = default, /*optional */PlayerReplicationInfo RelatedPRI_2 = default, /*optional */Object OptionalObject = default)
+	public virtual /*event */void AllowBroadcastLocalizedTeam(int TeamIndex, Actor Sender, Core.ClassT<LocalMessage> Message, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 	}

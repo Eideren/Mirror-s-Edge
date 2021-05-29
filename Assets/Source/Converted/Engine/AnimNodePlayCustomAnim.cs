@@ -8,14 +8,14 @@ public partial class AnimNodePlayCustomAnim : AnimNodeBlend/*
 	public float CustomPendingBlendOutTime;
 	
 	// Export UAnimNodePlayCustomAnim::execPlayCustomAnim(FFrame&, void* const)
-	public virtual /*native final function */float PlayCustomAnim(name AnimName, float Rate, /*optional */float BlendInTime = default, /*optional */float BlendOutTime = default, /*optional */bool bLooping = default, /*optional */bool bOverride = default)
+	public virtual /*native final function */float PlayCustomAnim(name AnimName, float Rate, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bLooping = default, /*optional */bool? _bOverride = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UAnimNodePlayCustomAnim::execPlayCustomAnimByDuration(FFrame&, void* const)
-	public virtual /*native final function */void PlayCustomAnimByDuration(name AnimName, float Duration, /*optional */float BlendInTime = default, /*optional */float BlendOutTime = default, /*optional */bool bLooping = default, /*optional */bool bOverride = default)
+	public virtual /*native final function */void PlayCustomAnimByDuration(name AnimName, float Duration, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bLooping = default, /*optional */bool? _bOverride = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -53,13 +53,13 @@ public partial class AnimNodePlayCustomAnim : AnimNodeBlend/*
 		return ((Children[1].Anim) as AnimNodeSequence);
 	}
 	
-	public virtual /*final function */void SetRootBoneAxisOption(/*optional */AnimNodeSequence.ERootBoneAxis AxisX = default, /*optional */AnimNodeSequence.ERootBoneAxis AxisY = default, /*optional */AnimNodeSequence.ERootBoneAxis AxisZ = default)
+	public virtual /*final function */void SetRootBoneAxisOption(/*optional */AnimNodeSequence.ERootBoneAxis? _AxisX = default, /*optional */AnimNodeSequence.ERootBoneAxis? _AxisY = default, /*optional */AnimNodeSequence.ERootBoneAxis? _AxisZ = default)
 	{
 		/*local */AnimNodeSequence AnimSeq = default;
 	
-		AxisX = 0;
-		AxisY = 0;
-		AxisZ = 0;
+		var AxisX = _AxisX ?? 0;
+		var AxisY = _AxisY ?? 0;
+		var AxisZ = _AxisZ ?? 0;
 		AnimSeq = GetCustomAnimNodeSeq();
 		if(AnimSeq != default)
 		{

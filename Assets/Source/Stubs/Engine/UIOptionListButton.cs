@@ -7,7 +7,7 @@ public partial class UIOptionListButton : UIButton/* within UIOptionListBase*//*
 	public new UIOptionListBase Outer => base.Outer as UIOptionListBase;
 	
 	// Export UUIOptionListButton::execUpdateButtonState(FFrame&, void* const)
-	public virtual /*native final function */void UpdateButtonState(/*optional */int PlayerIndex = default)
+	public virtual /*native final function */void UpdateButtonState(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

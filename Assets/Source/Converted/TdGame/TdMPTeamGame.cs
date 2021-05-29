@@ -50,7 +50,7 @@ public partial class TdMPTeamGame : TdMPGame/*
 		J0x07:{}
 		if(Index < NumTeams)
 		{
-			Teams[Index] = Spawn(TeamData[Index].TeamClass, this, default(name), default(Object.Vector), default(Object.Rotator), default(Actor), default(bool));
+			Teams[Index] = Spawn(TeamData[Index].TeamClass, this, default, default, default, default, default);
 			Teams[Index].TeamIndex = Index;
 			Teams[Index].MaxTeamMembers = TeamData[Index].MaxMembers;
 			GameReplicationInfo.SetTeam(Index, Teams[Index]);
@@ -135,7 +135,7 @@ public partial class TdMPTeamGame : TdMPGame/*
 		{
 			if(bNewTeam && ((Other) as PlayerController) != default)
 			{
-				Broadcast(Other, (((Other.Name)).ToString() + " " + "Changed Team to ") + " " + NewTeam.GetHumanReadableName(), default(name));
+				Broadcast(Other, (((Other.Name)).ToString() + " " + "Changed Team to ") + " " + NewTeam.GetHumanReadableName(), default);
 			}		
 		}
 	}

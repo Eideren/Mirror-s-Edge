@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_TdFallOnBack : SequenceAction/*
 		hidecategories(Object)*/{
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
 	
 		return default;

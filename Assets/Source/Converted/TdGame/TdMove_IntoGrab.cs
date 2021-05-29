@@ -26,13 +26,13 @@ public partial class TdMove_IntoGrab : TdPhysicsMove/*
 	
 	public override /*simulated event */void FailedToReachPreciseLocation()
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 	}
 	
 	public override /*simulated function */int HandleDeath(int Damage)
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default(float));
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default);
 		return base.HandleDeath(Damage);
 	}
 	
@@ -54,11 +54,11 @@ public partial class TdMove_IntoGrab : TdPhysicsMove/*
 			GrabMove.PreviousGrabType = ((TdMove_Grab.EGrabType)GrabMove.GetGrabType());
 			if(PawnOwner.GrabAnimNode1p != default)
 			{
-				PawnOwner.GrabAnimNode1p.SetActiveMove(((((int)GrabMove.GetGrabType()) == ((int)TdMove_Grab.EGrabType.GT_LegsOnWall/*0*/)) ? 0 : 1), default(bool));
+				PawnOwner.GrabAnimNode1p.SetActiveMove(((((int)GrabMove.GetGrabType()) == ((int)TdMove_Grab.EGrabType.GT_LegsOnWall/*0*/)) ? 0 : 1), default);
 			}
 			if(PawnOwner.GrabAnimNode3p != default)
 			{
-				PawnOwner.GrabAnimNode3p.SetActiveMove(((((int)GrabMove.GetGrabType()) == ((int)TdMove_Grab.EGrabType.GT_LegsOnWall/*0*/)) ? 0 : 1), default(bool));
+				PawnOwner.GrabAnimNode3p.SetActiveMove(((((int)GrabMove.GetGrabType()) == ((int)TdMove_Grab.EGrabType.GT_LegsOnWall/*0*/)) ? 0 : 1), default);
 			}
 			if(((int)GrabMove.CurrentFoldedType) == ((int)TdMove_Grab.EGrabFoldedType.GFT_Start/*1*/))
 			{			
@@ -68,13 +68,13 @@ public partial class TdMove_IntoGrab : TdPhysicsMove/*
 				if((((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_WallClimbing/*6*/)) && ((PawnOwner.Moves[6]) as TdMove_WallClimb).bPerformedDoubleJump)
 				{
 					GrabMove.SetGrabFromVerticalWallrun(true);
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "hanghardstartvertical", 1.0f, 0.20f, ((bSlopedLedge) ? 0.80f : 0.20f), default(bool), default(bool));				
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "hanghardstartvertical", 1.0f, 0.20f, ((bSlopedLedge) ? 0.80f : 0.20f), default, default);				
 				}
 				else
 				{
 					if(GrabMove.IsHangingFree())
 					{
-						PlayMoveAnim(((TdPawn.CustomNodeType)((bSlopedLedge) ? 6 : 2)), "HangFreeHardStart", 1.0f, 0.10f, 0.20f, default(bool), default(bool));
+						PlayMoveAnim(((TdPawn.CustomNodeType)((bSlopedLedge) ? 6 : 2)), "HangFreeHardStart", 1.0f, 0.10f, 0.20f, default, default);
 						GrabMove.StartLookingAtLedgeTime = 0.50f;
 						GrabMove.StopLookingAtLedgeTime = 1.0f;					
 					}
@@ -84,22 +84,22 @@ public partial class TdMove_IntoGrab : TdPhysicsMove/*
 						{
 							if(IntoGrabSpeed < HangHardImpactMinZSpeed)
 							{
-								PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "HangHardStart3", 1.0f, 0.10f, ((bSlopedLedge) ? 0.80f : 0.20f), default(bool), default(bool));
-								PlayMoveAnim(TdPawn.CustomNodeType.CNT_Camera/*6*/, "gethitfront", 1.0f, 0.050f, ((bSlopedLedge) ? 0.80f : 0.20f), default(bool), default(bool));
+								PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "HangHardStart3", 1.0f, 0.10f, ((bSlopedLedge) ? 0.80f : 0.20f), default, default);
+								PlayMoveAnim(TdPawn.CustomNodeType.CNT_Camera/*6*/, "gethitfront", 1.0f, 0.050f, ((bSlopedLedge) ? 0.80f : 0.20f), default, default);
 								GrabMove.StartLookingAtLedgeTime = 1.60f;
 								GrabMove.StopLookingAtLedgeTime = 2.0f;
 								GrabMove.bGrabFromHighZSpeed = true;							
 							}
 							else
 							{
-								PlayMoveAnim(((TdPawn.CustomNodeType)((bSlopedLedge) ? 6 : 2)), "HangHardStart2", 1.0f, 0.10f, 0.20f, default(bool), default(bool));
+								PlayMoveAnim(((TdPawn.CustomNodeType)((bSlopedLedge) ? 6 : 2)), "HangHardStart2", 1.0f, 0.10f, 0.20f, default, default);
 								GrabMove.StartLookingAtLedgeTime = 0.80f;
 								GrabMove.StopLookingAtLedgeTime = 1.20f;
 							}						
 						}
 						else
 						{
-							PlayMoveAnim(((TdPawn.CustomNodeType)((bSlopedLedge) ? 6 : 2)), "HangHardStart", 1.0f, 0.10f, 0.20f, default(bool), default(bool));
+							PlayMoveAnim(((TdPawn.CustomNodeType)((bSlopedLedge) ? 6 : 2)), "HangHardStart", 1.0f, 0.10f, 0.20f, default, default);
 							GrabMove.StartLookingAtLedgeTime = 0.50f;
 							GrabMove.StopLookingAtLedgeTime = 1.0f;
 						}
@@ -107,11 +107,11 @@ public partial class TdMove_IntoGrab : TdPhysicsMove/*
 				}
 			}
 			GrabMove.ResetCameraLook(0.150f);
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Grabbing/*3*/, default(bool), default(bool));		
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Grabbing/*3*/, default, default);		
 		}
 		else
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool), default(bool));
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
 		}
 	}
 	
@@ -246,7 +246,7 @@ public partial class TdMove_IntoGrab : TdPhysicsMove/*
 			return;
 		}
 		((PawnOwner.Moves[3]) as TdMove_Grab).EnableFoldedHang();
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Grabbing/*3*/, default(float));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Grabbing/*3*/, default);
 		PawnOwner.Velocity.Z = ((float)(Clamp(((int)(PawnOwner.Velocity.Z)), ((int)(HangFoldedDownwardSpeedLimit)), ((int)(HangFoldedIntoGrabZSpeedThreshold)))));
 	}
 	

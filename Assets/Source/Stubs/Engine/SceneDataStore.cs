@@ -11,7 +11,7 @@ public partial class SceneDataStore : UIDataStore,
 	public /*const transient */UIScene OwnerScene;
 	public /*protected */UIDynamicFieldProvider SceneDataProvider;
 	
-	public virtual /*final function */bool AddField(name FieldName, /*optional */UIRoot.EUIDataProviderFieldType FieldType/* = default*/, /*optional */bool bPersistent/* = default*/, /*optional */ref int out_InsertPosition/* = default*/)
+	public virtual /*final function */bool AddField(name FieldName, /*optional */UIRoot.EUIDataProviderFieldType? _FieldType/* = default*/, /*optional */bool? _bPersistent/* = default*/, /*optional */ref int out_InsertPosition/* = default*/)
 	{
 	
 		return default;
@@ -23,73 +23,73 @@ public partial class SceneDataStore : UIDataStore,
 		return default;
 	}
 	
-	public virtual /*final function */int FindFieldIndex(name FieldName, /*optional */bool bSearchPersistentFields = default)
+	public virtual /*final function */int FindFieldIndex(name FieldName, /*optional */bool? _bSearchPersistentFields = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */bool ClearFields(/*optional */bool bReinitializeRuntimeFields = default)
+	public virtual /*final function */bool ClearFields(/*optional */bool? _bReinitializeRuntimeFields = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */bool GetCollectionValueArray(name FieldName, ref array<string> out_DataValueArray, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*final function */bool GetCollectionValueArray(name FieldName, ref array<string> out_DataValueArray, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */bool SetCollectionValueArray(name FieldName, /*const */ref array<string> CollectionValues, /*optional */bool bClearExisting = default, /*optional */int InsertIndex = default, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*final function */bool SetCollectionValueArray(name FieldName, /*const */ref array<string> CollectionValues, /*optional */bool? _bClearExisting = default, /*optional */int? _InsertIndex = default, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */bool InsertCollectionValue(name FieldName, /*const */ref string NewValue, /*optional */int InsertIndex = default, /*optional */bool bPersistent = default, /*optional */bool bAllowDuplicateValues = default, /*optional */name CellTag = default)
+	public virtual /*final function */bool InsertCollectionValue(name FieldName, /*const */ref string NewValue, /*optional */int? _InsertIndex = default, /*optional */bool? _bPersistent = default, /*optional */bool? _bAllowDuplicateValues = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */bool RemoveCollectionValue(name FieldName, /*const */ref string ValueToRemove, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*final function */bool RemoveCollectionValue(name FieldName, /*const */ref string ValueToRemove, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */bool RemoveCollectionValueByIndex(name FieldName, int ValueIndex, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*final function */bool RemoveCollectionValueByIndex(name FieldName, int ValueIndex, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */bool ReplaceCollectionValue(name FieldName, /*const */ref string CurrentValue, /*const */ref string NewValue, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*final function */bool ReplaceCollectionValue(name FieldName, /*const */ref string CurrentValue, /*const */ref string NewValue, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */bool ReplaceCollectionValueByIndex(name FieldName, int ValueIndex, /*const */ref string NewValue, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*final function */bool ReplaceCollectionValueByIndex(name FieldName, int ValueIndex, /*const */ref string NewValue, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */bool ClearCollectionValueArray(name FieldName, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*final function */bool ClearCollectionValueArray(name FieldName, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */bool GetCollectionValue(name FieldName, int ValueIndex, ref string out_Value, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*final function */bool GetCollectionValue(name FieldName, int ValueIndex, ref string out_Value, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */int FindCollectionValueIndex(name FieldName, /*const */ref string ValueToFind, /*optional */bool bPersistent = default, /*optional */name CellTag = default)
+	public virtual /*final function */int FindCollectionValueIndex(name FieldName, /*const */ref string ValueToFind, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;

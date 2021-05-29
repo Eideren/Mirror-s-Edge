@@ -138,7 +138,7 @@ public partial class Weapon : Inventory/*
 		return default;
 	}
 	
-	public virtual /*simulated function */bool HasAmmo(byte FireModeNum, /*optional */int Amount = default)
+	public virtual /*simulated function */bool HasAmmo(byte FireModeNum, /*optional */int? _Amount = default)
 	{
 	
 		return default;
@@ -190,7 +190,7 @@ public partial class Weapon : Inventory/*
 		return default;
 	}
 	
-	public override /*function */void GivenTo(Pawn thisPawn, /*optional */bool bDoNotActivate = default)
+	public override /*function */void GivenTo(Pawn thisPawn, /*optional */bool? _bDoNotActivate = default)
 	{
 	
 	}
@@ -261,12 +261,12 @@ public partial class Weapon : Inventory/*
 		return default;
 	}
 	
-	public virtual /*simulated function */void WeaponPlaySound(SoundCue Sound, /*optional */float NoiseLoudness = default)
+	public virtual /*simulated function */void WeaponPlaySound(SoundCue Sound, /*optional */float? _NoiseLoudness = default)
 	{
 	
 	}
 	
-	public virtual /*simulated function */void PlayWeaponAnimation(name Sequence, float fDesiredDuration, /*optional */bool bLoop = default, /*optional */SkeletalMeshComponent SkelMesh = default)
+	public virtual /*simulated function */void PlayWeaponAnimation(name Sequence, float fDesiredDuration, /*optional */bool? _bLoop = default, /*optional */SkeletalMeshComponent? _SkelMesh = default)
 	{
 	
 	}
@@ -276,7 +276,7 @@ public partial class Weapon : Inventory/*
 	
 	}
 	
-	public virtual /*simulated function */void PlayFireEffects(byte FireModeNum, /*optional */Object.Vector HitLocation = default)
+	public virtual /*simulated function */void PlayFireEffects(byte FireModeNum, /*optional */Object.Vector? _HitLocation = default)
 	{
 	
 	}
@@ -367,7 +367,7 @@ public partial class Weapon : Inventory/*
 	
 	}
 	
-	public virtual /*simulated function */void AttachWeaponTo(SkeletalMeshComponent MeshCpnt, /*optional */name SocketName = default)
+	public virtual /*simulated function */void AttachWeaponTo(SkeletalMeshComponent MeshCpnt, /*optional */name? _SocketName = default)
 	{
 	
 	}
@@ -489,7 +489,7 @@ public partial class Weapon : Inventory/*
 		return default;
 	}
 	
-	public virtual /*simulated function */bool PassThroughDamage(Actor HitActor, /*optional */Actor.TraceHitInfo HitInfo = default)
+	public virtual /*simulated function */bool PassThroughDamage(Actor HitActor, /*optional */Actor.TraceHitInfo? _HitInfo = default)
 	{
 	
 		return default;
@@ -522,7 +522,7 @@ public partial class Weapon : Inventory/*
 		return default;
 	}
 	
-	public virtual /*simulated function */Object.Vector GetPhysicalFireStartLoc(/*optional */Object.Vector AimDir = default)
+	public virtual /*simulated function */Object.Vector GetPhysicalFireStartLoc(/*optional */Object.Vector? _AimDir = default)
 	{
 	
 		return default;

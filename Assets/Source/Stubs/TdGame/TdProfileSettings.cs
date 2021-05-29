@@ -494,25 +494,25 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 		return default;
 	}
 	
-	public virtual /*function */bool IsAllLevelsUnlocked(/*optional */bool bHardDifficulty = default)
+	public virtual /*function */bool IsAllLevelsUnlocked(/*optional */bool? _bHardDifficulty = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool IsLevelUnlocked(int LevelIndex, /*optional */bool bHardDifficulty = default)
+	public virtual /*function */bool IsLevelUnlocked(int LevelIndex, /*optional */bool? _bHardDifficulty = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool UnlockLevel(int LevelIndex, /*optional */bool bHardDifficulty = default)
+	public virtual /*function */bool UnlockLevel(int LevelIndex, /*optional */bool? _bHardDifficulty = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool LockLevel(int LevelIndex, /*optional */bool bHardDifficulty = default)
+	public virtual /*function */bool LockLevel(int LevelIndex, /*optional */bool? _bHardDifficulty = default)
 	{
 	
 		return default;
@@ -658,7 +658,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	}
 	
 	// Export UTdProfileSettings::execResetKeysToDefault(FFrame&, void* const)
-	public /*native function */static void ResetKeysToDefault(/*optional */LocalPlayer InPlayerOwner = default)
+	public /*native function */static void ResetKeysToDefault(/*optional */LocalPlayer? _InPlayerOwner = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -674,7 +674,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	
 	}
 	
-	public virtual /*function */void StoreKeys(/*optional */PlayerInput PInput = default)
+	public virtual /*function */void StoreKeys(/*optional */PlayerInput? _PInput = default)
 	{
 	
 	}
@@ -738,7 +738,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	
 	}
 	
-	public virtual /*function */void ApplyGamepadBindings(PlayerInput PInput, /*optional */array<Input.KeyBind> PresetMappings = default)
+	public virtual /*function */void ApplyGamepadBindings(PlayerInput PInput, /*optional */array<Input.KeyBind>? _PresetMappings = default)
 	{
 	
 	}

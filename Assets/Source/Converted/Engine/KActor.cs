@@ -63,7 +63,7 @@ public partial class KActor : DynamicSMActor/*
 		base.PostBeginPlay();
 		if(bWakeOnLevelStart)
 		{
-			StaticMeshComponent.WakeRigidBody(default(name));
+			StaticMeshComponent.WakeRigidBody(default);
 		}
 		DrawScaleX = DrawScale3D.X;
 		DrawScaleY = DrawScale3D.Y;
@@ -131,7 +131,7 @@ public partial class KActor : DynamicSMActor/*
 		{
 			if(bWakeOnLevelStart)
 			{
-				StaticMeshComponent.WakeRigidBody(default(name));
+				StaticMeshComponent.WakeRigidBody(default);
 			}		
 		}
 		else
@@ -150,28 +150,31 @@ public partial class KActor : DynamicSMActor/*
 		}
 	}
 	
-	public virtual /*function */void ApplyImpulse(Object.Vector ImpulseDir, float ImpulseMag, Object.Vector HitLocation, /*optional */Actor.TraceHitInfo HitInfo = default)
+	public virtual /*function */void ApplyImpulse(Object.Vector ImpulseDir, float ImpulseMag, Object.Vector HitLocation, /*optional */Actor.TraceHitInfo? _HitInfo = default)
 	{
 		/*local */Object.Vector ApplyImpulse = default;
 	
+		var HitInfo = _HitInfo ?? default;
 		ImpulseDir = Normal(ImpulseDir);
 		ApplyImpulse = ImpulseDir * ImpulseMag;
 		if(HitInfo.HitComponent != default)
 		{
-			HitInfo.HitComponent.AddImpulse(ApplyImpulse, HitLocation, HitInfo.BoneName, default(bool));		
+			HitInfo.HitComponent.AddImpulse(ApplyImpulse, HitLocation, HitInfo.BoneName, default);		
 		}
 		else
 		{
-			CollisionComponent.AddImpulse(ApplyImpulse, HitLocation, default(name), default(bool));
+			CollisionComponent.AddImpulse(ApplyImpulse, HitLocation, default, default);
 		}
 	}
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? KActor_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => KActor_TakeDamage;
-	public /*event */void KActor_TakeDamage(int Damage, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo HitInfo = default, /*optional */Actor DamageCauser = default)
+	public /*event */void KActor_TakeDamage(int Damage, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
 		/*local */Object.Vector ApplyImpulse = default;
 	
+		var HitInfo = _HitInfo ?? default;
+		var DamageCauser = _DamageCauser ?? default;
 		/*Transformed 'base.' to specific call*/Actor_TakeDamage(Damage, EventInstigator, HitLocation, Momentum, DamageType, HitInfo, DamageCauser);
 		if(bDamageAppliesImpulse && DamageType.DefaultAs<DamageType>().KDamageImpulse > ((float)(0)))
 		{
@@ -182,11 +185,11 @@ public partial class KActor : DynamicSMActor/*
 			ApplyImpulse = Normal(Momentum) * DamageType.DefaultAs<DamageType>().KDamageImpulse;
 			if(HitInfo.HitComponent != default)
 			{
-				HitInfo.HitComponent.AddImpulse(ApplyImpulse, HitLocation, HitInfo.BoneName, default(bool));			
+				HitInfo.HitComponent.AddImpulse(ApplyImpulse, HitLocation, HitInfo.BoneName, default);			
 			}
 			else
 			{
-				CollisionComponent.AddImpulse(ApplyImpulse, HitLocation, default(name), default(bool));
+				CollisionComponent.AddImpulse(ApplyImpulse, HitLocation, default, default);
 			}
 		}
 	}
@@ -218,7 +221,7 @@ public partial class KActor : DynamicSMActor/*
 	{
 		if(Action.InputLinks[0].bHasImpulse)
 		{
-			StaticMeshComponent.WakeRigidBody(default(name));
+			StaticMeshComponent.WakeRigidBody(default);
 		}
 	}
 	
@@ -239,8 +242,8 @@ public partial class KActor : DynamicSMActor/*
 		}
 		if(destActor != default)
 		{
-			StaticMeshComponent.SetRBPosition(destActor.Location, default(name));
-			StaticMeshComponent.SetRBRotation(destActor.Rotation, default(name));
+			StaticMeshComponent.SetRBPosition(destActor.Location, default);
+			StaticMeshComponent.SetRBRotation(destActor.Rotation, default);
 			PlayTeleportEffect(false, true);
 		}
 	}
@@ -249,17 +252,17 @@ public partial class KActor : DynamicSMActor/*
 	public override Reset_del global_Reset => KActor_Reset;
 	public /*simulated function */void KActor_Reset()
 	{
-		StaticMeshComponent.SetRBLinearVelocity(vect(0.0f, 0.0f, 0.0f), default(bool));
-		StaticMeshComponent.SetRBAngularVelocity(vect(0.0f, 0.0f, 0.0f), default(bool));
-		StaticMeshComponent.SetRBPosition(InitialLocation, default(name));
-		StaticMeshComponent.SetRBRotation(InitialRotation, default(name));
+		StaticMeshComponent.SetRBLinearVelocity(vect(0.0f, 0.0f, 0.0f), default);
+		StaticMeshComponent.SetRBAngularVelocity(vect(0.0f, 0.0f, 0.0f), default);
+		StaticMeshComponent.SetRBPosition(InitialLocation, default);
+		StaticMeshComponent.SetRBRotation(InitialRotation, default);
 		if(!bWakeOnLevelStart)
 		{
-			StaticMeshComponent.PutRigidBodyToSleep(default(name));		
+			StaticMeshComponent.PutRigidBodyToSleep(default);		
 		}
 		else
 		{
-			StaticMeshComponent.WakeRigidBody(default(name));
+			StaticMeshComponent.WakeRigidBody(default);
 		}
 		ResolveRBState();
 		bForceNetUpdate = true;

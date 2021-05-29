@@ -31,14 +31,14 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	}
 	
 	// Export UTpAssociationManager::execGetMyFriendsListEx(FFrame&, void* const)
-	public virtual /*native simulated function */bool GetMyFriendsListEx(byte LocalUserNum, ref array<OnlineSubsystem.OnlineFriend> Friends, /*optional */int Count = default, /*optional */int StartingAt = default)
+	public virtual /*native simulated function */bool GetMyFriendsListEx(byte LocalUserNum, ref array<OnlineSubsystem.OnlineFriend> Friends, /*optional */int? _Count = default, /*optional */int? _StartingAt = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTpAssociationManager::execGetPlayersList(FFrame&, void* const)
-	public virtual /*native simulated function */bool GetPlayersList(ref array<OnlineSubsystem.OnlinePlayer> Players, /*optional */int Count = default, /*optional */int StartingAt = default)
+	public virtual /*native simulated function */bool GetPlayersList(ref array<OnlineSubsystem.OnlinePlayer> Players, /*optional */int? _Count = default, /*optional */int? _StartingAt = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

@@ -11,7 +11,7 @@ public partial class TdStashpointManager : Actor/*
 	
 	}
 	
-	public virtual /*function */array<TdStashpoint> GetStashpoints(/*optional */int TeamIndex = default, /*optional */int StashPointID = default)
+	public virtual /*function */array<TdStashpoint> GetStashpoints(/*optional */int? _TeamIndex = default, /*optional */int? _StashPointID = default)
 	{
 	
 		return default;

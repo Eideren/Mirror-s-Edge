@@ -5,10 +5,10 @@ public interface UIEventContainer : Interface/*
 		abstract
 		native*/{
 	// Export UUIEventContainer::execGetUIEvents(FFrame&, void* const)
-	public /*native final function */void GetUIEvents(ref array<UIEvent> out_Events, /*optional */Core.ClassT<UIEvent> LimitClass = default);
+	public /*native final function */void GetUIEvents(ref array<UIEvent> out_Events, /*optional */Core.ClassT<UIEvent>? _LimitClass = default);
 	
 	// Export UUIEventContainer::execAddSequenceObject(FFrame&, void* const)
-	public /*native final function */bool AddSequenceObject(SequenceObject NewObj, /*optional */bool bRecurse = default);
+	public /*native final function */bool AddSequenceObject(SequenceObject NewObj, /*optional */bool? _bRecurse = default);
 	
 	// Export UUIEventContainer::execRemoveSequenceObject(FFrame&, void* const)
 	public /*native final function */void RemoveSequenceObject(SequenceObject ObjectToRemove);

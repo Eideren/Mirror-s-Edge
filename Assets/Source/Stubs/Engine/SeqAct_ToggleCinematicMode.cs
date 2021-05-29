@@ -10,7 +10,7 @@ public partial class SeqAct_ToggleCinematicMode : SequenceAction/*
 	public/*()*/ bool bHideHUD;
 	public/*()*/ bool bSwitchSoundMode;
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
 	
 		return default;

@@ -10,7 +10,7 @@ public partial class TdUIObject : UIObject/*
 	public array<TdUIObject> TickStack;
 	
 	// Export UTdUIObject::execGetTdPlayerController(FFrame&, void* const)
-	public virtual /*native function */TdPlayerController GetTdPlayerController(/*optional */int Index = default)
+	public virtual /*native function */TdPlayerController GetTdPlayerController(/*optional */int? _Index = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -57,7 +57,7 @@ public partial class TdUIObject : UIObject/*
 	
 	}
 	
-	public override /*event */void RemovedChild(UIScreenObject WidgetOwner, UIObject OldChild, /*optional */array<UIObject> ExclusionSet = default)
+	public override /*event */void RemovedChild(UIScreenObject WidgetOwner, UIObject OldChild, /*optional */array<UIObject>? _ExclusionSet = default)
 	{
 	
 	}

@@ -5,7 +5,7 @@ public interface OnlineAccountInterface : Interface/*
 		abstract*/{
 	public /*delegate*/OnlineAccountInterface.OnCreateOnlineAccountCompleted __OnCreateOnlineAccountCompleted__Delegate{ get; }
 	
-	public /*function */bool CreateOnlineAccount(string UserName, string Password, string EmailAddress, /*optional */string ProductKey = default);
+	public /*function */bool CreateOnlineAccount(string UserName, string Password, string EmailAddress, /*optional */string? _ProductKey = default);
 	
 	public delegate void OnCreateOnlineAccountCompleted(OnlineSubsystem.EOnlineAccountCreateStatus ErrorStatus);
 	
@@ -13,11 +13,11 @@ public interface OnlineAccountInterface : Interface/*
 	
 	public /*function */void ClearCreateOnlineAccountCompletedDelegate(/*delegate*/OnlineAccountInterface.OnCreateOnlineAccountCompleted AccountCreateDelegate);
 	
-	public /*function */bool CreateLocalAccount(string UserName, /*optional */string Password = default);
+	public /*function */bool CreateLocalAccount(string UserName, /*optional */string? _Password = default);
 	
-	public /*function */bool RenameLocalAccount(string NewUserName, string OldUserName, /*optional */string Password = default);
+	public /*function */bool RenameLocalAccount(string NewUserName, string OldUserName, /*optional */string? _Password = default);
 	
-	public /*function */bool DeleteLocalAccount(string UserName, /*optional */string Password = default);
+	public /*function */bool DeleteLocalAccount(string UserName, /*optional */string? _Password = default);
 	
 	public /*function */bool GetLocalAccountNames(ref array<string> Accounts);
 	

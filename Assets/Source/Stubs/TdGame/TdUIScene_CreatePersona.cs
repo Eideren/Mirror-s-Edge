@@ -79,7 +79,7 @@ public partial class TdUIScene_CreatePersona : TdUIScene_SubMenu/*
 	
 	}
 	
-	public virtual /*function */void PersonasList_OnSubmitSelection(UIList Sender, /*optional */int PlayerIndex = default)
+	public virtual /*function */void PersonasList_OnSubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
 	
 	}

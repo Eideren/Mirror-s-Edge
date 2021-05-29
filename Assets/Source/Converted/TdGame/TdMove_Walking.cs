@@ -63,7 +63,7 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		}
 		if((PawnOwner.IsA("TdPlayerPawn") && ((int)PawnOwner.GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)) && ((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_Landing/*20*/))
 		{
-			PawnOwner.PlayCustomAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, "JumpLand", 1.0f, 0.20f, 0.10f, false, true, false, default(bool));
+			PawnOwner.PlayCustomAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, "JumpLand", 1.0f, 0.20f, 0.10f, false, true, false, default);
 			SetMoveTimer(0.20f, false, "OnBlendOutJumpLandTimer");
 		}
 	}
@@ -73,10 +73,10 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		/*local */TdAnimNodeSequence AnimSeq1p = default;
 	
 		base.StopMove();
-		PawnOwner.SetHipsOffset(vect(0.0f, 0.0f, 0.0f), default(float), default(bool));
+		PawnOwner.SetHipsOffset(vect(0.0f, 0.0f, 0.0f), default, default);
 		if(bIsPlayingIdleAnim)
 		{
-			StopIdle(default(float));
+			StopIdle(default);
 		}
 		if(((((int)PawnOwner.GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)) && PawnOwner.CustomWeaponNode1p != default) && ((int)PawnOwner.PendingMovementState) != ((int)TdPawn.EMovement.MOVE_Slide/*16*/))
 		{
@@ -102,7 +102,7 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		{
 			HipsOffset.X = 0.0f;
 		}
-		PawnOwner.SetHipsOffset(HipsOffset, default(float), default(bool));
+		PawnOwner.SetHipsOffset(HipsOffset, default, default);
 		base.UpdateViewRotation(ref/*probably?*/ out_Rotation, DeltaTime, ref/*probably?*/ DeltaRot);
 		TdPC = ((PawnOwner.Controller) as TdPlayerController);
 		if(TdPC != default)
@@ -114,7 +114,7 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		{
 			if(bIsPlayingIdleAnim)
 			{
-				StopIdle(default(float));
+				StopIdle(default);
 			}
 			SetMoveTimer(GetNewIdleTriggerTime(), false, "OnIdleTimer");
 		}
@@ -127,7 +127,7 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		{
 			if(bIsPlayingIdleAnim)
 			{
-				StopIdle(default(float));
+				StopIdle(default);
 			}
 			SetMoveTimer(GetNewIdleTriggerTime(), false, "OnIdleTimer");
 		}
@@ -209,7 +209,7 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		}
 		if(CurrentIdleAnim.AnimName != "None")
 		{
-			PlayMoveAnim(((TdPawn.CustomNodeType)CurrentIdleAnim.NodeType), CurrentIdleAnim.AnimName, 1.0f, 0.40f, 0.40f, default(bool), default(bool));
+			PlayMoveAnim(((TdPawn.CustomNodeType)CurrentIdleAnim.NodeType), CurrentIdleAnim.AnimName, 1.0f, 0.40f, 0.40f, default, default);
 			bIsPlayingIdleAnim = true;		
 		}
 		else
@@ -224,9 +224,9 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		return bIsPlayingIdleAnim;
 	}
 	
-	public virtual /*simulated function */void StopIdle(/*optional */float BlendOutTime = default)
+	public virtual /*simulated function */void StopIdle(/*optional */float? _BlendOutTime = default)
 	{
-		BlendOutTime = 0.40f;
+		var BlendOutTime = _BlendOutTime ?? 0.40f;
 		PawnOwner.StopCustomAnim(((TdPawn.CustomNodeType)CurrentIdleAnim.NodeType), BlendOutTime);
 		if(CurrentIdleAnim.bResetCameraLook)
 		{

@@ -7,7 +7,7 @@ public partial class SeqAct_Timer : SequenceAction/*
 	public /*transient */float ActivationTime;
 	public/*()*/ float Time;
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
 	
 		return default;

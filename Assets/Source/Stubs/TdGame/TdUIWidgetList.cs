@@ -89,7 +89,7 @@ public partial class TdUIWidgetList : TdUIDrawPanel,
 	
 	}
 	
-	public virtual /*function */bool ScrollVertical(UIScrollbar Sender, float PositionChange, /*optional */bool bPositionMaxed = default)
+	public virtual /*function */bool ScrollVertical(UIScrollbar Sender, float PositionChange, /*optional */bool? _bPositionMaxed = default)
 	{
 	
 		return default;
@@ -113,7 +113,7 @@ public partial class TdUIWidgetList : TdUIDrawPanel,
 	
 	}
 	
-	public virtual /*function */void OnOption_NotifyActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState PreviouslyActiveState = default)
+	public virtual /*function */void OnOption_NotifyActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
 	{
 	
 	}
@@ -128,12 +128,12 @@ public partial class TdUIWidgetList : TdUIDrawPanel,
 	
 	}
 	
-	public virtual /*function */void SelectNextItem(/*optional */bool bWrap = default)
+	public virtual /*function */void SelectNextItem(/*optional */bool? _bWrap = default)
 	{
 	
 	}
 	
-	public virtual /*function */void SelectPreviousItem(/*optional */bool bWrap = default)
+	public virtual /*function */void SelectPreviousItem(/*optional */bool? _bWrap = default)
 	{
 	
 	}
@@ -150,20 +150,20 @@ public partial class TdUIWidgetList : TdUIDrawPanel,
 	}
 	
 	// Export UTdUIWidgetList::execSetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int BindingIndex = default)
+	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UTdUIWidgetList::execGetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */string GetDataStoreBinding(/*optional */int BindingIndex = default)
+	public virtual /*native final function */string GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdUIWidgetList::execRefreshSubscriberValue(FFrame&, void* const)
-	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int BindingIndex = default)
+	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

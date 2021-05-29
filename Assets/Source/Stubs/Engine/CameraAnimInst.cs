@@ -22,7 +22,7 @@ public partial class CameraAnimInst : Object/*
 	public InterpTrackInstMove MoveInst;
 	
 	// Export UCameraAnimInst::execPlay(FFrame&, void* const)
-	public virtual /*native final function */void Play(CameraAnim Anim, Actor CamActor, float InRate, float InScale, float InBlendInTime, float InBlendOutTime, bool bInLoop, bool bRandomStartTime, /*optional */float Duration = default)
+	public virtual /*native final function */void Play(CameraAnim Anim, Actor CamActor, float InRate, float InScale, float InBlendInTime, float InBlendOutTime, bool bInLoop, bool bRandomStartTime, /*optional */float? _Duration = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -34,7 +34,7 @@ public partial class CameraAnimInst : Object/*
 	}
 	
 	// Export UCameraAnimInst::execStop(FFrame&, void* const)
-	public virtual /*native final function */void Stop(/*optional */bool bImmediate = default)
+	public virtual /*native final function */void Stop(/*optional */bool? _bImmediate = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

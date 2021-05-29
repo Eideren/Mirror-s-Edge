@@ -24,20 +24,20 @@ public partial class UICheckbox : UIButton,
 	}
 	
 	// Export UUICheckbox::execSetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int BindingIndex = default)
+	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUICheckbox::execGetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */string GetDataStoreBinding(/*optional */int BindingIndex = default)
+	public virtual /*native final function */string GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUICheckbox::execRefreshSubscriberValue(FFrame&, void* const)
-	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int BindingIndex = default)
+	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -62,14 +62,14 @@ public partial class UICheckbox : UIButton,
 	}
 	
 	// Export UUICheckbox::execSaveSubscriberValue(FFrame&, void* const)
-	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int BindingIndex = default)
+	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUICheckbox::execSetValue(FFrame&, void* const)
-	public virtual /*native function */void SetValue(bool bShouldBeChecked, /*optional */int PlayerIndex = default)
+	public virtual /*native function */void SetValue(bool bShouldBeChecked, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

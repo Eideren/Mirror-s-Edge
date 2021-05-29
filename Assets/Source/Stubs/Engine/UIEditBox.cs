@@ -34,40 +34,40 @@ public partial class UIEditBox : UIObject,
 	}
 	
 	// Export UUIEditBox::execSetValue(FFrame&, void* const)
-	public virtual /*native final function */void SetValue(string NewText, /*optional */int PlayerIndex = default, /*optional */bool bSkipNotification = default)
+	public virtual /*native final function */void SetValue(string NewText, /*optional */int? _PlayerIndex = default, /*optional */bool? _bSkipNotification = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIEditBox::execGetValue(FFrame&, void* const)
-	public virtual /*native final function */string GetValue(/*optional */bool bReturnUserText = default)
+	public virtual /*native final function */string GetValue(/*optional */bool? _bReturnUserText = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIEditBox::execCalculateCaretPositionFromCursorLocation(FFrame&, void* const)
-	public virtual /*native function */int CalculateCaretPositionFromCursorLocation(/*optional */int PlayerIndex = default)
+	public virtual /*native function */int CalculateCaretPositionFromCursorLocation(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIEditBox::execSetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int BindingIndex = default)
+	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIEditBox::execGetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */string GetDataStoreBinding(/*optional */int BindingIndex = default)
+	public virtual /*native final function */string GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIEditBox::execRefreshSubscriberValue(FFrame&, void* const)
-	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int BindingIndex = default)
+	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -92,7 +92,7 @@ public partial class UIEditBox : UIObject,
 	}
 	
 	// Export UUIEditBox::execSaveSubscriberValue(FFrame&, void* const)
-	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int BindingIndex = default)
+	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

@@ -7,7 +7,7 @@ public partial class UIEvent_SubmitTextData : UIEvent_SubmitData/*
 	public/*()*/ string Value;
 	public/*()*/ bool bClearValue;
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
 	
 		return default;

@@ -19,7 +19,7 @@ public partial class UIString : UIRoot/* within UIScreenObject*//*
 	}
 	
 	// Export UUIString::execGetValue(FFrame&, void* const)
-	public virtual /*native final function */string GetValue(/*optional */bool bReturnProcessedText = default)
+	public virtual /*native final function */string GetValue(/*optional */bool? _bReturnProcessedText = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

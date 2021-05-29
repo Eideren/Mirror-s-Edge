@@ -49,7 +49,7 @@ public partial class TdWeapon_Shotgun_Remington870 : TdWeapon_Heavy/*
 			// Object Offset:0x00013A50
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
 			{
-				new ForceFeedbackWaveform.WaveformSample()
+				new ForceFeedbackWaveform.WaveformSample
 				{
 					LeftAmplitude = 50,
 					RightAmplitude = 0,
@@ -57,7 +57,7 @@ public partial class TdWeapon_Shotgun_Remington870 : TdWeapon_Heavy/*
 					RightFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
 					Duration = 0.30f,
 				},
-				new ForceFeedbackWaveform.WaveformSample()
+				new ForceFeedbackWaveform.WaveformSample
 				{
 					LeftAmplitude = 0,
 					RightAmplitude = 20,

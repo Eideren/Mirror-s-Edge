@@ -27,7 +27,7 @@ public partial class CoverSlotMarker : NavigationPoint/*
 	}
 	
 	// Export UCoverSlotMarker::execIsValidClaim(FFrame&, void* const)
-	public virtual /*native final function */bool IsValidClaim(Controller ChkClaim, /*optional */bool bSkipTeamCheck = default, /*optional */bool bSkipOverlapCheck = default)
+	public virtual /*native final function */bool IsValidClaim(Controller ChkClaim, /*optional */bool? _bSkipTeamCheck = default, /*optional */bool? _bSkipOverlapCheck = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

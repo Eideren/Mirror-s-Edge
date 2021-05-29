@@ -29,7 +29,7 @@ public partial class AnimNodeBlendMultiBone : AnimNodeBlendBase/*
 	public /*transient */array<byte> SourceRequiredBones;
 	
 	// Export UAnimNodeBlendMultiBone::execSetTargetStartBone(FFrame&, void* const)
-	public virtual /*native final function */void SetTargetStartBone(int TargetIdx, name StartBoneName, /*optional */float PerBoneIncrease = default)
+	public virtual /*native final function */void SetTargetStartBone(int TargetIdx, name StartBoneName, /*optional */float? _PerBoneIncrease = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
