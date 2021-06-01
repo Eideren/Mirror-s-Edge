@@ -12,8 +12,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
-    <ProjectGuid>{9185ba4c-d3e7-cdd2-289e-fb784c141e6f}</ProjectGuid>
+    <RootNamespace>MEdge</RootNamespace>
+    <ProjectGuid>{1b2faa87-d99e-3a84-5485-ed4c4f5062fe}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -754,6 +754,7 @@
      <Compile Include="Assets\Source\Stubs\Tp\TpSystemBase.cs" />
      <Compile Include="Assets\Source\Stubs\Engine\UIAction_ReplacePage.cs" />
      <Compile Include="Assets\Source\Stubs\Engine\KillZDamageType.cs" />
+     <Compile Include="Assets\Source\String.cs" />
      <Compile Include="Assets\Source\Stubs\Engine\UIAction_ShowFriendInviteUI.cs" />
      <Compile Include="Assets\Source\Stubs\TdGame\TdUIScene_Leaderboard.cs" />
      <Compile Include="Assets\Source\Stubs\UnrealEd\GenericBrowserType_Texture.cs" />
@@ -2997,31 +2998,31 @@
  <HintPath>C:/Program Files/UnityEditors/2020.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -448,7 +448,7 @@
  <HintPath>C:/Program Files/UnityEditors/2020.3.0f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/UnityEditors/2020.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -796,37 +796,37 @@
  <HintPath>C:/Program Files/UnityEditors/2020.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.TestRunner">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/MirrorsEdge/Deadpoint/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/MirrorsEdge/StillAlive/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
