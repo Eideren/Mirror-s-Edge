@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_FinishSequence : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ string OutputLabel;
+	public/*()*/ String OutputLabel;
 	
 	public SeqAct_FinishSequence()
 	{

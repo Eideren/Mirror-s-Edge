@@ -10,7 +10,6 @@ public partial class TdSoundMarker : TdMarker/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<ArrowComponent>("Default__TdSoundMarker.Arrow")/*Ref ArrowComponent'Default__TdSoundMarker.Arrow'*/,
-			//Components[1]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E52605

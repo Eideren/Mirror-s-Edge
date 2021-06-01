@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdImageListElement : TdListElement/*
 		native*/{
-	public string CaptionString;
+	public String CaptionString;
 	public Surface ImageTexture;
 	
 }

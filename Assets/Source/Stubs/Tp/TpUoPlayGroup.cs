@@ -230,12 +230,12 @@ public partial class TpUoPlayGroup : TpSystemHandler,
 	
 	}
 	
-	public virtual /*function */void BroadCastChatMessageAsync(string Message)
+	public virtual /*function */void BroadCastChatMessageAsync(String Message)
 	{
 	
 	}
 	
-	public virtual /*final simulated event */void OnPlayGroupChatMessageReceived_Invoke(OnlineSubsystem.UniqueNetId SenderId, string Message)
+	public virtual /*final simulated event */void OnPlayGroupChatMessageReceived_Invoke(OnlineSubsystem.UniqueNetId SenderId, String Message)
 	{
 	
 	}
@@ -260,7 +260,7 @@ public partial class TpUoPlayGroup : TpSystemHandler,
 	
 	}
 	
-	public virtual /*private final simulated function */void Del_OnPlayGroupChatMessageReceived(OnlineSubsystem.UniqueNetId SenderId, string Message)
+	public virtual /*private final simulated function */void Del_OnPlayGroupChatMessageReceived(OnlineSubsystem.UniqueNetId SenderId, String Message)
 	{
 	
 	}

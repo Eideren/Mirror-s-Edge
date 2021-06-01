@@ -32,7 +32,7 @@ public partial class TdKeyBindingHandler : Object/*
 	public partial struct /*native */KeyBindData
 	{
 		public name KeyName;
-		public string Command;
+		public String Command;
 		public name PreviousBinding;
 		public bool bBindIsPrimary;
 	
@@ -48,7 +48,7 @@ public partial class TdKeyBindingHandler : Object/*
 	
 	public partial struct /*native */CurrentBindKeyStruct
 	{
-		public array<string> BoundButtonKeys;
+		public array<String> BoundButtonKeys;
 	
 	//	structdefaultproperties
 	//	{
@@ -77,7 +77,7 @@ public partial class TdKeyBindingHandler : Object/*
 	}
 	
 	// Export UTdKeyBindingHandler::execGetBindKeyFromCommand(FFrame&, void* const)
-	public virtual /*native function */string GetBindKeyFromCommand(string Command, ref int StartIdx)
+	public virtual /*native function */String GetBindKeyFromCommand(String Command, ref int StartIdx)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

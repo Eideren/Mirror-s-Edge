@@ -17,7 +17,7 @@ public partial class AITemplate_SniperCeleste : AITemplate_SniperCop/*
 		ControllerClass = "TdGame.TdAI_SniperCeleste";
 		PawnClass = "TdSpBossContent.TdBotPawn_SniperCeleste";
 		ProfileName = "BossCelesteSniper";
-		AnimationSets = "AS_AI_PursuitFemale_TwoHanded.AS_AI_PursuitFemale_TwoHanded";
+		AnimationSets[0] = "AS_AI_PursuitFemale_TwoHanded.AS_AI_PursuitFemale_TwoHanded";
 		SkeletalMesh = "CH_TKY_Cop_Pursuit_Female.SK_TKY_Cop_Pursuit_Female";
 		bMute = true;
 	}

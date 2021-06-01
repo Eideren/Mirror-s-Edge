@@ -183,7 +183,6 @@ public partial class DroppedPickup : Actor/*
 		bCollideWorld = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004CF9A6
@@ -192,7 +191,6 @@ public partial class DroppedPickup : Actor/*
 				AlwaysLoadOnClient = false,
 				AlwaysLoadOnServer = false,
 			}/* Reference: SpriteComponent'Default__DroppedPickup.Sprite' */,
-			//Components[1]=
 			new CylinderComponent
 			{
 				// Object Offset:0x00466597

@@ -196,7 +196,7 @@ public partial class TpUoGame : TpSystemHandler,
 	
 	}
 	
-	public virtual /*simulated function */bool GetResolvedConnectString(ref string ConnectInfo)
+	public virtual /*simulated function */bool GetResolvedConnectString(ref String ConnectInfo)
 	{
 	
 		return default;

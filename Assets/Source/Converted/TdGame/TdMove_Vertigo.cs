@@ -45,9 +45,9 @@ public partial class TdMove_Vertigo : TdPhysicsMove/*
 		base.StartMove();
 		TargetRot = PawnOwner.Rotation;
 		TargetRot.Pitch = -15000;
-		SetLookAtTargetAngle(TargetRot, 0.280f, default);
+		SetLookAtTargetAngle(TargetRot, 0.280f, default(float?));
 		SetTimer(ZoomOutTime);
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, "edgedetection", 1.0f, 0.280f, 0.280f, default, default);
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, "edgedetection", 1.0f, 0.280f, 0.280f, default(bool?), default(bool?));
 		((PawnOwner.Controller) as TdPlayerController).StartZoom(ZoomFOV, ZoomRate, 0.0f);
 		SetMoveTimer(DisableMovementTime, false, "OnTimerEnableAiming");
 	}
@@ -70,7 +70,7 @@ public partial class TdMove_Vertigo : TdPhysicsMove/*
 		Delta = Normalize(EdgeHeading - PawnHeading);
 		if((Delta.Yaw < -8000) || Delta.Yaw > 8000)
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 		}
 	}
 	

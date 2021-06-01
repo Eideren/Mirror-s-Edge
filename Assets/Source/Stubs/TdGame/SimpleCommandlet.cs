@@ -11,7 +11,7 @@ public partial class SimpleCommandlet : Commandlet/*
 		return default;
 	}
 	
-	public override /*function */int Main(string Parms)
+	public override /*function */int Main(String Parms)
 	{
 	
 		return default;

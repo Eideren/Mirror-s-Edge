@@ -98,9 +98,9 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	public /*protected */TdGhostManager GhostManager;
 	public /*private */UIDataStore_TdTimeTrialData TimeTrialData;
 	
-	public override /*event */void InitGame(string Options, ref string ErrorMessage)
+	public override /*event */void InitGame(String Options, ref String ErrorMessage)
 	{
-		/*local */string StretchStr = default;
+		/*local */String StretchStr = default;
 		/*local */int ParsedRaceType = default;
 	
 		base.InitGame(Options, ref/*probably?*/ ErrorMessage);
@@ -199,7 +199,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		}
 	}
 	
-	public override /*event */void PostSublevelStreaming(string Options)
+	public override /*event */void PostSublevelStreaming(String Options)
 	{
 		if(((((int)ActiveTTStretch) > ((int)TdSPTimeTrialGame.ETTStretch.ETTS_None/*0*/)) && ((int)ActiveTTStretch) < ((int)TdSPTimeTrialGame.ETTStretch.ETTS_Max/*25*/)) && CheckpointManager.CanFindTrack(((int)ActiveTTStretch)))
 		{
@@ -366,7 +366,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	public virtual PrepareRace_del global_PrepareRace => TdSPTimeTrialGame_PrepareRace;
 	public /*exec function */void TdSPTimeTrialGame_PrepareRace()
 	{
-		/*local */string QualifierTimeString = default, StarTimeString = default;
+		/*local */String QualifierTimeString = default, StarTimeString = default;
 	
 		if(((((int)ActiveTTStretch) <= ((int)TdSPTimeTrialGame.ETTStretch.ETTS_None/*0*/)) || ((int)ActiveTTStretch) >= ((int)TdSPTimeTrialGame.ETTStretch.ETTS_Max/*25*/)) || !CheckpointManager.CanFindTrack(((int)ActiveTTStretch)))
 		{
@@ -775,7 +775,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	protected (System.Action<name>, StateFlow, System.Action<name>) PreRace()/*auto state PreRace*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 	
 			if(jumpTo == null || jumpTo == "Begin")
@@ -902,7 +902,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	protected (System.Action<name>, StateFlow, System.Action<name>) RaceCountDown()/*state RaceCountDown*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			CanOpenPauseMenu = TdSPTimeTrialGame_RaceCountDown_CanOpenPauseMenu;
 			PrepareRace = TdSPTimeTrialGame_RaceCountDown_PrepareRace;
@@ -1190,7 +1190,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	protected (System.Action<name>, StateFlow, System.Action<name>) RaceInProgress()/*state RaceInProgress*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			CanOpenPauseMenu = TdSPTimeTrialGame_RaceInProgress_CanOpenPauseMenu;
 			GetLookAtPoint = TdSPTimeTrialGame_RaceInProgress_GetLookAtPoint;
@@ -1259,7 +1259,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	protected (System.Action<name>, StateFlow, System.Action<name>) RaceFinishLine()/*state RaceFinishLine*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			/*ignores*/ PrepareRace = ()=>{};
 	
@@ -1306,7 +1306,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	protected (System.Action<name>, StateFlow, System.Action<name>) EndAnimation()/*state EndAnimation*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			/*ignores*/ PrepareRace = ()=>{};
 	
@@ -1360,7 +1360,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	protected (System.Action<name>, StateFlow, System.Action<name>) RaceOver()/*state RaceOver*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			KillRacingPawn = TdSPTimeTrialGame_RaceOver_KillRacingPawn;
 	

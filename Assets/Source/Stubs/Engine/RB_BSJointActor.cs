@@ -11,7 +11,6 @@ public partial class RB_BSJointActor : RB_ConstraintActor/*
 		ConstraintInstance = LoadAsset<RB_ConstraintInstance>("Default__RB_BSJointActor.MyConstraintInstance")/*Ref RB_ConstraintInstance'Default__RB_BSJointActor.MyConstraintInstance'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D01E2

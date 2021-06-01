@@ -360,7 +360,7 @@ public partial class LocalPlayer : Player/* within Engine*//*
 	public float PPSettingsOverrideStartBlend;
 	
 	// Export ULocalPlayer::execSpawnPlayActor(FFrame&, void* const)
-	public virtual /*native final function */bool SpawnPlayActor(string URL, ref string OutError)
+	public virtual /*native final function */bool SpawnPlayActor(String URL, ref String OutError)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

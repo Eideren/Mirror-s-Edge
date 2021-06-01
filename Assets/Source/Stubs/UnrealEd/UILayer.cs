@@ -21,7 +21,7 @@ public partial class UILayer : UILayerBase/*
 	//	}
 	};
 	
-	public string LayerName;
+	public String LayerName;
 	public array<UILayer.UILayerNode> LayerNodes;
 	
 	// Export UUILayer::execInsertNode(FFrame&, void* const)

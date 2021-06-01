@@ -55,7 +55,6 @@ public partial class LiftCenter : NavigationPoint/*
 		bStatic = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004CFC96

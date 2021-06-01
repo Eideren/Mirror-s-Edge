@@ -10,7 +10,7 @@ public partial class TdUIScene_MiniMenu : TdUIScene_Overlay/*
 	public /*transient */UILabel SubtitleLabel;
 	public /*private */UIDataStore_TdMiniMenuData MenuData;
 	public name MenuDataStoreName;
-	public /*private transient */array<string> Options;
+	public /*private transient */array<String> Options;
 	public /*private transient */array< /*delegate*/TdUIScene_MiniMenu.OnOptionCallback > OptionCallbacks;
 	public /*delegate*/TdUIScene_MiniMenu.OnOptionCallback __OnOptionCallback__Delegate;
 	
@@ -53,7 +53,7 @@ public partial class TdUIScene_MiniMenu : TdUIScene_Overlay/*
 	
 	}
 	
-	public virtual /*function */void AddOption(string Option, /*delegate*/TdUIScene_MiniMenu.OnOptionCallback CallbackFunc)
+	public virtual /*function */void AddOption(String Option, /*delegate*/TdUIScene_MiniMenu.OnOptionCallback CallbackFunc)
 	{
 	
 	}

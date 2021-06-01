@@ -18,9 +18,9 @@ public partial class DataStoreClient : UIRoot/*
 	//	}
 	};
 	
-	public /*config */array</*config */string> GlobalDataStoreClasses;
+	public /*config */array</*config */String> GlobalDataStoreClasses;
 	public /*const */array<UIDataStore> GlobalDataStores;
-	public /*config */array</*config */string> PlayerDataStoreClassNames;
+	public /*config */array</*config */String> PlayerDataStoreClassNames;
 	public /*private const */array< Core.ClassT<UIDataStore> > PlayerDataStoreClasses;
 	public /*const */array<DataStoreClient.PlayerDataStoreGroup> PlayerDataStores;
 	
@@ -84,7 +84,7 @@ public partial class DataStoreClient : UIRoot/*
 	public DataStoreClient()
 	{
 		// Object Offset:0x002F95CC
-		GlobalDataStoreClasses = new array</*config */string>
+		GlobalDataStoreClasses = new array</*config */String>
 		{
 			"Engine.UIDataStore_Strings",
 			"Engine.UIDataStore_Images",
@@ -108,7 +108,7 @@ public partial class DataStoreClient : UIRoot/*
 			"TdGame.UIDataStore_TdGameObjectivesData",
 			"TdGame.UIDataStore_TdUnlocksData",
 		};
-		PlayerDataStoreClassNames = new array</*config */string>
+		PlayerDataStoreClassNames = new array</*config */String>
 		{
 			"Engine.PlayerOwnerDataStore",
 			"Engine.UIDataStore_PlayerSettings",

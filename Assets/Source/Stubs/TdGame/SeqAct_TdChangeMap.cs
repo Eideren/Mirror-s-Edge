@@ -3,8 +3,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_TdChangeMap : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ string LevelName;
-	public/*()*/ string CheckpointName;
+	public/*()*/ String LevelName;
+	public/*()*/ String CheckpointName;
 	
 	public override /*event */void Activated()
 	{

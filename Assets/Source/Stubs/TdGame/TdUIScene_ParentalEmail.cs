@@ -8,7 +8,7 @@ public partial class TdUIScene_ParentalEmail : TdUIScene_SubMenu/*
 	public /*delegate*/TdUIScene_ParentalEmail.ConfirmParentalEmail __ConfirmParentalEmail__Delegate;
 	public /*delegate*/TdUIScene_ParentalEmail.UserAbort __UserAbort__Delegate;
 	
-	public delegate void ConfirmParentalEmail(string Email);
+	public delegate void ConfirmParentalEmail(String Email);
 	
 	public delegate void UserAbort();
 	

@@ -71,13 +71,13 @@ public partial class UIObject : UIScreenObject/*
 	public delegate void OnContextMenuItemSelected(UIContextMenu ContextMenu, int PlayerIndex, int ItemIndex);
 	
 	// Export UUIObject::execSetDefaultDataBinding(FFrame&, void* const)
-	public virtual /*native final function */void SetDefaultDataBinding(string MarkupText, int BindingIndex)
+	public virtual /*native final function */void SetDefaultDataBinding(String MarkupText, int BindingIndex)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIObject::execGetDefaultDataBinding(FFrame&, void* const)
-	public virtual /*native final function */string GetDefaultDataBinding(int BindingIndex)
+	public virtual /*native final function */String GetDefaultDataBinding(int BindingIndex)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -103,14 +103,14 @@ public partial class UIObject : UIScreenObject/*
 	}
 	
 	// Export UUIObject::execGenerateSceneDataStoreMarkup(FFrame&, void* const)
-	public virtual /*native function */string GenerateSceneDataStoreMarkup(/*optional */string? _Group = default)
+	public virtual /*native function */String GenerateSceneDataStoreMarkup(/*optional */String? _Group = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIObject::execGetToolTipValue(FFrame&, void* const)
-	public virtual /*native final function */string GetToolTipValue()
+	public virtual /*native final function */String GetToolTipValue()
 	{
 		#warning NATIVE FUNCTION !
 		return default;

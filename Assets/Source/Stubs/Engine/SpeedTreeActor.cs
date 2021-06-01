@@ -25,7 +25,6 @@ public partial class SpeedTreeActor : Actor/*
 		bBlockActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpeedTreeComponent
 			{
 				// Object Offset:0x004CF3CE

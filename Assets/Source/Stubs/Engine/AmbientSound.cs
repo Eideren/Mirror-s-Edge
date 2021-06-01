@@ -21,13 +21,11 @@ public partial class AmbientSound : Keypoint/*
 		}/* Reference: AudioComponent'Default__AmbientSound.AudioComponent0' */;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x0028F12E
 				Sprite = LoadAsset<Texture2D>("EngineResources.S_Ambient")/*Ref Texture2D'EngineResources.S_Ambient'*/,
 			}/* Reference: SpriteComponent'Default__AmbientSound.Sprite' */,
-			//Components[1]=
 			new AudioComponent
 			{
 				// Object Offset:0x0028F162

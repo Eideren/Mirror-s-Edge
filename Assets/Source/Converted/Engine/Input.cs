@@ -9,7 +9,7 @@ public partial class Input : Interaction/*
 	public partial struct /*native */KeyBind
 	{
 		public /*config */name Name;
-		public /*config */string Command;
+		public /*config */String Command;
 		public /*config */bool Control;
 		public /*config */bool Shift;
 		public /*config */bool Alt;
@@ -61,13 +61,13 @@ public partial class Input : Interaction/*
 	}
 	
 	// Export UInput::execGetBind(FFrame&, void* const)
-	public virtual /*native function */string GetBind(name Key)
+	public virtual /*native function */String GetBind(name Key)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
-	public virtual /*exec function */void SetBind(name BindName, string Command)
+	public virtual /*exec function */void SetBind(name BindName, String Command)
 	{
 		/*local */Input.KeyBind NewBind = default;
 		/*local */int BindIndex = default;

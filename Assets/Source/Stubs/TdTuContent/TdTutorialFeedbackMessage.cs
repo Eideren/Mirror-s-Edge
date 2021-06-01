@@ -2,8 +2,8 @@ namespace MEdge.TdTuContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdEditor;
 
 public partial class TdTutorialFeedbackMessage : TdLocalMessage{
-	public /*const localized */string GoodWork;
-	public /*const localized */string TryAgain;
+	public /*const localized */String GoodWork;
+	public /*const localized */String TryAgain;
 	public SoundNodeWave VOGoodWork;
 	public SoundNodeWave VOTryAgain;
 	
@@ -18,7 +18,7 @@ public partial class TdTutorialFeedbackMessage : TdLocalMessage{
 		return default;
 	}
 	
-	public /*function */static string GetString(/*optional */int? _InSwitch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
+	public /*function */static String GetString(/*optional */int? _InSwitch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;

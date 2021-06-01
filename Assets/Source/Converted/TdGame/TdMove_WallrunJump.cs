@@ -55,7 +55,7 @@ public partial class TdMove_WallrunJump : TdPhysicsMove/*
 			camrotDir2D = SavedFloor;
 			PawnOwner.FaceRotationTimeLeft = 0.10f;
 			PawnOwner.LegRotation = WallNormal.Yaw;
-			SetLookAtTargetAngle(WallNormal, 0.10f, default);
+			SetLookAtTargetAngle(WallNormal, 0.10f, default(float?));
 			SetPreciseRotation(WallNormal, 0.10f);
 			bDisableControllerFacingPawnYawRotation = true;		
 		}
@@ -71,7 +71,7 @@ public partial class TdMove_WallrunJump : TdPhysicsMove/*
 		Start = PawnOwner.Location;
 		End = Start;
 		End.Z += JumpHeight;
-		if(MovementTrace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, End, Start, PawnOwner.GetCollisionExtent(), default))
+		if(MovementTrace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, End, Start, PawnOwner.GetCollisionExtent(), default(bool?)))
 		{
 			JumpHeight = HitLocation.Z - PawnOwner.Location.Z;
 		}
@@ -88,18 +88,18 @@ public partial class TdMove_WallrunJump : TdPhysicsMove/*
 		{
 			if(((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_WallRunningLeft/*5*/))
 			{
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("WallrunJumpLeft")), 1.0f, 0.20f, 0.20f, default, default);			
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("WallrunJumpLeft")), 1.0f, 0.20f, 0.20f, default(bool?), default(bool?));			
 			}
 			else
 			{
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("WallrunJumpRight")), 1.0f, 0.20f, 0.20f, default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("WallrunJumpRight")), 1.0f, 0.20f, 0.20f, default(bool?), default(bool?));
 			}		
 		}
 		else
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("JumpSlow")), 1.0f, 0.20f, 0.20f, default, default);
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("JumpSlow")), 1.0f, 0.20f, 0.20f, default(bool?), default(bool?));
 		}
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Jump/*11*/, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Jump/*11*/, default(float?));
 	}
 	
 	public override /*simulated function */bool IsThisMoveStringable()

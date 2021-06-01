@@ -19,7 +19,7 @@ public partial class TdBalanceWalkVolume : TdMovementVolume/*
 		{
 			if(!((TdP.Moves[29]) as TdMove_Balance).bHasFallen)
 			{
-				TdP.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+				TdP.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 			}
 		}
 	}
@@ -34,7 +34,7 @@ public partial class TdBalanceWalkVolume : TdMovementVolume/*
 		((TdP.Moves[29]) as TdMove_Balance).Volume = this;
 		if(TdP.Moves[29].CanDoMove())
 		{
-			TdP.SetMove(TdPawn.EMovement.MOVE_Balance/*29*/, default, default);
+			TdP.SetMove(TdPawn.EMovement.MOVE_Balance/*29*/, default(bool?), default(bool?));
 		}
 	}
 	

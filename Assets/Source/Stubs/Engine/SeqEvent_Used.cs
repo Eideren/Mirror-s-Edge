@@ -6,7 +6,7 @@ public partial class SeqEvent_Used : SequenceEvent/*
 		hidecategories(Object)*/{
 	public/*()*/ bool bAimToInteract;
 	public/*()*/ float InteractDistance;
-	public/*()*/ string InteractText;
+	public/*()*/ String InteractText;
 	public/*()*/ Texture2D InteractIcon;
 	
 	public SeqEvent_Used()

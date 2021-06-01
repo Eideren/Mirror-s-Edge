@@ -20,8 +20,8 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public /*transient */UIDataStore_TdGameData.RebootReasonType RebootReason;
 	public /*transient */bool bSkipRestoreScenes;
 	public bool bViewGhost;
-	public /*transient */string RestoredScenesSerialized;
-	public /*transient */string RestoredMenuSerialized;
+	public /*transient */String RestoredScenesSerialized;
+	public /*transient */String RestoredMenuSerialized;
 	public /*transient */int CurrentMap;
 	public /*transient */int SkipTitleScreen;
 	public /*transient */array<int> MapCycle;
@@ -33,28 +33,28 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public float TimeAttackDistance;
 	
 	// Export UUIDataStore_TdGameData::execGetMapIndexFromFileName(FFrame&, void* const)
-	public virtual /*native function */int GetMapIndexFromFileName(string Filename)
+	public virtual /*native function */int GetMapIndexFromFileName(String Filename)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdGameData::execGetMapIndexFromMapName(FFrame&, void* const)
-	public virtual /*native function */int GetMapIndexFromMapName(string MapName)
+	public virtual /*native function */int GetMapIndexFromMapName(String MapName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdGameData::execGetFileNameFromMapIndex(FFrame&, void* const)
-	public virtual /*native function */string GetFileNameFromMapIndex(int MapIndex)
+	public virtual /*native function */String GetFileNameFromMapIndex(int MapIndex)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdGameData::execGetMapNameFromMapIndex(FFrame&, void* const)
-	public virtual /*native function */string GetMapNameFromMapIndex(int MapIndex)
+	public virtual /*native function */String GetMapNameFromMapIndex(int MapIndex)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -96,28 +96,28 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	}
 	
 	// Export UUIDataStore_TdGameData::execGetRoleClassNameFromIndex(FFrame&, void* const)
-	public virtual /*native function */string GetRoleClassNameFromIndex(int RoleIndex)
+	public virtual /*native function */String GetRoleClassNameFromIndex(int RoleIndex)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdGameData::execGetRoleNameFromIndex(FFrame&, void* const)
-	public virtual /*native function */string GetRoleNameFromIndex(int RoleIndex)
+	public virtual /*native function */String GetRoleNameFromIndex(int RoleIndex)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdGameData::execGetRoleImageMarkupFromIndex(FFrame&, void* const)
-	public virtual /*native function */string GetRoleImageMarkupFromIndex(int RoleIndex)
+	public virtual /*native function */String GetRoleImageMarkupFromIndex(int RoleIndex)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdGameData::execGetGameModeClassNameFromIndex(FFrame&, void* const)
-	public virtual /*native function */string GetGameModeClassNameFromIndex(int Index)
+	public virtual /*native function */String GetGameModeClassNameFromIndex(int Index)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -131,35 +131,35 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	}
 	
 	// Export UUIDataStore_TdGameData::execGetCheckpointFriendlyNameFromIndex(FFrame&, void* const)
-	public virtual /*native function */string GetCheckpointFriendlyNameFromIndex(int Index)
+	public virtual /*native function */String GetCheckpointFriendlyNameFromIndex(int Index)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdGameData::execGetCheckpointDescriptionFromIndex(FFrame&, void* const)
-	public virtual /*native function */string GetCheckpointDescriptionFromIndex(int Index)
+	public virtual /*native function */String GetCheckpointDescriptionFromIndex(int Index)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdGameData::execGetCheckpointNameFromIndex(FFrame&, void* const)
-	public virtual /*native function */string GetCheckpointNameFromIndex(int Index)
+	public virtual /*native function */String GetCheckpointNameFromIndex(int Index)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdGameData::execGetCheckpointNameFromIndexAndMap(FFrame&, void* const)
-	public virtual /*native function */string GetCheckpointNameFromIndexAndMap(int MapIndex, int CheckpointIndex)
+	public virtual /*native function */String GetCheckpointNameFromIndexAndMap(int MapIndex, int CheckpointIndex)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdGameData::execGetCheckpointImageMarkupFromIndex(FFrame&, void* const)
-	public virtual /*native function */string GetCheckpointImageMarkupFromIndex(int Index)
+	public virtual /*native function */String GetCheckpointImageMarkupFromIndex(int Index)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -181,7 +181,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	
 	}
 	
-	public virtual /*function */void StartGame(string LevelName, /*optional */string? _CheckpointName = default, /*optional */string? _GameMode = default, /*optional */string? _URL = default, /*optional */bool? _bShouldSaveCheckpointProgress = default, /*optional */bool? _bAllowSPLevelAchievements = default)
+	public virtual /*function */void StartGame(String LevelName, /*optional */String? _CheckpointName = default, /*optional */String? _GameMode = default, /*optional */String? _URL = default, /*optional */bool? _bShouldSaveCheckpointProgress = default, /*optional */bool? _bAllowSPLevelAchievements = default)
 	{
 	
 	}

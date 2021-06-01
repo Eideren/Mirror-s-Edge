@@ -37,7 +37,6 @@ public partial class SceneCaptureReflectActor : SceneCaptureActor/*
 		{
 			LoadAsset<SpriteComponent>("Default__SceneCaptureReflectActor.Sprite")/*Ref SpriteComponent'Default__SceneCaptureReflectActor.Sprite'*/,
 			LoadAsset<SceneCaptureReflectComponent>("Default__SceneCaptureReflectActor.SceneCaptureReflectComponent0")/*Ref SceneCaptureReflectComponent'Default__SceneCaptureReflectActor.SceneCaptureReflectComponent0'*/,
-			//Components[2]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x00579B16

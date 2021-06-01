@@ -73,7 +73,7 @@ public partial class TdMove_180TurnInAir : TdPhysicsMove/*
 	
 		if((((int)Action) == ((int)TdPawn.EMovementAction.MA_Melee/*3*/)) && ((int)PawnOwner.WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Unarmed/*0*/))
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, ((name)("Taunt")), 1.0f, 0.10f, 0.20f, default, default);
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, ((name)("Taunt")), 1.0f, 0.10f, 0.20f, default(bool?), default(bool?));
 			TdPC = ((PawnOwner.Controller) as TdPlayerController);
 			if(TdPC != default)
 			{

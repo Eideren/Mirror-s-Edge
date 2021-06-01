@@ -18,7 +18,6 @@ public partial class RB_ForceFieldExcludeVolume : Volume/*
 		}/* Reference: BrushComponent'Default__RB_ForceFieldExcludeVolume.BrushComponent0' */;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new BrushComponent
 			{
 				// Object Offset:0x00466267

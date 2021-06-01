@@ -11,7 +11,7 @@ public partial class UIDataProvider_SettingsArray : UIDataProvider,
 	public Settings Settings;
 	public int SettingsId;
 	public name SettingsName;
-	public /*const */string ColumnHeaderText;
+	public /*const */String ColumnHeaderText;
 	public array<Settings.IdToStringMapping> Values;
 	
 	public UIDataProvider_SettingsArray()

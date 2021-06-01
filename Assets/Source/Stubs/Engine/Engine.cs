@@ -21,7 +21,7 @@ public partial class Engine : Subsystem/*
 	{
 		public Object.Vector Location;
 		public Object.Rotator Rotation;
-		public string Comment;
+		public String Comment;
 	
 	//	structdefaultproperties
 	//	{
@@ -43,45 +43,45 @@ public partial class Engine : Subsystem/*
 	};
 	
 	public /*private */Font TinyFont;
-	public /*globalconfig */string TinyFontName;
+	public /*globalconfig */String TinyFontName;
 	public /*private */Font SmallFont;
-	public /*globalconfig */string SmallFontName;
+	public /*globalconfig */String SmallFontName;
 	public /*private */Font MediumFont;
-	public /*globalconfig */string MediumFontName;
+	public /*globalconfig */String MediumFontName;
 	public /*private */Font LargeFont;
-	public /*globalconfig */string LargeFontName;
+	public /*globalconfig */String LargeFontName;
 	public /*private */Font SubtitleFont;
-	public /*globalconfig */string SubtitleFontName;
+	public /*globalconfig */String SubtitleFontName;
 	public /*private */array<Font> AdditionalFonts;
-	public /*globalconfig */array</*config */string> AdditionalFontNames;
+	public /*globalconfig */array</*config */String> AdditionalFontNames;
 	public Core.ClassT<Console> ConsoleClass;
-	public /*globalconfig */string ConsoleClassName;
+	public /*globalconfig */String ConsoleClassName;
 	public Core.ClassT<GameViewportClient> GameViewportClientClass;
-	public /*globalconfig */string GameViewportClientClassName;
+	public /*globalconfig */String GameViewportClientClassName;
 	public Core.ClassT<DataStoreClient> DataStoreClientClass;
-	public /*globalconfig */string DataStoreClientClassName;
+	public /*globalconfig */String DataStoreClientClassName;
 	public Core.ClassT<LocalPlayer> LocalPlayerClass;
-	public /*config */string LocalPlayerClassName;
+	public /*config */String LocalPlayerClassName;
 	public Material DefaultMaterial;
-	public /*globalconfig */string DefaultMaterialName;
+	public /*globalconfig */String DefaultMaterialName;
 	public Material WireframeMaterial;
-	public /*globalconfig */string WireframeMaterialName;
+	public /*globalconfig */String WireframeMaterialName;
 	public Material EmissiveTexturedMaterial;
-	public /*globalconfig */string EmissiveTexturedMaterialName;
+	public /*globalconfig */String EmissiveTexturedMaterialName;
 	public Material GeomMaterial;
-	public /*globalconfig */string GeomMaterialName;
+	public /*globalconfig */String GeomMaterialName;
 	public Material DefaultFogVolumeMaterial;
-	public /*globalconfig */string DefaultFogVolumeMaterialName;
+	public /*globalconfig */String DefaultFogVolumeMaterialName;
 	public Material TickMaterial;
-	public /*globalconfig */string TickMaterialName;
+	public /*globalconfig */String TickMaterialName;
 	public Material CrossMaterial;
-	public /*globalconfig */string CrossMaterialName;
+	public /*globalconfig */String CrossMaterialName;
 	public Material LevelColorationLitMaterial;
-	public /*globalconfig */string LevelColorationLitMaterialName;
+	public /*globalconfig */String LevelColorationLitMaterialName;
 	public Material LevelColorationUnlitMaterial;
-	public /*globalconfig */string LevelColorationUnlitMaterialName;
+	public /*globalconfig */String LevelColorationUnlitMaterialName;
 	public Material RemoveSurfaceMaterial;
-	public /*globalconfig */string RemoveSurfaceMaterialName;
+	public /*globalconfig */String RemoveSurfaceMaterialName;
 	public /*globalconfig */array</*config */Object.Color> LightComplexityColors;
 	public /*globalconfig */array</*config */Object.Color> ShaderComplexityColors;
 	public /*globalconfig */bool bUsePixelShaderComplexity;
@@ -116,41 +116,41 @@ public partial class Engine : Subsystem/*
 	public /*globalconfig */float IdealLightmapTextureDensity;
 	public /*globalconfig */float MaxLightmapTextureDensity;
 	public Material EditorBrushMaterial;
-	public /*globalconfig */string EditorBrushMaterialName;
+	public /*globalconfig */String EditorBrushMaterialName;
 	public PhysicalMaterial DefaultPhysMaterial;
-	public /*globalconfig */string DefaultPhysMaterialName;
+	public /*globalconfig */String DefaultPhysMaterialName;
 	public Material TerrainErrorMaterial;
-	public /*globalconfig */string TerrainErrorMaterialName;
+	public /*globalconfig */String TerrainErrorMaterialName;
 	public /*globalconfig */int TerrainMaterialMaxTextureCount;
 	public /*globalconfig */int TerrainTessellationCheckCount;
 	public /*globalconfig */float TerrainTessellationCheckDistance;
 	public Core.ClassT<OnlineSubsystem> OnlineSubsystemClass;
-	public /*globalconfig */string DefaultOnlineSubsystemName;
+	public /*globalconfig */String DefaultOnlineSubsystemName;
 	public PostProcessChain DefaultPostProcess;
-	public /*config */string DefaultPostProcessName;
+	public /*config */String DefaultPostProcessName;
 	public PostProcessChain ThumbnailSkeletalMeshPostProcess;
-	public /*config */string ThumbnailSkeletalMeshPostProcessName;
+	public /*config */String ThumbnailSkeletalMeshPostProcessName;
 	public PostProcessChain ThumbnailParticleSystemPostProcess;
-	public /*config */string ThumbnailParticleSystemPostProcessName;
+	public /*config */String ThumbnailParticleSystemPostProcessName;
 	public PostProcessChain ThumbnailMaterialPostProcess;
-	public /*config */string ThumbnailMaterialPostProcessName;
+	public /*config */String ThumbnailMaterialPostProcessName;
 	public PostProcessChain DefaultUIScenePostProcess;
-	public /*config */string DefaultUIScenePostProcessName;
+	public /*config */String DefaultUIScenePostProcessName;
 	public Material DefaultUICaretMaterial;
-	public /*globalconfig */string DefaultUICaretMaterialName;
+	public /*globalconfig */String DefaultUICaretMaterialName;
 	public Material SceneCaptureReflectActorMaterial;
-	public /*globalconfig */string SceneCaptureReflectActorMaterialName;
+	public /*globalconfig */String SceneCaptureReflectActorMaterialName;
 	public Material SceneCaptureCubeActorMaterial;
-	public /*globalconfig */string SceneCaptureCubeActorMaterialName;
+	public /*globalconfig */String SceneCaptureCubeActorMaterialName;
 	public Texture2D RandomAngleTexture;
-	public /*globalconfig */string RandomAngleTextureName;
+	public /*globalconfig */String RandomAngleTextureName;
 	public Texture2D RandomNormalTexture;
-	public /*globalconfig */string RandomNormalTextureName;
+	public /*globalconfig */String RandomNormalTextureName;
 	public/*(Settings)*/ /*config */float TimeBetweenPurgingPendingKillObjects;
 	public /*const */Client Client;
 	public /*init */array</*init */LocalPlayer> GamePlayers;
 	public /*const */GameViewportClient GameViewport;
-	public /*init */array</*init */string> DeferredCommands;
+	public /*init */array</*init */String> DeferredCommands;
 	public int TickCycles;
 	public int GameCycles;
 	public int ClientCycles;
@@ -169,10 +169,10 @@ public partial class Engine : Subsystem/*
 	public/*(Colors)*/ Object.Color C_OrthoBackground;
 	public/*(Colors)*/ Object.Color C_Volume;
 	public/*(Settings)*/ float StreamingDistanceFactor;
-	public /*const config */string ScoutClassName;
+	public /*const config */String ScoutClassName;
 	public Engine.ETransitionType TransitionType;
-	public string TransitionDescription;
-	public string TransitionGameType;
+	public String TransitionDescription;
+	public String TransitionGameType;
 	public /*config */float MeshLODRange;
 	public /*config */float ShadowFilterRadius;
 	public /*config */float DepthBias;
@@ -186,10 +186,10 @@ public partial class Engine : Subsystem/*
 	public /*config */int MaxParticleResize;
 	public /*config */int MaxParticleResizeWarn;
 	public Material TerrainCollisionMaterial;
-	public /*globalconfig */string TerrainCollisionMaterialName;
+	public /*globalconfig */String TerrainCollisionMaterialName;
 	public /*config */int BeginUPTryCount;
 	public /*transient */array<Engine.DropNoteInfo> PendingDroppedNotes;
-	public /*globalconfig */string DynamicCoverMeshComponentName;
+	public /*globalconfig */String DynamicCoverMeshComponentName;
 	public /*globalconfig */float NetClientTicksPerSecond;
 	public /*private native const transient */TdLOIGroupManager LOIGroupManager;
 	
@@ -250,7 +250,7 @@ public partial class Engine : Subsystem/*
 	}
 	
 	// Export UEngine::execGetLastMovieName(FFrame&, void* const)
-	public /*native final function */static string GetLastMovieName()
+	public /*native final function */static String GetLastMovieName()
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -276,13 +276,13 @@ public partial class Engine : Subsystem/*
 	}
 	
 	// Export UEngine::execAddOverlay(FFrame&, void* const)
-	public /*native final function */static void AddOverlay(Font Font, string Text, float X, float Y, float ScaleX, float ScaleY, bool bIsCentered, /*optional */ref Object.LinearColor TextColor/* = default*/)
+	public /*native final function */static void AddOverlay(Font Font, String Text, float X, float Y, float ScaleX, float ScaleY, bool bIsCentered, /*optional */ref Object.LinearColor TextColor/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UEngine::execAddOverlayWrapped(FFrame&, void* const)
-	public /*native final function */static void AddOverlayWrapped(Font Font, string Text, float X, float Y, float ScaleX, float ScaleY, float WrapWidth, /*optional */ref Object.LinearColor TextColor/* = default*/)
+	public /*native final function */static void AddOverlayWrapped(Font Font, String Text, float X, float Y, float ScaleX, float ScaleY, float WrapWidth, /*optional */ref Object.LinearColor TextColor/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -320,24 +320,24 @@ public partial class Engine : Subsystem/*
 		#warning Exception thrown while deserializing LightComplexityColors
 		/*System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
 		   at System.Collections.Generic.List`1.get_Item(Int32 index)
-		   at UELib.UName.Deserialize(IUnrealStream stream) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Types\UName.cs:line 65
-		   at UELib.UName..ctor(IUnrealStream stream) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Types\UName.cs:line 46
-		   at UELib.UObjectStream.ReadNameReference() in D:\MirrorsEdge\Sources\Unreal-Library\src\UnrealStream.cs:line 961
-		   at UELib.Core.UDefaultProperty.Deserialize() in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 151
-		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 657
-		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 773 */;
+		   at UELib.UName.Deserialize(IUnrealStream stream)
+		   at UELib.UName..ctor(IUnrealStream stream)
+		   at UELib.UObjectStream.ReadNameReference()
+		   at UELib.Core.UDefaultProperty.Deserialize()
+		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags)
+		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) */;
 		ShaderComplexityColors = new array</*config */Object.Color>
 		{
 		}
 		#warning Exception thrown while deserializing ShaderComplexityColors
 		/*System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
 		   at System.Collections.Generic.List`1.get_Item(Int32 index)
-		   at UELib.UName.Deserialize(IUnrealStream stream) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Types\UName.cs:line 65
-		   at UELib.UName..ctor(IUnrealStream stream) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Types\UName.cs:line 46
-		   at UELib.UObjectStream.ReadNameReference() in D:\MirrorsEdge\Sources\Unreal-Library\src\UnrealStream.cs:line 961
-		   at UELib.Core.UDefaultProperty.Deserialize() in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 151
-		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 657
-		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 773 */;
+		   at UELib.UName.Deserialize(IUnrealStream stream)
+		   at UELib.UName..ctor(IUnrealStream stream)
+		   at UELib.UObjectStream.ReadNameReference()
+		   at UELib.Core.UDefaultProperty.Deserialize()
+		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags)
+		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) */;
 		bUsePixelShaderComplexity = true;
 		bUseAdditiveComplexity = true;
 		bCaptureCharacterLighting = true;

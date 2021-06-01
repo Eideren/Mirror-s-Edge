@@ -7,8 +7,8 @@ public partial class UIDataProvider_TdKeyBinding : UIDataProvider_TdResource/*
 		config(Game)
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
-	public /*const config localized */string FriendlyName;
-	public /*config */string Command;
+	public /*const config localized */String FriendlyName;
+	public /*config */String Command;
 	
 }
 }

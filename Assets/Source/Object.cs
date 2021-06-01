@@ -27,7 +27,7 @@
         /// IN UE3:
         /// TCLASS'Package.Group(s)+.Name'
         /// </summary>
-        public static TClass LoadAsset<TClass>( string assetPath ) where TClass : new()
+        public static TClass LoadAsset<TClass>( String assetPath ) where TClass : new()
         {
 	        #warning LoadAsset not implemented yet
 	        LogError($"{nameof(LoadAsset)} not implemented yet, requesting '{assetPath}'");
@@ -35,9 +35,9 @@
         }
 
         // Export UObject::execDynamicLoadObject(FFrame&, void* const)
-        public /*native final function */static Object DynamicLoadObject(string ObjectName, Core.Class ObjectClass, /*optional */bool MayFail = default)
+        public /*native final function */static Object DynamicLoadObject(String ObjectName, Core.Class ObjectClass, /*optional */bool? MayFail = default)
         {
-	        var namespaces = new string[]
+	        var namespaces = new String[]
 	        {
 		        "Engine",
 		        "TdGame",
@@ -82,7 +82,7 @@
         /// <summary>
         /// Ex in UE3: soundcue'Gun_Body'
         /// </summary>
-        public static TClass ObjectConst<TClass>(string name) where TClass : new()
+        public static TClass ObjectConst<TClass>(String name) where TClass : new()
         {
 	        if( typeof(TClass) == typeof(Enum) )
 	        {
@@ -150,7 +150,7 @@
         
 	
         // Export UObject::execLocalize(FFrame&, void* const)
-        public /*native function */static string Localize(string SectionName, string KeyName, string PackageName);
+        public /*native function */static String Localize(String SectionName, String KeyName, String PackageName);
 	
         public delegate void BeginState_del(name PreviousStateName);
         public virtual BeginState_del BeginState { get => bfield_BeginState ?? Object_BeginState; set => bfield_BeginState = value; } BeginState_del bfield_BeginState;
@@ -173,62 +173,62 @@
 
         // Export UObject::execInStr(FFrame&, void* const)
         /// <summary>
-        /// If the string needle is found inside haystack, the number of characters in haystack before the first occurance of needle is returned. That is, if the needle is found right at the beginning of haystack, 0 is returned. If haystack doesn't contain needle, InStr returns -1.
+        /// If the String needle is found inside haystack, the number of characters in haystack before the first occurance of needle is returned. That is, if the needle is found right at the beginning of haystack, 0 is returned. If haystack doesn't contain needle, InStr returns -1.
         /// </summary>
-        public /*native(126) final function */static int InStr( /*coerce */ string S, /*coerce */string T, /*optional */bool bSearchFromRight = default);
+        public /*native(126) final function */static int InStr( /*coerce */ String S, /*coerce */String T, /*optional */bool bSearchFromRight = default);
 	
         // Export UObject::execLeft(FFrame&, void* const)
         /// <summary>
         /// Returns the num leftmost characters of S or all of them if S contains less than num characters.
         /// </summary>
-        public /*native(128) final function */static string Left( /*coerce */ string S, int I);
+        public /*native(128) final function */static String Left( /*coerce */ String S, int I);
 	
         // Export UObject::execRight(FFrame&, void* const)
         /// <summary>
         /// Returns the num rightmost characters of S or all of them if S contains less than num characters.
         /// </summary>
-        public /*native(234) final function */static string Right( /*coerce */ string S, int I);
+        public /*native(234) final function */static String Right( /*coerce */ String S, int I);
 
         /// Returns a substring of S, skipping skip characters and returning the next num characters or all remaining if the third parameter is left out. Mid("hello", 0, 2) returns "he", Mid("hello", 1) returns "ello", i.e. all but the first character.
 
         // Export UObject::execMid(FFrame&, void* const)
-        public /*native(127) final function */static string Mid( /*coerce */ string S, int I, /*optional */int J = default);
+        public /*native(127) final function */static String Mid( /*coerce */ String S, int I, /*optional */int J = default);
         
 	
         // Export UObject::execLen(FFrame&, void* const)
         /// <summary>
-        /// Returns the length of the string, i.e. the number of characters in it.
+        /// Returns the length of the String, i.e. the number of characters in it.
         /// </summary>
-        public /*native(125) final function */static int Len( /*coerce */ string S);
+        public /*native(125) final function */static int Len( /*coerce */ String S);
         
         
 	
         // Export UObject::execCaps(FFrame&, void* const)
-        public /*native(235) final function */static string Caps( /*coerce */ string S );
+        public /*native(235) final function */static String Caps( /*coerce */ String S );
 	
 		public virtual /*final function */name GetPackageName()
 
 
 
-        public static bool StringToBool( string s )
+        public static bool StringToBool( String s )
         {
-	        LogError( $"Parsing string to bool not verified, input value:'{s}'" );
+	        LogError( $"Parsing String to bool not verified, input value:'{s}'" );
 	        return s == "TRUE" || s == "true" || s == "True";
         }
 
 
 
-        public static float StringToFloat( string s )
+        public static float StringToFloat( String s )
         {
-	        LogError( $"Parsing string to float not verified, input value:'{s}'" );
+	        LogError( $"Parsing String to float not verified, input value:'{s}'" );
 	        return float.TryParse( s, out var f ) ? f : 0f;
         }
 
 
 
-        public static int StringToInt( string s )
+        public static int StringToInt( String s )
         {
-	        LogError( $"Parsing string to int not verified, input value:'{s}'" );
+	        LogError( $"Parsing String to int not verified, input value:'{s}'" );
 	        return int.TryParse( s, out var f ) ? f : 0;
         }
 
@@ -251,8 +251,12 @@
 	
         // Export UObject::execRepl(FFrame&, void* const)
         /// <summary>
-        /// Replaces all occurrences of Match in string Src. Specify true for bCaseSensitive if matching should be case-sensitive.
+        /// Replaces all occurrences of Match in String Src. Specify true for bCaseSensitive if matching should be case-sensitive.
         /// </summary>
-        public /*native(201) final function */static string Repl(/*coerce */string Src, /*coerce */string Match, /*coerce */string With, /*optional */bool bCaseSensitive = default)
+        public /*native(201) final function */static String Repl(/*coerce */String Src, /*coerce */String Match, /*coerce */String With, /*optional */bool bCaseSensitive = default)
+
+
+
+        public static bool GIsEditor => false;
     }
 }

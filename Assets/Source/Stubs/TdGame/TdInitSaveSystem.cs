@@ -3,8 +3,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdInitSaveSystem : Object{
 	public /*transient */TsSystem.ETsResult SaveInitResult;
-	public /*private transient */string SaveErrorMessageBody;
-	public /*private transient */string SaveErrorMessageTitle;
+	public /*private transient */String SaveErrorMessageBody;
+	public /*private transient */String SaveErrorMessageTitle;
 	public /*delegate*/TdInitSaveSystem.OnInitSavefileSystemDone __OnInitSavefileSystemDone__Delegate;
 	public /*delegate*/TdInitSaveSystem.OnContinueWithoutSavingDelegate __OnContinueWithoutSavingDelegate__Delegate;
 	public /*delegate*/TdInitSaveSystem.OnOverwriteDelegate __OnOverwriteDelegate__Delegate;
@@ -148,7 +148,7 @@ public partial class TdInitSaveSystem : Object{
 	
 	public delegate void OnRetryDelegate();
 	
-	public virtual /*private final function */void ShowOverwriteCorruptDialogue(string Body, string Title, /*delegate*/TdInitSaveSystem.OnOverwriteDelegate Overwrite, /*delegate*/TdInitSaveSystem.OnRetryDelegate Retry)
+	public virtual /*private final function */void ShowOverwriteCorruptDialogue(String Body, String Title, /*delegate*/TdInitSaveSystem.OnOverwriteDelegate Overwrite, /*delegate*/TdInitSaveSystem.OnRetryDelegate Retry)
 	{
 	
 	}
@@ -188,7 +188,7 @@ public partial class TdInitSaveSystem : Object{
 	
 	}
 	
-	public virtual /*private final function */void ShowRetryContinueWithoutSavingDialogue(string Body, string Title, /*delegate*/TdInitSaveSystem.OnContinueWithoutSavingDelegate ContinueWithoutSaving, /*delegate*/TdInitSaveSystem.OnRetryDelegate Retry)
+	public virtual /*private final function */void ShowRetryContinueWithoutSavingDialogue(String Body, String Title, /*delegate*/TdInitSaveSystem.OnContinueWithoutSavingDelegate ContinueWithoutSaving, /*delegate*/TdInitSaveSystem.OnRetryDelegate Retry)
 	{
 	
 	}

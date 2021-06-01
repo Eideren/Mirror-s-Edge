@@ -8,11 +8,11 @@ public partial class TdUIScene_CreateAccountConsole : TdUIScene_SubMenu,
 	public /*transient */UIEditBox LoginNameEditbox;
 	public /*transient */UIEditBox PasswordEditbox;
 	public /*transient */UIEditBox CurrentActiveEditbox;
-	public /*private transient */string CreateAccountDone_LocError;
+	public /*private transient */String CreateAccountDone_LocError;
 	public /*delegate*/TdUIScene_CreateAccountConsole.ConfirmCreateAccountConsole __ConfirmCreateAccountConsole__Delegate;
 	public /*delegate*/TdUIScene_CreateAccountConsole.UserAbort __UserAbort__Delegate;
 	
-	public delegate void ConfirmCreateAccountConsole(string Email, string Password, bool bAllowEaEmail, bool bAllowThirdPartyEmail);
+	public delegate void ConfirmCreateAccountConsole(String Email, String Password, bool bAllowEaEmail, bool bAllowThirdPartyEmail);
 	
 	public delegate void UserAbort();
 	
@@ -54,7 +54,7 @@ public partial class TdUIScene_CreateAccountConsole : TdUIScene_SubMenu,
 	
 	}
 	
-	public virtual /*function */void SetValues(string Email, string Password, bool bAllowEaEmail, bool bAllowTPEmail)
+	public virtual /*function */void SetValues(String Email, String Password, bool bAllowEaEmail, bool bAllowTPEmail)
 	{
 	
 	}
@@ -64,7 +64,7 @@ public partial class TdUIScene_CreateAccountConsole : TdUIScene_SubMenu,
 	
 	}
 	
-	public virtual /*private final function */bool GetUserData(ref string LoginName, ref string Password)
+	public virtual /*private final function */bool GetUserData(ref String LoginName, ref String Password)
 	{
 	
 		return default;
@@ -85,7 +85,7 @@ public partial class TdUIScene_CreateAccountConsole : TdUIScene_SubMenu,
 	
 	}
 	
-	public virtual /*function */void CreateAccountDone(int Error, /*optional */string? _LocError = default)
+	public virtual /*function */void CreateAccountDone(int Error, /*optional */String? _LocError = default)
 	{
 	
 	}

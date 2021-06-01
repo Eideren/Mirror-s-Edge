@@ -8,7 +8,7 @@ public partial class AITemplate_Assault_MP5K : AITemplate_Assault/*
 	{
 		// Object Offset:0x004887BD
 		ProfileName = "AssaultTwoHanded-MP5K";
-		AnimationSets[1] = "AS_AI_Assault_TwoHanded.AS_AI_Assault_TwoHanded_MP5K";
+		AnimationSets[0] = "AS_AI_Assault_TwoHanded.AS_AI_Assault_TwoHanded_MP5K";
 		MainWeaponClass = "TdSharedContent.TdWeapon_AssaultRifle_MP5K";
 		MainWeaponAmmoDrops_Dropped = new AITemplate.AmmoDropSettings
 		{

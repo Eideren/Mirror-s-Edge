@@ -14,10 +14,10 @@ public class T3DFile : ScriptableObject, ISerializationCallbackReceiver
     [Serializable]
     public struct SerializableNode
     {
-        public string Definition;
-        public List<string> Properties;
+        public String Definition;
+        public List<String> Properties;
         public int childCount;
-        public string End;
+        public String End;
     }
     public List<SerializableNode> serializedNodes;
     
@@ -81,7 +81,7 @@ public class T3DFile : ScriptableObject, ISerializationCallbackReceiver
 [CustomEditor(typeof(T3DFile))]
 public class OBJEditor: UnityEditor.Editor
 {
-    public string SearchContent = "";
+    public String SearchContent = "";
     HashSet<T3DNode> _foldedOut = new HashSet<T3DNode>();
 
     public override void OnInspectorGUI()
@@ -112,7 +112,7 @@ public class OBJEditor: UnityEditor.Editor
                 Do(child);
             foreach (var child in n.Properties)
             {
-                if(string.IsNullOrWhiteSpace(SearchContent) || child.Contains(SearchContent))
+                if(String.IsNullOrWhiteSpace(SearchContent) || child.Contains(SearchContent))
                     EditorGUILayout.LabelField(child);
             }
 

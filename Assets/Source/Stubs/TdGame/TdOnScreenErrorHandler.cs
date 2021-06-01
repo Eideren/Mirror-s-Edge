@@ -7,8 +7,8 @@ public partial class TdOnScreenErrorHandler : TpOnScreenErrorHandler{
 	public /*transient */TdUIScene_MessageBox GeneralErrorMessageBox;
 	public /*transient */bool IgnoreStorageChanges;
 	public /*transient */TdInitSaveSystem InitSaveSystem;
-	public /*private transient */string TitleErrStr;
-	public /*private transient */string MessageErrStr;
+	public /*private transient */String TitleErrStr;
+	public /*private transient */String MessageErrStr;
 	public /*private transient */int PendingConnectionChangeTicks;
 	
 	public override /*function */void Tick(float DeltaSeconds)
@@ -51,7 +51,7 @@ public partial class TdOnScreenErrorHandler : TpOnScreenErrorHandler{
 	
 	}
 	
-	public virtual /*function */void ShowCriticalErrorMessageBox(string UnLoc_Message)
+	public virtual /*function */void ShowCriticalErrorMessageBox(String UnLoc_Message)
 	{
 	
 	}
@@ -66,7 +66,7 @@ public partial class TdOnScreenErrorHandler : TpOnScreenErrorHandler{
 	
 	}
 	
-	public virtual /*function */void ShowErrorMessageBox(string UnLoc_Title, string UnLoc_Message)
+	public virtual /*function */void ShowErrorMessageBox(String UnLoc_Title, String UnLoc_Message)
 	{
 	
 	}

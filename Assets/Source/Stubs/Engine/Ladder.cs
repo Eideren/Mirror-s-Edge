@@ -33,7 +33,6 @@ public partial class Ladder : NavigationPoint/*
 		BadSprite = LoadAsset<SpriteComponent>("Default__Ladder.Sprite2")/*Ref SpriteComponent'Default__Ladder.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x002B038F
@@ -41,7 +40,6 @@ public partial class Ladder : NavigationPoint/*
 			}/* Reference: SpriteComponent'Default__Ladder.Sprite' */,
 			LoadAsset<SpriteComponent>("Default__Ladder.Sprite2")/*Ref SpriteComponent'Default__Ladder.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__Ladder.Arrow")/*Ref ArrowComponent'Default__Ladder.Arrow'*/,
-			//Components[3]=
 			new CylinderComponent
 			{
 				// Object Offset:0x002B03F3

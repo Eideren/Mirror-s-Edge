@@ -2,10 +2,10 @@ namespace MEdge.TdTTContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTuContent; using TdEditor;
 
 public partial class TdTimeTrialMessage : TdLocalMessage{
-	public /*const localized */string RaceStarted;
-	public /*const localized */string TWO;
-	public /*const localized */string ONE;
-	public /*const localized */string THREE;
+	public /*const localized */String RaceStarted;
+	public /*const localized */String TWO;
+	public /*const localized */String ONE;
+	public /*const localized */String THREE;
 	public StaticArray<SoundNodeWave, SoundNodeWave>/*[2]*/ VORaceStarted;
 	
 	public /*simulated function */static void ClientReceive(PlayerController P, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _PitcherPRI = default, /*optional */PlayerReplicationInfo? _RecieverPRI = default, /*optional */Object? _OptionalObject = default)
@@ -19,7 +19,7 @@ public partial class TdTimeTrialMessage : TdLocalMessage{
 		return default;
 	}
 	
-	public /*function */static string GetString(/*optional */int? _InSwitch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
+	public /*function */static String GetString(/*optional */int? _InSwitch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;

@@ -6,7 +6,7 @@ public partial class LensFlare : Object/*
 		hidecategories(Object)*/{
 	public partial struct /*native transient */LensFlareElementCurvePair
 	{
-		public /*init */string CurveName;
+		public /*init */String CurveName;
 		public /*init */Object CurveObject;
 	
 	//	structdefaultproperties

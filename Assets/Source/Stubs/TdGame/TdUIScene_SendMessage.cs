@@ -5,7 +5,7 @@ public partial class TdUIScene_SendMessage : TdUIScene_SubMenu/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
 	public /*transient */UIEditBox PlayerNameEditBox;
-	public /*transient */string TargetPlayerName;
+	public /*transient */String TargetPlayerName;
 	public /*transient */OnlineSubsystem.UniqueNetId TargetPlayerNetId;
 	
 	public override /*event */void PostInitialize()
@@ -30,7 +30,7 @@ public partial class TdUIScene_SendMessage : TdUIScene_SubMenu/*
 		return default;
 	}
 	
-	public virtual /*function */void SetTargetPlayer(OnlineSubsystem.UniqueNetId InPlayerNetId, string InPlayerName)
+	public virtual /*function */void SetTargetPlayer(OnlineSubsystem.UniqueNetId InPlayerNetId, String InPlayerName)
 	{
 	
 	}

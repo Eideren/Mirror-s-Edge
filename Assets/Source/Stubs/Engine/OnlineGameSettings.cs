@@ -21,7 +21,7 @@ public partial class OnlineGameSettings : Settings/*
 	public /*databinding */bool bIsDedicated;
 	public /*databinding */bool bIsListPlay;
 	public /*databinding */bool bIsGoldOnlyListPlay;
-	public /*databinding */string OwningPlayerName;
+	public /*databinding */String OwningPlayerName;
 	public OnlineSubsystem.UniqueNetId OwningPlayerId;
 	public /*databinding */int PingInMs;
 	public /*databinding */float AverageSkillRating;

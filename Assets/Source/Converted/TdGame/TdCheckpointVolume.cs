@@ -61,7 +61,6 @@ public partial class TdCheckpointVolume : Volume/*
 		}/* Reference: BrushComponent'Default__TdCheckpointVolume.BrushComponent0' */;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new BrushComponent
 			{
 				// Object Offset:0x01AB4666

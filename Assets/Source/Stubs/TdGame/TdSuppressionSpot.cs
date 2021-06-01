@@ -20,7 +20,6 @@ public partial class TdSuppressionSpot : NavigationPoint/*
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdSuppressionSpot.Sprite2")/*Ref SpriteComponent'Default__TdSuppressionSpot.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E52655

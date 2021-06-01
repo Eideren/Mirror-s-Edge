@@ -27,7 +27,6 @@ public partial class VolumePathNode : PathNode/*
 		BadSprite = LoadAsset<SpriteComponent>("Default__VolumePathNode.Sprite2")/*Ref SpriteComponent'Default__VolumePathNode.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D076E

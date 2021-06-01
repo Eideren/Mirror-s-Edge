@@ -47,7 +47,7 @@ public partial class PhysicsVolume : Volume/*
 		}
 		if(bPainCausing)
 		{
-			PainTimer = Spawn(ClassT<VolumeTimer>(), this, default, default, default, default, default);
+			PainTimer = Spawn(ClassT<VolumeTimer>(), this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
 		}
 	}
 	
@@ -181,7 +181,7 @@ public partial class PhysicsVolume : Volume/*
 			{
 				return;
 			}
-			Other.TakeDamage(((int)(DamagePerSec)), DamageInstigator, Location, vect(0.0f, 0.0f, 0.0f), DamageType, default, default);		
+			Other.TakeDamage(((int)(DamagePerSec)), DamageInstigator, Location, vect(0.0f, 0.0f, 0.0f), DamageType, default(Actor.TraceHitInfo?), default(Actor?));		
 		}
 		else
 		{
@@ -227,7 +227,6 @@ public partial class PhysicsVolume : Volume/*
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new BrushComponent
 			{
 				// Object Offset:0x0030CA5E

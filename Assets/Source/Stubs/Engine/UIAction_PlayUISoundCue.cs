@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIAction_PlayUISoundCue : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ string SoundCueName;
+	public/*()*/ String SoundCueName;
 	
 	public UIAction_PlayUISoundCue()
 	{

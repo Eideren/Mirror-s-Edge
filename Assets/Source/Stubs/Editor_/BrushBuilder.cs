@@ -22,8 +22,8 @@ public partial class BrushBuilder : Object/*
 	//	}
 	};
 	
-	public/*()*/ string BitmapFilename;
-	public/*()*/ string ToolTip;
+	public/*()*/ String BitmapFilename;
+	public/*()*/ String ToolTip;
 	public /*private */array<Object.Vector> Vertices;
 	public /*private */array<BrushBuilder.BuilderPoly> Polys;
 	public /*private */name Group;
@@ -64,7 +64,7 @@ public partial class BrushBuilder : Object/*
 	}
 	
 	// Export UBrushBuilder::execBadParameters(FFrame&, void* const)
-	public virtual /*native function */bool BadParameters(/*optional */string? _msg = default)
+	public virtual /*native function */bool BadParameters(/*optional */String? _msg = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

@@ -16,12 +16,12 @@ public partial class GameEngine : Engine/*
 	
 	public partial struct /*native transient */URL
 	{
-		public /*init */string Protocol;
-		public /*init */string Host;
+		public /*init */String Protocol;
+		public /*init */String Host;
 		public /*init */int Port;
-		public /*init */string Map;
-		public /*init */array<string> Op;
-		public /*init */string Portal;
+		public /*init */String Map;
+		public /*init */array<String> Op;
+		public /*init */String Portal;
 		public /*init */int Valid;
 	
 	//	structdefaultproperties
@@ -55,7 +55,7 @@ public partial class GameEngine : Engine/*
 	public partial struct /*native */FullyLoadedPackagesInfo
 	{
 		public GameEngine.EFullyLoadPackageType FullyLoadType;
-		public string Tag;
+		public String Tag;
 		public array<name> PackagesToLoad;
 		public array<Object> LoadedObjects;
 	
@@ -72,8 +72,8 @@ public partial class GameEngine : Engine/*
 	public PendingLevel GPendingLevel;
 	public GameEngine.URL LastURL;
 	public GameEngine.URL LastRemoteURL;
-	public /*config */array</*config */string> ServerActors;
-	public string TravelURL;
+	public /*config */array</*config */String> ServerActors;
+	public String TravelURL;
 	public byte TravelType;
 	public /*transient */bool bWorldWasLoadedThisTick;
 	public /*const */bool bShouldCommitPendingMapChange;
@@ -84,7 +84,7 @@ public partial class GameEngine : Engine/*
 	public OnlineSubsystem OnlineSubsystem;
 	public /*const */array<name> LevelsToLoadForPendingMapChange;
 	public /*const */array<Level> LoadedLevelsForPendingMapChange;
-	public /*const */string PendingMapChangeFailureDescription;
+	public /*const */String PendingMapChangeFailureDescription;
 	public /*config */float MaxSmoothedFrameRate;
 	public /*config */float MinSmoothedFrameRate;
 	public /*const */array<GameEngine.LevelStreamingStatus> PendingLevelStreamingStatusUpdates;

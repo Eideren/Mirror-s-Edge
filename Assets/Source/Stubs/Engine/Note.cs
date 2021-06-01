@@ -5,7 +5,7 @@ public partial class Note : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ string Text;
+	public/*()*/ String Text;
 	
 	public Note()
 	{
@@ -16,7 +16,6 @@ public partial class Note : Actor/*
 		bMovable = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new ArrowComponent
 			{
 				// Object Offset:0x00465BD7
@@ -29,7 +28,6 @@ public partial class Note : Actor/*
 				},
 				ArrowSize = 0.50f,
 			}/* Reference: ArrowComponent'Default__Note.Arrow' */,
-			//Components[1]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004CFE6A

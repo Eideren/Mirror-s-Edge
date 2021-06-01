@@ -102,7 +102,7 @@ public partial class NavigationPoint : Actor/*
 	public/*()*/ /*const editconst */int NetworkID;
 	public /*transient */Pawn AnchoredPawn;
 	public /*transient */float LastAnchoredPawnTime;
-	public string Abbrev;
+	public String Abbrev;
 	public float IgnoreAsTaserSpotTimeStamp;
 	public/*(Visibility)*/ array<NavigationPoint> CanSeeMePoints;
 	public/*(Visibility)*/ array<NavigationPoint> VisiblePoints;
@@ -288,7 +288,6 @@ public partial class NavigationPoint : Actor/*
 		bCollideWhenPlacing = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x002AFE5D
@@ -297,7 +296,6 @@ public partial class NavigationPoint : Actor/*
 				AlwaysLoadOnClient = false,
 				AlwaysLoadOnServer = false,
 			}/* Reference: SpriteComponent'Default__NavigationPoint.Sprite' */,
-			//Components[1]=
 			new SpriteComponent
 			{
 				// Object Offset:0x002AFEE5
@@ -308,7 +306,6 @@ public partial class NavigationPoint : Actor/*
 				AlwaysLoadOnServer = false,
 				Scale = 0.250f,
 			}/* Reference: SpriteComponent'Default__NavigationPoint.Sprite2' */,
-			//Components[2]=
 			new ArrowComponent
 			{
 				// Object Offset:0x002AFFA5
@@ -321,7 +318,6 @@ public partial class NavigationPoint : Actor/*
 				},
 				ArrowSize = 0.50f,
 			}/* Reference: ArrowComponent'Default__NavigationPoint.Arrow' */,
-			//Components[3]=
 			new CylinderComponent
 			{
 				// Object Offset:0x002AFFFD

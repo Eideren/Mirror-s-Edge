@@ -192,7 +192,6 @@ public partial class TdWeapon_Pistol_BerettaM93R : TdWeapon_Light/*
 		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.FirstPersonMesh' */;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x000147FB
@@ -203,7 +202,6 @@ public partial class TdWeapon_Pistol_BerettaM93R : TdWeapon_Light/*
 					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R'*/,
 				},
 			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.FirstPersonMesh' */,
-			//Components[1]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x00014853

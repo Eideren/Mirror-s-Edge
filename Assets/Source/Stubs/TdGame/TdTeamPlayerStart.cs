@@ -54,7 +54,6 @@ public partial class TdTeamPlayerStart : TdPlayerStart/*
 			LoadAsset<CylinderComponent>("Default__TdTeamPlayerStart.CollisionCylinder")/*Ref CylinderComponent'Default__TdTeamPlayerStart.CollisionCylinder'*/,
 			LoadAsset<PathRenderingComponent>("Default__TdTeamPlayerStart.PathRenderer")/*Ref PathRenderingComponent'Default__TdTeamPlayerStart.PathRenderer'*/,
 			LoadAsset<DrawSphereComponent>("Default__TdTeamPlayerStart.SpawnRadiusSphere")/*Ref DrawSphereComponent'Default__TdTeamPlayerStart.SpawnRadiusSphere'*/,
-			//Components[6]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E526A1
@@ -64,7 +63,6 @@ public partial class TdTeamPlayerStart : TdPlayerStart/*
 				AlwaysLoadOnServer = false,
 				Scale = 0.330f,
 			}/* Reference: SpriteComponent'Default__TdTeamPlayerStart.CopSpawn' */,
-			//Components[7]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E52745

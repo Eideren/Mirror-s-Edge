@@ -20,20 +20,17 @@ public partial class InterpData : SequenceVariable/*
 		InterpLength = 5.0f;
 		DefaultFilters = new array<InterpFilter>
 		{
-			//DefaultFilters[0]=
 			new InterpFilter
 			{
 				// Object Offset:0x0046A5C3
 				Caption = "All",
 			}/* Reference: InterpFilter'Default__InterpData.FilterAll' */,
-			//DefaultFilters[1]=
 			new InterpFilter_Classes
 			{
 				// Object Offset:0x0046A5EF
 				ClassToFilterBy = ClassT<CameraActor>()/*Ref Class'CameraActor'*/,
 				Caption = "Cameras",
 			}/* Reference: InterpFilter_Classes'Default__InterpData.FilterCameras' */,
-			//DefaultFilters[2]=
 			new InterpFilter_Classes
 			{
 				// Object Offset:0x0046A63B

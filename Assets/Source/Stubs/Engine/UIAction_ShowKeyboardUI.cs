@@ -4,14 +4,14 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIAction_ShowKeyboardUI : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ string TitleText;
-	public/*()*/ string DefaultText;
-	public/*()*/ string DescriptionText;
+	public/*()*/ String TitleText;
+	public/*()*/ String DefaultText;
+	public/*()*/ String DescriptionText;
 	public/*()*/ bool bShouldValidate;
 	public/*()*/ bool bIsPassword;
 	public bool bIsDone;
-	public string StringReturnValue;
-	public string TempStringReturnValue;
+	public String StringReturnValue;
+	public String TempStringReturnValue;
 	
 	public virtual /*event */void ReadKeyboardInput()
 	{

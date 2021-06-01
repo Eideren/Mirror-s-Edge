@@ -28,7 +28,7 @@ public partial class TpCreateGameParams : Object/*
 	}
 	
 	// Export UTpCreateGameParams::execSetGameName(FFrame&, void* const)
-	public virtual /*native simulated function */void SetGameName(string InName)
+	public virtual /*native simulated function */void SetGameName(String InName)
 	{
 		#warning NATIVE FUNCTION !
 	}

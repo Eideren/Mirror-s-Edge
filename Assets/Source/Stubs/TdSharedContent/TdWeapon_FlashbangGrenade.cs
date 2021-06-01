@@ -55,7 +55,6 @@ public partial class TdWeapon_FlashbangGrenade : TdWeapon_Grenade/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_FlashbangGrenade.FirstPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_FlashbangGrenade.FirstPersonMesh'*/,
-			//Components[1]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x000145D3

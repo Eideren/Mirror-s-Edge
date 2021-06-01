@@ -54,7 +54,6 @@ public partial class TdBotPawnNoPhysics : TdBotPawn/*
 		{
 			LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawnNoPhysics.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawnNoPhysics.SceneCaptureCharacterComponent0'*/,
 			LoadAsset<DrawFrustumComponent>("Default__TdBotPawnNoPhysics.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawnNoPhysics.DrawFrust0'*/,
-			//Components[2]=
 			new CylinderComponent
 			{
 				// Object Offset:0x01AB4A02
@@ -64,13 +63,11 @@ public partial class TdBotPawnNoPhysics : TdBotPawn/*
 			}/* Reference: CylinderComponent'Default__TdBotPawnNoPhysics.CollisionCylinder' */,
 			LoadAsset<ArrowComponent>("Default__TdBotPawnNoPhysics.Arrow")/*Ref ArrowComponent'Default__TdBotPawnNoPhysics.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawnNoPhysics.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawnNoPhysics.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x031281AE
 				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawnNoPhysics.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawnNoPhysics.MyLightEnvironment'*/,
 			}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawnNoPhysics.TdPawnMesh3p' */,
-			//Components[6]=
 			new CylinderComponent
 			{
 				// Object Offset:0x01AB4A02
@@ -78,7 +75,6 @@ public partial class TdBotPawnNoPhysics : TdBotPawn/*
 				BlockActors = false,
 				BlockNonZeroExtent = false,
 			}/* Reference: CylinderComponent'Default__TdBotPawnNoPhysics.CollisionCylinder' */,
-			//Components[7]=
 			new CylinderComponent
 			{
 				// Object Offset:0x01AB4996

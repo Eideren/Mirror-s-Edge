@@ -19,7 +19,7 @@ public partial class Terrain : Info/*
 	
 	public partial struct TerrainLayer
 	{
-		public/*()*/ string Name;
+		public/*()*/ String Name;
 		public/*()*/ TerrainLayerSetup Setup;
 		public int AlphaMapIndex;
 		public/*()*/ bool Highlighted;
@@ -110,7 +110,7 @@ public partial class Terrain : Info/*
 	
 	public partial struct TerrainDecoLayer
 	{
-		public/*()*/ string Name;
+		public/*()*/ String Name;
 		public/*()*/ array<Terrain.TerrainDecoration> Decorations;
 		public int AlphaMapIndex;
 	
@@ -266,7 +266,6 @@ public partial class Terrain : Info/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D06F2

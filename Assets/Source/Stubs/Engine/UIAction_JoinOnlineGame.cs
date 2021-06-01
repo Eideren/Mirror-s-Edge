@@ -19,7 +19,7 @@ public partial class UIAction_JoinOnlineGame : UIAction/*
 	
 	}
 	
-	public virtual /*function */string BuildJoinURL(string ResolvedConnectionURL)
+	public virtual /*function */String BuildJoinURL(String ResolvedConnectionURL)
 	{
 	
 		return default;

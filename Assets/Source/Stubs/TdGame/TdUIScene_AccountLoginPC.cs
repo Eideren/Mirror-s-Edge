@@ -13,7 +13,7 @@ public partial class TdUIScene_AccountLoginPC : TdUIScene_SubMenu/*
 	public /*delegate*/TdUIScene_AccountLoginPC.PrepareCreateAccount __PrepareCreateAccount__Delegate;
 	public /*delegate*/TdUIScene_AccountLoginPC.UserAbort __UserAbort__Delegate;
 	
-	public delegate void LoginAccount(string Email, string Password);
+	public delegate void LoginAccount(String Email, String Password);
 	
 	public delegate void PrepareCreateAccount();
 	
@@ -68,7 +68,7 @@ public partial class TdUIScene_AccountLoginPC : TdUIScene_SubMenu/*
 	
 	}
 	
-	public virtual /*private final function */bool GetUserData(ref string LoginName, ref string Password)
+	public virtual /*private final function */bool GetUserData(ref String LoginName, ref String Password)
 	{
 	
 		return default;

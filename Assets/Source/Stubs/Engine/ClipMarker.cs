@@ -11,7 +11,6 @@ public partial class ClipMarker : Keypoint/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004CF702

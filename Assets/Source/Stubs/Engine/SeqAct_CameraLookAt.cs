@@ -18,7 +18,7 @@ public partial class SeqAct_CameraLookAt : SequenceAction/*
 	public/*()*/ Object.Vector2D InterpSpeedRange;
 	public/*()*/ Object.Vector2D InFocusFOV;
 	public/*()*/ name FocusBoneName;
-	public/*()*/ string TextDisplay;
+	public/*()*/ String TextDisplay;
 	public/*()*/ float TotalTime;
 	public/*()*/ float CameraFOV;
 	public /*transient */float RemainingTime;

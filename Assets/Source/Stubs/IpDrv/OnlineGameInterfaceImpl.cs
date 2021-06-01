@@ -156,7 +156,7 @@ public partial class OnlineGameInterfaceImpl : Object,
 	}
 	
 	// Export UOnlineGameInterfaceImpl::execGetResolvedConnectString(FFrame&, void* const)
-	public virtual /*native function */bool GetResolvedConnectString(ref string ConnectInfo)
+	public virtual /*native function */bool GetResolvedConnectString(ref String ConnectInfo)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

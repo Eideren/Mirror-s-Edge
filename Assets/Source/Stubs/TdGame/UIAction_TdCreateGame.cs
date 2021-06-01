@@ -5,12 +5,12 @@ public partial class UIAction_TdCreateGame : UIAction/*
 		native
 		hidecategories(Object)*/{
 	public/*()*/ name DataStoreName;
-	public/*()*/ string startLevelName;
-	public/*()*/ string startCheckpointName;
+	public/*()*/ String startLevelName;
+	public/*()*/ String startCheckpointName;
 	public/*()*/ bool attemptLoad;
 	public bool done;
 	public bool Success;
-	public /*transient */string ExecCmd;
+	public /*transient */String ExecCmd;
 	
 	public UIAction_TdCreateGame()
 	{

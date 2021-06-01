@@ -2,11 +2,11 @@ namespace MEdge.TdMpContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
 public partial class TdBagMessage : TdLocalMessage{
-	public /*const localized */string BagDropped;
-	public /*const localized */string BagIntecepted;
-	public /*const localized */string BagPickedUp;
-	public /*const localized */string YouHaveBag;
-	public /*const localized */string BagIsOnGround;
+	public /*const localized */String BagDropped;
+	public /*const localized */String BagIntecepted;
+	public /*const localized */String BagPickedUp;
+	public /*const localized */String YouHaveBag;
+	public /*const localized */String BagIsOnGround;
 	public SoundNodeWave VOBagDroppedOnGround;
 	public SoundNodeWave VOBagPickedUpByRunnerEnemy;
 	public SoundNodeWave VOBagPickedUpByCopEnemy;
@@ -52,7 +52,7 @@ public partial class TdBagMessage : TdLocalMessage{
 		return default;
 	}
 	
-	public /*function */static string GetString(/*optional */int? _InSwitch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _PitcherPRI = default, /*optional */PlayerReplicationInfo? _RecieverPRI = default, /*optional */Object? _OptionalObject = default)
+	public /*function */static String GetString(/*optional */int? _InSwitch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _PitcherPRI = default, /*optional */PlayerReplicationInfo? _RecieverPRI = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;

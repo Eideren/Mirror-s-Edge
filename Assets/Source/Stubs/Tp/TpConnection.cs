@@ -38,14 +38,14 @@ public partial class TpConnection : TpSystemHandler/*
 	
 	public partial struct /*native */TpCreateAccountParams
 	{
-		public string Name;
-		public string Password;
+		public String Name;
+		public String Password;
 		public int BirthYear;
 		public int BirthMonth;
 		public int BirthDay;
-		public string ZipCode;
-		public string IsoCountry;
-		public string ParentalEmail;
+		public String ZipCode;
+		public String IsoCountry;
+		public String ParentalEmail;
 		public bool bAllowEaEmail;
 		public bool bAllowThirdPartyEmail;
 	
@@ -67,8 +67,8 @@ public partial class TpConnection : TpSystemHandler/*
 	
 	public partial struct /*native */TpCreateAccountCountry
 	{
-		public /*init */string Description;
-		public /*init */string ISOCode;
+		public /*init */String Description;
+		public /*init */String ISOCode;
 		public int ParentalControlAgeLimit;
 		public int RegistrationAgeLimit;
 	
@@ -108,38 +108,38 @@ public partial class TpConnection : TpSystemHandler/*
 	}
 	
 	// Export UTpConnection::execConnectSilentAsync(FFrame&, void* const)
-	public virtual /*native simulated function */void ConnectSilentAsync(/*optional */string? _EncLogin = default, /*optional */string? _Persona = default)
+	public virtual /*native simulated function */void ConnectSilentAsync(/*optional */String? _EncLogin = default, /*optional */String? _Persona = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	public delegate void OnConnectionFailed(TpConnection.TpConnectionError InError);
 	
-	public delegate void OnConnectionReady(string EncLogin, string Persona);
+	public delegate void OnConnectionReady(String EncLogin, String Persona);
 	
 	public delegate void OnLoginReady();
 	
 	public delegate void OnConnectionChange(bool bConnected);
 	
 	// Export UTpConnection::execLoginAccountAsync(FFrame&, void* const)
-	public virtual /*native simulated function */void LoginAccountAsync(string InName, string InPasswd)
+	public virtual /*native simulated function */void LoginAccountAsync(String InName, String InPasswd)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UTpConnection::execLoginEncAccountAsync(FFrame&, void* const)
-	public virtual /*native simulated function */void LoginEncAccountAsync(string EncLogin)
+	public virtual /*native simulated function */void LoginEncAccountAsync(String EncLogin)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UTpConnection::execLoginPersonaAsync(FFrame&, void* const)
-	public virtual /*native simulated function */void LoginPersonaAsync(string InName)
+	public virtual /*native simulated function */void LoginPersonaAsync(String InName)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
-	public delegate void OnPartiallyLoggedIn(array<string> InSubNames);
+	public delegate void OnPartiallyLoggedIn(array<String> InSubNames);
 	
 	public delegate void OnLoginAccountError(TpAccount.TpAccountError InError);
 	
@@ -151,7 +151,7 @@ public partial class TpConnection : TpSystemHandler/*
 		#warning NATIVE FUNCTION !
 	}
 	
-	public delegate void OnCreateAccountReady(string Email, string Pass, bool bAllowEaEmail, bool bAllowTPEmail, bool bIsConsole);
+	public delegate void OnCreateAccountReady(String Email, String Pass, bool bAllowEaEmail, bool bAllowTPEmail, bool bIsConsole);
 	
 	// Export UTpConnection::execCreateAccountAsync(FFrame&, void* const)
 	public virtual /*native simulated function */bool CreateAccountAsync(TpConnection.TpCreateAccountParams InParams)
@@ -161,7 +161,7 @@ public partial class TpConnection : TpSystemHandler/*
 	}
 	
 	// Export UTpConnection::execCreateAccountConsoleAsync(FFrame&, void* const)
-	public virtual /*native simulated function */void CreateAccountConsoleAsync(string Email, string Pass, bool bAllowEaEmail, bool bAllowThirdPartyEmail)
+	public virtual /*native simulated function */void CreateAccountConsoleAsync(String Email, String Pass, bool bAllowEaEmail, bool bAllowThirdPartyEmail)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -171,12 +171,12 @@ public partial class TpConnection : TpSystemHandler/*
 	public delegate void OnDisplayCountrySelect(array<TpConnection.TpCreateAccountCountry> Countries);
 	
 	// Export UTpConnection::execCreateAccountGetTOSAsync(FFrame&, void* const)
-	public virtual /*native simulated function */void CreateAccountGetTOSAsync(string ISOCode)
+	public virtual /*native simulated function */void CreateAccountGetTOSAsync(String ISOCode)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
-	public delegate void OnGetTOS(string TOSText);
+	public delegate void OnGetTOS(String TOSText);
 	
 	// Export UTpConnection::execCreateAccountAcceptTOSAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void CreateAccountAcceptTOSAsync(bool Accept)
@@ -184,10 +184,10 @@ public partial class TpConnection : TpSystemHandler/*
 		#warning NATIVE FUNCTION !
 	}
 	
-	public delegate void OnDisplayPersonas(array<string> Personas);
+	public delegate void OnDisplayPersonas(array<String> Personas);
 	
 	// Export UTpConnection::execCreatePersonaAsync(FFrame&, void* const)
-	public virtual /*native simulated function */void CreatePersonaAsync(string Persona)
+	public virtual /*native simulated function */void CreatePersonaAsync(String Persona)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -208,10 +208,10 @@ public partial class TpConnection : TpSystemHandler/*
 		#warning NATIVE FUNCTION !
 	}
 	
-	public delegate void OnDisplayConfirmMessage(string Message);
+	public delegate void OnDisplayConfirmMessage(String Message);
 	
 	// Export UTpConnection::execConfirmParentalEmail(FFrame&, void* const)
-	public virtual /*native simulated function */void ConfirmParentalEmail(string Email)
+	public virtual /*native simulated function */void ConfirmParentalEmail(String Email)
 	{
 		#warning NATIVE FUNCTION !
 	}

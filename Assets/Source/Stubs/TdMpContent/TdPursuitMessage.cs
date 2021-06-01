@@ -2,10 +2,10 @@ namespace MEdge.TdMpContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
 public partial class TdPursuitMessage : TdLocalMessage{
-	public /*const localized */string HelicopterIsApproaching;
-	public /*const localized */string HelicopterIsLeaving;
-	public /*const localized */string PoliceSearchingBag;
-	public /*const localized */string PoliceSearchingIntercepted;
+	public /*const localized */String HelicopterIsApproaching;
+	public /*const localized */String HelicopterIsLeaving;
+	public /*const localized */String PoliceSearchingBag;
+	public /*const localized */String PoliceSearchingIntercepted;
 	public SoundNodeWave VOHelicopterIsApproaching;
 	public SoundNodeWave VOHelicopterIsLeaving;
 	public SoundNodeWave VOPoliceSearchingBag;
@@ -29,7 +29,7 @@ public partial class TdPursuitMessage : TdLocalMessage{
 		return default;
 	}
 	
-	public /*function */static string GetString(/*optional */int? _InSwitch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
+	public /*function */static String GetString(/*optional */int? _InSwitch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;

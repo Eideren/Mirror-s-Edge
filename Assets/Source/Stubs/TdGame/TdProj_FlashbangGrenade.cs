@@ -96,7 +96,6 @@ public partial class TdProj_FlashbangGrenade : TdProj_Grenade/*
 		{
 			LoadAsset<SpriteComponent>("Default__TdProj_FlashbangGrenade.Sprite")/*Ref SpriteComponent'Default__TdProj_FlashbangGrenade.Sprite'*/,
 			LoadAsset<CylinderComponent>("Default__TdProj_FlashbangGrenade.CollisionCylinder")/*Ref CylinderComponent'Default__TdProj_FlashbangGrenade.CollisionCylinder'*/,
-			//Components[2]=
 			new SkeletalMeshComponent
 			{
 				// Object Offset:0x0064EF29

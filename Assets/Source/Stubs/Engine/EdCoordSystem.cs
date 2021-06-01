@@ -6,7 +6,7 @@ public partial class EdCoordSystem : Object/*
 		editinlinenew
 		hidecategories(Object)*/{
 	public/*()*/ Object.Matrix M;
-	public/*()*/ string Desc;
+	public/*()*/ String Desc;
 	
 	public EdCoordSystem()
 	{

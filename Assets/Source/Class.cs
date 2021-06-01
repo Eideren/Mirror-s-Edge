@@ -31,16 +31,15 @@ namespace MEdge.Core
     {
         public Class() => throw new InvalidOperationException();
         protected Class(bool b) { }
-        public virtual string Name => throw new InvalidOperationException();
+        public virtual String Name => throw new InvalidOperationException();
         public virtual T DefaultAs<T>() where T : class => throw new InvalidOperationException();
         public virtual Type CSharpType => throw new InvalidOperationException();
+        public virtual bool IsParentOf( Class c ) => throw new InvalidOperationException();
+        public override bool IsA( name typeName ) => throw new InvalidOperationException();
 
         public override bool Equals(object obj) => obj is Class c && this == c;
         public static bool operator ==(Class a, Class b) => a?.GetType() == b?.GetType();
         public static bool operator !=(Class a, Class b) => !(a == b);
-        
-        public virtual bool IsParentOf( Class c ) => throw new InvalidOperationException();
-        public override bool IsA( name typeName ) => throw new InvalidOperationException();
     }
     
     public interface ClassT<out T>
@@ -51,6 +50,7 @@ namespace MEdge.Core
         public bool IsA(Class type);
         public dynamic Static { get; }
         public bool IsParentOf( Class c );
+        public String Name{ get; }
     }
         
 
@@ -58,7 +58,7 @@ namespace MEdge.Core
     {
         public static readonly _classImp<CType> Singleton = new _classImp<CType>();
         
-        public override string Name => typeof(CType).Name;
+        public override String Name => typeof(CType).Name;
         _classImp() : base(true) { }
         
         public CType New(Object outer = null) => new CType(){ Outer = outer };

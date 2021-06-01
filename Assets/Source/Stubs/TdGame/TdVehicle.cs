@@ -197,7 +197,6 @@ public partial class TdVehicle : SVehicle/*
 		{
 			LoadAsset<SceneCaptureCharacterComponent>("Default__TdVehicle.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdVehicle.SceneCaptureCharacterComponent0'*/,
 			LoadAsset<DrawFrustumComponent>("Default__TdVehicle.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdVehicle.DrawFrust0'*/,
-			//Components[2]=
 			new CylinderComponent
 			{
 				// Object Offset:0x01AB4FF2
@@ -206,7 +205,6 @@ public partial class TdVehicle : SVehicle/*
 				BlockZeroExtent = false,
 				BlockNonZeroExtent = false,
 			}/* Reference: CylinderComponent'Default__TdVehicle.CollisionCylinder' */,
-			//Components[3]=
 			new SkeletalMeshComponent
 			{
 				// Object Offset:0x0279BF52

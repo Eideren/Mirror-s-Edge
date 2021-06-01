@@ -28,8 +28,8 @@ public partial class UIDataStore_TdOnlineStats : UIDataStore_OnlineStats/*
 	public /*private */array<OnlineStatsRead> PlayerStatsReadCache;
 	public /*private */int StatsReadIndex;
 	public /*private */array<OnlineStatsRead> StatsReadCache;
-	public /*const localized */string PlayerNickColumnNameXbox;
-	public /*const localized */string PlayerNickColumnNamePS3;
+	public /*const localized */String PlayerNickColumnNameXbox;
+	public /*const localized */String PlayerNickColumnNamePS3;
 	public /*delegate*/UIDataStore_TdOnlineStats.StatsReadComplete __StatsReadComplete__Delegate;
 	
 	public delegate void StatsReadComplete(bool bSuccess);

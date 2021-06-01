@@ -270,7 +270,7 @@ public partial class SVehicle : Vehicle/*
 		return default;
 	}
 	
-	public virtual /*simulated function */void GetSVehicleDebug(ref array<string> DebugInfo)
+	public virtual /*simulated function */void GetSVehicleDebug(ref array<String> DebugInfo)
 	{
 	
 	}
@@ -343,7 +343,6 @@ public partial class SVehicle : Vehicle/*
 			LoadAsset<SceneCaptureCharacterComponent>("Default__SVehicle.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__SVehicle.SceneCaptureCharacterComponent0'*/,
 			LoadAsset<DrawFrustumComponent>("Default__SVehicle.DrawFrust0")/*Ref DrawFrustumComponent'Default__SVehicle.DrawFrust0'*/,
 			LoadAsset<CylinderComponent>("Default__SVehicle.CollisionCylinder")/*Ref CylinderComponent'Default__SVehicle.CollisionCylinder'*/,
-			//Components[3]=
 			new SkeletalMeshComponent
 			{
 				// Object Offset:0x004CEE36

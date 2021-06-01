@@ -5,7 +5,7 @@ public partial class GeomModifier : Object/*
 		abstract
 		native
 		hidecategories(Object,GeomModifier)*/{
-	public/*()*/ string Description;
+	public/*()*/ String Description;
 	public/*()*/ bool bPushButton;
 	public/*()*/ bool bInitialized;
 	

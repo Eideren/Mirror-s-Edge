@@ -25,14 +25,12 @@ public partial class PointLightMovable : PointLight/*
 		bMovable = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D000A
 				Sprite = LoadAsset<Texture2D>("EngineResources.LightIcons.Light_Point_Moveable_DynamicsAndStatics")/*Ref Texture2D'EngineResources.LightIcons.Light_Point_Moveable_DynamicsAndStatics'*/,
 			}/* Reference: SpriteComponent'Default__PointLightMovable.Sprite' */,
 			LoadAsset<DrawLightRadiusComponent>("Default__PointLightMovable.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__PointLightMovable.DrawLightRadius0'*/,
-			//Components[2]=
 			new PointLightComponent
 			{
 				// Object Offset:0x004CADFA

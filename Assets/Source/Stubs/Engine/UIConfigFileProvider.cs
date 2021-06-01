@@ -6,7 +6,7 @@ public partial class UIConfigFileProvider : UIConfigProvider/*
 		native
 		hidecategories(Object,UIRoot)*/{
 	public /*transient */array<UIConfigSectionProvider> Sections;
-	public /*noexport transient */string ConfigFileName;
+	public /*noexport transient */String ConfigFileName;
 	
 }
 }

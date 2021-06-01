@@ -19,7 +19,7 @@ public partial class Inventory : Actor/*
 	
 	public Inventory Inventory_; // Renamed C# naming scheme
 	public InventoryManager InvManager;
-	public /*databinding const localized */string ItemName;
+	public /*databinding const localized */String ItemName;
 	public bool bRenderOverlays;
 	public bool bReceiveOwnerEvents;
 	public bool bDropOnDeath;
@@ -29,9 +29,9 @@ public partial class Inventory : Actor/*
 	public /*const */Inventory.EInventorySlot DefaultInventorySlot;
 	public/*()*/ float RespawnTime;
 	public float MaxDesireability;
-	public/*()*/ /*databinding const localized */string PickupMessage;
+	public/*()*/ /*databinding const localized */String PickupMessage;
 	public/*()*/ SoundCue PickupSound;
-	public/*()*/ string PickupForce;
+	public/*()*/ String PickupForce;
 	public Core.ClassT<DroppedPickup> DroppedPickupClass;
 	public /*export editinline */PrimitiveComponent DroppedPickupMesh;
 	public /*export editinline */PrimitiveComponent PickupFactoryMesh;
@@ -61,7 +61,7 @@ public partial class Inventory : Actor/*
 	
 	}
 	
-	public override /*simulated function */string GetHumanReadableName()
+	public override /*simulated function */String GetHumanReadableName()
 	{
 	
 		return default;
@@ -120,7 +120,7 @@ public partial class Inventory : Actor/*
 	
 	}
 	
-	public /*function */static string GetLocalString(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default)
+	public /*function */static String GetLocalString(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default)
 	{
 	
 		return default;

@@ -9,7 +9,7 @@ public partial class MaterialExpressionComment : MaterialExpression/* within Mat
 	public int PosY;
 	public int SizeX;
 	public int SizeY;
-	public/*()*/ string Text;
+	public/*()*/ String Text;
 	
 }
 }

@@ -5,7 +5,7 @@ public partial class AnimationCompressionAlgorithm : Object/*
 		abstract
 		native
 		hidecategories(Object)*/{
-	public string Description;
+	public String Description;
 	public bool bNeedsSkeleton;
 	public AnimSequence.AnimationCompressionFormat TranslationCompressionFormat;
 	public/*()*/ AnimSequence.AnimationCompressionFormat RotationCompressionFormat;

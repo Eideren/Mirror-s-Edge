@@ -6,7 +6,7 @@ public partial class TeamInfo : ReplicationInfo/*
 		nativereplication
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public /*databinding const localized */string TeamName;
+	public /*databinding const localized */String TeamName;
 	public /*databinding */int Size;
 	public /*databinding */float Score;
 	public /*repnotify databinding */int TeamIndex;
@@ -42,7 +42,7 @@ public partial class TeamInfo : ReplicationInfo/*
 	
 	}
 	
-	public override /*simulated function */string GetHumanReadableName()
+	public override /*simulated function */String GetHumanReadableName()
 	{
 	
 		return default;

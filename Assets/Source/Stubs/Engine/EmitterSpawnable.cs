@@ -36,7 +36,6 @@ public partial class EmitterSpawnable : Emitter/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__EmitterSpawnable.Sprite")/*Ref SpriteComponent'Default__EmitterSpawnable.Sprite'*/,
-			//Components[1]=
 			new ParticleSystemComponent
 			{
 				// Object Offset:0x004CAC52

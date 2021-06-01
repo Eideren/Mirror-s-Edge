@@ -49,7 +49,7 @@ public partial class TdHeadControl : Object/*
 	
 	}
 	
-	public virtual /*function */void AddSpecialOutput(ref string Text)
+	public virtual /*function */void AddSpecialOutput(ref String Text)
 	{
 	
 	}

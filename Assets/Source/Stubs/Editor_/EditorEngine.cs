@@ -50,23 +50,23 @@ public partial class EditorEngine : Engine/*
 	public/*(Advanced)*/ /*config */bool UseAxisIndicator;
 	public/*(Advanced)*/ /*config */float FOVAngle;
 	public/*(Advanced)*/ /*config */bool GodMode;
-	public/*(Advanced)*/ /*config */string AutoSaveDir;
+	public/*(Advanced)*/ /*config */String AutoSaveDir;
 	public/*(Advanced)*/ /*config */bool InvertwidgetZAxis;
-	public/*(Advanced)*/ /*config */string GameCommandLine;
-	public/*(Advanced)*/ /*globalconfig */array</*config */string> EditPackages;
-	public/*(Advanced)*/ /*config */string EditPackagesInPath;
-	public/*(Advanced)*/ /*config */string EditPackagesOutPath;
-	public/*(Advanced)*/ /*config */string FRScriptOutputPath;
+	public/*(Advanced)*/ /*config */String GameCommandLine;
+	public/*(Advanced)*/ /*globalconfig */array</*config */String> EditPackages;
+	public/*(Advanced)*/ /*config */String EditPackagesInPath;
+	public/*(Advanced)*/ /*config */String EditPackagesOutPath;
+	public/*(Advanced)*/ /*config */String FRScriptOutputPath;
 	public/*(Advanced)*/ /*config */bool AlwaysShowTerrain;
 	public/*(Advanced)*/ /*config */bool UseActorRotationGizmo;
 	public/*(Advanced)*/ /*config */bool bShowBrushMarkerPolys;
 	public/*(Advanced)*/ /*config */bool bUseMayaCameraControls;
 	public/*(Advanced)*/ /*config */bool bPrefabsLocked;
 	public/*(Advanced)*/ /*config */bool bEnableSocketSnapping;
-	public /*config */string HeightMapExportClassName;
+	public /*config */String HeightMapExportClassName;
 	public /*const */array<ActorFactory> ActorFactories;
-	public string UserOpenedFile;
-	public/*(Advanced)*/ /*config */string InEditorGameURLOptions;
+	public String UserOpenedFile;
+	public/*(Advanced)*/ /*config */String InEditorGameURLOptions;
 	public /*const */World PlayWorld;
 	public /*const */Object.Vector PlayWorldLocation;
 	public /*const */Object.Rotator PlayWorldRotation;
@@ -115,7 +115,7 @@ public partial class EditorEngine : Engine/*
 		AutoSaveDir = "..\\TdGame\\Content\\Maps\\Autosaves";
 		InvertwidgetZAxis = true;
 		GameCommandLine = "-log";
-		EditPackages = new array</*config */string>
+		EditPackages = new array</*config */String>
 		{
 			"Core",
 			"Engine",

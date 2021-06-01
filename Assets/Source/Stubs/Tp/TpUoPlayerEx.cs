@@ -75,7 +75,7 @@ public partial class TpUoPlayerEx : TpSystemHandler,
 		return default;
 	}
 	
-	public virtual /*function */bool ShowInviteUI(byte LocalUserNum, /*optional */string? _InviteText = default)
+	public virtual /*function */bool ShowInviteUI(byte LocalUserNum, /*optional */String? _InviteText = default)
 	{
 	
 		return default;
@@ -110,7 +110,7 @@ public partial class TpUoPlayerEx : TpSystemHandler,
 	
 	}
 	
-	public virtual /*function */int GetDeviceSelectionResults(byte LocalUserNum, ref string DeviceName)
+	public virtual /*function */int GetDeviceSelectionResults(byte LocalUserNum, ref String DeviceName)
 	{
 	
 		return default;

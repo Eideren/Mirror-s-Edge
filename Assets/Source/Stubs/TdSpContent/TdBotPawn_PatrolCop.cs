@@ -192,7 +192,6 @@ public partial class TdBotPawn_PatrolCop : TdBotPawn/*
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_PatrolCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdBotPawn_PatrolCop.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_PatrolCop.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PatrolCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x0001D250

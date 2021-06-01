@@ -40,7 +40,7 @@ public partial class TdMove_Cutscene : TdPhysicsMove/*
 	{
 		PawnOwner.Velocity = vect(0.0f, 0.0f, 0.0f);
 		PawnOwner.Acceleration = vect(0.0f, 0.0f, 0.0f);
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 	}
 	
 	public virtual /*simulated function */void AlignToTargetRotation()

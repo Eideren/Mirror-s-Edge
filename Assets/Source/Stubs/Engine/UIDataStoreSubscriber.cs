@@ -5,10 +5,10 @@ public interface UIDataStoreSubscriber : Interface/*
 		abstract
 		native*/{
 	// Export UUIDataStoreSubscriber::execSetDataStoreBinding(FFrame&, void* const)
-	public /*native function */void SetDataStoreBinding(string MarkupText, /*optional */int? _BindingIndex = default);
+	public /*native function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default);
 	
 	// Export UUIDataStoreSubscriber::execGetDataStoreBinding(FFrame&, void* const)
-	public /*native function */string GetDataStoreBinding(/*optional */int? _BindingIndex = default);
+	public /*native function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default);
 	
 	// Export UUIDataStoreSubscriber::execRefreshSubscriberValue(FFrame&, void* const)
 	public /*native function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default);

@@ -38,14 +38,12 @@ public partial class TdCoverGroup : CoverGroup/*
 		// Object Offset:0x0053E0E8
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E51EC5
 				Scale = 2.0f,
 			}/* Reference: SpriteComponent'Default__TdCoverGroup.Sprite' */,
 			LoadAsset<CoverGroupRenderingComponent>("Default__TdCoverGroup.CoverGroupRenderer")/*Ref CoverGroupRenderingComponent'Default__TdCoverGroup.CoverGroupRenderer'*/,
-			//Components[2]=
 			new TdCoverGroupRenderingComponent
 			{
 				// Object Offset:0x03121A3E

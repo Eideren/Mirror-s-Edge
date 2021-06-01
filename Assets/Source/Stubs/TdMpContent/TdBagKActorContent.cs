@@ -18,7 +18,6 @@ public partial class TdBagKActorContent : TdBagKActor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBagKActorContent.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBagKActorContent.MyLightEnvironment'*/,
-			//Components[1]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x00010ED0
@@ -26,7 +25,6 @@ public partial class TdBagKActorContent : TdBagKActor/*
 				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBagKActorContent.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBagKActorContent.MyLightEnvironment'*/,
 				bUseAsOccluder = false,
 			}/* Reference: StaticMeshComponent'Default__TdBagKActorContent.StaticMeshComponent0' */,
-			//Components[2]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x00010ED0

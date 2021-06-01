@@ -19,15 +19,15 @@ public partial class TdMPGame : TdGameInfo/*
 	//	}
 	};
 	
-	public /*config */string IpServerNumber;
+	public /*config */String IpServerNumber;
 	public /*const config */float GlobalPlayerRespawnTime;
 	public /*const config */float IndividualPlayerMinRespawnTime;
 	public /*const config */float TimeBetweenRounds;
 	public /*const config */float TimeBetweenMatches;
 	public /*const config */int MaxRounds;
 	public int RoundCount;
-	public /*protected */array<string> CriminalClasses;
-	public /*protected */array<string> PoliceClasses;
+	public /*protected */array<String> CriminalClasses;
+	public /*protected */array<String> PoliceClasses;
 	public array<TdMPGame.DeadPlayerController> DeadControllers;
 	public bool bInitialSpawn;
 	public /*config */bool bUseWarmup;
@@ -35,7 +35,7 @@ public partial class TdMPGame : TdGameInfo/*
 	public /*config */int MinWarmupPlayersNeeded;
 	public /*config */int WarmupCountDownTime;
 	
-	public override /*event */void InitGame(string Options, ref string ErrorMessage)
+	public override /*event */void InitGame(String Options, ref String ErrorMessage)
 	{
 		base.InitGame(Options, ref/*probably?*/ ErrorMessage);
 		TimeLimit = Max(0, GetIntOption(Options, "TimeLimit", TimeLimit));
@@ -43,7 +43,7 @@ public partial class TdMPGame : TdGameInfo/*
 		MinWarmupPlayersNeeded = Max(0, GetIntOption(Options, "MinWarmupPlayersNeeded", MinWarmupPlayersNeeded));
 		MinWarmupPlayersNeeded = Min(MinWarmupPlayersNeeded, MaxPlayers);
 		bUseWarmup = ApproximatelyEqual((ParseOption(Options, "bUseWarmup")), "1");
-		DeathMessageClass = ((DynamicLoadObject("TdMpContent.TdDeathMessage", ClassT<Class>(), default)) as ClassT<TdLocalMessage>);
+		DeathMessageClass = ((DynamicLoadObject("TdMpContent.TdDeathMessage", ClassT<Class>(), default(bool?))) as ClassT<TdLocalMessage>);
 	}
 	
 	public override /*function */void PreBeginPlay()
@@ -83,23 +83,23 @@ public partial class TdMPGame : TdGameInfo/*
 		}	
 		bWaitingToStartMatch = false;
 		RoundCount = 0;
-		GotoState("MatchInProgress", default, default, default);
+		GotoState("MatchInProgress", default(name?), default(bool?), default(bool?));
 		StartOnlineGame();
-		WorldInfo.NotifyMatchStarted(default, default, default);
+		WorldInfo.NotifyMatchStarted(default(bool?), default(bool?), default(bool?));
 	}
 	
-	public override /*function */bool CheckEndGame(PlayerReplicationInfo Winner, string Reason)
+	public override /*function */bool CheckEndGame(PlayerReplicationInfo Winner, String Reason)
 	{
 		GameReplicationInfo.Winner = Winner;
 		return base.CheckEndGame(Winner, Reason);
 	}
 	
-	public override /*function */void EndGame(PlayerReplicationInfo Winner, string Reason)
+	public override /*function */void EndGame(PlayerReplicationInfo Winner, String Reason)
 	{
 		base.EndGame(Winner, Reason);
 		if(bGameEnded)
 		{
-			GotoState("MatchOver", default, default, default);
+			GotoState("MatchOver", default(name?), default(bool?), default(bool?));
 		}
 	}
 	
@@ -142,7 +142,7 @@ public partial class TdMPGame : TdGameInfo/*
 	{
 		/*local */Core.ClassT<Pawn> ResultClass = default;
 		/*local */int RandIndex = default;
-		/*local */string ClassName = default;
+		/*local */String ClassName = default;
 	
 		if((CriminalClasses.Length == 0) || PoliceClasses.Length == 0)
 		{
@@ -160,7 +160,7 @@ public partial class TdMPGame : TdGameInfo/*
 				RandIndex = Rand(PoliceClasses.Length);
 				ClassName = PoliceClasses[RandIndex];
 			}
-			ResultClass = ((DynamicLoadObject(ClassName, ClassT<Class>(), default)) as ClassT<Pawn>);
+			ResultClass = ((DynamicLoadObject(ClassName, ClassT<Class>(), default(bool?))) as ClassT<Pawn>);
 		}
 		if(ResultClass == default)
 		{
@@ -182,7 +182,7 @@ public partial class TdMPGame : TdGameInfo/*
 		J0x32:{}
 		if(Attempts < 5)
 		{
-			ResultPawn = Spawn(GetDefaultPlayerClass(NewPlayer), default, default, StartSpot.Location + SpawnOffset, StartRotation, default, false);
+			ResultPawn = Spawn(GetDefaultPlayerClass(NewPlayer), default(Actor?), default(name?), StartSpot.Location + SpawnOffset, StartRotation, default(Actor?), false);
 			if(ResultPawn == default)
 			{
 				if(((StartSpot) as TdPlayerStart) != default)
@@ -387,7 +387,7 @@ public partial class TdMPGame : TdGameInfo/*
 	{
 		/*local */TdPlayerController C = default;
 	
-		SetGameTimer(false, default, default);
+		SetGameTimer(false, default(float?), default(float?));
 		((GameReplicationInfo) as TdGameReplicationInfo).bMatchIsInWarmup = true;
 		
 		// foreach WorldInfo.AllControllers(ClassT<TdPlayerController>(), ref/*probably?*/ C)
@@ -466,7 +466,7 @@ public partial class TdMPGame : TdGameInfo/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) PendingMatch()/*auto state PendingMatch*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			PostLogin = TdMPGame_PendingMatch_PostLogin;
 			StartWarmup = TdMPGame_PendingMatch_StartWarmup;
@@ -493,13 +493,13 @@ public partial class TdMPGame : TdGameInfo/*
 		bInitialSpawn = true;
 		InitialSpawn();
 		bInitialSpawn = false;
-		SetTimer(GlobalPlayerRespawnTime, true, "RespawnTimer", default);
+		SetTimer(GlobalPlayerRespawnTime, true, "RespawnTimer", default(Object?));
 	}
 	
 	protected /*simulated function */void TdMPGame_MatchInProgress_EndState(name NextStateName)// state function
 	{
 		DeadControllers.Remove(0, DeadControllers.Length);
-		ClearTimer("RespawnTimer", default);
+		ClearTimer("RespawnTimer", default(Object?));
 	}
 	
 	protected /*event */void TdMPGame_MatchInProgress_PostLogin(PlayerController NewPlayer)// state function
@@ -599,7 +599,7 @@ public partial class TdMPGame : TdGameInfo/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) MatchInProgress()/*state MatchInProgress*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			PostLogin = TdMPGame_MatchInProgress_PostLogin;
 			Logout = TdMPGame_MatchInProgress_Logout;
@@ -639,7 +639,7 @@ public partial class TdMPGame : TdGameInfo/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) MatchOver()/*state MatchOver*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			/*ignores*/ RespawnTimer = ()=>{};
 	
@@ -672,13 +672,13 @@ public partial class TdMPGame : TdGameInfo/*
 	public TdMPGame()
 	{
 		// Object Offset:0x005F6A3A
-		CriminalClasses = new array<string>
+		CriminalClasses = new array<String>
 		{
 			"TdMpContent.Pawn_CriminalHeavy",
 			"TdMpContent.Pawn_CriminalProwler",
 			"TdMpContent.Pawn_CriminalFixer",
 		};
-		PoliceClasses = new array<string>
+		PoliceClasses = new array<String>
 		{
 			"TdMpContent.Pawn_PoliceSWAT",
 			"TdMpContent.Pawn_PoliceUndercover",

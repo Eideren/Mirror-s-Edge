@@ -8,8 +8,8 @@ public partial class SpeechRecognition : Object/*
 	public partial struct /*native */RecognisableWord
 	{
 		public/*()*/ int Id;
-		public/*()*/ string ReferenceWord;
-		public/*()*/ string PhoneticWord;
+		public/*()*/ String ReferenceWord;
+		public/*()*/ String PhoneticWord;
 	
 	//	structdefaultproperties
 	//	{
@@ -25,7 +25,7 @@ public partial class SpeechRecognition : Object/*
 		public/*()*/ array<SpeechRecognition.RecognisableWord> WhoDictionary;
 		public/*()*/ array<SpeechRecognition.RecognisableWord> WhatDictionary;
 		public/*()*/ array<SpeechRecognition.RecognisableWord> WhereDictionary;
-		public string VocabName;
+		public String VocabName;
 		public array<byte> VocabData;
 		public array<byte> WorkingVocabData;
 	
@@ -54,7 +54,7 @@ public partial class SpeechRecognition : Object/*
 	//	}
 	};
 	
-	public/*()*/ string Language;
+	public/*()*/ String Language;
 	public/*()*/ float ConfidenceThreshhold;
 	public/*()*/ array<SpeechRecognition.RecogVocabulary> Vocabularies;
 	public array<byte> VoiceData;

@@ -4,10 +4,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimSanityCheckCommandlet : Commandlet/*
 		transient
 		native*/{
-	public string PackagesPath;
+	public String PackagesPath;
 	
 	// Export UTdAnimSanityCheckCommandlet::execMain(FFrame&, void* const)
-	public override /*native event */int Main(string Params)
+	public override /*native event */int Main(String Params)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

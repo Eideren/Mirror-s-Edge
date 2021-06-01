@@ -59,7 +59,7 @@ public partial class TdAIVoiceOverManager : Actor/*
 	
 	public partial struct /*native */AIVoiceOver
 	{
-		public string outText;
+		public String outText;
 		public float spamTime;
 		public float Prio;
 		public float triggeredTime;

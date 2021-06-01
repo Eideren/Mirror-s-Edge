@@ -39,9 +39,9 @@ public partial class TdUIScene : UIScene/*
 	public /*transient */TdUIScene_MessageBox LoadingGamerCardMessageBox;
 	public /*transient */OnlineSubsystem.UniqueNetId GamerCardNetId;
 	public /*transient */TdUIButtonBar ButtonBar;
-	public /*private */string CurrentPlayingMovieName;
-	public /*private transient */string SimpleMessageBox_Message;
-	public /*private transient */string SimpleMessageBox_Title;
+	public /*private */String CurrentPlayingMovieName;
+	public /*private transient */String SimpleMessageBox_Message;
+	public /*private transient */String SimpleMessageBox_Title;
 	public /*private transient */UIScene PendingOpenScene;
 	public /*private transient */UIScene PendingCloseScene;
 	public /*private transient */float SceneAnimStepPos;
@@ -73,7 +73,7 @@ public partial class TdUIScene : UIScene/*
 	}
 	
 	// Export UTdUIScene::execConvertUnicodeCharsToReadable(FFrame&, void* const)
-	public virtual /*native function */void ConvertUnicodeCharsToReadable(ref string Str)
+	public virtual /*native function */void ConvertUnicodeCharsToReadable(ref String Str)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -99,26 +99,26 @@ public partial class TdUIScene : UIScene/*
 	}
 	
 	// Export UTdUIScene::execGetPossibleScreenResolutions(FFrame&, void* const)
-	public virtual /*native function */void GetPossibleScreenResolutions(ref array<string> OutResults)
+	public virtual /*native function */void GetPossibleScreenResolutions(ref array<String> OutResults)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UTdUIScene::execGetPossibleAudioDevices(FFrame&, void* const)
-	public virtual /*native function */void GetPossibleAudioDevices(ref array<string> OutResults)
+	public virtual /*native function */void GetPossibleAudioDevices(ref array<String> OutResults)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UTdUIScene::execGetCurrentAudioDevice(FFrame&, void* const)
-	public virtual /*native function */string GetCurrentAudioDevice()
+	public virtual /*native function */String GetCurrentAudioDevice()
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdUIScene::execSetAudioDeviceToUse(FFrame&, void* const)
-	public virtual /*native function */void SetAudioDeviceToUse(string InAudioDevice)
+	public virtual /*native function */void SetAudioDeviceToUse(String InAudioDevice)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -143,7 +143,7 @@ public partial class TdUIScene : UIScene/*
 	}
 	
 	// Export UTdUIScene::execStartMovie(FFrame&, void* const)
-	public virtual /*native function */void StartMovie(string MovieName, /*optional */bool? _bForceSkippable = default, /*optional */bool? _bBlockInput = default)
+	public virtual /*native function */void StartMovie(String MovieName, /*optional */bool? _bForceSkippable = default, /*optional */bool? _bBlockInput = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -239,7 +239,7 @@ public partial class TdUIScene : UIScene/*
 	
 	}
 	
-	public virtual /*function */void ConsoleCommand(string Cmd)
+	public virtual /*function */void ConsoleCommand(String Cmd)
 	{
 	
 	}
@@ -249,19 +249,19 @@ public partial class TdUIScene : UIScene/*
 	
 	}
 	
-	public virtual /*function */string TrimWhitespace(string InString)
+	public virtual /*function */String TrimWhitespace(String InString)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */string FormatTime(float Seconds)
+	public virtual /*function */String FormatTime(float Seconds)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */void OpenSceneByName(string SceneToOpen, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
+	public virtual /*function */void OpenSceneByName(String SceneToOpen, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
 	{
 	
 	}
@@ -337,7 +337,7 @@ public partial class TdUIScene : UIScene/*
 		return default;
 	}
 	
-	public virtual /*function */string ParseOption(string Options, string InKey)
+	public virtual /*function */String ParseOption(String Options, String InKey)
 	{
 	
 		return default;
@@ -368,7 +368,7 @@ public partial class TdUIScene : UIScene/*
 	
 	}
 	
-	public virtual /*function */void DisplaySimpleMessageBox(string Message, /*optional */string? _Title = default, /*optional *//*delegate*/TdUIScene.OnMessageBoxClosedCallback? _OnMessageBoxClosed = default)
+	public virtual /*function */void DisplaySimpleMessageBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene.OnMessageBoxClosedCallback? _OnMessageBoxClosed = default)
 	{
 	
 	}

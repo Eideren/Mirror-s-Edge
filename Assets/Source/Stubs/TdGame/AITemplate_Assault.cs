@@ -9,7 +9,7 @@ public partial class AITemplate_Assault : AITemplate_Default/*
 	{
 		// Object Offset:0x004882A6
 		ControllerClass = "TdGame.TdAI_Assault";
-		AnimationSets = "AS_AI_Assault_TwoHanded.AS_AI_Assault_TwoHanded";
+		AnimationSets[0] = "AS_AI_Assault_TwoHanded.AS_AI_Assault_TwoHanded";
 		SkeletalMesh = "CH_TKY_Cop_SWAT.CH_TKY_Cop_SWAT";
 		LegOffsetRunRight90 = 0.0f;
 		LegOffsetRunRight180 = 0.0f;

@@ -35,7 +35,7 @@ public partial class CameraActor : Actor/*
 		Canvas.StrLen("TEST", ref/*probably?*/ XL, ref/*probably?*/ out_YL);
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText("FOV:" + ((FOVAngle)).ToString(), false, default, default);
+		Canvas.DrawText("FOV:" + ((FOVAngle)).ToString(), false, default(float?), default(float?));
 	}
 	
 	public CameraActor()
@@ -366,7 +366,6 @@ public partial class CameraActor : Actor/*
 		bNoDelete = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x00312172

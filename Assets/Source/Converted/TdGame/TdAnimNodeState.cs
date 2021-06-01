@@ -5,7 +5,7 @@ public partial class TdAnimNodeState : TdAnimNodeBlendList/*
 		native
 		hidecategories(Object,Object,Object)*/{
 	public array<int> StateMapping;
-	public string EnumStringName;
+	public String EnumStringName;
 	public array<TdAnimNodeState> FriendNodes;
 	public int SavedEnum;
 	public int CurrentUsedEnum;

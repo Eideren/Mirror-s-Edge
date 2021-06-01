@@ -19,7 +19,7 @@ public partial class ScriptConsoleEntry : UIPanel/*
 	
 	}
 	
-	public virtual /*function */void SetValue(string NewValue)
+	public virtual /*function */void SetValue(String NewValue)
 	{
 	
 	}

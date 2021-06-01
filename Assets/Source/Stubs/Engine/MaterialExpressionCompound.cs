@@ -8,7 +8,7 @@ public partial class MaterialExpressionCompound : MaterialExpression/* within Ma
 	public new Material Outer => base.Outer as Material;
 	
 	public /*const */array<MaterialExpression> MaterialExpressions;
-	public/*()*/ string Caption;
+	public/*()*/ String Caption;
 	public/*()*/ bool bExpanded;
 	
 }

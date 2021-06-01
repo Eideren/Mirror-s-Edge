@@ -55,13 +55,13 @@ public partial class TdMove_LayOnGround : TdPhysicsMove/*
 		}
 		if((((int)Action) == ((int)TdPawn.EMovementAction.MA_Jump/*1*/)) || ((int)PawnOwner.MoveActionHint) == ((int)TdPawn.EMoveActionHint.MAH_Up/*3*/))
 		{
-			if(CanStand(PawnOwner.Location + vect(0.0f, 0.0f, 30.0f), default))
+			if(CanStand(PawnOwner.Location + vect(0.0f, 0.0f, 30.0f), default(bool?)))
 			{
 				GetUp();			
 			}
 			else
 			{
-				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default, default);
+				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default(bool?), default(bool?));
 				return;
 			}		
 		}
@@ -78,7 +78,7 @@ public partial class TdMove_LayOnGround : TdPhysicsMove/*
 	{
 		if(!bIsGettingUpFromGround)
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("JumpTurnLandingStand")), 1.0f, 0.20f, 0.20f, default, default);
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("JumpTurnLandingStand")), 1.0f, 0.20f, 0.20f, default(bool?), default(bool?));
 			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, 0.20f);
 			bIsGettingUpFromGround = true;
 			ResetCameraLook(1.0f);
@@ -93,7 +93,7 @@ public partial class TdMove_LayOnGround : TdPhysicsMove/*
 	
 		if(!bIsGettingUpFromGround)
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("EvadeRoll")), 1.0f, 0.20f, 0.20f, true, default);
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("EvadeRoll")), 1.0f, 0.20f, 0.20f, true, default(bool?));
 			PawnOwner.UseRootMotion(true);
 			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, 0.20f);
 			bIsGettingUpFromGround = true;
@@ -102,7 +102,7 @@ public partial class TdMove_LayOnGround : TdPhysicsMove/*
 			StopWeaponHandling();
 			LookAtPoint = PawnOwner.Location + (((Vector)(PawnOwner.Rotation)) * ((float)(1000)));
 			LookAtPoint.Z -= ((float)(300));
-			SetLookAtTargetLocation(LookAtPoint, 0.40f, default);
+			SetLookAtTargetLocation(LookAtPoint, 0.40f, default(float?));
 			TdPP = ((PawnOwner) as TdPlayerPawn);
 			if(TdPP != default)
 			{
@@ -119,7 +119,7 @@ public partial class TdMove_LayOnGround : TdPhysicsMove/*
 		PlayerController = ((PawnOwner.Controller) as TdPlayerController);
 		if(PlayerController != default)
 		{
-			PlayerController.StopFire((byte)default);
+			PlayerController.StopFire((byte)default(byte?));
 		}
 		MovementGroup = TdMove.EMovementGroup.MG_TwoHandsBusy/*2*/;
 		PawnOwner.SetWeaponAnimState(TdPawn.EWeaponAnimState.WS_Relaxed/*1*/);
@@ -131,13 +131,13 @@ public partial class TdMove_LayOnGround : TdPhysicsMove/*
 		if(bIsGettingUpFromGround)
 		{
 			bIsGettingUpFromGround = false;
-			if(CanStand(PawnOwner.Location + vect(0.0f, 0.0f, 30.0f), default))
+			if(CanStand(PawnOwner.Location + vect(0.0f, 0.0f, 30.0f), default(bool?)))
 			{
-				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);			
+				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));			
 			}
 			else
 			{
-				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default, default);
+				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default(bool?), default(bool?));
 			}
 		}
 	}

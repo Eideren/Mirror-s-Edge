@@ -8,7 +8,7 @@ public partial class AITemplate_Assault_HKG36C : AITemplate_Assault/*
 	{
 		// Object Offset:0x00488589
 		ProfileName = "AssaultTwoHanded-HKG36C";
-		AnimationSets[1] = "AS_AI_Assault_TwoHanded.AS_AI_Assault_TwoHanded_G36C";
+		AnimationSets[0] = "AS_AI_Assault_TwoHanded.AS_AI_Assault_TwoHanded_G36C";
 		MainWeaponClass = "TdSharedContent.TdWeapon_AssaultRifle_HKG36";
 		MainWeaponAmmoDrops_Dropped = new AITemplate.AmmoDropSettings
 		{

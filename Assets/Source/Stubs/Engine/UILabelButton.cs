@@ -10,12 +10,12 @@ public partial class UILabelButton : UIButton,
 	public/*(Data)*/ /*noclear const export editinline */UIComp_DrawString StringRenderComponent;
 	
 	// Export UUILabelButton::execSetCaption(FFrame&, void* const)
-	public virtual /*native function */void SetCaption(string NewText)
+	public virtual /*native function */void SetCaption(String NewText)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
-	public virtual /*final event */string GetCaption()
+	public virtual /*final event */String GetCaption()
 	{
 	
 		return default;
@@ -38,13 +38,13 @@ public partial class UILabelButton : UIButton,
 	}
 	
 	// Export UUILabelButton::execSetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int? _BindingIndex = default)
+	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUILabelButton::execGetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */string GetDataStoreBinding(/*optional */int? _BindingIndex = default)
+	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

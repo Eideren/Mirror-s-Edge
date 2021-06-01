@@ -566,7 +566,7 @@ public partial class CoverLink : NavigationPoint/*
 		return default;
 	}
 	
-	public virtual /*simulated function */string GetDebugString(int SlotIdx)
+	public virtual /*simulated function */String GetDebugString(int SlotIdx)
 	{
 	
 		return default;
@@ -708,7 +708,6 @@ public partial class CoverLink : NavigationPoint/*
 		Abbrev = "CL";
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004CF76A
@@ -716,14 +715,12 @@ public partial class CoverLink : NavigationPoint/*
 			}/* Reference: SpriteComponent'Default__CoverLink.Sprite' */,
 			LoadAsset<SpriteComponent>("Default__CoverLink.Sprite2")/*Ref SpriteComponent'Default__CoverLink.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__CoverLink.Arrow")/*Ref ArrowComponent'Default__CoverLink.Arrow'*/,
-			//Components[3]=
 			new CylinderComponent
 			{
 				// Object Offset:0x0046641B
 				CollisionHeight = 58.0f,
 				CollisionRadius = 48.0f,
 			}/* Reference: CylinderComponent'Default__CoverLink.CollisionCylinder' */,
-			//Components[4]=
 			new CoverMeshComponent
 			{
 				// Object Offset:0x0046637F

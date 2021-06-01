@@ -6,11 +6,11 @@ public partial class UIAction_TdGetMapData : UIAction/*
 		hidecategories(Object)*/{
 	public name ResourceDataStoreName;
 	public/*()*/ int MapIndex;
-	public string Filename;
-	public string FriendlyName;
-	public string Description;
-	public string MapName;
-	public string ImageMarkup;
+	public String Filename;
+	public String FriendlyName;
+	public String Description;
+	public String MapName;
+	public String ImageMarkup;
 	public int NumCheckPoints;
 	
 	public UIAction_TdGetMapData()

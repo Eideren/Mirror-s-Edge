@@ -115,7 +115,7 @@ public partial class TdUIScene_Pause : TdUIScene/*
 	
 	}
 	
-	public virtual /*function */void SetTitleLabel(string Text)
+	public virtual /*function */void SetTitleLabel(String Text)
 	{
 	
 	}

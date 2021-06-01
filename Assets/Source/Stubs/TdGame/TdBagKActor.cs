@@ -6,7 +6,7 @@ public partial class TdBagKActor : KActor,
 		placeable*/{
 	public /*protected transient */TdCarriableMediator Mediator;
 	public /*private transient */Pawn LastCarrierPawn;
-	public string InventoryClassName;
+	public String InventoryClassName;
 	public bool bTouchedGround;
 	public /*export editinline */CylinderComponent ActorCylinderComponent;
 	
@@ -169,7 +169,6 @@ public partial class TdBagKActor : KActor,
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBagKActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBagKActor.MyLightEnvironment'*/,
-			//Components[1]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x02EA6C03
@@ -182,7 +181,6 @@ public partial class TdBagKActor : KActor,
 				Scale = 3.0f,
 				ScriptRigidBodyCollisionThreshold = 50.0f,
 			}/* Reference: StaticMeshComponent'Default__TdBagKActor.StaticMeshComponent0' */,
-			//Components[2]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x02EA6C03
@@ -195,7 +193,6 @@ public partial class TdBagKActor : KActor,
 				Scale = 3.0f,
 				ScriptRigidBodyCollisionThreshold = 50.0f,
 			}/* Reference: StaticMeshComponent'Default__TdBagKActor.StaticMeshComponent0' */,
-			//Components[3]=
 			new CylinderComponent
 			{
 				// Object Offset:0x01AB48C6

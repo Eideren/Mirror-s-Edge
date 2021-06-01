@@ -262,7 +262,7 @@ public partial class TdPawn : GamePawn/*
 	
 	public partial struct /*native */ReplicatedCustomAnimation
 	{
-		public string AnimName;
+		public String AnimName;
 		public TdPawn.CustomNodeType NodeType;
 		public float BlendInTime;
 		public float BlendOutTime;
@@ -743,7 +743,7 @@ public partial class TdPawn : GamePawn/*
 		base.PostBeginPlay();
 		InitMoves();
 		CacheAnimNodes();
-		SlideEffectEmitter = Spawn(ClassT<TdEmitter>(), this, default, default, default, default, default);
+		SlideEffectEmitter = Spawn(ClassT<TdEmitter>(), this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
 		SlideEffectEmitter.bDestroyOnSystemFinish = false;
 		SlideEffectEmitter.LifeSpan = 0.0f;
 		SlideEffectEmitter.KillProjectile();
@@ -868,11 +868,11 @@ public partial class TdPawn : GamePawn/*
 		bScriptInitialized = true;
 		if(InitialState != "None")
 		{
-			GotoState(InitialState, default, default, default);		
+			GotoState(InitialState, default(name?), default(bool?), default(bool?));		
 		}
 		else
 		{
-			GotoState("Auto", default, default, default);
+			GotoState("Auto", default(name?), default(bool?), default(bool?));
 		}
 	}
 	
@@ -1008,7 +1008,7 @@ public partial class TdPawn : GamePawn/*
 		PendingAnimationMovementState = ((TdPawn.EMovement)NewForcedGenericState);
 		if(delay > 0.0f)
 		{
-			SetTimer(delay, false, "SetAnimationMovementStateInternal", default);		
+			SetTimer(delay, false, "SetAnimationMovementStateInternal", default(Object?));		
 		}
 		else
 		{
@@ -1021,7 +1021,7 @@ public partial class TdPawn : GamePawn/*
 		var delay = _delay ?? -1.0f;
 		if(delay > 0.0f)
 		{
-			SetTimer(delay, false, "ClearAnimationMovementStateInternal", default);		
+			SetTimer(delay, false, "ClearAnimationMovementStateInternal", default(Object?));		
 		}
 		else
 		{
@@ -1049,12 +1049,12 @@ public partial class TdPawn : GamePawn/*
 	public virtual /*simulated function */void SetOverrideWalkingState(TdPawn.WalkingState NewState, /*optional */float? _delay = default)
 	{
 		var delay = _delay ?? -1.0f;
-		ClearTimer("OverrideWalkingStateInternal", default);
-		ClearTimer("ClearOverrideWalkingStateInternal", default);
+		ClearTimer("OverrideWalkingStateInternal", default(Object?));
+		ClearTimer("ClearOverrideWalkingStateInternal", default(Object?));
 		PendingOverrideWalkingState = ((TdPawn.WalkingState)NewState);
 		if(delay > 0.0f)
 		{
-			SetTimer(delay, false, "OverrideWalkingStateInternal", default);		
+			SetTimer(delay, false, "OverrideWalkingStateInternal", default(Object?));		
 		}
 		else
 		{
@@ -1065,11 +1065,11 @@ public partial class TdPawn : GamePawn/*
 	public virtual /*simulated function */void ClearOverrideWalkingState(/*optional */float? _delay = default)
 	{
 		var delay = _delay ?? -1.0f;
-		ClearTimer("OverrideWalkingStateInternal", default);
-		ClearTimer("ClearOverrideWalkingStateInternal", default);
+		ClearTimer("OverrideWalkingStateInternal", default(Object?));
+		ClearTimer("ClearOverrideWalkingStateInternal", default(Object?));
 		if(delay > 0.0f)
 		{
-			SetTimer(delay, false, "ClearOverrideWalkingStateInternal", default);		
+			SetTimer(delay, false, "ClearOverrideWalkingStateInternal", default(Object?));		
 		}
 		else
 		{
@@ -1124,7 +1124,7 @@ public partial class TdPawn : GamePawn/*
 				{
 					if(((int)ReplicatedMovementState) != ((int)MovementState))
 					{
-						SetMove(((TdPawn.EMovement)ReplicatedMovementState), true, default);
+						SetMove(((TdPawn.EMovement)ReplicatedMovementState), true, default(bool?));
 					}				
 				}
 				else
@@ -1137,7 +1137,7 @@ public partial class TdPawn : GamePawn/*
 					{
 						if(VarName == "AnimationMovementState")
 						{
-							SetAnimationMovementState(((TdPawn.EMovement)AnimationMovementState), default);						
+							SetAnimationMovementState(((TdPawn.EMovement)AnimationMovementState), default(float?));						
 						}
 						else
 						{
@@ -1201,7 +1201,7 @@ public partial class TdPawn : GamePawn/*
 	{
 		if(((int)ReloadCount) == ((int)1))
 		{
-			MyWeapon.WeaponStartReloading(default);
+			MyWeapon.WeaponStartReloading(default(float?));
 		}
 		if(bViaReplication && ((int)ReloadCount) < ((int)1))
 		{
@@ -1234,7 +1234,7 @@ public partial class TdPawn : GamePawn/*
 	{
 		if(InvManager == default)
 		{
-			InvManager = Spawn(InventoryManagerClass, this, default, default, default, default, default);
+			InvManager = Spawn(InventoryManagerClass, this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
 			if(InvManager == default)
 			{			
 			}
@@ -1259,7 +1259,7 @@ public partial class TdPawn : GamePawn/*
 			DetachWeaponFromHand(Weapon);
 			return;
 		}
-		Weap = ((InvManager.FindInventoryType(ReplicatedWeaponClass, default)) as TdWeapon);
+		Weap = ((InvManager.FindInventoryType(ReplicatedWeaponClass, default(bool?))) as TdWeapon);
 		if(Weap == default)
 		{
 			Weap = ((InvManager.CreateInventory(ReplicatedWeaponClass, true)) as TdWeapon);
@@ -1416,7 +1416,7 @@ public partial class TdPawn : GamePawn/*
 		}
 		CeaseFire();
 		StopCustomAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, 0.10f);
-		MyWeapon.StopFiring(default);
+		MyWeapon.StopFiring(default(float?));
 	}
 	
 	public virtual /*simulated function */void StopReloadAnimation()
@@ -1425,7 +1425,7 @@ public partial class TdPawn : GamePawn/*
 		{
 			return;
 		}
-		MyWeapon.StopReloading(default, default);
+		MyWeapon.StopReloading(default(float?), default(bool?));
 		StopCustomAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, 0.10f);
 	}
 	
@@ -1484,7 +1484,7 @@ public partial class TdPawn : GamePawn/*
 	
 	public virtual /*function */bool CanZoom()
 	{
-		return !(((((int)Moves[((int)MovementState)].MovementGroup) > ((int)TdMove.EMovementGroup.MG_Free/*0*/)) || ((int)AgainstWallState) != ((int)TdPawn.EAgainstWallState.AW_None/*0*/)) || ((int)WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/)) || IsTimerActive("DropWeapon", default);
+		return !(((((int)Moves[((int)MovementState)].MovementGroup) > ((int)TdMove.EMovementGroup.MG_Free/*0*/)) || ((int)AgainstWallState) != ((int)TdPawn.EAgainstWallState.AW_None/*0*/)) || ((int)WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/)) || IsTimerActive("DropWeapon", default(Object?));
 	}
 	
 	public virtual /*simulated function */void DropWeapon()
@@ -1497,18 +1497,18 @@ public partial class TdPawn : GamePawn/*
 		{
 			return;
 		}
-		if((((int)WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/)) || IsTimerActive("RemoveWeaponAfterDrop", default))
+		if((((int)WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/)) || IsTimerActive("RemoveWeaponAfterDrop", default(Object?)))
 		{
 			return;
 		}
-		ClearTimer("DropWeapon", default);
+		ClearTimer("DropWeapon", default(Object?));
 		if(TdW.IsZoomingOrZoomed())
 		{
-			SetTimer(0.50f, false, "DropWeapon", default);
+			SetTimer(0.50f, false, "DropWeapon", default(Object?));
 			return;
 		}
 		SetWeaponAnimState(TdPawn.EWeaponAnimState.WS_Throwing/*4*/);
-		PlayCustomAnim(TdPawn.CustomNodeType.CNT_CannedUpperBody/*1*/, "throwaway", 1.0f, 0.10f, 0.0f, false, true, false, default);
+		PlayCustomAnim(TdPawn.CustomNodeType.CNT_CannedUpperBody/*1*/, "throwaway", 1.0f, 0.10f, 0.0f, false, true, false, default(bool?));
 		if(((int)TdW.WeaponType) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/))
 		{
 			if(TdW.WeaponAnimationNode1p != default)
@@ -1521,7 +1521,7 @@ public partial class TdPawn : GamePawn/*
 			}
 		}
 		AnimSeq1p = ((CustomCannedUpperBodyNode1p.GetCustomAnimNodeSeq()) as TdAnimNodeSequence);
-		SetTimer(AnimSeq1p.AnimSeq.SequenceLength, false, "RemoveWeaponAfterDrop", default);
+		SetTimer(AnimSeq1p.AnimSeq.SequenceLength, false, "RemoveWeaponAfterDrop", default(Object?));
 	}
 	
 	public virtual /*function */void TossWeapon(Weapon Weap, /*optional */Object.Vector? _ForceVelocity = default)
@@ -1569,7 +1569,7 @@ public partial class TdPawn : GamePawn/*
 		{
 			if(!TdW.bHidden)
 			{
-				TossWeapon(TdW, default);
+				TossWeapon(TdW, default(Object.Vector?));
 			}
 			if(TdW.Instigator.InvManager != default)
 			{
@@ -1603,7 +1603,7 @@ public partial class TdPawn : GamePawn/*
 	
 	public virtual /*event */void ReleaseWeaponNotify()
 	{
-		TossWeapon(Weapon, default);
+		TossWeapon(Weapon, default(Object.Vector?));
 	}
 	
 	public virtual /*event */void AnimNotifyGrenadeThrow()
@@ -1849,7 +1849,7 @@ public partial class TdPawn : GamePawn/*
 			DetachWeaponFromHand(Weapon);
 		}
 		SetWeaponAnimState(TdPawn.EWeaponAnimState.WS_Unarmed/*0*/);
-		UpdateAnimSets(default);
+		UpdateAnimSets(default(TdWeapon?));
 	}
 	
 	public virtual /*simulated function */void SetArmed()
@@ -1970,7 +1970,7 @@ public partial class TdPawn : GamePawn/*
 			InteractMove.SetCurrentEvent(((UsedEvent) as SeqEvent_TdUsed));
 			if(Moves[39].CanDoMove())
 			{
-				SetMove(TdPawn.EMovement.MOVE_Interact/*39*/, default, default);			
+				SetMove(TdPawn.EMovement.MOVE_Interact/*39*/, default(bool?), default(bool?));			
 			}
 			else
 			{
@@ -2084,7 +2084,7 @@ public partial class TdPawn : GamePawn/*
 				BulletDamage(((InstigatedBy != default) ? ((InstigatedBy.Pawn) as TdPawn) : default), HitLocation, damageMomentum, DamageType);
 			}
 		}
-		/*Transformed 'base.' to specific call*/Pawn_TakeDamage(Damage, InstigatedBy, HitLocation, damageMomentum, DamageType, HitInfo, default);
+		/*Transformed 'base.' to specific call*/Pawn_TakeDamage(Damage, InstigatedBy, HitLocation, damageMomentum, DamageType, HitInfo, default(Actor?));
 		if((!IsHumanControlled() && Health > 0) && CurrentDamageType != default)
 		{
 			PlayPhysicsBodyImpact(InstigatedBy, LastPhysHitInfo);
@@ -2109,7 +2109,7 @@ public partial class TdPawn : GamePawn/*
 			{
 				if(!Moves[((int)MovementState)].bUseCustomCollision && ((int)Physics) == ((int)Actor.EPhysics.PHYS_Falling/*2*/))
 				{
-					SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
+					SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
 				}
 				ElectricShockVelocity = -VelocityDir;
 				ElectricShockVelocity.Z = FClamp(ClassT<TdDmgType_ElectricShock>().DefaultAs<TdDmgType_ElectricShock>().DamageZDirection, 0.10f, 1.0f);
@@ -2304,7 +2304,7 @@ public partial class TdPawn : GamePawn/*
 		if((VSize(ToTarget) < 180.0f) && (Dot(((Vector)(Rotation)), Normal(ToTarget))) < 0.0f)
 		{
 			Target.PlayMeleeImpact(Hit.PhysMaterial, TdPawn.EMeleeImpactType.MIT_Fist/*1*/, HitLocation, -ImpactMomentum, ImpactMomentum, Hit.BoneName, DamageType);
-			Target.TakeDamage(((int)(Damage)), Controller, HitLocation, ImpactMomentum, DamageType, Hit, default);
+			Target.TakeDamage(((int)(Damage)), Controller, HitLocation, ImpactMomentum, DamageType, Hit, default(Actor?));
 		}
 	}
 	
@@ -2358,14 +2358,14 @@ public partial class TdPawn : GamePawn/*
 					{
 						EffectiveSpeed += ((float)(100));
 					}
-					if(IsInState("UncontrolledFall", default))
+					if(IsInState("UncontrolledFall", default(bool?)))
 					{
 						EffectiveSpeed -= ((float)(1000));
 					}
 					if(EffectiveSpeed < (((float)(-1)) * MaxFallSpeed))
 					{
 						Damage = ((-100.0f * UnrealEngineFallDamageScale) * (EffectiveSpeed + MaxFallSpeed)) / MaxFallSpeed;
-						TakeDamage(((int)(Damage)), default, Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Fell>(), default, default);
+						TakeDamage(((int)(Damage)), default, Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Fell>(), default(Actor.TraceHitInfo?), default(Actor?));
 					}
 				}
 			}		
@@ -2396,7 +2396,7 @@ public partial class TdPawn : GamePawn/*
 	public virtual PlayPhysicsBodyImpact_del global_PlayPhysicsBodyImpact => TdPawn_PlayPhysicsBodyImpact;
 	public /*simulated function */void TdPawn_PlayPhysicsBodyImpact(Controller InstigatedBy, TdPawn.PhysicalHitInfo Hit)
 	{
-		if((((Mesh3p == default) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_RigidBody/*10*/)) || bPlayedDeath) || IsInState("Dying", default))
+		if((((Mesh3p == default) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_RigidBody/*10*/)) || bPlayedDeath) || IsInState("Dying", default(bool?)))
 		{
 			return;
 		}
@@ -2452,7 +2452,7 @@ public partial class TdPawn : GamePawn/*
 		MotorStrength = Hit.DamageType.DefaultAs<TdDamageType>().PhysHitReactionMotorStrength;
 		Mesh3p.PhysicsAssetInstance.SetAllMotorsAngularDriveParams(MotorStrength.X, MotorStrength.Y, 0.0f);
 		Mesh3p.PhysicsAssetInstance.SetAllMotorsAngularPositionDrive(true, true);
-		Mesh3p.WakeRigidBody(default);
+		Mesh3p.WakeRigidBody(default(name?));
 		Mesh3p.PhysicsWeight = 1.0f;
 		return true;
 	}
@@ -2587,7 +2587,7 @@ public partial class TdPawn : GamePawn/*
 	
 	}
 	
-	public virtual /*function */void TimedScreenMessage(string Message, /*optional */float? _Time = default)
+	public virtual /*function */void TimedScreenMessage(String Message, /*optional */float? _Time = default)
 	{
 		var Time = _Time ?? 3.0f;
 	}
@@ -2645,7 +2645,7 @@ public partial class TdPawn : GamePawn/*
 	
 	public virtual /*event */void FallingOffWall()
 	{
-		SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
+		SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
 	}
 	
 	public virtual /*event */void ReachedWall()
@@ -2973,7 +2973,7 @@ public partial class TdPawn : GamePawn/*
 		{
 			if(FootStepSounds[ArrayIndex] != default)
 			{
-				this.PlaySound(FootStepSounds[ArrayIndex], false, true, false, triggerLocation, default, default);
+				this.PlaySound(FootStepSounds[ArrayIndex], false, true, false, triggerLocation, default(bool?), default(bool?));
 			}
 			++ ArrayIndex;
 			goto J0x209;
@@ -3023,13 +3023,13 @@ public partial class TdPawn : GamePawn/*
 		{
 			if((((int)MovementState) == ((int)TdPawn.EMovement.MOVE_Vertigo/*47*/)) && FootDown == 12)
 			{
-				PSC = WorldInfo.MyEmitterPool.SpawnEmitter(FootStepEffect, ((Moves[47]) as TdMove_Vertigo).LastActualVertigoEdgePosition, Rotation, default);			
+				PSC = WorldInfo.MyEmitterPool.SpawnEmitter(FootStepEffect, ((Moves[47]) as TdMove_Vertigo).LastActualVertigoEdgePosition, Rotation, default(Actor?));			
 			}
 			else
 			{
-				PSC = WorldInfo.MyEmitterPool.SpawnEmitter(FootStepEffect, HitLoc, Rotation, default);
+				PSC = WorldInfo.MyEmitterPool.SpawnEmitter(FootStepEffect, HitLoc, Rotation, default(Actor?));
 			}
-			PSC.ActivateSystem(default);
+			PSC.ActivateSystem(default(bool?));
 		}
 	}
 	
@@ -3101,7 +3101,7 @@ public partial class TdPawn : GamePawn/*
 	
 		if(((int)Type) == ((int)TdPawn.EMeleeImpactType.MIT_Block/*3*/))
 		{
-			PlaySound(ObjectConst<SoundCue>("Gun_Body"), false, true, false, TargetHitLocation, default, default);
+			PlaySound(ObjectConst<SoundCue>("Gun_Body"), false, true, false, TargetHitLocation, default(bool?), default(bool?));
 			return;
 		}
 		if((PhysMat != default) && PhysMat.PhysicalMaterialProperty != default)
@@ -3129,7 +3129,7 @@ public partial class TdPawn : GamePawn/*
 		}
 		if(ImpactSound != default)
 		{
-			PlaySound(ImpactSound, false, true, false, TargetHitLocation, default, default);
+			PlaySound(ImpactSound, false, true, false, TargetHitLocation, default(bool?), default(bool?));
 		}
 		if((DamageType != default) && DamageType == ClassT<TdDmgType_MeleeAir>())
 		{
@@ -3137,15 +3137,15 @@ public partial class TdPawn : GamePawn/*
 		}
 		if(ImpactEffect != default)
 		{
-			PSC = WorldInfo.MyEmitterPool.SpawnEmitter(ImpactEffect, TargetHitLocation, default, default);
-			Mesh3p.AttachComponent(PSC, TargetHitBone, vect(14.0f, 0.0f, 16.0f), rot(-16556, 0, 0), default);
-			PSC.ActivateSystem(default);
+			PSC = WorldInfo.MyEmitterPool.SpawnEmitter(ImpactEffect, TargetHitLocation, default(Object.Rotator?), default(Actor?));
+			Mesh3p.AttachComponent(PSC, TargetHitBone, vect(14.0f, 0.0f, 16.0f), rot(-16556, 0, 0), default(Object.Vector?));
+			PSC.ActivateSystem(default(bool?));
 		}
 		if((Health <= 0) && ImpactEffectHead != default)
 		{
-			PSC = WorldInfo.MyEmitterPool.SpawnEmitter(ImpactEffectHead, TargetHitLocation, default, default);
+			PSC = WorldInfo.MyEmitterPool.SpawnEmitter(ImpactEffectHead, TargetHitLocation, default(Object.Rotator?), default(Actor?));
 			Mesh3p.AttachComponentToSocket(PSC, "MeleeEffectHeadSocket");
-			PSC.ActivateSystem(default);
+			PSC.ActivateSystem(default(bool?));
 		}
 	}
 	
@@ -3156,7 +3156,7 @@ public partial class TdPawn : GamePawn/*
 	
 		bIsPlayingSlideEffect = true;
 		HitInfo = CheckSlideSurface();
-		SlidingSoundComponent0 = CreateAudioComponent(GetSlideSound(HitInfo), false, true, default, default, default);
+		SlidingSoundComponent0 = CreateAudioComponent(GetSlideSound(HitInfo), false, true, default(bool?), default(Object.Vector?), default(bool?));
 		if(SlidingSoundComponent0 != default)
 		{
 			SlidingSoundComponent0.bUseOwnerLocation = true;
@@ -3169,10 +3169,10 @@ public partial class TdPawn : GamePawn/*
 		PS = GetSlideEffect(HitInfo);
 		if((SlideEffectEmitter != default) && PS != default)
 		{
-			SlideEffectEmitter.SetTemplate(PS, default);
-			Mesh.AttachComponent(SlideEffectEmitter.ParticleSystemComponent, "LeftFoot", default, default, default);
+			SlideEffectEmitter.SetTemplate(PS, default(bool?));
+			Mesh.AttachComponent(SlideEffectEmitter.ParticleSystemComponent, "LeftFoot", default(Object.Vector?), default(Object.Rotator?), default(Object.Vector?));
 			SlideEffectEmitter.SetHidden(false);
-			SlideEffectEmitter.ParticleSystemComponent.ActivateSystem(default);
+			SlideEffectEmitter.ParticleSystemComponent.ActivateSystem(default(bool?));
 		}
 	}
 	
@@ -3223,7 +3223,7 @@ public partial class TdPawn : GamePawn/*
 			{
 				ActiveComponent.FadeOut(0.50f, 0.0f);
 			}
-			ActiveComponent = CreateAudioComponent(SoundToPlay, false, true, default, default, default);
+			ActiveComponent = CreateAudioComponent(SoundToPlay, false, true, default(bool?), default(Object.Vector?), default(bool?));
 			if(ActiveComponent != default)
 			{
 				ActiveComponent.bUseOwnerLocation = true;
@@ -3255,9 +3255,9 @@ public partial class TdPawn : GamePawn/*
 					}
 					SlideEffectEmitter.ParticleSystemComponent.SetTemplate(PSToSpawn);
 					SlideEffectEmitter.ParticleSystemComponent.RewindEmitterInstances();
-					Mesh.AttachComponent(SlideEffectEmitter.ParticleSystemComponent, "LeftFoot", default, default, default);
+					Mesh.AttachComponent(SlideEffectEmitter.ParticleSystemComponent, "LeftFoot", default(Object.Vector?), default(Object.Rotator?), default(Object.Vector?));
 					SlideEffectEmitter.ParticleSystemComponent.SetHidden(false);
-					SlideEffectEmitter.ParticleSystemComponent.ActivateSystem(default);				
+					SlideEffectEmitter.ParticleSystemComponent.ActivateSystem(default(bool?));				
 				}
 				else
 				{
@@ -3273,7 +3273,7 @@ public partial class TdPawn : GamePawn/*
 						SlideEffectEmitter.ParticleSystemComponent.RewindEmitterInstances();
 						SlideEffectEmitter.ParticleSystemComponent.KillParticlesForced();
 						SlideEffectEmitter.ParticleSystemComponent.bJustAttached = true;
-						SlideEffectEmitter.ParticleSystemComponent.ActivateSystem(default);
+						SlideEffectEmitter.ParticleSystemComponent.ActivateSystem(default(bool?));
 					}
 				}
 			}
@@ -3522,10 +3522,10 @@ public partial class TdPawn : GamePawn/*
 		{
 			return;
 		}
-		ClearTimer("StopIgnoreLookInput", default);
+		ClearTimer("StopIgnoreLookInput", default(Object?));
 		if((Time > 0.0f) && !PC.IsLookInputIgnored())
 		{
-			SetTimer(Time, false, "StopIgnoreLookInput", default);
+			SetTimer(Time, false, "StopIgnoreLookInput", default(Object?));
 		}
 		PC.bIgnoreLookInput = (byte)1;
 	}
@@ -3543,7 +3543,7 @@ public partial class TdPawn : GamePawn/*
 			}
 			PC.bIgnoreLookInput = (byte)0;
 		}
-		ClearTimer("StopIgnoreLookInput", default);
+		ClearTimer("StopIgnoreLookInput", default(Object?));
 	}
 	
 	public virtual /*simulated function */void SetIgnoreMoveInput(/*optional */float? _Time = default)
@@ -3564,10 +3564,10 @@ public partial class TdPawn : GamePawn/*
 		{
 			return;
 		}
-		ClearTimer("StopIgnoreMoveInput", default);
+		ClearTimer("StopIgnoreMoveInput", default(Object?));
 		if((Time > 0.0f) && !PC.IsMoveInputIgnored())
 		{
-			SetTimer(Time, false, "StopIgnoreMoveInput", default);
+			SetTimer(Time, false, "StopIgnoreMoveInput", default(Object?));
 		}
 		PC.bIgnoreMoveInput = (byte)1;
 	}
@@ -3585,7 +3585,7 @@ public partial class TdPawn : GamePawn/*
 			}
 			PC.bIgnoreMoveInput = (byte)0;
 		}
-		ClearTimer("StopIgnoreMoveInput", default);
+		ClearTimer("StopIgnoreMoveInput", default(Object?));
 	}
 	
 	public virtual /*simulated function */void PreventMeleeAttack(float Time)
@@ -3682,14 +3682,14 @@ public partial class TdPawn : GamePawn/*
 		Velocity = vect(0.0f, 0.0f, 0.0f);
 		Acceleration = vect(0.0f, 0.0f, 0.0f);
 		bCanTeleport = false;
-		SetCollision(false, false, default);
+		SetCollision(false, false, default(bool?));
 		bCollideWorld = false;
-		SetBase(default, default, default, default);
+		SetBase(default, default(Object.Vector?), default(SkeletalMeshComponent?), default(name?));
 		SetPhysics(Actor.EPhysics.PHYS_None/*0*/);
 		SetHardAttach(true);
 		PawnSeatSocket = ((PassengerDrivenVehicle) as TdVehicle).Seats[seatIndex].CharacterSeatSocket;
 		S = V.Mesh.GetSocketByName(PawnSeatSocket);
-		SetBase(PassengerDrivenVehicle, default, PassengerDrivenVehicle.Mesh, S.BoneName);
+		SetBase(PassengerDrivenVehicle, default(Object.Vector?), PassengerDrivenVehicle.Mesh, S.BoneName);
 		SetRelativeLocation(S.RelativeLocation);
 		SetRelativeRotation(S.RelativeRotation);
 		SetPhysics(Actor.EPhysics.PHYS_None/*0*/);
@@ -3710,14 +3710,14 @@ public partial class TdPawn : GamePawn/*
 		Velocity = vect(0.0f, 0.0f, 0.0f);
 		Acceleration = vect(0.0f, 0.0f, 0.0f);
 		bCanTeleport = false;
-		SetCollision(false, false, default);
+		SetCollision(false, false, default(bool?));
 		bCollideWorld = false;
-		SetBase(default, default, default, default);
+		SetBase(default, default(Object.Vector?), default(SkeletalMeshComponent?), default(name?));
 		SetPhysics(Actor.EPhysics.PHYS_None/*0*/);
 		SetHardAttach(true);
 		PawnSeatSocket = ((PassengerDrivenVehicle) as TdVehicle_Helicopter).Seats[seatIndex].CharacterSeatSocket;
 		S = V.Mesh.GetSocketByName(PawnSeatSocket);
-		SetBase(PassengerDrivenVehicle, default, PassengerDrivenVehicle.Mesh, S.BoneName);
+		SetBase(PassengerDrivenVehicle, default(Object.Vector?), PassengerDrivenVehicle.Mesh, S.BoneName);
 		SetRelativeLocation(S.RelativeLocation + Offset);
 		Rot = S.RelativeRotation;
 		Rot.Yaw += ((int)(Yaw));
@@ -3739,10 +3739,10 @@ public partial class TdPawn : GamePawn/*
 		Velocity = vect(0.0f, 0.0f, 0.0f);
 		Acceleration = vect(0.0f, 0.0f, 0.0f);
 		bCanTeleport = true;
-		SetCollision(true, true, default);
+		SetCollision(true, true, default(bool?));
 		bCollideWorld = true;
 		SetLocation(V.Location + vect(0.0f, 0.0f, 200.0f));
-		SetBase(default, default, default, default);
+		SetBase(default, default(Object.Vector?), default(SkeletalMeshComponent?), default(name?));
 		SetPhysics(Actor.EPhysics.PHYS_Walking/*1*/);
 	}
 	
@@ -3765,7 +3765,7 @@ public partial class TdPawn : GamePawn/*
 	
 	public virtual /*simulated function */void KillPawn()
 	{
-		TakeDamage(1000, default, Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Suicided>(), default, default);
+		TakeDamage(1000, default, Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Suicided>(), default(Actor.TraceHitInfo?), default(Actor?));
 	}
 	
 	public override /*simulated function */void PlayDying(Core.ClassT<DamageType> DamageType, Object.Vector HitLoc)
@@ -3775,7 +3775,7 @@ public partial class TdPawn : GamePawn/*
 		bPlayedDeath = true;
 		HitDamageType = DamageType;
 		TakeHitLocation = HitLoc;
-		GotoState("Dying", default, default, default);
+		GotoState("Dying", default(name?), default(bool?), default(bool?));
 	}
 	
 	public virtual /*simulated function */void GoIntoUncontrolledFall()
@@ -3814,8 +3814,8 @@ public partial class TdPawn : GamePawn/*
 			Dir /= Dist;
 		}
 		
-		// foreach WorldInfo.AllPawns(ClassT<TdBotPawn>(), ref/*probably?*/ P, default, default)
-		using var e56 = WorldInfo.AllPawns(ClassT<TdBotPawn>(), default, default).GetEnumerator();
+		// foreach WorldInfo.AllPawns(ClassT<TdBotPawn>(), ref/*probably?*/ P, default(Object.Vector?), default(float?))
+		using var e56 = WorldInfo.AllPawns(ClassT<TdBotPawn>(), default(Object.Vector?), default(float?)).GetEnumerator();
 		while(e56.MoveNext() && (P = (TdBotPawn)e56.Current) == P)
 		{
 			if(P.Controller == default)
@@ -3860,12 +3860,12 @@ public partial class TdPawn : GamePawn/*
 	public virtual /*function */void SetSynchPosOffset(float Offset, float Duration)
 	{
 		OverrideSynchPosOffset = Offset;
-		SetTimer(Duration, false, "ResetSynchPosOffset", default);
+		SetTimer(Duration, false, "ResetSynchPosOffset", default(Object?));
 	}
 	
 	public virtual /*function */void ResetSynchPosOffset()
 	{
-		ClearTimer("ResetSynchPosOffset", default);
+		ClearTimer("ResetSynchPosOffset", default(Object?));
 		OverrideSynchPosOffset = -1.0f;
 	}
 	
@@ -3919,9 +3919,9 @@ public partial class TdPawn : GamePawn/*
 	
 	public virtual /*function */void NotifyJump()
 	{
-		if(!IsTimerActive("CalculateJumpSpeed", default))
+		if(!IsTimerActive("CalculateJumpSpeed", default(Object?)))
 		{
-			SetTimer(5.0f + (FRand() * 10.0f), false, "CalculateJumpSpeed", default);
+			SetTimer(5.0f + (FRand() * 10.0f), false, "CalculateJumpSpeed", default(Object?));
 		}
 	}
 	
@@ -3981,7 +3981,7 @@ public partial class TdPawn : GamePawn/*
 		{
 			if(Controller.bIsPlayer)
 			{
-				DetachFromController(default);			
+				DetachFromController(default(bool?));			
 			}
 			else
 			{
@@ -3994,7 +3994,7 @@ public partial class TdPawn : GamePawn/*
 		}
 		else
 		{
-			SetTimer(FMin(20.0f, MinTimeBeforeRemovingDeadBody), false, default, default);
+			SetTimer(FMin(20.0f, MinTimeBeforeRemovingDeadBody), false, default(name?), default(Object?));
 		}
 	}
 	
@@ -4008,13 +4008,13 @@ public partial class TdPawn : GamePawn/*
 		{
 			LifeSpan = MaxTimeBeforeRemovingDeadBody;
 		}
-		SetTimer(MinTimeBeforeRemovingDeadBody, false, "RemoveAndDetachPawn", default);
+		SetTimer(MinTimeBeforeRemovingDeadBody, false, "RemoveAndDetachPawn", default(Object?));
 		
 		// foreach TouchingActors(ClassT<Actor>(), ref/*probably?*/ A)
 		using var e78 = TouchingActors(ClassT<Actor>()).GetEnumerator();
 		while(e78.MoveNext() && (A = (Actor)e78.Current) == A)
 		{
-			if(A.FindEventsOfClass(ClassT<SeqEvent_Touch>(), ref/*probably?*/ TouchEvents, default))
+			if(A.FindEventsOfClass(ClassT<SeqEvent_Touch>(), ref/*probably?*/ TouchEvents, default(bool?)))
 			{
 				I = 0;
 				J0x83:{}
@@ -4039,7 +4039,7 @@ public partial class TdPawn : GamePawn/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) Dying()/*simulated state Dying*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			/*ignores*/ RegenerateHealth = (_)=>{}; TakeDamage = (_,_,_,_,_,_,_)=>{}; SetMove = (_,_,_)=>default; HandleMoveAction = (_)=>{}; StopCustomAnim = (_,_)=>{}; PlayPhysicsBodyImpact = (_,_)=>{}; PlayDeathEffect = ()=>{};
 	
@@ -4342,7 +4342,6 @@ public partial class TdPawn : GamePawn/*
 		{
 			LoadAsset<SceneCaptureCharacterComponent>("Default__TdPawn.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdPawn.SceneCaptureCharacterComponent0'*/,
 			LoadAsset<DrawFrustumComponent>("Default__TdPawn.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdPawn.DrawFrust0'*/,
-			//Components[2]=
 			new CylinderComponent
 			{
 				// Object Offset:0x00520648
@@ -4351,7 +4350,6 @@ public partial class TdPawn : GamePawn/*
 				BlockZeroExtent = false,
 			}/* Reference: CylinderComponent'Default__TdPawn.CollisionCylinder' */,
 			LoadAsset<ArrowComponent>("Default__TdPawn.Arrow")/*Ref ArrowComponent'Default__TdPawn.Arrow'*/,
-			//Components[4]=
 			new DynamicLightEnvironmentComponent
 			{
 				// Object Offset:0x005206CC
@@ -4359,7 +4357,6 @@ public partial class TdPawn : GamePawn/*
 				ShadowFilterQuality = LightComponent.EShadowFilterQuality.SFQ_High,
 				BouncedLightingIntensity = 0.20f,
 			}/* Reference: DynamicLightEnvironmentComponent'Default__TdPawn.MyLightEnvironment' */,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x0052073C
@@ -4378,7 +4375,6 @@ public partial class TdPawn : GamePawn/*
 					Default = true,
 				},
 			}/* Reference: TdSkeletalMeshComponent'Default__TdPawn.TdPawnMesh3p' */,
-			//Components[6]=
 			new CylinderComponent
 			{
 				// Object Offset:0x00520648
@@ -4386,7 +4382,6 @@ public partial class TdPawn : GamePawn/*
 				CollisionRadius = 30.0f,
 				BlockZeroExtent = false,
 			}/* Reference: CylinderComponent'Default__TdPawn.CollisionCylinder' */,
-			//Components[7]=
 			new CylinderComponent
 			{
 				// Object Offset:0x005208B4

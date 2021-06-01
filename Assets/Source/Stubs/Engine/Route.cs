@@ -38,19 +38,16 @@ public partial class Route : Info/*
 		bStatic = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D0572
 				Sprite = LoadAsset<Texture2D>("EngineResources.S_Route")/*Ref Texture2D'EngineResources.S_Route'*/,
 			}/* Reference: SpriteComponent'Default__Route.Sprite' */,
-			//Components[1]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D0572
 				Sprite = LoadAsset<Texture2D>("EngineResources.S_Route")/*Ref Texture2D'EngineResources.S_Route'*/,
 			}/* Reference: SpriteComponent'Default__Route.Sprite' */,
-			//Components[2]=
 			new RouteRenderingComponent
 			{
 				// Object Offset:0x004CE5F6

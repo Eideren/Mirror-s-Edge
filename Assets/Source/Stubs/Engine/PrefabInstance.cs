@@ -14,7 +14,7 @@ public partial class PrefabInstance : Actor/*
 	public /*const */array<byte> PI_Bytes;
 	public /*const */array<Object> PI_CompleteObjects;
 	public /*const */array<Object> PI_ReferencedObjects;
-	public /*const */array<string> PI_SavedNames;
+	public /*const */array<String> PI_SavedNames;
 	public /*native const *//*map<0,0>*/map<object, object> PI_ObjectMap;
 	
 	public PrefabInstance()
@@ -24,7 +24,6 @@ public partial class PrefabInstance : Actor/*
 		PI_LicenseePackageVersion = -1;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D00EE

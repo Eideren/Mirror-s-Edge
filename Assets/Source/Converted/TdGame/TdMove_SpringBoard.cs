@@ -62,7 +62,7 @@ public partial class TdMove_SpringBoard : TdPhysicsMove/*
 		}
 		TestLocation = FootPlantHit.LedgeLocation;
 		TestLocation.Z += (PawnOwner.DefaultAs<Pawn>().CylinderComponent.CollisionHeight + 4.0f);
-		if(!CanStand(TestLocation, default))
+		if(!CanStand(TestLocation, default(bool?)))
 		{
 			return false;
 		}
@@ -118,7 +118,7 @@ public partial class TdMove_SpringBoard : TdPhysicsMove/*
 		{
 			ReachedPreciseLocation();
 		}
-		PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default);
+		PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default(bool?));
 		PawnOwner.bCollideWorld = false;
 	}
 	
@@ -128,7 +128,7 @@ public partial class TdMove_SpringBoard : TdPhysicsMove/*
 		{
 			case 0:
 				SetPreciseLocation(IntermediateFootPlantLedgeLocation, TdMove.EPreciseLocationMode.PLM_Fly/*0*/, VSize2D(IntermediateFootPlantLedgeLocation - PawnOwner.Location) / StepTime1);
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((PawnOwner.IsLeftLegForward()) ? "SpringBoardRightLeg" : "SpringBoardLeftLeg"), 1.0f, 0.150f, 0.250f, false, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((PawnOwner.IsLeftLegForward()) ? "SpringBoardRightLeg" : "SpringBoardLeftLeg"), 1.0f, 0.150f, 0.250f, false, default(bool?));
 				SpringBoardState = 1;
 				break;
 			case 1:
@@ -143,7 +143,7 @@ public partial class TdMove_SpringBoard : TdPhysicsMove/*
 					PawnOwner.Velocity.Z += PawnOwner.Base.Velocity.Z;
 				}
 				PawnOwner.LastJumpLocation = PawnOwner.Location;
-				PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default);
+				PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default(bool?));
 				PawnOwner.bCollideWorld = true;
 				PawnOwner.SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
 				PawnOwner.StopIgnoreMoveInput();
@@ -155,14 +155,14 @@ public partial class TdMove_SpringBoard : TdPhysicsMove/*
 	
 	public override /*simulated event */void FailedToReachPreciseLocation()
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
 		base.StopMove();
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, 0.10f);
-		PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default);
+		PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default(bool?));
 		PawnOwner.bCollideWorld = true;
 	}
 	
@@ -174,7 +174,7 @@ public partial class TdMove_SpringBoard : TdPhysicsMove/*
 		}
 		else
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
 		}
 		return base.HandleDeath(Damage);
 	}

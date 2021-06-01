@@ -17,7 +17,6 @@ public partial class FogVolumeConeDensityInfo : FogVolumeDensityInfo/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__FogVolumeConeDensityInfo.Sprite")/*Ref SpriteComponent'Default__FogVolumeConeDensityInfo.Sprite'*/,
-			//Components[1]=
 			new DrawLightConeComponent
 			{
 				// Object Offset:0x00468AEB
@@ -29,7 +28,6 @@ public partial class FogVolumeConeDensityInfo : FogVolumeDensityInfo/*
 					A=255
 				},
 			}/* Reference: DrawLightConeComponent'Default__FogVolumeConeDensityInfo.DrawCone0' */,
-			//Components[2]=
 			new FogVolumeConeDensityComponent
 			{
 				// Object Offset:0x00468E97

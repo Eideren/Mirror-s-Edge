@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class UIAction_TdCreateLobby : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public string LobbyLevel;
-	public string LobbyGameMode;
+	public String LobbyLevel;
+	public String LobbyGameMode;
 	
 	public UIAction_TdCreateLobby()
 	{

@@ -63,10 +63,10 @@ public partial class TpGameBrowser : TpSystemHandler/*
 	
 	public partial struct /*native */TpLobbyListFavourites
 	{
-		public /*init */string Players;
-		public /*init */string Games;
+		public /*init */String Players;
+		public /*init */String Games;
 		public /*init */array</*init */Object.QWord> Uids;
-		public /*init */array</*init */string> PersistentIds;
+		public /*init */array</*init */String> PersistentIds;
 	
 	//	structdefaultproperties
 	//	{
@@ -103,10 +103,10 @@ public partial class TpGameBrowser : TpSystemHandler/*
 	
 	public partial struct /*native */TpGameListFavourites
 	{
-		public /*init */string Players;
-		public /*init */string Games;
+		public /*init */String Players;
+		public /*init */String Games;
 		public /*init */array</*init */Object.QWord> Uids;
-		public /*init */array</*init */string> PersistentIds;
+		public /*init */array</*init */String> PersistentIds;
 	
 	//	structdefaultproperties
 	//	{

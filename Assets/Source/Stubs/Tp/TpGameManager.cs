@@ -70,7 +70,7 @@ public partial class TpGameManager : TpSystemHandler/*
 		#warning NATIVE FUNCTION !
 	}
 	
-	public delegate void OnJoinGame(bool bInOk, string hostIp);
+	public delegate void OnJoinGame(bool bInOk, String hostIp);
 	
 	// Export UTpGameManager::execLeaveGameAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void LeaveGameAsync()
@@ -81,7 +81,7 @@ public partial class TpGameManager : TpSystemHandler/*
 	public delegate void OnLeaveGame();
 	
 	// Export UTpGameManager::execGetGameHostIp(FFrame&, void* const)
-	public virtual /*native simulated function */string GetGameHostIp()
+	public virtual /*native simulated function */String GetGameHostIp()
 	{
 		#warning NATIVE FUNCTION !
 		return default;

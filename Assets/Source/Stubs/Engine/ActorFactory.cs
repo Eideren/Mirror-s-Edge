@@ -9,12 +9,12 @@ public partial class ActorFactory : Object/*
 		collapsecategories
 		hidecategories(Object)*/{
 	public Core.ClassT<Actor> GameplayActorClass;
-	public string MenuName;
+	public String MenuName;
 	public /*config */int MenuPriority;
 	public Core.ClassT<Actor> NewActorClass;
 	public bool bPlaceable;
 	public/*(Spawning)*/ bool bSpawnInSameLevel;
-	public string SpecificGameName;
+	public String SpecificGameName;
 	
 	public ActorFactory()
 	{

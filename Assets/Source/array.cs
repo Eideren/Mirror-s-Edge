@@ -92,7 +92,7 @@ namespace MEdge
         /// <summary>
         /// Returns the index of item.<paramref name="tMemberName"/> whose value matches <paramref name="tMemberValue"/>
         /// </summary>
-        public int Find(name tMemberName, object tMemberValue) => throw new NotImplementedException();
+        public int Find(string tMemberName, object tMemberValue) => throw new NotImplementedException();
 
         public void Remove(int index, int count)
         {

@@ -94,7 +94,7 @@ public partial class TdMove_Jump : TdPhysicsMove/*
 					if(!MovementTraceForBlocking(WantedJumpLocation, Start, PawnOwner.GetCollisionExtent()))
 					{
 						PawnOwner.SetPhysics(Actor.EPhysics.PHYS_Flying/*4*/);
-						PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default);
+						PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default(bool?));
 						PawnOwner.bCollideWorld = false;
 						SetPreciseLocation(WantedJumpLocation, TdMove.EPreciseLocationMode.PLM_Fly/*0*/, VSize(WantedJumpVelocity));
 						return;
@@ -125,7 +125,7 @@ public partial class TdMove_Jump : TdPhysicsMove/*
 		base.StopMove();
 		if(!PawnOwner.bCollideWorld)
 		{
-			PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default);
+			PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default(bool?));
 			PawnOwner.bCollideWorld = true;
 			PawnOwner.SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
 		}
@@ -156,13 +156,13 @@ public partial class TdMove_Jump : TdPhysicsMove/*
 		ForwardVelocity = Dot(((Vector)(PawnOwner.Rotation)), PawnOwner.Velocity);
 		if(ForwardVelocity < ((float)(5)))
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("JumpStill")), 1.0f, 0.150f, 0.150f, default, default);		
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("JumpStill")), 1.0f, 0.150f, 0.150f, default(bool?), default(bool?));		
 		}
 		else
 		{
 			if(ForwardVelocity < LongJumpNormalThreshold)
 			{
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("JumpSlow")), 1.0f, JumpBlendInTime, JumpBlendOutTime, default, default);			
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("JumpSlow")), 1.0f, JumpBlendInTime, JumpBlendOutTime, default(bool?), default(bool?));			
 			}
 			else
 			{
@@ -170,11 +170,11 @@ public partial class TdMove_Jump : TdPhysicsMove/*
 				ExpectedLandLocation = PawnOwner.Location + (((Vector)(PawnOwner.Rotation)) * ExpectedJumpLength);
 				if(MovementTraceForBlocking(ExpectedLandLocation - vect(0.0f, 0.0f, 200.0f), ExpectedLandLocation, PawnOwner.GetCollisionExtent()))
 				{
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("JumpSlow")), 1.0f, JumpBlendInTime, JumpBlendOutTime, default, default);				
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("JumpSlow")), 1.0f, JumpBlendInTime, JumpBlendOutTime, default(bool?), default(bool?));				
 				}
 				else
 				{
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("JumpFast")), 1.0f, JumpBlendInTime, JumpBlendOutTime, default, default);
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("JumpFast")), 1.0f, JumpBlendInTime, JumpBlendOutTime, default(bool?), default(bool?));
 				}
 			}
 		}
@@ -184,7 +184,7 @@ public partial class TdMove_Jump : TdPhysicsMove/*
 	
 	public override /*simulated event */void ReachedPreciseLocation()
 	{
-		PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default);
+		PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default(bool?));
 		PawnOwner.bCollideWorld = true;
 		StartJump();
 	}
@@ -195,8 +195,8 @@ public partial class TdMove_Jump : TdPhysicsMove/*
 		{
 			return PawnOwner.Health - 1;
 		}
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default(float?));
 		return base.HandleDeath(Damage);
 	}
 	

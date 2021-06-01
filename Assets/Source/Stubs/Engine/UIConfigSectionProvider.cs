@@ -7,7 +7,7 @@ public partial class UIConfigSectionProvider : UIConfigProvider/* within UIConfi
 		hidecategories(Object,UIRoot)*/{
 	public new UIConfigFileProvider Outer => base.Outer as UIConfigFileProvider;
 	
-	public /*transient */string SectionName;
+	public /*transient */String SectionName;
 	
 }
 }

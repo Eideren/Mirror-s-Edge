@@ -80,7 +80,6 @@ public partial class RB_RadialForceActor : Actor/*
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new DrawSphereComponent
 			{
 				// Object Offset:0x00468CBF
@@ -93,7 +92,6 @@ public partial class RB_RadialForceActor : Actor/*
 				},
 				SphereRadius = 200.0f,
 			}/* Reference: DrawSphereComponent'Default__RB_RadialForceActor.DrawSphere0' */,
-			//Components[1]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D03DA

@@ -5,8 +5,8 @@ public partial class SeqAct_PlayFaceFXAnim : SequenceAction/*
 		native
 		hidecategories(Object)*/{
 	public/*()*/ FaceFXAnimSet FaceFXAnimSetRef;
-	public/*()*/ string FaceFXGroupName;
-	public/*()*/ string FaceFXAnimName;
+	public/*()*/ String FaceFXGroupName;
+	public/*()*/ String FaceFXAnimName;
 	
 	public SeqAct_PlayFaceFXAnim()
 	{

@@ -2,12 +2,12 @@ namespace MEdge.TdMpContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
 public partial class TdDeathMessage : TdLocalMessage{
-	public /*const localized */string Suicide;
-	public /*const localized */string NoKiller;
-	public /*const localized */string KilledBy;
-	public /*const localized */string MeleeKilledBy;
-	public /*const localized */string TeamKilledBy;
-	public /*const localized */string KilledBagCarrier;
+	public /*const localized */String Suicide;
+	public /*const localized */String NoKiller;
+	public /*const localized */String KilledBy;
+	public /*const localized */String MeleeKilledBy;
+	public /*const localized */String TeamKilledBy;
+	public /*const localized */String KilledBagCarrier;
 	public SoundNodeWave VOCopKilledBagCarrier;
 	public SoundNodeWave VORunnerKilledBagCarrier;
 	public SoundNodeWave VOCopKilledBagThretener;
@@ -21,7 +21,7 @@ public partial class TdDeathMessage : TdLocalMessage{
 		return default;
 	}
 	
-	public /*function */static string GetString(/*optional */int? _Switch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _Killer = default, /*optional */PlayerReplicationInfo? _Victim = default, /*optional */Object? _OptionalObject = default)
+	public /*function */static String GetString(/*optional */int? _Switch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _Killer = default, /*optional */PlayerReplicationInfo? _Victim = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;

@@ -24,7 +24,7 @@ public partial class MaterialInterface : Surface/*
 	public/*()*/ float BakerBleedEmissiveAmount;
 	public/*()*/ float BakerAlpha;
 	public/*()*/ Texture BakerAlphaTexture;
-	public/*()*/ /*editoronly */string PreviewMesh;
+	public/*()*/ /*editoronly */String PreviewMesh;
 	
 	// Export UMaterialInterface::execGetMaterial(FFrame&, void* const)
 	public virtual /*native final function */Material GetMaterial()

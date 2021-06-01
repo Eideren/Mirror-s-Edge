@@ -41,7 +41,7 @@ public partial class ParticleSystem : Object/*
 	public int EditorLODSetting;
 	public/*(Bounds)*/ Object.Box FixedRelativeBoundingBox;
 	public/*()*/ float SecondsBeforeInactive;
-	public string FloorMesh;
+	public String FloorMesh;
 	public Object.Vector FloorPosition;
 	public Object.Rotator FloorRotation;
 	public float FloorScale;

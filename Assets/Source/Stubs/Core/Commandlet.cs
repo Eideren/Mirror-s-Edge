@@ -5,11 +5,11 @@ public partial class Commandlet : Object/*
 		abstract
 		transient
 		native*/{
-	public /*const localized */string HelpDescription;
-	public /*const localized */string HelpUsage;
-	public /*const localized */string HelpWebLink;
-	public /*const localized */array</*localized */string> HelpParamNames;
-	public /*const localized */array</*localized */string> HelpParamDescriptions;
+	public /*const localized */String HelpDescription;
+	public /*const localized */String HelpUsage;
+	public /*const localized */String HelpWebLink;
+	public /*const localized */array</*localized */String> HelpParamNames;
+	public /*const localized */array</*localized */String> HelpParamDescriptions;
 	public bool IsServer;
 	public bool IsClient;
 	public bool IsEditor;
@@ -17,7 +17,7 @@ public partial class Commandlet : Object/*
 	public bool ShowErrorCount;
 	
 	// Export UCommandlet::execMain(FFrame&, void* const)
-	public virtual /*native event */int Main(string Params)
+	public virtual /*native event */int Main(String Params)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

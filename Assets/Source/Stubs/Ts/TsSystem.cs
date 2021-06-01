@@ -128,7 +128,7 @@ public partial class TsSystem : Object/*
 	public /*private transient */TsSystem.ETsError LastErrorCode;
 	public /*transient */byte ActiveControllerId;
 	public /*private transient */int CurrentIdx;
-	public /*private transient */string LastErrorMessage;
+	public /*private transient */String LastErrorMessage;
 	public /*private const transient */array<TsSystem.TsToCEntry> ToC;
 	public /*private const transient */int SavefileVersion;
 	public /*private const transient */int HeaderSize;
@@ -160,7 +160,7 @@ public partial class TsSystem : Object/*
 	}
 	
 	// Export UTsSystem::execGetLastError(FFrame&, void* const)
-	public /*native final function */static TsSystem.ETsError GetLastError(ref string ErrorString)
+	public /*native final function */static TsSystem.ETsError GetLastError(ref String ErrorString)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

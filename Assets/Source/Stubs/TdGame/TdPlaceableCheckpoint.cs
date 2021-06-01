@@ -125,7 +125,6 @@ public partial class TdPlaceableCheckpoint : NavigationPoint,
 			LoadAsset<SpriteComponent>("Default__TdPlaceableCheckpoint.Sprite")/*Ref SpriteComponent'Default__TdPlaceableCheckpoint.Sprite'*/,
 			LoadAsset<SpriteComponent>("Default__TdPlaceableCheckpoint.Sprite2")/*Ref SpriteComponent'Default__TdPlaceableCheckpoint.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__TdPlaceableCheckpoint.Arrow")/*Ref ArrowComponent'Default__TdPlaceableCheckpoint.Arrow'*/,
-			//Components[3]=
 			new CylinderComponent
 			{
 				// Object Offset:0x00674CB3
@@ -134,7 +133,6 @@ public partial class TdPlaceableCheckpoint : NavigationPoint,
 				CollideActors = true,
 			}/* Reference: CylinderComponent'Default__TdPlaceableCheckpoint.CollisionCylinder' */,
 			LoadAsset<PathRenderingComponent>("Default__TdPlaceableCheckpoint.PathRenderer")/*Ref PathRenderingComponent'Default__TdPlaceableCheckpoint.PathRenderer'*/,
-			//Components[5]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x00674D37

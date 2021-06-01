@@ -15,7 +15,6 @@ public partial class WindDirectionalSource : Info/*
 		{
 			LoadAsset<SpriteComponent>("Default__WindDirectionalSource.Sprite")/*Ref SpriteComponent'Default__WindDirectionalSource.Sprite'*/,
 			LoadAsset<WindDirectionalSourceComponent>("Default__WindDirectionalSource.WindDirectionalSourceComponent0")/*Ref WindDirectionalSourceComponent'Default__WindDirectionalSource.WindDirectionalSourceComponent0'*/,
-			//Components[2]=
 			new ArrowComponent
 			{
 				// Object Offset:0x00465E2F

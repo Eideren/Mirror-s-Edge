@@ -8,7 +8,7 @@ public interface OnlineFileLockerInterface : Interface/*
 	public /*delegate*/OnlineFileLockerInterface.OnWriteFileToLockerComplete __OnWriteFileToLockerComplete__Delegate{ get; }
 	public /*delegate*/OnlineFileLockerInterface.OnDeleteFileFromLockerComplete __OnDeleteFileFromLockerComplete__Delegate{ get; }
 	
-	public /*function */bool FetchLocker(string UserName);
+	public /*function */bool FetchLocker(String UserName);
 	
 	public delegate void OnFetchLockerComplete(bool bWasSuccessful);
 	

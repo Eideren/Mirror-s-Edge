@@ -7,8 +7,8 @@ public partial class TdUIScene_TdCredits : TdUIScene/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public partial struct /*native */TdCreditsSubBlock
 	{
-		public string SubHeader;
-		public array<string> Names;
+		public String SubHeader;
+		public array<String> Names;
 	
 	//	structdefaultproperties
 	//	{
@@ -20,7 +20,7 @@ public partial class TdUIScene_TdCredits : TdUIScene/*
 	
 	public partial struct /*native */TdCreditsBlock
 	{
-		public string BlockHeader;
+		public String BlockHeader;
 		public array<TdUIScene_TdCredits.TdCreditsSubBlock> SubBlocks;
 	
 	//	structdefaultproperties

@@ -46,14 +46,14 @@ public partial class GameInfo : Info/*
 	public /*const */float PauseGameSpeed;
 	public int AutomatedPerfRemainingTime;
 	public int AutomatedTestingMapIndex;
-	public /*globalconfig */array</*config */string> AutomatedMapTestingList;
+	public /*globalconfig */array</*config */String> AutomatedMapTestingList;
 	public /*globalconfig */int NumAutomatedMapTestingCycles;
 	public int NumberOfMatchesPlayed;
 	public int NumMapListCyclesDone;
-	public string AutomatedTestingExecCommandToRunAtStartMatch;
-	public string AutomatedMapTestingTransitionMap;
-	public string BugLocString;
-	public string BugRotString;
+	public String AutomatedTestingExecCommandToRunAtStartMatch;
+	public String AutomatedMapTestingTransitionMap;
+	public String BugLocString;
+	public String BugRotString;
 	public array<PlayerController> PendingArbitrationPCs;
 	public array<PlayerController> ArbitrationPCs;
 	public /*globalconfig */float ArbitrationHandshakeTimeout;
@@ -72,8 +72,8 @@ public partial class GameInfo : Info/*
 	public int NumBots;
 	public int NumTravellingPlayers;
 	public int CurrentID;
-	public /*const localized */string DefaultPlayerName;
-	public /*const localized */string GameName;
+	public /*const localized */String DefaultPlayerName;
+	public /*const localized */String GameName;
 	public float FearCostFallOff;
 	public /*config */int GoalScore;
 	public /*config */int MaxLives;
@@ -88,7 +88,7 @@ public partial class GameInfo : Info/*
 	public BroadcastHandler BroadcastHandler;
 	public Core.ClassT<PlayerController> PlayerControllerClass;
 	public Core.ClassT<PlayerReplicationInfo> PlayerReplicationInfoClass;
-	public string DialogueManagerClass;
+	public String DialogueManagerClass;
 	public DialogueManager DialogueManager;
 	public/*()*/ Core.ClassT<GameReplicationInfo> GameReplicationInfoClass;
 	public GameReplicationInfo GameReplicationInfo;
@@ -104,7 +104,7 @@ public partial class GameInfo : Info/*
 	public Core.ClassT<OnlineStatsWrite> OnlineStatsWriteClass;
 	public /*protected */CoverReplicator CoverReplicatorBase;
 	public /*const */Core.ClassT<OnlineGameSettings> OnlineGameSettingsClass;
-	public string ServerOptions;
+	public String ServerOptions;
 	public /*delegate*/GameInfo.CanUnpause __CanUnpause__Delegate;
 	
 	public override /*event */void PreBeginPlay()
@@ -128,7 +128,7 @@ public partial class GameInfo : Info/*
 		}
 	}
 	
-	public virtual /*function */string FindPlayerByID(int PlayerId)
+	public virtual /*function */String FindPlayerByID(int PlayerId)
 	{
 		/*local */PlayerReplicationInfo PRI = default;
 	
@@ -280,7 +280,7 @@ public partial class GameInfo : Info/*
 	}
 	
 	// Export UGameInfo::execGetNetworkNumber(FFrame&, void* const)
-	public virtual /*native function */string GetNetworkNumber()
+	public virtual /*native function */String GetNetworkNumber()
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -293,7 +293,7 @@ public partial class GameInfo : Info/*
 	
 	public virtual /*function */int GetServerPort()
 	{
-		/*local */string S = default;
+		/*local */String S = default;
 		/*local */int I = default;
 	
 		S = WorldInfo.GetAddressURL();
@@ -415,7 +415,7 @@ public partial class GameInfo : Info/*
 		SetTimer(WorldInfo.TimeDilation, true, default, default);
 	}
 	
-	public /*function */static bool GrabOption(ref string Options, ref string Result)
+	public /*function */static bool GrabOption(ref String Options, ref String Result)
 	{
 		if(Left(Options, 1) == "?")
 		{
@@ -444,7 +444,7 @@ public partial class GameInfo : Info/*
 		return default;
 	}
 	
-	public /*function */static void GetKeyValue(string Pair, ref string Key, ref string Value)
+	public /*function */static void GetKeyValue(String Pair, ref String Key, ref String Value)
 	{
 		if(InStr(Pair, "=", default) >= 0)
 		{
@@ -458,9 +458,9 @@ public partial class GameInfo : Info/*
 		}
 	}
 	
-	public /*function */static string ParseOption(string Options, string InKey)
+	public /*function */static String ParseOption(String Options, String InKey)
 	{
-		/*local */string Pair = default, Key = default, Value = default;
+		/*local */String Pair = default, Key = default, Value = default;
 	
 	
 		J0x00:{}	if(GrabOption(ref/*probably?*/ Options, ref/*probably?*/ Pair))
@@ -475,9 +475,9 @@ public partial class GameInfo : Info/*
 		return "";
 	}
 	
-	public /*function */static bool HasOption(string Options, string InKey)
+	public /*function */static bool HasOption(String Options, String InKey)
 	{
-		/*local */string Pair = default, Key = default, Value = default;
+		/*local */String Pair = default, Key = default, Value = default;
 	
 	
 		J0x00:{}	if(GrabOption(ref/*probably?*/ Options, ref/*probably?*/ Pair))
@@ -492,9 +492,9 @@ public partial class GameInfo : Info/*
 		return false;
 	}
 	
-	public /*function */static int GetIntOption(string Options, string ParseString, int CurrentValue)
+	public /*function */static int GetIntOption(String Options, String ParseString, int CurrentValue)
 	{
-		/*local */string InOpt = default;
+		/*local */String InOpt = default;
 	
 		InOpt = ParseOption(Options, ParseString);
 		if(InOpt != "")
@@ -504,7 +504,7 @@ public partial class GameInfo : Info/*
 		return CurrentValue;
 	}
 	
-	public /*event */static Core.ClassT<GameInfo> SetGameType(string MapName, string Options, string Portal)
+	public /*event */static Core.ClassT<GameInfo> SetGameType(String MapName, String Options, String Portal)
 	{
 		#warning static function overriding is not implemented, this function looks like it relies on it
 		// thankfully it is never overriden so the line below has been changed to work around the issue
@@ -515,9 +515,9 @@ public partial class GameInfo : Info/*
 		return ClassT<GameInfo>();
 	}
 	
-	public virtual /*event */void InitGame(string Options, ref string ErrorMessage)
+	public virtual /*event */void InitGame(String Options, ref String ErrorMessage)
 	{
-		/*local */string InOpt = default, LeftOpt = default;
+		/*local */String InOpt = default, LeftOpt = default;
 		/*local */int pos = default;
 		/*local */Core.ClassT<AccessControl> ACClass = default;
 	
@@ -604,9 +604,9 @@ public partial class GameInfo : Info/*
 		}
 	}
 	
-	public virtual /*function */void ParseAutomatedTestingOptions(string Options)
+	public virtual /*function */void ParseAutomatedTestingOptions(String Options)
 	{
-		/*local */string InOpt = default;
+		/*local */String InOpt = default;
 	
 		InOpt = ParseOption(Options, "bUsingAutomatedTestingMapList");
 		if(InOpt != "")
@@ -651,7 +651,7 @@ public partial class GameInfo : Info/*
 		}
 	}
 	
-	public virtual /*function */void AddMutator(string mutname, /*optional */bool? _bUserAdded = default)
+	public virtual /*function */void AddMutator(String mutname, /*optional */bool? _bUserAdded = default)
 	{
 		/*local */Core.ClassT<Mutator> mutClass = default;
 		/*local */Mutator mut = default;
@@ -759,16 +759,16 @@ public partial class GameInfo : Info/*
 		J0x9B:{}
 	}
 	
-	public virtual /*event */string GetBeaconText()
+	public virtual /*event */String GetBeaconText()
 	{
 		return (((((WorldInfo.ComputerName + " ") + Left(WorldInfo.Title, 24)) + "\\t") + ((GetNumPlayers())).ToString()) + "/") + ((MaxPlayers)).ToString();
 	}
 	
-	public virtual /*function */void ProcessServerTravel(string URL, /*optional */bool? _bAbsolute = default)
+	public virtual /*function */void ProcessServerTravel(String URL, /*optional */bool? _bAbsolute = default)
 	{
 		/*local */PlayerController P = default, LocalPlayer = default;
 		/*local */bool bSeamless = default;
-		/*local */string NextMap = default;
+		/*local */String NextMap = default;
 		/*local */Object.Guid NextMapGuid = default;
 		/*local */int OptionStart = default;
 	
@@ -829,7 +829,7 @@ public partial class GameInfo : Info/*
 		return (AccessControl != default) && AccessControl.RequiresPassword();
 	}
 	
-	public virtual /*event */void PreLogin(string Options, string Address, ref string ErrorMessage)
+	public virtual /*event */void PreLogin(String Options, String Address, ref String ErrorMessage)
 	{
 		/*local */bool bSpectator = default, bPerfTesting = default;
 	
@@ -865,11 +865,11 @@ public partial class GameInfo : Info/*
 		return default;
 	}
 	
-	public virtual /*event */PlayerController Login(string Portal, string Options, ref string ErrorMessage)
+	public virtual /*event */PlayerController Login(String Portal, String Options, ref String ErrorMessage)
 	{
 		/*local */NavigationPoint StartSpot = default;
 		/*local */PlayerController NewPlayer = default;
-		/*local */string InName = default, inCharacter = default, InPassword = default;
+		/*local */String InName = default, inCharacter = default, InPassword = default;
 		/*local */byte InTeam = default;
 		/*local */bool bSpectator = default, bAdmin = default, bPerfTesting = default;
 		/*local */Object.Rotator SpawnRotation = default;
@@ -982,7 +982,7 @@ public partial class GameInfo : Info/*
 	public virtual /*function */void OnStartOnlineGameComplete(bool bWasSuccessful)
 	{
 		/*local */PlayerController PC = default;
-		/*local */string StatGuid = default;
+		/*local */String StatGuid = default;
 	
 		GameInterface.ClearStartOnlineGameCompleteDelegate(OnStartOnlineGameComplete);
 		if(bWasSuccessful && NotEqual_InterfaceInterface(OnlineSub.StatsInterface, (default(OnlineStatsInterface))))
@@ -1198,7 +1198,7 @@ public partial class GameInfo : Info/*
 	public virtual PostLogin_del global_PostLogin => GameInfo_PostLogin;
 	public /*event */void GameInfo_PostLogin(PlayerController NewPlayer)
 	{
-		/*local */string Address = default, StatGuid = default;
+		/*local */String Address = default, StatGuid = default;
 		/*local */int pos = default;
 	
 		if(NewPlayer.PlayerReplicationInfo.bOnlySpectator)
@@ -1340,7 +1340,7 @@ public partial class GameInfo : Info/*
 		}
 	}
 	
-	public virtual /*function */void Mutate(string MutateString, PlayerController Sender)
+	public virtual /*function */void Mutate(String MutateString, PlayerController Sender)
 	{
 		if(BaseMutator != default)
 		{
@@ -1428,12 +1428,12 @@ public partial class GameInfo : Info/*
 		}
 	}
 	
-	public /*function */static string ParseKillMessage(string KillerName, string VictimName, string DeathMessage)
+	public /*function */static String ParseKillMessage(String KillerName, String VictimName, String DeathMessage)
 	{
 		return Repl(Repl(DeathMessage, "`k", KillerName, default), "`o", VictimName, default);
 	}
 	
-	public virtual /*function */void Kick(string S)
+	public virtual /*function */void Kick(String S)
 	{
 		if(AccessControl != default)
 		{
@@ -1441,7 +1441,7 @@ public partial class GameInfo : Info/*
 		}
 	}
 	
-	public virtual /*function */void KickBan(string S)
+	public virtual /*function */void KickBan(String S)
 	{
 		if(AccessControl != default)
 		{
@@ -1535,7 +1535,7 @@ public partial class GameInfo : Info/*
 		}
 	}
 	
-	public virtual /*function */void ChangeName(Controller Other, /*coerce */string S, bool bNameChange)
+	public virtual /*function */void ChangeName(Controller Other, /*coerce */String S, bool bNameChange)
 	{
 		if(S == "")
 		{
@@ -1554,20 +1554,20 @@ public partial class GameInfo : Info/*
 		return Current;
 	}
 	
-	public virtual /*function */void SendPlayer(PlayerController aPlayer, string URL)
+	public virtual /*function */void SendPlayer(PlayerController aPlayer, String URL)
 	{
 		aPlayer.ClientTravel(URL, Actor.ETravelType.TRAVEL_Relative/*2*/, default, default);
 	}
 	
-	public virtual /*function */string GetNextMap()
+	public virtual /*function */String GetNextMap()
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */string GetNextAutomatedTestingMap()
+	public virtual /*function */String GetNextAutomatedTestingMap()
 	{
-		/*local */string MapName = default;
+		/*local */String MapName = default;
 		/*local */PlayerController PC = default;
 		/*local */bool bResetMapIndex = default;
 	
@@ -1637,7 +1637,7 @@ public partial class GameInfo : Info/*
 	
 	public virtual /*function */void RestartGame()
 	{
-		/*local */string NextMap = default, TransitionMapCmdLine = default, URLString = default;
+		/*local */String NextMap = default, TransitionMapCmdLine = default, URLString = default;
 		/*local */int URLMapLen = default, MapNameLen = default;
 	
 		if(bUsingArbitration)
@@ -1700,13 +1700,13 @@ public partial class GameInfo : Info/*
 		WorldInfo.ServerTravel("?Restart", GetTravelType());
 	}
 	
-	public virtual /*event */void Broadcast(Actor Sender, /*coerce */string msg, /*optional */name? _Type = default)
+	public virtual /*event */void Broadcast(Actor Sender, /*coerce */String msg, /*optional */name? _Type = default)
 	{
 		var Type = _Type ?? default;
 		BroadcastHandler.Broadcast(Sender, msg, Type);
 	}
 	
-	public virtual /*function */void BroadcastTeam(Controller Sender, /*coerce */string msg, /*optional */name? _Type = default)
+	public virtual /*function */void BroadcastTeam(Controller Sender, /*coerce */String msg, /*optional */name? _Type = default)
 	{
 		var Type = _Type ?? default;
 		BroadcastHandler.BroadcastTeam(Sender, msg, Type);
@@ -1730,12 +1730,12 @@ public partial class GameInfo : Info/*
 		BroadcastHandler.AllowBroadcastLocalizedTeam(TeamIndex, Sender, Message, Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject);
 	}
 	
-	public virtual /*function */bool CheckModifiedEndGame(PlayerReplicationInfo Winner, string Reason)
+	public virtual /*function */bool CheckModifiedEndGame(PlayerReplicationInfo Winner, String Reason)
 	{
 		return (GameRulesModifiers != default) && !GameRulesModifiers.CheckEndGame(Winner, Reason);
 	}
 	
-	public virtual /*function */bool CheckEndGame(PlayerReplicationInfo Winner, string Reason)
+	public virtual /*function */bool CheckEndGame(PlayerReplicationInfo Winner, String Reason)
 	{
 		/*local */Controller P = default;
 	
@@ -1787,7 +1787,7 @@ public partial class GameInfo : Info/*
 		}
 	}
 	
-	public virtual /*function */void EndGame(PlayerReplicationInfo Winner, string Reason)
+	public virtual /*function */void EndGame(PlayerReplicationInfo Winner, String Reason)
 	{
 		/*local */int Index = default;
 	
@@ -1826,7 +1826,7 @@ public partial class GameInfo : Info/*
 		EndLogging(Reason);
 	}
 	
-	public virtual /*function */void EndLogging(string Reason)
+	public virtual /*function */void EndLogging(String Reason)
 	{
 	
 	}
@@ -1836,7 +1836,7 @@ public partial class GameInfo : Info/*
 		return (((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Standalone/*0*/)) && Player != default) && Player.StartSpot != default) && bWaitingToStartMatch || (Player.PlayerReplicationInfo != default) && Player.PlayerReplicationInfo.bWaitingPlayer;
 	}
 	
-	public virtual /*function */NavigationPoint FindPlayerStart(Controller Player, /*optional */byte? _InTeam = default, /*optional */string? _IncomingName = default)
+	public virtual /*function */NavigationPoint FindPlayerStart(Controller Player, /*optional */byte? _InTeam = default, /*optional */String? _IncomingName = default)
 	{
 		/*local */NavigationPoint N = default, BestStart = default;
 		/*local */Teleporter Tel = default;
@@ -1978,7 +1978,7 @@ public partial class GameInfo : Info/*
 		}
 	}
 	
-	public /*function */static string ParseMessageString(Controller Who, string Message)
+	public /*function */static String ParseMessageString(Controller Who, String Message)
 	{
 		return Message;
 	}
@@ -2028,7 +2028,7 @@ public partial class GameInfo : Info/*
 		return false;
 	}
 	
-	public /*function */static bool AllowMutator(string MutatorClassName)
+	public /*function */static bool AllowMutator(String MutatorClassName)
 	{
 		return !WorldInfo.IsDemoBuild();
 	}
@@ -2038,7 +2038,7 @@ public partial class GameInfo : Info/*
 		return ((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Standalone/*0*/);
 	}
 	
-	public virtual /*event */void PreCommitMapChange(string PreviousMapName, string NextMapName)
+	public virtual /*event */void PreCommitMapChange(String PreviousMapName, String NextMapName)
 	{
 	
 	}
@@ -2085,7 +2085,7 @@ public partial class GameInfo : Info/*
 	
 	public virtual /*function */bool FindInactivePRI(PlayerController PC)
 	{
-		/*local */string NewNetworkAddress = default, NewName = default;
+		/*local */String NewNetworkAddress = default, NewName = default;
 		/*local */int I = default;
 		/*local */PlayerReplicationInfo OldPRI = default;
 		/*local */bool bIsConsole = default;
@@ -2594,7 +2594,7 @@ public partial class GameInfo : Info/*
 		++ NumberOfMatchesPlayed;
 	}
 	
-	public virtual /*event */void SetPlayerStart(string StartLocation)
+	public virtual /*event */void SetPlayerStart(String StartLocation)
 	{
 	
 	}
@@ -2766,7 +2766,7 @@ public partial class GameInfo : Info/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) PendingMatch()/*auto state PendingMatch*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			MatchIsInProgress = GameInfo_PendingMatch_MatchIsInProgress;
 			StartMatch = GameInfo_PendingMatch_StartMatch;

@@ -40,7 +40,6 @@ public partial class TdMoveNode_GrabHeave : TdMoveNode/*
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdMoveNode_GrabHeave.Sprite2")/*Ref SpriteComponent'Default__TdMoveNode_GrabHeave.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E52295
@@ -50,7 +49,6 @@ public partial class TdMoveNode_GrabHeave : TdMoveNode/*
 			LoadAsset<ArrowComponent>("Default__TdMoveNode_GrabHeave.Arrow")/*Ref ArrowComponent'Default__TdMoveNode_GrabHeave.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__TdMoveNode_GrabHeave.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode_GrabHeave.CollisionCylinder'*/,
 			LoadAsset<PathRenderingComponent>("Default__TdMoveNode_GrabHeave.PathRenderer")/*Ref PathRenderingComponent'Default__TdMoveNode_GrabHeave.PathRenderer'*/,
-			//Components[5]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E522E1

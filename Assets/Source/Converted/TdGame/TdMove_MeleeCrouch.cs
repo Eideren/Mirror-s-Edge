@@ -31,7 +31,7 @@ public partial class TdMove_MeleeCrouch : TdMove_MeleeBase/*
 	{
 		base.StartMove();
 		bHitDetection = false;
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Crouch/*15*/, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Crouch/*15*/, default(float?));
 		SetCameraPitchConstraints(-2000, 2000);
 		TriggerMove();
 	}
@@ -40,7 +40,7 @@ public partial class TdMove_MeleeCrouch : TdMove_MeleeBase/*
 	{
 		base.StopMove();
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, 0.20f);
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default(float?));
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
@@ -65,13 +65,13 @@ public partial class TdMove_MeleeCrouch : TdMove_MeleeBase/*
 			case TdMove_MeleeBase.EMeleeState.MS_MeleeMissFinishing/*6*/:
 			case TdMove_MeleeBase.EMeleeState.MS_MeleeMissNormal/*5*/:
 			case TdMove_MeleeBase.EMeleeState.MS_MeleeHitNormal/*3*/:
-				if(CanStand(PawnOwner.Location + vect(0.0f, 0.0f, 30.0f), default))
+				if(CanStand(PawnOwner.Location + vect(0.0f, 0.0f, 30.0f), default(bool?)))
 				{
-					PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);				
+					PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));				
 				}
 				else
 				{
-					PawnOwner.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default, default);
+					PawnOwner.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default(bool?), default(bool?));
 				}
 				break;
 			default:
@@ -88,13 +88,13 @@ public partial class TdMove_MeleeCrouch : TdMove_MeleeBase/*
 	{
 		if(((int)MeleeState) == ((int)TdMove_MeleeBase.EMeleeState.MS_MeleeAttackFinishing/*2*/))
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeCrouchStartUpperCut", 1.0f, 0.10f, 1.0f, default, default);
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeCrouchStartUpperCut", 1.0f, 0.10f, 1.0f, default(bool?), default(bool?));
 			HitDetectionBone = "LeftHand";
-			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, default);		
+			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, default(float?));		
 		}
 		else
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, "MeleeCrouchStart", 1.0f, 0.10f, -1.0f, default, default);
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, "MeleeCrouchStart", 1.0f, 0.10f, -1.0f, default(bool?), default(bool?));
 			HitDetectionBone = "RightHand";
 		}
 		UpdateTargetPawn();
@@ -106,10 +106,10 @@ public partial class TdMove_MeleeCrouch : TdMove_MeleeBase/*
 		switch(MeleeState)
 		{
 			case TdMove_MeleeBase.EMeleeState.MS_MeleeAttackFinishing/*2*/:
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeCrouchHitUppercut", 1.0f, 0.10f, 0.10f, default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeCrouchHitUppercut", 1.0f, 0.10f, 0.10f, default(bool?), default(bool?));
 				break;
 			case TdMove_MeleeBase.EMeleeState.MS_MeleeAttackNormal/*1*/:
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, "MeleeCrouchHit", 1.0f, 0.10f, 0.20f, default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, "MeleeCrouchHit", 1.0f, 0.10f, 0.20f, default(bool?), default(bool?));
 				break;
 			default:
 				break;
@@ -123,10 +123,10 @@ public partial class TdMove_MeleeCrouch : TdMove_MeleeBase/*
 		switch(MeleeState)
 		{
 			case TdMove_MeleeBase.EMeleeState.MS_MeleeAttackFinishing/*2*/:
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeCrouchHitUppercut", 1.0f, 0.10f, 0.10f, default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeCrouchHitUppercut", 1.0f, 0.10f, 0.10f, default(bool?), default(bool?));
 				break;
 			case TdMove_MeleeBase.EMeleeState.MS_MeleeAttackNormal/*1*/:
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, "MeleeCrouchHit", 1.0f, 0.10f, 0.20f, default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, "MeleeCrouchHit", 1.0f, 0.10f, 0.20f, default(bool?), default(bool?));
 				break;
 			default:
 				break;
@@ -149,7 +149,7 @@ public partial class TdMove_MeleeCrouch : TdMove_MeleeBase/*
 		if(((Dot(Normal(ToTarget), ((Vector)(PawnOwner.Rotation)))) > 0.40f) && VSize(ToTarget) < 170.0f)
 		{
 			HitBoneName = ((((int)MeleeState) == ((int)TdMove_MeleeBase.EMeleeState.MS_MeleeAttackFinishing/*2*/)) ? "Neck" : "LeftLeg");
-			HitLocation = PawnOwner.Mesh3p.GetBoneLocation("RightFoot", default);
+			HitLocation = PawnOwner.Mesh3p.GetBoneLocation("RightFoot", default(int?));
 			Hit.Material = default;
 			Hit.PhysMaterial = TargetPawn.Mesh3p.GetPhysicalMaterialFromBone(HitBoneName);
 			Hit.BoneName = HitBoneName;
@@ -188,7 +188,7 @@ public partial class TdMove_MeleeCrouch : TdMove_MeleeBase/*
 		ToTarget = TargetPawn.Location - PawnOwner.Location;
 		if(((Dot(Normal(ToTarget), ((Vector)(PawnOwner.Rotation)))) > 0.80f) && VSize(ToTarget) < 110.0f)
 		{
-			HitLocation = PawnOwner.Mesh3p.GetBoneLocation("LeftHand", default);
+			HitLocation = PawnOwner.Mesh3p.GetBoneLocation("LeftHand", default(int?));
 			Hit.Material = default;
 			Hit.PhysMaterial = TargetPawn.Mesh3p.GetPhysicalMaterialFromBone("Neck");
 			Hit.BoneName = "Neck";
@@ -221,11 +221,11 @@ public partial class TdMove_MeleeCrouch : TdMove_MeleeBase/*
 	{
 		/*local */KActor RBActor = default;
 	
-		HitInfo.BargeActor.TakeDamage(100, PawnOwner.Controller, HitInfo.HitLocation, -HitInfo.HitNormal, ClassT<TdDmgType_Barge>(), default, default);
+		HitInfo.BargeActor.TakeDamage(100, PawnOwner.Controller, HitInfo.HitLocation, -HitInfo.HitNormal, ClassT<TdDmgType_Barge>(), default(Actor.TraceHitInfo?), default(Actor?));
 		RBActor = ((HitInfo.BargeActor) as KActor);
 		if(RBActor != default)
 		{
-			RBActor.ApplyImpulse(-HitInfo.HitNormal, ClassT<TdDmgType_Barge>().DefaultAs<DamageType>().KDamageImpulse, HitInfo.HitLocation, default);
+			RBActor.ApplyImpulse(-HitInfo.HitNormal, ClassT<TdDmgType_Barge>().DefaultAs<DamageType>().KDamageImpulse, HitInfo.HitLocation, default(Actor.TraceHitInfo?));
 		}
 	}
 	

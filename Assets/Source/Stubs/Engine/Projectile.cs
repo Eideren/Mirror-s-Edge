@@ -165,7 +165,6 @@ public partial class Projectile : Actor/*
 		bCollideWorld = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D0176
@@ -173,7 +172,6 @@ public partial class Projectile : Actor/*
 				AlwaysLoadOnClient = false,
 				AlwaysLoadOnServer = false,
 			}/* Reference: SpriteComponent'Default__Projectile.Sprite' */,
-			//Components[1]=
 			new CylinderComponent
 			{
 				// Object Offset:0x00466787

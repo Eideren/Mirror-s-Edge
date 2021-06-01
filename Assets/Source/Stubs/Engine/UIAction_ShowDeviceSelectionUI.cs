@@ -9,7 +9,7 @@ public partial class UIAction_ShowDeviceSelectionUI : UIAction/*
 	public bool bIsDone;
 	public bool bResult;
 	public/*()*/ int DeviceID;
-	public/*()*/ string DeviceName;
+	public/*()*/ String DeviceName;
 	
 	// Export UUIAction_ShowDeviceSelectionUI::execWriteToVariables(FFrame&, void* const)
 	public virtual /*native function */void WriteToVariables()

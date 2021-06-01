@@ -17,7 +17,7 @@ public partial class TdUIScene_CreateAccountPC : TdUIScene_SubMenu,
 	public /*transient */UIComboBox LanguageCombo;
 	public /*transient */UIImage ComboListBG;
 	public UIDataStore_TdLoginData LoginData;
-	public /*transient */string CreateAccountFail_LocError;
+	public /*transient */String CreateAccountFail_LocError;
 	public /*delegate*/TdUIScene_CreateAccountPC.UserAbort __UserAbort__Delegate;
 	public /*delegate*/TdUIScene_CreateAccountPC.CreateAccountOnPC __CreateAccountOnPC__Delegate;
 	
@@ -77,7 +77,7 @@ public partial class TdUIScene_CreateAccountPC : TdUIScene_SubMenu,
 	
 	}
 	
-	public virtual /*function */void CreateAccountDone(int Error, /*optional */string? _LocError = default)
+	public virtual /*function */void CreateAccountDone(int Error, /*optional */String? _LocError = default)
 	{
 	
 	}

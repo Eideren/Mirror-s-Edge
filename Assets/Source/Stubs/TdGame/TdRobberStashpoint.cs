@@ -36,7 +36,6 @@ public partial class TdRobberStashpoint : TdStashpoint/*
 		TerritoryOfTeam = 0;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new CylinderComponent
 			{
 				// Object Offset:0x01AB4D76
@@ -44,7 +43,6 @@ public partial class TdRobberStashpoint : TdStashpoint/*
 				CollisionRadius = 300.0f,
 				CollideActors = true,
 			}/* Reference: CylinderComponent'Default__TdRobberStashpoint.CollisionCylinder' */,
-			//Components[1]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x02EA6CEF

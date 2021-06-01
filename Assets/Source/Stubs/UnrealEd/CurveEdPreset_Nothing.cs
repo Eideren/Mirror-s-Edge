@@ -5,7 +5,7 @@ public partial class CurveEdPreset_Nothing : CurveEdPresetBase/*
 		native
 		editinlinenew
 		hidecategories(Object)*/{
-	public override /*function */string GetDisplayName()
+	public override /*function */String GetDisplayName()
 	{
 	
 		return default;

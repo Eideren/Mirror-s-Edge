@@ -279,7 +279,6 @@ public partial class TdBotPawn_PursuitCop : TdBotPawn/*
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_PursuitCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PursuitCop.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdBotPawn_PursuitCop.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_PursuitCop.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PursuitCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PursuitCop.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x00022C02
@@ -288,7 +287,6 @@ public partial class TdBotPawn_PursuitCop : TdBotPawn/*
 				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PursuitCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PursuitCop.MyLightEnvironment'*/,
 			}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_PursuitCop.TdPawnMesh3p' */,
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_PursuitCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PursuitCop.CollisionCylinder'*/,
-			//Components[7]=
 			new CylinderComponent
 			{
 				// Object Offset:0x000225DA

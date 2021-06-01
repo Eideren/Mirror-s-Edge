@@ -142,7 +142,7 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 				}
 				else
 				{
-					PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+					PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 				}
 				break;
 			default:
@@ -159,7 +159,7 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 		bTargeting = true;
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_Camera/*6*/, 0.050f);
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, 0.10f);
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, default(float?));
 		if(TargetPawn != default)
 		{
 			StumbleMove = ((TargetPawn.Moves[35]) as TdMove_StumbleBase);
@@ -167,7 +167,7 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 		if((((TargetPawn != default) && ((int)TargetPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Stumble/*35*/)) && TargetPawn.IsA("TdBotPawn_Assault") || TargetPawn.IsA("TdBotPawn_PatrolCop")) && (((int)StumbleMove.StumbleState) == ((int)TdMove_StumbleBase.EStumbleState.ESS_HitMeleeAirBodyFront/*11*/)) || ((int)StumbleMove.StumbleState) == ((int)TdMove_StumbleBase.EStumbleState.ESS_HitMeleeSlideFront/*7*/))
 		{
 			ResetCameraLook(0.40f);
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeBentOverStart", 1.0f, 0.10f, -1.0f, default, default);
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeBentOverStart", 1.0f, 0.10f, -1.0f, default(bool?), default(bool?));
 			HitDetectionBone = "RightFoot";
 			bLeft = false;
 			MeleeType = TdMove_Melee.EMoveMeleeType.MT_AtBentOverEnemy/*2*/;
@@ -181,7 +181,7 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 			if((ComboQueuedActions == 0) && ComboCounter == 2)
 			{
 				MeleeType = TdMove_Melee.EMoveMeleeType.MT_AtComboFinisher/*3*/;
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, "MeleeStartShove", 1.0f, 0.10f, -1.0f, default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, "MeleeStartShove", 1.0f, 0.10f, -1.0f, default(bool?), default(bool?));
 				PawnOwner.SetIgnoreMoveInput(1.0f);
 				if(((TargetPawn) as TdBotPawn) != default)
 				{
@@ -191,7 +191,7 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 			else
 			{
 				MeleeType = TdMove_Melee.EMoveMeleeType.MT_Normal/*0*/;
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, ((bLeft) ? "MeleeStartLeft" : "MeleeStartRight"), 1.50f, 0.10f, -1.0f, default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, ((bLeft) ? "MeleeStartLeft" : "MeleeStartRight"), 1.50f, 0.10f, -1.0f, default(bool?), default(bool?));
 				if(((TargetPawn) as TdBotPawn) != default)
 				{
 					((TargetPawn) as TdBotPawn).ActiveDeathAnimType = ((TdBotPawn.DeathAnimType)((bLeft) ? 8 : 6));
@@ -206,20 +206,20 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 	{
 		bTargeting = false;
 		base.TriggerMiss();
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, default(float?));
 		switch(MeleeType)
 		{
 			case TdMove_Melee.EMoveMeleeType.MT_Normal/*0*/:
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, ((bLeft) ? "MeleeMissedLeft" : "MeleeMissedRight"), 1.50f, BlendInMissed, ((ComboQueuedActions > 0) ? 0.60f : BlendOutMissed), default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, ((bLeft) ? "MeleeMissedLeft" : "MeleeMissedRight"), 1.50f, BlendInMissed, ((ComboQueuedActions > 0) ? 0.60f : BlendOutMissed), default(bool?), default(bool?));
 				break;
 			case TdMove_Melee.EMoveMeleeType.MT_AtBlockingEnemy/*1*/:
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, ((bLeft) ? "MeleeMissed2Left" : "MeleeMissed2Right"), 1.50f, BlendInMissed, ((ComboQueuedActions > 0) ? 0.60f : BlendOutMissed), default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, ((bLeft) ? "MeleeMissed2Left" : "MeleeMissed2Right"), 1.50f, BlendInMissed, ((ComboQueuedActions > 0) ? 0.60f : BlendOutMissed), default(bool?), default(bool?));
 				break;
 			case TdMove_Melee.EMoveMeleeType.MT_AtBentOverEnemy/*2*/:
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeBentOverFinish", 1.0f, 0.10f, 0.10f, default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeBentOverFinish", 1.0f, 0.10f, 0.10f, default(bool?), default(bool?));
 				break;
 			case TdMove_Melee.EMoveMeleeType.MT_AtComboFinisher/*3*/:
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, "MeleeHitShove", 1.0f, 0.0f, 0.10f, default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, "MeleeHitShove", 1.0f, 0.0f, 0.10f, default(bool?), default(bool?));
 				Reset();
 				break;
 			default:
@@ -232,20 +232,20 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 	{
 		bTargeting = false;
 		base.TriggerHit();
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, default(float?));
 		switch(MeleeType)
 		{
 			case TdMove_Melee.EMoveMeleeType.MT_Normal/*0*/:
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, ((bLeft) ? "MeleeHitLeft" : "MeleeHitRight"), 1.50f, 0.20f, ((ComboQueuedActions > 0) ? 0.30f : 0.10f), default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, ((bLeft) ? "MeleeHitLeft" : "MeleeHitRight"), 1.50f, 0.20f, ((ComboQueuedActions > 0) ? 0.30f : 0.10f), default(bool?), default(bool?));
 				break;
 			case TdMove_Melee.EMoveMeleeType.MT_AtBlockingEnemy/*1*/:
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, ((bLeft) ? "MeleeHit2Left" : "MeleeHit2Right"), 1.50f, 0.20f, ((ComboQueuedActions > 0) ? 0.30f : 0.10f), default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, ((bLeft) ? "MeleeHit2Left" : "MeleeHit2Right"), 1.50f, 0.20f, ((ComboQueuedActions > 0) ? 0.30f : 0.10f), default(bool?), default(bool?));
 				break;
 			case TdMove_Melee.EMoveMeleeType.MT_AtBentOverEnemy/*2*/:
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeBentOverFinish", 1.0f, 0.10f, 0.150f, default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeBentOverFinish", 1.0f, 0.10f, 0.150f, default(bool?), default(bool?));
 				break;
 			case TdMove_Melee.EMoveMeleeType.MT_AtComboFinisher/*3*/:
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, "MeleeHitShove", 1.0f, 0.0f, 0.10f, default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_UpperBody/*4*/, "MeleeHitShove", 1.0f, 0.0f, 0.10f, default(bool?), default(bool?));
 				Reset();
 				break;
 			default:
@@ -278,7 +278,7 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 			ImpactMomentum = ((Vector)(PawnOwner.Rotation)) * 150.0f;
 			DamageType = ((bLeft) ? ClassT<TdDmgType_MeleeLeft>() : ClassT<TdDmgType_MeleeRight>());
 			Damage = MeleeDamage;
-			HitLocation = PawnOwner.Mesh1p.GetBoneLocation(((bLeft) ? "LeftHand" : "RightHand"), default);
+			HitLocation = PawnOwner.Mesh1p.GetBoneLocation(((bLeft) ? "LeftHand" : "RightHand"), default(int?));
 			Hit.Material = default;
 			Hit.PhysMaterial = TargetPawn.Mesh3p.GetPhysicalMaterialFromBone("Neck");
 			Hit.BoneName = "Neck";

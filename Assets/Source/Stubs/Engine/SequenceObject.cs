@@ -10,10 +10,10 @@ public partial class SequenceObject : Object/*
 	public /*noimport const */Sequence ParentSequence;
 	public int ObjPosX;
 	public int ObjPosY;
-	public string ObjName;
-	public string ObjCategory;
+	public String ObjName;
+	public String ObjCategory;
 	public Object.Color ObjColor;
-	public/*()*/ string ObjComment;
+	public/*()*/ String ObjComment;
 	public bool bDeletable;
 	public bool bDrawFirst;
 	public bool bDrawLast;
@@ -23,7 +23,7 @@ public partial class SequenceObject : Object/*
 	public int DrawHeight;
 	
 	// Export USequenceObject::execScriptLog(FFrame&, void* const)
-	public virtual /*native final function */void ScriptLog(string LogText, /*optional */bool? _bWarning = default)
+	public virtual /*native final function */void ScriptLog(String LogText, /*optional */bool? _bWarning = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

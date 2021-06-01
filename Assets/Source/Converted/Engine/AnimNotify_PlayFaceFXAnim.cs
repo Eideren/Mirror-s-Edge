@@ -6,8 +6,8 @@ public partial class AnimNotify_PlayFaceFXAnim : AnimNotify_Scripted/*
 		collapsecategories
 		hidecategories(Object)*/{
 	public/*()*/ FaceFXAnimSet FaceFXAnimSetRef;
-	public/*()*/ string GroupName;
-	public/*()*/ string AnimName;
+	public/*()*/ String GroupName;
+	public/*()*/ String AnimName;
 	public/*()*/ bool bOverridePlayingAnim;
 	public/*()*/ float PlayFrequency;
 	

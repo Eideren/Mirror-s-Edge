@@ -5,11 +5,11 @@ public partial class UIAction_TdCreateMPGame : UIAction/*
 		native
 		hidecategories(Object)*/{
 	public/*()*/ name DataStoreName;
-	public/*()*/ string MapName;
+	public/*()*/ String MapName;
 	public bool bIsDone;
 	public bool bSuccess;
-	public/*()*/ string Parameters;
-	public /*transient */string ExecCmd;
+	public/*()*/ String Parameters;
+	public /*transient */String ExecCmd;
 	
 	public UIAction_TdCreateMPGame()
 	{

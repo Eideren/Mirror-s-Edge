@@ -10,7 +10,7 @@ public partial class TdUIScene_CreateAccountConfirm : TdUIScene_SubMenu/*
 	public /*transient */bool bAllowThirdPartyEmailHided;
 	public /*delegate*/TdUIScene_CreateAccountConfirm.CreateAccount __CreateAccount__Delegate;
 	
-	public delegate void CreateAccount(string LoginName, string Password, bool bAllowEaEmail, bool bAllowThirdPartyEmail);
+	public delegate void CreateAccount(String LoginName, String Password, bool bAllowEaEmail, bool bAllowThirdPartyEmail);
 	
 	public override /*function */void SetupButtonBar()
 	{
@@ -44,7 +44,7 @@ public partial class TdUIScene_CreateAccountConfirm : TdUIScene_SubMenu/*
 	
 	}
 	
-	public virtual /*function */void SetUserLoginData(string LoginName, string Password, bool bAllowEaEmail, bool bAllowThirdPartyEmail)
+	public virtual /*function */void SetUserLoginData(String LoginName, String Password, bool bAllowEaEmail, bool bAllowThirdPartyEmail)
 	{
 	
 	}

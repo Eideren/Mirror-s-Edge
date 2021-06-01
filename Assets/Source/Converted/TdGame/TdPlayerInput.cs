@@ -249,13 +249,13 @@ public partial class TdPlayerInput : PlayerInput/* within TdPlayerController*//*
 	}
 	
 	// Export UTdPlayerInput::execGetTdBindNameFromCommand(FFrame&, void* const)
-	public virtual /*native function */string GetTdBindNameFromCommand(string BindCommand, /*optional */bool? _bForceUsingGamepad = default)
+	public virtual /*native function */String GetTdBindNameFromCommand(String BindCommand, /*optional */bool? _bForceUsingGamepad = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
-	public override /*exec function */void SetBind(name BindName, string Command)
+	public override /*exec function */void SetBind(name BindName, String Command)
 	{
 		/*local */int Idx = default;
 		/*local */Input.KeyBind NewBind = default;

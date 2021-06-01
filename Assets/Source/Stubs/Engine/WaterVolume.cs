@@ -52,7 +52,6 @@ public partial class WaterVolume : PhysicsVolume/*
 		}/* Reference: BrushComponent'Default__WaterVolume.BrushComponent0' */;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new BrushComponent
 			{
 				// Object Offset:0x004662F3

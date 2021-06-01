@@ -58,7 +58,6 @@ public partial class CrowdAttractor : Actor/*
 		bNoDelete = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new CylinderComponent
 			{
 				// Object Offset:0x004664BB
@@ -74,7 +73,6 @@ public partial class CrowdAttractor : Actor/*
 				bDrawBoundingBox = false,
 				bDrawNonColliding = true,
 			}/* Reference: CylinderComponent'Default__CrowdAttractor.CollisionCylinder' */,
-			//Components[1]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004CF7E6

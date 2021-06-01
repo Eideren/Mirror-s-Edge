@@ -4,9 +4,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class HelloWorldCommandlet : Commandlet/*
 		transient*/{
 	public int intparm;
-	public string strparm;
+	public String strparm;
 	
-	public override /*function */int Main(string Parms)
+	public override /*function */int Main(String Parms)
 	{
 	
 		return default;

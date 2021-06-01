@@ -21,7 +21,7 @@ public partial class UIDataStore_TdGameResource : UIDataStore_GameResource/*
 	}
 	
 	// Export UUIDataStore_TdGameResource::execGetStringValueFromProviderSet(FFrame&, void* const)
-	public virtual /*native function */bool GetStringValueFromProviderSet(name ProviderFieldName, name SearchTag, int ListIndex, ref string OutString)
+	public virtual /*native function */bool GetStringValueFromProviderSet(name ProviderFieldName, name SearchTag, int ListIndex, ref String OutString)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

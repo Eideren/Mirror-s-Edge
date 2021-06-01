@@ -85,7 +85,6 @@ public partial class TdWeapon_Pistol_DE05 : TdWeapon_Light/*
 		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.FirstPersonMesh' */;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x00014BAB
@@ -96,7 +95,6 @@ public partial class TdWeapon_Pistol_DE05 : TdWeapon_Light/*
 					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18")/*Ref TdAnimSet'AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18'*/,
 				},
 			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.FirstPersonMesh' */,
-			//Components[1]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x00014C03

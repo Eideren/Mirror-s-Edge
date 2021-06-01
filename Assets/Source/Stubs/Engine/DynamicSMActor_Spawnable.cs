@@ -18,7 +18,6 @@ public partial class DynamicSMActor_Spawnable : DynamicSMActor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__DynamicSMActor_Spawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__DynamicSMActor_Spawnable.MyLightEnvironment'*/,
-			//Components[1]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x005797E2

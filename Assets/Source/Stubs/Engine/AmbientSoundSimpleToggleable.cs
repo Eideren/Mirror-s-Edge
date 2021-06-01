@@ -88,7 +88,6 @@ public partial class AmbientSoundSimpleToggleable : AmbientSoundSimple/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__AmbientSoundSimpleToggleable.Sprite")/*Ref SpriteComponent'Default__AmbientSoundSimpleToggleable.Sprite'*/,
-			//Components[1]=
 			new AudioComponent
 			{
 				// Object Offset:0x00465E9F

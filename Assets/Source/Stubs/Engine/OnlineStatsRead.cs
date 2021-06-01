@@ -25,7 +25,7 @@ public partial class OnlineStatsRead : OnlineStats/*
 	{
 		public /*const */OnlineSubsystem.UniqueNetId PlayerId;
 		public /*const */Settings.SettingsData Rank;
-		public /*const */string NickName;
+		public /*const */String NickName;
 		public /*const */array<OnlineStatsRead.OnlineStatsColumn> Columns;
 	
 	//	structdefaultproperties
@@ -59,7 +59,7 @@ public partial class OnlineStatsRead : OnlineStats/*
 	{
 		public /*const */int Id;
 		public /*const */name Name;
-		public /*const localized */string ColumnName;
+		public /*const localized */String ColumnName;
 	
 	//	structdefaultproperties
 	//	{
@@ -76,7 +76,7 @@ public partial class OnlineStatsRead : OnlineStats/*
 	public /*const */int TotalRowsInView;
 	public /*const */array<OnlineStatsRead.OnlineStatsRow> Rows;
 	public /*const */array<OnlineStatsRead.ColumnMetaData> ColumnMappings;
-	public /*const */string ViewName;
+	public /*const */String ViewName;
 	public OnlineStats.StatPeriodFlags PeriodFlags;
 	public int PeriodPast;
 	public array<Settings.ESettingsDataType> ColumnTypes;

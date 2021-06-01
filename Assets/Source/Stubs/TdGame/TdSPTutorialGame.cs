@@ -112,7 +112,7 @@ public partial class TdSPTutorialGame : TdSPGame,
 	
 	public delegate void OnStayInTutorial(bool bStayInTutorial);
 	
-	public override /*event */void InitGame(string Options, ref string ErrorMessage)
+	public override /*event */void InitGame(String Options, ref String ErrorMessage)
 	{
 	
 	}
@@ -418,17 +418,17 @@ public partial class TdSPTutorialGame : TdSPGame,
 		return default;
 	}
 	
-	public virtual /*function */void OnTutorialCompleted(/*delegate*/TdSPTutorialGame.OnStayInTutorial InOnStayInTutorial, /*optional */string? _NextLevelName = default)
+	public virtual /*function */void OnTutorialCompleted(/*delegate*/TdSPTutorialGame.OnStayInTutorial InOnStayInTutorial, /*optional */String? _NextLevelName = default)
 	{
 	
 	}
 	
-	public override /*function */void OnLevelCompleted(TdPlayerController PC, string CurrentLevelName, /*optional */string? _InNextLevelName = default, /*optional */string? _InNextCheckpointName = default)
+	public override /*function */void OnLevelCompleted(TdPlayerController PC, String CurrentLevelName, /*optional */String? _InNextLevelName = default, /*optional */String? _InNextCheckpointName = default)
 	{
 	
 	}
 	
-	public override /*event */void PostSublevelStreaming(string Options)
+	public override /*event */void PostSublevelStreaming(String Options)
 	{
 	
 	}

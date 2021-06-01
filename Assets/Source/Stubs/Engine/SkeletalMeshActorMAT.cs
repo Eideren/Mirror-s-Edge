@@ -87,7 +87,6 @@ public partial class SkeletalMeshActorMAT : SkeletalMeshActor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__SkeletalMeshActorMAT.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActorMAT.MyLightEnvironment'*/,
-			//Components[1]=
 			new SkeletalMeshComponent
 			{
 				// Object Offset:0x003E7EBF

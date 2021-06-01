@@ -10,7 +10,7 @@ public partial class CurveEdPreset_LinearDecay : CurveEdPresetBase/*
 	public/*()*/ float EndDecay;
 	public/*()*/ float EndValue;
 	
-	public override /*function */string GetDisplayName()
+	public override /*function */String GetDisplayName()
 	{
 	
 		return default;

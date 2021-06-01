@@ -21,7 +21,6 @@ public partial class TdLensFlareSource : LensFlareSource/*
 			LoadAsset<DrawLightConeComponent>("Default__TdLensFlareSource.DrawInnerCone0")/*Ref DrawLightConeComponent'Default__TdLensFlareSource.DrawInnerCone0'*/,
 			LoadAsset<DrawLightConeComponent>("Default__TdLensFlareSource.DrawOuterCone0")/*Ref DrawLightConeComponent'Default__TdLensFlareSource.DrawOuterCone0'*/,
 			LoadAsset<DrawLightRadiusComponent>("Default__TdLensFlareSource.DrawRadius0")/*Ref DrawLightRadiusComponent'Default__TdLensFlareSource.DrawRadius0'*/,
-			//Components[4]=
 			new LensFlareComponent
 			{
 				// Object Offset:0x01B73901

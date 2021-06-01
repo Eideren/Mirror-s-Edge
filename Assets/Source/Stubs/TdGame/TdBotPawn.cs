@@ -422,7 +422,7 @@ public partial class TdBotPawn : TdPawn/*
 		return default;
 	}
 	
-	public virtual /*function */void AddSpecialOutput(ref string Text)
+	public virtual /*function */void AddSpecialOutput(ref String Text)
 	{
 	
 	}
@@ -2012,7 +2012,6 @@ public partial class TdBotPawn : TdPawn/*
 			LoadAsset<CylinderComponent>("Default__TdBotPawn.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdBotPawn.Arrow")/*Ref ArrowComponent'Default__TdBotPawn.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x0052DA8C

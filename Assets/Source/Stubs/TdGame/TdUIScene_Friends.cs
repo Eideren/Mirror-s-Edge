@@ -42,7 +42,7 @@ public partial class TdUIScene_Friends : TdUIScene/*
 		return default;
 	}
 	
-	public virtual /*private final function */bool GetCurrentFriendNick(ref string FriendNick)
+	public virtual /*private final function */bool GetCurrentFriendNick(ref String FriendNick)
 	{
 	
 		return default;

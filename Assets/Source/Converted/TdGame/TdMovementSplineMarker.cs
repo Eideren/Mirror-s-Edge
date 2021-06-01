@@ -14,7 +14,6 @@ public partial class TdMovementSplineMarker : Keypoint/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E521F9

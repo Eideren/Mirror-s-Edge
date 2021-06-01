@@ -34,7 +34,7 @@ public partial class ConsoleEntry : UIObject/*
 	
 	}
 	
-	public virtual /*function */void SetValue(string NewValue)
+	public virtual /*function */void SetValue(String NewValue)
 	{
 	
 	}
@@ -143,7 +143,6 @@ public partial class ConsoleEntry : UIObject/*
 		bSupportsPrimaryStyle = false;
 		Children = new array<UIObject>
 		{
-			//Children[0]=
 			new UIEditBox
 			{
 				// Object Offset:0x005D283E
@@ -161,7 +160,6 @@ public partial class ConsoleEntry : UIObject/*
 				},
 				EventProvider = LoadAsset<UIComp_Event>("Default__ConsoleEntry.InputBoxTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__ConsoleEntry.InputBoxTemplate.WidgetEventComponent'*/,
 			}/* Reference: UIEditBox'Default__ConsoleEntry.InputBoxTemplate' */,
-			//Children[1]=
 			new UIImage
 			{
 				// Object Offset:0x005D2F06
@@ -170,7 +168,6 @@ public partial class ConsoleEntry : UIObject/*
 				TabIndex = 1,
 				EventProvider = LoadAsset<UIComp_Event>("Default__ConsoleEntry.ConsolePromptBackgroundTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__ConsoleEntry.ConsolePromptBackgroundTemplate.WidgetEventComponent'*/,
 			}/* Reference: UIImage'Default__ConsoleEntry.ConsolePromptBackgroundTemplate' */,
-			//Children[2]=
 			new UILabel
 			{
 				// Object Offset:0x005D3302
@@ -191,7 +188,6 @@ public partial class ConsoleEntry : UIObject/*
 				},
 				EventProvider = LoadAsset<UIComp_Event>("Default__ConsoleEntry.ConsolePromptTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__ConsoleEntry.ConsolePromptTemplate.WidgetEventComponent'*/,
 			}/* Reference: UILabel'Default__ConsoleEntry.ConsolePromptTemplate' */,
-			//Children[3]=
 			new UIImage
 			{
 				// Object Offset:0x005D2F86
@@ -213,7 +209,6 @@ public partial class ConsoleEntry : UIObject/*
 				},
 				EventProvider = LoadAsset<UIComp_Event>("Default__ConsoleEntry.LowerConsoleBorderTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__ConsoleEntry.LowerConsoleBorderTemplate.WidgetEventComponent'*/,
 			}/* Reference: UIImage'Default__ConsoleEntry.LowerConsoleBorderTemplate' */,
-			//Children[4]=
 			new UIImage
 			{
 				// Object Offset:0x005D306A

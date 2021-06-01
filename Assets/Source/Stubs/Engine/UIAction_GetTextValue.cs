@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class UIAction_GetTextValue : UIAction_GetValue/*
 		hidecategories(Object)*/{
-	public string StringValue;
+	public String StringValue;
 	
 	public UIAction_GetTextValue()
 	{

@@ -72,7 +72,7 @@ public partial class TdLobbyBackend : Object/*
 		return default;
 	}
 	
-	public virtual /*function */void StartGame(string MapName, string GameMode)
+	public virtual /*function */void StartGame(String MapName, String GameMode)
 	{
 	
 	}

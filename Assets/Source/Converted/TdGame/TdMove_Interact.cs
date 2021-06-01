@@ -135,7 +135,7 @@ public partial class TdMove_Interact : TdPhysicsMove/*
 		WeaponType = ((TdPawn.EWeaponType)PawnOwner.GetWeaponType());
 		if((((int)WeaponType) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)) || (((int)WeaponType) == ((int)TdPawn.EWeaponType.EWT_Light/*2*/)) && ((int)PawnOwner.WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Ready/*2*/))
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, "unholster", -1.80f, 0.20f, -1.0f, default, default);
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, "unholster", -1.80f, 0.20f, -1.0f, default(bool?), default(bool?));
 			PawnOwner.SetCustomAnimsBlendOutTime(TdPawn.CustomNodeType.CNT_Weapon/*7*/, -1.0f);
 		}
 	}
@@ -162,14 +162,14 @@ public partial class TdMove_Interact : TdPhysicsMove/*
 		PawnOwner.Velocity = vect(0.0f, 0.0f, 0.0f);
 		PawnOwner.Acceleration = vect(0.0f, 0.0f, 0.0f);
 		PawnOwner.SetPhysics(Actor.EPhysics.PHYS_Flying/*4*/);
-		PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default);
+		PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default(bool?));
 		PawnOwner.bCollideWorld = false;
 		PawnOwner.SetLocation(MoveLocation);
 		PawnOwner.SetRotation(Normalize(((Rotator)(-NormalFromTrigger2D))));
 		ControllerAlignRotation = PawnOwner.Controller.Rotation;
 		ControllerAlignRotation.Yaw = PawnOwner.Rotation.Yaw;
 		PawnOwner.Controller.SetRotation(ControllerAlignRotation);
-		PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default);
+		PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default(bool?));
 		PawnOwner.bCollideWorld = true;
 		PawnOwner.SetPhysics(Actor.EPhysics.PHYS_Walking/*1*/);
 		if((((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_Button/*0*/)) || ((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_ButtonHigh/*2*/))
@@ -202,7 +202,7 @@ public partial class TdMove_Interact : TdPhysicsMove/*
 			{
 				PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, 0.30f);
 			}
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);		
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));		
 		}
 		else
 		{
@@ -231,7 +231,7 @@ public partial class TdMove_Interact : TdPhysicsMove/*
 			else
 			{
 				ActivateOutputLink(3);
-				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 			}
 		}
 	}
@@ -253,13 +253,13 @@ public partial class TdMove_Interact : TdPhysicsMove/*
 		if(((int)PawnOwner.GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/))
 		{
 			PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, 0.10f);
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, "unholster", 1.0f, 0.0f, 0.20f, default, default);
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, "unholster", 1.0f, 0.0f, 0.20f, default(bool?), default(bool?));
 		}
 	}
 	
 	public virtual /*simulated function */void PlayInteractAnimation(name AnimSeqName, float Rate, float BlendInTime, float BlendOutTime)
 	{
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, AnimSeqName, Rate, BlendInTime, BlendOutTime, default, default);
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, AnimSeqName, Rate, BlendInTime, BlendOutTime, default(bool?), default(bool?));
 		if(((CurrentEvent != default) && ((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_Valve/*1*/)) && CurrentEvent.InteractSkelMeshRef != default)
 		{
 			CurrentEvent.InteractSkelMeshRef.PlayAnimation(AnimSeqName, Rate);
@@ -293,7 +293,7 @@ public partial class TdMove_Interact : TdPhysicsMove/*
 					else
 					{
 						ActivateOutputLink(3);
-						PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+						PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 					}
 				}			
 			}
@@ -320,7 +320,7 @@ public partial class TdMove_Interact : TdPhysicsMove/*
 					else
 					{
 						ActivateOutputLink(3);
-						PlayMoveAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "interactvalveloop", 1.0f, 0.0f, 0.40f, default, default);
+						PlayMoveAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "interactvalveloop", 1.0f, 0.0f, 0.40f, default(bool?), default(bool?));
 						bReachedTrigger = false;
 						SetTimer(0.30f);
 					}
@@ -332,7 +332,7 @@ public partial class TdMove_Interact : TdPhysicsMove/*
 			if((((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_Button/*0*/)) || ((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_ButtonHigh/*2*/))
 			{
 				ActivateOutputLink(3);
-				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 			}
 		}
 	}

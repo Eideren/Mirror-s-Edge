@@ -17,7 +17,6 @@ public partial class KAssetSpawnable : KAsset/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__KAssetSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KAssetSpawnable.MyLightEnvironment'*/,
-			//Components[1]=
 			new SkeletalMeshComponent
 			{
 				// Object Offset:0x004CED7E

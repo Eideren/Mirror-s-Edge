@@ -43,7 +43,7 @@ namespace MEdge.Core
             }
         }
 
-        public void GotoState(name newStateName = default, name label = null, bool bForceEvents = false, bool bKeepStack = false)
+        public void GotoState(name newStateName = default, name? label = null, bool? bForceEvents = false, bool? bKeepStack = false)
         {
             /*
 https://wiki.beyondunreal.com/States :
@@ -98,7 +98,7 @@ because it makes the most sense given that BeginState and EndState requires prev
                     RestoreDefaultFunction();
                     // https://wiki.beyondunreal.com/States :
                     // It is possible for an actor to be in "no state" by using GotoState(). When an actor is in "no state", only its global (non-state) functions are called.
-                    if (string.IsNullOrWhiteSpace(newStateName))
+                    if (String.IsNullOrWhiteSpace(newStateName))
                         _currentControlFlow = Flow.Stop;
                     _currentState = (newStateName, newState.flow(label).GetEnumerator(), newState.end);
                 
@@ -111,7 +111,7 @@ because it makes the most sense given that BeginState and EndState requires prev
         {
             // https://wiki.beyondunreal.com/States :
             // It is possible for an actor to be in "no state" by using GotoState(). When an actor is in "no state", only its global (non-state) functions are called.
-            if (string.IsNullOrWhiteSpace(stateName.Value))
+            if (String.IsNullOrWhiteSpace(stateName.Value))
                 return (null, null, null);
             if (stateName.Value == "Auto" || stateName.Value == "auto")
                 return GetAutoState();
@@ -141,7 +141,7 @@ because it makes the most sense given that BeginState and EndState requires prev
             public static Flow Sleep(float timeout) => new Flow() {_timeout = timeout};
         }
 
-        public bool IsInState(string state, bool bTestStateStack = default)
+        public bool IsInState(String state, bool? bTestStateStack = default)
         {
             if (bTestStateStack != default)
                 throw new ArgumentException( $"{nameof(bTestStateStack)} is not implemented" );

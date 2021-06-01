@@ -11,14 +11,14 @@ public partial class TdUtils : Object/*
 	}
 	
 	// Export UTdUtils::execFormatTime(FFrame&, void* const)
-	public /*native final function */static string FormatTime(string SecondsString)
+	public /*native final function */static String FormatTime(String SecondsString)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdUtils::execFormatFloatTime(FFrame&, void* const)
-	public /*native final function */static string FormatFloatTime(float Time)
+	public /*native final function */static String FormatFloatTime(float Time)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

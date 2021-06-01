@@ -41,7 +41,6 @@ public partial class Pawn_CriminalHeavy : TdPlayerPawn/*
 			LoadAsset<CylinderComponent>("Default__Pawn_CriminalHeavy.CollisionCylinder")/*Ref CylinderComponent'Default__Pawn_CriminalHeavy.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__Pawn_CriminalHeavy.Arrow")/*Ref ArrowComponent'Default__Pawn_CriminalHeavy.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__Pawn_CriminalHeavy.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__Pawn_CriminalHeavy.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x0001107C

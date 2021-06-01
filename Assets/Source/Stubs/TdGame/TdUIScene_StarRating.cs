@@ -31,7 +31,7 @@ public partial class TdUIScene_StarRating : TdUIScene/*
 	
 	}
 	
-	public virtual /*function */void SetStarsText(int Stars, string MapName)
+	public virtual /*function */void SetStarsText(int Stars, String MapName)
 	{
 	
 	}

@@ -55,7 +55,6 @@ public partial class LadderVolume : PhysicsVolume/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<BrushComponent>("Default__LadderVolume.BrushComponent0")/*Ref BrushComponent'Default__LadderVolume.BrushComponent0'*/,
-			//Components[1]=
 			new ArrowComponent
 			{
 				// Object Offset:0x00465AF7

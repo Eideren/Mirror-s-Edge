@@ -8,8 +8,8 @@ public partial class InterpTrackFaceFX : InterpTrack/*
 	public partial struct /*native */FaceFXTrackKey
 	{
 		public float StartTime;
-		public string FaceFXGroupName;
-		public string FaceFXSeqName;
+		public String FaceFXGroupName;
+		public String FaceFXSeqName;
 	
 	//	structdefaultproperties
 	//	{

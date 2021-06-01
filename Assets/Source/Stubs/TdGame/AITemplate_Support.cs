@@ -15,7 +15,7 @@ public partial class AITemplate_Support : AITemplate_Default/*
 		ControllerClass = "TdGame.TdAI_Support";
 		PawnClass = "TdSpContent.TdBotPawn_Support";
 		ProfileName = "SupportTwoHanded";
-		AnimationSets = "AS_AI_Support_TwoHanded.AS_AI_Support_TwoHanded";
+		AnimationSets[0] = "AS_AI_Support_TwoHanded.AS_AI_Support_TwoHanded";
 		SkeletalMesh = "CH_TKY_Cop_Support.SK_TKY_Cop_Support";
 		LegOffsetWalkFwd = 0.0f;
 		LegOffsetWalkLeft60 = 0.0f;

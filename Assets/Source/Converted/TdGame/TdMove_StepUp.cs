@@ -103,7 +103,7 @@ public partial class TdMove_StepUp : TdPhysicsMove/*
 		TargetLocation.Z = PawnOwner.Location.Z;
 		if(((int)StepUpType) == ((int)TdMove_StepUp.EStepUpType.ESUT_Long/*3*/))
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("vaultonto")), 1.0f, 0.150f, 0.250f, false, default);
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("vaultonto")), 1.0f, 0.150f, 0.250f, false, default(bool?));
 			SetPreciseLocation(EndPosition, TdMove.EPreciseLocationMode.PLM_Jump/*2*/, ((float)(Max(200, ((int)(VSize2D(SavedVelocity)))))));		
 		}
 		else
@@ -116,7 +116,7 @@ public partial class TdMove_StepUp : TdPhysicsMove/*
 	{
 		if(((int)StepUpType) == ((int)TdMove_StepUp.EStepUpType.ESUT_Long/*3*/))
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 			return;
 		}
 		PawnOwner.UseRootMotion(true);
@@ -126,11 +126,11 @@ public partial class TdMove_StepUp : TdPhysicsMove/*
 			RootMotionScale.Z = (EndPosition.Z - PawnOwner.Location.Z) / StepUpOptimalLowHeight;
 			if(PawnOwner.IsLeftLegForward())
 			{
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("stepupleftleg48")), 1.0f, 0.150f, 0.10f, true, default);			
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("stepupleftleg48")), 1.0f, 0.150f, 0.10f, true, default(bool?));			
 			}
 			else
 			{
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("stepuprightleg48")), 1.0f, 0.150f, 0.10f, true, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("stepuprightleg48")), 1.0f, 0.150f, 0.10f, true, default(bool?));
 			}		
 		}
 		else
@@ -140,11 +140,11 @@ public partial class TdMove_StepUp : TdPhysicsMove/*
 				RootMotionScale.Z = (EndPosition.Z - PawnOwner.Location.Z) / StepUpOptimalMediumHeight;
 				if(PawnOwner.IsLeftLegForward())
 				{
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("stepupleftleg88")), 1.20f, 0.150f, 0.10f, true, default);				
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("stepupleftleg88")), 1.20f, 0.150f, 0.10f, true, default(bool?));				
 				}
 				else
 				{
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("stepuprightleg88")), 1.20f, 0.150f, 0.10f, true, default);
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("stepuprightleg88")), 1.20f, 0.150f, 0.10f, true, default(bool?));
 				}			
 			}
 			else
@@ -153,7 +153,7 @@ public partial class TdMove_StepUp : TdPhysicsMove/*
 				{
 					RootMotionScale.Z = (EndPosition.Z - PawnOwner.Location.Z) / StepUpOptimalHighHeight;
 					ResetCameraLook(0.150f);
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("stepup144")), 1.0f, 0.150f, 0.10f, true, default);
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("stepup144")), 1.0f, 0.150f, 0.10f, true, default(bool?));
 				}
 			}
 		}
@@ -162,7 +162,7 @@ public partial class TdMove_StepUp : TdPhysicsMove/*
 	public override /*simulated function */void OnCeaseRelevantRootMotion(AnimNodeSequence SeqNode)
 	{
 		PawnOwner.UseRootMotion(false);
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 	}
 	
 	public override /*simulated function */void StopMove()

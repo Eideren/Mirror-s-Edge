@@ -52,7 +52,7 @@ public partial class TdMove_Climb : TdPhysicsMove/*
 		SetCustomCollisionSize(PawnOwner.DefaultAs<Pawn>().CylinderComponent.CollisionRadius - 5.0f, PawnOwner.DefaultAs<Pawn>().CylinderComponent.CollisionHeight);
 		if(ClimbSoundComponent == default)
 		{
-			ClimbSoundComponent = PawnOwner.CreateAudioComponent(((((int)PawnOwner.LadderType) == 0) ? ClimbDownLadderFastSound : ClimbDownPipeFastSound), false, true, default, default, default);
+			ClimbSoundComponent = PawnOwner.CreateAudioComponent(((((int)PawnOwner.LadderType) == 0) ? ClimbDownLadderFastSound : ClimbDownPipeFastSound), false, true, default(bool?), default(Object.Vector?), default(bool?));
 		}
 		if(ClimbSoundComponent != default)
 		{
@@ -73,7 +73,7 @@ public partial class TdMove_Climb : TdPhysicsMove/*
 		TransferMove = default;
 		PawnOwner.UseRootMotion(false);
 		PawnOwner.UseRootRotation(false);
-		PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default);
+		PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default(bool?));
 		PawnOwner.bCollideWorld = true;
 		PawnOwner.FaceRotationTimeLeft = 0.20f;
 		PawnOwner.LegRotation = PawnOwner.Controller.Rotation.Yaw;
@@ -179,7 +179,7 @@ public partial class TdMove_Climb : TdPhysicsMove/*
 				PawnOwner.Acceleration = Normal(PawnOwner.Velocity);
 				((PawnOwner.Controller) as TdPlayerController).AccelerationTime = 0.20f;
 			}
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 		}
 	}
 	
@@ -241,7 +241,7 @@ public partial class TdMove_Climb : TdPhysicsMove/*
 		/*local */float ClimbSpeed = default;
 	
 		ClimbSpeed = Abs(((float)(StepCount))) * ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? 64.0f : 96.0f);
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ClimbAnims[ClimbAnimIndex], Rate, 0.10f, 0.0750f, false, default);
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ClimbAnims[ClimbAnimIndex], Rate, 0.10f, 0.0750f, false, default(bool?));
 		bIsPlayingAnimation = true;
 		SetTimer(0.10f);
 		TargetLocation = Ladder.GetLadderLocation(Ladder.GetClosestStep(PawnOwner.Location.Z) + StepCount);
@@ -250,14 +250,14 @@ public partial class TdMove_Climb : TdPhysicsMove/*
 	
 	public virtual /*simulated function */void ExitAtTop(int ClimbAnimIndex)
 	{
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ClimbAnims[ClimbAnimIndex], 1.0f, 0.10f, 0.10f, true, default);
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ClimbAnims[ClimbAnimIndex], 1.0f, 0.10f, 0.10f, true, default(bool?));
 		bIsPlayingAnimation = true;
 		ResetCameraLook(0.10f);
 		PawnOwner.SetIgnoreLookInput(-1.0f);
-		PawnOwner.SetTimer(0.90f, false, "StopIgnoreLookInput", default);
+		PawnOwner.SetTimer(0.90f, false, "StopIgnoreLookInput", default(Object?));
 		PawnOwner.UseRootMotion(true);
 		ClimbState = TdMove_Climb.EClimbState.CS_ExitAtTop/*1*/;
-		PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default);
+		PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default(bool?));
 		PawnOwner.bCollideWorld = false;
 		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, 0.50f);
 	}
@@ -268,7 +268,7 @@ public partial class TdMove_Climb : TdPhysicsMove/*
 		PawnOwner.Acceleration = vect(0.0f, 0.0f, 0.0f);
 		PawnOwner.UseRootMotion(false);
 		PawnOwner.UseRootRotation(false);
-		PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default);
+		PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default(bool?));
 		PawnOwner.bCollideWorld = true;
 		PawnOwner.SetRotation(((Rotator)(-Ladder.WallNormal)));
 		bIsPlayingAnimation = false;
@@ -299,13 +299,13 @@ public partial class TdMove_Climb : TdPhysicsMove/*
 		TraceEnd.Z -= 32.0f;
 		if(MovementTrace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, TraceEnd, TraceStart, Extent, false))
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);		
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));		
 		}
 		else
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
 		}
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "PipeExitBottom", 1.0f, 0.10f, 0.40f, default, default);
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "PipeExitBottom", 1.0f, 0.10f, 0.40f, default(bool?), default(bool?));
 	}
 	
 	public override /*simulated function */void OnTimer()
@@ -399,8 +399,8 @@ public partial class TdMove_Climb : TdPhysicsMove/*
 		}
 		else
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
-			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default);
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
+			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default(float?));
 		}
 		return base.HandleDeath(Damage);
 	}

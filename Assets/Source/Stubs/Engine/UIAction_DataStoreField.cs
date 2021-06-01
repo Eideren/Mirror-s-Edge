@@ -6,7 +6,7 @@ public partial class UIAction_DataStoreField : UIAction_DataStore/*
 		native
 		hidecategories(Object)*/{
 	public/*()*/ UIScene TargetScene;
-	public/*()*/ string DataFieldMarkupString;
+	public/*()*/ String DataFieldMarkupString;
 	
 	public UIAction_DataStoreField()
 	{

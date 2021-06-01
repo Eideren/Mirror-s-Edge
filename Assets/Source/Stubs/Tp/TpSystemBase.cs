@@ -58,19 +58,19 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public partial struct /*native */TpInitializeParams
 	{
 		public TpSystemBase.TpEnv Env;
-		public string Sku;
-		public string Version;
-		public string ClientString360;
-		public string ClientStringPS3;
-		public string ClientStringPC;
+		public String Sku;
+		public String Version;
+		public String ClientString360;
+		public String ClientStringPS3;
+		public String ClientStringPC;
 		public int FeslPort360;
 		public int FeslPortPS3;
 		public int FeslPortPC;
-		public string Ps3TitleId;
-		public string Ps3CommId;
-		public string Ps3Spid;
+		public String Ps3TitleId;
+		public String Ps3CommId;
+		public String Ps3Spid;
 		public int MaxPlayers;
-		public string ClientType;
+		public String ClientType;
 	
 	//	structdefaultproperties
 	//	{
@@ -100,7 +100,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public partial struct /*native */TpErrorInfo
 	{
 		public int ErrorCode;
-		public string LocErrorString;
+		public String LocErrorString;
 		public bool bRestartNeeded;
 	
 	//	structdefaultproperties

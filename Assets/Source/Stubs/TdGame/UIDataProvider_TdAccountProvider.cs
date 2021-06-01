@@ -9,8 +9,8 @@ public partial class UIDataProvider_TdAccountProvider : UIDataProvider_TdResourc
 		hidecategories(Object,UIRoot)*/{
 	public partial struct /*native */ECountryPair
 	{
-		public string CountryName;
-		public string Tag;
+		public String CountryName;
+		public String Tag;
 		public int RegisterMinAge;
 		public int ParentalControlMinAge;
 	
@@ -36,7 +36,7 @@ public partial class UIDataProvider_TdAccountProvider : UIDataProvider_TdResourc
 	
 	}
 	
-	public virtual /*function */void AddCountry(string CountryName, string CountryTag, int RegisterMinAge, int ParentalControlMinAge)
+	public virtual /*function */void AddCountry(String CountryName, String CountryTag, int RegisterMinAge, int ParentalControlMinAge)
 	{
 	
 	}

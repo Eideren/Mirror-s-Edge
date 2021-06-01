@@ -8,7 +8,7 @@ public partial class UISceneManager : Object/*
 	public partial struct /*native transient */UIResourceInfo
 	{
 		public /*init */Object UIResource;
-		public /*init */string FriendlyName;
+		public /*init */String FriendlyName;
 	
 	//	structdefaultproperties
 	//	{
@@ -21,7 +21,7 @@ public partial class UISceneManager : Object/*
 	public partial struct /*native transient */UIObjectResourceInfo// extends UIResourceInfo
 	{
 		public /*init */Object UIResource;
-		public /*init */string FriendlyName;
+		public /*init */String FriendlyName;
 			// Object Offset:0x0002DFB1
 	//		UIResource = default;
 	//		FriendlyName = "";
@@ -34,7 +34,7 @@ public partial class UISceneManager : Object/*
 	public partial struct /*native transient */UIStyleResourceInfo// extends UIResourceInfo
 	{
 		public /*init */Object UIResource;
-		public /*init */string FriendlyName;
+		public /*init */String FriendlyName;
 			// Object Offset:0x0002DFB1
 	//		UIResource = default;
 	//		FriendlyName = "";
@@ -47,7 +47,7 @@ public partial class UISceneManager : Object/*
 	public partial struct /*native transient */UIStateResourceInfo// extends UIResourceInfo
 	{
 		public /*init */Object UIResource;
-		public /*init */string FriendlyName;
+		public /*init */String FriendlyName;
 			// Object Offset:0x0002DFB1
 	//		UIResource = default;
 	//		FriendlyName = "";
@@ -59,10 +59,10 @@ public partial class UISceneManager : Object/*
 	
 	public partial struct /*native */UIObjectToolbarMapping
 	{
-		public string WidgetClassName;
-		public string IconName;
-		public string ToolTip;
-		public string HelpText;
+		public String WidgetClassName;
+		public String IconName;
+		public String ToolTip;
+		public String HelpText;
 	
 	//	structdefaultproperties
 	//	{

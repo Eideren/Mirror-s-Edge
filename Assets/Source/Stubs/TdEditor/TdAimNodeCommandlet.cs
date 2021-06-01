@@ -5,7 +5,7 @@ public partial class TdAimNodeCommandlet : Commandlet/*
 		transient
 		native*/{
 	// Export UTdAimNodeCommandlet::execMain(FFrame&, void* const)
-	public override /*native event */int Main(string Params)
+	public override /*native event */int Main(String Params)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

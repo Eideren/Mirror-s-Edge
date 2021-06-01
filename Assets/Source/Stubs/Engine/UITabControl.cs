@@ -128,7 +128,7 @@ public partial class UITabControl : UIObject/*
 	
 	}
 	
-	public virtual /*function */bool ActivatePageByCaption(string PageCaption, int PlayerIndex, /*optional */bool? _bFocusPage = default)
+	public virtual /*function */bool ActivatePageByCaption(String PageCaption, int PlayerIndex, /*optional */bool? _bFocusPage = default)
 	{
 	
 		return default;
@@ -140,7 +140,7 @@ public partial class UITabControl : UIObject/*
 		return default;
 	}
 	
-	public virtual /*function */int FindPageIndexByCaption(string PageCaption, /*optional */bool? _bMarkupString = default)
+	public virtual /*function */int FindPageIndexByCaption(String PageCaption, /*optional */bool? _bMarkupString = default)
 	{
 	
 		return default;

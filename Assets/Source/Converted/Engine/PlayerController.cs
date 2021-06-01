@@ -123,7 +123,7 @@ public partial class PlayerController : Controller/*
 		public Actor SrcActor;
 		public Object.Vector SrcActorOffset;
 		public Object.Vector SrcActorDesiredOffset;
-		public string DebugText;
+		public String DebugText;
 		public /*transient */float TimeRemaining;
 		public float Duration;
 		public Object.Color TextColor;
@@ -228,12 +228,12 @@ public partial class PlayerController : Controller/*
 	public float OldPing;
 	public float LastSpeedHackLog;
 	public PlayerController.ClientAdjustment PendingAdjustment;
-	public StaticArray<string, string>/*[2]*/ ProgressMessage;
+	public StaticArray<String, String>/*[2]*/ ProgressMessage;
 	public float ProgressTimeOut;
-	public /*const localized */string QuickSaveString;
-	public /*const localized */string NoPauseMessage;
-	public /*const localized */string ViewingFrom;
-	public /*const localized */string OwnCamera;
+	public /*const localized */String QuickSaveString;
+	public /*const localized */String NoPauseMessage;
+	public /*const localized */String ViewingFrom;
+	public /*const localized */String OwnCamera;
 	public int GroundPitch;
 	public Object.Vector OldFloor;
 	public /*transient */CheatManager CheatManager;
@@ -242,7 +242,7 @@ public partial class PlayerController : Controller/*
 	public Core.ClassT<PlayerInput> InputClass;
 	public /*const */Object.Vector FailedPathStart;
 	public /*export editinline */CylinderComponent CylinderComponent;
-	public /*config */string ForceFeedbackManagerClassName;
+	public /*config */String ForceFeedbackManagerClassName;
 	public /*transient */ForceFeedbackManager ForceFeedbackManager;
 	public /*transient */array<Interaction> Interactions;
 	public array<OnlineSubsystem.UniqueNetId> VoiceMuteList;
@@ -254,7 +254,7 @@ public partial class PlayerController : Controller/*
 	public /*config */float InteractDistance;
 	public array<PlayerController.InputMatchRequest> InputRequests;
 	public float LastBroadcastTime;
-	public StaticArray<string, string, string, string>/*[4]*/ LastBroadcastString;
+	public StaticArray<String, String, String, String>/*[4]*/ LastBroadcastString;
 	public array<name> PendingMapChangeLevelNames;
 	public CoverReplicator MyCoverReplicator;
 	public /*private */array<PlayerController.DebugTextInfo> DebugTextList;
@@ -286,53 +286,53 @@ public partial class PlayerController : Controller/*
 	}
 	
 	// Export UPlayerController::execGetPlayerNetworkAddress(FFrame&, void* const)
-	public virtual /*native final function */string GetPlayerNetworkAddress()
+	public virtual /*native final function */String GetPlayerNetworkAddress()
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPlayerController::execGetServerNetworkAddress(FFrame&, void* const)
-	public virtual /*native final function */string GetServerNetworkAddress()
+	public virtual /*native final function */String GetServerNetworkAddress()
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPlayerController::execConsoleCommand(FFrame&, void* const)
-	public override /*native function */string ConsoleCommand(string Command, /*optional */bool? _bWriteToLog = default)
+	public override /*native function */String ConsoleCommand(String Command, /*optional */bool? _bWriteToLog = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPlayerController::execClientTravel(FFrame&, void* const)
-	public virtual /*reliable client native simulated event */void ClientTravel(string URL, Actor.ETravelType TravelType, /*optional */bool? _bSeamless = default, /*init optional */Object.Guid? _MapPackageGuid = default)
+	public virtual /*reliable client native simulated event */void ClientTravel(String URL, Actor.ETravelType TravelType, /*optional */bool? _bSeamless = default, /*init optional */Object.Guid? _MapPackageGuid = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execUpdateURL(FFrame&, void* const)
-	public virtual /*native(546) final function */void UpdateURL(string NewOption, string NewValue, bool bSave1Default)
+	public virtual /*native(546) final function */void UpdateURL(String NewOption, String NewValue, bool bSave1Default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execGetDefaultURL(FFrame&, void* const)
-	public virtual /*native final function */string GetDefaultURL(string Option)
+	public virtual /*native final function */String GetDefaultURL(String Option)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPlayerController::execCopyToClipboard(FFrame&, void* const)
-	public virtual /*native function */void CopyToClipboard(string Text)
+	public virtual /*native function */void CopyToClipboard(String Text)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execPasteFromClipboard(FFrame&, void* const)
-	public virtual /*native function */string PasteFromClipboard()
+	public virtual /*native function */String PasteFromClipboard()
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -351,13 +351,13 @@ public partial class PlayerController : Controller/*
 	}
 	
 	// Export UPlayerController::execClientConvolve(FFrame&, void* const)
-	public virtual /*private reliable client native final simulated event */void ClientConvolve(string C, int H)
+	public virtual /*private reliable client native final simulated event */void ClientConvolve(String C, int H)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execServerProcessConvolve(FFrame&, void* const)
-	public virtual /*private reliable server native final event */void ServerProcessConvolve(string C, int H)
+	public virtual /*private reliable server native final event */void ServerProcessConvolve(String C, int H)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -1216,7 +1216,7 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*reliable client simulated function */void ClientPlayActorFaceFXAnim(Actor SourceActor, FaceFXAnimSet AnimSet, string GroupName, string SeqName)
+	public virtual /*reliable client simulated function */void ClientPlayActorFaceFXAnim(Actor SourceActor, FaceFXAnimSet AnimSet, String GroupName, String SeqName)
 	{
 		if(SourceActor != default)
 		{
@@ -1224,7 +1224,7 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*reliable client simulated event */void ClientMessage(/*coerce */string S, /*optional */name? _Type = default, /*optional */float? _MsgLifeTime = default)
+	public virtual /*reliable client simulated event */void ClientMessage(/*coerce */String S, /*optional */name? _Type = default, /*optional */float? _MsgLifeTime = default)
 	{
 		var Type = _Type ?? default;
 		var MsgLifeTime = _MsgLifeTime ?? default;
@@ -1239,7 +1239,7 @@ public partial class PlayerController : Controller/*
 		TeamMessage(PlayerReplicationInfo, S, Type, MsgLifeTime);
 	}
 	
-	public virtual /*reliable client simulated event */void TeamMessage(PlayerReplicationInfo PRI, /*coerce */string S, name Type, /*optional */float? _MsgLifeTime = default)
+	public virtual /*reliable client simulated event */void TeamMessage(PlayerReplicationInfo PRI, /*coerce */String S, name Type, /*optional */float? _MsgLifeTime = default)
 	{
 		/*local */bool bIsUserCreated = default;
 	
@@ -1364,12 +1364,12 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*exec function */void Mutate(string MutateString)
+	public virtual /*exec function */void Mutate(String MutateString)
 	{
 		ServerMutate(MutateString);
 	}
 	
-	public virtual /*reliable server function */void ServerMutate(string MutateString)
+	public virtual /*reliable server function */void ServerMutate(String MutateString)
 	{
 		if(((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Client/*3*/))
 		{
@@ -1378,7 +1378,7 @@ public partial class PlayerController : Controller/*
 		WorldInfo.Game.Mutate(MutateString, this);
 	}
 	
-	public virtual /*function */bool AllowTextMessage(string msg)
+	public virtual /*function */bool AllowTextMessage(String msg)
 	{
 		/*local */int I = default;
 	
@@ -1417,7 +1417,7 @@ public partial class PlayerController : Controller/*
 		return true;
 	}
 	
-	public virtual /*exec function */void Say(string msg)
+	public virtual /*exec function */void Say(String msg)
 	{
 		msg = Left(msg, 128);
 		if(AllowTextMessage(msg))
@@ -1426,7 +1426,7 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*unreliable server function */void ServerSay(string msg)
+	public virtual /*unreliable server function */void ServerSay(String msg)
 	{
 		/*local */PlayerController PC = default;
 	
@@ -1447,7 +1447,7 @@ public partial class PlayerController : Controller/*
 		WorldInfo.Game.Broadcast(this, msg, "Say");
 	}
 	
-	public virtual /*exec function */void TeamSay(string msg)
+	public virtual /*exec function */void TeamSay(String msg)
 	{
 		msg = Left(msg, 128);
 		if(AllowTextMessage(msg))
@@ -1456,7 +1456,7 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*unreliable server function */void ServerTeamSay(string msg)
+	public virtual /*unreliable server function */void ServerTeamSay(String msg)
 	{
 		LastActiveTime = WorldInfo.TimeSeconds;
 		if(!WorldInfo.GRI.GameClass.DefaultAs<GameInfo>().bTeamGame)
@@ -2416,12 +2416,12 @@ public partial class PlayerController : Controller/*
 	
 	}
 	
-	public virtual /*exec function */void Speech(name Type, int Index, string Callsign)
+	public virtual /*exec function */void Speech(name Type, int Index, String Callsign)
 	{
 		ServerSpeech(Type, Index, Callsign);
 	}
 	
-	public virtual /*reliable server function */void ServerSpeech(name Type, int Index, string Callsign)
+	public virtual /*reliable server function */void ServerSpeech(name Type, int Index, String Callsign)
 	{
 	
 	}
@@ -2437,7 +2437,7 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*exec function */void LocalTravel(string URL)
+	public virtual /*exec function */void LocalTravel(String URL)
 	{
 		if(((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Standalone/*0*/))
 		{
@@ -2865,9 +2865,9 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*exec function */void SetName(/*coerce */string S)
+	public virtual /*exec function */void SetName(/*coerce */String S)
 	{
-		/*local */string NewName = default;
+		/*local */String NewName = default;
 		/*local */LocalPlayer LocPlayer = default;
 	
 		if(S != "")
@@ -2887,7 +2887,7 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*reliable server function */void ServerChangeName(/*coerce */string S)
+	public virtual /*reliable server function */void ServerChangeName(/*coerce */String S)
 	{
 		if(S != "")
 		{
@@ -2907,7 +2907,7 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*exec function */void ChangeTeam(/*optional */string? _TeamName = default)
+	public virtual /*exec function */void ChangeTeam(/*optional */String? _TeamName = default)
 	{
 		/*local */int N = default;
 	
@@ -2948,7 +2948,7 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*exec function */void SwitchLevel(string URL)
+	public virtual /*exec function */void SwitchLevel(String URL)
 	{
 		if((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Standalone/*0*/)) || ((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_ListenServer/*2*/))
 		{
@@ -2975,13 +2975,13 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*exec event */void SetProgressMessage(PlayerController.EProgressMessageType MessageType, string Message, /*optional */string? _Title = default)
+	public virtual /*exec event */void SetProgressMessage(PlayerController.EProgressMessageType MessageType, String Message, /*optional */String? _Title = default)
 	{
 		var Title = _Title ?? default;
 		ClientSetProgressMessage(((PlayerController.EProgressMessageType)MessageType), Message, Title);
 	}
 	
-	public virtual /*reliable client simulated function */void ClientSetProgressMessage(PlayerController.EProgressMessageType MessageType, string Message, /*optional */string? _Title = default)
+	public virtual /*reliable client simulated function */void ClientSetProgressMessage(PlayerController.EProgressMessageType MessageType, String Message, /*optional */String? _Title = default)
 	{
 		var Title = _Title ?? default;
 		if(((int)MessageType) == ((int)PlayerController.EProgressMessageType.PMT_Clear/*0*/))
@@ -4057,7 +4057,7 @@ public partial class PlayerController : Controller/*
 		WorldInfo.bRequestedBlockOnAsyncLoading = true;
 	}
 	
-	public virtual /*exec function */void SaveClassConfig(/*coerce */string ClassName)
+	public virtual /*exec function */void SaveClassConfig(/*coerce */String ClassName)
 	{
 		/*local */Class saveClass = default;
 	
@@ -4286,7 +4286,7 @@ public partial class PlayerController : Controller/*
 		return default;
 	}
 	
-	public virtual /*function */void NotifyConnectionError(string Message, /*optional */string? _Title = default)
+	public virtual /*function */void NotifyConnectionError(String Message, /*optional */String? _Title = default)
 	{
 		var Title = _Title ?? default;
 		if(WorldInfo.Game != default)
@@ -4456,7 +4456,7 @@ public partial class PlayerController : Controller/*
 	
 	public virtual /*function */void OnInviteJoinComplete(bool bWasSuccessful)
 	{
-		/*local */string URL = default, ConnectPassword = default;
+		/*local */String URL = default, ConnectPassword = default;
 	
 		if(bWasSuccessful)
 		{
@@ -4618,7 +4618,7 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*exec function */void SendToConsole(string Command)
+	public virtual /*exec function */void SendToConsole(String Command)
 	{
 		if(((Player) as LocalPlayer) != default)
 		{
@@ -4667,7 +4667,7 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*reliable client final simulated event */void AddDebugText(string DebugText, /*optional */Actor? _SrcActor = default, /*optional */float? _Duration = default, /*optional */Object.Vector? _Offset = default, /*optional */Object.Vector? _DesiredOffset = default, /*optional */Object.Color? _TextColor = default, /*optional */bool? _bSkipOverwriteCheck = default)
+	public virtual /*reliable client final simulated event */void AddDebugText(String DebugText, /*optional */Actor? _SrcActor = default, /*optional */float? _Duration = default, /*optional */Object.Vector? _Offset = default, /*optional */Object.Vector? _DesiredOffset = default, /*optional */Object.Color? _TextColor = default, /*optional */bool? _bSkipOverwriteCheck = default)
 	{
 		/*local */int Idx = default;
 	
@@ -4757,7 +4757,7 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*reliable client simulated function */void ClientRegisterHostStatGuid(string StatGuid)
+	public virtual /*reliable client simulated function */void ClientRegisterHostStatGuid(String StatGuid)
 	{
 		if((OnlineSub != default) && NotEqual_InterfaceInterface(OnlineSub.StatsInterface, (default(OnlineStatsInterface))))
 		{
@@ -4771,7 +4771,7 @@ public partial class PlayerController : Controller/*
 	
 	public virtual /*function */void OnRegisterHostStatGuidComplete(bool bWasSuccessful)
 	{
-		/*local */string StatGuid = default;
+		/*local */String StatGuid = default;
 	
 		OnlineSub.StatsInterface.ClearRegisterHostStatGuidCompleteDelegateDelegate(OnRegisterHostStatGuidComplete);
 		if(bWasSuccessful)
@@ -4781,7 +4781,7 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*reliable server function */void ServerRegisterClientStatGuid(string StatGuid)
+	public virtual /*reliable server function */void ServerRegisterClientStatGuid(String StatGuid)
 	{
 		if((OnlineSub != default) && NotEqual_InterfaceInterface(OnlineSub.StatsInterface, (default(OnlineStatsInterface))))
 		{
@@ -4973,7 +4973,7 @@ public partial class PlayerController : Controller/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerWalking()/*state PlayerWalking*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			NotifyPhysicsVolumeChange = PlayerController_PlayerWalking_NotifyPhysicsVolumeChange;
 			ProcessMove = PlayerController_PlayerWalking_ProcessMove;
@@ -5075,7 +5075,7 @@ public partial class PlayerController : Controller/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerClimbing()/*state PlayerClimbing*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			NotifyPhysicsVolumeChange = PlayerController_PlayerClimbing_NotifyPhysicsVolumeChange;
 			ProcessMove = PlayerController_PlayerClimbing_ProcessMove;
@@ -5137,7 +5137,7 @@ public partial class PlayerController : Controller/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerDriving()/*state PlayerDriving*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			/*ignores*/ ProcessMove = (_,_,_,_)=>{};
 	
@@ -5284,7 +5284,7 @@ public partial class PlayerController : Controller/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerSwimming()/*state PlayerSwimming*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			NotifyLanded = PlayerController_PlayerSwimming_NotifyLanded;
 			NotifyPhysicsVolumeChange = PlayerController_PlayerSwimming_NotifyPhysicsVolumeChange;
@@ -5333,7 +5333,7 @@ public partial class PlayerController : Controller/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerFlying()/*state PlayerFlying*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			PlayerMove = PlayerController_PlayerFlying_PlayerMove;
 	
@@ -5438,7 +5438,7 @@ public partial class PlayerController : Controller/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) BaseSpectating()/*state BaseSpectating*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			IsSpectating = PlayerController_BaseSpectating_IsSpectating;
 			LimitSpectatorVelocity = PlayerController_BaseSpectating_LimitSpectatorVelocity;
@@ -5499,7 +5499,7 @@ public partial class PlayerController : Controller/*
 		PlayerController_Spectating_BeginState(PreviousStateName);
 		}
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 	
 			// Inherited from PlayerController.BaseSpectating
@@ -5590,7 +5590,7 @@ public partial class PlayerController : Controller/*
 		PlayerController_PlayerWaiting_BeginState(PreviousStateName);
 		}
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 	
 			// Inherited from PlayerController.BaseSpectating
@@ -5697,7 +5697,7 @@ public partial class PlayerController : Controller/*
 		PlayerController_WaitingForPawn_BeginState(PreviousStateName);
 		}
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 	
 			// Inherited from PlayerController.BaseSpectating
@@ -5857,7 +5857,7 @@ public partial class PlayerController : Controller/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) RoundEnded()/*state RoundEnded*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			/*ignores*/ KilledBy = (_)=>{}; TakeDamage = (_,_,_,_,_,_,_)=>{}; Suicide = ()=>{}; ServerRestartPlayer = ()=>{}; ThrowWeapon = ()=>{}; Use = ()=>{}; LongClientAdjustPosition = (_,_,_,_,_,_,_,_,_,_,_,_,_)=>{};
 	
@@ -6039,7 +6039,7 @@ public partial class PlayerController : Controller/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) Dead()/*state Dead*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			/*ignores*/ KilledBy = (_)=>{}; NextWeapon = ()=>{}; PrevWeapon = ()=>{}; ThrowWeapon = ()=>{};
 	

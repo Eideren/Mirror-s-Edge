@@ -10,7 +10,7 @@ public partial class UIDataStore_StringAliasMap : UIDataStore/*
 	{
 		public name FieldName;
 		public name Set;
-		public string MappedText;
+		public String MappedText;
 	
 	//	structdefaultproperties
 	//	{
@@ -33,14 +33,14 @@ public partial class UIDataStore_StringAliasMap : UIDataStore/*
 	}
 	
 	// Export UUIDataStore_StringAliasMap::execFindMappingWithFieldName(FFrame&, void* const)
-	public virtual /*native final function */int FindMappingWithFieldName(/*optional */string? _FieldName = default, /*optional */string? _SetName = default)
+	public virtual /*native final function */int FindMappingWithFieldName(/*optional */String? _FieldName = default, /*optional */String? _SetName = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_StringAliasMap::execGetStringWithFieldName(FFrame&, void* const)
-	public virtual /*native function */int GetStringWithFieldName(string FieldName, ref string MappedString)
+	public virtual /*native function */int GetStringWithFieldName(String FieldName, ref String MappedString)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

@@ -7,7 +7,7 @@ public partial class CurveEdPreset_UserSet : CurveEdPresetBase/*
 		hidecategories(Object)*/{
 	public/*()*/ CurveEdPresetCurve UserCurve;
 	
-	public override /*function */string GetDisplayName()
+	public override /*function */String GetDisplayName()
 	{
 	
 		return default;

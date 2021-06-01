@@ -25,17 +25,17 @@ public partial class TdOnlineLoginHandler : Object{
 	public /*private transient */bool bAcceptParam;
 	public /*private transient */bool bIsConsoleParam;
 	public /*transient */int LocalUserNum;
-	public /*transient */string LatestCreatedPersona;
+	public /*transient */String LatestCreatedPersona;
 	public /*transient */array<TpConnection.TpCreateAccountCountry> TOSCountries;
 	public /*transient */LocalPlayer PlayerOwner;
-	public /*private transient */string EmailStrParam;
-	public /*private transient */string PasswdStrParam;
-	public /*private transient */string PersonaStrParam;
-	public /*private transient */string MessageParam;
-	public /*private transient */string TOSStrParam;
+	public /*private transient */String EmailStrParam;
+	public /*private transient */String PasswdStrParam;
+	public /*private transient */String PersonaStrParam;
+	public /*private transient */String MessageParam;
+	public /*private transient */String TOSStrParam;
 	public /*private transient */TpConnection.TpCreateAccountParams CreateAccountParam;
 	public /*private transient */TpAccount.TpAccountError AccountErrParam;
-	public /*private transient */array<string> PersonasListParam;
+	public /*private transient */array<String> PersonasListParam;
 	public /*delegate*/TdOnlineLoginHandler.OnPlayOffline __OnPlayOffline__Delegate;
 	public /*delegate*/TdOnlineLoginHandler.OnConnectedAndFriendsLoaded __OnConnectedAndFriendsLoaded__Delegate;
 	public /*delegate*/TdOnlineLoginHandler.OnModalBoxOpened __OnModalBoxOpened__Delegate;
@@ -85,7 +85,7 @@ public partial class TdOnlineLoginHandler : Object{
 	
 	}
 	
-	public virtual /*private final function */void OnVerifyVersion(string CurrentVersion)
+	public virtual /*private final function */void OnVerifyVersion(String CurrentVersion)
 	{
 	
 	}
@@ -120,7 +120,7 @@ public partial class TdOnlineLoginHandler : Object{
 	
 	}
 	
-	public virtual /*private final function */void LoginAccount(string Email, string Password)
+	public virtual /*private final function */void LoginAccount(String Email, String Password)
 	{
 	
 	}
@@ -140,7 +140,7 @@ public partial class TdOnlineLoginHandler : Object{
 	
 	}
 	
-	public virtual /*private final function */void ConfirmCreateAccountConsole(string Email, string Password, bool bAllowEaEmail, bool bAllowThirdPartyEmail)
+	public virtual /*private final function */void ConfirmCreateAccountConsole(String Email, String Password, bool bAllowEaEmail, bool bAllowThirdPartyEmail)
 	{
 	
 	}
@@ -150,7 +150,7 @@ public partial class TdOnlineLoginHandler : Object{
 	
 	}
 	
-	public virtual /*private final function */void CreateAccountOnConsole(string LoginName, string Password, bool bAllowEaEmail, bool bAllowThirdPartyEmail)
+	public virtual /*private final function */void CreateAccountOnConsole(String LoginName, String Password, bool bAllowEaEmail, bool bAllowThirdPartyEmail)
 	{
 	
 	}
@@ -200,7 +200,7 @@ public partial class TdOnlineLoginHandler : Object{
 	
 	}
 	
-	public virtual /*private final function */void CreatePersona(string Persona)
+	public virtual /*private final function */void CreatePersona(String Persona)
 	{
 	
 	}
@@ -210,7 +210,7 @@ public partial class TdOnlineLoginHandler : Object{
 	
 	}
 	
-	public virtual /*private final function */void LoginPersona(string Persona)
+	public virtual /*private final function */void LoginPersona(String Persona)
 	{
 	
 	}
@@ -220,7 +220,7 @@ public partial class TdOnlineLoginHandler : Object{
 	
 	}
 	
-	public virtual /*private final function */void ConfirmParentalEmail(string Email)
+	public virtual /*private final function */void ConfirmParentalEmail(String Email)
 	{
 	
 	}
@@ -280,7 +280,7 @@ public partial class TdOnlineLoginHandler : Object{
 	
 	}
 	
-	public virtual /*private final function */void OnCreateAccountReady(string Email, string Pass, bool bAllowEaEmail, bool bAllowTPEmail, bool bIsConsole)
+	public virtual /*private final function */void OnCreateAccountReady(String Email, String Pass, bool bAllowEaEmail, bool bAllowTPEmail, bool bIsConsole)
 	{
 	
 	}
@@ -335,7 +335,7 @@ public partial class TdOnlineLoginHandler : Object{
 	
 	}
 	
-	public virtual /*private final function */void OnDisplayPersonas(array<string> Personas)
+	public virtual /*private final function */void OnDisplayPersonas(array<String> Personas)
 	{
 	
 	}
@@ -355,7 +355,7 @@ public partial class TdOnlineLoginHandler : Object{
 	
 	}
 	
-	public virtual /*private final function */void OnGetTOS(string TOSText)
+	public virtual /*private final function */void OnGetTOS(String TOSText)
 	{
 	
 	}
@@ -370,7 +370,7 @@ public partial class TdOnlineLoginHandler : Object{
 	
 	}
 	
-	public virtual /*private final function */void OnConnectionReady(string EncLogin, string Persona)
+	public virtual /*private final function */void OnConnectionReady(String EncLogin, String Persona)
 	{
 	
 	}
@@ -390,7 +390,7 @@ public partial class TdOnlineLoginHandler : Object{
 	
 	}
 	
-	public virtual /*private final function */void OnDisplayConfirmMessage(string Message)
+	public virtual /*private final function */void OnDisplayConfirmMessage(String Message)
 	{
 	
 	}

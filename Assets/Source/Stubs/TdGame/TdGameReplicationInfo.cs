@@ -98,7 +98,7 @@ public partial class TdGameReplicationInfo : GameReplicationInfo/*
 		return default;
 	}
 	
-	public virtual /*reliable server function */void StartGame(string URL)
+	public virtual /*reliable server function */void StartGame(String URL)
 	{
 	
 	}

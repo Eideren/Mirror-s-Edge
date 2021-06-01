@@ -43,7 +43,6 @@ public partial class TdStashCompleter : TdStashpoint/*
 		bCollideWorld = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new CylinderComponent
 			{
 				// Object Offset:0x01AB4E2E
@@ -57,7 +56,6 @@ public partial class TdStashCompleter : TdStashpoint/*
 					GameplayPhysics = true,
 				},
 			}/* Reference: CylinderComponent'Default__TdStashCompleter.CollisionCylinder' */,
-			//Components[1]=
 			new CylinderComponent
 			{
 				// Object Offset:0x01AB4E2E

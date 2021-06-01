@@ -30,7 +30,7 @@ public partial class TpMessageService : TpSystemHandler/*
 	public delegate void OnCheckInbox();
 	
 	// Export UTpMessageService::execFriendRequestAsync(FFrame&, void* const)
-	public virtual /*native simulated function */bool FriendRequestAsync(OnlineSubsystem.UniqueNetId NewFriend, /*optional */string? _Message = default)
+	public virtual /*native simulated function */bool FriendRequestAsync(OnlineSubsystem.UniqueNetId NewFriend, /*optional */String? _Message = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -45,12 +45,12 @@ public partial class TpMessageService : TpSystemHandler/*
 	
 	public delegate void OnFriendRequestSent(bool bInOk);
 	
-	public delegate void OnNewMessage(OnlineSubsystem.UniqueNetId Sender, string Message);
+	public delegate void OnNewMessage(OnlineSubsystem.UniqueNetId Sender, String Message);
 	
-	public delegate void OnFriendRequestDelegate(OnlineSubsystem.UniqueNetId Sender, string Message);
+	public delegate void OnFriendRequestDelegate(OnlineSubsystem.UniqueNetId Sender, String Message);
 	
 	// Export UTpMessageService::execSendMessageAsync(FFrame&, void* const)
-	public virtual /*native simulated function */bool SendMessageAsync(OnlineSubsystem.UniqueNetId PlayerId, string Message)
+	public virtual /*native simulated function */bool SendMessageAsync(OnlineSubsystem.UniqueNetId PlayerId, String Message)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

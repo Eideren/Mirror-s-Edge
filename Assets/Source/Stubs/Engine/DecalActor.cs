@@ -19,7 +19,6 @@ public partial class DecalActor : Actor/*
 		bMovable = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004CF86A
@@ -27,7 +26,6 @@ public partial class DecalActor : Actor/*
 				AlwaysLoadOnClient = false,
 				AlwaysLoadOnServer = false,
 			}/* Reference: SpriteComponent'Default__DecalActor.Sprite' */,
-			//Components[1]=
 			new DecalComponent
 			{
 				// Object Offset:0x004668D3

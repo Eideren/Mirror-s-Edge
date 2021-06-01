@@ -31,7 +31,7 @@ public partial class AITeam : Actor/*
 	public bool scriptingActivated;
 	public bool bHaveDrawnDebug;
 	public array<TdAIController> Members;
-	public string TeamName;
+	public String TeamName;
 	public TdAIController Leader;
 	public FileLog AILogFile;
 	public int logTabs;
@@ -68,12 +68,12 @@ public partial class AITeam : Actor/*
 		return default;
 	}
 	
-	public virtual /*final event */void AILog_Internal(/*coerce */string LogText, /*optional */name? _LogCategory = default, /*optional */bool? _bForce = default)
+	public virtual /*final event */void AILog_Internal(/*coerce */String LogText, /*optional */name? _LogCategory = default, /*optional */bool? _bForce = default)
 	{
 	
 	}
 	
-	public virtual /*final function */void LogFunction_Internal(/*coerce */string FuncName, bool Start, /*coerce optional */string? _S = default, /*optional */name? _LogCategory = default)
+	public virtual /*final function */void LogFunction_Internal(/*coerce */String FuncName, bool Start, /*coerce optional */String? _S = default, /*optional */name? _LogCategory = default)
 	{
 	
 	}
@@ -107,12 +107,12 @@ public partial class AITeam : Actor/*
 		return default;
 	}
 	
-	public virtual /*function */void ClientMessage(/*coerce */string S)
+	public virtual /*function */void ClientMessage(/*coerce */String S)
 	{
 	
 	}
 	
-	public virtual /*function */void DrawDebug(ref string Text)
+	public virtual /*function */void DrawDebug(ref String Text)
 	{
 	
 	}

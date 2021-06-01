@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class DamageType : Object/*
 		abstract
 		native*/{
-	public/*()*/ /*const localized */string DeathString;
-	public/*()*/ /*const localized */string FemaleSuicide;
-	public/*()*/ /*const localized */string MaleSuicide;
+	public/*()*/ /*const localized */String DeathString;
+	public/*()*/ /*const localized */String FemaleSuicide;
+	public/*()*/ /*const localized */String MaleSuicide;
 	public/*()*/ bool bArmorStops;
 	public/*()*/ bool bAlwaysGibs;
 	public/*()*/ bool bNeverGibs;
@@ -32,13 +32,13 @@ public partial class DamageType : Object/*
 	public ForceFeedbackWaveform DamagedFFWaveform;
 	public ForceFeedbackWaveform KilledFFWaveform;
 	
-	public /*function */static string DeathMessage(PlayerReplicationInfo Killer, PlayerReplicationInfo Victim)
+	public /*function */static String DeathMessage(PlayerReplicationInfo Killer, PlayerReplicationInfo Victim)
 	{
 	
 		return default;
 	}
 	
-	public /*function */static string SuicideMessage(PlayerReplicationInfo Victim)
+	public /*function */static String SuicideMessage(PlayerReplicationInfo Victim)
 	{
 	
 		return default;

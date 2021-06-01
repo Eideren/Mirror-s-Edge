@@ -33,7 +33,7 @@ public partial class AITemplate_Celeste : AITemplate_PursuitCop/*
 		ControllerClass = "TdGame.TdAI_Celeste";
 		PawnClass = "TdSpBossContent.TdBotPawn_Celeste";
 		ProfileName = "BossCeleste";
-		AnimationSets = "AS_BF_SP07_PursuitFemale.AS_BF_SP07_PursuitFemale";
+		AnimationSets[0] = "AS_BF_SP07_PursuitFemale.AS_BF_SP07_PursuitFemale";
 		SkeletalMesh = "CH_TKY_Cop_Pursuit_Female.SK_TKY_Cop_Pursuit_Female";
 		ExtraFaithAnimationSet1p = "AS_BF_SP07_PursuitFemale.AS_BF_SP07_PursuitFemale_Character1p";
 		ExtraFaithAnimationSet3p = "AS_BF_SP07_PursuitFemale.AS_BF_SP07_PursuitFemale_Faith";

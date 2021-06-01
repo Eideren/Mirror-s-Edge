@@ -26,7 +26,7 @@ public partial class ParticleModule : Object/*
 	
 	public partial struct /*native transient */ParticleCurvePair
 	{
-		public /*init */string CurveName;
+		public /*init */String CurveName;
 		public /*init */Object CurveObject;
 	
 	//	structdefaultproperties

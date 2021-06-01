@@ -8,10 +8,10 @@ public partial class UIDataProvider_TdRoles : UIDataProvider_TdResource/*
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
 	public /*config */int RoleId;
-	public /*config */string RoleClass;
-	public /*config */string RoleName;
-	public /*config */string RoleImageMarkup;
-	public /*config */string Description;
+	public /*config */String RoleClass;
+	public /*config */String RoleName;
+	public /*config */String RoleImageMarkup;
+	public /*config */String Description;
 	
 	public override /*event */bool IsProviderDisabled()
 	{

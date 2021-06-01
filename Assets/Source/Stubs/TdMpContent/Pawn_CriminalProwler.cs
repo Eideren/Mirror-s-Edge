@@ -40,7 +40,6 @@ public partial class Pawn_CriminalProwler : TdPlayerPawn/*
 			LoadAsset<CylinderComponent>("Default__Pawn_CriminalProwler.CollisionCylinder")/*Ref CylinderComponent'Default__Pawn_CriminalProwler.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__Pawn_CriminalProwler.Arrow")/*Ref ArrowComponent'Default__Pawn_CriminalProwler.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__Pawn_CriminalProwler.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__Pawn_CriminalProwler.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x00011134

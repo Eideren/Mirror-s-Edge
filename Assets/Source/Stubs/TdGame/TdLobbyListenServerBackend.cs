@@ -84,7 +84,7 @@ public partial class TdLobbyListenServerBackend : TdLobbyBackend/*
 		return default;
 	}
 	
-	public override /*function */void StartGame(string MapName, string GameMode)
+	public override /*function */void StartGame(String MapName, String GameMode)
 	{
 	
 	}

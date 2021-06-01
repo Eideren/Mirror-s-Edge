@@ -11,7 +11,7 @@ public partial class UIDataProvider_TdGameObjectiveProvider : UIDataProvider_TdR
 	{
 		public /*config */name SubObjectiveName;
 		public bool bIsFinished;
-		public /*const config localized */string FriendlyName;
+		public /*const config localized */String FriendlyName;
 	
 	//	structdefaultproperties
 	//	{
@@ -22,9 +22,9 @@ public partial class UIDataProvider_TdGameObjectiveProvider : UIDataProvider_TdR
 	//	}
 	};
 	
-	public /*const config localized */string FriendlyName;
-	public /*const config localized */string Description;
-	public /*config */string ImagePath;
+	public /*const config localized */String FriendlyName;
+	public /*const config localized */String Description;
+	public /*config */String ImagePath;
 	public /*config */array</*config */UIDataProvider_TdGameObjectiveProvider.SubObjectiveStruct> SubObjectives;
 	public /*private transient */int CurrentActiveSubObjectiveIndex;
 	

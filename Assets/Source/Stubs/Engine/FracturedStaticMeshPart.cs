@@ -56,7 +56,6 @@ public partial class FracturedStaticMeshPart : FracturedStaticMeshActor/*
 		bNoEncroachCheck = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new FracturedStaticMeshComponent
 			{
 				// Object Offset:0x0046A483

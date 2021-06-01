@@ -5,13 +5,13 @@ public partial class TdGameEngine : GameEngine/*
 		transient
 		native
 		config(Engine)*/{
-	public /*private config transient */string DefaultLoadSPMapMoviePrefix;
+	public /*private config transient */String DefaultLoadSPMapMoviePrefix;
 	public /*private config transient */int NumberOfSPMovies;
-	public /*private config transient */string DefaultLoadTTMapMoviePrefix;
+	public /*private config transient */String DefaultLoadTTMapMoviePrefix;
 	public /*private config transient */int NumberOfTTMovies;
-	public /*private config transient */string DefaultLoadGameMovie;
-	public /*private config transient */string DefaultCutSceneMoviePrefix;
-	public /*private transient */string LoadMapMovie;
+	public /*private config transient */String DefaultLoadGameMovie;
+	public /*private config transient */String DefaultCutSceneMoviePrefix;
+	public /*private transient */String LoadMapMovie;
 	public /*private transient */Object.Pointer MovieIni;
 	public /*private transient */bool bShouldWaitForMovieAfterLoad;
 	public /*private transient */bool bShouldContinueLoadingTextures;
@@ -20,7 +20,7 @@ public partial class TdGameEngine : GameEngine/*
 	public /*private transient */RequestedTextureResources ActiveRequestedTextureResources;
 	public Object.Vector2D LoadingPos;
 	public Object.Vector2D HintPos;
-	public string CurrentMapName;
+	public String CurrentMapName;
 	public /*config */float LoadMapLoadTime;
 	public /*private transient */int NumStreamingZonesCleared;
 	
@@ -31,7 +31,7 @@ public partial class TdGameEngine : GameEngine/*
 		return default;
 	}
 	
-	public virtual /*function */string GetHintMessage(bool bIsTTGame)
+	public virtual /*function */String GetHintMessage(bool bIsTTGame)
 	{
 	
 		return default;

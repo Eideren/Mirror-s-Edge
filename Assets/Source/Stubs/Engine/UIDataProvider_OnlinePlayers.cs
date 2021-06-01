@@ -8,13 +8,13 @@ public partial class UIDataProvider_OnlinePlayers : UIDataProvider_OnlinePlayerD
 		hidecategories(Object,UIRoot)*/{
 	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
 	public array<OnlineSubsystem.OnlinePlayer> PlayersList;
-	public /*const localized */string NickNameCol;
-	public /*const localized */string PresenceInfoCol;
-	public /*const localized */string bIsOnlineCol;
-	public /*const localized */string bIsPlayingCol;
-	public /*const localized */string bIsPlayingThisGameCol;
-	public /*const localized */string bIsJoinableCol;
-	public /*const localized */string bHasVoiceSupportCol;
+	public /*const localized */String NickNameCol;
+	public /*const localized */String PresenceInfoCol;
+	public /*const localized */String bIsOnlineCol;
+	public /*const localized */String bIsPlayingCol;
+	public /*const localized */String bIsPlayingThisGameCol;
+	public /*const localized */String bIsJoinableCol;
+	public /*const localized */String bHasVoiceSupportCol;
 	
 	public override /*event */void OnRegister(LocalPlayer InPlayer)
 	{

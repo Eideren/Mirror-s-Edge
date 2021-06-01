@@ -35,7 +35,6 @@ public partial class TdVehicleSeatPawn : SVehicle/*
 		{
 			LoadAsset<SceneCaptureCharacterComponent>("Default__TdVehicleSeatPawn.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdVehicleSeatPawn.SceneCaptureCharacterComponent0'*/,
 			LoadAsset<DrawFrustumComponent>("Default__TdVehicleSeatPawn.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdVehicleSeatPawn.DrawFrust0'*/,
-			//Components[2]=
 			new CylinderComponent
 			{
 				// Object Offset:0x01AB50F6

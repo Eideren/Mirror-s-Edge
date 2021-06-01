@@ -15,17 +15,17 @@ public partial class FontImportOptions : Object/*
 	
 	public partial struct /*native */FontImportOptionsData
 	{
-		public/*()*/ string FontName;
+		public/*()*/ String FontName;
 		public/*()*/ float Height;
 		public/*()*/ bool bEnableAntialiasing;
 		public/*()*/ bool bEnableBold;
 		public/*()*/ bool bEnableItalic;
 		public/*()*/ bool bEnableUnderline;
 		public/*()*/ FontImportOptions.EFontImportCharacterSet CharacterSet;
-		public/*()*/ string Chars;
-		public/*()*/ string UnicodeRange;
-		public/*()*/ string CharsFilePath;
-		public/*()*/ string CharsFileWildcard;
+		public/*()*/ String Chars;
+		public/*()*/ String UnicodeRange;
+		public/*()*/ String CharsFilePath;
+		public/*()*/ String CharsFileWildcard;
 		public/*()*/ bool bCreatePrintableOnly;
 		public/*()*/ Object.LinearColor ForegroundColor;
 		public/*()*/ bool bEnableDropShadow;

@@ -42,13 +42,13 @@ public partial class TpConnectParams : Object/*
 	}
 	
 	// Export UTpConnectParams::execSetUnauthenticatedPlayerName(FFrame&, void* const)
-	public virtual /*native simulated function */void SetUnauthenticatedPlayerName(string InName)
+	public virtual /*native simulated function */void SetUnauthenticatedPlayerName(String InName)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UTpConnectParams::execGetUnauthenticatedPlayerName(FFrame&, void* const)
-	public virtual /*native simulated function */string GetUnauthenticatedPlayerName()
+	public virtual /*native simulated function */String GetUnauthenticatedPlayerName()
 	{
 		#warning NATIVE FUNCTION !
 		return default;

@@ -9,7 +9,7 @@ public partial class AITemplate_PatrolCop_Remington : AITemplate_PatrolCop/*
 		// Object Offset:0x0048B8EF
 		PawnClass = "TdSpContent.TdBotPawn_PatrolCop_Remington";
 		ProfileName = "PatrolCopTwoHanded";
-		AnimationSets = "AS_AI_PatrolCop_TwoHanded.AS_AI_PatrolCop_TwoHanded";
+		AnimationSets[0] = "AS_AI_PatrolCop_TwoHanded.AS_AI_PatrolCop_TwoHanded";
 		SkeletalMesh = "CH_TKY_Cop_Patrol.SK_TKY_Cop_Patrol_PK";
 		LegOffsetWalkFwd = 0.50f;
 		LegOffsetWalkLeft60 = 0.50f;

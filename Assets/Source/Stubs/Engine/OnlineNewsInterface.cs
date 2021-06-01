@@ -14,7 +14,7 @@ public interface OnlineNewsInterface : Interface/*
 	
 	public /*function */void ClearReadGameNewsCompletedDelegate(/*delegate*/OnlineNewsInterface.OnReadGameNewsCompleted ReadGameNewsDelegate);
 	
-	public /*function */string GetGameNews(byte LocalUserNum);
+	public /*function */String GetGameNews(byte LocalUserNum);
 	
 	public /*function */bool ReadContentAnnouncements(byte LocalUserNum);
 	
@@ -24,7 +24,7 @@ public interface OnlineNewsInterface : Interface/*
 	
 	public /*function */void ClearReadContentAnnouncementsCompletedDelegate(/*delegate*/OnlineNewsInterface.OnReadContentAnnouncementsCompleted ReadContentAnnouncementsDelegate);
 	
-	public /*function */string GetContentAnnouncements(byte LocalUserNum);
+	public /*function */String GetContentAnnouncements(byte LocalUserNum);
 	
 }
 }

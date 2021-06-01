@@ -34,13 +34,13 @@ public partial class TdSPLevelRace : TdSPStoryGame/*
 	public override /*event */void PostBeginPlay()
 	{
 		/*local */DataStoreClient DataStoreManager = default;
-		/*local */string QualifierTimeString = default;
+		/*local */String QualifierTimeString = default;
 	
 		base.PostBeginPlay();
 		DataStoreManager = UIInteraction.GetDataStoreClient();
 		if((TimeTrialData == default) && DataStoreManager != default)
 		{
-			TimeTrialData = ((DataStoreManager.FindDataStore("TdTimeTrialData", default)) as UIDataStore_TdTimeTrialData);
+			TimeTrialData = ((DataStoreManager.FindDataStore("TdTimeTrialData", default(LocalPlayer?))) as UIDataStore_TdTimeTrialData);
 			TargetTime = TimeTrialData.GetTargetRaceData().TotalTime;
 			if(TargetTime == 3599.990f)
 			{
@@ -69,12 +69,12 @@ public partial class TdSPLevelRace : TdSPStoryGame/*
 	
 	public override /*function */void OnPlayerDead()
 	{
-		SetTimer(PlayerRespawnTime, false, "ResetLevel", default);
+		SetTimer(PlayerRespawnTime, false, "ResetLevel", default(Object?));
 	}
 	
 	public virtual /*function */void RestartRace()
 	{
-		/*local */string AdditionalURL = default, MapName = default;
+		/*local */String AdditionalURL = default, MapName = default;
 	
 		TdGameData.TimeAttackClock = 0.0f;
 		TdGameData.TimeAttackDistance = 0.0f;
@@ -91,7 +91,7 @@ public partial class TdSPLevelRace : TdSPStoryGame/*
 		return /*Transformed 'base.' to specific call*/TdSPGame_CanOpenPauseMenu() && PostProcess == default;
 	}
 	
-	public override /*function */void OnLevelCompleted(TdPlayerController PC, string CurrentLevelName, /*optional */string? _InNextLevelName = default, /*optional */string? _InNextCheckpointName = default)
+	public override /*function */void OnLevelCompleted(TdPlayerController PC, String CurrentLevelName, /*optional */String? _InNextLevelName = default, /*optional */String? _InNextCheckpointName = default)
 	{
 		var InNextLevelName = _InNextLevelName ?? default;
 		var InNextCheckpointName = _InNextCheckpointName ?? default;
@@ -134,7 +134,7 @@ public partial class TdSPLevelRace : TdSPStoryGame/*
 		SC = ((UIRoot.GetSceneClient()) as TdGameUISceneClient);
 		if(SC != default)
 		{
-			SC.OpenSceneEx(TdHUDContent.GetUISceneByName("TdEndOfLevelRace", "TdSpContent.TdHUDContentSP"), SC.Outer.Outer.Outer.GamePlayers[0], default, default);
+			SC.OpenSceneEx(TdHUDContent.GetUISceneByName("TdEndOfLevelRace", "TdSpContent.TdHUDContentSP"), SC.Outer.Outer.Outer.GamePlayers[0], default(UIScene.ESceneTransitionAnim?), default(/*delegate*/UIScene.OnSceneActivated?));
 		}
 	}
 	

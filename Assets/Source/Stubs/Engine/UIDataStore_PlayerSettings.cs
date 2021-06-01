@@ -6,7 +6,7 @@ public partial class UIDataStore_PlayerSettings : UIDataStore_Settings/*
 		native
 		config(Game)
 		hidecategories(Object,UIRoot)*/{
-	public /*const config */array</*config */string> PlayerSettingsProviderClassNames;
+	public /*const config */array</*config */String> PlayerSettingsProviderClassNames;
 	public /*const transient */array< Core.ClassT<PlayerSettingsProvider> > PlayerSettingsProviderClasses;
 	public /*transient */array<PlayerSettingsProvider> PlayerSettings;
 	public /*const transient */int PlayerIndex;

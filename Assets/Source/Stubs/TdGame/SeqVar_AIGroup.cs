@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqVar_AIGroup : SeqVar_Object/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ string GroupName;
+	public/*()*/ String GroupName;
 	public/*()*/ /*editinline */AIGroup TheGroup;
 	
 	public SeqVar_AIGroup()

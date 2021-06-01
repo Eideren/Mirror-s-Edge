@@ -54,32 +54,32 @@ public partial class UIDataProvider : UIRoot/*
 	
 	}
 	
-	public virtual /*event */bool GetFieldValue(string FieldName, ref UIRoot.UIProviderScriptFieldValue FieldValue, /*optional */int? _ArrayIndex = default)
+	public virtual /*event */bool GetFieldValue(String FieldName, ref UIRoot.UIProviderScriptFieldValue FieldValue, /*optional */int? _ArrayIndex = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*event */bool SetFieldValue(string FieldName, /*const */ref UIRoot.UIProviderScriptFieldValue FieldValue, /*optional */int? _ArrayIndex = default)
+	public virtual /*event */bool SetFieldValue(String FieldName, /*const */ref UIRoot.UIProviderScriptFieldValue FieldValue, /*optional */int? _ArrayIndex = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*event */string GenerateScriptMarkupString(name DataTag)
+	public virtual /*event */String GenerateScriptMarkupString(name DataTag)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*event */string GenerateFillerData(string DataTag)
+	public virtual /*event */String GenerateFillerData(String DataTag)
 	{
 	
 		return default;
 	}
 	
 	// Export UUIDataProvider::execGetFieldValueFromScript(FFrame&, void* const)
-	public virtual /*native function */bool GetFieldValueFromScript(string FieldName, ref UIRoot.UIProviderFieldValue FieldValue, /*optional */int? _ArrayIndex = default)
+	public virtual /*native function */bool GetFieldValueFromScript(String FieldName, ref UIRoot.UIProviderFieldValue FieldValue, /*optional */int? _ArrayIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

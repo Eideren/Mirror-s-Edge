@@ -21,7 +21,7 @@ public partial class TdMove_Falling : TdPhysicsMove/*
 		{
 			StandLocation = PawnOwner.Location;
 			StandLocation.Z += 34.0f;
-			if(!CanStand(StandLocation, default))
+			if(!CanStand(StandLocation, default(bool?)))
 			{
 				return false;
 			}
@@ -48,12 +48,12 @@ public partial class TdMove_Falling : TdPhysicsMove/*
 				{
 					PawnOwner.Velocity.X = 0.0f;
 					PawnOwner.Velocity.Y = 0.0f;
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("JumpStill")), 1.0f, 0.30f, 0.20f, default, default);
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("JumpStill")), 1.0f, 0.30f, 0.20f, default(bool?), default(bool?));
 				}			
 			}
 			else
 			{
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("JumpAir")), 1.0f, 0.30f, 0.20f, default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, ((name)("JumpAir")), 1.0f, 0.30f, 0.20f, default(bool?), default(bool?));
 			}		
 		}
 		else
@@ -66,7 +66,7 @@ public partial class TdMove_Falling : TdPhysicsMove/*
 			{
 				if(((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_DodgeJump/*33*/))
 				{
-					PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_DodgeJump/*33*/, default);
+					PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_DodgeJump/*33*/, default(float?));
 				}
 			}
 		}
@@ -114,7 +114,7 @@ public partial class TdMove_Falling : TdPhysicsMove/*
 	
 	public override /*simulated function */int HandleDeath(int Damage)
 	{
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default(float?));
 		return base.HandleDeath(Damage);
 	}
 	

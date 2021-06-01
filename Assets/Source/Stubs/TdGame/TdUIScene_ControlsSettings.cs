@@ -5,9 +5,9 @@ public partial class TdUIScene_ControlsSettings : TdUIScene_OptionMenu/*
 		native
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public string PCControllerImagePath;
-	public string XBoxControllerImagePath;
-	public string PS3ControllerImagePath;
+	public String PCControllerImagePath;
+	public String XBoxControllerImagePath;
+	public String PS3ControllerImagePath;
 	public /*transient */UIPanel ControllerPanel;
 	public /*transient */array<UILabel> ControllerButtonLabels;
 	public /*transient */UILabel TitleLabel;
@@ -62,7 +62,7 @@ public partial class TdUIScene_ControlsSettings : TdUIScene_OptionMenu/*
 	
 	}
 	
-	public virtual /*function */void SetControllerButtonLabel(string KeyName, string Str)
+	public virtual /*function */void SetControllerButtonLabel(String KeyName, String Str)
 	{
 	
 	}

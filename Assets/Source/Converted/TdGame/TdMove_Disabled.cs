@@ -11,7 +11,7 @@ public partial class TdMove_Disabled : TdMove/*
 	public override /*simulated function */void StartMove()
 	{
 		ScriptTrace();
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 	}
 	
 }

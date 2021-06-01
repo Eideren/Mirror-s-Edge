@@ -44,7 +44,7 @@ public partial class OnlineGameSearch : Settings/*
 	public partial struct /*native */NamedObjectProperty
 	{
 		public name ObjectPropertyName;
-		public string ObjectPropertyValue;
+		public String ObjectPropertyValue;
 	
 	//	structdefaultproperties
 	//	{
@@ -126,7 +126,7 @@ public partial class OnlineGameSearch : Settings/*
 	public /*const */array<OnlineGameSearch.OnlineGameSearchResult> Results;
 	public array<OnlineGameSearch.NamedObjectProperty> NamedProperties;
 	public /*const */OnlineGameSearch.OnlineGameSearchQuery FilterQuery;
-	public string AdditionalSearchCriteria;
+	public String AdditionalSearchCriteria;
 	
 	public OnlineGameSearch()
 	{

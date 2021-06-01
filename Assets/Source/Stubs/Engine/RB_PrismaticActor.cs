@@ -11,14 +11,12 @@ public partial class RB_PrismaticActor : RB_ConstraintActor/*
 		ConstraintInstance = LoadAsset<RB_ConstraintInstance>("Default__RB_PrismaticActor.MyConstraintInstance")/*Ref RB_ConstraintInstance'Default__RB_PrismaticActor.MyConstraintInstance'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D0372
 				Sprite = LoadAsset<Texture2D>("EngineResources.S_KPrismatic")/*Ref Texture2D'EngineResources.S_KPrismatic'*/,
 			}/* Reference: SpriteComponent'Default__RB_PrismaticActor.Sprite' */,
 			LoadAsset<RB_ConstraintDrawComponent>("Default__RB_PrismaticActor.MyConDrawComponent")/*Ref RB_ConstraintDrawComponent'Default__RB_PrismaticActor.MyConDrawComponent'*/,
-			//Components[2]=
 			new ArrowComponent
 			{
 				// Object Offset:0x00465D3B

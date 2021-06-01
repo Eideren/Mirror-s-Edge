@@ -9,7 +9,7 @@ public partial class UIDataStore_TdTimeTrialData : UIDataStore_TdGameResource/*
 	public partial struct /*native */TTDataLight
 	{
 		public bool bFilledIn;
-		public string PlayerName;
+		public String PlayerName;
 		public float TotalTime;
 		public int TotalRating;
 	
@@ -61,7 +61,7 @@ public partial class UIDataStore_TdTimeTrialData : UIDataStore_TdGameResource/*
 	public /*private */bool bOnlineMode;
 	public /*transient */bool TdSROM4;
 	public OnlineSubsystem.UniqueNetId LeaderboardEntryNetId;
-	public string LeaderboardEntryPlayerName;
+	public String LeaderboardEntryPlayerName;
 	public /*private */int CurrentPlasmaStretchId;
 	public /*private */TdLeaderboardFullReadSPTT FullStatsRead;
 	public /*private */TdLeaderboardReadTotalOnlySPTT TotalTimeOnlyStatsRead;
@@ -87,7 +87,7 @@ public partial class UIDataStore_TdTimeTrialData : UIDataStore_TdGameResource/*
 	public delegate void OnSaveGhostComplete(TdGhostStorageManager.EGhostStorageResult Result, int GhostTag);
 	
 	// Export UUIDataStore_TdTimeTrialData::execGetStretchMapFilename(FFrame&, void* const)
-	public virtual /*native function */string GetStretchMapFilename(int ProviderIndex, name FieldName)
+	public virtual /*native function */String GetStretchMapFilename(int ProviderIndex, name FieldName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -114,7 +114,7 @@ public partial class UIDataStore_TdTimeTrialData : UIDataStore_TdGameResource/*
 		return default;
 	}
 	
-	public virtual /*function */void SetStretchReadParams(int ControllerId, int StretchProviderIndex, name FieldName, /*optional */OnlineSubsystem.UniqueNetId? _PlayerNetId = default, /*optional */string? _PlayerName = default, /*optional */TdLeaderboardSettings.ETdTimeFilterSettings? _TimeFrame = default)
+	public virtual /*function */void SetStretchReadParams(int ControllerId, int StretchProviderIndex, name FieldName, /*optional */OnlineSubsystem.UniqueNetId? _PlayerNetId = default, /*optional */String? _PlayerName = default, /*optional */TdLeaderboardSettings.ETdTimeFilterSettings? _TimeFrame = default)
 	{
 	
 	}
@@ -405,7 +405,7 @@ public partial class UIDataStore_TdTimeTrialData : UIDataStore_TdGameResource/*
 	
 	}
 	
-	public virtual /*function */void SaveGhost(int StretchId, string PlayerName, float TotalTime, bool bStoreOnline, TdGhostManager InGhostManager, /*delegate*/UIDataStore_TdTimeTrialData.OnSaveGhostComplete SaveComplete)
+	public virtual /*function */void SaveGhost(int StretchId, String PlayerName, float TotalTime, bool bStoreOnline, TdGhostManager InGhostManager, /*delegate*/UIDataStore_TdTimeTrialData.OnSaveGhostComplete SaveComplete)
 	{
 	
 	}

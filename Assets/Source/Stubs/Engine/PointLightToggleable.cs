@@ -18,14 +18,12 @@ public partial class PointLightToggleable : PointLight/*
 		bHardAttach = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D003E
 				Sprite = LoadAsset<Texture2D>("EngineResources.LightIcons.Light_Point_Toggleable_Statics")/*Ref Texture2D'EngineResources.LightIcons.Light_Point_Toggleable_Statics'*/,
 			}/* Reference: SpriteComponent'Default__PointLightToggleable.Sprite' */,
 			LoadAsset<DrawLightRadiusComponent>("Default__PointLightToggleable.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__PointLightToggleable.DrawLightRadius0'*/,
-			//Components[2]=
 			new PointLightComponent
 			{
 				// Object Offset:0x004CAED2

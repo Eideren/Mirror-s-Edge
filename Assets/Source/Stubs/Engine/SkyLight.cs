@@ -16,13 +16,11 @@ public partial class SkyLight : Light/*
 		}/* Reference: SkyLightComponent'Default__SkyLight.SkyLightComponent0' */;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x003E85E6
 				Sprite = LoadAsset<Texture2D>("EngineResources.S_SkyLight")/*Ref Texture2D'EngineResources.S_SkyLight'*/,
 			}/* Reference: SpriteComponent'Default__SkyLight.Sprite' */,
-			//Components[1]=
 			new SkyLightComponent
 			{
 				// Object Offset:0x003E861A

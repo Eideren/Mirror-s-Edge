@@ -24,7 +24,6 @@ public partial class SpotLight : Light/*
 		}/* Reference: SpotLightComponent'Default__SpotLight.SpotLightComponent0' */;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x003ED2D4
@@ -32,7 +31,6 @@ public partial class SpotLight : Light/*
 			}/* Reference: SpriteComponent'Default__SpotLight.Sprite' */,
 			LoadAsset<DrawLightRadiusComponent>("Default__SpotLight.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__SpotLight.DrawLightRadius0'*/,
 			LoadAsset<DrawLightConeComponent>("Default__SpotLight.DrawInnerCone0")/*Ref DrawLightConeComponent'Default__SpotLight.DrawInnerCone0'*/,
-			//Components[3]=
 			new DrawLightConeComponent
 			{
 				// Object Offset:0x003ED338
@@ -44,7 +42,6 @@ public partial class SpotLight : Light/*
 					A=255
 				},
 			}/* Reference: DrawLightConeComponent'Default__SpotLight.DrawOuterCone0' */,
-			//Components[4]=
 			new SpotLightComponent
 			{
 				// Object Offset:0x003ED374
@@ -59,7 +56,6 @@ public partial class SpotLight : Light/*
 				},
 				LightAffectsClassification = LightComponent.ELightAffectsClassification.LAC_STATIC_AFFECTING,
 			}/* Reference: SpotLightComponent'Default__SpotLight.SpotLightComponent0' */,
-			//Components[5]=
 			new ArrowComponent
 			{
 				// Object Offset:0x003ED484

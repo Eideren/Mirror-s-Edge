@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class UIAction_TdGetFirstMapCycleMap : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public string MapFileName;
+	public String MapFileName;
 	
 	public UIAction_TdGetFirstMapCycleMap()
 	{

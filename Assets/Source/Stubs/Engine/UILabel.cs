@@ -12,7 +12,7 @@ public partial class UILabel : UIObject,
 	public/*(Image)*/ /*const export editinline */UIComp_DrawImage LabelBackground;
 	
 	// Export UUILabel::execSetValue(FFrame&, void* const)
-	public virtual /*native final function */void SetValue(string NewText)
+	public virtual /*native final function */void SetValue(String NewText)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -24,13 +24,13 @@ public partial class UILabel : UIObject,
 	}
 	
 	// Export UUILabel::execSetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int? _BindingIndex = default)
+	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUILabel::execGetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */string GetDataStoreBinding(/*optional */int? _BindingIndex = default)
+	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -61,12 +61,12 @@ public partial class UILabel : UIObject,
 		#warning NATIVE FUNCTION !
 	}
 	
-	public virtual /*final function */void SetArrayValue(array<string> ValueArray)
+	public virtual /*final function */void SetArrayValue(array<String> ValueArray)
 	{
 	
 	}
 	
-	public virtual /*function */string GetValue()
+	public virtual /*function */String GetValue()
 	{
 	
 		return default;

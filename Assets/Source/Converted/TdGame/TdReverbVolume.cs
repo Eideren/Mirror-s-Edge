@@ -55,7 +55,6 @@ public partial class TdReverbVolume : ReverbVolume/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<BrushComponent>("Default__TdReverbVolume.BrushComponent0")/*Ref BrushComponent'Default__TdReverbVolume.BrushComponent0'*/,
-			//Components[1]=
 			new AudioComponent
 			{
 				// Object Offset:0x01AB4502

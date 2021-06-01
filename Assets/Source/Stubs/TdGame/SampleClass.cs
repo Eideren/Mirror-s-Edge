@@ -7,13 +7,13 @@ public partial class SampleClass : Actor/*
 		placeable
 		hidecategories(Navigation)*/{
 	public int MyInteger;
-	public /*config */string MyString;
+	public /*config */String MyString;
 	public bool MyBool;
 	public Object.Vector MyVector;
 	public /*native */Object.Pointer MyPointer;
 	
 	// Export USampleClass::execSampleNativeFunction(FFrame&, void* const)
-	public virtual /*native function */int SampleNativeFunction(int I, string S, Object.Vector V)
+	public virtual /*native function */int SampleNativeFunction(int I, String S, Object.Vector V)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -46,7 +46,6 @@ public partial class SampleClass : Actor/*
 		MyString = "Test";
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E51BF1

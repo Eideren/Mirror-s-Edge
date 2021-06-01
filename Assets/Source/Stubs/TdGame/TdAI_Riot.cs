@@ -99,7 +99,7 @@ public partial class TdAI_Riot : TdAIController/*
 		return default;
 	}
 	
-	public override /*function */void AddSpecialOutput(ref string Text)
+	public override /*function */void AddSpecialOutput(ref String Text)
 	{
 	
 	}

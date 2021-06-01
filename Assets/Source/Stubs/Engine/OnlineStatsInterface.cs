@@ -35,9 +35,9 @@ public interface OnlineStatsInterface : Interface/*
 	
 	public /*function */bool WriteOnlinePlayerScores(/*const */ref array<OnlineSubsystem.OnlinePlayerScore> PlayerScores);
 	
-	public /*function */string GetHostStatGuid();
+	public /*function */String GetHostStatGuid();
 	
-	public /*function */bool RegisterHostStatGuid(/*const */ref string HostStatGuid);
+	public /*function */bool RegisterHostStatGuid(/*const */ref String HostStatGuid);
 	
 	public delegate void OnRegisterHostStatGuidComplete(bool bWasSuccessful);
 	
@@ -45,9 +45,9 @@ public interface OnlineStatsInterface : Interface/*
 	
 	public /*function */void ClearRegisterHostStatGuidCompleteDelegateDelegate(/*delegate*/OnlineStatsInterface.OnFlushOnlineStatsComplete RegisterHostStatGuidCompleteDelegate);
 	
-	public /*function */string GetClientStatGuid();
+	public /*function */String GetClientStatGuid();
 	
-	public /*function */bool RegisterStatGuid(OnlineSubsystem.UniqueNetId PlayerId, /*const */ref string ClientStatGuid);
+	public /*function */bool RegisterStatGuid(OnlineSubsystem.UniqueNetId PlayerId, /*const */ref String ClientStatGuid);
 	
 }
 }

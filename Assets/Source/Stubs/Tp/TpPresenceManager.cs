@@ -8,7 +8,7 @@ public partial class TpPresenceManager : TpSystemHandler/*
 		config(Presence)*/{
 	public partial struct /*native */PresBind
 	{
-		public /*config */string LevelName;
+		public /*config */String LevelName;
 		public /*config */int PresenceId;
 	
 	//	structdefaultproperties

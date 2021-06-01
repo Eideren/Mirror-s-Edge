@@ -275,7 +275,7 @@ public partial class TdWeapon : Weapon/*
 	
 	}
 	
-	public override /*simulated function */void GetWeaponDebug(ref array<string> DebugInfo)
+	public override /*simulated function */void GetWeaponDebug(ref array<String> DebugInfo)
 	{
 	
 	}
@@ -320,7 +320,7 @@ public partial class TdWeapon : Weapon/*
 	
 	}
 	
-	public virtual /*simulated function */string GetOwnerName()
+	public virtual /*simulated function */String GetOwnerName()
 	{
 	
 		return default;

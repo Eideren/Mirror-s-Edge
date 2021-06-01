@@ -17,28 +17,28 @@ public partial class TpUserManager : TpSystemHandler/*
 	}
 	
 	// Export UTpUserManager::execGetLocalUsername(FFrame&, void* const)
-	public virtual /*native simulated function */string GetLocalUsername(byte LocalUserNum)
+	public virtual /*native simulated function */String GetLocalUsername(byte LocalUserNum)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTpUserManager::execGetPlayerId(FFrame&, void* const)
-	public virtual /*native simulated function */OnlineSubsystem.UniqueNetId GetPlayerId(string UserName)
+	public virtual /*native simulated function */OnlineSubsystem.UniqueNetId GetPlayerId(String UserName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTpUserManager::execGetUsername(FFrame&, void* const)
-	public virtual /*native simulated function */string GetUsername(OnlineSubsystem.UniqueNetId PlayerId)
+	public virtual /*native simulated function */String GetUsername(OnlineSubsystem.UniqueNetId PlayerId)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTpUserManager::execLookupPlayerId(FFrame&, void* const)
-	public virtual /*native simulated function */bool LookupPlayerId(string UserName)
+	public virtual /*native simulated function */bool LookupPlayerId(String UserName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

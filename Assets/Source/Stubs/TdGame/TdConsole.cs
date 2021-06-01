@@ -8,10 +8,10 @@ public partial class TdConsole : Console/* within GameViewportClient*//*
 		hidecategories(Object,UIRoot)*/{
 	public new GameViewportClient Outer => base.Outer as GameViewportClient;
 	
-	public array<string> KeyStrings;
+	public array<String> KeyStrings;
 	public int ActiveKeywordIndex;
-	public string SavedArgument;
-	public string SavedCommand;
+	public String SavedArgument;
+	public String SavedCommand;
 	public bool bCtrlIsPressed;
 	
 	// Export UTdConsole::execInitKeyStrings(FFrame&, void* const)
@@ -21,7 +21,7 @@ public partial class TdConsole : Console/* within GameViewportClient*//*
 	}
 	
 	// Export UTdConsole::execFindKeyWord(FFrame&, void* const)
-	public virtual /*native function */bool FindKeyWord(string Str, ref string KeyWord, ref int Index)
+	public virtual /*native function */bool FindKeyWord(String Str, ref String KeyWord, ref int Index)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -32,7 +32,7 @@ public partial class TdConsole : Console/* within GameViewportClient*//*
 	
 	}
 	
-	public virtual /*function */string GetStringToComplete(string TypedStrTmp)
+	public virtual /*function */String GetStringToComplete(String TypedStrTmp)
 	{
 	
 		return default;
@@ -60,7 +60,7 @@ public partial class TdConsole : Console/* within GameViewportClient*//*
 	public TdConsole()
 	{
 		// Object Offset:0x00536ED9
-		KeyStrings = new array<string>
+		KeyStrings = new array<String>
 		{
 			"ShowAnims",
 			"ShowAnimTimeLine",

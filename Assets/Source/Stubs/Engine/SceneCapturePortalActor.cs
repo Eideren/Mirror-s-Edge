@@ -22,7 +22,6 @@ public partial class SceneCapturePortalActor : SceneCaptureReflectActor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SceneCapturePortalComponent>("Default__SceneCapturePortalActor.SceneCapturePortalComponent0")/*Ref SceneCapturePortalComponent'Default__SceneCapturePortalActor.SceneCapturePortalComponent0'*/,
-			//Components[1]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x003A3AC8
@@ -40,7 +39,6 @@ public partial class SceneCapturePortalActor : SceneCaptureReflectActor/*
 					Z=1.0f
 				},
 			}/* Reference: StaticMeshComponent'Default__SceneCapturePortalActor.StaticMeshComponent1' */,
-			//Components[2]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x003A3BD4

@@ -5,7 +5,7 @@ public partial class HelpCommandlet : Commandlet/*
 		transient
 		native*/{
 	// Export UHelpCommandlet::execMain(FFrame&, void* const)
-	public override /*native event */int Main(string Params)
+	public override /*native event */int Main(String Params)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -17,13 +17,13 @@ public partial class HelpCommandlet : Commandlet/*
 		HelpDescription = "This commandlet displays help information on other commandlets";
 		HelpUsage = "gamename.exe help <list | commandletname | webhelp commandletname>";
 		HelpWebLink = "https://udn.epicgames.com/bin/view/Three/HelpCommandlet";
-		HelpParamNames = new array</*localized */string>
+		HelpParamNames = new array</*localized */String>
 		{
 			"list",
 			"commandlet name",
 			"webhelp",
 		};
-		HelpParamDescriptions = new array</*localized */string>
+		HelpParamDescriptions = new array</*localized */String>
 		{
 			"Lists all commandlets that are available",
 			"Displays help information for the specified commandlet",

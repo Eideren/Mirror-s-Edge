@@ -13,32 +13,32 @@ public partial class Admin : PlayerController/*
 	}
 	
 	#warning Renamed member, c# naming scheme
-	public virtual /*exec function */void Admin_(string CommandLine)
+	public virtual /*exec function */void Admin_(String CommandLine)
 	{
 	
 	}
 	
-	public virtual /*reliable server function */void ServerAdmin(string CommandLine)
+	public virtual /*reliable server function */void ServerAdmin(String CommandLine)
 	{
 	
 	}
 	
-	public virtual /*exec function */void KickBan(string S)
+	public virtual /*exec function */void KickBan(String S)
 	{
 	
 	}
 	
-	public virtual /*reliable server function */void ServerKickBan(string S)
+	public virtual /*reliable server function */void ServerKickBan(String S)
 	{
 	
 	}
 	
-	public virtual /*exec function */void Kick(string S)
+	public virtual /*exec function */void Kick(String S)
 	{
 	
 	}
 	
-	public virtual /*reliable server function */void ServerKick(string S)
+	public virtual /*reliable server function */void ServerKick(String S)
 	{
 	
 	}
@@ -58,12 +58,12 @@ public partial class Admin : PlayerController/*
 	
 	}
 	
-	public virtual /*exec function */void Switch(string URL)
+	public virtual /*exec function */void Switch(String URL)
 	{
 	
 	}
 	
-	public virtual /*reliable server function */void ServerSwitch(string URL)
+	public virtual /*reliable server function */void ServerSwitch(String URL)
 	{
 	
 	}

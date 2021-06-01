@@ -62,7 +62,6 @@ public partial class TdMoveNode_Vault : TdMoveNode/*
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdMoveNode_Vault.Sprite2")/*Ref SpriteComponent'Default__TdMoveNode_Vault.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x005F344E
@@ -72,7 +71,6 @@ public partial class TdMoveNode_Vault : TdMoveNode/*
 			LoadAsset<ArrowComponent>("Default__TdMoveNode_Vault.Arrow")/*Ref ArrowComponent'Default__TdMoveNode_Vault.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__TdMoveNode_Vault.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode_Vault.CollisionCylinder'*/,
 			LoadAsset<PathRenderingComponent>("Default__TdMoveNode_Vault.PathRenderer")/*Ref PathRenderingComponent'Default__TdMoveNode_Vault.PathRenderer'*/,
-			//Components[5]=
 			new SpriteComponent
 			{
 				// Object Offset:0x005F34E2
@@ -82,7 +80,6 @@ public partial class TdMoveNode_Vault : TdMoveNode/*
 				AlwaysLoadOnClient = false,
 				AlwaysLoadOnServer = false,
 			}/* Reference: SpriteComponent'Default__TdMoveNode_Vault.Sprite_VaultOver' */,
-			//Components[6]=
 			new SpriteComponent
 			{
 				// Object Offset:0x005F3586

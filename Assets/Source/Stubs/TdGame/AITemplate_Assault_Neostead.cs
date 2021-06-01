@@ -8,7 +8,7 @@ public partial class AITemplate_Assault_Neostead : AITemplate_Assault/*
 	{
 		// Object Offset:0x00488A0A
 		ProfileName = "AssaultTwoHanded-Neostead";
-		AnimationSets[1] = "AS_AI_Assault_TwoHanded.AS_AI_Assault_TwoHanded_Neostead";
+		AnimationSets[0] = "AS_AI_Assault_TwoHanded.AS_AI_Assault_TwoHanded_Neostead";
 		HorizontalOffset_Max = new AITemplate.DistanceBasedValue
 		{
 			Near = 15.0f,

@@ -8,7 +8,7 @@ public partial class GamePlayerController : PlayerController/*
 		notplaceable
 		hidecategories(Navigation)*/{
 	// Export UGamePlayerController::execGetChapterStrings(FFrame&, void* const)
-	public virtual /*native function */void GetChapterStrings(int eChapter, ref string ChapterName, ref string ActName)
+	public virtual /*native function */void GetChapterStrings(int eChapter, ref String ChapterName, ref String ActName)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -20,7 +20,7 @@ public partial class GamePlayerController : PlayerController/*
 	
 	public virtual /*reliable client simulated function */void ClientDisplayChapterTitle(int DisplayChapter, float TotalDisplayTime, float TotalFadeTime)
 	{
-		/*local */string ChapterName = default, ActName = default;
+		/*local */String ChapterName = default, ActName = default;
 	
 		if(myHUD != default)
 		{

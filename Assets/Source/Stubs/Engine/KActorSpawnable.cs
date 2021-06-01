@@ -33,7 +33,6 @@ public partial class KActorSpawnable : KActor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__KActorSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActorSpawnable.MyLightEnvironment'*/,
-			//Components[1]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x005798BA

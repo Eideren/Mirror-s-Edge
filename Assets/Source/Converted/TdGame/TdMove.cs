@@ -351,10 +351,10 @@ public partial class TdMove : Object/*
 		out_YPos += out_YL;
 		Canvas.SetPos(5.0f, out_YPos);
 		Canvas.SetDrawColor(255, 255, 255, 255);
-		Canvas.DrawText("=== Ghost ===", default, default, default);
+		Canvas.DrawText("=== Ghost ===", default(bool?), default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(5.0f, out_YPos);
-		Canvas.DrawText("WeaponAnimState: " + ((PawnOwner.WeaponAnimState)).ToString(), default, default, default);
+		Canvas.DrawText("WeaponAnimState: " + ((PawnOwner.WeaponAnimState)).ToString(), default(bool?), default(float?), default(float?));
 	}
 	
 	public virtual /*function */void DisplayDebug(HUD HUD, ref float out_YL, ref float out_YPos)
@@ -366,7 +366,7 @@ public partial class TdMove : Object/*
 		Canvas.SetDrawColor(255, 255, 255, 255);
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText("MoveActiveTime: " + ((MoveActiveTime)).ToString(), default, default, default);
+		Canvas.DrawText("MoveActiveTime: " + ((MoveActiveTime)).ToString(), default(bool?), default(float?), default(float?));
 	}
 	
 	public virtual /*event */void TimeStopMove()
@@ -384,7 +384,7 @@ public partial class TdMove : Object/*
 		{
 			return false;
 		}
-		if(PawnOwner.IsInState("Dying", default))
+		if(PawnOwner.IsInState("Dying", default(bool?)))
 		{
 			return false;
 		}
@@ -427,7 +427,7 @@ public partial class TdMove : Object/*
 		PawnOwner.SetIgnoreLookInput(DisableLookTime);
 		if(((PC != default) && PawnOwner.Weapon != default) && (PawnOwner.Weapon.IsA("TdWeapon_Light") && ((int)MovementGroup) >= ((int)TdMove.EMovementGroup.MG_TwoHandsBusy/*2*/)) || PawnOwner.Weapon.IsA("TdWeapon_Heavy") && ((int)MovementGroup) >= ((int)TdMove.EMovementGroup.MG_OneHandBusy/*1*/))
 		{
-			PC.StopFire((byte)default);
+			PC.StopFire((byte)default(byte?));
 		}
 		if(((PC != default) && PawnOwner.Weapon != default) && bShouldUnzoom)
 		{
@@ -439,18 +439,18 @@ public partial class TdMove : Object/*
 		}
 		if(bDisableActorCollision)
 		{
-			PawnOwner.SetCollision(true, false, default);
+			PawnOwner.SetCollision(true, false, default(bool?));
 		}
 		if(bDisableCollision)
 		{
-			PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default);
+			PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default(bool?));
 			PawnOwner.bCollideWorld = false;
 		}
 		if(bUseCustomCollision && !PawnOwner.Moves[((int)PawnOwner.OldMovementState)].bUseCustomCollision)
 		{
 			ShrinkCollision();
 		}
-		PawnOwner.SetRootOffset(RootOffset, 0.30f, default);
+		PawnOwner.SetRootOffset(RootOffset, 0.30f, default(SkelControlBase.EBoneControlSpace?));
 		SetSwanNeckConstraints(SwanNeckEnableAtPitch, SwanNeckForward, SwanNeckDown);
 		if(BotOwner != default)
 		{
@@ -501,12 +501,12 @@ public partial class TdMove : Object/*
 		PawnOwner.StopIgnoreMoveInput();
 		if(bDisableCollision)
 		{
-			PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default);
+			PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default(bool?));
 			PawnOwner.bCollideWorld = true;
 		}
 		if(bDisableActorCollision)
 		{
-			PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default);
+			PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default(bool?));
 		}
 		if(bUseCustomCollision && !PawnOwner.Moves[((int)PawnOwner.PendingMovementState)].bUseCustomCollision)
 		{
@@ -531,8 +531,8 @@ public partial class TdMove : Object/*
 		}
 		bResetCameraLook = false;
 		RootOffset = DefaultAs<TdMove>().RootOffset;
-		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.30f, default);
-		PawnOwner.ClearAnimationMovementState(default);
+		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.30f, default(SkelControlBase.EBoneControlSpace?));
+		PawnOwner.ClearAnimationMovementState(default(float?));
 		ClearTimer();
 		using var v = TimerFunctions.GetEnumerator();while(v.MoveNext() && (FuncName = (name)v.Current) == FuncName)
 		{
@@ -560,7 +560,7 @@ public partial class TdMove : Object/*
 			PawnOwner.AttachWeaponToHand(PawnOwner.Weapon);
 		}
 		RootOffset = DefaultAs<TdMove>().RootOffset;
-		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.30f, default);
+		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.30f, default(SkelControlBase.EBoneControlSpace?));
 	}
 	
 	public virtual /*simulated function */void StartReplicatedMove()
@@ -573,7 +573,7 @@ public partial class TdMove : Object/*
 		{
 			ShrinkCollision();
 		}
-		PawnOwner.SetRootOffset(RootOffset, 0.30f, default);
+		PawnOwner.SetRootOffset(RootOffset, 0.30f, default(SkelControlBase.EBoneControlSpace?));
 	}
 	
 	public virtual /*simulated function */void ConstrainAxis(int Angle, int MinAngle, int MaxAngle, float InterpolateSpeed, ref int DeltaAngle)
@@ -762,7 +762,7 @@ public partial class TdMove : Object/*
 			}
 			if(((int)TdPC.TargetingPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_BotMeleeDodge/*69*/))
 			{
-				FocusRotation = ((Rotator)(TdPC.TargetingPawn.Mesh.GetBoneLocation("Hips", default) - PawnOwner.Location));			
+				FocusRotation = ((Rotator)(TdPC.TargetingPawn.Mesh.GetBoneLocation("Hips", default(int?)) - PawnOwner.Location));			
 			}
 			else
 			{
@@ -802,7 +802,7 @@ public partial class TdMove : Object/*
 	{
 		if(PawnOwner.Moves[20].CanDoMove())
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Landing/*20*/, default, default);
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Landing/*20*/, default(bool?), default(bool?));
 		}
 	}
 	

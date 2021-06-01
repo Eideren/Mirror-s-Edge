@@ -11,7 +11,7 @@ public partial class TdUIScene_Start : TdUIScene/*
 	public /*transient */byte StoredLocalUserNum;
 	public /*transient */TsSystem.ETsResult SaveInitResult;
 	public /*transient */float TimeElapsed;
-	public /*config transient */string MovieName;
+	public /*config transient */String MovieName;
 	public /*config transient */float TimeTillAttractMovie;
 	public /*transient */bool bBlockAttractMode;
 	public /*transient */bool bSkippedfirstTick;
@@ -20,8 +20,8 @@ public partial class TdUIScene_Start : TdUIScene/*
 	public /*config transient */float TimeTillStartButton;
 	public /*transient */TdInitSaveSystem InitSaveSystem;
 	public /*transient */TdUIScene_MessageBox ModalInitSavefileMessageBox;
-	public /*private transient */string SaveErrorMessageBody;
-	public /*private transient */string SaveErrorMessageTitle;
+	public /*private transient */String SaveErrorMessageBody;
+	public /*private transient */String SaveErrorMessageTitle;
 	public /*transient */UIScene LoadLevelScene;
 	
 	// Export UTdUIScene_Start::execStopMovie(FFrame&, void* const)

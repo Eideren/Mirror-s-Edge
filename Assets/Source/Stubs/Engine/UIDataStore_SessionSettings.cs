@@ -6,7 +6,7 @@ public partial class UIDataStore_SessionSettings : UIDataStore_Settings/*
 		native
 		config(Game)
 		hidecategories(Object,UIRoot)*/{
-	public /*const config */array</*config */string> SessionSettingsProviderClassNames;
+	public /*const config */array</*config */String> SessionSettingsProviderClassNames;
 	public /*const transient */array< Core.ClassT<SessionSettingsProvider> > SessionSettingsProviderClasses;
 	public /*transient */array<SessionSettingsProvider> SessionSettings;
 	

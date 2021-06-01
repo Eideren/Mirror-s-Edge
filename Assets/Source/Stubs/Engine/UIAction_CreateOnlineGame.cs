@@ -5,7 +5,7 @@ public partial class UIAction_CreateOnlineGame : UIAction/*
 		native
 		hidecategories(Object)*/{
 	public/*()*/ name DataStoreName;
-	public/*()*/ string MapName;
+	public/*()*/ String MapName;
 	
 	public UIAction_CreateOnlineGame()
 	{

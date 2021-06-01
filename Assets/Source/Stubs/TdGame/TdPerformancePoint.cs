@@ -10,13 +10,11 @@ public partial class TdPerformancePoint : Keypoint/*
 		// Object Offset:0x0060AA45
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E52525
 				Sprite = LoadAsset<Texture2D>("TdEditorResources.PerformancePointIcon")/*Ref Texture2D'TdEditorResources.PerformancePointIcon'*/,
 			}/* Reference: SpriteComponent'Default__TdPerformancePoint.Sprite' */,
-			//Components[1]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E52525

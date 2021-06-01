@@ -33,7 +33,7 @@ public partial class TdMove_RumpSlide : TdPhysicsMove/*
 		TimeFalling = 0.0f;
 		PawnOwner.GravityModifier = GravityModifier;
 		PawnOwner.Velocity = ((Cross((Cross(PawnOwner.UncontrolledSlideNormal, vect(0.0f, 0.0f, -1.0f))), PawnOwner.UncontrolledSlideNormal)) * VSize(PawnOwner.Velocity)) * InitialSpeedLoss;
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, default(float?));
 		SetTimer(0.0f);
 		OldFloorZ = PawnOwner.WalkableFloorZ;
 		PawnOwner.WalkableFloorZ = MinSlideFloorZ;
@@ -69,8 +69,8 @@ public partial class TdMove_RumpSlide : TdPhysicsMove/*
 		Side = Cross(PawnOwner.UncontrolledSlideNormal, vect(0.0f, 0.0f, 1.0f));
 		Surface = Cross(PawnOwner.UncontrolledSlideNormal, Side);
 		SetPreciseRotation(((Rotator)(Surface)), AnimBlendTime);
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default);
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "crouchslideintoend45", 1.0f, 0.150f, 0.20f, false, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default(float?));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "crouchslideintoend45", 1.0f, 0.150f, 0.20f, false, default(bool?));
 		((PawnOwner.Controller) as TdPlayerController).ClientPlayForceFeedbackWaveform(SlideWaveform);
 		PawnOwner.StartSlideEffect();
 	}

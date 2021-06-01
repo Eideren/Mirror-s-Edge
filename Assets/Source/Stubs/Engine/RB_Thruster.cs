@@ -21,7 +21,6 @@ public partial class RB_Thruster : Actor/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new ArrowComponent
 			{
 				// Object Offset:0x00465D77
@@ -34,7 +33,6 @@ public partial class RB_Thruster : Actor/*
 				},
 				ArrowSize = 1.70f,
 			}/* Reference: ArrowComponent'Default__RB_Thruster.ArrowComponent0' */,
-			//Components[1]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D04EA

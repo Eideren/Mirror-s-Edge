@@ -259,7 +259,7 @@ public partial class UIRoot : Object/*
 	{
 		public /*const */name PropertyTag;
 		public UIRoot.EUIDataProviderFieldType PropertyType;
-		public string StringValue;
+		public String StringValue;
 		public Surface ImageValue;
 		public array<int> ArrayValue;
 		public UIRoot.UIRangeData RangeValue;
@@ -287,7 +287,7 @@ public partial class UIRoot : Object/*
 	{
 		public /*const */name PropertyTag;
 		public UIRoot.EUIDataProviderFieldType PropertyType;
-		public string StringValue;
+		public String StringValue;
 		public Surface ImageValue;
 		public array<int> ArrayValue;
 		public UIRoot.UIRangeData RangeValue;
@@ -872,7 +872,7 @@ public partial class UIRoot : Object/*
 	{
 		public /*const transient */UIDataStoreSubscriber Subscriber;
 		public/*()*/ /*const editconst */UIRoot.EUIDataProviderFieldType RequiredFieldType;
-		public/*()*/ /*const */string MarkupString;
+		public/*()*/ /*const */String MarkupString;
 		public /*const transient */int BindingIndex;
 		public /*const transient */name DataStoreName;
 		public /*const transient */name DataStoreField;
@@ -1634,7 +1634,7 @@ public partial class UIRoot : Object/*
 		public /*init native const noexport transient */Object.Pointer VfTable;
 		public /*init const transient */UIDataStore NodeDataStore;
 		public /*init native const transient */Object.Pointer ParentNode;
-		public/*()*/ /*init */string SourceText;
+		public/*()*/ /*init */String SourceText;
 		public/*()*/ /*init */Object.Vector2D Extent;
 		public/*()*/ /*init */Object.Vector2D Scaling;
 		public /*init */bool bForceWrap;
@@ -1663,12 +1663,12 @@ public partial class UIRoot : Object/*
 		public /*init native const noexport transient */Object.Pointer VfTable;
 		public /*init const transient */UIDataStore NodeDataStore;
 		public /*init native const transient */Object.Pointer ParentNode;
-		public/*()*/ /*init */string SourceText;
+		public/*()*/ /*init */String SourceText;
 		public/*()*/ /*init */Object.Vector2D Extent;
 		public/*()*/ /*init */Object.Vector2D Scaling;
 		public /*init */bool bForceWrap;
 	
-		public/*()*/ /*init */string RenderedText;
+		public/*()*/ /*init */String RenderedText;
 		public /*init */UIRoot.UICombinedStyleData NodeStyleParameters;
 			// Object Offset:0x002C301F
 	//		NodeDataStore = default;
@@ -1807,7 +1807,7 @@ public partial class UIRoot : Object/*
 		public /*init native const noexport transient */Object.Pointer VfTable;
 		public /*init const transient */UIDataStore NodeDataStore;
 		public /*init native const transient */Object.Pointer ParentNode;
-		public/*()*/ /*init */string SourceText;
+		public/*()*/ /*init */String SourceText;
 		public/*()*/ /*init */Object.Vector2D Extent;
 		public/*()*/ /*init */Object.Vector2D Scaling;
 		public /*init */bool bForceWrap;
@@ -1846,7 +1846,7 @@ public partial class UIRoot : Object/*
 		public /*init native const noexport transient */Object.Pointer VfTable;
 		public /*init const transient */UIDataStore NodeDataStore;
 		public /*init native const transient */Object.Pointer ParentNode;
-		public/*()*/ /*init */string SourceText;
+		public/*()*/ /*init */String SourceText;
 		public/*()*/ /*init */Object.Vector2D Extent;
 		public/*()*/ /*init */Object.Vector2D Scaling;
 		public /*init */bool bForceWrap;
@@ -1881,12 +1881,12 @@ public partial class UIRoot : Object/*
 		public /*init native const noexport transient */Object.Pointer VfTable;
 		public /*init const transient */UIDataStore NodeDataStore;
 		public /*init native const transient */Object.Pointer ParentNode;
-		public/*()*/ /*init */string SourceText;
+		public/*()*/ /*init */String SourceText;
 		public/*()*/ /*init */Object.Vector2D Extent;
 		public/*()*/ /*init */Object.Vector2D Scaling;
 		public /*init */bool bForceWrap;
 	
-		public/*()*/ /*init */string RenderedText;
+		public/*()*/ /*init */String RenderedText;
 		public /*init */UIRoot.UICombinedStyleData NodeStyleParameters;
 			// Object Offset:0x002C3157
 	//		NodeStyleParameters = new UIRoot.UICombinedStyleData
@@ -2063,7 +2063,7 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native transient */WrappedStringElement
 	{
-		public /*init */string Value;
+		public /*init */String Value;
 		public /*init */Object.Vector2D LineExtent;
 	
 	//	structdefaultproperties
@@ -2214,7 +2214,7 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native export */UIInputAliasStateMap
 	{
-		public string StateClassName;
+		public String StateClassName;
 		public Core.ClassT<UIState> State;
 		public array<UIRoot.UIInputActionAlias> StateInputAliases;
 	
@@ -2229,7 +2229,7 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIInputAliasClassMap
 	{
-		public string WidgetClassName;
+		public String WidgetClassName;
 		public Core.ClassT<UIScreenObject> WidgetClass;
 		public array<UIRoot.UIInputAliasStateMap> WidgetStates;
 		public /*native const transient *//*map<0,0>*/map<object, object> StateLookupTable;
@@ -2299,32 +2299,32 @@ public partial class UIRoot : Object/*
 	}
 	
 	// Export UUIRoot::execSetDataStoreFieldValue(FFrame&, void* const)
-	public /*native final function */static bool SetDataStoreFieldValue(string InDataStoreMarkup, /*const */ref UIRoot.UIProviderFieldValue InFieldValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
+	public /*native final function */static bool SetDataStoreFieldValue(String InDataStoreMarkup, /*const */ref UIRoot.UIProviderFieldValue InFieldValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
-	public /*function */static bool SetDataStoreStringValue(string InDataStoreMarkup, string InStringValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
+	public /*function */static bool SetDataStoreStringValue(String InDataStoreMarkup, String InStringValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
 	{
 	
 		return default;
 	}
 	
 	// Export UUIRoot::execGetDataStoreFieldValue(FFrame&, void* const)
-	public /*native final function */static bool GetDataStoreFieldValue(string InDataStoreMarkup, ref UIRoot.UIProviderFieldValue OutFieldValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
+	public /*native final function */static bool GetDataStoreFieldValue(String InDataStoreMarkup, ref UIRoot.UIProviderFieldValue OutFieldValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
-	public /*function */static bool GetDataStoreStringValue(string InDataStoreMarkup, ref string OutStringValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
+	public /*function */static bool GetDataStoreStringValue(String InDataStoreMarkup, ref String OutStringValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
 	{
 	
 		return default;
 	}
 	
-	public /*final function */static string ConvertWidgetIDToString(UIObject SourceWidget)
+	public /*final function */static String ConvertWidgetIDToString(UIObject SourceWidget)
 	{
 	
 		return default;

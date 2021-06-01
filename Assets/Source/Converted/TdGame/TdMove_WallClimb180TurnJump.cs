@@ -71,7 +71,7 @@ public partial class TdMove_WallClimb180TurnJump : TdPhysicsMove/*
 		Start = PawnOwner.Location + (WantedJumpDir * 2.0f);
 		End = Start;
 		End.Z += JumpHeight;
-		if(MovementTrace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, End, Start, PawnOwner.GetCollisionExtent(), default))
+		if(MovementTrace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, End, Start, PawnOwner.GetCollisionExtent(), default(bool?)))
 		{
 			JumpHeight = HitLocation.Z - PawnOwner.Location.Z;
 		}
@@ -86,12 +86,12 @@ public partial class TdMove_WallClimb180TurnJump : TdPhysicsMove/*
 	
 		if(bJumpingFromWall)
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "WallrunJumpLeft", 1.0f, 0.10f, 0.20f, default, default);
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "WallrunJumpLeft", 1.0f, 0.10f, 0.20f, default(bool?), default(bool?));
 		}
 		PawnOwner.UseRootRotation(false);
 		JumpRotation.Pitch = PawnOwner.Controller.Rotation.Pitch;
 		JumpRotation.Yaw = ((Rotator)(WantedJumpDir)).Yaw;
-		SetLookAtTargetAngle(JumpRotation, 0.20f, default);
+		SetLookAtTargetAngle(JumpRotation, 0.20f, default(float?));
 		SetPreciseRotation(JumpRotation, 0.10f);
 	}
 	
@@ -104,7 +104,7 @@ public partial class TdMove_WallClimb180TurnJump : TdPhysicsMove/*
 			bCheckForWallClimb = DefaultAs<TdPhysicsMove>().bCheckForWallClimb;
 		}
 		PawnOwner.StopIgnoreMoveInput();
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
 	}
 	
 	public TdMove_WallClimb180TurnJump()

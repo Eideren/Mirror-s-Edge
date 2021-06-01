@@ -6,11 +6,11 @@ public partial class JuiceSubsystem : Subsystem/*
 		native
 		config(Juice)
 		perobjectconfig*/{
-	public /*config */string ServerIP;
-	public /*config */string BackupServerIP;
+	public /*config */String ServerIP;
+	public /*config */String BackupServerIP;
 	public /*config */float FPSLowerThreshold;
 	public /*config */bool bRecordLevelStats;
-	public /*config */string BuildName;
+	public /*config */String BuildName;
 	public Object.Double LevelStartTime;
 	
 	// Export UJuiceSubsystem::execGetSubsystem(FFrame&, void* const)
@@ -21,54 +21,54 @@ public partial class JuiceSubsystem : Subsystem/*
 	}
 	
 	// Export UJuiceSubsystem::execJuiceGameEvent(FFrame&, void* const)
-	public /*native event */static void JuiceGameEvent(string Category, string EventName, string Outcome, int IValue, float FValue, string StrResult, string MapName, Object.Vector MapLoc)
+	public /*native event */static void JuiceGameEvent(String Category, String EventName, String Outcome, int IValue, float FValue, String StrResult, String MapName, Object.Vector MapLoc)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
-	public /*event */static void LevelEvent(string Category, string EventName, string Outcome, int IValue, float FValue, string StrResult, Object.Vector MapLoc)
+	public /*event */static void LevelEvent(String Category, String EventName, String Outcome, int IValue, float FValue, String StrResult, Object.Vector MapLoc)
 	{
 	
 	}
 	
 	// Export UJuiceSubsystem::execLevelEventD(FFrame&, void* const)
-	public /*native event */static void LevelEventD(int Group, int Channel, int Level, string Category, string EventName, string Outcome, int IValue, float FValue, string StrResult, Object.Vector MapLoc)
+	public /*native event */static void LevelEventD(int Group, int Channel, int Level, String Category, String EventName, String Outcome, int IValue, float FValue, String StrResult, Object.Vector MapLoc)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UJuiceSubsystem::execLevelStatI(FFrame&, void* const)
-	public /*native event */static void LevelStatI(string Category, string StatName, int StatValue)
+	public /*native event */static void LevelStatI(String Category, String StatName, int StatValue)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UJuiceSubsystem::execTriggerEvent(FFrame&, void* const)
-	public /*native event */static void TriggerEvent(string EventName, string EventParam)
+	public /*native event */static void TriggerEvent(String EventName, String EventParam)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UJuiceSubsystem::execGameEventD(FFrame&, void* const)
-	public /*native event */static void GameEventD(int Group, int Channel, int Level, string Category, string EventName, string Outcome, int IValue, float FValue, string StrResult, string MapName, Object.Vector MapLoc)
+	public /*native event */static void GameEventD(int Group, int Channel, int Level, String Category, String EventName, String Outcome, int IValue, float FValue, String StrResult, String MapName, Object.Vector MapLoc)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UJuiceSubsystem::execGameStatF(FFrame&, void* const)
-	public /*native event */static void GameStatF(string Category, string StatName, float StatValue)
+	public /*native event */static void GameStatF(String Category, String StatName, float StatValue)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UJuiceSubsystem::execGameStatI(FFrame&, void* const)
-	public /*native event */static void GameStatI(string Category, string StatName, int StatValue)
+	public /*native event */static void GameStatI(String Category, String StatName, int StatValue)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UJuiceSubsystem::execAssetCoverage(FFrame&, void* const)
-	public /*native event */static void AssetCoverage(string Category, string assetName, int numHits)
+	public /*native event */static void AssetCoverage(String Category, String assetName, int numHits)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -80,14 +80,14 @@ public partial class JuiceSubsystem : Subsystem/*
 	}
 	
 	// Export UJuiceSubsystem::execGetMapName(FFrame&, void* const)
-	public /*native event */static string GetMapName()
+	public /*native event */static String GetMapName()
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UJuiceSubsystem::execGetBuildInfo(FFrame&, void* const)
-	public /*native event */static string GetBuildInfo()
+	public /*native event */static String GetBuildInfo()
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -100,7 +100,7 @@ public partial class JuiceSubsystem : Subsystem/*
 	}
 	
 	// Export UJuiceSubsystem::execOpenFile(FFrame&, void* const)
-	public /*native function */static int OpenFile(string Filename, /*optional */bool? _bOpenForWrite = default, /*optional */bool? _bText = default)
+	public /*native function */static int OpenFile(String Filename, /*optional */bool? _bOpenForWrite = default, /*optional */bool? _bText = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -113,7 +113,7 @@ public partial class JuiceSubsystem : Subsystem/*
 	}
 	
 	// Export UJuiceSubsystem::execWriteToFile(FFrame&, void* const)
-	public /*native function */static void WriteToFile(int FileHandle, string TextToWrite)
+	public /*native function */static void WriteToFile(int FileHandle, String TextToWrite)
 	{
 		#warning NATIVE FUNCTION !
 	}

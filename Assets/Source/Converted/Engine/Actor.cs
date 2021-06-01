@@ -564,7 +564,7 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execConsoleCommand(FFrame&, void* const)
-	public virtual /*native function */string ConsoleCommand(string Command, /*optional */bool? _bWriteToLog = default)
+	public virtual /*native function */String ConsoleCommand(String Command, /*optional */bool? _bWriteToLog = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -805,7 +805,7 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execChartData(FFrame&, void* const)
-	public virtual /*native final function */void ChartData(string DataName, float DataValue)
+	public virtual /*native final function */void ChartData(String DataName, float DataValue)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -1176,7 +1176,7 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execGetURLMap(FFrame&, void* const)
-	public virtual /*native(547) final function */string GetURLMap()
+	public virtual /*native(547) final function */String GetURLMap()
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -1548,7 +1548,7 @@ public partial class Actor : Object/*
 		return false;
 	}
 	
-	public virtual /*simulated function */string GetItemName(string FullName)
+	public virtual /*simulated function */String GetItemName(String FullName)
 	{
 		/*local */int pos = default;
 	
@@ -1563,15 +1563,15 @@ public partial class Actor : Object/*
 		return FullName;
 	}
 	
-	public virtual /*simulated function */string GetHumanReadableName()
+	public virtual /*simulated function */String GetHumanReadableName()
 	{
 		return GetItemName(((Class)).ToString());
 	}
 	
-	public /*function */static void ReplaceText(ref string Text, string Replace, string With)
+	public /*function */static void ReplaceText(ref String Text, String Replace, String With)
 	{
 		/*local */int I = default;
-		/*local */string Input = default;
+		/*local */String Input = default;
 	
 		Input = Text;
 		Text = "";
@@ -1587,7 +1587,7 @@ public partial class Actor : Object/*
 		Text = Text + Input;
 	}
 	
-	public /*function */static string GetLocalString(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default)
+	public /*function */static String GetLocalString(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default)
 	{
 		var Switch = _Switch ?? default;
 		var RelatedPRI_1 = _RelatedPRI_1 ?? default;
@@ -1608,14 +1608,14 @@ public partial class Actor : Object/*
 	
 	}
 	
-	public virtual /*function */string GetDebugName()
+	public virtual /*function */String GetDebugName()
 	{
 		return GetItemName(((this)).ToString());
 	}
 	
 	public virtual /*simulated function */void DisplayDebug(HUD HUD, ref float out_YL, ref float out_YPos)
 	{
-		/*local */string T = default;
+		/*local */String T = default;
 		/*local */Actor A = default;
 		/*local */float MyRadius = default, MyHeight = default;
 		/*local */Canvas Canvas = default;
@@ -1710,7 +1710,7 @@ public partial class Actor : Object/*
 		Canvas.SetPos(4.0f, out_YPos);
 	}
 	
-	public virtual /*simulated function */string GetPhysicsName()
+	public virtual /*simulated function */String GetPhysicsName()
 	{
 		switch(Physics)
 		{
@@ -2278,7 +2278,7 @@ public partial class Actor : Object/*
 	
 	}
 	
-	public virtual /*event */bool PlayActorFaceFXAnim(FaceFXAnimSet AnimSet, string GroupName, string SeqName)
+	public virtual /*event */bool PlayActorFaceFXAnim(FaceFXAnimSet AnimSet, String GroupName, String SeqName)
 	{
 	
 		return default;
@@ -2345,7 +2345,7 @@ public partial class Actor : Object/*
 		return 255;
 	}
 	
-	public virtual /*simulated function */string GetLocationStringFor(PlayerReplicationInfo PRI)
+	public virtual /*simulated function */String GetLocationStringFor(PlayerReplicationInfo PRI)
 	{
 		return "";
 	}

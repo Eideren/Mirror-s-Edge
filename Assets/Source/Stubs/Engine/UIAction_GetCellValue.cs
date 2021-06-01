@@ -6,8 +6,8 @@ public partial class UIAction_GetCellValue : UIAction_DataStore/*
 		hidecategories(Object)*/{
 	public/*()*/ int CollectionIndex;
 	public/*()*/ name CellFieldName;
-	public string CellFieldMarkup;
-	public string CellFieldStringValue;
+	public String CellFieldMarkup;
+	public String CellFieldStringValue;
 	public Surface CellFieldImageValue;
 	public UIRoot.UIRangeData CellFieldRangeValue;
 	

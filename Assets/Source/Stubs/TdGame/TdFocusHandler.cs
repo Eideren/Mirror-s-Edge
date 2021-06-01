@@ -61,7 +61,7 @@ public partial class TdFocusHandler : Object/* within TdAIController*//*
 	
 	}
 	
-	public virtual /*function */string GetDescription()
+	public virtual /*function */String GetDescription()
 	{
 	
 		return default;

@@ -190,7 +190,7 @@ public partial class TdPlayerController : GamePlayerController,
 		return default;
 	}
 	
-	public override /*function */void SetCharacter(string inCharacter)
+	public override /*function */void SetCharacter(String inCharacter)
 	{
 		CharacterClass = ((DynamicLoadObject(inCharacter, ClassT<Class>(), default)) as ClassT<Pawn>);
 	}
@@ -200,7 +200,7 @@ public partial class TdPlayerController : GamePlayerController,
 		return ((OnlinePlayerData.ProfileProvider.Profile) as TdProfileSettings);
 	}
 	
-	public override /*reliable client simulated event */void TeamMessage(PlayerReplicationInfo PRI, /*coerce */string S, name Type, /*optional */float? _MsgLifeTime = default)
+	public override /*reliable client simulated event */void TeamMessage(PlayerReplicationInfo PRI, /*coerce */String S, name Type, /*optional */float? _MsgLifeTime = default)
 	{
 		var MsgLifeTime = _MsgLifeTime ?? default;
 		base.TeamMessage(PRI, S, Type, MsgLifeTime);
@@ -2949,7 +2949,7 @@ public partial class TdPlayerController : GamePlayerController,
 	public virtual /*event */void CallPopUp(TdSPHUD.EPopUpType Type, float Duration)
 	{
 		/*local */TdSPHUD HUD = default;
-		/*local */string Message = default;
+		/*local */String Message = default;
 	
 		HUD = ((myHUD) as TdSPHUD);
 		if(HUD == default)
@@ -3159,14 +3159,14 @@ public partial class TdPlayerController : GamePlayerController,
 	public virtual /*function */void UnlockAchievement(int AchievementId)
 	{
 		/*local */SeqAct_TdUnlockAchievement.ETdAchievements TempEnum = default;
-		/*local */string NameOfEnum = default;
+		/*local */String NameOfEnum = default;
 	
 		TempEnum = ((SeqAct_TdUnlockAchievement.ETdAchievements)((byte)(AchievementId)));
 		NameOfEnum = "Achievement unlocked: " + " " + ((TempEnum)).ToString();
 		ClientUnlockAchievement(AchievementId, NameOfEnum);
 	}
 	
-	public virtual /*reliable client simulated function */void ClientUnlockAchievement(int AchievementId, string Description)
+	public virtual /*reliable client simulated function */void ClientUnlockAchievement(int AchievementId, String Description)
 	{
 		/*local */LocalPlayer LocPlayer = default;
 	
@@ -3545,7 +3545,7 @@ public partial class TdPlayerController : GamePlayerController,
 	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerWaiting()/*auto state PlayerWaiting*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			/*ignores*/ AttemptReactionTime = ()=>{}; StartFire = (_)=>{};
 	
@@ -3783,7 +3783,7 @@ public partial class TdPlayerController : GamePlayerController,
 	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerWalking()/*state PlayerWalking*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			NotifyLanded = TdPlayerController_PlayerWalking_NotifyLanded;
 			ProcessMove = TdPlayerController_PlayerWalking_ProcessMove;
@@ -3938,7 +3938,7 @@ public partial class TdPlayerController : GamePlayerController,
 	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerGrabbing()/*state PlayerGrabbing*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			ProcessMove = TdPlayerController_PlayerGrabbing_ProcessMove;
 			ShouldDelayJump = TdPlayerController_PlayerGrabbing_ShouldDelayJump;
@@ -3982,7 +3982,7 @@ public partial class TdPlayerController : GamePlayerController,
 	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerBalanceWalk()/*state PlayerBalanceWalk extends PlayerWalking*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 	
 			// Inherited from TdPlayerController.PlayerWalking
@@ -4064,7 +4064,7 @@ public partial class TdPlayerController : GamePlayerController,
 	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerLedgeWalking()/*state PlayerLedgeWalking extends PlayerWalking*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 	
 			// Inherited from TdPlayerController.PlayerWalking
@@ -4216,7 +4216,7 @@ public partial class TdPlayerController : GamePlayerController,
 	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerWallWalking()/*state PlayerWallWalking*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			UpdateRotation = TdPlayerController_PlayerWallWalking_UpdateRotation;
 			ProcessMove = TdPlayerController_PlayerWallWalking_ProcessMove;
@@ -4314,7 +4314,7 @@ public partial class TdPlayerController : GamePlayerController,
 	protected (System.Action<name>, StateFlow, System.Action<name>) Spectating()/*state Spectating*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			/*ignores*/ StartFire = (_)=>{}; StartAltFire = (_)=>{}; AttemptReactionTime = ()=>{};
 	
@@ -4380,7 +4380,7 @@ public partial class TdPlayerController : GamePlayerController,
 	protected (System.Action<name>, StateFlow, System.Action<name>) Ropeburn()/*state Ropeburn*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			ProcessMove = TdPlayerController_Ropeburn_ProcessMove;
 			PlayerMove = TdPlayerController_Ropeburn_PlayerMove;
@@ -4441,7 +4441,7 @@ public partial class TdPlayerController : GamePlayerController,
 	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerDying()/*state PlayerDying*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			/*ignores*/ ProcessMove = (_,_,_,_)=>{};
 	
@@ -4578,7 +4578,7 @@ public partial class TdPlayerController : GamePlayerController,
 	protected (System.Action<name>, StateFlow, System.Action<name>) Dead()/*state Dead*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			/*ignores*/ StartFire = (_)=>{}; AttemptReactionTime = ()=>{};
 	

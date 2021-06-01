@@ -8,12 +8,12 @@ public partial class UIDataProvider_OnlineFriendMessages : UIDataProvider_Online
 		hidecategories(Object,UIRoot)*/{
 	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
 	public array<OnlineSubsystem.OnlineFriendMessage> Messages;
-	public /*const localized */string SendingPlayerNameCol;
-	public /*const localized */string bIsFriendInviteCol;
-	public /*const localized */string bWasAcceptedCol;
-	public /*const localized */string bWasDeniedCol;
-	public /*const localized */string MessageCol;
-	public string LastInviteFrom;
+	public /*const localized */String SendingPlayerNameCol;
+	public /*const localized */String bIsFriendInviteCol;
+	public /*const localized */String bWasAcceptedCol;
+	public /*const localized */String bWasDeniedCol;
+	public /*const localized */String MessageCol;
+	public String LastInviteFrom;
 	
 	public override /*event */void OnRegister(LocalPlayer InPlayer)
 	{
@@ -30,12 +30,12 @@ public partial class UIDataProvider_OnlineFriendMessages : UIDataProvider_Online
 	
 	}
 	
-	public virtual /*function */void OnFriendInviteReceived(byte LocalUserNum, OnlineSubsystem.UniqueNetId RequestingPlayer, string RequestingNick, string Message)
+	public virtual /*function */void OnFriendInviteReceived(byte LocalUserNum, OnlineSubsystem.UniqueNetId RequestingPlayer, String RequestingNick, String Message)
 	{
 	
 	}
 	
-	public virtual /*function */void OnFriendMessageReceived(byte LocalUserNum, OnlineSubsystem.UniqueNetId SendingPlayer, string SendingNick, string Message)
+	public virtual /*function */void OnFriendMessageReceived(byte LocalUserNum, OnlineSubsystem.UniqueNetId SendingPlayer, String SendingNick, String Message)
 	{
 	
 	}
@@ -45,7 +45,7 @@ public partial class UIDataProvider_OnlineFriendMessages : UIDataProvider_Online
 	
 	}
 	
-	public virtual /*function */void OnGameInviteReceived(byte LocalUserNum, string InviterName)
+	public virtual /*function */void OnGameInviteReceived(byte LocalUserNum, String InviterName)
 	{
 	
 	}

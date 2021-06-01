@@ -28,13 +28,11 @@ public partial class TdPathLimits : Info/*
 		bEnabled = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E524F1
 				Sprite = LoadAsset<Texture2D>("EditorMaterials.CovergroupIcon")/*Ref Texture2D'EditorMaterials.CovergroupIcon'*/,
 			}/* Reference: SpriteComponent'Default__TdPathLimits.Sprite' */,
-			//Components[1]=
 			new TdPathLimitsRenderingComponent
 			{
 				// Object Offset:0x0312212E

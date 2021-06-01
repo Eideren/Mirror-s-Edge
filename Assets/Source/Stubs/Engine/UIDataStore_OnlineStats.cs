@@ -19,7 +19,7 @@ public partial class UIDataStore_OnlineStats : UIDataStore_Remote,
 	public partial struct /*native */PlayerNickMetaData
 	{
 		public /*const */name PlayerNickName;
-		public /*const localized */string PlayerNickColumnName;
+		public /*const localized */String PlayerNickColumnName;
 	
 	//	structdefaultproperties
 	//	{
@@ -32,7 +32,7 @@ public partial class UIDataStore_OnlineStats : UIDataStore_Remote,
 	public partial struct /*native */RankMetaData
 	{
 		public /*const */name RankName;
-		public /*const localized */string RankColumnName;
+		public /*const localized */String RankColumnName;
 	
 	//	structdefaultproperties
 	//	{

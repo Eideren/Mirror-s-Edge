@@ -321,7 +321,6 @@ public partial class PickupFactory : NavigationPoint/*
 			LoadAsset<SpriteComponent>("Default__PickupFactory.Sprite")/*Ref SpriteComponent'Default__PickupFactory.Sprite'*/,
 			LoadAsset<SpriteComponent>("Default__PickupFactory.Sprite2")/*Ref SpriteComponent'Default__PickupFactory.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__PickupFactory.Arrow")/*Ref ArrowComponent'Default__PickupFactory.Arrow'*/,
-			//Components[3]=
 			new CylinderComponent
 			{
 				// Object Offset:0x004666B3

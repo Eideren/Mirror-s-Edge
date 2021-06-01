@@ -208,13 +208,11 @@ public partial class TdBotPawn_Tutorial : TdBotPawn/*
 			LoadAsset<DrawFrustumComponent>("Default__TdBotPawn_Tutorial.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn_Tutorial.DrawFrust0'*/,
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_Tutorial.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_Tutorial.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdBotPawn_Tutorial.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_Tutorial.Arrow'*/,
-			//Components[4]=
 			new DynamicLightEnvironmentComponent
 			{
 				// Object Offset:0x01B6866E
 				bEnabled = false,
 			}/* Reference: DynamicLightEnvironmentComponent'Default__TdBotPawn_Tutorial.MyLightEnvironment' */,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x031280FE

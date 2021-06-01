@@ -17,7 +17,7 @@ public partial class LensFlareEditorOptions : Object/*
 	public/*(Options)*/ /*config */Object.Color GridColor_Hi;
 	public/*(Options)*/ /*config */Object.Color GridColor_Low;
 	public/*(Options)*/ /*config */float GridPerspectiveSize;
-	public/*(Options)*/ /*config */string PostProcessChainName;
+	public/*(Options)*/ /*config */String PostProcessChainName;
 	public/*(Options)*/ /*config */int ShowPPFlags;
 	
 	public LensFlareEditorOptions()

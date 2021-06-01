@@ -6,10 +6,10 @@ public partial class UIAction_TdGetCheckpointData : UIAction/*
 		hidecategories(Object)*/{
 	public name ResourceDataStoreName;
 	public/*()*/ int CheckpointIndex;
-	public string FriendlyName;
-	public string Description;
-	public string CheckpointName;
-	public string ImageMarkup;
+	public String FriendlyName;
+	public String Description;
+	public String CheckpointName;
+	public String ImageMarkup;
 	
 	public UIAction_TdGetCheckpointData()
 	{

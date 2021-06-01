@@ -90,7 +90,6 @@ public partial class TdGhostPawnBase : TdPawn/*
 			LoadAsset<CylinderComponent>("Default__TdGhostPawnBase.CollisionCylinder")/*Ref CylinderComponent'Default__TdGhostPawnBase.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdGhostPawnBase.Arrow")/*Ref ArrowComponent'Default__TdGhostPawnBase.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdGhostPawnBase.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdGhostPawnBase.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x031281E2

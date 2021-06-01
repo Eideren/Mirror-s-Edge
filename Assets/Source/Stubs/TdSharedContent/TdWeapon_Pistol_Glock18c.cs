@@ -231,7 +231,6 @@ public partial class TdWeapon_Pistol_Glock18c : TdWeapon_Light/*
 		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Glock18c.FirstPersonMesh' */;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x00014C77
@@ -252,7 +251,6 @@ public partial class TdWeapon_Pistol_Glock18c : TdWeapon_Light/*
 					EffectPhysics = true,
 				},
 			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Glock18c.FirstPersonMesh' */,
-			//Components[1]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x00014DBF

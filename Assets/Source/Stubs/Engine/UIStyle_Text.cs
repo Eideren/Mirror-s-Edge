@@ -17,7 +17,7 @@ public partial class UIStyle_Text : UIStyle_Data/*
 	{
 		// Object Offset:0x00453294
 		StyleFont = LoadAsset<Font>("EngineFonts.SmallFont")/*Ref Font'EngineFonts.SmallFont'*/;
-		Alignment[1] = UIRoot.EUIAlignment.UIALIGN_Center;
+		Alignment[0] = UIRoot.EUIAlignment.UIALIGN_Center;
 		AutoScaling = new UIRoot.TextAutoScaleValue
 		{
 			MinScale = 0.60f,

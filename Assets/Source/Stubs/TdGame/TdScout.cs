@@ -90,7 +90,6 @@ public partial class TdScout : Scout/*
 		{
 			LoadAsset<SceneCaptureCharacterComponent>("Default__TdScout.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdScout.SceneCaptureCharacterComponent0'*/,
 			LoadAsset<DrawFrustumComponent>("Default__TdScout.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdScout.DrawFrust0'*/,
-			//Components[2]=
 			new CylinderComponent
 			{
 				// Object Offset:0x01AB4DE2

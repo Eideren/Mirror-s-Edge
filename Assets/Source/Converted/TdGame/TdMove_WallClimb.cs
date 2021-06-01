@@ -41,8 +41,8 @@ public partial class TdMove_WallClimb : TdPhysicsMove/*
 	
 	public override /*simulated function */int HandleDeath(int Damage)
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default(float?));
 		return base.HandleDeath(Damage);
 	}
 	
@@ -73,7 +73,7 @@ public partial class TdMove_WallClimb : TdPhysicsMove/*
 				LookAtEdgeAngle.Yaw = WallRotation.Yaw;
 			}
 			LookAtEdgeAngle = Normalize(LookAtEdgeAngle);
-			SetLookAtTargetAngle(LookAtEdgeAngle, 0.20f, default);		
+			SetLookAtTargetAngle(LookAtEdgeAngle, 0.20f, default(float?));		
 		}
 		else
 		{
@@ -92,7 +92,7 @@ public partial class TdMove_WallClimb : TdPhysicsMove/*
 		IntoWallClimbSpeed = VSize2D(PawnOwner.Velocity) - ClassT<TdMove_Jump>().DefaultAs<TdMove_Jump>().JumpAddXY;
 		LookAtEdgeAngle = PawnOwner.Rotation;
 		WallClimbingGravity = Abs(PawnOwner.GetGravityZ());
-		PawnOwner.SetBase(PawnOwner.MovementActor, PawnOwner.MoveNormal, default, default);
+		PawnOwner.SetBase(PawnOwner.MovementActor, PawnOwner.MoveNormal, default(SkeletalMeshComponent?), default(name?));
 		if(DetectPossibleHandPlant())
 		{
 			FoundPossibleHandPlant();
@@ -185,7 +185,7 @@ public partial class TdMove_WallClimb : TdPhysicsMove/*
 	
 	public virtual /*event */void PerformDoubleJump()
 	{
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("JumpSlow")), 1.0f, 0.150f, 0.150f, default, default);
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("JumpSlow")), 1.0f, 0.150f, 0.150f, default(bool?), default(bool?));
 	}
 	
 	public override /*function */void DrawAnimDebugInfo(HUD HUD, ref float out_YL, ref float out_YPos)

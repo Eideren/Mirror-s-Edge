@@ -7,7 +7,7 @@ public partial class UIDataProvider_TdPersonaProvider : UIDataProvider_TdResourc
 		config(Game)
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
-	public array<string> Personas;
+	public array<String> Personas;
 	
 	public virtual /*event */void OnRegister(LocalPlayer InPlayer)
 	{

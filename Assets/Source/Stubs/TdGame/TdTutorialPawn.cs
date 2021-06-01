@@ -175,7 +175,6 @@ public partial class TdTutorialPawn : TdPlayerPawn/*
 			LoadAsset<CylinderComponent>("Default__TdTutorialPawn.CollisionCylinder")/*Ref CylinderComponent'Default__TdTutorialPawn.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdTutorialPawn.Arrow")/*Ref ArrowComponent'Default__TdTutorialPawn.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdTutorialPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdTutorialPawn.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x0312833E

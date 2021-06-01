@@ -4,10 +4,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimCleanUpCommandlet : Commandlet/*
 		transient
 		native*/{
-	public string PackagesPath;
+	public String PackagesPath;
 	
 	// Export UTdAnimCleanUpCommandlet::execMain(FFrame&, void* const)
-	public override /*native event */int Main(string Params)
+	public override /*native event */int Main(String Params)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

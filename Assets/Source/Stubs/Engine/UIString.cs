@@ -12,14 +12,14 @@ public partial class UIString : UIRoot/* within UIScreenObject*//*
 	public /*transient */Object.Vector2D StringExtent;
 	
 	// Export UUIString::execSetValue(FFrame&, void* const)
-	public virtual /*native final function */bool SetValue(string InputString, bool bIgnoreMarkup)
+	public virtual /*native final function */bool SetValue(String InputString, bool bIgnoreMarkup)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIString::execGetValue(FFrame&, void* const)
-	public virtual /*native final function */string GetValue(/*optional */bool? _bReturnProcessedText = default)
+	public virtual /*native final function */String GetValue(/*optional */bool? _bReturnProcessedText = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

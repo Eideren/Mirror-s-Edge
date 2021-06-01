@@ -6,7 +6,7 @@ public partial class TdCheckpoint : Checkpoint/*
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
 	public/*(Checkpoint)*/ bool DefaultCheckpoint;
-	public/*(Checkpoint)*/ string CheckpointName;
+	public/*(Checkpoint)*/ String CheckpointName;
 	public/*(Checkpoint)*/ int CheckpointWeight;
 	public/*(Checkpoint)*/ /*editconst */array</*editconst */LevelStreaming> StreamingLevels;
 	
@@ -39,7 +39,6 @@ public partial class TdCheckpoint : Checkpoint/*
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdCheckpoint.Sprite2")/*Ref SpriteComponent'Default__TdCheckpoint.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E51E29

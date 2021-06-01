@@ -71,7 +71,7 @@ public partial class TdUIScene_NewRecord : TdUIScene/*
 	
 	}
 	
-	public virtual /*function */void SetOldRecord(float Time, string PlayerName, int NumStars)
+	public virtual /*function */void SetOldRecord(float Time, String PlayerName, int NumStars)
 	{
 	
 	}
@@ -82,19 +82,19 @@ public partial class TdUIScene_NewRecord : TdUIScene/*
 		return default;
 	}
 	
-	public virtual /*function */string GetOldName(string OldName)
+	public virtual /*function */String GetOldName(String OldName)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */string GetOldTime(float Time)
+	public virtual /*function */String GetOldTime(float Time)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool GetRecordDescription(TdTTResult TTResult, ref string winStr)
+	public virtual /*function */bool GetRecordDescription(TdTTResult TTResult, ref String winStr)
 	{
 	
 		return default;

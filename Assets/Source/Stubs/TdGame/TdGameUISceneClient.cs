@@ -18,7 +18,7 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 	public float AvgRenderTime;
 	public float FrameCount;
 	public float StringRenderTime;
-	public /*private */string LoadingSceneText;
+	public /*private */String LoadingSceneText;
 	public Object.Color SceneFadeColor;
 	public /*transient */UIScene DiskAccessScene;
 	public /*private transient */int BGSatMask;
@@ -72,7 +72,7 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 	
 	}
 	
-	public virtual /*function */void OpenLoadingScene(string Text, LocalPlayer Player, /*optional *//*delegate*/TdGameUISceneClient.LoadingSceneOpened? _SceneOpened = default, /*optional *//*delegate*/TdUIScene.OnSceneFullyOpened? _SceneFullyOpened = default)
+	public virtual /*function */void OpenLoadingScene(String Text, LocalPlayer Player, /*optional *//*delegate*/TdGameUISceneClient.LoadingSceneOpened? _SceneOpened = default, /*optional *//*delegate*/TdUIScene.OnSceneFullyOpened? _SceneFullyOpened = default)
 	{
 	
 	}
@@ -142,7 +142,6 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 		};
 		AnimSequencePool = new array<UIAnimationSeq>
 		{
-			//AnimSequencePool[0]=
 			new UIAnimationSeq
 			{
 				// Object Offset:0x03741CD2
@@ -256,7 +255,6 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 					},
 				},
 			}/* Reference: UIAnimationSeq'Default__TdGameUISceneClient.seqFirstStarFadeIn' */,
-			//AnimSequencePool[1]=
 			new UIAnimationSeq
 			{
 				// Object Offset:0x037427CA
@@ -338,7 +336,6 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 					},
 				},
 			}/* Reference: UIAnimationSeq'Default__TdGameUISceneClient.seqStarFadeIn' */,
-			//AnimSequencePool[2]=
 			new UIAnimationSeq
 			{
 				// Object Offset:0x03741802
@@ -452,7 +449,6 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 					},
 				},
 			}/* Reference: UIAnimationSeq'Default__TdGameUISceneClient.seqControllerFlash' */,
-			//AnimSequencePool[3]=
 			new UIAnimationSeq
 			{
 				// Object Offset:0x037421A2

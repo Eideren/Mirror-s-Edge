@@ -111,7 +111,7 @@ public partial class DynamicSMActor : Actor/*
 	
 	public virtual /*simulated function */bool CanBasePawn(Pawn P)
 	{
-		if(bPawnCanBaseOn || (bSafeBaseIfAsleep && StaticMeshComponent != default) && !StaticMeshComponent.RigidBodyIsAwake(default))
+		if(bPawnCanBaseOn || (bSafeBaseIfAsleep && StaticMeshComponent != default) && !StaticMeshComponent.RigidBodyIsAwake(default(name?)))
 		{
 			return true;
 		}
@@ -185,13 +185,11 @@ public partial class DynamicSMActor : Actor/*
 		bPathColliding = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new DynamicLightEnvironmentComponent
 			{
 				// Object Offset:0x003130F9
 				bEnabled = false,
 			}/* Reference: DynamicLightEnvironmentComponent'Default__DynamicSMActor.MyLightEnvironment' */,
-			//Components[1]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x0031312D

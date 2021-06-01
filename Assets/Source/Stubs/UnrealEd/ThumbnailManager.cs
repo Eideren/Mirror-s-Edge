@@ -24,14 +24,14 @@ public partial class ThumbnailManager : Object/*
 	
 	public partial struct /*native */ThumbnailRenderingInfo
 	{
-		public string ClassNeedingThumbnailName;
+		public String ClassNeedingThumbnailName;
 		public Class ClassNeedingThumbnail;
-		public string RendererClassName;
+		public String RendererClassName;
 		public ThumbnailRenderer Renderer;
-		public string LabelRendererClassName;
+		public String LabelRendererClassName;
 		public ThumbnailLabelRenderer LabelRenderer;
 		public Object.Color BorderColor;
-		public string IconName;
+		public String IconName;
 	
 	//	structdefaultproperties
 	//	{

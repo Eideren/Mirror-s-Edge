@@ -22,7 +22,7 @@ public partial class TdSwingVolume : TdMovementVolume/*
 		((TdP.Moves[60]) as TdMove_Swing).Volume = this;
 		if(TdP.Moves[60].CanDoMove())
 		{
-			TdP.SetMove(TdPawn.EMovement.MOVE_Swing/*60*/, default, default);
+			TdP.SetMove(TdPawn.EMovement.MOVE_Swing/*60*/, default(bool?), default(bool?));
 			TdP.ActiveMovementVolume = default;		
 		}
 		else

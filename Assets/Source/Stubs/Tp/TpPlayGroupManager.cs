@@ -58,12 +58,12 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	public delegate void OnPlayGroupMemberJoin(OnlineSubsystem.UniqueNetId UserId);
 	
 	// Export UTpPlayGroupManager::execBroadCastChatMessageAsync(FFrame&, void* const)
-	public virtual /*native simulated function */void BroadCastChatMessageAsync(string Message)
+	public virtual /*native simulated function */void BroadCastChatMessageAsync(String Message)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
-	public delegate void OnPlayGroupChatMessageReceived(OnlineSubsystem.UniqueNetId SenderId, string Message);
+	public delegate void OnPlayGroupChatMessageReceived(OnlineSubsystem.UniqueNetId SenderId, String Message);
 	
 	// Export UTpPlayGroupManager::execDestroyPlayGroupAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void DestroyPlayGroupAsync()

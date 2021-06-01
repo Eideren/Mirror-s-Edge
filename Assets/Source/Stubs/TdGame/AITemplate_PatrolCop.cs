@@ -10,7 +10,7 @@ public partial class AITemplate_PatrolCop : AITemplate_Default/*
 		ControllerClass = "TdGame.TdAI_PatrolCop";
 		PawnClass = "TdSpContent.TdBotPawn_PatrolCop";
 		ProfileName = "PatrolCopOneHanded";
-		AnimationSets = "AS_AI_PatrolCop_OneHanded.AS_AI_PatrolCop_OneHanded";
+		AnimationSets[0] = "AS_AI_PatrolCop_OneHanded.AS_AI_PatrolCop_OneHanded";
 		SkeletalMesh = "CH_TKY_Cop_Patrol.SK_TKY_Cop_Patrol";
 		AdditionalSkeletalMesh = "CH_TKY_Cop_Patrol.SK_TKY_Cop_Patrol_Head_2";
 		LegOffsetWalkFwd = 0.0f;

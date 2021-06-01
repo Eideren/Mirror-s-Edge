@@ -10,7 +10,7 @@ public partial class OnlineSubsystemCommonImpl : OnlineSubsystem/*
 	public /*config */bool bIsUsingSpeechRecognition;
 	public OnlineGameInterfaceImpl GameInterfaceImpl;
 	
-	public virtual /*event */string GetPlayerNicknameFromIndex(int UserIndex)
+	public virtual /*event */String GetPlayerNicknameFromIndex(int UserIndex)
 	{
 	
 		return default;

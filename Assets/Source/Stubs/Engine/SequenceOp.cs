@@ -7,7 +7,7 @@ public partial class SequenceOp : SequenceObject/*
 		hidecategories(Object)*/{
 	public partial struct /*native */SeqOpInputLink
 	{
-		public string LinkDesc;
+		public String LinkDesc;
 		public bool bHasImpulse;
 		public bool bDisabled;
 		public bool bDisabledPIE;
@@ -46,7 +46,7 @@ public partial class SequenceOp : SequenceObject/*
 	public partial struct /*native */SeqOpOutputLink
 	{
 		public array<SequenceOp.SeqOpOutputInputLink> Links;
-		public string LinkDesc;
+		public String LinkDesc;
 		public bool bHasImpulse;
 		public bool bDisabled;
 		public bool bDisabledPIE;
@@ -74,7 +74,7 @@ public partial class SequenceOp : SequenceObject/*
 	{
 		public Core.ClassT<SequenceVariable> ExpectedType;
 		public array<SequenceVariable> LinkedVariables;
-		public string LinkDesc;
+		public String LinkDesc;
 		public name LinkVar;
 		public name PropertyName;
 		public bool bWriteable;
@@ -105,7 +105,7 @@ public partial class SequenceOp : SequenceObject/*
 	{
 		public Core.ClassT<SequenceEvent> ExpectedType;
 		public array<SequenceEvent> LinkedEvents;
-		public string LinkDesc;
+		public String LinkDesc;
 		public int DrawX;
 		public bool bHidden;
 	
@@ -145,19 +145,19 @@ public partial class SequenceOp : SequenceObject/*
 	}
 	
 	// Export USequenceOp::execGetObjectVars(FFrame&, void* const)
-	public virtual /*native final function */void GetObjectVars(ref array<Object> objVars, /*optional */string? _inDesc = default)
+	public virtual /*native final function */void GetObjectVars(ref array<Object> objVars, /*optional */String? _inDesc = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export USequenceOp::execGetBoolVars(FFrame&, void* const)
-	public virtual /*native final function */void GetBoolVars(ref array<byte> boolVars, /*optional */string? _inDesc = default)
+	public virtual /*native final function */void GetBoolVars(ref array<byte> boolVars, /*optional */String? _inDesc = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export USequenceOp::execLinkedVariables(FFrame&, void* const)
-	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<SequenceVariable/* OutVariable*/> LinkedVariables(Core.ClassT<SequenceVariable> VarClass, /*optional */string? _inDesc = default)
+	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<SequenceVariable/* OutVariable*/> LinkedVariables(Core.ClassT<SequenceVariable> VarClass, /*optional */String? _inDesc = default)
 	{
 		#warning NATIVE FUNCTION !
 		yield return default;

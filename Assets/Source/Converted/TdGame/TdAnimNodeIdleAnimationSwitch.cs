@@ -6,7 +6,7 @@ public partial class TdAnimNodeIdleAnimationSwitch : TdAnimNodeSwitch/*
 		hidecategories(Object,Object,Object)*/{
 	public virtual /*final simulated event */bool CruddyCelesteTaserTest(Controller C)
 	{
-		return !C.IsInState("Taser", default) && !C.IsInState("Immobile", default);
+		return !C.IsInState("Taser", default(bool?)) && !C.IsInState("Immobile", default(bool?));
 	}
 	
 	public override /*event */void OnInitialize()

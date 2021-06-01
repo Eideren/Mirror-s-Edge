@@ -20,7 +20,6 @@ public partial class TdMoveNode_Slide : TdMoveNode/*
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdMoveNode_Slide.Sprite2")/*Ref SpriteComponent'Default__TdMoveNode_Slide.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E52415

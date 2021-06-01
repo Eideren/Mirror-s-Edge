@@ -10,7 +10,7 @@ public partial class TdUIScene_SplashHint : TdUIScene/*
 	public /*transient */UIImage HintImage;
 	public TdProfileSettings Profile;
 	public int HintNumber;
-	public string CurrentMap;
+	public String CurrentMap;
 	public /*private */float ActivateTimer;
 	public /*private */bool bInputActive;
 	

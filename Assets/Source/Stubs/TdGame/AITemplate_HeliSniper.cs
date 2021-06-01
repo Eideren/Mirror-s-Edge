@@ -10,7 +10,7 @@ public partial class AITemplate_HeliSniper : AITemplate_Default/*
 		ControllerClass = "TdGame.TdAI_HeliSniper";
 		PawnClass = "TdSpContent.TdBotPawn_JKSniper";
 		ProfileName = "BossJacknifeSniper";
-		AnimationSets = "AS_BF_SP09_Jacknife.AS_BF_SP09_Jacknife";
+		AnimationSets[0] = "AS_BF_SP09_Jacknife.AS_BF_SP09_Jacknife";
 		SkeletalMesh = "CH_TKY_Crim_Jacknife.SK_TKY_Crim_Jacknife";
 		ExtraFaithAnimationSet1p = "AS_BF_SP02_Jacknife.AS_BF_SP02_Jacknife_Character1p";
 		ExtraFaithAnimationSet3p = "AS_BF_SP02_Jacknife.AS_BF_SP02_Jacknife_Faith";

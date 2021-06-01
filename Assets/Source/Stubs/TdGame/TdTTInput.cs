@@ -5,7 +5,7 @@ public partial class TdTTInput : Object/*
 		native*/{
 	public partial struct /*native */TTData
 	{
-		public string PlayerName;
+		public String PlayerName;
 		public OnlineSubsystem.UniqueNetId PlayerId;
 		public float TotalTime;
 		public bool HasGhost;

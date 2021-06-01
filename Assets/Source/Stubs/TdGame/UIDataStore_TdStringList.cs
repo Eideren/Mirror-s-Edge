@@ -12,10 +12,10 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 	public partial struct /*native */EStringListData
 	{
 		public name Tag;
-		public /*const localized */string ColumnHeaderText;
-		public string CurrentValue;
+		public /*const localized */String ColumnHeaderText;
+		public String CurrentValue;
 		public int DefaultValueIndex;
-		public /*const localized */array</*localized */string> Strings;
+		public /*const localized */array</*localized */String> Strings;
 		public /*transient */UIDataProvider_TdStringArray DataProvider;
 	
 	//	structdefaultproperties
@@ -47,19 +47,19 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 	}
 	
 	// Export UUIDataStore_TdStringList::execAddStr(FFrame&, void* const)
-	public virtual /*native function */void AddStr(name FieldName, string NewString, /*optional */bool? _bBatchOp = default)
+	public virtual /*native function */void AddStr(name FieldName, String NewString, /*optional */bool? _bBatchOp = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIDataStore_TdStringList::execInsertStr(FFrame&, void* const)
-	public virtual /*native function */void InsertStr(name FieldName, string NewString, int InsertIndex, /*optional */bool? _bBatchOp = default)
+	public virtual /*native function */void InsertStr(name FieldName, String NewString, int InsertIndex, /*optional */bool? _bBatchOp = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIDataStore_TdStringList::execRemoveStr(FFrame&, void* const)
-	public virtual /*native function */void RemoveStr(name FieldName, string StringToRemove, /*optional */bool? _bBatchOp = default)
+	public virtual /*native function */void RemoveStr(name FieldName, String StringToRemove, /*optional */bool? _bBatchOp = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -77,27 +77,27 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 	}
 	
 	// Export UUIDataStore_TdStringList::execFindStr(FFrame&, void* const)
-	public virtual /*native function */int FindStr(name FieldName, string SearchString)
+	public virtual /*native function */int FindStr(name FieldName, String SearchString)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdStringList::execGetStr(FFrame&, void* const)
-	public virtual /*native function */string GetStr(name FieldName, int StrIndex)
+	public virtual /*native function */String GetStr(name FieldName, int StrIndex)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdStringList::execGetList(FFrame&, void* const)
-	public virtual /*native function */array<string> GetList(name FieldName)
+	public virtual /*native function */array<String> GetList(name FieldName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
-	public virtual /*event */bool GetCurrentValue(name FieldName, ref string out_Value)
+	public virtual /*event */bool GetCurrentValue(name FieldName, ref String out_Value)
 	{
 	
 		return default;
@@ -137,7 +137,7 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 				ColumnHeaderText = "Fullscreen",
 				CurrentValue = "",
 				DefaultValueIndex = 1,
-				Strings = new array</*localized */string>
+				Strings = new array</*localized */String>
 				{
 					"FULLSCREEN",
 					"WINDOWED",
@@ -150,7 +150,7 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 				ColumnHeaderText = "Resolution",
 				CurrentValue = "",
 				DefaultValueIndex = 0,
-				Strings = new array</*localized */string>
+				Strings = new array</*localized */String>
 				{
 					"800x600",
 					"960x720",
@@ -166,7 +166,7 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 				ColumnHeaderText = "VSync",
 				CurrentValue = "",
 				DefaultValueIndex = 0,
-				Strings = new array</*localized */string>
+				Strings = new array</*localized */String>
 				{
 					"OFF",
 					"ON",
@@ -179,7 +179,7 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 				ColumnHeaderText = "TextureDetail",
 				CurrentValue = "",
 				DefaultValueIndex = 2,
-				Strings = new array</*localized */string>
+				Strings = new array</*localized */String>
 				{
 					"LOWEST",
 					"LOW",
@@ -195,7 +195,7 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 				ColumnHeaderText = "GraphicsQuality",
 				CurrentValue = "",
 				DefaultValueIndex = 2,
-				Strings = new array</*localized */string>
+				Strings = new array</*localized */String>
 				{
 					"LOWEST",
 					"LOW",
@@ -211,7 +211,7 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 				ColumnHeaderText = "AudioDevices",
 				CurrentValue = "",
 				DefaultValueIndex = 0,
-				Strings = new array</*localized */string>
+				Strings = new array</*localized */String>
 				{
 					"HARDWARE",
 					"GENERIC SOFTWARE",
@@ -224,7 +224,7 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 				ColumnHeaderText = "TTCompareData",
 				CurrentValue = "",
 				DefaultValueIndex = 0,
-				Strings = new array</*localized */string>
+				Strings = new array</*localized */String>
 				{
 					"TARGET TIME",
 					"WORLD'S BEST",
@@ -239,7 +239,7 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 				ColumnHeaderText = "Antialiasing",
 				CurrentValue = "",
 				DefaultValueIndex = 0,
-				Strings = new array</*localized */string>
+				Strings = new array</*localized */String>
 				{
 					"OFF",
 				},
@@ -251,7 +251,7 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 				ColumnHeaderText = "PhysXSupport",
 				CurrentValue = "",
 				DefaultValueIndex = 0,
-				Strings = new array</*localized */string>
+				Strings = new array</*localized */String>
 				{
 					"OFF",
 					"ON",

@@ -73,7 +73,7 @@ public partial class TdMove_Slide : TdMove/*
 			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Walking/*1*/, 0.0f);
 			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, 0.40f);
 		}
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("CrouchSlide")), 1.0f, 0.40f, 0.40f, default, default);
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("CrouchSlide")), 1.0f, 0.40f, 0.40f, default(bool?), default(bool?));
 		bGoingInto = true;
 		bRequestUncrouch = false;
 		PawnOwner.StartSlideEffect();
@@ -119,7 +119,7 @@ public partial class TdMove_Slide : TdMove/*
 		base.StopMove();
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, 0.20f);
 		PawnOwner.Velocity = PawnOwner.Velocity / 2.0f;
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("CrouchSlideToCrouch")), 1.0f, 0.10f, 0.20f, default, default);
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("CrouchSlideToCrouch")), 1.0f, 0.10f, 0.20f, default(bool?), default(bool?));
 		PawnOwner.FaceRotationTimeLeft = 0.40f;
 		PawnOwner.LegRotation = PawnOwner.Controller.Rotation.Yaw;
 		PawnOwner.StopSlideEffect();
@@ -156,7 +156,7 @@ public partial class TdMove_Slide : TdMove/*
 	
 	public virtual /*event */void AbortMove()
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Crouch/*15*/, default(bool?), default(bool?));
 	}
 	
 	public override /*simulated function */void OnTimer()

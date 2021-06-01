@@ -62,7 +62,7 @@ public partial class TdMove_GrabTransfer : TdPhysicsMove/*
 		base.StartMove();
 		if(!bFitForGrab && ((int)TransferMove) == ((int)TdPawn.EMovement.MOVE_VaultOver/*9*/))
 		{
-			PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default);
+			PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default(bool?));
 			PawnOwner.bCollideWorld = false;
 		}
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, 0.10f);
@@ -75,11 +75,11 @@ public partial class TdMove_GrabTransfer : TdPhysicsMove/*
 		PawnOwner.MoveLedgeLocation = TransferLookAtLocation;
 		PawnOwner.MoveLedgeNormal = TransferLedgeNormal;
 		TransferSpeed = FMax(TransferDistance / 0.550f, 200.0f);
-		PawnOwner.SetAnimationMovementState(((TdPawn.EMovement)PawnOwner.OldMovementState), default);
+		PawnOwner.SetAnimationMovementState(((TdPawn.EMovement)PawnOwner.OldMovementState), default(float?));
 		if(((int)TransferHint) != ((int)TdPawn.EMoveActionHint.MAH_Up/*3*/))
 		{
-			SetLookAtTargetLocation(TransferLookAtLocation, 0.20f, default);
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)TransferHint) == ((int)TdPawn.EMoveActionHint.MAH_Right/*2*/)) ? "HangTurnRightStart" : "HangTurnLeftStart"), 1.0f, 0.20f, 0.10f, default, default);
+			SetLookAtTargetLocation(TransferLookAtLocation, 0.20f, default(float?));
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)TransferHint) == ((int)TdPawn.EMoveActionHint.MAH_Right/*2*/)) ? "HangTurnRightStart" : "HangTurnLeftStart"), 1.0f, 0.20f, 0.10f, default(bool?), default(bool?));
 			SetTimer(0.20f);		
 		}
 		else
@@ -129,16 +129,16 @@ public partial class TdMove_GrabTransfer : TdPhysicsMove/*
 		{
 			if(((PawnOwner.Moves[3]) as TdMove_Grab).IsHangingFree())
 			{
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("hangfreetransferup")), 1.0f, 0.10f, 0.10f, default, default);			
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("hangfreetransferup")), 1.0f, 0.10f, 0.10f, default(bool?), default(bool?));			
 			}
 			else
 			{
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("hangtransferup")), 1.0f, 0.10f, 0.10f, default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("hangtransferup")), 1.0f, 0.10f, 0.10f, default(bool?), default(bool?));
 			}		
 		}
 		else
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("HangTurnJump")), 1.0f, 0.20f, 0.20f, default, default);
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("HangTurnJump")), 1.0f, 0.20f, 0.20f, default(bool?), default(bool?));
 		}
 	}
 	
@@ -153,30 +153,30 @@ public partial class TdMove_GrabTransfer : TdPhysicsMove/*
 			((PawnOwner.Moves[21]) as TdMove_Climb).Ladder = TransferLadder;
 			if(PawnOwner.Moves[22].CanDoMove())
 			{
-				PawnOwner.SetMove(TdPawn.EMovement.MOVE_IntoClimb/*22*/, default, default);
+				PawnOwner.SetMove(TdPawn.EMovement.MOVE_IntoClimb/*22*/, default(bool?), default(bool?));
 				PawnOwner.ActiveMovementVolume = default;			
 			}
 			else
 			{
 				((PawnOwner.Moves[22]) as TdMove_IntoClimb).Ladder = default;
 				((PawnOwner.Moves[21]) as TdMove_Climb).Ladder = default;
-				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
+				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
 			}		
 		}
 		else
 		{
-			PawnOwner.SetMove(((TdPawn.EMovement)TransferMove), default, default);
+			PawnOwner.SetMove(((TdPawn.EMovement)TransferMove), default(bool?), default(bool?));
 		}
 	}
 	
 	public override /*simulated event */void FailedToReachPreciseLocation()
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
 	}
 	
 	public override /*simulated function */void HitWall(Object.Vector HitNormal, Actor Wall)
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
 	}
 	
 	public override /*simulated function */void OnTimer()
@@ -185,10 +185,10 @@ public partial class TdMove_GrabTransfer : TdPhysicsMove/*
 		PawnOwner.FaceRotationTimeLeft = 0.50f;
 		PawnOwner.LegRotation = PawnOwner.Controller.Rotation.Yaw;
 		PlayTransferAnimation();
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_GrabTransfer/*31*/, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_GrabTransfer/*31*/, default(float?));
 		if(((int)TransferMove) != ((int)TdPawn.EMovement.MOVE_VaultOver/*9*/))
 		{
-			SetLookAtTargetLocation(TransferLookAtLocation, 0.80f, default);		
+			SetLookAtTargetLocation(TransferLookAtLocation, 0.80f, default(float?));		
 		}
 		else
 		{

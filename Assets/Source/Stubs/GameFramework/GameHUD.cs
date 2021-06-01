@@ -18,15 +18,15 @@ public partial class GameHUD : HUD/*
 	public float TotalTitleDrawTime;
 	public float TotalTitleFadeTime;
 	public float TitleDrawStartTime;
-	public string ChapterTitleString;
-	public string ActTitleString;
+	public String ChapterTitleString;
+	public String ActTitleString;
 	
 	public virtual /*function */void SetHUDDrawColor(GameHUD.EGameHUDColor eColor, /*optional */byte? _Alpha = default)
 	{
 	
 	}
 	
-	public virtual /*simulated function */void StartDrawingChapterTitle(string ChapterName, string ActName, float TotalDrawTime, float TotalFadeTime)
+	public virtual /*simulated function */void StartDrawingChapterTitle(String ChapterName, String ActName, float TotalDrawTime, float TotalFadeTime)
 	{
 	
 	}

@@ -39,7 +39,6 @@ public partial class TdInv_Shield : TdEquipment/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__TdInv_Shield.Sprite")/*Ref SpriteComponent'Default__TdInv_Shield.Sprite'*/,
-			//Components[1]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x03128216

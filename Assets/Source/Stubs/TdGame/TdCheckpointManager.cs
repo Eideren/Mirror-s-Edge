@@ -5,8 +5,8 @@ public partial class TdCheckpointManager : Object/*
 		native*/{
 	public partial struct /*native */CheckpointInformation
 	{
-		public string MapName;
-		public array<string> Checkpoints;
+		public String MapName;
+		public array<String> Checkpoints;
 	
 	//	structdefaultproperties
 	//	{
@@ -16,11 +16,11 @@ public partial class TdCheckpointManager : Object/*
 	//	}
 	};
 	
-	public /*private transient */string ActiveCheckpoint;
-	public /*private transient */string ActiveMap;
+	public /*private transient */String ActiveCheckpoint;
+	public /*private transient */String ActiveMap;
 	public /*private transient */int ActiveCheckpointWeight;
-	public /*private transient */string LastSavedMap;
-	public /*private transient */string LastSavedCheckpoint;
+	public /*private transient */String LastSavedMap;
+	public /*private transient */String LastSavedCheckpoint;
 	public /*private transient */int NumProfileSaveTries;
 	public /*private transient */TdPlayerController ActivePlayerController;
 	public /*private transient */array<TdCheckpointManager.CheckpointInformation> CachedCheckpointInformation;
@@ -55,24 +55,24 @@ public partial class TdCheckpointManager : Object/*
 		return default;
 	}
 	
-	public virtual /*function */bool GetContinueGame(ref string Map, ref string Checkpoint)
+	public virtual /*function */bool GetContinueGame(ref String Map, ref String Checkpoint)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*event */string GetActiveCheckpoint()
+	public virtual /*event */String GetActiveCheckpoint()
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */void SetActiveCheckpoint(string NewCheckpoint)
+	public virtual /*function */void SetActiveCheckpoint(String NewCheckpoint)
 	{
 	
 	}
 	
-	public virtual /*event */string GetActiveMap()
+	public virtual /*event */String GetActiveMap()
 	{
 	
 		return default;
@@ -113,7 +113,7 @@ public partial class TdCheckpointManager : Object/*
 	
 	}
 	
-	public virtual /*private final event */void GetMapAndCheckpointIndex(string MapName, string CheckpointName, ref int MapIndex, ref int CheckpointIndex)
+	public virtual /*private final event */void GetMapAndCheckpointIndex(String MapName, String CheckpointName, ref int MapIndex, ref int CheckpointIndex)
 	{
 	
 	}

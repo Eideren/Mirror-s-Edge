@@ -69,7 +69,6 @@ public partial class Trigger : Actor/*
 		bProjTarget = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x003FF65A
@@ -77,7 +76,6 @@ public partial class Trigger : Actor/*
 				AlwaysLoadOnClient = false,
 				AlwaysLoadOnServer = false,
 			}/* Reference: SpriteComponent'Default__Trigger.Sprite' */,
-			//Components[1]=
 			new CylinderComponent
 			{
 				// Object Offset:0x003FF6C6

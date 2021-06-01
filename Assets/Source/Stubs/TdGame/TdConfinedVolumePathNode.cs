@@ -7,7 +7,7 @@ public partial class TdConfinedVolumePathNode : VolumePathNode/*
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
 	public/*(NavigationPoint)*/ float MaxRadius;
 	public/*(NavigationPoint)*/ float MaxHeight;
-	public string name2;
+	public String name2;
 	public float CalculatedRadius;
 	public float CalculatedHeight;
 	

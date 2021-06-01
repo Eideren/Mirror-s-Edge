@@ -39,7 +39,6 @@ public partial class TdBotPawn_Dummy : TdBotPawn/*
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_Dummy.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_Dummy.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdBotPawn_Dummy.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_Dummy.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_Dummy.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_Dummy.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x0002298A

@@ -5,20 +5,20 @@ public partial class AccessControl : Info/*
 		config(Game)
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public /*globalconfig */array</*config */string> IPPolicies;
+	public /*globalconfig */array</*config */String> IPPolicies;
 	public /*globalconfig */array</*config */OnlineSubsystem.UniqueNetId> BannedIDs;
-	public /*const localized */string IPBanned;
-	public /*const localized */string WrongPassword;
-	public /*const localized */string NeedPassword;
-	public /*const localized */string SessionBanned;
-	public /*const localized */string KickedMsg;
-	public /*const localized */string DefaultKickReason;
-	public /*const localized */string IdleKickReason;
+	public /*const localized */String IPBanned;
+	public /*const localized */String WrongPassword;
+	public /*const localized */String NeedPassword;
+	public /*const localized */String SessionBanned;
+	public /*const localized */String KickedMsg;
+	public /*const localized */String DefaultKickReason;
+	public /*const localized */String IdleKickReason;
 	public Core.ClassT<Admin> AdminClass;
-	public /*private globalconfig */string AdminPassword;
-	public /*private globalconfig */string GamePassword;
-	public /*const localized */StaticArray<string, string, string>/*[3]*/ ACDisplayText;
-	public /*const localized */StaticArray<string, string, string>/*[3]*/ ACDescText;
+	public /*private globalconfig */String AdminPassword;
+	public /*private globalconfig */String GamePassword;
+	public /*const localized */StaticArray<String, String, String>/*[3]*/ ACDisplayText;
+	public /*const localized */StaticArray<String, String, String>/*[3]*/ ACDescText;
 	public bool bDontAddDefaultAdmin;
 	
 	public virtual /*function */bool IsAdmin(PlayerController P)
@@ -27,13 +27,13 @@ public partial class AccessControl : Info/*
 		return default;
 	}
 	
-	public virtual /*function */bool SetAdminPassword(string P)
+	public virtual /*function */bool SetAdminPassword(String P)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */void SetGamePassword(string P)
+	public virtual /*function */void SetGamePassword(String P)
 	{
 	
 	}
@@ -44,29 +44,29 @@ public partial class AccessControl : Info/*
 		return default;
 	}
 	
-	public virtual /*function */Controller GetControllerFromString(string Target)
+	public virtual /*function */Controller GetControllerFromString(String Target)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */void Kick(string Target)
+	public virtual /*function */void Kick(String Target)
 	{
 	
 	}
 	
-	public virtual /*function */void KickBan(string Target)
+	public virtual /*function */void KickBan(String Target)
 	{
 	
 	}
 	
-	public virtual /*function */bool KickPlayer(PlayerController C, string KickReason)
+	public virtual /*function */bool KickPlayer(PlayerController C, String KickReason)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool AdminLogin(PlayerController P, string Password)
+	public virtual /*function */bool AdminLogin(PlayerController P, String Password)
 	{
 	
 		return default;
@@ -88,24 +88,24 @@ public partial class AccessControl : Info/*
 	
 	}
 	
-	public virtual /*function */bool ParseAdminOptions(string Options)
+	public virtual /*function */bool ParseAdminOptions(String Options)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool ValidLogin(string UserName, string Password)
+	public virtual /*function */bool ValidLogin(String UserName, String Password)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*event */void PreLogin(string Options, string Address, ref string OutError, bool bSpectator)
+	public virtual /*event */void PreLogin(String Options, String Address, ref String OutError, bool bSpectator)
 	{
 	
 	}
 	
-	public virtual /*function */bool CheckIPPolicy(string Address)
+	public virtual /*function */bool CheckIPPolicy(String Address)
 	{
 	
 		return default;
@@ -120,7 +120,7 @@ public partial class AccessControl : Info/*
 	public AccessControl()
 	{
 		// Object Offset:0x00260271
-		IPPolicies = new array</*config */string>
+		IPPolicies = new array</*config */String>
 		{
 			"ACCEPT;*",
 		};
@@ -132,13 +132,13 @@ public partial class AccessControl : Info/*
 		DefaultKickReason = "None specified";
 		IdleKickReason = "Kicked for idling.";
 		AdminClass = ClassT<Admin>()/*Ref Class'Admin'*/;
-		ACDisplayText = new StaticArray<string, string, string>/*[3]*/()
+		ACDisplayText = new StaticArray<String, String, String>/*[3]*/()
 		{ 
 			[0] = "Game Password",
 			[1] = "Access Policies",
 			[2] = "Admin Password",
 	 	};
-		ACDescText = new StaticArray<string, string, string>/*[3]*/()
+		ACDescText = new StaticArray<String, String, String>/*[3]*/()
 		{ 
 			[0] = "If this password is set, players will have to enter it to join this server.",
 			[1] = "Specifies IP addresses or address ranges which have been banned.",

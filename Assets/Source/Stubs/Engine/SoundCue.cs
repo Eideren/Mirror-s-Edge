@@ -18,8 +18,8 @@ public partial class SoundCue : Object/*
 	public/*()*/ float PitchMultiplier;
 	public float Duration;
 	public/*()*/ FaceFXAnimSet FaceFXAnimSetRef;
-	public/*()*/ string FaceFXGroupName;
-	public/*()*/ string FaceFXAnimName;
+	public/*()*/ String FaceFXGroupName;
+	public/*()*/ String FaceFXAnimName;
 	public/*()*/ int MaxConcurrentPlayCount;
 	public/*()*/ float timeToLive;
 	public/*()*/ int AbsoluteMaxConcurrentPlayCount;

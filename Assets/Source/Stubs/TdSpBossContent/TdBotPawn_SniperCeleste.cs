@@ -57,7 +57,6 @@ public partial class TdBotPawn_SniperCeleste : TdBotPawn/*
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_SniperCeleste.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_SniperCeleste.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdBotPawn_SniperCeleste.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_SniperCeleste.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_SniperCeleste.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_SniperCeleste.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x00003AB2

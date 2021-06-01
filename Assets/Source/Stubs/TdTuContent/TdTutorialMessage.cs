@@ -2,9 +2,9 @@ namespace MEdge.TdTuContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdEditor;
 
 public partial class TdTutorialMessage : TdLocalMessage{
-	public /*const localized */array</*localized */string> MCDesc;
+	public /*const localized */array</*localized */String> MCDesc;
 	
-	public /*function */static string GetString(/*optional */int? _Switch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _Killer = default, /*optional */PlayerReplicationInfo? _Victim = default, /*optional */Object? _OptionalObject = default)
+	public /*function */static String GetString(/*optional */int? _Switch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _Killer = default, /*optional */PlayerReplicationInfo? _Victim = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;
@@ -13,7 +13,7 @@ public partial class TdTutorialMessage : TdLocalMessage{
 	public TdTutorialMessage()
 	{
 		// Object Offset:0x00002608
-		MCDesc = new array</*localized */string>
+		MCDesc = new array</*localized */String>
 		{
 			"<StringAliasMap:Accept> Now time you jump carefully and make it to the next roopf.",
 			"<StringAliasMap:Accept> Run towards the fence and vault over it by timing your jump",

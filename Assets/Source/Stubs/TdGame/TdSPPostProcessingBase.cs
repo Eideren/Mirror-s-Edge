@@ -7,7 +7,7 @@ public partial class TdSPPostProcessingBase : Object/* within TdSPGame*//*
 	
 	public /*private transient */TdUIScene_LoadIndicator LoadIndicator;
 	public /*private transient */TdUIScene_MessageBox ErrorMessageBox;
-	public /*protected */string PlayerName;
+	public /*protected */String PlayerName;
 	public /*protected */OnlineSubsystem.UniqueNetId PlayerId;
 	public /*protected */float TotalTime;
 	public /*protected */array<float> IntermediateTimes;
@@ -18,8 +18,8 @@ public partial class TdSPPostProcessingBase : Object/* within TdSPGame*//*
 	public /*protected */int StretchId;
 	public /*protected */int ControllerId;
 	public /*private transient */bool bError;
-	public /*private transient */string ErrorTitle;
-	public /*private transient */string ErrorMessage;
+	public /*private transient */String ErrorTitle;
+	public /*private transient */String ErrorMessage;
 	public /*protected transient */TdTTInput InputToProcess;
 	public /*protected transient */TdTTResult TTResult;
 	public /*protected */UIDataStore_TdTimeTrialData TTDataStore;
@@ -92,7 +92,7 @@ public partial class TdSPPostProcessingBase : Object/* within TdSPGame*//*
 	
 	}
 	
-	public virtual /*protected function */void SetError(string Title, string Message)
+	public virtual /*protected function */void SetError(String Title, String Message)
 	{
 	
 	}

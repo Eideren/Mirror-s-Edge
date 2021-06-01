@@ -63,7 +63,7 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		}
 		if((PawnOwner.IsA("TdPlayerPawn") && ((int)PawnOwner.GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)) && ((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_Landing/*20*/))
 		{
-			PawnOwner.PlayCustomAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, "JumpLand", 1.0f, 0.20f, 0.10f, false, true, false, default);
+			PawnOwner.PlayCustomAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, "JumpLand", 1.0f, 0.20f, 0.10f, false, true, false, default(bool?));
 			SetMoveTimer(0.20f, false, "OnBlendOutJumpLandTimer");
 		}
 	}
@@ -73,10 +73,10 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		/*local */TdAnimNodeSequence AnimSeq1p = default;
 	
 		base.StopMove();
-		PawnOwner.SetHipsOffset(vect(0.0f, 0.0f, 0.0f), default, default);
+		PawnOwner.SetHipsOffset(vect(0.0f, 0.0f, 0.0f), default(float?), default(bool?));
 		if(bIsPlayingIdleAnim)
 		{
-			StopIdle(default);
+			StopIdle(default(float?));
 		}
 		if(((((int)PawnOwner.GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)) && PawnOwner.CustomWeaponNode1p != default) && ((int)PawnOwner.PendingMovementState) != ((int)TdPawn.EMovement.MOVE_Slide/*16*/))
 		{
@@ -102,7 +102,7 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		{
 			HipsOffset.X = 0.0f;
 		}
-		PawnOwner.SetHipsOffset(HipsOffset, default, default);
+		PawnOwner.SetHipsOffset(HipsOffset, default(float?), default(bool?));
 		base.UpdateViewRotation(ref/*probably?*/ out_Rotation, DeltaTime, ref/*probably?*/ DeltaRot);
 		TdPC = ((PawnOwner.Controller) as TdPlayerController);
 		if(TdPC != default)
@@ -114,7 +114,7 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		{
 			if(bIsPlayingIdleAnim)
 			{
-				StopIdle(default);
+				StopIdle(default(float?));
 			}
 			SetMoveTimer(GetNewIdleTriggerTime(), false, "OnIdleTimer");
 		}
@@ -127,7 +127,7 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		{
 			if(bIsPlayingIdleAnim)
 			{
-				StopIdle(default);
+				StopIdle(default(float?));
 			}
 			SetMoveTimer(GetNewIdleTriggerTime(), false, "OnIdleTimer");
 		}
@@ -209,7 +209,7 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		}
 		if(CurrentIdleAnim.AnimName != "None")
 		{
-			PlayMoveAnim(((TdPawn.CustomNodeType)CurrentIdleAnim.NodeType), CurrentIdleAnim.AnimName, 1.0f, 0.40f, 0.40f, default, default);
+			PlayMoveAnim(((TdPawn.CustomNodeType)CurrentIdleAnim.NodeType), CurrentIdleAnim.AnimName, 1.0f, 0.40f, 0.40f, default(bool?), default(bool?));
 			bIsPlayingIdleAnim = true;		
 		}
 		else

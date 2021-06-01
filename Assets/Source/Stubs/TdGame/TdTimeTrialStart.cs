@@ -31,7 +31,6 @@ public partial class TdTimeTrialStart : TdPlayerStart/*
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdTimeTrialStart.Sprite2")/*Ref SpriteComponent'Default__TdTimeTrialStart.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E52865
@@ -42,7 +41,6 @@ public partial class TdTimeTrialStart : TdPlayerStart/*
 			LoadAsset<ArrowComponent>("Default__TdTimeTrialStart.Arrow")/*Ref ArrowComponent'Default__TdTimeTrialStart.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__TdTimeTrialStart.CollisionCylinder")/*Ref CylinderComponent'Default__TdTimeTrialStart.CollisionCylinder'*/,
 			LoadAsset<PathRenderingComponent>("Default__TdTimeTrialStart.PathRenderer")/*Ref PathRenderingComponent'Default__TdTimeTrialStart.PathRenderer'*/,
-			//Components[5]=
 			new DrawSphereComponent
 			{
 				// Object Offset:0x01B685F2

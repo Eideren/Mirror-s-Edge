@@ -256,7 +256,7 @@ public partial class Controller : Actor/*
 	
 	}
 	
-	public virtual /*function */void SetCharacter(string inCharacter)
+	public virtual /*function */void SetCharacter(String inCharacter)
 	{
 	
 	}
@@ -645,7 +645,7 @@ public partial class Controller : Actor/*
 	
 	}
 	
-	public override /*simulated function */string GetHumanReadableName()
+	public override /*simulated function */String GetHumanReadableName()
 	{
 	
 		return default;
@@ -818,7 +818,6 @@ public partial class Controller : Actor/*
 		bHiddenEd = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x00268ACD

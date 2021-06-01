@@ -63,7 +63,7 @@ public interface OnlineGameInterface : Interface/*
 	
 	public /*function */void ClearJoinOnlineGameCompleteDelegate(/*delegate*/OnlineGameInterface.OnJoinOnlineGameComplete JoinOnlineGameCompleteDelegate);
 	
-	public /*function */bool GetResolvedConnectString(ref string ConnectInfo);
+	public /*function */bool GetResolvedConnectString(ref String ConnectInfo);
 	
 	public /*function */bool RegisterPlayer(OnlineSubsystem.UniqueNetId PlayerId, bool bWasInvited);
 	

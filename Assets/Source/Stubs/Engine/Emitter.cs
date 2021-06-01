@@ -85,7 +85,6 @@ public partial class Emitter : Actor/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x00317D07
@@ -96,13 +95,11 @@ public partial class Emitter : Actor/*
 				AlwaysLoadOnClient = false,
 				AlwaysLoadOnServer = false,
 			}/* Reference: SpriteComponent'Default__Emitter.Sprite' */,
-			//Components[1]=
 			new ParticleSystemComponent
 			{
 				// Object Offset:0x00317DC7
 				SecondsBeforeInactive = 1.0f,
 			}/* Reference: ParticleSystemComponent'Default__Emitter.ParticleSystemComponent0' */,
-			//Components[2]=
 			new ArrowComponent
 			{
 				// Object Offset:0x00317DFB

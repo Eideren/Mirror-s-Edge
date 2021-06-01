@@ -101,7 +101,7 @@ public partial class Settings : Object/*
 	{
 		public /*const */int Id;
 		public /*const */name Name;
-		public /*const localized */string ColumnHeaderText;
+		public /*const localized */String ColumnHeaderText;
 		public /*const */array<Settings.StringIdToStringMapping> ValueMappings;
 	
 	//	structdefaultproperties
@@ -131,7 +131,7 @@ public partial class Settings : Object/*
 	{
 		public /*const */int Id;
 		public /*const */name Name;
-		public /*const localized */string ColumnHeaderText;
+		public /*const localized */String ColumnHeaderText;
 		public /*const */Settings.EPropertyValueMappingType MappingType;
 		public /*const */array<Settings.IdToStringMapping> ValueMappings;
 		public /*const */array<Settings.SettingsData> PredefinedValues;
@@ -160,7 +160,7 @@ public partial class Settings : Object/*
 	public array<Settings.SettingsPropertyPropertyMetaData> PropertyMappings;
 	
 	// Export USettings::execSetSettingsDataString(FFrame&, void* const)
-	public /*native function */static void SetSettingsDataString(ref Settings.SettingsData Data, string InString)
+	public /*native function */static void SetSettingsDataString(ref Settings.SettingsData Data, String InString)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -202,7 +202,7 @@ public partial class Settings : Object/*
 	}
 	
 	// Export USettings::execGetSettingsDataString(FFrame&, void* const)
-	public /*native function */static string GetSettingsDataString(ref Settings.SettingsData Data)
+	public /*native function */static String GetSettingsDataString(ref Settings.SettingsData Data)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -282,7 +282,7 @@ public partial class Settings : Object/*
 	}
 	
 	// Export USettings::execGetStringSettingColumnHeader(FFrame&, void* const)
-	public virtual /*native function */string GetStringSettingColumnHeader(int StringSettingId)
+	public virtual /*native function */String GetStringSettingColumnHeader(int StringSettingId)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -310,7 +310,7 @@ public partial class Settings : Object/*
 	}
 	
 	// Export USettings::execSetStringSettingValueFromStringByName(FFrame&, void* const)
-	public virtual /*native function */bool SetStringSettingValueFromStringByName(name StringSettingName, /*const */ref string NewValue)
+	public virtual /*native function */bool SetStringSettingValueFromStringByName(name StringSettingName, /*const */ref String NewValue)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -331,28 +331,28 @@ public partial class Settings : Object/*
 	}
 	
 	// Export USettings::execGetPropertyColumnHeader(FFrame&, void* const)
-	public virtual /*native function */string GetPropertyColumnHeader(int PropertyId)
+	public virtual /*native function */String GetPropertyColumnHeader(int PropertyId)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export USettings::execGetPropertyAsString(FFrame&, void* const)
-	public virtual /*native function */string GetPropertyAsString(int PropertyId)
+	public virtual /*native function */String GetPropertyAsString(int PropertyId)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export USettings::execGetPropertyAsStringByName(FFrame&, void* const)
-	public virtual /*native function */string GetPropertyAsStringByName(name PropertyName)
+	public virtual /*native function */String GetPropertyAsStringByName(name PropertyName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export USettings::execSetPropertyFromStringByName(FFrame&, void* const)
-	public virtual /*native function */bool SetPropertyFromStringByName(name PropertyName, /*const */ref string NewValue)
+	public virtual /*native function */bool SetPropertyFromStringByName(name PropertyName, /*const */ref String NewValue)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -385,13 +385,13 @@ public partial class Settings : Object/*
 	}
 	
 	// Export USettings::execSetStringProperty(FFrame&, void* const)
-	public virtual /*native function */void SetStringProperty(int PropertyId, string Value)
+	public virtual /*native function */void SetStringProperty(int PropertyId, String Value)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export USettings::execGetStringProperty(FFrame&, void* const)
-	public virtual /*native function */bool GetStringProperty(int PropertyId, ref string Value)
+	public virtual /*native function */bool GetStringProperty(int PropertyId, ref String Value)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -471,31 +471,31 @@ public partial class Settings : Object/*
 	}
 	
 	// Export USettings::execAppendDataBindingsToURL(FFrame&, void* const)
-	public virtual /*native function */void AppendDataBindingsToURL(ref string URL)
+	public virtual /*native function */void AppendDataBindingsToURL(ref String URL)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export USettings::execAppendPropertiesToURL(FFrame&, void* const)
-	public virtual /*native function */void AppendPropertiesToURL(ref string URL)
+	public virtual /*native function */void AppendPropertiesToURL(ref String URL)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export USettings::execAppendContextsToURL(FFrame&, void* const)
-	public virtual /*native function */void AppendContextsToURL(ref string URL)
+	public virtual /*native function */void AppendContextsToURL(ref String URL)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export USettings::execBuildURL(FFrame&, void* const)
-	public virtual /*native function */void BuildURL(ref string URL)
+	public virtual /*native function */void BuildURL(ref String URL)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export USettings::execUpdateFromURL(FFrame&, void* const)
-	public virtual /*native function */void UpdateFromURL(/*const */ref string URL, GameInfo Game)
+	public virtual /*native function */void UpdateFromURL(/*const */ref String URL, GameInfo Game)
 	{
 		#warning NATIVE FUNCTION !
 	}

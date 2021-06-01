@@ -6,13 +6,13 @@ public partial class InternetInfo : Info/*
 		native
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public virtual /*function */string GetBeaconAddress(int I)
+	public virtual /*function */String GetBeaconAddress(int I)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */string GetBeaconText(int I)
+	public virtual /*function */String GetBeaconText(int I)
 	{
 	
 		return default;

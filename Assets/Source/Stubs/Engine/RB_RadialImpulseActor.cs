@@ -41,13 +41,11 @@ public partial class RB_RadialImpulseActor : Actor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DrawSphereComponent>("Default__RB_RadialImpulseActor.DrawSphere0")/*Ref DrawSphereComponent'Default__RB_RadialImpulseActor.DrawSphere0'*/,
-			//Components[1]=
 			new RB_RadialImpulseComponent
 			{
 				// Object Offset:0x004CE596
 				PreviewSphere = LoadAsset<DrawSphereComponent>("Default__RB_RadialImpulseActor.DrawSphere0")/*Ref DrawSphereComponent'Default__RB_RadialImpulseActor.DrawSphere0'*/,
 			}/* Reference: RB_RadialImpulseComponent'Default__RB_RadialImpulseActor.ImpulseComponent0' */,
-			//Components[2]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D0462

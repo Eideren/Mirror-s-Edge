@@ -26,7 +26,6 @@ public partial class TdAI_RunnerVisionEffect : InterpActor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdAI_RunnerVisionEffect.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdAI_RunnerVisionEffect.MyLightEnvironment'*/,
-			//Components[1]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x02EA6B5B

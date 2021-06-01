@@ -20,7 +20,6 @@ public partial class SpotLightToggleable : SpotLight/*
 		bHardAttach = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D060A
@@ -29,7 +28,6 @@ public partial class SpotLightToggleable : SpotLight/*
 			LoadAsset<DrawLightRadiusComponent>("Default__SpotLightToggleable.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__SpotLightToggleable.DrawLightRadius0'*/,
 			LoadAsset<DrawLightConeComponent>("Default__SpotLightToggleable.DrawInnerCone0")/*Ref DrawLightConeComponent'Default__SpotLightToggleable.DrawInnerCone0'*/,
 			LoadAsset<DrawLightConeComponent>("Default__SpotLightToggleable.DrawOuterCone0")/*Ref DrawLightConeComponent'Default__SpotLightToggleable.DrawOuterCone0'*/,
-			//Components[4]=
 			new SpotLightComponent
 			{
 				// Object Offset:0x004CF582

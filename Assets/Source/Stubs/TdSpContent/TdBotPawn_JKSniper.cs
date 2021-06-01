@@ -53,13 +53,11 @@ public partial class TdBotPawn_JKSniper : TdBotPawnNoPhysics/*
 			LoadAsset<DrawFrustumComponent>("Default__TdBotPawn_JKSniper.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn_JKSniper.DrawFrust0'*/,
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_JKSniper.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_JKSniper.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdBotPawn_JKSniper.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_JKSniper.Arrow'*/,
-			//Components[4]=
 			new DynamicLightEnvironmentComponent
 			{
 				// Object Offset:0x000227D6
 				bEnabled = false,
 			}/* Reference: DynamicLightEnvironmentComponent'Default__TdBotPawn_JKSniper.MyLightEnvironment' */,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x000229F6

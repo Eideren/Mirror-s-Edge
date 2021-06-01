@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_SetString : SeqAct_SetSequenceVariable/*
 		native
 		hidecategories(Object)*/{
-	public string Target;
-	public/*()*/ string Value;
+	public String Target;
+	public/*()*/ String Value;
 	
 	public SeqAct_SetString()
 	{

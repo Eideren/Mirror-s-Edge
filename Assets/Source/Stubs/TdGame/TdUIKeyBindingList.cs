@@ -9,7 +9,7 @@ public partial class TdUIKeyBindingList : TdUIWidgetList/*
 	public partial struct /*native */BindKeyData
 	{
 		public name KeyName;
-		public string Command;
+		public String Command;
 		public PlayerInput PInput;
 		public name PreviousBinding;
 		public bool bBindIsPrimary;
@@ -30,9 +30,9 @@ public partial class TdUIKeyBindingList : TdUIWidgetList/*
 	public /*transient */bool bCurrentlyBindingKey;
 	public /*transient */UIObject CurrentlyBindingObject;
 	public /*transient */TdUIScene_MessageBox BindKeyMessageBox;
-	public /*transient */array<string> CurrentBindings;
-	public /*transient */array<string> StoredBindings;
-	public /*transient */array<string> LocalizedFriendlyNames;
+	public /*transient */array<String> CurrentBindings;
+	public /*transient */array<String> StoredBindings;
+	public /*transient */array<String> LocalizedFriendlyNames;
 	
 	// Export UTdUIKeyBindingList::execRefreshBindingLabels(FFrame&, void* const)
 	public virtual /*native function */void RefreshBindingLabels()
@@ -41,7 +41,7 @@ public partial class TdUIKeyBindingList : TdUIWidgetList/*
 	}
 	
 	// Export UTdUIKeyBindingList::execGetBindKeyFromCommand(FFrame&, void* const)
-	public virtual /*native function */string GetBindKeyFromCommand(PlayerInput PInput, string Command, ref int StartIdx)
+	public virtual /*native function */String GetBindKeyFromCommand(PlayerInput PInput, String Command, ref int StartIdx)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

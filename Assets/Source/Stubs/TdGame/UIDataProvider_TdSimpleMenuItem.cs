@@ -8,7 +8,7 @@ public partial class UIDataProvider_TdSimpleMenuItem : UIDataProvider_TdResource
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
 	public /*config */name FieldName;
-	public /*config */array</*config */string> Options;
+	public /*config */array</*config */String> Options;
 	
 }
 }

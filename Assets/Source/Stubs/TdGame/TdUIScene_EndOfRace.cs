@@ -46,13 +46,13 @@ public partial class TdUIScene_EndOfRace : TdUIScene/*
 	
 	}
 	
-	public virtual /*function */string FormatDistance(float Distance)
+	public virtual /*function */String FormatDistance(float Distance)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */string FormatAverageSpeed(float AverageSpeed)
+	public virtual /*function */String FormatAverageSpeed(float AverageSpeed)
 	{
 	
 		return default;

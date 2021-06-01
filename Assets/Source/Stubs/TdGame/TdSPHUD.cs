@@ -24,7 +24,7 @@ public partial class TdSPHUD : TdHUD/*
 	public /*private */Object.Vector2D PopUpPos;
 	public /*private */float PopUpDuration;
 	public /*private */float PopUpStartTime;
-	public /*private */string PopUpMessage;
+	public /*private */String PopUpMessage;
 	public /*const */Font ButtonFontPS3;
 	public /*const */Font ButtonFontXBOX;
 	public /*const */Texture2D UnarmedCrossHair;
@@ -53,12 +53,12 @@ public partial class TdSPHUD : TdHUD/*
 	
 	}
 	
-	public virtual /*function */void ActivatePopUp(TdSPHUD.EPopUpType Type, float Duration, string Message)
+	public virtual /*function */void ActivatePopUp(TdSPHUD.EPopUpType Type, float Duration, String Message)
 	{
 	
 	}
 	
-	public virtual /*function */string BuildBagString()
+	public virtual /*function */String BuildBagString()
 	{
 	
 		return default;
@@ -69,7 +69,7 @@ public partial class TdSPHUD : TdHUD/*
 	
 	}
 	
-	public virtual /*private final function */string LocalizeKeyCommand(string KeyCommand)
+	public virtual /*private final function */String LocalizeKeyCommand(String KeyCommand)
 	{
 	
 		return default;

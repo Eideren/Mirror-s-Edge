@@ -102,7 +102,6 @@ public partial class TdBotPawn_PatrolCop_Steyr : TdBotPawn_PatrolCop/*
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_PatrolCop_Steyr.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Steyr.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdBotPawn_PatrolCop_Steyr.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_PatrolCop_Steyr.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PatrolCop_Steyr.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop_Steyr.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x00022BCE

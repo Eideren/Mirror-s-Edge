@@ -15,9 +15,9 @@ public partial class TdMPHUD : TdHUD/*
 	public/*(HUDIcons)*/ Object.Vector2D RoundTimerPos;
 	public/*(HUDIcons)*/ Object.Vector2D ScorePos;
 	public/*(HUDIcons)*/ Object.Vector2D WarmupTimerPos;
-	public /*const localized */string GameTimeLeft;
-	public /*const localized */string WarmupTimeLeft;
-	public /*const localized */string WaitingForPlayers;
+	public /*const localized */String GameTimeLeft;
+	public /*const localized */String WarmupTimeLeft;
+	public /*const localized */String WaitingForPlayers;
 	
 	public override /*function */void LoadHUDContent(Core.ClassT<TdHUDContent> ContentClass)
 	{

@@ -153,8 +153,8 @@ public partial class OnlineSubsystem : Object/*
 	public partial struct /*native */OnlineFriend
 	{
 		public /*const */OnlineSubsystem.UniqueNetId UniqueId;
-		public /*const */string NickName;
-		public /*const */string PresenceInfo;
+		public /*const */String NickName;
+		public /*const */String PresenceInfo;
 		public /*const */bool bIsOnline;
 		public /*const */bool bIsPlaying;
 		public /*const */bool bIsPlayingThisGame;
@@ -191,8 +191,8 @@ public partial class OnlineSubsystem : Object/*
 	public partial struct /*native */OnlinePlayer
 	{
 		public /*const */OnlineSubsystem.UniqueNetId UniqueId;
-		public /*const */string NickName;
-		public /*const */string PresenceInfo;
+		public /*const */String NickName;
+		public /*const */String PresenceInfo;
 		public /*const */bool bIsOnline;
 		public /*const */bool bIsPlaying;
 		public /*const */bool bIsPlayingThisGame;
@@ -275,8 +275,8 @@ public partial class OnlineSubsystem : Object/*
 	
 	public partial struct /*native */OnlineFileLockerFileInfo
 	{
-		public string Filename;
-		public string Description;
+		public String Filename;
+		public String Description;
 		public int Meta;
 	
 	//	structdefaultproperties
@@ -309,10 +309,10 @@ public partial class OnlineSubsystem : Object/*
 	public partial struct /*native */OnlineContent
 	{
 		public int UserIndex;
-		public string FriendlyName;
-		public string ContentPath;
-		public array<string> ContentPackages;
-		public array<string> ContentFiles;
+		public String FriendlyName;
+		public String ContentPath;
+		public array<String> ContentPackages;
+		public array<String> ContentFiles;
 	
 	//	structdefaultproperties
 	//	{
@@ -356,7 +356,7 @@ public partial class OnlineSubsystem : Object/*
 	public partial struct SpeechRecognizedWord
 	{
 		public int WordId;
-		public string WordText;
+		public String WordText;
 		public float Confidence;
 	
 	//	structdefaultproperties
@@ -442,12 +442,12 @@ public partial class OnlineSubsystem : Object/*
 	public partial struct /*native */OnlineFriendMessage
 	{
 		public OnlineSubsystem.UniqueNetId SendingPlayerId;
-		public string SendingPlayerNick;
+		public String SendingPlayerNick;
 		public bool bIsFriendInvite;
 		public bool bIsGameInvite;
 		public bool bWasAccepted;
 		public bool bWasDenied;
-		public string Message;
+		public String Message;
 	
 	//	structdefaultproperties
 	//	{
@@ -549,14 +549,14 @@ public partial class OnlineSubsystem : Object/*
 	}
 	
 	// Export UOnlineSubsystem::execUniqueNetIdToString(FFrame&, void* const)
-	public /*native final function */static string UniqueNetIdToString(/*const */ref OnlineSubsystem.UniqueNetId IdToConvert)
+	public /*native final function */static String UniqueNetIdToString(/*const */ref OnlineSubsystem.UniqueNetId IdToConvert)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UOnlineSubsystem::execStringToUniqueNetId(FFrame&, void* const)
-	public /*native final function */static bool StringToUniqueNetId(string UniqueNetIdString, ref OnlineSubsystem.UniqueNetId out_UniqueId)
+	public /*native final function */static bool StringToUniqueNetId(String UniqueNetIdString, ref OnlineSubsystem.UniqueNetId out_UniqueId)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

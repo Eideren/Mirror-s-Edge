@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using Fp; using Tp; using Ts; using IpDr
 
 public partial class IconThumbnailRenderer : ThumbnailRenderer/*
 		native*/{
-	public string IconName;
+	public String IconName;
 	public Texture2D Icon;
 	
 }

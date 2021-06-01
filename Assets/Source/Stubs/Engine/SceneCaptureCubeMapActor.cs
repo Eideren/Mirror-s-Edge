@@ -30,7 +30,6 @@ public partial class SceneCaptureCubeMapActor : SceneCaptureActor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SceneCaptureCubeMapComponent>("Default__SceneCaptureCubeMapActor.SceneCaptureCubeMapComponent0")/*Ref SceneCaptureCubeMapComponent'Default__SceneCaptureCubeMapActor.SceneCaptureCubeMapComponent0'*/,
-			//Components[1]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x00579A42

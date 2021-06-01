@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class InterpFilter : Object/*
 		native*/{
-	public string Caption;
+	public String Caption;
 	
 }
 }

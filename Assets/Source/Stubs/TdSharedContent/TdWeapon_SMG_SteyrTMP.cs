@@ -172,7 +172,6 @@ public partial class TdWeapon_SMG_SteyrTMP : TdWeapon_Light/*
 		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.FirstPersonMesh' */;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x000154C7
@@ -183,7 +182,6 @@ public partial class TdWeapon_SMG_SteyrTMP : TdWeapon_Light/*
 					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP'*/,
 				},
 			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.FirstPersonMesh' */,
-			//Components[1]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x0001551F

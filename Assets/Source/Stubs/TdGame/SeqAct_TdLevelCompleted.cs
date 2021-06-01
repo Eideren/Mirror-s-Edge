@@ -3,8 +3,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_TdLevelCompleted : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ string NextLevelName;
-	public/*()*/ string NextCheckpointName;
+	public/*()*/ String NextLevelName;
+	public/*()*/ String NextCheckpointName;
 	
 	public override /*event */void Activated()
 	{

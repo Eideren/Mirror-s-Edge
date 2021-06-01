@@ -744,7 +744,7 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	}
 	
 	// Export USkeletalMeshComponent::execPlayFaceFXAnim(FFrame&, void* const)
-	public virtual /*native final function */bool PlayFaceFXAnim(FaceFXAnimSet FaceFXAnimSetRef, string AnimName, string GroupName)
+	public virtual /*native final function */bool PlayFaceFXAnim(FaceFXAnimSet FaceFXAnimSetRef, String AnimName, String GroupName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -764,26 +764,26 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	}
 	
 	// Export USkeletalMeshComponent::execDeclareFaceFXRegister(FFrame&, void* const)
-	public virtual /*native final function */void DeclareFaceFXRegister(string RegName)
+	public virtual /*native final function */void DeclareFaceFXRegister(String RegName)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export USkeletalMeshComponent::execGetFaceFXRegister(FFrame&, void* const)
-	public virtual /*native final function */float GetFaceFXRegister(string RegName)
+	public virtual /*native final function */float GetFaceFXRegister(String RegName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export USkeletalMeshComponent::execSetFaceFXRegister(FFrame&, void* const)
-	public virtual /*native final function */void SetFaceFXRegister(string RegName, float RegVal, SkeletalMeshComponent.EFaceFXRegOp RegOp, /*optional */float? _InterpDuration = default)
+	public virtual /*native final function */void SetFaceFXRegister(String RegName, float RegVal, SkeletalMeshComponent.EFaceFXRegOp RegOp, /*optional */float? _InterpDuration = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export USkeletalMeshComponent::execSetFaceFXRegisterEx(FFrame&, void* const)
-	public virtual /*native final function */void SetFaceFXRegisterEx(string RegName, SkeletalMeshComponent.EFaceFXRegOp RegOp, float FirstValue, float FirstInterpDuration, float NextValue, float NextInterpDuration)
+	public virtual /*native final function */void SetFaceFXRegisterEx(String RegName, SkeletalMeshComponent.EFaceFXRegOp RegOp, float FirstValue, float FirstInterpDuration, float NextValue, float NextInterpDuration)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -811,7 +811,7 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 				DesiredRate = ((Duration > 0.0f) ? AnimNode.AnimSeq.SequenceLength / Duration : 1.0f);
 				if(bRestartIfAlreadyPlaying || !AnimNode.bPlaying)
 				{
-					AnimNode.PlayAnim(bLoop, DesiredRate, default);				
+					AnimNode.PlayAnim(bLoop, DesiredRate, default(float?));				
 				}
 				else
 				{
@@ -825,7 +825,7 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 				if(AnimNode.AnimSeq != default)
 				{
 					DesiredRate = ((Duration > 0.0f) ? AnimNode.AnimSeq.SequenceLength / Duration : 1.0f);
-					AnimNode.PlayAnim(bLoop, DesiredRate, default);
+					AnimNode.PlayAnim(bLoop, DesiredRate, default(float?));
 				}
 			}
 		}

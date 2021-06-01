@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class ClipPadEntry : Object/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ string Title;
-	public/*()*/ string Text;
+	public/*()*/ String Title;
+	public/*()*/ String Text;
 	
 	public ClipPadEntry()
 	{

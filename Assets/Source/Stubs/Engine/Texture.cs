@@ -104,8 +104,8 @@ public partial class Texture : Surface/*
 	public/*()*/ Texture.TextureGroup LODGroup;
 	public/*()*/ int LODBias;
 	public /*transient */int CachedCombinedLODBias;
-	public/*()*/ string SourceFilePath;
-	public/*()*/ /*editconst */string SourceFileTimestamp;
+	public/*()*/ String SourceFilePath;
+	public/*()*/ /*editconst */String SourceFileTimestamp;
 	public /*native const */Object.Pointer Resource;
 	
 	public Texture()

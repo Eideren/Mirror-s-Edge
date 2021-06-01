@@ -31,7 +31,7 @@ public partial class TdUIScene_VideoSettingsPC : TdUIScene_VideoSettings/*
 	public /*private transient */bool bSupportsCSAA;
 	
 	// Export UTdUIScene_VideoSettingsPC::execGetSupportedAAModes(FFrame&, void* const)
-	public virtual /*native function */bool GetSupportedAAModes(ref array<string> AAModes)
+	public virtual /*native function */bool GetSupportedAAModes(ref array<String> AAModes)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -90,7 +90,7 @@ public partial class TdUIScene_VideoSettingsPC : TdUIScene_VideoSettings/*
 	
 	}
 	
-	public virtual /*function */void DisplayPhysXChangedMsgBox(TdUIScene_MessageBox MsgBox, string Message, string Title)
+	public virtual /*function */void DisplayPhysXChangedMsgBox(TdUIScene_MessageBox MsgBox, String Message, String Title)
 	{
 	
 	}
@@ -111,13 +111,13 @@ public partial class TdUIScene_VideoSettingsPC : TdUIScene_VideoSettings/*
 	}
 	
 	// Export UTdUIScene_VideoSettingsPC::execGetAntiAliasingString(FFrame&, void* const)
-	public virtual /*private native final function */string GetAntiAliasingString(int MaxMultiSamples)
+	public virtual /*private native final function */String GetAntiAliasingString(int MaxMultiSamples)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
-	public virtual /*private final function */int GetAAValue(string AAStr)
+	public virtual /*private final function */int GetAAValue(String AAStr)
 	{
 	
 		return default;

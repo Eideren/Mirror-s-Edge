@@ -7,7 +7,7 @@ public partial class UIEvent : SequenceEvent/*
 		hidecategories(Object)*/{
 	public /*noimport */UIScreenObject EventOwner;
 	public Object EventActivator;
-	public /*const localized */string Description;
+	public /*const localized */String Description;
 	public bool bShouldRegisterEvent;
 	public bool bPropagateEvent;
 	public /*delegate*/UIEvent.AllowEventActivation __AllowEventActivation__Delegate;

@@ -5,10 +5,10 @@ namespace MEdge
 {
 public class T3DNode
 {
-    public string Definition = "";
-    public List<string> Properties = new List<string>();
+    public String Definition = "";
+    public List<String> Properties = new List<String>();
     public List<T3DNode> Children = new List<T3DNode>();
-    public string End = "";
+    public String End = "";
 
 
 
@@ -16,11 +16,11 @@ public class T3DNode
 
 
 
-    public T3DNode( TextReader sIn, string def = null )
+    public T3DNode( TextReader sIn, String def = null )
     {
         if(def != null)
             Definition = def;
-        string line;
+        String line;
         while ((line = sIn.ReadLine()) != null)
         {
             line = line.TrimStart();
@@ -31,7 +31,7 @@ public class T3DNode
             }
             if (line.StartsWith("Begin "))
             {
-                if (string.IsNullOrWhiteSpace(Definition))
+                if (String.IsNullOrWhiteSpace(Definition))
                     Definition = line;
                 else
                     Children.Add( new T3DNode(sIn, line) );
@@ -45,7 +45,7 @@ public class T3DNode
     
 
 
-    public override string ToString()
+    public override String ToString()
     {
         using (var sw = new StringWriter())
         {

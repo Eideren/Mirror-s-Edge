@@ -49,13 +49,11 @@ public partial class AmbientSoundNonLoop : AmbientSoundSimple/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__AmbientSoundNonLoop.Sprite")/*Ref SpriteComponent'Default__AmbientSoundNonLoop.Sprite'*/,
-			//Components[1]=
 			new AudioComponent
 			{
 				// Object Offset:0x00465E6B
 				PreviewSoundRadius = LoadAsset<DrawSoundRadiusComponent>("Default__AmbientSoundNonLoop.DrawSoundRadius0")/*Ref DrawSoundRadiusComponent'Default__AmbientSoundNonLoop.DrawSoundRadius0'*/,
 			}/* Reference: AudioComponent'Default__AmbientSoundNonLoop.AudioComponent0' */,
-			//Components[2]=
 			new DrawSoundRadiusComponent
 			{
 				// Object Offset:0x00468C6B

@@ -8,7 +8,7 @@ public partial class AITemplate_PatrolCop_Glock : AITemplate_PatrolCop/*
 	{
 		// Object Offset:0x0048B36C
 		ProfileName = "PatrolCopOneHanded-Glock";
-		AnimationSets[1] = "AS_AI_PatrolCop_OneHanded.AS_AI_PatrolCop_Onehanded_Glock18";
+		AnimationSets[0] = "AS_AI_PatrolCop_OneHanded.AS_AI_PatrolCop_Onehanded_Glock18";
 		MainWeaponClass = "TdSharedContent.TdWeapon_Pistol_Glock18c";
 		MainWeaponAmmoDrops_Dropped = new AITemplate.AmmoDropSettings
 		{

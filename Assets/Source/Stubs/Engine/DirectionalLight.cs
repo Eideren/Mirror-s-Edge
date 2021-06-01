@@ -15,19 +15,16 @@ public partial class DirectionalLight : Light/*
 		}/* Reference: DirectionalLightComponent'Default__DirectionalLight.DirectionalLightComponent0' */;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x0030DD25
 				Sprite = LoadAsset<Texture2D>("EngineResources.LightIcons.Light_Directional_Stationary_UserSelected")/*Ref Texture2D'EngineResources.LightIcons.Light_Directional_Stationary_UserSelected'*/,
 			}/* Reference: SpriteComponent'Default__DirectionalLight.Sprite' */,
-			//Components[1]=
 			new DirectionalLightComponent
 			{
 				// Object Offset:0x0030DD59
 				UseDirectLightMap = true,
 			}/* Reference: DirectionalLightComponent'Default__DirectionalLight.DirectionalLightComponent0' */,
-			//Components[2]=
 			new ArrowComponent
 			{
 				// Object Offset:0x0030DD95

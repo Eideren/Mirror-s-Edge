@@ -55,7 +55,6 @@ public partial class TdCopStashpoint : TdStashpoint/*
 		bNoDelete = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new CylinderComponent
 			{
 				// Object Offset:0x01AB4A86

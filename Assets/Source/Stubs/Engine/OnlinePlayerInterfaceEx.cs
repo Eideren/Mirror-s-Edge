@@ -24,7 +24,7 @@ public interface OnlinePlayerInterfaceEx : Interface/*
 	
 	public /*function */bool ShowAchievementsUI(byte LocalUserNum);
 	
-	public /*function */bool ShowInviteUI(byte LocalUserNum, /*optional */string? _InviteText = default);
+	public /*function */bool ShowInviteUI(byte LocalUserNum, /*optional */String? _InviteText = default);
 	
 	public /*function */bool ShowContentMarketplaceUI(byte LocalUserNum);
 	
@@ -36,7 +36,7 @@ public interface OnlinePlayerInterfaceEx : Interface/*
 	
 	public /*function */void ClearDeviceSelectionDoneDelegate(byte LocalUserNum, /*delegate*/OnlinePlayerInterfaceEx.OnDeviceSelectionComplete DeviceDelegate);
 	
-	public /*function */int GetDeviceSelectionResults(byte LocalUserNum, ref string DeviceName);
+	public /*function */int GetDeviceSelectionResults(byte LocalUserNum, ref String DeviceName);
 	
 	public delegate void OnDeviceSelectionComplete(bool bWasSuccessful);
 	

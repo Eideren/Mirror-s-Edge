@@ -9,7 +9,7 @@ public partial class CurveEdPreset_SineWave : CurveEdPresetBase/*
 	public/*()*/ float Scale;
 	public/*()*/ float Offset;
 	
-	public override /*function */string GetDisplayName()
+	public override /*function */String GetDisplayName()
 	{
 	
 		return default;

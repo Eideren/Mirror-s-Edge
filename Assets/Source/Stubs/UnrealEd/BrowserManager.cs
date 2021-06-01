@@ -7,8 +7,8 @@ public partial class BrowserManager : Object/*
 	public partial struct /*native */BrowserPaneInfo
 	{
 		public int PaneID;
-		public string WxWindowClassName;
-		public string FriendlyName;
+		public String WxWindowClassName;
+		public String FriendlyName;
 		public /*const */int CloneOfPaneID;
 		public /*const */int CloneNumber;
 		public /*const transient */Object.Pointer WxBrowserPtr;

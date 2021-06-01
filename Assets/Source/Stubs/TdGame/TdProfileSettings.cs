@@ -405,7 +405,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	//	}
 	};
 	
-	public array<string> DigitalButtonActionsToCommandMapping;
+	public array<String> DigitalButtonActionsToCommandMapping;
 	public /*transient */array<name> KeyMappingArray;
 	public /*transient */array<name> GamepadMappingArray;
 	public /*transient */array<int> TTUnlockLevelCompletedMap;
@@ -645,7 +645,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 		return default;
 	}
 	
-	public virtual /*function */bool GetProfileSettingValueStringByName(name SettingName, ref string OutValue)
+	public virtual /*function */bool GetProfileSettingValueStringByName(name SettingName, ref String OutValue)
 	{
 	
 		return default;
@@ -690,7 +690,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 		return default;
 	}
 	
-	public virtual /*function */int GetDBAFromCommand(string Command)
+	public virtual /*function */int GetDBAFromCommand(String Command)
 	{
 	
 		return default;
@@ -701,7 +701,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	
 	}
 	
-	public virtual /*function */void SetKeyBindingUsingCommand(string KeyCommand, StaticArray<name, name, name, name>/*[4]*/ KeyBinds)
+	public virtual /*function */void SetKeyBindingUsingCommand(String KeyCommand, StaticArray<name, name, name, name>/*[4]*/ KeyBinds)
 	{
 	
 	}
@@ -765,7 +765,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	
 	}
 	
-	public virtual /*private final function */void InvertGamepadBinds(StaticArray<string, string, string, string>/*[4]*/ KeysToInvert, ref array<Input.KeyBind> Binds)
+	public virtual /*private final function */void InvertGamepadBinds(StaticArray<String, String, String, String>/*[4]*/ KeysToInvert, ref array<Input.KeyBind> Binds)
 	{
 	
 	}
@@ -785,31 +785,31 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	
 	}
 	
-	public virtual /*function */bool IsKeyBoundToCommand(PlayerInput PInput, string Command, string Key)
+	public virtual /*function */bool IsKeyBoundToCommand(PlayerInput PInput, String Command, String Key)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool SetLastSavedMap(string MapName)
+	public virtual /*function */bool SetLastSavedMap(String MapName)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool SetLastSavedCheckpoint(string CheckpointName)
+	public virtual /*function */bool SetLastSavedCheckpoint(String CheckpointName)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool GetLastSavedMap(ref string MapName)
+	public virtual /*function */bool GetLastSavedMap(ref String MapName)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool GetLastSavedCheckpoint(ref string CheckpointName)
+	public virtual /*function */bool GetLastSavedCheckpoint(ref String CheckpointName)
 	{
 	
 		return default;
@@ -824,7 +824,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	public TdProfileSettings()
 	{
 		// Object Offset:0x0063B771
-		DigitalButtonActionsToCommandMapping = new array<string>
+		DigitalButtonActionsToCommandMapping = new array<String>
 		{
 			"GBA_None",
 			"GBA_MoveForward",

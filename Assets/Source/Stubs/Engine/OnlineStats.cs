@@ -30,7 +30,7 @@ public partial class OnlineStats : Object/*
 	public partial struct /*native */IdToStatKeyMapping
 	{
 		public int StatId;
-		public string StatKey;
+		public String StatKey;
 	
 	//	structdefaultproperties
 	//	{
@@ -57,7 +57,7 @@ public partial class OnlineStats : Object/*
 		return default;
 	}
 	
-	public virtual /*event */string GetStatKey(int Id)
+	public virtual /*event */String GetStatKey(int Id)
 	{
 	
 		return default;

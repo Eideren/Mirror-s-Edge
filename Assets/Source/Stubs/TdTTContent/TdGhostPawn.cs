@@ -75,7 +75,6 @@ public partial class TdGhostPawn : TdGhostPawnBase/*
 		{
 			LoadAsset<SceneCaptureCharacterComponent>("Default__TdGhostPawn.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdGhostPawn.SceneCaptureCharacterComponent0'*/,
 			LoadAsset<DrawFrustumComponent>("Default__TdGhostPawn.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdGhostPawn.DrawFrust0'*/,
-			//Components[2]=
 			new CylinderComponent
 			{
 				// Object Offset:0x00006407
@@ -85,7 +84,6 @@ public partial class TdGhostPawn : TdGhostPawnBase/*
 			}/* Reference: CylinderComponent'Default__TdGhostPawn.CollisionCylinder' */,
 			LoadAsset<ArrowComponent>("Default__TdGhostPawn.Arrow")/*Ref ArrowComponent'Default__TdGhostPawn.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdGhostPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdGhostPawn.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x000064D3
@@ -101,7 +99,6 @@ public partial class TdGhostPawn : TdGhostPawnBase/*
 				CollideActors = false,
 				BlockZeroExtent = false,
 			}/* Reference: TdSkeletalMeshComponent'Default__TdGhostPawn.TdPawnMesh3p' */,
-			//Components[6]=
 			new CylinderComponent
 			{
 				// Object Offset:0x00006407
@@ -109,7 +106,6 @@ public partial class TdGhostPawn : TdGhostPawnBase/*
 				BlockActors = false,
 				BlockNonZeroExtent = false,
 			}/* Reference: CylinderComponent'Default__TdGhostPawn.CollisionCylinder' */,
-			//Components[7]=
 			new CylinderComponent
 			{
 				// Object Offset:0x0000639B

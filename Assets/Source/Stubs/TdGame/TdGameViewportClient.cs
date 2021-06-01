@@ -13,13 +13,13 @@ public partial class TdGameViewportClient : GameViewportClient/* within Engine*/
 	public /*transient */MaterialInstanceConstant FadeInEffectMaterialInstance;
 	public /*private transient */TdDebugMenu DebugMenu;
 	
-	public override /*event */bool Init(ref string OutError)
+	public override /*event */bool Init(ref String OutError)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */string GetHintMessage(int GameType)
+	public virtual /*function */String GetHintMessage(int GameType)
 	{
 	
 		return default;

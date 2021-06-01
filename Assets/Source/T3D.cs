@@ -10,7 +10,7 @@ namespace MEdge
 {
 public static class T3D
 {
-    public static bool ExtractPropFromString( string str, out string name, out string value, out string namedIndex )
+    public static bool ExtractPropFromString( String str, out String name, out String value, out String namedIndex )
     {
         var equalSignPos = str.IndexOf('=');
         if (equalSignPos == -1)
@@ -39,7 +39,7 @@ public static class T3D
 
     
 
-    public static string KeywordAfter(string inputString, string delimiter)
+    public static String KeywordAfter(String inputString, String delimiter)
     {
         TryExtractKeywordAfter(inputString, delimiter, out var output);
         return output;
@@ -47,7 +47,7 @@ public static class T3D
 
     
 
-    public static bool TryExtractKeywordAfter(string inputString, string delimiter, out string keyword)
+    public static bool TryExtractKeywordAfter(String inputString, String delimiter, out String keyword)
     {
         var start = inputString.IndexOf(delimiter, StringComparison.Ordinal);
         if (start == -1)
@@ -80,7 +80,7 @@ public static class T3D
 
     
 
-    public static void DeserializeOnObject(ref object thisObj, string name, string value, string indexStr, MappingFixer mappingFixer)
+    public static void DeserializeOnObject(ref object thisObj, String name, String value, String indexStr, MappingFixer mappingFixer)
     {
         try
         {
@@ -135,7 +135,7 @@ public static class T3D
 
 
 
-    static void Deserialize(ref object obj, string objPropName, string valString, out object val, Type expectedType, MappingFixer mappingFixer, out bool handled)
+    static void Deserialize(ref object obj, String objPropName, String valString, out object val, Type expectedType, MappingFixer mappingFixer, out bool handled)
     {
         valString = valString.Trim();
         handled = false;
@@ -162,7 +162,7 @@ public static class T3D
             _ => RunFixer(ref obj, objPropName, valString, mappingFixer, out handled)
         };
 
-        static object RunFixer(ref object obj, string objPropName, string valString, MappingFixer mappingFixer, out bool handled)
+        static object RunFixer(ref object obj, String objPropName, String valString, MappingFixer mappingFixer, out bool handled)
         {
             handled = true;
             mappingFixer(ref obj, objPropName, valString);
@@ -173,11 +173,11 @@ public static class T3D
     const string BracketBalancePattern = @"(?<Balance>\{(?>\{(?<c>)|[^{}]+|\}(?<-c>))*(?(c)(?!))\})";
     const string ParenBalancePattern =   @"(?<Balance>\((?>\((?<c>)|[^()]+|\)(?<-c>))*(?(c)(?!))\))";
     
-    static object DeserializeComplexObject(string valString, Type expectedType, MappingFixer mappingFixer)
+    static object DeserializeComplexObject(String valString, Type expectedType, MappingFixer mappingFixer)
     {
         valString = valString.Remove(valString.Length - 1, 1).Remove(0, 1);
 
-        List<string> props = new List<string>();
+        List<String> props = new List<String>();
         // extract params while being careful with parenthesis content 
         foreach (Match match in Regex.Matches(valString, $@"[^,]*?{ParenBalancePattern}*,"))
         {
@@ -190,7 +190,7 @@ public static class T3D
         foreach (Match match in Regex.Matches(valString, @"[^,]+$"))
             props.Add( match.Value.Trim() );
         var thisObj = Activator.CreateInstance(expectedType);
-        foreach (string prop in props)
+        foreach (String prop in props)
         {
             ExtractPropFromString(prop, out var name, out var value, out var index);
             DeserializeOnObject(ref thisObj, name, value, index, mappingFixer);

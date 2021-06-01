@@ -10,7 +10,7 @@ public partial class AITemplate_PursuitCop : AITemplate_Default/*
 		ControllerClass = "TdGame.TdAI_Pursuit";
 		PawnClass = "TdSpContent.TdBotPawn_PursuitCop";
 		ProfileName = "PursuitCopOneHanded";
-		AnimationSets = "AS_AI_PursuitCop_OneHanded.AS_AI_PursuitCop_OneHanded";
+		AnimationSets[0] = "AS_AI_PursuitCop_OneHanded.AS_AI_PursuitCop_OneHanded";
 		SkeletalMesh = "CH_TKY_Cop_Pursuit.SK_TKY_Cop_Pursuit";
 		LegOffsetWalkLeft60 = 0.0f;
 		LegOffsetWalkLeftBwd120 = 0.0f;

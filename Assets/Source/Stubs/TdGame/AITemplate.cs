@@ -52,14 +52,14 @@ public partial class AITemplate : Object/*
 	//	}
 	};
 	
-	public/*()*/ /*config */string ControllerClass;
-	public/*()*/ /*config */string PawnClass;
-	public/*()*/ /*config */string ProfileName;
-	public/*()*/ /*config */StaticArray<string, string>/*[2]*/ AnimationSets;
-	public/*()*/ /*config */string SkeletalMesh;
-	public/*()*/ /*config */string AdditionalSkeletalMesh;
-	public/*()*/ /*config */string ExtraFaithAnimationSet1p;
-	public/*()*/ /*config */string ExtraFaithAnimationSet3p;
+	public/*()*/ /*config */String ControllerClass;
+	public/*()*/ /*config */String PawnClass;
+	public/*()*/ /*config */String ProfileName;
+	public/*()*/ /*config */StaticArray<String, String>/*[2]*/ AnimationSets;
+	public/*()*/ /*config */String SkeletalMesh;
+	public/*()*/ /*config */String AdditionalSkeletalMesh;
+	public/*()*/ /*config */String ExtraFaithAnimationSet1p;
+	public/*()*/ /*config */String ExtraFaithAnimationSet3p;
 	public/*()*/ /*config */float LegOffsetWalkFwd;
 	public/*()*/ /*config */float LegOffsetWalkLeft60;
 	public/*()*/ /*config */float LegOffsetWalkLeftBwd120;
@@ -113,13 +113,13 @@ public partial class AITemplate : Object/*
 	public/*()*/ Object.InterpCurveFloat SpeedCurve_HeavyWeapon;
 	public/*()*/ Object.InterpCurveFloat SpeedCurve_LightWeapon;
 	public/*()*/ /*config */int RotationSpeed;
-	public/*()*/ /*config */string MainWeaponClass;
+	public/*()*/ /*config */String MainWeaponClass;
 	public/*()*/ /*const config */AITemplate.AmmoDropSettings MainWeaponAmmoDrops_Dropped;
 	public/*()*/ /*const config */AITemplate.AmmoDropSettings MainWeaponAmmoDrops_Disarmed;
-	public/*()*/ /*config */array</*config */string> OtherWeaponClasses;
-	public/*()*/ /*config */string DroppedGrenadeClass;
-	public/*()*/ /*config */string ShieldClass;
-	public/*()*/ /*config */string AimProfileName;
+	public/*()*/ /*config */array</*config */String> OtherWeaponClasses;
+	public/*()*/ /*config */String DroppedGrenadeClass;
+	public/*()*/ /*config */String ShieldClass;
+	public/*()*/ /*config */String AimProfileName;
 	public/*()*/ /*config */int MaxHealth;
 	public/*()*/ /*config */float SuppressionRecoveryTime;
 	public/*()*/ /*config */float SuppressionDeclineTime;
@@ -149,7 +149,7 @@ public partial class AITemplate : Object/*
 	public/*()*/ /*config */float ClosedEyeOffsetLower;
 	
 	// Export UAITemplate::execGetClassFromName(FFrame&, void* const)
-	public virtual /*native final function */Class GetClassFromName(string TheClassName)
+	public virtual /*native final function */Class GetClassFromName(String TheClassName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

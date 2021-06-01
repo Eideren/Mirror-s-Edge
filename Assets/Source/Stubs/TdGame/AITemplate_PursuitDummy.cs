@@ -7,7 +7,7 @@ public partial class AITemplate_PursuitDummy : AITemplate_Dummy/*
 	public AITemplate_PursuitDummy()
 	{
 		// Object Offset:0x0048BFC7
-		AnimationSets = "AS_AI_PursuitCop_OneHanded.AS_AI_PursuitCop_OneHanded";
+		AnimationSets[0] = "AS_AI_PursuitCop_OneHanded.AS_AI_PursuitCop_OneHanded";
 		SkeletalMesh = "CH_TKY_Cop_Pursuit.SK_TKY_Cop_Pursuit";
 		MainWeaponClass = "TdSharedContent.TdWeapon_Pistol_TaserContent";
 	}

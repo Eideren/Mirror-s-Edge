@@ -9,8 +9,8 @@ public partial class UIStyle : UIRoot/* within UISkin*//*
 	
 	public UIRoot.STYLE_ID StyleID;
 	public name StyleTag;
-	public/*()*/ /*const localized */string StyleName;
-	public /*const */string StyleGroupName;
+	public/*()*/ /*const localized */String StyleName;
+	public /*const */String StyleGroupName;
 	public /*const */Core.ClassT<UIStyle_Data> StyleDataClass;
 	public /*native const transient *//*map<0,0>*/map<object, object> StateDataMap;
 	

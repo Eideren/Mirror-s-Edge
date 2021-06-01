@@ -19,7 +19,6 @@ public partial class PathNode : NavigationPoint/*
 		Abbrev = "PN";
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x00459436

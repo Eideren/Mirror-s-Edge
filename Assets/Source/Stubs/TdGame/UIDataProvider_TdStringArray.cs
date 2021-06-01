@@ -5,7 +5,7 @@ public partial class UIDataProvider_TdStringArray : UIDataProvider_TdSimpleEleme
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public array<string> Strings;
+	public array<String> Strings;
 	
 	// Export UUIDataProvider_TdStringArray::execGetElementCount(FFrame&, void* const)
 	public override /*native function */int GetElementCount()

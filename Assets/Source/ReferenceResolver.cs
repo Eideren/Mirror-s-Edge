@@ -1,4 +1,4 @@
 ﻿namespace MEdge
 {
-    public delegate void MappingFixer(ref object obj, string objFieldName, string value);
+    public delegate void MappingFixer(ref object obj, String objFieldName, String value);
 }

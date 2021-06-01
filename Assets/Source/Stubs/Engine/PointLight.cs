@@ -24,7 +24,6 @@ public partial class PointLight : Light/*
 		{
 			LoadAsset<SpriteComponent>("Default__PointLight.Sprite")/*Ref SpriteComponent'Default__PointLight.Sprite'*/,
 			LoadAsset<DrawLightRadiusComponent>("Default__PointLight.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__PointLight.DrawLightRadius0'*/,
-			//Components[2]=
 			new PointLightComponent
 			{
 				// Object Offset:0x003A2BAF

@@ -168,7 +168,7 @@ namespace MEdge.Core
         /// Case-insensitve equality
         /// https://wiki.beyondunreal.com/Legacy:Operators
         /// </summary>
-        public static bool ApproximatelyEqual(string a, string b) => string.Equals(a, b, System.StringComparison.OrdinalIgnoreCase);
+        public static bool ApproximatelyEqual(String a, String b) => String.Equals(a, b, System.StringComparison.OrdinalIgnoreCase);
 
         public /*final function */static Object.LinearColor MakeLinearColor(float R, float G, float B, float A);
         

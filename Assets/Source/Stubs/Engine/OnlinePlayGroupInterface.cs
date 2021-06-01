@@ -62,9 +62,9 @@ public interface OnlinePlayGroupInterface : Interface/*
 	
 	public /*function */void ClearPlayGroupMemberJoinDelegate(/*delegate*/OnlinePlayGroupInterface.OnPlayGroupMemberJoin OnPlayGroupMemberJoinDelegate);
 	
-	public /*function */void BroadCastChatMessageAsync(string Message);
+	public /*function */void BroadCastChatMessageAsync(String Message);
 	
-	public delegate void OnPlayGroupChatMessageReceived(OnlineSubsystem.UniqueNetId SenderId, string Message);
+	public delegate void OnPlayGroupChatMessageReceived(OnlineSubsystem.UniqueNetId SenderId, String Message);
 	
 	public /*function */void AddPlayGroupChatMessageReceivedDelegate(/*delegate*/OnlinePlayGroupInterface.OnPlayGroupChatMessageReceived OnPlayGroupChatMessageReceivedDelegate);
 	

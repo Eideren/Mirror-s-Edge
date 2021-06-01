@@ -48,7 +48,6 @@ public partial class TdBotPawn_SupportHelicopterGunner : TdBotPawn/*
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_SupportHelicopterGunner.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_SupportHelicopterGunner.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdBotPawn_SupportHelicopterGunner.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_SupportHelicopterGunner.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_SupportHelicopterGunner.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_SupportHelicopterGunner.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x00022D7A

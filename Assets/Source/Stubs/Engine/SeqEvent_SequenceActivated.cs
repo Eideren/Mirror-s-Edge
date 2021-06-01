@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqEvent_SequenceActivated : SequenceEvent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ string InputLabel;
+	public/*()*/ String InputLabel;
 	
 	public SeqEvent_SequenceActivated()
 	{

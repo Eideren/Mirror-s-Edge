@@ -11,13 +11,13 @@ public partial class GameRules : Info/*
 	
 	}
 	
-	public virtual /*function */NavigationPoint FindPlayerStart(Controller Player, /*optional */byte? _InTeam = default, /*optional */string? _IncomingName = default)
+	public virtual /*function */NavigationPoint FindPlayerStart(Controller Player, /*optional */byte? _InTeam = default, /*optional */String? _IncomingName = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */string GetRules()
+	public virtual /*function */String GetRules()
 	{
 	
 		return default;
@@ -29,7 +29,7 @@ public partial class GameRules : Info/*
 		return default;
 	}
 	
-	public virtual /*function */bool CheckEndGame(PlayerReplicationInfo Winner, string Reason)
+	public virtual /*function */bool CheckEndGame(PlayerReplicationInfo Winner, String Reason)
 	{
 	
 		return default;

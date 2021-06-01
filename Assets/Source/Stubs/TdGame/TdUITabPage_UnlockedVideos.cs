@@ -54,7 +54,7 @@ public partial class TdUITabPage_UnlockedVideos : TdUITabPage/*
 		return default;
 	}
 	
-	public virtual /*function */void GetPathFromResourceParm(ref string VideoPath, ref string ImagePath)
+	public virtual /*function */void GetPathFromResourceParm(ref String VideoPath, ref String ImagePath)
 	{
 	
 	}

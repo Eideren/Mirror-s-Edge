@@ -8,7 +8,7 @@ public partial class Volume : Brush/*
 		hidecategories(Navigation,Object,Movement,Display)*/{
 	public Actor AssociatedActor;
 	public/*(Location)*/ int LocationPriority;
-	public/*(Location)*/ /*const localized */string LocationName;
+	public/*(Location)*/ /*const localized */String LocationName;
 	public/*()*/ bool bForcePawnWalk;
 	public/*()*/ bool bProcessAllActors;
 	
@@ -24,12 +24,12 @@ public partial class Volume : Brush/*
 		base.PostBeginPlay();
 		if(AssociatedActor != default)
 		{
-			GotoState("AssociatedTouch", default, default, default);
+			GotoState("AssociatedTouch", default(name?), default(bool?), default(bool?));
 			InitialState = GetStateName();
 		}
 	}
 	
-	public override /*simulated function */string GetLocationStringFor(PlayerReplicationInfo PRI)
+	public override /*simulated function */String GetLocationStringFor(PlayerReplicationInfo PRI)
 	{
 		return LocationName;
 	}
@@ -37,7 +37,7 @@ public partial class Volume : Brush/*
 	public override /*simulated function */void DisplayDebug(HUD HUD, ref float out_YL, ref float out_YPos)
 	{
 		base.DisplayDebug(HUD, ref/*probably?*/ out_YL, ref/*probably?*/ out_YPos);
-		HUD.Canvas.DrawText("AssociatedActor " + ((AssociatedActor)).ToString(), false, default, default);
+		HUD.Canvas.DrawText("AssociatedActor " + ((AssociatedActor)).ToString(), false, default(float?), default(float?));
 		out_YPos += out_YL;
 		HUD.Canvas.SetPos(4.0f, out_YPos);
 	}
@@ -48,7 +48,7 @@ public partial class Volume : Brush/*
 		{
 			if(!bCollideActors)
 			{
-				SetCollision(true, bBlockActors, default);
+				SetCollision(true, bBlockActors, default(bool?));
 			}
 			CollisionComponent.SetBlockRigidBody(true);		
 		}
@@ -58,7 +58,7 @@ public partial class Volume : Brush/*
 			{
 				if(bCollideActors)
 				{
-					SetCollision(false, bBlockActors, default);
+					SetCollision(false, bBlockActors, default(bool?));
 				}
 				CollisionComponent.SetBlockRigidBody(false);			
 			}
@@ -66,7 +66,7 @@ public partial class Volume : Brush/*
 			{
 				if(Action.InputLinks[2].bHasImpulse)
 				{
-					SetCollision(!bCollideActors, bBlockActors, default);
+					SetCollision(!bCollideActors, bBlockActors, default(bool?));
 					CollisionComponent.SetBlockRigidBody(!CollisionComponent.BlockRigidBody);
 				}
 			}
@@ -112,7 +112,7 @@ public partial class Volume : Brush/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) AssociatedTouch()/*state AssociatedTouch*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			Touch = Volume_AssociatedTouch_Touch;
 			UnTouch = Volume_AssociatedTouch_UnTouch;
@@ -155,7 +155,6 @@ public partial class Volume : Brush/*
 		bCollideActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new BrushComponent
 			{
 				// Object Offset:0x002B234A

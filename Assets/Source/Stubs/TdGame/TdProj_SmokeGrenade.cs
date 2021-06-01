@@ -48,7 +48,6 @@ public partial class TdProj_SmokeGrenade : TdProj_Grenade/*
 		{
 			LoadAsset<SpriteComponent>("Default__TdProj_SmokeGrenade.Sprite")/*Ref SpriteComponent'Default__TdProj_SmokeGrenade.Sprite'*/,
 			LoadAsset<CylinderComponent>("Default__TdProj_SmokeGrenade.CollisionCylinder")/*Ref CylinderComponent'Default__TdProj_SmokeGrenade.CollisionCylinder'*/,
-			//Components[2]=
 			new SkeletalMeshComponent
 			{
 				// Object Offset:0x0279BD16

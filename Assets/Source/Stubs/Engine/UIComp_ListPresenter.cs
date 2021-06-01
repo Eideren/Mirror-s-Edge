@@ -83,7 +83,7 @@ public partial class UIComp_ListPresenter : UIComp_ListComponentBase,
 		public StaticArray<UIRoot.UIStyleReference, UIRoot.UIStyleReference, UIRoot.UIStyleReference, UIRoot.UIStyleReference>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/ CellStyle;
 	
 		public/*()*/ /*editconst editinline */name CellDataField;
-		public/*()*/ /*editconst */string ColumnHeaderText;
+		public/*()*/ /*editconst */String ColumnHeaderText;
 		public/*()*/ UIRoot.UIScreenValue_Extent CellSize;
 		public float CellPosition;
 			// Object Offset:0x0041C0DA

@@ -23,12 +23,12 @@ public partial class GameReplicationInfo : ReplicationInfo/*
 	public /*databinding */int TimeLimit;
 	public /*databinding */int MaxLives;
 	public /*databinding */array<TeamInfo> Teams;
-	public/*()*/ /*databinding globalconfig */string ServerName;
-	public/*()*/ /*databinding globalconfig */string ShortName;
-	public/*()*/ /*databinding globalconfig */string AdminName;
-	public/*()*/ /*databinding globalconfig */string AdminEmail;
+	public/*()*/ /*databinding globalconfig */String ServerName;
+	public/*()*/ /*databinding globalconfig */String ShortName;
+	public/*()*/ /*databinding globalconfig */String AdminName;
+	public/*()*/ /*databinding globalconfig */String AdminEmail;
 	public/*()*/ /*databinding globalconfig */int ServerRegion;
-	public/*()*/ /*databinding globalconfig */string MessageOfTheDay;
+	public/*()*/ /*databinding globalconfig */String MessageOfTheDay;
 	public /*databinding */Actor Winner;
 	public array<PlayerReplicationInfo> PRIArray;
 	public array<PlayerReplicationInfo> InactivePRIArray;

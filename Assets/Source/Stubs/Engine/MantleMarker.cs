@@ -22,7 +22,6 @@ public partial class MantleMarker : NavigationPoint/*
 		bCollideWhenPlacing = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new CylinderComponent
 			{
 				// Object Offset:0x0046664B

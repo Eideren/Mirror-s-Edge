@@ -94,7 +94,6 @@ public partial class CrowdAgent : Actor/*
 		bNoEncroachCheck = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new DynamicLightEnvironmentComponent
 			{
 				// Object Offset:0x00468D2F
@@ -104,7 +103,6 @@ public partial class CrowdAgent : Actor/*
 				bEnabled = false,
 				TickGroup = Object.ETickingGroup.TG_DuringAsyncWork,
 			}/* Reference: DynamicLightEnvironmentComponent'Default__CrowdAgent.MyLightEnvironment' */,
-			//Components[1]=
 			new SkeletalMeshComponent
 			{
 				// Object Offset:0x004CEC22

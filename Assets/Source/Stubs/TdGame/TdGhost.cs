@@ -6,7 +6,7 @@ public partial class TdGhost : Object/*
 	public partial struct /*native */TdGhostInfo
 	{
 		public int StretchId;
-		public string PlayerName;
+		public String PlayerName;
 		public float TotalTime;
 		public int GhostTag;
 	

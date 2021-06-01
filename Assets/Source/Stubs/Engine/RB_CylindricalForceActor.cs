@@ -73,7 +73,6 @@ public partial class RB_CylindricalForceActor : Actor/*
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new DrawCylinderComponent
 			{
 				// Object Offset:0x004689FB
@@ -81,7 +80,6 @@ public partial class RB_CylindricalForceActor : Actor/*
 				CylinderTopRadius = 200.0f,
 				CylinderHeight = 200.0f,
 			}/* Reference: DrawCylinderComponent'Default__RB_CylindricalForceActor.DrawCylinder0' */,
-			//Components[1]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D022E

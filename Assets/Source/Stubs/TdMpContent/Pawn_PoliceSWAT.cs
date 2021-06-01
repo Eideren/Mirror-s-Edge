@@ -41,7 +41,6 @@ public partial class Pawn_PoliceSWAT : TdPlayerPawn/*
 			LoadAsset<CylinderComponent>("Default__Pawn_PoliceSWAT.CollisionCylinder")/*Ref CylinderComponent'Default__Pawn_PoliceSWAT.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__Pawn_PoliceSWAT.Arrow")/*Ref ArrowComponent'Default__Pawn_PoliceSWAT.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__Pawn_PoliceSWAT.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__Pawn_PoliceSWAT.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x000112A4

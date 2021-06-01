@@ -108,13 +108,13 @@ public partial class TdMove_Disarmed : TdPhysicsMove/*
 			Killer = BotVictim.Enemy.Controller;
 		}
 		BotOwner.ActiveDeathAnimType = TdBotPawn.DeathAnimType.DAT_Ragdoll/*0*/;
-		PawnOwner.TakeDamage(PawnOwner.Health, Killer, PawnOwner.Mesh3p.GetBoneLocation("Neck", default), damageMomentum, ClassT<TdDmgType_MeleeDisarm>(), HitInfo, default);
+		PawnOwner.TakeDamage(PawnOwner.Health, Killer, PawnOwner.Mesh3p.GetBoneLocation("Neck", default(int?)), damageMomentum, ClassT<TdDmgType_MeleeDisarm>(), HitInfo, default(Actor?));
 	}
 	
 	public virtual /*function */void AbortDisarm()
 	{
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, 0.20f);
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 	}
 	
 	public TdMove_Disarmed()

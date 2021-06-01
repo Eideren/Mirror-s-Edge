@@ -187,7 +187,6 @@ public partial class TdBotPawn_Celeste : TdBotPawn_PursuitCop/*
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_Celeste.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_Celeste.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdBotPawn_Celeste.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_Celeste.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_Celeste.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_Celeste.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x00003A7E

@@ -5,7 +5,7 @@ public partial class FileLog : FileWriter/*
 		native
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public virtual /*function */void OpenLog(/*coerce */string LogFilename, /*optional */string? _extension = default, /*optional */bool? _bUnique = default)
+	public virtual /*function */void OpenLog(/*coerce */String LogFilename, /*optional */String? _extension = default, /*optional */bool? _bUnique = default)
 	{
 	
 	}

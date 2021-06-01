@@ -11,14 +11,12 @@ public partial class RB_HingeActor : RB_ConstraintActor/*
 		ConstraintInstance = LoadAsset<RB_ConstraintInstance>("Default__RB_HingeActor.MyConstraintInstance")/*Ref RB_ConstraintInstance'Default__RB_HingeActor.MyConstraintInstance'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D02B6
 				Sprite = LoadAsset<Texture2D>("EngineResources.S_KHinge")/*Ref Texture2D'EngineResources.S_KHinge'*/,
 			}/* Reference: SpriteComponent'Default__RB_HingeActor.Sprite' */,
 			LoadAsset<RB_ConstraintDrawComponent>("Default__RB_HingeActor.MyConDrawComponent")/*Ref RB_ConstraintDrawComponent'Default__RB_HingeActor.MyConDrawComponent'*/,
-			//Components[2]=
 			new ArrowComponent
 			{
 				// Object Offset:0x00465CCB

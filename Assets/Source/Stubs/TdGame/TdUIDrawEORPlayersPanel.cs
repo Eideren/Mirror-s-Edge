@@ -13,7 +13,7 @@ public partial class TdUIDrawEORPlayersPanel : TdUIDrawPlayersPanel/*
 	
 	}
 	
-	public virtual /*protected function */void DrawPlayerName(Canvas C, string PlayerName, int Left, int Top, int Width, int Height)
+	public virtual /*protected function */void DrawPlayerName(Canvas C, String PlayerName, int Left, int Top, int Width, int Height)
 	{
 	
 	}

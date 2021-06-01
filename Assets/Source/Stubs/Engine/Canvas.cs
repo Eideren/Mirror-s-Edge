@@ -63,30 +63,30 @@ public partial class Canvas : Object/*
 	}
 	
 	// Export UCanvas::execStrLen(FFrame&, void* const)
-	public virtual /*native final function */void StrLen(/*coerce */string String, ref float XL, ref float YL)
+	public virtual /*native final function */void StrLen(/*coerce */String String, ref float XL, ref float YL)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execTextSize(FFrame&, void* const)
-	public virtual /*native final function */void TextSize(/*coerce */string String, ref float XL, ref float YL)
+	public virtual /*native final function */void TextSize(/*coerce */String String, ref float XL, ref float YL)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawText(FFrame&, void* const)
-	public virtual /*native final function */void DrawText(/*coerce */string Text, /*optional */bool? _CR = default, /*optional */float? _XScale = default, /*optional */float? _YScale = default)
+	public virtual /*native final function */void DrawText(/*coerce */String Text, /*optional */bool? _CR = default, /*optional */float? _XScale = default, /*optional */float? _YScale = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawTextClipped(FFrame&, void* const)
-	public virtual /*native final function */void DrawTextClipped(/*coerce */string Text, /*optional */bool? _bCheckHotKey = default, /*optional */float? _XScale = default, /*optional */float? _YScale = default)
+	public virtual /*native final function */void DrawTextClipped(/*coerce */String Text, /*optional */bool? _bCheckHotKey = default, /*optional */float? _XScale = default, /*optional */float? _YScale = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
-	public virtual /*final function */void DrawTextRA(/*coerce */string Text, /*optional */bool? _CR = default)
+	public virtual /*final function */void DrawTextRA(/*coerce */String Text, /*optional */bool? _CR = default)
 	{
 	
 	}

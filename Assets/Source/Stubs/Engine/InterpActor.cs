@@ -173,7 +173,6 @@ public partial class InterpActor : DynamicSMActor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__InterpActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__InterpActor.MyLightEnvironment'*/,
-			//Components[1]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x0057981A

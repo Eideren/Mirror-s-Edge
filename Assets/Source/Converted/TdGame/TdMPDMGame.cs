@@ -5,7 +5,7 @@ public partial class TdMPDMGame : TdMPGame/*
 		config(Game)
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public override /*event */void InitGame(string Options, ref string ErrorMessage)
+	public override /*event */void InitGame(String Options, ref String ErrorMessage)
 	{
 		base.InitGame(Options, ref/*probably?*/ ErrorMessage);
 	}
@@ -35,7 +35,7 @@ public partial class TdMPDMGame : TdMPGame/*
 		/*Transformed 'base.' to specific call*/GameInfo_PostLogin(NewPlayer);
 	}
 	
-	public override /*function */bool CheckEndGame(PlayerReplicationInfo Winner, string Reason)
+	public override /*function */bool CheckEndGame(PlayerReplicationInfo Winner, String Reason)
 	{
 		return base.CheckEndGame(Winner, Reason);
 	}
@@ -49,7 +49,7 @@ public partial class TdMPDMGame : TdMPGame/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) MatchInProgress()/*state MatchInProgress*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 	
 			if(jumpTo == null || jumpTo == "Begin")
@@ -66,7 +66,7 @@ public partial class TdMPDMGame : TdMPGame/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) MatchOver()/*state MatchOver*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 	
 			if(jumpTo == null || jumpTo == "Begin")

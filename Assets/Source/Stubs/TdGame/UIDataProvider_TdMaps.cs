@@ -9,10 +9,10 @@ public partial class UIDataProvider_TdMaps : UIDataProvider_TdResource/*
 		hidecategories(Object,UIRoot)*/{
 	public partial struct /*native */TdMapCheckpoint
 	{
-		public /*const config localized */string CheckpointFriendlyName;
-		public /*const config localized */string CheckpointDescription;
-		public /*config */string CheckpointName;
-		public /*config */string CheckpointImageMarkup;
+		public /*const config localized */String CheckpointFriendlyName;
+		public /*const config localized */String CheckpointDescription;
+		public /*config */String CheckpointName;
+		public /*config */String CheckpointImageMarkup;
 	
 	//	structdefaultproperties
 	//	{
@@ -24,13 +24,13 @@ public partial class UIDataProvider_TdMaps : UIDataProvider_TdResource/*
 	//	}
 	};
 	
-	public /*config */string Filename;
-	public /*const config localized */string MapName;
-	public /*const config localized */string Description;
-	public /*config */string LevelImageMarkup;
+	public /*config */String Filename;
+	public /*const config localized */String MapName;
+	public /*const config localized */String Description;
+	public /*config */String LevelImageMarkup;
 	public /*config */bool bIsTutorialMap;
-	public /*config */string LevelEvent;
-	public /*config */string GameMode;
+	public /*config */String LevelEvent;
+	public /*config */String GameMode;
 	public /*config */array</*config */UIDataProvider_TdMaps.TdMapCheckpoint> Checkpoints;
 	
 	public override /*event */bool IsProviderDisabled()

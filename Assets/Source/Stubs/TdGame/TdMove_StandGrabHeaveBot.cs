@@ -74,7 +74,7 @@ public partial class TdMove_StandGrabHeaveBot : TdMove_AISpecialMove/*
 	
 	}
 	
-	public virtual /*function */void ControllerScreenLog(string Text)
+	public virtual /*function */void ControllerScreenLog(String Text)
 	{
 	
 	}

@@ -7,7 +7,7 @@ public partial class Mutator : Info/*
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
 	public Mutator NextMutator;
-	public/*()*/ array<string> GroupNames;
+	public/*()*/ array<String> GroupNames;
 	public bool bUserAdded;
 	
 	public override /*event */void PreBeginPlay()
@@ -26,12 +26,12 @@ public partial class Mutator : Info/*
 	
 	}
 	
-	public virtual /*function */void Mutate(string MutateString, PlayerController Sender)
+	public virtual /*function */void Mutate(String MutateString, PlayerController Sender)
 	{
 	
 	}
 	
-	public virtual /*function */void ModifyLogin(ref string Portal, ref string Options)
+	public virtual /*function */void ModifyLogin(ref String Portal, ref String Options)
 	{
 	
 	}
@@ -80,7 +80,7 @@ public partial class Mutator : Info/*
 	
 	}
 	
-	public virtual /*function */string ParseChatPercVar(Controller Who, string Cmd)
+	public virtual /*function */String ParseChatPercVar(Controller Who, String Cmd)
 	{
 	
 		return default;
@@ -112,7 +112,7 @@ public partial class Mutator : Info/*
 	
 	}
 	
-	public virtual /*function */void InitMutator(string Options, ref string ErrorMessage)
+	public virtual /*function */void InitMutator(String Options, ref String ErrorMessage)
 	{
 	
 	}

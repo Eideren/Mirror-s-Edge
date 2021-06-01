@@ -66,7 +66,6 @@ public partial class LensFlareSource : Actor/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004CFBD6
@@ -78,7 +77,6 @@ public partial class LensFlareSource : Actor/*
 				AlwaysLoadOnServer = false,
 			}/* Reference: SpriteComponent'Default__LensFlareSource.Sprite' */,
 			LoadAsset<DrawLightConeComponent>("Default__LensFlareSource.DrawInnerCone0")/*Ref DrawLightConeComponent'Default__LensFlareSource.DrawInnerCone0'*/,
-			//Components[2]=
 			new DrawLightConeComponent
 			{
 				// Object Offset:0x00468B3F
@@ -91,7 +89,6 @@ public partial class LensFlareSource : Actor/*
 				},
 			}/* Reference: DrawLightConeComponent'Default__LensFlareSource.DrawOuterCone0' */,
 			LoadAsset<DrawLightRadiusComponent>("Default__LensFlareSource.DrawRadius0")/*Ref DrawLightRadiusComponent'Default__LensFlareSource.DrawRadius0'*/,
-			//Components[4]=
 			new LensFlareComponent
 			{
 				// Object Offset:0x0046A69B
@@ -99,7 +96,6 @@ public partial class LensFlareSource : Actor/*
 				PreviewOuterCone = LoadAsset<DrawLightConeComponent>("Default__LensFlareSource.DrawOuterCone0")/*Ref DrawLightConeComponent'Default__LensFlareSource.DrawOuterCone0'*/,
 				PreviewRadius = LoadAsset<DrawLightRadiusComponent>("Default__LensFlareSource.DrawRadius0")/*Ref DrawLightRadiusComponent'Default__LensFlareSource.DrawRadius0'*/,
 			}/* Reference: LensFlareComponent'Default__LensFlareSource.LensFlareComponent0' */,
-			//Components[5]=
 			new ArrowComponent
 			{
 				// Object Offset:0x00465B4F

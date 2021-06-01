@@ -15,43 +15,84 @@
         //    return default;
         //}
         public virtual /*native final function */ T Spawn<T>(Core.ClassT<T> SpawnClass, /*optional */
-            Actor SpawnOwner = default, /*optional */name SpawnTag = default, /*optional */
-            Object.Vector SpawnLocation = default, /*optional */Object.Rotator SpawnRotation = default, /*optional */
-            Actor ActorTemplate = default, /*optional */bool bNoCollisionFail = default) where T : Actor
+            Actor SpawnOwner = default, /*optional */Core.name? SpawnTag = default, /*optional */
+            Object.Vector? SpawnLocation = default, /*optional */Object.Rotator? SpawnRotation = default, /*optional */
+            Actor ActorTemplate = default, /*optional */bool? bNoCollisionFail = default) where T : Actor
         {
             //return this.Spawn( SpawnClass as Core.ClassT<Actor>, SpawnOwner, SpawnTag, SpawnLocation, SpawnRotation, ActorTemplate, bNoCollisionFail ) as T;
             if( ActorTemplate != default )
             {
                 UnityEngine.Debug.LogWarning( $"Request to spawn with specific {nameof(ActorTemplate)} '{ActorTemplate}', feature not implemented" );
             }
-            T newActor = SpawnClass.New();
+            T Actor = SpawnClass.New();
             
-            if( newActor.bStatic || newActor.bNoDelete )
+            if( Actor.bStatic || Actor.bNoDelete )
                 return null;
             
-            if( bNoCollisionFail == false && (newActor.bCollideWorld || newActor.bCollideWhenPlacing) )
-                if( !FindSpot( newActor.CollisionComponent.Bounds.BoxExtent, ref Location ) )
+            if( bNoCollisionFail == false && (Actor.bCollideWorld || Actor.bCollideWhenPlacing) )
+                if( !FindSpot( Actor.CollisionComponent.Bounds.BoxExtent, ref Location ) )
                     return null;
             
             
-            newActor.Tag = SpawnTag ?? ;
-            newActor.WorldInfo = this.WorldInfo ?? throw new InvalidOperationException();
-            newActor.bTicked
-            newActor.Owner = SpawnOwner;
-            newActor.Location = SpawnLocation;
-            newActor.Rotation = SpawnRotation;
+            Actor.Tag = SpawnTag ?? SpawnClass.Name;
+            Actor.WorldInfo = this.WorldInfo ?? throw new NullReferenceException();
+            Actor.bTicked = true; // Maybe ?
+            
+            Actor.Location = SpawnLocation ?? default;
+            Actor.Rotation = SpawnRotation ?? default;
+            // if( Actor->bCollideActors && Hash  )
+            //      Hash->AddActor( Actor );
 
-            if( bNoCollisionFail == false )
+            Actor.PhysicsVolume = WorldInfo.PhysicsVolume ?? throw new NullReferenceException();
+
+            if( SpawnOwner != null )
             {
-                #error verify spawn location
+                Actor.SetOwner( SpawnOwner );
+                SpawnOwner.GainedChild( Actor ); /* Maybe? */
             }
 
-
-
-            if( newActor.bDeleteMe == false )
+            Actor.Instigator = Instigator;
+            
+            #error enable state stuff
+            
+            Actor.PreBeginPlay();
+            if( Actor.bDeleteMe )
+                return null;
+            
+            Actor.SetZone(true/*maybe?*/);
+            Actor.PhysicsVolume.ActorEnteredVolume(  );
+            
+            if( bNoCollisionFail == false )
             {
-                AllActorsCollection.Add( newActor );
-                return newActor;
+                /*if( Actor.bCollideActors && Hash )
+                    Hash->RemoveActor( Actor );
+ 
+                if( CheckEncroachment( Actor, Actor->Location, Actor->Rotation, 1 ) )
+                {
+                    DestroyActor( Actor );
+                    return NULL;
+                }
+                
+                if( Actor.bCollideActors && Hash )
+                    Hash->AddActor( Actor );*/
+            }
+            
+            Actor.PostBeginPlay();
+            if( Actor.bDeleteMe )
+                return null; // Not documented, maybe shouldn't be here
+            
+            Actor.SetInitialState();
+            if( Actor.bDeleteMe )
+                return null; // Not documented, maybe shouldn't be here
+            
+            if( !GIsEditor && Actor.Base == null && Actor.bCollideWorld && Actor.bShouldBaseAtStartup 
+                && ((Actor.Physics == EPhysics.PHYS_None) || (Actor.Physics == EPhysics.PHYS_Rotating)) )
+                Actor.FindBase();
+
+            if( Actor.bDeleteMe == false )
+            {
+                AllActorsCollection.Add( Actor );
+                return Actor;
             }
             return null;
         }
@@ -79,7 +120,7 @@
             bPendingDelete = true;
             
             // EndState()
-            if(string.IsNullOrEmpty(this.GetStateName().Value) == false)
+            if(String.IsNullOrEmpty(this.GetStateName().Value) == false)
                 #error how to properly call endstate
                 this.EndState();
             

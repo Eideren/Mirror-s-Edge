@@ -7,7 +7,7 @@ public partial class AITemplate_PatrolDummy : AITemplate_Dummy/*
 	public AITemplate_PatrolDummy()
 	{
 		// Object Offset:0x0048BD9C
-		AnimationSets = "AS_AI_PatrolCop_OneHanded.AS_AI_PatrolCop_OneHanded";
+		AnimationSets[0] = "AS_AI_PatrolCop_OneHanded.AS_AI_PatrolCop_OneHanded";
 		SkeletalMesh = "CH_TKY_Cop_Patrol.SK_TKY_Cop_Patrol";
 		MainWeaponClass = "TdSharedContent.TdWeapon_Pistol_Colt1911";
 	}

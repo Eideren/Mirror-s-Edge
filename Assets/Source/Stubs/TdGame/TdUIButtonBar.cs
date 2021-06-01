@@ -39,18 +39,18 @@ public partial class TdUIButtonBar : TdUIObject/*
 	
 	}
 	
-	public virtual /*function */int AppendButton(string ButtonTextMarkup, /*delegate*/UIObject.OnClicked ButtonDelegate)
+	public virtual /*function */int AppendButton(String ButtonTextMarkup, /*delegate*/UIObject.OnClicked ButtonDelegate)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */void CheckMarkup(ref string ButtonTextMarkup)
+	public virtual /*function */void CheckMarkup(ref String ButtonTextMarkup)
 	{
 	
 	}
 	
-	public virtual /*function */void SetButton(int ButtonIndex, string ButtonTextMarkup, /*delegate*/UIObject.OnClicked ButtonDelegate)
+	public virtual /*function */void SetButton(int ButtonIndex, String ButtonTextMarkup, /*delegate*/UIObject.OnClicked ButtonDelegate)
 	{
 	
 	}

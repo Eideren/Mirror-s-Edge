@@ -21,7 +21,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	
 	public new UIEditBox Outer => base.Outer as UIEditBox;
 	
-	public /*private transient */string UserText;
+	public /*private transient */String UserText;
 	public/*(Presentation)*/ UIRoot.UIStringCaretParameters StringCaret;
 	public /*transient */UIComp_DrawStringEditbox.UIStringSelectionRegion SelectionRegion;
 	public /*config */Object.LinearColor SelectionTextColor;
@@ -32,7 +32,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	public /*const transient */float CaretOffset;
 	
 	// Export UUIComp_DrawStringEditbox::execSetUserText(FFrame&, void* const)
-	public virtual /*native final function */bool SetUserText(string NewValue)
+	public virtual /*native final function */bool SetUserText(String NewValue)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -81,7 +81,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	}
 	
 	// Export UUIComp_DrawStringEditbox::execGetSelectedText(FFrame&, void* const)
-	public virtual /*native final function */string GetSelectedText()
+	public virtual /*native final function */String GetSelectedText()
 	{
 		#warning NATIVE FUNCTION !
 		return default;

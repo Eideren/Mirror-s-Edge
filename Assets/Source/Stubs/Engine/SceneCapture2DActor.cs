@@ -25,7 +25,6 @@ public partial class SceneCapture2DActor : SceneCaptureActor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SceneCapture2DComponent>("Default__SceneCapture2DActor.SceneCapture2DComponent0")/*Ref SceneCapture2DComponent'Default__SceneCapture2DActor.SceneCapture2DComponent0'*/,
-			//Components[1]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x00579962
@@ -37,7 +36,6 @@ public partial class SceneCapture2DActor : SceneCaptureActor/*
 				AlwaysLoadOnClient = false,
 				AlwaysLoadOnServer = false,
 			}/* Reference: StaticMeshComponent'Default__SceneCapture2DActor.CamMesh0' */,
-			//Components[2]=
 			new DrawFrustumComponent
 			{
 				// Object Offset:0x00468A7F

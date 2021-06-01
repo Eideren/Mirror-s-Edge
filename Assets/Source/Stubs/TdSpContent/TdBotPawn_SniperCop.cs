@@ -203,7 +203,6 @@ public partial class TdBotPawn_SniperCop : TdBotPawn_Assault/*
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_SniperCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdBotPawn_SniperCop.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_SniperCop.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_SniperCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_SniperCop.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x00022CDA

@@ -19,7 +19,7 @@ public partial class UIEditBox : UIObject,
 	public/*(Data)*/ /*private */UIRoot.UIDataStoreBinding DataSource;
 	public/*(Data)*/ /*noclear const export editinline */UIComp_DrawStringEditbox StringRenderComponent;
 	public/*(Image)*/ /*const export editinline */UIComp_DrawImage BackgroundImageComponent;
-	public/*(Text)*/ /*const localized */string InitialValue;
+	public/*(Text)*/ /*const localized */String InitialValue;
 	public/*(Text)*/ /*private */bool bReadOnly;
 	public/*(Text)*/ bool bPasswordMode;
 	public/*(Text)*/ int MaxCharacters;
@@ -34,13 +34,13 @@ public partial class UIEditBox : UIObject,
 	}
 	
 	// Export UUIEditBox::execSetValue(FFrame&, void* const)
-	public virtual /*native final function */void SetValue(string NewText, /*optional */int? _PlayerIndex = default, /*optional */bool? _bSkipNotification = default)
+	public virtual /*native final function */void SetValue(String NewText, /*optional */int? _PlayerIndex = default, /*optional */bool? _bSkipNotification = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIEditBox::execGetValue(FFrame&, void* const)
-	public virtual /*native final function */string GetValue(/*optional */bool? _bReturnUserText = default)
+	public virtual /*native final function */String GetValue(/*optional */bool? _bReturnUserText = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -54,13 +54,13 @@ public partial class UIEditBox : UIObject,
 	}
 	
 	// Export UUIEditBox::execSetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int? _BindingIndex = default)
+	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIEditBox::execGetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */string GetDataStoreBinding(/*optional */int? _BindingIndex = default)
+	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

@@ -17,7 +17,6 @@ public partial class FogVolumeSphericalDensityInfo : FogVolumeDensityInfo/*
 		{
 			LoadAsset<SpriteComponent>("Default__FogVolumeSphericalDensityInfo.Sprite")/*Ref SpriteComponent'Default__FogVolumeSphericalDensityInfo.Sprite'*/,
 			LoadAsset<DrawLightRadiusComponent>("Default__FogVolumeSphericalDensityInfo.DrawSphereRadius0")/*Ref DrawLightRadiusComponent'Default__FogVolumeSphericalDensityInfo.DrawSphereRadius0'*/,
-			//Components[2]=
 			new FogVolumeSphericalDensityComponent
 			{
 				// Object Offset:0x00468EFB

@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class UIAction_TdServerTravel : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public string MapName;
-	public/*()*/ string OnlineSettingsDataStore;
+	public String MapName;
+	public/*()*/ String OnlineSettingsDataStore;
 	
 	public UIAction_TdServerTravel()
 	{

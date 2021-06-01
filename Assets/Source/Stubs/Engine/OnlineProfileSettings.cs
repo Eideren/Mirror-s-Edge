@@ -211,7 +211,7 @@ public partial class OnlineProfileSettings : Object/*
 	}
 	
 	// Export UOnlineProfileSettings::execGetProfileSettingColumnHeader(FFrame&, void* const)
-	public virtual /*native function */string GetProfileSettingColumnHeader(int ProfileSettingId)
+	public virtual /*native function */String GetProfileSettingColumnHeader(int ProfileSettingId)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -225,7 +225,7 @@ public partial class OnlineProfileSettings : Object/*
 	}
 	
 	// Export UOnlineProfileSettings::execGetProfileSettingValue(FFrame&, void* const)
-	public virtual /*native function */bool GetProfileSettingValue(int ProfileSettingId, ref string Value)
+	public virtual /*native function */bool GetProfileSettingValue(int ProfileSettingId, ref String Value)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -246,21 +246,21 @@ public partial class OnlineProfileSettings : Object/*
 	}
 	
 	// Export UOnlineProfileSettings::execGetProfileSettingValueByName(FFrame&, void* const)
-	public virtual /*native function */bool GetProfileSettingValueByName(name ProfileSettingName, ref string Value)
+	public virtual /*native function */bool GetProfileSettingValueByName(name ProfileSettingName, ref String Value)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UOnlineProfileSettings::execSetProfileSettingValueByName(FFrame&, void* const)
-	public virtual /*native function */bool SetProfileSettingValueByName(name ProfileSettingName, /*const */ref string NewValue)
+	public virtual /*native function */bool SetProfileSettingValueByName(name ProfileSettingName, /*const */ref String NewValue)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UOnlineProfileSettings::execSetProfileSettingValue(FFrame&, void* const)
-	public virtual /*native function */bool SetProfileSettingValue(int ProfileSettingId, /*const */ref string NewValue)
+	public virtual /*native function */bool SetProfileSettingValue(int ProfileSettingId, /*const */ref String NewValue)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

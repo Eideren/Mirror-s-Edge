@@ -8,7 +8,7 @@ public partial class UIOptionList : UIOptionListBase/*
 	public /*const transient */UIListElementProvider DataProvider;
 	
 	// Export UUIOptionList::execGetListValue(FFrame&, void* const)
-	public virtual /*native final function */bool GetListValue(int ListIndex, ref string OutValue)
+	public virtual /*native final function */bool GetListValue(int ListIndex, ref String OutValue)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -63,14 +63,12 @@ public partial class UIOptionList : UIOptionListBase/*
 		StringRenderComponent = LoadAsset<UIComp_DrawString>("Default__UIOptionList.LabelStringRenderer")/*Ref UIComp_DrawString'Default__UIOptionList.LabelStringRenderer'*/;
 		Children = new array<UIObject>
 		{
-			//Children[0]=
 			new UIOptionListButton
 			{
 				// Object Offset:0x005D35CA
 				BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIOptionList.DecrementButtonTemplate.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UIOptionList.DecrementButtonTemplate.BackgroundImageTemplate'*/,
 				EventProvider = LoadAsset<UIComp_Event>("Default__UIOptionList.DecrementButtonTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIOptionList.DecrementButtonTemplate.WidgetEventComponent'*/,
 			}/* Reference: UIOptionListButton'Default__UIOptionList.DecrementButtonTemplate' */,
-			//Children[1]=
 			new UIOptionListButton
 			{
 				// Object Offset:0x005D360E

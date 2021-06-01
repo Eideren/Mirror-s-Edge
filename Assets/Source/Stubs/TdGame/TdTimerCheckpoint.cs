@@ -174,7 +174,6 @@ public partial class TdTimerCheckpoint : TdPlaceableCheckpoint/*
 		bStatic = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E52819
@@ -184,13 +183,11 @@ public partial class TdTimerCheckpoint : TdPlaceableCheckpoint/*
 			LoadAsset<ArrowComponent>("Default__TdTimerCheckpoint.Arrow")/*Ref ArrowComponent'Default__TdTimerCheckpoint.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__TdTimerCheckpoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdTimerCheckpoint.CollisionCylinder'*/,
 			LoadAsset<PathRenderingComponent>("Default__TdTimerCheckpoint.PathRenderer")/*Ref PathRenderingComponent'Default__TdTimerCheckpoint.PathRenderer'*/,
-			//Components[5]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x02EA6F2F
 				StaticMesh = LoadAsset<StaticMesh>("TT_Checkpoints.S_Checkpoint_01")/*Ref StaticMesh'TT_Checkpoints.S_Checkpoint_01'*/,
 			}/* Reference: StaticMeshComponent'Default__TdTimerCheckpoint.MyMesh' */,
-			//Components[6]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x02EA6F67
@@ -201,7 +198,6 @@ public partial class TdTimerCheckpoint : TdPlaceableCheckpoint/*
 				CollideActors = false,
 				BlockRigidBody = false,
 			}/* Reference: StaticMeshComponent'Default__TdTimerCheckpoint.MyTimerMesh' */,
-			//Components[7]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x02EA6E6B
@@ -212,7 +208,6 @@ public partial class TdTimerCheckpoint : TdPlaceableCheckpoint/*
 				CollideActors = false,
 				BlockRigidBody = false,
 			}/* Reference: StaticMeshComponent'Default__TdTimerCheckpoint.MyFinishlineMesh' */,
-			//Components[8]=
 			new ParticleSystemComponent
 			{
 				// Object Offset:0x01D750CB

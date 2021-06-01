@@ -18,7 +18,7 @@ public partial class TpUoFileLocker : TpSystemHandler,
 	
 	}
 	
-	public virtual /*function */bool FetchLocker(string UserName)
+	public virtual /*function */bool FetchLocker(String UserName)
 	{
 	
 		return default;

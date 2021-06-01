@@ -26,7 +26,7 @@ public partial class TdUIScene_TutorialHUDMessage : TdUIScene/*
 	
 	}
 	
-	public virtual /*function */void SetupCustomButtonBar(string ButtonCallout, TdProfileSettings.EDigitalButtonActions Key, bool bFallThrough)
+	public virtual /*function */void SetupCustomButtonBar(String ButtonCallout, TdProfileSettings.EDigitalButtonActions Key, bool bFallThrough)
 	{
 	
 	}
@@ -42,7 +42,7 @@ public partial class TdUIScene_TutorialHUDMessage : TdUIScene/*
 	
 	}
 	
-	public virtual /*function */void SetText(string Text)
+	public virtual /*function */void SetText(String Text)
 	{
 	
 	}

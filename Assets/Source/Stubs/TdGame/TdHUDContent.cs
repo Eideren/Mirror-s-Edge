@@ -7,25 +7,25 @@ public partial class TdHUDContent : Object{
 	public /*const */array<SoundCue> SoundCues;
 	public /*const */array<MultiFont> MultiFonts;
 	
-	public /*function */static Texture2D GetTextureByName(name TextureName, /*optional */string? _InLoaderClass = default)
+	public /*function */static Texture2D GetTextureByName(name TextureName, /*optional */String? _InLoaderClass = default)
 	{
 	
 		return default;
 	}
 	
-	public /*function */static UIScene GetUISceneByName(name UISceneName, /*optional */string? _InLoaderClass = default)
+	public /*function */static UIScene GetUISceneByName(name UISceneName, /*optional */String? _InLoaderClass = default)
 	{
 	
 		return default;
 	}
 	
-	public /*function */static SoundCue GetSoundCueByName(name SoundCueName, /*optional */string? _InLoaderClass = default)
+	public /*function */static SoundCue GetSoundCueByName(name SoundCueName, /*optional */String? _InLoaderClass = default)
 	{
 	
 		return default;
 	}
 	
-	public /*function */static MultiFont GetMultiFontByName(name FontName, /*optional */string? _InLoaderClass = default)
+	public /*function */static MultiFont GetMultiFontByName(name FontName, /*optional */String? _InLoaderClass = default)
 	{
 	
 		return default;

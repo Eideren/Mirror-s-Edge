@@ -3,15 +3,15 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class FailedConnect : LocalMessage/*
 		abstract*/{
-	public /*const localized */StaticArray<string, string, string, string>/*[4]*/ FailMessage;
+	public /*const localized */StaticArray<String, String, String, String>/*[4]*/ FailMessage;
 	
-	public /*function */static int GetFailSwitch(string FailString)
+	public /*function */static int GetFailSwitch(String FailString)
 	{
 	
 		return default;
 	}
 	
-	public /*function */static string GetString(/*optional */int? _Switch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
+	public /*function */static String GetString(/*optional */int? _Switch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
 	
 		return default;
@@ -20,7 +20,7 @@ public partial class FailedConnect : LocalMessage/*
 	public FailedConnect()
 	{
 		// Object Offset:0x0031D02C
-		FailMessage = new StaticArray<string, string, string, string>/*[4]*/()
+		FailMessage = new StaticArray<String, String, String, String>/*[4]*/()
 		{ 
 			[0] = "FAILED TO JOIN GAME.  NEED PASSWORD.",
 			[1] = "FAILED TO JOIN GAME.  WRONG PASSWORD.",

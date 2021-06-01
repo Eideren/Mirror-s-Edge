@@ -19,7 +19,7 @@ public partial class UIContextMenu : UIList/*
 		public /*init const transient */UIContextMenu OwnerMenu;
 		public /*init native const transient */Object.Pointer ParentItem;
 		public /*init */UIContextMenu.EContextMenuItemType ItemType;
-		public /*init */string ItemText;
+		public /*init */String ItemText;
 		public /*init */int ItemId;
 	
 	//	structdefaultproperties
@@ -57,13 +57,13 @@ public partial class UIContextMenu : UIList/*
 		return default;
 	}
 	
-	public virtual /*event */bool SetMenuItems(UIObject Widget, array<string> NewMenuItems, /*optional */bool? _bClearExisting = default, /*optional */int? _InsertIndex = default)
+	public virtual /*event */bool SetMenuItems(UIObject Widget, array<String> NewMenuItems, /*optional */bool? _bClearExisting = default, /*optional */int? _InsertIndex = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*event */bool InsertMenuItem(UIObject Widget, string Item, /*optional */int? _InsertIndex = default, /*optional */bool? _bAllowDuplicates = default)
+	public virtual /*event */bool InsertMenuItem(UIObject Widget, String Item, /*optional */int? _InsertIndex = default, /*optional */bool? _bAllowDuplicates = default)
 	{
 	
 		return default;
@@ -75,7 +75,7 @@ public partial class UIContextMenu : UIList/*
 		return default;
 	}
 	
-	public virtual /*event */bool RemoveMenuItem(UIObject Widget, string ItemToRemove)
+	public virtual /*event */bool RemoveMenuItem(UIObject Widget, String ItemToRemove)
 	{
 	
 		return default;
@@ -87,19 +87,19 @@ public partial class UIContextMenu : UIList/*
 		return default;
 	}
 	
-	public virtual /*event */bool GetAllMenuItems(UIObject Widget, ref array<string> out_MenuItems)
+	public virtual /*event */bool GetAllMenuItems(UIObject Widget, ref array<String> out_MenuItems)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*event */bool GetMenuItem(UIObject Widget, int IndexToGet, ref string out_MenuItem)
+	public virtual /*event */bool GetMenuItem(UIObject Widget, int IndexToGet, ref String out_MenuItem)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*event */int FindMenuItemIndex(UIObject Widget, string ItemToFind)
+	public virtual /*event */int FindMenuItemIndex(UIObject Widget, String ItemToFind)
 	{
 	
 		return default;

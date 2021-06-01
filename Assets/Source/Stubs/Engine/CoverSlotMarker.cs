@@ -50,7 +50,6 @@ public partial class CoverSlotMarker : NavigationPoint/*
 		bCollideWhenPlacing = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new CylinderComponent
 			{
 				// Object Offset:0x0046646B

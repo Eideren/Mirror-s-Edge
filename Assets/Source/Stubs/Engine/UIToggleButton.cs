@@ -10,7 +10,7 @@ public partial class UIToggleButton : UILabelButton/*
 	public/*(Image)*/ /*noclear const export editinline */UIComp_DrawImage CheckedBackgroundImageComponent;
 	
 	// Export UUIToggleButton::execSetCaption(FFrame&, void* const)
-	public override /*native function */void SetCaption(string NewText)
+	public override /*native function */void SetCaption(String NewText)
 	{
 		#warning NATIVE FUNCTION !
 	}

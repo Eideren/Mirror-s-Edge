@@ -35,7 +35,6 @@ public partial class TdValveSkeletalMeshActor : SkeletalMeshActor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdValveSkeletalMeshActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdValveSkeletalMeshActor.MyLightEnvironment'*/,
-			//Components[1]=
 			new SkeletalMeshComponent
 			{
 				// Object Offset:0x0279BEAA

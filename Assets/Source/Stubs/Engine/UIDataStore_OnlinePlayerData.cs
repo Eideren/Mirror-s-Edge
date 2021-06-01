@@ -12,20 +12,20 @@ public partial class UIDataStore_OnlinePlayerData : UIDataStore_Remote,
 	public UIDataProvider_OnlinePlayers PlayersProvider;
 	public UIDataProvider_OnlineClanMates ClanMatesProvider;
 	public LocalPlayer Player;
-	public string PlayerNick;
+	public String PlayerNick;
 	public int NumNewDownloads;
 	public int NumTotalDownloads;
-	public /*config */string ProfileSettingsClassName;
+	public /*config */String ProfileSettingsClassName;
 	public Core.ClassT<OnlineProfileSettings> ProfileSettingsClass;
 	public UIDataProvider_OnlineProfileSettings ProfileProvider;
 	public UIDataProvider_OnlineFriendMessages FriendMessagesProvider;
-	public /*config */string FriendsProviderClassName;
+	public /*config */String FriendsProviderClassName;
 	public Core.ClassT<UIDataProvider_OnlineFriends> FriendsProviderClass;
-	public /*config */string PlayersProviderClassName;
+	public /*config */String PlayersProviderClassName;
 	public Core.ClassT<UIDataProvider_OnlinePlayers> PlayersProviderClass;
-	public /*config */string ClanMatesProviderClassName;
+	public /*config */String ClanMatesProviderClassName;
 	public Core.ClassT<UIDataProvider_OnlineClanMates> ClanMatesProviderClass;
-	public /*config */string FriendMessagesProviderClassName;
+	public /*config */String FriendMessagesProviderClassName;
 	public Core.ClassT<UIDataProvider_OnlineFriendMessages> FriendMessagesProviderClass;
 	
 	public virtual /*event */void OnRegister(LocalPlayer InPlayer)

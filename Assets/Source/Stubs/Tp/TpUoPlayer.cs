@@ -7,10 +7,10 @@ public partial class TpUoPlayer : TpSystemHandler,
 		OnlinePlayerInterface/*
 		transient
 		native*/{
-	public string ProfileDataDirectory;
-	public string ProfileDataExtension;
-	public string StoredMessage;
-	public string OSKeyboardResult;
+	public String ProfileDataDirectory;
+	public String ProfileDataExtension;
+	public String StoredMessage;
+	public String OSKeyboardResult;
 	public byte OnLoginChangeControllerId;
 	public /*private */array< /*delegate*/OnlinePlayerInterface.OnLoginChange > __OnLoginChange__Multicaster;
 	public /*private */array< /*delegate*/OnlinePlayerInterface.OnLoginCancelled > __OnLoginCancelled__Multicaster;
@@ -123,7 +123,7 @@ public partial class TpUoPlayer : TpSystemHandler,
 		return default;
 	}
 	
-	public virtual /*function */bool Login(byte LocalUserNum, string LoginName, string Password, /*optional */bool? _bWantsLocalOnly = default)
+	public virtual /*function */bool Login(byte LocalUserNum, String LoginName, String Password, /*optional */bool? _bWantsLocalOnly = default)
 	{
 	
 		return default;
@@ -203,7 +203,7 @@ public partial class TpUoPlayer : TpSystemHandler,
 		return default;
 	}
 	
-	public virtual /*simulated function */string GetPlayerNickname(byte LocalUserNum)
+	public virtual /*simulated function */String GetPlayerNickname(byte LocalUserNum)
 	{
 	
 		return default;
@@ -446,7 +446,7 @@ public partial class TpUoPlayer : TpSystemHandler,
 	}
 	
 	// Export UTpUoPlayer::execShowKeyboardUI(FFrame&, void* const)
-	public virtual /*native function */bool ShowKeyboardUI(byte LocalUserNum, string TitleText, string DescriptionText, /*optional */bool? _bIsPassword = default, /*optional */bool? _bShouldValidate = default, /*optional */string? _DefaultText = default, /*optional */int? _MaxResultLength = default)
+	public virtual /*native function */bool ShowKeyboardUI(byte LocalUserNum, String TitleText, String DescriptionText, /*optional */bool? _bIsPassword = default, /*optional */bool? _bShouldValidate = default, /*optional */String? _DefaultText = default, /*optional */int? _MaxResultLength = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -478,25 +478,25 @@ public partial class TpUoPlayer : TpSystemHandler,
 	}
 	
 	// Export UTpUoPlayer::execGetKeyboardInputResults(FFrame&, void* const)
-	public virtual /*native function */string GetKeyboardInputResults(ref byte bWasCanceled)
+	public virtual /*native function */String GetKeyboardInputResults(ref byte bWasCanceled)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTpUoPlayer::execSetKeyboardInputResults(FFrame&, void* const)
-	public virtual /*native function */void SetKeyboardInputResults(string Value)
+	public virtual /*native function */void SetKeyboardInputResults(String Value)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
-	public virtual /*function */bool AddFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId NewFriend, /*optional */string? _Message = default)
+	public virtual /*function */bool AddFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId NewFriend, /*optional */String? _Message = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*simulated function */bool AddFriendByName(byte LocalUserNum, string FriendName, /*optional */string? _Message = default)
+	public virtual /*simulated function */bool AddFriendByName(byte LocalUserNum, String FriendName, /*optional */String? _Message = default)
 	{
 	
 		return default;
@@ -555,7 +555,7 @@ public partial class TpUoPlayer : TpSystemHandler,
 		return default;
 	}
 	
-	public virtual /*final simulated event */void OnFriendInviteReceived_Invoke(byte LocalUserNum, OnlineSubsystem.UniqueNetId RequestingPlayer, string RequestingNick, string Message)
+	public virtual /*final simulated event */void OnFriendInviteReceived_Invoke(byte LocalUserNum, OnlineSubsystem.UniqueNetId RequestingPlayer, String RequestingNick, String Message)
 	{
 	
 	}
@@ -580,18 +580,18 @@ public partial class TpUoPlayer : TpSystemHandler,
 	
 	}
 	
-	public virtual /*simulated function */void OnFriendRequestDelegate(OnlineSubsystem.UniqueNetId RequestingPlayer, string Message)
+	public virtual /*simulated function */void OnFriendRequestDelegate(OnlineSubsystem.UniqueNetId RequestingPlayer, String Message)
 	{
 	
 	}
 	
-	public virtual /*function */bool SendMessageToFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId Friend, string Message)
+	public virtual /*function */bool SendMessageToFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId Friend, String Message)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */void SendMessageByUsername(byte LocalUserNum, string UserName, string Message)
+	public virtual /*function */void SendMessageByUsername(byte LocalUserNum, String UserName, String Message)
 	{
 	
 	}
@@ -631,13 +631,13 @@ public partial class TpUoPlayer : TpSystemHandler,
 	
 	}
 	
-	public virtual /*function */bool SendGameInviteToFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId Friend, /*optional */string? _Text = default)
+	public virtual /*function */bool SendGameInviteToFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId Friend, /*optional */String? _Text = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool SendGameInviteToFriends(byte LocalUserNum, array<OnlineSubsystem.UniqueNetId> Friends, /*optional */string? _Text = default)
+	public virtual /*function */bool SendGameInviteToFriends(byte LocalUserNum, array<OnlineSubsystem.UniqueNetId> Friends, /*optional */String? _Text = default)
 	{
 	
 		return default;
@@ -674,7 +674,7 @@ public partial class TpUoPlayer : TpSystemHandler,
 	
 	}
 	
-	public virtual /*final simulated event */void OnFriendMessageReceived_Invoke(byte LocalUserNum, OnlineSubsystem.UniqueNetId SendingPlayer, string SendingNick, string Message)
+	public virtual /*final simulated event */void OnFriendMessageReceived_Invoke(byte LocalUserNum, OnlineSubsystem.UniqueNetId SendingPlayer, String SendingNick, String Message)
 	{
 	
 	}
@@ -699,7 +699,7 @@ public partial class TpUoPlayer : TpSystemHandler,
 	
 	}
 	
-	public virtual /*private final simulated function */void OnNewMessage(OnlineSubsystem.UniqueNetId PlayerId, string Message)
+	public virtual /*private final simulated function */void OnNewMessage(OnlineSubsystem.UniqueNetId PlayerId, String Message)
 	{
 	
 	}

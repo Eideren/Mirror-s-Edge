@@ -43,8 +43,8 @@ public partial class TdMove_Coil : TdPhysicsMove/*
 	{
 		base.StartMove();
 		HeightBoostLeft = TotalHeightBoost;
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Crouch/*15*/, default);
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("JumpCoil")), 1.0f, 0.150f, 0.150f, default, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Crouch/*15*/, default(float?));
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("JumpCoil")), 1.0f, 0.150f, 0.150f, default(bool?), default(bool?));
 	}
 	
 	public override /*simulated function */bool IsThisMoveStringable()
@@ -77,8 +77,8 @@ public partial class TdMove_Coil : TdPhysicsMove/*
 	public override /*simulated function */void StopMove()
 	{
 		base.StopMove();
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("JumpCoilEnd")), 1.0f, 0.250f, 0.350f, default, default);
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default);
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("JumpCoilEnd")), 1.0f, 0.250f, 0.350f, default(bool?), default(bool?));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_None/*0*/, default(float?));
 	}
 	
 	public TdMove_Coil()

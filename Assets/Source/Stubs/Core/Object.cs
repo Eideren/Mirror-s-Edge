@@ -1144,7 +1144,7 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execToHex(FFrame&, void* const)
-	public /*native final function */static string ToHex(int A)
+	public /*native final function */static String ToHex(int A)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -1845,184 +1845,184 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execConcat_StrStr(FFrame&, void* const)
-	public /*native(112) final operator(40) */static string Concat_StrStr(/*coerce */string A, /*coerce */string B)
+	public /*native(112) final operator(40) */static String Concat_StrStr(/*coerce */String A, /*coerce */String B)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execAt_StrStr(FFrame&, void* const)
-	public /*native(168) final operator(40) */static string At_StrStr(/*coerce */string A, /*coerce */string B)
+	public /*native(168) final operator(40) */static String At_StrStr(/*coerce */String A, /*coerce */String B)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execLess_StrStr(FFrame&, void* const)
-	public /*native(115) final operator(24) */static bool Less_StrStr(string A, string B)
+	public /*native(115) final operator(24) */static bool Less_StrStr(String A, String B)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execGreater_StrStr(FFrame&, void* const)
-	public /*native(116) final operator(24) */static bool Greater_StrStr(string A, string B)
+	public /*native(116) final operator(24) */static bool Greater_StrStr(String A, String B)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execLessEqual_StrStr(FFrame&, void* const)
-	public /*native(120) final operator(24) */static bool LessEqual_StrStr(string A, string B)
+	public /*native(120) final operator(24) */static bool LessEqual_StrStr(String A, String B)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execGreaterEqual_StrStr(FFrame&, void* const)
-	public /*native(121) final operator(24) */static bool GreaterEqual_StrStr(string A, string B)
+	public /*native(121) final operator(24) */static bool GreaterEqual_StrStr(String A, String B)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execEqualEqual_StrStr(FFrame&, void* const)
-	public /*native(122) final operator(24) */static bool EqualEqual_StrStr(string A, string B)
+	public /*native(122) final operator(24) */static bool EqualEqual_StrStr(String A, String B)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execNotEqual_StrStr(FFrame&, void* const)
-	public /*native(123) final operator(26) */static bool NotEqual_StrStr(string A, string B)
+	public /*native(123) final operator(26) */static bool NotEqual_StrStr(String A, String B)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execComplementEqual_StrStr(FFrame&, void* const)
-	public /*native(124) final operator(24) */static bool ComplementEqual_StrStr(string A, string B)
+	public /*native(124) final operator(24) */static bool ComplementEqual_StrStr(String A, String B)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execConcatEqual_StrStr(FFrame&, void* const)
-	public /*native(322) final operator(44) */static string ConcatEqual_StrStr(ref string A, /*coerce */string B)
+	public /*native(322) final operator(44) */static String ConcatEqual_StrStr(ref String A, /*coerce */String B)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execAtEqual_StrStr(FFrame&, void* const)
-	public /*native(323) final operator(44) */static string AtEqual_StrStr(ref string A, /*coerce */string B)
+	public /*native(323) final operator(44) */static String AtEqual_StrStr(ref String A, /*coerce */String B)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execSubtractEqual_StrStr(FFrame&, void* const)
-	public /*native(324) final operator(45) */static string SubtractEqual_StrStr(ref string A, /*coerce */string B)
+	public /*native(324) final operator(45) */static String SubtractEqual_StrStr(ref String A, /*coerce */String B)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execLen(FFrame&, void* const)
-	public /*native(125) final function */static int Len(/*coerce */string S)
+	public /*native(125) final function */static int Len(/*coerce */String S)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execInStr(FFrame&, void* const)
-	public /*native(126) final function */static int InStr(/*coerce */string S, /*coerce */string T, /*optional */bool? _bSearchFromRight = default)
+	public /*native(126) final function */static int InStr(/*coerce */String S, /*coerce */String T, /*optional */bool? _bSearchFromRight = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execMid(FFrame&, void* const)
-	public /*native(127) final function */static string Mid(/*coerce */string S, int I, /*optional */int? _J = default)
+	public /*native(127) final function */static String Mid(/*coerce */String S, int I, /*optional */int? _J = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execLeft(FFrame&, void* const)
-	public /*native(128) final function */static string Left(/*coerce */string S, int I)
+	public /*native(128) final function */static String Left(/*coerce */String S, int I)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execRight(FFrame&, void* const)
-	public /*native(234) final function */static string Right(/*coerce */string S, int I)
+	public /*native(234) final function */static String Right(/*coerce */String S, int I)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execCaps(FFrame&, void* const)
-	public /*native(235) final function */static string Caps(/*coerce */string S)
+	public /*native(235) final function */static String Caps(/*coerce */String S)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execLocs(FFrame&, void* const)
-	public /*native(238) final function */static string Locs(/*coerce */string S)
+	public /*native(238) final function */static String Locs(/*coerce */String S)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execChr(FFrame&, void* const)
-	public /*native(236) final function */static string Chr(int I)
+	public /*native(236) final function */static String Chr(int I)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execAsc(FFrame&, void* const)
-	public /*native(237) final function */static int Asc(string S)
+	public /*native(237) final function */static int Asc(String S)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execRepl(FFrame&, void* const)
-	public /*native(201) final function */static string Repl(/*coerce */string Src, /*coerce */string Match, /*coerce */string With, /*optional */bool? _bCaseSensitive = default)
+	public /*native(201) final function */static String Repl(/*coerce */String Src, /*coerce */String Match, /*coerce */String With, /*optional */bool? _bCaseSensitive = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
-	public /*final function */static string Split(/*coerce */string Text, /*coerce */string SplitStr, /*optional */bool? _bOmitSplitStr = default)
+	public /*final function */static String Split(/*coerce */String Text, /*coerce */String SplitStr, /*optional */bool? _bOmitSplitStr = default)
 	{
 	
 		return default;
 	}
 	
-	public /*final function */static string GetRightMost(/*coerce */string Text)
+	public /*final function */static String GetRightMost(/*coerce */String Text)
 	{
 	
 		return default;
 	}
 	
-	public /*final function */static void JoinArray(array<string> StringArray, ref string out_Result, /*optional */string? _delim = default, /*optional */bool? _bIgnoreBlanks = default)
+	public /*final function */static void JoinArray(array<String> StringArray, ref String out_Result, /*optional */String? _delim = default, /*optional */bool? _bIgnoreBlanks = default)
 	{
 	
 	}
 	
 	// Export UObject::execParseStringIntoArray(FFrame&, void* const)
-	public /*native final function */static void ParseStringIntoArray(string BaseString, ref array<string> Pieces, string delim, bool bCullEmpty)
+	public /*native final function */static void ParseStringIntoArray(String BaseString, ref array<String> Pieces, String delim, bool bCullEmpty)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UObject::execPathName(FFrame&, void* const)
-	public /*native final function */static string PathName(Object CheckObject)
+	public /*native final function */static String PathName(Object CheckObject)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -2290,19 +2290,19 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execLogInternal(FFrame&, void* const)
-	public /*private native(231) final function */static void LogInternal(/*coerce */string S, /*optional */name? _Tag = default)
+	public /*private native(231) final function */static void LogInternal(/*coerce */String S, /*optional */name? _Tag = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UObject::execWarnInternal(FFrame&, void* const)
-	public /*private native(232) final function */static void WarnInternal(/*coerce */string S)
+	public /*private native(232) final function */static void WarnInternal(/*coerce */String S)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UObject::execLocalize(FFrame&, void* const)
-	public /*native function */static string Localize(string SectionName, string KeyName, string PackageName)
+	public /*native function */static String Localize(String SectionName, String KeyName, String PackageName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -2315,7 +2315,7 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execScriptTraceString(FFrame&, void* const)
-	public /*native final function */static string ScriptTraceString()
+	public /*native final function */static String ScriptTraceString()
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -2355,7 +2355,7 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execGetStateStack(FFrame&, void* const)
-	public virtual /*native final function */string GetStateStack()
+	public virtual /*native final function */String GetStateStack()
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -2468,14 +2468,14 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execDynamicLoadObject(FFrame&, void* const)
-	public /*native final function */static Object DynamicLoadObject(string ObjectName, Class ObjectClass, /*optional */bool? _MayFail = default)
+	public /*native final function */static Object DynamicLoadObject(String ObjectName, Class ObjectClass, /*optional */bool? _MayFail = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UObject::execFindObject(FFrame&, void* const)
-	public /*native final function */static Object FindObject(string ObjectName, Class ObjectClass)
+	public /*native final function */static Object FindObject(String ObjectName, Class ObjectClass)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -2494,7 +2494,7 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execGetPerObjectConfigSections(FFrame&, void* const)
-	public /*native final function */static bool GetPerObjectConfigSections(Class SearchClass, ref array<string> out_SectionNames, /*optional */Object? _ObjectOuter = default, /*optional */int? _MaxResults = default)
+	public /*native final function */static bool GetPerObjectConfigSections(Class SearchClass, ref array<String> out_SectionNames, /*optional */Object? _ObjectOuter = default, /*optional */int? _MaxResults = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

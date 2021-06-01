@@ -191,14 +191,12 @@ public partial class TdPickup : DroppedPickup/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__TdPickup.Sprite")/*Ref SpriteComponent'Default__TdPickup.Sprite'*/,
-			//Components[1]=
 			new CylinderComponent
 			{
 				// Object Offset:0x01AB4CDE
 				CollisionHeight = 64.0f,
 				CollisionRadius = 300.0f,
 			}/* Reference: CylinderComponent'Default__TdPickup.CollisionCylinder' */,
-			//Components[2]=
 			new DynamicLightEnvironmentComponent
 			{
 				// Object Offset:0x01B686EA

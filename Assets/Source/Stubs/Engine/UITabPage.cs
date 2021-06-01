@@ -53,13 +53,13 @@ public partial class UITabPage : UIContainer,
 	}
 	
 	// Export UUITabPage::execSetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int? _BindingIndex = default)
+	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUITabPage::execGetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */string GetDataStoreBinding(/*optional */int? _BindingIndex = default)
+	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -106,7 +106,7 @@ public partial class UITabPage : UIContainer,
 	
 	}
 	
-	public virtual /*function */void SetTabCaption(string NewButtonMarkup)
+	public virtual /*function */void SetTabCaption(String NewButtonMarkup)
 	{
 	
 	}

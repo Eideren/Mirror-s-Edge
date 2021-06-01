@@ -19,18 +19,18 @@ public partial class TpDebugger : Object/*
 	}
 	
 	// Export UTpDebugger::execStateFaulted(FFrame&, void* const)
-	public /*native simulated function */static void StateFaulted(Object InObject, string InWhere)
+	public /*native simulated function */static void StateFaulted(Object InObject, String InWhere)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UTpDebugger::execLog(FFrame&, void* const)
-	public /*native simulated function */static void Log(string Str)
+	public /*native simulated function */static void Log(String Str)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
-	public virtual /*simulated event */void Login(OnlineSubsystem InSys, string InName, string InPasswd)
+	public virtual /*simulated event */void Login(OnlineSubsystem InSys, String InName, String InPasswd)
 	{
 	
 	}
@@ -55,7 +55,7 @@ public partial class TpDebugger : Object/*
 	
 	}
 	
-	public virtual /*simulated event */void CreateAccount(OnlineSubsystem InSys, string InName, string InPassword, string InEmail)
+	public virtual /*simulated event */void CreateAccount(OnlineSubsystem InSys, String InName, String InPassword, String InEmail)
 	{
 	
 	}
@@ -65,7 +65,7 @@ public partial class TpDebugger : Object/*
 	
 	}
 	
-	public virtual /*simulated event */void CreateGame(OnlineSubsystem InSys, string InName, bool bInIsLan)
+	public virtual /*simulated event */void CreateGame(OnlineSubsystem InSys, String InName, bool bInIsLan)
 	{
 	
 	}

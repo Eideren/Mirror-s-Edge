@@ -39,7 +39,6 @@ public partial class Light : Actor/*
 		bMovable = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x0030D263

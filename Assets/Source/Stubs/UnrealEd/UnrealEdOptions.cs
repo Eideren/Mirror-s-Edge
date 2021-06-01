@@ -21,8 +21,8 @@ public partial class UnrealEdOptions : Object/*
 	{
 		public name Parent;
 		public name CommandName;
-		public string ExecCommand;
-		public string Description;
+		public String ExecCommand;
+		public String Description;
 	
 	//	structdefaultproperties
 	//	{

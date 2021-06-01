@@ -8,7 +8,7 @@ public partial class SeqVar_Union : SequenceVariable/*
 	public/*()*/ int IntValue;
 	public/*()*/ int BoolValue;
 	public/*()*/ float FloatValue;
-	public/*()*/ string StringValue;
+	public/*()*/ String StringValue;
 	public/*()*/ Object ObjectValue;
 	
 	public SeqVar_Union()

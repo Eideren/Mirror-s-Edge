@@ -64,7 +64,6 @@ public partial class StaticMeshActor : StaticMeshActorBase/*
 		};
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x00579BEA
@@ -72,7 +71,6 @@ public partial class StaticMeshActor : StaticMeshActorBase/*
 				bForceDirectLightMap = true,
 				bCastDynamicShadow = false,
 			}/* Reference: StaticMeshComponent'Default__StaticMeshActor.StaticMeshComponent0' */,
-			//Components[1]=
 			new TdLOIRenderingComponent
 			{
 				// Object Offset:0x00579C76

@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using Fp; using Tp; using Ts; using IpDr
 public partial class CurveEdPresetBase : Object/*
 		abstract
 		native*/{
-	public virtual /*function */string GetDisplayName()
+	public virtual /*function */String GetDisplayName()
 	{
 	
 		return default;
@@ -28,7 +28,7 @@ public partial class CurveEdPresetBase : Object/*
 		return default;
 	}
 	
-	public virtual /*event */void FetchDisplayName(ref string OutName)
+	public virtual /*event */void FetchDisplayName(ref String OutName)
 	{
 	
 	}

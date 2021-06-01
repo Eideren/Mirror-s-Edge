@@ -31,7 +31,7 @@ public interface OnlinePlayerInterface : Interface/*
 	
 	public /*function */bool ShowLoginUI(/*optional */bool? _bShowOnlineOnly = default);
 	
-	public /*function */bool Login(byte LocalUserNum, string LoginName, string Password, /*optional */bool? _bWantsLocalOnly = default);
+	public /*function */bool Login(byte LocalUserNum, String LoginName, String Password, /*optional */bool? _bWantsLocalOnly = default);
 	
 	public /*function */bool AutoLogin();
 	
@@ -53,7 +53,7 @@ public interface OnlinePlayerInterface : Interface/*
 	
 	public /*function */bool GetUniquePlayerId(byte LocalUserNum, ref OnlineSubsystem.UniqueNetId PlayerId);
 	
-	public /*function */string GetPlayerNickname(byte LocalUserNum);
+	public /*function */String GetPlayerNickname(byte LocalUserNum);
 	
 	public /*function */OnlineSubsystem.EFeaturePrivilegeLevel CanPlayOnline(byte LocalUserNum);
 	
@@ -121,19 +121,19 @@ public interface OnlinePlayerInterface : Interface/*
 	
 	public /*function */void SetOnlineStatus(byte LocalUserNum, int StatusId, /*const */ref array<Settings.LocalizedStringSetting> LocalizedStringSettings, /*const */ref array<Settings.SettingsProperty> Properties);
 	
-	public /*function */bool ShowKeyboardUI(byte LocalUserNum, string TitleText, string DescriptionText, /*optional */bool? _bIsPassword = default, /*optional */bool? _bShouldValidate = default, /*optional */string? _DefaultText = default, /*optional */int? _MaxResultLength = default);
+	public /*function */bool ShowKeyboardUI(byte LocalUserNum, String TitleText, String DescriptionText, /*optional */bool? _bIsPassword = default, /*optional */bool? _bShouldValidate = default, /*optional */String? _DefaultText = default, /*optional */int? _MaxResultLength = default);
 	
 	public /*function */void AddKeyboardInputDoneDelegate(/*delegate*/OnlinePlayerInterface.OnKeyboardInputComplete InputDelegate);
 	
 	public /*function */void ClearKeyboardInputDoneDelegate(/*delegate*/OnlinePlayerInterface.OnKeyboardInputComplete InputDelegate);
 	
-	public /*function */string GetKeyboardInputResults(ref byte bWasCanceled);
+	public /*function */String GetKeyboardInputResults(ref byte bWasCanceled);
 	
 	public delegate void OnKeyboardInputComplete(bool bWasSuccessful);
 	
-	public /*function */bool AddFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId NewFriend, /*optional */string? _Message = default);
+	public /*function */bool AddFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId NewFriend, /*optional */String? _Message = default);
 	
-	public /*function */bool AddFriendByName(byte LocalUserNum, string FriendName, /*optional */string? _Message = default);
+	public /*function */bool AddFriendByName(byte LocalUserNum, String FriendName, /*optional */String? _Message = default);
 	
 	public delegate void OnAddFriendByNameComplete(bool bWasSuccessful);
 	
@@ -147,15 +147,15 @@ public interface OnlinePlayerInterface : Interface/*
 	
 	public /*function */bool RemoveFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId FormerFriend);
 	
-	public delegate void OnFriendInviteReceived(byte LocalUserNum, OnlineSubsystem.UniqueNetId RequestingPlayer, string RequestingNick, string Message);
+	public delegate void OnFriendInviteReceived(byte LocalUserNum, OnlineSubsystem.UniqueNetId RequestingPlayer, String RequestingNick, String Message);
 	
 	public /*function */void AddFriendInviteReceivedDelegate(byte LocalUserNum, /*delegate*/OnlinePlayerInterface.OnFriendInviteReceived InviteDelegate);
 	
 	public /*function */void ClearFriendInviteReceivedDelegate(byte LocalUserNum, /*delegate*/OnlinePlayerInterface.OnFriendInviteReceived InviteDelegate);
 	
-	public /*function */bool SendMessageToFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId Friend, string Message);
+	public /*function */bool SendMessageToFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId Friend, String Message);
 	
-	public /*function */void SendMessageByUsername(byte LocalUserNum, string UserName, string Message);
+	public /*function */void SendMessageByUsername(byte LocalUserNum, String UserName, String Message);
 	
 	public delegate void OnSendMessageByUsername(bool bSuccess);
 	
@@ -163,11 +163,11 @@ public interface OnlinePlayerInterface : Interface/*
 	
 	public /*function */void ClearSendMessageByUsernameDelegate(byte LocalUserNum, /*delegate*/OnlinePlayerInterface.OnSendMessageByUsername SendMessageDelegate);
 	
-	public /*function */bool SendGameInviteToFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId Friend, /*optional */string? _Text = default);
+	public /*function */bool SendGameInviteToFriend(byte LocalUserNum, OnlineSubsystem.UniqueNetId Friend, /*optional */String? _Text = default);
 	
-	public /*function */bool SendGameInviteToFriends(byte LocalUserNum, array<OnlineSubsystem.UniqueNetId> Friends, /*optional */string? _Text = default);
+	public /*function */bool SendGameInviteToFriends(byte LocalUserNum, array<OnlineSubsystem.UniqueNetId> Friends, /*optional */String? _Text = default);
 	
-	public delegate void OnReceivedGameInvite(byte LocalUserNum, string InviterName);
+	public delegate void OnReceivedGameInvite(byte LocalUserNum, String InviterName);
 	
 	public /*function */void AddReceivedGameInviteDelegate(byte LocalUserNum, /*delegate*/OnlinePlayerInterface.OnReceivedGameInvite ReceivedGameInviteDelegate);
 	
@@ -193,7 +193,7 @@ public interface OnlinePlayerInterface : Interface/*
 	
 	public /*function */void GetFriendMessages(byte LocalUserNum, ref array<OnlineSubsystem.OnlineFriendMessage> FriendMessages);
 	
-	public delegate void OnFriendMessageReceived(byte LocalUserNum, OnlineSubsystem.UniqueNetId SendingPlayer, string SendingNick, string Message);
+	public delegate void OnFriendMessageReceived(byte LocalUserNum, OnlineSubsystem.UniqueNetId SendingPlayer, String SendingNick, String Message);
 	
 	public /*function */void AddFriendMessageReceivedDelegate(byte LocalUserNum, /*delegate*/OnlinePlayerInterface.OnFriendMessageReceived MessageDelegate);
 	

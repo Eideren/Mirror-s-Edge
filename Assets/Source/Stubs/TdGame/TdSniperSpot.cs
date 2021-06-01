@@ -35,7 +35,6 @@ public partial class TdSniperSpot : NavigationPoint/*
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdSniperSpot.Sprite2")/*Ref SpriteComponent'Default__TdSniperSpot.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E525B9

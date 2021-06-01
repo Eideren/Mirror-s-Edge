@@ -10,7 +10,6 @@ public partial class TdGenericSpawnMarker : TdMarker/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<ArrowComponent>("Default__TdGenericSpawnMarker.Arrow")/*Ref ArrowComponent'Default__TdGenericSpawnMarker.Arrow'*/,
-			//Components[1]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E51FA5

@@ -91,7 +91,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 		}	
 	}
 	
-	public override /*function */NavigationPoint FindPlayerStart(Controller Player, /*optional */byte? _InTeam = default, /*optional */string? _IncomingName = default)
+	public override /*function */NavigationPoint FindPlayerStart(Controller Player, /*optional */byte? _InTeam = default, /*optional */String? _IncomingName = default)
 	{
 		/*local */DataStoreClient DataStoreManager = default;
 		/*local */UIDataStore_TdGameData GameData = default;
@@ -188,7 +188,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 		}
 	}
 	
-	public override /*event */void PostSublevelStreaming(string Options)
+	public override /*event */void PostSublevelStreaming(String Options)
 	{
 		base.PostSublevelStreaming(Options);
 		if(!HasOption(Options, "NoControllerCheck"))

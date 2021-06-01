@@ -88,7 +88,7 @@ public partial class TdMove_MeleeBase : TdPhysicsMove/*
 	
 	public virtual /*simulated function */void DeliverDamage(float Damage, Object.Vector HitLocation, Object.Vector ImpactMomentum, Core.ClassT<TdDamageType> DamageType, Actor.TraceHitInfo Hit)
 	{
-		TargetPawn.TakeDamage(((int)(Damage)), PawnOwner.Controller, HitLocation, ImpactMomentum, DamageType, Hit, default);
+		TargetPawn.TakeDamage(((int)(Damage)), PawnOwner.Controller, HitLocation, ImpactMomentum, DamageType, Hit, default(Actor?));
 		if(PawnOwner.Controller.IsA("TdPlayerController"))
 		{
 			((PawnOwner.Controller) as TdPlayerController).ClientPlayForceFeedbackWaveform(MeleeWaveform);

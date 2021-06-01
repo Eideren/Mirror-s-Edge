@@ -32,7 +32,7 @@ public partial class TdUIScene_TOS : TdUIScene_SubMenu/*
 		return default;
 	}
 	
-	public virtual /*function */void SetTOSMessage(string Message)
+	public virtual /*function */void SetTOSMessage(String Message)
 	{
 	
 	}

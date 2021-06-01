@@ -41,7 +41,6 @@ public partial class Pawn_PoliceUndercover : TdPlayerPawn/*
 			LoadAsset<CylinderComponent>("Default__Pawn_PoliceUndercover.CollisionCylinder")/*Ref CylinderComponent'Default__Pawn_PoliceUndercover.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__Pawn_PoliceUndercover.Arrow")/*Ref ArrowComponent'Default__Pawn_PoliceUndercover.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__Pawn_PoliceUndercover.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__Pawn_PoliceUndercover.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x0001135C

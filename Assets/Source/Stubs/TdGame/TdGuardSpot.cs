@@ -20,7 +20,6 @@ public partial class TdGuardSpot : NavigationPoint/*
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdGuardSpot.Sprite2")/*Ref SpriteComponent'Default__TdGuardSpot.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E52041
@@ -30,7 +29,6 @@ public partial class TdGuardSpot : NavigationPoint/*
 			LoadAsset<ArrowComponent>("Default__TdGuardSpot.Arrow")/*Ref ArrowComponent'Default__TdGuardSpot.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__TdGuardSpot.CollisionCylinder")/*Ref CylinderComponent'Default__TdGuardSpot.CollisionCylinder'*/,
 			LoadAsset<PathRenderingComponent>("Default__TdGuardSpot.PathRenderer")/*Ref PathRenderingComponent'Default__TdGuardSpot.PathRenderer'*/,
-			//Components[5]=
 			new TdGuardSpotRenderingComponent
 			{
 				// Object Offset:0x03121ABE

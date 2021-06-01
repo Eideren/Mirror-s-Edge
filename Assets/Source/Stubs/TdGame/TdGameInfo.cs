@@ -10,7 +10,7 @@ public partial class TdGameInfo : GameInfo/*
 	public partial struct /*native */DefaultInvItem
 	{
 		public name PawnClassName;
-		public string InventoryClassName;
+		public String InventoryClassName;
 		public int Ammo;
 		public int Clips;
 		public Inventory.EInventorySlot Slot;
@@ -39,7 +39,7 @@ public partial class TdGameInfo : GameInfo/*
 	public TdAIVoiceOverManager VoiceOverManager;
 	public RequestedTextureResources ActiveRequestedTextureResources;
 	
-	public override /*event */void InitGame(string Options, ref string ErrorMessage)
+	public override /*event */void InitGame(String Options, ref String ErrorMessage)
 	{
 	
 	}
@@ -49,7 +49,7 @@ public partial class TdGameInfo : GameInfo/*
 	
 	}
 	
-	public virtual /*event */void PostSublevelStreaming(string Options)
+	public virtual /*event */void PostSublevelStreaming(String Options)
 	{
 	
 	}

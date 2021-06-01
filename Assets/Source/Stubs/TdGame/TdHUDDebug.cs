@@ -25,11 +25,11 @@ public partial class TdHUDDebug : Object/* within TdHUD*//*
 	public/*(DebugTools)*/ bool bShowCheckpointsPath;
 	public float TimedMessageTimestamp;
 	public float TimedMessageTime;
-	public string TimedMessage;
-	public/*(DebugTools)*/ string DebugKismetOutput;
+	public String TimedMessage;
+	public/*(DebugTools)*/ String DebugKismetOutput;
 	public/*(DebugTools)*/ TdPawn ActiveActor;
 	public int BufferSize;
-	public array<string> ScreenBuffer;
+	public array<String> ScreenBuffer;
 	public name AnimationStartingPoint;
 	public /*transient */TdCheatManager CheatManager;
 	public /*transient */array<TdCheckpoint> Checkpoints;
@@ -39,7 +39,7 @@ public partial class TdHUDDebug : Object/* within TdHUD*//*
 	
 	}
 	
-	public virtual /*function */void TimedScreenMessage(string Message, float Time)
+	public virtual /*function */void TimedScreenMessage(String Message, float Time)
 	{
 	
 	}

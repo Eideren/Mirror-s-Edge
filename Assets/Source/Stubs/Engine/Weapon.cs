@@ -112,7 +112,7 @@ public partial class Weapon : Inventory/*
 	
 	}
 	
-	public virtual /*simulated function */void GetWeaponDebug(ref array<string> DebugInfo)
+	public virtual /*simulated function */void GetWeaponDebug(ref array<String> DebugInfo)
 	{
 	
 	}
@@ -122,7 +122,7 @@ public partial class Weapon : Inventory/*
 	
 	}
 	
-	public virtual /*simulated function */void WeaponLog(/*coerce */string msg, /*coerce */string FuncStr)
+	public virtual /*simulated function */void WeaponLog(/*coerce */String msg, /*coerce */String FuncStr)
 	{
 	
 	}

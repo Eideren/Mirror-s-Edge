@@ -9,22 +9,22 @@ public partial class TdUIScene_LoadIndicator : TdUIScene/*
 	public /*transient */bool bIsDiscAccess;
 	public /*transient */TdPlayerController PlayerController;
 	public /*transient */TdUILoadIndicator IndicatorWidget;
-	public /*const localized */string WriteMessage;
-	public /*const localized */string LongWriteMessage;
-	public /*const localized */string ReadMessage;
-	public /*const localized */string LongReadMessage;
-	public /*const localized */string UploadMessage;
-	public /*const localized */string DownloadMessage;
-	public /*const localized */string CreatingSaveDataMessage;
-	public /*const localized */string LoadingSaveDataMessage;
-	public /*const localized */string CheckingSaveDataMessage;
-	public /*const localized */string LoadingLevelMessage;
+	public /*const localized */String WriteMessage;
+	public /*const localized */String LongWriteMessage;
+	public /*const localized */String ReadMessage;
+	public /*const localized */String LongReadMessage;
+	public /*const localized */String UploadMessage;
+	public /*const localized */String DownloadMessage;
+	public /*const localized */String CreatingSaveDataMessage;
+	public /*const localized */String LoadingSaveDataMessage;
+	public /*const localized */String CheckingSaveDataMessage;
+	public /*const localized */String LoadingLevelMessage;
 	public /*transient */MaterialInterface SaveMaterial;
 	public /*transient */MaterialInterface SaveMaterialBlack;
 	public /*transient */MaterialInterface LoadMaterial;
 	public /*transient */MaterialInterface LoadMaterialBlack;
 	
-	public virtual /*function */void Setup(string Message, bool bSaving, /*optional */bool? _bBlack = default)
+	public virtual /*function */void Setup(String Message, bool bSaving, /*optional */bool? _bBlack = default)
 	{
 	
 	}

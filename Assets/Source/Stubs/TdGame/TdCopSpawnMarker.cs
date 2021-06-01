@@ -10,7 +10,6 @@ public partial class TdCopSpawnMarker : TdMarker/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<ArrowComponent>("Default__TdCopSpawnMarker.Arrow")/*Ref ArrowComponent'Default__TdCopSpawnMarker.Arrow'*/,
-			//Components[1]=
 			new SpriteComponent
 			{
 				// Object Offset:0x02E51E75

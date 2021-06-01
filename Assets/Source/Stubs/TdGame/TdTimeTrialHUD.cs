@@ -24,7 +24,7 @@ public partial class TdTimeTrialHUD : TdSPHUD/*
 	public /*transient */Texture2D Star;
 	public /*transient */array<float> HUDProgressFade;
 	public /*transient */StaticArray<float, float, float>/*[3]*/ StarRatingAlpha;
-	public /*transient */string SpeedUnitString;
+	public /*transient */String SpeedUnitString;
 	public /*transient */int MeasurementUnits;
 	public ParticleSystem CheckPointEffectParticles;
 	public float CheckPointDistanceInCameraDirection;
@@ -104,7 +104,7 @@ public partial class TdTimeTrialHUD : TdSPHUD/*
 	
 	}
 	
-	public override /*function */void ActivatePopUp(TdSPHUD.EPopUpType Type, float Duration, string Message)
+	public override /*function */void ActivatePopUp(TdSPHUD.EPopUpType Type, float Duration, String Message)
 	{
 	
 	}

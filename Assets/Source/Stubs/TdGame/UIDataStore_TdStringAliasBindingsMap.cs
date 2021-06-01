@@ -11,8 +11,8 @@ public partial class UIDataStore_TdStringAliasBindingsMap : UIDataStore_StringAl
 	public partial struct /*native */ControllerMap
 	{
 		public name KeyName;
-		public string XBoxMapping;
-		public string PS3Mapping;
+		public String XBoxMapping;
+		public String PS3Mapping;
 	
 	//	structdefaultproperties
 	//	{
@@ -26,7 +26,7 @@ public partial class UIDataStore_TdStringAliasBindingsMap : UIDataStore_StringAl
 	public partial struct /*native */BindCacheElement
 	{
 		public name KeyName;
-		public string MappingString;
+		public String MappingString;
 		public int FieldIndex;
 	
 	//	structdefaultproperties
@@ -44,28 +44,28 @@ public partial class UIDataStore_TdStringAliasBindingsMap : UIDataStore_StringAl
 	public /*config */array</*config */UIDataStore_TdStringAliasBindingsMap.ControllerMap> ControllerMapArray;
 	
 	// Export UUIDataStore_TdStringAliasBindingsMap::execGetStringWithFieldName(FFrame&, void* const)
-	public override /*native function */int GetStringWithFieldName(string FieldName, ref string MappedString)
+	public override /*native function */int GetStringWithFieldName(String FieldName, ref String MappedString)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdStringAliasBindingsMap::execGetBoundStringWithFieldName(FFrame&, void* const)
-	public virtual /*native function */int GetBoundStringWithFieldName(string FieldName, ref string MappedString, /*optional */ref int StartIndex/* = default*/, /*optional */ref string BindString/* = default*/)
+	public virtual /*native function */int GetBoundStringWithFieldName(String FieldName, ref String MappedString, /*optional */ref int StartIndex/* = default*/, /*optional */ref String BindString/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdStringAliasBindingsMap::execFindMappingInBoundKeyCache(FFrame&, void* const)
-	public virtual /*protected native final function */bool FindMappingInBoundKeyCache(string Command, ref string MappingStr, ref int FieldIndex)
+	public virtual /*protected native final function */bool FindMappingInBoundKeyCache(String Command, ref String MappingStr, ref int FieldIndex)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIDataStore_TdStringAliasBindingsMap::execAddMappingToBoundKeyCache(FFrame&, void* const)
-	public virtual /*protected native final function */void AddMappingToBoundKeyCache(string Command, string MappingStr, int FieldIndex)
+	public virtual /*protected native final function */void AddMappingToBoundKeyCache(String Command, String MappingStr, int FieldIndex)
 	{
 		#warning NATIVE FUNCTION !
 	}

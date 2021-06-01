@@ -19,7 +19,7 @@ public partial class UISkin : UIDataStore/*
 	};
 	
 	public /*protected const export editinline */array</*export editinline */UIStyle> Styles;
-	public /*protected const */array<string> StyleGroups;
+	public /*protected const */array<String> StyleGroups;
 	public /*protected const */array<UISkin.UISoundCue> SoundCues;
 	public /*native const transient *//*map<0,0>*/map<object, object> StyleLookupTable;
 	public /*native const transient *//*map<0,0>*/map<object, object> StyleNameMap;
@@ -68,49 +68,49 @@ public partial class UISkin : UIDataStore/*
 	}
 	
 	// Export UUISkin::execIsInheritedGroupName(FFrame&, void* const)
-	public virtual /*native final function */bool IsInheritedGroupName(string StyleGroupName)
+	public virtual /*native final function */bool IsInheritedGroupName(String StyleGroupName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUISkin::execAddStyleGroupName(FFrame&, void* const)
-	public virtual /*native final function */bool AddStyleGroupName(string StyleGroupName)
+	public virtual /*native final function */bool AddStyleGroupName(String StyleGroupName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUISkin::execRemoveStyleGroupName(FFrame&, void* const)
-	public virtual /*native final function */bool RemoveStyleGroupName(string StyleGroupName)
+	public virtual /*native final function */bool RemoveStyleGroupName(String StyleGroupName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUISkin::execRenameStyleGroup(FFrame&, void* const)
-	public virtual /*native final function */bool RenameStyleGroup(string OldStyleGroupName, string NewStyleGroupName)
+	public virtual /*native final function */bool RenameStyleGroup(String OldStyleGroupName, String NewStyleGroupName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUISkin::execGetStyleGroupAtIndex(FFrame&, void* const)
-	public virtual /*native final function */string GetStyleGroupAtIndex(int Index)
+	public virtual /*native final function */String GetStyleGroupAtIndex(int Index)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUISkin::execFindStyleGroupIndex(FFrame&, void* const)
-	public virtual /*native final function */int FindStyleGroupIndex(string StyleGroupName)
+	public virtual /*native final function */int FindStyleGroupIndex(String StyleGroupName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUISkin::execGetStyleGroups(FFrame&, void* const)
-	public virtual /*native final function */void GetStyleGroups(ref array<string> StyleGroupArray, /*optional */bool? _bIncludeInheritedGroups = default)
+	public virtual /*native final function */void GetStyleGroups(ref array<String> StyleGroupArray, /*optional */bool? _bIncludeInheritedGroups = default)
 	{
 		#warning NATIVE FUNCTION !
 	}

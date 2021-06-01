@@ -19,7 +19,6 @@ public partial class SkeletalMeshActorSpawnable : SkeletalMeshActor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__SkeletalMeshActorSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActorSpawnable.MyLightEnvironment'*/,
-			//Components[1]=
 			new SkeletalMeshComponent
 			{
 				// Object Offset:0x004CEDE6

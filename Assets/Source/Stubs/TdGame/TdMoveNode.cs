@@ -31,7 +31,6 @@ public partial class TdMoveNode : PathNode/*
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdMoveNode.Sprite2")/*Ref SpriteComponent'Default__TdMoveNode.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x0057E54C

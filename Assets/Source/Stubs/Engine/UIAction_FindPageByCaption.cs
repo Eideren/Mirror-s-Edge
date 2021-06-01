@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class UIAction_FindPageByCaption : UIAction_GetPageReference/*
 		hidecategories(Object)*/{
-	public/*()*/ string SearchCaption;
+	public/*()*/ String SearchCaption;
 	public/*()*/ bool bMarkupString;
 	
 	public override /*event */void Activated()

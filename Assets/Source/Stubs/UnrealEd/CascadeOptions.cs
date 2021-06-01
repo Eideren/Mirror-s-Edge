@@ -36,12 +36,12 @@ public partial class CascadeOptions : Object/*
 	public/*(Options)*/ /*config */Object.Color GridColor_Hi;
 	public/*(Options)*/ /*config */Object.Color GridColor_Low;
 	public/*(Options)*/ /*config */float GridPerspectiveSize;
-	public/*(Options)*/ /*config */string FloorMesh;
+	public/*(Options)*/ /*config */String FloorMesh;
 	public/*(Options)*/ /*config */Object.Vector FloorPosition;
 	public/*(Options)*/ /*config */Object.Rotator FloorRotation;
 	public/*(Options)*/ /*config */float FloorScale;
 	public/*(Options)*/ /*config */Object.Vector FloorScale3D;
-	public/*(Options)*/ /*config */string PostProcessChainName;
+	public/*(Options)*/ /*config */String PostProcessChainName;
 	public/*(Options)*/ /*config */int ShowPPFlags;
 	public/*(Options)*/ /*config */int SlimCascadeDrawHeight;
 	

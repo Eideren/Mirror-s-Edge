@@ -83,11 +83,11 @@ public partial class GameViewportClient : Object/* within Engine*//*
 	public UIInteraction UIController;
 	public Console ViewportConsole;
 	public /*const */Object.QWord ShowFlags;
-	public /*const localized */string LoadingMessage;
-	public /*const localized */string SavingMessage;
-	public /*const localized */string ConnectingMessage;
-	public /*const localized */string PausedMessage;
-	public /*const localized */string PrecachingMessage;
+	public /*const localized */String LoadingMessage;
+	public /*const localized */String SavingMessage;
+	public /*const localized */String ConnectingMessage;
+	public /*const localized */String PausedMessage;
+	public /*const localized */String PrecachingMessage;
 	public bool bShowTitleSafeZone;
 	public /*transient */bool bDisplayingUIMouseCursor;
 	public /*transient */bool bUIMouseCaptureOverride;
@@ -107,10 +107,10 @@ public partial class GameViewportClient : Object/* within Engine*//*
 	
 	public delegate bool HandleInputAxis(int ControllerId, name Key, float Delta, float DeltaTime, bool bGamepad);
 	
-	public delegate bool HandleInputChar(int ControllerId, string Unicode);
+	public delegate bool HandleInputChar(int ControllerId, String Unicode);
 	
 	// Export UGameViewportClient::execConsoleCommand(FFrame&, void* const)
-	public virtual /*native function */string ConsoleCommand(string Command)
+	public virtual /*native function */String ConsoleCommand(String Command)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -129,7 +129,7 @@ public partial class GameViewportClient : Object/* within Engine*//*
 		return default;
 	}
 	
-	public virtual /*event */LocalPlayer CreatePlayer(int ControllerId, ref string OutError, bool bSpawnActor)
+	public virtual /*event */LocalPlayer CreatePlayer(int ControllerId, ref String OutError, bool bSpawnActor)
 	{
 	
 		return default;
@@ -177,7 +177,7 @@ public partial class GameViewportClient : Object/* within Engine*//*
 	
 	}
 	
-	public virtual /*event */bool Init(ref string OutError)
+	public virtual /*event */bool Init(ref String OutError)
 	{
 	
 		return default;
@@ -281,7 +281,7 @@ public partial class GameViewportClient : Object/* within Engine*//*
 	
 	}
 	
-	public virtual /*function */void DrawTransitionMessage(Canvas Canvas, string Message)
+	public virtual /*function */void DrawTransitionMessage(Canvas Canvas, String Message)
 	{
 	
 	}

@@ -24,7 +24,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	}
 	
 	// Export UTpAssociationManager::execGetMyFriendsList(FFrame&, void* const)
-	public virtual /*native simulated function */array<string> GetMyFriendsList()
+	public virtual /*native simulated function */array<String> GetMyFriendsList()
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -66,7 +66,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	}
 	
 	// Export UTpAssociationManager::execListBlockedUsers(FFrame&, void* const)
-	public virtual /*native simulated function */array<string> ListBlockedUsers()
+	public virtual /*native simulated function */array<String> ListBlockedUsers()
 	{
 		#warning NATIVE FUNCTION !
 		return default;

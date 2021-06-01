@@ -15,7 +15,7 @@ public partial class TdLookAtPoint : Keypoint/*
 	{
 		if(!bDoNotRegisterAsLookAt && bAutoRegisterOnStartup)
 		{
-			RegisterLookAtPoint(default);
+			RegisterLookAtPoint(default(bool?));
 		}
 	}
 	
@@ -51,7 +51,7 @@ public partial class TdLookAtPoint : Keypoint/*
 			{
 				if(Action.InputLinks[0].bHasImpulse)
 				{
-					RegisterLookAtPoint(default);				
+					RegisterLookAtPoint(default(bool?));				
 				}
 				else
 				{

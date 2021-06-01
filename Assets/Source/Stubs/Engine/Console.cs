@@ -21,14 +21,14 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 	public /*globalconfig */name ConsoleKey;
 	public /*globalconfig */name TypeKey;
 	public /*globalconfig */int MaxScrollbackSize;
-	public array<string> Scrollback;
+	public array<String> Scrollback;
 	public int SBHead;
 	public int SBPos;
 	public /*config */int HistoryTop;
 	public /*config */int HistoryBot;
 	public /*config */int HistoryCur;
-	public /*config */StaticArray<string, string, string, string, string, string, string, string, string, string, string, string, string, string, string, string>/*[16]*/ History;
-	public string TypedStr;
+	public /*config */StaticArray<String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String>/*[16]*/ History;
+	public String TypedStr;
 	public int TypedStrPos;
 	public /*transient */bool bCaptureKeyInput;
 	public bool bCtrl;
@@ -39,7 +39,7 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 	
 	}
 	
-	public virtual /*function */void SetInputText(string Text)
+	public virtual /*function */void SetInputText(String Text)
 	{
 	
 	}
@@ -49,12 +49,12 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 	
 	}
 	
-	public virtual /*function */void PurgeCommandFromHistory(string Command)
+	public virtual /*function */void PurgeCommandFromHistory(String Command)
 	{
 	
 	}
 	
-	public virtual /*function */void ConsoleCommand(string Command)
+	public virtual /*function */void ConsoleCommand(String Command)
 	{
 	
 	}
@@ -64,17 +64,17 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 	
 	}
 	
-	public virtual /*function */void OutputTextLine(/*coerce */string Text)
+	public virtual /*function */void OutputTextLine(/*coerce */String Text)
 	{
 	
 	}
 	
-	public virtual /*event */void OutputText(/*coerce */string Text)
+	public virtual /*event */void OutputText(/*coerce */String Text)
 	{
 	
 	}
 	
-	public virtual /*function */void StartTyping(/*coerce */string Text)
+	public virtual /*function */void StartTyping(/*coerce */String Text)
 	{
 	
 	}
@@ -96,10 +96,10 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 		return default;
 	}
 	
-	public delegate bool InputChar_del(int ControllerId, string Unicode);
+	public delegate bool InputChar_del(int ControllerId, String Unicode);
 	public virtual InputChar_del InputChar { get => bfield_InputChar ?? Console_InputChar; set => bfield_InputChar = value; } InputChar_del bfield_InputChar;
 	public virtual InputChar_del global_InputChar => Console_InputChar;
-	public /*function */bool Console_InputChar(int ControllerId, string Unicode)
+	public /*function */bool Console_InputChar(int ControllerId, String Unicode)
 	{
 	
 		return default;
@@ -129,7 +129,7 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 	
 	}
 	
-	protected /*function */bool Console_Typing_InputChar(int ControllerId, string Unicode)// state function
+	protected /*function */bool Console_Typing_InputChar(int ControllerId, String Unicode)// state function
 	{
 	
 		return default;
@@ -162,7 +162,7 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 	}
 	
 	
-	protected /*function */bool Console_Open_InputChar(int ControllerId, string Unicode)// state function
+	protected /*function */bool Console_Open_InputChar(int ControllerId, String Unicode)// state function
 	{
 	
 		return default;

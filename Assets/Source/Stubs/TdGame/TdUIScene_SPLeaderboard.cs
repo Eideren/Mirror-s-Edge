@@ -24,7 +24,7 @@ public partial class TdUIScene_SPLeaderboard : TdUIScene_Leaderboard/*
 	public /*private */name CurrentStretchProviderName;
 	public /*private */int CurrentPlayerIndex;
 	public /*private */OnlineSubsystem.UniqueNetId CurrentPlayerNetId;
-	public /*private */string CurrentPlayerNickname;
+	public /*private */String CurrentPlayerNickname;
 	public /*transient */int LevelEventDelay;
 	public /*const */float RequestDelay;
 	public /*transient */float TimeToRequest;

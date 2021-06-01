@@ -9,7 +9,7 @@ public partial class TpAchievementManager : TpSystemHandler/*
 	public partial struct /*native */AchBind
 	{
 		public /*config */int Id;
-		public /*config */string AchCode;
+		public /*config */String AchCode;
 		public /*config */int XboxId;
 		public /*config */int TrophyId;
 	

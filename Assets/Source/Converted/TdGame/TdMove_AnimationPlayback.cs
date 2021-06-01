@@ -31,7 +31,7 @@ public partial class TdMove_AnimationPlayback : TdMove/*
 		AnimationName = "None";
 		CurrentCustomAnimName = "None";
 		base.StopMove();
-		BotOwner.SetOverrideWalkingState(TdPawn.WalkingState.WAS_None/*6*/, default);
+		BotOwner.SetOverrideWalkingState(TdPawn.WalkingState.WAS_None/*6*/, default(float?));
 		if(BotOwner != default)
 		{
 			BotOwner.UseLegRotation(true);
@@ -55,7 +55,7 @@ public partial class TdMove_AnimationPlayback : TdMove/*
 		PawnOwner.UseRootMotion(false);
 		PawnOwner.UseRootRotation(false);
 		PawnOwner.SetPhysics(Actor.EPhysics.PHYS_Walking/*1*/);
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 	}
 	
 	public override /*simulated function */void OnAnimationStopped(AnimNodeSequence SeqNode)
@@ -63,7 +63,7 @@ public partial class TdMove_AnimationPlayback : TdMove/*
 		PawnOwner.UseRootMotion(false);
 		PawnOwner.UseRootRotation(false);
 		PawnOwner.SetPhysics(Actor.EPhysics.PHYS_Walking/*1*/);
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 	}
 	
 	public override /*simulated function */void OnCeaseRelevantRootMotion(AnimNodeSequence SeqNode)
@@ -75,7 +75,7 @@ public partial class TdMove_AnimationPlayback : TdMove/*
 		PawnOwner.UseRootMotion(false);
 		PawnOwner.UseRootRotation(false);
 		PawnOwner.SetPhysics(Actor.EPhysics.PHYS_Walking/*1*/);
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 	}
 	
 	public override /*simulated function */void Landed(Object.Vector iNormal, Actor iActor)

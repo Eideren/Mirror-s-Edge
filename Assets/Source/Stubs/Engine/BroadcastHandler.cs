@@ -19,7 +19,7 @@ public partial class BroadcastHandler : Info/*
 		return default;
 	}
 	
-	public virtual /*function */void BroadcastText(PlayerReplicationInfo SenderPRI, PlayerController Receiver, /*coerce */string msg, /*optional */name? _Type = default)
+	public virtual /*function */void BroadcastText(PlayerReplicationInfo SenderPRI, PlayerController Receiver, /*coerce */String msg, /*optional */name? _Type = default)
 	{
 	
 	}
@@ -29,12 +29,12 @@ public partial class BroadcastHandler : Info/*
 	
 	}
 	
-	public virtual /*function */void Broadcast(Actor Sender, /*coerce */string msg, /*optional */name? _Type = default)
+	public virtual /*function */void Broadcast(Actor Sender, /*coerce */String msg, /*optional */name? _Type = default)
 	{
 	
 	}
 	
-	public virtual /*function */void BroadcastTeam(Controller Sender, /*coerce */string msg, /*optional */name? _Type = default)
+	public virtual /*function */void BroadcastTeam(Controller Sender, /*coerce */String msg, /*optional */name? _Type = default)
 	{
 	
 	}

@@ -10,7 +10,7 @@ public partial class AITemplate_RiotCop : AITemplate_Default/*
 		ControllerClass = "TdGame.TdAI_Riot";
 		PawnClass = "TdSpContent.TdBotPawn_RiotCop";
 		ProfileName = "RiotCopOneHanded";
-		AnimationSets = "AS_AI_RiotCop_OneHanded.AS_AI_RiotCop_OneHanded";
+		AnimationSets[0] = "AS_AI_RiotCop_OneHanded.AS_AI_RiotCop_OneHanded";
 		SkeletalMesh = "CH_TKY_Cop_Riot.SK_TKY_Cop_Riot";
 		LegOffsetWalkFwd = 0.0f;
 		LegOffsetWalkLeft60 = 0.0f;

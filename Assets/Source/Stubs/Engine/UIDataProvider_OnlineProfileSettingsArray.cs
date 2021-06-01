@@ -11,7 +11,7 @@ public partial class UIDataProvider_OnlineProfileSettingsArray : UIDataProvider,
 	public OnlineProfileSettings ProfileSettings;
 	public int ProfileSettingId;
 	public name ProfileSettingsName;
-	public /*const */string ColumnHeaderText;
+	public /*const */String ColumnHeaderText;
 	public array<name> Values;
 	
 	public UIDataProvider_OnlineProfileSettingsArray()

@@ -5,7 +5,7 @@ public partial class SeqEvent_Console : SequenceEvent/*
 		native
 		hidecategories(Object)*/{
 	public/*()*/ name ConsoleEventName;
-	public/*()*/ string EventDesc;
+	public/*()*/ String EventDesc;
 	
 	public SeqEvent_Console()
 	{

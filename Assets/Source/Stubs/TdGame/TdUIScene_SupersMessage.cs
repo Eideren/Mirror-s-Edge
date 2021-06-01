@@ -8,7 +8,7 @@ public partial class TdUIScene_SupersMessage : TdUIScene/*
 	public /*transient */UILabel SupersLabel;
 	public /*transient */float Duration;
 	
-	public virtual /*function */void SetupSupersMessage(string Text, float TextDuration)
+	public virtual /*function */void SetupSupersMessage(String Text, float TextDuration)
 	{
 	
 	}

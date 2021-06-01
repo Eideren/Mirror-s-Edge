@@ -65,7 +65,7 @@ public partial class SkeletalMeshActor : Actor/*
 	
 	}
 	
-	public override /*simulated event */bool PlayActorFaceFXAnim(FaceFXAnimSet AnimSet, string GroupName, string SeqName)
+	public override /*simulated event */bool PlayActorFaceFXAnim(FaceFXAnimSet AnimSet, String GroupName, String SeqName)
 	{
 	
 		return default;
@@ -177,13 +177,11 @@ public partial class SkeletalMeshActor : Actor/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new DynamicLightEnvironmentComponent
 			{
 				// Object Offset:0x003E7270
 				bEnabled = false,
 			}/* Reference: DynamicLightEnvironmentComponent'Default__SkeletalMeshActor.MyLightEnvironment' */,
-			//Components[1]=
 			new SkeletalMeshComponent
 			{
 				// Object Offset:0x003E72A4

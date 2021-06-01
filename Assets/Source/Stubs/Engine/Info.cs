@@ -8,8 +8,8 @@ public partial class Info : Actor/*
 		hidecategories(Navigation,Movement,Collision)*/{
 	public partial struct /*native export transient */KeyValuePair
 	{
-		public/*()*/ /*init */string Key;
-		public/*()*/ /*init */string Value;
+		public/*()*/ /*init */String Key;
+		public/*()*/ /*init */String Value;
 	
 	//	structdefaultproperties
 	//	{
@@ -23,7 +23,7 @@ public partial class Info : Actor/*
 	{
 		public/*()*/ /*init */int PlayerNum;
 		public/*()*/ /*init */int PlayerId;
-		public/*()*/ /*init */string PlayerName;
+		public/*()*/ /*init */String PlayerName;
 		public/*()*/ /*init */int Ping;
 		public/*()*/ /*init */int Score;
 		public/*()*/ /*init */int StatsID;
@@ -45,12 +45,12 @@ public partial class Info : Actor/*
 	public partial struct /*native export transient */ServerResponseLine
 	{
 		public/*()*/ /*init */int ServerID;
-		public/*()*/ /*init */string IP;
+		public/*()*/ /*init */String IP;
 		public/*()*/ /*init */int Port;
 		public/*()*/ /*init */int QueryPort;
-		public/*()*/ /*init */string ServerName;
-		public/*()*/ /*init */string MapName;
-		public/*()*/ /*init */string GameType;
+		public/*()*/ /*init */String ServerName;
+		public/*()*/ /*init */String MapName;
+		public/*()*/ /*init */String GameType;
 		public/*()*/ /*init */int CurrentPlayers;
 		public/*()*/ /*init */int MaxPlayers;
 		public/*()*/ /*init */int Ping;
@@ -83,7 +83,6 @@ public partial class Info : Actor/*
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x0025E453

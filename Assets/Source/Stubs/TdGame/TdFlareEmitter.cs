@@ -26,7 +26,6 @@ public partial class TdFlareEmitter : Emitter/*
 			LoadAsset<SpriteComponent>("Default__TdFlareEmitter.Sprite")/*Ref SpriteComponent'Default__TdFlareEmitter.Sprite'*/,
 			LoadAsset<ParticleSystemComponent>("Default__TdFlareEmitter.ParticleSystemComponent0")/*Ref ParticleSystemComponent'Default__TdFlareEmitter.ParticleSystemComponent0'*/,
 			LoadAsset<ArrowComponent>("Default__TdFlareEmitter.ArrowComponent0")/*Ref ArrowComponent'Default__TdFlareEmitter.ArrowComponent0'*/,
-			//Components[3]=
 			new TdParticleSystemComponent
 			{
 				// Object Offset:0x00541C9A

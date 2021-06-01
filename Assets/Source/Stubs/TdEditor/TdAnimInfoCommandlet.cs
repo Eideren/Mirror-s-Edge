@@ -6,10 +6,10 @@ public partial class TdAnimInfoCommandlet : Commandlet/*
 		native*/{
 	public int AnimSizeWarning;
 	public int AnimSizeFatalWarning;
-	public string PackagesPath;
+	public String PackagesPath;
 	
 	// Export UTdAnimInfoCommandlet::execMain(FFrame&, void* const)
-	public override /*native event */int Main(string Params)
+	public override /*native event */int Main(String Params)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

@@ -11,19 +11,16 @@ public partial class TdMarker : Note/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new ArrowComponent
 			{
 				// Object Offset:0x0053732A
 				ArrowSize = 2.0f,
 			}/* Reference: ArrowComponent'Default__TdMarker.Arrow' */,
-			//Components[1]=
 			new SpriteComponent
 			{
 				// Object Offset:0x0053735E
 				Sprite = LoadAsset<Texture2D>("EngineResources.Corpse")/*Ref Texture2D'EngineResources.Corpse'*/,
 			}/* Reference: SpriteComponent'Default__TdMarker.Sprite' */,
-			//Components[2]=
 			new ArrowComponent
 			{
 				// Object Offset:0x0053732A

@@ -77,7 +77,7 @@ public partial class TdTrigger : Trigger/*
 		/*local */int Idx = default;
 		/*local */array<SequenceEvent> out_EventList = default;
 	
-		FindEventsOfClass(ClassT<SeqEvent_TdTouch>(), ref/*probably?*/ out_EventList, default);
+		FindEventsOfClass(ClassT<SeqEvent_TdTouch>(), ref/*probably?*/ out_EventList, default(bool?));
 		Idx = 0;
 		J0x18:{}
 		if(Idx < out_EventList.Length)
@@ -144,7 +144,6 @@ public partial class TdTrigger : Trigger/*
 		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdTrigger.CollisionCylinder")/*Ref CylinderComponent'Default__TdTrigger.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x0067B218
@@ -152,7 +151,6 @@ public partial class TdTrigger : Trigger/*
 				Scale = 0.10f,
 			}/* Reference: SpriteComponent'Default__TdTrigger.Sprite' */,
 			LoadAsset<CylinderComponent>("Default__TdTrigger.CollisionCylinder")/*Ref CylinderComponent'Default__TdTrigger.CollisionCylinder'*/,
-			//Components[2]=
 			new ArrowComponent
 			{
 				// Object Offset:0x0067B280
@@ -170,7 +168,6 @@ public partial class TdTrigger : Trigger/*
 					Roll=0
 				},
 			}/* Reference: ArrowComponent'Default__TdTrigger.TriggerDir' */,
-			//Components[3]=
 			new TdDrawArcComponent
 			{
 				// Object Offset:0x0067B2E8

@@ -24,13 +24,13 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	public/*(Presentation)*/ StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ Padding;
 	
 	// Export UUIComp_DrawString::execSetValue(FFrame&, void* const)
-	public virtual /*native final function */void SetValue(string NewText)
+	public virtual /*native final function */void SetValue(String NewText)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIComp_DrawString::execGetValue(FFrame&, void* const)
-	public virtual /*native final function */string GetValue(/*optional */bool? _bReturnProcessedText = default)
+	public virtual /*native final function */String GetValue(/*optional */bool? _bReturnProcessedText = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

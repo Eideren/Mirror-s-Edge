@@ -32,7 +32,7 @@ public partial class SoundNodeWave : SoundNode/*
 	
 	public partial struct /*native */SubtitleCue
 	{
-		public/*()*/ /*const localized */string Text;
+		public/*()*/ /*const localized */String Text;
 		public/*()*/ /*const localized */float Time;
 	
 	//	structdefaultproperties
@@ -55,7 +55,7 @@ public partial class SoundNodeWave : SoundNode/*
 	public/*(Playstation3)*/ bool bUseVolatileMemory;
 	public/*(TTS)*/ SoundNodeWave.ETTSSpeaker TTSSpeaker;
 	public /*const transient */SoundNodeWave.EDecompressionType DecompressionType;
-	public/*(TTS)*/ /*const localized */string SpokenText;
+	public/*(TTS)*/ /*const localized */String SpokenText;
 	public/*(Info)*/ /*const editconst */float Volume;
 	public/*(Info)*/ /*const editconst */float Pitch;
 	public/*(Info)*/ /*const editconst */float Duration;
@@ -75,7 +75,7 @@ public partial class SoundNodeWave : SoundNode/*
 	public /*const transient */int ResourceSize;
 	public /*native const */Object.Pointer ResourceData;
 	public/*(Subtitles)*/ /*const localized */array</*localized */SoundNodeWave.SubtitleCue> Subtitles;
-	public/*(Subtitles)*/ /*const localized */string Comment;
+	public/*(Subtitles)*/ /*const localized */String Comment;
 	
 	public SoundNodeWave()
 	{

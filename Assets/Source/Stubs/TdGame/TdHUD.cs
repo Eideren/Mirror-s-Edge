@@ -30,8 +30,8 @@ public partial class TdHUD : HUD/*
 	public /*const */Font SmallFont;
 	public /*const */Font MediumFont;
 	public /*const */Font LargeFont;
-	public string AnnouncerClassName;
-	public string HUDContentClassName;
+	public String AnnouncerClassName;
+	public String HUDContentClassName;
 	public Core.ClassT<TdHUDContent> HUDContentClass;
 	public float TargetingMaxDistance;
 	public Object.Vector TargetingHitLocation;
@@ -253,18 +253,18 @@ public partial class TdHUD : HUD/*
 	
 	}
 	
-	public virtual /*function */void DrawTextWithOutLine(float XPos, float YPos, float OffsetX, float OffsetY, string TextToDraw, Object.Color TextColor)
+	public virtual /*function */void DrawTextWithOutLine(float XPos, float YPos, float OffsetX, float OffsetY, String TextToDraw, Object.Color TextColor)
 	{
 	
 	}
 	
-	public virtual /*function */string GetTimeString(float Seconds)
+	public virtual /*function */String GetTimeString(float Seconds)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */string GetFormattedTime(int Time)
+	public virtual /*function */String GetFormattedTime(int Time)
 	{
 	
 		return default;

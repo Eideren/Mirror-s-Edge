@@ -5,7 +5,7 @@ public partial class UIStyle_Data : UIRoot/*
 		abstract
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*editoronly const */string UIEditorControlClass;
+	public /*editoronly const */String UIEditorControlClass;
 	public Object.LinearColor StyleColor;
 	public StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ StylePadding;
 	public bool bEnabled;

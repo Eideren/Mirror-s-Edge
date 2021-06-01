@@ -104,7 +104,7 @@ public partial class TdAI_Pursuit : TdAIController/*
 	public/*(Melee)*/ /*editinline */TdMove_PursuitMelee PursuitMeleeMove;
 	public/*(Melee)*/ /*config */TdAI_Pursuit.SAttackDelays AttackDelays;
 	
-	public override /*function */void AddSpecialOutput(ref string Text)
+	public override /*function */void AddSpecialOutput(ref String Text)
 	{
 	
 	}
@@ -412,7 +412,7 @@ public partial class TdAI_Pursuit : TdAIController/*
 	
 	}
 	
-	public virtual /*function */void ExitMelee(string S)
+	public virtual /*function */void ExitMelee(String S)
 	{
 	
 	}

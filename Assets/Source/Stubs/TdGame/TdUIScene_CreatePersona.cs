@@ -11,9 +11,9 @@ public partial class TdUIScene_CreatePersona : TdUIScene_SubMenu/*
 	public /*delegate*/TdUIScene_CreatePersona.LoginPersona __LoginPersona__Delegate;
 	public /*delegate*/TdUIScene_CreatePersona.UserAbort __UserAbort__Delegate;
 	
-	public delegate void CreatePersona(string Persona);
+	public delegate void CreatePersona(String Persona);
 	
-	public delegate void LoginPersona(string Persona);
+	public delegate void LoginPersona(String Persona);
 	
 	public delegate void UserAbort();
 	
@@ -44,7 +44,7 @@ public partial class TdUIScene_CreatePersona : TdUIScene_SubMenu/*
 	
 	}
 	
-	public virtual /*function */void SetListPersonas(array<string> Personas)
+	public virtual /*function */void SetListPersonas(array<String> Personas)
 	{
 	
 	}

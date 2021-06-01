@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SaveGameSummary : Object/*
 		native*/{
 	public name BaseLevel;
-	public string Description;
+	public String Description;
 	
 }
 }

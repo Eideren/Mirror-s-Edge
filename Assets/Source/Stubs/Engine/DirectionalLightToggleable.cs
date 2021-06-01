@@ -18,13 +18,11 @@ public partial class DirectionalLightToggleable : DirectionalLight/*
 		bHardAttach = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004CF942
 				Sprite = LoadAsset<Texture2D>("EngineResources.LightIcons.Light_Directional_Toggleable_DynamicsAndStatics")/*Ref Texture2D'EngineResources.LightIcons.Light_Directional_Toggleable_DynamicsAndStatics'*/,
 			}/* Reference: SpriteComponent'Default__DirectionalLightToggleable.Sprite' */,
-			//Components[1]=
 			new DirectionalLightComponent
 			{
 				// Object Offset:0x00466927

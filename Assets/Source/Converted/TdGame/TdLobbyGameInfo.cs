@@ -11,7 +11,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 	public partial struct /*native */LobbyPlayerStruct
 	{
 		public int PlayerId;
-		public string PlayerName;
+		public String PlayerName;
 		public int PlayerRoleIndex;
 		public bool bPlayerIsReady;
 		public int TeamIndex;
@@ -58,7 +58,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 	public partial struct /*native */LobbyTeamDataStruct
 	{
 		public int TeamId;
-		public string TeamName;
+		public String TeamName;
 		public array<TdLobbyGameInfo.LobbyPlayerStruct> Players;
 		public int MaxPlayers;
 		public array<TdLobbyGameInfo.LobbyPlayerRoleStruct> PlayerRoles;
@@ -79,7 +79,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 	public array<TdTeamInfo> Teams;
 	public /*transient */array<TdLobbyGameInfo.LobbyTeamDataStruct> TeamData;
 	
-	public override /*event */void InitGame(string Options, ref string ErrorMessage)
+	public override /*event */void InitGame(String Options, ref String ErrorMessage)
 	{
 		base.InitGame(Options, ref/*probably?*/ ErrorMessage);
 	}
@@ -107,11 +107,11 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 		}
 	}
 	
-	public override /*event */PlayerController Login(string Portal, string Options, ref string ErrorMessage)
+	public override /*event */PlayerController Login(String Portal, String Options, ref String ErrorMessage)
 	{
 		/*local */PlayerController PC = default;
 		/*local */TdGameReplicationInfo TdGRI = default;
-		/*local */string S = default;
+		/*local */String S = default;
 	
 		PC = base.Login(Portal, Options, ref/*probably?*/ ErrorMessage);
 		TdGRI = ((GameReplicationInfo) as TdGameReplicationInfo);
@@ -325,7 +325,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 	
 	}
 	
-	public virtual /*function */void StartGame(string URL)
+	public virtual /*function */void StartGame(String URL)
 	{
 		/*local */TdGameReplicationInfo TdGRI = default;
 	
@@ -338,13 +338,13 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 		WorldInfo.ServerTravel(URL, default);
 	}
 	
-	public override /*function */void ProcessServerTravel(string URL, /*optional */bool? _bAbsolute = default)
+	public override /*function */void ProcessServerTravel(String URL, /*optional */bool? _bAbsolute = default)
 	{
 		/*local */PlayerController P = default;
 		/*local */TdPlayerReplicationInfo TdPRI = default;
 		/*local */bool bSeamless = default;
 		/*local */int Team = default;
-		/*local */string PlayerRole = default;
+		/*local */String PlayerRole = default;
 		/*local */array<int> Roles = default;
 	
 		var bAbsolute = _bAbsolute ?? default;
@@ -410,7 +410,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) PendingMatch()/*auto state PendingMatch*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 			StartMatch = TdLobbyGameInfo_PendingMatch_StartMatch;
 	
@@ -428,7 +428,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) MatchInProgress()/*auto state MatchInProgress*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 	
 			if(jumpTo == null || jumpTo == "Begin")

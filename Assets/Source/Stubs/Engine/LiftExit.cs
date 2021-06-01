@@ -40,7 +40,6 @@ public partial class LiftExit : NavigationPoint/*
 		BadSprite = LoadAsset<SpriteComponent>("Default__LiftExit.Sprite2")/*Ref SpriteComponent'Default__LiftExit.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004CFCE2

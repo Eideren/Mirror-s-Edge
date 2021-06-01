@@ -51,14 +51,12 @@ public partial class UINumericOptionList : UIOptionListBase/*
 		};
 		Children = new array<UIObject>
 		{
-			//Children[0]=
 			new UIOptionListButton
 			{
 				// Object Offset:0x005D3542
 				BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UINumericOptionList.DecrementButtonTemplate.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UINumericOptionList.DecrementButtonTemplate.BackgroundImageTemplate'*/,
 				EventProvider = LoadAsset<UIComp_Event>("Default__UINumericOptionList.DecrementButtonTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UINumericOptionList.DecrementButtonTemplate.WidgetEventComponent'*/,
 			}/* Reference: UIOptionListButton'Default__UINumericOptionList.DecrementButtonTemplate' */,
-			//Children[1]=
 			new UIOptionListButton
 			{
 				// Object Offset:0x005D3586

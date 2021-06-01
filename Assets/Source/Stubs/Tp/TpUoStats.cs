@@ -122,13 +122,13 @@ public partial class TpUoStats : TpSystemHandler,
 		return default;
 	}
 	
-	public virtual /*function */string GetHostStatGuid()
+	public virtual /*function */String GetHostStatGuid()
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool RegisterHostStatGuid(/*const */ref string HostStatGuid)
+	public virtual /*function */bool RegisterHostStatGuid(/*const */ref String HostStatGuid)
 	{
 	
 		return default;
@@ -144,13 +144,13 @@ public partial class TpUoStats : TpSystemHandler,
 	
 	}
 	
-	public virtual /*function */string GetClientStatGuid()
+	public virtual /*function */String GetClientStatGuid()
 	{
 	
 		return default;
 	}
 	
-	public virtual /*function */bool RegisterStatGuid(OnlineSubsystem.UniqueNetId PlayerId, /*const */ref string ClientStatGuid)
+	public virtual /*function */bool RegisterStatGuid(OnlineSubsystem.UniqueNetId PlayerId, /*const */ref String ClientStatGuid)
 	{
 	
 		return default;

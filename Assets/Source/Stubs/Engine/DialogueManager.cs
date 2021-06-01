@@ -15,7 +15,6 @@ public partial class DialogueManager : Actor/*
 		// Object Offset:0x0030CD12
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004CF8D6

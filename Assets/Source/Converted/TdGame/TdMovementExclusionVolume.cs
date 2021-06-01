@@ -28,7 +28,6 @@ public partial class TdMovementExclusionVolume : PhysicsVolume/*
 		}/* Reference: BrushComponent'Default__TdMovementExclusionVolume.BrushComponent0' */;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new BrushComponent
 			{
 				// Object Offset:0x01AB4746

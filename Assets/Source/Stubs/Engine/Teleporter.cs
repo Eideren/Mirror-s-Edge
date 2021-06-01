@@ -5,7 +5,7 @@ public partial class Teleporter : NavigationPoint/*
 		native
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*()*/ string URL;
+	public/*()*/ String URL;
 	public/*()*/ name ProductRequired;
 	public/*()*/ bool bChangesVelocity;
 	public/*()*/ bool bChangesYaw;
@@ -89,7 +89,6 @@ public partial class Teleporter : NavigationPoint/*
 		bCollideActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D06A6
@@ -97,7 +96,6 @@ public partial class Teleporter : NavigationPoint/*
 			}/* Reference: SpriteComponent'Default__Teleporter.Sprite' */,
 			LoadAsset<SpriteComponent>("Default__Teleporter.Sprite2")/*Ref SpriteComponent'Default__Teleporter.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__Teleporter.Arrow")/*Ref ArrowComponent'Default__Teleporter.Arrow'*/,
-			//Components[3]=
 			new CylinderComponent
 			{
 				// Object Offset:0x00466807

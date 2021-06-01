@@ -29,7 +29,7 @@ public partial class GenericBrowserType : Object/*
 	//	}
 	};
 	
-	public string Description;
+	public String Description;
 	public /*native */array<GenericBrowserType.GenericBrowserTypeInfo> SupportInfo;
 	public Object.Color BorderColor;
 	

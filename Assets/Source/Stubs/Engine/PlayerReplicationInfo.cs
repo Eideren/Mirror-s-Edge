@@ -25,9 +25,9 @@ public partial class PlayerReplicationInfo : ReplicationInfo/*
 	public byte PacketLoss;
 	public Actor PlayerLocationHint;
 	public /*databinding */int NumLives;
-	public /*repnotify databinding */string PlayerName;
-	public /*repnotify databinding */string PlayerAlias;
-	public string OldName;
+	public /*repnotify databinding */String PlayerName;
+	public /*repnotify databinding */String PlayerAlias;
+	public String OldName;
 	public int PlayerId;
 	public /*repnotify */TeamInfo Team;
 	public int TeamId;
@@ -45,13 +45,13 @@ public partial class PlayerReplicationInfo : ReplicationInfo/*
 	public bool bFromPreviousLevel;
 	public bool bControllerVibrationAllowed;
 	public int StartTime;
-	public /*const localized */string StringDead;
-	public /*const localized */string StringSpectating;
-	public /*const localized */string StringUnknown;
+	public /*const localized */String StringDead;
+	public /*const localized */String StringSpectating;
+	public /*const localized */String StringUnknown;
 	public /*databinding */int Kills;
 	public Core.ClassT<GameMessage> GameMessageClass;
 	public float ExactPing;
-	public string SavedNetworkAddress;
+	public String SavedNetworkAddress;
 	public /*repnotify */OnlineSubsystem.UniqueNetId UniqueId;
 	public PlayerReplicationInfo.AutomatedTestingDatum AutomatedTestingData;
 	
@@ -84,7 +84,7 @@ public partial class PlayerReplicationInfo : ReplicationInfo/*
 	}
 	
 	// Export UPlayerReplicationInfo::execGetPlayerAlias(FFrame&, void* const)
-	public virtual /*native function */string GetPlayerAlias()
+	public virtual /*native function */String GetPlayerAlias()
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -129,13 +129,13 @@ public partial class PlayerReplicationInfo : ReplicationInfo/*
 	
 	}
 	
-	public override /*simulated function */string GetHumanReadableName()
+	public override /*simulated function */String GetHumanReadableName()
 	{
 	
 		return default;
 	}
 	
-	public virtual /*simulated function */string GetLocationName()
+	public virtual /*simulated function */String GetLocationName()
 	{
 	
 		return default;
@@ -158,7 +158,7 @@ public partial class PlayerReplicationInfo : ReplicationInfo/*
 	
 	}
 	
-	public virtual /*event */void SetPlayerName(string S)
+	public virtual /*event */void SetPlayerName(String S)
 	{
 	
 	}
@@ -213,7 +213,7 @@ public partial class PlayerReplicationInfo : ReplicationInfo/*
 		return default;
 	}
 	
-	public virtual /*function */void SetPlayerAlias(string NewAlias)
+	public virtual /*function */void SetPlayerAlias(String NewAlias)
 	{
 	
 	}

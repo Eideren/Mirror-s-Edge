@@ -8,9 +8,9 @@ public partial class UIDataProvider_TdTutorialChallenge : UIDataProvider_TdResou
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
 	public /*config */int ChallengeId;
-	public /*const config localized */string FriendlyName;
-	public /*const config localized */string Description;
-	public /*config */string ImageMarkup;
+	public /*const config localized */String FriendlyName;
+	public /*const config localized */String Description;
+	public /*config */String ImageMarkup;
 	public /*config */array</*config */float> GradeTimeSeconds;
 	
 }

@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class UIAction_SetLabelText : UIAction_SetValue/*
 		hidecategories(Object)*/{
-	public/*()*/ string NewText;
+	public/*()*/ String NewText;
 	
 	public UIAction_SetLabelText()
 	{

@@ -34,7 +34,6 @@ public partial class PlayerStart : NavigationPoint/*
 		BadSprite = LoadAsset<SpriteComponent>("Default__PlayerStart.Sprite2")/*Ref SpriteComponent'Default__PlayerStart.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004CFFBE
@@ -42,7 +41,6 @@ public partial class PlayerStart : NavigationPoint/*
 			}/* Reference: SpriteComponent'Default__PlayerStart.Sprite' */,
 			LoadAsset<SpriteComponent>("Default__PlayerStart.Sprite2")/*Ref SpriteComponent'Default__PlayerStart.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__PlayerStart.Arrow")/*Ref ArrowComponent'Default__PlayerStart.Arrow'*/,
-			//Components[3]=
 			new CylinderComponent
 			{
 				// Object Offset:0x0046671F

@@ -25,14 +25,12 @@ public partial class TdGrenadeArea : Actor/*
 		bUsedAsTrigger = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x005449AE
 				Sprite = LoadAsset<Texture2D>("TdEditorResources.GrenadeIcon")/*Ref Texture2D'TdEditorResources.GrenadeIcon'*/,
 				HiddenGame = true,
 			}/* Reference: SpriteComponent'Default__TdGrenadeArea.Sprite' */,
-			//Components[1]=
 			new TdGrenadeTargetAreaRenderingComponent
 			{
 				// Object Offset:0x005449FE

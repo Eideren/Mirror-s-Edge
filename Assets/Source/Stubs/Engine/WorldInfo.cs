@@ -191,7 +191,7 @@ public partial class WorldInfo : ZoneInfo/*
 	public/*(Physics)*/ /*editconst */bool bPrimarySceneHW;
 	public/*(Physics)*/ bool bSupportDoubleBufferedPhysics;
 	public/*(Baker)*/ Object.Vector SkyColor;
-	public/*(Baker)*/ string IBLFileName;
+	public/*(Baker)*/ String IBLFileName;
 	public/*(Baker)*/ float IBLIntensity;
 	public/*(Baker)*/ Object.Vector2D CameraResolution;
 	public/*()*/ /*private config */PostProcessVolume.PostProcessSettings DefaultPostProcessSettings;
@@ -217,8 +217,8 @@ public partial class WorldInfo : ZoneInfo/*
 	public float PauseDelay;
 	public float RealTimeToUnPause;
 	public PlayerReplicationInfo Pauser;
-	public string VisibleGroups;
-	public /*transient */string SelectedGroups;
+	public String VisibleGroups;
+	public /*transient */String SelectedGroups;
 	public Texture2D DefaultTexture;
 	public Texture2D WireframeTexture;
 	public Texture2D WhiteSquareTexture;
@@ -226,12 +226,12 @@ public partial class WorldInfo : ZoneInfo/*
 	public Texture2D BSPVertex;
 	public/*()*/ TextureCube CubeMapOverride;
 	public/*()*/ float PointLightRadiusGlobalModifyer;
-	public array<string> DeferredExecs;
+	public array<String> DeferredExecs;
 	public /*transient */GameReplicationInfo GRI;
 	public WorldInfo.ENetMode NetMode;
-	public string ComputerName;
-	public string EngineVersion;
-	public string MinNetVersion;
+	public String ComputerName;
+	public String EngineVersion;
+	public String MinNetVersion;
 	public GameInfo Game;
 	public/*()*/ float StallZ;
 	public /*transient */float WorldGravityZ;
@@ -244,7 +244,7 @@ public partial class WorldInfo : ZoneInfo/*
 	public /*const transient */CoverLink CoverList;
 	public float MoveRepSize;
 	public /*const */array<WorldInfo.NetViewer> ReplicationViewers;
-	public string NextURL;
+	public String NextURL;
 	public float NextSwitchCountdown;
 	public/*()*/ int PackedLightAndShadowMapTextureSize;
 	public/*()*/ Object.Vector DefaultColorScale;
@@ -253,12 +253,12 @@ public partial class WorldInfo : ZoneInfo/*
 	public /*const transient */array<name> CommittedLevelNames;
 	public SeqAct_CrossFadeMusicTracks LastMusicAction;
 	public MusicTrackDataStructures.MusicTrackStruct LastMusicTrack;
-	public/*()*/ /*const localized */string Title;
-	public/*()*/ string Author;
+	public/*()*/ /*const localized */String Title;
+	public/*()*/ String Author;
 	public/*()*/ /*protected export editinline */MapInfo MyMapInfo;
-	public /*globalconfig */string EmitterPoolClassPath;
+	public /*globalconfig */String EmitterPoolClassPath;
 	public EmitterPool MyEmitterPool;
-	public /*globalconfig */string DecalManagerClassPath;
+	public /*globalconfig */String DecalManagerClassPath;
 	public DecalManager MyDecalManager;
 	public/*(Physics)*/ float MaxPhysicsDeltaTime;
 	public/*(Physics)*/ /*editinline */WorldInfo.PhysXSceneTimings PhysicsTimings;
@@ -312,7 +312,7 @@ public partial class WorldInfo : ZoneInfo/*
 	}
 	
 	// Export UWorldInfo::execGetLocalURL(FFrame&, void* const)
-	public virtual /*native simulated function */string GetLocalURL()
+	public virtual /*native simulated function */String GetLocalURL()
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -352,7 +352,7 @@ public partial class WorldInfo : ZoneInfo/*
 	}
 	
 	// Export UWorldInfo::execGetAddressURL(FFrame&, void* const)
-	public virtual /*native simulated function */string GetAddressURL()
+	public virtual /*native simulated function */String GetAddressURL()
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -370,7 +370,7 @@ public partial class WorldInfo : ZoneInfo/*
 		return default;
 	}
 	
-	public virtual /*event */void ServerTravel(string URL, /*optional */bool? _bAbsolute = default)
+	public virtual /*event */void ServerTravel(String URL, /*optional */bool? _bAbsolute = default)
 	{
 	
 	}
@@ -464,7 +464,7 @@ public partial class WorldInfo : ZoneInfo/*
 	}
 	
 	// Export UWorldInfo::execSeamlessTravel(FFrame&, void* const)
-	public virtual /*native final function */void SeamlessTravel(string URL, /*optional */bool? _bAbsolute = default, /*init optional */Object.Guid? _MapPackageGuid = default)
+	public virtual /*native final function */void SeamlessTravel(String URL, /*optional */bool? _bAbsolute = default, /*init optional */Object.Guid? _MapPackageGuid = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
@@ -496,7 +496,7 @@ public partial class WorldInfo : ZoneInfo/*
 	}
 	
 	// Export UWorldInfo::execGetMapName(FFrame&, void* const)
-	public virtual /*native final function */string GetMapName(/*optional */bool? _bIncludePrefix = default)
+	public virtual /*native final function */String GetMapName(/*optional */bool? _bIncludePrefix = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

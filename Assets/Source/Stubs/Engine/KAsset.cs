@@ -97,7 +97,6 @@ public partial class KAsset : Actor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__KAsset.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KAsset.MyLightEnvironment'*/,
-			//Components[1]=
 			new SkeletalMeshComponent
 			{
 				// Object Offset:0x0034C2A9

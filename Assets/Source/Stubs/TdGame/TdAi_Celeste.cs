@@ -23,7 +23,7 @@ public partial class TdAi_Celeste : TdAI_Pursuit/*
 	public int bMeleeHitCount;
 	public /*private */float RestrictFireTimestamp;
 	
-	public override /*function */void AddSpecialOutput(ref string Text)
+	public override /*function */void AddSpecialOutput(ref String Text)
 	{
 	
 	}

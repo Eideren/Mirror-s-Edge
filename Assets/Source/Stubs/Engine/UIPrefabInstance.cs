@@ -13,7 +13,7 @@ public partial class UIPrefabInstance : UIObject/*
 	public /*editoronly const */array<byte> PI_Bytes;
 	public /*editoronly const */array<Object> PI_CompleteObjects;
 	public /*editoronly const */array<Object> PI_ReferencedObjects;
-	public /*editoronly const */array<string> PI_SavedNames;
+	public /*editoronly const */array<String> PI_SavedNames;
 	public /*native const *//*map<0,0>*/map<object, object> PI_ObjectMap;
 	
 	// Export UUIPrefabInstance::execDetachFromSourcePrefab(FFrame&, void* const)

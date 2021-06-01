@@ -27,7 +27,6 @@ public partial class SpotLightMovable : SpotLight/*
 		bMovable = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D05D6
@@ -36,7 +35,6 @@ public partial class SpotLightMovable : SpotLight/*
 			LoadAsset<DrawLightRadiusComponent>("Default__SpotLightMovable.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__SpotLightMovable.DrawLightRadius0'*/,
 			LoadAsset<DrawLightConeComponent>("Default__SpotLightMovable.DrawInnerCone0")/*Ref DrawLightConeComponent'Default__SpotLightMovable.DrawInnerCone0'*/,
 			LoadAsset<DrawLightConeComponent>("Default__SpotLightMovable.DrawOuterCone0")/*Ref DrawLightConeComponent'Default__SpotLightMovable.DrawOuterCone0'*/,
-			//Components[4]=
 			new SpotLightComponent
 			{
 				// Object Offset:0x004CF472

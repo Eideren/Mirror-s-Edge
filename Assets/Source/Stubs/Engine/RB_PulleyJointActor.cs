@@ -11,7 +11,6 @@ public partial class RB_PulleyJointActor : RB_ConstraintActor/*
 		ConstraintInstance = LoadAsset<RB_ConstraintInstance>("Default__RB_PulleyJointActor.MyConstraintInstance")/*Ref RB_ConstraintInstance'Default__RB_PulleyJointActor.MyConstraintInstance'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D03A6

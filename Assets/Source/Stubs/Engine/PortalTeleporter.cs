@@ -69,7 +69,6 @@ public partial class PortalTeleporter : SceneCapturePortalActor/*
 		{
 			LoadAsset<SceneCapturePortalComponent>("Default__PortalTeleporter.SceneCapturePortalComponent0")/*Ref SceneCapturePortalComponent'Default__PortalTeleporter.SceneCapturePortalComponent0'*/,
 			LoadAsset<StaticMeshComponent>("Default__PortalTeleporter.StaticMeshComponent1")/*Ref StaticMeshComponent'Default__PortalTeleporter.StaticMeshComponent1'*/,
-			//Components[2]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x0057990E

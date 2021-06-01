@@ -15,7 +15,7 @@ public partial class CheatManager : Object/* within PlayerController*//*
 	
 	}
 	
-	public virtual /*exec function */void WriteToLog(string Param)
+	public virtual /*exec function */void WriteToLog(String Param)
 	{
 	
 	}
@@ -35,7 +35,7 @@ public partial class CheatManager : Object/* within PlayerController*//*
 	
 	}
 	
-	public virtual /*function */void BugItGoString(string TheLocation, string TheRotation)
+	public virtual /*function */void BugItGoString(String TheLocation, String TheRotation)
 	{
 	
 	}
@@ -45,20 +45,20 @@ public partial class CheatManager : Object/* within PlayerController*//*
 	
 	}
 	
-	public virtual /*exec function */void BugIt(/*optional */string? _ScreenShotDescription = default)
+	public virtual /*exec function */void BugIt(/*optional */String? _ScreenShotDescription = default)
 	{
 	
 	}
 	
 	// Export UCheatManager::execGetFVectorFromString(FFrame&, void* const)
-	public virtual /*private native final function */Object.Vector GetFVectorFromString(string InStr)
+	public virtual /*private native final function */Object.Vector GetFVectorFromString(String InStr)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UCheatManager::execGetFRotatorFromString(FFrame&, void* const)
-	public virtual /*private native final function */Object.Rotator GetFRotatorFromString(string InStr)
+	public virtual /*private native final function */Object.Rotator GetFRotatorFromString(String InStr)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -149,12 +149,12 @@ public partial class CheatManager : Object/* within PlayerController*//*
 	
 	}
 	
-	public virtual /*exec function */void Summon(string ClassName)
+	public virtual /*exec function */void Summon(String ClassName)
 	{
 	
 	}
 	
-	public virtual /*exec function */Weapon GiveWeapon(string WeaponClassStr)
+	public virtual /*exec function */Weapon GiveWeapon(String WeaponClassStr)
 	{
 	
 		return default;
@@ -175,7 +175,7 @@ public partial class CheatManager : Object/* within PlayerController*//*
 	
 	}
 	
-	public virtual /*exec function */void ViewPlayer(string S)
+	public virtual /*exec function */void ViewPlayer(String S)
 	{
 	
 	}

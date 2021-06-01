@@ -25,7 +25,6 @@ public partial class TdEmitter : Emitter/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__TdEmitter.Sprite")/*Ref SpriteComponent'Default__TdEmitter.Sprite'*/,
-			//Components[1]=
 			new ParticleSystemComponent
 			{
 				// Object Offset:0x01D7500F

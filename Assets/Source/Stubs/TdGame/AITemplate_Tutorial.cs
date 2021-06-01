@@ -10,7 +10,7 @@ public partial class AITemplate_Tutorial : AITemplate_Default/*
 		ControllerClass = "TdGame.TdAI_Tutorial";
 		PawnClass = "TdGame.TdBotPawn_Tutorial";
 		ProfileName = "CelesteUnarmed";
-		AnimationSets = "AS_AI_Celeste_Unarmed.AS_AI_Celeste_Unarmed";
+		AnimationSets[0] = "AS_AI_Celeste_Unarmed.AS_AI_Celeste_Unarmed";
 		SkeletalMesh = "CH_Celeste.SK_Celeste";
 		bEnableMeleePose = true;
 		MainWeaponClass = "TdSharedContent.TdWeapon_Pistol_Colt1911";

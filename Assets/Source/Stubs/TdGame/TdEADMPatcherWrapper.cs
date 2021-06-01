@@ -4,14 +4,14 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdEADMPatcherWrapper : Object/*
 		native*/{
 	// Export UTdEADMPatcherWrapper::execIsLocalVersionNewerThan(FFrame&, void* const)
-	public /*native function */static bool IsLocalVersionNewerThan(string RequiredVersion)
+	public /*native function */static bool IsLocalVersionNewerThan(String RequiredVersion)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdEADMPatcherWrapper::execGetCDKey(FFrame&, void* const)
-	public /*native function */static string GetCDKey()
+	public /*native function */static String GetCDKey()
 	{
 		#warning NATIVE FUNCTION !
 		return default;

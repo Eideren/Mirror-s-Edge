@@ -9,8 +9,8 @@ public partial class TdTimeTrialRaceLauncher : Object/* within TdUIScene*/{
 	public /*private */bool bDataReadCorrectly;
 	public /*private */bool bStartOnlineMode;
 	public /*private */TdGhostStorageManager.EGhostStorageResult GhostReadResult;
-	public /*private */string ErrorTitle;
-	public /*private */string ErrorMessage;
+	public /*private */String ErrorTitle;
+	public /*private */String ErrorMessage;
 	public /*private */int RaceModeId;
 	public /*transient */LocalPlayer PlayerOwner;
 	public /*delegate*/TdTimeTrialRaceLauncher.OnLoadMessageDone __OnLoadMessageDone__Delegate;
@@ -90,7 +90,7 @@ public partial class TdTimeTrialRaceLauncher : Object/* within TdUIScene*/{
 	
 	}
 	
-	public virtual /*private final function */void SetErrorMessage(string Title, string Message)
+	public virtual /*private final function */void SetErrorMessage(String Title, String Message)
 	{
 	
 	}

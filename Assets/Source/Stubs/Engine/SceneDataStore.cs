@@ -35,25 +35,25 @@ public partial class SceneDataStore : UIDataStore,
 		return default;
 	}
 	
-	public virtual /*final function */bool GetCollectionValueArray(name FieldName, ref array<string> out_DataValueArray, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
+	public virtual /*final function */bool GetCollectionValueArray(name FieldName, ref array<String> out_DataValueArray, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */bool SetCollectionValueArray(name FieldName, /*const */ref array<string> CollectionValues, /*optional */bool? _bClearExisting = default, /*optional */int? _InsertIndex = default, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
+	public virtual /*final function */bool SetCollectionValueArray(name FieldName, /*const */ref array<String> CollectionValues, /*optional */bool? _bClearExisting = default, /*optional */int? _InsertIndex = default, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */bool InsertCollectionValue(name FieldName, /*const */ref string NewValue, /*optional */int? _InsertIndex = default, /*optional */bool? _bPersistent = default, /*optional */bool? _bAllowDuplicateValues = default, /*optional */name? _CellTag = default)
+	public virtual /*final function */bool InsertCollectionValue(name FieldName, /*const */ref String NewValue, /*optional */int? _InsertIndex = default, /*optional */bool? _bPersistent = default, /*optional */bool? _bAllowDuplicateValues = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */bool RemoveCollectionValue(name FieldName, /*const */ref string ValueToRemove, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
+	public virtual /*final function */bool RemoveCollectionValue(name FieldName, /*const */ref String ValueToRemove, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
@@ -65,13 +65,13 @@ public partial class SceneDataStore : UIDataStore,
 		return default;
 	}
 	
-	public virtual /*final function */bool ReplaceCollectionValue(name FieldName, /*const */ref string CurrentValue, /*const */ref string NewValue, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
+	public virtual /*final function */bool ReplaceCollectionValue(name FieldName, /*const */ref String CurrentValue, /*const */ref String NewValue, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */bool ReplaceCollectionValueByIndex(name FieldName, int ValueIndex, /*const */ref string NewValue, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
+	public virtual /*final function */bool ReplaceCollectionValueByIndex(name FieldName, int ValueIndex, /*const */ref String NewValue, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
@@ -83,13 +83,13 @@ public partial class SceneDataStore : UIDataStore,
 		return default;
 	}
 	
-	public virtual /*final function */bool GetCollectionValue(name FieldName, int ValueIndex, ref string out_Value, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
+	public virtual /*final function */bool GetCollectionValue(name FieldName, int ValueIndex, ref String out_Value, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;
 	}
 	
-	public virtual /*final function */int FindCollectionValueIndex(name FieldName, /*const */ref string ValueToFind, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
+	public virtual /*final function */int FindCollectionValueIndex(name FieldName, /*const */ref String ValueToFind, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 	
 		return default;

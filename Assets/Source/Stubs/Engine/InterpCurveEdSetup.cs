@@ -7,7 +7,7 @@ public partial class InterpCurveEdSetup : Object/*
 	{
 		public Object CurveObject;
 		public Object.Color CurveColor;
-		public string CurveName;
+		public String CurveName;
 		public int bHideCurve;
 		public int bColorCurve;
 		public int bFloatingPointColorCurve;
@@ -38,7 +38,7 @@ public partial class InterpCurveEdSetup : Object/*
 	
 	public partial struct /*native */CurveEdTab
 	{
-		public string TabName;
+		public String TabName;
 		public array<InterpCurveEdSetup.CurveEdEntry> Curves;
 		public float ViewStartInput;
 		public float ViewEndInput;

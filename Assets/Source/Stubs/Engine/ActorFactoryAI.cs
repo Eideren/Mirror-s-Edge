@@ -9,7 +9,7 @@ public partial class ActorFactoryAI : ActorFactory/*
 		hidecategories(Object)*/{
 	public/*()*/ Core.ClassT<AIController> ControllerClass;
 	public/*()*/ Core.ClassT<Pawn> PawnClass;
-	public/*()*/ string PawnName;
+	public/*()*/ String PawnName;
 	public/*()*/ bool bGiveDefaultInventory;
 	public/*()*/ array< Core.ClassT<Inventory> > InventoryList;
 	public/*()*/ int TeamIndex;

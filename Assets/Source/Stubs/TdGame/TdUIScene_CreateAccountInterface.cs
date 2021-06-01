@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public interface TdUIScene_CreateAccountInterface : Interface/*
 		abstract*/{
-	public /*function */void CreateAccountDone(int Error, /*optional */string? _LocError = default);
+	public /*function */void CreateAccountDone(int Error, /*optional */String? _LocError = default);
 	
 	public /*function */void SetSceneDeactivatedDelegate(/*delegate*/UIScene.OnSceneDeactivated SceneDeactivated);
 	

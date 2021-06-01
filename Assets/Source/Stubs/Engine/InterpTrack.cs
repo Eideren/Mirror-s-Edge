@@ -10,7 +10,7 @@ public partial class InterpTrack : Object/*
 	public /*private native const noexport */Object.Pointer VfTable_FInterpEdInputInterface;
 	public /*private native noexport */Object.Pointer CurveEdVTable;
 	public Core.ClassT<InterpTrackInst> TrackInstClass;
-	public string TrackTitle;
+	public String TrackTitle;
 	public bool bOnePerGroup;
 	public bool bDirGroupOnly;
 	public bool bDisableTrack;

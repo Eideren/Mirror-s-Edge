@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_TdSupersMessage : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ string SupersMessage;
+	public/*()*/ String SupersMessage;
 	public/*()*/ float Duration;
 	public /*private */TdGameUISceneClient SceneClient;
 	public /*private */LocalPlayer Player;

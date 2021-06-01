@@ -105,7 +105,6 @@ public partial class TdMovementVolume : PhysicsVolume/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<BrushComponent>("Default__TdMovementVolume.BrushComponent0")/*Ref BrushComponent'Default__TdMovementVolume.BrushComponent0'*/,
-			//Components[1]=
 			new ArrowComponent
 			{
 				// Object Offset:0x0050E0F3
@@ -118,7 +117,6 @@ public partial class TdMovementVolume : PhysicsVolume/*
 				},
 				ArrowSize = 5.0f,
 			}/* Reference: ArrowComponent'Default__TdMovementVolume.WallDir' */,
-			//Components[2]=
 			new TdMoveVolumeRenderComponent
 			{
 				// Object Offset:0x0050E14B

@@ -55,12 +55,12 @@ public partial class TdDebugOutput : Object/*
 	
 	}
 	
-	public /*final function */static void DrawLocAdvanced(Object.Vector Location, float Size, PlayerController Controller, Canvas C, string Text, /*optional */byte? _R = default, /*optional */byte? _G = default, /*optional */byte? _B = default, /*optional */bool? _persistentLines = default)
+	public /*final function */static void DrawLocAdvanced(Object.Vector Location, float Size, PlayerController Controller, Canvas C, String Text, /*optional */byte? _R = default, /*optional */byte? _G = default, /*optional */byte? _B = default, /*optional */bool? _persistentLines = default)
 	{
 	
 	}
 	
-	public /*final function */static void DrawLocAndValue(Object.Vector Location, float Size, PlayerController Controller, Canvas C, string Text, float Value, /*optional */byte? _R = default, /*optional */byte? _G = default, /*optional */byte? _B = default, /*optional */bool? _persistentLines = default)
+	public /*final function */static void DrawLocAndValue(Object.Vector Location, float Size, PlayerController Controller, Canvas C, String Text, float Value, /*optional */byte? _R = default, /*optional */byte? _G = default, /*optional */byte? _B = default, /*optional */bool? _persistentLines = default)
 	{
 	
 	}
@@ -70,12 +70,12 @@ public partial class TdDebugOutput : Object/*
 	
 	}
 	
-	public /*final function */static void DrawText3dPos(PlayerController Player, Canvas C, string Text, Object.Vector pos, /*optional */bool? _pinBottomLeft = default, /*optional */string? _lineBreaker = default, /*optional */bool? _bClearText = default)
+	public /*final function */static void DrawText3dPos(PlayerController Player, Canvas C, String Text, Object.Vector pos, /*optional */bool? _pinBottomLeft = default, /*optional */String? _lineBreaker = default, /*optional */bool? _bClearText = default)
 	{
 	
 	}
 	
-	public /*final function */static void DrawText(Canvas C, string Text, float X, float Y, /*optional */bool? _pinBottomLeft = default, /*optional */string? _lineBreaker = default)
+	public /*final function */static void DrawText(Canvas C, String Text, float X, float Y, /*optional */bool? _pinBottomLeft = default, /*optional */String? _lineBreaker = default)
 	{
 	
 	}

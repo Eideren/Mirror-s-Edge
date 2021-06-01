@@ -8,7 +8,7 @@ public partial class TdUIScene_GameObjectives : TdUIScene_ObjectivesScene/*
 	public /*transient */UILabel NumGiveBulletDamageLabel;
 	public UIDataStore_TdGameData TdGameData;
 	public TdProfileSettings Profile;
-	public string CurrentMap;
+	public String CurrentMap;
 	
 	public override /*event */void Initialized()
 	{

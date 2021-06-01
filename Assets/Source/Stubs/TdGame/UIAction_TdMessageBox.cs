@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class UIAction_TdMessageBox : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ string TitleMarkup;
-	public/*()*/ string MessageMarkup;
+	public/*()*/ String TitleMarkup;
+	public/*()*/ String MessageMarkup;
 	public/*()*/ bool bSimpleBox;
 	public bool bDone;
 	public bool bReturnedTrue;

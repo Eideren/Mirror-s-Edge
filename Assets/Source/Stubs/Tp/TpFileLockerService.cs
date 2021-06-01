@@ -17,7 +17,7 @@ public partial class TpFileLockerService : TpSystemHandler/*
 	}
 	
 	// Export UTpFileLockerService::execFetchLocker(FFrame&, void* const)
-	public virtual /*native function */bool FetchLocker(string UserName)
+	public virtual /*native function */bool FetchLocker(String UserName)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

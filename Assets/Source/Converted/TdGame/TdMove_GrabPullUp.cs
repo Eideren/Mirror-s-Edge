@@ -100,7 +100,7 @@ public partial class TdMove_GrabPullUp : TdPhysicsMove/*
 		bHangingFree = ((PawnOwner.Moves[3]) as TdMove_Grab).IsHangingFree();
 		if(((int)((PawnOwner.Moves[3]) as TdMove_Grab).GetCurrentFoldedType()) == ((int)TdMove_Grab.EGrabFoldedType.GFT_Start/*1*/))
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "HangFoldedHeaveUp", 1.0f, 0.10f, 0.20f, true, default);
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "HangFoldedHeaveUp", 1.0f, 0.10f, 0.20f, true, default(bool?));
 			((PawnOwner.Moves[3]) as TdMove_Grab).SetCurrentFoldedType(TdMove_Grab.EGrabFoldedType.GFT_None/*0*/);
 			TimeToReleaseCamera = 0.80f;
 			TimeToEnableCollision = 0.80f;		
@@ -111,23 +111,23 @@ public partial class TdMove_GrabPullUp : TdPhysicsMove/*
 			{
 				if(bHangingFree)
 				{
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)GrabPullUpType) == ((int)TdMove_GrabPullUp.EGrabPullUpType.GPUT_IntoCrouch/*1*/)) ? "hangfreeheaveuptocrouch" : "HangFreeHeaveUp"), 1.0f, 0.10f, 0.20f, PawnOwner.IsLocallyControlled(), default);				
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)GrabPullUpType) == ((int)TdMove_GrabPullUp.EGrabPullUpType.GPUT_IntoCrouch/*1*/)) ? "hangfreeheaveuptocrouch" : "HangFreeHeaveUp"), 1.0f, 0.10f, 0.20f, PawnOwner.IsLocallyControlled(), default(bool?));				
 				}
 				else
 				{
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)GrabPullUpType) == ((int)TdMove_GrabPullUp.EGrabPullUpType.GPUT_IntoCrouch/*1*/)) ? "HangHeaveUpToCrouch" : "HangHeaveUp"), 1.0f, 0.10f, 0.20f, PawnOwner.IsLocallyControlled(), default);
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)GrabPullUpType) == ((int)TdMove_GrabPullUp.EGrabPullUpType.GPUT_IntoCrouch/*1*/)) ? "HangHeaveUpToCrouch" : "HangHeaveUp"), 1.0f, 0.10f, 0.20f, PawnOwner.IsLocallyControlled(), default(bool?));
 				}
 				TimeToReleaseCamera = 0.80f;
 				TimeToEnableCollision = 1.40f;			
 			}
 			else
 			{
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((bHangingFree) ? "HangFreeHeaveOver" : "HangHeaveOver"), 1.0f, 0.20f, 0.20f, PawnOwner.IsLocallyControlled(), default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((bHangingFree) ? "HangFreeHeaveOver" : "HangHeaveOver"), 1.0f, 0.20f, 0.20f, PawnOwner.IsLocallyControlled(), default(bool?));
 				TimeToReleaseCamera = ((bHangingFree) ? 0.70f : 0.60f);
 				TimeToEnableCollision = 0.60f;
 			}
 		}
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Grabbing/*3*/, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Grabbing/*3*/, default(float?));
 		if(((int)GrabPullUpType) == ((int)TdMove_GrabPullUp.EGrabPullUpType.GPUT_IntoCrouch/*1*/))
 		{
 			PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Crouch/*15*/, 0.20f);		
@@ -154,7 +154,7 @@ public partial class TdMove_GrabPullUp : TdPhysicsMove/*
 	
 	public virtual /*simulated function */void EnableCollision()
 	{
-		PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default);
+		PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default(bool?));
 		PawnOwner.bCollideWorld = true;
 		PawnOwner.Mesh.bUseLegRotationHack1 = false;
 		PawnOwner.StopIgnoreMoveInput();
@@ -164,7 +164,7 @@ public partial class TdMove_GrabPullUp : TdPhysicsMove/*
 	{
 		base.StopMove();
 		EnableCollision();
-		PawnOwner.DisableHandsWorldIK(default);
+		PawnOwner.DisableHandsWorldIK(default(float?));
 	}
 	
 	public override /*simulated function */void OnCeaseRelevantRootMotion(AnimNodeSequence SeqNode)
@@ -177,7 +177,7 @@ public partial class TdMove_GrabPullUp : TdPhysicsMove/*
 		PawnOwner.UseRootMotion(false);
 		PawnOwner.Acceleration = Normal(PawnOwner.Velocity);
 		PawnOwner.SetPhysics(Actor.EPhysics.PHYS_Walking/*1*/);
-		PawnOwner.SetMove(((TdPawn.EMovement)((((int)GrabPullUpType) == ((int)TdMove_GrabPullUp.EGrabPullUpType.GPUT_IntoCrouch/*1*/)) ? 15 : 1)), default, default);
+		PawnOwner.SetMove(((TdPawn.EMovement)((((int)GrabPullUpType) == ((int)TdMove_GrabPullUp.EGrabPullUpType.GPUT_IntoCrouch/*1*/)) ? 15 : 1)), default(bool?), default(bool?));
 	}
 	
 	public override /*simulated function */int HandleDeath(int Damage)

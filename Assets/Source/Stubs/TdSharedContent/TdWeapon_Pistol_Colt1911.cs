@@ -198,7 +198,6 @@ public partial class TdWeapon_Pistol_Colt1911 : TdWeapon_Light/*
 		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Colt1911.FirstPersonMesh' */;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x000149D3
@@ -209,7 +208,6 @@ public partial class TdWeapon_Pistol_Colt1911 : TdWeapon_Light/*
 					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Colt1911.AS_C1P_OneHanded_Colt1911")/*Ref TdAnimSet'AS_C1P_OneHanded_Colt1911.AS_C1P_OneHanded_Colt1911'*/,
 				},
 			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Colt1911.FirstPersonMesh' */,
-			//Components[1]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x00014A2B

@@ -221,14 +221,14 @@ public partial class UIList : UIObject,
 	}
 	
 	// Export UUIList::execGetElementValue(FFrame&, void* const)
-	public virtual /*native final function */string GetElementValue(int ElementIndex, /*optional */int? _CellIndex = default)
+	public virtual /*native final function */String GetElementValue(int ElementIndex, /*optional */int? _CellIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUIList::execFindItemIndex(FFrame&, void* const)
-	public virtual /*native final function */int FindItemIndex(string ItemValue, /*optional */int? _CellIndex = default)
+	public virtual /*native final function */int FindItemIndex(String ItemValue, /*optional */int? _CellIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
@@ -276,13 +276,13 @@ public partial class UIList : UIObject,
 	}
 	
 	// Export UUIList::execSetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */void SetDataStoreBinding(string MarkupText, /*optional */int? _BindingIndex = default)
+	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 	}
 	
 	// Export UUIList::execGetDataStoreBinding(FFrame&, void* const)
-	public virtual /*native final function */string GetDataStoreBinding(/*optional */int? _BindingIndex = default)
+	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

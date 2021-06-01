@@ -42,7 +42,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	public /*private native const noexport */Object.Pointer VfTable_FGlobalDataStoreClientManager;
 	public Core.ClassT<GameUISceneClient> SceneClientClass;
 	public /*const transient */GameUISceneClient SceneClient;
-	public /*config */string UISkinName;
+	public /*config */String UISkinName;
 	public /*config */array</*config */name> UISoundCueNames;
 	public /*transient */array<name> SupportedDoubleClickKeys;
 	public /*const transient */DataStoreClient DataStoreManager;
@@ -96,7 +96,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	}
 	
 	// Export UUIInteraction::execIsMenuLevel(FFrame&, void* const)
-	public /*native final function */static bool IsMenuLevel(/*optional */string? _MapName = default)
+	public /*native final function */static bool IsMenuLevel(/*optional */String? _MapName = default)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

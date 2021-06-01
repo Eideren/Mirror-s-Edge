@@ -14,7 +14,6 @@ public partial class SceneCaptureActor : Actor/*
 		bNoDelete = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x003A335C

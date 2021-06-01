@@ -195,7 +195,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	
 	}
 	
-	public virtual /*exec function */void OpenMenu(string MenuPath, /*optional */int? _PlayerIndex = default)
+	public virtual /*exec function */void OpenMenu(String MenuPath, /*optional */int? _PlayerIndex = default)
 	{
 	
 	}
@@ -205,7 +205,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	
 	}
 	
-	public virtual /*exec function */void ShowDataStoreField(string DataStoreMarkup)
+	public virtual /*exec function */void ShowDataStoreField(String DataStoreMarkup)
 	{
 	
 	}

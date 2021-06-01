@@ -34,7 +34,7 @@ public partial class MaterialExpression : Object/* within Material*//*
 	public/*()*/ bool bRealtimePreview;
 	public bool bIsParameterExpression;
 	public /*const */MaterialExpressionCompound Compound;
-	public/*()*/ string Desc;
+	public/*()*/ String Desc;
 	
 }
 }

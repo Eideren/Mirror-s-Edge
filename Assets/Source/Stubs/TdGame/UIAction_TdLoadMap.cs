@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class UIAction_TdLoadMap : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ string Filename;
+	public/*()*/ String Filename;
 	
 	public UIAction_TdLoadMap()
 	{

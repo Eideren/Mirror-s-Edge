@@ -53,7 +53,6 @@ public partial class AmbientSoundSimple : AmbientSound/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__AmbientSoundSimple.Sprite")/*Ref SpriteComponent'Default__AmbientSoundSimple.Sprite'*/,
-			//Components[1]=
 			new AudioComponent
 			{
 				// Object Offset:0x002906E4

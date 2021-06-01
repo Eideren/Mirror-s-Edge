@@ -5,7 +5,7 @@ public partial class TdMPTeamDMGame : TdMPTeamGame/*
 		config(Game)
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public override /*function */void EndGame(PlayerReplicationInfo Winner, string Reason)
+	public override /*function */void EndGame(PlayerReplicationInfo Winner, String Reason)
 	{
 		base.EndGame(Winner, Reason);
 	}

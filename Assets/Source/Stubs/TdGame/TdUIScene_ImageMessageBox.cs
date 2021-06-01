@@ -11,7 +11,7 @@ public partial class TdUIScene_ImageMessageBox : TdUIScene_MessageBox/*
 	
 	}
 	
-	public virtual /*function */void SetImageMarkup(string Markup)
+	public virtual /*function */void SetImageMarkup(String Markup)
 	{
 	
 	}

@@ -17,7 +17,6 @@ public partial class LightVolume : Volume/*
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new BrushComponent
 			{
 				// Object Offset:0x004660C3

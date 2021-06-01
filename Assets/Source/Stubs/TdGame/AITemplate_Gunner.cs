@@ -10,7 +10,7 @@ public partial class AITemplate_Gunner : AITemplate_Default/*
 		ControllerClass = "TdGame.TdAI_Gunner";
 		PawnClass = "TdSpContent.TdBotPawn_SupportHelicopterGunner";
 		ProfileName = "SupportCopHelicopter";
-		AnimationSets = "AS_AI_Support_TwoHanded.AS_AI_Support_TwoHanded_Helicopter";
+		AnimationSets[0] = "AS_AI_Support_TwoHanded.AS_AI_Support_TwoHanded_Helicopter";
 		SkeletalMesh = "CH_TKY_Cop_Support.SK_TKY_Cop_Support_LowPoly";
 		CanUseSuppressionFire = true;
 		HorizontalOffset_Max = new AITemplate.DistanceBasedValue

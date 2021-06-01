@@ -40,7 +40,6 @@ public partial class Pawn_CriminalFixer : TdPlayerPawn/*
 			LoadAsset<CylinderComponent>("Default__Pawn_CriminalFixer.CollisionCylinder")/*Ref CylinderComponent'Default__Pawn_CriminalFixer.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__Pawn_CriminalFixer.Arrow")/*Ref ArrowComponent'Default__Pawn_CriminalFixer.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__Pawn_CriminalFixer.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__Pawn_CriminalFixer.MyLightEnvironment'*/,
-			//Components[5]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x00010FC4

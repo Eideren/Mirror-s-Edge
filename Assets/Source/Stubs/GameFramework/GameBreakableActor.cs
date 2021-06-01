@@ -123,7 +123,6 @@ public partial class GameBreakableActor : KActor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__GameBreakableActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__GameBreakableActor.MyLightEnvironment'*/,
-			//Components[1]=
 			new StaticMeshComponent
 			{
 				// Object Offset:0x000093ED

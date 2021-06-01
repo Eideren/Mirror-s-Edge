@@ -91,7 +91,6 @@ public partial class TdWeapon_SmokeGrenade : TdWeapon_Grenade/*
 		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.FirstPersonMesh' */;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x0001569F
@@ -102,7 +101,6 @@ public partial class TdWeapon_SmokeGrenade : TdWeapon_Grenade/*
 					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
 				},
 			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.FirstPersonMesh' */,
-			//Components[1]=
 			new TdSkeletalMeshComponent
 			{
 				// Object Offset:0x000156F7

@@ -74,7 +74,7 @@ public partial class TdCheatManager : CheatManager/* within TdPlayerController*/
 	
 	}
 	
-	public virtual /*exec function */void CoverGoToState(string iState)
+	public virtual /*exec function */void CoverGoToState(String iState)
 	{
 	
 	}
@@ -409,7 +409,7 @@ public partial class TdCheatManager : CheatManager/* within TdPlayerController*/
 	
 	}
 	
-	public virtual /*exec function */void SetGameProgress(string Map, string Checkpoint)
+	public virtual /*exec function */void SetGameProgress(String Map, String Checkpoint)
 	{
 	
 	}
@@ -600,7 +600,7 @@ public partial class TdCheatManager : CheatManager/* within TdPlayerController*/
 	
 	}
 	
-	public virtual /*exec function */void PrintLog(string iString)
+	public virtual /*exec function */void PrintLog(String iString)
 	{
 	
 	}
@@ -610,7 +610,7 @@ public partial class TdCheatManager : CheatManager/* within TdPlayerController*/
 	
 	}
 	
-	public virtual /*exec function */void SetMeleeType(string mt)
+	public virtual /*exec function */void SetMeleeType(String mt)
 	{
 	
 	}
@@ -640,7 +640,7 @@ public partial class TdCheatManager : CheatManager/* within TdPlayerController*/
 	
 	}
 	
-	public virtual /*exec function */void HeliMove(string navpointName)
+	public virtual /*exec function */void HeliMove(String navpointName)
 	{
 	
 	}

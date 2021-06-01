@@ -102,7 +102,6 @@ public partial class TdInterrogationSubject : Actor/*
 		bCollideActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new CylinderComponent
 			{
 				// Object Offset:0x01AB4B9A

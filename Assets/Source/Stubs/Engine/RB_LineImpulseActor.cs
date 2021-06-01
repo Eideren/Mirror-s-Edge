@@ -50,13 +50,11 @@ public partial class RB_LineImpulseActor : Actor/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new ArrowComponent
 			{
 				// Object Offset:0x00465D07
 				ArrowSize = 4.166670f,
 			}/* Reference: ArrowComponent'Default__RB_LineImpulseActor.ArrowComponent0' */,
-			//Components[1]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004D02EA

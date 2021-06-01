@@ -6,8 +6,8 @@ public partial class CustomPropertyItemBindings : Object/*
 		config(Editor)*/{
 	public partial struct /*native */PropertyItemCustomProxy
 	{
-		public/*()*/ /*config */string PropertyPathName;
-		public/*()*/ /*config */string PropertyItemClassName;
+		public/*()*/ /*config */String PropertyPathName;
+		public/*()*/ /*config */String PropertyItemClassName;
 		public/*()*/ /*config */bool bReplaceArrayHeaders;
 		public/*()*/ /*config */bool bIgnoreArrayElements;
 		public /*transient */Class PropertyItemClass;
@@ -26,8 +26,8 @@ public partial class CustomPropertyItemBindings : Object/*
 	public partial struct /*native */PropertyTypeCustomProxy
 	{
 		public/*()*/ /*config */name PropertyName;
-		public/*()*/ /*config */string PropertyObjectClassPathName;
-		public/*()*/ /*config */string PropertyItemClassName;
+		public/*()*/ /*config */String PropertyObjectClassPathName;
+		public/*()*/ /*config */String PropertyItemClassName;
 		public/*()*/ /*config */bool bReplaceArrayHeaders;
 		public/*()*/ /*config */bool bIgnoreArrayElements;
 		public /*transient */Class PropertyItemClass;
@@ -46,8 +46,8 @@ public partial class CustomPropertyItemBindings : Object/*
 	
 	public partial struct /*native */PropertyItemCustomClass
 	{
-		public/*()*/ /*config */string PropertyPathName;
-		public/*()*/ /*config */string PropertyItemClassName;
+		public/*()*/ /*config */String PropertyPathName;
+		public/*()*/ /*config */String PropertyItemClassName;
 		public/*()*/ /*config */bool bReplaceArrayHeaders;
 		public/*()*/ /*config */bool bIgnoreArrayElements;
 		public /*native transient */Object.Pointer WxPropertyItemClass;
@@ -65,8 +65,8 @@ public partial class CustomPropertyItemBindings : Object/*
 	public partial struct /*native */PropertyTypeCustomClass
 	{
 		public/*()*/ /*config */name PropertyName;
-		public/*()*/ /*config */string PropertyObjectClassPathName;
-		public/*()*/ /*config */string PropertyItemClassName;
+		public/*()*/ /*config */String PropertyObjectClassPathName;
+		public/*()*/ /*config */String PropertyItemClassName;
 		public/*()*/ /*config */bool bReplaceArrayHeaders;
 		public/*()*/ /*config */bool bIgnoreArrayElements;
 		public /*native transient */Object.Pointer WxPropertyItemClass;

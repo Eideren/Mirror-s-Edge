@@ -10,7 +10,7 @@ public partial class UIDataStore_GameResource : UIDataStore,
 	public partial struct /*native */GameResourceDataProvider
 	{
 		public /*config */name ProviderTag;
-		public /*config */string ProviderClassName;
+		public /*config */String ProviderClassName;
 		public /*transient */Core.ClassT<UIResourceDataProvider> ProviderClass;
 	
 	//	structdefaultproperties

@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdOnlineGhostStorageManager : TdGhostStorageManager/*
 		native
 		config(Game)*/{
-	public /*private const */string GhostFilePrefix;
+	public /*private const */String GhostFilePrefix;
 	public /*private config */int MaxFilesInLocker;
 	public /*private config */int MaxGhostsDeletedPerSweep;
 	public /*private transient */OnlineFileLockerInterface LockerIF;

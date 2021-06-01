@@ -35,7 +35,7 @@ public partial class Interaction : UIRoot/*
 		return default;
 	}
 	
-	public delegate bool OnReceivedNativeInputChar(int ControllerId, string Unicode);
+	public delegate bool OnReceivedNativeInputChar(int ControllerId, String Unicode);
 	
 	public virtual /*event */void Tick(float DeltaTime)
 	{

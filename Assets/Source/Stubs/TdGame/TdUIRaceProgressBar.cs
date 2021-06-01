@@ -14,7 +14,7 @@ public partial class TdUIRaceProgressBar : TdUIObject/*
 	public/*()*/ TdUIRaceProgressBar.EPB_Type BarType;
 	public /*transient */array<float> SectionData;
 	public /*transient */array<float> SectionPctLength;
-	public /*transient */array<string> SectionTexts;
+	public /*transient */array<String> SectionTexts;
 	public /*transient */array<int> SectionTextureId;
 	public /*transient */StaticArray<Texture2D, Texture2D, Texture2D>/*[3]*/ BottomBar;
 	public /*transient */StaticArray<Texture2D, Texture2D, Texture2D>/*[3]*/ MiddleBar;

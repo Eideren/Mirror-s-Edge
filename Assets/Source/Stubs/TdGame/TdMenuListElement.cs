@@ -3,8 +3,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMenuListElement : TdListElement/*
 		native*/{
-	public string CaptionString;
-	public string DescriptionString;
+	public String CaptionString;
+	public String DescriptionString;
 	
 }
 }

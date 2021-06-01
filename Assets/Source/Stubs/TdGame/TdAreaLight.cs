@@ -33,7 +33,6 @@ public partial class TdAreaLight : PointLight/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__TdAreaLight.Sprite")/*Ref SpriteComponent'Default__TdAreaLight.Sprite'*/,
-			//Components[1]=
 			new DrawLightRadiusComponent
 			{
 				// Object Offset:0x01B6857E
@@ -44,13 +43,11 @@ public partial class TdAreaLight : PointLight/*
 					Z=0.010f
 				},
 			}/* Reference: DrawLightRadiusComponent'Default__TdAreaLight.DrawLightRadius0' */,
-			//Components[2]=
 			new PointLightComponent
 			{
 				// Object Offset:0x01D76313
 				PreviewLightRadius = LoadAsset<DrawLightRadiusComponent>("Default__TdAreaLight.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__TdAreaLight.DrawLightRadius0'*/,
 			}/* Reference: PointLightComponent'Default__TdAreaLight.PointLightComponent0' */,
-			//Components[3]=
 			new DrawBoxComponent
 			{
 				// Object Offset:0x01B683E2
@@ -63,7 +60,6 @@ public partial class TdAreaLight : PointLight/*
 				AlwaysLoadOnClient = false,
 				AlwaysLoadOnServer = false,
 			}/* Reference: DrawBoxComponent'Default__TdAreaLight.DrawBoxComponent0' */,
-			//Components[4]=
 			new ArrowComponent
 			{
 				// Object Offset:0x01AB4066

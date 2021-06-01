@@ -66,11 +66,11 @@ public partial class TdMove_MeleeAir : TdMove_MeleeBase/*
 				TargetBot = ((TargetPawn) as TdBotPawn);
 				if((TargetBot != default) && !TargetBot.CanDoMove(TdPawn.EMovement.MOVE_MeleeAirAbove/*82*/))
 				{
-					PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
+					PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
 					return;
 				}
 				((PawnOwner.Moves[82]) as TdMove_MeleeBase).TargetPawn = TargetPawn;
-				PawnOwner.SetMove(TdPawn.EMovement.MOVE_MeleeAirAbove/*82*/, default, default);
+				PawnOwner.SetMove(TdPawn.EMovement.MOVE_MeleeAirAbove/*82*/, default(bool?), default(bool?));
 				return;
 			}
 		}
@@ -79,7 +79,7 @@ public partial class TdMove_MeleeAir : TdMove_MeleeBase/*
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
 		PawnOwner.Moves[2].ResetCameraLook(0.60f);
 	}
 	
@@ -97,11 +97,11 @@ public partial class TdMove_MeleeAir : TdMove_MeleeBase/*
 	{
 		/*local */KActor RBActor = default;
 	
-		Victim.TakeDamage(100, PawnOwner.Controller, HitLocation, -HitNormal, inDamageType, default, default);
+		Victim.TakeDamage(100, PawnOwner.Controller, HitLocation, -HitNormal, inDamageType, default(Actor.TraceHitInfo?), default(Actor?));
 		RBActor = ((Victim) as KActor);
 		if(RBActor != default)
 		{
-			RBActor.ApplyImpulse(-HitNormal, inDamageType.DefaultAs<DamageType>().KDamageImpulse, HitLocation, default);
+			RBActor.ApplyImpulse(-HitNormal, inDamageType.DefaultAs<DamageType>().KDamageImpulse, HitLocation, default(Actor.TraceHitInfo?));
 		}
 	}
 	
@@ -122,10 +122,10 @@ public partial class TdMove_MeleeAir : TdMove_MeleeBase/*
 				if(bHitDetection && FallHeight < ((PawnOwner.Moves[20]) as TdMove_Landing).HardLandingHeight)
 				{
 					base.Landed(aNormal, anActor);
-					PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+					PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 					PawnOwner.Moves[1].ResetCameraLook(0.40f);
 					PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, 0.30f);
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeInAirLand2", 1.0f, 0.30f, 0.30f, default, default);
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeInAirLand2", 1.0f, 0.30f, 0.30f, default(bool?), default(bool?));
 					PawnOwner.PlayFootStepSound(((PawnOwner.Velocity.Z < -1000.0f) ? 9 : 8));
 					bHitDetection = false;				
 				}
@@ -138,8 +138,8 @@ public partial class TdMove_MeleeAir : TdMove_MeleeBase/*
 					}
 					else
 					{
-						PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
-						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeInAirLand", 1.0f, 0.10f, 0.10f, default, default);
+						PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
+						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeInAirLand", 1.0f, 0.10f, 0.10f, default(bool?), default(bool?));
 						PawnOwner.Moves[1].ResetCameraLook(0.20f);
 					}
 				}
@@ -160,20 +160,20 @@ public partial class TdMove_MeleeAir : TdMove_MeleeBase/*
 				{
 					if(TargetPawn != default)
 					{
-						SetLookAtTargetLocation(TargetPawn.GetEyeLocation(TargetPawn.Location) - vect(0.0f, 0.0f, 20.0f), 0.20f, default);					
+						SetLookAtTargetLocation(TargetPawn.GetEyeLocation(TargetPawn.Location) - vect(0.0f, 0.0f, 20.0f), 0.20f, default(float?));					
 					}
 					else
 					{
-						SetLookAtTargetAngle(PawnOwner.Rotation + LookAtAngle, 0.20f, default);
+						SetLookAtTargetAngle(PawnOwner.Rotation + LookAtAngle, 0.20f, default(float?));
 					}
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeInAir", 1.0f, 0.10f, 0.20f, false, default);
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeInAir", 1.0f, 0.10f, 0.20f, false, default(bool?));
 					HitDetectionBone = "RightFoot";
 					bHitDetection = true;
 					ImpactMomentum = PawnOwner.Velocity * 1.60f;				
 				}
 				else
 				{
-					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeInAirStill", 1.0f, 0.10f, 0.20f, false, default);
+					PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeInAirStill", 1.0f, 0.10f, 0.20f, false, default(bool?));
 					HitDetectionBone = "RightFoot";
 					SetTimer(0.250f);
 					PawnOwner.Velocity.Z = 0.0f;
@@ -185,7 +185,7 @@ public partial class TdMove_MeleeAir : TdMove_MeleeBase/*
 				}
 				break;
 			case TdMove_MeleeAir.EMeleeAirType.MAT_FromJumpHigh/*2*/:
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeFromAbove", 1.0f, 0.10f, 0.10f, false, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeFromAbove", 1.0f, 0.10f, 0.10f, false, default(bool?));
 				HitDetectionBone = "LeftFoot";
 				SetTimer(0.150f);
 				ImpactMomentum = PawnOwner.Velocity * 1.60f;
@@ -231,7 +231,7 @@ public partial class TdMove_MeleeAir : TdMove_MeleeBase/*
 		}
 		if(bVerifyHit)
 		{
-			HitLocation = PawnOwner.Mesh3p.GetBoneLocation("RightFoot", default);
+			HitLocation = PawnOwner.Mesh3p.GetBoneLocation("RightFoot", default(int?));
 			Hit.Material = default;
 			Hit.PhysMaterial = TargetPawn.Mesh3p.GetPhysicalMaterialFromBone("Neck");
 			Hit.BoneName = "Neck";
@@ -241,14 +241,14 @@ public partial class TdMove_MeleeAir : TdMove_MeleeBase/*
 			if((((int)MeleeType) == ((int)TdMove_MeleeAir.EMeleeAirType.MAT_FromJump/*0*/)) && ((int)MeleeState) == ((int)TdMove_MeleeBase.EMeleeState.MS_MeleeAttackNormal/*1*/))
 			{
 				PawnOwner.SetCustomAnimsBlendOutTime(TdPawn.CustomNodeType.CNT_FullBody/*2*/, 0.10f);
-				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeInAirHit", 1.0f, 0.10f, 0.20f, default, default);
+				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeInAirHit", 1.0f, 0.10f, 0.20f, default(bool?), default(bool?));
 			}
 			if((((int)MeleeType) == ((int)TdMove_MeleeAir.EMeleeAirType.MAT_FromJumpHigh/*2*/)) || ((int)MeleeType) == ((int)TdMove_MeleeAir.EMeleeAirType.MAT_FromJump/*0*/))
 			{
 				PawnOwner.Velocity = Normal(PawnOwner.Location - TargetPawn.Location) * 500.0f;
 				PawnOwner.Velocity.Z = 50.0f;
 				PawnOwner.Acceleration = Normal(PawnOwner.Velocity);
-				PawnOwner.SetIgnoreMoveInput(default);
+				PawnOwner.SetIgnoreMoveInput(default(float?));
 			}
 			if(((int)MeleeState) == ((int)TdMove_MeleeBase.EMeleeState.MS_MeleeAttackFinishing/*2*/))
 			{

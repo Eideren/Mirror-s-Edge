@@ -31,7 +31,7 @@ public partial class AITemplate_SniperCop : AITemplate_Default/*
 		ControllerClass = "TdGame.TdAI_Sniper";
 		PawnClass = "TdSpContent.TdBotPawn_SniperCop";
 		ProfileName = "AssaultTwoHanded-M95";
-		AnimationSets = new StaticArray<string, string>/*[2]*/()
+		AnimationSets = new StaticArray<String, String>/*[2]*/()
 		{ 
 			[0] = "AS_AI_Assault_TwoHanded.AS_AI_Assault_TwoHanded",
 			[1] = "AS_AI_Assault_TwoHanded.AS_AI_Assault_TwoHanded_M95",

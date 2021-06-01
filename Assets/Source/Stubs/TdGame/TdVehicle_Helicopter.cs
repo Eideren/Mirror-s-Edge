@@ -161,7 +161,6 @@ public partial class TdVehicle_Helicopter : SVehicle/*
 		{
 			LoadAsset<SceneCaptureCharacterComponent>("Default__TdVehicle_Helicopter.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdVehicle_Helicopter.SceneCaptureCharacterComponent0'*/,
 			LoadAsset<DrawFrustumComponent>("Default__TdVehicle_Helicopter.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdVehicle_Helicopter.DrawFrust0'*/,
-			//Components[2]=
 			new CylinderComponent
 			{
 				// Object Offset:0x01AB507A
@@ -174,7 +173,6 @@ public partial class TdVehicle_Helicopter : SVehicle/*
 					Z=0.0f
 				},
 			}/* Reference: CylinderComponent'Default__TdVehicle_Helicopter.CollisionCylinder' */,
-			//Components[3]=
 			new SkeletalMeshComponent
 			{
 				// Object Offset:0x0279BF86

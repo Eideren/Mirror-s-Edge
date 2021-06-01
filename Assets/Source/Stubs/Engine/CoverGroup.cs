@@ -55,13 +55,11 @@ public partial class CoverGroup : Info/*
 		bStatic = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
 			new SpriteComponent
 			{
 				// Object Offset:0x004CF736
 				Sprite = LoadAsset<Texture2D>("EditorMaterials.CovergroupIcon")/*Ref Texture2D'EditorMaterials.CovergroupIcon'*/,
 			}/* Reference: SpriteComponent'Default__CoverGroup.Sprite' */,
-			//Components[1]=
 			new CoverGroupRenderingComponent
 			{
 				// Object Offset:0x0046632F

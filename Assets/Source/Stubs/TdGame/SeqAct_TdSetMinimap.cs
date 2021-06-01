@@ -17,7 +17,7 @@ public partial class SeqAct_TdSetMinimap : SequenceAction/*
 	//	}
 	};
 	
-	public/*()*/ string minimapWidgetName;
+	public/*()*/ String minimapWidgetName;
 	public/*()*/ array<SeqAct_TdSetMinimap.MinimapMap> maps;
 	
 	public SeqAct_TdSetMinimap()

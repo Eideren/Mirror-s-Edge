@@ -247,7 +247,7 @@ public partial class TdAIController : AIController,
 	public AITeam Team;
 	public float fLookbackTime;
 	public AITemplate myTemplate;
-	public array<string> myScreenLog;
+	public array<String> myScreenLog;
 	public TdAimBotBase AimBot;
 	public/*()*/ /*editinline */TdAimBotBase RealAimBot;
 	public TdAimBotBase PerfectAimBot;
@@ -342,8 +342,8 @@ public partial class TdAIController : AIController,
 	public /*config */array</*config */name> AILogFilter;
 	public int logTabs;
 	public /*config */array</*config */name> ScreenLogFilter;
-	public string DebugString;
-	public string DebugString2;
+	public String DebugString;
+	public String DebugString2;
 	public float LastStumbleTime;
 	public Actor ActorBlockingLineOfSight;
 	public float CurrentAimDispersion;
@@ -484,7 +484,7 @@ public partial class TdAIController : AIController,
 		return default;
 	}
 	
-	public virtual /*function */void AddSpecialOutput(ref string Text)
+	public virtual /*function */void AddSpecialOutput(ref String Text)
 	{
 	
 	}
@@ -497,7 +497,7 @@ public partial class TdAIController : AIController,
 	
 	}
 	
-	public virtual /*event */void AddToScreenLog(string Text, /*optional */name? _Category = default)
+	public virtual /*event */void AddToScreenLog(String Text, /*optional */name? _Category = default)
 	{
 	
 	}
@@ -543,7 +543,7 @@ public partial class TdAIController : AIController,
 	
 	}
 	
-	public virtual /*function */void DrawLatentAction(ref string Text)
+	public virtual /*function */void DrawLatentAction(ref String Text)
 	{
 	
 	}
@@ -594,12 +594,12 @@ public partial class TdAIController : AIController,
 	
 	}
 	
-	public virtual /*final event */void AILog_Internal(/*coerce */string LogText, /*optional */name? _LogCategory = default, /*optional */bool? _bForce = default)
+	public virtual /*final event */void AILog_Internal(/*coerce */String LogText, /*optional */name? _LogCategory = default, /*optional */bool? _bForce = default)
 	{
 	
 	}
 	
-	public virtual /*final function */void LogFunction_Internal(/*coerce */string FuncName, bool Start, /*coerce optional */string? _S = default, /*optional */name? _LogCategory = default)
+	public virtual /*final function */void LogFunction_Internal(/*coerce */String FuncName, bool Start, /*coerce optional */String? _S = default, /*optional */name? _LogCategory = default)
 	{
 	
 	}
@@ -745,7 +745,7 @@ public partial class TdAIController : AIController,
 		return default;
 	}
 	
-	public virtual /*function */void ClientMessage(/*coerce */string S)
+	public virtual /*function */void ClientMessage(/*coerce */String S)
 	{
 	
 	}
@@ -1146,17 +1146,17 @@ public partial class TdAIController : AIController,
 	
 	}
 	
-	public virtual /*final function */void DebugGotoState(name NewState, /*optional */name? _Label = default, /*optional */string? _Reason = default, /*optional */bool? _bForceEvents = default, /*optional */bool? _ForceStateChange = default)
+	public virtual /*final function */void DebugGotoState(name NewState, /*optional */name? _Label = default, /*optional */String? _Reason = default, /*optional */bool? _bForceEvents = default, /*optional */bool? _ForceStateChange = default)
 	{
 	
 	}
 	
-	public virtual /*protected final function */void TdGotoState(name NewState, /*optional */name? _Label = default, /*optional */string? _Reason = default, /*optional */bool? _bForceEvents = default, /*optional */bool? _ForceStateChange = default)
+	public virtual /*protected final function */void TdGotoState(name NewState, /*optional */name? _Label = default, /*optional */String? _Reason = default, /*optional */bool? _bForceEvents = default, /*optional */bool? _ForceStateChange = default)
 	{
 	
 	}
 	
-	public virtual /*protected final function */void TdPushState(name NewState, /*optional */name? _NewLabel = default, /*optional */string? _Reason = default, /*optional */bool? _ForceStateChange = default)
+	public virtual /*protected final function */void TdPushState(name NewState, /*optional */name? _NewLabel = default, /*optional */String? _Reason = default, /*optional */bool? _ForceStateChange = default)
 	{
 	
 	}
@@ -1759,7 +1759,7 @@ public partial class TdAIController : AIController,
 	
 	}
 	
-	public virtual /*function */void CoverGoToState(string iState)
+	public virtual /*function */void CoverGoToState(String iState)
 	{
 	
 	}
@@ -1840,7 +1840,7 @@ public partial class TdAIController : AIController,
 	
 	}
 	
-	public virtual /*private final function */void UpdateAdvanceState(name Label, string Reason)
+	public virtual /*private final function */void UpdateAdvanceState(name Label, String Reason)
 	{
 	
 	}
@@ -2032,7 +2032,7 @@ public partial class TdAIController : AIController,
 	
 	}
 	
-	public virtual /*function */void SetMeleeType(string mt)
+	public virtual /*function */void SetMeleeType(String mt)
 	{
 	
 	}

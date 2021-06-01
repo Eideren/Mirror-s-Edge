@@ -82,7 +82,7 @@ public partial class TdMPPossessionGame : TdMPGame/*
 		PossessionLogic.Initialize(this);
 	}
 	
-	public override /*function */void EndGame(PlayerReplicationInfo Winner, string Reason)
+	public override /*function */void EndGame(PlayerReplicationInfo Winner, String Reason)
 	{
 		/*local */TdPlayerController Player = default;
 		/*local */int Index = default;
@@ -170,7 +170,7 @@ public partial class TdMPPossessionGame : TdMPGame/*
 	protected (System.Action<name>, StateFlow, System.Action<name>) MatchInProgress()/*state MatchInProgress*/
 	{
 	
-		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = null)
+		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
 	
 			if(jumpTo == null || jumpTo == "Begin")

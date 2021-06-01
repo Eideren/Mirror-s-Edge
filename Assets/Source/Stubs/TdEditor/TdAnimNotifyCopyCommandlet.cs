@@ -4,10 +4,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNotifyCopyCommandlet : Commandlet/*
 		transient
 		native*/{
-	public string PackagesPath;
+	public String PackagesPath;
 	
 	// Export UTdAnimNotifyCopyCommandlet::execMain(FFrame&, void* const)
-	public override /*native event */int Main(string Params)
+	public override /*native event */int Main(String Params)
 	{
 		#warning NATIVE FUNCTION !
 		return default;

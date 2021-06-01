@@ -38,11 +38,11 @@ public partial class TdMove_ZipLine : TdPhysicsMove/*
 		base.StartMove();
 		StartPosition = PawnOwner.Location;
 		StartPosition.Z -= HangOffset.Z;
-		ZipLine.FindClosestPointOnDSpline(StartPosition, ref/*probably?*/ StartPosition, ref/*probably?*/ CurrentParamOnCurve, default);
+		ZipLine.FindClosestPointOnDSpline(StartPosition, ref/*probably?*/ StartPosition, ref/*probably?*/ CurrentParamOnCurve, default(int?));
 		((PawnOwner.Controller) as TdPlayerController).ClientPlayForceFeedbackWaveform(ZiplineWaveform);
 		if(ZippingSoundComponent == default)
 		{
-			ZippingSoundComponent = PawnOwner.CreateAudioComponent(ZippingSound, false, true, default, default, default);
+			ZippingSoundComponent = PawnOwner.CreateAudioComponent(ZippingSound, false, true, default(bool?), default(Object.Vector?), default(bool?));
 		}
 		if(ZippingSoundComponent != default)
 		{
@@ -64,7 +64,7 @@ public partial class TdMove_ZipLine : TdPhysicsMove/*
 		}
 		else
 		{
-			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("SwingJumpOff")), 1.0f, 0.20f, 0.20f, false, default);
+			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("SwingJumpOff")), 1.0f, 0.20f, 0.20f, false, default(bool?));
 		}
 		ZipLine = default;
 		ZipLineStatus = TdMove_ZipLine.EZipLineStatus.ZLS_Moving/*0*/;
@@ -84,7 +84,7 @@ public partial class TdMove_ZipLine : TdPhysicsMove/*
 		{
 			((PawnOwner.Moves[35]) as TdMove_Stumble).InstigatorLocation = PawnOwner.Location - (10.0f * Normal(PawnOwner.Velocity));
 			((PawnOwner.Moves[35]) as TdMove_Stumble).damageMomentum = Normal(PawnOwner.Velocity);
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default, default);		
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default(bool?), default(bool?));		
 		}
 		else
 		{
@@ -99,12 +99,12 @@ public partial class TdMove_ZipLine : TdPhysicsMove/*
 	public virtual /*simulated event */void PlayForwardImpact()
 	{
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, 0.20f);
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("ziplinehitwall")), 1.0f, 0.10f, 0.20f, default, default);
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("ziplinehitwall")), 1.0f, 0.10f, 0.20f, default(bool?), default(bool?));
 		if(ZippingSoundComponent != default)
 		{
 			ZippingSoundComponent.FadeOut(ZipFadeOutTime, 0.0f);
 		}
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Falling/*2*/, default);
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Falling/*2*/, default(float?));
 		ZipLineStatus = TdMove_ZipLine.EZipLineStatus.ZLS_Impact/*2*/;
 		PawnOwner.SetIgnoreLookInput(0.80f);
 		PawnOwner.SetIgnoreMoveInput(0.80f);
@@ -116,28 +116,28 @@ public partial class TdMove_ZipLine : TdPhysicsMove/*
 		if(((int)ZipLineStatus) == ((int)TdMove_ZipLine.EZipLineStatus.ZLS_Moving/*0*/))
 		{
 			PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, 0.10f);
-			PawnOwner.PlayCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "ziplineintohitwall", 1.0f, 0.30f, 0.20f, true, true, false, default);
+			PawnOwner.PlayCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "ziplineintohitwall", 1.0f, 0.30f, 0.20f, true, true, false, default(bool?));
 			ZipLineStatus = TdMove_ZipLine.EZipLineStatus.ZLS_CloseToEnd/*1*/;
 		}
 	}
 	
 	public override /*simulated function */void OnTimer()
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
 	}
 	
 	public override /*simulated function */void TakeTaserDamage(Object.Vector ImpactMomentum)
 	{
 		if(PawnOwner.Moves[2].CanDoMove())
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
 		}
 	}
 	
 	public override /*simulated function */int HandleDeath(int Damage)
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default, default);
-		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
+		PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/, default(float?));
 		return base.HandleDeath(Damage);
 	}
 	

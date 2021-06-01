@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIAction_GetDatafieldValue : UIAction_DataStoreField/*
 		native
 		hidecategories(Object)*/{
-	public string DataFieldStringValue;
+	public String DataFieldStringValue;
 	public Surface DataFieldImageValue;
 	public array<int> DataFieldArrayValue;
 	public UIRoot.UIRangeData DataFieldRangeValue;

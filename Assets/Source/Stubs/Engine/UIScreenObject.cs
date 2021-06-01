@@ -599,7 +599,7 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execGetWidgetPathName(FFrame&, void* const)
-	public virtual /*native final function */string GetWidgetPathName()
+	public virtual /*native final function */String GetWidgetPathName()
 	{
 		#warning NATIVE FUNCTION !
 		return default;

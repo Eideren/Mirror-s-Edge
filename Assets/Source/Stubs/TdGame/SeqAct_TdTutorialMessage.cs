@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdTutorialMessage : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ string TutorialMessage;
+	public/*()*/ String TutorialMessage;
 	public/*()*/ bool bReplaceCurrentMessage;
 	public/*()*/ bool bRequireAccept;
 	public/*()*/ bool bPauseGame;
@@ -13,7 +13,7 @@ public partial class SeqAct_TdTutorialMessage : SequenceAction/*
 	public /*transient */bool bFinished;
 	public/*()*/ float Duration;
 	public/*()*/ TdProfileSettings.EDigitalButtonActions CustomButtonKey;
-	public/*()*/ string CustomButtonCallOut;
+	public/*()*/ String CustomButtonCallOut;
 	public /*transient */TdUIScene_TutorialHUDMessage Scene;
 	public /*transient */TdGameUISceneClient SceneClient;
 	

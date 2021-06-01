@@ -9,7 +9,7 @@ public partial class AITemplate_PatrolCop_SteyrTMP : AITemplate_PatrolCop/*
 		// Object Offset:0x0048B5A5
 		PawnClass = "TdSpContent.TdBotPawn_PatrolCop_Steyr";
 		ProfileName = "PatrolCopOneHanded-SteyrTMP";
-		AnimationSets[1] = "AS_AI_PatrolCop_OneHanded.AS_AI_PatrolCop_OneHanded_SteyrTMP";
+		AnimationSets[0] = "AS_AI_PatrolCop_OneHanded.AS_AI_PatrolCop_OneHanded_SteyrTMP";
 		SkeletalMesh = "CH_TKY_Cop_Patrol.SK_TKY_Cop_Patrol_PK";
 		MainWeaponClass = "TdSharedContent.TdWeapon_SMG_SteyrTMP";
 		MainWeaponAmmoDrops_Dropped = new AITemplate.AmmoDropSettings
