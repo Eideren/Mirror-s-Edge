@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace MEdge
+namespace MEdge.T3D
 {
 public class T3DNode
 {
-    public String Definition = "";
-    public List<String> Properties = new List<String>();
+    public string Definition = "";
+    public List<string> Properties = new List<string>();
     public List<T3DNode> Children = new List<T3DNode>();
-    public String End = "";
+    public string End = "";
 
 
 
@@ -16,11 +16,11 @@ public class T3DNode
 
 
 
-    public T3DNode( TextReader sIn, String def = null )
+    public T3DNode( TextReader sIn, string def = null )
     {
         if(def != null)
             Definition = def;
-        String line;
+        string line;
         while ((line = sIn.ReadLine()) != null)
         {
             line = line.TrimStart();
@@ -31,7 +31,7 @@ public class T3DNode
             }
             if (line.StartsWith("Begin "))
             {
-                if (String.IsNullOrWhiteSpace(Definition))
+                if (string.IsNullOrWhiteSpace(Definition))
                     Definition = line;
                 else
                     Children.Add( new T3DNode(sIn, line) );
@@ -45,7 +45,7 @@ public class T3DNode
     
 
 
-    public override String ToString()
+    public override string ToString()
     {
         using (var sw = new StringWriter())
         {

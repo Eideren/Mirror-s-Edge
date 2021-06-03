@@ -1,10 +1,9 @@
-﻿#if CSHARP_7_3_OR_NEWER
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-namespace MEdge
+namespace MEdge.T3D
 {
 
 public class T3DFile : ScriptableObject, ISerializationCallbackReceiver
@@ -14,10 +13,10 @@ public class T3DFile : ScriptableObject, ISerializationCallbackReceiver
     [Serializable]
     public struct SerializableNode
     {
-        public String Definition;
-        public List<String> Properties;
+        public string Definition;
+        public List<string> Properties;
         public int childCount;
-        public String End;
+        public string End;
     }
     public List<SerializableNode> serializedNodes;
     
@@ -121,4 +120,3 @@ public class OBJEditor: UnityEditor.Editor
     }
 }
 }
-#endif

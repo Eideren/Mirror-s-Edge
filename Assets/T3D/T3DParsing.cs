@@ -6,9 +6,9 @@ using System.Text.RegularExpressions;
 #if CSHARP_7_3_OR_NEWER
 using UnityEngine;
 #endif
-namespace MEdge
+namespace MEdge.T3D
 {
-public static class T3D
+public static class T3DParsing
 {
     public static bool ExtractPropFromString( String str, out String name, out String value, out String namedIndex )
     {

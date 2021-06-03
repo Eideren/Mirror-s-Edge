@@ -3,7 +3,7 @@ using System.IO;
 using UnityEngine;
 using UnityEditor.AssetImporters;
 
-namespace MEdge
+namespace MEdge.T3D
 {
 [ScriptedImporter(1, "T3D")]
 public class T3DImporter : ScriptedImporter
