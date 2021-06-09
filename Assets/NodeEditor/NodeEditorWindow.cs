@@ -4,7 +4,6 @@ namespace MEdge.NodeEditor
 	using UnityEditor;
 	using UnityEngine;
 	using System.Collections.Generic;
-	using System.Runtime.CompilerServices;
 	using static UnityEngine.Debug;
 
 
@@ -59,13 +58,13 @@ namespace MEdge.NodeEditor
 		public Color HighlightColor = new Color( 44 / 255f, 93 / 255f, 135 / 255f );
 		public Color TitleColor = new Color( 60 / 255f, 60 / 255f, 60 / 255f );
 		public Color BackgroundColor = new Color( 44 / 255f, 44 / 255f, 44 / 255f );
-		public Vector2 FieldSize = new Vector2( 200, 20 );
+		public Vector2 FieldSize = new Vector2( 320, 20 );
 		public int FontSize = 16;
 		public float LineWidth = 5f;
 
-		public readonly List<(Vector2 a, Vector2 b, Color c)> Lines = new List<(Vector2 a, Vector2 b, Color c)>();
-		public readonly ConditionalWeakTable<INode, NodeDrawer> Drawers = new ConditionalWeakTable<INode, NodeDrawer>();
-		public readonly ConditionalWeakTable<object, RectRef> Links = new ConditionalWeakTable<object, RectRef>();
+		public readonly List<(Vector2 a, Vector2 b, Color color)> Lines = new List<(Vector2, Vector2, Color)>();
+		public readonly WeakCache<INode, NodeDrawer> Drawers = new WeakCache<INode, NodeDrawer>();
+		public readonly WeakCache<object, RectRef> Links = new WeakCache<object, RectRef>();
 		public (INode? node, (object key, Func<object, object, bool> filter, object newTarget, bool markForCompletion)? connection)? Dragging;
 		public GUIStyle GUIStyleFields => _cachedStyleFields ??= new GUIStyle( EditorStyles.numberField ) { fontSize = FontSize };
 		public GUIStyle GUIStyle => _cachedStyle ??= new GUIStyle( EditorStyles.whiteLabel ) { fontSize = FontSize };
@@ -97,6 +96,7 @@ namespace MEdge.NodeEditor
 		GUIStyle _cachedStyle;
 
 		List<INode> _dummyNodes;
+		Vector2 _lastViewportPosition;
 
 
 
@@ -112,6 +112,7 @@ namespace MEdge.NodeEditor
 		public NodeEditorWindow()
 		{
 			_viewportNode = new ViewportNode { Viewport = this };
+			titleContent = new GUIContent( GetType().Name );
 		}
 
 
@@ -155,22 +156,20 @@ namespace MEdge.NodeEditor
 			wantsMouseEnterLeaveWindow = true;
 
 			var e = Event.current;
-
+			
 			foreach( var line in Lines )
-				DrawLine( line.a, line.b, line.c, LineWidth * ZoomLevel );
+				DrawLine( line.a, line.b, line.color, LineWidth * ZoomLevel );
 			Lines.Clear();
 
 			if( e.type == EventType.ScrollWheel )
-			{
 				ZoomLevel *= e.delta.y < 0 ? 1.1f : 0.9f;
-			}
 
 			var viewportCenter = ViewportCenter;
+
+			(INode node, Vector2 offset)? dragCandidate = null;
 			foreach( INode node in Nodes() )
 			{
-				if( Drawers.TryGetValue( node, out var drawer ) == false )
-					Drawers.Add( node, drawer = new NodeDrawer() );
-
+				var drawer = Drawers[ node ];
 				var fieldRect = new Rect( (node.Pos + viewportCenter) * ZoomLevel, FieldSize * ZoomLevel );
 
 				var nodeBG = fieldRect;
@@ -186,10 +185,7 @@ namespace MEdge.NodeEditor
 				EditorGUI.DrawRect( titleHighlight, HighlightColor );
 
 				if( Dragging == null && ( e.type == EventType.MouseDown || e.type == EventType.MouseDrag ) && e.button == 0 && nodeBG.Contains( e.mousePosition ) )
-				{
-					Dragging = ( node, null );
-					_draggingOffset = nodeBG.position - e.mousePosition;
-				}
+					dragCandidate = ( node, nodeBG.position - e.mousePosition );
 
 				fieldRect.position -= Vector2.down * nodeTitle.height * 1.3f;
 				var preWidth = fieldRect.width;
@@ -197,6 +193,14 @@ namespace MEdge.NodeEditor
 				fieldRect.x -= ( fieldRect.width - preWidth ) * 0.5f;
 				drawer.Reset( fieldRect, this );
 				node.OnDraw( drawer );
+			}
+
+			// Select the topmost (i.e.: last) node candidate to drag when multiple of them are on top of another 
+			if( dragCandidate != null && Dragging == null )
+			{
+				var v = dragCandidate.Value;
+				Dragging = (v.node, null);
+				_draggingOffset = v.offset;
 			}
 
 			if( e.type == EventType.KeyDown && e.keyCode == KeyCode.F )
@@ -249,6 +253,7 @@ namespace MEdge.NodeEditor
 			if( GUI.Button( new Rect( 0, 0, 100, 16 ), _zoomCache.s ) )
 				ZoomLevel = 1f;
 
+			_lastViewportPosition = ViewportPosition;
 		}
 
 

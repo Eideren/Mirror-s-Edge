@@ -28,7 +28,7 @@
 
 
 
-		public void MarkNextAsLinkPoint( object key, [ CanBeNull ] ref object target, bool pointOnRightSide = true, Color? color = default, Func<object, object, bool> acceptableTarget = null )
+		public void MarkNextAsLinkPoint<T>( object key, [ CanBeNull ] ref T target, bool pointOnRightSide = true, Color? color = default, Func<object, object, bool> acceptableTarget = null ) where T : class
 		{
 			var e = Event.current;
 
@@ -43,9 +43,7 @@
 
 			bool active = rect.Contains( e.mousePosition );
 
-			if( Editor.Links.TryGetValue( key, out var rectHolder ) == false )
-				Editor.Links.Add( key, rectHolder = new RectRef() );
-			rectHolder.rect = rect;
+			Editor.Links[ key ].rect = rect;
 
 			if( Editor.Dragging?.connection?.key == key )
 			{
@@ -82,9 +80,9 @@
 					Editor.Dragging = ( default, ( draggingKey, null, key, true ) );
 				}
 				// Marked as completed and this is the receiver, send new target to it 
-				else if( draggingKey == key && Editor.Dragging?.connection?.markForCompletion == true )
+				else if( draggingKey == key && active/* Active here might cause some issues but ensures that the key doesn't have to be unique*/ && Editor.Dragging?.connection?.markForCompletion == true )
 				{
-					target = Editor.Dragging?.connection?.newTarget;
+					target = Editor.Dragging?.connection?.newTarget as T;
 					Editor.Dragging = null;
 					Editor.ScheduleNextRepaint = true;
 				}
@@ -197,7 +195,7 @@
 					case UInt64 UInt64: obj = (ulong)EditorGUI.LongField(valueRect, (long)UInt64, Editor.GUIStyleFields ); break;
 					case Single Single: obj = EditorGUI.FloatField(valueRect, Single, Editor.GUIStyleFields ); break;
 					case Double Double: obj = EditorGUI.DoubleField(valueRect, Double, Editor.GUIStyleFields ); break;
-					default: EditorGUI.LabelField(valueRect, obj.ToString() ); break;
+					default: EditorGUI.LabelField(valueRect, obj?.ToString(), Editor.GUIStyleFields ); break;
 				}
 			}
 			finally
