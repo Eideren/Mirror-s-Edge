@@ -1,0 +1,10 @@
+*.user
+*.lock
+*.lock.json
+.idea/
+Library/
+Logs/
+obj/
+Temp/
+*.csproj
+*.sln
