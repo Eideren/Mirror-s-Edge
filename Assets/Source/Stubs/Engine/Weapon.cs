@@ -568,8 +568,8 @@ public partial class Weapon : Inventory/*
 	}
 	
 	public delegate bool ReadyToFire_del(bool bFinished);
-	public virtual ReadyToFire_del ReadyToFire { get => bfield_ReadyToFire ?? ((_)=>default); set => bfield_ReadyToFire = value; } ReadyToFire_del bfield_ReadyToFire;
-	public virtual ReadyToFire_del global_ReadyToFire => (_)=>default;
+	public virtual ReadyToFire_del ReadyToFire { get => bfield_ReadyToFire ?? ((a)=>default); set => bfield_ReadyToFire = value; } ReadyToFire_del bfield_ReadyToFire;
+	public virtual ReadyToFire_del global_ReadyToFire => (a)=>default;
 	
 	public delegate void WeaponEquipped_del();
 	public virtual WeaponEquipped_del WeaponEquipped { get => bfield_WeaponEquipped ?? (()=>{}); set => bfield_WeaponEquipped = value; } WeaponEquipped_del bfield_WeaponEquipped;

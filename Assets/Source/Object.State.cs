@@ -1,14 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
+
+namespace MEdge.Engine
+{
+    public partial class Actor
+    {
+	    public /*event */void Actor_Tick(float DeltaTime)
+	    {
+            _scheduledStateSwap?.Invoke();
+            _scheduledStateSwap = null;
+            try
+            {
+                _insideStateStack = true;
+                _currentControlFlow.Delta(DeltaTime);
+                TryTickState();
+            }
+            finally
+            {
+                _insideStateStack = false;
+            }
+	    }
+    }
+}
+
+
+
 namespace MEdge.Core
 {
     public partial class Object
     {
-        (name name, IEnumerator<Flow> flow, Action<name> end) _currentState;
-        Flow _currentControlFlow;
-        Action _scheduledStateSwap;
-        bool _insideStateStack;
+        protected (name name, IEnumerator<Flow> flow, Action<name> begin, Action<name> end) _currentState;
+        protected Flow _currentControlFlow;
+        protected Action _scheduledStateSwap;
+        protected bool _insideStateStack;
         
         
         // Export UObject::execGetStateName(FFrame&, void* const)
@@ -16,34 +42,7 @@ namespace MEdge.Core
         
         protected virtual void RestoreDefaultFunction(){}
 
-        protected void Tick(float deltaTime)
-        {
-            #error verify that this is how it works
-            #error link this with game engine
-            _scheduledStateSwap?.Invoke();
-            _scheduledStateSwap = null;
-            try
-            {
-                _insideStateStack = true;
-                _currentControlFlow.Delta(deltaTime);
-                TryTickState();
-            }
-            finally
-            {
-                _insideStateStack = false;
-            }
-        }
-
-        void TryTickState()
-        {
-            if (_currentControlFlow.CanContinue)
-            {
-                _currentState.flow?.MoveNext();
-                _currentControlFlow = _currentState.flow?.Current ?? default;
-            }
-        }
-
-        public void GotoState(name newStateName = default, name? label = null, bool? bForceEvents = false, bool? bKeepStack = false)
+        public void GotoState(name newStateName = default, name? label = null, bool? bForceEvents = null, bool? bKeepStack = null)
         {
             /*
 https://wiki.beyondunreal.com/States :
@@ -98,20 +97,40 @@ because it makes the most sense given that BeginState and EndState requires prev
                     RestoreDefaultFunction();
                     // https://wiki.beyondunreal.com/States :
                     // It is possible for an actor to be in "no state" by using GotoState(). When an actor is in "no state", only its global (non-state) functions are called.
-                    if (String.IsNullOrWhiteSpace(newStateName))
+                    if (string.IsNullOrWhiteSpace(newStateName))
                         _currentControlFlow = Flow.Stop;
-                    _currentState = (newStateName, newState.flow(label).GetEnumerator(), newState.end);
+                    _currentState = (newStateName, newState.flow(label ?? default)?.GetEnumerator(), newState.begin, newState.end);
                 
                     newState.begin?.Invoke(_currentState.name);
                 }
             }
         }
 
+        protected void TryTickState()
+        {
+            if (_currentControlFlow.CanContinue)
+            {
+                _currentState.flow?.MoveNext();
+                _currentControlFlow = _currentState.flow?.Current ?? default;
+            }
+        }
+        
+        public delegate void BeginState_del(name PreviousStateName);
+        public virtual BeginState_del BeginState => ( _currentState.begin != null ? new BeginState_del(n => _currentState.begin( n )) : Object_EndState );
+        public virtual BeginState_del global_BeginState => Object_BeginState;
+        public  /*event */void Object_BeginState(name PreviousStateName) {}
+	
+        public delegate void EndState_del(name NextStateName);
+        public virtual EndState_del EndState => ( _currentState.end != null ? new EndState_del(n => _currentState.end( n )) : Object_EndState );
+        public virtual EndState_del global_EndState => Object_EndState;
+        public  /*event */void Object_EndState(name NextStateName) {}
+        
+
         protected virtual (System.Action<name> begin, StateFlow flow, System.Action<name> end) FindState(name stateName)
         {
             // https://wiki.beyondunreal.com/States :
             // It is possible for an actor to be in "no state" by using GotoState(). When an actor is in "no state", only its global (non-state) functions are called.
-            if (String.IsNullOrWhiteSpace(stateName.Value))
+            if (string.IsNullOrWhiteSpace(stateName.Value))
                 return (null, null, null);
             if (stateName.Value == "Auto" || stateName.Value == "auto")
                 return GetAutoState();
@@ -145,7 +164,7 @@ because it makes the most sense given that BeginState and EndState requires prev
         {
             if (bTestStateStack != default)
                 throw new ArgumentException( $"{nameof(bTestStateStack)} is not implemented" );
-            return _currentState.name == state;
+            return _currentState.name.ToString() == state;
         }
 
         public delegate System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo);

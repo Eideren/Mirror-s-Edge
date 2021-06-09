@@ -729,24 +729,24 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	public virtual StartRace_del global_StartRace => ()=>{};
 	
 	public delegate void ProcessTimedata_del(TdPlaceableCheckpoint Checkpoint);
-	public virtual ProcessTimedata_del ProcessTimedata { get => bfield_ProcessTimedata ?? ((_)=>{}); set => bfield_ProcessTimedata = value; } ProcessTimedata_del bfield_ProcessTimedata;
-	public virtual ProcessTimedata_del global_ProcessTimedata => (_)=>{};
+	public virtual ProcessTimedata_del ProcessTimedata { get => bfield_ProcessTimedata ?? ((a)=>{}); set => bfield_ProcessTimedata = value; } ProcessTimedata_del bfield_ProcessTimedata;
+	public virtual ProcessTimedata_del global_ProcessTimedata => (a)=>{};
 	
 	public delegate void ProcessCheckpointCompleted_del(TdPlaceableCheckpoint Checkpoint, TdPlayerPawn Pawn, TdPlayerController Controller);
-	public virtual ProcessCheckpointCompleted_del ProcessCheckpointCompleted { get => bfield_ProcessCheckpointCompleted ?? ((_,_,_)=>{}); set => bfield_ProcessCheckpointCompleted = value; } ProcessCheckpointCompleted_del bfield_ProcessCheckpointCompleted;
-	public virtual ProcessCheckpointCompleted_del global_ProcessCheckpointCompleted => (_,_,_)=>{};
+	public virtual ProcessCheckpointCompleted_del ProcessCheckpointCompleted { get => bfield_ProcessCheckpointCompleted ?? ((a,b,c)=>{}); set => bfield_ProcessCheckpointCompleted = value; } ProcessCheckpointCompleted_del bfield_ProcessCheckpointCompleted;
+	public virtual ProcessCheckpointCompleted_del global_ProcessCheckpointCompleted => (a,b,c)=>{};
 	
 	public delegate void ProcessLastCheckpointCompleted_del(TdPlaceableCheckpoint Checkpoint, TdPlayerPawn Pawn, TdPlayerController Controller);
-	public virtual ProcessLastCheckpointCompleted_del ProcessLastCheckpointCompleted { get => bfield_ProcessLastCheckpointCompleted ?? ((_,_,_)=>{}); set => bfield_ProcessLastCheckpointCompleted = value; } ProcessLastCheckpointCompleted_del bfield_ProcessLastCheckpointCompleted;
-	public virtual ProcessLastCheckpointCompleted_del global_ProcessLastCheckpointCompleted => (_,_,_)=>{};
+	public virtual ProcessLastCheckpointCompleted_del ProcessLastCheckpointCompleted { get => bfield_ProcessLastCheckpointCompleted ?? ((a,b,c)=>{}); set => bfield_ProcessLastCheckpointCompleted = value; } ProcessLastCheckpointCompleted_del bfield_ProcessLastCheckpointCompleted;
+	public virtual ProcessLastCheckpointCompleted_del global_ProcessLastCheckpointCompleted => (a,b,c)=>{};
 	
 	public delegate void RaceCompleted_del(TdPlayerController Controller);
-	public virtual RaceCompleted_del RaceCompleted { get => bfield_RaceCompleted ?? ((_)=>{}); set => bfield_RaceCompleted = value; } RaceCompleted_del bfield_RaceCompleted;
-	public virtual RaceCompleted_del global_RaceCompleted => (_)=>{};
+	public virtual RaceCompleted_del RaceCompleted { get => bfield_RaceCompleted ?? ((a)=>{}); set => bfield_RaceCompleted = value; } RaceCompleted_del bfield_RaceCompleted;
+	public virtual RaceCompleted_del global_RaceCompleted => (a)=>{};
 	
 	public delegate void SendFinishlineKismet_del(bool bNewRecord);
-	public virtual SendFinishlineKismet_del SendFinishlineKismet { get => bfield_SendFinishlineKismet ?? ((_)=>{}); set => bfield_SendFinishlineKismet = value; } SendFinishlineKismet_del bfield_SendFinishlineKismet;
-	public virtual SendFinishlineKismet_del global_SendFinishlineKismet => (_)=>{};
+	public virtual SendFinishlineKismet_del SendFinishlineKismet { get => bfield_SendFinishlineKismet ?? ((a)=>{}); set => bfield_SendFinishlineKismet = value; } SendFinishlineKismet_del bfield_SendFinishlineKismet;
+	public virtual SendFinishlineKismet_del global_SendFinishlineKismet => (a)=>{};
 	
 	#warning Renamed RaceOver, conflicting with state of the same name
 	public delegate void RaceOver_del();

@@ -13,14 +13,14 @@ namespace MEdge.Core
         {
             get
             {
-                if (_Class != null)
-                    return _Class;
+                if (_class != null)
+                    return _class;
                 Type constructedType = typeof(_classImp<>).MakeGenericType(GetType());
-                return _Class = (Class)Activator.CreateInstance(constructedType, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+                return _class = (Class)Activator.CreateInstance(constructedType, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
             }
         }
 
-        private MEdge.Core.Class _Class;
+        private MEdge.Core.Class _class;
         public static MEdge.Core._classImp<T> ClassT<T>() where T : Object, new() => MEdge.Core._classImp<T>.Singleton;
     }
 }

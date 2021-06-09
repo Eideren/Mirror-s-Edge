@@ -2645,7 +2645,7 @@ public partial class Pawn : Actor/*
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ BreathTimer = ()=>{}; FellOutOfWorld = (_)=>{}; PlayWeaponSwitch = (_,_)=>{}; PlayNextAnimation = ()=>{}; BaseChange = ()=>{}; Landed = (_,_)=>{}; Died = (_,_,_)=>default;
+			/*ignores*/ BreathTimer = ()=>{}; FellOutOfWorld = (a)=>{}; PlayWeaponSwitch = (a,b)=>{}; PlayNextAnimation = ()=>{}; BaseChange = ()=>{}; Landed = (a,b)=>{}; Died = (a,b,c)=>default;
 	
 			OutsideWorldBounds = Pawn_Dying_OutsideWorldBounds;
 			Timer = Pawn_Dying_Timer;

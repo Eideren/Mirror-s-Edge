@@ -813,7 +813,6 @@ public partial class Object/*
 	{
 		public /*private native const */int NumPendingFences;
 	};
-	#if false // DISABLED TO BIND EVERYTHING PROPERLY
 	public /*private native const noexport */Object.Pointer VfTableObject;
 	public /*private native const noexport */int ObjectInternalInteger;
 	public /*private native const */Object.QWord ObjectFlags;
@@ -825,8 +824,11 @@ public partial class Object/*
 	public /*private native const noexport */int NetIndex;
 	public /*native const */Object Outer;
 	public/*()*/ /*native const editconst */name Name;
-	public /*native const */Class Class;
+	//public /*native const */Class Class;
 	public/*()*/ /*native const editconst */Object ObjectArchetype;
+	
+	
+	#if false // DISABLED TO BIND EVERYTHING PROPERLY
 	
 	// Export UObject::execNot_PreBool(FFrame&, void* const)
 	public /*native(129) final preoperator */static bool Not_PreBool(bool A)

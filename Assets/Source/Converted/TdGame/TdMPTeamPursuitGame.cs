@@ -207,12 +207,12 @@ public partial class TdMPTeamPursuitGame : TdMPTeamGame/*
 	public virtual RunnerRespawnTimer_del global_RunnerRespawnTimer => ()=>{};
 	
 	public delegate void InitialTeamSpawn_del(int TeamIndex);
-	public virtual InitialTeamSpawn_del InitialTeamSpawn { get => bfield_InitialTeamSpawn ?? ((_)=>{}); set => bfield_InitialTeamSpawn = value; } InitialTeamSpawn_del bfield_InitialTeamSpawn;
-	public virtual InitialTeamSpawn_del global_InitialTeamSpawn => (_)=>{};
+	public virtual InitialTeamSpawn_del InitialTeamSpawn { get => bfield_InitialTeamSpawn ?? ((a)=>{}); set => bfield_InitialTeamSpawn = value; } InitialTeamSpawn_del bfield_InitialTeamSpawn;
+	public virtual InitialTeamSpawn_del global_InitialTeamSpawn => (a)=>{};
 	
 	public delegate void TeamRespawnTimer_del(int TeamIndex);
-	public virtual TeamRespawnTimer_del TeamRespawnTimer { get => bfield_TeamRespawnTimer ?? ((_)=>{}); set => bfield_TeamRespawnTimer = value; } TeamRespawnTimer_del bfield_TeamRespawnTimer;
-	public virtual TeamRespawnTimer_del global_TeamRespawnTimer => (_)=>{};
+	public virtual TeamRespawnTimer_del TeamRespawnTimer { get => bfield_TeamRespawnTimer ?? ((a)=>{}); set => bfield_TeamRespawnTimer = value; } TeamRespawnTimer_del bfield_TeamRespawnTimer;
+	public virtual TeamRespawnTimer_del global_TeamRespawnTimer => (a)=>{};
 	protected override void RestoreDefaultFunction()
 	{
 		RatePlayerStart = null;

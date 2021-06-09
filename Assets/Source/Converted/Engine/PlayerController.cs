@@ -5139,7 +5139,7 @@ public partial class PlayerController : Controller/*
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ ProcessMove = (_,_,_,_)=>{};
+			/*ignores*/ ProcessMove = (a,b,c,d)=>{};
 	
 			ProcessDrive = PlayerController_PlayerDriving_ProcessDrive;
 			PlayerMove = PlayerController_PlayerDriving_PlayerMove;
@@ -5510,7 +5510,7 @@ public partial class PlayerController : Controller/*
 			ServerSetSpectatorLocation = PlayerController_BaseSpectating_ServerSetSpectatorLocation;
 			ReplicateMove = PlayerController_BaseSpectating_ReplicateMove;
 	
-			/*ignores*/ RestartLevel = ()=>{}; ClientRestart = (_)=>{}; Suicide = ()=>{}; ThrowWeapon = ()=>{};
+			/*ignores*/ RestartLevel = ()=>{}; ClientRestart = (a)=>{}; Suicide = ()=>{}; ThrowWeapon = ()=>{};
 	
 			StartFire = PlayerController_Spectating_StartFire;
 			StartAltFire = PlayerController_Spectating_StartAltFire;
@@ -5601,7 +5601,7 @@ public partial class PlayerController : Controller/*
 			ServerSetSpectatorLocation = PlayerController_BaseSpectating_ServerSetSpectatorLocation;
 			ReplicateMove = PlayerController_BaseSpectating_ReplicateMove;
 	
-			/*ignores*/ TakeDamage = (_,_,_,_,_,_,_)=>{}; NextWeapon = ()=>{}; PrevWeapon = ()=>{}; SwitchToBestWeapon = (_)=>{}; Jump = ()=>{}; Suicide = ()=>{}; ServerSuicide = ()=>{};
+			/*ignores*/ TakeDamage = (a,b,c,d,e,f,g)=>{}; NextWeapon = ()=>{}; PrevWeapon = ()=>{}; SwitchToBestWeapon = (a)=>{}; Jump = ()=>{}; Suicide = ()=>{}; ServerSuicide = ()=>{};
 	
 			ServerChangeTeam = PlayerController_PlayerWaiting_ServerChangeTeam;
 			ServerRestartPlayer = PlayerController_PlayerWaiting_ServerRestartPlayer;
@@ -5708,7 +5708,7 @@ public partial class PlayerController : Controller/*
 			ServerSetSpectatorLocation = PlayerController_BaseSpectating_ServerSetSpectatorLocation;
 			ReplicateMove = PlayerController_BaseSpectating_ReplicateMove;
 	
-			/*ignores*/ KilledBy = (_)=>{};
+			/*ignores*/ KilledBy = (a)=>{};
 	
 			StartFire = PlayerController_WaitingForPawn_StartFire;
 			ClientGotoState = PlayerController_WaitingForPawn_ClientGotoState;
@@ -5859,7 +5859,7 @@ public partial class PlayerController : Controller/*
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ KilledBy = (_)=>{}; TakeDamage = (_,_,_,_,_,_,_)=>{}; Suicide = ()=>{}; ServerRestartPlayer = ()=>{}; ThrowWeapon = ()=>{}; Use = ()=>{}; LongClientAdjustPosition = (_,_,_,_,_,_,_,_,_,_,_,_,_)=>{};
+			/*ignores*/ KilledBy = (a)=>{}; TakeDamage = (a,b,c,d,e,f,g)=>{}; Suicide = ()=>{}; ServerRestartPlayer = ()=>{}; ThrowWeapon = ()=>{}; Use = ()=>{}; LongClientAdjustPosition = (a,b,c,d,e,f,g,h,i,j,k,l,m)=>{};
 	
 			IsSpectating = PlayerController_RoundEnded_IsSpectating;
 			Possess = PlayerController_RoundEnded_Possess;
@@ -6041,7 +6041,7 @@ public partial class PlayerController : Controller/*
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ KilledBy = (_)=>{}; NextWeapon = ()=>{}; PrevWeapon = ()=>{}; ThrowWeapon = ()=>{};
+			/*ignores*/ KilledBy = (a)=>{}; NextWeapon = ()=>{}; PrevWeapon = ()=>{}; ThrowWeapon = ()=>{};
 	
 			IsDead = PlayerController_Dead_IsDead;
 			ServerRestartPlayer = PlayerController_Dead_ServerRestartPlayer;

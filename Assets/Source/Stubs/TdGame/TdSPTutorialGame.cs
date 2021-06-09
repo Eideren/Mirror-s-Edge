@@ -469,28 +469,28 @@ public partial class TdSPTutorialGame : TdSPGame,
 	}
 	
 	public delegate void ChallegeCompleted_del(TdPawn Pawn, TdPlayerController Controller);
-	public virtual ChallegeCompleted_del ChallegeCompleted { get => bfield_ChallegeCompleted ?? ((_,_)=>{}); set => bfield_ChallegeCompleted = value; } ChallegeCompleted_del bfield_ChallegeCompleted;
-	public virtual ChallegeCompleted_del global_ChallegeCompleted => (_,_)=>{};
+	public virtual ChallegeCompleted_del ChallegeCompleted { get => bfield_ChallegeCompleted ?? ((a,b)=>{}); set => bfield_ChallegeCompleted = value; } ChallegeCompleted_del bfield_ChallegeCompleted;
+	public virtual ChallegeCompleted_del global_ChallegeCompleted => (a,b)=>{};
 	
 	public delegate bool IsTouchingCheckpoint_del(TdTutorialCheckpoint CP, TdPawn Pawn);
-	public virtual IsTouchingCheckpoint_del IsTouchingCheckpoint { get => bfield_IsTouchingCheckpoint ?? ((_,_)=>default); set => bfield_IsTouchingCheckpoint = value; } IsTouchingCheckpoint_del bfield_IsTouchingCheckpoint;
-	public virtual IsTouchingCheckpoint_del global_IsTouchingCheckpoint => (_,_)=>default;
+	public virtual IsTouchingCheckpoint_del IsTouchingCheckpoint { get => bfield_IsTouchingCheckpoint ?? ((a,b)=>default); set => bfield_IsTouchingCheckpoint = value; } IsTouchingCheckpoint_del bfield_IsTouchingCheckpoint;
+	public virtual IsTouchingCheckpoint_del global_IsTouchingCheckpoint => (a,b)=>default;
 	
 	public delegate int GetTutorialEventIdenfier_del(Core.ClassT<DamageType> AttackType);
-	public virtual GetTutorialEventIdenfier_del GetTutorialEventIdenfier { get => bfield_GetTutorialEventIdenfier ?? ((_)=>default); set => bfield_GetTutorialEventIdenfier = value; } GetTutorialEventIdenfier_del bfield_GetTutorialEventIdenfier;
-	public virtual GetTutorialEventIdenfier_del global_GetTutorialEventIdenfier => (_)=>default;
+	public virtual GetTutorialEventIdenfier_del GetTutorialEventIdenfier { get => bfield_GetTutorialEventIdenfier ?? ((a)=>default); set => bfield_GetTutorialEventIdenfier = value; } GetTutorialEventIdenfier_del bfield_GetTutorialEventIdenfier;
+	public virtual GetTutorialEventIdenfier_del global_GetTutorialEventIdenfier => (a)=>default;
 	
 	public delegate void TestCheckpointCompletion_del(TdPawn.EMovement NewMove, int TutorialEvent, TdPawn Pawn);
-	public virtual TestCheckpointCompletion_del TestCheckpointCompletion { get => bfield_TestCheckpointCompletion ?? ((_,_,_)=>{}); set => bfield_TestCheckpointCompletion = value; } TestCheckpointCompletion_del bfield_TestCheckpointCompletion;
-	public virtual TestCheckpointCompletion_del global_TestCheckpointCompletion => (_,_,_)=>{};
+	public virtual TestCheckpointCompletion_del TestCheckpointCompletion { get => bfield_TestCheckpointCompletion ?? ((a,b,c)=>{}); set => bfield_TestCheckpointCompletion = value; } TestCheckpointCompletion_del bfield_TestCheckpointCompletion;
+	public virtual TestCheckpointCompletion_del global_TestCheckpointCompletion => (a,b,c)=>{};
 	
 	public delegate void ProcessCompletedCheckpoint_del(TdTutorialCheckpoint Checkpoint, TdPawn Pawn, TdPlayerController Controller);
-	public virtual ProcessCompletedCheckpoint_del ProcessCompletedCheckpoint { get => bfield_ProcessCompletedCheckpoint ?? ((_,_,_)=>{}); set => bfield_ProcessCompletedCheckpoint = value; } ProcessCompletedCheckpoint_del bfield_ProcessCompletedCheckpoint;
-	public virtual ProcessCompletedCheckpoint_del global_ProcessCompletedCheckpoint => (_,_,_)=>{};
+	public virtual ProcessCompletedCheckpoint_del ProcessCompletedCheckpoint { get => bfield_ProcessCompletedCheckpoint ?? ((a,b,c)=>{}); set => bfield_ProcessCompletedCheckpoint = value; } ProcessCompletedCheckpoint_del bfield_ProcessCompletedCheckpoint;
+	public virtual ProcessCompletedCheckpoint_del global_ProcessCompletedCheckpoint => (a,b,c)=>{};
 	
 	public delegate void OnLastCheckpointCompleted_del(TdPlaceableCheckpoint Checkpoint, TdPawn Pawn, TdPlayerController Controller);
-	public virtual OnLastCheckpointCompleted_del OnLastCheckpointCompleted { get => bfield_OnLastCheckpointCompleted ?? ((_,_,_)=>{}); set => bfield_OnLastCheckpointCompleted = value; } OnLastCheckpointCompleted_del bfield_OnLastCheckpointCompleted;
-	public virtual OnLastCheckpointCompleted_del global_OnLastCheckpointCompleted => (_,_,_)=>{};
+	public virtual OnLastCheckpointCompleted_del OnLastCheckpointCompleted { get => bfield_OnLastCheckpointCompleted ?? ((a,b,c)=>{}); set => bfield_OnLastCheckpointCompleted = value; } OnLastCheckpointCompleted_del bfield_OnLastCheckpointCompleted;
+	public virtual OnLastCheckpointCompleted_del global_OnLastCheckpointCompleted => (a,b,c)=>{};
 	protected override void RestoreDefaultFunction()
 	{
 		PostLogin = null;

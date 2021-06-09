@@ -16,7 +16,7 @@
 		void LevelStartup()
 		{
 			// https://wiki.beyondunreal.com/Legacy:Chain_Of_Events_At_Level_Startup
-			
+			/*
 			#error fill-in
 			GameInfo gi = default;
 			gi.InitGame();
@@ -39,7 +39,7 @@
 				actor.PostNetBeginPlay();
 			foreach( var actor in actors )
 				actor.SetInitialState();
-			
+			*/
 			#warning Implement AttachTag with Actor Bases once I have a repro (actor.Tag? maybe)
 		}
 
@@ -47,11 +47,12 @@
 
 		void PlayerLogIn()
 		{
+			/*
 			// https://wiki.beyondunreal.com/Legacy:Chain_Of_Events_When_A_Player_Logs_In
 			GameInfo gi = default;
 			gi.PreLogin();
 			// Mutator.OverrideDownload()
-			gi.Login();
+			gi.Login();*/
 		}
 
 

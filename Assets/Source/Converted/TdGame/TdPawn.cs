@@ -4041,7 +4041,7 @@ public partial class TdPawn : GamePawn/*
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ RegenerateHealth = (_)=>{}; TakeDamage = (_,_,_,_,_,_,_)=>{}; SetMove = (_,_,_)=>default; HandleMoveAction = (_)=>{}; StopCustomAnim = (_,_)=>{}; PlayPhysicsBodyImpact = (_,_)=>{}; PlayDeathEffect = ()=>{};
+			/*ignores*/ RegenerateHealth = (a)=>{}; TakeDamage = (a,b,c,d,e,f,g)=>{}; SetMove = (a,b,c)=>default; HandleMoveAction = (a)=>{}; StopCustomAnim = (a,b)=>{}; PlayPhysicsBodyImpact = (a,b)=>{}; PlayDeathEffect = ()=>{};
 	
 			RemoveAndDetachPawn = TdPawn_Dying_RemoveAndDetachPawn;
 			DestroyPawn = TdPawn_Dying_DestroyPawn;

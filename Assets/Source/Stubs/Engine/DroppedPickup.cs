@@ -92,8 +92,8 @@ public partial class DroppedPickup : Actor/*
 	}
 	
 	public delegate bool ValidTouch_del(Pawn Other);
-	public virtual ValidTouch_del ValidTouch { get => bfield_ValidTouch ?? ((_)=>default); set => bfield_ValidTouch = value; } ValidTouch_del bfield_ValidTouch;
-	public virtual ValidTouch_del global_ValidTouch => (_)=>default;
+	public virtual ValidTouch_del ValidTouch { get => bfield_ValidTouch ?? ((a)=>default); set => bfield_ValidTouch = value; } ValidTouch_del bfield_ValidTouch;
+	public virtual ValidTouch_del global_ValidTouch => (a)=>default;
 	
 	public delegate void CheckTouching_del();
 	public virtual CheckTouching_del CheckTouching { get => bfield_CheckTouching ?? (()=>{}); set => bfield_CheckTouching = value; } CheckTouching_del bfield_CheckTouching;

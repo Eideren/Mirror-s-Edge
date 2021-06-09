@@ -9,22 +9,7 @@
 
 	public partial class Object
     {
-        //public /*private native const noexport */Object.Pointer VfTableObject;
-        //public /*private native const noexport */int ObjectInternalInteger;
-        //public /*private native const */Object.QWord ObjectFlags;
-        //public /*private native const */Object.Pointer HashNext;
-        //public /*private native const */Object.Pointer HashOuterNext;
-        //public /*private native const */Object.Pointer StateFrame;
-        //public /*private native const noexport */Object Linker;
-        //public /*private native const noexport */Object.Pointer LinkerIndex;
-        //public /*private native const noexport */int NetIndex;
-        #error Bind this properly
-        public /*native const */Object Outer;
-        public/*()*/ /*native const editconst */name Name;
-        //public /*native const */Core.Class Class;
-        //public/*()*/ /*native const editconst */Object ObjectArchetype;
-
-        /// <summary>
+	    /// <summary>
         /// IN UE3:
         /// TCLASS'Package.Group(s)+.Name'
         /// </summary>
@@ -156,24 +141,6 @@
         {
 	        LogWarning($"{nameof(Localize)} not implemented");
 	        return $"'localize not implemented, {SectionName}:{KeyName}:{PackageName}'";
-        }
-
-
-
-        public delegate void BeginState_del(name PreviousStateName);
-        public virtual BeginState_del BeginState { get => bfield_BeginState ?? Object_BeginState; set => bfield_BeginState = value; } BeginState_del bfield_BeginState;
-        public virtual BeginState_del global_BeginState => Object_BeginState;
-        public  /*event */void Object_BeginState(name PreviousStateName)
-        {
-			#error implement this stuff
-        }
-	
-        public delegate void EndState_del(name NextStateName);
-        public virtual EndState_del EndState { get => bfield_EndState ?? Object_EndState; set => bfield_EndState = value; } EndState_del bfield_EndState;
-        public virtual EndState_del global_EndState => Object_EndState;
-        public  /*event */void Object_EndState(name NextStateName)
-        {
-			#error implement this stuff
         }
 
         public bool EqualEqual_InterfaceInterface(object a, object b) => ReferenceEquals(a, b);

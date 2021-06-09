@@ -876,10 +876,6 @@ public partial class Actor : Object/*
 	public delegate void Tick_del(float DeltaTime);
 	public virtual Tick_del Tick { get => bfield_Tick ?? Actor_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public virtual Tick_del global_Tick => Actor_Tick;
-	public /*event */void Actor_Tick(float DeltaTime)
-	{
-	
-	}
 	
 	public delegate void Timer_del();
 	public virtual Timer_del Timer { get => bfield_Timer ?? Actor_Timer; set => bfield_Timer = value; } Timer_del bfield_Timer;

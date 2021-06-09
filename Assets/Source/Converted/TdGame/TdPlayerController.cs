@@ -3547,7 +3547,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ AttemptReactionTime = ()=>{}; StartFire = (_)=>{};
+			/*ignores*/ AttemptReactionTime = ()=>{}; StartFire = (a)=>{};
 	
 			ServerRestartPlayer = TdPlayerController_PlayerWaiting_ServerRestartPlayer;
 			NextViewTarget = TdPlayerController_PlayerWaiting_NextViewTarget;
@@ -4316,7 +4316,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ StartFire = (_)=>{}; StartAltFire = (_)=>{}; AttemptReactionTime = ()=>{};
+			/*ignores*/ StartFire = (a)=>{}; StartAltFire = (a)=>{}; AttemptReactionTime = ()=>{};
 	
 			NextStaticViewTarget = TdPlayerController_Spectating_NextStaticViewTarget;
 			PrevStaticViewTarget = TdPlayerController_Spectating_PrevStaticViewTarget;
@@ -4443,7 +4443,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ ProcessMove = (_,_,_,_)=>{};
+			/*ignores*/ ProcessMove = (a,b,c,d)=>{};
 	
 			PlayerMove = TdPlayerController_PlayerDying_PlayerMove;
 	
@@ -4580,7 +4580,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ StartFire = (_)=>{}; AttemptReactionTime = ()=>{};
+			/*ignores*/ StartFire = (a)=>{}; AttemptReactionTime = ()=>{};
 	
 			NextViewTarget = TdPlayerController_Dead_NextViewTarget;
 			PrevViewTarget = TdPlayerController_Dead_PrevViewTarget;
