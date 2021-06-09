@@ -10,20 +10,25 @@
 
 	public class NodeDrawer
 	{
+		public const int ClippedFontSize = 4;
 		public Rect NextRect;
 		public Rect SurfaceCovered{ get; private set; }
 		public NodeEditorWindow Editor{ get; private set; }
+		public bool PreviouslyOutOfView{ get; private set; }
 		public Color DefaultLine = new Color( 33 / 255f, 33 / 255f, 33 / 255f );
 		List<Rect> _propertiesRects = new List<Rect>();
+		Rect _screenRect;
 
 
 
 		public void Reset( Rect newRect, NodeEditorWindow newEditor )
 		{
+			Editor = newEditor;
+			_screenRect = new Rect( Vector2.zero, Editor.ViewportSize );
 			_propertiesRects.Clear();
+			PreviouslyOutOfView = IsInView( SurfaceCovered ) == false;
 			NextRect = newRect;
 			SurfaceCovered = newRect;
-			Editor = newEditor;
 		}
 
 
@@ -92,7 +97,8 @@
 				Editor.Dragging = ( null, ( key, acceptableTarget, null, false ) );
 			}
 
-			EditorGUI.DrawRect( rect, ( active ? activeColor : baseColor ) );
+			if(IsInView( rect ))
+				EditorGUI.DrawRect( rect, ( active ? activeColor : baseColor ) );
 
 			if( active && e.type == EventType.MouseMove )
 				Editor.ScheduleRepaint = true;
@@ -110,11 +116,21 @@
 			s.height += delta;
 			SurfaceCovered = s;
 
-			if( _propertiesRects.Count % 2 == 0 )
+			if( _propertiesRects.Count % 2 == 0 && IsInView( preRect ) )
+			{
 				EditorGUI.DrawRect( preRect, new Color( 1f, 1f, 1f, 0.02f ) );
+			}
 
 			return preRect;
 		}
+
+
+
+		public bool IsNextInView() => PreviouslyOutOfView == false && IsInView( NextRect );
+
+
+
+		public bool IsInView( Rect r ) => _screenRect.Overlaps( r );
 
 
 
@@ -131,6 +147,11 @@
 
 		public void DrawLabel( string s )
 		{
+			if( IsNextInView() == false || Editor.GUIStyle.fontSize < ClippedFontSize )
+			{
+				UseRect();
+				return;
+			}
 			var r = UseRect();
 			EditorGUI.LabelField( r, s, Editor.GUIStyle );
 		}
@@ -139,6 +160,13 @@
 
 		public void DrawProperty<T>( string s, ref T obj, out bool valueChanged ) where T : unmanaged
 		{
+			if( IsNextInView() == false || Editor.GUIStyle.fontSize < ClippedFontSize )
+			{
+				UseRect();
+				valueChanged = false;
+				return;
+			}
+
 			EditorGUI.BeginChangeCheck();
 			Split( UseRect(), out var labelRect, out var valueRect );
 			EditorGUI.LabelField( labelRect, s, Editor.GUIStyle );
@@ -177,30 +205,141 @@
 
 		public void DrawProperty( string s, ref object obj, out bool valueChanged )
 		{
+			if( IsNextInView() == false || Editor.GUIStyle.fontSize < ClippedFontSize )
+			{
+				UseRect();
+				valueChanged = false;
+				return;
+			}
+			
 			EditorGUI.BeginChangeCheck();
 			Split( UseRect(), out var labelRect, out var valueRect );
 			EditorGUI.LabelField( labelRect, s, Editor.GUIStyle );
-			try
+			valueChanged = false;
+			switch( obj )
 			{
-				switch( obj )
+				case Boolean Boolean: 
 				{
-					case Boolean Boolean: obj = EditorGUI.Toggle(valueRect, Boolean, Editor.GUIStyleFields ); break;
-					case Byte Byte: obj = (byte)EditorGUI.IntField(valueRect, Byte, Editor.GUIStyleFields ); break;
-					case SByte SByte: obj = (sbyte)EditorGUI.IntField(valueRect, SByte, Editor.GUIStyleFields ); break;
-					case Int16 Int16: obj = (short)EditorGUI.IntField(valueRect, Int16, Editor.GUIStyleFields ); break;
-					case UInt16 UInt16: obj = (ushort)EditorGUI.IntField(valueRect, UInt16, Editor.GUIStyleFields ); break;
-					case Int32 Int32: obj = EditorGUI.IntField(valueRect, Int32, Editor.GUIStyleFields ); break;
-					case UInt32 UInt32: obj = (uint)EditorGUI.LongField(valueRect, UInt32, Editor.GUIStyleFields ); break;
-					case Int64 Int64: obj = EditorGUI.LongField(valueRect, Int64, Editor.GUIStyleFields ); break;
-					case UInt64 UInt64: obj = (ulong)EditorGUI.LongField(valueRect, (long)UInt64, Editor.GUIStyleFields ); break;
-					case Single Single: obj = EditorGUI.FloatField(valueRect, Single, Editor.GUIStyleFields ); break;
-					case Double Double: obj = EditorGUI.DoubleField(valueRect, Double, Editor.GUIStyleFields ); break;
-					default: EditorGUI.LabelField(valueRect, obj?.ToString(), Editor.GUIStyleFields ); break;
+					EditorGUI.BeginChangeCheck();
+					var v = EditorGUI.Toggle(valueRect, Boolean, Editor.GUIStyleFields );
+					if(EditorGUI.EndChangeCheck())
+					{
+						obj = v;
+						valueChanged = true;
+					} 
+					break;
 				}
-			}
-			finally
-			{
-				valueChanged = EditorGUI.EndChangeCheck();
+				case Byte Byte: 
+				{
+					EditorGUI.BeginChangeCheck();
+					var v = (byte)EditorGUI.IntField(valueRect, Byte, Editor.GUIStyleFields );
+					if(EditorGUI.EndChangeCheck())
+					{
+						obj = v;
+						valueChanged = true;
+					} 
+					break;
+				}
+				case SByte SByte: 
+				{
+					EditorGUI.BeginChangeCheck();
+					var v = (sbyte)EditorGUI.IntField(valueRect, SByte, Editor.GUIStyleFields );
+					if(EditorGUI.EndChangeCheck())
+					{
+						obj = v;
+						valueChanged = true;
+					} 
+					break;
+				}
+				case Int16 Int16: 
+				{
+					EditorGUI.BeginChangeCheck();
+					var v = (short)EditorGUI.IntField(valueRect, Int16, Editor.GUIStyleFields );
+					if(EditorGUI.EndChangeCheck())
+					{
+						obj = v;
+						valueChanged = true;
+					} 
+					break;
+				}
+				case UInt16 UInt16: 
+				{
+					EditorGUI.BeginChangeCheck();
+					var v = (ushort)EditorGUI.IntField(valueRect, UInt16, Editor.GUIStyleFields );
+					if(EditorGUI.EndChangeCheck())
+					{
+						obj = v;
+						valueChanged = true;
+					} 
+					break;
+				}
+				case Int32 Int32: 
+				{
+					EditorGUI.BeginChangeCheck();
+					var v = EditorGUI.IntField(valueRect, Int32, Editor.GUIStyleFields );
+					if(EditorGUI.EndChangeCheck())
+					{
+						obj = v;
+						valueChanged = true;
+					} 
+					break;
+				}
+				case UInt32 UInt32: 
+				{
+					EditorGUI.BeginChangeCheck();
+					var v = (uint)EditorGUI.LongField(valueRect, UInt32, Editor.GUIStyleFields );
+					if(EditorGUI.EndChangeCheck())
+					{
+						obj = v;
+						valueChanged = true;
+					} 
+					break;
+				}
+				case Int64 Int64: 
+				{
+					EditorGUI.BeginChangeCheck();
+					var v = EditorGUI.LongField(valueRect, Int64, Editor.GUIStyleFields );
+					if(EditorGUI.EndChangeCheck())
+					{
+						obj = v;
+						valueChanged = true;
+					} 
+					break;
+				}
+				case UInt64 UInt64: 
+				{
+					EditorGUI.BeginChangeCheck();
+					var v = (ulong)EditorGUI.LongField(valueRect, (long)UInt64, Editor.GUIStyleFields );
+					if(EditorGUI.EndChangeCheck())
+					{
+						obj = v;
+						valueChanged = true;
+					} 
+					break;
+				}
+				case Single Single: 
+				{
+					EditorGUI.BeginChangeCheck();
+					var v = EditorGUI.FloatField(valueRect, Single, Editor.GUIStyleFields );
+					if(EditorGUI.EndChangeCheck())
+					{
+						obj = v;
+						valueChanged = true;
+					} 
+					break;
+				}
+				case Double Double: 
+				{
+					EditorGUI.BeginChangeCheck();
+					var v = EditorGUI.DoubleField(valueRect, Double, Editor.GUIStyleFields );
+					if(EditorGUI.EndChangeCheck())
+					{
+						obj = v;
+						valueChanged = true;
+					} 
+					break;
+				}
+				default: EditorGUI.LabelField(valueRect, obj == null ? "null" : "obj", Editor.GUIStyle ); break;
 			}
 		}
 	}
