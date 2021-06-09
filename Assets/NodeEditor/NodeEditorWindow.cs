@@ -8,51 +8,6 @@ namespace MEdge.NodeEditor
 
 
 
-	public interface INode
-	{
-		public Vector2 Pos{ get; set; }
-		public void OnDraw( NodeDrawer drawer );
-	}
-
-
-
-	public class Node : INode
-	{
-		public Vector2 Pos{ get; set; }
-
-		float someFloat = 101f;
-		object link;
-		bool init;
-
-
-
-		public void OnDraw( NodeDrawer drawer )
-		{
-			if( init == false )
-			{
-				using var v = drawer.Editor.Nodes().GetEnumerator();
-				v.MoveNext();
-				link ??= v.Current;
-				init = true;
-			}
-
-			drawer.DrawProperty( nameof( someFloat ), ref someFloat, out _ );
-			drawer.MarkNextAsLinkPoint( this, ref link );
-			drawer.DrawLabel( "Link" );
-			drawer.DrawProperty( nameof( someFloat ), ref someFloat, out _ );
-			drawer.DrawProperty( nameof( someFloat ), ref someFloat, out _ );
-		}
-	}
-
-
-
-	public class RectRef
-	{
-		public Rect rect;
-	}
-
-
-
 	public class NodeEditorWindow : EditorWindow
 	{
 		public Color HighlightColor = new Color( 44 / 255f, 93 / 255f, 135 / 255f );
@@ -103,7 +58,7 @@ namespace MEdge.NodeEditor
 		[ MenuItem( "Window/Dummy Node Editor" ) ]
 		static void Init()
 		{
-			var window = GetWindow<NodeEditorWindow>();
+			var window = new NodeEditorWindow();
 			window.Show();
 		}
 
@@ -358,6 +313,43 @@ namespace MEdge.NodeEditor
 
 
 			public void OnDraw( NodeDrawer drawer ) => throw new InvalidOperationException();
+		}
+
+
+
+		class Node : INode
+		{
+			public Vector2 Pos{ get; set; }
+
+			float someFloat = 101f;
+			object link;
+			bool init;
+
+
+
+			public void OnDraw( NodeDrawer drawer )
+			{
+				if( init == false )
+				{
+					using var v = drawer.Editor.Nodes().GetEnumerator();
+					v.MoveNext();
+					link ??= v.Current;
+					init = true;
+				}
+
+				drawer.DrawProperty( nameof( someFloat ), ref someFloat, out _ );
+				drawer.MarkNextAsLinkPoint( this, ref link );
+				drawer.DrawLabel( "Link" );
+				drawer.DrawProperty( nameof( someFloat ), ref someFloat, out _ );
+				drawer.DrawProperty( nameof( someFloat ), ref someFloat, out _ );
+			}
+		}
+
+
+
+		public class RectRef
+		{
+			public Rect rect;
 		}
 	}
 }
