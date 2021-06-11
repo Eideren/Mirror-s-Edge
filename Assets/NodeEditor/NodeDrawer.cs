@@ -3,8 +3,10 @@
 	using System;
 	using System.Collections.Generic;
 	using JetBrains.Annotations;
+	using Reflection;
 	using UnityEditor;
 	using UnityEngine;
+	using Object = Core.Object;
 
 
 
@@ -154,6 +156,36 @@
 			}
 			var r = UseRect();
 			EditorGUI.LabelField( r, s, Editor.GUIStyle );
+		}
+
+
+
+		public void DrawProperty( IField field, CachedContainer cache )
+		{
+			if( IsNextInView() == false || Editor.GUIStyle.fontSize < ClippedFontSize )
+			{
+				UseRect();
+				return;
+			}
+
+			EditorGUI.BeginChangeCheck();
+			Split( UseRect(), out var labelRect, out var valueRect );
+			EditorGUI.LabelField( labelRect, field.Info.Name, Editor.GUIStyle );
+			switch( field )
+			{
+				case IField<Boolean> f: f.Ref( cache ) = EditorGUI.Toggle(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
+				case IField<Byte> f: f.Ref( cache ) = (byte)EditorGUI.IntField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
+				case IField<SByte> f: f.Ref( cache ) = (sbyte)EditorGUI.IntField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
+				case IField<Int16> f: f.Ref( cache ) = (short)EditorGUI.IntField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
+				case IField<UInt16> f: f.Ref( cache ) = (ushort)EditorGUI.IntField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
+				case IField<Int32> f: f.Ref( cache ) = EditorGUI.IntField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
+				case IField<UInt32> f: f.Ref( cache ) = (uint)EditorGUI.LongField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
+				case IField<Int64> f: f.Ref( cache ) = EditorGUI.LongField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
+				case IField<UInt64> f: f.Ref( cache ) = (ulong)EditorGUI.LongField(valueRect, (long)f.Ref( cache ), Editor.GUIStyleFields ); break;
+				case IField<Single> f: f.Ref( cache ) = EditorGUI.FloatField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
+				case IField<Double> f: f.Ref( cache ) = EditorGUI.DoubleField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
+				default: EditorGUI.LabelField(valueRect, field.IsReferenceType && field.GetValueSlowAndBox( cache ) == null ? "null" : "obj", Editor.GUIStyle ); break;
+			}
 		}
 
 

@@ -61,12 +61,12 @@
 			drawer.DrawLabel( Node.GetType().Name );
 			drawer.UseRect();
 
-			ReflectionData.ForeachField( ref Node, delegate( FieldInfo info, IField field, CachedContainer cache )
+			ReflectionData.ForeachField( ref Node, delegate( IField field, CachedContainer cache )
 			{
-				if( info.ReflectedType == typeof(Core.Object) )
+				if( field.Info.ReflectedType == typeof(Core.Object) )
 					return;
 
-				if( drawer.PreviouslyOutOfView && info.GetType() != typeof(array<AnimNodeBlendBase.AnimBlendChild>) )
+				if( drawer.PreviouslyOutOfView && field.Info.GetType() != typeof(array<AnimNodeBlendBase.AnimBlendChild>) )
 				{
 					drawer.UseRect();
 					return;
@@ -77,7 +77,7 @@
 					case IField<array<AnimNodeBlendBase.AnimBlendChild>> fChildren:
 					{
 						var children = fChildren.Ref( cache );
-						drawer.DrawLabel( info.Name );
+						drawer.DrawLabel( field.Info.Name );
 						var blendChildSlots = blendChildKeys[ children ];
 						while( blendChildSlots.Count < children.Length )
 							blendChildSlots.Add( new BlendChildSlot { Array = children, Index = blendChildSlots.Count } );
@@ -94,11 +94,7 @@
 					}
 					default:
 					{
-						var v = field.GetValueSlowAndBox( cache );
-						drawer.DrawProperty( info.Name, ref v, out var changed );
-						if( changed )
-							field.SetValueSlow( cache, v );
-
+						drawer.DrawProperty( field, cache );
 						break;
 					}
 				}

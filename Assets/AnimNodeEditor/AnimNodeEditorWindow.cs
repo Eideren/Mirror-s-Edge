@@ -76,9 +76,9 @@
 					var t = types.FirstOrDefault( x => x.Name == Class );
 					if( t != null && Activator.CreateInstance( t ) is object newObject )
 					{
-						ReflectionData.ForeachField( ref newObject, delegate( FieldInfo info, IField field, CachedContainer cache )
+						ReflectionData.ForeachField( ref newObject, delegate( IField field, CachedContainer cache )
 						{
-							var prop = node.Properties.FirstOrDefault( x => x.StartsWith( info.Name + "=" ) );
+							var prop = node.Properties.FirstOrDefault( x => x.StartsWith( field.Info.Name + "=" ) );
 							if( prop == null )
 								return;
 
@@ -106,14 +106,14 @@
 									case IField<string> fString: fString.Ref( cache ) = value; break;
 									default:
 									{
-										LogWarning( $"Parsing for {info.FieldType} not implemented ({prop})" );
+										LogWarning( $"Parsing for {field.Info.FieldType} not implemented ({prop})" );
 										break;
 									}
 								}
 							}
 							catch( Exception e )
 							{
-								LogWarning( $"Could not parse {value} into '{info.FieldType}': {e}" );
+								LogWarning( $"Could not parse {value} into '{field.Info.FieldType}': {e}" );
 							}
 						} );
 

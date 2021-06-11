@@ -38,7 +38,7 @@
 
 
 		/// <summary> Calls <paramref name="inspect"/> on all fields contained inside <see cref="container"/>  </summary>
-		public static void ForeachField<TContainer>( ref TContainer container, Action<FieldInfo, IField, CachedContainer> inspect )
+		public static void ForeachField<TContainer>( ref TContainer container, Action<IField, CachedContainer> inspect )
 		{
 			// Value type cannot inherit, don't need to include inherited fields
 			if( typeof(TContainer).IsValueType )
@@ -63,21 +63,21 @@
 
 
 
-		public abstract (IField fieldOf, object rawFunc, FieldInfo info)[] Fields{ get; }
+		public abstract (IField fieldOf, object rawFunc)[] Fields{ get; }
 
 		public abstract CachedContainer NewCache(object o);
 
 
 		/// <summary> Calls <see cref="inspect"/> on all fields contained inside <see cref="container"/> </summary>
-		public abstract void ForeachField( ref object container, Action<FieldInfo, IField, CachedContainer> inspect );
+		public abstract void ForeachField( ref object container, Action<IField, CachedContainer> inspect );
 
 
 
 		class ReflectionDataImpl<TContainer> : ReflectionData
 		{
 			public static readonly ReflectionDataImpl<TContainer> Instance = new ReflectionDataImpl<TContainer>();
-			public override (IField fieldOf, object rawFunc, FieldInfo info)[] Fields => RefToFields;
-			readonly (IField fieldOf, object rawFunc, FieldInfo info)[] RefToFields;
+			public override (IField fieldOf, object rawFunc)[] Fields => RefToFields;
+			readonly (IField fieldOf, object rawFunc)[] RefToFields;
 			
 			ReflectionDataImpl()
 			{
@@ -88,7 +88,7 @@
 				for( var t = typeof(TContainer); t != null; t = t.BaseType )
 					listOfFieldInfo.AddRange( t.GetFields( declaredFields ) );
 
-				RefToFields = new (IField, object, FieldInfo)[ listOfFieldInfo.Count ];
+				RefToFields = new (IField, object)[ listOfFieldInfo.Count ];
 				for( int i = 0; i < listOfFieldInfo.Count; i++ )
 				{
 					var fieldInfo = listOfFieldInfo[ i ];
@@ -115,8 +115,8 @@
 					il.Emit( OpCodes.Ret );
 
 					var returnMethod = method.CreateDelegate( typeof(ReturnRef<,>).MakeGenericType(typeof(TContainer), fieldInfo.FieldType) );
-					var fieldContainer = Activator.CreateInstance( typeof(FieldImpl<>).MakeGenericType( typeof(TContainer), fieldInfo.FieldType ), returnMethod ) as IField ?? throw new InvalidOperationException();
-					RefToFields[ i ] = (fieldContainer, returnMethod, fieldInfo);
+					var fieldContainer = Activator.CreateInstance( typeof(FieldImpl<>).MakeGenericType( typeof(TContainer), fieldInfo.FieldType ), returnMethod, fieldInfo ) as IField ?? throw new InvalidOperationException();
+					RefToFields[ i ] = (fieldContainer, returnMethod);
 				}
 		
 				// We are finished processing it, add it to our cache
@@ -130,7 +130,7 @@
 
 
 
-			public override void ForeachField( ref object container, Action<FieldInfo, IField, CachedContainer> Setter )
+			public override void ForeachField( ref object container, Action<IField, CachedContainer> Setter )
 			{
 				_cache ??= new Stack<CachedContainerImpl>();
 				if(_cache.Count == 0)
@@ -141,7 +141,7 @@
 				for( int i = 0; i < RefToFields.Length; i++ )
 				{
 					var r = RefToFields[ i ];
-					Setter( r.info, r.fieldOf, cache );
+					Setter( r.fieldOf, cache );
 				}
 				container = cache.Container;
 				
@@ -150,7 +150,7 @@
 
 
 
-			public void ForeachField( ref TContainer container, Action<FieldInfo, IField, CachedContainer> Setter )
+			public void ForeachField( ref TContainer container, Action<IField, CachedContainer> Setter )
 			{
 				_cache ??= new Stack<CachedContainerImpl>();
 				if(_cache.Count == 0)
@@ -161,7 +161,7 @@
 				for( int i = 0; i < RefToFields.Length; i++ )
 				{
 					var r = RefToFields[ i ];
-					Setter( r.info, r.fieldOf, cache );
+					Setter( r.fieldOf, cache );
 				}
 				container = cache.Container;
 				
@@ -173,12 +173,19 @@
 			class FieldImpl<TField> : IField<TField>
 			{
 				public readonly ReturnRef<TContainer, TField> Func;
-				public FieldImpl(ReturnRef<TContainer, TField> func) => Func = func;
-
-
-				public object RawFunction => Func;
 				
-				public bool IsReferenceType{ get; } = typeof(TField).IsValueType == false;
+				public FieldInfo Info{ get; }
+				public object RawFunction => Func;
+				public bool IsReferenceType{ get; }
+
+
+
+				public FieldImpl( ReturnRef<TContainer, TField> func, FieldInfo fi )
+				{
+					Func = func;
+					Info = fi;
+					IsReferenceType = typeof(TField).IsValueType == false;
+				}
 				
 				
 				
@@ -259,6 +266,8 @@
 	/// </summary>
 	public interface IField
 	{
+		public FieldInfo Info{ get; }
+		
 		public object RawFunction{ get; }
 
 		/// <summary> Is the field value a reference type </summary>
