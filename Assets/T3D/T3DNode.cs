@@ -1,9 +1,7 @@
 ﻿namespace MEdge.T3D
 {
-	using System;
 	using System.Collections.Generic;
 	using System.IO;
-	using JetBrains.Annotations;
 
 
 
@@ -18,21 +16,6 @@
 
 		public T3DNode()
 		{
-		}
-
-
-
-		[ CanBeNull ]
-		public string TryExtract( string id )
-		{
-			var i = Definition.IndexOf( $"{id}=", StringComparison.Ordinal );
-			if( i < 0 )
-				return null;
-			i += id.Length + 1;
-			var i2 = Definition.IndexOf( ' ', i );
-			if( i2 < 0 )
-				return null;
-			return Definition.Substring( i, i2 - i );
 		}
 
 

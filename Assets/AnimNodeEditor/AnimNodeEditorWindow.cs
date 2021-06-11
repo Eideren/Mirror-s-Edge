@@ -43,9 +43,7 @@
 		{
 			File = file;
 			nodes = new List<AnimNodeDrawer>();
-			
-			Dictionary<T3DNode, object> Nodes = new Dictionary<T3DNode, object>();
-			T3DSerialization.FromNode( file.Root, LogWarning, delegate( object deserializedObject )
+			T3DSerialization.Deserialize( file.Root, null, delegate( object deserializedObject )
 			{
 				if( deserializedObject is AnimNode a )
 					nodes.Add( new AnimNodeDrawer( a ) );
