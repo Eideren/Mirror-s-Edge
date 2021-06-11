@@ -5,12 +5,20 @@
 	using System.Reflection;
 	using System.Reflection.Emit;
 	using System.Runtime.CompilerServices;
+	
+	
+		
+	/// <summary>
+	/// Stores a container (boxed struct or class object) in a way which avoids boxing and unboxing when getting and setting it's fields values
+	/// Retrieve its content once you have finished modifying the object, this is really important for value types as otherwise your object won't be modified.
+	/// </summary>
+	public interface CachedContainer
+	{
+		public object ContainerAsObj{ get; set; }
+	}
 
 
-
-
-	public delegate ref T2 ReturnRef<T, T2>( ref T o );
-
+	
 	public abstract class ReflectionData
 	{
 		// I don't expect this field to be often accessed by multiple threads at the same time, so just use a lock
@@ -76,11 +84,64 @@
 		class ReflectionDataImpl<TContainer> : ReflectionData
 		{
 			public static readonly ReflectionDataImpl<TContainer> Instance = new ReflectionDataImpl<TContainer>();
-			public override (IField fieldOf, object rawFunc)[] Fields => RefToFields;
+			[ThreadStatic]
+			static Stack<CachedContainerImpl> _cache;
 			readonly (IField fieldOf, object rawFunc)[] RefToFields;
+
+
+
+			public override CachedContainer NewCache( object o ) => new CachedContainerImpl{ Container = (TContainer)o };
+			
+			
+			
+			public override (IField fieldOf, object rawFunc)[] Fields => RefToFields;
+
+
+
+			public override void ForeachField( ref object container, Action<IField, CachedContainer> Setter )
+			{
+				_cache ??= new Stack<CachedContainerImpl>();
+				if(_cache.Count == 0)
+					_cache.Push(new CachedContainerImpl());
+				
+				var cache = _cache.Pop();
+				cache.Container = (TContainer) container;
+				for( int i = 0; i < RefToFields.Length; i++ )
+				{
+					var r = RefToFields[ i ];
+					Setter( r.fieldOf, cache );
+				}
+				container = cache.Container;
+				
+				_cache.Push(cache);
+			}
+
+
+
+			public void ForeachField( ref TContainer container, Action<IField, CachedContainer> Setter )
+			{
+				_cache ??= new Stack<CachedContainerImpl>();
+				if(_cache.Count == 0)
+					_cache.Push(new CachedContainerImpl());
+				
+				var cache = _cache.Pop();
+				cache.Container = container;
+				for( int i = 0; i < RefToFields.Length; i++ )
+				{
+					var r = RefToFields[ i ];
+					Setter( r.fieldOf, cache );
+				}
+				container = cache.Container;
+				
+				_cache.Push(cache);
+			}
+			
+			
 			
 			ReflectionDataImpl()
 			{
+				// Create functions to retrieve all instance fields of this type by reference
+				
 				const BindingFlags declaredFields = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly;
 				const BindingFlags anyField = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
 
@@ -126,46 +187,14 @@
 
 
 
-			public override CachedContainer NewCache( object o ) => new CachedContainerImpl{ Container = (TContainer)o };
-
-
-
-			public override void ForeachField( ref object container, Action<IField, CachedContainer> Setter )
+			class CachedContainerImpl : CachedContainer
 			{
-				_cache ??= new Stack<CachedContainerImpl>();
-				if(_cache.Count == 0)
-					_cache.Push(new CachedContainerImpl());
-				
-				var cache = _cache.Pop();
-				cache.Container = (TContainer) container;
-				for( int i = 0; i < RefToFields.Length; i++ )
+				public TContainer Container;
+				public object ContainerAsObj
 				{
-					var r = RefToFields[ i ];
-					Setter( r.fieldOf, cache );
+					get => Container;
+					set => Container = (TContainer)value;
 				}
-				container = cache.Container;
-				
-				_cache.Push(cache);
-			}
-
-
-
-			public void ForeachField( ref TContainer container, Action<IField, CachedContainer> Setter )
-			{
-				_cache ??= new Stack<CachedContainerImpl>();
-				if(_cache.Count == 0)
-					_cache.Push(new CachedContainerImpl());
-				
-				var cache = _cache.Pop();
-				cache.Container = container;
-				for( int i = 0; i < RefToFields.Length; i++ )
-				{
-					var r = RefToFields[ i ];
-					Setter( r.fieldOf, cache );
-				}
-				container = cache.Container;
-				
-				_cache.Push(cache);
 			}
 
 
@@ -230,70 +259,6 @@
 					return Func( ref tContainer );
 				}
 			}
-
-
-
-			class CachedContainerImpl : CachedContainer
-			{
-				public TContainer Container;
-				public object ContainerAsObj
-				{
-					get => Container;
-					set => Container = (TContainer)value;
-				}
-			}
-
-
-			[ThreadStatic]
-			static Stack<CachedContainerImpl> _cache;
 		}
-	}
-
-	
-		
-	/// <summary>
-	/// Stores a container (boxed struct or class object) in a way which avoids boxing and unboxing when getting and setting it's fields values
-	/// </summary>
-	public interface CachedContainer
-	{
-		public object ContainerAsObj{ get; set; }
-	}
-		
-	
-
-	/// <summary>
-	/// Get and set object field values, cast to <see cref="IField{T}"/> to access no-alloc versions of functions
-	/// </summary>
-	public interface IField
-	{
-		public FieldInfo Info{ get; }
-		
-		public object RawFunction{ get; }
-
-		/// <summary> Is the field value a reference type </summary>
-		public bool IsReferenceType{ get; }
-		/// <summary> Container will be unboxed and value boxed in, and so allocates </summary>
-		public object GetValueSlowAndBox( object container );
-		/// <summary> Container will be unboxed and value boxed in, and so allocates </summary>
-		public object GetValueSlowAndBox( CachedContainer container );
-		/// <summary> Two unbox, one boxing </summary>
-		public void SetValueSlow( ref object container, object fieldValue );
-		/// <summary> Two unbox, one boxing </summary>
-		public void SetValueSlow( CachedContainer container, object fieldValue );
-	}
-
-	
-	
-	public interface IField<T> : IField
-	{
-		/// <summary> Slower path, container is unboxed and boxed back, and so allocates </summary>
-		public void SetValueSlow( ref object container, T fieldValue );
-		/// <summary> container has to get unboxed </summary>
-		public T GetValueSlow( object container );
-		/// <summary>
-		/// Direct reference to the actual field, fast path, don't forget to retrieve the container afterwards
-		/// since you can't pass value types by reference here
-		/// </summary>
-		public ref T Ref( CachedContainer container );
 	}
 }
