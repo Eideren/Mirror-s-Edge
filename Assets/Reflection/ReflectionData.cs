@@ -5,9 +5,10 @@
 	using System.Reflection;
 	using System.Reflection.Emit;
 	using System.Runtime.CompilerServices;
-	
-	
-		
+	using JetBrains.Annotations;
+
+
+
 	/// <summary>
 	/// Stores a container (boxed struct or class object) in a way which avoids boxing and unboxing when getting and setting it's fields values
 	/// Retrieve its content once you have finished modifying the object, this is really important for value types as otherwise your object won't be modified.
@@ -71,7 +72,7 @@
 
 
 
-		public abstract (IField fieldOf, object rawFunc)[] Fields{ get; }
+		public abstract IField[] Fields{ get; }
 
 		public abstract CachedContainer NewCache(object o);
 
@@ -80,13 +81,19 @@
 		public abstract void ForeachField( ref object container, Action<IField, CachedContainer> inspect );
 
 
+		/// <summary> Name must match exactly </summary>
+		[ CanBeNull ]
+		public abstract IField FindField( string name );
+
+
 
 		class ReflectionDataImpl<TContainer> : ReflectionData
 		{
 			public static readonly ReflectionDataImpl<TContainer> Instance = new ReflectionDataImpl<TContainer>();
 			[ThreadStatic]
 			static Stack<CachedContainerImpl> _cache;
-			readonly (IField fieldOf, object rawFunc)[] RefToFields;
+			readonly IField[] fields;
+			Dictionary<string, IField> nameToField;
 
 
 
@@ -94,7 +101,26 @@
 			
 			
 			
-			public override (IField fieldOf, object rawFunc)[] Fields => RefToFields;
+			public override IField[] Fields => fields;
+
+
+
+			[ CanBeNull ]
+			public override IField FindField( string name )
+			{
+				if( nameToField == null )
+				{
+					nameToField = new Dictionary<string, IField>(fields.Length);
+					foreach( var field in fields )
+					{
+						if( nameToField.ContainsKey( field.Info.Name ) )
+							continue;
+						nameToField.Add( field.Info.Name, field );
+					}
+				}
+				
+				return nameToField.TryGetValue( name, out var matchingField ) ? matchingField : null;
+			}
 
 
 
@@ -106,10 +132,9 @@
 				
 				var cache = _cache.Pop();
 				cache.Container = (TContainer) container;
-				for( int i = 0; i < RefToFields.Length; i++ )
+				for( int i = 0; i < fields.Length; i++ )
 				{
-					var r = RefToFields[ i ];
-					Setter( r.fieldOf, cache );
+					Setter( fields[ i ], cache );
 				}
 				container = cache.Container;
 				
@@ -126,11 +151,8 @@
 				
 				var cache = _cache.Pop();
 				cache.Container = container;
-				for( int i = 0; i < RefToFields.Length; i++ )
-				{
-					var r = RefToFields[ i ];
-					Setter( r.fieldOf, cache );
-				}
+				for( int i = 0; i < fields.Length; i++ )
+					Setter( fields[ i ], cache );
 				container = cache.Container;
 				
 				_cache.Push(cache);
@@ -149,7 +171,7 @@
 				for( var t = typeof(TContainer); t != null; t = t.BaseType )
 					listOfFieldInfo.AddRange( t.GetFields( declaredFields ) );
 
-				RefToFields = new (IField, object)[ listOfFieldInfo.Count ];
+				fields = new IField[ listOfFieldInfo.Count ];
 				for( int i = 0; i < listOfFieldInfo.Count; i++ )
 				{
 					var fieldInfo = listOfFieldInfo[ i ];
@@ -177,7 +199,7 @@
 
 					var returnMethod = method.CreateDelegate( typeof(ReturnRef<,>).MakeGenericType(typeof(TContainer), fieldInfo.FieldType) );
 					var fieldContainer = Activator.CreateInstance( typeof(FieldImpl<>).MakeGenericType( typeof(TContainer), fieldInfo.FieldType ), returnMethod, fieldInfo ) as IField ?? throw new InvalidOperationException();
-					RefToFields[ i ] = (fieldContainer, returnMethod);
+					fields[ i ] = fieldContainer;
 				}
 		
 				// We are finished processing it, add it to our cache
@@ -258,6 +280,10 @@
 					var tContainer = (TContainer) container;
 					return Func( ref tContainer );
 				}
+
+
+
+				public override string ToString() => $"{typeof(TField)} {typeof(TContainer)}.{Info.Name}";
 			}
 		}
 	}
