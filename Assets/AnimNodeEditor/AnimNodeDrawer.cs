@@ -1,7 +1,7 @@
 ﻿namespace MEdge.AnimNodeEditor
 {
+	using System;
 	using System.Collections.Generic;
-	using System.Reflection;
 	using Engine;
 	using UnityEngine;
 	using NodeEditor;
@@ -25,6 +25,8 @@
 
 
 		public AnimNode Node;
+		NodeDrawer _drawer;
+		Action<IField, CachedContainer> _cachedInspect;
 
 
 		public Vector2 Pos
@@ -48,6 +50,7 @@
 
 		public void OnDraw( NodeDrawer drawer )
 		{
+			_drawer = drawer;
 			if( Node is AnimNodeBlendBase anbb )
 			{
 				BlendChildSlot target = null;
@@ -60,45 +63,46 @@
 
 			drawer.DrawLabel( Node.GetType().Name );
 			drawer.UseRect();
+			ReflectionData.ForeachField( ref Node, _cachedInspect ??= Inspect );
+		}
+		
+		
 
-			ReflectionData.ForeachField( ref Node, delegate( IField field, CachedContainer cache )
+		void Inspect( IField field, CachedContainer cache )
+		{
+			if( field.Info.ReflectedType == typeof(Core.Object) ) return;
+
+			if( _drawer.PreviouslyOutOfView && field.Info.GetType() != typeof(array<AnimNodeBlendBase.AnimBlendChild>) )
 			{
-				if( field.Info.ReflectedType == typeof(Core.Object) )
-					return;
+				_drawer.UseRect();
+				return;
+			}
 
-				if( drawer.PreviouslyOutOfView && field.Info.GetType() != typeof(array<AnimNodeBlendBase.AnimBlendChild>) )
+			switch( field )
+			{
+				case IField<array<AnimNodeBlendBase.AnimBlendChild>> fChildren:
 				{
-					drawer.UseRect();
-					return;
-				}
+					var children = fChildren.Ref( cache );
+					_drawer.DrawLabel( field.Info.Name );
+					var blendChildSlots = blendChildKeys[ children ];
+					while( blendChildSlots.Count < children.Length ) blendChildSlots.Add( new BlendChildSlot { Array = children, Index = blendChildSlots.Count } );
 
-				switch( field )
+					for( int i = 0; i < children.Length; i++ )
+					{
+						var thisTarget = blendChildSlots[ i ];
+						ref var child = ref children[ i ];
+						_drawer.MarkNextAsLinkPoint( thisTarget, ref child.Anim );
+						_drawer.DrawLabel( " -" );
+					}
+
+					break;
+				}
+				default:
 				{
-					case IField<array<AnimNodeBlendBase.AnimBlendChild>> fChildren:
-					{
-						var children = fChildren.Ref( cache );
-						drawer.DrawLabel( field.Info.Name );
-						var blendChildSlots = blendChildKeys[ children ];
-						while( blendChildSlots.Count < children.Length )
-							blendChildSlots.Add( new BlendChildSlot { Array = children, Index = blendChildSlots.Count } );
-
-						for( int i = 0; i < children.Length; i++ )
-						{
-							var thisTarget = blendChildSlots[ i ];
-							ref var child = ref children[ i ];
-							drawer.MarkNextAsLinkPoint( thisTarget, ref child.Anim );
-							drawer.DrawLabel( " -" );
-						}
-
-						break;
-					}
-					default:
-					{
-						drawer.DrawProperty( field, cache );
-						break;
-					}
+					_drawer.DrawProperty( field, cache );
+					break;
 				}
-			} );
+			}
 		}
 	}
 }
