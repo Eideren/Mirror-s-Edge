@@ -100,9 +100,11 @@
 		{
 			var prevState = GUI.enabled;
 			GUI.enabled = true;
-			if( GUILayout.Button( "Open Node Editor" ) )
+			if( GUILayout.Button( "Open in Anim Node Editor" ) )
 			{
-				new AnimNodeEditorWindow( target as T3DFile );
+				var window = EditorWindow.CreateInstance<AnimNodeEditorWindow>();
+				window.LoadFile( target as T3DFile );
+				window.Show();
 			}
 
 			SearchContent = EditorGUILayout.TextField( "Filter properties", SearchContent );

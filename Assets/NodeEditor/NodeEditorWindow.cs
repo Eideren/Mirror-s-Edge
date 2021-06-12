@@ -23,6 +23,7 @@ namespace MEdge.NodeEditor
 		public (INode nodeOrNull, (object key, Func<object, object, bool> filter, object newTarget, bool markForCompletion)? connection, int mouseButton)? Dragging;
 		public GUIStyle GUIStyle => _cachedStyle ??= new GUIStyle( EditorStyles.whiteLabel ) { fontSize = FontSize };
 		public GUIStyle GUIStyleFields => _cachedStyleFields ??= new GUIStyle( EditorStyles.numberField ) { fontSize = FontSize };
+		public GUIStyle GUIStyleCentered => _cachedStyleCentered ??= new GUIStyle( EditorStyles.whiteLabel ) { fontSize = FontSize, alignment = TextAnchor.MiddleCenter };
 		public float ZoomLevel
 		{
 			get => _zoomLevel;
@@ -35,6 +36,7 @@ namespace MEdge.NodeEditor
 				var scaledFontSize = (int) ( FontSize * ZoomLevel );
 				GUIStyleFields.fontSize = scaledFontSize;
 				GUIStyle.fontSize = scaledFontSize;
+				GUIStyleCentered.fontSize = (int) ( FontSize * ZoomLevel * 1.5f );
 				ScheduleRepaint = true;
 			}
 		}
@@ -65,19 +67,23 @@ namespace MEdge.NodeEditor
 		Vector2 _draggingOffset;
 		GUIStyle _cachedStyle;
 		GUIStyle _cachedStyleFields;
+		GUIStyle _cachedStyleCentered;
 
 		List<INode> _dummyNodes;
 		
-		(string s, float v) _zoomCache = ("0", 0f);
+		(string label, float v) _zoomCache = ("0", 0f);
 		
-		(string s, float v) _separationCache = ("0", 0f);
+		(string label, float v) _separationCache = ("0", 0f);
 
+
+		
+		static Material _sLineMat;
 
 
 		[ MenuItem( "Window/Dummy Node Editor" ) ]
 		static void Init()
 		{
-			var window = new NodeEditorWindow();
+			var window = EditorWindow.CreateInstance<NodeEditorWindow>();
 			window.Show();
 		}
 
@@ -132,7 +138,7 @@ namespace MEdge.NodeEditor
 			var e = Event.current;
 			
 			// Moving the viewport must be done before drawing to avoid input-lag
-			if( e.type == EventType.MouseDrag && Dragging?.nodeOrNull is {} nodeDragged )
+			if( e.type == EventType.MouseDrag && e.button == Dragging?.mouseButton && Dragging?.nodeOrNull is {} nodeDragged )
 			{
 				if( ReferenceEquals( nodeDragged, _viewportNode ) )
 				{
@@ -208,46 +214,52 @@ namespace MEdge.NodeEditor
 			}
 
 			// Release dragging
-			if( e.type == EventType.MouseUp && e.button == 0 && Dragging?.connection?.markForCompletion == false )
+			if( e.type == EventType.MouseUp && Dragging?.mouseButton == e.button )
 			{
-				var c = Dragging.Value.connection.Value;
-				c.markForCompletion = true;
-				Dragging = ( null, c, 0 );
+				if( Dragging?.connection?.markForCompletion == false )
+				{
+					var c = Dragging.Value.connection.Value;
+					c.markForCompletion = true;
+					Dragging = ( null, c, 0 );
+				}
+				else if( Dragging?.nodeOrNull != null )
+				{
+					Dragging = null;
+					_draggingOffset = default;
+					ScheduleRepaint = true;
+				}
 			}
-			else if( e.type == EventType.MouseLeaveWindow 
-			         || ( e.type == EventType.MouseUp && Dragging?.mouseButton == e.button && Dragging?.connection?.markForCompletion != true ) )
+
+			if( e.type == EventType.MouseLeaveWindow )
 			{
 				Dragging = null;
 				_draggingOffset = default;
-				ScheduleRepaint = true;
 			}
 
-			ScheduleRepaint |= Dragging != null && ( e.type == EventType.MouseMove || e.type == EventType.MouseDrag );
 			// ReSharper disable once CompareOfFloatsByEqualityOperator
 			if( _zoomCache.v != ZoomLevel )
 			{
-				_zoomCache.s = $"Zoom:{ZoomLevel:F}";
+				_zoomCache.label = $"Zoom:{ZoomLevel:F}";
 				_zoomCache.v = ZoomLevel;
 			}
-
-			if( GUI.Button( new Rect( 0, 0, 100, 16 ), _zoomCache.s ) )
-				ZoomLevel = 1f;
-			
 			
 			// ReSharper disable once CompareOfFloatsByEqualityOperator
 			if( _separationCache.v != Separation )
 			{
-				_separationCache.s = $"Separation:{Separation:F}";
+				_separationCache.label = $"Separation:{Separation:F}";
 				_separationCache.v = Separation;
 			}
-
-
-			if( GUI.Button( new Rect( 100, 0, 100, 16 ), _separationCache.s ) )
+			
+			if( GUI.Button( new Rect( 0, 0, 100, 16 ), _zoomCache.label ) )
+				ZoomLevel = 1f;
+			if( GUI.Button( new Rect( 100, 0, 100, 16 ), _separationCache.label ) )
 				Separation = 1f;
 			if( GUI.Button( new Rect( 200, 0, 16, 16 ), "+" ) )
 				Separation *= 2f;
 			if( GUI.Button( new Rect( 216, 0, 16, 16 ), "-" ) )
 				Separation *= 0.5f;
+
+			ScheduleRepaint = ScheduleRepaint || (Dragging != null && ( e.type == EventType.MouseMove || e.type == EventType.MouseDrag ));
 		}
 
 
@@ -297,12 +309,14 @@ namespace MEdge.NodeEditor
 
 
 
-		private static Material LineMat
+		static void DrawLine( Vector2 pointA, Vector2 pointB, Color color, float width = 5f )
 		{
-			get
+			var perp = pointB - pointA;
+			perp = new Vector2( perp.y, perp.x );
+			perp = perp.normalized * width;
+
+			if( _sLineMat == null )
 			{
-				if( _sLineMat != null )
-					return _sLineMat;
 				Shader shader = Shader.Find( "Hidden/Internal-Colored" );
 				_sLineMat = new Material( shader );
 				_sLineMat.hideFlags = HideFlags.HideAndDontSave;
@@ -310,22 +324,9 @@ namespace MEdge.NodeEditor
 				_sLineMat.SetInt( "_DstBlend", (int) UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha );
 				_sLineMat.SetInt( "_Cull", (int) UnityEngine.Rendering.CullMode.Off );
 				_sLineMat.SetInt( "_ZWrite", 0 );
-				return _sLineMat;
 			}
-		}
 
-
-		static Material _sLineMat;
-
-
-
-		static void DrawLine( Vector2 pointA, Vector2 pointB, Color color, float width = 5f )
-		{
-			var perp = pointB - pointA;
-			perp = new Vector2( perp.y, perp.x );
-			perp = perp.normalized * width;
-
-			LineMat.SetPass( 0 );
+			_sLineMat.SetPass( 0 );
 			GL.Begin( GL.QUADS );
 			GL.Color( color );
 			GL.Vertex3( pointA.x + perp.x, pointA.y - perp.y, 0 );

@@ -61,22 +61,19 @@
 				}
 			}
 
-			drawer.DrawLabel( Node.GetType().Name );
+			if( drawer.IsInView( out var rect, 2f ) )
+				GUI.Label( rect, Node.GetType().Name, drawer.Editor.GUIStyleCentered );
+
 			drawer.UseRect();
-			ReflectionData.ForeachField( ref Node, _cachedInspect ??= Inspect );
+			ReflectionData.ForeachField( ref Node, _cachedInspect ??= DrawField );
 		}
 		
 		
 
-		void Inspect( IField field, CachedContainer cache )
+		void DrawField( IField field, CachedContainer cache )
 		{
-			if( field.Info.ReflectedType == typeof(Core.Object) ) return;
-
-			if( _drawer.PreviouslyOutOfView && field.Info.GetType() != typeof(array<AnimNodeBlendBase.AnimBlendChild>) )
-			{
-				_drawer.UseRect();
+			if( field.Info.ReflectedType == typeof(Core.Object) ) 
 				return;
-			}
 
 			switch( field )
 			{
@@ -85,7 +82,8 @@
 					var children = fChildren.Ref( cache );
 					_drawer.DrawLabel( field.Info.Name );
 					var blendChildSlots = blendChildKeys[ children ];
-					while( blendChildSlots.Count < children.Length ) blendChildSlots.Add( new BlendChildSlot { Array = children, Index = blendChildSlots.Count } );
+					while( blendChildSlots.Count < children.Length ) 
+						blendChildSlots.Add( new BlendChildSlot { Array = children, Index = blendChildSlots.Count } );
 
 					for( int i = 0; i < children.Length; i++ )
 					{

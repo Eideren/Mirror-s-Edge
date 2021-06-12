@@ -4,63 +4,39 @@
 	using Engine;
 	using NodeEditor;
 	using T3D;
-	using UnityEditor;
-	using static UnityEngine.Debug;
 
 
 
 	public class AnimNodeEditorWindow : NodeEditorWindow
 	{
-		public T3DFile File;
-		List<AnimNodeDrawer> nodes;
+		T3DFile _file;
+		List<AnimNodeDrawer> _nodes;
 
 
 
-		[ MenuItem( "Window/Anim Node Editor" ) ]
-		static void Init()
+		public void LoadFile(T3DFile file)
 		{
-			var window = GetWindow<AnimNodeEditorWindow>();
-			window.Show();
-		}
-
-
-
-		public AnimNodeEditorWindow()
-		{
-		}
-
-
-
-		public AnimNodeEditorWindow( T3DFile f )
-		{
-			File = f;
-			Show();
-		}
-
-
-
-		public void ShowContent(T3DFile file)
-		{
-			File = file;
-			nodes = new List<AnimNodeDrawer>();
+			_file = file;
+			_nodes = new List<AnimNodeDrawer>();
 			T3DSerialization.Deserialize( file.Root, null, delegate( object deserializedObject )
 			{
 				if( deserializedObject is AnimNode a )
-					nodes.Add( new AnimNodeDrawer( a ) );
+					_nodes.Add( new AnimNodeDrawer( a ) );
 			} );
 		}
 
 
 
-		public override IEnumerable<INode> Nodes()
+		protected override IEnumerable<INode> Nodes()
 		{
-			if( nodes == null && File != null )
+			// This is for editor reloads
+			if( _nodes == null && _file != null )
 			{
-				ShowContent(File);
+				LoadFile(_file);
 			}
 
 
-			return nodes;
+			return _nodes;
 		}
 	}
 }
