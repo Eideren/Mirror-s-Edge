@@ -10,19 +10,19 @@ namespace MEdge.NodeEditor
 
 	public class NodeEditorWindow : EditorWindow
 	{
-		public Color HighlightColor = new Color( 44 / 255f, 93 / 255f, 135 / 255f );
-		public Color TitleColor = new Color( 60 / 255f, 60 / 255f, 60 / 255f );
-		public Color BackgroundColor = new Color( 44 / 255f, 44 / 255f, 44 / 255f );
-		public Vector2 FieldSize = new Vector2( 320, 20 );
-		public int FontSize = 16;
-		public float LineWidth = 5f;
+		protected Color HighlightColor = new Color( 44 / 255f, 93 / 255f, 135 / 255f );
+		protected Color TitleColor = new Color( 60 / 255f, 60 / 255f, 60 / 255f );
+		protected Color BackgroundColor = new Color( 44 / 255f, 44 / 255f, 44 / 255f );
+		protected Vector2 FieldSize = new Vector2( 320, 20 );
+		protected int FontSize = 16;
+		protected float LineWidth = 5f;
 
 		public readonly List<(Vector2 a, Vector2 b, Color color)> Lines = new List<(Vector2, Vector2, Color)>();
 		public readonly WeakCache<INode, NodeDrawer> Drawers = new WeakCache<INode, NodeDrawer>();
 		public readonly WeakCache<object, RectRef> Links = new WeakCache<object, RectRef>();
-		public (INode? node, (object key, Func<object, object, bool> filter, object newTarget, bool markForCompletion)? connection)? Dragging;
-		public GUIStyle GUIStyleFields => _cachedStyleFields ??= new GUIStyle( EditorStyles.numberField ) { fontSize = FontSize };
+		public (INode nodeOrNull, (object key, Func<object, object, bool> filter, object newTarget, bool markForCompletion)? connection, int mouseButton)? Dragging;
 		public GUIStyle GUIStyle => _cachedStyle ??= new GUIStyle( EditorStyles.whiteLabel ) { fontSize = FontSize };
+		public GUIStyle GUIStyleFields => _cachedStyleFields ??= new GUIStyle( EditorStyles.numberField ) { fontSize = FontSize };
 		public float ZoomLevel
 		{
 			get => _zoomLevel;
@@ -32,26 +32,45 @@ namespace MEdge.NodeEditor
 					return;
 
 				_zoomLevel = value;
-				GUIStyleFields.fontSize = GUIStyle.fontSize = (int) ( FontSize * ZoomLevel );
+				var scaledFontSize = (int) ( FontSize * ZoomLevel );
+				GUIStyleFields.fontSize = scaledFontSize;
+				GUIStyle.fontSize = scaledFontSize;
 				ScheduleRepaint = true;
 			}
 		}
 		public Vector2 ViewportPosition;
 		public Vector2 ViewportCenter => ViewportPosition + ViewportSize * 0.5f / ZoomLevel;
 		public Vector2 ViewportSize => position.size;
+
+
+		protected float Separation
+		{
+			get => _separation;
+			set
+			{
+				if(_separation == value)
+					return;
+				_separation = value;
+				ScheduleRepaint = true;
+			}
+		}
 		public bool ScheduleRepaint = false;
 		public bool ScheduleNextRepaint = false;
 
 		INode _viewportNode;
 		bool _centerOnInit = true;
 		float _zoomLevel = 1f;
+		float _separation = 1f;
 
 		Vector2 _draggingOffset;
-		GUIStyle _cachedStyleFields;
 		GUIStyle _cachedStyle;
+		GUIStyle _cachedStyleFields;
 
 		List<INode> _dummyNodes;
-		Vector2 _lastViewportPosition;
+		
+		(string s, float v) _zoomCache = ("0", 0f);
+		
+		(string s, float v) _separationCache = ("0", 0f);
 
 
 
@@ -91,9 +110,9 @@ namespace MEdge.NodeEditor
 
 
 
-		public virtual IEnumerable<INode> Nodes()
+		protected virtual IEnumerable<INode> Nodes()
 		{
-			_dummyNodes ??= new List<INode> { new Node(), new Node(), new Node() };
+			_dummyNodes ??= new List<INode> { new DummyNode(), new DummyNode(), new DummyNode() };
 			return _dummyNodes;
 		}
 
@@ -112,8 +131,26 @@ namespace MEdge.NodeEditor
 
 			var e = Event.current;
 			
-			foreach( var line in Lines )
-				DrawLine( line.a, line.b, line.color, LineWidth * ZoomLevel );
+			// Moving the viewport must be done before drawing to avoid input-lag
+			if( e.type == EventType.MouseDrag && Dragging?.nodeOrNull is {} nodeDragged )
+			{
+				if( ReferenceEquals( nodeDragged, _viewportNode ) )
+				{
+					_viewportNode.Pos += ( e.mousePosition - _draggingOffset ) / ZoomLevel;
+					_draggingOffset = e.mousePosition;
+				}
+				else
+				{
+					nodeDragged.Pos = (( e.mousePosition + _draggingOffset ) / ZoomLevel - ViewportCenter) / Separation;
+				}
+			}
+
+			if( e.type == EventType.Repaint )
+			{
+				foreach( var line in Lines )
+					DrawLine( line.a, line.b, line.color, LineWidth * ZoomLevel );
+			}
+
 			Lines.Clear();
 
 			if( e.type == EventType.ScrollWheel )
@@ -125,7 +162,7 @@ namespace MEdge.NodeEditor
 			foreach( INode node in Nodes() )
 			{
 				var drawer = Drawers[ node ];
-				var fieldRect = new Rect( (node.Pos + viewportCenter) * ZoomLevel, FieldSize * ZoomLevel );
+				var fieldRect = new Rect( (node.Pos * _separation + viewportCenter) * _zoomLevel, FieldSize * _zoomLevel );
 
 				var nodeBG = fieldRect;
 				nodeBG.height = drawer.SurfaceCovered.height + fieldRect.height * 0.1f;
@@ -133,7 +170,7 @@ namespace MEdge.NodeEditor
 
 				var nodeTitle = fieldRect;
 				nodeTitle.height /= 2;
-				EditorGUI.DrawRect( nodeTitle, Dragging?.node == node ? HighlightColor : TitleColor );
+				EditorGUI.DrawRect( nodeTitle, Dragging?.nodeOrNull == node ? HighlightColor : TitleColor );
 
 				var titleHighlight = nodeTitle;
 				titleHighlight.height /= 10;
@@ -142,7 +179,7 @@ namespace MEdge.NodeEditor
 				if( Dragging == null && ( e.type == EventType.MouseDown || e.type == EventType.MouseDrag ) && e.button == 0 && nodeBG.Contains( e.mousePosition ) )
 					dragCandidate = ( node, nodeBG.position - e.mousePosition );
 
-				fieldRect.position -= Vector2.down * nodeTitle.height * 1.3f;
+				fieldRect.position += new Vector2(0, nodeTitle.height * 1.3f);
 				var preWidth = fieldRect.width;
 				fieldRect.width *= 0.975f;
 				fieldRect.x -= ( fieldRect.width - preWidth ) * 0.5f;
@@ -154,7 +191,7 @@ namespace MEdge.NodeEditor
 			if( dragCandidate != null && Dragging == null )
 			{
 				var v = dragCandidate.Value;
-				Dragging = (v.node, null);
+				Dragging = (v.node, null, 0);
 				_draggingOffset = v.offset;
 			}
 
@@ -164,23 +201,10 @@ namespace MEdge.NodeEditor
 				e.Use();
 			}
 
-			if( e.type == EventType.MouseDown && Dragging == null && e.button == 0 )
+			if( e.type == EventType.MouseDown && Dragging == null && e.button == 1 )
 			{
-				Dragging = ( _viewportNode, null );
+				Dragging = ( _viewportNode, null, e.button );
 				_draggingOffset = e.mousePosition;
-			}
-
-			if( e.type == EventType.MouseDrag && Dragging?.node is INode nodeDragged )
-			{
-				if( ReferenceEquals( nodeDragged, _viewportNode ) )
-				{
-					_viewportNode.Pos += ( e.mousePosition - _draggingOffset ) / ZoomLevel;
-					_draggingOffset = e.mousePosition;
-				}
-				else
-				{
-					nodeDragged.Pos = ( e.mousePosition + _draggingOffset ) / ZoomLevel - viewportCenter;
-				}
 			}
 
 			// Release dragging
@@ -188,10 +212,10 @@ namespace MEdge.NodeEditor
 			{
 				var c = Dragging.Value.connection.Value;
 				c.markForCompletion = true;
-				Dragging = ( null, c );
+				Dragging = ( null, c, 0 );
 			}
 			else if( e.type == EventType.MouseLeaveWindow 
-			         || ( e.type == EventType.MouseUp && Dragging != null && e.button == 0 && Dragging?.connection?.markForCompletion != true ) )
+			         || ( e.type == EventType.MouseUp && Dragging?.mouseButton == e.button && Dragging?.connection?.markForCompletion != true ) )
 			{
 				Dragging = null;
 				_draggingOffset = default;
@@ -199,6 +223,7 @@ namespace MEdge.NodeEditor
 			}
 
 			ScheduleRepaint |= Dragging != null && ( e.type == EventType.MouseMove || e.type == EventType.MouseDrag );
+			// ReSharper disable once CompareOfFloatsByEqualityOperator
 			if( _zoomCache.v != ZoomLevel )
 			{
 				_zoomCache.s = $"Zoom:{ZoomLevel:F}";
@@ -207,13 +232,28 @@ namespace MEdge.NodeEditor
 
 			if( GUI.Button( new Rect( 0, 0, 100, 16 ), _zoomCache.s ) )
 				ZoomLevel = 1f;
+			
+			
+			// ReSharper disable once CompareOfFloatsByEqualityOperator
+			if( _separationCache.v != Separation )
+			{
+				_separationCache.s = $"Separation:{Separation:F}";
+				_separationCache.v = Separation;
+			}
 
-			_lastViewportPosition = ViewportPosition;
+
+			if( GUI.Button( new Rect( 100, 0, 100, 16 ), _separationCache.s ) )
+				Separation = 1f;
+			if( GUI.Button( new Rect( 200, 0, 16, 16 ), "+" ) )
+				Separation *= 2f;
+			if( GUI.Button( new Rect( 216, 0, 16, 16 ), "-" ) )
+				Separation *= 0.5f;
 		}
 
 
 
-		(string s, float v) _zoomCache = ("0", 0f);
+		public Vector2 WorldToViewport( Vector2 p ) => ( p * _separation + ViewportCenter ) * ZoomLevel;
+		public Vector2 ViewportToWorld( Vector2 p ) => (p / ZoomLevel - ViewportCenter) /  _separation;
 
 
 
@@ -221,7 +261,6 @@ namespace MEdge.NodeEditor
 		{
 			var med = Vector2.zero;
 			int count = 0;
-			var center = ViewportCenter;
 			foreach( INode node in Nodes() )
 			{
 				if( Drawers.TryGetValue( node, out var drawer ) )
@@ -232,7 +271,7 @@ namespace MEdge.NodeEditor
 				else
 				{
 					// Infrequent path, do inverse transformation to counteract the transformation post average
-					med += (node.Pos + center) * ZoomLevel;
+					med += WorldToViewport(node.Pos);
 				}
 
 				count++;
@@ -242,11 +281,9 @@ namespace MEdge.NodeEditor
 				return;
 
 			med /= count;
-			// Transform from viewport to node space
-			med /= ZoomLevel;
-			med -= center;
+			med = ViewportToWorld( med );
 
-			if( med.magnitude > 100f )
+			if( med.magnitude > 100f / Separation )
 			{
 				LogWarning( "Re-centered nodes around origin, median distance was greater than 100" );
 				foreach( INode node in Nodes() )
@@ -317,7 +354,7 @@ namespace MEdge.NodeEditor
 
 
 
-		class Node : INode
+		class DummyNode : INode
 		{
 			public Vector2 Pos{ get; set; }
 

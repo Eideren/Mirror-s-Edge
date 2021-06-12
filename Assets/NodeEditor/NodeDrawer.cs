@@ -84,7 +84,7 @@
 				    && draggingKey != key
 				    && Editor.Dragging?.connection?.filter?.Invoke( draggingKey, key ) != false )
 				{
-					Editor.Dragging = ( default, ( draggingKey, null, key, true ) );
+					Editor.Dragging = ( default, ( draggingKey, null, key, true ), -1 );
 				}
 				// Marked as completed and this is the receiver, send new target to it 
 				else if( draggingKey == key && active/* Active here might cause some issues but ensures that the key doesn't have to be unique*/ && Editor.Dragging?.connection?.markForCompletion == true )
@@ -94,9 +94,9 @@
 					Editor.ScheduleNextRepaint = true;
 				}
 			}
-			else if( active && e.type == EventType.MouseDown && Editor.Dragging == null )
+			else if( active && e.type == EventType.MouseDown && e.button == 0 && Editor.Dragging == null )
 			{
-				Editor.Dragging = ( null, ( key, acceptableTarget, null, false ) );
+				Editor.Dragging = ( null, ( key, acceptableTarget, null, false ), e.button );
 			}
 
 			if(IsInView( rect ))
@@ -173,7 +173,10 @@
 			EditorGUI.LabelField( labelRect, field.Info.Name, Editor.GUIStyle );
 			switch( field )
 			{
-				case IField<Boolean> f: f.Ref( cache ) = EditorGUI.Toggle(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
+				case IField<Boolean> f:
+					if( GUI.Button(valueRect, f.Ref( cache ) ? "True" : "False", Editor.GUIStyleFields ) )
+						f.Ref( cache ) = !f.Ref( cache ); 
+					break;
 				case IField<Byte> f: f.Ref( cache ) = (byte)EditorGUI.IntField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
 				case IField<SByte> f: f.Ref( cache ) = (sbyte)EditorGUI.IntField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
 				case IField<Int16> f: f.Ref( cache ) = (short)EditorGUI.IntField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
