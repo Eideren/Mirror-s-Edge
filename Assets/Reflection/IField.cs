@@ -20,6 +20,10 @@
 
 		/// <summary> Is the field's type a reference type </summary>
 		public bool IsReferenceType{ get; }
+		
+		
+		
+		public bool CanAssign<T>( T value );
 
 
 

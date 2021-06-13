@@ -237,9 +237,13 @@
 					Info = fi;
 					IsReferenceType = typeof(TField).IsValueType == false;
 				}
-				
-				
-				
+
+
+
+				public bool CanAssign<T>( T value ) => value is TField;
+
+
+
 				public ref TField Ref( CachedContainer container )
 				{
 					var cc = (CachedContainerImpl) container;
