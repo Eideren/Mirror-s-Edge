@@ -19,8 +19,8 @@ namespace MEdge.NodeEditor
 
 		public readonly List<(Vector2 a, Vector2 b, Color color)> Lines = new List<(Vector2, Vector2, Color)>();
 		public readonly WeakCache<INode, NodeDrawer> Drawers = new WeakCache<INode, NodeDrawer>();
-		public readonly WeakCache<object, RectRef> Links = new WeakCache<object, RectRef>();
-		public (INode nodeOrNull, (object key, Func<object, object, bool> filter, object newTarget, bool markForCompletion)? connection, int mouseButton)? Dragging;
+		public readonly WeakCache<object, RectRef> LinkTargets = new WeakCache<object, RectRef>();
+		public readonly DraggingData Drag = new DraggingData();
 		public GUIStyle GUIStyle => _cachedStyle ??= new GUIStyle( EditorStyles.whiteLabel ) { fontSize = FontSize };
 		public GUIStyle GUIStyleFields => _cachedStyleFields ??= new GUIStyle( EditorStyles.numberField ) { fontSize = FontSize };
 		public GUIStyle GUIStyleCentered => _cachedStyleCentered ??= new GUIStyle( EditorStyles.whiteLabel ) { fontSize = FontSize, alignment = TextAnchor.MiddleCenter };
@@ -53,7 +53,7 @@ namespace MEdge.NodeEditor
 				if(_separation == value)
 					return;
 				_separation = value;
-				ScheduleRepaint = true;
+				ScheduleNextRepaint = true;
 			}
 		}
 		public bool ScheduleRepaint = false;
@@ -63,8 +63,6 @@ namespace MEdge.NodeEditor
 		bool _centerOnInit = true;
 		float _zoomLevel = 1f;
 		float _separation = 1f;
-
-		Vector2 _draggingOffset;
 		GUIStyle _cachedStyle;
 		GUIStyle _cachedStyleFields;
 		GUIStyle _cachedStyleCentered;
@@ -99,7 +97,7 @@ namespace MEdge.NodeEditor
 
 		void OnGUI()
 		{
-			if( ScheduleNextRepaint )
+			if( ScheduleNextRepaint && Event.current.type == EventType.Repaint )
 			{
 				ScheduleNextRepaint = false;
 				ScheduleRepaint = true;
@@ -138,17 +136,23 @@ namespace MEdge.NodeEditor
 			var e = Event.current;
 			
 			// Moving the viewport must be done before drawing to avoid input-lag
-			if( e.type == EventType.MouseDrag && e.button == Dragging?.mouseButton && Dragging?.nodeOrNull is {} nodeDragged )
+			if( e.type == EventType.MouseDrag && Drag.IsMouseButton( e.button ) && Drag.IsNode( out var nodeDragged, out var dragOffset ) )
 			{
 				if( ReferenceEquals( nodeDragged, _viewportNode ) )
 				{
-					_viewportNode.Pos += ( e.mousePosition - _draggingOffset ) / ZoomLevel;
-					_draggingOffset = e.mousePosition;
+					_viewportNode.Pos += ( e.mousePosition - dragOffset ) / ZoomLevel;
+					Drag.DraggingOffset = e.mousePosition;
 				}
 				else
 				{
-					nodeDragged.Pos = (( e.mousePosition + _draggingOffset ) / ZoomLevel - ViewportCenter) / Separation;
+					nodeDragged.Pos = (( e.mousePosition + dragOffset ) / ZoomLevel - ViewportCenter) / Separation;
 				}
+			}
+
+			if( e.type == EventType.KeyDown && e.keyCode == KeyCode.F )
+			{
+				CenterView();
+				e.Use();
 			}
 
 			if( e.type == EventType.Repaint )
@@ -164,7 +168,7 @@ namespace MEdge.NodeEditor
 
 			var viewportCenter = ViewportCenter;
 
-			(INode node, Vector2 offset)? dragCandidate = null;
+			(INode node, Vector2 offset, int mouseButton)? dragCandidate = null;
 			foreach( INode node in Nodes() )
 			{
 				var drawer = Drawers[ node ];
@@ -176,14 +180,14 @@ namespace MEdge.NodeEditor
 
 				var nodeTitle = fieldRect;
 				nodeTitle.height /= 2;
-				EditorGUI.DrawRect( nodeTitle, Dragging?.nodeOrNull == node ? HighlightColor : TitleColor );
+				EditorGUI.DrawRect( nodeTitle, Drag.IsNode( out var draggingNode, out _ ) && draggingNode == node ? HighlightColor : TitleColor );
 
 				var titleHighlight = nodeTitle;
 				titleHighlight.height /= 10;
 				EditorGUI.DrawRect( titleHighlight, HighlightColor );
 
-				if( Dragging == null && ( e.type == EventType.MouseDown || e.type == EventType.MouseDrag ) && e.button == 0 && nodeBG.Contains( e.mousePosition ) )
-					dragCandidate = ( node, nodeBG.position - e.mousePosition );
+				if( Drag.IsDragging == false && ( e.type == EventType.MouseDown || e.type == EventType.MouseDrag ) && e.button == 0 && nodeBG.Contains( e.mousePosition ) )
+					dragCandidate = ( node, nodeBG.position - e.mousePosition, e.button );
 
 				fieldRect.position += new Vector2(0, nodeTitle.height * 1.3f);
 				var preWidth = fieldRect.width;
@@ -194,46 +198,34 @@ namespace MEdge.NodeEditor
 			}
 
 			// Select the topmost (i.e.: last) node candidate to drag when multiple of them are on top of another 
-			if( dragCandidate != null && Dragging == null )
+			if( dragCandidate != null && Drag.IsDragging == false )
 			{
 				var v = dragCandidate.Value;
-				Dragging = (v.node, null, 0);
-				_draggingOffset = v.offset;
+				Drag.NewNodeDrag( v.node, v.mouseButton, v.offset );
 			}
 
-			if( e.type == EventType.KeyDown && e.keyCode == KeyCode.F )
+			if( e.type == EventType.MouseDown && Drag.IsDragging == false && e.button == 1 )
 			{
-				CenterView();
-				e.Use();
-			}
-
-			if( e.type == EventType.MouseDown && Dragging == null && e.button == 1 )
-			{
-				Dragging = ( _viewportNode, null, e.button );
-				_draggingOffset = e.mousePosition;
+				Drag.NewNodeDrag( _viewportNode, e.button, e.mousePosition );
 			}
 
 			// Release dragging
-			if( e.type == EventType.MouseUp && Dragging?.mouseButton == e.button )
+			if( e.type == EventType.MouseUp && Drag.IsMouseButton( e.button ) )
 			{
-				if( Dragging?.connection?.markForCompletion == false )
+				if( Drag.IsNode( out _, out _ ) )
 				{
-					var c = Dragging.Value.connection.Value;
-					c.markForCompletion = true;
-					Dragging = ( null, c, 0 );
-				}
-				else if( Dragging?.nodeOrNull != null )
-				{
-					Dragging = null;
-					_draggingOffset = default;
+					Drag.Clear();
 					ScheduleRepaint = true;
+				}
+				else if( Drag.IsConnection( out var v ) && v.scheduledConnection == false )
+				{
+					Drag.MarkBreakConnection();
 				}
 			}
 
 			if( e.type == EventType.MouseLeaveWindow )
 			{
-				Dragging = null;
-				_draggingOffset = default;
+				Drag.Clear();
 			}
 
 			// ReSharper disable once CompareOfFloatsByEqualityOperator
@@ -259,7 +251,7 @@ namespace MEdge.NodeEditor
 			if( GUI.Button( new Rect( 216, 0, 16, 16 ), "-" ) )
 				Separation *= 0.5f;
 
-			ScheduleRepaint = ScheduleRepaint || (Dragging != null && ( e.type == EventType.MouseMove || e.type == EventType.MouseDrag ));
+			ScheduleRepaint = ScheduleRepaint || (Drag.IsDragging && ( e.type == EventType.MouseMove || e.type == EventType.MouseDrag ));
 		}
 
 
@@ -376,7 +368,8 @@ namespace MEdge.NodeEditor
 				}
 
 				drawer.DrawProperty( nameof( someFloat ), ref someFloat, out _ );
-				drawer.MarkNextAsLinkPoint( this, ref link );
+				drawer.MarkNextAsLinkStart( this, ref link );
+				drawer.MarkNextAsTarget( this );
 				drawer.DrawLabel( "Link" );
 				drawer.DrawProperty( nameof( someFloat ), ref someFloat, out _ );
 				drawer.DrawProperty( nameof( someFloat ), ref someFloat, out _ );
@@ -388,6 +381,112 @@ namespace MEdge.NodeEditor
 		public class RectRef
 		{
 			public Rect rect;
+		}
+
+
+
+		public class DraggingData
+		{
+			INode _nodeOrNull;
+			public Vector2 DraggingOffset;
+			int? _mouseButton;
+			(object key, Func<object, object, bool> filter, object scheduledTarget, bool scheduledConnection, bool fromTarget)? _connection;
+
+
+
+			public void NewNodeDrag( INode node, int mouseButton, Vector2 offset )
+			{
+				Clear();
+				_nodeOrNull = node;
+				_mouseButton = mouseButton;
+				DraggingOffset = offset;
+			}
+
+
+
+			public void NewConnectionDrag( object target, Func<object, object, bool> filter, bool fromTarget, int mouseButton )
+			{
+				Clear();
+				_connection = ( target, filter, null, false, fromTarget );
+				_mouseButton = mouseButton;
+			}
+
+
+
+			public void Clear()
+			{
+				_nodeOrNull = null;
+				_mouseButton = null;
+				_connection = null;
+				DraggingOffset = default;
+			}
+
+
+			public bool IsDragging => _mouseButton != null;
+
+
+			public bool MarkedForCompletion => _connection?.scheduledConnection ?? false;
+
+
+
+			public bool IsMouseButton( int mouseButton ) => _mouseButton == mouseButton;
+
+
+
+			public void ScheduleConnectionBetween( object key, object target )
+			{
+				if( _connection == null )
+					throw new InvalidOperationException( "Not set as connection" );
+				var cpy = _connection.Value;
+				cpy.key = key;
+				cpy.scheduledTarget = target;
+				cpy.scheduledConnection = true;
+				_connection = cpy;
+			}
+
+
+
+			/// <summary>
+			/// Will set target of this connection to null
+			/// </summary>
+			public void MarkBreakConnection()
+			{
+				if( _connection == null )
+					throw new InvalidOperationException( "Not set as connection" );
+				var cpy = _connection.Value;
+				if( cpy.fromTarget )
+				{
+					Clear();
+					return;
+				}
+
+				cpy.scheduledTarget = null;
+				cpy.scheduledConnection = true;
+				_connection = cpy;
+			}
+
+
+
+			public bool IsConnection(out (object key, Func<object, object, bool> filter, object scheduledTarget, bool scheduledConnection, bool fromTarget) connection)
+			{
+				if( _connection.HasValue )
+				{
+					connection = _connection.Value;
+					return true;
+				}
+
+				connection = default;
+				return false;
+			}
+
+
+
+			public bool IsNode( out INode node, out Vector2 offset )
+			{
+				node = _nodeOrNull;
+				offset = DraggingOffset;
+				return _nodeOrNull != null;
+			}
 		}
 	}
 }

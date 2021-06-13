@@ -20,6 +20,8 @@
 		List<Rect> _propertiesRects = new List<Rect>();
 		Rect _screenRect;
 
+		const int DragAndDropButton = 0;
+
 
 
 		public void Reset( Rect newRect, NodeEditorWindow newEditor )
@@ -34,29 +36,110 @@
 
 
 
-		public void MarkNextAsLinkPoint<T>( object key, [ CanBeNull ] ref T target, bool pointOnRightSide = true, Color? color = default, Func<object, object, bool> acceptableTarget = null ) where T : class
+		public void MarkNextAsTarget( object key, bool pointOnRightSide = false, Color? color = default )
 		{
 			var e = Event.current;
+			var rect = ConnectionRect( pointOnRightSide );
+			var drag = Editor.Drag;
 
-			var baseColor = ( color ?? DefaultLine );
-			var activeColor = baseColor + Color.white * 0.25f;
+			SetColorByDragFilter( rect, key, null, ref color );
+			
+			if( NewConnection( key, null, rect, color, out bool mouseHover ) )
+			{
+				drag.NewConnectionDrag( key, null, true, DragAndDropButton );
+			}
 
+			// Connection released on this target
+			if( drag.IsConnection( out var connection )
+				&& ReferenceEquals( connection.key, key ) == false
+				&& mouseHover
+				&& e.type == EventType.MouseUp
+				&& drag.IsMouseButton( e.button )
+				&& (connection.filter == null || connection.filter( key, connection.key )) )
+			{
+				drag.ScheduleConnectionBetween( connection.key, key );
+			}
+		}
+
+
+
+		public void MarkNextAsLinkStart<T>( object key, [ CanBeNull ] ref T target, bool pointOnRightSide = true, Color? color = default, Func<object, object, bool> acceptableTarget = null ) where T : class
+		{
+			var e = Event.current;
+			var rect = ConnectionRect( pointOnRightSide );
+			var drag = Editor.Drag;
+
+			SetColorByDragFilter( rect, key, acceptableTarget, ref color );
+			
+			if( NewConnection( key, target, rect, color, out bool mouseHover ) )
+			{
+				drag.NewConnectionDrag( key, acceptableTarget, false, DragAndDropButton );
+			}
+			
+			// Currently dragging
+			if( drag.IsConnection( out var connection ) )
+			{
+				var fromTargetToThis =
+					ReferenceEquals( connection.key, key ) == false
+					&& mouseHover
+					&& e.type == EventType.MouseUp
+					&& drag.IsMouseButton( e.button )
+					&& (acceptableTarget == null || acceptableTarget( key, connection.key ));
+
+				var fromThisToTarget = ReferenceEquals( connection.key, key ) && connection.scheduledConnection;
+				
+				if( fromThisToTarget || fromTargetToThis )
+				{
+					target = fromTargetToThis ? (T) connection.key : (T) connection.scheduledTarget;
+					drag.Clear();
+					Editor.ScheduleRepaint = true;
+				}
+			}
+		}
+
+
+
+		Rect ConnectionRect( bool pointOnRightSide )
+		{
 			var rect = NextRect;
 			rect.height *= 0.66f;
 			rect.width = rect.height;
 			rect.y += rect.height * 0.25f;
 			rect.x += pointOnRightSide ? NextRect.width : - rect.width;
+			return rect;
+		}
 
-			bool active = rect.Contains( e.mousePosition );
 
-			Editor.Links[ key ].rect = rect;
 
-			if( Editor.Dragging?.connection?.key == key )
+		void SetColorByDragFilter( Rect rect, object key, [ CanBeNull ]Func<object, object, bool> acceptableTarget, ref Color? color )
+		{
+			if( Editor.Drag.IsConnection( out var c ) && ReferenceEquals( c.key, key ) == false && (c.filter != null || acceptableTarget != null) && IsInView( rect ) )
+			{
+				var filter = acceptableTarget ?? c.filter;
+				color = filter.Invoke( c.fromTarget ? key : c.key, c.fromTarget ? c.key : key ) 
+					? Color.Lerp(color ?? DefaultLine, Color.green, 0.2f) 
+					: Color.Lerp(color ?? DefaultLine, Color.red, 0.2f);
+			}
+		}
+
+
+
+		bool NewConnection( object key, [ CanBeNull ] object target, Rect rect, Color? color, out bool hover )
+		{
+			var e = Event.current;
+			hover = false;
+
+			var baseColor = ( color ?? DefaultLine );
+			var activeColor = baseColor + Color.white * 0.4f;
+
+			Editor.LinkTargets[ key ].rect = rect;
+
+			if( Editor.Drag.IsConnection( out var connexion ) && ReferenceEquals( connexion.key, key ) )
 			{
 				Editor.Lines.Add( ( rect.center, e.mousePosition, activeColor ) );
-				active = true;
+				hover = true;
 			}
-			else if( target != null && Editor.Links.TryGetValue( target, out var targetRect ) )
+			else if( target != null && Editor.LinkTargets.TryGetValue( target, out var targetRect ) )
 			{
 				var origin = rect.center;
 
@@ -68,41 +151,23 @@
 				var pointOnLine = origin + vectorAlongLine;
 
 				// Is the cursor on this line, note the distance is just a random 10 units constant, not the actual line width, doesn't really matter and could help with low zoom
-				active |= Editor.Dragging == null && vectorAlongLine.sqrMagnitude <= lineDelta.sqrMagnitude && deltaDots > 0f && Vector2.Distance( pointOnLine, e.mousePosition ) < 10f;
+				hover = hover || Editor.Drag.IsDragging == false && vectorAlongLine.sqrMagnitude <= lineDelta.sqrMagnitude && deltaDots > 0f && Vector2.Distance( pointOnLine, e.mousePosition ) < 10f;
 
-				Editor.Lines.Add( ( rect.center, targetRect.rect.center, ( active ? activeColor : baseColor ) ) );
+				Editor.Lines.Add( ( rect.center, targetRect.rect.center, ( hover ? activeColor : baseColor ) ) );
 			}
-
-			// Currently dragging
-			if( Editor.Dragging?.connection?.key is object draggingKey )
-			{
-				// Dropping on a potential connection
-				if( active
-				    && e.type == EventType.MouseUp
-				    && Editor.Dragging?.connection?.markForCompletion != true
-				    && draggingKey != key
-				    && Editor.Dragging?.connection?.filter?.Invoke( draggingKey, key ) != false )
-				{
-					Editor.Dragging = ( default, ( draggingKey, null, key, true ), -1 );
-				}
-				// Marked as completed and this is the receiver, send new target to it 
-				else if( draggingKey == key && active/* Active here might cause some issues but ensures that the key doesn't have to be unique*/ && Editor.Dragging?.connection?.markForCompletion == true )
-				{
-					target = Editor.Dragging?.connection?.newTarget as T;
-					Editor.Dragging = null;
-					Editor.ScheduleNextRepaint = true;
-				}
-			}
-			else if( active && e.type == EventType.MouseDown && e.button == 0 && Editor.Dragging == null )
-			{
-				Editor.Dragging = ( null, ( key, acceptableTarget, null, false ), e.button );
-			}
+			
+			hover = hover || rect.Contains( e.mousePosition );
 
 			if( IsInView( rect ) )
-				EditorGUI.DrawRect( rect, ( active ? activeColor : baseColor ) );
+				EditorGUI.DrawRect( rect, ( hover ? activeColor : baseColor ) );
 
-			if( active && e.type == EventType.MouseMove )
+			if( hover && e.type == EventType.MouseMove )
+			{
 				Editor.ScheduleRepaint = true;
+				Editor.ScheduleNextRepaint = true; // *Next*Repaint so that we paint when mouse leaves as well
+			}
+
+			return hover && e.type == EventType.MouseDown && e.button == DragAndDropButton && Editor.Drag.IsDragging == false;
 		}
 
 
@@ -197,6 +262,9 @@
 				case IField<UInt64> f: f.Ref( cache ) = (ulong)EditorGUI.LongField(valueRect, (long)f.Ref( cache ), Editor.GUIStyleFields ); break;
 				case IField<Single> f: f.Ref( cache ) = EditorGUI.FloatField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
 				case IField<Double> f: f.Ref( cache ) = EditorGUI.DoubleField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
+				case IField<System.String> f: f.Ref( cache ) = EditorGUI.TextField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
+				case IField<Core.String> f: f.Ref( cache ) = EditorGUI.TextField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
+				case IField<Core.name> f: f.Ref( cache ) = EditorGUI.TextField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
 				default: GUI.Label(valueRect, field.IsReferenceType && field.GetValueSlowAndBox( cache ) == null ? "null" : "obj", Editor.GUIStyle ); break;
 			}
 		}
