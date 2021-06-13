@@ -165,9 +165,9 @@
 				case IField<Char> fChar: fChar.Ref( cache ) = Char.Parse( value ); return;
 				case IField<DateTime> fDateTime: fDateTime.Ref( cache ) = DateTime.Parse( value ); return;
 				case IField<Decimal> fDecimal: fDecimal.Ref( cache ) = Decimal.Parse( value ); return;
-				case IField<MEdge.Core.name> fName: fName.Ref( cache ) = value; return;
-				case IField<MEdge.Core.String> fString: fString.Ref( cache ) = value; return;
-				case IField<string> fString: fString.Ref( cache ) = value; return;
+				case IField<MEdge.Core.name> fName: fName.Ref( cache ) = StripQuotes(value); return;
+				case IField<MEdge.Core.String> fString: fString.Ref( cache ) = StripQuotes(value); return;
+				case IField<string> fString: fString.Ref( cache ) = StripQuotes(value); return;
 				default: break;
 			}
 			
@@ -251,6 +251,10 @@
 				field.SetValueSlow( cache, v );
 			}
 		}
+
+
+
+		static string StripQuotes( string s ) => s.StartsWith( "\"" ) && s.EndsWith( "\"" ) ? s.Substring( 1, s.Length - 2 ) : s;
 
 
 
