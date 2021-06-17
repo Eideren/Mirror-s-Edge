@@ -107,7 +107,14 @@
 				window.Show();
 			}
 
-			SearchContent = EditorGUILayout.TextField( "Filter properties", SearchContent );
+			var newSearch = EditorGUILayout.TextField( "Filter properties", SearchContent );
+			if( newSearch != SearchContent )
+			{
+				_foldedOut.Clear();
+				UpdateSearch( ( target as T3DFile ).Root );
+			}
+
+			SearchContent = newSearch;
 			GUI.enabled = prevState;
 			Do( ( target as T3DFile ).Root );
 		}
@@ -139,6 +146,24 @@
 
 				EditorGUI.indentLevel--;
 			}
+		}
+
+
+
+		bool UpdateSearch( T3DNode n )
+		{
+			bool contains = n.Definition.Contains( SearchContent ) 
+			                || n.Properties.FirstOrDefault( x => x.Contains( SearchContent ) ) != null;
+			foreach( T3DNode child in n.Children )
+			{
+				if( UpdateSearch( child ) )
+					contains = true;
+			}
+			
+			if( contains )
+				_foldedOut.Add( n );
+
+			return contains;
 		}
 	}
 }
