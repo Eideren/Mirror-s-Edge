@@ -18,11 +18,11 @@
 
 
 
-		public void LoadFile(T3DFile file)
+		public object LoadFile(T3DFile file)
 		{
 			_file = file;
 			_nodes = new List<AnimNodeDrawer>();
-			T3DSerialization.Deserialize( file.Root, null, delegate( object deserializedObject )
+			return T3DSerialization.Deserialize( file.Root, null, delegate( object deserializedObject )
 			{
 				if( deserializedObject is AnimNode a )
 					_nodes.Add( new AnimNodeDrawer( a ) );
@@ -122,13 +122,23 @@
 
 
 
+			public Color? BackgroundColor => _rootNode is AnimNode an && an.bRelevant ? new Color(0f, 1f, 0f, 0.1f) : default(Color?);
+			
+			
 			public void OnDraw( NodeDrawer drawer )
 			{
 				_drawer = drawer;
-				drawer.MarkNextAsTarget( _rootNode );
 
-				if( drawer.IsInView( out var rect, 2f ) )
-					GUI.Label( rect, _rootNode.GetType().Name, drawer.Editor.GUIStyleCentered );
+				drawer.MarkNextAsTarget( _rootNode );
+				
+				if( _rootNode is AnimNode n && n.NodeName.Value != "" && drawer.IsInView( out var titleRect, 2f ) )
+				{
+					GUI.Label( titleRect, n.NodeName.ToString(), drawer.Editor.GUIStyleCentered );
+				}
+				if( drawer.IsInView( out var typeRect, 2f ) )
+				{
+					GUI.Label( typeRect, _rootNode.GetType().Name, drawer.Editor.GUIStyleCentered );
+				}
 
 				drawer.UseRect();
 				ReflectionData.ForeachField( ref _rootNode, _cachedInspect ??= DrawField );

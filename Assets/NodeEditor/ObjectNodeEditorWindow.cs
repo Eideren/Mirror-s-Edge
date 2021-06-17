@@ -48,6 +48,9 @@
 			public ObjectNodeDrawer( object content ) => _rootContent = content;
 
 
+			public Color? BackgroundColor{ get; } = null;
+
+
 
 			public void OnDraw( NodeDrawer drawer )
 			{

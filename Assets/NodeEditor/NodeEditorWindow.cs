@@ -176,7 +176,15 @@ namespace MEdge.NodeEditor
 
 				var nodeBG = fieldRect;
 				nodeBG.height = drawer.SurfaceCovered.height + fieldRect.height * 0.1f;
-				EditorGUI.DrawRect( nodeBG, BackgroundColor );
+
+				var bgColor = BackgroundColor;
+				if( node.BackgroundColor is Color c )
+				{
+					var cNoAlphaCopy = c;
+					cNoAlphaCopy.a = 1f;
+					bgColor = Color.Lerp( bgColor, cNoAlphaCopy, c.a );
+				}
+				EditorGUI.DrawRect( nodeBG, bgColor );
 
 				var nodeTitle = fieldRect;
 				nodeTitle.height /= 2;
@@ -342,6 +350,7 @@ namespace MEdge.NodeEditor
 			}
 
 
+			public Color? BackgroundColor{ get; } = null;
 			public void OnDraw( NodeDrawer drawer ) => throw new InvalidOperationException();
 		}
 
@@ -357,6 +366,7 @@ namespace MEdge.NodeEditor
 
 
 
+			public Color? BackgroundColor{ get; } = null;
 			public void OnDraw( NodeDrawer drawer )
 			{
 				if( init == false )
