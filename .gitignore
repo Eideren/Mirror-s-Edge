@@ -8,3 +8,5 @@ obj/
 Temp/
 *.csproj
 *.sln
+*.anim
+*.FBX
