@@ -5,7 +5,6 @@ using System.Runtime.CompilerServices;
 
 namespace MEdge
 {
-
     /// <summary>
     /// This type might not entirely reflect how Unreal Engine's UScript array works, still wip
     /// </summary>
@@ -188,7 +187,7 @@ namespace MEdge
             }
         }
 
-        public Enumerator GetEnumerator() => new Enumerator();
+        public Enumerator GetEnumerator() => new Enumerator( this );
 
         IEnumerator<T> IEnumerable<T>.GetEnumerator() => GetEnumerator();
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
