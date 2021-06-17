@@ -3,6 +3,7 @@
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
+	using System.Reflection;
 	using Core;
 	using JetBrains.Annotations;
 	using Reflection;
@@ -195,18 +196,18 @@
 				         && value[ value.Length - 1 ] == '\'' 
 				         && firstQuote != value.Length - 1 )
 				{
-					//var prefix = value.Substring( 0, firstQuote );
-					var pathOrType = value.Substring( firstQuote + 1, value.Length - firstQuote - 2 );
-					if( pathOrType.Contains( ".Default__" ) )
+					var paramFull = value.Substring( firstQuote + 1, value.Length - firstQuote - 2 );
+					var assemblyToSearchIn = typeof(Core.Object).Assembly;
+					if( paramFull.Contains( ".Default__" ) )
 					{
-						var typeFullName = $"{nameof( MEdge )}.{pathOrType.Replace( ".Default__", "." )}";
-						var assemblyToSearchIn = typeof(Core.Object).Assembly;
-						var type = assemblyToSearchIn.GetType( typeFullName );
+						var partialType = paramFull.Replace( ".Default__", "." );
+						var param = $"{nameof( MEdge )}.{partialType}";
+						var type = assemblyToSearchIn.GetType( param ) ?? assemblyToSearchIn.GetTypes().FirstOrDefault( x => x.Name == partialType );
 						if( type == null )
 						{
 							try
 							{
-								throw new MissingMemberException( $"Could not find type '{typeFullName}' inside assembly '{assemblyToSearchIn}'" );
+								throw new MissingMemberException( $"Could not find type '{param}' inside assembly '{assemblyToSearchIn}'" );
 							}
 							catch( Exception e )
 							{
@@ -220,7 +221,27 @@
 					}
 					else
 					{
-						UnityEngine.Debug.LogWarning( "Deserializing asset reference is not implemented yet" );
+						var partialType = value.Substring( 0, firstQuote );
+						var prefixType = $"{nameof( MEdge )}.{partialType}";;
+						var genericType = assemblyToSearchIn.GetType( prefixType ) ?? assemblyToSearchIn.GetTypes().FirstOrDefault( x => x.Name == partialType );
+						if( genericType == null )
+						{
+							try
+							{
+								throw new MissingMemberException( $"Could not find type '{prefixType}' inside assembly '{assemblyToSearchIn}'" );
+							}
+							catch( Exception e )
+							{
+								if( utility.IgnoreException == null || utility.IgnoreException( e ) == false )
+									throw;
+							}
+							return;
+						}
+						MethodInfo method = typeof(MEdge.Source.Asset).GetMethod(nameof(MEdge.Source.Asset.LoadAsset), BindingFlags.Static | BindingFlags.Public);
+						MethodInfo generic = method.MakeGenericMethod(genericType);
+						var returnValue = generic.Invoke(typeof(MEdge.Source.Asset), new object[]{ (MEdge.Core.String) paramFull } );
+
+						field.SetValueSlow( cache, returnValue );
 					}
 				}
 				else

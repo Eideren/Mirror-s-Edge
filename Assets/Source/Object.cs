@@ -3,22 +3,18 @@
 	using System;
 	using System.Reflection;
 	using Engine;
+	using Source;
 	using static UnityEngine.Debug;
 
 
 
 	public partial class Object
-    {
-	    /// <summary>
-        /// IN UE3:
-        /// TCLASS'Package.Group(s)+.Name'
-        /// </summary>
-        public static TClass LoadAsset<TClass>( String assetPath ) where TClass : new()
-        {
-	        #warning LoadAsset not implemented yet
-	        LogError($"{nameof(LoadAsset)} not implemented yet, requesting '{assetPath}'");
-	        return new TClass();
-        }
+	{
+		/// <summary>
+		/// IN UE3:
+		/// TCLASS'Package.Group(s)+.Name'
+		/// </summary>
+		public static TClass LoadAsset<TClass>( String assetPath ) where TClass : new() => Asset.LoadAsset<TClass>( assetPath );
 
         // Export UObject::execDynamicLoadObject(FFrame&, void* const)
         public /*native final function */static Object DynamicLoadObject(String ObjectName, Core.Class ObjectClass, /*optional */bool? MayFail = default)
