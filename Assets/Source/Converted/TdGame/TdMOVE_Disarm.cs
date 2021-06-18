@@ -81,7 +81,7 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 		ChooseDisarmType(ref/*probably?*/ YawOffset);
 		if(!((DisarmedPawn.Controller) as TdAIController).StartCannedMove(36))
 		{
-			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 			return;
 		}
 		bMoveEnemy = false;
@@ -171,7 +171,7 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 			PlayerPawn.SetFirstPersonDPG(Scene.ESceneDepthPriorityGroup.SDPG_Foreground/*3*/);
 		}
 		PawnOwner.UseRootMotion(true);
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "SnatchFail", 1.0f, 0.10f, 0.40f, true, default);
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "SnatchFail", 1.0f, 0.10f, 0.40f, true, default(bool?));
 	}
 	
 	public virtual /*function */void ChooseDisarmType(ref Object.Rotator YawOffset)
@@ -260,7 +260,7 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 		}
 		if(((WeaponClass) as ClassT<TdWeapon_Pistol_Taser>) != default)
 		{
-			PawnOwner.UpdateAnimSets(default);
+			PawnOwner.UpdateAnimSets(default(TdWeapon?));
 			PawnOwner.SetWeaponAnimState(TdPawn.EWeaponAnimState.WS_Unarmed/*0*/);
 		}
 		PawnOwner.WeaponPoseOffset1p.bDisable = false;
@@ -286,7 +286,7 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 		return;
 	}
 	
@@ -298,7 +298,7 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 	public virtual /*function */void PlayDisarmStart()
 	{
 		TakeDisarmedPawnsWeapon();
-		PlayMoveAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, DisarmAnim, 1.0f, 0.10f, ((DisarmedWeapon == default) ? 0.20f : 0.0f), default, default);
+		PlayMoveAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, DisarmAnim, 1.0f, 0.10f, ((DisarmedWeapon == default) ? 0.20f : 0.0f), default(bool?), default(bool?));
 		((DisarmedPawn.Controller) as TdAIController).TriggerCannedAnim(36, DisarmAnim);
 		if((DisarmedWeapon != default) && DisarmedWeapon.IsA("TdWeapon_Shotgun_Remington870"))
 		{
@@ -322,7 +322,7 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 		DisarmedWeapon = default;
 		PawnOwner.UpdateAnimSets(default);
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, 0.20f);
-		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default, default);
+		PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 	}
 	
 	public override /*simulated function */void MoveRumbleNotify()
@@ -337,9 +337,7 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 	
 	public TdMOVE_Disarm()
 	{
-		// Object Offset:0x005B228D
-		DisarmOffset = 109.9020f;
-		DisarmWaveform = new ForceFeedbackWaveform
+		var Default__TdMOVE_Disarm_DisarmWaveformObj = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x01B6C3EE
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -354,6 +352,9 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdMOVE_Disarm.DisarmWaveformObj' */;
+		// Object Offset:0x005B228D
+		DisarmOffset = 109.9020f;
+		DisarmWaveform = Default__TdMOVE_Disarm_DisarmWaveformObj;
 		PawnPhysics = Actor.EPhysics.PHYS_Flying;
 		AiAimPenalties = new TdMove.AIAimingModifierSettings
 		{

@@ -27,6 +27,12 @@ public partial class TdSoundNodeADSR : SoundNode/*
 	
 	public TdSoundNodeADSR()
 	{
+		var Default__TdSoundNodeADSR_DistributionSustain = new DistributionFloatUniform
+		{
+			// Object Offset:0x01AFC87E
+			Min = 1.0f,
+			Max = 1.0f,
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeADSR.DistributionSustain' */;
 		// Object Offset:0x00659A40
 		Attack = new DistributionFloat.RawDistributionFloat
 		{

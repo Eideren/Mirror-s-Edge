@@ -174,16 +174,23 @@ public partial class TdPickup : DroppedPickup/*
 	}
 	public TdPickup()
 	{
-		// Object Offset:0x0060D6F5
-		AmmoCount = -1;
-		ClipCount = -1;
-		MeshLightEnvironment = new DynamicLightEnvironmentComponent
+		var Default__TdPickup_MyLightEnvironment = new DynamicLightEnvironmentComponent
 		{
 			// Object Offset:0x01B686EA
 			LightDistance = 8.0f,
 			ShadowFilterQuality = LightComponent.EShadowFilterQuality.SFQ_High,
 			BouncedLightingIntensity = 0.20f,
 		}/* Reference: DynamicLightEnvironmentComponent'Default__TdPickup.MyLightEnvironment' */;
+		var Default__TdPickup_CollisionCylinder = new CylinderComponent
+		{
+			// Object Offset:0x01AB4CDE
+			CollisionHeight = 64.0f,
+			CollisionRadius = 300.0f,
+		}/* Reference: CylinderComponent'Default__TdPickup.CollisionCylinder' */;
+		// Object Offset:0x0060D6F5
+		AmmoCount = -1;
+		ClipCount = -1;
+		MeshLightEnvironment = Default__TdPickup_MyLightEnvironment;
 		bAlwaysRelevant = true;
 		bOnlyDirtyReplication = false;
 		bKillDuringLevelTransition = true;
@@ -191,27 +198,11 @@ public partial class TdPickup : DroppedPickup/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__TdPickup.Sprite")/*Ref SpriteComponent'Default__TdPickup.Sprite'*/,
-			new CylinderComponent
-			{
-				// Object Offset:0x01AB4CDE
-				CollisionHeight = 64.0f,
-				CollisionRadius = 300.0f,
-			}/* Reference: CylinderComponent'Default__TdPickup.CollisionCylinder' */,
-			new DynamicLightEnvironmentComponent
-			{
-				// Object Offset:0x01B686EA
-				LightDistance = 8.0f,
-				ShadowFilterQuality = LightComponent.EShadowFilterQuality.SFQ_High,
-				BouncedLightingIntensity = 0.20f,
-			}/* Reference: DynamicLightEnvironmentComponent'Default__TdPickup.MyLightEnvironment' */,
+			Default__TdPickup_CollisionCylinder,
+			Default__TdPickup_MyLightEnvironment,
 		};
 		LifeSpan = 10.0f;
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x01AB4CDE
-			CollisionHeight = 64.0f,
-			CollisionRadius = 300.0f,
-		}/* Reference: CylinderComponent'Default__TdPickup.CollisionCylinder' */;
+		CollisionComponent = Default__TdPickup_CollisionCylinder;
 	}
 }
 }

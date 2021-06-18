@@ -7,31 +7,20 @@ public partial class TdAIBlockingVolume : BlockingVolume/*
 		hidecategories(Navigation,Object,Movement,Display)*/{
 	public TdAIBlockingVolume()
 	{
-		// Object Offset:0x004E7DBC
-		BrushComponent = new BrushComponent
+		var Default__TdAIBlockingVolume_BrushComponent0 = new BrushComponent
 		{
 			// Object Offset:0x01AB456A
 			BlockActors = false,
 			BlockZeroExtent = true,
 			BlockRigidBody = false,
 		}/* Reference: BrushComponent'Default__TdAIBlockingVolume.BrushComponent0' */;
+		// Object Offset:0x004E7DBC
+		BrushComponent = Default__TdAIBlockingVolume_BrushComponent0;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new BrushComponent
-			{
-				// Object Offset:0x01AB456A
-				BlockActors = false,
-				BlockZeroExtent = true,
-				BlockRigidBody = false,
-			}/* Reference: BrushComponent'Default__TdAIBlockingVolume.BrushComponent0' */,
+			Default__TdAIBlockingVolume_BrushComponent0,
 		};
-		CollisionComponent = new BrushComponent
-		{
-			// Object Offset:0x01AB456A
-			BlockActors = false,
-			BlockZeroExtent = true,
-			BlockRigidBody = false,
-		}/* Reference: BrushComponent'Default__TdAIBlockingVolume.BrushComponent0' */;
+		CollisionComponent = Default__TdAIBlockingVolume_BrushComponent0;
 	}
 }
 }

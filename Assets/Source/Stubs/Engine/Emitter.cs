@@ -73,45 +73,44 @@ public partial class Emitter : Actor/*
 	
 	public Emitter()
 	{
-		// Object Offset:0x00316C09
-		ParticleSystemComponent = new ParticleSystemComponent
+		var Default__Emitter_ParticleSystemComponent0 = new ParticleSystemComponent
 		{
 			// Object Offset:0x00317DC7
 			SecondsBeforeInactive = 1.0f,
 		}/* Reference: ParticleSystemComponent'Default__Emitter.ParticleSystemComponent0' */;
+		var Default__Emitter_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x00317D07
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_Emitter")/*Ref Texture2D'EngineResources.S_Emitter'*/,
+			bIsScreenSizeScaled = true,
+			ScreenSize = 0.00250f,
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__Emitter.Sprite' */;
+		var Default__Emitter_ArrowComponent0 = new ArrowComponent
+		{
+			// Object Offset:0x00317DFB
+			ArrowColor = new Color
+			{
+				R=0,
+				G=255,
+				B=128,
+				A=255
+			},
+			ArrowSize = 1.50f,
+		}/* Reference: ArrowComponent'Default__Emitter.ArrowComponent0' */;
+		// Object Offset:0x00316C09
+		ParticleSystemComponent = Default__Emitter_ParticleSystemComponent0;
 		bNoDelete = true;
 		bHardAttach = true;
 		bGameRelevant = true;
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x00317D07
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_Emitter")/*Ref Texture2D'EngineResources.S_Emitter'*/,
-				bIsScreenSizeScaled = true,
-				ScreenSize = 0.00250f,
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__Emitter.Sprite' */,
-			new ParticleSystemComponent
-			{
-				// Object Offset:0x00317DC7
-				SecondsBeforeInactive = 1.0f,
-			}/* Reference: ParticleSystemComponent'Default__Emitter.ParticleSystemComponent0' */,
-			new ArrowComponent
-			{
-				// Object Offset:0x00317DFB
-				ArrowColor = new Color
-				{
-					R=0,
-					G=255,
-					B=128,
-					A=255
-				},
-				ArrowSize = 1.50f,
-			}/* Reference: ArrowComponent'Default__Emitter.ArrowComponent0' */,
+			Default__Emitter_Sprite,
+			Default__Emitter_ParticleSystemComponent0,
+			Default__Emitter_ArrowComponent0,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
 	}

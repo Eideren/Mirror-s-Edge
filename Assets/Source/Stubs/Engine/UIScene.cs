@@ -287,37 +287,7 @@ public partial class UIScene : UIScreenObject/*
 	
 	public UIScene()
 	{
-		// Object Offset:0x0044AAC3
-		DefaultToolTipClass = ClassT<UIToolTip>()/*Ref Class'UIToolTip'*/;
-		DefaultContextMenuClass = ClassT<UIContextMenu>()/*Ref Class'UIContextMenu'*/;
-		LastPlayerIndex = -1;
-		bUpdateDockingStack = true;
-		bUpdateScenePositions = true;
-		bUpdateNavigationLinks = true;
-		bUpdatePrimitiveUsage = true;
-		bDisplayCursor = true;
-		bPauseGameWhileActive = true;
-		bCloseOnLevelChange = true;
-		bSaveSceneValuesOnClose = true;
-		bEnableScenePostProcessing = true;
-		bFlushPlayerInput = true;
-		SceneInputMode = UIRoot.EScreenInputMode.INPUTMODE_Locked;
-		SceneRenderMode = UIRoot.ESplitscreenRenderMode.SPLITRENDER_PlayerOwner;
-		CurrentViewportSize = new Vector2D
-		{
-			X=1024.0f,
-			Y=768.0f
-		};
-		SceneOpenedCue = (name)"SceneOpened";
-		SceneClosedCue = (name)"SceneClosed";
-		DefaultStates = new array< Core.ClassT<UIState> >
-		{
-			ClassT<UIState_Enabled>(),
-			ClassT<UIState_Disabled>(),
-			ClassT<UIState_Focused>(),
-			ClassT<UIState_Active>(),
-		};
-		EventProvider = new UIComp_Event
+		var Default__UIScene_SceneEventComponent = new UIComp_Event
 		{
 			// Object Offset:0x0044AF9E
 			DefaultEvents = new array<UIRoot.DefaultEventSpecification>
@@ -349,6 +319,37 @@ public partial class UIScene : UIScreenObject/*
 				},
 			},
 		}/* Reference: UIComp_Event'Default__UIScene.SceneEventComponent' */;
+		// Object Offset:0x0044AAC3
+		DefaultToolTipClass = ClassT<UIToolTip>()/*Ref Class'UIToolTip'*/;
+		DefaultContextMenuClass = ClassT<UIContextMenu>()/*Ref Class'UIContextMenu'*/;
+		LastPlayerIndex = -1;
+		bUpdateDockingStack = true;
+		bUpdateScenePositions = true;
+		bUpdateNavigationLinks = true;
+		bUpdatePrimitiveUsage = true;
+		bDisplayCursor = true;
+		bPauseGameWhileActive = true;
+		bCloseOnLevelChange = true;
+		bSaveSceneValuesOnClose = true;
+		bEnableScenePostProcessing = true;
+		bFlushPlayerInput = true;
+		SceneInputMode = UIRoot.EScreenInputMode.INPUTMODE_Locked;
+		SceneRenderMode = UIRoot.ESplitscreenRenderMode.SPLITRENDER_PlayerOwner;
+		CurrentViewportSize = new Vector2D
+		{
+			X=1024.0f,
+			Y=768.0f
+		};
+		SceneOpenedCue = (name)"SceneOpened";
+		SceneClosedCue = (name)"SceneClosed";
+		DefaultStates = new array< Core.ClassT<UIState> >
+		{
+			ClassT<UIState_Enabled>(),
+			ClassT<UIState_Disabled>(),
+			ClassT<UIState_Focused>(),
+			ClassT<UIState_Active>(),
+		};
+		EventProvider = Default__UIScene_SceneEventComponent;
 	}
 }
 }

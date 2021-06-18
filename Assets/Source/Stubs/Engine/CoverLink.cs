@@ -574,6 +574,23 @@ public partial class CoverLink : NavigationPoint/*
 	
 	public CoverLink()
 	{
+		var Default__CoverLink_CollisionCylinder = new CylinderComponent
+		{
+			// Object Offset:0x0046641B
+			CollisionHeight = 58.0f,
+			CollisionRadius = 48.0f,
+		}/* Reference: CylinderComponent'Default__CoverLink.CollisionCylinder' */;
+		var Default__CoverLink_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004CF76A
+			Sprite = LoadAsset<Texture2D>("EngineResources.CoverNodeNone")/*Ref Texture2D'EngineResources.CoverNodeNone'*/,
+		}/* Reference: SpriteComponent'Default__CoverLink.Sprite' */;
+		var Default__CoverLink_CoverMesh = new CoverMeshComponent
+		{
+			// Object Offset:0x0046637F
+			bUseAsOccluder = false,
+			bUsePrecomputedShadows = false,
+		}/* Reference: CoverMeshComponent'Default__CoverLink.CoverMesh' */;
 		// Object Offset:0x002E8A8E
 		Slots = new array</*editinline */CoverLink.CoverSlot>
 		{
@@ -693,47 +710,19 @@ public partial class CoverLink : NavigationPoint/*
 		TurnDist = 512.0f;
 		DangerScale = 2.0f;
 		bSpecialMove = true;
-		CylinderComponent = new CylinderComponent
-		{
-			// Object Offset:0x0046641B
-			CollisionHeight = 58.0f,
-			CollisionRadius = 48.0f,
-		}/* Reference: CylinderComponent'Default__CoverLink.CollisionCylinder' */;
-		GoodSprite = new SpriteComponent
-		{
-			// Object Offset:0x004CF76A
-			Sprite = LoadAsset<Texture2D>("EngineResources.CoverNodeNone")/*Ref Texture2D'EngineResources.CoverNodeNone'*/,
-		}/* Reference: SpriteComponent'Default__CoverLink.Sprite' */;
+		CylinderComponent = Default__CoverLink_CollisionCylinder;
+		GoodSprite = Default__CoverLink_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__CoverLink.Sprite2")/*Ref SpriteComponent'Default__CoverLink.Sprite2'*/;
 		Abbrev = "CL";
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004CF76A
-				Sprite = LoadAsset<Texture2D>("EngineResources.CoverNodeNone")/*Ref Texture2D'EngineResources.CoverNodeNone'*/,
-			}/* Reference: SpriteComponent'Default__CoverLink.Sprite' */,
+			Default__CoverLink_Sprite,
 			LoadAsset<SpriteComponent>("Default__CoverLink.Sprite2")/*Ref SpriteComponent'Default__CoverLink.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__CoverLink.Arrow")/*Ref ArrowComponent'Default__CoverLink.Arrow'*/,
-			new CylinderComponent
-			{
-				// Object Offset:0x0046641B
-				CollisionHeight = 58.0f,
-				CollisionRadius = 48.0f,
-			}/* Reference: CylinderComponent'Default__CoverLink.CollisionCylinder' */,
-			new CoverMeshComponent
-			{
-				// Object Offset:0x0046637F
-				bUseAsOccluder = false,
-				bUsePrecomputedShadows = false,
-			}/* Reference: CoverMeshComponent'Default__CoverLink.CoverMesh' */,
+			Default__CoverLink_CollisionCylinder,
+			Default__CoverLink_CoverMesh,
 		};
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x0046641B
-			CollisionHeight = 58.0f,
-			CollisionRadius = 48.0f,
-		}/* Reference: CylinderComponent'Default__CoverLink.CollisionCylinder' */;
+		CollisionComponent = Default__CoverLink_CollisionCylinder;
 	}
 }
 }

@@ -102,7 +102,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 		DataStoreManager = UIInteraction.GetDataStoreClient();
 		if(DataStoreManager != default)
 		{
-			GameData = ((DataStoreManager.FindDataStore("TdGameData", default)) as UIDataStore_TdGameData);
+			GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer?))) as UIDataStore_TdGameData);
 			if(GameData != default)
 			{
 				CurrentCheckpoint = GameData.CheckpointManager.FindCurrentCheckpoint();
@@ -124,7 +124,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 		/*local */SeqEvent_PlayerSpawned SpawnedEvent = default;
 	
 		TeamNum = (((NewPlayer.PlayerReplicationInfo == default) || NewPlayer.PlayerReplicationInfo.Team == default) ? 255 : NewPlayer.PlayerReplicationInfo.Team.TeamIndex);
-		StartSpot = FindPlayerStart(NewPlayer, (byte)((byte)(TeamNum)), default);
+		StartSpot = FindPlayerStart(NewPlayer, (byte)((byte)(TeamNum)), default(String?));
 		if(StartSpot == default)
 		{
 			return;		
@@ -143,7 +143,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 		}
 		if(NewPlayer.Pawn == default)
 		{
-			NewPlayer.GotoState("Dead", default, default, default);
+			NewPlayer.GotoState("Dead", default(name?), default(bool?), default(bool?));
 			if(((NewPlayer) as PlayerController) != default)
 			{
 				((NewPlayer) as PlayerController).ClientGotoState("Dead", "Begin");
@@ -161,7 +161,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 			NewPlayer.Pawn.LastStartTime = WorldInfo.TimeSeconds;
 			NewPlayer.Possess(NewPlayer.Pawn, false);
 			NewPlayer.Pawn.PlayTeleportEffect(true, true);
-			NewPlayer.ClientSetRotation(NewPlayer.Pawn.Rotation, default);
+			NewPlayer.ClientSetRotation(NewPlayer.Pawn.Rotation, default(bool?));
 			if(!WorldInfo.bNoDefaultInventoryForPlayer)
 			{
 				AddDefaultInventory(NewPlayer.Pawn);
@@ -176,7 +176,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 				if(Idx < Events.Length)
 				{
 					SpawnedEvent = ((Events[Idx]) as SeqEvent_PlayerSpawned);
-					if((SpawnedEvent != default) && SpawnedEvent.CheckActivate(NewPlayer, NewPlayer, default, ref/*probably?*/ /*null*/NullRef.array_int_, default))
+					if((SpawnedEvent != default) && SpawnedEvent.CheckActivate(NewPlayer, NewPlayer, default(bool?), ref/*probably?*/ /*null*/NullRef.array_int_, default(bool?)))
 					{
 						SpawnedEvent.SpawnPoint = StartSpot;
 						SpawnedEvent.PopulateLinkedVariableValues();
@@ -201,7 +201,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 	{
 		/*local */TdPlayerController PC = default;
 	
-		if(WorldInfo.IsConsoleBuild(default))
+		if(WorldInfo.IsConsoleBuild(default(WorldInfo.EConsoleType?)))
 		{
 			
 			// foreach LocalPlayerControllers(ClassT<TdPlayerController>(), ref/*probably?*/ PC)
@@ -232,7 +232,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 			J0x50:{}
 			if(I < Events.Length)
 			{
-				((Events[I]) as SeqEvent_LevelLoaded).CheckActivate(WorldInfo, default, default, ref/*probably?*/ /*null*/NullRef.array_int_, default);
+				((Events[I]) as SeqEvent_LevelLoaded).CheckActivate(WorldInfo, default, default(bool?), ref/*probably?*/ /*null*/NullRef.array_int_, default(bool?));
 				++ I;
 				goto J0x50;
 			}
@@ -243,7 +243,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 			{
 				if(Event.IsA("SeqEvt_TdCheckpointLoaded") || Event.IsA("SeqEvt_TdCheckpointActivated"))
 				{
-					Event.CheckActivate(NewPlayer, NewPlayer.Pawn, default, ref/*probably?*/ /*null*/NullRef.array_int_, default);
+					Event.CheckActivate(NewPlayer, NewPlayer.Pawn, default(bool?), ref/*probably?*/ /*null*/NullRef.array_int_, default(bool?));
 				}			
 			}		
 		}

@@ -6,16 +6,17 @@ public partial class TdGenericSpawnMarker : TdMarker/*
 		hidecategories(Navigation)*/{
 	public TdGenericSpawnMarker()
 	{
+		var Default__TdGenericSpawnMarker_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x02E51FA5
+			Sprite = LoadAsset<Texture2D>("TdEditorResources.GenericSpawnIcon")/*Ref Texture2D'TdEditorResources.GenericSpawnIcon'*/,
+			Scale = 0.250f,
+		}/* Reference: SpriteComponent'Default__TdGenericSpawnMarker.Sprite' */;
 		// Object Offset:0x0054D64E
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<ArrowComponent>("Default__TdGenericSpawnMarker.Arrow")/*Ref ArrowComponent'Default__TdGenericSpawnMarker.Arrow'*/,
-			new SpriteComponent
-			{
-				// Object Offset:0x02E51FA5
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.GenericSpawnIcon")/*Ref Texture2D'TdEditorResources.GenericSpawnIcon'*/,
-				Scale = 0.250f,
-			}/* Reference: SpriteComponent'Default__TdGenericSpawnMarker.Sprite' */,
+			Default__TdGenericSpawnMarker_Sprite,
 			LoadAsset<ArrowComponent>("Default__TdGenericSpawnMarker.Arrow")/*Ref ArrowComponent'Default__TdGenericSpawnMarker.Arrow'*/,
 		};
 	}

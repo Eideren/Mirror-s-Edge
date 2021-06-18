@@ -144,6 +144,19 @@ public partial class Projectile : Actor/*
 	}
 	public Projectile()
 	{
+		var Default__Projectile_CollisionCylinder = new CylinderComponent
+		{
+			// Object Offset:0x00466787
+			CollisionHeight = 0.0f,
+			CollisionRadius = 0.0f,
+		}/* Reference: CylinderComponent'Default__Projectile.CollisionCylinder' */;
+		var Default__Projectile_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004D0176
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__Projectile.Sprite' */;
 		// Object Offset:0x003A94D6
 		Speed = 2000.0f;
 		MaxSpeed = 2000.0f;
@@ -151,12 +164,7 @@ public partial class Projectile : Actor/*
 		DamageRadius = 220.0f;
 		MyDamageType = ClassT<DamageType>()/*Ref Class'DamageType'*/;
 		NetCullDistanceSquared = 400000000.0f;
-		CylinderComponent = new CylinderComponent
-		{
-			// Object Offset:0x00466787
-			CollisionHeight = 0.0f,
-			CollisionRadius = 0.0f,
-		}/* Reference: CylinderComponent'Default__Projectile.CollisionCylinder' */;
+		CylinderComponent = Default__Projectile_CollisionCylinder;
 		bNetTemporary = true;
 		bReplicateInstigator = true;
 		bGameRelevant = true;
@@ -165,30 +173,14 @@ public partial class Projectile : Actor/*
 		bCollideWorld = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004D0176
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__Projectile.Sprite' */,
-			new CylinderComponent
-			{
-				// Object Offset:0x00466787
-				CollisionHeight = 0.0f,
-				CollisionRadius = 0.0f,
-			}/* Reference: CylinderComponent'Default__Projectile.CollisionCylinder' */,
+			Default__Projectile_Sprite,
+			Default__Projectile_CollisionCylinder,
 		};
 		Physics = Actor.EPhysics.PHYS_Projectile;
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetPriority = 2.50f;
 		LifeSpan = 14.0f;
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x00466787
-			CollisionHeight = 0.0f,
-			CollisionRadius = 0.0f,
-		}/* Reference: CylinderComponent'Default__Projectile.CollisionCylinder' */;
+		CollisionComponent = Default__Projectile_CollisionCylinder;
 	}
 }
 }

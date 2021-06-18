@@ -77,8 +77,7 @@ public partial class TdMove_RumpSlide : TdPhysicsMove/*
 	
 	public TdMove_RumpSlide()
 	{
-		// Object Offset:0x005D7C21
-		SlideWaveform = new ForceFeedbackWaveform
+		var Default__TdMove_RumpSlide_SlideWaveformObj = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x01B6CA2E
 			bIsLooping = true,
@@ -94,6 +93,8 @@ public partial class TdMove_RumpSlide : TdPhysicsMove/*
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdMove_RumpSlide.SlideWaveformObj' */;
+		// Object Offset:0x005D7C21
+		SlideWaveform = Default__TdMove_RumpSlide_SlideWaveformObj;
 		MaxSlideSpeed = 1000.0f;
 		SideControl = 350.0f;
 		GravityModifier = 0.50f;

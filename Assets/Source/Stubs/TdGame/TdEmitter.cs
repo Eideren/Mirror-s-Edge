@@ -12,26 +12,21 @@ public partial class TdEmitter : Emitter/*
 	
 	public TdEmitter()
 	{
-		// Object Offset:0x00544290
-		ParticleSystemComponent = new ParticleSystemComponent
+		var Default__TdEmitter_ParticleSystemComponent0 = new ParticleSystemComponent
 		{
 			// Object Offset:0x01D7500F
 			bOverrideLODMethod = true,
 			SecondsBeforeInactive = 0.0f,
 			LODMethod = ParticleSystem.ParticleSystemLODMethod.PARTICLESYSTEMLODMETHOD_DirectSet,
 		}/* Reference: ParticleSystemComponent'Default__TdEmitter.ParticleSystemComponent0' */;
+		// Object Offset:0x00544290
+		ParticleSystemComponent = Default__TdEmitter_ParticleSystemComponent0;
 		bDestroyOnSystemFinish = true;
 		bNoDelete = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__TdEmitter.Sprite")/*Ref SpriteComponent'Default__TdEmitter.Sprite'*/,
-			new ParticleSystemComponent
-			{
-				// Object Offset:0x01D7500F
-				bOverrideLODMethod = true,
-				SecondsBeforeInactive = 0.0f,
-				LODMethod = ParticleSystem.ParticleSystemLODMethod.PARTICLESYSTEMLODMETHOD_DirectSet,
-			}/* Reference: ParticleSystemComponent'Default__TdEmitter.ParticleSystemComponent0' */,
+			Default__TdEmitter_ParticleSystemComponent0,
 			LoadAsset<ArrowComponent>("Default__TdEmitter.ArrowComponent0")/*Ref ArrowComponent'Default__TdEmitter.ArrowComponent0'*/,
 		};
 		LifeSpan = 7.0f;

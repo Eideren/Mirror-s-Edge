@@ -29,10 +29,7 @@ public partial class FracturedStaticMeshPart : FracturedStaticMeshActor/*
 	}
 	public FracturedStaticMeshPart()
 	{
-		// Object Offset:0x003233BB
-		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__FracturedStaticMeshPart.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__FracturedStaticMeshPart.MyLightEnvironment'*/;
-		ParticleComponent = LoadAsset<ParticleSystemComponent>("Default__FracturedStaticMeshPart.PartComponent0")/*Ref ParticleSystemComponent'Default__FracturedStaticMeshPart.PartComponent0'*/;
-		FracturedStaticMeshComponent = new FracturedStaticMeshComponent
+		var Default__FracturedStaticMeshPart_FracturedStaticMeshComponent0 = new FracturedStaticMeshComponent
 		{
 			// Object Offset:0x0046A483
 			bUseVisibleVertsForBounds = true,
@@ -47,6 +44,10 @@ public partial class FracturedStaticMeshPart : FracturedStaticMeshActor/*
 				EffectPhysics = true,
 			},
 		}/* Reference: FracturedStaticMeshComponent'Default__FracturedStaticMeshPart.FracturedStaticMeshComponent0' */;
+		// Object Offset:0x003233BB
+		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__FracturedStaticMeshPart.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__FracturedStaticMeshPart.MyLightEnvironment'*/;
+		ParticleComponent = LoadAsset<ParticleSystemComponent>("Default__FracturedStaticMeshPart.PartComponent0")/*Ref ParticleSystemComponent'Default__FracturedStaticMeshPart.PartComponent0'*/;
+		FracturedStaticMeshComponent = Default__FracturedStaticMeshPart_FracturedStaticMeshComponent0;
 		bNoDelete = false;
 		bWorldGeometry = false;
 		bNetInitialRotation = true;
@@ -56,41 +57,13 @@ public partial class FracturedStaticMeshPart : FracturedStaticMeshActor/*
 		bNoEncroachCheck = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new FracturedStaticMeshComponent
-			{
-				// Object Offset:0x0046A483
-				bUseVisibleVertsForBounds = true,
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__FracturedStaticMeshPart.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__FracturedStaticMeshPart.MyLightEnvironment'*/,
-				bAllowApproximateOcclusion = false,
-				bForceDirectLightMap = false,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_EffectPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-			}/* Reference: FracturedStaticMeshComponent'Default__FracturedStaticMeshPart.FracturedStaticMeshComponent0' */,
+			Default__FracturedStaticMeshPart_FracturedStaticMeshComponent0,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__FracturedStaticMeshPart.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__FracturedStaticMeshPart.MyLightEnvironment'*/,
 		};
 		Physics = Actor.EPhysics.PHYS_RigidBody;
 		TickGroup = Object.ETickingGroup.TG_PostAsyncWork;
 		LifeSpan = 15.0f;
-		CollisionComponent = new FracturedStaticMeshComponent
-		{
-			// Object Offset:0x0046A483
-			bUseVisibleVertsForBounds = true,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__FracturedStaticMeshPart.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__FracturedStaticMeshPart.MyLightEnvironment'*/,
-			bAllowApproximateOcclusion = false,
-			bForceDirectLightMap = false,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_EffectPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: FracturedStaticMeshComponent'Default__FracturedStaticMeshPart.FracturedStaticMeshComponent0' */;
+		CollisionComponent = Default__FracturedStaticMeshPart_FracturedStaticMeshComponent0;
 	}
 }
 }

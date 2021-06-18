@@ -358,6 +358,21 @@ public partial class TdMove_WallRun : TdPhysicsMove/*
 	
 	public TdMove_WallRun()
 	{
+		var Default__TdMove_WallRun_IntoWallrunWaveformObj = new ForceFeedbackWaveform
+		{
+			// Object Offset:0x01B6CE3C
+			Samples = new array<ForceFeedbackWaveform.WaveformSample>
+			{
+				new ForceFeedbackWaveform.WaveformSample
+				{
+					LeftAmplitude = 0,
+					RightAmplitude = 30,
+					LeftFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
+					RightFunction = ForceFeedbackWaveform.EWaveformFunction.WF_LinearDecreasing,
+					Duration = 0.40f,
+				},
+			},
+		}/* Reference: ForceFeedbackWaveform'Default__TdMove_WallRun.IntoWallrunWaveformObj' */;
 		// Object Offset:0x005EF165
 		WallRunningForwardCheckDistance = 50.0f;
 		WallRunningStrafeCheckDistance = 50.0f;
@@ -383,21 +398,7 @@ public partial class TdMove_WallRun : TdPhysicsMove/*
 		MaximumVelocityIntoWall = 700.0f;
 		WallrunStartUpperBodyAnimPlayRate = 0.60f;
 		LookAlongWallInterpolationTime = 0.20f;
-		IntoWallrunWaveform = new ForceFeedbackWaveform
-		{
-			// Object Offset:0x01B6CE3C
-			Samples = new array<ForceFeedbackWaveform.WaveformSample>
-			{
-				new ForceFeedbackWaveform.WaveformSample
-				{
-					LeftAmplitude = 0,
-					RightAmplitude = 30,
-					LeftFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
-					RightFunction = ForceFeedbackWaveform.EWaveformFunction.WF_LinearDecreasing,
-					Duration = 0.40f,
-				},
-			},
-		}/* Reference: ForceFeedbackWaveform'Default__TdMove_WallRun.IntoWallrunWaveformObj' */;
+		IntoWallrunWaveform = Default__TdMove_WallRun_IntoWallrunWaveformObj;
 		ControllerState = (name)"PlayerWallWalking";
 		bConstrainLook = true;
 		bUseAbsoluteYawConstraint = true;

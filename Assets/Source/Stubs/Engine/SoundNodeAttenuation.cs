@@ -28,6 +28,30 @@ public partial class SoundNodeAttenuation : SoundNode/*
 	
 	public SoundNodeAttenuation()
 	{
+		var Default__SoundNodeAttenuation_DistributionMinRadius = new DistributionFloatUniform
+		{
+			// Object Offset:0x004679EB
+			Min = 400.0f,
+			Max = 400.0f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAttenuation.DistributionMinRadius' */;
+		var Default__SoundNodeAttenuation_DistributionMaxRadius = new DistributionFloatUniform
+		{
+			// Object Offset:0x0046799B
+			Min = 5000.0f,
+			Max = 5000.0f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAttenuation.DistributionMaxRadius' */;
+		var Default__SoundNodeAttenuation_DistributionLPFMinRadius = new DistributionFloatUniform
+		{
+			// Object Offset:0x0046794B
+			Min = 1500.0f,
+			Max = 1500.0f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAttenuation.DistributionLPFMinRadius' */;
+		var Default__SoundNodeAttenuation_DistributionLPFMaxRadius = new DistributionFloatUniform
+		{
+			// Object Offset:0x004678FB
+			Min = 5000.0f,
+			Max = 5000.0f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAttenuation.DistributionLPFMaxRadius' */;
 		// Object Offset:0x003E8A18
 		MinRadius = new DistributionFloat.RawDistributionFloat
 		{

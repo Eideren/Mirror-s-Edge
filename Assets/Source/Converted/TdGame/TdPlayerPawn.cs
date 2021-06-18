@@ -1674,7 +1674,7 @@ public partial class TdPlayerPawn : TdPawn/*
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ HandleMoveAction = (a)=>{};
+			/*ignores*/ HandleMoveAction = (_a)=>{};
 	
 			SetMove = TdPlayerPawn_UncontrolledFall_SetMove;
 			Landed = TdPlayerPawn_UncontrolledFall_Landed;
@@ -1700,6 +1700,68 @@ public partial class TdPlayerPawn : TdPawn/*
 	}
 	public TdPlayerPawn()
 	{
+		var Default__TdPlayerPawn_TdPawnMesh1p = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x0067F668
+			FOV = 90.0f,
+			SkeletalMesh = LoadAsset<SkeletalMesh>("CH_TKY_Crim_Fixer_1P.SK_UpperBody")/*Ref SkeletalMesh'CH_TKY_Crim_Fixer_1P.SK_UpperBody'*/,
+			AnimTreeTemplate = LoadAsset<AnimTree>("AT_C1P.AT_C1P")/*Ref AnimTree'AT_C1P.AT_C1P'*/,
+			PhysicsAsset = LoadAsset<PhysicsAsset>("CH_TKY_Crim_Fixer_1P.Female1p_UpperBody_Physics")/*Ref PhysicsAsset'CH_TKY_Crim_Fixer_1P.Female1p_UpperBody_Physics'*/,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_C1P_Unarmed.AS_C1P_Unarmed")/*Ref TdAnimSet'AS_C1P_Unarmed.AS_C1P_Unarmed'*/,
+				default,
+				default,
+				default,
+				default,
+			},
+			MorphSets = new array<MorphTargetSet>
+			{
+				LoadAsset<MorphTargetSet>("CH_TKY_Crim_Fixer_1P.Female1p_UpperBody_MorphSet")/*Ref MorphTargetSet'CH_TKY_Crim_Fixer_1P.Female1p_UpperBody_MorphSet'*/,
+			},
+			bHasPhysicsAssetInstance = true,
+			bDisableWarningWhenAnimNotFound = true,
+			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdPlayerPawn.MyLightEnvironment1P")/*Ref DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment1P'*/,
+			DepthPriorityGroup = Scene.ESceneDepthPriorityGroup.SDPG_Foreground,
+			bOnlyOwnerSee = true,
+		}/* Reference: TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh1p' */;
+		var Default__TdPlayerPawn_TdPawnMesh3p = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x0067F510
+			SkeletalMesh = LoadAsset<SkeletalMesh>("CH_TKY_Crim_Fixer.SK_TKY_Crim_Fixer")/*Ref SkeletalMesh'CH_TKY_Crim_Fixer.SK_TKY_Crim_Fixer'*/,
+			AnimTreeTemplate = LoadAsset<AnimTree>("AT_C3P.AT_C3P")/*Ref AnimTree'AT_C3P.AT_C3P'*/,
+			PhysicsAsset = LoadAsset<PhysicsAsset>("CH_TKY_Crim_Fixer.Faith3p_Physics")/*Ref PhysicsAsset'CH_TKY_Crim_Fixer.Faith3p_Physics'*/,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_F3P_Unarmed.AS_F3P_Unarmed")/*Ref TdAnimSet'AS_F3P_Unarmed.AS_F3P_Unarmed'*/,
+				default,
+				default,
+				LoadAsset<TdAnimSet>("AS_F3P_Face.AS_F3P_Face")/*Ref TdAnimSet'AS_F3P_Face.AS_F3P_Face'*/,
+				default,
+			},
+			bEnableFullAnimWeightBodies = true,
+			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdPlayerPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment'*/,
+			bRenderInLiteMirror = true,
+		}/* Reference: TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh3p' */;
+		var Default__TdPlayerPawn_TdPawnMesh1pLowerBody = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x0067F7D0
+			FOV = 90.0f,
+			SkeletalMesh = LoadAsset<SkeletalMesh>("CH_TKY_Crim_Fixer_1P.SK_LowerBody")/*Ref SkeletalMesh'CH_TKY_Crim_Fixer_1P.SK_LowerBody'*/,
+			ParentAnimComponent = LoadAsset<TdSkeletalMeshComponent>("Default__TdPlayerPawn.TdPawnMesh1p")/*Ref TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh1p'*/,
+			bUpdateSkelWhenNotRendered = false,
+			bIgnoreControllersWhenNotRendered = true,
+			bDisableWarningWhenAnimNotFound = true,
+			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdPlayerPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment'*/,
+			DepthPriorityGroup = Scene.ESceneDepthPriorityGroup.SDPG_Intermediate,
+			bOnlyOwnerSee = true,
+		}/* Reference: TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh1pLowerBody' */;
+		var Default__TdPlayerPawn_MyLightEnvironment1P = new DynamicLightEnvironmentComponent
+		{
+			// Object Offset:0x0067F618
+			LightDistance = 8.0f,
+			ShadowDistance = 2.50f,
+		}/* Reference: DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment1P' */;
 		// Object Offset:0x00630A38
 		bEnableHairPhysics = true;
 		FirstPersonDPG = Scene.ESceneDepthPriorityGroup.SDPG_Foreground;
@@ -1737,62 +1799,9 @@ public partial class TdPlayerPawn : TdPawn/*
 		OldMovementState = TdPawn.EMovement.MOVE_None;
 		MovementState = TdPawn.EMovement.MOVE_None;
 		NoOfBreathingSounds = 8;
-		Mesh1p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x0067F668
-			FOV = 90.0f,
-			SkeletalMesh = LoadAsset<SkeletalMesh>("CH_TKY_Crim_Fixer_1P.SK_UpperBody")/*Ref SkeletalMesh'CH_TKY_Crim_Fixer_1P.SK_UpperBody'*/,
-			AnimTreeTemplate = LoadAsset<AnimTree>("AT_C1P.AT_C1P")/*Ref AnimTree'AT_C1P.AT_C1P'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("CH_TKY_Crim_Fixer_1P.Female1p_UpperBody_Physics")/*Ref PhysicsAsset'CH_TKY_Crim_Fixer_1P.Female1p_UpperBody_Physics'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_Unarmed.AS_C1P_Unarmed")/*Ref TdAnimSet'AS_C1P_Unarmed.AS_C1P_Unarmed'*/,
-				default,
-				default,
-				default,
-				default,
-			},
-			MorphSets = new array<MorphTargetSet>
-			{
-				LoadAsset<MorphTargetSet>("CH_TKY_Crim_Fixer_1P.Female1p_UpperBody_MorphSet")/*Ref MorphTargetSet'CH_TKY_Crim_Fixer_1P.Female1p_UpperBody_MorphSet'*/,
-			},
-			bHasPhysicsAssetInstance = true,
-			bDisableWarningWhenAnimNotFound = true,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdPlayerPawn.MyLightEnvironment1P")/*Ref DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment1P'*/,
-			DepthPriorityGroup = Scene.ESceneDepthPriorityGroup.SDPG_Foreground,
-			bOnlyOwnerSee = true,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh1p' */;
-		Mesh3p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x0067F510
-			SkeletalMesh = LoadAsset<SkeletalMesh>("CH_TKY_Crim_Fixer.SK_TKY_Crim_Fixer")/*Ref SkeletalMesh'CH_TKY_Crim_Fixer.SK_TKY_Crim_Fixer'*/,
-			AnimTreeTemplate = LoadAsset<AnimTree>("AT_C3P.AT_C3P")/*Ref AnimTree'AT_C3P.AT_C3P'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("CH_TKY_Crim_Fixer.Faith3p_Physics")/*Ref PhysicsAsset'CH_TKY_Crim_Fixer.Faith3p_Physics'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_Unarmed.AS_F3P_Unarmed")/*Ref TdAnimSet'AS_F3P_Unarmed.AS_F3P_Unarmed'*/,
-				default,
-				default,
-				LoadAsset<TdAnimSet>("AS_F3P_Face.AS_F3P_Face")/*Ref TdAnimSet'AS_F3P_Face.AS_F3P_Face'*/,
-				default,
-			},
-			bEnableFullAnimWeightBodies = true,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdPlayerPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment'*/,
-			bRenderInLiteMirror = true,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh3p' */;
-		Mesh1pLowerBody = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x0067F7D0
-			FOV = 90.0f,
-			SkeletalMesh = LoadAsset<SkeletalMesh>("CH_TKY_Crim_Fixer_1P.SK_LowerBody")/*Ref SkeletalMesh'CH_TKY_Crim_Fixer_1P.SK_LowerBody'*/,
-			ParentAnimComponent = LoadAsset<TdSkeletalMeshComponent>("Default__TdPlayerPawn.TdPawnMesh1p")/*Ref TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh1p'*/,
-			bUpdateSkelWhenNotRendered = false,
-			bIgnoreControllersWhenNotRendered = true,
-			bDisableWarningWhenAnimNotFound = true,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdPlayerPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment'*/,
-			DepthPriorityGroup = Scene.ESceneDepthPriorityGroup.SDPG_Intermediate,
-			bOnlyOwnerSee = true,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh1pLowerBody' */;
+		Mesh1p = Default__TdPlayerPawn_TdPawnMesh1p;
+		Mesh3p = Default__TdPlayerPawn_TdPawnMesh3p;
+		Mesh1pLowerBody = Default__TdPlayerPawn_TdPawnMesh1pLowerBody;
 		BrakingFrictionStrength = 0.50f;
 		ArmorBulletsHeadSettings = new TdPawn.ArmorSettings
 		{
@@ -1866,24 +1875,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		bDirectHitWall = true;
 		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdPlayerPawn.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdPlayerPawn.SceneCaptureCharacterComponent0'*/;
 		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdPlayerPawn.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdPlayerPawn.DrawFrust0'*/;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x0067F510
-			SkeletalMesh = LoadAsset<SkeletalMesh>("CH_TKY_Crim_Fixer.SK_TKY_Crim_Fixer")/*Ref SkeletalMesh'CH_TKY_Crim_Fixer.SK_TKY_Crim_Fixer'*/,
-			AnimTreeTemplate = LoadAsset<AnimTree>("AT_C3P.AT_C3P")/*Ref AnimTree'AT_C3P.AT_C3P'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("CH_TKY_Crim_Fixer.Faith3p_Physics")/*Ref PhysicsAsset'CH_TKY_Crim_Fixer.Faith3p_Physics'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_Unarmed.AS_F3P_Unarmed")/*Ref TdAnimSet'AS_F3P_Unarmed.AS_F3P_Unarmed'*/,
-				default,
-				default,
-				LoadAsset<TdAnimSet>("AS_F3P_Face.AS_F3P_Face")/*Ref TdAnimSet'AS_F3P_Face.AS_F3P_Face'*/,
-				default,
-			},
-			bEnableFullAnimWeightBodies = true,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdPlayerPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment'*/,
-			bRenderInLiteMirror = true,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh3p' */;
+		Mesh = Default__TdPlayerPawn_TdPawnMesh3p;
 		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdPlayerPawn.CollisionCylinder")/*Ref CylinderComponent'Default__TdPlayerPawn.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
@@ -1892,32 +1884,10 @@ public partial class TdPlayerPawn : TdPawn/*
 			LoadAsset<CylinderComponent>("Default__TdPlayerPawn.CollisionCylinder")/*Ref CylinderComponent'Default__TdPlayerPawn.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdPlayerPawn.Arrow")/*Ref ArrowComponent'Default__TdPlayerPawn.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdPlayerPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment'*/,
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x0067F510
-				SkeletalMesh = LoadAsset<SkeletalMesh>("CH_TKY_Crim_Fixer.SK_TKY_Crim_Fixer")/*Ref SkeletalMesh'CH_TKY_Crim_Fixer.SK_TKY_Crim_Fixer'*/,
-				AnimTreeTemplate = LoadAsset<AnimTree>("AT_C3P.AT_C3P")/*Ref AnimTree'AT_C3P.AT_C3P'*/,
-				PhysicsAsset = LoadAsset<PhysicsAsset>("CH_TKY_Crim_Fixer.Faith3p_Physics")/*Ref PhysicsAsset'CH_TKY_Crim_Fixer.Faith3p_Physics'*/,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_F3P_Unarmed.AS_F3P_Unarmed")/*Ref TdAnimSet'AS_F3P_Unarmed.AS_F3P_Unarmed'*/,
-					default,
-					default,
-					LoadAsset<TdAnimSet>("AS_F3P_Face.AS_F3P_Face")/*Ref TdAnimSet'AS_F3P_Face.AS_F3P_Face'*/,
-					default,
-				},
-				bEnableFullAnimWeightBodies = true,
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdPlayerPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment'*/,
-				bRenderInLiteMirror = true,
-			}/* Reference: TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh3p' */,
+			Default__TdPlayerPawn_TdPawnMesh3p,
 			LoadAsset<CylinderComponent>("Default__TdPlayerPawn.CollisionCylinder")/*Ref CylinderComponent'Default__TdPlayerPawn.CollisionCylinder'*/,
 			LoadAsset<CylinderComponent>("Default__TdPlayerPawn.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdPlayerPawn.ActorCollisionCylinder'*/,
-			new DynamicLightEnvironmentComponent
-			{
-				// Object Offset:0x0067F618
-				LightDistance = 8.0f,
-				ShadowDistance = 2.50f,
-			}/* Reference: DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment1P' */,
+			Default__TdPlayerPawn_MyLightEnvironment1P,
 		};
 		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdPlayerPawn.CollisionCylinder")/*Ref CylinderComponent'Default__TdPlayerPawn.CollisionCylinder'*/;
 	}

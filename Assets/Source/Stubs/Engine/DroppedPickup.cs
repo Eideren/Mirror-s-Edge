@@ -92,8 +92,8 @@ public partial class DroppedPickup : Actor/*
 	}
 	
 	public delegate bool ValidTouch_del(Pawn Other);
-	public virtual ValidTouch_del ValidTouch { get => bfield_ValidTouch ?? ((a)=>default); set => bfield_ValidTouch = value; } ValidTouch_del bfield_ValidTouch;
-	public virtual ValidTouch_del global_ValidTouch => (a)=>default;
+	public virtual ValidTouch_del ValidTouch { get => bfield_ValidTouch ?? ((_a)=>default); set => bfield_ValidTouch = value; } ValidTouch_del bfield_ValidTouch;
+	public virtual ValidTouch_del global_ValidTouch => (_a)=>default;
 	
 	public delegate void CheckTouching_del();
 	public virtual CheckTouching_del CheckTouching { get => bfield_CheckTouching ?? (()=>{}); set => bfield_CheckTouching = value; } CheckTouching_del bfield_CheckTouching;
@@ -173,6 +173,21 @@ public partial class DroppedPickup : Actor/*
 	}
 	public DroppedPickup()
 	{
+		var Default__DroppedPickup_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004CF9A6
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_Inventory")/*Ref Texture2D'EngineResources.S_Inventory'*/,
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__DroppedPickup.Sprite' */;
+		var Default__DroppedPickup_CollisionCylinder = new CylinderComponent
+		{
+			// Object Offset:0x00466597
+			CollisionHeight = 20.0f,
+			CollisionRadius = 30.0f,
+			CollideActors = true,
+		}/* Reference: CylinderComponent'Default__DroppedPickup.CollisionCylinder' */;
 		// Object Offset:0x00311AA3
 		bIgnoreRigidBodyPawns = true;
 		bOrientOnSlope = true;
@@ -183,33 +198,14 @@ public partial class DroppedPickup : Actor/*
 		bCollideWorld = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004CF9A6
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_Inventory")/*Ref Texture2D'EngineResources.S_Inventory'*/,
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__DroppedPickup.Sprite' */,
-			new CylinderComponent
-			{
-				// Object Offset:0x00466597
-				CollisionHeight = 20.0f,
-				CollisionRadius = 30.0f,
-				CollideActors = true,
-			}/* Reference: CylinderComponent'Default__DroppedPickup.CollisionCylinder' */,
+			Default__DroppedPickup_Sprite,
+			Default__DroppedPickup_CollisionCylinder,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetUpdateFrequency = 8.0f;
 		NetPriority = 1.40f;
 		LifeSpan = 16.0f;
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x00466597
-			CollisionHeight = 20.0f,
-			CollisionRadius = 30.0f,
-			CollideActors = true,
-		}/* Reference: CylinderComponent'Default__DroppedPickup.CollisionCylinder' */;
+		CollisionComponent = Default__DroppedPickup_CollisionCylinder;
 		RotationRate = new Rotator
 		{
 			Pitch=0,

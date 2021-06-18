@@ -6,16 +6,17 @@ public partial class TargetPoint : Keypoint/*
 		hidecategories(Navigation)*/{
 	public TargetPoint()
 	{
+		var Default__TargetPoint_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004D0656
+			Sprite = LoadAsset<Texture2D>("EditorMaterials.TargetIcon")/*Ref Texture2D'EditorMaterials.TargetIcon'*/,
+			Scale = 0.350f,
+		}/* Reference: SpriteComponent'Default__TargetPoint.Sprite' */;
 		// Object Offset:0x003F745A
 		bStatic = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004D0656
-				Sprite = LoadAsset<Texture2D>("EditorMaterials.TargetIcon")/*Ref Texture2D'EditorMaterials.TargetIcon'*/,
-				Scale = 0.350f,
-			}/* Reference: SpriteComponent'Default__TargetPoint.Sprite' */,
+			Default__TargetPoint_Sprite,
 		};
 	}
 }

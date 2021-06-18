@@ -7,8 +7,7 @@ public partial class PointLightMovable : PointLight/*
 		hidecategories(Navigation)*/{
 	public PointLightMovable()
 	{
-		// Object Offset:0x003A2C87
-		LightComponent = new PointLightComponent
+		var Default__PointLightMovable_PointLightComponent0 = new PointLightComponent
 		{
 			// Object Offset:0x004CADFA
 			PreviewLightRadius = LoadAsset<DrawLightRadiusComponent>("Default__PointLightMovable.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__PointLightMovable.DrawLightRadius0'*/,
@@ -20,29 +19,21 @@ public partial class PointLightMovable : PointLight/*
 			},
 			LightAffectsClassification = LightComponent.ELightAffectsClassification.LAC_DYNAMIC_AND_STATIC_AFFECTING,
 		}/* Reference: PointLightComponent'Default__PointLightMovable.PointLightComponent0' */;
+		var Default__PointLightMovable_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004D000A
+			Sprite = LoadAsset<Texture2D>("EngineResources.LightIcons.Light_Point_Moveable_DynamicsAndStatics")/*Ref Texture2D'EngineResources.LightIcons.Light_Point_Moveable_DynamicsAndStatics'*/,
+		}/* Reference: SpriteComponent'Default__PointLightMovable.Sprite' */;
+		// Object Offset:0x003A2C87
+		LightComponent = Default__PointLightMovable_PointLightComponent0;
 		bStatic = false;
 		bHardAttach = true;
 		bMovable = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004D000A
-				Sprite = LoadAsset<Texture2D>("EngineResources.LightIcons.Light_Point_Moveable_DynamicsAndStatics")/*Ref Texture2D'EngineResources.LightIcons.Light_Point_Moveable_DynamicsAndStatics'*/,
-			}/* Reference: SpriteComponent'Default__PointLightMovable.Sprite' */,
+			Default__PointLightMovable_Sprite,
 			LoadAsset<DrawLightRadiusComponent>("Default__PointLightMovable.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__PointLightMovable.DrawLightRadius0'*/,
-			new PointLightComponent
-			{
-				// Object Offset:0x004CADFA
-				PreviewLightRadius = LoadAsset<DrawLightRadiusComponent>("Default__PointLightMovable.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__PointLightMovable.DrawLightRadius0'*/,
-				CastDynamicShadows = true,
-				UseDirectLightMap = false,
-				LightingChannels = new LightComponent.LightingChannelContainer
-				{
-					Dynamic = true,
-				},
-				LightAffectsClassification = LightComponent.ELightAffectsClassification.LAC_DYNAMIC_AND_STATIC_AFFECTING,
-			}/* Reference: PointLightComponent'Default__PointLightMovable.PointLightComponent0' */,
+			Default__PointLightMovable_PointLightComponent0,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
 	}

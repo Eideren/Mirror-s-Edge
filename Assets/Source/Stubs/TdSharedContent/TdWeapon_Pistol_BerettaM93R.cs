@@ -7,6 +7,53 @@ public partial class TdWeapon_Pistol_BerettaM93R : TdWeapon_Light/*
 		hidecategories(Navigation)*/{
 	public TdWeapon_Pistol_BerettaM93R()
 	{
+		var Default__TdWeapon_Pistol_BerettaM93R_FiringWaveformObj = new ForceFeedbackWaveform
+		{
+			// Object Offset:0x0001367A
+			Samples = new array<ForceFeedbackWaveform.WaveformSample>
+			{
+				new ForceFeedbackWaveform.WaveformSample
+				{
+					LeftAmplitude = 10,
+					RightAmplitude = 10,
+					LeftFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
+					RightFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
+					Duration = 0.20f,
+				},
+			},
+		}/* Reference: ForceFeedbackWaveform'Default__TdWeapon_Pistol_BerettaM93R.FiringWaveformObj' */;
+		var Default__TdWeapon_Pistol_BerettaM93R_FirstPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x000147FB
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_BerettaM93R.SK_BerettaM93R")/*Ref SkeletalMesh'WP_BerettaM93R.SK_BerettaM93R'*/,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R'*/,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.FirstPersonMesh' */;
+		var Default__TdWeapon_Pistol_BerettaM93R_ThirdPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x00014853
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_BerettaM93R.SK_BerettaM93R")/*Ref SkeletalMesh'WP_BerettaM93R.SK_BerettaM93R'*/,
+			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_BerettaM93R.PA_BerettaM93R")/*Ref PhysicsAsset'WP_BerettaM93R.PA_BerettaM93R'*/,
+			PhysicsWeight = 1.0f,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R'*/,
+			},
+			bUpdateJointsFromAnimation = true,
+			bEnableFullAnimWeightBodies = true,
+			bUseAsOccluder = false,
+			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
+			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
+			{
+				Default = true,
+				GameplayPhysics = true,
+				EffectPhysics = true,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.ThirdPersonMesh' */;
 		// Object Offset:0x0000BB61
 		AimOffsetProfileNames = new array<name>
 		{
@@ -24,21 +71,7 @@ public partial class TdWeapon_Pistol_BerettaM93R : TdWeapon_Light/*
 		MuzzleFlashSocket = (name)"Muzzleflash";
 		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_Shell9mm_Auto")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_Shell9mm_Auto'*/;
 		ShellEjectSocket = (name)"ShellEject";
-		FiringWaveform = new ForceFeedbackWaveform
-		{
-			// Object Offset:0x0001367A
-			Samples = new array<ForceFeedbackWaveform.WaveformSample>
-			{
-				new ForceFeedbackWaveform.WaveformSample
-				{
-					LeftAmplitude = 10,
-					RightAmplitude = 10,
-					LeftFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
-					RightFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
-					Duration = 0.20f,
-				},
-			},
-		}/* Reference: ForceFeedbackWaveform'Default__TdWeapon_Pistol_BerettaM93R.FiringWaveformObj' */;
+		FiringWaveform = Default__TdWeapon_Pistol_BerettaM93R_FiringWaveformObj;
 		MaxAmmo = 21;
 		ReloadTime = 2.0f;
 		AmmoCount = 21;
@@ -71,38 +104,8 @@ public partial class TdWeapon_Pistol_BerettaM93R : TdWeapon_Light/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R'*/;
-		Mesh1p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x000147FB
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_BerettaM93R.SK_BerettaM93R")/*Ref SkeletalMesh'WP_BerettaM93R.SK_BerettaM93R'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.FirstPersonMesh' */;
-		Mesh3p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014853
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_BerettaM93R.SK_BerettaM93R")/*Ref SkeletalMesh'WP_BerettaM93R.SK_BerettaM93R'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_BerettaM93R.PA_BerettaM93R")/*Ref PhysicsAsset'WP_BerettaM93R.PA_BerettaM93R'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bUseAsOccluder = false,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.ThirdPersonMesh' */;
+		Mesh1p = Default__TdWeapon_Pistol_BerettaM93R_FirstPersonMesh;
+		Mesh3p = Default__TdWeapon_Pistol_BerettaM93R_ThirdPersonMesh;
 		CombatRange_Min = 1200.0f;
 		CombatRange_Max = 2500.0f;
 		AimedBurst_Near = new TdWeapon.AIBurstInfo
@@ -148,82 +151,13 @@ public partial class TdWeapon_Pistol_BerettaM93R : TdWeapon_Light/*
 		};
 		EquipTime = 0.750f;
 		WeaponRange = 4500.0f;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x000147FB
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_BerettaM93R.SK_BerettaM93R")/*Ref SkeletalMesh'WP_BerettaM93R.SK_BerettaM93R'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.FirstPersonMesh' */;
-		DroppedPickupMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014853
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_BerettaM93R.SK_BerettaM93R")/*Ref SkeletalMesh'WP_BerettaM93R.SK_BerettaM93R'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_BerettaM93R.PA_BerettaM93R")/*Ref PhysicsAsset'WP_BerettaM93R.PA_BerettaM93R'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bUseAsOccluder = false,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.ThirdPersonMesh' */;
-		PickupFactoryMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x000147FB
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_BerettaM93R.SK_BerettaM93R")/*Ref SkeletalMesh'WP_BerettaM93R.SK_BerettaM93R'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.FirstPersonMesh' */;
+		Mesh = Default__TdWeapon_Pistol_BerettaM93R_FirstPersonMesh;
+		DroppedPickupMesh = Default__TdWeapon_Pistol_BerettaM93R_ThirdPersonMesh;
+		PickupFactoryMesh = Default__TdWeapon_Pistol_BerettaM93R_FirstPersonMesh;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x000147FB
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_BerettaM93R.SK_BerettaM93R")/*Ref SkeletalMesh'WP_BerettaM93R.SK_BerettaM93R'*/,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R'*/,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.FirstPersonMesh' */,
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00014853
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_BerettaM93R.SK_BerettaM93R")/*Ref SkeletalMesh'WP_BerettaM93R.SK_BerettaM93R'*/,
-				PhysicsAsset = LoadAsset<PhysicsAsset>("WP_BerettaM93R.PA_BerettaM93R")/*Ref PhysicsAsset'WP_BerettaM93R.PA_BerettaM93R'*/,
-				PhysicsWeight = 1.0f,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R'*/,
-				},
-				bUpdateJointsFromAnimation = true,
-				bEnableFullAnimWeightBodies = true,
-				bUseAsOccluder = false,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.ThirdPersonMesh' */,
+			Default__TdWeapon_Pistol_BerettaM93R_FirstPersonMesh,
+			Default__TdWeapon_Pistol_BerettaM93R_ThirdPersonMesh,
 		};
 	}
 }

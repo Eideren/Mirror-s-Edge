@@ -118,13 +118,13 @@ public partial class GameInfo : Info/*
 			}
 		}
 		SetGameSpeed(GameSpeed);
-		GameReplicationInfo = Spawn(GameReplicationInfoClass, default, default, default, default, default, default);
+		GameReplicationInfo = Spawn(GameReplicationInfoClass, default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
 		WorldInfo.GRI = GameReplicationInfo;
 		GameReplicationInfo.bIsArbitrated = bUsingArbitration;
 		InitGameReplicationInfo();
 		if(DialogueManagerClass != "")
 		{
-			DialogueManager = Spawn(((DynamicLoadObject(DialogueManagerClass, ClassT<Class>(), default)) as ClassT<DialogueManager>), default, default, default, default, default, default);
+			DialogueManager = Spawn(((DynamicLoadObject(DialogueManagerClass, ClassT<Class>(), default(bool?))) as ClassT<DialogueManager>), default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
 		}
 	}
 	
@@ -155,7 +155,7 @@ public partial class GameInfo : Info/*
 	{
 		if((CoverReplicatorBase == default) && ((int)WorldInfo.NetMode) != ((int)WorldInfo.ENetMode.NM_Standalone/*0*/))
 		{
-			CoverReplicatorBase = Spawn(ClassT<CoverReplicator>(), default, default, default, default, default, default);
+			CoverReplicatorBase = Spawn(ClassT<CoverReplicator>(), default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
 		}
 		return CoverReplicatorBase;
 	}
@@ -226,7 +226,7 @@ public partial class GameInfo : Info/*
 			J0x11E:{}
 			if(I < AllSeqEvents.Length)
 			{
-				((AllSeqEvents[I]) as SeqEvent_LevelReset).CheckActivate(WorldInfo, default, default, ref/*probably?*/ /*null*/NullRef.array_int_, default);
+				((AllSeqEvents[I]) as SeqEvent_LevelReset).CheckActivate(WorldInfo, default, default(bool?), ref/*probably?*/ /*null*/NullRef.array_int_, default(bool?));
 				++ I;
 				goto J0x11E;
 			}
@@ -247,7 +247,7 @@ public partial class GameInfo : Info/*
 			-- AutomatedPerfRemainingTime;
 			if(AutomatedPerfRemainingTime <= 0)
 			{
-				ConsoleCommand("EXIT", default);
+				ConsoleCommand("EXIT", default(bool?));
 			}
 		}
 	}
@@ -412,22 +412,22 @@ public partial class GameInfo : Info/*
 	{
 		GameSpeed = FMax(T, 0.10f);
 		WorldInfo.TimeDilation = GameSpeed;
-		SetTimer(WorldInfo.TimeDilation, true, default, default);
+		SetTimer(WorldInfo.TimeDilation, true, default(name?), default(Object?));
 	}
 	
 	public /*function */static bool GrabOption(ref String Options, ref String Result)
 	{
 		if(Left(Options, 1) == "?")
 		{
-			Result = Mid(Options, 1, default);
-			if(InStr(Result, "?", default) >= 0)
+			Result = Mid(Options, 1, default(int?));
+			if(InStr(Result, "?", default(bool?)) >= 0)
 			{
-				Result = Left(Result, InStr(Result, "?", default));
+				Result = Left(Result, InStr(Result, "?", default(bool?)));
 			}
-			Options = Mid(Options, 1, default);
-			if(InStr(Options, "?", default) >= 0)
+			Options = Mid(Options, 1, default(int?));
+			if(InStr(Options, "?", default(bool?)) >= 0)
 			{
-				Options = Mid(Options, InStr(Options, "?", default), default);			
+				Options = Mid(Options, InStr(Options, "?", default(bool?)), default(int?));			
 			}
 			else
 			{
@@ -446,10 +446,10 @@ public partial class GameInfo : Info/*
 	
 	public /*function */static void GetKeyValue(String Pair, ref String Key, ref String Value)
 	{
-		if(InStr(Pair, "=", default) >= 0)
+		if(InStr(Pair, "=", default(bool?)) >= 0)
 		{
-			Key = Left(Pair, InStr(Pair, "=", default));
-			Value = Mid(Pair, InStr(Pair, "=", default) + 1, default);		
+			Key = Left(Pair, InStr(Pair, "=", default(bool?)));
+			Value = Mid(Pair, InStr(Pair, "=", default(bool?)) + 1, default(int?));		
 		}
 		else
 		{
@@ -531,11 +531,11 @@ public partial class GameInfo : Info/*
 		}
 		TimeLimit = Max(0, GetIntOption(Options, "TimeLimit", TimeLimit));
 		AutomatedPerfRemainingTime = 60 * TimeLimit;
-		BroadcastHandler = Spawn(BroadcastHandlerClass, default, default, default, default, default, default);
+		BroadcastHandler = Spawn(BroadcastHandlerClass, default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
 		InOpt = ParseOption(Options, "AccessControl");
 		if(InOpt != "")
 		{
-			ACClass = ((DynamicLoadObject(InOpt, ClassT<Class>(), default)) as ClassT<AccessControl>);
+			ACClass = ((DynamicLoadObject(InOpt, ClassT<Class>(), default(bool?))) as ClassT<AccessControl>);
 		}
 		if(ACClass == default)
 		{
@@ -545,7 +545,7 @@ public partial class GameInfo : Info/*
 		InOpt = ParseOption(Options, "AdminPassword");
 		if((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_ListenServer/*2*/)) || ((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/))
 		{
-			AccessControl = Spawn(ACClass, default, default, default, default, default, default);
+			AccessControl = Spawn(ACClass, default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
 			if((AccessControl != default) && InOpt != "")
 			{
 				AccessControl.SetAdminPassword(InOpt);
@@ -557,7 +557,7 @@ public partial class GameInfo : Info/*
 			J0x26A:{}
 			if(InOpt != "")
 			{
-				pos = InStr(InOpt, ",", default);
+				pos = InStr(InOpt, ",", default(bool?));
 				if(pos > 0)
 				{
 					LeftOpt = Left(InOpt, pos);
@@ -662,7 +662,7 @@ public partial class GameInfo : Info/*
 		{
 			return;
 		}
-		mutClass = ((DynamicLoadObject(mutname, ClassT<Class>(), default)) as ClassT<Mutator>);
+		mutClass = ((DynamicLoadObject(mutname, ClassT<Class>(), default(bool?))) as ClassT<Mutator>);
 		if(mutClass == default)
 		{
 			return;
@@ -699,7 +699,7 @@ public partial class GameInfo : Info/*
 			mut = mut.NextMutator;
 			goto J0xFA;
 		}
-		mut = Spawn(mutClass, default, default, default, default, default, default);
+		mut = Spawn(mutClass, default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
 		if(mut == default)
 		{
 			return;
@@ -721,11 +721,11 @@ public partial class GameInfo : Info/*
 		{
 			if(GameRulesModifiers == default)
 			{
-				GameRulesModifiers = Spawn(GRClass, default, default, default, default, default, default);			
+				GameRulesModifiers = Spawn(GRClass, default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));			
 			}
 			else
 			{
-				GameRulesModifiers.AddGameRules(Spawn(GRClass, default, default, default, default, default, default));
+				GameRulesModifiers.AddGameRules(Spawn(GRClass, default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?)));
 			}
 		}
 	}
@@ -776,13 +776,13 @@ public partial class GameInfo : Info/*
 		bLevelChange = true;
 		EndLogging("mapchange");
 		bSeamless = bUseSeamlessTravel && WorldInfo.TimeSeconds < 172800.0f;
-		if(InStr(Caps(URL), "?RESTART", default) != -1)
+		if(InStr(Caps(URL), "?RESTART", default(bool?)) != -1)
 		{
 			NextMap = ((WorldInfo.GetPackageName())).ToString();		
 		}
 		else
 		{
-			OptionStart = InStr(URL, "?", default);
+			OptionStart = InStr(URL, "?", default(bool?));
 			if(OptionStart == -1)
 			{
 				NextMap = URL;			
@@ -812,7 +812,7 @@ public partial class GameInfo : Info/*
 		}
 		if(bSeamless)
 		{
-			WorldInfo.SeamlessTravel(WorldInfo.NextURL, bAbsolute, default);
+			WorldInfo.SeamlessTravel(WorldInfo.NextURL, bAbsolute, default(Object.Guid?));
 			WorldInfo.NextURL = "";		
 		}
 		else
@@ -910,7 +910,7 @@ public partial class GameInfo : Info/*
 			return default;
 		}
 		SpawnRotation.Yaw = StartSpot.Rotation.Yaw;
-		NewPlayer = Spawn(PlayerControllerClass, default, default, StartSpot.Location, SpawnRotation, default, default);
+		NewPlayer = Spawn(PlayerControllerClass, default(Actor?), default(name?), StartSpot.Location, SpawnRotation, default(Actor?), default(bool?));
 		if(NewPlayer == default)
 		{
 			ErrorMessage = GameMessageClass.DefaultAs<GameMessage>().FailedSpawnMessage;
@@ -927,7 +927,7 @@ public partial class GameInfo : Info/*
 		NewPlayer.SetCharacter(inCharacter);
 		if((bSpectator || NewPlayer.PlayerReplicationInfo.bOnlySpectator) || !ChangeTeam(NewPlayer, ((int)InTeam), false))
 		{
-			NewPlayer.GotoState("Spectating", default, default, default);
+			NewPlayer.GotoState("Spectating", default(name?), default(bool?), default(bool?));
 			NewPlayer.PlayerReplicationInfo.bOnlySpectator = true;
 			NewPlayer.PlayerReplicationInfo.bIsSpectator = true;
 			NewPlayer.PlayerReplicationInfo.bOutOfLives = true;
@@ -939,7 +939,7 @@ public partial class GameInfo : Info/*
 		}
 		if(bDelayedStart)
 		{
-			NewPlayer.GotoState("PlayerWaiting", default, default, default);
+			NewPlayer.GotoState("PlayerWaiting", default(name?), default(bool?), default(bool?));
 			return NewPlayer;
 		}
 		return NewPlayer;
@@ -963,7 +963,7 @@ public partial class GameInfo : Info/*
 		StartBots();
 		bWaitingToStartMatch = false;
 		StartOnlineGame();
-		WorldInfo.NotifyMatchStarted(default, default, default);
+		WorldInfo.NotifyMatchStarted(default(bool?), default(bool?), default(bool?));
 	}
 	
 	public virtual /*function */void StartOnlineGame()
@@ -1045,7 +1045,7 @@ public partial class GameInfo : Info/*
 					RestartPlayer(P);
 					continue;
 				}
-				P.GotoState("Dead", "MPStart", default, default);
+				P.GotoState("Dead", "MPStart", default(bool?), default(bool?));
 			}		
 		}	
 	}
@@ -1062,7 +1062,7 @@ public partial class GameInfo : Info/*
 			return;
 		}
 		TeamNum = (((NewPlayer.PlayerReplicationInfo == default) || NewPlayer.PlayerReplicationInfo.Team == default) ? 255 : NewPlayer.PlayerReplicationInfo.Team.TeamIndex);
-		StartSpot = FindPlayerStart(NewPlayer, (byte)((byte)(TeamNum)), default);
+		StartSpot = FindPlayerStart(NewPlayer, (byte)((byte)(TeamNum)), default(String?));
 		if(StartSpot == default)
 		{
 			if(NewPlayer.StartSpot != default)
@@ -1080,7 +1080,7 @@ public partial class GameInfo : Info/*
 		}
 		if(NewPlayer.Pawn == default)
 		{
-			NewPlayer.GotoState("Dead", default, default, default);
+			NewPlayer.GotoState("Dead", default(name?), default(bool?), default(bool?));
 			if(((NewPlayer) as PlayerController) != default)
 			{
 				((NewPlayer) as PlayerController).ClientGotoState("Dead", "Begin");
@@ -1098,7 +1098,7 @@ public partial class GameInfo : Info/*
 			NewPlayer.Pawn.LastStartTime = WorldInfo.TimeSeconds;
 			NewPlayer.Possess(NewPlayer.Pawn, false);
 			NewPlayer.Pawn.PlayTeleportEffect(true, true);
-			NewPlayer.ClientSetRotation(NewPlayer.Pawn.Rotation, default);
+			NewPlayer.ClientSetRotation(NewPlayer.Pawn.Rotation, default(bool?));
 			if(!WorldInfo.bNoDefaultInventoryForPlayer)
 			{
 				AddDefaultInventory(NewPlayer.Pawn);
@@ -1112,7 +1112,7 @@ public partial class GameInfo : Info/*
 				if(Idx < Events.Length)
 				{
 					SpawnedEvent = ((Events[Idx]) as SeqEvent_PlayerSpawned);
-					if((SpawnedEvent != default) && SpawnedEvent.CheckActivate(NewPlayer, NewPlayer, default, ref/*probably?*/ /*null*/NullRef.array_int_, default))
+					if((SpawnedEvent != default) && SpawnedEvent.CheckActivate(NewPlayer, NewPlayer, default(bool?), ref/*probably?*/ /*null*/NullRef.array_int_, default(bool?)))
 					{
 						SpawnedEvent.SpawnPoint = StartSpot;
 						SpawnedEvent.PopulateLinkedVariableValues();
@@ -1132,7 +1132,7 @@ public partial class GameInfo : Info/*
 	
 		DefaultPlayerClass = GetDefaultPlayerClass(NewPlayer);
 		StartRotation.Yaw = StartSpot.Rotation.Yaw;
-		ResultPawn = Spawn(DefaultPlayerClass, default, default, StartSpot.Location, StartRotation, default, default);
+		ResultPawn = Spawn(DefaultPlayerClass, default(Actor?), default(name?), StartSpot.Location, StartRotation, default(Actor?), default(bool?));
 		if(ResultPawn == default)
 		{
 		}
@@ -1161,7 +1161,7 @@ public partial class GameInfo : Info/*
 					++ LevelIndex;
 					goto J0x53;
 				}
-				PC.ClientCommitMapChange(default, default);
+				PC.ClientCommitMapChange(default(bool?), default(bool?));
 			}
 			if(WorldInfo.StreamingLevels.Length > 0)
 			{
@@ -1218,7 +1218,7 @@ public partial class GameInfo : Info/*
 		}
 		UpdateGameSettingsCounts();
 		Address = NewPlayer.GetPlayerNetworkAddress();
-		pos = InStr(Address, ":", default);
+		pos = InStr(Address, ":", default(bool?));
 		NewPlayer.PlayerReplicationInfo.SavedNetworkAddress = ((pos > 0) ? Left(Address, pos) : Address);
 		FindInactivePRI(NewPlayer);
 		if(!bDelayedStart)
@@ -1269,7 +1269,7 @@ public partial class GameInfo : Info/*
 		}
 		if(NewPlayer.PlayerReplicationInfo.bOnlySpectator)
 		{
-			NewPlayer.ClientGotoState("Spectating", default);
+			NewPlayer.ClientGotoState("Spectating", default(name?));
 		}
 	}
 	
@@ -1430,7 +1430,7 @@ public partial class GameInfo : Info/*
 	
 	public /*function */static String ParseKillMessage(String KillerName, String VictimName, String DeathMessage)
 	{
-		return Repl(Repl(DeathMessage, "`k", KillerName, default), "`o", VictimName, default);
+		return Repl(Repl(DeathMessage, "`k", KillerName, default(bool?)), "`o", VictimName, default(bool?));
 	}
 	
 	public virtual /*function */void Kick(String S)
@@ -1481,13 +1481,13 @@ public partial class GameInfo : Info/*
 	{
 		if(Other.bPhysXMutatable)
 		{
-			if(!IsPhysXEnhanced() && InStr("PHYSXONLY", Caps(((Other.Group)).ToString()), default) >= 0)
+			if(!IsPhysXEnhanced() && InStr("PHYSXONLY", Caps(((Other.Group)).ToString()), default(bool?)) >= 0)
 			{
 				return false;			
 			}
 			else
 			{
-				if((IsPhysXEnhanced()) && InStr("PHYSXREMOVE", Caps(((Other.Group)).ToString()), default) >= 0)
+				if((IsPhysXEnhanced()) && InStr("PHYSXREMOVE", Caps(((Other.Group)).ToString()), default(bool?)) >= 0)
 				{
 					return false;
 				}
@@ -1556,7 +1556,7 @@ public partial class GameInfo : Info/*
 	
 	public virtual /*function */void SendPlayer(PlayerController aPlayer, String URL)
 	{
-		aPlayer.ClientTravel(URL, Actor.ETravelType.TRAVEL_Relative/*2*/, default, default);
+		aPlayer.ClientTravel(URL, Actor.ETravelType.TRAVEL_Relative/*2*/, default(bool?), default(Object.Guid?));
 	}
 	
 	public virtual /*function */String GetNextMap()
@@ -1599,8 +1599,8 @@ public partial class GameInfo : Info/*
 				{
 					if(bCheckingForMemLeaks == true)
 					{
-						ConsoleCommand("STOPTRACKING", default);
-						ConsoleCommand("DUMPALLOCSTOFILE", default);
+						ConsoleCommand("STOPTRACKING", default(bool?));
+						ConsoleCommand("DUMPALLOCSTOFILE", default(bool?));
 					}
 				}			
 			}
@@ -1619,8 +1619,8 @@ public partial class GameInfo : Info/*
 					{
 						if(bCheckingForMemLeaks == true)
 						{
-							ConsoleCommand("STOPTRACKING", default);
-							ConsoleCommand("DUMPALLOCSTOFILE", default);
+							ConsoleCommand("STOPTRACKING", default(bool?));
+							ConsoleCommand("DUMPALLOCSTOFILE", default(bool?));
 						}
 					}				
 				}			
@@ -1680,7 +1680,7 @@ public partial class GameInfo : Info/*
 					{
 						URLString = WorldInfo.GetLocalURL();
 						URLMapLen = Len(URLString);
-						MapNameLen = InStr(URLString, "?", default);
+						MapNameLen = InStr(URLString, "?", default(bool?));
 						if(MapNameLen != -1)
 						{
 							URLString = Right(URLString, URLMapLen - MapNameLen);
@@ -1691,7 +1691,7 @@ public partial class GameInfo : Info/*
 					else
 					{
 						TransitionMapCmdLine = (((("?AutomatedTestingMapIndex=" + ((AutomatedTestingMapIndex)).ToString()) + "?NumberOfMatchesPlayed=") + ((NumberOfMatchesPlayed)).ToString()) + "?NumMapListCyclesDone=") + ((NumMapListCyclesDone)).ToString();
-						ConsoleCommand(("open " + NextMap) + TransitionMapCmdLine, default);
+						ConsoleCommand(("open " + NextMap) + TransitionMapCmdLine, default(bool?));
 					}
 				}
 				return;
@@ -1748,7 +1748,7 @@ public partial class GameInfo : Info/*
 		using var e25 = WorldInfo.AllControllers(ClassT<Controller>()).GetEnumerator();
 		while(e25.MoveNext() && (P = (Controller)e25.Current) == P)
 		{
-			P.GameHasEnded(default, default);		
+			P.GameHasEnded(default(Actor?), default(bool?));		
 		}	
 		return true;
 	}
@@ -1817,7 +1817,7 @@ public partial class GameInfo : Info/*
 					++ Index;
 					goto J0x90;
 				}
-				SetTimer(2.0f, false, "ProcessEndGameHandshake", default);
+				SetTimer(2.0f, false, "ProcessEndGameHandshake", default(Object?));
 				bNeedsEndGameHandshake = false;
 				bIsEndGameHandshakeComplete = false;
 			}
@@ -2060,7 +2060,7 @@ public partial class GameInfo : Info/*
 			WorldInfo.GRI.RemovePRI(NewPRI);
 			NewPRI.RemoteRole = Actor.ENetRole.ROLE_None/*0*/;
 			NewPRI.LifeSpan = 300.0f;
-			bIsConsole = WorldInfo.IsConsoleBuild(default);
+			bIsConsole = WorldInfo.IsConsoleBuild(default(WorldInfo.EConsoleType?));
 			I = 0;
 			J0xAF:{}
 			if(I < InactivePRIArray.Length)
@@ -2094,7 +2094,7 @@ public partial class GameInfo : Info/*
 		{
 			return false;
 		}
-		bIsConsole = WorldInfo.IsConsoleBuild(default);
+		bIsConsole = WorldInfo.IsConsoleBuild(default(WorldInfo.EConsoleType?));
 		NewNetworkAddress = PC.PlayerReplicationInfo.SavedNetworkAddress;
 		NewName = PC.PlayerReplicationInfo.PlayerName;
 		I = 0;
@@ -2221,7 +2221,7 @@ public partial class GameInfo : Info/*
 		{
 			if(PC.Player != default)
 			{
-				NewPC = Spawn(PlayerControllerClass, default, default, PC.Location, PC.Rotation, default, default);
+				NewPC = Spawn(PlayerControllerClass, default(Actor?), default(name?), PC.Location, PC.Rotation, default(Actor?), default(bool?));
 				if(NewPC == default)
 				{
 					PC.Destroy();
@@ -2255,7 +2255,7 @@ public partial class GameInfo : Info/*
 			C.PlayerReplicationInfo.Team.Destroy();
 			C.PlayerReplicationInfo.Team = default;
 		}
-		StartSpot = FindPlayerStart(C, (byte)C.GetTeamNum(), default);
+		StartSpot = FindPlayerStart(C, (byte)C.GetTeamNum(), default(String?));
 		if(StartSpot == default)
 		{		
 		}
@@ -2270,11 +2270,11 @@ public partial class GameInfo : Info/*
 		{
 			PC.CleanUpAudioComponents();
 			PC.ClientInitializeDataStores();
-			PC.SetViewTarget(PC, default);
+			PC.SetViewTarget(PC, default(Camera.ViewTargetTransitionParams?));
 			if(PC.PlayerReplicationInfo.bOnlySpectator)
 			{
-				PC.GotoState("Spectating", default, default, default);
-				PC.ClientGotoState("Spectating", default);
+				PC.GotoState("Spectating", default(name?), default(bool?), default(bool?));
+				PC.ClientGotoState("Spectating", default(name?));
 				PC.PlayerReplicationInfo.bIsSpectator = true;
 				PC.PlayerReplicationInfo.bOutOfLives = true;
 				++ NumSpectators;			
@@ -2283,7 +2283,7 @@ public partial class GameInfo : Info/*
 			{
 				++ NumPlayers;
 				-- NumTravellingPlayers;
-				PC.GotoState("PlayerWaiting", default, default, default);
+				PC.GotoState("PlayerWaiting", default(name?), default(bool?), default(bool?));
 			}
 			PC.ClientSetHUD(HUDType, ScoreBoardType);
 			ReplicateStreamingStatus(PC);
@@ -2297,7 +2297,7 @@ public partial class GameInfo : Info/*
 		else
 		{
 			++ NumBots;
-			C.GotoState("RoundEnded", default, default, default);
+			C.GotoState("RoundEnded", default(name?), default(bool?), default(bool?));
 		}
 		if(BaseMutator != default)
 		{
@@ -2388,7 +2388,7 @@ public partial class GameInfo : Info/*
 		}
 		else
 		{
-			SetTimer(5.0f, false, "ServerWriteArbitrationEndGameData", default);
+			SetTimer(5.0f, false, "ServerWriteArbitrationEndGameData", default(Object?));
 		}
 	}
 	
@@ -2409,7 +2409,7 @@ public partial class GameInfo : Info/*
 	
 	public virtual /*function */void ServerWriteArbitrationEndGameData()
 	{
-		SetTimer(0.0f, false, "ServerWriteArbitrationEndGameData", default);
+		SetTimer(0.0f, false, "ServerWriteArbitrationEndGameData", default(Object?));
 		WriteOnlineStats();
 		WriteOnlinePlayerScores();
 		if(NotEqual_InterfaceInterface(GameInterface, (default(OnlineGameInterface))))
@@ -2487,7 +2487,7 @@ public partial class GameInfo : Info/*
 		{
 			if(NotEqual_InterfaceInterface(OnlineSub.PlayerInterface, (default(OnlinePlayerInterface))))
 			{
-				OnlineSub.PlayerInterface.AddLoginChangeDelegate(OnLoginChange, (byte)default);
+				OnlineSub.PlayerInterface.AddLoginChangeDelegate(OnLoginChange, (byte)default(byte?));
 				OnlineSub.PlayerInterface.AddLoginFailedDelegate(0, OnLoginFailed);
 				if(OnlineSub.PlayerInterface.AutoLogin() == false)
 				{
@@ -2504,7 +2504,7 @@ public partial class GameInfo : Info/*
 	{
 		if(NotEqual_InterfaceInterface(OnlineSub.PlayerInterface, (default(OnlinePlayerInterface))))
 		{
-			OnlineSub.PlayerInterface.ClearLoginChangeDelegate(OnLoginChange, (byte)default);
+			OnlineSub.PlayerInterface.ClearLoginChangeDelegate(OnLoginChange, (byte)default(byte?));
 			OnlineSub.PlayerInterface.ClearLoginFailedDelegate(0, OnLoginFailed);
 		}
 	}
@@ -2561,7 +2561,7 @@ public partial class GameInfo : Info/*
 		{
 			WorldInfo.DoMemoryTracking();
 		}
-		SetTimer(15.0f, false, "CloseAutomatedMapTestTimer", default);
+		SetTimer(15.0f, false, "CloseAutomatedMapTestTimer", default(Object?));
 	}
 	
 	public virtual /*function */void CloseAutomatedMapTestTimer()
@@ -2678,7 +2678,7 @@ public partial class GameInfo : Info/*
 				}
 				ArbitrationPCs[ArbitrationPCs.Length] = PC;			
 			}		
-			SetTimer(ArbitrationHandshakeTimeout, false, "ArbitrationTimeout", default);
+			SetTimer(ArbitrationHandshakeTimeout, false, "ArbitrationTimeout", default(Object?));
 		}
 	}
 	
@@ -2704,7 +2704,7 @@ public partial class GameInfo : Info/*
 		}
 		else
 		{
-			ConsoleCommand("Disconnect", default);
+			ConsoleCommand("Disconnect", default(bool?));
 		}
 	}
 	
@@ -2749,14 +2749,14 @@ public partial class GameInfo : Info/*
 		}
 		if(PendingArbitrationPCs.Length == 0)
 		{
-			SetTimer(0.0f, false, "ArbitrationTimeout", default);
+			SetTimer(0.0f, false, "ArbitrationTimeout", default(Object?));
 			RegisterServerForArbitration();
 		}
 	}
 	
 	protected /*event */void GameInfo_PendingMatch_EndState(name NextStateName)// state function
 	{
-		SetTimer(0.0f, false, "ArbitrationTimeout", default);
+		SetTimer(0.0f, false, "ArbitrationTimeout", default(Object?));
 		if(NotEqual_InterfaceInterface(GameInterface, (default(OnlineGameInterface))))
 		{
 			GameInterface.ClearArbitrationRegistrationCompleteDelegate(b => ArbitrationRegistrationComplete(b));

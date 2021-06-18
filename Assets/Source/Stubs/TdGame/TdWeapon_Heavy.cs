@@ -20,10 +20,7 @@ public partial class TdWeapon_Heavy : TdWeapon/*
 	
 	public TdWeapon_Heavy()
 	{
-		// Object Offset:0x006CEBE4
-		WeaponPoseProfileName = (name)"Heavy";
-		MuzzleFlashPSCTemplate = LoadAsset<ParticleSystem>("WeaponEffects.P_WP_Enforcers_Muzzleflash")/*Ref ParticleSystem'WeaponEffects.P_WP_Enforcers_Muzzleflash'*/;
-		FiringWaveform = new ForceFeedbackWaveform
+		var Default__TdWeapon_Heavy_FiringWaveformObj = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x01B6D0C2
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -38,6 +35,10 @@ public partial class TdWeapon_Heavy : TdWeapon/*
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdWeapon_Heavy.FiringWaveformObj' */;
+		// Object Offset:0x006CEBE4
+		WeaponPoseProfileName = (name)"Heavy";
+		MuzzleFlashPSCTemplate = LoadAsset<ParticleSystem>("WeaponEffects.P_WP_Enforcers_Muzzleflash")/*Ref ParticleSystem'WeaponEffects.P_WP_Enforcers_Muzzleflash'*/;
+		FiringWaveform = Default__TdWeapon_Heavy_FiringWaveformObj;
 		MovementRecoilWhenFire = 200.0f;
 		WeaponCollisionSnd = LoadAsset<SoundCue>("A_WP_Drops.2Handed.2HandedDrop")/*Ref SoundCue'A_WP_Drops.2Handed.2HandedDrop'*/;
 		WeaponClickSnd = LoadAsset<SoundCue>("A_WP_Handling.2Handed.DryFire")/*Ref SoundCue'A_WP_Handling.2Handed.DryFire'*/;

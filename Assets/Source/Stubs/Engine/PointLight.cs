@@ -7,8 +7,7 @@ public partial class PointLight : Light/*
 		hidecategories(Navigation)*/{
 	public PointLight()
 	{
-		// Object Offset:0x003A2AA0
-		LightComponent = new PointLightComponent
+		var Default__PointLight_PointLightComponent0 = new PointLightComponent
 		{
 			// Object Offset:0x003A2BAF
 			PreviewLightRadius = LoadAsset<DrawLightRadiusComponent>("Default__PointLight.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__PointLight.DrawLightRadius0'*/,
@@ -20,22 +19,13 @@ public partial class PointLight : Light/*
 			},
 			LightAffectsClassification = LightComponent.ELightAffectsClassification.LAC_STATIC_AFFECTING,
 		}/* Reference: PointLightComponent'Default__PointLight.PointLightComponent0' */;
+		// Object Offset:0x003A2AA0
+		LightComponent = Default__PointLight_PointLightComponent0;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__PointLight.Sprite")/*Ref SpriteComponent'Default__PointLight.Sprite'*/,
 			LoadAsset<DrawLightRadiusComponent>("Default__PointLight.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__PointLight.DrawLightRadius0'*/,
-			new PointLightComponent
-			{
-				// Object Offset:0x003A2BAF
-				PreviewLightRadius = LoadAsset<DrawLightRadiusComponent>("Default__PointLight.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__PointLight.DrawLightRadius0'*/,
-				CastDynamicShadows = false,
-				UseDirectLightMap = true,
-				LightingChannels = new LightComponent.LightingChannelContainer
-				{
-					Dynamic = false,
-				},
-				LightAffectsClassification = LightComponent.ELightAffectsClassification.LAC_STATIC_AFFECTING,
-			}/* Reference: PointLightComponent'Default__PointLight.PointLightComponent0' */,
+			Default__PointLight_PointLightComponent0,
 		};
 	}
 }

@@ -142,14 +142,7 @@ public partial class InterpActor : DynamicSMActor/*
 	
 	public InterpActor()
 	{
-		// Object Offset:0x0033FB8C
-		bDestroyProjectilesOnEncroach = true;
-		bContinueOnEncroachPhysicsObject = true;
-		bStopOnEncroach = true;
-		LOILookAtDelay = -1.0f;
-		LOIMinDuration = 1.50f;
-		LOIDistance = 1500.0f;
-		StaticMeshComponent = new StaticMeshComponent
+		var Default__InterpActor_StaticMeshComponent0 = new StaticMeshComponent
 		{
 			// Object Offset:0x0057981A
 			WireframeColor = new Color
@@ -165,6 +158,14 @@ public partial class InterpActor : DynamicSMActor/*
 				Default = true,
 			},
 		}/* Reference: StaticMeshComponent'Default__InterpActor.StaticMeshComponent0' */;
+		// Object Offset:0x0033FB8C
+		bDestroyProjectilesOnEncroach = true;
+		bContinueOnEncroachPhysicsObject = true;
+		bStopOnEncroach = true;
+		LOILookAtDelay = -1.0f;
+		LOIMinDuration = 1.50f;
+		LOIDistance = 1500.0f;
+		StaticMeshComponent = Default__InterpActor_StaticMeshComponent0;
 		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__InterpActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__InterpActor.MyLightEnvironment'*/;
 		bNoDelete = true;
 		bAlwaysRelevant = true;
@@ -173,43 +174,13 @@ public partial class InterpActor : DynamicSMActor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__InterpActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__InterpActor.MyLightEnvironment'*/,
-			new StaticMeshComponent
-			{
-				// Object Offset:0x0057981A
-				WireframeColor = new Color
-				{
-					R=255,
-					G=0,
-					B=255,
-					A=255
-				},
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__InterpActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__InterpActor.MyLightEnvironment'*/,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-				},
-			}/* Reference: StaticMeshComponent'Default__InterpActor.StaticMeshComponent0' */,
+			Default__InterpActor_StaticMeshComponent0,
 		};
 		Physics = Actor.EPhysics.PHYS_Interpolating;
 		RemoteRole = Actor.ENetRole.ROLE_None;
 		NetUpdateFrequency = 1.0f;
 		NetPriority = 2.70f;
-		CollisionComponent = new StaticMeshComponent
-		{
-			// Object Offset:0x0057981A
-			WireframeColor = new Color
-			{
-				R=255,
-				G=0,
-				B=255,
-				A=255
-			},
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__InterpActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__InterpActor.MyLightEnvironment'*/,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-			},
-		}/* Reference: StaticMeshComponent'Default__InterpActor.StaticMeshComponent0' */;
+		CollisionComponent = Default__InterpActor_StaticMeshComponent0;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

@@ -70,49 +70,35 @@ public partial class Teleporter : NavigationPoint/*
 	}
 	public Teleporter()
 	{
-		// Object Offset:0x003FA344
-		bChangesYaw = true;
-		bEnabled = true;
-		CylinderComponent = new CylinderComponent
+		var Default__Teleporter_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x00466807
 			CollisionHeight = 80.0f,
 			CollisionRadius = 40.0f,
 			CollideActors = true,
 		}/* Reference: CylinderComponent'Default__Teleporter.CollisionCylinder' */;
-		GoodSprite = new SpriteComponent
+		var Default__Teleporter_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x004D06A6
 			Sprite = LoadAsset<Texture2D>("EngineResources.S_Teleport")/*Ref Texture2D'EngineResources.S_Teleport'*/,
 		}/* Reference: SpriteComponent'Default__Teleporter.Sprite' */;
+		// Object Offset:0x003FA344
+		bChangesYaw = true;
+		bEnabled = true;
+		CylinderComponent = Default__Teleporter_CollisionCylinder;
+		GoodSprite = Default__Teleporter_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__Teleporter.Sprite2")/*Ref SpriteComponent'Default__Teleporter.Sprite2'*/;
 		bCollideActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004D06A6
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_Teleport")/*Ref Texture2D'EngineResources.S_Teleport'*/,
-			}/* Reference: SpriteComponent'Default__Teleporter.Sprite' */,
+			Default__Teleporter_Sprite,
 			LoadAsset<SpriteComponent>("Default__Teleporter.Sprite2")/*Ref SpriteComponent'Default__Teleporter.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__Teleporter.Arrow")/*Ref ArrowComponent'Default__Teleporter.Arrow'*/,
-			new CylinderComponent
-			{
-				// Object Offset:0x00466807
-				CollisionHeight = 80.0f,
-				CollisionRadius = 40.0f,
-				CollideActors = true,
-			}/* Reference: CylinderComponent'Default__Teleporter.CollisionCylinder' */,
+			Default__Teleporter_CollisionCylinder,
 			LoadAsset<PathRenderingComponent>("Default__Teleporter.PathRenderer")/*Ref PathRenderingComponent'Default__Teleporter.PathRenderer'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x00466807
-			CollisionHeight = 80.0f,
-			CollisionRadius = 40.0f,
-			CollideActors = true,
-		}/* Reference: CylinderComponent'Default__Teleporter.CollisionCylinder' */;
+		CollisionComponent = Default__Teleporter_CollisionCylinder;
 	}
 }
 }

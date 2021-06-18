@@ -7,13 +7,7 @@ public partial class TdDmgType_Taser : TdDamageType{
 	
 	public TdDmgType_Taser()
 	{
-		// Object Offset:0x0054325A
-		ContiniousTaserDamage = 7.50f;
-		InitialTaserDamage = 30.0f;
-		bCausesBlood = false;
-		KDamageImpulse = 1000.0f;
-		KImpulseRadius = 20.0f;
-		DamagedFFWaveform = new ForceFeedbackWaveform
+		var Default__TdDmgType_Taser_ForceFeedbackWaveform0 = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x01B6C0E6
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -28,7 +22,7 @@ public partial class TdDmgType_Taser : TdDamageType{
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdDmgType_Taser.ForceFeedbackWaveform0' */;
-		KilledFFWaveform = new ForceFeedbackWaveform
+		var Default__TdDmgType_Taser_ForceFeedbackWaveform1 = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x01B6C1B4
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -43,6 +37,14 @@ public partial class TdDmgType_Taser : TdDamageType{
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdDmgType_Taser.ForceFeedbackWaveform1' */;
+		// Object Offset:0x0054325A
+		ContiniousTaserDamage = 7.50f;
+		InitialTaserDamage = 30.0f;
+		bCausesBlood = false;
+		KDamageImpulse = 1000.0f;
+		KImpulseRadius = 20.0f;
+		DamagedFFWaveform = Default__TdDmgType_Taser_ForceFeedbackWaveform0;
+		KilledFFWaveform = Default__TdDmgType_Taser_ForceFeedbackWaveform1;
 	}
 }
 }

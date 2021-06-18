@@ -12,13 +12,14 @@ public partial class TdBotPawn_SniperCop : TdBotPawn_Assault/*
 	
 	public TdBotPawn_SniperCop()
 	{
-		// Object Offset:0x00020910
-		ActorCylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_SniperCop.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.ActorCollisionCylinder'*/;
-		Mesh3p = new TdSkeletalMeshComponent
+		var Default__TdBotPawn_SniperCop_TdPawnMesh3p = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x00022CDA
 			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_SniperCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_SniperCop.MyLightEnvironment'*/,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_SniperCop.TdPawnMesh3p' */;
+		// Object Offset:0x00020910
+		ActorCylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_SniperCop.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.ActorCollisionCylinder'*/;
+		Mesh3p = Default__TdBotPawn_SniperCop_TdPawnMesh3p;
 		MoveClasses = new array< Core.ClassT<TdMove> >
 		{
 			default,
@@ -190,11 +191,7 @@ public partial class TdBotPawn_SniperCop : TdBotPawn_Assault/*
 		};
 		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawn_SniperCop.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_SniperCop.SceneCaptureCharacterComponent0'*/;
 		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdBotPawn_SniperCop.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn_SniperCop.DrawFrust0'*/;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00022CDA
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_SniperCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_SniperCop.MyLightEnvironment'*/,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_SniperCop.TdPawnMesh3p' */;
+		Mesh = Default__TdBotPawn_SniperCop_TdPawnMesh3p;
 		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_SniperCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
@@ -203,11 +200,7 @@ public partial class TdBotPawn_SniperCop : TdBotPawn_Assault/*
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_SniperCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdBotPawn_SniperCop.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_SniperCop.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_SniperCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_SniperCop.MyLightEnvironment'*/,
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00022CDA
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_SniperCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_SniperCop.MyLightEnvironment'*/,
-			}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_SniperCop.TdPawnMesh3p' */,
+			Default__TdBotPawn_SniperCop_TdPawnMesh3p,
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_SniperCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.CollisionCylinder'*/,
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_SniperCop.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.ActorCollisionCylinder'*/,
 		};

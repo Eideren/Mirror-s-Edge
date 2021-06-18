@@ -6,16 +6,17 @@ public partial class TdCopSpawnMarker : TdMarker/*
 		hidecategories(Navigation)*/{
 	public TdCopSpawnMarker()
 	{
+		var Default__TdCopSpawnMarker_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x02E51E75
+			Sprite = LoadAsset<Texture2D>("TdEditorResources.CopSpawnIcon")/*Ref Texture2D'TdEditorResources.CopSpawnIcon'*/,
+			Scale = 0.250f,
+		}/* Reference: SpriteComponent'Default__TdCopSpawnMarker.Sprite' */;
 		// Object Offset:0x00537392
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<ArrowComponent>("Default__TdCopSpawnMarker.Arrow")/*Ref ArrowComponent'Default__TdCopSpawnMarker.Arrow'*/,
-			new SpriteComponent
-			{
-				// Object Offset:0x02E51E75
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.CopSpawnIcon")/*Ref Texture2D'TdEditorResources.CopSpawnIcon'*/,
-				Scale = 0.250f,
-			}/* Reference: SpriteComponent'Default__TdCopSpawnMarker.Sprite' */,
+			Default__TdCopSpawnMarker_Sprite,
 			LoadAsset<ArrowComponent>("Default__TdCopSpawnMarker.Arrow")/*Ref ArrowComponent'Default__TdCopSpawnMarker.Arrow'*/,
 		};
 	}

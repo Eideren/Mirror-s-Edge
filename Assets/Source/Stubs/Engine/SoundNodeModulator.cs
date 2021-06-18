@@ -11,6 +11,18 @@ public partial class SoundNodeModulator : SoundNode/*
 	
 	public SoundNodeModulator()
 	{
+		var Default__SoundNodeModulator_DistributionVolume = new DistributionFloatUniform
+		{
+			// Object Offset:0x00467AF3
+			Min = 0.90f,
+			Max = 1.10f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeModulator.DistributionVolume' */;
+		var Default__SoundNodeModulator_DistributionPitch = new DistributionFloatUniform
+		{
+			// Object Offset:0x00467AA3
+			Min = 0.90f,
+			Max = 1.10f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeModulator.DistributionPitch' */;
 		// Object Offset:0x003E99B9
 		VolumeModulation = new DistributionFloat.RawDistributionFloat
 		{

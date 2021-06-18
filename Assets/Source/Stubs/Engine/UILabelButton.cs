@@ -84,6 +84,15 @@ public partial class UILabelButton : UIButton,
 	
 	public UILabelButton()
 	{
+		var Default__UILabelButton_LabelStringRenderer = new UIComp_DrawString
+		{
+			// Object Offset:0x0045370D
+			StyleResolverTag = (name)"Caption Style",
+			StringStyle = new UIRoot.UIStyleReference
+			{
+				DefaultStyleTag = (name)"DefaultLabelButtonStyle",
+			},
+		}/* Reference: UIComp_DrawString'Default__UILabelButton.LabelStringRenderer' */;
 		// Object Offset:0x0044448D
 		CaptionDataSource = new UIRoot.UIDataStoreBinding
 		{
@@ -95,15 +104,7 @@ public partial class UILabelButton : UIButton,
 			DataStoreField = (name)"None",
 			ResolvedDataStore = default,
 		};
-		StringRenderComponent = new UIComp_DrawString
-		{
-			// Object Offset:0x0045370D
-			StyleResolverTag = (name)"Caption Style",
-			StringStyle = new UIRoot.UIStyleReference
-			{
-				DefaultStyleTag = (name)"DefaultLabelButtonStyle",
-			},
-		}/* Reference: UIComp_DrawString'Default__UILabelButton.LabelStringRenderer' */;
+		StringRenderComponent = Default__UILabelButton_LabelStringRenderer;
 		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UILabelButton.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UILabelButton.BackgroundImageTemplate'*/;
 		PrimaryStyle = new UIRoot.UIStyleReference
 		{

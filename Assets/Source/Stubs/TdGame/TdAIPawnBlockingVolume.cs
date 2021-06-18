@@ -7,26 +7,19 @@ public partial class TdAIPawnBlockingVolume : BlockingVolume/*
 		hidecategories(Navigation,Object,Movement,Display)*/{
 	public TdAIPawnBlockingVolume()
 	{
-		// Object Offset:0x004F1D3B
-		BrushComponent = new BrushComponent
+		var Default__TdAIPawnBlockingVolume_BrushComponent0 = new BrushComponent
 		{
 			// Object Offset:0x01AB45F6
 			BlockRigidBody = false,
 		}/* Reference: BrushComponent'Default__TdAIPawnBlockingVolume.BrushComponent0' */;
+		// Object Offset:0x004F1D3B
+		BrushComponent = Default__TdAIPawnBlockingVolume_BrushComponent0;
 		bWorldGeometry = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new BrushComponent
-			{
-				// Object Offset:0x01AB45F6
-				BlockRigidBody = false,
-			}/* Reference: BrushComponent'Default__TdAIPawnBlockingVolume.BrushComponent0' */,
+			Default__TdAIPawnBlockingVolume_BrushComponent0,
 		};
-		CollisionComponent = new BrushComponent
-		{
-			// Object Offset:0x01AB45F6
-			BlockRigidBody = false,
-		}/* Reference: BrushComponent'Default__TdAIPawnBlockingVolume.BrushComponent0' */;
+		CollisionComponent = Default__TdAIPawnBlockingVolume_BrushComponent0;
 	}
 }
 }

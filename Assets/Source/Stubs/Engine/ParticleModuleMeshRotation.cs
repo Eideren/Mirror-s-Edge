@@ -10,6 +10,16 @@ public partial class ParticleModuleMeshRotation : ParticleModuleRotationBase/*
 	
 	public ParticleModuleMeshRotation()
 	{
+		var Default__ParticleModuleMeshRotation_DistributionStartRotation = new DistributionVectorUniform
+		{
+			// Object Offset:0x004683FB
+			Max = new Vector
+			{
+				X=360.0f,
+				Y=360.0f,
+				Z=360.0f
+			},
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleMeshRotation.DistributionStartRotation' */;
 		// Object Offset:0x0037F78F
 		StartRotation = new DistributionVector.RawDistributionVector
 		{

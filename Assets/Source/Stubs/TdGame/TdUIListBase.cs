@@ -26,9 +26,7 @@ public partial class TdUIListBase : UIList/*
 	
 	public TdUIListBase()
 	{
-		// Object Offset:0x006878F2
-		WrapType = UIList.EListWrapBehavior.LISTWRAP_Jump;
-		CellDataComponent = new UIComp_ListPresenter
+		var Default__TdUIListBase_ListPresentationComponent = new UIComp_ListPresenter
 		{
 			// Object Offset:0x00687A25
 			ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
@@ -39,6 +37,9 @@ public partial class TdUIListBase : UIList/*
 				[3] = LoadAsset<UITexture>("Default__TdUIListBase.ListPresentationComponent.HoverOverlayTemplate")/*Ref UITexture'Default__TdUIListBase.ListPresentationComponent.HoverOverlayTemplate'*/,
 	 		},
 		}/* Reference: UIComp_ListPresenter'Default__TdUIListBase.ListPresentationComponent' */;
+		// Object Offset:0x006878F2
+		WrapType = UIList.EListWrapBehavior.LISTWRAP_Jump;
+		CellDataComponent = Default__TdUIListBase_ListPresentationComponent;
 		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIListBase.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIListBase.WidgetEventComponent'*/;
 	}
 }

@@ -23,6 +23,12 @@ public partial class CullDistanceVolume : Volume/*
 	
 	public CullDistanceVolume()
 	{
+		var Default__CullDistanceVolume_BrushComponent0 = new BrushComponent
+		{
+			// Object Offset:0x00465F1F
+			CollideActors = false,
+			BlockNonZeroExtent = false,
+		}/* Reference: BrushComponent'Default__CullDistanceVolume.BrushComponent0' */;
 		// Object Offset:0x002F4E1F
 		CullDistances = new array<CullDistanceVolume.CullDistanceSizePair>
 		{
@@ -38,28 +44,13 @@ public partial class CullDistanceVolume : Volume/*
 			},
 		};
 		bEnabled = true;
-		BrushComponent = new BrushComponent
-		{
-			// Object Offset:0x00465F1F
-			CollideActors = false,
-			BlockNonZeroExtent = false,
-		}/* Reference: BrushComponent'Default__CullDistanceVolume.BrushComponent0' */;
+		BrushComponent = Default__CullDistanceVolume_BrushComponent0;
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new BrushComponent
-			{
-				// Object Offset:0x00465F1F
-				CollideActors = false,
-				BlockNonZeroExtent = false,
-			}/* Reference: BrushComponent'Default__CullDistanceVolume.BrushComponent0' */,
+			Default__CullDistanceVolume_BrushComponent0,
 		};
-		CollisionComponent = new BrushComponent
-		{
-			// Object Offset:0x00465F1F
-			CollideActors = false,
-			BlockNonZeroExtent = false,
-		}/* Reference: BrushComponent'Default__CullDistanceVolume.BrushComponent0' */;
+		CollisionComponent = Default__CullDistanceVolume_BrushComponent0;
 		SupportedEvents = default;
 	}
 }

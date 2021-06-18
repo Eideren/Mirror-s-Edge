@@ -9,6 +9,11 @@ public partial class ParticleModuleRotation : ParticleModuleRotationBase/*
 	
 	public ParticleModuleRotation()
 	{
+		var Default__ParticleModuleRotation_DistributionStartRotation = new DistributionFloatUniform
+		{
+			// Object Offset:0x0046760B
+			Max = 1.0f,
+		}/* Reference: DistributionFloatUniform'Default__ParticleModuleRotation.DistributionStartRotation' */;
 		// Object Offset:0x003811B6
 		StartRotation = new DistributionFloat.RawDistributionFloat
 		{

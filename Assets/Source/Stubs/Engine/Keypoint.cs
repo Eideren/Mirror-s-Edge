@@ -8,19 +8,20 @@ public partial class Keypoint : Actor/*
 		hidecategories(Navigation)*/{
 	public Keypoint()
 	{
+		var Default__Keypoint_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x0028D856
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_Keypoint")/*Ref Texture2D'EngineResources.S_Keypoint'*/,
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__Keypoint.Sprite' */;
 		// Object Offset:0x0028D75B
 		bStatic = true;
 		bHidden = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x0028D856
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_Keypoint")/*Ref Texture2D'EngineResources.S_Keypoint'*/,
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__Keypoint.Sprite' */,
+			Default__Keypoint_Sprite,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
 	}

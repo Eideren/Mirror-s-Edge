@@ -54,6 +54,12 @@ public partial class ReverbVolume : Volume/*
 	
 	public ReverbVolume()
 	{
+		var Default__ReverbVolume_BrushComponent0 = new BrushComponent
+		{
+			// Object Offset:0x0046629F
+			CollideActors = false,
+			BlockNonZeroExtent = false,
+		}/* Reference: BrushComponent'Default__ReverbVolume.BrushComponent0' */;
 		// Object Offset:0x003B036B
 		Settings = new ReverbVolume.ReverbSettings
 		{
@@ -61,28 +67,13 @@ public partial class ReverbVolume : Volume/*
 			Volume = 0.50f,
 			FadeTime = 2.0f,
 		};
-		BrushComponent = new BrushComponent
-		{
-			// Object Offset:0x0046629F
-			CollideActors = false,
-			BlockNonZeroExtent = false,
-		}/* Reference: BrushComponent'Default__ReverbVolume.BrushComponent0' */;
+		BrushComponent = Default__ReverbVolume_BrushComponent0;
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new BrushComponent
-			{
-				// Object Offset:0x0046629F
-				CollideActors = false,
-				BlockNonZeroExtent = false,
-			}/* Reference: BrushComponent'Default__ReverbVolume.BrushComponent0' */,
+			Default__ReverbVolume_BrushComponent0,
 		};
-		CollisionComponent = new BrushComponent
-		{
-			// Object Offset:0x0046629F
-			CollideActors = false,
-			BlockNonZeroExtent = false,
-		}/* Reference: BrushComponent'Default__ReverbVolume.BrushComponent0' */;
+		CollisionComponent = Default__ReverbVolume_BrushComponent0;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

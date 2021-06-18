@@ -208,6 +208,11 @@ public partial class Terrain : Info/*
 	
 	public Terrain()
 	{
+		var Default__Terrain_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004D06F2
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_Terrain")/*Ref Texture2D'EngineResources.S_Terrain'*/,
+		}/* Reference: SpriteComponent'Default__Terrain.Sprite' */;
 		// Object Offset:0x003FBD53
 		NormalMapLayer = -1;
 		MaxTesselationLevel = 4;
@@ -266,11 +271,7 @@ public partial class Terrain : Info/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004D06F2
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_Terrain")/*Ref Texture2D'EngineResources.S_Terrain'*/,
-			}/* Reference: SpriteComponent'Default__Terrain.Sprite' */,
+			Default__Terrain_Sprite,
 		};
 		DrawScale3D = new Vector
 		{

@@ -32,41 +32,37 @@ public partial class TdRobberStashpoint : TdStashpoint/*
 	}
 	public TdRobberStashpoint()
 	{
-		// Object Offset:0x00654ED8
-		TerritoryOfTeam = 0;
-		Components = new array</*export editinline */ActorComponent>
-		{
-			new CylinderComponent
-			{
-				// Object Offset:0x01AB4D76
-				CollisionHeight = 100.0f,
-				CollisionRadius = 300.0f,
-				CollideActors = true,
-			}/* Reference: CylinderComponent'Default__TdRobberStashpoint.CollisionCylinder' */,
-			new StaticMeshComponent
-			{
-				// Object Offset:0x02EA6CEF
-				bOverrideLightMapResolution = false,
-				HiddenGame = true,
-				CastShadow = false,
-				LightingChannels = new LightComponent.LightingChannelContainer
-				{
-					bInitialized = true,
-					Static = true,
-					Dynamic = true,
-				},
-				CollideActors = false,
-				BlockRigidBody = false,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			}/* Reference: StaticMeshComponent'Default__TdRobberStashpoint.StaticMeshComponent0' */,
-		};
-		CollisionComponent = new CylinderComponent
+		var Default__TdRobberStashpoint_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x01AB4D76
 			CollisionHeight = 100.0f,
 			CollisionRadius = 300.0f,
 			CollideActors = true,
 		}/* Reference: CylinderComponent'Default__TdRobberStashpoint.CollisionCylinder' */;
+		var Default__TdRobberStashpoint_StaticMeshComponent0 = new StaticMeshComponent
+		{
+			// Object Offset:0x02EA6CEF
+			bOverrideLightMapResolution = false,
+			HiddenGame = true,
+			CastShadow = false,
+			LightingChannels = new LightComponent.LightingChannelContainer
+			{
+				bInitialized = true,
+				Static = true,
+				Dynamic = true,
+			},
+			CollideActors = false,
+			BlockRigidBody = false,
+			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
+		}/* Reference: StaticMeshComponent'Default__TdRobberStashpoint.StaticMeshComponent0' */;
+		// Object Offset:0x00654ED8
+		TerritoryOfTeam = 0;
+		Components = new array</*export editinline */ActorComponent>
+		{
+			Default__TdRobberStashpoint_CollisionCylinder,
+			Default__TdRobberStashpoint_StaticMeshComponent0,
+		};
+		CollisionComponent = Default__TdRobberStashpoint_CollisionCylinder;
 	}
 }
 }

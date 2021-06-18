@@ -9,6 +9,11 @@ public partial class ParticleModuleLocationPrimitiveSphere : ParticleModuleLocat
 	
 	public ParticleModuleLocationPrimitiveSphere()
 	{
+		var Default__ParticleModuleLocationPrimitiveSphere_DistributionStartRadius = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466D7B
+			Constant = 50.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveSphere.DistributionStartRadius' */;
 		// Object Offset:0x0037F154
 		StartRadius = new DistributionFloat.RawDistributionFloat
 		{

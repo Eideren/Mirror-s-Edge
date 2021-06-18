@@ -189,6 +189,66 @@ public partial class LensFlare : Object/*
 	
 	public LensFlare()
 	{
+		var Default__LensFlare_DistributionScaling = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466A1B
+			Constant = 1.0f,
+		}/* Reference: DistributionFloatConstant'Default__LensFlare.DistributionScaling' */;
+		var Default__LensFlare_DistributionAxisScaling = new DistributionVectorConstant
+		{
+			// Object Offset:0x00467C43
+			Constant = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=0.0f
+			},
+		}/* Reference: DistributionVectorConstant'Default__LensFlare.DistributionAxisScaling' */;
+		var Default__LensFlare_DistributionColor = new DistributionVectorConstant
+		{
+			// Object Offset:0x00467C87
+			Constant = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+		}/* Reference: DistributionVectorConstant'Default__LensFlare.DistributionColor' */;
+		var Default__LensFlare_DistributionAlpha = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466983
+			Constant = 1.0f,
+		}/* Reference: DistributionFloatConstant'Default__LensFlare.DistributionAlpha' */;
+		var Default__LensFlare_DistributionDistMap_Scale = new DistributionVectorConstant
+		{
+			// Object Offset:0x00467D0F
+			Constant = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+		}/* Reference: DistributionVectorConstant'Default__LensFlare.DistributionDistMap_Scale' */;
+		var Default__LensFlare_DistributionDistMap_Color = new DistributionVectorConstant
+		{
+			// Object Offset:0x00467CCB
+			Constant = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+		}/* Reference: DistributionVectorConstant'Default__LensFlare.DistributionDistMap_Color' */;
+		var Default__LensFlare_DistributionDistMap_Alpha = new DistributionFloatConstant
+		{
+			// Object Offset:0x004669B7
+			Constant = 1.0f,
+		}/* Reference: DistributionFloatConstant'Default__LensFlare.DistributionDistMap_Alpha' */;
+		var Default__LensFlare_DistributionScreenPercentageMap = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466A4F
+			Constant = 1.0f,
+		}/* Reference: DistributionFloatConstant'Default__LensFlare.DistributionScreenPercentageMap' */;
 		// Object Offset:0x0034E538
 		SourceElement = new LensFlare.LensFlareElement
 		{

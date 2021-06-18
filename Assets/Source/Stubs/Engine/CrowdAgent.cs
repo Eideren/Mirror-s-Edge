@@ -62,8 +62,7 @@ public partial class CrowdAgent : Actor/*
 	}
 	public CrowdAgent()
 	{
-		// Object Offset:0x002F4240
-		SkeletalMeshComponent = new SkeletalMeshComponent
+		var Default__CrowdAgent_SkeletalMeshComponent0 = new SkeletalMeshComponent
 		{
 			// Object Offset:0x004CEC22
 			bUpdateSkelWhenNotRendered = false,
@@ -80,7 +79,7 @@ public partial class CrowdAgent : Actor/*
 				EffectPhysics = true,
 			},
 		}/* Reference: SkeletalMeshComponent'Default__CrowdAgent.SkeletalMeshComponent0' */;
-		LightEnvironment = new DynamicLightEnvironmentComponent
+		var Default__CrowdAgent_MyLightEnvironment = new DynamicLightEnvironmentComponent
 		{
 			// Object Offset:0x00468D2F
 			InvisibleUpdateTime = 5.0f,
@@ -89,37 +88,16 @@ public partial class CrowdAgent : Actor/*
 			bEnabled = false,
 			TickGroup = Object.ETickingGroup.TG_DuringAsyncWork,
 		}/* Reference: DynamicLightEnvironmentComponent'Default__CrowdAgent.MyLightEnvironment' */;
+		// Object Offset:0x002F4240
+		SkeletalMeshComponent = Default__CrowdAgent_SkeletalMeshComponent0;
+		LightEnvironment = Default__CrowdAgent_MyLightEnvironment;
 		bCollideActors = true;
 		bProjTarget = true;
 		bNoEncroachCheck = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new DynamicLightEnvironmentComponent
-			{
-				// Object Offset:0x00468D2F
-				InvisibleUpdateTime = 5.0f,
-				MinTimeBetweenFullUpdates = 2.0f,
-				bCastShadows = false,
-				bEnabled = false,
-				TickGroup = Object.ETickingGroup.TG_DuringAsyncWork,
-			}/* Reference: DynamicLightEnvironmentComponent'Default__CrowdAgent.MyLightEnvironment' */,
-			new SkeletalMeshComponent
-			{
-				// Object Offset:0x004CEC22
-				bUpdateSkelWhenNotRendered = false,
-				bEnableLineCheckWithBounds = true,
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__CrowdAgent.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__CrowdAgent.MyLightEnvironment'*/,
-				bCastDynamicShadow = false,
-				CollideActors = true,
-				BlockZeroExtent = true,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-			}/* Reference: SkeletalMeshComponent'Default__CrowdAgent.SkeletalMeshComponent0' */,
+			Default__CrowdAgent_MyLightEnvironment,
+			Default__CrowdAgent_SkeletalMeshComponent0,
 		};
 		Physics = Actor.EPhysics.PHYS_Interpolating;
 	}

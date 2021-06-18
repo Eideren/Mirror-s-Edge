@@ -27,13 +27,22 @@ public partial class RB_RadialImpulseActor : Actor/*
 	
 	public RB_RadialImpulseActor()
 	{
-		// Object Offset:0x003AF606
-		RenderComponent = LoadAsset<DrawSphereComponent>("Default__RB_RadialImpulseActor.DrawSphere0")/*Ref DrawSphereComponent'Default__RB_RadialImpulseActor.DrawSphere0'*/;
-		ImpulseComponent = new RB_RadialImpulseComponent
+		var Default__RB_RadialImpulseActor_ImpulseComponent0 = new RB_RadialImpulseComponent
 		{
 			// Object Offset:0x004CE596
 			PreviewSphere = LoadAsset<DrawSphereComponent>("Default__RB_RadialImpulseActor.DrawSphere0")/*Ref DrawSphereComponent'Default__RB_RadialImpulseActor.DrawSphere0'*/,
 		}/* Reference: RB_RadialImpulseComponent'Default__RB_RadialImpulseActor.ImpulseComponent0' */;
+		var Default__RB_RadialImpulseActor_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004D0462
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_RadImpulse")/*Ref Texture2D'EngineResources.S_RadImpulse'*/,
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__RB_RadialImpulseActor.Sprite' */;
+		// Object Offset:0x003AF606
+		RenderComponent = LoadAsset<DrawSphereComponent>("Default__RB_RadialImpulseActor.DrawSphere0")/*Ref DrawSphereComponent'Default__RB_RadialImpulseActor.DrawSphere0'*/;
+		ImpulseComponent = Default__RB_RadialImpulseActor_ImpulseComponent0;
 		bNoDelete = true;
 		bAlwaysRelevant = true;
 		bOnlyDirtyReplication = true;
@@ -41,19 +50,8 @@ public partial class RB_RadialImpulseActor : Actor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DrawSphereComponent>("Default__RB_RadialImpulseActor.DrawSphere0")/*Ref DrawSphereComponent'Default__RB_RadialImpulseActor.DrawSphere0'*/,
-			new RB_RadialImpulseComponent
-			{
-				// Object Offset:0x004CE596
-				PreviewSphere = LoadAsset<DrawSphereComponent>("Default__RB_RadialImpulseActor.DrawSphere0")/*Ref DrawSphereComponent'Default__RB_RadialImpulseActor.DrawSphere0'*/,
-			}/* Reference: RB_RadialImpulseComponent'Default__RB_RadialImpulseActor.ImpulseComponent0' */,
-			new SpriteComponent
-			{
-				// Object Offset:0x004D0462
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_RadImpulse")/*Ref Texture2D'EngineResources.S_RadImpulse'*/,
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__RB_RadialImpulseActor.Sprite' */,
+			Default__RB_RadialImpulseActor_ImpulseComponent0,
+			Default__RB_RadialImpulseActor_Sprite,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetUpdateFrequency = 0.10f;

@@ -136,8 +136,7 @@ public partial class Volume : Brush/*
 	}
 	public Volume()
 	{
-		// Object Offset:0x002B21CB
-		BrushComponent = new BrushComponent
+		var Default__Volume_BrushComponent0 = new BrushComponent
 		{
 			// Object Offset:0x002B234A
 			bAcceptsLights = true,
@@ -151,39 +150,15 @@ public partial class Volume : Brush/*
 			AlwaysLoadOnClient = true,
 			AlwaysLoadOnServer = true,
 		}/* Reference: BrushComponent'Default__Volume.BrushComponent0' */;
+		// Object Offset:0x002B21CB
+		BrushComponent = Default__Volume_BrushComponent0;
 		bSkipActorPropertyReplication = true;
 		bCollideActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new BrushComponent
-			{
-				// Object Offset:0x002B234A
-				bAcceptsLights = true,
-				LightingChannels = new LightComponent.LightingChannelContainer
-				{
-					bInitialized = true,
-					Dynamic = true,
-				},
-				CollideActors = true,
-				BlockNonZeroExtent = true,
-				AlwaysLoadOnClient = true,
-				AlwaysLoadOnServer = true,
-			}/* Reference: BrushComponent'Default__Volume.BrushComponent0' */,
+			Default__Volume_BrushComponent0,
 		};
-		CollisionComponent = new BrushComponent
-		{
-			// Object Offset:0x002B234A
-			bAcceptsLights = true,
-			LightingChannels = new LightComponent.LightingChannelContainer
-			{
-				bInitialized = true,
-				Dynamic = true,
-			},
-			CollideActors = true,
-			BlockNonZeroExtent = true,
-			AlwaysLoadOnClient = true,
-			AlwaysLoadOnServer = true,
-		}/* Reference: BrushComponent'Default__Volume.BrushComponent0' */;
+		CollisionComponent = Default__Volume_BrushComponent0;
 	}
 }
 }

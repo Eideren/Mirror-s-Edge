@@ -44,12 +44,7 @@ public partial class AmbientSoundSimpleToggleable : AmbientSoundSimple/*
 	
 	public AmbientSoundSimpleToggleable()
 	{
-		// Object Offset:0x00291567
-		FadeInDuration = 1.0f;
-		FadeInVolumeLevel = 1.0f;
-		FadeOutDuration = 1.0f;
-		SoundCueInstance = LoadAsset<SoundCue>("Default__AmbientSoundSimpleToggleable.SoundCue0")/*Ref SoundCue'Default__AmbientSoundSimpleToggleable.SoundCue0'*/;
-		SoundNodeInstance = new SoundNodeAmbient
+		var Default__AmbientSoundSimpleToggleable_SoundNodeAmbient0 = new SoundNodeAmbient
 		{
 			// Object Offset:0x004CF042
 			MinRadius = new DistributionFloat.RawDistributionFloat
@@ -77,22 +72,25 @@ public partial class AmbientSoundSimpleToggleable : AmbientSoundSimple/*
 				Distribution = LoadAsset<DistributionFloatUniform>("Default__AmbientSoundSimpleToggleable.SoundNodeAmbient0.DistributionPitch")/*Ref DistributionFloatUniform'Default__AmbientSoundSimpleToggleable.SoundNodeAmbient0.DistributionPitch'*/,
 			},
 		}/* Reference: SoundNodeAmbient'Default__AmbientSoundSimpleToggleable.SoundNodeAmbient0' */;
-		bAutoPlay = false;
-		AudioComponent = new AudioComponent
+		var Default__AmbientSoundSimpleToggleable_AudioComponent0 = new AudioComponent
 		{
 			// Object Offset:0x00465E9F
 			PreviewSoundRadius = LoadAsset<DrawSoundRadiusComponent>("Default__AmbientSoundSimpleToggleable.DrawSoundRadius0")/*Ref DrawSoundRadiusComponent'Default__AmbientSoundSimpleToggleable.DrawSoundRadius0'*/,
 		}/* Reference: AudioComponent'Default__AmbientSoundSimpleToggleable.AudioComponent0' */;
+		// Object Offset:0x00291567
+		FadeInDuration = 1.0f;
+		FadeInVolumeLevel = 1.0f;
+		FadeOutDuration = 1.0f;
+		SoundCueInstance = LoadAsset<SoundCue>("Default__AmbientSoundSimpleToggleable.SoundCue0")/*Ref SoundCue'Default__AmbientSoundSimpleToggleable.SoundCue0'*/;
+		SoundNodeInstance = Default__AmbientSoundSimpleToggleable_SoundNodeAmbient0;
+		bAutoPlay = false;
+		AudioComponent = Default__AmbientSoundSimpleToggleable_AudioComponent0;
 		bStatic = false;
 		bNoDelete = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__AmbientSoundSimpleToggleable.Sprite")/*Ref SpriteComponent'Default__AmbientSoundSimpleToggleable.Sprite'*/,
-			new AudioComponent
-			{
-				// Object Offset:0x00465E9F
-				PreviewSoundRadius = LoadAsset<DrawSoundRadiusComponent>("Default__AmbientSoundSimpleToggleable.DrawSoundRadius0")/*Ref DrawSoundRadiusComponent'Default__AmbientSoundSimpleToggleable.DrawSoundRadius0'*/,
-			}/* Reference: AudioComponent'Default__AmbientSoundSimpleToggleable.AudioComponent0' */,
+			Default__AmbientSoundSimpleToggleable_AudioComponent0,
 			LoadAsset<DrawSoundRadiusComponent>("Default__AmbientSoundSimpleToggleable.DrawSoundRadius0")/*Ref DrawSoundRadiusComponent'Default__AmbientSoundSimpleToggleable.DrawSoundRadius0'*/,
 		};
 	}

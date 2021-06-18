@@ -9,14 +9,15 @@ public partial class SpeedTreeActor : Actor/*
 	
 	public SpeedTreeActor()
 	{
-		// Object Offset:0x003ECB28
-		SpeedTreeComponent = new SpeedTreeComponent
+		var Default__SpeedTreeActor_SpeedTreeComponent0 = new SpeedTreeComponent
 		{
 			// Object Offset:0x004CF3CE
 			bAllowApproximateOcclusion = true,
 			bForceDirectLightMap = true,
 			bCastDynamicShadow = false,
 		}/* Reference: SpeedTreeComponent'Default__SpeedTreeActor.SpeedTreeComponent0' */;
+		// Object Offset:0x003ECB28
+		SpeedTreeComponent = Default__SpeedTreeActor_SpeedTreeComponent0;
 		bStatic = true;
 		bNoDelete = true;
 		bWorldGeometry = true;
@@ -25,21 +26,9 @@ public partial class SpeedTreeActor : Actor/*
 		bBlockActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpeedTreeComponent
-			{
-				// Object Offset:0x004CF3CE
-				bAllowApproximateOcclusion = true,
-				bForceDirectLightMap = true,
-				bCastDynamicShadow = false,
-			}/* Reference: SpeedTreeComponent'Default__SpeedTreeActor.SpeedTreeComponent0' */,
+			Default__SpeedTreeActor_SpeedTreeComponent0,
 		};
-		CollisionComponent = new SpeedTreeComponent
-		{
-			// Object Offset:0x004CF3CE
-			bAllowApproximateOcclusion = true,
-			bForceDirectLightMap = true,
-			bCastDynamicShadow = false,
-		}/* Reference: SpeedTreeComponent'Default__SpeedTreeActor.SpeedTreeComponent0' */;
+		CollisionComponent = Default__SpeedTreeActor_SpeedTreeComponent0;
 	}
 }
 }

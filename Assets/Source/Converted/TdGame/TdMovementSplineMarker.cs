@@ -8,18 +8,19 @@ public partial class TdMovementSplineMarker : Keypoint/*
 		hidecategories(Navigation)*/{
 	public TdMovementSplineMarker()
 	{
+		var Default__TdMovementSplineMarker_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x02E521F9
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_PolyMarker")/*Ref Texture2D'EngineResources.S_PolyMarker'*/,
+			Scale = 2.0f,
+		}/* Reference: SpriteComponent'Default__TdMovementSplineMarker.Sprite' */;
 		// Object Offset:0x005F291A
 		bHardAttach = true;
 		bHiddenEd = true;
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x02E521F9
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_PolyMarker")/*Ref Texture2D'EngineResources.S_PolyMarker'*/,
-				Scale = 2.0f,
-			}/* Reference: SpriteComponent'Default__TdMovementSplineMarker.Sprite' */,
+			Default__TdMovementSplineMarker_Sprite,
 		};
 	}
 }

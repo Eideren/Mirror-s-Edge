@@ -1133,6 +1133,40 @@ public partial class TdWeapon : Weapon/*
 	}
 	public TdWeapon()
 	{
+		var Default__TdWeapon_FiringWaveformObj = new ForceFeedbackWaveform
+		{
+			// Object Offset:0x01B6CFF4
+			Samples = new array<ForceFeedbackWaveform.WaveformSample>
+			{
+				new ForceFeedbackWaveform.WaveformSample
+				{
+					LeftAmplitude = 10,
+					RightAmplitude = 5,
+					LeftFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
+					RightFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
+					Duration = 0.20f,
+				},
+			},
+		}/* Reference: ForceFeedbackWaveform'Default__TdWeapon.FiringWaveformObj' */;
+		var Default__TdWeapon_FirstPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x006CD455
+			AnimTreeTemplate = LoadAsset<AnimTree>("AT_Weapons.AT_C1P_Weapon_Default")/*Ref AnimTree'AT_Weapons.AT_C1P_Weapon_Default'*/,
+			bUpdateSkelWhenNotRendered = false,
+			bIgnoreControllersWhenNotRendered = true,
+			bForceDiscardRootMotion = true,
+			DepthPriorityGroup = Scene.ESceneDepthPriorityGroup.SDPG_Foreground,
+			bOnlyOwnerSee = true,
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon.FirstPersonMesh' */;
+		var Default__TdWeapon_ThirdPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x006CD519
+			AnimTreeTemplate = LoadAsset<AnimTree>("AT_Weapons.AT_Weapon_Default")/*Ref AnimTree'AT_Weapons.AT_Weapon_Default'*/,
+			bUpdateSkelWhenNotRendered = false,
+			bIgnoreControllersWhenNotRendered = true,
+			bForceDiscardRootMotion = true,
+			bOwnerNoSeeWithShadow = true,
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon.ThirdPersonMesh' */;
 		// Object Offset:0x006CC06C
 		AimOffsetProfileNames = new array<name>
 		{
@@ -1153,21 +1187,7 @@ public partial class TdWeapon : Weapon/*
 		TimeThrownWeaponStaysInWorld = 1000;
 		MuzzleFlashSocket = (name)"MuzzleFlashSocket";
 		BulletTraceTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_01'*/;
-		FiringWaveform = new ForceFeedbackWaveform
-		{
-			// Object Offset:0x01B6CFF4
-			Samples = new array<ForceFeedbackWaveform.WaveformSample>
-			{
-				new ForceFeedbackWaveform.WaveformSample
-				{
-					LeftAmplitude = 10,
-					RightAmplitude = 5,
-					LeftFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
-					RightFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
-					Duration = 0.20f,
-				},
-			},
-		}/* Reference: ForceFeedbackWaveform'Default__TdWeapon.FiringWaveformObj' */;
+		FiringWaveform = Default__TdWeapon_FiringWaveformObj;
 		MaxAmmo = 33;
 		ReloadTime = 2.30f;
 		BurstMax = 3;
@@ -1226,25 +1246,8 @@ public partial class TdWeapon : Weapon/*
 		NumberOfSlapBacks = 2;
 		RangeOfSlapBackRays = 10000;
 		DecalTypeToUse = TdWeapon.EWeaponDecalType.EWDT_None;
-		Mesh1p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x006CD455
-			AnimTreeTemplate = LoadAsset<AnimTree>("AT_Weapons.AT_C1P_Weapon_Default")/*Ref AnimTree'AT_Weapons.AT_C1P_Weapon_Default'*/,
-			bUpdateSkelWhenNotRendered = false,
-			bIgnoreControllersWhenNotRendered = true,
-			bForceDiscardRootMotion = true,
-			DepthPriorityGroup = Scene.ESceneDepthPriorityGroup.SDPG_Foreground,
-			bOnlyOwnerSee = true,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon.FirstPersonMesh' */;
-		Mesh3p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x006CD519
-			AnimTreeTemplate = LoadAsset<AnimTree>("AT_Weapons.AT_Weapon_Default")/*Ref AnimTree'AT_Weapons.AT_Weapon_Default'*/,
-			bUpdateSkelWhenNotRendered = false,
-			bIgnoreControllersWhenNotRendered = true,
-			bForceDiscardRootMotion = true,
-			bOwnerNoSeeWithShadow = true,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon.ThirdPersonMesh' */;
+		Mesh1p = Default__TdWeapon_FirstPersonMesh;
+		Mesh3p = Default__TdWeapon_ThirdPersonMesh;
 		MaxAssistDistance = 600;
 		AssistInnerRadius = 0.40f;
 		AssistInnerHeight = 0.40f;
@@ -1355,60 +1358,15 @@ public partial class TdWeapon : Weapon/*
 		EquipTime = 0.30f;
 		PutDownTime = 0.30f;
 		WeaponRange = 12000.0f;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x006CD455
-			AnimTreeTemplate = LoadAsset<AnimTree>("AT_Weapons.AT_C1P_Weapon_Default")/*Ref AnimTree'AT_Weapons.AT_C1P_Weapon_Default'*/,
-			bUpdateSkelWhenNotRendered = false,
-			bIgnoreControllersWhenNotRendered = true,
-			bForceDiscardRootMotion = true,
-			DepthPriorityGroup = Scene.ESceneDepthPriorityGroup.SDPG_Foreground,
-			bOnlyOwnerSee = true,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon.FirstPersonMesh' */;
+		Mesh = Default__TdWeapon_FirstPersonMesh;
 		PickupSound = LoadAsset<SoundCue>("A_WP_Default.Fire.Fire")/*Ref SoundCue'A_WP_Default.Fire.Fire'*/;
 		DroppedPickupClass = ClassT<TdPickup>()/*Ref Class'TdPickup'*/;
-		DroppedPickupMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x006CD519
-			AnimTreeTemplate = LoadAsset<AnimTree>("AT_Weapons.AT_Weapon_Default")/*Ref AnimTree'AT_Weapons.AT_Weapon_Default'*/,
-			bUpdateSkelWhenNotRendered = false,
-			bIgnoreControllersWhenNotRendered = true,
-			bForceDiscardRootMotion = true,
-			bOwnerNoSeeWithShadow = true,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon.ThirdPersonMesh' */;
-		PickupFactoryMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x006CD455
-			AnimTreeTemplate = LoadAsset<AnimTree>("AT_Weapons.AT_C1P_Weapon_Default")/*Ref AnimTree'AT_Weapons.AT_C1P_Weapon_Default'*/,
-			bUpdateSkelWhenNotRendered = false,
-			bIgnoreControllersWhenNotRendered = true,
-			bForceDiscardRootMotion = true,
-			DepthPriorityGroup = Scene.ESceneDepthPriorityGroup.SDPG_Foreground,
-			bOnlyOwnerSee = true,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon.FirstPersonMesh' */;
+		DroppedPickupMesh = Default__TdWeapon_ThirdPersonMesh;
+		PickupFactoryMesh = Default__TdWeapon_FirstPersonMesh;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x006CD455
-				AnimTreeTemplate = LoadAsset<AnimTree>("AT_Weapons.AT_C1P_Weapon_Default")/*Ref AnimTree'AT_Weapons.AT_C1P_Weapon_Default'*/,
-				bUpdateSkelWhenNotRendered = false,
-				bIgnoreControllersWhenNotRendered = true,
-				bForceDiscardRootMotion = true,
-				DepthPriorityGroup = Scene.ESceneDepthPriorityGroup.SDPG_Foreground,
-				bOnlyOwnerSee = true,
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon.FirstPersonMesh' */,
-			//Components[1]=
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x006CD519
-				AnimTreeTemplate = LoadAsset<AnimTree>("AT_Weapons.AT_Weapon_Default")/*Ref AnimTree'AT_Weapons.AT_Weapon_Default'*/,
-				bUpdateSkelWhenNotRendered = false,
-				bIgnoreControllersWhenNotRendered = true,
-				bForceDiscardRootMotion = true,
-				bOwnerNoSeeWithShadow = true,
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon.ThirdPersonMesh' */,
+			Default__TdWeapon_FirstPersonMesh,
+			Default__TdWeapon_ThirdPersonMesh,
 		};
 	}
 }

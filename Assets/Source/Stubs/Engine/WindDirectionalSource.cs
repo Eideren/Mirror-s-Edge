@@ -8,6 +8,17 @@ public partial class WindDirectionalSource : Info/*
 	
 	public WindDirectionalSource()
 	{
+		var Default__WindDirectionalSource_ArrowComponent0 = new ArrowComponent
+		{
+			// Object Offset:0x00465E2F
+			ArrowColor = new Color
+			{
+				R=150,
+				G=200,
+				B=255,
+				A=255
+			},
+		}/* Reference: ArrowComponent'Default__WindDirectionalSource.ArrowComponent0' */;
 		// Object Offset:0x004607C7
 		Component = LoadAsset<WindDirectionalSourceComponent>("Default__WindDirectionalSource.WindDirectionalSourceComponent0")/*Ref WindDirectionalSourceComponent'Default__WindDirectionalSource.WindDirectionalSourceComponent0'*/;
 		bStatic = true;
@@ -15,17 +26,7 @@ public partial class WindDirectionalSource : Info/*
 		{
 			LoadAsset<SpriteComponent>("Default__WindDirectionalSource.Sprite")/*Ref SpriteComponent'Default__WindDirectionalSource.Sprite'*/,
 			LoadAsset<WindDirectionalSourceComponent>("Default__WindDirectionalSource.WindDirectionalSourceComponent0")/*Ref WindDirectionalSourceComponent'Default__WindDirectionalSource.WindDirectionalSourceComponent0'*/,
-			new ArrowComponent
-			{
-				// Object Offset:0x00465E2F
-				ArrowColor = new Color
-				{
-					R=150,
-					G=200,
-					B=255,
-					A=255
-				},
-			}/* Reference: ArrowComponent'Default__WindDirectionalSource.ArrowComponent0' */,
+			Default__WindDirectionalSource_ArrowComponent0,
 		};
 	}
 }

@@ -42,17 +42,18 @@ public partial class SampleClass : Actor/*
 	}
 	public SampleClass()
 	{
+		var Default__SampleClass_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x02E51BF1
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__SampleClass.Sprite' */;
 		// Object Offset:0x0048EB1B
 		MyString = "Test";
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x02E51BF1
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__SampleClass.Sprite' */,
+			Default__SampleClass_Sprite,
 		};
 	}
 }

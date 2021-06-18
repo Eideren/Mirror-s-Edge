@@ -11,13 +11,12 @@ public partial class AmbientSoundSimple : AmbientSound/*
 	
 	public AmbientSoundSimple()
 	{
-		// Object Offset:0x002905AD
-		SoundCueInstance = new SoundCue
+		var Default__AmbientSoundSimple_SoundCue0 = new SoundCue
 		{
 			// Object Offset:0x00290730
 			SoundGroup = (name)"Ambient",
 		}/* Reference: SoundCue'Default__AmbientSoundSimple.SoundCue0' */;
-		SoundNodeInstance = new SoundNodeAmbient
+		var Default__AmbientSoundSimple_SoundNodeAmbient0 = new SoundNodeAmbient
 		{
 			// Object Offset:0x00290FD2
 			MinRadius = new DistributionFloat.RawDistributionFloat
@@ -45,19 +44,19 @@ public partial class AmbientSoundSimple : AmbientSound/*
 				Distribution = LoadAsset<DistributionFloatUniform>("Default__AmbientSoundSimple.SoundNodeAmbient0.DistributionPitch")/*Ref DistributionFloatUniform'Default__AmbientSoundSimple.SoundNodeAmbient0.DistributionPitch'*/,
 			},
 		}/* Reference: SoundNodeAmbient'Default__AmbientSoundSimple.SoundNodeAmbient0' */;
-		AudioComponent = new AudioComponent
+		var Default__AmbientSoundSimple_AudioComponent0 = new AudioComponent
 		{
 			// Object Offset:0x002906E4
 			PreviewSoundRadius = LoadAsset<DrawSoundRadiusComponent>("Default__AmbientSoundSimple.DrawSoundRadius0")/*Ref DrawSoundRadiusComponent'Default__AmbientSoundSimple.DrawSoundRadius0'*/,
 		}/* Reference: AudioComponent'Default__AmbientSoundSimple.AudioComponent0' */;
+		// Object Offset:0x002905AD
+		SoundCueInstance = Default__AmbientSoundSimple_SoundCue0;
+		SoundNodeInstance = Default__AmbientSoundSimple_SoundNodeAmbient0;
+		AudioComponent = Default__AmbientSoundSimple_AudioComponent0;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__AmbientSoundSimple.Sprite")/*Ref SpriteComponent'Default__AmbientSoundSimple.Sprite'*/,
-			new AudioComponent
-			{
-				// Object Offset:0x002906E4
-				PreviewSoundRadius = LoadAsset<DrawSoundRadiusComponent>("Default__AmbientSoundSimple.DrawSoundRadius0")/*Ref DrawSoundRadiusComponent'Default__AmbientSoundSimple.DrawSoundRadius0'*/,
-			}/* Reference: AudioComponent'Default__AmbientSoundSimple.AudioComponent0' */,
+			Default__AmbientSoundSimple_AudioComponent0,
 			LoadAsset<DrawSoundRadiusComponent>("Default__AmbientSoundSimple.DrawSoundRadius0")/*Ref DrawSoundRadiusComponent'Default__AmbientSoundSimple.DrawSoundRadius0'*/,
 		};
 	}

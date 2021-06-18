@@ -25,8 +25,7 @@ public partial class TdInv_Shield : TdEquipment/*
 	}
 	public TdInv_Shield()
 	{
-		// Object Offset:0x0057CE2A
-		Mesh3p = new TdSkeletalMeshComponent
+		var Default__TdInv_Shield_RiotShield = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x03128216
 			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_RiotShield.SK_WP_RiotShield")/*Ref SkeletalMesh'WP_RiotShield.SK_WP_RiotShield'*/,
@@ -35,19 +34,13 @@ public partial class TdInv_Shield : TdEquipment/*
 			BlockZeroExtent = true,
 			BlockNonZeroExtent = true,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdInv_Shield.RiotShield' */;
+		// Object Offset:0x0057CE2A
+		Mesh3p = Default__TdInv_Shield_RiotShield;
 		Health = 100;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__TdInv_Shield.Sprite")/*Ref SpriteComponent'Default__TdInv_Shield.Sprite'*/,
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x03128216
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_RiotShield.SK_WP_RiotShield")/*Ref SkeletalMesh'WP_RiotShield.SK_WP_RiotShield'*/,
-				CollideActors = true,
-				BlockActors = true,
-				BlockZeroExtent = true,
-				BlockNonZeroExtent = true,
-			}/* Reference: TdSkeletalMeshComponent'Default__TdInv_Shield.RiotShield' */,
+			Default__TdInv_Shield_RiotShield,
 		};
 	}
 }

@@ -10,6 +10,11 @@ public partial class TdMovementExclusionVolume : PhysicsVolume/*
 	
 	public TdMovementExclusionVolume()
 	{
+		var Default__TdMovementExclusionVolume_BrushComponent0 = new BrushComponent
+		{
+			// Object Offset:0x01AB4746
+			BlockNonZeroExtent = false,
+		}/* Reference: BrushComponent'Default__TdMovementExclusionVolume.BrushComponent0' */;
 		// Object Offset:0x005F2773
 		bExcludeFootMoves = true;
 		bExcludeHandMoves = true;
@@ -21,24 +26,12 @@ public partial class TdMovementExclusionVolume : PhysicsVolume/*
 			A=255
 		};
 		bColored = true;
-		BrushComponent = new BrushComponent
-		{
-			// Object Offset:0x01AB4746
-			BlockNonZeroExtent = false,
-		}/* Reference: BrushComponent'Default__TdMovementExclusionVolume.BrushComponent0' */;
+		BrushComponent = Default__TdMovementExclusionVolume_BrushComponent0;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new BrushComponent
-			{
-				// Object Offset:0x01AB4746
-				BlockNonZeroExtent = false,
-			}/* Reference: BrushComponent'Default__TdMovementExclusionVolume.BrushComponent0' */,
+			Default__TdMovementExclusionVolume_BrushComponent0,
 		};
-		CollisionComponent = new BrushComponent
-		{
-			// Object Offset:0x01AB4746
-			BlockNonZeroExtent = false,
-		}/* Reference: BrushComponent'Default__TdMovementExclusionVolume.BrushComponent0' */;
+		CollisionComponent = Default__TdMovementExclusionVolume_BrushComponent0;
 		SupportedEvents = default;
 	}
 }

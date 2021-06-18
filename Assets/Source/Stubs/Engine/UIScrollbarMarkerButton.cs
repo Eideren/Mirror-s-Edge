@@ -12,12 +12,13 @@ public partial class UIScrollbarMarkerButton : UIScrollbarButton/* within UIScro
 	
 	public UIScrollbarMarkerButton()
 	{
-		// Object Offset:0x0044E255
-		BackgroundImageComponent = new UIComp_DrawImage
+		var Default__UIScrollbarMarkerButton_BackgroundImageTemplate = new UIComp_DrawImage
 		{
 			// Object Offset:0x005D1C3A
 			StyleResolverTag = (name)"MarkerStyle",
 		}/* Reference: UIComp_DrawImage'Default__UIScrollbarMarkerButton.BackgroundImageTemplate' */;
+		// Object Offset:0x0044E255
+		BackgroundImageComponent = Default__UIScrollbarMarkerButton_BackgroundImageTemplate;
 		EventProvider = LoadAsset<UIComp_Event>("Default__UIScrollbarMarkerButton.WidgetEventComponent")/*Ref UIComp_Event'Default__UIScrollbarMarkerButton.WidgetEventComponent'*/;
 	}
 }

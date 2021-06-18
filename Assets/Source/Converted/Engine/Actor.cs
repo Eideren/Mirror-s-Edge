@@ -994,7 +994,7 @@ public partial class Actor : Object/*
 	
 	public virtual /*function */bool UsedBy(Pawn User)
 	{
-		return TriggerEventClass(ClassT<SeqEvent_Used>(), User, -1, default, ref/*probably?*/ /*null*/NullRef.array_SequenceEvent_);
+		return TriggerEventClass(ClassT<SeqEvent_Used>(), User, -1, default(bool?), ref/*probably?*/ /*null*/NullRef.array_SequenceEvent_);
 	}
 	
 	public virtual /*simulated function */void VolumeBasedDestroy(PhysicsVolume PV)
@@ -1009,7 +1009,7 @@ public partial class Actor : Object/*
 	{
 		SetPhysics(Actor.EPhysics.PHYS_None/*0*/);
 		SetHidden(true);
-		SetCollision(false, false, default);
+		SetCollision(false, false, default(bool?));
 		Destroy();
 	}
 	
@@ -1341,11 +1341,11 @@ public partial class Actor : Object/*
 		bScriptInitialized = true;
 		if(InitialState != "None")
 		{
-			GotoState(InitialState, default, default, default);		
+			GotoState(InitialState, default(name?), default(bool?), default(bool?));		
 		}
 		else
 		{
-			GotoState("Auto", default, default, default);
+			GotoState("Auto", default(name?), default(bool?), default(bool?));
 		}
 	}
 	
@@ -1379,8 +1379,8 @@ public partial class Actor : Object/*
 		bHurtEntry = true;
 		bCausedDamage = false;
 		
-		// foreach VisibleCollidingActors(ClassT<Actor>(), ref/*probably?*/ Victim, DamageRadius, HurtOrigin, default)
-		using var e62 = VisibleCollidingActors(ClassT<Actor>(), DamageRadius, HurtOrigin, default).GetEnumerator();
+		// foreach VisibleCollidingActors(ClassT<Actor>(), ref/*probably?*/ Victim, DamageRadius, HurtOrigin, default(bool?))
+		using var e62 = VisibleCollidingActors(ClassT<Actor>(), DamageRadius, HurtOrigin, default(bool?)).GetEnumerator();
 		while(e62.MoveNext() && (Victim = (Actor)e62.Current) == Victim)
 		{
 			if(((!Victim.bWorldGeometry && Victim != this) && Victim != IgnoredActor) && Victim.bProjTarget || ((Victim) as NavigationPoint) == default)
@@ -1451,7 +1451,7 @@ public partial class Actor : Object/*
 		}
 		if(DamageScale > 0.0f)
 		{
-			TakeDamage(((int)(DamageScale * BaseDamage)), InstigatedBy, Location - ((0.50f * (ColHeight + ColRadius)) * Dir), (DamageScale * Momentum) * Dir, DamageType, default, DamageCauser);
+			TakeDamage(((int)(DamageScale * BaseDamage)), InstigatedBy, Location - ((0.50f * (ColHeight + ColRadius)) * Dir), (DamageScale * Momentum) * Dir, DamageType, default(Actor.TraceHitInfo?), DamageCauser);
 		}
 	}
 	
@@ -1506,7 +1506,7 @@ public partial class Actor : Object/*
 		using var e6 = LocalPlayerControllers(ClassT<PlayerController>()).GetEnumerator();
 		while(e6.MoveNext() && (PC = (PlayerController)e6.Current) == PC)
 		{
-			PC.ConsoleCommand("PlayersOnly", default);		
+			PC.ConsoleCommand("PlayersOnly", default(bool?));		
 			return;		
 		}	
 	}
@@ -1533,7 +1533,7 @@ public partial class Actor : Object/*
 		/*local */float Radius = default, Height = default;
 	
 		GetBoundingCylinder(ref/*probably?*/ Radius, ref/*probably?*/ Height);
-		if(Trace(ref/*probably?*/ out_CamLoc, ref/*probably?*/ HitNormal, Location - ((((Vector)(out_CamRot)) * Radius) * ((float)(20))), Location, false, default, ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, default) == default)
+		if(Trace(ref/*probably?*/ out_CamLoc, ref/*probably?*/ HitNormal, Location - ((((Vector)(out_CamRot)) * Radius) * ((float)(20))), Location, false, default(Object.Vector?), ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, default(int?)) == default)
 		{
 			out_CamLoc = Location - ((((Vector)(out_CamRot)) * Radius) * ((float)(20)));		
 		}
@@ -1618,7 +1618,7 @@ public partial class Actor : Object/*
 	
 		Canvas = HUD.Canvas;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.SetDrawColor(255, 0, 0, (byte)default);
+		Canvas.SetDrawColor(255, 0, 0, (byte)default(byte?));
 		T = GetDebugName();
 		if(bDeleteMe)
 		{
@@ -1626,11 +1626,11 @@ public partial class Actor : Object/*
 		}
 		if(T != "")
 		{
-			Canvas.DrawText(T, false, default, default);
+			Canvas.DrawText(T, false, default(float?), default(float?));
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 		}
-		Canvas.SetDrawColor(255, 255, 255, (byte)default);
+		Canvas.SetDrawColor(255, 255, 255, (byte)default(byte?));
 		if(HUD.ShouldDisplayDebug("net"))
 		{
 			if(((int)WorldInfo.NetMode) != ((int)WorldInfo.ENetMode.NM_Standalone/*0*/))
@@ -1640,12 +1640,12 @@ public partial class Actor : Object/*
 				{
 					T = T + " " + "Tear Off";
 				}
-				Canvas.DrawText(T, false, default, default);
+				Canvas.DrawText(T, false, default(float?), default(float?));
 				out_YPos += out_YL;
 				Canvas.SetPos(4.0f, out_YPos);
 			}
 		}
-		Canvas.DrawText((("Location:" + " " + ((Location)).ToString()) + " " + "Rotation:") + " " + ((Rotation)).ToString(), false, default, default);
+		Canvas.DrawText((("Location:" + " " + ((Location)).ToString()) + " " + "Rotation:") + " " + ((Rotation)).ToString(), false, default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
 		if(HUD.ShouldDisplayDebug("Physics"))
@@ -1655,16 +1655,16 @@ public partial class Actor : Object/*
 			{
 				T = T + " - will bounce";
 			}
-			Canvas.DrawText(T, false, default, default);
+			Canvas.DrawText(T, false, default(float?), default(float?));
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			Canvas.DrawText((((((((("bHardAttach:" + " " + ((bHardAttach)).ToString()) + " " + "RelativeLoc:") + " " + ((RelativeLocation)).ToString()) + " " + "RelativeRot:") + " " + ((RelativeRotation)).ToString()) + " " + "SkelComp:") + " " + ((BaseSkelComponent)).ToString()) + " " + "Bone:") + " " + ((BaseBoneName)).ToString(), false, default, default);
+			Canvas.DrawText((((((((("bHardAttach:" + " " + ((bHardAttach)).ToString()) + " " + "RelativeLoc:") + " " + ((RelativeLocation)).ToString()) + " " + "RelativeRot:") + " " + ((RelativeRotation)).ToString()) + " " + "SkelComp:") + " " + ((BaseSkelComponent)).ToString()) + " " + "Bone:") + " " + ((BaseBoneName)).ToString(), false, default(float?), default(float?));
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			Canvas.DrawText((((("Velocity:" + " " + ((Velocity)).ToString()) + " " + "Speed:") + " " + ((VSize(Velocity))).ToString()) + " " + "Speed2D:") + " " + ((VSize2D(Velocity))).ToString(), false, default, default);
+			Canvas.DrawText((((("Velocity:" + " " + ((Velocity)).ToString()) + " " + "Speed:") + " " + ((VSize(Velocity))).ToString()) + " " + "Speed2D:") + " " + ((VSize2D(Velocity))).ToString(), false, default(float?), default(float?));
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			Canvas.DrawText("Acceleration:" + " " + ((Acceleration)).ToString(), false, default, default);
+			Canvas.DrawText("Acceleration:" + " " + ((Acceleration)).ToString(), false, default(float?), default(float?));
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 		}
@@ -1672,13 +1672,13 @@ public partial class Actor : Object/*
 		{
 			Canvas.DrawColor.B = 0;
 			GetBoundingCylinder(ref/*probably?*/ MyRadius, ref/*probably?*/ MyHeight);
-			Canvas.DrawText((("Collision Radius:" + " " + ((MyRadius)).ToString()) + " " + "Height:") + " " + ((MyHeight)).ToString(), default, default, default);
+			Canvas.DrawText((("Collision Radius:" + " " + ((MyRadius)).ToString()) + " " + "Height:") + " " + ((MyHeight)).ToString(), default(bool?), default(float?), default(float?));
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			Canvas.DrawText((((("Collides with Actors:" + " " + ((bCollideActors)).ToString()) + " " + " world:") + " " + ((bCollideWorld)).ToString()) + " " + "proj. target:") + " " + ((bProjTarget)).ToString(), default, default, default);
+			Canvas.DrawText((((("Collides with Actors:" + " " + ((bCollideActors)).ToString()) + " " + " world:") + " " + ((bCollideWorld)).ToString()) + " " + "proj. target:") + " " + ((bProjTarget)).ToString(), default(bool?), default(float?), default(float?));
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			Canvas.DrawText("Blocks Actors:" + " " + ((bBlockActors)).ToString(), default, default, default);
+			Canvas.DrawText("Blocks Actors:" + " " + ((bBlockActors)).ToString(), default(bool?), default(float?), default(float?));
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 			T = "Touching ";
@@ -1693,15 +1693,15 @@ public partial class Actor : Object/*
 			{
 				T = "Touching nothing";
 			}
-			Canvas.DrawText(T, false, default, default);
+			Canvas.DrawText(T, false, default(float?), default(float?));
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 		}
 		Canvas.DrawColor.B = 255;
-		Canvas.DrawText(" STATE:" + " " + ((GetStateName())).ToString(), false, default, default);
+		Canvas.DrawText(" STATE:" + " " + ((GetStateName())).ToString(), false, default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText(((" Instigator:" + " " + (GetItemName(((Instigator)).ToString()))) + " " + "Owner:") + " " + (GetItemName(((Owner)).ToString())), default, default, default);
+		Canvas.DrawText(((" Instigator:" + " " + (GetItemName(((Instigator)).ToString()))) + " " + "Owner:") + " " + (GetItemName(((Owner)).ToString())), default(bool?), default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
 	}
@@ -1926,7 +1926,7 @@ public partial class Actor : Object/*
 		ActivatedEvents.Length = 0;
 		using var v = EventList.GetEnumerator();while(v.MoveNext() && (Evt = (SequenceEvent)v.Current) == Evt)
 		{
-			if(ClassIsChildOf(Evt.Class, InClass) && Evt.CheckActivate(this, InInstigator, bTest, ref/*probably?*/ ActivateIndices, default))
+			if(ClassIsChildOf(Evt.Class, InClass) && Evt.CheckActivate(this, InInstigator, bTest, ref/*probably?*/ ActivateIndices, default(bool?)))
 			{
 				ActivatedEvents.AddItem(Evt);
 			}		
@@ -2016,7 +2016,7 @@ public partial class Actor : Object/*
 	public virtual /*simulated event */void ShutDown()
 	{
 		SetPhysics(Actor.EPhysics.PHYS_None/*0*/);
-		SetCollision(false, false, default);
+		SetCollision(false, false, default(bool?));
 		if(CollisionComponent != default)
 		{
 			CollisionComponent.SetBlockRigidBody(false);
@@ -2049,7 +2049,7 @@ public partial class Actor : Object/*
 				InstigatorController = InstigatorPawn.Controller;
 			}
 		}
-		TakeDamage(((int)(Action.DamageAmount)), InstigatorController, Location, ((Vector)(Rotation)) * -Action.Momentum, Action.DamageType, default, default);
+		TakeDamage(((int)(Action.DamageAmount)), InstigatorController, Location, ((Vector)(Rotation)) * -Action.Momentum, Action.DamageType, default(Actor.TraceHitInfo?), default(Actor?));
 	}
 	
 	public virtual /*function */void OnHealDamage(SeqAct_HealDamage Action)
@@ -2196,7 +2196,7 @@ public partial class Actor : Object/*
 			{
 				if(Action.bDetach)
 				{
-					Attachment.SetBase(default, default, default, default);
+					Attachment.SetBase(default, default(Object.Vector?), default(SkeletalMeshComponent?), default(name?));
 					goto J0x141;
 				}
 				C = ((this) as Controller);
@@ -2218,13 +2218,13 @@ public partial class Actor : Object/*
 		/*local */bool bOldCollideActors = default, bOldBlockActors = default;
 		/*local */Object.Vector X = default, Y = default, Z = default;
 	
-		Attachment.SetBase(default, default, default, default);
+		Attachment.SetBase(default, default(Object.Vector?), default(SkeletalMeshComponent?), default(name?));
 		Attachment.SetHardAttach(Action.bHardAttach);
 		if(Action.bUseRelativeOffset || Action.bUseRelativeRotation)
 		{
 			bOldCollideActors = Attachment.bCollideActors;
 			bOldBlockActors = Attachment.bBlockActors;
-			Attachment.SetCollision(false, false, default);
+			Attachment.SetCollision(false, false, default(bool?));
 			if(Action.bUseRelativeRotation)
 			{
 				Attachment.SetRotation(Rotation + Action.RelativeRotation);
@@ -2234,9 +2234,9 @@ public partial class Actor : Object/*
 				GetAxes(Rotation, ref/*probably?*/ X, ref/*probably?*/ Y, ref/*probably?*/ Z);
 				Attachment.SetLocation(((Location + (Action.RelativeOffset.X * X)) + (Action.RelativeOffset.Y * Y)) + (Action.RelativeOffset.Z * Z));
 			}
-			Attachment.SetCollision(bOldCollideActors, bOldBlockActors, default);
+			Attachment.SetCollision(bOldCollideActors, bOldBlockActors, default(bool?));
 		}
-		Attachment.SetBase(this, default, default, default);
+		Attachment.SetBase(this, default(Object.Vector?), default(SkeletalMeshComponent?), default(name?));
 	}
 	
 	public virtual /*simulated function */void OnMakeNoise(SeqAct_MakeNoise Action)

@@ -809,6 +809,13 @@ public partial class Controller : Actor/*
 	}
 	public Controller()
 	{
+		var Default__Controller_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x00268ACD
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__Controller.Sprite' */;
 		// Object Offset:0x00268415
 		bAffectedByHitEffects = true;
 		bSlowerZAcquire = true;
@@ -818,13 +825,7 @@ public partial class Controller : Actor/*
 		bHiddenEd = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x00268ACD
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__Controller.Sprite' */,
+			Default__Controller_Sprite,
 		};
 		RotationRate = new Rotator
 		{

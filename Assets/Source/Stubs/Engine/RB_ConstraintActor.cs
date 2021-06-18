@@ -41,6 +41,13 @@ public partial class RB_ConstraintActor : Actor/*
 	
 	public RB_ConstraintActor()
 	{
+		var Default__RB_ConstraintActor_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x003AC32E
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__RB_ConstraintActor.Sprite' */;
 		// Object Offset:0x003AC11B
 		ConstraintInstance = LoadAsset<RB_ConstraintInstance>("Default__RB_ConstraintActor.MyConstraintInstance")/*Ref RB_ConstraintInstance'Default__RB_ConstraintActor.MyConstraintInstance'*/;
 		bUpdateActor1RefFrame = true;
@@ -50,13 +57,7 @@ public partial class RB_ConstraintActor : Actor/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x003AC32E
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__RB_ConstraintActor.Sprite' */,
+			Default__RB_ConstraintActor_Sprite,
 			LoadAsset<RB_ConstraintDrawComponent>("Default__RB_ConstraintActor.MyConDrawComponent")/*Ref RB_ConstraintDrawComponent'Default__RB_ConstraintActor.MyConDrawComponent'*/,
 		};
 		Physics = Actor.EPhysics.PHYS_RigidBody;

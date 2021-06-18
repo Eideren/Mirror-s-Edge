@@ -9,29 +9,20 @@ public partial class PortalVolume : Volume/*
 	
 	public PortalVolume()
 	{
-		// Object Offset:0x003A4346
-		BrushComponent = new BrushComponent
+		var Default__PortalVolume_BrushComponent0 = new BrushComponent
 		{
 			// Object Offset:0x004661BF
 			CollideActors = false,
 			BlockNonZeroExtent = false,
 		}/* Reference: BrushComponent'Default__PortalVolume.BrushComponent0' */;
+		// Object Offset:0x003A4346
+		BrushComponent = Default__PortalVolume_BrushComponent0;
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new BrushComponent
-			{
-				// Object Offset:0x004661BF
-				CollideActors = false,
-				BlockNonZeroExtent = false,
-			}/* Reference: BrushComponent'Default__PortalVolume.BrushComponent0' */,
+			Default__PortalVolume_BrushComponent0,
 		};
-		CollisionComponent = new BrushComponent
-		{
-			// Object Offset:0x004661BF
-			CollideActors = false,
-			BlockNonZeroExtent = false,
-		}/* Reference: BrushComponent'Default__PortalVolume.BrushComponent0' */;
+		CollisionComponent = Default__PortalVolume_BrushComponent0;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

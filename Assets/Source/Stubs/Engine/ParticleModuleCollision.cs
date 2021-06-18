@@ -20,6 +20,21 @@ public partial class ParticleModuleCollision : ParticleModuleCollisionBase/*
 	
 	public ParticleModuleCollision()
 	{
+		var Default__ParticleModuleCollision_DistributionDampingFactorRotation = new DistributionVectorConstant
+		{
+			// Object Offset:0x00467F4B
+			Constant = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleCollision.DistributionDampingFactorRotation' */;
+		var Default__ParticleModuleCollision_DistributionParticleMass = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466C13
+			Constant = 0.10f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleCollision.DistributionParticleMass' */;
 		// Object Offset:0x0037BE4E
 		DampingFactor = new DistributionVector.RawDistributionVector
 		{

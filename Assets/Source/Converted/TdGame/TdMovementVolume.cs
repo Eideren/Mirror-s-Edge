@@ -97,6 +97,24 @@ public partial class TdMovementVolume : PhysicsVolume/*
 	
 	public TdMovementVolume()
 	{
+		var Default__TdMovementVolume_WallDir = new ArrowComponent
+		{
+			// Object Offset:0x0050E0F3
+			ArrowColor = new Color
+			{
+				R=150,
+				G=100,
+				B=150,
+				A=255
+			},
+			ArrowSize = 5.0f,
+		}/* Reference: ArrowComponent'Default__TdMovementVolume.WallDir' */;
+		var Default__TdMovementVolume_MovementMesh = new TdMoveVolumeRenderComponent
+		{
+			// Object Offset:0x0050E14B
+			bUseAsOccluder = false,
+			bUsePrecomputedShadows = false,
+		}/* Reference: TdMoveVolumeRenderComponent'Default__TdMovementVolume.MovementMesh' */;
 		// Object Offset:0x0050DEE4
 		bAutoPath = true;
 		bHideSplineMarkers = true;
@@ -105,24 +123,8 @@ public partial class TdMovementVolume : PhysicsVolume/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<BrushComponent>("Default__TdMovementVolume.BrushComponent0")/*Ref BrushComponent'Default__TdMovementVolume.BrushComponent0'*/,
-			new ArrowComponent
-			{
-				// Object Offset:0x0050E0F3
-				ArrowColor = new Color
-				{
-					R=150,
-					G=100,
-					B=150,
-					A=255
-				},
-				ArrowSize = 5.0f,
-			}/* Reference: ArrowComponent'Default__TdMovementVolume.WallDir' */,
-			new TdMoveVolumeRenderComponent
-			{
-				// Object Offset:0x0050E14B
-				bUseAsOccluder = false,
-				bUsePrecomputedShadows = false,
-			}/* Reference: TdMoveVolumeRenderComponent'Default__TdMovementVolume.MovementMesh' */,
+			Default__TdMovementVolume_WallDir,
+			Default__TdMovementVolume_MovementMesh,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		CollisionComponent = LoadAsset<BrushComponent>("Default__TdMovementVolume.BrushComponent0")/*Ref BrushComponent'Default__TdMovementVolume.BrushComponent0'*/;

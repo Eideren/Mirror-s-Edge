@@ -67,8 +67,7 @@ public partial class FracturedStaticMeshActor : Actor/*
 	}
 	public FracturedStaticMeshActor()
 	{
-		// Object Offset:0x00322D6C
-		FracturedStaticMeshComponent = new FracturedStaticMeshComponent
+		var Default__FracturedStaticMeshActor_FracturedStaticMeshComponent0 = new FracturedStaticMeshComponent
 		{
 			// Object Offset:0x00322FBF
 			WireframeColor = new Color
@@ -83,6 +82,8 @@ public partial class FracturedStaticMeshActor : Actor/*
 			bForceDirectLightMap = true,
 			bCastDynamicShadow = false,
 		}/* Reference: FracturedStaticMeshComponent'Default__FracturedStaticMeshActor.FracturedStaticMeshComponent0' */;
+		// Object Offset:0x00322D6C
+		FracturedStaticMeshComponent = Default__FracturedStaticMeshActor_FracturedStaticMeshComponent0;
 		bNoDelete = true;
 		bWorldGeometry = true;
 		bRouteBeginPlayEvenIfStatic = false;
@@ -93,37 +94,9 @@ public partial class FracturedStaticMeshActor : Actor/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new FracturedStaticMeshComponent
-			{
-				// Object Offset:0x00322FBF
-				WireframeColor = new Color
-				{
-					R=0,
-					G=128,
-					B=255,
-					A=255
-				},
-				bAllowApproximateOcclusion = true,
-				bAcceptsDecals = false,
-				bForceDirectLightMap = true,
-				bCastDynamicShadow = false,
-			}/* Reference: FracturedStaticMeshComponent'Default__FracturedStaticMeshActor.FracturedStaticMeshComponent0' */,
+			Default__FracturedStaticMeshActor_FracturedStaticMeshComponent0,
 		};
-		CollisionComponent = new FracturedStaticMeshComponent
-		{
-			// Object Offset:0x00322FBF
-			WireframeColor = new Color
-			{
-				R=0,
-				G=128,
-				B=255,
-				A=255
-			},
-			bAllowApproximateOcclusion = true,
-			bAcceptsDecals = false,
-			bForceDirectLightMap = true,
-			bCastDynamicShadow = false,
-		}/* Reference: FracturedStaticMeshComponent'Default__FracturedStaticMeshActor.FracturedStaticMeshComponent0' */;
+		CollisionComponent = Default__FracturedStaticMeshActor_FracturedStaticMeshComponent0;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

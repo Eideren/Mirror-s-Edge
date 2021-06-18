@@ -195,20 +195,7 @@ public partial class TdMove_WallClimb : TdPhysicsMove/*
 	
 	public TdMove_WallClimb()
 	{
-		// Object Offset:0x005EB6EE
-		WallClimbingVerticalStartAngle = 33.0f;
-		WallClimbingVerticalFriction = 6.0f;
-		WallClimbingMaxDistance2D = 120.0f;
-		AddOnSpeed2DHeight = 60.0f;
-		AddOnSpeed2DMaxLimit = 650.0f;
-		AddOnSpeedZHeight = 130.0f;
-		AddOnSpeedZMaxLimit = 320.0f;
-		WallClimbingGravity = 800.0f;
-		MinLegdeZNormal = 0.7070f;
-		MinWallHeight = 180.0f;
-		MinUpwardsVelocityToDoubleJump = 100.0f;
-		MaxIntoWallClimbVelocityToDoubleJump = 100.0f;
-		IntoWallClimbWaveform = new ForceFeedbackWaveform
+		var Default__TdMove_WallClimb_IntoWallClimbWaveformObj = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x01B6CD6E
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -223,6 +210,20 @@ public partial class TdMove_WallClimb : TdPhysicsMove/*
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdMove_WallClimb.IntoWallClimbWaveformObj' */;
+		// Object Offset:0x005EB6EE
+		WallClimbingVerticalStartAngle = 33.0f;
+		WallClimbingVerticalFriction = 6.0f;
+		WallClimbingMaxDistance2D = 120.0f;
+		AddOnSpeed2DHeight = 60.0f;
+		AddOnSpeed2DMaxLimit = 650.0f;
+		AddOnSpeedZHeight = 130.0f;
+		AddOnSpeedZMaxLimit = 320.0f;
+		WallClimbingGravity = 800.0f;
+		MinLegdeZNormal = 0.7070f;
+		MinWallHeight = 180.0f;
+		MinUpwardsVelocityToDoubleJump = 100.0f;
+		MaxIntoWallClimbVelocityToDoubleJump = 100.0f;
+		IntoWallClimbWaveform = Default__TdMove_WallClimb_IntoWallClimbWaveformObj;
 		PawnPhysics = Actor.EPhysics.PHYS_WallClimbing;
 		ControllerState = (name)"PlayerWallWalking";
 		bCheckForGrab = true;

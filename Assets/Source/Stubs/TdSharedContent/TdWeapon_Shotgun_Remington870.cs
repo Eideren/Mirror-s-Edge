@@ -28,23 +28,7 @@ public partial class TdWeapon_Shotgun_Remington870 : TdWeapon_Heavy/*
 	
 	public TdWeapon_Shotgun_Remington870()
 	{
-		// Object Offset:0x0000F2BF
-		PelletCount = 10;
-		AimOffsetProfileNames = new array<name>
-		{
-			(name)"Default",
-			(name)"TwoHanded",
-		};
-		WeaponPoseProfileName = (name)"TwoHanded-Remington";
-		bPlayFlyBys = false;
-		ReloadingState = (name)"WeaponLoopReloading";
-		MuzzleFlashPSCTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_Shotgun_Singleshot_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_Shotgun_Singleshot_01'*/;
-		MuzzleFlashSocket = (name)"Muzzleflash";
-		BulletTraceTemplate = default;
-		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_ShellSlug")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_ShellSlug'*/;
-		ShellEjectSocket = (name)"ShellEject";
-		ShellEjectDelay = 0.90f;
-		FiringWaveform = new ForceFeedbackWaveform
+		var Default__TdWeapon_Shotgun_Remington870_FiringWaveformObj = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x00013A50
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -67,6 +51,55 @@ public partial class TdWeapon_Shotgun_Remington870 : TdWeapon_Heavy/*
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdWeapon_Shotgun_Remington870.FiringWaveformObj' */;
+		var Default__TdWeapon_Shotgun_Remington870_FirstPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x000152EF
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Remington870.SK_Remington870")/*Ref SkeletalMesh'WP_Remington870.SK_Remington870'*/,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Remington.AS_C1P_TwoHanded_Remington")/*Ref TdAnimSet'AS_C1P_TwoHanded_Remington.AS_C1P_TwoHanded_Remington'*/,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Remington870.FirstPersonMesh' */;
+		var Default__TdWeapon_Shotgun_Remington870_ThirdPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x00015347
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Remington870.SK_Remington870")/*Ref SkeletalMesh'WP_Remington870.SK_Remington870'*/,
+			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_Remington870.PA_Remington870")/*Ref PhysicsAsset'WP_Remington870.PA_Remington870'*/,
+			PhysicsWeight = 1.0f,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Remington.AS_F3P_TwoHanded_Remington")/*Ref TdAnimSet'AS_F3P_TwoHanded_Remington.AS_F3P_TwoHanded_Remington'*/,
+			},
+			bUpdateJointsFromAnimation = true,
+			bEnableFullAnimWeightBodies = true,
+			bUseAsOccluder = false,
+			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
+			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
+			{
+				Default = true,
+				GameplayPhysics = true,
+				EffectPhysics = true,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Remington870.ThirdPersonMesh' */;
+		// Object Offset:0x0000F2BF
+		PelletCount = 10;
+		AimOffsetProfileNames = new array<name>
+		{
+			(name)"Default",
+			(name)"TwoHanded",
+		};
+		WeaponPoseProfileName = (name)"TwoHanded-Remington";
+		bPlayFlyBys = false;
+		ReloadingState = (name)"WeaponLoopReloading";
+		MuzzleFlashPSCTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_Shotgun_Singleshot_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_Shotgun_Singleshot_01'*/;
+		MuzzleFlashSocket = (name)"Muzzleflash";
+		BulletTraceTemplate = default;
+		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_ShellSlug")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_ShellSlug'*/;
+		ShellEjectSocket = (name)"ShellEject";
+		ShellEjectDelay = 0.90f;
+		FiringWaveform = Default__TdWeapon_Shotgun_Remington870_FiringWaveformObj;
 		MaxAmmo = 7;
 		StartReloadTime = 0.66670f;
 		ReloadTime = 1.26670f;
@@ -100,38 +133,8 @@ public partial class TdWeapon_Shotgun_Remington870 : TdWeapon_Heavy/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Remington.AS_C1P_TwoHanded_Remington")/*Ref TdAnimSet'AS_C1P_TwoHanded_Remington.AS_C1P_TwoHanded_Remington'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Remington.AS_F3P_TwoHanded_Remington")/*Ref TdAnimSet'AS_F3P_TwoHanded_Remington.AS_F3P_TwoHanded_Remington'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Remington.AS_F3P_TwoHanded_Remington")/*Ref TdAnimSet'AS_F3P_TwoHanded_Remington.AS_F3P_TwoHanded_Remington'*/;
-		Mesh1p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x000152EF
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Remington870.SK_Remington870")/*Ref SkeletalMesh'WP_Remington870.SK_Remington870'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Remington.AS_C1P_TwoHanded_Remington")/*Ref TdAnimSet'AS_C1P_TwoHanded_Remington.AS_C1P_TwoHanded_Remington'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Remington870.FirstPersonMesh' */;
-		Mesh3p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00015347
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Remington870.SK_Remington870")/*Ref SkeletalMesh'WP_Remington870.SK_Remington870'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_Remington870.PA_Remington870")/*Ref PhysicsAsset'WP_Remington870.PA_Remington870'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Remington.AS_F3P_TwoHanded_Remington")/*Ref TdAnimSet'AS_F3P_TwoHanded_Remington.AS_F3P_TwoHanded_Remington'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bUseAsOccluder = false,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Remington870.ThirdPersonMesh' */;
+		Mesh1p = Default__TdWeapon_Shotgun_Remington870_FirstPersonMesh;
+		Mesh3p = Default__TdWeapon_Shotgun_Remington870_ThirdPersonMesh;
 		CombatRange_Min = 500.0f;
 		CombatRange_Max = 2000.0f;
 		CombatRange_Preferred = 1500.0f;
@@ -215,84 +218,13 @@ public partial class TdWeapon_Shotgun_Remington870 : TdWeapon_Heavy/*
 		EquipTime = 1.20f;
 		PutDownTime = 1.0f;
 		WeaponRange = 6000.0f;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x000152EF
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Remington870.SK_Remington870")/*Ref SkeletalMesh'WP_Remington870.SK_Remington870'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Remington.AS_C1P_TwoHanded_Remington")/*Ref TdAnimSet'AS_C1P_TwoHanded_Remington.AS_C1P_TwoHanded_Remington'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Remington870.FirstPersonMesh' */;
-		DroppedPickupMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00015347
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Remington870.SK_Remington870")/*Ref SkeletalMesh'WP_Remington870.SK_Remington870'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_Remington870.PA_Remington870")/*Ref PhysicsAsset'WP_Remington870.PA_Remington870'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Remington.AS_F3P_TwoHanded_Remington")/*Ref TdAnimSet'AS_F3P_TwoHanded_Remington.AS_F3P_TwoHanded_Remington'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bUseAsOccluder = false,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Remington870.ThirdPersonMesh' */;
-		PickupFactoryMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x000152EF
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Remington870.SK_Remington870")/*Ref SkeletalMesh'WP_Remington870.SK_Remington870'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Remington.AS_C1P_TwoHanded_Remington")/*Ref TdAnimSet'AS_C1P_TwoHanded_Remington.AS_C1P_TwoHanded_Remington'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Remington870.FirstPersonMesh' */;
+		Mesh = Default__TdWeapon_Shotgun_Remington870_FirstPersonMesh;
+		DroppedPickupMesh = Default__TdWeapon_Shotgun_Remington870_ThirdPersonMesh;
+		PickupFactoryMesh = Default__TdWeapon_Shotgun_Remington870_FirstPersonMesh;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x000152EF
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Remington870.SK_Remington870")/*Ref SkeletalMesh'WP_Remington870.SK_Remington870'*/,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Remington.AS_C1P_TwoHanded_Remington")/*Ref TdAnimSet'AS_C1P_TwoHanded_Remington.AS_C1P_TwoHanded_Remington'*/,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Remington870.FirstPersonMesh' */,
-			//Components[1]=
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00015347
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Remington870.SK_Remington870")/*Ref SkeletalMesh'WP_Remington870.SK_Remington870'*/,
-				PhysicsAsset = LoadAsset<PhysicsAsset>("WP_Remington870.PA_Remington870")/*Ref PhysicsAsset'WP_Remington870.PA_Remington870'*/,
-				PhysicsWeight = 1.0f,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Remington.AS_F3P_TwoHanded_Remington")/*Ref TdAnimSet'AS_F3P_TwoHanded_Remington.AS_F3P_TwoHanded_Remington'*/,
-				},
-				bUpdateJointsFromAnimation = true,
-				bEnableFullAnimWeightBodies = true,
-				bUseAsOccluder = false,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Remington870.ThirdPersonMesh' */,
+			Default__TdWeapon_Shotgun_Remington870_FirstPersonMesh,
+			Default__TdWeapon_Shotgun_Remington870_ThirdPersonMesh,
 		};
 	}
 }

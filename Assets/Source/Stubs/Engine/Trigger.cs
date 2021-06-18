@@ -54,14 +54,22 @@ public partial class Trigger : Actor/*
 	}
 	public Trigger()
 	{
-		// Object Offset:0x003FF47B
-		CylinderComponent = new CylinderComponent
+		var Default__Trigger_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x003FF6C6
 			CollisionHeight = 40.0f,
 			CollisionRadius = 40.0f,
 			CollideActors = true,
 		}/* Reference: CylinderComponent'Default__Trigger.CollisionCylinder' */;
+		var Default__Trigger_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x003FF65A
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_Trigger")/*Ref Texture2D'EngineResources.S_Trigger'*/,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__Trigger.Sprite' */;
+		// Object Offset:0x003FF47B
+		CylinderComponent = Default__Trigger_CollisionCylinder;
 		AITriggerDelay = 2.0f;
 		bHidden = true;
 		bNoDelete = true;
@@ -69,28 +77,10 @@ public partial class Trigger : Actor/*
 		bProjTarget = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x003FF65A
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_Trigger")/*Ref Texture2D'EngineResources.S_Trigger'*/,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__Trigger.Sprite' */,
-			new CylinderComponent
-			{
-				// Object Offset:0x003FF6C6
-				CollisionHeight = 40.0f,
-				CollisionRadius = 40.0f,
-				CollideActors = true,
-			}/* Reference: CylinderComponent'Default__Trigger.CollisionCylinder' */,
+			Default__Trigger_Sprite,
+			Default__Trigger_CollisionCylinder,
 		};
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x003FF6C6
-			CollisionHeight = 40.0f,
-			CollisionRadius = 40.0f,
-			CollideActors = true,
-		}/* Reference: CylinderComponent'Default__Trigger.CollisionCylinder' */;
+		CollisionComponent = Default__Trigger_CollisionCylinder;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

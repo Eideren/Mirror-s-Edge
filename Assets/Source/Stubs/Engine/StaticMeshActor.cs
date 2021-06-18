@@ -45,14 +45,21 @@ public partial class StaticMeshActor : StaticMeshActorBase/*
 	
 	public StaticMeshActor()
 	{
-		// Object Offset:0x003EE14E
-		StaticMeshComponent = new StaticMeshComponent
+		var Default__StaticMeshActor_StaticMeshComponent0 = new StaticMeshComponent
 		{
 			// Object Offset:0x00579BEA
 			bAllowApproximateOcclusion = true,
 			bForceDirectLightMap = true,
 			bCastDynamicShadow = false,
 		}/* Reference: StaticMeshComponent'Default__StaticMeshActor.StaticMeshComponent0' */;
+		var Default__StaticMeshActor_LOIRenderer = new TdLOIRenderingComponent
+		{
+			// Object Offset:0x00579C76
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: TdLOIRenderingComponent'Default__StaticMeshActor.LOIRenderer' */;
+		// Object Offset:0x003EE14E
+		StaticMeshComponent = Default__StaticMeshActor_StaticMeshComponent0;
 		LOILookAtDelay = -1.0f;
 		LOIMinDuration = 1.50f;
 		LOIDistance = 1500.0f;
@@ -64,27 +71,10 @@ public partial class StaticMeshActor : StaticMeshActorBase/*
 		};
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new StaticMeshComponent
-			{
-				// Object Offset:0x00579BEA
-				bAllowApproximateOcclusion = true,
-				bForceDirectLightMap = true,
-				bCastDynamicShadow = false,
-			}/* Reference: StaticMeshComponent'Default__StaticMeshActor.StaticMeshComponent0' */,
-			new TdLOIRenderingComponent
-			{
-				// Object Offset:0x00579C76
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: TdLOIRenderingComponent'Default__StaticMeshActor.LOIRenderer' */,
+			Default__StaticMeshActor_StaticMeshComponent0,
+			Default__StaticMeshActor_LOIRenderer,
 		};
-		CollisionComponent = new StaticMeshComponent
-		{
-			// Object Offset:0x00579BEA
-			bAllowApproximateOcclusion = true,
-			bForceDirectLightMap = true,
-			bCastDynamicShadow = false,
-		}/* Reference: StaticMeshComponent'Default__StaticMeshActor.StaticMeshComponent0' */;
+		CollisionComponent = Default__StaticMeshActor_StaticMeshComponent0;
 	}
 }
 }

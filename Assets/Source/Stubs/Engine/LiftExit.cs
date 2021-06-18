@@ -27,24 +27,21 @@ public partial class LiftExit : NavigationPoint/*
 	
 	public LiftExit()
 	{
+		var Default__LiftExit_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004CFCE2
+			Sprite = LoadAsset<Texture2D>("EngineResources.lift_exit")/*Ref Texture2D'EngineResources.lift_exit'*/,
+		}/* Reference: SpriteComponent'Default__LiftExit.Sprite' */;
 		// Object Offset:0x00351822
 		bNeverUseStrafing = true;
 		bForceNoStrafing = true;
 		bSpecialMove = true;
 		CylinderComponent = LoadAsset<CylinderComponent>("Default__LiftExit.CollisionCylinder")/*Ref CylinderComponent'Default__LiftExit.CollisionCylinder'*/;
-		GoodSprite = new SpriteComponent
-		{
-			// Object Offset:0x004CFCE2
-			Sprite = LoadAsset<Texture2D>("EngineResources.lift_exit")/*Ref Texture2D'EngineResources.lift_exit'*/,
-		}/* Reference: SpriteComponent'Default__LiftExit.Sprite' */;
+		GoodSprite = Default__LiftExit_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__LiftExit.Sprite2")/*Ref SpriteComponent'Default__LiftExit.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004CFCE2
-				Sprite = LoadAsset<Texture2D>("EngineResources.lift_exit")/*Ref Texture2D'EngineResources.lift_exit'*/,
-			}/* Reference: SpriteComponent'Default__LiftExit.Sprite' */,
+			Default__LiftExit_Sprite,
 			LoadAsset<SpriteComponent>("Default__LiftExit.Sprite2")/*Ref SpriteComponent'Default__LiftExit.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__LiftExit.Arrow")/*Ref ArrowComponent'Default__LiftExit.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__LiftExit.CollisionCylinder")/*Ref CylinderComponent'Default__LiftExit.CollisionCylinder'*/,

@@ -7,26 +7,23 @@ public partial class SkyLight : Light/*
 		hidecategories(Navigation)*/{
 	public SkyLight()
 	{
-		// Object Offset:0x003E8517
-		LightComponent = new SkyLightComponent
+		var Default__SkyLight_SkyLightComponent0 = new SkyLightComponent
 		{
 			// Object Offset:0x003E861A
 			UseDirectLightMap = true,
 			bCanAffectDynamicPrimitivesOutsideDynamicChannel = true,
 		}/* Reference: SkyLightComponent'Default__SkyLight.SkyLightComponent0' */;
+		var Default__SkyLight_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x003E85E6
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_SkyLight")/*Ref Texture2D'EngineResources.S_SkyLight'*/,
+		}/* Reference: SpriteComponent'Default__SkyLight.Sprite' */;
+		// Object Offset:0x003E8517
+		LightComponent = Default__SkyLight_SkyLightComponent0;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x003E85E6
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_SkyLight")/*Ref Texture2D'EngineResources.S_SkyLight'*/,
-			}/* Reference: SpriteComponent'Default__SkyLight.Sprite' */,
-			new SkyLightComponent
-			{
-				// Object Offset:0x003E861A
-				UseDirectLightMap = true,
-				bCanAffectDynamicPrimitivesOutsideDynamicChannel = true,
-			}/* Reference: SkyLightComponent'Default__SkyLight.SkyLightComponent0' */,
+			Default__SkyLight_Sprite,
+			Default__SkyLight_SkyLightComponent0,
 		};
 	}
 }

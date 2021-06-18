@@ -2645,7 +2645,7 @@ public partial class Pawn : Actor/*
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ BreathTimer = ()=>{}; FellOutOfWorld = (a)=>{}; PlayWeaponSwitch = (a,b)=>{}; PlayNextAnimation = ()=>{}; BaseChange = ()=>{}; Landed = (a,b)=>{}; Died = (a,b,c)=>default;
+			/*ignores*/ BreathTimer = ()=>{}; FellOutOfWorld = (_a)=>{}; PlayWeaponSwitch = (_1,_a)=>{}; PlayNextAnimation = ()=>{}; BaseChange = ()=>{}; Landed = (_1,_a)=>{}; Died = (_1,_2,_a)=>default;
 	
 			OutsideWorldBounds = Pawn_Dying_OutsideWorldBounds;
 			Timer = Pawn_Dying_Timer;
@@ -2672,6 +2672,50 @@ public partial class Pawn : Actor/*
 	}
 	public Pawn()
 	{
+		var Default__Pawn_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+			// Object Offset:0x003B3E02
+			FieldOfView = 160.0f,
+			FarPlane = 1000.0f,
+		}/* Reference: SceneCaptureCharacterComponent'Default__Pawn.SceneCaptureCharacterComponent0' */;
+		var Default__Pawn_DrawFrust0 = new DrawFrustumComponent
+		{
+			// Object Offset:0x003B3E52
+			FrustumColor = new Color
+			{
+				R=255,
+				G=255,
+				B=255,
+				A=255
+			},
+			HiddenGame = false,
+		}/* Reference: DrawFrustumComponent'Default__Pawn.DrawFrust0' */;
+		var Default__Pawn_CollisionCylinder = new CylinderComponent
+		{
+			// Object Offset:0x003B3EAA
+			CollisionHeight = 78.0f,
+			CollisionRadius = 34.0f,
+			CollideActors = true,
+			BlockActors = true,
+		}/* Reference: CylinderComponent'Default__Pawn.CollisionCylinder' */;
+		var Default__Pawn_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004CFF22
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__Pawn.Sprite' */;
+		var Default__Pawn_Arrow = new ArrowComponent
+		{
+			// Object Offset:0x00465C47
+			ArrowColor = new Color
+			{
+				R=150,
+				G=200,
+				B=255,
+				A=255
+			},
+		}/* Reference: ArrowComponent'Default__Pawn.Arrow' */;
 		// Object Offset:0x00399A1F
 		MaxStepHeight = 35.0f;
 		MaxJumpHeight = 96.0f;
@@ -2708,24 +2752,8 @@ public partial class Pawn : Actor/*
 		BaseEyeHeight = 64.0f;
 		EyeHeight = 54.0f;
 		Health = 100;
-		SceneCapture = new SceneCaptureCharacterComponent
-		{
-			// Object Offset:0x003B3E02
-			FieldOfView = 160.0f,
-			FarPlane = 1000.0f,
-		}/* Reference: SceneCaptureCharacterComponent'Default__Pawn.SceneCaptureCharacterComponent0' */;
-		DrawFrustum = new DrawFrustumComponent
-		{
-			// Object Offset:0x003B3E52
-			FrustumColor = new Color
-			{
-				R=255,
-				G=255,
-				B=255,
-				A=255
-			},
-			HiddenGame = false,
-		}/* Reference: DrawFrustumComponent'Default__Pawn.DrawFrust0' */;
+		SceneCapture = Default__Pawn_SceneCaptureCharacterComponent0;
+		DrawFrustum = Default__Pawn_DrawFrust0;
 		noise1time = -10.0f;
 		noise2time = -10.0f;
 		SoundDampening = 1.0f;
@@ -2733,14 +2761,7 @@ public partial class Pawn : Actor/*
 		ControllerClass = ClassT<AIController>()/*Ref Class'AIController'*/;
 		LandMovementState = (name)"PlayerWalking";
 		WaterMovementState = (name)"PlayerSwimming";
-		CylinderComponent = new CylinderComponent
-		{
-			// Object Offset:0x003B3EAA
-			CollisionHeight = 78.0f,
-			CollisionRadius = 34.0f,
-			CollideActors = true,
-			BlockActors = true,
-		}/* Reference: CylinderComponent'Default__Pawn.CollisionCylinder' */;
+		CylinderComponent = Default__Pawn_CollisionCylinder;
 		RBPushRadius = 10.0f;
 		RBPushStrength = 50.0f;
 		VehicleCheckRadius = 150.0f;
@@ -2758,61 +2779,15 @@ public partial class Pawn : Actor/*
 		bProjTarget = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SceneCaptureCharacterComponent
-			{
-				// Object Offset:0x003B3E02
-				FieldOfView = 160.0f,
-				FarPlane = 1000.0f,
-			}/* Reference: SceneCaptureCharacterComponent'Default__Pawn.SceneCaptureCharacterComponent0' */,
-			new DrawFrustumComponent
-			{
-				// Object Offset:0x003B3E52
-				FrustumColor = new Color
-				{
-					R=255,
-					G=255,
-					B=255,
-					A=255
-				},
-				HiddenGame = false,
-			}/* Reference: DrawFrustumComponent'Default__Pawn.DrawFrust0' */,
-			new SpriteComponent
-			{
-				// Object Offset:0x004CFF22
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__Pawn.Sprite' */,
-			new CylinderComponent
-			{
-				// Object Offset:0x003B3EAA
-				CollisionHeight = 78.0f,
-				CollisionRadius = 34.0f,
-				CollideActors = true,
-				BlockActors = true,
-			}/* Reference: CylinderComponent'Default__Pawn.CollisionCylinder' */,
-			new ArrowComponent
-			{
-				// Object Offset:0x00465C47
-				ArrowColor = new Color
-				{
-					R=150,
-					G=200,
-					B=255,
-					A=255
-				},
-			}/* Reference: ArrowComponent'Default__Pawn.Arrow' */,
+			Default__Pawn_SceneCaptureCharacterComponent0,
+			Default__Pawn_DrawFrust0,
+			Default__Pawn_Sprite,
+			Default__Pawn_CollisionCylinder,
+			Default__Pawn_Arrow,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetPriority = 2.0f;
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x003B3EAA
-			CollisionHeight = 78.0f,
-			CollisionRadius = 34.0f,
-			CollideActors = true,
-			BlockActors = true,
-		}/* Reference: CylinderComponent'Default__Pawn.CollisionCylinder' */;
+		CollisionComponent = Default__Pawn_CollisionCylinder;
 		RotationRate = new Rotator
 		{
 			Pitch=20000,

@@ -34,6 +34,52 @@ public partial class ParticleModuleUberRainImpacts : ParticleModuleUberBase/*
 	
 	public ParticleModuleUberRainImpacts()
 	{
+		var Default__ParticleModuleUberRainImpacts_DistributionStartSize = new DistributionVectorUniform
+		{
+			// Object Offset:0x0046884F
+			Max = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+			Min = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleUberRainImpacts.DistributionStartSize' */;
+		var Default__ParticleModuleUberRainImpacts_DistributionStartRotation = new DistributionVectorUniform
+		{
+			// Object Offset:0x0046880B
+			Max = new Vector
+			{
+				X=360.0f,
+				Y=360.0f,
+				Z=360.0f
+			},
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleUberRainImpacts.DistributionStartRotation' */;
+		var Default__ParticleModuleUberRainImpacts_DistributionPC_VelocityScale = new DistributionFloatConstant
+		{
+			// Object Offset:0x00467193
+			Constant = 1.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleUberRainImpacts.DistributionPC_VelocityScale' */;
+		var Default__ParticleModuleUberRainImpacts_DistributionPC_StartRadius = new DistributionFloatConstant
+		{
+			// Object Offset:0x0046715F
+			Constant = 50.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleUberRainImpacts.DistributionPC_StartRadius' */;
+		var Default__ParticleModuleUberRainImpacts_DistributionPC_StartHeight = new DistributionFloatConstant
+		{
+			// Object Offset:0x0046712B
+			Constant = 50.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleUberRainImpacts.DistributionPC_StartHeight' */;
+		var Default__ParticleModuleUberRainImpacts_DistributionAlphaOverLife = new DistributionFloatConstant
+		{
+			// Object Offset:0x004670F7
+			Constant = 255.90f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleUberRainImpacts.DistributionAlphaOverLife' */;
 		// Object Offset:0x00388C69
 		Lifetime = new DistributionFloat.RawDistributionFloat
 		{

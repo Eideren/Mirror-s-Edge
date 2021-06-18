@@ -75,32 +75,23 @@ public partial class SkeletalMeshActorMAT : SkeletalMeshActor/*
 	
 	public SkeletalMeshActorMAT()
 	{
-		// Object Offset:0x003E7CE4
-		SkeletalMeshComponent = new SkeletalMeshComponent
+		var Default__SkeletalMeshActorMAT_SkeletalMeshComponent0 = new SkeletalMeshComponent
 		{
 			// Object Offset:0x003E7EBF
 			Animations = default,
 			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__SkeletalMeshActorMAT.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActorMAT.MyLightEnvironment'*/,
 		}/* Reference: SkeletalMeshComponent'Default__SkeletalMeshActorMAT.SkeletalMeshComponent0' */;
+		// Object Offset:0x003E7CE4
+		SkeletalMeshComponent = Default__SkeletalMeshActorMAT_SkeletalMeshComponent0;
 		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__SkeletalMeshActorMAT.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActorMAT.MyLightEnvironment'*/;
 		FacialAudioComp = LoadAsset<AudioComponent>("Default__SkeletalMeshActorMAT.FaceAudioComponent")/*Ref AudioComponent'Default__SkeletalMeshActorMAT.FaceAudioComponent'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__SkeletalMeshActorMAT.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActorMAT.MyLightEnvironment'*/,
-			new SkeletalMeshComponent
-			{
-				// Object Offset:0x003E7EBF
-				Animations = default,
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__SkeletalMeshActorMAT.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActorMAT.MyLightEnvironment'*/,
-			}/* Reference: SkeletalMeshComponent'Default__SkeletalMeshActorMAT.SkeletalMeshComponent0' */,
+			Default__SkeletalMeshActorMAT_SkeletalMeshComponent0,
 			LoadAsset<AudioComponent>("Default__SkeletalMeshActorMAT.FaceAudioComponent")/*Ref AudioComponent'Default__SkeletalMeshActorMAT.FaceAudioComponent'*/,
 		};
-		CollisionComponent = new SkeletalMeshComponent
-		{
-			// Object Offset:0x003E7EBF
-			Animations = default,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__SkeletalMeshActorMAT.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActorMAT.MyLightEnvironment'*/,
-		}/* Reference: SkeletalMeshComponent'Default__SkeletalMeshActorMAT.SkeletalMeshComponent0' */;
+		CollisionComponent = Default__SkeletalMeshActorMAT_SkeletalMeshComponent0;
 	}
 }
 }

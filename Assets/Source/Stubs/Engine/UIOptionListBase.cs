@@ -123,6 +123,58 @@ public partial class UIOptionListBase : UIObject,
 	
 	public UIOptionListBase()
 	{
+		var Default__UIOptionListBase_DecrementButtonTemplate = new UIOptionListButton
+		{
+			// Object Offset:0x004472D8
+			BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIOptionListBase.DecrementButtonTemplate.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UIOptionListBase.DecrementButtonTemplate.BackgroundImageTemplate'*/,
+			WidgetTag = (name)"DecrementButton",
+			TabIndex = 0,
+			Position = new UIRoot.UIScreenValue_Bounds
+			{
+				Value = new StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/()
+				{
+					[2] = 32.0f,
+					#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
+				},
+				ScaleType = new StaticArray<UIRoot.EPositionEvalType, UIRoot.EPositionEvalType, UIRoot.EPositionEvalType, UIRoot.EPositionEvalType>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/()
+				{
+					[2] = UIRoot.EPositionEvalType.EVALPOS_PixelOwner,
+					#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
+				},
+			},
+			EventProvider = LoadAsset<UIComp_Event>("Default__UIOptionListBase.DecrementButtonTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIOptionListBase.DecrementButtonTemplate.WidgetEventComponent'*/,
+		}/* Reference: UIOptionListButton'Default__UIOptionListBase.DecrementButtonTemplate' */;
+		var Default__UIOptionListBase_IncrementButtonTemplate = new UIOptionListButton
+		{
+			// Object Offset:0x004473BC
+			BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIOptionListBase.IncrementButtonTemplate.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UIOptionListBase.IncrementButtonTemplate.BackgroundImageTemplate'*/,
+			WidgetTag = (name)"IncrementButton",
+			TabIndex = 1,
+			Position = new UIRoot.UIScreenValue_Bounds
+			{
+				Value = 224.0f,
+				ScaleType = UIRoot.EPositionEvalType.EVALPOS_PixelOwner,
+			},
+			EventProvider = LoadAsset<UIComp_Event>("Default__UIOptionListBase.IncrementButtonTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIOptionListBase.IncrementButtonTemplate.WidgetEventComponent'*/,
+		}/* Reference: UIOptionListButton'Default__UIOptionListBase.IncrementButtonTemplate' */;
+		var Default__UIOptionListBase_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+			// Object Offset:0x004471A8
+			StyleResolverTag = (name)"Background Image Style",
+			ImageStyle = new UIRoot.UIStyleReference
+			{
+				DefaultStyleTag = (name)"ButtonBackground",
+			},
+		}/* Reference: UIComp_DrawImage'Default__UIOptionListBase.BackgroundImageTemplate' */;
+		var Default__UIOptionListBase_LabelStringRenderer = new UIComp_DrawString
+		{
+			// Object Offset:0x00447228
+			StyleResolverTag = (name)"Caption Style",
+			StringStyle = new UIRoot.UIStyleReference
+			{
+				DefaultStyleTag = (name)"DefaultLabelButtonStyle",
+			},
+		}/* Reference: UIComp_DrawString'Default__UIOptionListBase.LabelStringRenderer' */;
 		// Object Offset:0x00446AB1
 		DecrementStyle = new UIRoot.UIStyleReference
 		{
@@ -150,59 +202,11 @@ public partial class UIOptionListBase : UIObject,
 			},
 			ResolvedStyle = default,
 		};
-		DecrementButton = new UIOptionListButton
-		{
-			// Object Offset:0x004472D8
-			BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIOptionListBase.DecrementButtonTemplate.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UIOptionListBase.DecrementButtonTemplate.BackgroundImageTemplate'*/,
-			WidgetTag = (name)"DecrementButton",
-			TabIndex = 0,
-			Position = new UIRoot.UIScreenValue_Bounds
-			{
-				Value = new StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/()
-				{
-					[2] = 32.0f,
-					#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
-				},
-				ScaleType = new StaticArray<UIRoot.EPositionEvalType, UIRoot.EPositionEvalType, UIRoot.EPositionEvalType, UIRoot.EPositionEvalType>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/()
-				{
-					[2] = UIRoot.EPositionEvalType.EVALPOS_PixelOwner,
-					#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
-				},
-			},
-			EventProvider = LoadAsset<UIComp_Event>("Default__UIOptionListBase.DecrementButtonTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIOptionListBase.DecrementButtonTemplate.WidgetEventComponent'*/,
-		}/* Reference: UIOptionListButton'Default__UIOptionListBase.DecrementButtonTemplate' */;
-		IncrementButton = new UIOptionListButton
-		{
-			// Object Offset:0x004473BC
-			BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIOptionListBase.IncrementButtonTemplate.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UIOptionListBase.IncrementButtonTemplate.BackgroundImageTemplate'*/,
-			WidgetTag = (name)"IncrementButton",
-			TabIndex = 1,
-			Position = new UIRoot.UIScreenValue_Bounds
-			{
-				Value = 224.0f,
-				ScaleType = UIRoot.EPositionEvalType.EVALPOS_PixelOwner,
-			},
-			EventProvider = LoadAsset<UIComp_Event>("Default__UIOptionListBase.IncrementButtonTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIOptionListBase.IncrementButtonTemplate.WidgetEventComponent'*/,
-		}/* Reference: UIOptionListButton'Default__UIOptionListBase.IncrementButtonTemplate' */;
+		DecrementButton = Default__UIOptionListBase_DecrementButtonTemplate;
+		IncrementButton = Default__UIOptionListBase_IncrementButtonTemplate;
 		OptionListButtonClass = ClassT<UIOptionListButton>()/*Ref Class'UIOptionListButton'*/;
-		BackgroundImageComponent = new UIComp_DrawImage
-		{
-			// Object Offset:0x004471A8
-			StyleResolverTag = (name)"Background Image Style",
-			ImageStyle = new UIRoot.UIStyleReference
-			{
-				DefaultStyleTag = (name)"ButtonBackground",
-			},
-		}/* Reference: UIComp_DrawImage'Default__UIOptionListBase.BackgroundImageTemplate' */;
-		StringRenderComponent = new UIComp_DrawString
-		{
-			// Object Offset:0x00447228
-			StyleResolverTag = (name)"Caption Style",
-			StringStyle = new UIRoot.UIStyleReference
-			{
-				DefaultStyleTag = (name)"DefaultLabelButtonStyle",
-			},
-		}/* Reference: UIComp_DrawString'Default__UIOptionListBase.LabelStringRenderer' */;
+		BackgroundImageComponent = Default__UIOptionListBase_BackgroundImageTemplate;
+		StringRenderComponent = Default__UIOptionListBase_LabelStringRenderer;
 		IncrementCue = (name)"SliderIncrement";
 		DecrementCue = (name)"SliderDecrement";
 		DataSource = new UIRoot.UIDataStoreBinding
@@ -235,40 +239,8 @@ public partial class UIOptionListBase : UIObject,
 		};
 		Children = new array<UIObject>
 		{
-			new UIOptionListButton
-			{
-				// Object Offset:0x004472D8
-				BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIOptionListBase.DecrementButtonTemplate.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UIOptionListBase.DecrementButtonTemplate.BackgroundImageTemplate'*/,
-				WidgetTag = (name)"DecrementButton",
-				TabIndex = 0,
-				Position = new UIRoot.UIScreenValue_Bounds
-				{
-					Value = new StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/()
-					{
-						[2] = 32.0f,
-						#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
-					},
-					ScaleType = new StaticArray<UIRoot.EPositionEvalType, UIRoot.EPositionEvalType, UIRoot.EPositionEvalType, UIRoot.EPositionEvalType>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/()
-					{
-						[2] = UIRoot.EPositionEvalType.EVALPOS_PixelOwner,
-						#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
-					},
-				},
-				EventProvider = LoadAsset<UIComp_Event>("Default__UIOptionListBase.DecrementButtonTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIOptionListBase.DecrementButtonTemplate.WidgetEventComponent'*/,
-			}/* Reference: UIOptionListButton'Default__UIOptionListBase.DecrementButtonTemplate' */,
-			new UIOptionListButton
-			{
-				// Object Offset:0x004473BC
-				BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIOptionListBase.IncrementButtonTemplate.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UIOptionListBase.IncrementButtonTemplate.BackgroundImageTemplate'*/,
-				WidgetTag = (name)"IncrementButton",
-				TabIndex = 1,
-				Position = new UIRoot.UIScreenValue_Bounds
-				{
-					Value = 224.0f,
-					ScaleType = UIRoot.EPositionEvalType.EVALPOS_PixelOwner,
-				},
-				EventProvider = LoadAsset<UIComp_Event>("Default__UIOptionListBase.IncrementButtonTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIOptionListBase.IncrementButtonTemplate.WidgetEventComponent'*/,
-			}/* Reference: UIOptionListButton'Default__UIOptionListBase.IncrementButtonTemplate' */,
+			Default__UIOptionListBase_DecrementButtonTemplate,
+			Default__UIOptionListBase_IncrementButtonTemplate,
 		};
 		DefaultStates = new array< Core.ClassT<UIState> >
 		{

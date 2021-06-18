@@ -16,8 +16,7 @@ public partial class TdValveSkeletalMeshActor : SkeletalMeshActor/*
 	
 	public TdValveSkeletalMeshActor()
 	{
-		// Object Offset:0x006BCAB2
-		SkeletalMeshComponent = new SkeletalMeshComponent
+		var Default__TdValveSkeletalMeshActor_SkeletalMeshComponent0 = new SkeletalMeshComponent
 		{
 			// Object Offset:0x0279BEAA
 			SkeletalMesh = LoadAsset<SkeletalMesh>("P_Pipes.Valve_01.SK_Valve_01")/*Ref SkeletalMesh'P_Pipes.Valve_01.SK_Valve_01'*/,
@@ -29,38 +28,18 @@ public partial class TdValveSkeletalMeshActor : SkeletalMeshActor/*
 			},
 			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdValveSkeletalMeshActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdValveSkeletalMeshActor.MyLightEnvironment'*/,
 		}/* Reference: SkeletalMeshComponent'Default__TdValveSkeletalMeshActor.SkeletalMeshComponent0' */;
+		// Object Offset:0x006BCAB2
+		SkeletalMeshComponent = Default__TdValveSkeletalMeshActor_SkeletalMeshComponent0;
 		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdValveSkeletalMeshActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdValveSkeletalMeshActor.MyLightEnvironment'*/;
 		FacialAudioComp = LoadAsset<AudioComponent>("Default__TdValveSkeletalMeshActor.FaceAudioComponent")/*Ref AudioComponent'Default__TdValveSkeletalMeshActor.FaceAudioComponent'*/;
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdValveSkeletalMeshActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdValveSkeletalMeshActor.MyLightEnvironment'*/,
-			new SkeletalMeshComponent
-			{
-				// Object Offset:0x0279BEAA
-				SkeletalMesh = LoadAsset<SkeletalMesh>("P_Pipes.Valve_01.SK_Valve_01")/*Ref SkeletalMesh'P_Pipes.Valve_01.SK_Valve_01'*/,
-				AnimTreeTemplate = LoadAsset<AnimTree>("AT_Valve.AT_Valve")/*Ref AnimTree'AT_Valve.AT_Valve'*/,
-				Animations = default,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_Valve.AS_Valve")/*Ref TdAnimSet'AS_Valve.AS_Valve'*/,
-				},
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdValveSkeletalMeshActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdValveSkeletalMeshActor.MyLightEnvironment'*/,
-			}/* Reference: SkeletalMeshComponent'Default__TdValveSkeletalMeshActor.SkeletalMeshComponent0' */,
+			Default__TdValveSkeletalMeshActor_SkeletalMeshComponent0,
 			LoadAsset<AudioComponent>("Default__TdValveSkeletalMeshActor.FaceAudioComponent")/*Ref AudioComponent'Default__TdValveSkeletalMeshActor.FaceAudioComponent'*/,
 		};
-		CollisionComponent = new SkeletalMeshComponent
-		{
-			// Object Offset:0x0279BEAA
-			SkeletalMesh = LoadAsset<SkeletalMesh>("P_Pipes.Valve_01.SK_Valve_01")/*Ref SkeletalMesh'P_Pipes.Valve_01.SK_Valve_01'*/,
-			AnimTreeTemplate = LoadAsset<AnimTree>("AT_Valve.AT_Valve")/*Ref AnimTree'AT_Valve.AT_Valve'*/,
-			Animations = default,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_Valve.AS_Valve")/*Ref TdAnimSet'AS_Valve.AS_Valve'*/,
-			},
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdValveSkeletalMeshActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdValveSkeletalMeshActor.MyLightEnvironment'*/,
-		}/* Reference: SkeletalMeshComponent'Default__TdValveSkeletalMeshActor.SkeletalMeshComponent0' */;
+		CollisionComponent = Default__TdValveSkeletalMeshActor_SkeletalMeshComponent0;
 	}
 }
 }

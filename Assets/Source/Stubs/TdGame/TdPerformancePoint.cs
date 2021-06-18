@@ -7,19 +7,16 @@ public partial class TdPerformancePoint : Keypoint/*
 		hidecategories(Navigation)*/{
 	public TdPerformancePoint()
 	{
+		var Default__TdPerformancePoint_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x02E52525
+			Sprite = LoadAsset<Texture2D>("TdEditorResources.PerformancePointIcon")/*Ref Texture2D'TdEditorResources.PerformancePointIcon'*/,
+		}/* Reference: SpriteComponent'Default__TdPerformancePoint.Sprite' */;
 		// Object Offset:0x0060AA45
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x02E52525
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.PerformancePointIcon")/*Ref Texture2D'TdEditorResources.PerformancePointIcon'*/,
-			}/* Reference: SpriteComponent'Default__TdPerformancePoint.Sprite' */,
-			new SpriteComponent
-			{
-				// Object Offset:0x02E52525
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.PerformancePointIcon")/*Ref Texture2D'TdEditorResources.PerformancePointIcon'*/,
-			}/* Reference: SpriteComponent'Default__TdPerformancePoint.Sprite' */,
+			Default__TdPerformancePoint_Sprite,
+			Default__TdPerformancePoint_Sprite,
 		};
 	}
 }

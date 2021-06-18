@@ -138,9 +138,7 @@ public partial class TdBagKActor : KActor,
 	}
 	public TdBagKActor()
 	{
-		// Object Offset:0x0050C075
-		InventoryClassName = "TdMpContent.TdWeapon_Bag";
-		ActorCylinderComponent = new CylinderComponent
+		var Default__TdBagKActor_ActorCollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x01AB48C6
 			CollisionHeight = 200.0f,
@@ -148,7 +146,7 @@ public partial class TdBagKActor : KActor,
 			CollideActors = true,
 			BlockZeroExtent = false,
 		}/* Reference: CylinderComponent'Default__TdBagKActor.ActorCollisionCylinder' */;
-		StaticMeshComponent = new StaticMeshComponent
+		var Default__TdBagKActor_StaticMeshComponent0 = new StaticMeshComponent
 		{
 			// Object Offset:0x02EA6C03
 			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBagKActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBagKActor.MyLightEnvironment'*/,
@@ -160,6 +158,10 @@ public partial class TdBagKActor : KActor,
 			Scale = 3.0f,
 			ScriptRigidBodyCollisionThreshold = 50.0f,
 		}/* Reference: StaticMeshComponent'Default__TdBagKActor.StaticMeshComponent0' */;
+		// Object Offset:0x0050C075
+		InventoryClassName = "TdMpContent.TdWeapon_Bag";
+		ActorCylinderComponent = Default__TdBagKActor_ActorCollisionCylinder;
+		StaticMeshComponent = Default__TdBagKActor_StaticMeshComponent0;
 		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBagKActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBagKActor.MyLightEnvironment'*/;
 		bNoDelete = false;
 		bHardAttach = true;
@@ -169,53 +171,13 @@ public partial class TdBagKActor : KActor,
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBagKActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBagKActor.MyLightEnvironment'*/,
-			new StaticMeshComponent
-			{
-				// Object Offset:0x02EA6C03
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBagKActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBagKActor.MyLightEnvironment'*/,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					EffectPhysics = false,
-				},
-				bNotifyRigidBodyCollision = true,
-				Scale = 3.0f,
-				ScriptRigidBodyCollisionThreshold = 50.0f,
-			}/* Reference: StaticMeshComponent'Default__TdBagKActor.StaticMeshComponent0' */,
-			new StaticMeshComponent
-			{
-				// Object Offset:0x02EA6C03
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBagKActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBagKActor.MyLightEnvironment'*/,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					EffectPhysics = false,
-				},
-				bNotifyRigidBodyCollision = true,
-				Scale = 3.0f,
-				ScriptRigidBodyCollisionThreshold = 50.0f,
-			}/* Reference: StaticMeshComponent'Default__TdBagKActor.StaticMeshComponent0' */,
-			new CylinderComponent
-			{
-				// Object Offset:0x01AB48C6
-				CollisionHeight = 200.0f,
-				CollisionRadius = 200.0f,
-				CollideActors = true,
-				BlockZeroExtent = false,
-			}/* Reference: CylinderComponent'Default__TdBagKActor.ActorCollisionCylinder' */,
+			Default__TdBagKActor_StaticMeshComponent0,
+			Default__TdBagKActor_StaticMeshComponent0,
+			Default__TdBagKActor_ActorCollisionCylinder,
 		};
 		Physics = Actor.EPhysics.PHYS_None;
 		NetPriority = 3.0f;
-		CollisionComponent = new StaticMeshComponent
-		{
-			// Object Offset:0x02EA6C03
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBagKActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBagKActor.MyLightEnvironment'*/,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				EffectPhysics = false,
-			},
-			bNotifyRigidBodyCollision = true,
-			Scale = 3.0f,
-			ScriptRigidBodyCollisionThreshold = 50.0f,
-		}/* Reference: StaticMeshComponent'Default__TdBagKActor.StaticMeshComponent0' */;
+		CollisionComponent = Default__TdBagKActor_StaticMeshComponent0;
 	}
 }
 }

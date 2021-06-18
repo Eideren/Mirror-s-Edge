@@ -10,6 +10,11 @@ public partial class VolumePathNode : PathNode/*
 	
 	public VolumePathNode()
 	{
+		var Default__VolumePathNode_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004D076E
+			Sprite = LoadAsset<Texture2D>("EngineResources.VolumePath")/*Ref Texture2D'EngineResources.VolumePath'*/,
+		}/* Reference: SpriteComponent'Default__VolumePathNode.Sprite' */;
 		// Object Offset:0x00459522
 		StartingRadius = 2000.0f;
 		StartingHeight = 2000.0f;
@@ -19,19 +24,11 @@ public partial class VolumePathNode : PathNode/*
 		bVehicleDestination = true;
 		bCanBePlayerNavigationPoint = false;
 		CylinderComponent = LoadAsset<CylinderComponent>("Default__VolumePathNode.CollisionCylinder")/*Ref CylinderComponent'Default__VolumePathNode.CollisionCylinder'*/;
-		GoodSprite = new SpriteComponent
-		{
-			// Object Offset:0x004D076E
-			Sprite = LoadAsset<Texture2D>("EngineResources.VolumePath")/*Ref Texture2D'EngineResources.VolumePath'*/,
-		}/* Reference: SpriteComponent'Default__VolumePathNode.Sprite' */;
+		GoodSprite = Default__VolumePathNode_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__VolumePathNode.Sprite2")/*Ref SpriteComponent'Default__VolumePathNode.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004D076E
-				Sprite = LoadAsset<Texture2D>("EngineResources.VolumePath")/*Ref Texture2D'EngineResources.VolumePath'*/,
-			}/* Reference: SpriteComponent'Default__VolumePathNode.Sprite' */,
+			Default__VolumePathNode_Sprite,
 			LoadAsset<SpriteComponent>("Default__VolumePathNode.Sprite2")/*Ref SpriteComponent'Default__VolumePathNode.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__VolumePathNode.Arrow")/*Ref ArrowComponent'Default__VolumePathNode.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__VolumePathNode.CollisionCylinder")/*Ref CylinderComponent'Default__VolumePathNode.CollisionCylinder'*/,

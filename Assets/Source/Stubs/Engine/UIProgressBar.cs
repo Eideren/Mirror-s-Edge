@@ -100,8 +100,7 @@ public partial class UIProgressBar : UIObject,
 	
 	public UIProgressBar()
 	{
-		// Object Offset:0x0044BCA4
-		BackgroundImageComponent = new UIComp_DrawImage
+		var Default__UIProgressBar_ProgressBarBackgroundImageTemplate = new UIComp_DrawImage
 		{
 			// Object Offset:0x005D1A0A
 			StyleResolverTag = (name)"Background Image Style",
@@ -110,7 +109,7 @@ public partial class UIProgressBar : UIObject,
 				DefaultStyleTag = (name)"DefaultSliderStyle",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UIProgressBar.ProgressBarBackgroundImageTemplate' */;
-		FillImageComponent = new UIComp_DrawImage
+		var Default__UIProgressBar_ProgressBarFillImageTemplate = new UIComp_DrawImage
 		{
 			// Object Offset:0x005D1A8A
 			StyleResolverTag = (name)"Fill Image Style",
@@ -119,11 +118,15 @@ public partial class UIProgressBar : UIObject,
 				DefaultStyleTag = (name)"DefaultSliderBarStyle",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UIProgressBar.ProgressBarFillImageTemplate' */;
-		OverlayImageComponent = new UIComp_DrawImage
+		var Default__UIProgressBar_ProgressBarOverlayImageTemplate = new UIComp_DrawImage
 		{
 			// Object Offset:0x005D1B0A
 			StyleResolverTag = (name)"Overlay Image Style",
 		}/* Reference: UIComp_DrawImage'Default__UIProgressBar.ProgressBarOverlayImageTemplate' */;
+		// Object Offset:0x0044BCA4
+		BackgroundImageComponent = Default__UIProgressBar_ProgressBarBackgroundImageTemplate;
+		FillImageComponent = Default__UIProgressBar_ProgressBarFillImageTemplate;
+		OverlayImageComponent = Default__UIProgressBar_ProgressBarOverlayImageTemplate;
 		DataSource = new UIRoot.UIDataStoreBinding
 		{
 			Subscriber = default,

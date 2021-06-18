@@ -107,15 +107,7 @@ public partial class UIContextMenu : UIList/*
 	
 	public UIContextMenu()
 	{
-		// Object Offset:0x00424006
-		ColumnAutoSizeMode = UIList.ECellAutoSizeMode.CELLAUTOSIZE_AdjustList;
-		RowAutoSizeMode = UIList.ECellAutoSizeMode.CELLAUTOSIZE_AdjustList;
-		WrapType = UIList.EListWrapBehavior.LISTWRAP_Jump;
-		bEnableVerticalScrollbar = false;
-		bInitializeScrollbars = false;
-		bSingleClickSubmission = true;
-		bUpdateItemUnderCursor = true;
-		CellDataComponent = new UIComp_ContextMenuListPresenter
+		var Default__UIContextMenu_ContextMenuDataComponent = new UIComp_ContextMenuListPresenter
 		{
 			// Object Offset:0x005D12D2
 			ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
@@ -126,6 +118,15 @@ public partial class UIContextMenu : UIList/*
 				[3] = LoadAsset<UITexture>("Default__UIContextMenu.ContextMenuDataComponent.HoverOverlayTemplate")/*Ref UITexture'Default__UIContextMenu.ContextMenuDataComponent.HoverOverlayTemplate'*/,
 	 		},
 		}/* Reference: UIComp_ContextMenuListPresenter'Default__UIContextMenu.ContextMenuDataComponent' */;
+		// Object Offset:0x00424006
+		ColumnAutoSizeMode = UIList.ECellAutoSizeMode.CELLAUTOSIZE_AdjustList;
+		RowAutoSizeMode = UIList.ECellAutoSizeMode.CELLAUTOSIZE_AdjustList;
+		WrapType = UIList.EListWrapBehavior.LISTWRAP_Jump;
+		bEnableVerticalScrollbar = false;
+		bInitializeScrollbars = false;
+		bSingleClickSubmission = true;
+		bUpdateItemUnderCursor = true;
+		CellDataComponent = Default__UIContextMenu_ContextMenuDataComponent;
 		PrimaryStyle = new UIRoot.UIStyleReference
 		{
 			DefaultStyleTag = (name)"DefaultContextMenuStyle",

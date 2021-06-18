@@ -7,6 +7,18 @@ public partial class TdBotPawn_PatrolCop_Remington : TdBotPawn_PatrolCop/*
 		hidecategories(Navigation)*/{
 	public TdBotPawn_PatrolCop_Remington()
 	{
+		var Default__TdBotPawn_PatrolCop_Remington_AdditionalSkeletalMeshComponent = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x00022AC2
+			ParentAnimComponent = LoadAsset<TdSkeletalMeshComponent>("Default__TdBotPawn_PatrolCop_Remington.TdPawnMesh3p")/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Remington.TdPawnMesh3p'*/,
+			ShadowParent = LoadAsset<TdSkeletalMeshComponent>("Default__TdBotPawn_PatrolCop_Remington.TdPawnMesh3p")/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Remington.TdPawnMesh3p'*/,
+			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PatrolCop_Remington.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop_Remington.MyLightEnvironment'*/,
+		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Remington.AdditionalSkeletalMeshComponent' */;
+		var Default__TdBotPawn_PatrolCop_Remington_TdPawnMesh3p = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x00022B2E
+			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PatrolCop_Remington.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop_Remington.MyLightEnvironment'*/,
+		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Remington.TdPawnMesh3p' */;
 		// Object Offset:0x0001D35C
 		DeathAnimDeathFrontHard = new TdBotPawn.DeathAnimData
 		{
@@ -29,19 +41,9 @@ public partial class TdBotPawn_PatrolCop_Remington : TdBotPawn_PatrolCop/*
 			PawnZImpulse = 75.0f,
 			BoneImpulse = 150.0f,
 		};
-		AdditionalSkeletalMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00022AC2
-			ParentAnimComponent = LoadAsset<TdSkeletalMeshComponent>("Default__TdBotPawn_PatrolCop_Remington.TdPawnMesh3p")/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Remington.TdPawnMesh3p'*/,
-			ShadowParent = LoadAsset<TdSkeletalMeshComponent>("Default__TdBotPawn_PatrolCop_Remington.TdPawnMesh3p")/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Remington.TdPawnMesh3p'*/,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PatrolCop_Remington.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop_Remington.MyLightEnvironment'*/,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Remington.AdditionalSkeletalMeshComponent' */;
+		AdditionalSkeletalMesh = Default__TdBotPawn_PatrolCop_Remington_AdditionalSkeletalMeshComponent;
 		ActorCylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_PatrolCop_Remington.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Remington.ActorCollisionCylinder'*/;
-		Mesh3p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00022B2E
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PatrolCop_Remington.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop_Remington.MyLightEnvironment'*/,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Remington.TdPawnMesh3p' */;
+		Mesh3p = Default__TdBotPawn_PatrolCop_Remington_TdPawnMesh3p;
 		MoveClasses = new array< Core.ClassT<TdMove> >
 		{
 			default,
@@ -207,11 +209,7 @@ public partial class TdBotPawn_PatrolCop_Remington : TdBotPawn_PatrolCop/*
 		};
 		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawn_PatrolCop_Remington.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_PatrolCop_Remington.SceneCaptureCharacterComponent0'*/;
 		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdBotPawn_PatrolCop_Remington.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn_PatrolCop_Remington.DrawFrust0'*/;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00022B2E
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PatrolCop_Remington.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop_Remington.MyLightEnvironment'*/,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Remington.TdPawnMesh3p' */;
+		Mesh = Default__TdBotPawn_PatrolCop_Remington_TdPawnMesh3p;
 		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_PatrolCop_Remington.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Remington.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
@@ -220,11 +218,7 @@ public partial class TdBotPawn_PatrolCop_Remington : TdBotPawn_PatrolCop/*
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_PatrolCop_Remington.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Remington.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdBotPawn_PatrolCop_Remington.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_PatrolCop_Remington.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PatrolCop_Remington.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop_Remington.MyLightEnvironment'*/,
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00022B2E
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PatrolCop_Remington.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop_Remington.MyLightEnvironment'*/,
-			}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Remington.TdPawnMesh3p' */,
+			Default__TdBotPawn_PatrolCop_Remington_TdPawnMesh3p,
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_PatrolCop_Remington.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Remington.CollisionCylinder'*/,
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_PatrolCop_Remington.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Remington.ActorCollisionCylinder'*/,
 		};

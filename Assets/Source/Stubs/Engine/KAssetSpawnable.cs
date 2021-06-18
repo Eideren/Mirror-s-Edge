@@ -6,28 +6,21 @@ public partial class KAssetSpawnable : KAsset/*
 		hidecategories(Navigation)*/{
 	public KAssetSpawnable()
 	{
-		// Object Offset:0x0034C459
-		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KAssetSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KAssetSpawnable.MyLightEnvironment'*/;
-		SkeletalMeshComponent = new SkeletalMeshComponent
+		var Default__KAssetSpawnable_KAssetSkelMeshComponent = new SkeletalMeshComponent
 		{
 			// Object Offset:0x004CED7E
 			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KAssetSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KAssetSpawnable.MyLightEnvironment'*/,
 		}/* Reference: SkeletalMeshComponent'Default__KAssetSpawnable.KAssetSkelMeshComponent' */;
+		// Object Offset:0x0034C459
+		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KAssetSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KAssetSpawnable.MyLightEnvironment'*/;
+		SkeletalMeshComponent = Default__KAssetSpawnable_KAssetSkelMeshComponent;
 		bNoDelete = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__KAssetSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KAssetSpawnable.MyLightEnvironment'*/,
-			new SkeletalMeshComponent
-			{
-				// Object Offset:0x004CED7E
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KAssetSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KAssetSpawnable.MyLightEnvironment'*/,
-			}/* Reference: SkeletalMeshComponent'Default__KAssetSpawnable.KAssetSkelMeshComponent' */,
+			Default__KAssetSpawnable_KAssetSkelMeshComponent,
 		};
-		CollisionComponent = new SkeletalMeshComponent
-		{
-			// Object Offset:0x004CED7E
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KAssetSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KAssetSpawnable.MyLightEnvironment'*/,
-		}/* Reference: SkeletalMeshComponent'Default__KAssetSpawnable.KAssetSkelMeshComponent' */;
+		CollisionComponent = Default__KAssetSpawnable_KAssetSkelMeshComponent;
 	}
 }
 }

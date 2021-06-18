@@ -41,28 +41,21 @@ public partial class WaterVolume : PhysicsVolume/*
 	}
 	public WaterVolume()
 	{
+		var Default__WaterVolume_BrushComponent0 = new BrushComponent
+		{
+			// Object Offset:0x004662F3
+			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_Water,
+		}/* Reference: BrushComponent'Default__WaterVolume.BrushComponent0' */;
 		// Object Offset:0x00459E27
 		bWaterVolume = true;
 		FluidFriction = 2.40f;
 		LocationName = "under water";
-		BrushComponent = new BrushComponent
-		{
-			// Object Offset:0x004662F3
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_Water,
-		}/* Reference: BrushComponent'Default__WaterVolume.BrushComponent0' */;
+		BrushComponent = Default__WaterVolume_BrushComponent0;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new BrushComponent
-			{
-				// Object Offset:0x004662F3
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_Water,
-			}/* Reference: BrushComponent'Default__WaterVolume.BrushComponent0' */,
+			Default__WaterVolume_BrushComponent0,
 		};
-		CollisionComponent = new BrushComponent
-		{
-			// Object Offset:0x004662F3
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_Water,
-		}/* Reference: BrushComponent'Default__WaterVolume.BrushComponent0' */;
+		CollisionComponent = Default__WaterVolume_BrushComponent0;
 	}
 }
 }

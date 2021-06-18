@@ -11,8 +11,7 @@ public partial class TdProj_SmokeGrenade : TdProj_Grenade/*
 	
 	public TdProj_SmokeGrenade()
 	{
-		// Object Offset:0x0064F5BB
-		Mesh = new SkeletalMeshComponent
+		var Default__TdProj_SmokeGrenade_GrenadeMesh0 = new SkeletalMeshComponent
 		{
 			// Object Offset:0x0279BD16
 			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SmokeGrenade.SK_SmokeGrenade")/*Ref SkeletalMesh'WP_SmokeGrenade.SK_SmokeGrenade'*/,
@@ -31,13 +30,16 @@ public partial class TdProj_SmokeGrenade : TdProj_Grenade/*
 				EffectPhysics = true,
 			},
 		}/* Reference: SkeletalMeshComponent'Default__TdProj_SmokeGrenade.GrenadeMesh0' */;
-		ExplodingSound = LoadAsset<SoundCue>("A_WP_Grenade_Smoke.Fire.Det")/*Ref SoundCue'A_WP_Grenade_Smoke.Fire.Det'*/;
-		BouncingSound = LoadAsset<SoundCue>("A_WP_Grenade_Smoke.Foley.DropBounce")/*Ref SoundCue'A_WP_Grenade_Smoke.Foley.DropBounce'*/;
-		PSC_SmokeTrail = new ParticleSystemComponent
+		var Default__TdProj_SmokeGrenade_TrailParticleSystemComponent0 = new ParticleSystemComponent
 		{
 			// Object Offset:0x01D75097
 			Template = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_WeaponFX_SmokeGrenade_Trail_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_WeaponFX_SmokeGrenade_Trail_01'*/,
 		}/* Reference: ParticleSystemComponent'Default__TdProj_SmokeGrenade.TrailParticleSystemComponent0' */;
+		// Object Offset:0x0064F5BB
+		Mesh = Default__TdProj_SmokeGrenade_GrenadeMesh0;
+		ExplodingSound = LoadAsset<SoundCue>("A_WP_Grenade_Smoke.Fire.Det")/*Ref SoundCue'A_WP_Grenade_Smoke.Fire.Det'*/;
+		BouncingSound = LoadAsset<SoundCue>("A_WP_Grenade_Smoke.Foley.DropBounce")/*Ref SoundCue'A_WP_Grenade_Smoke.Foley.DropBounce'*/;
+		PSC_SmokeTrail = Default__TdProj_SmokeGrenade_TrailParticleSystemComponent0;
 		InFlightSoundTemplate = LoadAsset<SoundCue>("A_WP_Grenade_Smoke.Fire.Pre")/*Ref SoundCue'A_WP_Grenade_Smoke.Fire.Pre'*/;
 		Damage = 0.0f;
 		DamageRadius = 0.0f;
@@ -48,25 +50,7 @@ public partial class TdProj_SmokeGrenade : TdProj_Grenade/*
 		{
 			LoadAsset<SpriteComponent>("Default__TdProj_SmokeGrenade.Sprite")/*Ref SpriteComponent'Default__TdProj_SmokeGrenade.Sprite'*/,
 			LoadAsset<CylinderComponent>("Default__TdProj_SmokeGrenade.CollisionCylinder")/*Ref CylinderComponent'Default__TdProj_SmokeGrenade.CollisionCylinder'*/,
-			new SkeletalMeshComponent
-			{
-				// Object Offset:0x0279BD16
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SmokeGrenade.SK_SmokeGrenade")/*Ref SkeletalMesh'WP_SmokeGrenade.SK_SmokeGrenade'*/,
-				PhysicsAsset = LoadAsset<PhysicsAsset>("WP_SmokeGrenade.PA_SmokeGrenade")/*Ref PhysicsAsset'WP_SmokeGrenade.PA_SmokeGrenade'*/,
-				PhysicsWeight = 1.0f,
-				bUpdateJointsFromAnimation = true,
-				bEnableFullAnimWeightBodies = true,
-				CollideActors = true,
-				BlockZeroExtent = true,
-				BlockRigidBody = true,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-			}/* Reference: SkeletalMeshComponent'Default__TdProj_SmokeGrenade.GrenadeMesh0' */,
+			Default__TdProj_SmokeGrenade_GrenadeMesh0,
 		};
 		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdProj_SmokeGrenade.CollisionCylinder")/*Ref CylinderComponent'Default__TdProj_SmokeGrenade.CollisionCylinder'*/;
 	}

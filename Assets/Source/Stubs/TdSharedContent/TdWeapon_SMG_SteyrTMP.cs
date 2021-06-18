@@ -7,6 +7,38 @@ public partial class TdWeapon_SMG_SteyrTMP : TdWeapon_Light/*
 		hidecategories(Navigation)*/{
 	public TdWeapon_SMG_SteyrTMP()
 	{
+		var Default__TdWeapon_SMG_SteyrTMP_FirstPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x000154C7
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SteyrTMP.SK_SteyrTMP")/*Ref SkeletalMesh'WP_SteyrTMP.SK_SteyrTMP'*/,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP'*/,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.FirstPersonMesh' */;
+		var Default__TdWeapon_SMG_SteyrTMP_ThirdPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x0001551F
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SteyrTMP.SK_SteyrTMP")/*Ref SkeletalMesh'WP_SteyrTMP.SK_SteyrTMP'*/,
+			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_SteyrTMP.PA_SteyrTMP")/*Ref PhysicsAsset'WP_SteyrTMP.PA_SteyrTMP'*/,
+			PhysicsWeight = 1.0f,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP'*/,
+			},
+			bUpdateJointsFromAnimation = true,
+			bEnableFullAnimWeightBodies = true,
+			bUseAsOccluder = false,
+			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
+			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
+			{
+				Default = true,
+				GameplayPhysics = true,
+				EffectPhysics = true,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.ThirdPersonMesh' */;
 		// Object Offset:0x0000FD6E
 		AimOffsetProfileNames = new array<name>
 		{
@@ -62,38 +94,8 @@ public partial class TdWeapon_SMG_SteyrTMP : TdWeapon_Light/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP'*/;
-		Mesh1p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x000154C7
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SteyrTMP.SK_SteyrTMP")/*Ref SkeletalMesh'WP_SteyrTMP.SK_SteyrTMP'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.FirstPersonMesh' */;
-		Mesh3p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x0001551F
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SteyrTMP.SK_SteyrTMP")/*Ref SkeletalMesh'WP_SteyrTMP.SK_SteyrTMP'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_SteyrTMP.PA_SteyrTMP")/*Ref PhysicsAsset'WP_SteyrTMP.PA_SteyrTMP'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bUseAsOccluder = false,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.ThirdPersonMesh' */;
+		Mesh1p = Default__TdWeapon_SMG_SteyrTMP_FirstPersonMesh;
+		Mesh3p = Default__TdWeapon_SMG_SteyrTMP_ThirdPersonMesh;
 		AimedBurst_Near = new TdWeapon.AIBurstInfo
 		{
 			Length_Min = 6,
@@ -128,82 +130,13 @@ public partial class TdWeapon_SMG_SteyrTMP : TdWeapon_Light/*
 		};
 		EquipTime = 0.750f;
 		WeaponRange = 3000.0f;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x000154C7
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SteyrTMP.SK_SteyrTMP")/*Ref SkeletalMesh'WP_SteyrTMP.SK_SteyrTMP'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.FirstPersonMesh' */;
-		DroppedPickupMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x0001551F
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SteyrTMP.SK_SteyrTMP")/*Ref SkeletalMesh'WP_SteyrTMP.SK_SteyrTMP'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_SteyrTMP.PA_SteyrTMP")/*Ref PhysicsAsset'WP_SteyrTMP.PA_SteyrTMP'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bUseAsOccluder = false,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.ThirdPersonMesh' */;
-		PickupFactoryMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x000154C7
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SteyrTMP.SK_SteyrTMP")/*Ref SkeletalMesh'WP_SteyrTMP.SK_SteyrTMP'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.FirstPersonMesh' */;
+		Mesh = Default__TdWeapon_SMG_SteyrTMP_FirstPersonMesh;
+		DroppedPickupMesh = Default__TdWeapon_SMG_SteyrTMP_ThirdPersonMesh;
+		PickupFactoryMesh = Default__TdWeapon_SMG_SteyrTMP_FirstPersonMesh;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x000154C7
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SteyrTMP.SK_SteyrTMP")/*Ref SkeletalMesh'WP_SteyrTMP.SK_SteyrTMP'*/,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP'*/,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.FirstPersonMesh' */,
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x0001551F
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SteyrTMP.SK_SteyrTMP")/*Ref SkeletalMesh'WP_SteyrTMP.SK_SteyrTMP'*/,
-				PhysicsAsset = LoadAsset<PhysicsAsset>("WP_SteyrTMP.PA_SteyrTMP")/*Ref PhysicsAsset'WP_SteyrTMP.PA_SteyrTMP'*/,
-				PhysicsWeight = 1.0f,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP'*/,
-				},
-				bUpdateJointsFromAnimation = true,
-				bEnableFullAnimWeightBodies = true,
-				bUseAsOccluder = false,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.ThirdPersonMesh' */,
+			Default__TdWeapon_SMG_SteyrTMP_FirstPersonMesh,
+			Default__TdWeapon_SMG_SteyrTMP_ThirdPersonMesh,
 		};
 	}
 }

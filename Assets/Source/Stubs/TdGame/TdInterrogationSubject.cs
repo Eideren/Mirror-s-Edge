@@ -95,6 +95,13 @@ public partial class TdInterrogationSubject : Actor/*
 	}
 	public TdInterrogationSubject()
 	{
+		var Default__TdInterrogationSubject_CollisionCylinder = new CylinderComponent
+		{
+			// Object Offset:0x01AB4B9A
+			CollisionHeight = 60.0f,
+			CollisionRadius = 60.0f,
+			CollideActors = true,
+		}/* Reference: CylinderComponent'Default__TdInterrogationSubject.CollisionCylinder' */;
 		// Object Offset:0x0057C880
 		Duration = 6.0f;
 		Lifetime = 25.0f;
@@ -102,22 +109,10 @@ public partial class TdInterrogationSubject : Actor/*
 		bCollideActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new CylinderComponent
-			{
-				// Object Offset:0x01AB4B9A
-				CollisionHeight = 60.0f,
-				CollisionRadius = 60.0f,
-				CollideActors = true,
-			}/* Reference: CylinderComponent'Default__TdInterrogationSubject.CollisionCylinder' */,
+			Default__TdInterrogationSubject_CollisionCylinder,
 		};
 		TickGroup = Object.ETickingGroup.TG_PostAsyncWork;
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x01AB4B9A
-			CollisionHeight = 60.0f,
-			CollisionRadius = 60.0f,
-			CollideActors = true,
-		}/* Reference: CylinderComponent'Default__TdInterrogationSubject.CollisionCylinder' */;
+		CollisionComponent = Default__TdInterrogationSubject_CollisionCylinder;
 	}
 }
 }

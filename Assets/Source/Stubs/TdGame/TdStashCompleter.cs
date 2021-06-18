@@ -37,41 +37,7 @@ public partial class TdStashCompleter : TdStashpoint/*
 	}
 	public TdStashCompleter()
 	{
-		// Object Offset:0x00670E42
-		TerritoryOfTeam = 0;
-		bNotifyKismet = false;
-		bCollideWorld = false;
-		Components = new array</*export editinline */ActorComponent>
-		{
-			new CylinderComponent
-			{
-				// Object Offset:0x01AB4E2E
-				CollisionHeight = 50.0f,
-				CollisionRadius = 150.0f,
-				CollideActors = true,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-				},
-			}/* Reference: CylinderComponent'Default__TdStashCompleter.CollisionCylinder' */,
-			new CylinderComponent
-			{
-				// Object Offset:0x01AB4E2E
-				CollisionHeight = 50.0f,
-				CollisionRadius = 150.0f,
-				CollideActors = true,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-				},
-			}/* Reference: CylinderComponent'Default__TdStashCompleter.CollisionCylinder' */,
-		};
-		RemoteRole = Actor.ENetRole.ROLE_None;
-		CollisionComponent = new CylinderComponent
+		var Default__TdStashCompleter_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x01AB4E2E
 			CollisionHeight = 50.0f,
@@ -84,6 +50,17 @@ public partial class TdStashCompleter : TdStashpoint/*
 				GameplayPhysics = true,
 			},
 		}/* Reference: CylinderComponent'Default__TdStashCompleter.CollisionCylinder' */;
+		// Object Offset:0x00670E42
+		TerritoryOfTeam = 0;
+		bNotifyKismet = false;
+		bCollideWorld = false;
+		Components = new array</*export editinline */ActorComponent>
+		{
+			Default__TdStashCompleter_CollisionCylinder,
+			Default__TdStashCompleter_CollisionCylinder,
+		};
+		RemoteRole = Actor.ENetRole.ROLE_None;
+		CollisionComponent = Default__TdStashCompleter_CollisionCylinder;
 	}
 }
 }

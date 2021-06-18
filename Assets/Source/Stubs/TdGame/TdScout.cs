@@ -11,6 +11,11 @@ public partial class TdScout : Scout/*
 	
 	public TdScout()
 	{
+		var Default__TdScout_CollisionCylinder = new CylinderComponent
+		{
+			// Object Offset:0x01AB4DE2
+			CollisionRadius = 30.0f,
+		}/* Reference: CylinderComponent'Default__TdScout.CollisionCylinder' */;
 		// Object Offset:0x00655FED
 		PrototypePawnClass = ClassT<TdBotPawn>()/*Ref Class'TdBotPawn'*/;
 		PathSizes = new array<Scout.PathSizeInfo>
@@ -81,26 +86,14 @@ public partial class TdScout : Scout/*
 		bCanWalkOffLedges = true;
 		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdScout.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdScout.SceneCaptureCharacterComponent0'*/;
 		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdScout.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdScout.DrawFrust0'*/;
-		CylinderComponent = new CylinderComponent
-		{
-			// Object Offset:0x01AB4DE2
-			CollisionRadius = 30.0f,
-		}/* Reference: CylinderComponent'Default__TdScout.CollisionCylinder' */;
+		CylinderComponent = Default__TdScout_CollisionCylinder;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SceneCaptureCharacterComponent>("Default__TdScout.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdScout.SceneCaptureCharacterComponent0'*/,
 			LoadAsset<DrawFrustumComponent>("Default__TdScout.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdScout.DrawFrust0'*/,
-			new CylinderComponent
-			{
-				// Object Offset:0x01AB4DE2
-				CollisionRadius = 30.0f,
-			}/* Reference: CylinderComponent'Default__TdScout.CollisionCylinder' */,
+			Default__TdScout_CollisionCylinder,
 		};
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x01AB4DE2
-			CollisionRadius = 30.0f,
-		}/* Reference: CylinderComponent'Default__TdScout.CollisionCylinder' */;
+		CollisionComponent = Default__TdScout_CollisionCylinder;
 	}
 }
 }

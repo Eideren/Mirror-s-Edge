@@ -9,6 +9,16 @@ public partial class ParticleModuleVelocityInheritParent : ParticleModuleVelocit
 	
 	public ParticleModuleVelocityInheritParent()
 	{
+		var Default__ParticleModuleVelocityInheritParent_DistributionScale = new DistributionVectorConstant
+		{
+			// Object Offset:0x0046824F
+			Constant = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleVelocityInheritParent.DistributionScale' */;
 		// Object Offset:0x0038B1C0
 		Scale = new DistributionVector.RawDistributionVector
 		{

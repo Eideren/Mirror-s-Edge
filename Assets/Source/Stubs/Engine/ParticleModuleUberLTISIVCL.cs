@@ -15,6 +15,43 @@ public partial class ParticleModuleUberLTISIVCL : ParticleModuleUberBase/*
 	
 	public ParticleModuleUberLTISIVCL()
 	{
+		var Default__ParticleModuleUberLTISIVCL_DistributionLifetime = new DistributionFloatUniform
+		{
+			// Object Offset:0x0046763F
+			Min = 1.0f,
+			Max = 1.0f,
+		}/* Reference: DistributionFloatUniform'Default__ParticleModuleUberLTISIVCL.DistributionLifetime' */;
+		var Default__ParticleModuleUberLTISIVCL_DistributionStartSize = new DistributionVectorUniform
+		{
+			// Object Offset:0x004685BF
+			Max = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+			Min = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleUberLTISIVCL.DistributionStartSize' */;
+		var Default__ParticleModuleUberLTISIVCL_DistributionStartVelocity = new DistributionVectorUniform
+		{
+			// Object Offset:0x0046862F
+			Max = new Vector
+			{
+				X=0.0f,
+				Y=0.0f,
+				Z=10.0f
+			},
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleUberLTISIVCL.DistributionStartVelocity' */;
+		var Default__ParticleModuleUberLTISIVCL_DistributionAlphaOverLife = new DistributionFloatConstant
+		{
+			// Object Offset:0x00467043
+			Constant = 255.90f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleUberLTISIVCL.DistributionAlphaOverLife' */;
 		// Object Offset:0x00385DE5
 		Lifetime = new DistributionFloat.RawDistributionFloat
 		{

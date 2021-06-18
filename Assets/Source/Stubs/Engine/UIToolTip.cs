@@ -41,10 +41,7 @@ public partial class UIToolTip : UILabel/*
 	
 	public UIToolTip()
 	{
-		// Object Offset:0x0045929B
-		bPendingPositionUpdate = true;
-		bAutoHideOnInput = true;
-		StringRenderComponent = new UIComp_DrawString
+		var Default__UIToolTip_LabelStringRenderer = new UIComp_DrawString
 		{
 			// Object Offset:0x005D20A2
 			StyleResolverTag = (name)"ToolTip String Style",
@@ -82,7 +79,7 @@ public partial class UIToolTip : UILabel/*
 				DefaultStyleTag = (name)"DefaultToolTipStringStyle",
 			},
 		}/* Reference: UIComp_DrawString'Default__UIToolTip.LabelStringRenderer' */;
-		LabelBackground = new UIComp_DrawImage
+		var Default__UIToolTip_TooltipBackgroundRenderer = new UIComp_DrawImage
 		{
 			// Object Offset:0x005D1EF2
 			StyleResolverTag = (name)"ToolTip Background Style",
@@ -91,6 +88,11 @@ public partial class UIToolTip : UILabel/*
 				DefaultStyleTag = (name)"DefaultToolTipBackgroundStyle",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UIToolTip.TooltipBackgroundRenderer' */;
+		// Object Offset:0x0045929B
+		bPendingPositionUpdate = true;
+		bAutoHideOnInput = true;
+		StringRenderComponent = Default__UIToolTip_LabelStringRenderer;
+		LabelBackground = Default__UIToolTip_TooltipBackgroundRenderer;
 		PrivateFlags = 986;
 		EventProvider = default;
 	}

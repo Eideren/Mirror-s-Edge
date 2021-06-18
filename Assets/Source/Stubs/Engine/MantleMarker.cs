@@ -9,33 +9,24 @@ public partial class MantleMarker : NavigationPoint/*
 	
 	public MantleMarker()
 	{
-		// Object Offset:0x00355648
-		bSpecialMove = true;
-		CylinderComponent = new CylinderComponent
+		var Default__MantleMarker_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x0046664B
 			CollisionHeight = 40.0f,
 			CollisionRadius = 40.0f,
 		}/* Reference: CylinderComponent'Default__MantleMarker.CollisionCylinder' */;
+		// Object Offset:0x00355648
+		bSpecialMove = true;
+		CylinderComponent = Default__MantleMarker_CollisionCylinder;
 		GoodSprite = LoadAsset<SpriteComponent>("Default__MantleMarker.Sprite")/*Ref SpriteComponent'Default__MantleMarker.Sprite'*/;
 		BadSprite = LoadAsset<SpriteComponent>("Default__MantleMarker.Sprite2")/*Ref SpriteComponent'Default__MantleMarker.Sprite2'*/;
 		bCollideWhenPlacing = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new CylinderComponent
-			{
-				// Object Offset:0x0046664B
-				CollisionHeight = 40.0f,
-				CollisionRadius = 40.0f,
-			}/* Reference: CylinderComponent'Default__MantleMarker.CollisionCylinder' */,
+			Default__MantleMarker_CollisionCylinder,
 			LoadAsset<PathRenderingComponent>("Default__MantleMarker.PathRenderer")/*Ref PathRenderingComponent'Default__MantleMarker.PathRenderer'*/,
 		};
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x0046664B
-			CollisionHeight = 40.0f,
-			CollisionRadius = 40.0f,
-		}/* Reference: CylinderComponent'Default__MantleMarker.CollisionCylinder' */;
+		CollisionComponent = Default__MantleMarker_CollisionCylinder;
 	}
 }
 }

@@ -23,6 +23,30 @@ public partial class TdSoundNodeAttack : SoundNode/*
 	
 	public TdSoundNodeAttack()
 	{
+		var Default__TdSoundNodeAttack_ADistributionMinRadius = new DistributionFloatUniform
+		{
+			// Object Offset:0x01B1D716
+			Min = 100.0f,
+			Max = 100.0f,
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeAttack.ADistributionMinRadius' */;
+		var Default__TdSoundNodeAttack_ADistributionMaxRadius = new DistributionFloatUniform
+		{
+			// Object Offset:0x01B1D6C6
+			Min = 1000.0f,
+			Max = 1000.0f,
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeAttack.ADistributionMaxRadius' */;
+		var Default__TdSoundNodeAttack_DDistributionMinRadius = new DistributionFloatUniform
+		{
+			// Object Offset:0x01B1D7B6
+			Min = 100.0f,
+			Max = 100.0f,
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeAttack.DDistributionMinRadius' */;
+		var Default__TdSoundNodeAttack_DDistributionMaxRadius = new DistributionFloatUniform
+		{
+			// Object Offset:0x01B1D766
+			Min = 1000.0f,
+			Max = 1000.0f,
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeAttack.DDistributionMaxRadius' */;
 		// Object Offset:0x0065A1E3
 		bModulateVolume = true;
 		AttackAtMinRadius = 0.050f;

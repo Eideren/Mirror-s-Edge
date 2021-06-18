@@ -6,16 +6,17 @@ public partial class RB_BSJointActor : RB_ConstraintActor/*
 		hidecategories(Navigation)*/{
 	public RB_BSJointActor()
 	{
+		var Default__RB_BSJointActor_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004D01E2
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_KBSJoint")/*Ref Texture2D'EngineResources.S_KBSJoint'*/,
+		}/* Reference: SpriteComponent'Default__RB_BSJointActor.Sprite' */;
 		// Object Offset:0x003ACDEC
 		ConstraintSetup = LoadAsset<RB_BSJointSetup>("Default__RB_BSJointActor.MyBSJointSetup")/*Ref RB_BSJointSetup'Default__RB_BSJointActor.MyBSJointSetup'*/;
 		ConstraintInstance = LoadAsset<RB_ConstraintInstance>("Default__RB_BSJointActor.MyConstraintInstance")/*Ref RB_ConstraintInstance'Default__RB_BSJointActor.MyConstraintInstance'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004D01E2
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_KBSJoint")/*Ref Texture2D'EngineResources.S_KBSJoint'*/,
-			}/* Reference: SpriteComponent'Default__RB_BSJointActor.Sprite' */,
+			Default__RB_BSJointActor_Sprite,
 			LoadAsset<RB_ConstraintDrawComponent>("Default__RB_BSJointActor.MyConDrawComponent")/*Ref RB_ConstraintDrawComponent'Default__RB_BSJointActor.MyConDrawComponent'*/,
 		};
 	}

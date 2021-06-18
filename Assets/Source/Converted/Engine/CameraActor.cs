@@ -40,6 +40,16 @@ public partial class CameraActor : Actor/*
 	
 	public CameraActor()
 	{
+		var Default__CameraActor_CamMesh0 = new StaticMeshComponent
+		{
+			// Object Offset:0x00312172
+			HiddenGame = true,
+			CastShadow = false,
+			CollideActors = false,
+			BlockRigidBody = false,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: StaticMeshComponent'Default__CameraActor.CamMesh0' */;
 		// Object Offset:0x002B495B
 		bConstrainAspectRatio = true;
 		AspectRatio = 1.7777780f;
@@ -353,29 +363,11 @@ public partial class CameraActor : Actor/*
 			},
 		};
 		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__CameraActor.DrawFrust0")/*Ref DrawFrustumComponent'Default__CameraActor.DrawFrust0'*/;
-		MeshComp = new StaticMeshComponent
-		{
-			// Object Offset:0x00312172
-			HiddenGame = true,
-			CastShadow = false,
-			CollideActors = false,
-			BlockRigidBody = false,
-			AlwaysLoadOnClient = false,
-			AlwaysLoadOnServer = false,
-		}/* Reference: StaticMeshComponent'Default__CameraActor.CamMesh0' */;
+		MeshComp = Default__CameraActor_CamMesh0;
 		bNoDelete = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new StaticMeshComponent
-			{
-				// Object Offset:0x00312172
-				HiddenGame = true,
-				CastShadow = false,
-				CollideActors = false,
-				BlockRigidBody = false,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: StaticMeshComponent'Default__CameraActor.CamMesh0' */,
+			Default__CameraActor_CamMesh0,
 			LoadAsset<DrawFrustumComponent>("Default__CameraActor.DrawFrust0")/*Ref DrawFrustumComponent'Default__CameraActor.DrawFrust0'*/,
 		};
 		Physics = Actor.EPhysics.PHYS_Interpolating;

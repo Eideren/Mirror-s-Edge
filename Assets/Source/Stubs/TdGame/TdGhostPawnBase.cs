@@ -78,6 +78,11 @@ public partial class TdGhostPawnBase : TdPawn/*
 	}
 	public TdGhostPawnBase()
 	{
+		var Default__TdGhostPawnBase_TdPawnMesh3p = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x031281E2
+			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdGhostPawnBase.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdGhostPawnBase.MyLightEnvironment'*/,
+		}/* Reference: TdSkeletalMeshComponent'Default__TdGhostPawnBase.TdPawnMesh3p' */;
 		// Object Offset:0x0054F195
 		ActorCylinderComponent = LoadAsset<CylinderComponent>("Default__TdGhostPawnBase.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdGhostPawnBase.ActorCollisionCylinder'*/;
 		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdGhostPawnBase.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdGhostPawnBase.SceneCaptureCharacterComponent0'*/;
@@ -90,11 +95,7 @@ public partial class TdGhostPawnBase : TdPawn/*
 			LoadAsset<CylinderComponent>("Default__TdGhostPawnBase.CollisionCylinder")/*Ref CylinderComponent'Default__TdGhostPawnBase.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdGhostPawnBase.Arrow")/*Ref ArrowComponent'Default__TdGhostPawnBase.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdGhostPawnBase.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdGhostPawnBase.MyLightEnvironment'*/,
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x031281E2
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdGhostPawnBase.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdGhostPawnBase.MyLightEnvironment'*/,
-			}/* Reference: TdSkeletalMeshComponent'Default__TdGhostPawnBase.TdPawnMesh3p' */,
+			Default__TdGhostPawnBase_TdPawnMesh3p,
 			LoadAsset<CylinderComponent>("Default__TdGhostPawnBase.CollisionCylinder")/*Ref CylinderComponent'Default__TdGhostPawnBase.CollisionCylinder'*/,
 			LoadAsset<CylinderComponent>("Default__TdGhostPawnBase.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdGhostPawnBase.ActorCollisionCylinder'*/,
 		};

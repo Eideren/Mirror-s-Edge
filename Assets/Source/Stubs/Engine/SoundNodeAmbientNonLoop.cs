@@ -28,6 +28,12 @@ public partial class SoundNodeAmbientNonLoop : SoundNodeAmbient/*
 	
 	public SoundNodeAmbientNonLoop()
 	{
+		var Default__SoundNodeAmbientNonLoop_DistributionDelayTime = new DistributionFloatUniform
+		{
+			// Object Offset:0x00467333
+			Min = 1.0f,
+			Max = 1.0f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAmbientNonLoop.DistributionDelayTime' */;
 		// Object Offset:0x00290B2C
 		DelayTime = new DistributionFloat.RawDistributionFloat
 		{

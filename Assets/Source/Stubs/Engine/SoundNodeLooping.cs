@@ -11,6 +11,12 @@ public partial class SoundNodeLooping : SoundNode/*
 	
 	public SoundNodeLooping()
 	{
+		var Default__SoundNodeLooping_DistributionLoopCount = new DistributionFloatUniform
+		{
+			// Object Offset:0x00467A53
+			Min = 1000000.0f,
+			Max = 1000000.0f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeLooping.DistributionLoopCount' */;
 		// Object Offset:0x003E9644
 		bLoopIndefinitely = true;
 		LoopCount = new DistributionFloat.RawDistributionFloat

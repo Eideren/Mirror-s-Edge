@@ -22,6 +22,29 @@ public partial class TdMoveNode_Vault : TdMoveNode/*
 	
 	public TdMoveNode_Vault()
 	{
+		var Default__TdMoveNode_Vault_Sprite_VaultOnto = new SpriteComponent
+		{
+			// Object Offset:0x005F3586
+			Sprite = LoadAsset<Texture2D>("TdEditorResources.SpeedVaultIcon")/*Ref Texture2D'TdEditorResources.SpeedVaultIcon'*/,
+			HiddenGame = true,
+			HiddenEditor = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__TdMoveNode_Vault.Sprite_VaultOnto' */;
+		var Default__TdMoveNode_Vault_Sprite_VaultOver = new SpriteComponent
+		{
+			// Object Offset:0x005F34E2
+			Sprite = LoadAsset<Texture2D>("TdEditorResources.VaultOverIcon")/*Ref Texture2D'TdEditorResources.VaultOverIcon'*/,
+			HiddenGame = true,
+			HiddenEditor = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__TdMoveNode_Vault.Sprite_VaultOver' */;
+		var Default__TdMoveNode_Vault_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x005F344E
+			Sprite = LoadAsset<Texture2D>("TdEditorResources.VaultStartIcon")/*Ref Texture2D'TdEditorResources.VaultStartIcon'*/,
+		}/* Reference: SpriteComponent'Default__TdMoveNode_Vault.Sprite' */;
 		// Object Offset:0x005F313B
 		ForcedSpeed = 500.0f;
 		VaultOverWallDistance_LowVault = 250.0f;
@@ -32,63 +55,23 @@ public partial class TdMoveNode_Vault : TdMoveNode/*
 		MaxWallHeight_LowVault = 144.0f;
 		MinWallHeight_HighVault = 145.0f;
 		MaxWallHeight_HighVault = 304.0f;
-		VaultOntoIcon = new SpriteComponent
-		{
-			// Object Offset:0x005F3586
-			Sprite = LoadAsset<Texture2D>("TdEditorResources.SpeedVaultIcon")/*Ref Texture2D'TdEditorResources.SpeedVaultIcon'*/,
-			HiddenGame = true,
-			HiddenEditor = true,
-			AlwaysLoadOnClient = false,
-			AlwaysLoadOnServer = false,
-		}/* Reference: SpriteComponent'Default__TdMoveNode_Vault.Sprite_VaultOnto' */;
-		VaultOverIcon = new SpriteComponent
-		{
-			// Object Offset:0x005F34E2
-			Sprite = LoadAsset<Texture2D>("TdEditorResources.VaultOverIcon")/*Ref Texture2D'TdEditorResources.VaultOverIcon'*/,
-			HiddenGame = true,
-			HiddenEditor = true,
-			AlwaysLoadOnClient = false,
-			AlwaysLoadOnServer = false,
-		}/* Reference: SpriteComponent'Default__TdMoveNode_Vault.Sprite_VaultOver' */;
+		VaultOntoIcon = Default__TdMoveNode_Vault_Sprite_VaultOnto;
+		VaultOverIcon = Default__TdMoveNode_Vault_Sprite_VaultOver;
 		iHighVaultCost = 1000;
 		iVaultOntoCost = 400;
 		MoveReachspecClass = ClassT<TdReachSpec_Vault>()/*Ref Class'TdReachSpec_Vault'*/;
 		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdMoveNode_Vault.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode_Vault.CollisionCylinder'*/;
-		GoodSprite = new SpriteComponent
-		{
-			// Object Offset:0x005F344E
-			Sprite = LoadAsset<Texture2D>("TdEditorResources.VaultStartIcon")/*Ref Texture2D'TdEditorResources.VaultStartIcon'*/,
-		}/* Reference: SpriteComponent'Default__TdMoveNode_Vault.Sprite' */;
+		GoodSprite = Default__TdMoveNode_Vault_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdMoveNode_Vault.Sprite2")/*Ref SpriteComponent'Default__TdMoveNode_Vault.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x005F344E
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.VaultStartIcon")/*Ref Texture2D'TdEditorResources.VaultStartIcon'*/,
-			}/* Reference: SpriteComponent'Default__TdMoveNode_Vault.Sprite' */,
+			Default__TdMoveNode_Vault_Sprite,
 			LoadAsset<SpriteComponent>("Default__TdMoveNode_Vault.Sprite2")/*Ref SpriteComponent'Default__TdMoveNode_Vault.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__TdMoveNode_Vault.Arrow")/*Ref ArrowComponent'Default__TdMoveNode_Vault.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__TdMoveNode_Vault.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode_Vault.CollisionCylinder'*/,
 			LoadAsset<PathRenderingComponent>("Default__TdMoveNode_Vault.PathRenderer")/*Ref PathRenderingComponent'Default__TdMoveNode_Vault.PathRenderer'*/,
-			new SpriteComponent
-			{
-				// Object Offset:0x005F34E2
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.VaultOverIcon")/*Ref Texture2D'TdEditorResources.VaultOverIcon'*/,
-				HiddenGame = true,
-				HiddenEditor = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__TdMoveNode_Vault.Sprite_VaultOver' */,
-			new SpriteComponent
-			{
-				// Object Offset:0x005F3586
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.SpeedVaultIcon")/*Ref Texture2D'TdEditorResources.SpeedVaultIcon'*/,
-				HiddenGame = true,
-				HiddenEditor = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__TdMoveNode_Vault.Sprite_VaultOnto' */,
+			Default__TdMoveNode_Vault_Sprite_VaultOver,
+			Default__TdMoveNode_Vault_Sprite_VaultOnto,
 		};
 		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdMoveNode_Vault.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode_Vault.CollisionCylinder'*/;
 	}

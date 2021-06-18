@@ -7,6 +7,27 @@ public partial class TdWeapon_SmokeGrenade : TdWeapon_Grenade/*
 		hidecategories(Navigation)*/{
 	public TdWeapon_SmokeGrenade()
 	{
+		var Default__TdWeapon_SmokeGrenade_FirstPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x0001569F
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SmokeGrenade.SK_SmokeGrenade")/*Ref SkeletalMesh'WP_SmokeGrenade.SK_SmokeGrenade'*/,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.FirstPersonMesh' */;
+		var Default__TdWeapon_SmokeGrenade_ThirdPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x000156F7
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SmokeGrenade.SK_SmokeGrenade")/*Ref SkeletalMesh'WP_SmokeGrenade.SK_SmokeGrenade'*/,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
+			},
+			bUseAsOccluder = false,
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.ThirdPersonMesh' */;
 		// Object Offset:0x0001037E
 		AimOffsetProfileNames = new array<name>
 		{
@@ -18,27 +39,8 @@ public partial class TdWeapon_SmokeGrenade : TdWeapon_Grenade/*
 		ReloadTime = 0.20f;
 		AmmoCount = 20;
 		FallOffDistance = 100.0f;
-		Mesh1p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x0001569F
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SmokeGrenade.SK_SmokeGrenade")/*Ref SkeletalMesh'WP_SmokeGrenade.SK_SmokeGrenade'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.FirstPersonMesh' */;
-		Mesh3p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x000156F7
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SmokeGrenade.SK_SmokeGrenade")/*Ref SkeletalMesh'WP_SmokeGrenade.SK_SmokeGrenade'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-			},
-			bUseAsOccluder = false,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.ThirdPersonMesh' */;
+		Mesh1p = Default__TdWeapon_SmokeGrenade_FirstPersonMesh;
+		Mesh3p = Default__TdWeapon_SmokeGrenade_ThirdPersonMesh;
 		WeaponProjectiles = new array< Core.ClassT<Projectile> >
 		{
 			ClassT<TdProj_SmokeGrenade>(),
@@ -58,60 +60,13 @@ public partial class TdWeapon_SmokeGrenade : TdWeapon_Grenade/*
 		EquipTime = 2.0f;
 		PutDownTime = 3.0f;
 		WeaponRange = 1000.0f;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x0001569F
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SmokeGrenade.SK_SmokeGrenade")/*Ref SkeletalMesh'WP_SmokeGrenade.SK_SmokeGrenade'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.FirstPersonMesh' */;
-		DroppedPickupMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x000156F7
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SmokeGrenade.SK_SmokeGrenade")/*Ref SkeletalMesh'WP_SmokeGrenade.SK_SmokeGrenade'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-			},
-			bUseAsOccluder = false,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.ThirdPersonMesh' */;
-		PickupFactoryMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x0001569F
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SmokeGrenade.SK_SmokeGrenade")/*Ref SkeletalMesh'WP_SmokeGrenade.SK_SmokeGrenade'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.FirstPersonMesh' */;
+		Mesh = Default__TdWeapon_SmokeGrenade_FirstPersonMesh;
+		DroppedPickupMesh = Default__TdWeapon_SmokeGrenade_ThirdPersonMesh;
+		PickupFactoryMesh = Default__TdWeapon_SmokeGrenade_FirstPersonMesh;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x0001569F
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SmokeGrenade.SK_SmokeGrenade")/*Ref SkeletalMesh'WP_SmokeGrenade.SK_SmokeGrenade'*/,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.FirstPersonMesh' */,
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x000156F7
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SmokeGrenade.SK_SmokeGrenade")/*Ref SkeletalMesh'WP_SmokeGrenade.SK_SmokeGrenade'*/,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-				},
-				bUseAsOccluder = false,
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.ThirdPersonMesh' */,
+			Default__TdWeapon_SmokeGrenade_FirstPersonMesh,
+			Default__TdWeapon_SmokeGrenade_ThirdPersonMesh,
 		};
 	}
 }

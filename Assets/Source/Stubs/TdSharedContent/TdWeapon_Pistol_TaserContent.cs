@@ -9,6 +9,38 @@ public partial class TdWeapon_Pistol_TaserContent : TdWeapon_Pistol_Taser/*
 		hidecategories(Navigation)*/{
 	public TdWeapon_Pistol_TaserContent()
 	{
+		var Default__TdWeapon_Pistol_TaserContent_FirstPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x00014F3F
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Taser.SK_Taser")/*Ref SkeletalMesh'WP_Taser.SK_Taser'*/,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Taser.AS_C1P_OneHanded_Taser")/*Ref TdAnimSet'AS_C1P_OneHanded_Taser.AS_C1P_OneHanded_Taser'*/,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.FirstPersonMesh' */;
+		var Default__TdWeapon_Pistol_TaserContent_ThirdPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x00014F97
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Taser.SK_Taser")/*Ref SkeletalMesh'WP_Taser.SK_Taser'*/,
+			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_Taser.PA_Taser")/*Ref PhysicsAsset'WP_Taser.PA_Taser'*/,
+			PhysicsWeight = 1.0f,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser")/*Ref TdAnimSet'AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser'*/,
+			},
+			bUpdateJointsFromAnimation = true,
+			bEnableFullAnimWeightBodies = true,
+			bUseAsOccluder = false,
+			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
+			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
+			{
+				Default = true,
+				GameplayPhysics = true,
+				EffectPhysics = true,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.ThirdPersonMesh' */;
 		// Object Offset:0x0000D5AE
 		ImpactMissPSCTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_Taser_TaserMiss_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_Taser_TaserMiss_01'*/;
 		ImpactHitPSCTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_Taser_TaserBodyHit_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_Taser_TaserBodyHit_01'*/;
@@ -48,38 +80,8 @@ public partial class TdWeapon_Pistol_TaserContent : TdWeapon_Pistol_Taser/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Taser.AS_C1P_OneHanded_Taser")/*Ref TdAnimSet'AS_C1P_OneHanded_Taser.AS_C1P_OneHanded_Taser'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser")/*Ref TdAnimSet'AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser")/*Ref TdAnimSet'AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser'*/;
-		Mesh1p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014F3F
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Taser.SK_Taser")/*Ref SkeletalMesh'WP_Taser.SK_Taser'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Taser.AS_C1P_OneHanded_Taser")/*Ref TdAnimSet'AS_C1P_OneHanded_Taser.AS_C1P_OneHanded_Taser'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.FirstPersonMesh' */;
-		Mesh3p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014F97
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Taser.SK_Taser")/*Ref SkeletalMesh'WP_Taser.SK_Taser'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_Taser.PA_Taser")/*Ref PhysicsAsset'WP_Taser.PA_Taser'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser")/*Ref TdAnimSet'AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bUseAsOccluder = false,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.ThirdPersonMesh' */;
+		Mesh1p = Default__TdWeapon_Pistol_TaserContent_FirstPersonMesh;
+		Mesh3p = Default__TdWeapon_Pistol_TaserContent_ThirdPersonMesh;
 		StickyMaxDistance = 2000.0f;
 		CombatRange_Min = 100.0f;
 		CombatRange_Max = 1000.0f;
@@ -160,84 +162,13 @@ public partial class TdWeapon_Pistol_TaserContent : TdWeapon_Pistol_Taser/*
 		};
 		EquipTime = 0.750f;
 		WeaponRange = 1000.0f;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014F3F
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Taser.SK_Taser")/*Ref SkeletalMesh'WP_Taser.SK_Taser'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Taser.AS_C1P_OneHanded_Taser")/*Ref TdAnimSet'AS_C1P_OneHanded_Taser.AS_C1P_OneHanded_Taser'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.FirstPersonMesh' */;
-		DroppedPickupMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014F97
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Taser.SK_Taser")/*Ref SkeletalMesh'WP_Taser.SK_Taser'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_Taser.PA_Taser")/*Ref PhysicsAsset'WP_Taser.PA_Taser'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser")/*Ref TdAnimSet'AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bUseAsOccluder = false,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.ThirdPersonMesh' */;
-		PickupFactoryMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014F3F
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Taser.SK_Taser")/*Ref SkeletalMesh'WP_Taser.SK_Taser'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Taser.AS_C1P_OneHanded_Taser")/*Ref TdAnimSet'AS_C1P_OneHanded_Taser.AS_C1P_OneHanded_Taser'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.FirstPersonMesh' */;
+		Mesh = Default__TdWeapon_Pistol_TaserContent_FirstPersonMesh;
+		DroppedPickupMesh = Default__TdWeapon_Pistol_TaserContent_ThirdPersonMesh;
+		PickupFactoryMesh = Default__TdWeapon_Pistol_TaserContent_FirstPersonMesh;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00014F3F
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Taser.SK_Taser")/*Ref SkeletalMesh'WP_Taser.SK_Taser'*/,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Taser.AS_C1P_OneHanded_Taser")/*Ref TdAnimSet'AS_C1P_OneHanded_Taser.AS_C1P_OneHanded_Taser'*/,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.FirstPersonMesh' */,
-			//Components[1]=
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00014F97
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Taser.SK_Taser")/*Ref SkeletalMesh'WP_Taser.SK_Taser'*/,
-				PhysicsAsset = LoadAsset<PhysicsAsset>("WP_Taser.PA_Taser")/*Ref PhysicsAsset'WP_Taser.PA_Taser'*/,
-				PhysicsWeight = 1.0f,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser")/*Ref TdAnimSet'AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser'*/,
-				},
-				bUpdateJointsFromAnimation = true,
-				bEnableFullAnimWeightBodies = true,
-				bUseAsOccluder = false,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.ThirdPersonMesh' */,
+			Default__TdWeapon_Pistol_TaserContent_FirstPersonMesh,
+			Default__TdWeapon_Pistol_TaserContent_ThirdPersonMesh,
 		};
 	}
 }

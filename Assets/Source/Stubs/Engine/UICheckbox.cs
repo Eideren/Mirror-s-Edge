@@ -81,6 +81,15 @@ public partial class UICheckbox : UIButton,
 	
 	public UICheckbox()
 	{
+		var Default__UICheckbox_CheckedImageTemplate = new UIComp_DrawImage
+		{
+			// Object Offset:0x005D141A
+			StyleResolverTag = (name)"Check Style",
+			ImageStyle = new UIRoot.UIStyleReference
+			{
+				DefaultStyleTag = (name)"DefaultCheckbox",
+			},
+		}/* Reference: UIComp_DrawImage'Default__UICheckbox.CheckedImageTemplate' */;
 		// Object Offset:0x00419E86
 		CheckedCue = (name)"CheckboxChecked";
 		UncheckedCue = (name)"CheckboxUnchecked";
@@ -94,15 +103,7 @@ public partial class UICheckbox : UIButton,
 			DataStoreField = (name)"None",
 			ResolvedDataStore = default,
 		};
-		CheckedImageComponent = new UIComp_DrawImage
-		{
-			// Object Offset:0x005D141A
-			StyleResolverTag = (name)"Check Style",
-			ImageStyle = new UIRoot.UIStyleReference
-			{
-				DefaultStyleTag = (name)"DefaultCheckbox",
-			},
-		}/* Reference: UIComp_DrawImage'Default__UICheckbox.CheckedImageTemplate' */;
+		CheckedImageComponent = Default__UICheckbox_CheckedImageTemplate;
 		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UICheckbox.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UICheckbox.BackgroundImageTemplate'*/;
 		ClickedCue = (name)"None";
 		EventProvider = LoadAsset<UIComp_Event>("Default__UICheckbox.WidgetEventComponent")/*Ref UIComp_Event'Default__UICheckbox.WidgetEventComponent'*/;

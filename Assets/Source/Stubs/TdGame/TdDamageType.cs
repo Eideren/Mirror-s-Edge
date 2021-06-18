@@ -13,6 +13,36 @@ public partial class TdDamageType : DamageType/*
 	
 	public TdDamageType()
 	{
+		var Default__TdDamageType_ForceFeedbackWaveform0 = new ForceFeedbackWaveform
+		{
+			// Object Offset:0x01B6BDAE
+			Samples = new array<ForceFeedbackWaveform.WaveformSample>
+			{
+				new ForceFeedbackWaveform.WaveformSample
+				{
+					LeftAmplitude = 50,
+					RightAmplitude = 20,
+					LeftFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Noise,
+					RightFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
+					Duration = 0.50f,
+				},
+			},
+		}/* Reference: ForceFeedbackWaveform'Default__TdDamageType.ForceFeedbackWaveform0' */;
+		var Default__TdDamageType_ForceFeedbackWaveform1 = new ForceFeedbackWaveform
+		{
+			// Object Offset:0x01B6BE7C
+			Samples = new array<ForceFeedbackWaveform.WaveformSample>
+			{
+				new ForceFeedbackWaveform.WaveformSample
+				{
+					LeftAmplitude = 50,
+					RightAmplitude = 50,
+					LeftFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
+					RightFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
+					Duration = 0.750f,
+				},
+			},
+		}/* Reference: ForceFeedbackWaveform'Default__TdDamageType.ForceFeedbackWaveform1' */;
 		// Object Offset:0x0053EC76
 		PhysicsBodyImpactBoneList = new array</*editinline */name>
 		{
@@ -41,36 +71,8 @@ public partial class TdDamageType : DamageType/*
 		KDamageImpulse = 50000.0f;
 		KDeathUpKick = 50.0f;
 		KImpulseRadius = 0.0f;
-		DamagedFFWaveform = new ForceFeedbackWaveform
-		{
-			// Object Offset:0x01B6BDAE
-			Samples = new array<ForceFeedbackWaveform.WaveformSample>
-			{
-				new ForceFeedbackWaveform.WaveformSample
-				{
-					LeftAmplitude = 50,
-					RightAmplitude = 20,
-					LeftFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Noise,
-					RightFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
-					Duration = 0.50f,
-				},
-			},
-		}/* Reference: ForceFeedbackWaveform'Default__TdDamageType.ForceFeedbackWaveform0' */;
-		KilledFFWaveform = new ForceFeedbackWaveform
-		{
-			// Object Offset:0x01B6BE7C
-			Samples = new array<ForceFeedbackWaveform.WaveformSample>
-			{
-				new ForceFeedbackWaveform.WaveformSample
-				{
-					LeftAmplitude = 50,
-					RightAmplitude = 50,
-					LeftFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
-					RightFunction = ForceFeedbackWaveform.EWaveformFunction.WF_Constant,
-					Duration = 0.750f,
-				},
-			},
-		}/* Reference: ForceFeedbackWaveform'Default__TdDamageType.ForceFeedbackWaveform1' */;
+		DamagedFFWaveform = Default__TdDamageType_ForceFeedbackWaveform0;
+		KilledFFWaveform = Default__TdDamageType_ForceFeedbackWaveform1;
 	}
 }
 }

@@ -40,18 +40,7 @@ public partial class TdProj_FlashbangGrenade : TdProj_Grenade/*
 	}
 	public TdProj_FlashbangGrenade()
 	{
-		// Object Offset:0x0064EBFA
-		LookAwayDamageScale = 0.30f;
-		DynamicLightFlashDuration = 0.40f;
-		DynamicLightFlashColor = new Color
-		{
-			R=255,
-			G=240,
-			B=225,
-			A=255
-		};
-		DynamicLightFlashBrightness = 4.0f;
-		DynamicLightFlashLight = new PointLightComponent
+		var Default__TdProj_FlashbangGrenade_LightComponent0 = new PointLightComponent
 		{
 			// Object Offset:0x0064F0D9
 			Radius = 1600.0f,
@@ -61,7 +50,7 @@ public partial class TdProj_FlashbangGrenade : TdProj_Grenade/*
 			CastDynamicShadows = false,
 			bCastCompositeShadow = true,
 		}/* Reference: PointLightComponent'Default__TdProj_FlashbangGrenade.LightComponent0' */;
-		Mesh = new SkeletalMeshComponent
+		var Default__TdProj_FlashbangGrenade_GrenadeMesh0 = new SkeletalMeshComponent
 		{
 			// Object Offset:0x0064EF29
 			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SmokeGrenade.SK_SmokeGrenade")/*Ref SkeletalMesh'WP_SmokeGrenade.SK_SmokeGrenade'*/,
@@ -81,6 +70,19 @@ public partial class TdProj_FlashbangGrenade : TdProj_Grenade/*
 			},
 			Scale = 1.50f,
 		}/* Reference: SkeletalMeshComponent'Default__TdProj_FlashbangGrenade.GrenadeMesh0' */;
+		// Object Offset:0x0064EBFA
+		LookAwayDamageScale = 0.30f;
+		DynamicLightFlashDuration = 0.40f;
+		DynamicLightFlashColor = new Color
+		{
+			R=255,
+			G=240,
+			B=225,
+			A=255
+		};
+		DynamicLightFlashBrightness = 4.0f;
+		DynamicLightFlashLight = Default__TdProj_FlashbangGrenade_LightComponent0;
+		Mesh = Default__TdProj_FlashbangGrenade_GrenadeMesh0;
 		ExplodingSound = LoadAsset<SoundCue>("A_WP_Grenade_FlashBang.Fire.Det")/*Ref SoundCue'A_WP_Grenade_FlashBang.Fire.Det'*/;
 		BouncingSound = LoadAsset<SoundCue>("A_WP_Grenade_Smoke.Foley.DropBounce")/*Ref SoundCue'A_WP_Grenade_Smoke.Foley.DropBounce'*/;
 		ExplodingEffect = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_WeaponFX_FlashBangGrenade_AfterSmoke_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_WeaponFX_FlashBangGrenade_AfterSmoke_01'*/;
@@ -96,26 +98,7 @@ public partial class TdProj_FlashbangGrenade : TdProj_Grenade/*
 		{
 			LoadAsset<SpriteComponent>("Default__TdProj_FlashbangGrenade.Sprite")/*Ref SpriteComponent'Default__TdProj_FlashbangGrenade.Sprite'*/,
 			LoadAsset<CylinderComponent>("Default__TdProj_FlashbangGrenade.CollisionCylinder")/*Ref CylinderComponent'Default__TdProj_FlashbangGrenade.CollisionCylinder'*/,
-			new SkeletalMeshComponent
-			{
-				// Object Offset:0x0064EF29
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_SmokeGrenade.SK_SmokeGrenade")/*Ref SkeletalMesh'WP_SmokeGrenade.SK_SmokeGrenade'*/,
-				PhysicsAsset = LoadAsset<PhysicsAsset>("WP_SmokeGrenade.PA_SmokeGrenade")/*Ref PhysicsAsset'WP_SmokeGrenade.PA_SmokeGrenade'*/,
-				PhysicsWeight = 1.0f,
-				bUpdateJointsFromAnimation = true,
-				bEnableFullAnimWeightBodies = true,
-				CollideActors = true,
-				BlockZeroExtent = true,
-				BlockRigidBody = true,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-				Scale = 1.50f,
-			}/* Reference: SkeletalMeshComponent'Default__TdProj_FlashbangGrenade.GrenadeMesh0' */,
+			Default__TdProj_FlashbangGrenade_GrenadeMesh0,
 		};
 		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdProj_FlashbangGrenade.CollisionCylinder")/*Ref CylinderComponent'Default__TdProj_FlashbangGrenade.CollisionCylinder'*/;
 	}

@@ -9,19 +9,7 @@ public partial class TdWeapon_AssaultRifle_FNSCARL : TdWeapon_Heavy/*
 		hidecategories(Navigation)*/{
 	public TdWeapon_AssaultRifle_FNSCARL()
 	{
-		// Object Offset:0x0000969E
-		AimOffsetProfileNames = new array<name>
-		{
-			(name)"Default",
-			(name)"TwoHanded",
-		};
-		WeaponPoseProfileName = (name)"TwoHanded-FNSCARL";
-		MuzzleFlashPSCTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_4Spread_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_4Spread_01'*/;
-		MuzzleFlashSocket = (name)"Muzzleflash";
-		BulletTraceTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_Heavy_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_Heavy_01'*/;
-		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_Shell556_Auto")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_Shell556_Auto'*/;
-		ShellEjectSocket = (name)"ShellEject";
-		FiringWaveform = new ForceFeedbackWaveform
+		var Default__TdWeapon_AssaultRifle_FNSCARL_FiringWaveformObj = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x00013236
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -44,6 +32,64 @@ public partial class TdWeapon_AssaultRifle_FNSCARL : TdWeapon_Heavy/*
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdWeapon_AssaultRifle_FNSCARL.FiringWaveformObj' */;
+		var Default__TdWeapon_AssaultRifle_FNSCARL_FirstPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x00013EB7
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNSCARL.Mesh.SK_FNSCARL")/*Ref SkeletalMesh'WP_FNSCARL.Mesh.SK_FNSCARL'*/,
+			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_FNSCARL.Mesh.PA_FNSCARL")/*Ref PhysicsAsset'WP_FNSCARL.Mesh.PA_FNSCARL'*/,
+			PhysicsWeight = 1.0f,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_FNSCARL.AS_C1P_TwoHanded_FNSCARL")/*Ref TdAnimSet'AS_C1P_TwoHanded_FNSCARL.AS_C1P_TwoHanded_FNSCARL'*/,
+			},
+			bUpdateJointsFromAnimation = true,
+			bEnableFullAnimWeightBodies = true,
+			bDisableWarningWhenAnimNotFound = true,
+			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
+			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
+			{
+				Default = true,
+				GameplayPhysics = true,
+				EffectPhysics = true,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.FirstPersonMesh' */;
+		var Default__TdWeapon_AssaultRifle_FNSCARL_ThirdPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x00014037
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNSCARL.Mesh.SK_FNSCARL")/*Ref SkeletalMesh'WP_FNSCARL.Mesh.SK_FNSCARL'*/,
+			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_FNSCARL.Mesh.PA_FNSCARL")/*Ref PhysicsAsset'WP_FNSCARL.Mesh.PA_FNSCARL'*/,
+			PhysicsWeight = 1.0f,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL'*/,
+			},
+			bUpdateJointsFromAnimation = true,
+			bEnableFullAnimWeightBodies = true,
+			bDisableWarningWhenAnimNotFound = true,
+			bUseAsOccluder = false,
+			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
+			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
+			{
+				Default = true,
+				GameplayPhysics = true,
+				EffectPhysics = true,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.ThirdPersonMesh' */;
+		// Object Offset:0x0000969E
+		AimOffsetProfileNames = new array<name>
+		{
+			(name)"Default",
+			(name)"TwoHanded",
+		};
+		WeaponPoseProfileName = (name)"TwoHanded-FNSCARL";
+		MuzzleFlashPSCTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_4Spread_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_4Spread_01'*/;
+		MuzzleFlashSocket = (name)"Muzzleflash";
+		BulletTraceTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_Heavy_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_Heavy_01'*/;
+		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_Shell556_Auto")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_Shell556_Auto'*/;
+		ShellEjectSocket = (name)"ShellEject";
+		FiringWaveform = Default__TdWeapon_AssaultRifle_FNSCARL_FiringWaveformObj;
 		MaxAmmo = 30;
 		ReloadTime = 2.20f;
 		AmmoCount = 30;
@@ -82,51 +128,8 @@ public partial class TdWeapon_AssaultRifle_FNSCARL : TdWeapon_Heavy/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_FNSCARL.AS_C1P_TwoHanded_FNSCARL")/*Ref TdAnimSet'AS_C1P_TwoHanded_FNSCARL.AS_C1P_TwoHanded_FNSCARL'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL'*/;
-		Mesh1p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00013EB7
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNSCARL.Mesh.SK_FNSCARL")/*Ref SkeletalMesh'WP_FNSCARL.Mesh.SK_FNSCARL'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_FNSCARL.Mesh.PA_FNSCARL")/*Ref PhysicsAsset'WP_FNSCARL.Mesh.PA_FNSCARL'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_FNSCARL.AS_C1P_TwoHanded_FNSCARL")/*Ref TdAnimSet'AS_C1P_TwoHanded_FNSCARL.AS_C1P_TwoHanded_FNSCARL'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bDisableWarningWhenAnimNotFound = true,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.FirstPersonMesh' */;
-		Mesh3p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014037
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNSCARL.Mesh.SK_FNSCARL")/*Ref SkeletalMesh'WP_FNSCARL.Mesh.SK_FNSCARL'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_FNSCARL.Mesh.PA_FNSCARL")/*Ref PhysicsAsset'WP_FNSCARL.Mesh.PA_FNSCARL'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bDisableWarningWhenAnimNotFound = true,
-			bUseAsOccluder = false,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.ThirdPersonMesh' */;
+		Mesh1p = Default__TdWeapon_AssaultRifle_FNSCARL_FirstPersonMesh;
+		Mesh3p = Default__TdWeapon_AssaultRifle_FNSCARL_ThirdPersonMesh;
 		CombatRange_Min = 2000.0f;
 		CombatRange_Max = 5000.0f;
 		CombatRange_Preferred = 3000.0f;
@@ -189,122 +192,13 @@ public partial class TdWeapon_AssaultRifle_FNSCARL : TdWeapon_Heavy/*
 		};
 		EquipTime = 0.750f;
 		WeaponRange = 9000.0f;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00013EB7
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNSCARL.Mesh.SK_FNSCARL")/*Ref SkeletalMesh'WP_FNSCARL.Mesh.SK_FNSCARL'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_FNSCARL.Mesh.PA_FNSCARL")/*Ref PhysicsAsset'WP_FNSCARL.Mesh.PA_FNSCARL'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_FNSCARL.AS_C1P_TwoHanded_FNSCARL")/*Ref TdAnimSet'AS_C1P_TwoHanded_FNSCARL.AS_C1P_TwoHanded_FNSCARL'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bDisableWarningWhenAnimNotFound = true,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.FirstPersonMesh' */;
-		DroppedPickupMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014037
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNSCARL.Mesh.SK_FNSCARL")/*Ref SkeletalMesh'WP_FNSCARL.Mesh.SK_FNSCARL'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_FNSCARL.Mesh.PA_FNSCARL")/*Ref PhysicsAsset'WP_FNSCARL.Mesh.PA_FNSCARL'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bDisableWarningWhenAnimNotFound = true,
-			bUseAsOccluder = false,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.ThirdPersonMesh' */;
-		PickupFactoryMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00013EB7
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNSCARL.Mesh.SK_FNSCARL")/*Ref SkeletalMesh'WP_FNSCARL.Mesh.SK_FNSCARL'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_FNSCARL.Mesh.PA_FNSCARL")/*Ref PhysicsAsset'WP_FNSCARL.Mesh.PA_FNSCARL'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_FNSCARL.AS_C1P_TwoHanded_FNSCARL")/*Ref TdAnimSet'AS_C1P_TwoHanded_FNSCARL.AS_C1P_TwoHanded_FNSCARL'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bDisableWarningWhenAnimNotFound = true,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.FirstPersonMesh' */;
+		Mesh = Default__TdWeapon_AssaultRifle_FNSCARL_FirstPersonMesh;
+		DroppedPickupMesh = Default__TdWeapon_AssaultRifle_FNSCARL_ThirdPersonMesh;
+		PickupFactoryMesh = Default__TdWeapon_AssaultRifle_FNSCARL_FirstPersonMesh;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00013EB7
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNSCARL.Mesh.SK_FNSCARL")/*Ref SkeletalMesh'WP_FNSCARL.Mesh.SK_FNSCARL'*/,
-				PhysicsAsset = LoadAsset<PhysicsAsset>("WP_FNSCARL.Mesh.PA_FNSCARL")/*Ref PhysicsAsset'WP_FNSCARL.Mesh.PA_FNSCARL'*/,
-				PhysicsWeight = 1.0f,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_FNSCARL.AS_C1P_TwoHanded_FNSCARL")/*Ref TdAnimSet'AS_C1P_TwoHanded_FNSCARL.AS_C1P_TwoHanded_FNSCARL'*/,
-				},
-				bUpdateJointsFromAnimation = true,
-				bEnableFullAnimWeightBodies = true,
-				bDisableWarningWhenAnimNotFound = true,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.FirstPersonMesh' */,
-			//Components[1]=
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00014037
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNSCARL.Mesh.SK_FNSCARL")/*Ref SkeletalMesh'WP_FNSCARL.Mesh.SK_FNSCARL'*/,
-				PhysicsAsset = LoadAsset<PhysicsAsset>("WP_FNSCARL.Mesh.PA_FNSCARL")/*Ref PhysicsAsset'WP_FNSCARL.Mesh.PA_FNSCARL'*/,
-				PhysicsWeight = 1.0f,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL'*/,
-				},
-				bUpdateJointsFromAnimation = true,
-				bEnableFullAnimWeightBodies = true,
-				bDisableWarningWhenAnimNotFound = true,
-				bUseAsOccluder = false,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.ThirdPersonMesh' */,
+			Default__TdWeapon_AssaultRifle_FNSCARL_FirstPersonMesh,
+			Default__TdWeapon_AssaultRifle_FNSCARL_ThirdPersonMesh,
 		};
 	}
 }

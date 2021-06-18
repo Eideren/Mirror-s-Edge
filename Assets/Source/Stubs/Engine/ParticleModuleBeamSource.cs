@@ -18,6 +18,31 @@ public partial class ParticleModuleBeamSource : ParticleModuleBeamBase/*
 	
 	public ParticleModuleBeamSource()
 	{
+		var Default__ParticleModuleBeamSource_DistributionSource = new DistributionVectorConstant
+		{
+			// Object Offset:0x00467E3B
+			Constant = new Vector
+			{
+				X=50.0f,
+				Y=50.0f,
+				Z=50.0f
+			},
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleBeamSource.DistributionSource' */;
+		var Default__ParticleModuleBeamSource_DistributionSourceTangent = new DistributionVectorConstant
+		{
+			// Object Offset:0x00467E7F
+			Constant = new Vector
+			{
+				X=1.0f,
+				Y=0.0f,
+				Z=0.0f
+			},
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleBeamSource.DistributionSourceTangent' */;
+		var Default__ParticleModuleBeamSource_DistributionSourceStrength = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466B93
+			Constant = 25.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleBeamSource.DistributionSourceStrength' */;
 		// Object Offset:0x0037B165
 		Source = new DistributionVector.RawDistributionVector
 		{

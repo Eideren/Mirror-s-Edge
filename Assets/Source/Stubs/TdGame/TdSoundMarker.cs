@@ -6,16 +6,17 @@ public partial class TdSoundMarker : TdMarker/*
 		hidecategories(Navigation)*/{
 	public TdSoundMarker()
 	{
+		var Default__TdSoundMarker_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x02E52605
+			Sprite = LoadAsset<Texture2D>("TdEditorResources.SoundSourceIcon")/*Ref Texture2D'TdEditorResources.SoundSourceIcon'*/,
+			Scale = 0.250f,
+		}/* Reference: SpriteComponent'Default__TdSoundMarker.Sprite' */;
 		// Object Offset:0x006597A1
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<ArrowComponent>("Default__TdSoundMarker.Arrow")/*Ref ArrowComponent'Default__TdSoundMarker.Arrow'*/,
-			new SpriteComponent
-			{
-				// Object Offset:0x02E52605
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.SoundSourceIcon")/*Ref Texture2D'TdEditorResources.SoundSourceIcon'*/,
-				Scale = 0.250f,
-			}/* Reference: SpriteComponent'Default__TdSoundMarker.Sprite' */,
+			Default__TdSoundMarker_Sprite,
 			LoadAsset<ArrowComponent>("Default__TdSoundMarker.Arrow")/*Ref ArrowComponent'Default__TdSoundMarker.Arrow'*/,
 		};
 	}

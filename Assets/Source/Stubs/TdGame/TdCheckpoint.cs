@@ -28,22 +28,19 @@ public partial class TdCheckpoint : Checkpoint/*
 	
 	public TdCheckpoint()
 	{
-		// Object Offset:0x0053419C
-		CheckpointTextureResources = LoadAsset<RequestedTextureResources>("Default__TdCheckpoint.CheckpointTextureResourcesObject")/*Ref RequestedTextureResources'Default__TdCheckpoint.CheckpointTextureResourcesObject'*/;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdCheckpoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdCheckpoint.CollisionCylinder'*/;
-		GoodSprite = new SpriteComponent
+		var Default__TdCheckpoint_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x02E51E29
 			Sprite = LoadAsset<Texture2D>("EngineResources.Corpse")/*Ref Texture2D'EngineResources.Corpse'*/,
 		}/* Reference: SpriteComponent'Default__TdCheckpoint.Sprite' */;
+		// Object Offset:0x0053419C
+		CheckpointTextureResources = LoadAsset<RequestedTextureResources>("Default__TdCheckpoint.CheckpointTextureResourcesObject")/*Ref RequestedTextureResources'Default__TdCheckpoint.CheckpointTextureResourcesObject'*/;
+		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdCheckpoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdCheckpoint.CollisionCylinder'*/;
+		GoodSprite = Default__TdCheckpoint_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdCheckpoint.Sprite2")/*Ref SpriteComponent'Default__TdCheckpoint.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x02E51E29
-				Sprite = LoadAsset<Texture2D>("EngineResources.Corpse")/*Ref Texture2D'EngineResources.Corpse'*/,
-			}/* Reference: SpriteComponent'Default__TdCheckpoint.Sprite' */,
+			Default__TdCheckpoint_Sprite,
 			LoadAsset<SpriteComponent>("Default__TdCheckpoint.Sprite2")/*Ref SpriteComponent'Default__TdCheckpoint.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__TdCheckpoint.Arrow")/*Ref ArrowComponent'Default__TdCheckpoint.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__TdCheckpoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdCheckpoint.CollisionCylinder'*/,

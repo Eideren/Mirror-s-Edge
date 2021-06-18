@@ -113,28 +113,21 @@ public partial class GameBreakableActor : KActor/*
 	}
 	public GameBreakableActor()
 	{
-		// Object Offset:0x00006A96
-		StaticMeshComponent = new StaticMeshComponent
+		var Default__GameBreakableActor_StaticMeshComponent0 = new StaticMeshComponent
 		{
 			// Object Offset:0x000093ED
 			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__GameBreakableActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__GameBreakableActor.MyLightEnvironment'*/,
 		}/* Reference: StaticMeshComponent'Default__GameBreakableActor.StaticMeshComponent0' */;
+		// Object Offset:0x00006A96
+		StaticMeshComponent = Default__GameBreakableActor_StaticMeshComponent0;
 		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__GameBreakableActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__GameBreakableActor.MyLightEnvironment'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__GameBreakableActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__GameBreakableActor.MyLightEnvironment'*/,
-			new StaticMeshComponent
-			{
-				// Object Offset:0x000093ED
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__GameBreakableActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__GameBreakableActor.MyLightEnvironment'*/,
-			}/* Reference: StaticMeshComponent'Default__GameBreakableActor.StaticMeshComponent0' */,
+			Default__GameBreakableActor_StaticMeshComponent0,
 		};
 		CollisionType = Actor.ECollisionType.COLLIDE_BlockAll;
-		CollisionComponent = new StaticMeshComponent
-		{
-			// Object Offset:0x000093ED
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__GameBreakableActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__GameBreakableActor.MyLightEnvironment'*/,
-		}/* Reference: StaticMeshComponent'Default__GameBreakableActor.StaticMeshComponent0' */;
+		CollisionComponent = Default__GameBreakableActor_StaticMeshComponent0;
 	}
 }
 }

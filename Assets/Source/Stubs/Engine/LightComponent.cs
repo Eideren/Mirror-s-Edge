@@ -69,11 +69,30 @@ public partial class LightComponent : ActorComponent/*
 	
 	//	structdefaultproperties
 	//	{
-	//
-	//		#warning // NullReferenceException occurred while decompiling properties!
-	//		/*System.NullReferenceException: Object reference not set to an instance of an object.
-	//		   at UELib.Core.UObject.DecompileProperties()
-	//		   at UELib.Core.UStruct.FormatDefaultProperties() */	}
+	//		// Object Offset:0x0025BE04
+	//		bInitialized = false;
+	//		BSP = false;
+	//		Static = false;
+	//		Dynamic = false;
+	//		CompositeDynamic = false;
+	//		Skybox = false;
+	//		Unnamed = false;
+	//		Unnamed = false;
+	//		Unnamed = false;
+	//		Unnamed = false;
+	//		Unnamed = false;
+	//		Unnamed = false;
+	//		Cinematic = false;
+	//		Cinematic = false;
+	//		Cinematic = false;
+	//		Cinematic = false;
+	//		Cinematic = false;
+	//		Cinematic = false;
+	//		Gameplay = false;
+	//		Gameplay = false;
+	//		Gameplay = false;
+	//		Gameplay = false;
+	//	}
 	};
 	
 	public /*private noimport native const transient */Object.Pointer SceneInfo;

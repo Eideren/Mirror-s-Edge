@@ -40,8 +40,7 @@ public partial class RB_RadialForceActor : Actor/*
 	
 	public RB_RadialForceActor()
 	{
-		// Object Offset:0x003AEE49
-		RenderComponent = new DrawSphereComponent
+		var Default__RB_RadialForceActor_DrawSphere0 = new DrawSphereComponent
 		{
 			// Object Offset:0x00468CBF
 			SphereColor = new Color
@@ -53,6 +52,16 @@ public partial class RB_RadialForceActor : Actor/*
 			},
 			SphereRadius = 200.0f,
 		}/* Reference: DrawSphereComponent'Default__RB_RadialForceActor.DrawSphere0' */;
+		var Default__RB_RadialForceActor_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004D03DA
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_RadForce")/*Ref Texture2D'EngineResources.S_RadForce'*/,
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__RB_RadialForceActor.Sprite' */;
+		// Object Offset:0x003AEE49
+		RenderComponent = Default__RB_RadialForceActor_DrawSphere0;
 		ForceStrength = 10.0f;
 		ForceRadius = 200.0f;
 		bForceApplyToCloth = true;
@@ -80,26 +89,8 @@ public partial class RB_RadialForceActor : Actor/*
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new DrawSphereComponent
-			{
-				// Object Offset:0x00468CBF
-				SphereColor = new Color
-				{
-					R=64,
-					G=70,
-					B=255,
-					A=255
-				},
-				SphereRadius = 200.0f,
-			}/* Reference: DrawSphereComponent'Default__RB_RadialForceActor.DrawSphere0' */,
-			new SpriteComponent
-			{
-				// Object Offset:0x004D03DA
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_RadForce")/*Ref Texture2D'EngineResources.S_RadForce'*/,
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__RB_RadialForceActor.Sprite' */,
+			Default__RB_RadialForceActor_DrawSphere0,
+			Default__RB_RadialForceActor_Sprite,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetUpdateFrequency = 0.10f;

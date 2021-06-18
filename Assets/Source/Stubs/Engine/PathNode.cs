@@ -7,23 +7,20 @@ public partial class PathNode : NavigationPoint/*
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
 	public PathNode()
 	{
-		// Object Offset:0x0038C15B
-		bCanBePlayerNavigationPoint = true;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__PathNode.CollisionCylinder")/*Ref CylinderComponent'Default__PathNode.CollisionCylinder'*/;
-		GoodSprite = new SpriteComponent
+		var Default__PathNode_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x00459436
 			Sprite = LoadAsset<Texture2D>("EngineResources.S_Pickup")/*Ref Texture2D'EngineResources.S_Pickup'*/,
 		}/* Reference: SpriteComponent'Default__PathNode.Sprite' */;
+		// Object Offset:0x0038C15B
+		bCanBePlayerNavigationPoint = true;
+		CylinderComponent = LoadAsset<CylinderComponent>("Default__PathNode.CollisionCylinder")/*Ref CylinderComponent'Default__PathNode.CollisionCylinder'*/;
+		GoodSprite = Default__PathNode_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__PathNode.Sprite2")/*Ref SpriteComponent'Default__PathNode.Sprite2'*/;
 		Abbrev = "PN";
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x00459436
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_Pickup")/*Ref Texture2D'EngineResources.S_Pickup'*/,
-			}/* Reference: SpriteComponent'Default__PathNode.Sprite' */,
+			Default__PathNode_Sprite,
 			LoadAsset<SpriteComponent>("Default__PathNode.Sprite2")/*Ref SpriteComponent'Default__PathNode.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__PathNode.Arrow")/*Ref ArrowComponent'Default__PathNode.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__PathNode.CollisionCylinder")/*Ref CylinderComponent'Default__PathNode.CollisionCylinder'*/,

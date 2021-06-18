@@ -77,19 +77,20 @@ public partial class Info : Actor/*
 	
 	public Info()
 	{
+		var Default__Info_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x0025E453
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__Info.Sprite' */;
 		// Object Offset:0x0025E330
 		bHidden = true;
 		bSkipActorPropertyReplication = true;
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x0025E453
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__Info.Sprite' */,
+			Default__Info_Sprite,
 		};
 		NetUpdateFrequency = 10.0f;
 	}

@@ -18,8 +18,7 @@ public partial class ParticleModuleTrailSpawn : ParticleModuleTrailBase/*
 	
 	public ParticleModuleTrailSpawn()
 	{
-		// Object Offset:0x003838E0
-		SpawnDistanceMap = new DistributionFloatParticleParameter
+		var Default__ParticleModuleTrailSpawn_DistributionSpawnDistanceMap = new DistributionFloatParticleParameter
 		{
 			// Object Offset:0x0046728F
 			MinInput = 10.0f,
@@ -28,6 +27,8 @@ public partial class ParticleModuleTrailSpawn : ParticleModuleTrailBase/*
 			MaxOutput = 5.0f,
 			Constant = 1.0f,
 		}/* Reference: DistributionFloatParticleParameter'Default__ParticleModuleTrailSpawn.DistributionSpawnDistanceMap' */;
+		// Object Offset:0x003838E0
+		SpawnDistanceMap = Default__ParticleModuleTrailSpawn_DistributionSpawnDistanceMap;
 	}
 }
 }

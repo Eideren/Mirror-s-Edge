@@ -420,6 +420,18 @@ public partial class UIObject : UIScreenObject/*
 	
 	public UIObject()
 	{
+		var Default__UIObject_WidgetEventComponent = new UIComp_Event
+		{
+			// Object Offset:0x002DC098
+			DefaultEvents = new array<UIRoot.DefaultEventSpecification>
+			{
+				new UIRoot.DefaultEventSpecification
+				{
+					EventTemplate = LoadAsset<UIEvent_Initialized>("Default__UIObject.WidgetInitializedEvent")/*Ref UIEvent_Initialized'Default__UIObject.WidgetInitializedEvent'*/,
+					EventState = default,
+				},
+			},
+		}/* Reference: UIComp_Event'Default__UIObject.WidgetEventComponent' */;
 		// Object Offset:0x002D7AA6
 		PrimaryStyle = new UIRoot.UIStyleReference
 		{
@@ -557,18 +569,7 @@ public partial class UIObject : UIScreenObject/*
 			B=255,
 			A=255
 		};
-		EventProvider = new UIComp_Event
-		{
-			// Object Offset:0x002DC098
-			DefaultEvents = new array<UIRoot.DefaultEventSpecification>
-			{
-				new UIRoot.DefaultEventSpecification
-				{
-					EventTemplate = LoadAsset<UIEvent_Initialized>("Default__UIObject.WidgetInitializedEvent")/*Ref UIEvent_Initialized'Default__UIObject.WidgetInitializedEvent'*/,
-					EventState = default,
-				},
-			},
-		}/* Reference: UIComp_Event'Default__UIObject.WidgetEventComponent' */;
+		EventProvider = Default__UIObject_WidgetEventComponent;
 	}
 }
 }

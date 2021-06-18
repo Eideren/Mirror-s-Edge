@@ -12,6 +12,16 @@ public partial class ParticleModuleSpawn : ParticleModuleSpawnBase/*
 	
 	public ParticleModuleSpawn()
 	{
+		var Default__ParticleModuleSpawn_RequiredDistributionSpawnRate = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466E0F
+			Constant = 20.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleSpawn.RequiredDistributionSpawnRate' */;
+		var Default__ParticleModuleSpawn_RequiredDistributionSpawnRateScale = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466E43
+			Constant = 1.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleSpawn.RequiredDistributionSpawnRateScale' */;
 		// Object Offset:0x003826E0
 		Rate = new DistributionFloat.RawDistributionFloat
 		{

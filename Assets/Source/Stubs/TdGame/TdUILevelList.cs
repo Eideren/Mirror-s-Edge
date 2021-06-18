@@ -5,8 +5,7 @@ public partial class TdUILevelList : TdUIImageList/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public TdUILevelList()
 	{
-		// Object Offset:0x0068C1A4
-		CellDataComponent = new TdUIComp_LevelListPresenter
+		var Default__TdUILevelList_LevelListPresentationComponent = new TdUIComp_LevelListPresenter
 		{
 			// Object Offset:0x03149E25
 			ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
@@ -17,6 +16,8 @@ public partial class TdUILevelList : TdUIImageList/*
 				[3] = LoadAsset<UITexture>("Default__TdUILevelList.LevelListPresentationComponent.HoverOverlayTemplate")/*Ref UITexture'Default__TdUILevelList.LevelListPresentationComponent.HoverOverlayTemplate'*/,
 	 		},
 		}/* Reference: TdUIComp_LevelListPresenter'Default__TdUILevelList.LevelListPresentationComponent' */;
+		// Object Offset:0x0068C1A4
+		CellDataComponent = Default__TdUILevelList_LevelListPresentationComponent;
 		EventProvider = LoadAsset<UIComp_Event>("Default__TdUILevelList.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUILevelList.WidgetEventComponent'*/;
 	}
 }

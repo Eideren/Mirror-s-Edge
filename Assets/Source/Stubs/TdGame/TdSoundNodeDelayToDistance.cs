@@ -11,6 +11,12 @@ public partial class TdSoundNodeDelayToDistance : SoundNode/*
 	
 	public TdSoundNodeDelayToDistance()
 	{
+		var Default__TdSoundNodeDelayToDistance_DistributionSpeedOfSound = new DistributionFloatUniform
+		{
+			// Object Offset:0x01B1D806
+			Min = 33100.0f,
+			Max = 33101.0f,
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeDelayToDistance.DistributionSpeedOfSound' */;
 		// Object Offset:0x0065AB0D
 		SpeedOfSound = new DistributionFloat.RawDistributionFloat
 		{

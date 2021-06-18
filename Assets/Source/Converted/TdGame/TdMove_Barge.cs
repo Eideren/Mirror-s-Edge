@@ -297,14 +297,7 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 	
 	public TdMove_Barge()
 	{
-		// Object Offset:0x0059B951
-		BargeAnimTime = 0.30f;
-		BargeMinTraceDistance = 90.0f;
-		BargeTraceTime = 0.50f;
-		BargeAddOnSpeed = 200.0f;
-		BargeMaxSpeed = 500.0f;
-		BargeKickThresholdSpeed = 250.0f;
-		BargeWaveform = new ForceFeedbackWaveform
+		var Default__TdMove_Barge_BargeWaveformObj = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x01B6C282
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -327,6 +320,14 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdMove_Barge.BargeWaveformObj' */;
+		// Object Offset:0x0059B951
+		BargeAnimTime = 0.30f;
+		BargeMinTraceDistance = 90.0f;
+		BargeTraceTime = 0.50f;
+		BargeAddOnSpeed = 200.0f;
+		BargeMaxSpeed = 500.0f;
+		BargeKickThresholdSpeed = 250.0f;
+		BargeWaveform = Default__TdMove_Barge_BargeWaveformObj;
 		bConstrainLook = true;
 		bDisableFaceRotation = true;
 		bTwoHandedFullBodyAnimations = true;

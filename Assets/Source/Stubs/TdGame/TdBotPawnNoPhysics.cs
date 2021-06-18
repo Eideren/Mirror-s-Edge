@@ -20,33 +20,32 @@ public partial class TdBotPawnNoPhysics : TdBotPawn/*
 	}
 	public TdBotPawnNoPhysics()
 	{
-		// Object Offset:0x0052E774
-		ActorCylinderComponent = new CylinderComponent
+		var Default__TdBotPawnNoPhysics_ActorCollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x01AB4996
 			CollideActors = false,
 			BlockActors = false,
 			BlockNonZeroExtent = false,
 		}/* Reference: CylinderComponent'Default__TdBotPawnNoPhysics.ActorCollisionCylinder' */;
-		Mesh3p = new TdSkeletalMeshComponent
+		var Default__TdBotPawnNoPhysics_TdPawnMesh3p = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x031281AE
 			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawnNoPhysics.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawnNoPhysics.MyLightEnvironment'*/,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawnNoPhysics.TdPawnMesh3p' */;
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawnNoPhysics.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawnNoPhysics.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdBotPawnNoPhysics.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawnNoPhysics.DrawFrust0'*/;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x031281AE
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawnNoPhysics.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawnNoPhysics.MyLightEnvironment'*/,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawnNoPhysics.TdPawnMesh3p' */;
-		CylinderComponent = new CylinderComponent
+		var Default__TdBotPawnNoPhysics_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x01AB4A02
 			CollideActors = false,
 			BlockActors = false,
 			BlockNonZeroExtent = false,
 		}/* Reference: CylinderComponent'Default__TdBotPawnNoPhysics.CollisionCylinder' */;
+		// Object Offset:0x0052E774
+		ActorCylinderComponent = Default__TdBotPawnNoPhysics_ActorCollisionCylinder;
+		Mesh3p = Default__TdBotPawnNoPhysics_TdPawnMesh3p;
+		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawnNoPhysics.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawnNoPhysics.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdBotPawnNoPhysics.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawnNoPhysics.DrawFrust0'*/;
+		Mesh = Default__TdBotPawnNoPhysics_TdPawnMesh3p;
+		CylinderComponent = Default__TdBotPawnNoPhysics_CollisionCylinder;
 		bAlwaysRelevant = true;
 		bCollideActors = false;
 		bBlockActors = false;
@@ -54,42 +53,14 @@ public partial class TdBotPawnNoPhysics : TdBotPawn/*
 		{
 			LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawnNoPhysics.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawnNoPhysics.SceneCaptureCharacterComponent0'*/,
 			LoadAsset<DrawFrustumComponent>("Default__TdBotPawnNoPhysics.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawnNoPhysics.DrawFrust0'*/,
-			new CylinderComponent
-			{
-				// Object Offset:0x01AB4A02
-				CollideActors = false,
-				BlockActors = false,
-				BlockNonZeroExtent = false,
-			}/* Reference: CylinderComponent'Default__TdBotPawnNoPhysics.CollisionCylinder' */,
+			Default__TdBotPawnNoPhysics_CollisionCylinder,
 			LoadAsset<ArrowComponent>("Default__TdBotPawnNoPhysics.Arrow")/*Ref ArrowComponent'Default__TdBotPawnNoPhysics.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawnNoPhysics.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawnNoPhysics.MyLightEnvironment'*/,
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x031281AE
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawnNoPhysics.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawnNoPhysics.MyLightEnvironment'*/,
-			}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawnNoPhysics.TdPawnMesh3p' */,
-			new CylinderComponent
-			{
-				// Object Offset:0x01AB4A02
-				CollideActors = false,
-				BlockActors = false,
-				BlockNonZeroExtent = false,
-			}/* Reference: CylinderComponent'Default__TdBotPawnNoPhysics.CollisionCylinder' */,
-			new CylinderComponent
-			{
-				// Object Offset:0x01AB4996
-				CollideActors = false,
-				BlockActors = false,
-				BlockNonZeroExtent = false,
-			}/* Reference: CylinderComponent'Default__TdBotPawnNoPhysics.ActorCollisionCylinder' */,
+			Default__TdBotPawnNoPhysics_TdPawnMesh3p,
+			Default__TdBotPawnNoPhysics_CollisionCylinder,
+			Default__TdBotPawnNoPhysics_ActorCollisionCylinder,
 		};
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x01AB4A02
-			CollideActors = false,
-			BlockActors = false,
-			BlockNonZeroExtent = false,
-		}/* Reference: CylinderComponent'Default__TdBotPawnNoPhysics.CollisionCylinder' */;
+		CollisionComponent = Default__TdBotPawnNoPhysics_CollisionCylinder;
 	}
 }
 }

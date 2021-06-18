@@ -11,27 +11,24 @@ public partial class AmbientSound : Keypoint/*
 	
 	public AmbientSound()
 	{
-		// Object Offset:0x0028F043
-		bAutoPlay = true;
-		AudioComponent = new AudioComponent
+		var Default__AmbientSound_AudioComponent0 = new AudioComponent
 		{
 			// Object Offset:0x0028F162
 			bStopWhenOwnerDestroyed = true,
 			bShouldRemainActiveIfDropped = true,
 		}/* Reference: AudioComponent'Default__AmbientSound.AudioComponent0' */;
+		var Default__AmbientSound_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x0028F12E
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_Ambient")/*Ref Texture2D'EngineResources.S_Ambient'*/,
+		}/* Reference: SpriteComponent'Default__AmbientSound.Sprite' */;
+		// Object Offset:0x0028F043
+		bAutoPlay = true;
+		AudioComponent = Default__AmbientSound_AudioComponent0;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x0028F12E
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_Ambient")/*Ref Texture2D'EngineResources.S_Ambient'*/,
-			}/* Reference: SpriteComponent'Default__AmbientSound.Sprite' */,
-			new AudioComponent
-			{
-				// Object Offset:0x0028F162
-				bStopWhenOwnerDestroyed = true,
-				bShouldRemainActiveIfDropped = true,
-			}/* Reference: AudioComponent'Default__AmbientSound.AudioComponent0' */,
+			Default__AmbientSound_Sprite,
+			Default__AmbientSound_AudioComponent0,
 		};
 	}
 }

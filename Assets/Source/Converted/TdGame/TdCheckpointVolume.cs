@@ -53,25 +53,18 @@ public partial class TdCheckpointVolume : Volume/*
 	}
 	public TdCheckpointVolume()
 	{
-		// Object Offset:0x0053642D
-		BrushComponent = new BrushComponent
+		var Default__TdCheckpointVolume_BrushComponent0 = new BrushComponent
 		{
 			// Object Offset:0x01AB4666
 			bAcceptsLights = false,
 		}/* Reference: BrushComponent'Default__TdCheckpointVolume.BrushComponent0' */;
+		// Object Offset:0x0053642D
+		BrushComponent = Default__TdCheckpointVolume_BrushComponent0;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new BrushComponent
-			{
-				// Object Offset:0x01AB4666
-				bAcceptsLights = false,
-			}/* Reference: BrushComponent'Default__TdCheckpointVolume.BrushComponent0' */,
+			Default__TdCheckpointVolume_BrushComponent0,
 		};
-		CollisionComponent = new BrushComponent
-		{
-			// Object Offset:0x01AB4666
-			bAcceptsLights = false,
-		}/* Reference: BrushComponent'Default__TdCheckpointVolume.BrushComponent0' */;
+		CollisionComponent = Default__TdCheckpointVolume_BrushComponent0;
 	}
 }
 }

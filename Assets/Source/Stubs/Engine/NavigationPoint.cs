@@ -253,17 +253,13 @@ public partial class NavigationPoint : Actor/*
 	}
 	public NavigationPoint()
 	{
-		// Object Offset:0x002AFAF2
-		bMayCausePain = true;
-		bMustTouchToReach = true;
-		bIsSkippable = true;
-		CylinderComponent = new CylinderComponent
+		var Default__NavigationPoint_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x002AFFFD
 			CollisionHeight = 50.0f,
 			CollisionRadius = 50.0f,
 		}/* Reference: CylinderComponent'Default__NavigationPoint.CollisionCylinder' */;
-		GoodSprite = new SpriteComponent
+		var Default__NavigationPoint_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x002AFE5D
 			Sprite = LoadAsset<Texture2D>("EngineResources.S_NavP")/*Ref Texture2D'EngineResources.S_NavP'*/,
@@ -271,7 +267,7 @@ public partial class NavigationPoint : Actor/*
 			AlwaysLoadOnClient = false,
 			AlwaysLoadOnServer = false,
 		}/* Reference: SpriteComponent'Default__NavigationPoint.Sprite' */;
-		BadSprite = new SpriteComponent
+		var Default__NavigationPoint_Sprite2 = new SpriteComponent
 		{
 			// Object Offset:0x002AFEE5
 			Sprite = LoadAsset<Texture2D>("EditorResources.Bad")/*Ref Texture2D'EditorResources.Bad'*/,
@@ -281,6 +277,25 @@ public partial class NavigationPoint : Actor/*
 			AlwaysLoadOnServer = false,
 			Scale = 0.250f,
 		}/* Reference: SpriteComponent'Default__NavigationPoint.Sprite2' */;
+		var Default__NavigationPoint_Arrow = new ArrowComponent
+		{
+			// Object Offset:0x002AFFA5
+			ArrowColor = new Color
+			{
+				R=150,
+				G=200,
+				B=255,
+				A=255
+			},
+			ArrowSize = 0.50f,
+		}/* Reference: ArrowComponent'Default__NavigationPoint.Arrow' */;
+		// Object Offset:0x002AFAF2
+		bMayCausePain = true;
+		bMustTouchToReach = true;
+		bIsSkippable = true;
+		CylinderComponent = Default__NavigationPoint_CollisionCylinder;
+		GoodSprite = Default__NavigationPoint_Sprite;
+		BadSprite = Default__NavigationPoint_Sprite2;
 		NetworkID = -1;
 		Abbrev = "NP?";
 		bStatic = true;
@@ -288,51 +303,14 @@ public partial class NavigationPoint : Actor/*
 		bCollideWhenPlacing = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x002AFE5D
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_NavP")/*Ref Texture2D'EngineResources.S_NavP'*/,
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__NavigationPoint.Sprite' */,
-			new SpriteComponent
-			{
-				// Object Offset:0x002AFEE5
-				Sprite = LoadAsset<Texture2D>("EditorResources.Bad")/*Ref Texture2D'EditorResources.Bad'*/,
-				HiddenGame = true,
-				HiddenEditor = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-				Scale = 0.250f,
-			}/* Reference: SpriteComponent'Default__NavigationPoint.Sprite2' */,
-			new ArrowComponent
-			{
-				// Object Offset:0x002AFFA5
-				ArrowColor = new Color
-				{
-					R=150,
-					G=200,
-					B=255,
-					A=255
-				},
-				ArrowSize = 0.50f,
-			}/* Reference: ArrowComponent'Default__NavigationPoint.Arrow' */,
-			new CylinderComponent
-			{
-				// Object Offset:0x002AFFFD
-				CollisionHeight = 50.0f,
-				CollisionRadius = 50.0f,
-			}/* Reference: CylinderComponent'Default__NavigationPoint.CollisionCylinder' */,
+			Default__NavigationPoint_Sprite,
+			Default__NavigationPoint_Sprite2,
+			Default__NavigationPoint_Arrow,
+			Default__NavigationPoint_CollisionCylinder,
 			LoadAsset<PathRenderingComponent>("Default__NavigationPoint.PathRenderer")/*Ref PathRenderingComponent'Default__NavigationPoint.PathRenderer'*/,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x002AFFFD
-			CollisionHeight = 50.0f,
-			CollisionRadius = 50.0f,
-		}/* Reference: CylinderComponent'Default__NavigationPoint.CollisionCylinder' */;
+		CollisionComponent = Default__NavigationPoint_CollisionCylinder;
 	}
 }
 }

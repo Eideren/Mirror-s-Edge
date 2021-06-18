@@ -40,6 +40,26 @@ public partial class ParticleModuleTypeDataBeam : ParticleModuleTypeDataBase/*
 	
 	public ParticleModuleTypeDataBeam()
 	{
+		var Default__ParticleModuleTypeDataBeam_DistributionEmitterStrength = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466FC3
+			Constant = 1000.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleTypeDataBeam.DistributionEmitterStrength' */;
+		var Default__ParticleModuleTypeDataBeam_DistributionTargetStrength = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466FF7
+			Constant = 1000.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleTypeDataBeam.DistributionTargetStrength' */;
+		var Default__ParticleModuleTypeDataBeam_DistributionEndPointDirection = new DistributionVectorConstant
+		{
+			// Object Offset:0x00468167
+			Constant = new Vector
+			{
+				X=1.0f,
+				Y=0.0f,
+				Z=0.0f
+			},
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleTypeDataBeam.DistributionEndPointDirection' */;
 		// Object Offset:0x00383F1D
 		Distance = new DistributionFloat.RawDistributionFloat
 		{

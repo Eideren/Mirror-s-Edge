@@ -166,6 +166,24 @@ public partial class SeqAct_CrowdSpawner : SeqAct_Latent/*
 	
 	public SeqAct_CrowdSpawner()
 	{
+		var Default__SeqAct_CrowdSpawner_DistributionActionDuration = new DistributionFloatUniform
+		{
+			// Object Offset:0x0046780B
+			Min = 0.80f,
+			Max = 1.20f,
+		}/* Reference: DistributionFloatUniform'Default__SeqAct_CrowdSpawner.DistributionActionDuration' */;
+		var Default__SeqAct_CrowdSpawner_DistributionActionInterval = new DistributionFloatUniform
+		{
+			// Object Offset:0x0046785B
+			Min = 10.0f,
+			Max = 20.0f,
+		}/* Reference: DistributionFloatUniform'Default__SeqAct_CrowdSpawner.DistributionActionInterval' */;
+		var Default__SeqAct_CrowdSpawner_DistributionTargetActionInterval = new DistributionFloatUniform
+		{
+			// Object Offset:0x004678AB
+			Min = 1.0f,
+			Max = 5.0f,
+		}/* Reference: DistributionFloatUniform'Default__SeqAct_CrowdSpawner.DistributionTargetActionInterval' */;
 		// Object Offset:0x003BF468
 		bFlockScaleUniform = true;
 		ConformTraceDist = 75.0f;

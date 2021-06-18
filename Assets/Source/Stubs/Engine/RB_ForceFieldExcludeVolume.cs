@@ -9,26 +9,19 @@ public partial class RB_ForceFieldExcludeVolume : Volume/*
 	
 	public RB_ForceFieldExcludeVolume()
 	{
+		var Default__RB_ForceFieldExcludeVolume_BrushComponent0 = new BrushComponent
+		{
+			// Object Offset:0x00466267
+			BlockNonZeroExtent = false,
+		}/* Reference: BrushComponent'Default__RB_ForceFieldExcludeVolume.BrushComponent0' */;
 		// Object Offset:0x003AD86A
 		ForceFieldChannel = 1;
-		BrushComponent = new BrushComponent
-		{
-			// Object Offset:0x00466267
-			BlockNonZeroExtent = false,
-		}/* Reference: BrushComponent'Default__RB_ForceFieldExcludeVolume.BrushComponent0' */;
+		BrushComponent = Default__RB_ForceFieldExcludeVolume_BrushComponent0;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new BrushComponent
-			{
-				// Object Offset:0x00466267
-				BlockNonZeroExtent = false,
-			}/* Reference: BrushComponent'Default__RB_ForceFieldExcludeVolume.BrushComponent0' */,
+			Default__RB_ForceFieldExcludeVolume_BrushComponent0,
 		};
-		CollisionComponent = new BrushComponent
-		{
-			// Object Offset:0x00466267
-			BlockNonZeroExtent = false,
-		}/* Reference: BrushComponent'Default__RB_ForceFieldExcludeVolume.BrushComponent0' */;
+		CollisionComponent = Default__RB_ForceFieldExcludeVolume_BrushComponent0;
 	}
 }
 }

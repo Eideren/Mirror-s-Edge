@@ -18,11 +18,7 @@ public partial class TdTeamPlayerStart : TdPlayerStart/*
 	
 	public TdTeamPlayerStart()
 	{
-		// Object Offset:0x006749E4
-		CopSpawn = true;
-		RobberSpawn = true;
-		TeamNumber = 2;
-		CopSprite = new SpriteComponent
+		var Default__TdTeamPlayerStart_CopSpawn = new SpriteComponent
 		{
 			// Object Offset:0x02E526A1
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.CopSpawnIcon")/*Ref Texture2D'TdEditorResources.CopSpawnIcon'*/,
@@ -31,7 +27,7 @@ public partial class TdTeamPlayerStart : TdPlayerStart/*
 			AlwaysLoadOnServer = false,
 			Scale = 0.330f,
 		}/* Reference: SpriteComponent'Default__TdTeamPlayerStart.CopSpawn' */;
-		RunnerSprite = new SpriteComponent
+		var Default__TdTeamPlayerStart_RunnerSpawn = new SpriteComponent
 		{
 			// Object Offset:0x02E52745
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.RunnerSpawnIcon")/*Ref Texture2D'TdEditorResources.RunnerSpawnIcon'*/,
@@ -40,6 +36,12 @@ public partial class TdTeamPlayerStart : TdPlayerStart/*
 			AlwaysLoadOnServer = false,
 			Scale = 0.330f,
 		}/* Reference: SpriteComponent'Default__TdTeamPlayerStart.RunnerSpawn' */;
+		// Object Offset:0x006749E4
+		CopSpawn = true;
+		RobberSpawn = true;
+		TeamNumber = 2;
+		CopSprite = Default__TdTeamPlayerStart_CopSpawn;
+		RunnerSprite = Default__TdTeamPlayerStart_RunnerSpawn;
 		SphereRenderComponent = LoadAsset<DrawSphereComponent>("Default__TdTeamPlayerStart.SpawnRadiusSphere")/*Ref DrawSphereComponent'Default__TdTeamPlayerStart.SpawnRadiusSphere'*/;
 		GenericSprite = LoadAsset<SpriteComponent>("Default__TdTeamPlayerStart.Sprite")/*Ref SpriteComponent'Default__TdTeamPlayerStart.Sprite'*/;
 		PlayerStartTextureResources = LoadAsset<RequestedTextureResources>("Default__TdTeamPlayerStart.PlayerStartTextureResourcesObject")/*Ref RequestedTextureResources'Default__TdTeamPlayerStart.PlayerStartTextureResourcesObject'*/;
@@ -54,24 +56,8 @@ public partial class TdTeamPlayerStart : TdPlayerStart/*
 			LoadAsset<CylinderComponent>("Default__TdTeamPlayerStart.CollisionCylinder")/*Ref CylinderComponent'Default__TdTeamPlayerStart.CollisionCylinder'*/,
 			LoadAsset<PathRenderingComponent>("Default__TdTeamPlayerStart.PathRenderer")/*Ref PathRenderingComponent'Default__TdTeamPlayerStart.PathRenderer'*/,
 			LoadAsset<DrawSphereComponent>("Default__TdTeamPlayerStart.SpawnRadiusSphere")/*Ref DrawSphereComponent'Default__TdTeamPlayerStart.SpawnRadiusSphere'*/,
-			new SpriteComponent
-			{
-				// Object Offset:0x02E526A1
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.CopSpawnIcon")/*Ref Texture2D'TdEditorResources.CopSpawnIcon'*/,
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-				Scale = 0.330f,
-			}/* Reference: SpriteComponent'Default__TdTeamPlayerStart.CopSpawn' */,
-			new SpriteComponent
-			{
-				// Object Offset:0x02E52745
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.RunnerSpawnIcon")/*Ref Texture2D'TdEditorResources.RunnerSpawnIcon'*/,
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-				Scale = 0.330f,
-			}/* Reference: SpriteComponent'Default__TdTeamPlayerStart.RunnerSpawn' */,
+			Default__TdTeamPlayerStart_CopSpawn,
+			Default__TdTeamPlayerStart_RunnerSpawn,
 		};
 		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdTeamPlayerStart.CollisionCylinder")/*Ref CylinderComponent'Default__TdTeamPlayerStart.CollisionCylinder'*/;
 	}

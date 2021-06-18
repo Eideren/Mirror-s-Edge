@@ -24,23 +24,20 @@ public partial class EmitterSpawnable : Emitter/*
 	
 	public EmitterSpawnable()
 	{
-		// Object Offset:0x00318006
-		ParticleSystemComponent = new ParticleSystemComponent
+		var Default__EmitterSpawnable_ParticleSystemComponent0 = new ParticleSystemComponent
 		{
 			// Object Offset:0x004CAC52
 			SecondsBeforeInactive = 0.0f,
 		}/* Reference: ParticleSystemComponent'Default__EmitterSpawnable.ParticleSystemComponent0' */;
+		// Object Offset:0x00318006
+		ParticleSystemComponent = Default__EmitterSpawnable_ParticleSystemComponent0;
 		bDestroyOnSystemFinish = true;
 		bNoDelete = false;
 		bNetTemporary = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__EmitterSpawnable.Sprite")/*Ref SpriteComponent'Default__EmitterSpawnable.Sprite'*/,
-			new ParticleSystemComponent
-			{
-				// Object Offset:0x004CAC52
-				SecondsBeforeInactive = 0.0f,
-			}/* Reference: ParticleSystemComponent'Default__EmitterSpawnable.ParticleSystemComponent0' */,
+			Default__EmitterSpawnable_ParticleSystemComponent0,
 			LoadAsset<ArrowComponent>("Default__EmitterSpawnable.ArrowComponent0")/*Ref ArrowComponent'Default__EmitterSpawnable.ArrowComponent0'*/,
 		};
 	}

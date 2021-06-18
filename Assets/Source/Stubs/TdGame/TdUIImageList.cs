@@ -13,8 +13,7 @@ public partial class TdUIImageList : TdUIListBase/*
 	
 	public TdUIImageList()
 	{
-		// Object Offset:0x00687BA9
-		CellDataComponent = new TdUIComp_ImageListPresenter
+		var Default__TdUIImageList_ImageListPresentationComponent = new TdUIComp_ImageListPresenter
 		{
 			// Object Offset:0x0068C11C
 			ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
@@ -25,6 +24,8 @@ public partial class TdUIImageList : TdUIListBase/*
 				[3] = LoadAsset<UITexture>("Default__TdUIImageList.ImageListPresentationComponent.HoverOverlayTemplate")/*Ref UITexture'Default__TdUIImageList.ImageListPresentationComponent.HoverOverlayTemplate'*/,
 	 		},
 		}/* Reference: TdUIComp_ImageListPresenter'Default__TdUIImageList.ImageListPresentationComponent' */;
+		// Object Offset:0x00687BA9
+		CellDataComponent = Default__TdUIImageList_ImageListPresentationComponent;
 		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIImageList.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIImageList.WidgetEventComponent'*/;
 	}
 }

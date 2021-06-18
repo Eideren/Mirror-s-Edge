@@ -131,6 +131,20 @@ public partial class UIEditBox : UIObject,
 	
 	public UIEditBox()
 	{
+		var Default__UIEditBox_EditboxStringRenderer = new UIComp_DrawStringEditbox
+		{
+			// Object Offset:0x00444B23
+			StringCaret = new UIRoot.UIStringCaretParameters
+			{
+				bDisplayCaret = true,
+			},
+			bIgnoreMarkup = true,
+		}/* Reference: UIComp_DrawStringEditbox'Default__UIEditBox.EditboxStringRenderer' */;
+		var Default__UIEditBox_EditboxBackgroundTemplate = new UIComp_DrawImage
+		{
+			// Object Offset:0x00444B9B
+			StyleResolverTag = (name)"Background Image Style",
+		}/* Reference: UIComp_DrawImage'Default__UIEditBox.EditboxBackgroundTemplate' */;
 		// Object Offset:0x002E2970
 		DataSource = new UIRoot.UIDataStoreBinding
 		{
@@ -142,20 +156,8 @@ public partial class UIEditBox : UIObject,
 			DataStoreField = (name)"None",
 			ResolvedDataStore = default,
 		};
-		StringRenderComponent = new UIComp_DrawStringEditbox
-		{
-			// Object Offset:0x00444B23
-			StringCaret = new UIRoot.UIStringCaretParameters
-			{
-				bDisplayCaret = true,
-			},
-			bIgnoreMarkup = true,
-		}/* Reference: UIComp_DrawStringEditbox'Default__UIEditBox.EditboxStringRenderer' */;
-		BackgroundImageComponent = new UIComp_DrawImage
-		{
-			// Object Offset:0x00444B9B
-			StyleResolverTag = (name)"Background Image Style",
-		}/* Reference: UIComp_DrawImage'Default__UIEditBox.EditboxBackgroundTemplate' */;
+		StringRenderComponent = Default__UIEditBox_EditboxStringRenderer;
+		BackgroundImageComponent = Default__UIEditBox_EditboxBackgroundTemplate;
 		InitialValue = "Initial Editbox Value";
 		PrimaryStyle = new UIRoot.UIStyleReference
 		{

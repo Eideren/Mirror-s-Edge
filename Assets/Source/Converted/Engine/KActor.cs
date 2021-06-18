@@ -323,12 +323,7 @@ public partial class KActor : DynamicSMActor/*
 	}
 	public KActor()
 	{
-		// Object Offset:0x0034AE1B
-		bDamageAppliesImpulse = true;
-		LOILookAtDelay = -1.0f;
-		LOIMinDuration = 1.50f;
-		LOIDistance = 1500.0f;
-		StaticMeshComponent = new StaticMeshComponent
+		var Default__KActor_StaticMeshComponent0 = new StaticMeshComponent
 		{
 			// Object Offset:0x0034B244
 			WireframeColor = new Color
@@ -348,6 +343,12 @@ public partial class KActor : DynamicSMActor/*
 				EffectPhysics = true,
 			},
 		}/* Reference: StaticMeshComponent'Default__KActor.StaticMeshComponent0' */;
+		// Object Offset:0x0034AE1B
+		bDamageAppliesImpulse = true;
+		LOILookAtDelay = -1.0f;
+		LOIMinDuration = 1.50f;
+		LOIDistance = 1500.0f;
+		StaticMeshComponent = Default__KActor_StaticMeshComponent0;
 		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActor.MyLightEnvironment'*/;
 		bPawnCanBaseOn = false;
 		bSafeBaseIfAsleep = true;
@@ -364,49 +365,11 @@ public partial class KActor : DynamicSMActor/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__KActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActor.MyLightEnvironment'*/,
-			new StaticMeshComponent
-			{
-				// Object Offset:0x0034B244
-				WireframeColor = new Color
-				{
-					R=0,
-					G=255,
-					B=128,
-					A=255
-				},
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActor.MyLightEnvironment'*/,
-				BlockRigidBody = true,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-			}/* Reference: StaticMeshComponent'Default__KActor.StaticMeshComponent0' */,
+			Default__KActor_StaticMeshComponent0,
 		};
 		Physics = Actor.EPhysics.PHYS_RigidBody;
 		TickGroup = Object.ETickingGroup.TG_PostAsyncWork;
-		CollisionComponent = new StaticMeshComponent
-		{
-			// Object Offset:0x0034B244
-			WireframeColor = new Color
-			{
-				R=0,
-				G=255,
-				B=128,
-				A=255
-			},
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActor.MyLightEnvironment'*/,
-			BlockRigidBody = true,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: StaticMeshComponent'Default__KActor.StaticMeshComponent0' */;
+		CollisionComponent = Default__KActor_StaticMeshComponent0;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

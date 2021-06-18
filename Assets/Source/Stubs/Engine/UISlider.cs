@@ -101,8 +101,7 @@ public partial class UISlider : UIObject,
 	
 	public UISlider()
 	{
-		// Object Offset:0x00450883
-		BackgroundImageComponent = new UIComp_DrawImage
+		var Default__UISlider_SliderBackgroundImageTemplate = new UIComp_DrawImage
 		{
 			// Object Offset:0x005D1CA2
 			StyleResolverTag = (name)"Slider Background Style",
@@ -111,7 +110,7 @@ public partial class UISlider : UIObject,
 				DefaultStyleTag = (name)"DefaultSliderStyle",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UISlider.SliderBackgroundImageTemplate' */;
-		SliderBarImageComponent = new UIComp_DrawImage
+		var Default__UISlider_SliderBarImageTemplate = new UIComp_DrawImage
 		{
 			// Object Offset:0x005D1D22
 			StyleResolverTag = (name)"Slider Bar Style",
@@ -120,7 +119,7 @@ public partial class UISlider : UIObject,
 				DefaultStyleTag = (name)"DefaultSliderBarStyle",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UISlider.SliderBarImageTemplate' */;
-		MarkerImageComponent = new UIComp_DrawImage
+		var Default__UISlider_SliderMarkerImageTemplate = new UIComp_DrawImage
 		{
 			// Object Offset:0x005D1DA2
 			StyleResolverTag = (name)"Slider Marker Style",
@@ -129,6 +128,10 @@ public partial class UISlider : UIObject,
 				DefaultStyleTag = (name)"DefaultSliderMarkerStyle",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UISlider.SliderMarkerImageTemplate' */;
+		// Object Offset:0x00450883
+		BackgroundImageComponent = Default__UISlider_SliderBackgroundImageTemplate;
+		SliderBarImageComponent = Default__UISlider_SliderBarImageTemplate;
+		MarkerImageComponent = Default__UISlider_SliderMarkerImageTemplate;
 		DataSource = new UIRoot.UIDataStoreBinding
 		{
 			Subscriber = default,

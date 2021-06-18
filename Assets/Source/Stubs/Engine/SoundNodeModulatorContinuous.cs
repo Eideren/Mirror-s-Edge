@@ -11,6 +11,18 @@ public partial class SoundNodeModulatorContinuous : SoundNode/*
 	
 	public SoundNodeModulatorContinuous()
 	{
+		var Default__SoundNodeModulatorContinuous_DistributionVolume = new DistributionFloatUniform
+		{
+			// Object Offset:0x00467B93
+			Min = 1.0f,
+			Max = 1.0f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeModulatorContinuous.DistributionVolume' */;
+		var Default__SoundNodeModulatorContinuous_DistributionPitch = new DistributionFloatUniform
+		{
+			// Object Offset:0x00467B43
+			Min = 1.0f,
+			Max = 1.0f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeModulatorContinuous.DistributionPitch' */;
 		// Object Offset:0x003E9CD8
 		VolumeModulation = new DistributionFloat.RawDistributionFloat
 		{

@@ -7,25 +7,23 @@ public partial class TdMarker : Note/*
 		hidecategories(Navigation)*/{
 	public TdMarker()
 	{
+		var Default__TdMarker_Arrow = new ArrowComponent
+		{
+			// Object Offset:0x0053732A
+			ArrowSize = 2.0f,
+		}/* Reference: ArrowComponent'Default__TdMarker.Arrow' */;
+		var Default__TdMarker_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x0053735E
+			Sprite = LoadAsset<Texture2D>("EngineResources.Corpse")/*Ref Texture2D'EngineResources.Corpse'*/,
+		}/* Reference: SpriteComponent'Default__TdMarker.Sprite' */;
 		// Object Offset:0x00537257
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new ArrowComponent
-			{
-				// Object Offset:0x0053732A
-				ArrowSize = 2.0f,
-			}/* Reference: ArrowComponent'Default__TdMarker.Arrow' */,
-			new SpriteComponent
-			{
-				// Object Offset:0x0053735E
-				Sprite = LoadAsset<Texture2D>("EngineResources.Corpse")/*Ref Texture2D'EngineResources.Corpse'*/,
-			}/* Reference: SpriteComponent'Default__TdMarker.Sprite' */,
-			new ArrowComponent
-			{
-				// Object Offset:0x0053732A
-				ArrowSize = 2.0f,
-			}/* Reference: ArrowComponent'Default__TdMarker.Arrow' */,
+			Default__TdMarker_Arrow,
+			Default__TdMarker_Sprite,
+			Default__TdMarker_Arrow,
 		};
 	}
 }

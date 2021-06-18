@@ -21,23 +21,20 @@ public partial class TdCrowdPathNode : PathNode/*
 	
 	public TdCrowdPathNode()
 	{
-		// Object Offset:0x0053E8B0
-		bNoAutoConnect = true;
-		bCanBePlayerNavigationPoint = false;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdCrowdPathNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdCrowdPathNode.CollisionCylinder'*/;
-		GoodSprite = new SpriteComponent
+		var Default__TdCrowdPathNode_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x02E51EF9
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.CrowdPathIcon")/*Ref Texture2D'TdEditorResources.CrowdPathIcon'*/,
 		}/* Reference: SpriteComponent'Default__TdCrowdPathNode.Sprite' */;
+		// Object Offset:0x0053E8B0
+		bNoAutoConnect = true;
+		bCanBePlayerNavigationPoint = false;
+		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdCrowdPathNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdCrowdPathNode.CollisionCylinder'*/;
+		GoodSprite = Default__TdCrowdPathNode_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdCrowdPathNode.Sprite2")/*Ref SpriteComponent'Default__TdCrowdPathNode.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x02E51EF9
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.CrowdPathIcon")/*Ref Texture2D'TdEditorResources.CrowdPathIcon'*/,
-			}/* Reference: SpriteComponent'Default__TdCrowdPathNode.Sprite' */,
+			Default__TdCrowdPathNode_Sprite,
 			LoadAsset<SpriteComponent>("Default__TdCrowdPathNode.Sprite2")/*Ref SpriteComponent'Default__TdCrowdPathNode.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__TdCrowdPathNode.Arrow")/*Ref ArrowComponent'Default__TdCrowdPathNode.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__TdCrowdPathNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdCrowdPathNode.CollisionCylinder'*/,

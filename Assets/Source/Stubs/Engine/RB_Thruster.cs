@@ -15,32 +15,34 @@ public partial class RB_Thruster : Actor/*
 	
 	public RB_Thruster()
 	{
+		var Default__RB_Thruster_ArrowComponent0 = new ArrowComponent
+		{
+			// Object Offset:0x00465D77
+			ArrowColor = new Color
+			{
+				R=255,
+				G=180,
+				B=0,
+				A=255
+			},
+			ArrowSize = 1.70f,
+		}/* Reference: ArrowComponent'Default__RB_Thruster.ArrowComponent0' */;
+		var Default__RB_Thruster_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004D04EA
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_Thruster")/*Ref Texture2D'EngineResources.S_Thruster'*/,
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__RB_Thruster.Sprite' */;
 		// Object Offset:0x003B01CC
 		ThrustStrength = 100.0f;
 		bHardAttach = true;
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new ArrowComponent
-			{
-				// Object Offset:0x00465D77
-				ArrowColor = new Color
-				{
-					R=255,
-					G=180,
-					B=0,
-					A=255
-				},
-				ArrowSize = 1.70f,
-			}/* Reference: ArrowComponent'Default__RB_Thruster.ArrowComponent0' */,
-			new SpriteComponent
-			{
-				// Object Offset:0x004D04EA
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_Thruster")/*Ref Texture2D'EngineResources.S_Thruster'*/,
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__RB_Thruster.Sprite' */,
+			Default__RB_Thruster_ArrowComponent0,
+			Default__RB_Thruster_Sprite,
 		};
 	}
 }

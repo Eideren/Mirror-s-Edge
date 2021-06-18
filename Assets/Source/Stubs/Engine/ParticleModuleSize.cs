@@ -9,6 +9,22 @@ public partial class ParticleModuleSize : ParticleModuleSizeBase/*
 	
 	public ParticleModuleSize()
 	{
+		var Default__ParticleModuleSize_DistributionStartSize = new DistributionVectorUniform
+		{
+			// Object Offset:0x0046854F
+			Max = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+			Min = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleSize.DistributionStartSize' */;
 		// Object Offset:0x00381A4D
 		StartSize = new DistributionVector.RawDistributionVector
 		{

@@ -50,16 +50,17 @@ public partial class PortalTeleporter : SceneCapturePortalActor/*
 	
 	public PortalTeleporter()
 	{
-		// Object Offset:0x003A40CF
-		TextureResolutionX = 256;
-		TextureResolutionY = 256;
-		bAlwaysTeleportNonPawns = true;
-		StaticMesh = new StaticMeshComponent
+		var Default__PortalTeleporter_StaticMeshComponent2 = new StaticMeshComponent
 		{
 			// Object Offset:0x0057990E
 			HiddenGame = false,
 			CollideActors = true,
 		}/* Reference: StaticMeshComponent'Default__PortalTeleporter.StaticMeshComponent2' */;
+		// Object Offset:0x003A40CF
+		TextureResolutionX = 256;
+		TextureResolutionY = 256;
+		bAlwaysTeleportNonPawns = true;
+		StaticMesh = Default__PortalTeleporter_StaticMeshComponent2;
 		SceneCapture = LoadAsset<SceneCapturePortalComponent>("Default__PortalTeleporter.SceneCapturePortalComponent0")/*Ref SceneCapturePortalComponent'Default__PortalTeleporter.SceneCapturePortalComponent0'*/;
 		bWorldGeometry = true;
 		bMovable = false;
@@ -69,19 +70,9 @@ public partial class PortalTeleporter : SceneCapturePortalActor/*
 		{
 			LoadAsset<SceneCapturePortalComponent>("Default__PortalTeleporter.SceneCapturePortalComponent0")/*Ref SceneCapturePortalComponent'Default__PortalTeleporter.SceneCapturePortalComponent0'*/,
 			LoadAsset<StaticMeshComponent>("Default__PortalTeleporter.StaticMeshComponent1")/*Ref StaticMeshComponent'Default__PortalTeleporter.StaticMeshComponent1'*/,
-			new StaticMeshComponent
-			{
-				// Object Offset:0x0057990E
-				HiddenGame = false,
-				CollideActors = true,
-			}/* Reference: StaticMeshComponent'Default__PortalTeleporter.StaticMeshComponent2' */,
+			Default__PortalTeleporter_StaticMeshComponent2,
 		};
-		CollisionComponent = new StaticMeshComponent
-		{
-			// Object Offset:0x0057990E
-			HiddenGame = false,
-			CollideActors = true,
-		}/* Reference: StaticMeshComponent'Default__PortalTeleporter.StaticMeshComponent2' */;
+		CollisionComponent = Default__PortalTeleporter_StaticMeshComponent2;
 	}
 }
 }

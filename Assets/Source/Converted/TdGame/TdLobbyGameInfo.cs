@@ -98,7 +98,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 		J0x07:{}
 		if(I < TeamData.Length)
 		{
-			Teams[I] = Spawn(ClassT<TdTeamInfo>(), this, default, default, default, default, default);
+			Teams[I] = Spawn(ClassT<TdTeamInfo>(), this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
 			Teams[I].TeamIndex = I;
 			Teams[I].MaxTeamMembers = TeamData[I].MaxPlayers;
 			GameReplicationInfo.SetTeam(I, Teams[I]);
@@ -223,7 +223,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 		{
 			if(bNewTeam && ((Other) as PlayerController) != default)
 			{
-				Broadcast(Other, (((Other.Name)).ToString() + " " + "Changed Team to ") + " " + NewTeam.GetHumanReadableName(), default);
+				Broadcast(Other, (((Other.Name)).ToString() + " " + "Changed Team to ") + " " + NewTeam.GetHumanReadableName(), default(name?));
 			}		
 		}
 	}
@@ -277,7 +277,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 		{
 			TdGRI.LobbyBackend.OnSetReady(C);
 		}
-		Broadcast(C, ((C.Name)).ToString() + " " + "is ready", default);
+		Broadcast(C, ((C.Name)).ToString() + " " + "is ready", default(name?));
 	}
 	
 	public override PostLogin_del PostLogin { get => bfield_PostLogin ?? TdLobbyGameInfo_PostLogin; set => bfield_PostLogin = value; } PostLogin_del bfield_PostLogin;
@@ -335,7 +335,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 			TdGRI.LobbyBackend.OnGameStarted();
 			TdGRI.LobbyBackend.Cleanup();
 		}
-		WorldInfo.ServerTravel(URL, default);
+		WorldInfo.ServerTravel(URL, default(bool?));
 	}
 	
 	public override /*function */void ProcessServerTravel(String URL, /*optional */bool? _bAbsolute = default)
@@ -366,7 +366,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 			if((AsNetConnection(P.Player)) != default)
 			{
 				URL = (((URL + "?Team=") + ((Team)).ToString()) + "?Character=") + PlayerRole;
-				P.ClientTravel(URL, Actor.ETravelType.TRAVEL_Relative/*2*/, bSeamless, default);
+				P.ClientTravel(URL, Actor.ETravelType.TRAVEL_Relative/*2*/, bSeamless, default(Object.Guid?));
 				continue;
 			}
 			P.PreClientTravel();
@@ -377,7 +377,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 		}	
 		if(bSeamless)
 		{
-			WorldInfo.SeamlessTravel(WorldInfo.NextURL, default, default);
+			WorldInfo.SeamlessTravel(WorldInfo.NextURL, default(bool?), default(Object.Guid?));
 			WorldInfo.NextURL = "";		
 		}
 		else
@@ -404,7 +404,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 	protected /*function */void TdLobbyGameInfo_PendingMatch_StartMatch()// state function
 	{
 		/*Transformed 'base.' to specific call*/GameInfo_PendingMatch_StartMatch();
-		GotoState("MatchInProgress", default, default, default);
+		GotoState("MatchInProgress", default(name?), default(bool?), default(bool?));
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) PendingMatch()/*auto state PendingMatch*/

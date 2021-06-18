@@ -6,21 +6,18 @@ public partial class TdGoldenPathNode : PathNode/*
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
 	public TdGoldenPathNode()
 	{
-		// Object Offset:0x0054FBAA
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdGoldenPathNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdGoldenPathNode.CollisionCylinder'*/;
-		GoodSprite = new SpriteComponent
+		var Default__TdGoldenPathNode_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x02E51FF5
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.GoldenApple")/*Ref Texture2D'TdEditorResources.GoldenApple'*/,
 		}/* Reference: SpriteComponent'Default__TdGoldenPathNode.Sprite' */;
+		// Object Offset:0x0054FBAA
+		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdGoldenPathNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdGoldenPathNode.CollisionCylinder'*/;
+		GoodSprite = Default__TdGoldenPathNode_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdGoldenPathNode.Sprite2")/*Ref SpriteComponent'Default__TdGoldenPathNode.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x02E51FF5
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.GoldenApple")/*Ref Texture2D'TdEditorResources.GoldenApple'*/,
-			}/* Reference: SpriteComponent'Default__TdGoldenPathNode.Sprite' */,
+			Default__TdGoldenPathNode_Sprite,
 			LoadAsset<SpriteComponent>("Default__TdGoldenPathNode.Sprite2")/*Ref SpriteComponent'Default__TdGoldenPathNode.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__TdGoldenPathNode.Arrow")/*Ref ArrowComponent'Default__TdGoldenPathNode.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__TdGoldenPathNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdGoldenPathNode.CollisionCylinder'*/,

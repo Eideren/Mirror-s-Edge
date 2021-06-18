@@ -24,6 +24,11 @@ public partial class ParticleModuleTrailSource : ParticleModuleTrailBase/*
 	
 	public ParticleModuleTrailSource()
 	{
+		var Default__ParticleModuleTrailSource_DistributionSourceStrength = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466EA7
+			Constant = 100.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleTrailSource.DistributionSourceStrength' */;
 		// Object Offset:0x0038368D
 		SelectionMethod = ParticleModule.EParticleSourceSelectionMethod.EPSSM_Sequential;
 		SourceStrength = new DistributionFloat.RawDistributionFloat

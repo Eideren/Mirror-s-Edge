@@ -9,8 +9,7 @@ public partial class TdUILobbyPlayerWidget : TdUIPlayerSlotBase/*
 	
 	public TdUILobbyPlayerWidget()
 	{
-		// Object Offset:0x0068C639
-		PlayerNameLabel = new TdUIFocusLabel
+		var Default__TdUILobbyPlayerWidget_iPlayerNameLabel = new TdUIFocusLabel
 		{
 			// Object Offset:0x0314A04D
 			StringRenderComponent = LoadAsset<UIComp_DrawString>("Default__TdUILobbyPlayerWidget.iPlayerNameLabel.LabelStringRenderer")/*Ref UIComp_DrawString'Default__TdUILobbyPlayerWidget.iPlayerNameLabel.LabelStringRenderer'*/,
@@ -33,7 +32,7 @@ public partial class TdUILobbyPlayerWidget : TdUIPlayerSlotBase/*
 			},
 			EventProvider = LoadAsset<UIComp_Event>("Default__TdUILobbyPlayerWidget.iPlayerNameLabel.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUILobbyPlayerWidget.iPlayerNameLabel.WidgetEventComponent'*/,
 		}/* Reference: TdUIFocusLabel'Default__TdUILobbyPlayerWidget.iPlayerNameLabel' */;
-		PlayerIsReadyImage = new UIImage
+		var Default__TdUILobbyPlayerWidget_iPlayerIsReadyImage = new UIImage
 		{
 			// Object Offset:0x037AD7AE
 			ImageComponent = LoadAsset<UIComp_DrawImage>("Default__TdUILobbyPlayerWidget.iPlayerIsReadyImage.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__TdUILobbyPlayerWidget.iPlayerIsReadyImage.ImageComponentTemplate'*/,
@@ -55,7 +54,7 @@ public partial class TdUILobbyPlayerWidget : TdUIPlayerSlotBase/*
 			},
 			EventProvider = LoadAsset<UIComp_Event>("Default__TdUILobbyPlayerWidget.iPlayerIsReadyImage.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUILobbyPlayerWidget.iPlayerIsReadyImage.WidgetEventComponent'*/,
 		}/* Reference: UIImage'Default__TdUILobbyPlayerWidget.iPlayerIsReadyImage' */;
-		PlayerRoleImage = new UIImage
+		var Default__TdUILobbyPlayerWidget_iPlayerRoleImage = new UIImage
 		{
 			// Object Offset:0x037AD8B2
 			ImageComponent = LoadAsset<UIComp_DrawImage>("Default__TdUILobbyPlayerWidget.iPlayerRoleImage.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__TdUILobbyPlayerWidget.iPlayerRoleImage.ImageComponentTemplate'*/,
@@ -78,6 +77,10 @@ public partial class TdUILobbyPlayerWidget : TdUIPlayerSlotBase/*
 			},
 			EventProvider = LoadAsset<UIComp_Event>("Default__TdUILobbyPlayerWidget.iPlayerRoleImage.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUILobbyPlayerWidget.iPlayerRoleImage.WidgetEventComponent'*/,
 		}/* Reference: UIImage'Default__TdUILobbyPlayerWidget.iPlayerRoleImage' */;
+		// Object Offset:0x0068C639
+		PlayerNameLabel = Default__TdUILobbyPlayerWidget_iPlayerNameLabel;
+		PlayerIsReadyImage = Default__TdUILobbyPlayerWidget_iPlayerIsReadyImage;
+		PlayerRoleImage = Default__TdUILobbyPlayerWidget_iPlayerRoleImage;
 		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__TdUILobbyPlayerWidget.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__TdUILobbyPlayerWidget.BackgroundImageTemplate'*/;
 		EventProvider = LoadAsset<UIComp_Event>("Default__TdUILobbyPlayerWidget.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUILobbyPlayerWidget.WidgetEventComponent'*/;
 	}

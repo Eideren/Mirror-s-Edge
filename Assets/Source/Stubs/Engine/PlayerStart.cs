@@ -16,45 +16,33 @@ public partial class PlayerStart : NavigationPoint/*
 	
 	public PlayerStart()
 	{
-		// Object Offset:0x003A24DC
-		PlayerStartTextureResources = LoadAsset<RequestedTextureResources>("Default__PlayerStart.PlayerStartTextureResourcesObject")/*Ref RequestedTextureResources'Default__PlayerStart.PlayerStartTextureResourcesObject'*/;
-		bEnabled = true;
-		bPrimaryStart = true;
-		CylinderComponent = new CylinderComponent
+		var Default__PlayerStart_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x0046671F
 			CollisionHeight = 80.0f,
 			CollisionRadius = 40.0f,
 		}/* Reference: CylinderComponent'Default__PlayerStart.CollisionCylinder' */;
-		GoodSprite = new SpriteComponent
+		var Default__PlayerStart_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x004CFFBE
 			Sprite = LoadAsset<Texture2D>("EngineResources.S_Player")/*Ref Texture2D'EngineResources.S_Player'*/,
 		}/* Reference: SpriteComponent'Default__PlayerStart.Sprite' */;
+		// Object Offset:0x003A24DC
+		PlayerStartTextureResources = LoadAsset<RequestedTextureResources>("Default__PlayerStart.PlayerStartTextureResourcesObject")/*Ref RequestedTextureResources'Default__PlayerStart.PlayerStartTextureResourcesObject'*/;
+		bEnabled = true;
+		bPrimaryStart = true;
+		CylinderComponent = Default__PlayerStart_CollisionCylinder;
+		GoodSprite = Default__PlayerStart_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__PlayerStart.Sprite2")/*Ref SpriteComponent'Default__PlayerStart.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004CFFBE
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_Player")/*Ref Texture2D'EngineResources.S_Player'*/,
-			}/* Reference: SpriteComponent'Default__PlayerStart.Sprite' */,
+			Default__PlayerStart_Sprite,
 			LoadAsset<SpriteComponent>("Default__PlayerStart.Sprite2")/*Ref SpriteComponent'Default__PlayerStart.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__PlayerStart.Arrow")/*Ref ArrowComponent'Default__PlayerStart.Arrow'*/,
-			new CylinderComponent
-			{
-				// Object Offset:0x0046671F
-				CollisionHeight = 80.0f,
-				CollisionRadius = 40.0f,
-			}/* Reference: CylinderComponent'Default__PlayerStart.CollisionCylinder' */,
+			Default__PlayerStart_CollisionCylinder,
 			LoadAsset<PathRenderingComponent>("Default__PlayerStart.PathRenderer")/*Ref PathRenderingComponent'Default__PlayerStart.PathRenderer'*/,
 		};
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x0046671F
-			CollisionHeight = 80.0f,
-			CollisionRadius = 40.0f,
-		}/* Reference: CylinderComponent'Default__PlayerStart.CollisionCylinder' */;
+		CollisionComponent = Default__PlayerStart_CollisionCylinder;
 	}
 }
 }

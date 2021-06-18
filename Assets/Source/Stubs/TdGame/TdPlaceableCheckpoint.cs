@@ -97,11 +97,7 @@ public partial class TdPlaceableCheckpoint : NavigationPoint,
 	}
 	public TdPlaceableCheckpoint()
 	{
-		// Object Offset:0x0060E364
-		bEnabled = true;
-		bActive = true;
-		bShouldBeBased = true;
-		CheckpointMesh = new StaticMeshComponent
+		var Default__TdPlaceableCheckpoint_MyMesh = new StaticMeshComponent
 		{
 			// Object Offset:0x00674D37
 			HiddenGame = true,
@@ -110,13 +106,19 @@ public partial class TdPlaceableCheckpoint : NavigationPoint,
 			CollideActors = false,
 			BlockRigidBody = false,
 		}/* Reference: StaticMeshComponent'Default__TdPlaceableCheckpoint.MyMesh' */;
-		CylinderComponent = new CylinderComponent
+		var Default__TdPlaceableCheckpoint_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x00674CB3
 			CollisionHeight = 100.0f,
 			CollisionRadius = 100.0f,
 			CollideActors = true,
 		}/* Reference: CylinderComponent'Default__TdPlaceableCheckpoint.CollisionCylinder' */;
+		// Object Offset:0x0060E364
+		bEnabled = true;
+		bActive = true;
+		bShouldBeBased = true;
+		CheckpointMesh = Default__TdPlaceableCheckpoint_MyMesh;
+		CylinderComponent = Default__TdPlaceableCheckpoint_CollisionCylinder;
 		GoodSprite = LoadAsset<SpriteComponent>("Default__TdPlaceableCheckpoint.Sprite")/*Ref SpriteComponent'Default__TdPlaceableCheckpoint.Sprite'*/;
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdPlaceableCheckpoint.Sprite2")/*Ref SpriteComponent'Default__TdPlaceableCheckpoint.Sprite2'*/;
 		bCollideActors = true;
@@ -125,31 +127,11 @@ public partial class TdPlaceableCheckpoint : NavigationPoint,
 			LoadAsset<SpriteComponent>("Default__TdPlaceableCheckpoint.Sprite")/*Ref SpriteComponent'Default__TdPlaceableCheckpoint.Sprite'*/,
 			LoadAsset<SpriteComponent>("Default__TdPlaceableCheckpoint.Sprite2")/*Ref SpriteComponent'Default__TdPlaceableCheckpoint.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__TdPlaceableCheckpoint.Arrow")/*Ref ArrowComponent'Default__TdPlaceableCheckpoint.Arrow'*/,
-			new CylinderComponent
-			{
-				// Object Offset:0x00674CB3
-				CollisionHeight = 100.0f,
-				CollisionRadius = 100.0f,
-				CollideActors = true,
-			}/* Reference: CylinderComponent'Default__TdPlaceableCheckpoint.CollisionCylinder' */,
+			Default__TdPlaceableCheckpoint_CollisionCylinder,
 			LoadAsset<PathRenderingComponent>("Default__TdPlaceableCheckpoint.PathRenderer")/*Ref PathRenderingComponent'Default__TdPlaceableCheckpoint.PathRenderer'*/,
-			new StaticMeshComponent
-			{
-				// Object Offset:0x00674D37
-				HiddenGame = true,
-				CastShadow = false,
-				bAcceptsLights = false,
-				CollideActors = false,
-				BlockRigidBody = false,
-			}/* Reference: StaticMeshComponent'Default__TdPlaceableCheckpoint.MyMesh' */,
+			Default__TdPlaceableCheckpoint_MyMesh,
 		};
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x00674CB3
-			CollisionHeight = 100.0f,
-			CollisionRadius = 100.0f,
-			CollideActors = true,
-		}/* Reference: CylinderComponent'Default__TdPlaceableCheckpoint.CollisionCylinder' */;
+		CollisionComponent = Default__TdPlaceableCheckpoint_CollisionCylinder;
 	}
 }
 }

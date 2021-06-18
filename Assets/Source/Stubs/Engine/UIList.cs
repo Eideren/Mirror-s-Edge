@@ -425,6 +425,17 @@ public partial class UIList : UIObject,
 	
 	public UIList()
 	{
+		var Default__UIList_ListPresentationComponent = new UIComp_ListPresenter
+		{
+			// Object Offset:0x004228AB
+			ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
+			{ 
+				[0] = LoadAsset<UITexture>("Default__UIList.ListPresentationComponent.NormalOverlayTemplate")/*Ref UITexture'Default__UIList.ListPresentationComponent.NormalOverlayTemplate'*/,
+				[1] = LoadAsset<UITexture>("Default__UIList.ListPresentationComponent.ActiveOverlayTemplate")/*Ref UITexture'Default__UIList.ListPresentationComponent.ActiveOverlayTemplate'*/,
+				[2] = LoadAsset<UITexture>("Default__UIList.ListPresentationComponent.SelectionOverlayTemplate")/*Ref UITexture'Default__UIList.ListPresentationComponent.SelectionOverlayTemplate'*/,
+				[3] = LoadAsset<UITexture>("Default__UIList.ListPresentationComponent.HoverOverlayTemplate")/*Ref UITexture'Default__UIList.ListPresentationComponent.HoverOverlayTemplate'*/,
+	 		},
+		}/* Reference: UIComp_ListPresenter'Default__UIList.ListPresentationComponent' */;
 		// Object Offset:0x00421280
 		RowHeight = new UIRoot.UIScreenValue_Extent
 		{
@@ -630,17 +641,7 @@ public partial class UIList : UIObject,
 			DataStoreField = (name)"None",
 			ResolvedDataStore = default,
 		};
-		CellDataComponent = new UIComp_ListPresenter
-		{
-			// Object Offset:0x004228AB
-			ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
-			{ 
-				[0] = LoadAsset<UITexture>("Default__UIList.ListPresentationComponent.NormalOverlayTemplate")/*Ref UITexture'Default__UIList.ListPresentationComponent.NormalOverlayTemplate'*/,
-				[1] = LoadAsset<UITexture>("Default__UIList.ListPresentationComponent.ActiveOverlayTemplate")/*Ref UITexture'Default__UIList.ListPresentationComponent.ActiveOverlayTemplate'*/,
-				[2] = LoadAsset<UITexture>("Default__UIList.ListPresentationComponent.SelectionOverlayTemplate")/*Ref UITexture'Default__UIList.ListPresentationComponent.SelectionOverlayTemplate'*/,
-				[3] = LoadAsset<UITexture>("Default__UIList.ListPresentationComponent.HoverOverlayTemplate")/*Ref UITexture'Default__UIList.ListPresentationComponent.HoverOverlayTemplate'*/,
-	 		},
-		}/* Reference: UIComp_ListPresenter'Default__UIList.ListPresentationComponent' */;
+		CellDataComponent = Default__UIList_ListPresentationComponent;
 		SubmitDataSuccessCue = (name)"ListSubmit";
 		SubmitDataFailedCue = (name)"GenericError";
 		DecrementIndexCue = (name)"ListUp";

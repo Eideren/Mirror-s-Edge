@@ -37,6 +37,12 @@ public partial class TdReverbVolume : ReverbVolume/*
 	
 	public TdReverbVolume()
 	{
+		var Default__TdReverbVolume_StereoAmbientComponent = new AudioComponent
+		{
+			// Object Offset:0x01AB4502
+			bShouldRemainActiveIfDropped = true,
+			bAllowSpatialization = false,
+		}/* Reference: AudioComponent'Default__TdReverbVolume.StereoAmbientComponent' */;
 		// Object Offset:0x00654B9A
 		StereoAmbient = new TdReverbVolume.StereoAmbientStruct
 		{
@@ -45,22 +51,12 @@ public partial class TdReverbVolume : ReverbVolume/*
 			FadeInTime = 0.50f,
 			FadeOutTime = 2.0f,
 		};
-		AmbientSoundComponent = new AudioComponent
-		{
-			// Object Offset:0x01AB4502
-			bShouldRemainActiveIfDropped = true,
-			bAllowSpatialization = false,
-		}/* Reference: AudioComponent'Default__TdReverbVolume.StereoAmbientComponent' */;
+		AmbientSoundComponent = Default__TdReverbVolume_StereoAmbientComponent;
 		BrushComponent = LoadAsset<BrushComponent>("Default__TdReverbVolume.BrushComponent0")/*Ref BrushComponent'Default__TdReverbVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<BrushComponent>("Default__TdReverbVolume.BrushComponent0")/*Ref BrushComponent'Default__TdReverbVolume.BrushComponent0'*/,
-			new AudioComponent
-			{
-				// Object Offset:0x01AB4502
-				bShouldRemainActiveIfDropped = true,
-				bAllowSpatialization = false,
-			}/* Reference: AudioComponent'Default__TdReverbVolume.StereoAmbientComponent' */,
+			Default__TdReverbVolume_StereoAmbientComponent,
 		};
 		CollisionComponent = LoadAsset<BrushComponent>("Default__TdReverbVolume.BrushComponent0")/*Ref BrushComponent'Default__TdReverbVolume.BrushComponent0'*/;
 	}

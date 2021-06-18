@@ -9,18 +9,19 @@ public partial class MaterialInstanceActor : Actor/*
 	
 	public MaterialInstanceActor()
 	{
+		var Default__MaterialInstanceActor_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004CFD5E
+			Sprite = LoadAsset<Texture2D>("EngineResources.MatInstActSprite")/*Ref Texture2D'EngineResources.MatInstActSprite'*/,
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__MaterialInstanceActor.Sprite' */;
 		// Object Offset:0x0035A56A
 		bNoDelete = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004CFD5E
-				Sprite = LoadAsset<Texture2D>("EngineResources.MatInstActSprite")/*Ref Texture2D'EngineResources.MatInstActSprite'*/,
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__MaterialInstanceActor.Sprite' */,
+			Default__MaterialInstanceActor_Sprite,
 		};
 	}
 }

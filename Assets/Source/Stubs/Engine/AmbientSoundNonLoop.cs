@@ -7,9 +7,7 @@ public partial class AmbientSoundNonLoop : AmbientSoundSimple/*
 		hidecategories(Navigation,Audio)*/{
 	public AmbientSoundNonLoop()
 	{
-		// Object Offset:0x00290EB3
-		SoundCueInstance = LoadAsset<SoundCue>("Default__AmbientSoundNonLoop.SoundCue0")/*Ref SoundCue'Default__AmbientSoundNonLoop.SoundCue0'*/;
-		SoundNodeInstance = new SoundNodeAmbientNonLoop
+		var Default__AmbientSoundNonLoop_SoundNodeAmbientNonLoop0 = new SoundNodeAmbientNonLoop
 		{
 			// Object Offset:0x004CF1E6
 			DelayTime = new DistributionFloat.RawDistributionFloat
@@ -41,30 +39,31 @@ public partial class AmbientSoundNonLoop : AmbientSoundSimple/*
 				Distribution = LoadAsset<DistributionFloatUniform>("Default__AmbientSoundNonLoop.SoundNodeAmbientNonLoop0.DistributionPitch")/*Ref DistributionFloatUniform'Default__AmbientSoundNonLoop.SoundNodeAmbientNonLoop0.DistributionPitch'*/,
 			},
 		}/* Reference: SoundNodeAmbientNonLoop'Default__AmbientSoundNonLoop.SoundNodeAmbientNonLoop0' */;
-		AudioComponent = new AudioComponent
+		var Default__AmbientSoundNonLoop_AudioComponent0 = new AudioComponent
 		{
 			// Object Offset:0x00465E6B
 			PreviewSoundRadius = LoadAsset<DrawSoundRadiusComponent>("Default__AmbientSoundNonLoop.DrawSoundRadius0")/*Ref DrawSoundRadiusComponent'Default__AmbientSoundNonLoop.DrawSoundRadius0'*/,
 		}/* Reference: AudioComponent'Default__AmbientSoundNonLoop.AudioComponent0' */;
+		var Default__AmbientSoundNonLoop_DrawSoundRadius0 = new DrawSoundRadiusComponent
+		{
+			// Object Offset:0x00468C6B
+			SphereColor = new Color
+			{
+				R=240,
+				G=50,
+				B=50,
+				A=255
+			},
+		}/* Reference: DrawSoundRadiusComponent'Default__AmbientSoundNonLoop.DrawSoundRadius0' */;
+		// Object Offset:0x00290EB3
+		SoundCueInstance = LoadAsset<SoundCue>("Default__AmbientSoundNonLoop.SoundCue0")/*Ref SoundCue'Default__AmbientSoundNonLoop.SoundCue0'*/;
+		SoundNodeInstance = Default__AmbientSoundNonLoop_SoundNodeAmbientNonLoop0;
+		AudioComponent = Default__AmbientSoundNonLoop_AudioComponent0;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__AmbientSoundNonLoop.Sprite")/*Ref SpriteComponent'Default__AmbientSoundNonLoop.Sprite'*/,
-			new AudioComponent
-			{
-				// Object Offset:0x00465E6B
-				PreviewSoundRadius = LoadAsset<DrawSoundRadiusComponent>("Default__AmbientSoundNonLoop.DrawSoundRadius0")/*Ref DrawSoundRadiusComponent'Default__AmbientSoundNonLoop.DrawSoundRadius0'*/,
-			}/* Reference: AudioComponent'Default__AmbientSoundNonLoop.AudioComponent0' */,
-			new DrawSoundRadiusComponent
-			{
-				// Object Offset:0x00468C6B
-				SphereColor = new Color
-				{
-					R=240,
-					G=50,
-					B=50,
-					A=255
-				},
-			}/* Reference: DrawSoundRadiusComponent'Default__AmbientSoundNonLoop.DrawSoundRadius0' */,
+			Default__AmbientSoundNonLoop_AudioComponent0,
+			Default__AmbientSoundNonLoop_DrawSoundRadius0,
 		};
 	}
 }

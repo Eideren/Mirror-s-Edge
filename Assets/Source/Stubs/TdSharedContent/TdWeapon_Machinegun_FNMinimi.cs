@@ -9,19 +9,7 @@ public partial class TdWeapon_Machinegun_FNMinimi : TdWeapon_Heavy/*
 		hidecategories(Navigation)*/{
 	public TdWeapon_Machinegun_FNMinimi()
 	{
-		// Object Offset:0x0000B1DD
-		AimOffsetProfileNames = new array<name>
-		{
-			(name)"Default",
-			(name)"TwoHanded",
-		};
-		WeaponPoseProfileName = (name)"TwoHanded-FNMinimi";
-		MuzzleFlashPSCTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_4Spread_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_4Spread_01'*/;
-		MuzzleFlashSocket = (name)"Muzzleflash";
-		BulletTraceTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_Heavy_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_Heavy_01'*/;
-		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_Shell556_Auto")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_Shell556_Auto'*/;
-		ShellEjectSocket = (name)"ShellEject";
-		FiringWaveform = new ForceFeedbackWaveform
+		var Default__TdWeapon_Machinegun_FNMinimi_FiringWaveformObj = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x0001350E
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -44,6 +32,51 @@ public partial class TdWeapon_Machinegun_FNMinimi : TdWeapon_Heavy/*
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdWeapon_Machinegun_FNMinimi.FiringWaveformObj' */;
+		var Default__TdWeapon_Machinegun_FNMinimi_FirstPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x00014623
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNMinimi.SK_FNMinimi")/*Ref SkeletalMesh'WP_FNMinimi.SK_FNMinimi'*/,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_FNMinimi.AS_C1P_TwoHanded_FNMinimi")/*Ref TdAnimSet'AS_C1P_TwoHanded_FNMinimi.AS_C1P_TwoHanded_FNMinimi'*/,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.FirstPersonMesh' */;
+		var Default__TdWeapon_Machinegun_FNMinimi_ThirdPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x0001467B
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNMinimi.SK_FNMinimi")/*Ref SkeletalMesh'WP_FNMinimi.SK_FNMinimi'*/,
+			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_FNMinimi.PA_FNMinimi")/*Ref PhysicsAsset'WP_FNMinimi.PA_FNMinimi'*/,
+			PhysicsWeight = 1.0f,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi'*/,
+			},
+			bUpdateJointsFromAnimation = true,
+			bEnableFullAnimWeightBodies = true,
+			bUseAsOccluder = false,
+			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
+			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
+			{
+				Default = true,
+				GameplayPhysics = true,
+				EffectPhysics = true,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.ThirdPersonMesh' */;
+		// Object Offset:0x0000B1DD
+		AimOffsetProfileNames = new array<name>
+		{
+			(name)"Default",
+			(name)"TwoHanded",
+		};
+		WeaponPoseProfileName = (name)"TwoHanded-FNMinimi";
+		MuzzleFlashPSCTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_4Spread_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_4Spread_01'*/;
+		MuzzleFlashSocket = (name)"Muzzleflash";
+		BulletTraceTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_Heavy_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_Heavy_01'*/;
+		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_Shell556_Auto")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_Shell556_Auto'*/;
+		ShellEjectSocket = (name)"ShellEject";
+		FiringWaveform = Default__TdWeapon_Machinegun_FNMinimi_FiringWaveformObj;
 		MaxAmmo = 99;
 		ReloadTime = 6.60f;
 		AmmoCount = 99;
@@ -84,38 +117,8 @@ public partial class TdWeapon_Machinegun_FNMinimi : TdWeapon_Heavy/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_FNMinimi.AS_C1P_TwoHanded_FNMinimi")/*Ref TdAnimSet'AS_C1P_TwoHanded_FNMinimi.AS_C1P_TwoHanded_FNMinimi'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi'*/;
-		Mesh1p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014623
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNMinimi.SK_FNMinimi")/*Ref SkeletalMesh'WP_FNMinimi.SK_FNMinimi'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_FNMinimi.AS_C1P_TwoHanded_FNMinimi")/*Ref TdAnimSet'AS_C1P_TwoHanded_FNMinimi.AS_C1P_TwoHanded_FNMinimi'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.FirstPersonMesh' */;
-		Mesh3p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x0001467B
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNMinimi.SK_FNMinimi")/*Ref SkeletalMesh'WP_FNMinimi.SK_FNMinimi'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_FNMinimi.PA_FNMinimi")/*Ref PhysicsAsset'WP_FNMinimi.PA_FNMinimi'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bUseAsOccluder = false,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.ThirdPersonMesh' */;
+		Mesh1p = Default__TdWeapon_Machinegun_FNMinimi_FirstPersonMesh;
+		Mesh3p = Default__TdWeapon_Machinegun_FNMinimi_ThirdPersonMesh;
 		CombatRange_Min = 500.0f;
 		CombatRange_Max = 15000.0f;
 		CombatRange_Preferred = 1000.0f;
@@ -186,85 +189,14 @@ public partial class TdWeapon_Machinegun_FNMinimi : TdWeapon_Heavy/*
 		};
 		EquipTime = 1.0f;
 		WeaponRange = 20000.0f;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014623
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNMinimi.SK_FNMinimi")/*Ref SkeletalMesh'WP_FNMinimi.SK_FNMinimi'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_FNMinimi.AS_C1P_TwoHanded_FNMinimi")/*Ref TdAnimSet'AS_C1P_TwoHanded_FNMinimi.AS_C1P_TwoHanded_FNMinimi'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.FirstPersonMesh' */;
+		Mesh = Default__TdWeapon_Machinegun_FNMinimi_FirstPersonMesh;
 		PickupSound = LoadAsset<SoundCue>("A_WP_Handling.Heavy.HeavyHandling")/*Ref SoundCue'A_WP_Handling.Heavy.HeavyHandling'*/;
-		DroppedPickupMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x0001467B
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNMinimi.SK_FNMinimi")/*Ref SkeletalMesh'WP_FNMinimi.SK_FNMinimi'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_FNMinimi.PA_FNMinimi")/*Ref PhysicsAsset'WP_FNMinimi.PA_FNMinimi'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bUseAsOccluder = false,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.ThirdPersonMesh' */;
-		PickupFactoryMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014623
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNMinimi.SK_FNMinimi")/*Ref SkeletalMesh'WP_FNMinimi.SK_FNMinimi'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_FNMinimi.AS_C1P_TwoHanded_FNMinimi")/*Ref TdAnimSet'AS_C1P_TwoHanded_FNMinimi.AS_C1P_TwoHanded_FNMinimi'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.FirstPersonMesh' */;
+		DroppedPickupMesh = Default__TdWeapon_Machinegun_FNMinimi_ThirdPersonMesh;
+		PickupFactoryMesh = Default__TdWeapon_Machinegun_FNMinimi_FirstPersonMesh;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00014623
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNMinimi.SK_FNMinimi")/*Ref SkeletalMesh'WP_FNMinimi.SK_FNMinimi'*/,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_FNMinimi.AS_C1P_TwoHanded_FNMinimi")/*Ref TdAnimSet'AS_C1P_TwoHanded_FNMinimi.AS_C1P_TwoHanded_FNMinimi'*/,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.FirstPersonMesh' */,
-			//Components[1]=
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x0001467B
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_FNMinimi.SK_FNMinimi")/*Ref SkeletalMesh'WP_FNMinimi.SK_FNMinimi'*/,
-				PhysicsAsset = LoadAsset<PhysicsAsset>("WP_FNMinimi.PA_FNMinimi")/*Ref PhysicsAsset'WP_FNMinimi.PA_FNMinimi'*/,
-				PhysicsWeight = 1.0f,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi'*/,
-				},
-				bUpdateJointsFromAnimation = true,
-				bEnableFullAnimWeightBodies = true,
-				bUseAsOccluder = false,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.ThirdPersonMesh' */,
+			Default__TdWeapon_Machinegun_FNMinimi_FirstPersonMesh,
+			Default__TdWeapon_Machinegun_FNMinimi_ThirdPersonMesh,
 		};
 	}
 }

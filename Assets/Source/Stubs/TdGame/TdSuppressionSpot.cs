@@ -9,22 +9,19 @@ public partial class TdSuppressionSpot : NavigationPoint/*
 	
 	public TdSuppressionSpot()
 	{
-		// Object Offset:0x006733A3
-		Cost = 300;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdSuppressionSpot.CollisionCylinder")/*Ref CylinderComponent'Default__TdSuppressionSpot.CollisionCylinder'*/;
-		GoodSprite = new SpriteComponent
+		var Default__TdSuppressionSpot_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x02E52655
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.SuppressIcon")/*Ref Texture2D'TdEditorResources.SuppressIcon'*/,
 		}/* Reference: SpriteComponent'Default__TdSuppressionSpot.Sprite' */;
+		// Object Offset:0x006733A3
+		Cost = 300;
+		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdSuppressionSpot.CollisionCylinder")/*Ref CylinderComponent'Default__TdSuppressionSpot.CollisionCylinder'*/;
+		GoodSprite = Default__TdSuppressionSpot_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdSuppressionSpot.Sprite2")/*Ref SpriteComponent'Default__TdSuppressionSpot.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x02E52655
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.SuppressIcon")/*Ref Texture2D'TdEditorResources.SuppressIcon'*/,
-			}/* Reference: SpriteComponent'Default__TdSuppressionSpot.Sprite' */,
+			Default__TdSuppressionSpot_Sprite,
 			LoadAsset<SpriteComponent>("Default__TdSuppressionSpot.Sprite2")/*Ref SpriteComponent'Default__TdSuppressionSpot.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__TdSuppressionSpot.Arrow")/*Ref ArrowComponent'Default__TdSuppressionSpot.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__TdSuppressionSpot.CollisionCylinder")/*Ref CylinderComponent'Default__TdSuppressionSpot.CollisionCylinder'*/,

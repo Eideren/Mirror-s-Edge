@@ -153,21 +153,7 @@ public partial class TdMove_MeleeBase : TdPhysicsMove/*
 	
 	public TdMove_MeleeBase()
 	{
-		// Object Offset:0x005CC498
-		bTargeting = true;
-		TargetingRotationSpeed = 10.0f;
-		TargetingMaxDistance = 300.0f;
-		TraceExtent = new Vector
-		{
-			X=5.0f,
-			Y=5.0f,
-			Z=5.0f
-		};
-		MeleeDamage = 50.0f;
-		MaxMeleeDistance = 180.0f;
-		MaxMeleeAngle = 0.50f;
-		CanDoMoveTaserLimit = 0.80f;
-		MeleeWaveform = new ForceFeedbackWaveform
+		var Default__TdMove_MeleeBase_MeleeWaveformObj = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x01B6C960
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -182,6 +168,21 @@ public partial class TdMove_MeleeBase : TdPhysicsMove/*
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdMove_MeleeBase.MeleeWaveformObj' */;
+		// Object Offset:0x005CC498
+		bTargeting = true;
+		TargetingRotationSpeed = 10.0f;
+		TargetingMaxDistance = 300.0f;
+		TraceExtent = new Vector
+		{
+			X=5.0f,
+			Y=5.0f,
+			Z=5.0f
+		};
+		MeleeDamage = 50.0f;
+		MaxMeleeDistance = 180.0f;
+		MaxMeleeAngle = 0.50f;
+		CanDoMoveTaserLimit = 0.80f;
+		MeleeWaveform = Default__TdMove_MeleeBase_MeleeWaveformObj;
 		MovementGroup = TdMove.EMovementGroup.MG_NonInteractive;
 		AimMode = TdPawn.MoveAimMode.MAM_NoHands;
 	}

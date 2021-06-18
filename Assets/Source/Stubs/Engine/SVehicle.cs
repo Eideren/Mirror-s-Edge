@@ -282,6 +282,27 @@ public partial class SVehicle : Vehicle/*
 	}
 	public SVehicle()
 	{
+		var Default__SVehicle_SVehicleMesh = new SkeletalMeshComponent
+		{
+			// Object Offset:0x004CEE36
+			bUseSingleBodyPhysics = 1,
+			bForceDiscardRootMotion = true,
+			CollideActors = true,
+			BlockActors = true,
+			BlockZeroExtent = true,
+			BlockNonZeroExtent = true,
+			BlockRigidBody = true,
+			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_Vehicle,
+			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
+			{
+				Default = true,
+				Vehicle = true,
+				GameplayPhysics = true,
+				EffectPhysics = true,
+			},
+			bNotifyRigidBodyCollision = true,
+			ScriptRigidBodyCollisionThreshold = 250.0f,
+		}/* Reference: SkeletalMeshComponent'Default__SVehicle.SVehicleMesh' */;
 		// Object Offset:0x003F5B3E
 		InertiaTensorMultiplier = new Vector
 		{
@@ -313,27 +334,7 @@ public partial class SVehicle : Vehicle/*
 		RadialImpulseScaling = 1.0f;
 		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__SVehicle.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__SVehicle.SceneCaptureCharacterComponent0'*/;
 		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__SVehicle.DrawFrust0")/*Ref DrawFrustumComponent'Default__SVehicle.DrawFrust0'*/;
-		Mesh = new SkeletalMeshComponent
-		{
-			// Object Offset:0x004CEE36
-			bUseSingleBodyPhysics = 1,
-			bForceDiscardRootMotion = true,
-			CollideActors = true,
-			BlockActors = true,
-			BlockZeroExtent = true,
-			BlockNonZeroExtent = true,
-			BlockRigidBody = true,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_Vehicle,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				Vehicle = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-			bNotifyRigidBodyCollision = true,
-			ScriptRigidBodyCollisionThreshold = 250.0f,
-		}/* Reference: SkeletalMeshComponent'Default__SVehicle.SVehicleMesh' */;
+		Mesh = Default__SVehicle_SVehicleMesh;
 		CylinderComponent = LoadAsset<CylinderComponent>("Default__SVehicle.CollisionCylinder")/*Ref CylinderComponent'Default__SVehicle.CollisionCylinder'*/;
 		bNetInitialRotation = true;
 		bBlocksTeleport = true;
@@ -343,51 +344,11 @@ public partial class SVehicle : Vehicle/*
 			LoadAsset<SceneCaptureCharacterComponent>("Default__SVehicle.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__SVehicle.SceneCaptureCharacterComponent0'*/,
 			LoadAsset<DrawFrustumComponent>("Default__SVehicle.DrawFrust0")/*Ref DrawFrustumComponent'Default__SVehicle.DrawFrust0'*/,
 			LoadAsset<CylinderComponent>("Default__SVehicle.CollisionCylinder")/*Ref CylinderComponent'Default__SVehicle.CollisionCylinder'*/,
-			new SkeletalMeshComponent
-			{
-				// Object Offset:0x004CEE36
-				bUseSingleBodyPhysics = 1,
-				bForceDiscardRootMotion = true,
-				CollideActors = true,
-				BlockActors = true,
-				BlockZeroExtent = true,
-				BlockNonZeroExtent = true,
-				BlockRigidBody = true,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_Vehicle,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					Vehicle = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-				bNotifyRigidBodyCollision = true,
-				ScriptRigidBodyCollisionThreshold = 250.0f,
-			}/* Reference: SkeletalMeshComponent'Default__SVehicle.SVehicleMesh' */,
+			Default__SVehicle_SVehicleMesh,
 		};
 		Physics = Actor.EPhysics.PHYS_RigidBody;
 		TickGroup = Object.ETickingGroup.TG_PostAsyncWork;
-		CollisionComponent = new SkeletalMeshComponent
-		{
-			// Object Offset:0x004CEE36
-			bUseSingleBodyPhysics = 1,
-			bForceDiscardRootMotion = true,
-			CollideActors = true,
-			BlockActors = true,
-			BlockZeroExtent = true,
-			BlockNonZeroExtent = true,
-			BlockRigidBody = true,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_Vehicle,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				Vehicle = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-			bNotifyRigidBodyCollision = true,
-			ScriptRigidBodyCollisionThreshold = 250.0f,
-		}/* Reference: SkeletalMeshComponent'Default__SVehicle.SVehicleMesh' */;
+		CollisionComponent = Default__SVehicle_SVehicleMesh;
 	}
 }
 }

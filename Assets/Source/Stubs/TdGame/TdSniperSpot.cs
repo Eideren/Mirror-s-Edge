@@ -21,25 +21,22 @@ public partial class TdSniperSpot : NavigationPoint/*
 	
 	public TdSniperSpot()
 	{
+		var Default__TdSniperSpot_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x02E525B9
+			Sprite = LoadAsset<Texture2D>("TdEditorResources.SuppressIcon")/*Ref Texture2D'TdEditorResources.SuppressIcon'*/,
+		}/* Reference: SpriteComponent'Default__TdSniperSpot.Sprite' */;
 		// Object Offset:0x006595AA
 		Crouch = true;
 		AttackVolumeHeight = 2000.0f;
 		AttackVolumeAngle = 45.0f;
 		AttackVolumeRadius = 3000.0f;
 		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdSniperSpot.CollisionCylinder")/*Ref CylinderComponent'Default__TdSniperSpot.CollisionCylinder'*/;
-		GoodSprite = new SpriteComponent
-		{
-			// Object Offset:0x02E525B9
-			Sprite = LoadAsset<Texture2D>("TdEditorResources.SuppressIcon")/*Ref Texture2D'TdEditorResources.SuppressIcon'*/,
-		}/* Reference: SpriteComponent'Default__TdSniperSpot.Sprite' */;
+		GoodSprite = Default__TdSniperSpot_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdSniperSpot.Sprite2")/*Ref SpriteComponent'Default__TdSniperSpot.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x02E525B9
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.SuppressIcon")/*Ref Texture2D'TdEditorResources.SuppressIcon'*/,
-			}/* Reference: SpriteComponent'Default__TdSniperSpot.Sprite' */,
+			Default__TdSniperSpot_Sprite,
 			LoadAsset<SpriteComponent>("Default__TdSniperSpot.Sprite2")/*Ref SpriteComponent'Default__TdSniperSpot.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__TdSniperSpot.Arrow")/*Ref ArrowComponent'Default__TdSniperSpot.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__TdSniperSpot.CollisionCylinder")/*Ref CylinderComponent'Default__TdSniperSpot.CollisionCylinder'*/,

@@ -7,15 +7,16 @@ public partial class ClipMarker : Keypoint/*
 		hidecategories(Navigation)*/{
 	public ClipMarker()
 	{
+		var Default__ClipMarker_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004CF702
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_ClipMarker")/*Ref Texture2D'EngineResources.S_ClipMarker'*/,
+		}/* Reference: SpriteComponent'Default__ClipMarker.Sprite' */;
 		// Object Offset:0x002BC7D7
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004CF702
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_ClipMarker")/*Ref Texture2D'EngineResources.S_ClipMarker'*/,
-			}/* Reference: SpriteComponent'Default__ClipMarker.Sprite' */,
+			Default__ClipMarker_Sprite,
 		};
 	}
 }

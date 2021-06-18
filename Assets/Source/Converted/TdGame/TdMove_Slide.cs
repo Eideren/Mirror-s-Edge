@@ -199,11 +199,7 @@ public partial class TdMove_Slide : TdMove/*
 	
 	public TdMove_Slide()
 	{
-		// Object Offset:0x005D9908
-		SlideAbortSpeed = 250.0f;
-		SlideAbortTime = 2.0f;
-		MaxFloorInclineZ = 0.50f;
-		SlideWaveform = new ForceFeedbackWaveform
+		var Default__TdMove_Slide_SlideWaveformObj = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x01B6CBE6
 			bIsLooping = true,
@@ -227,6 +223,11 @@ public partial class TdMove_Slide : TdMove/*
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdMove_Slide.SlideWaveformObj' */;
+		// Object Offset:0x005D9908
+		SlideAbortSpeed = 250.0f;
+		SlideAbortTime = 2.0f;
+		MaxFloorInclineZ = 0.50f;
+		SlideWaveform = Default__TdMove_Slide_SlideWaveformObj;
 		FrictionModifier = 0.10f;
 		bConstrainLook = true;
 		bDisableFaceRotation = true;

@@ -28,6 +28,36 @@ public partial class ParticleModuleBeamNoise : ParticleModuleBeamBase/*
 	
 	public ParticleModuleBeamNoise()
 	{
+		var Default__ParticleModuleBeamNoise_DistributionNoiseRange = new DistributionVectorConstant
+		{
+			// Object Offset:0x00467DB3
+			Constant = new Vector
+			{
+				X=50.0f,
+				Y=50.0f,
+				Z=50.0f
+			},
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleBeamNoise.DistributionNoiseRange' */;
+		var Default__ParticleModuleBeamNoise_DistributionNoiseRangeScale = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466B2B
+			Constant = 1.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleBeamNoise.DistributionNoiseRangeScale' */;
+		var Default__ParticleModuleBeamNoise_DistributionNoiseSpeed = new DistributionVectorConstant
+		{
+			// Object Offset:0x00467DF7
+			Constant = new Vector
+			{
+				X=50.0f,
+				Y=50.0f,
+				Z=50.0f
+			},
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleBeamNoise.DistributionNoiseSpeed' */;
+		var Default__ParticleModuleBeamNoise_DistributionNoiseTangentStrength = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466B5F
+			Constant = 250.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleBeamNoise.DistributionNoiseTangentStrength' */;
 		// Object Offset:0x0037A926
 		NoiseRange = new DistributionVector.RawDistributionVector
 		{

@@ -133,6 +133,13 @@ public partial class Inventory : Actor/*
 	
 	public Inventory()
 	{
+		var Default__Inventory_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004CFB36
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__Inventory.Sprite' */;
 		// Object Offset:0x003454F7
 		MaxDesireability = 0.10f;
 		DroppedPickupClass = ClassT<DroppedPickup>()/*Ref Class'DroppedPickup'*/;
@@ -142,14 +149,7 @@ public partial class Inventory : Actor/*
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
-			new SpriteComponent
-			{
-				// Object Offset:0x004CFB36
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__Inventory.Sprite' */,
+			Default__Inventory_Sprite,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetPriority = 1.40f;

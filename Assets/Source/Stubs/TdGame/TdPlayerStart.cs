@@ -12,59 +12,40 @@ public partial class TdPlayerStart : PlayerStart/*
 	
 	public TdPlayerStart()
 	{
-		// Object Offset:0x00631808
-		Radius = 300.0f;
-		SphereRenderComponent = new DrawSphereComponent
+		var Default__TdPlayerStart_SpawnRadiusSphere = new DrawSphereComponent
 		{
 			// Object Offset:0x0067485E
 			SphereRadius = 300.0f,
 		}/* Reference: DrawSphereComponent'Default__TdPlayerStart.SpawnRadiusSphere' */;
-		GenericSprite = new SpriteComponent
+		var Default__TdPlayerStart_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x00674792
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.GenericSpawnIcon")/*Ref Texture2D'TdEditorResources.GenericSpawnIcon'*/,
 			Scale = 0.330f,
 		}/* Reference: SpriteComponent'Default__TdPlayerStart.Sprite' */;
-		PlayerStartTextureResources = LoadAsset<RequestedTextureResources>("Default__TdPlayerStart.PlayerStartTextureResourcesObject")/*Ref RequestedTextureResources'Default__TdPlayerStart.PlayerStartTextureResourcesObject'*/;
-		CylinderComponent = new CylinderComponent
+		var Default__TdPlayerStart_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x00674812
 			CollisionHeight = 94.0f,
 		}/* Reference: CylinderComponent'Default__TdPlayerStart.CollisionCylinder' */;
-		GoodSprite = new SpriteComponent
-		{
-			// Object Offset:0x00674792
-			Sprite = LoadAsset<Texture2D>("TdEditorResources.GenericSpawnIcon")/*Ref Texture2D'TdEditorResources.GenericSpawnIcon'*/,
-			Scale = 0.330f,
-		}/* Reference: SpriteComponent'Default__TdPlayerStart.Sprite' */;
+		// Object Offset:0x00631808
+		Radius = 300.0f;
+		SphereRenderComponent = Default__TdPlayerStart_SpawnRadiusSphere;
+		GenericSprite = Default__TdPlayerStart_Sprite;
+		PlayerStartTextureResources = LoadAsset<RequestedTextureResources>("Default__TdPlayerStart.PlayerStartTextureResourcesObject")/*Ref RequestedTextureResources'Default__TdPlayerStart.PlayerStartTextureResourcesObject'*/;
+		CylinderComponent = Default__TdPlayerStart_CollisionCylinder;
+		GoodSprite = Default__TdPlayerStart_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdPlayerStart.Sprite2")/*Ref SpriteComponent'Default__TdPlayerStart.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x00674792
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.GenericSpawnIcon")/*Ref Texture2D'TdEditorResources.GenericSpawnIcon'*/,
-				Scale = 0.330f,
-			}/* Reference: SpriteComponent'Default__TdPlayerStart.Sprite' */,
+			Default__TdPlayerStart_Sprite,
 			LoadAsset<SpriteComponent>("Default__TdPlayerStart.Sprite2")/*Ref SpriteComponent'Default__TdPlayerStart.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__TdPlayerStart.Arrow")/*Ref ArrowComponent'Default__TdPlayerStart.Arrow'*/,
-			new CylinderComponent
-			{
-				// Object Offset:0x00674812
-				CollisionHeight = 94.0f,
-			}/* Reference: CylinderComponent'Default__TdPlayerStart.CollisionCylinder' */,
+			Default__TdPlayerStart_CollisionCylinder,
 			LoadAsset<PathRenderingComponent>("Default__TdPlayerStart.PathRenderer")/*Ref PathRenderingComponent'Default__TdPlayerStart.PathRenderer'*/,
-			new DrawSphereComponent
-			{
-				// Object Offset:0x0067485E
-				SphereRadius = 300.0f,
-			}/* Reference: DrawSphereComponent'Default__TdPlayerStart.SpawnRadiusSphere' */,
+			Default__TdPlayerStart_SpawnRadiusSphere,
 		};
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x00674812
-			CollisionHeight = 94.0f,
-		}/* Reference: CylinderComponent'Default__TdPlayerStart.CollisionCylinder' */;
+		CollisionComponent = Default__TdPlayerStart_CollisionCylinder;
 	}
 }
 }

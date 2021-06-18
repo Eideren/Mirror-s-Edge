@@ -192,7 +192,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	public override /*function */void SetCharacter(String inCharacter)
 	{
-		CharacterClass = ((DynamicLoadObject(inCharacter, ClassT<Class>(), default)) as ClassT<Pawn>);
+		CharacterClass = ((DynamicLoadObject(inCharacter, ClassT<Class>(), default(bool?))) as ClassT<Pawn>);
 	}
 	
 	public virtual /*event */TdProfileSettings GetProfileSettings()
@@ -232,7 +232,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	public virtual /*exec function */void QuitGame()
 	{
-		ConsoleCommand("Quit", default);
+		ConsoleCommand("Quit", default(bool?));
 	}
 	
 	public override /*event */void OnLoadLevels(/*optional */bool? _bUnload = default)
@@ -252,7 +252,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	public virtual /*function */void ConditionalBlockWhileLoading()
 	{
-		if((((myHUD != default) && !WorldInfo.IsConsoleBuild(default)) && false) && !myPawn.bAllowMoveChange || myPawn.bSRPauseTimer)
+		if((((myHUD != default) && !WorldInfo.IsConsoleBuild(default(WorldInfo.EConsoleType?))) && false) && !myPawn.bAllowMoveChange || myPawn.bSRPauseTimer)
 		{
 			((myHUD) as TdHUD).NotifyDiskAccess(true, TsSystem.ETsDiskAccess.TSD_LoadingLevel/*10*/);
 			ClientFlushLevelStreaming();
@@ -301,10 +301,10 @@ public partial class TdPlayerController : GamePlayerController,
 		myTdHUD = ((myHUD) as TdHUD);
 		if((myTdHUD != default) && myTdHUD.AnnouncerClassName != "")
 		{
-			AnnouncerClass = ((DynamicLoadObject(myTdHUD.AnnouncerClassName, ClassT<Class>(), default)) as ClassT<TdAnnouncerBase>);
+			AnnouncerClass = ((DynamicLoadObject(myTdHUD.AnnouncerClassName, ClassT<Class>(), default(bool?))) as ClassT<TdAnnouncerBase>);
 			if(AnnouncerClass != default)
 			{
-				Announcer = Spawn(AnnouncerClass, this, default, default, default, default, default);
+				Announcer = Spawn(AnnouncerClass, this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
 			}
 		}
 		ProfileSettings = GetProfileSettings();
@@ -344,7 +344,7 @@ public partial class TdPlayerController : GamePlayerController,
 			LastEmoteMessageTime = WorldInfo.TimeSeconds;
 			if(((int)Role) < ((int)Actor.ENetRole.ROLE_Authority/*3*/))
 			{
-				TdAnnouncerBase.Play3DLocationalAnnouncement(myPawn, TdEmoteMessageClass, Switch, false, false, PlayerReplicationInfo, default);
+				TdAnnouncerBase.Play3DLocationalAnnouncement(myPawn, TdEmoteMessageClass, Switch, false, false, PlayerReplicationInfo, default(PlayerReplicationInfo?));
 			}
 			ServerTriggerEmoteMessage(Switch);
 		}
@@ -352,7 +352,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	public virtual /*unreliable server final function */void ServerTriggerEmoteMessage(int Switch)
 	{
-		TdAnnouncerBase.Play3DLocationalAnnouncement(myPawn, TdEmoteMessageClass, Switch, true, false, PlayerReplicationInfo, default);
+		TdAnnouncerBase.Play3DLocationalAnnouncement(myPawn, TdEmoteMessageClass, Switch, true, false, PlayerReplicationInfo, default(PlayerReplicationInfo?));
 	}
 	
 	public virtual /*function */void NotifyWeaponFired(Weapon PlayerWeapon)
@@ -377,7 +377,7 @@ public partial class TdPlayerController : GamePlayerController,
 			{
 				goto J0xD1;
 			}
-			WeaponFiredEvent.CheckActivate(this, PlayerWeapon, default, ref/*probably?*/ /*null*/NullRef.array_int_, default);
+			WeaponFiredEvent.CheckActivate(this, PlayerWeapon, default(bool?), ref/*probably?*/ /*null*/NullRef.array_int_, default(bool?));
 			J0xD1:{}
 			++ Index;
 			goto J0x07;
@@ -512,7 +512,7 @@ public partial class TdPlayerController : GamePlayerController,
 		ZeroVec = vect(0.0f, 0.0f, 0.0f);
 		StartShot = CamLoc;
 		EndShot = StartShot + (10000.0f * X);
-		HitActor = Pawn.Trace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, EndShot, StartShot, true, ZeroVec, ref/*probably?*/ HitInfo, default);
+		HitActor = Pawn.Trace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, EndShot, StartShot, true, ZeroVec, ref/*probably?*/ HitInfo, default(int?));
 		if(HitActor != default)
 		{
 			SetCameraMode("FixedPerson");
@@ -542,7 +542,7 @@ public partial class TdPlayerController : GamePlayerController,
 		((PlayerCamera) as TdPlayerCamera).FreeflightRotation = ((PlayerCamera) as TdPlayerCamera).FreeflightRotation - A.Rotation;
 		myPawn.StopIgnoreMoveInput();
 		myPawn.StopIgnoreLookInput();
-		PlayerCamera.SetViewTarget(A, default);
+		PlayerCamera.SetViewTarget(A, default(Camera.ViewTargetTransitionParams?));
 	}
 	
 	public virtual /*function */void OnTdSlideshow(SeqAct_TdSlideShow Action)
@@ -584,7 +584,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	public virtual /*function */void TdPlayerFailDead()
 	{
-		GotoState("Dead", default, default, default);
+		GotoState("Dead", default(name?), default(bool?), default(bool?));
 	}
 	
 	public virtual /*function */void OnTdPlayerFail(SeqAct_TdPlayerFail FailAction)
@@ -594,14 +594,14 @@ public partial class TdPlayerController : GamePlayerController,
 		HUD = ((myHUD) as TdHUD);
 		if(HUD != default)
 		{
-			HUD.TriggerCustomColorFadeOut(0.10f, MakeLinearColor(0.0f, 0.0f, 0.0f, 1.0f), default, default);
+			HUD.TriggerCustomColorFadeOut(0.10f, MakeLinearColor(0.0f, 0.0f, 0.0f, 1.0f), default(bool?), default(/*delegate*/TdHUD.OnMaxFade?));
 		}
-		SetTimer(0.20f, false, "TdPlayerFailDead", default);
+		SetTimer(0.20f, false, "TdPlayerFailDead", default(Object?));
 	}
 	
 	public virtual /*function */bool IsInMainMenu()
 	{
-		return ApproximatelyEqual(WorldInfo.GetMapName(default), "TDMAINMENU");
+		return ApproximatelyEqual(WorldInfo.GetMapName(default(bool?)), "TDMAINMENU");
 	}
 	
 	public override /*function */void SetCameraMode(name NewCamMode)
@@ -629,7 +629,7 @@ public partial class TdPlayerController : GamePlayerController,
 			if(PlayerCamera.CameraStyle == "FixedPerson")
 			{
 				SetCameraMode("Fixed");
-				PlayerCamera.SetViewTarget(Pawn, default);			
+				PlayerCamera.SetViewTarget(Pawn, default(Camera.ViewTargetTransitionParams?));			
 			}
 			else
 			{
@@ -660,8 +660,8 @@ public partial class TdPlayerController : GamePlayerController,
 								SetCameraMode("FreeFlight");
 								((PlayerCamera) as TdPlayerCamera).FreeflightPosition = Pawn.Location;
 								((PlayerCamera) as TdPlayerCamera).FreeflightRotation = Pawn.Rotation;
-								myPawn.SetIgnoreMoveInput(default);
-								myPawn.SetIgnoreLookInput(default);
+								myPawn.SetIgnoreMoveInput(default(float?));
+								myPawn.SetIgnoreLookInput(default(float?));
 								myPawn.SetFirstPerson(false);
 								myPawn.Mesh.ForceSkelUpdate();
 							}
@@ -681,7 +681,7 @@ public partial class TdPlayerController : GamePlayerController,
 		using var e0 = WorldInfo.AllControllers(ClassT<PlayerController>()).GetEnumerator();
 		while(e0.MoveNext() && (PC = (PlayerController)e0.Current) == PC)
 		{
-			PC.ClientHearSound(SCue, Source, Source.Location, true, default);		
+			PC.ClientHearSound(SCue, Source, Source.Location, true, default(bool?));		
 		}	
 	}
 	
@@ -704,7 +704,7 @@ public partial class TdPlayerController : GamePlayerController,
 		{
 			if(((SourceActor == (GetViewTarget())) || SourceActor == this) || SourceActor == Pawn)
 			{
-				AC = GetPooledAudioComponent(ASound, default, bStopWhenOwnerDestroyed, default, default);
+				AC = GetPooledAudioComponent(ASound, default, bStopWhenOwnerDestroyed, default(bool?), default(Object.Vector?));
 				if(AC == default)
 				{
 					return;
@@ -722,7 +722,7 @@ public partial class TdPlayerController : GamePlayerController,
 			}
 			else
 			{
-				AC = GetPooledAudioComponent(ASound, SourceActor, bStopWhenOwnerDestroyed, default, default);
+				AC = GetPooledAudioComponent(ASound, SourceActor, bStopWhenOwnerDestroyed, default(bool?), default(Object.Vector?));
 				if(AC == default)
 				{
 					return;
@@ -752,7 +752,7 @@ public partial class TdPlayerController : GamePlayerController,
 			}
 			else
 			{
-				AC = GetPooledAudioComponent(ASound, SourceActor, true, default, default);
+				AC = GetPooledAudioComponent(ASound, SourceActor, true, default(bool?), default(Object.Vector?));
 				if(AC != default)
 				{
 					AC.VolumeMultiplier = VolumeMultiplier;
@@ -778,7 +778,7 @@ public partial class TdPlayerController : GamePlayerController,
 			}
 			if(((((ASound.SoundGroup == "VOMain") || ASound.SoundGroup == "DialogueRadio") || ASound.SoundGroup == "DialogueFaith") || ASound.SoundGroup == "DialogueOther") && !(WorldInfo.Game != default) && WorldInfo.Game.IsA("TdSPTimeTrialGame"))
 			{
-				SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_INGAME_VO/*2*/, ASound.GetCueDuration() + 0.30f, default, default);
+				SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_INGAME_VO/*2*/, ASound.GetCueDuration() + 0.30f, default(bool?), default(float?));
 			}
 		}
 	}
@@ -833,9 +833,9 @@ public partial class TdPlayerController : GamePlayerController,
 		{
 			return;
 		}
-		if((Duration > 0.0f) && (((int)CurrentSoundMode) != ((int)SoundMode)) || GetTimerRate("ClearSoundMode", default) < Duration)
+		if((Duration > 0.0f) && (((int)CurrentSoundMode) != ((int)SoundMode)) || GetTimerRate("ClearSoundMode", default(Object?)) < Duration)
 		{
-			SetTimer(Duration, false, "ClearSoundMode", default);
+			SetTimer(Duration, false, "ClearSoundMode", default(Object?));
 		}
 		CurrentSoundMode = ((AudioDevice.ESoundMode)SoundMode);
 		SetSoundModeNative(((AudioDevice.ESoundMode)SoundMode), FadeTime);
@@ -845,23 +845,23 @@ public partial class TdPlayerController : GamePlayerController,
 	{
 		if(IsDead())
 		{
-			SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_GENERIC_DEATH/*9*/, default, default, default);		
+			SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_GENERIC_DEATH/*9*/, default(float?), default(bool?), default(float?));		
 		}
 		else
 		{
-			if(this.IsInState("PlayerDying", default) && ((int)myPawn.Physics) == ((int)Actor.EPhysics.PHYS_Falling/*2*/))
+			if(this.IsInState("PlayerDying", default(bool?)) && ((int)myPawn.Physics) == ((int)Actor.EPhysics.PHYS_Falling/*2*/))
 			{
-				SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_FALLING_TO_DEATH/*6*/, default, default, default);			
+				SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_FALLING_TO_DEATH/*6*/, default(float?), default(bool?), default(float?));			
 			}
 			else
 			{
 				if(bReactionTime)
 				{
-					SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_REACTION_TIME/*3*/, default, default, default);				
+					SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_REACTION_TIME/*3*/, default(float?), default(bool?), default(float?));				
 				}
 				else
 				{
-					SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_NORMAL/*0*/, default, default, default);
+					SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_NORMAL/*0*/, default(float?), default(bool?), default(float?));
 				}
 			}
 		}
@@ -954,8 +954,8 @@ public partial class TdPlayerController : GamePlayerController,
 			((myHUD) as TdHUD).PlayerOwnerRestart();
 		}
 		SetAudioProfileSettings();
-		SetPause(false, default);
-		SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_NORMAL/*0*/, default, true, 1.50f);
+		SetPause(false, default(/*delegate*/PlayerController.CanUnpause?));
+		SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_NORMAL/*0*/, default(float?), true, 1.50f);
 	}
 	
 	public virtual /*function */void ForcePreRoundSpectate()
@@ -970,7 +970,7 @@ public partial class TdPlayerController : GamePlayerController,
 			PawnToKill.Died(default, default, PawnToKill.Location);
 			PawnToKill.Destroy();
 		}
-		GotoState("PlayerWaiting", default, default, default);
+		GotoState("PlayerWaiting", default(name?), default(bool?), default(bool?));
 		if(!ViewTarget.IsA("TdSpectatorPoint"))
 		{
 			ServerViewNextSpectatorPoint();
@@ -989,7 +989,7 @@ public partial class TdPlayerController : GamePlayerController,
 			PawnToKill.Died(default, default, PawnToKill.Location);
 			PawnToKill.Destroy();
 		}
-		GotoState("PlayerWaiting", default, default, default);
+		GotoState("PlayerWaiting", default(name?), default(bool?), default(bool?));
 		if(!ViewTarget.IsA("TdSpectatorPoint"))
 		{
 			ServerViewNextSpectatorPoint();
@@ -1031,8 +1031,8 @@ public partial class TdPlayerController : GamePlayerController,
 			}
 			if(NewSpectatorPoint != default)
 			{
-				SetViewTarget(NewSpectatorPoint, default);
-				ClientSetViewTarget(NewSpectatorPoint, default);			
+				SetViewTarget(NewSpectatorPoint, default(Camera.ViewTargetTransitionParams?));
+				ClientSetViewTarget(NewSpectatorPoint, default(Camera.ViewTargetTransitionParams?));			
 			}
 			else
 			{
@@ -1060,8 +1060,8 @@ public partial class TdPlayerController : GamePlayerController,
 			}
 			if(NewSpectatorPoint != default)
 			{
-				SetViewTarget(NewSpectatorPoint, default);
-				ClientSetViewTarget(NewSpectatorPoint, default);			
+				SetViewTarget(NewSpectatorPoint, default(Camera.ViewTargetTransitionParams?));
+				ClientSetViewTarget(NewSpectatorPoint, default(Camera.ViewTargetTransitionParams?));			
 			}
 			else
 			{
@@ -1081,7 +1081,7 @@ public partial class TdPlayerController : GamePlayerController,
 			PlayerPawn = ((WorldInfo.PawnList) as TdPlayerPawn);
 			if(PlayerPawn != default)
 			{
-				SetViewTarget(PlayerPawn, default);
+				SetViewTarget(PlayerPawn, default(Camera.ViewTargetTransitionParams?));
 				if(PlayerCamera.CameraStyle == "ThirdPerson")
 				{
 					SetCameraMode("FirstPerson");
@@ -1113,7 +1113,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	public override /*event */void KickWarning()
 	{
-		ReceiveLocalizedMessage(ClassT<TdGameMessage>(), 15, default, default, default);
+		ReceiveLocalizedMessage(ClassT<TdGameMessage>(), 15, default(PlayerReplicationInfo?), default(PlayerReplicationInfo?), default(Object?));
 	}
 	
 	public virtual /*function */Object.Vector GetFloor()
@@ -1135,7 +1135,7 @@ public partial class TdPlayerController : GamePlayerController,
 	{
 		if(GetStateName() != NewState)
 		{
-			GotoState(NewState, default, default, default);
+			GotoState(NewState, default(name?), default(bool?), default(bool?));
 		}
 	}
 	
@@ -1213,14 +1213,14 @@ public partial class TdPlayerController : GamePlayerController,
 		Canvas.SetDrawColor(255, 255, 255, 255);
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText((((("CONTROLLER " + (GetItemName(((this)).ToString()))) + " Physics ") + (GetPhysicsName())) + " Pawn ") + (GetItemName(((Pawn)).ToString())), default, default, default);
+		Canvas.DrawText((((("CONTROLLER " + (GetItemName(((this)).ToString()))) + " Physics ") + (GetPhysicsName())) + " Pawn ") + (GetItemName(((Pawn)).ToString())), default(bool?), default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
 		if(Pawn == default)
 		{
 			if(PlayerReplicationInfo == default)
 			{
-				Canvas.DrawText("NO PLAYERREPLICATIONINFO", false, default, default);			
+				Canvas.DrawText("NO PLAYERREPLICATIONINFO", false, default(float?), default(float?));			
 			}
 			else
 			{
@@ -1238,39 +1238,39 @@ public partial class TdPlayerController : GamePlayerController,
 		Canvas.SetDrawColor(0, 255, 0, 255);
 		out_YPos += (out_YL + ((float)(10)));
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText("Current State: " + ((GetStateName())).ToString(), default, default, default);
+		Canvas.DrawText("Current State: " + ((GetStateName())).ToString(), default(bool?), default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText("Physics state: " + (GetPhysicsName()), default, default, default);
+		Canvas.DrawText("Physics state: " + (GetPhysicsName()), default(bool?), default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText("Ignore look: " + ((bIgnoreLookInput)).ToString(), default, default, default);
+		Canvas.DrawText("Ignore look: " + ((bIgnoreLookInput)).ToString(), default(bool?), default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText("Ignore move: " + ((bIgnoreMoveInput)).ToString(), default, default, default);
+		Canvas.DrawText("Ignore move: " + ((bIgnoreMoveInput)).ToString(), default(bool?), default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText("Ibnore button: " + ((bIgnoreButtonInput)).ToString(), default, default, default);
+		Canvas.DrawText("Ibnore button: " + ((bIgnoreButtonInput)).ToString(), default(bool?), default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText("Cinematic: " + ((bCinematicMode)).ToString(), default, default, default);
+		Canvas.DrawText("Cinematic: " + ((bCinematicMode)).ToString(), default(bool?), default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText("bDuck: " + ((bDuck)).ToString(), default, default, default);
+		Canvas.DrawText("bDuck: " + ((bDuck)).ToString(), default(bool?), default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText("bIsLoading: " + ((IsLoadingLevel())).ToString(), default, default, default);
+		Canvas.DrawText("bIsLoading: " + ((IsLoadingLevel())).ToString(), default(bool?), default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.DrawText("Controller rotation: " + ((Rotation)).ToString(), default, default, default);
+		Canvas.DrawText("Controller rotation: " + ((Rotation)).ToString(), default(bool?), default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
 		if(Pawn != default)
 		{
-			Canvas.DrawText("Pawn rotation: " + ((Pawn.Rotation)).ToString(), default, default, default);
+			Canvas.DrawText("Pawn rotation: " + ((Pawn.Rotation)).ToString(), default(bool?), default(float?), default(float?));
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			Canvas.DrawText((((("Pawn position: " + ((Pawn.Location.X)).ToString()) + ", ") + ((Pawn.Location.Y)).ToString()) + ", ") + ((Pawn.Location.Z)).ToString(), default, default, default);
+			Canvas.DrawText((((("Pawn position: " + ((Pawn.Location.X)).ToString()) + ", ") + ((Pawn.Location.Y)).ToString()) + ", ") + ((Pawn.Location.Z)).ToString(), default(bool?), default(float?), default(float?));
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 		}
@@ -1281,7 +1281,7 @@ public partial class TdPlayerController : GamePlayerController,
 		base.PreBeginPlay();
 		if(WorldInfo.GRI.IsMultiplayerGame())
 		{
-			TdEmoteMessageClass = ((DynamicLoadObject("TdMpContent.TdEmoteMessage", ClassT<Class>(), default)) as ClassT<TdLocalMessage>);
+			TdEmoteMessageClass = ((DynamicLoadObject("TdMpContent.TdEmoteMessage", ClassT<Class>(), default(bool?))) as ClassT<TdLocalMessage>);
 		}
 	}
 	
@@ -1369,9 +1369,9 @@ public partial class TdPlayerController : GamePlayerController,
 		{
 			if(bSwitchSoundMode)
 			{
-				SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_CUSTOM_TRACK_INGAME_CUTSCENES/*7*/, default, default, default);
+				SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_CUSTOM_TRACK_INGAME_CUTSCENES/*7*/, default(float?), default(bool?), default(float?));
 			}
-			SetTimer(1.20f, false, "CallSkippablePopUp", default);		
+			SetTimer(1.20f, false, "CallSkippablePopUp", default(Object?));		
 		}
 		else
 		{
@@ -1710,7 +1710,7 @@ public partial class TdPlayerController : GamePlayerController,
 				((myHUD) as TdHUD).ToggleReactionTime(false);
 				ReactionTimeEnergy = 0.0f;
 				NewGameSpeed = 1.0f;
-				SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_NORMAL/*0*/, default, default, default);
+				SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_NORMAL/*0*/, default(float?), default(bool?), default(float?));
 				myPawn.OnTutorialEvent(22);			
 			}
 			else
@@ -1760,14 +1760,14 @@ public partial class TdPlayerController : GamePlayerController,
 		bReactionTime = true;
 		ReactionTimeEnergy = 90.0f;
 		((myHUD) as TdHUD).ToggleReactionTime(true);
-		SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_REACTION_TIME/*3*/, default, default, default);
+		SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_REACTION_TIME/*3*/, default(float?), default(bool?), default(float?));
 	}
 	
 	public virtual /*function */void OnTdDisableReactionTime(SeqAct_TdDisableReactionTime Action)
 	{
 		bOverrideReactionTimeSettings = false;
 		ReactionTimeEnergy = 20.0f;
-		SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_NORMAL/*0*/, default, default, default);
+		SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_NORMAL/*0*/, default(float?), default(bool?), default(float?));
 	}
 	
 	// Export UTdPlayerController::execIsLoadingLevel(FFrame&, void* const)
@@ -1832,7 +1832,7 @@ public partial class TdPlayerController : GamePlayerController,
 		{
 			return;
 		}
-		if(myPawn.IsInState("Dying", default) || myPawn.IsInState("UncontrolledFall", default))
+		if(myPawn.IsInState("Dying", default(bool?)) || myPawn.IsInState("UncontrolledFall", default(bool?)))
 		{
 			return;
 		}
@@ -1842,7 +1842,7 @@ public partial class TdPlayerController : GamePlayerController,
 		}
 		((myHUD) as TdHUD).ToggleReactionTime(true);
 		bReactionTime = true;
-		SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_REACTION_TIME/*3*/, default, default, default);
+		SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_REACTION_TIME/*3*/, default(float?), default(bool?), default(float?));
 		myPawn.OnTutorialEvent(15);
 	}
 	
@@ -1905,7 +1905,7 @@ public partial class TdPlayerController : GamePlayerController,
 		}
 		else
 		{
-			StartFire((byte)default);
+			StartFire((byte)default(byte?));
 		}
 	}
 	
@@ -1917,7 +1917,7 @@ public partial class TdPlayerController : GamePlayerController,
 		}
 		if(myPawn.HasWeapon())
 		{
-			StopFire((byte)default);
+			StopFire((byte)default(byte?));
 		}
 	}
 	
@@ -1926,7 +1926,7 @@ public partial class TdPlayerController : GamePlayerController,
 		/*local */Actor HitActor = default;
 		/*local */Object.Vector HitNormal = default;
 	
-		HitActor = Pawn.Trace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, Pawn.Location, Pawn.Location + (((Vector)(Pawn.Rotation)) * MaxDistance), true, default, ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, 8);
+		HitActor = Pawn.Trace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, Pawn.Location, Pawn.Location + (((Vector)(Pawn.Rotation)) * MaxDistance), true, default(Object.Vector?), ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, 8);
 		return HitActor;
 	}
 	
@@ -2024,7 +2024,7 @@ public partial class TdPlayerController : GamePlayerController,
 		}
 		if(WorldInfo.GRI.IsMultiplayerGame())
 		{
-			SetTimer(BagSearchTapTime, false, "UseCarriedObject", default);
+			SetTimer(BagSearchTapTime, false, "UseCarriedObject", default(Object?));
 		}
 	}
 	
@@ -2036,9 +2036,9 @@ public partial class TdPlayerController : GamePlayerController,
 		}
 		if(WorldInfo.GRI.IsMultiplayerGame())
 		{
-			if(IsTimerActive("UseCarriedObject", default))
+			if(IsTimerActive("UseCarriedObject", default(Object?)))
 			{
-				ClearTimer("UseCarriedObject", default);
+				ClearTimer("UseCarriedObject", default(Object?));
 				ServerUseCarriedObject(true);
 			}
 		}
@@ -2324,7 +2324,7 @@ public partial class TdPlayerController : GamePlayerController,
 		SetAudioProfileSettings();
 		SetVideoProfileSettings();
 		SetKeyBindingsProfileSettings();
-		SetControlBindingsProfileSettings(default);
+		SetControlBindingsProfileSettings(default(array<Input.KeyBind>?));
 		SetGameProfileSettings();
 	}
 	
@@ -2381,7 +2381,7 @@ public partial class TdPlayerController : GamePlayerController,
 		if(TdInput != default)
 		{
 			ProfileSettings.ApplyKeyBindings(TdInput);
-			ProfileSettings.ApplyGamepadBindings(TdInput, default);
+			ProfileSettings.ApplyGamepadBindings(TdInput, default(array<Input.KeyBind>?));
 		}
 		ClearDataStoreBindingsCache();
 	}
@@ -2402,7 +2402,7 @@ public partial class TdPlayerController : GamePlayerController,
 				if(BindingsDataStore != default)
 				{
 					BindingsDataStore.ClearBoundKeyCache();
-					BindingsDataStore.RefreshSubscribers(default, default, default, default);
+					BindingsDataStore.RefreshSubscribers(default(name?), default(bool?), default(UIDataProvider?), default(int?));
 				}
 			}
 		}
@@ -2705,7 +2705,7 @@ public partial class TdPlayerController : GamePlayerController,
 					DataStoreManager.UnregisterDataStore(TutorialData);
 				}
 				StringAliasBindingsMapStore = default;
-				BindingsMap = ((DataStoreManager.FindDataStore("StringAliasBindings", default)) as UIDataStore_TdStringAliasBindingsMap);
+				BindingsMap = ((DataStoreManager.FindDataStore("StringAliasBindings", default(LocalPlayer?))) as UIDataStore_TdStringAliasBindingsMap);
 				if(BindingsMap != default)
 				{
 					DataStoreManager.UnregisterDataStore(BindingsMap);
@@ -2931,7 +2931,7 @@ public partial class TdPlayerController : GamePlayerController,
 		SceneClient = ((UIRoot.GetSceneClient()) as TdGameUISceneClient);
 		ErrorMessageBox.bPauseGameWhileActive = true;
 		SceneClient.RequestPausedUpdate();
-		ErrorMessageBox.DisplayAcceptCancelRetryBox("<Strings:TdGameUI.TdMessageBox.FailedToWriteProfileProgress_Message>", "<Strings:TdGameUI.TdMessageBox.FailedToWriteProfile_Title>", OnErrorMessageBoxClosed, default);
+		ErrorMessageBox.DisplayAcceptCancelRetryBox("<Strings:TdGameUI.TdMessageBox.FailedToWriteProfileProgress_Message>", "<Strings:TdGameUI.TdMessageBox.FailedToWriteProfile_Title>", OnErrorMessageBoxClosed, default(bool?));
 	}
 	
 	public virtual /*private final function */void OnErrorMessageBoxClosed(TdUIScene_MessageBox InMessageBox, int SelectedOption, int PlayerIndex)
@@ -2991,7 +2991,7 @@ public partial class TdPlayerController : GamePlayerController,
 		bIgnoreLookInput = (byte)0;
 		bIgnoreMoveInput = (byte)0;
 		bGodMode = false;
-		ClientStopForceFeedbackWaveform(default);
+		ClientStopForceFeedbackWaveform(default(ForceFeedbackWaveform?));
 		bOverrideReactionTimeSettings = false;
 		ReactionTimeEnergy = 0.0f;
 		UpdateReactionTime(1.0f);
@@ -3103,7 +3103,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	public virtual /*function */void TriggerPickupFlash()
 	{
-		((myHUD) as TdHUD).TriggerCustomColorBlink(0.060f, 0.40f, 1.0f, 1.0f, 1.0f, true, default);
+		((myHUD) as TdHUD).TriggerCustomColorBlink(0.060f, 0.40f, 1.0f, 1.0f, 1.0f, true, default(/*delegate*/TdHUD.OnMaxFade?));
 		ClientPlaySound(ObjectConst<SoundCue>("BagFound"));
 		CallPopUp(TdSPHUD.EPopUpType.PUT_Bag/*4*/, 5.0f);
 	}
@@ -3119,7 +3119,7 @@ public partial class TdPlayerController : GamePlayerController,
 			DataStoreManager = UIInteraction.GetDataStoreClient();
 			if(DataStoreManager != default)
 			{
-				TimeTrialData = ((DataStoreManager.FindDataStore("TdTimeTrialData", default)) as UIDataStore_TdTimeTrialData);
+				TimeTrialData = ((DataStoreManager.FindDataStore("TdTimeTrialData", default(LocalPlayer?))) as UIDataStore_TdTimeTrialData);
 				if(TimeTrialData != default)
 				{
 					ProviderIndex = TimeTrialData.GetStretchProviderIndexFromId(TimeTrialData.GetCurrentWorkingStretchId(), "TdLevelRaceStretches");
@@ -3302,7 +3302,7 @@ public partial class TdPlayerController : GamePlayerController,
 					StatusId = 2;
 				}
 				StringSetting.Id = 1;
-				StringSetting.ValueIndex = GetMapId(default);
+				StringSetting.ValueIndex = GetMapId(default(bool?));
 				StringSettings.AddItem(StringSetting);			
 			}
 			else
@@ -3327,14 +3327,14 @@ public partial class TdPlayerController : GamePlayerController,
 		/*local */int Idx = default;
 	
 		var TimeTrial = _TimeTrial ?? default;
-		if(WorldInfo.IsConsoleBuild(default))
+		if(WorldInfo.IsConsoleBuild(default(WorldInfo.EConsoleType?)))
 		{
 			PresBindings = ClassT<TpPresenceManager>().DefaultAs<TpPresenceManager>().PresenceBindings;
 			Idx = 0;
 			J0x31:{}
 			if(Idx < PresBindings.Length)
 			{
-				if(ApproximatelyEqual(PresBindings[Idx].LevelName, WorldInfo.GetMapName(default)))
+				if(ApproximatelyEqual(PresBindings[Idx].LevelName, WorldInfo.GetMapName(default(bool?))))
 				{
 					return PresBindings[Idx].PresenceId;
 				}
@@ -3347,10 +3347,10 @@ public partial class TdPlayerController : GamePlayerController,
 			SceneClient = ((GetUIController().SceneClient) as TdGameUISceneClient);
 			if(TimeTrial)
 			{
-				TTDataStore = ((SceneClient.FindDataStore("TdTimeTrialData", default)) as UIDataStore_TdTimeTrialData);
+				TTDataStore = ((SceneClient.FindDataStore("TdTimeTrialData", default(LocalPlayer?))) as UIDataStore_TdTimeTrialData);
 				return TTDataStore.GetCurrentWorkingStretchProviderIndex();
 			}
-			return SceneClient.GetGameDataStore().GetMapIndexFromFileName(WorldInfo.GetMapName(default));
+			return SceneClient.GetGameDataStore().GetMapIndexFromFileName(WorldInfo.GetMapName(default(bool?)));
 		}
 		#warning decompiling process did not include a return on the last line, added default return
 	
@@ -3381,8 +3381,8 @@ public partial class TdPlayerController : GamePlayerController,
 	
 		TriggerTime = 4.0f + (FRand() * 5.0f);
 		SetTimer(TriggerTime, false, "Jump", PlayerInput);
-		SetTimer(TriggerTime + 0.40f, false, "LookBehind", default);
-		SetTimer(TriggerTime + 0.60f, false, "RandomLieOnBack", default);
+		SetTimer(TriggerTime + 0.40f, false, "LookBehind", default(Object?));
+		SetTimer(TriggerTime + 0.60f, false, "RandomLieOnBack", default(Object?));
 	}
 	
 	// Export UTdPlayerController::execGetInvViewProjection(FFrame&, void* const)
@@ -3547,7 +3547,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ AttemptReactionTime = ()=>{}; StartFire = (a)=>{};
+			/*ignores*/ AttemptReactionTime = ()=>{}; StartFire = (_a)=>{};
 	
 			ServerRestartPlayer = TdPlayerController_PlayerWaiting_ServerRestartPlayer;
 			NextViewTarget = TdPlayerController_PlayerWaiting_NextViewTarget;
@@ -3647,7 +3647,7 @@ public partial class TdPlayerController : GamePlayerController,
 					if((AccelerationTime > 0.0f) && AccelerationTime < 0.150f)
 					{
 						bIsStopping = true;
-						SetTimer(0.250f, false, "PlayStop", default);
+						SetTimer(0.250f, false, "PlayStop", default(Object?));
 						StoppingVelocity = 35.0f;
 						myPawn.Velocity = Normal(myPawn.Velocity) * StoppingVelocity;
 					}
@@ -3724,8 +3724,8 @@ public partial class TdPlayerController : GamePlayerController,
 		{
 			if((!bIsWalking && !bIsStopping) && ((int)myPawn.CurrentWalkingState) >= ((int)TdPawn.WalkingState.WAS_Walk/*2*/))
 			{
-				ClearTimer("PlayStopLeft", default);
-				ClearTimer("PlayStopRight", default);
+				ClearTimer("PlayStopLeft", default(Object?));
+				ClearTimer("PlayStopRight", default(Object?));
 				myPawn.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody_Dir/*3*/, StopAnimBlendOut);
 				bIsWalking = true;
 				bIsStopping = false;
@@ -3750,7 +3750,7 @@ public partial class TdPlayerController : GamePlayerController,
 	{
 		if(ShouldPlayStopAnim())
 		{
-			myPawn.PlayCustomAnim(TdPawn.CustomNodeType.CNT_LowerBody/*5*/, "walktostandpassleft", 1.0f, StopAnimBlendIn, StopAnimBlendOut, false, true, false, default);
+			myPawn.PlayCustomAnim(TdPawn.CustomNodeType.CNT_LowerBody/*5*/, "walktostandpassleft", 1.0f, StopAnimBlendIn, StopAnimBlendOut, false, true, false, default(bool?));
 		}
 		bIsStopping = false;
 	}
@@ -3759,7 +3759,7 @@ public partial class TdPlayerController : GamePlayerController,
 	{
 		if(ShouldPlayStopAnim())
 		{
-			myPawn.PlayCustomAnim(TdPawn.CustomNodeType.CNT_LowerBody/*5*/, "walktostandpassright", 1.0f, StopAnimBlendIn, StopAnimBlendOut, false, true, false, default);
+			myPawn.PlayCustomAnim(TdPawn.CustomNodeType.CNT_LowerBody/*5*/, "walktostandpassright", 1.0f, StopAnimBlendIn, StopAnimBlendOut, false, true, false, default(bool?));
 		}
 		bIsStopping = false;
 	}
@@ -4316,7 +4316,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ StartFire = (a)=>{}; StartAltFire = (a)=>{}; AttemptReactionTime = ()=>{};
+			/*ignores*/ StartFire = (_a)=>{}; StartAltFire = (_a)=>{}; AttemptReactionTime = ()=>{};
 	
 			NextStaticViewTarget = TdPlayerController_Spectating_NextStaticViewTarget;
 			PrevStaticViewTarget = TdPlayerController_Spectating_PrevStaticViewTarget;
@@ -4443,7 +4443,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ ProcessMove = (a,b,c,d)=>{};
+			/*ignores*/ ProcessMove = (_1,_2,_3,_a)=>{};
 	
 			PlayerMove = TdPlayerController_PlayerDying_PlayerMove;
 	
@@ -4509,10 +4509,10 @@ public partial class TdPlayerController : GamePlayerController,
 		}
 		else
 		{
-			SetViewTarget(this, default);
+			SetViewTarget(this, default(Camera.ViewTargetTransitionParams?));
 		}
 		StopSounds(0.10f, "VO");
-		ClientStopForceFeedbackWaveform(default);
+		ClientStopForceFeedbackWaveform(default(ForceFeedbackWaveform?));
 	}
 	
 	protected /*unreliable server function */void TdPlayerController_Dead_ServerViewNextPlayer()// state function
@@ -4580,7 +4580,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ StartFire = (a)=>{}; AttemptReactionTime = ()=>{};
+			/*ignores*/ StartFire = (_a)=>{}; AttemptReactionTime = ()=>{};
 	
 			NextViewTarget = TdPlayerController_Dead_NextViewTarget;
 			PrevViewTarget = TdPlayerController_Dead_PrevViewTarget;

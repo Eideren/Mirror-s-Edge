@@ -19,19 +19,20 @@ public partial class PrefabInstance : Actor/*
 	
 	public PrefabInstance()
 	{
+		var Default__PrefabInstance_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004D00EE
+			Sprite = LoadAsset<Texture2D>("EngineResources.PrefabSprite")/*Ref Texture2D'EngineResources.PrefabSprite'*/,
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__PrefabInstance.Sprite' */;
 		// Object Offset:0x003A7FF2
 		PI_PackageVersion = -1;
 		PI_LicenseePackageVersion = -1;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004D00EE
-				Sprite = LoadAsset<Texture2D>("EngineResources.PrefabSprite")/*Ref Texture2D'EngineResources.PrefabSprite'*/,
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__PrefabInstance.Sprite' */,
+			Default__PrefabInstance_Sprite,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
 	}

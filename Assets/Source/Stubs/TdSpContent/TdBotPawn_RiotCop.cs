@@ -41,15 +41,16 @@ public partial class TdBotPawn_RiotCop : TdBotPawn/*
 	}
 	public TdBotPawn_RiotCop()
 	{
-		// Object Offset:0x0001FDD3
-		ActorCylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_RiotCop.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_RiotCop.ActorCollisionCylinder'*/;
-		Mesh3p = new TdSkeletalMeshComponent
+		var Default__TdBotPawn_RiotCop_TdPawnMesh3p = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x00022C6E
 			AnimTreeTemplate = LoadAsset<AnimTree>("AT_Cop.AT_Cop")/*Ref AnimTree'AT_Cop.AT_Cop'*/,
 			PhysicsAsset = LoadAsset<PhysicsAsset>("CH_TKY_Cop_SWAT.Male3p_Physics")/*Ref PhysicsAsset'CH_TKY_Cop_SWAT.Male3p_Physics'*/,
 			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_RiotCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_RiotCop.MyLightEnvironment'*/,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_RiotCop.TdPawnMesh3p' */;
+		// Object Offset:0x0001FDD3
+		ActorCylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_RiotCop.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_RiotCop.ActorCollisionCylinder'*/;
+		Mesh3p = Default__TdBotPawn_RiotCop_TdPawnMesh3p;
 		MoveClasses = new array< Core.ClassT<TdMove> >
 		{
 			default,
@@ -221,13 +222,7 @@ public partial class TdBotPawn_RiotCop : TdBotPawn/*
 		};
 		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawn_RiotCop.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_RiotCop.SceneCaptureCharacterComponent0'*/;
 		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdBotPawn_RiotCop.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn_RiotCop.DrawFrust0'*/;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00022C6E
-			AnimTreeTemplate = LoadAsset<AnimTree>("AT_Cop.AT_Cop")/*Ref AnimTree'AT_Cop.AT_Cop'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("CH_TKY_Cop_SWAT.Male3p_Physics")/*Ref PhysicsAsset'CH_TKY_Cop_SWAT.Male3p_Physics'*/,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_RiotCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_RiotCop.MyLightEnvironment'*/,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_RiotCop.TdPawnMesh3p' */;
+		Mesh = Default__TdBotPawn_RiotCop_TdPawnMesh3p;
 		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_RiotCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_RiotCop.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
@@ -236,13 +231,7 @@ public partial class TdBotPawn_RiotCop : TdBotPawn/*
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_RiotCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_RiotCop.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdBotPawn_RiotCop.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_RiotCop.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_RiotCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_RiotCop.MyLightEnvironment'*/,
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00022C6E
-				AnimTreeTemplate = LoadAsset<AnimTree>("AT_Cop.AT_Cop")/*Ref AnimTree'AT_Cop.AT_Cop'*/,
-				PhysicsAsset = LoadAsset<PhysicsAsset>("CH_TKY_Cop_SWAT.Male3p_Physics")/*Ref PhysicsAsset'CH_TKY_Cop_SWAT.Male3p_Physics'*/,
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_RiotCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_RiotCop.MyLightEnvironment'*/,
-			}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_RiotCop.TdPawnMesh3p' */,
+			Default__TdBotPawn_RiotCop_TdPawnMesh3p,
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_RiotCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_RiotCop.CollisionCylinder'*/,
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_RiotCop.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_RiotCop.ActorCollisionCylinder'*/,
 		};

@@ -7,12 +7,7 @@ public partial class TdDmgType_ElectricShock : TdDamageType{
 	
 	public TdDmgType_ElectricShock()
 	{
-		// Object Offset:0x005426A8
-		DamageImpulse = 300.0f;
-		DamageZDirection = 0.20f;
-		bCausePhysicalHitReaction = false;
-		bExtraMomentumZ = false;
-		DamagedFFWaveform = new ForceFeedbackWaveform
+		var Default__TdDmgType_ElectricShock_ForceFeedbackWaveform0 = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x01B6BF4A
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -27,7 +22,7 @@ public partial class TdDmgType_ElectricShock : TdDamageType{
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdDmgType_ElectricShock.ForceFeedbackWaveform0' */;
-		KilledFFWaveform = new ForceFeedbackWaveform
+		var Default__TdDmgType_ElectricShock_ForceFeedbackWaveform1 = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x01B6C018
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -42,6 +37,13 @@ public partial class TdDmgType_ElectricShock : TdDamageType{
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdDmgType_ElectricShock.ForceFeedbackWaveform1' */;
+		// Object Offset:0x005426A8
+		DamageImpulse = 300.0f;
+		DamageZDirection = 0.20f;
+		bCausePhysicalHitReaction = false;
+		bExtraMomentumZ = false;
+		DamagedFFWaveform = Default__TdDmgType_ElectricShock_ForceFeedbackWaveform0;
+		KilledFFWaveform = Default__TdDmgType_ElectricShock_ForceFeedbackWaveform1;
 	}
 }
 }

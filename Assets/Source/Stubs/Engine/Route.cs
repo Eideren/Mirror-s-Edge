@@ -34,27 +34,25 @@ public partial class Route : Info/*
 	
 	public Route()
 	{
+		var Default__Route_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004D0572
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_Route")/*Ref Texture2D'EngineResources.S_Route'*/,
+		}/* Reference: SpriteComponent'Default__Route.Sprite' */;
+		var Default__Route_RouteRenderer = new RouteRenderingComponent
+		{
+			// Object Offset:0x004CE5F6
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: RouteRenderingComponent'Default__Route.RouteRenderer' */;
 		// Object Offset:0x003B06E9
 		bStatic = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004D0572
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_Route")/*Ref Texture2D'EngineResources.S_Route'*/,
-			}/* Reference: SpriteComponent'Default__Route.Sprite' */,
-			new SpriteComponent
-			{
-				// Object Offset:0x004D0572
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_Route")/*Ref Texture2D'EngineResources.S_Route'*/,
-			}/* Reference: SpriteComponent'Default__Route.Sprite' */,
-			new RouteRenderingComponent
-			{
-				// Object Offset:0x004CE5F6
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: RouteRenderingComponent'Default__Route.RouteRenderer' */,
+			Default__Route_Sprite,
+			Default__Route_Sprite,
+			Default__Route_RouteRenderer,
 		};
 	}
 }

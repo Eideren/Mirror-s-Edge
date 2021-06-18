@@ -163,6 +163,59 @@ public partial class TdWeapon_Bag : TdWeapon_Light/*
 	}
 	public TdWeapon_Bag()
 	{
+		var Default__TdWeapon_Bag_FirstPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x00011390
+			SkeletalMesh = LoadAsset<SkeletalMesh>("Bag.SK_Bag")/*Ref SkeletalMesh'Bag.SK_Bag'*/,
+			PhysicsWeight = 1.0f,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18")/*Ref TdAnimSet'AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18'*/,
+			},
+			bUpdateJointsFromAnimation = true,
+			bEnableFullAnimWeightBodies = true,
+			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
+			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
+			{
+				Default = true,
+				GameplayPhysics = true,
+				EffectPhysics = true,
+			},
+			Rotation = new Rotator
+			{
+				Pitch=16000,
+				Yaw=16000,
+				Roll=0
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Bag.FirstPersonMesh' */;
+		var Default__TdWeapon_Bag_ThirdPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x00011504
+			SkeletalMesh = LoadAsset<SkeletalMesh>("Bag.SK_Bag")/*Ref SkeletalMesh'Bag.SK_Bag'*/,
+			PhysicsWeight = 1.0f,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/,
+			},
+			bUpdateJointsFromAnimation = true,
+			bEnableFullAnimWeightBodies = true,
+			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
+			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
+			{
+				Default = true,
+				GameplayPhysics = true,
+				EffectPhysics = true,
+			},
+			Rotation = new Rotator
+			{
+				Pitch=16000,
+				Yaw=16000,
+				Roll=0
+			},
+			Scale = 1.50f,
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Bag.ThirdPersonMesh' */;
 		// Object Offset:0x000103CD
 		MaxThrowVelocity = 1200.0f;
 		MinThrowVelocity = 800.0f;
@@ -211,59 +264,8 @@ public partial class TdWeapon_Bag : TdWeapon_Light/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18")/*Ref TdAnimSet'AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/;
-		Mesh1p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00011390
-			SkeletalMesh = LoadAsset<SkeletalMesh>("Bag.SK_Bag")/*Ref SkeletalMesh'Bag.SK_Bag'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18")/*Ref TdAnimSet'AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-			Rotation = new Rotator
-			{
-				Pitch=16000,
-				Yaw=16000,
-				Roll=0
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Bag.FirstPersonMesh' */;
-		Mesh3p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00011504
-			SkeletalMesh = LoadAsset<SkeletalMesh>("Bag.SK_Bag")/*Ref SkeletalMesh'Bag.SK_Bag'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-			Rotation = new Rotator
-			{
-				Pitch=16000,
-				Yaw=16000,
-				Roll=0
-			},
-			Scale = 1.50f,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Bag.ThirdPersonMesh' */;
+		Mesh1p = Default__TdWeapon_Bag_FirstPersonMesh;
+		Mesh3p = Default__TdWeapon_Bag_ThirdPersonMesh;
 		DefaultDecalMaterial = default;
 		DefaultImpactMaterial = default;
 		FiringStatesArray = new array<name>
@@ -298,32 +300,7 @@ public partial class TdWeapon_Bag : TdWeapon_Light/*
 		};
 		EquipTime = 0.50f;
 		WeaponRange = 0.0f;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00011390
-			SkeletalMesh = LoadAsset<SkeletalMesh>("Bag.SK_Bag")/*Ref SkeletalMesh'Bag.SK_Bag'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18")/*Ref TdAnimSet'AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-			Rotation = new Rotator
-			{
-				Pitch=16000,
-				Yaw=16000,
-				Roll=0
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Bag.FirstPersonMesh' */;
+		Mesh = Default__TdWeapon_Bag_FirstPersonMesh;
 		bDropOnDeath = true;
 		InventorySlot = Inventory.EInventorySlot.EISlot_LightWeapon;
 		DroppedPickupClass = default;
@@ -331,61 +308,8 @@ public partial class TdWeapon_Bag : TdWeapon_Light/*
 		PickupFactoryMesh = default;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00011390
-				SkeletalMesh = LoadAsset<SkeletalMesh>("Bag.SK_Bag")/*Ref SkeletalMesh'Bag.SK_Bag'*/,
-				PhysicsWeight = 1.0f,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18")/*Ref TdAnimSet'AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18'*/,
-				},
-				bUpdateJointsFromAnimation = true,
-				bEnableFullAnimWeightBodies = true,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-				Rotation = new Rotator
-				{
-					Pitch=16000,
-					Yaw=16000,
-					Roll=0
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Bag.FirstPersonMesh' */,
-			//Components[1]=
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00011504
-				SkeletalMesh = LoadAsset<SkeletalMesh>("Bag.SK_Bag")/*Ref SkeletalMesh'Bag.SK_Bag'*/,
-				PhysicsWeight = 1.0f,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/,
-				},
-				bUpdateJointsFromAnimation = true,
-				bEnableFullAnimWeightBodies = true,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-				Rotation = new Rotator
-				{
-					Pitch=16000,
-					Yaw=16000,
-					Roll=0
-				},
-				Scale = 1.50f,
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Bag.ThirdPersonMesh' */,
+			Default__TdWeapon_Bag_FirstPersonMesh,
+			Default__TdWeapon_Bag_ThirdPersonMesh,
 		};
 	}
 }

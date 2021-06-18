@@ -268,13 +268,7 @@ public partial class TdMove_Landing : TdMove/*
 	
 	public TdMove_Landing()
 	{
-		// Object Offset:0x005C97CF
-		HardLandingDamage = 15.0f;
-		LandingSpeedReduction = 65.0f;
-		HardLandingHeight = 530.0f;
-		SkillRollLandingHeight = 200.0f;
-		SoftLandingHeight = 300.0f;
-		ImpactHeavyWaveform = new ForceFeedbackWaveform
+		var Default__TdMove_Landing_ImpactHeavyWaveformObj = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x01B6C658
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -297,7 +291,7 @@ public partial class TdMove_Landing : TdMove/*
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdMove_Landing.ImpactHeavyWaveformObj' */;
-		ImpactMediumWaveform = new ForceFeedbackWaveform
+		var Default__TdMove_Landing_ImpactMediumWaveformObj = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x01B6C7C4
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -312,6 +306,14 @@ public partial class TdMove_Landing : TdMove/*
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdMove_Landing.ImpactMediumWaveformObj' */;
+		// Object Offset:0x005C97CF
+		HardLandingDamage = 15.0f;
+		LandingSpeedReduction = 65.0f;
+		HardLandingHeight = 530.0f;
+		SkillRollLandingHeight = 200.0f;
+		SoftLandingHeight = 300.0f;
+		ImpactHeavyWaveform = Default__TdMove_Landing_ImpactHeavyWaveformObj;
+		ImpactMediumWaveform = Default__TdMove_Landing_ImpactMediumWaveformObj;
 		SoftLandingEffect = LoadAsset<ParticleSystem>("FX_InteractionEffects.Effects.PS_FX_Landing_SoftObject_01")/*Ref ParticleSystem'FX_InteractionEffects.Effects.PS_FX_Landing_SoftObject_01'*/;
 	}
 }

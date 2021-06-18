@@ -49,27 +49,22 @@ public partial class TdCopStashpoint : TdStashpoint/*
 	}
 	public TdCopStashpoint()
 	{
-		// Object Offset:0x0053867A
-		TerritoryOfTeam = 1;
-		bNotifyKismet = false;
-		bNoDelete = false;
-		Components = new array</*export editinline */ActorComponent>
-		{
-			new CylinderComponent
-			{
-				// Object Offset:0x01AB4A86
-				CollisionHeight = 100.0f,
-				CollisionRadius = 30.0f,
-				CollideActors = true,
-			}/* Reference: CylinderComponent'Default__TdCopStashpoint.CollisionCylinder' */,
-		};
-		CollisionComponent = new CylinderComponent
+		var Default__TdCopStashpoint_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x01AB4A86
 			CollisionHeight = 100.0f,
 			CollisionRadius = 30.0f,
 			CollideActors = true,
 		}/* Reference: CylinderComponent'Default__TdCopStashpoint.CollisionCylinder' */;
+		// Object Offset:0x0053867A
+		TerritoryOfTeam = 1;
+		bNotifyKismet = false;
+		bNoDelete = false;
+		Components = new array</*export editinline */ActorComponent>
+		{
+			Default__TdCopStashpoint_CollisionCylinder,
+		};
+		CollisionComponent = Default__TdCopStashpoint_CollisionCylinder;
 	}
 }
 }

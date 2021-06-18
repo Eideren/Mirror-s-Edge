@@ -14,8 +14,7 @@ public partial class UIPanel : UIContainer/*
 	
 	public UIPanel()
 	{
-		// Object Offset:0x003B49E8
-		BackgroundImageComponent = new UIComp_DrawImage
+		var Default__UIPanel_PanelBackgroundTemplate = new UIComp_DrawImage
 		{
 			// Object Offset:0x003B4B63
 			StyleResolverTag = (name)"Panel Background Style",
@@ -24,6 +23,8 @@ public partial class UIPanel : UIContainer/*
 				DefaultStyleTag = (name)"PanelBackground",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UIPanel.PanelBackgroundTemplate' */;
+		// Object Offset:0x003B49E8
+		BackgroundImageComponent = Default__UIPanel_PanelBackgroundTemplate;
 		PrimaryStyle = new UIRoot.UIStyleReference
 		{
 			DefaultStyleTag = (name)"PanelBackground",

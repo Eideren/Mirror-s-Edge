@@ -145,8 +145,7 @@ public partial class SkeletalMeshActor : Actor/*
 	}
 	public SkeletalMeshActor()
 	{
-		// Object Offset:0x003E6F63
-		SkeletalMeshComponent = new SkeletalMeshComponent
+		var Default__SkeletalMeshActor_SkeletalMeshComponent0 = new SkeletalMeshComponent
 		{
 			// Object Offset:0x003E72A4
 			Animations = LoadAsset<AnimNodeSequence>("Default__SkeletalMeshActor.AnimNodeSeq0")/*Ref AnimNodeSequence'Default__SkeletalMeshActor.AnimNodeSeq0'*/,
@@ -162,11 +161,14 @@ public partial class SkeletalMeshActor : Actor/*
 				EffectPhysics = true,
 			},
 		}/* Reference: SkeletalMeshComponent'Default__SkeletalMeshActor.SkeletalMeshComponent0' */;
-		LightEnvironment = new DynamicLightEnvironmentComponent
+		var Default__SkeletalMeshActor_MyLightEnvironment = new DynamicLightEnvironmentComponent
 		{
 			// Object Offset:0x003E7270
 			bEnabled = false,
 		}/* Reference: DynamicLightEnvironmentComponent'Default__SkeletalMeshActor.MyLightEnvironment' */;
+		// Object Offset:0x003E6F63
+		SkeletalMeshComponent = Default__SkeletalMeshActor_SkeletalMeshComponent0;
+		LightEnvironment = Default__SkeletalMeshActor_MyLightEnvironment;
 		FacialAudioComp = LoadAsset<AudioComponent>("Default__SkeletalMeshActor.FaceAudioComponent")/*Ref AudioComponent'Default__SkeletalMeshActor.FaceAudioComponent'*/;
 		LOILookAtDelay = -1.0f;
 		LOIMinDuration = 1.50f;
@@ -177,45 +179,11 @@ public partial class SkeletalMeshActor : Actor/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new DynamicLightEnvironmentComponent
-			{
-				// Object Offset:0x003E7270
-				bEnabled = false,
-			}/* Reference: DynamicLightEnvironmentComponent'Default__SkeletalMeshActor.MyLightEnvironment' */,
-			new SkeletalMeshComponent
-			{
-				// Object Offset:0x003E72A4
-				Animations = LoadAsset<AnimNodeSequence>("Default__SkeletalMeshActor.AnimNodeSeq0")/*Ref AnimNodeSequence'Default__SkeletalMeshActor.AnimNodeSeq0'*/,
-				bForceMeshObjectUpdates = true,
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__SkeletalMeshActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActor.MyLightEnvironment'*/,
-				CollideActors = true,
-				BlockZeroExtent = true,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-			}/* Reference: SkeletalMeshComponent'Default__SkeletalMeshActor.SkeletalMeshComponent0' */,
+			Default__SkeletalMeshActor_MyLightEnvironment,
+			Default__SkeletalMeshActor_SkeletalMeshComponent0,
 			LoadAsset<AudioComponent>("Default__SkeletalMeshActor.FaceAudioComponent")/*Ref AudioComponent'Default__SkeletalMeshActor.FaceAudioComponent'*/,
 		};
-		CollisionComponent = new SkeletalMeshComponent
-		{
-			// Object Offset:0x003E72A4
-			Animations = LoadAsset<AnimNodeSequence>("Default__SkeletalMeshActor.AnimNodeSeq0")/*Ref AnimNodeSequence'Default__SkeletalMeshActor.AnimNodeSeq0'*/,
-			bForceMeshObjectUpdates = true,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__SkeletalMeshActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActor.MyLightEnvironment'*/,
-			CollideActors = true,
-			BlockZeroExtent = true,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: SkeletalMeshComponent'Default__SkeletalMeshActor.SkeletalMeshComponent0' */;
+		CollisionComponent = Default__SkeletalMeshActor_SkeletalMeshComponent0;
 	}
 }
 }

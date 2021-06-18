@@ -211,6 +211,11 @@ public partial class PhysicsVolume : Volume/*
 	}
 	public PhysicsVolume()
 	{
+		var Default__PhysicsVolume_BrushComponent0 = new BrushComponent
+		{
+			// Object Offset:0x0030CA5E
+			BlockZeroExtent = true,
+		}/* Reference: BrushComponent'Default__PhysicsVolume.BrushComponent0' */;
 		// Object Offset:0x0030C7BB
 		bVelocityAffectsWalking = true;
 		GroundFriction = 8.0f;
@@ -218,27 +223,15 @@ public partial class PhysicsVolume : Volume/*
 		DamageType = ClassT<DamageType>()/*Ref Class'DamageType'*/;
 		FluidFriction = 0.30f;
 		MaxDampingForce = 1000000.0f;
-		BrushComponent = new BrushComponent
-		{
-			// Object Offset:0x0030CA5E
-			BlockZeroExtent = true,
-		}/* Reference: BrushComponent'Default__PhysicsVolume.BrushComponent0' */;
+		BrushComponent = Default__PhysicsVolume_BrushComponent0;
 		bAlwaysRelevant = true;
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new BrushComponent
-			{
-				// Object Offset:0x0030CA5E
-				BlockZeroExtent = true,
-			}/* Reference: BrushComponent'Default__PhysicsVolume.BrushComponent0' */,
+			Default__PhysicsVolume_BrushComponent0,
 		};
 		NetUpdateFrequency = 0.10f;
-		CollisionComponent = new BrushComponent
-		{
-			// Object Offset:0x0030CA5E
-			BlockZeroExtent = true,
-		}/* Reference: BrushComponent'Default__PhysicsVolume.BrushComponent0' */;
+		CollisionComponent = Default__PhysicsVolume_BrushComponent0;
 	}
 }
 }

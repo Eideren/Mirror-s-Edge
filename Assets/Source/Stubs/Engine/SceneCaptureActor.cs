@@ -10,17 +10,18 @@ public partial class SceneCaptureActor : Actor/*
 	
 	public SceneCaptureActor()
 	{
+		var Default__SceneCaptureActor_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x003A335C
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__SceneCaptureActor.Sprite' */;
 		// Object Offset:0x003A327D
 		bNoDelete = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x003A335C
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__SceneCaptureActor.Sprite' */,
+			Default__SceneCaptureActor_Sprite,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 	}

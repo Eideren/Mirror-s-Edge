@@ -6,30 +6,23 @@ public partial class SkeletalMeshActorMATSpawnable : SkeletalMeshActorMAT/*
 		hidecategories(Navigation)*/{
 	public SkeletalMeshActorMATSpawnable()
 	{
-		// Object Offset:0x003E7F27
-		SkeletalMeshComponent = new SkeletalMeshComponent
+		var Default__SkeletalMeshActorMATSpawnable_SkeletalMeshComponent0 = new SkeletalMeshComponent
 		{
 			// Object Offset:0x004CEDB2
 			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__SkeletalMeshActorMATSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActorMATSpawnable.MyLightEnvironment'*/,
 		}/* Reference: SkeletalMeshComponent'Default__SkeletalMeshActorMATSpawnable.SkeletalMeshComponent0' */;
+		// Object Offset:0x003E7F27
+		SkeletalMeshComponent = Default__SkeletalMeshActorMATSpawnable_SkeletalMeshComponent0;
 		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__SkeletalMeshActorMATSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActorMATSpawnable.MyLightEnvironment'*/;
 		FacialAudioComp = LoadAsset<AudioComponent>("Default__SkeletalMeshActorMATSpawnable.FaceAudioComponent")/*Ref AudioComponent'Default__SkeletalMeshActorMATSpawnable.FaceAudioComponent'*/;
 		bNoDelete = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__SkeletalMeshActorMATSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActorMATSpawnable.MyLightEnvironment'*/,
-			new SkeletalMeshComponent
-			{
-				// Object Offset:0x004CEDB2
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__SkeletalMeshActorMATSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActorMATSpawnable.MyLightEnvironment'*/,
-			}/* Reference: SkeletalMeshComponent'Default__SkeletalMeshActorMATSpawnable.SkeletalMeshComponent0' */,
+			Default__SkeletalMeshActorMATSpawnable_SkeletalMeshComponent0,
 			LoadAsset<AudioComponent>("Default__SkeletalMeshActorMATSpawnable.FaceAudioComponent")/*Ref AudioComponent'Default__SkeletalMeshActorMATSpawnable.FaceAudioComponent'*/,
 		};
-		CollisionComponent = new SkeletalMeshComponent
-		{
-			// Object Offset:0x004CEDB2
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__SkeletalMeshActorMATSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActorMATSpawnable.MyLightEnvironment'*/,
-		}/* Reference: SkeletalMeshComponent'Default__SkeletalMeshActorMATSpawnable.SkeletalMeshComponent0' */;
+		CollisionComponent = Default__SkeletalMeshActorMATSpawnable_SkeletalMeshComponent0;
 	}
 }
 }

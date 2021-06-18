@@ -51,21 +51,23 @@ public partial class CoverGroup : Info/*
 	
 	public CoverGroup()
 	{
+		var Default__CoverGroup_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004CF736
+			Sprite = LoadAsset<Texture2D>("EditorMaterials.CovergroupIcon")/*Ref Texture2D'EditorMaterials.CovergroupIcon'*/,
+		}/* Reference: SpriteComponent'Default__CoverGroup.Sprite' */;
+		var Default__CoverGroup_CoverGroupRenderer = new CoverGroupRenderingComponent
+		{
+			// Object Offset:0x0046632F
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: CoverGroupRenderingComponent'Default__CoverGroup.CoverGroupRenderer' */;
 		// Object Offset:0x002E3929
 		bStatic = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004CF736
-				Sprite = LoadAsset<Texture2D>("EditorMaterials.CovergroupIcon")/*Ref Texture2D'EditorMaterials.CovergroupIcon'*/,
-			}/* Reference: SpriteComponent'Default__CoverGroup.Sprite' */,
-			new CoverGroupRenderingComponent
-			{
-				// Object Offset:0x0046632F
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: CoverGroupRenderingComponent'Default__CoverGroup.CoverGroupRenderer' */,
+			Default__CoverGroup_Sprite,
+			Default__CoverGroup_CoverGroupRenderer,
 		};
 	}
 }

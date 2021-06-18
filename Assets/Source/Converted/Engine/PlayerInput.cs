@@ -299,7 +299,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 					Outer.InputRequests[I].MatchIdx = 0;
 					if(Outer.InputRequests[I].FailedFuncName != "None")
 					{
-						Outer.InputRequests[I].MatchActor.SetTimer(0.010f, false, Outer.InputRequests[I].FailedFuncName, default);
+						Outer.InputRequests[I].MatchActor.SetTimer(0.010f, false, Outer.InputRequests[I].FailedFuncName, default(Object?));
 					}
 					goto J0x4C0;
 				}
@@ -334,7 +334,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 					{
 						if(Outer.InputRequests[I].MatchFuncName != "None")
 						{
-							Outer.InputRequests[I].MatchActor.SetTimer(0.010f, false, Outer.InputRequests[I].MatchFuncName, default);
+							Outer.InputRequests[I].MatchActor.SetTimer(0.010f, false, Outer.InputRequests[I].MatchFuncName, default(Object?));
 						}
 						Outer.InputRequests[I].LastMatchTime = 0.0f;
 						Outer.InputRequests[I].MatchIdx = 0;
@@ -351,7 +351,7 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 	{
 		if(Outer.WorldInfo.Pauser == Outer.PlayerReplicationInfo)
 		{
-			Outer.SetPause(false, default);		
+			Outer.SetPause(false, default(/*delegate*/PlayerController.CanUnpause?));		
 		}
 		else
 		{

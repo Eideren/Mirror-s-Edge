@@ -178,6 +178,41 @@ public partial class UITdOptionButton : TdUIObject,
 	
 	public UITdOptionButton()
 	{
+		var Default__UITdOptionButton_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+			// Object Offset:0x006EEA37
+			StyleResolverTag = (name)"Background Image Style",
+			ImageStyle = new UIRoot.UIStyleReference
+			{
+				DefaultStyleTag = (name)"ButtonBackground",
+			},
+		}/* Reference: UIComp_DrawImage'Default__UITdOptionButton.BackgroundImageTemplate' */;
+		var Default__UITdOptionButton_LabelStringRenderer = new UIComp_DrawString
+		{
+			// Object Offset:0x006EEAB7
+			StyleResolverTag = (name)"Caption Style",
+			StringStyle = new UIRoot.UIStyleReference
+			{
+				DefaultStyleTag = (name)"DefaultOptionButtonStyle",
+			},
+		}/* Reference: UIComp_DrawString'Default__UITdOptionButton.LabelStringRenderer' */;
+		var Default__UITdOptionButton_WidgetEventComponent = new UIComp_Event
+		{
+			// Object Offset:0x006EE983
+			DefaultEvents = new array<UIRoot.DefaultEventSpecification>
+			{
+				new UIRoot.DefaultEventSpecification
+				{
+					EventTemplate = LoadAsset<UIEvent_Initialized>("Engine.Default__UIObject.WidgetInitializedEvent")/*Ref UIEvent_Initialized'Engine.Default__UIObject.WidgetInitializedEvent'*/,
+					EventState = default,
+				},
+				new UIRoot.DefaultEventSpecification
+				{
+					EventTemplate = LoadAsset<UIEvent_OnClick>("Default__UITdOptionButton.ButtonClickHandler")/*Ref UIEvent_OnClick'Default__UITdOptionButton.ButtonClickHandler'*/,
+					EventState = ClassT<UIState_Focused>()/*Ref Class'UIState_Focused'*/,
+				},
+			},
+		}/* Reference: UIComp_Event'Default__UITdOptionButton.WidgetEventComponent' */;
 		// Object Offset:0x006EE1EC
 		IncrementStyle = new UIRoot.UIStyleReference
 		{
@@ -218,24 +253,8 @@ public partial class UITdOptionButton : TdUIObject,
 			Orientation = UIRoot.EUIOrientation.UIORIENT_Horizontal,
 		};
 		bWrapOptions = true;
-		BackgroundImageComponent = new UIComp_DrawImage
-		{
-			// Object Offset:0x006EEA37
-			StyleResolverTag = (name)"Background Image Style",
-			ImageStyle = new UIRoot.UIStyleReference
-			{
-				DefaultStyleTag = (name)"ButtonBackground",
-			},
-		}/* Reference: UIComp_DrawImage'Default__UITdOptionButton.BackgroundImageTemplate' */;
-		StringRenderComponent = new UIComp_DrawString
-		{
-			// Object Offset:0x006EEAB7
-			StyleResolverTag = (name)"Caption Style",
-			StringStyle = new UIRoot.UIStyleReference
-			{
-				DefaultStyleTag = (name)"DefaultOptionButtonStyle",
-			},
-		}/* Reference: UIComp_DrawString'Default__UITdOptionButton.LabelStringRenderer' */;
+		BackgroundImageComponent = Default__UITdOptionButton_BackgroundImageTemplate;
+		StringRenderComponent = Default__UITdOptionButton_LabelStringRenderer;
 		IncrementCue = (name)"SliderIncrement";
 		DecrementCue = (name)"SliderDecrement";
 		ClickedCue = (name)"Clicked";
@@ -272,23 +291,7 @@ public partial class UITdOptionButton : TdUIObject,
 			ClassT<UIState_Active>(),
 			ClassT<UIState_Pressed>(),
 		};
-		EventProvider = new UIComp_Event
-		{
-			// Object Offset:0x006EE983
-			DefaultEvents = new array<UIRoot.DefaultEventSpecification>
-			{
-				new UIRoot.DefaultEventSpecification
-				{
-					EventTemplate = LoadAsset<UIEvent_Initialized>("Engine.Default__UIObject.WidgetInitializedEvent")/*Ref UIEvent_Initialized'Engine.Default__UIObject.WidgetInitializedEvent'*/,
-					EventState = default,
-				},
-				new UIRoot.DefaultEventSpecification
-				{
-					EventTemplate = LoadAsset<UIEvent_OnClick>("Default__UITdOptionButton.ButtonClickHandler")/*Ref UIEvent_OnClick'Default__UITdOptionButton.ButtonClickHandler'*/,
-					EventState = ClassT<UIState_Focused>()/*Ref Class'UIState_Focused'*/,
-				},
-			},
-		}/* Reference: UIComp_Event'Default__UITdOptionButton.WidgetEventComponent' */;
+		EventProvider = Default__UITdOptionButton_WidgetEventComponent;
 	}
 }
 }

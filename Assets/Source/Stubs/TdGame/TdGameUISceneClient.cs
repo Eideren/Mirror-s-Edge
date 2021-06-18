@@ -131,6 +131,458 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 	
 	public TdGameUISceneClient()
 	{
+		var Default__TdGameUISceneClient_seqFirstStarFadeIn = new UIAnimationSeq
+		{
+			// Object Offset:0x03741CD2
+			SeqName = (name)"FirstStarFadeIn",
+			SeqDuration = 1.0f,
+			Tracks = new array<UIAnimation.UIAnimTrack>
+			{
+				new UIAnimation.UIAnimTrack
+				{
+					TrackType = UIAnimation.EUIAnimType.EAT_Opacity,
+					TrackWidgetTag = (name)"None",
+					KeyFrames = new array<UIAnimation.UIAnimationKeyFrame>
+					{
+						new UIAnimation.UIAnimationKeyFrame
+						{
+							TimeMark = 0.0f,
+							Data = new UIAnimation.UIAnimationRawData
+							{
+								DestAsFloat = 0.20f,
+								DestAsColor = new LinearColor
+								{
+									R=0.0f,
+									G=0.0f,
+									B=0.0f,
+									A=1.0f
+								},
+								DestAsRotator = new Rotator
+								{
+									Pitch=0,
+									Yaw=0,
+									Roll=0
+								},
+								DestAsVector = new Vector
+								{
+									X=0.0f,
+									Y=0.0f,
+									Z=0.0f
+								},
+								DestAsNotify = new UIAnimation.UIAnimationNotify
+								{
+									NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
+									NotifyName = (name)"None",
+								},
+							},
+						},
+						new UIAnimation.UIAnimationKeyFrame
+						{
+							TimeMark = 0.50f,
+							Data = new UIAnimation.UIAnimationRawData
+							{
+								DestAsFloat = 0.20f,
+								DestAsColor = new LinearColor
+								{
+									R=0.0f,
+									G=0.0f,
+									B=0.0f,
+									A=1.0f
+								},
+								DestAsRotator = new Rotator
+								{
+									Pitch=0,
+									Yaw=0,
+									Roll=0
+								},
+								DestAsVector = new Vector
+								{
+									X=0.0f,
+									Y=0.0f,
+									Z=0.0f
+								},
+								DestAsNotify = new UIAnimation.UIAnimationNotify
+								{
+									NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
+									NotifyName = (name)"None",
+								},
+							},
+						},
+						new UIAnimation.UIAnimationKeyFrame
+						{
+							TimeMark = 1.0f,
+							Data = new UIAnimation.UIAnimationRawData
+							{
+								DestAsFloat = 1.0f,
+								DestAsColor = new LinearColor
+								{
+									R=0.0f,
+									G=0.0f,
+									B=0.0f,
+									A=1.0f
+								},
+								DestAsRotator = new Rotator
+								{
+									Pitch=0,
+									Yaw=0,
+									Roll=0
+								},
+								DestAsVector = new Vector
+								{
+									X=0.0f,
+									Y=0.0f,
+									Z=0.0f
+								},
+								DestAsNotify = new UIAnimation.UIAnimationNotify
+								{
+									NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
+									NotifyName = (name)"None",
+								},
+							},
+						},
+					},
+				},
+			},
+		}/* Reference: UIAnimationSeq'Default__TdGameUISceneClient.seqFirstStarFadeIn' */;
+		var Default__TdGameUISceneClient_seqStarFadeIn = new UIAnimationSeq
+		{
+			// Object Offset:0x037427CA
+			SeqName = (name)"StarFadeIn",
+			SeqDuration = 0.50f,
+			Tracks = new array<UIAnimation.UIAnimTrack>
+			{
+				new UIAnimation.UIAnimTrack
+				{
+					TrackType = UIAnimation.EUIAnimType.EAT_Opacity,
+					TrackWidgetTag = (name)"None",
+					KeyFrames = new array<UIAnimation.UIAnimationKeyFrame>
+					{
+						new UIAnimation.UIAnimationKeyFrame
+						{
+							TimeMark = 0.0f,
+							Data = new UIAnimation.UIAnimationRawData
+							{
+								DestAsFloat = 0.20f,
+								DestAsColor = new LinearColor
+								{
+									R=0.0f,
+									G=0.0f,
+									B=0.0f,
+									A=1.0f
+								},
+								DestAsRotator = new Rotator
+								{
+									Pitch=0,
+									Yaw=0,
+									Roll=0
+								},
+								DestAsVector = new Vector
+								{
+									X=0.0f,
+									Y=0.0f,
+									Z=0.0f
+								},
+								DestAsNotify = new UIAnimation.UIAnimationNotify
+								{
+									NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
+									NotifyName = (name)"None",
+								},
+							},
+						},
+						new UIAnimation.UIAnimationKeyFrame
+						{
+							TimeMark = 1.0f,
+							Data = new UIAnimation.UIAnimationRawData
+							{
+								DestAsFloat = 1.0f,
+								DestAsColor = new LinearColor
+								{
+									R=0.0f,
+									G=0.0f,
+									B=0.0f,
+									A=1.0f
+								},
+								DestAsRotator = new Rotator
+								{
+									Pitch=0,
+									Yaw=0,
+									Roll=0
+								},
+								DestAsVector = new Vector
+								{
+									X=0.0f,
+									Y=0.0f,
+									Z=0.0f
+								},
+								DestAsNotify = new UIAnimation.UIAnimationNotify
+								{
+									NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
+									NotifyName = (name)"None",
+								},
+							},
+						},
+					},
+				},
+			},
+		}/* Reference: UIAnimationSeq'Default__TdGameUISceneClient.seqStarFadeIn' */;
+		var Default__TdGameUISceneClient_seqControllerFlash = new UIAnimationSeq
+		{
+			// Object Offset:0x03741802
+			SeqName = (name)"ControllerFlash",
+			SeqDuration = 0.250f,
+			Tracks = new array<UIAnimation.UIAnimTrack>
+			{
+				new UIAnimation.UIAnimTrack
+				{
+					TrackType = UIAnimation.EUIAnimType.EAT_Color,
+					TrackWidgetTag = (name)"None",
+					KeyFrames = new array<UIAnimation.UIAnimationKeyFrame>
+					{
+						new UIAnimation.UIAnimationKeyFrame
+						{
+							TimeMark = 0.0f,
+							Data = new UIAnimation.UIAnimationRawData
+							{
+								DestAsFloat = 0.0f,
+								DestAsColor = new LinearColor
+								{
+									R=1.0f,
+									G=1.0f,
+									B=1.0f,
+									A=1.0f
+								},
+								DestAsRotator = new Rotator
+								{
+									Pitch=0,
+									Yaw=0,
+									Roll=0
+								},
+								DestAsVector = new Vector
+								{
+									X=0.0f,
+									Y=0.0f,
+									Z=0.0f
+								},
+								DestAsNotify = new UIAnimation.UIAnimationNotify
+								{
+									NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
+									NotifyName = (name)"None",
+								},
+							},
+						},
+						new UIAnimation.UIAnimationKeyFrame
+						{
+							TimeMark = 0.250f,
+							Data = new UIAnimation.UIAnimationRawData
+							{
+								DestAsFloat = 0.0f,
+								DestAsColor = new LinearColor
+								{
+									R=2.0f,
+									G=2.0f,
+									B=2.0f,
+									A=1.0f
+								},
+								DestAsRotator = new Rotator
+								{
+									Pitch=0,
+									Yaw=0,
+									Roll=0
+								},
+								DestAsVector = new Vector
+								{
+									X=0.0f,
+									Y=0.0f,
+									Z=0.0f
+								},
+								DestAsNotify = new UIAnimation.UIAnimationNotify
+								{
+									NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
+									NotifyName = (name)"None",
+								},
+							},
+						},
+						new UIAnimation.UIAnimationKeyFrame
+						{
+							TimeMark = 1.0f,
+							Data = new UIAnimation.UIAnimationRawData
+							{
+								DestAsFloat = 0.0f,
+								DestAsColor = new LinearColor
+								{
+									R=1.0f,
+									G=1.0f,
+									B=1.0f,
+									A=1.0f
+								},
+								DestAsRotator = new Rotator
+								{
+									Pitch=0,
+									Yaw=0,
+									Roll=0
+								},
+								DestAsVector = new Vector
+								{
+									X=0.0f,
+									Y=0.0f,
+									Z=0.0f
+								},
+								DestAsNotify = new UIAnimation.UIAnimationNotify
+								{
+									NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
+									NotifyName = (name)"None",
+								},
+							},
+						},
+					},
+				},
+			},
+		}/* Reference: UIAnimationSeq'Default__TdGameUISceneClient.seqControllerFlash' */;
+		var Default__TdGameUISceneClient_seqLogoFade = new UIAnimationSeq
+		{
+			// Object Offset:0x037421A2
+			SeqName = (name)"LogoFade",
+			SeqDuration = 11.0f,
+			Tracks = new array<UIAnimation.UIAnimTrack>
+			{
+				new UIAnimation.UIAnimTrack
+				{
+					TrackType = UIAnimation.EUIAnimType.EAT_Opacity,
+					TrackWidgetTag = (name)"None",
+					KeyFrames = new array<UIAnimation.UIAnimationKeyFrame>
+					{
+						new UIAnimation.UIAnimationKeyFrame
+						{
+							TimeMark = 0.0f,
+							Data = new UIAnimation.UIAnimationRawData
+							{
+								DestAsFloat = 0.0f,
+								DestAsColor = new LinearColor
+								{
+									R=0.0f,
+									G=0.0f,
+									B=0.0f,
+									A=1.0f
+								},
+								DestAsRotator = new Rotator
+								{
+									Pitch=0,
+									Yaw=0,
+									Roll=0
+								},
+								DestAsVector = new Vector
+								{
+									X=0.0f,
+									Y=0.0f,
+									Z=0.0f
+								},
+								DestAsNotify = new UIAnimation.UIAnimationNotify
+								{
+									NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
+									NotifyName = (name)"None",
+								},
+							},
+						},
+						new UIAnimation.UIAnimationKeyFrame
+						{
+							TimeMark = 0.090f,
+							Data = new UIAnimation.UIAnimationRawData
+							{
+								DestAsFloat = 1.0f,
+								DestAsColor = new LinearColor
+								{
+									R=0.0f,
+									G=0.0f,
+									B=0.0f,
+									A=1.0f
+								},
+								DestAsRotator = new Rotator
+								{
+									Pitch=0,
+									Yaw=0,
+									Roll=0
+								},
+								DestAsVector = new Vector
+								{
+									X=0.0f,
+									Y=0.0f,
+									Z=0.0f
+								},
+								DestAsNotify = new UIAnimation.UIAnimationNotify
+								{
+									NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
+									NotifyName = (name)"None",
+								},
+							},
+						},
+						new UIAnimation.UIAnimationKeyFrame
+						{
+							TimeMark = 0.820f,
+							Data = new UIAnimation.UIAnimationRawData
+							{
+								DestAsFloat = 1.0f,
+								DestAsColor = new LinearColor
+								{
+									R=0.0f,
+									G=0.0f,
+									B=0.0f,
+									A=1.0f
+								},
+								DestAsRotator = new Rotator
+								{
+									Pitch=0,
+									Yaw=0,
+									Roll=0
+								},
+								DestAsVector = new Vector
+								{
+									X=0.0f,
+									Y=0.0f,
+									Z=0.0f
+								},
+								DestAsNotify = new UIAnimation.UIAnimationNotify
+								{
+									NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
+									NotifyName = (name)"None",
+								},
+							},
+						},
+						new UIAnimation.UIAnimationKeyFrame
+						{
+							TimeMark = 1.0f,
+							Data = new UIAnimation.UIAnimationRawData
+							{
+								DestAsFloat = 0.0f,
+								DestAsColor = new LinearColor
+								{
+									R=0.0f,
+									G=0.0f,
+									B=0.0f,
+									A=1.0f
+								},
+								DestAsRotator = new Rotator
+								{
+									Pitch=0,
+									Yaw=0,
+									Roll=0
+								},
+								DestAsVector = new Vector
+								{
+									X=0.0f,
+									Y=0.0f,
+									Z=0.0f
+								},
+								DestAsNotify = new UIAnimation.UIAnimationNotify
+								{
+									NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
+									NotifyName = (name)"None",
+								},
+							},
+						},
+					},
+				},
+			},
+		}/* Reference: UIAnimationSeq'Default__TdGameUISceneClient.seqLogoFade' */;
 		// Object Offset:0x0054CA65
 		ResourceDataStoreName = (name)"TdGameData";
 		SceneFadeColor = new Color
@@ -142,458 +594,10 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 		};
 		AnimSequencePool = new array<UIAnimationSeq>
 		{
-			new UIAnimationSeq
-			{
-				// Object Offset:0x03741CD2
-				SeqName = (name)"FirstStarFadeIn",
-				SeqDuration = 1.0f,
-				Tracks = new array<UIAnimation.UIAnimTrack>
-				{
-					new UIAnimation.UIAnimTrack
-					{
-						TrackType = UIAnimation.EUIAnimType.EAT_Opacity,
-						TrackWidgetTag = (name)"None",
-						KeyFrames = new array<UIAnimation.UIAnimationKeyFrame>
-						{
-							new UIAnimation.UIAnimationKeyFrame
-							{
-								TimeMark = 0.0f,
-								Data = new UIAnimation.UIAnimationRawData
-								{
-									DestAsFloat = 0.20f,
-									DestAsColor = new LinearColor
-									{
-										R=0.0f,
-										G=0.0f,
-										B=0.0f,
-										A=1.0f
-									},
-									DestAsRotator = new Rotator
-									{
-										Pitch=0,
-										Yaw=0,
-										Roll=0
-									},
-									DestAsVector = new Vector
-									{
-										X=0.0f,
-										Y=0.0f,
-										Z=0.0f
-									},
-									DestAsNotify = new UIAnimation.UIAnimationNotify
-									{
-										NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
-										NotifyName = (name)"None",
-									},
-								},
-							},
-							new UIAnimation.UIAnimationKeyFrame
-							{
-								TimeMark = 0.50f,
-								Data = new UIAnimation.UIAnimationRawData
-								{
-									DestAsFloat = 0.20f,
-									DestAsColor = new LinearColor
-									{
-										R=0.0f,
-										G=0.0f,
-										B=0.0f,
-										A=1.0f
-									},
-									DestAsRotator = new Rotator
-									{
-										Pitch=0,
-										Yaw=0,
-										Roll=0
-									},
-									DestAsVector = new Vector
-									{
-										X=0.0f,
-										Y=0.0f,
-										Z=0.0f
-									},
-									DestAsNotify = new UIAnimation.UIAnimationNotify
-									{
-										NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
-										NotifyName = (name)"None",
-									},
-								},
-							},
-							new UIAnimation.UIAnimationKeyFrame
-							{
-								TimeMark = 1.0f,
-								Data = new UIAnimation.UIAnimationRawData
-								{
-									DestAsFloat = 1.0f,
-									DestAsColor = new LinearColor
-									{
-										R=0.0f,
-										G=0.0f,
-										B=0.0f,
-										A=1.0f
-									},
-									DestAsRotator = new Rotator
-									{
-										Pitch=0,
-										Yaw=0,
-										Roll=0
-									},
-									DestAsVector = new Vector
-									{
-										X=0.0f,
-										Y=0.0f,
-										Z=0.0f
-									},
-									DestAsNotify = new UIAnimation.UIAnimationNotify
-									{
-										NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
-										NotifyName = (name)"None",
-									},
-								},
-							},
-						},
-					},
-				},
-			}/* Reference: UIAnimationSeq'Default__TdGameUISceneClient.seqFirstStarFadeIn' */,
-			new UIAnimationSeq
-			{
-				// Object Offset:0x037427CA
-				SeqName = (name)"StarFadeIn",
-				SeqDuration = 0.50f,
-				Tracks = new array<UIAnimation.UIAnimTrack>
-				{
-					new UIAnimation.UIAnimTrack
-					{
-						TrackType = UIAnimation.EUIAnimType.EAT_Opacity,
-						TrackWidgetTag = (name)"None",
-						KeyFrames = new array<UIAnimation.UIAnimationKeyFrame>
-						{
-							new UIAnimation.UIAnimationKeyFrame
-							{
-								TimeMark = 0.0f,
-								Data = new UIAnimation.UIAnimationRawData
-								{
-									DestAsFloat = 0.20f,
-									DestAsColor = new LinearColor
-									{
-										R=0.0f,
-										G=0.0f,
-										B=0.0f,
-										A=1.0f
-									},
-									DestAsRotator = new Rotator
-									{
-										Pitch=0,
-										Yaw=0,
-										Roll=0
-									},
-									DestAsVector = new Vector
-									{
-										X=0.0f,
-										Y=0.0f,
-										Z=0.0f
-									},
-									DestAsNotify = new UIAnimation.UIAnimationNotify
-									{
-										NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
-										NotifyName = (name)"None",
-									},
-								},
-							},
-							new UIAnimation.UIAnimationKeyFrame
-							{
-								TimeMark = 1.0f,
-								Data = new UIAnimation.UIAnimationRawData
-								{
-									DestAsFloat = 1.0f,
-									DestAsColor = new LinearColor
-									{
-										R=0.0f,
-										G=0.0f,
-										B=0.0f,
-										A=1.0f
-									},
-									DestAsRotator = new Rotator
-									{
-										Pitch=0,
-										Yaw=0,
-										Roll=0
-									},
-									DestAsVector = new Vector
-									{
-										X=0.0f,
-										Y=0.0f,
-										Z=0.0f
-									},
-									DestAsNotify = new UIAnimation.UIAnimationNotify
-									{
-										NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
-										NotifyName = (name)"None",
-									},
-								},
-							},
-						},
-					},
-				},
-			}/* Reference: UIAnimationSeq'Default__TdGameUISceneClient.seqStarFadeIn' */,
-			new UIAnimationSeq
-			{
-				// Object Offset:0x03741802
-				SeqName = (name)"ControllerFlash",
-				SeqDuration = 0.250f,
-				Tracks = new array<UIAnimation.UIAnimTrack>
-				{
-					new UIAnimation.UIAnimTrack
-					{
-						TrackType = UIAnimation.EUIAnimType.EAT_Color,
-						TrackWidgetTag = (name)"None",
-						KeyFrames = new array<UIAnimation.UIAnimationKeyFrame>
-						{
-							new UIAnimation.UIAnimationKeyFrame
-							{
-								TimeMark = 0.0f,
-								Data = new UIAnimation.UIAnimationRawData
-								{
-									DestAsFloat = 0.0f,
-									DestAsColor = new LinearColor
-									{
-										R=1.0f,
-										G=1.0f,
-										B=1.0f,
-										A=1.0f
-									},
-									DestAsRotator = new Rotator
-									{
-										Pitch=0,
-										Yaw=0,
-										Roll=0
-									},
-									DestAsVector = new Vector
-									{
-										X=0.0f,
-										Y=0.0f,
-										Z=0.0f
-									},
-									DestAsNotify = new UIAnimation.UIAnimationNotify
-									{
-										NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
-										NotifyName = (name)"None",
-									},
-								},
-							},
-							new UIAnimation.UIAnimationKeyFrame
-							{
-								TimeMark = 0.250f,
-								Data = new UIAnimation.UIAnimationRawData
-								{
-									DestAsFloat = 0.0f,
-									DestAsColor = new LinearColor
-									{
-										R=2.0f,
-										G=2.0f,
-										B=2.0f,
-										A=1.0f
-									},
-									DestAsRotator = new Rotator
-									{
-										Pitch=0,
-										Yaw=0,
-										Roll=0
-									},
-									DestAsVector = new Vector
-									{
-										X=0.0f,
-										Y=0.0f,
-										Z=0.0f
-									},
-									DestAsNotify = new UIAnimation.UIAnimationNotify
-									{
-										NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
-										NotifyName = (name)"None",
-									},
-								},
-							},
-							new UIAnimation.UIAnimationKeyFrame
-							{
-								TimeMark = 1.0f,
-								Data = new UIAnimation.UIAnimationRawData
-								{
-									DestAsFloat = 0.0f,
-									DestAsColor = new LinearColor
-									{
-										R=1.0f,
-										G=1.0f,
-										B=1.0f,
-										A=1.0f
-									},
-									DestAsRotator = new Rotator
-									{
-										Pitch=0,
-										Yaw=0,
-										Roll=0
-									},
-									DestAsVector = new Vector
-									{
-										X=0.0f,
-										Y=0.0f,
-										Z=0.0f
-									},
-									DestAsNotify = new UIAnimation.UIAnimationNotify
-									{
-										NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
-										NotifyName = (name)"None",
-									},
-								},
-							},
-						},
-					},
-				},
-			}/* Reference: UIAnimationSeq'Default__TdGameUISceneClient.seqControllerFlash' */,
-			new UIAnimationSeq
-			{
-				// Object Offset:0x037421A2
-				SeqName = (name)"LogoFade",
-				SeqDuration = 11.0f,
-				Tracks = new array<UIAnimation.UIAnimTrack>
-				{
-					new UIAnimation.UIAnimTrack
-					{
-						TrackType = UIAnimation.EUIAnimType.EAT_Opacity,
-						TrackWidgetTag = (name)"None",
-						KeyFrames = new array<UIAnimation.UIAnimationKeyFrame>
-						{
-							new UIAnimation.UIAnimationKeyFrame
-							{
-								TimeMark = 0.0f,
-								Data = new UIAnimation.UIAnimationRawData
-								{
-									DestAsFloat = 0.0f,
-									DestAsColor = new LinearColor
-									{
-										R=0.0f,
-										G=0.0f,
-										B=0.0f,
-										A=1.0f
-									},
-									DestAsRotator = new Rotator
-									{
-										Pitch=0,
-										Yaw=0,
-										Roll=0
-									},
-									DestAsVector = new Vector
-									{
-										X=0.0f,
-										Y=0.0f,
-										Z=0.0f
-									},
-									DestAsNotify = new UIAnimation.UIAnimationNotify
-									{
-										NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
-										NotifyName = (name)"None",
-									},
-								},
-							},
-							new UIAnimation.UIAnimationKeyFrame
-							{
-								TimeMark = 0.090f,
-								Data = new UIAnimation.UIAnimationRawData
-								{
-									DestAsFloat = 1.0f,
-									DestAsColor = new LinearColor
-									{
-										R=0.0f,
-										G=0.0f,
-										B=0.0f,
-										A=1.0f
-									},
-									DestAsRotator = new Rotator
-									{
-										Pitch=0,
-										Yaw=0,
-										Roll=0
-									},
-									DestAsVector = new Vector
-									{
-										X=0.0f,
-										Y=0.0f,
-										Z=0.0f
-									},
-									DestAsNotify = new UIAnimation.UIAnimationNotify
-									{
-										NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
-										NotifyName = (name)"None",
-									},
-								},
-							},
-							new UIAnimation.UIAnimationKeyFrame
-							{
-								TimeMark = 0.820f,
-								Data = new UIAnimation.UIAnimationRawData
-								{
-									DestAsFloat = 1.0f,
-									DestAsColor = new LinearColor
-									{
-										R=0.0f,
-										G=0.0f,
-										B=0.0f,
-										A=1.0f
-									},
-									DestAsRotator = new Rotator
-									{
-										Pitch=0,
-										Yaw=0,
-										Roll=0
-									},
-									DestAsVector = new Vector
-									{
-										X=0.0f,
-										Y=0.0f,
-										Z=0.0f
-									},
-									DestAsNotify = new UIAnimation.UIAnimationNotify
-									{
-										NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
-										NotifyName = (name)"None",
-									},
-								},
-							},
-							new UIAnimation.UIAnimationKeyFrame
-							{
-								TimeMark = 1.0f,
-								Data = new UIAnimation.UIAnimationRawData
-								{
-									DestAsFloat = 0.0f,
-									DestAsColor = new LinearColor
-									{
-										R=0.0f,
-										G=0.0f,
-										B=0.0f,
-										A=1.0f
-									},
-									DestAsRotator = new Rotator
-									{
-										Pitch=0,
-										Yaw=0,
-										Roll=0
-									},
-									DestAsVector = new Vector
-									{
-										X=0.0f,
-										Y=0.0f,
-										Z=0.0f
-									},
-									DestAsNotify = new UIAnimation.UIAnimationNotify
-									{
-										NotifyType = UIAnimation.EUIAnimNotifyType.EANT_WidgetFunction,
-										NotifyName = (name)"None",
-									},
-								},
-							},
-						},
-					},
-				},
-			}/* Reference: UIAnimationSeq'Default__TdGameUISceneClient.seqLogoFade' */,
+			Default__TdGameUISceneClient_seqFirstStarFadeIn,
+			Default__TdGameUISceneClient_seqStarFadeIn,
+			Default__TdGameUISceneClient_seqControllerFlash,
+			Default__TdGameUISceneClient_seqLogoFade,
 		};
 	}
 }

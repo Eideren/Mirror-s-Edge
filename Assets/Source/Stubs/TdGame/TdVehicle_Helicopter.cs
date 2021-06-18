@@ -76,16 +76,37 @@ public partial class TdVehicle_Helicopter : SVehicle/*
 	
 	public TdVehicle_Helicopter()
 	{
+		var Default__TdVehicle_Helicopter_HelicopterSkeletalMeshObject = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x03128372
+			CastShadow = false,
+		}/* Reference: TdSkeletalMeshComponent'Default__TdVehicle_Helicopter.HelicopterSkeletalMeshObject' */;
+		var Default__TdVehicle_Helicopter_SVehicleMesh = new SkeletalMeshComponent
+		{
+			// Object Offset:0x0279BF86
+			SkeletalMesh = LoadAsset<SkeletalMesh>("VH_Common.SK_Helicopter_Placeholder")/*Ref SkeletalMesh'VH_Common.SK_Helicopter_Placeholder'*/,
+			PhysicsAsset = LoadAsset<PhysicsAsset>("VH_Common.PA_Helicopter_Placeholder")/*Ref PhysicsAsset'VH_Common.PA_Helicopter_Placeholder'*/,
+			HiddenGame = true,
+			bOwnerNoSee = true,
+		}/* Reference: SkeletalMeshComponent'Default__TdVehicle_Helicopter.SVehicleMesh' */;
+		var Default__TdVehicle_Helicopter_CollisionCylinder = new CylinderComponent
+		{
+			// Object Offset:0x01AB507A
+			CollisionHeight = 1.0f,
+			CollisionRadius = 1.0f,
+			Translation = new Vector
+			{
+				X=-25.0f,
+				Y=0.0f,
+				Z=0.0f
+			},
+		}/* Reference: CylinderComponent'Default__TdVehicle_Helicopter.CollisionCylinder' */;
 		// Object Offset:0x006BF365
 		MaxAcceleration = 1000.0f;
 		Force = 500.0f;
 		MaxVelocity = 2000.0f;
 		AimWithThisSide = TdAI_HeliController.EHeliAttackSide.ESide_None;
-		HelicopterSkeletalMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x03128372
-			CastShadow = false,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdVehicle_Helicopter.HelicopterSkeletalMeshObject' */;
+		HelicopterSkeletalMesh = Default__TdVehicle_Helicopter_HelicopterSkeletalMeshObject;
 		Seats = new array<TdVehicle_Helicopter.GunnerSeat>
 		{
 			new TdVehicle_Helicopter.GunnerSeat
@@ -137,63 +158,16 @@ public partial class TdVehicle_Helicopter : SVehicle/*
 		Health = 300;
 		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdVehicle_Helicopter.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdVehicle_Helicopter.SceneCaptureCharacterComponent0'*/;
 		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdVehicle_Helicopter.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdVehicle_Helicopter.DrawFrust0'*/;
-		Mesh = new SkeletalMeshComponent
-		{
-			// Object Offset:0x0279BF86
-			SkeletalMesh = LoadAsset<SkeletalMesh>("VH_Common.SK_Helicopter_Placeholder")/*Ref SkeletalMesh'VH_Common.SK_Helicopter_Placeholder'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("VH_Common.PA_Helicopter_Placeholder")/*Ref PhysicsAsset'VH_Common.PA_Helicopter_Placeholder'*/,
-			HiddenGame = true,
-			bOwnerNoSee = true,
-		}/* Reference: SkeletalMeshComponent'Default__TdVehicle_Helicopter.SVehicleMesh' */;
-		CylinderComponent = new CylinderComponent
-		{
-			// Object Offset:0x01AB507A
-			CollisionHeight = 1.0f,
-			CollisionRadius = 1.0f,
-			Translation = new Vector
-			{
-				X=-25.0f,
-				Y=0.0f,
-				Z=0.0f
-			},
-		}/* Reference: CylinderComponent'Default__TdVehicle_Helicopter.CollisionCylinder' */;
+		Mesh = Default__TdVehicle_Helicopter_SVehicleMesh;
+		CylinderComponent = Default__TdVehicle_Helicopter_CollisionCylinder;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SceneCaptureCharacterComponent>("Default__TdVehicle_Helicopter.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdVehicle_Helicopter.SceneCaptureCharacterComponent0'*/,
 			LoadAsset<DrawFrustumComponent>("Default__TdVehicle_Helicopter.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdVehicle_Helicopter.DrawFrust0'*/,
-			new CylinderComponent
-			{
-				// Object Offset:0x01AB507A
-				CollisionHeight = 1.0f,
-				CollisionRadius = 1.0f,
-				Translation = new Vector
-				{
-					X=-25.0f,
-					Y=0.0f,
-					Z=0.0f
-				},
-			}/* Reference: CylinderComponent'Default__TdVehicle_Helicopter.CollisionCylinder' */,
-			new SkeletalMeshComponent
-			{
-				// Object Offset:0x0279BF86
-				SkeletalMesh = LoadAsset<SkeletalMesh>("VH_Common.SK_Helicopter_Placeholder")/*Ref SkeletalMesh'VH_Common.SK_Helicopter_Placeholder'*/,
-				PhysicsAsset = LoadAsset<PhysicsAsset>("VH_Common.PA_Helicopter_Placeholder")/*Ref PhysicsAsset'VH_Common.PA_Helicopter_Placeholder'*/,
-				HiddenGame = true,
-				bOwnerNoSee = true,
-			}/* Reference: SkeletalMeshComponent'Default__TdVehicle_Helicopter.SVehicleMesh' */,
+			Default__TdVehicle_Helicopter_CollisionCylinder,
+			Default__TdVehicle_Helicopter_SVehicleMesh,
 		};
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x01AB507A
-			CollisionHeight = 1.0f,
-			CollisionRadius = 1.0f,
-			Translation = new Vector
-			{
-				X=-25.0f,
-				Y=0.0f,
-				Z=0.0f
-			},
-		}/* Reference: CylinderComponent'Default__TdVehicle_Helicopter.CollisionCylinder' */;
+		CollisionComponent = Default__TdVehicle_Helicopter_CollisionCylinder;
 	}
 }
 }

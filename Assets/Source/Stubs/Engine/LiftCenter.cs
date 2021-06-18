@@ -37,6 +37,11 @@ public partial class LiftCenter : NavigationPoint/*
 	
 	public LiftCenter()
 	{
+		var Default__LiftCenter_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004CFC96
+			Sprite = LoadAsset<Texture2D>("EngineResources.lift_center")/*Ref Texture2D'EngineResources.lift_center'*/,
+		}/* Reference: SpriteComponent'Default__LiftCenter.Sprite' */;
 		// Object Offset:0x003510D7
 		MaxDist2D = 400.0f;
 		CollisionHeight = 50.0f;
@@ -46,20 +51,12 @@ public partial class LiftCenter : NavigationPoint/*
 		bNoAutoConnect = true;
 		ExtraCost = 400;
 		CylinderComponent = LoadAsset<CylinderComponent>("Default__LiftCenter.CollisionCylinder")/*Ref CylinderComponent'Default__LiftCenter.CollisionCylinder'*/;
-		GoodSprite = new SpriteComponent
-		{
-			// Object Offset:0x004CFC96
-			Sprite = LoadAsset<Texture2D>("EngineResources.lift_center")/*Ref Texture2D'EngineResources.lift_center'*/,
-		}/* Reference: SpriteComponent'Default__LiftCenter.Sprite' */;
+		GoodSprite = Default__LiftCenter_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__LiftCenter.Sprite2")/*Ref SpriteComponent'Default__LiftCenter.Sprite2'*/;
 		bStatic = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004CFC96
-				Sprite = LoadAsset<Texture2D>("EngineResources.lift_center")/*Ref Texture2D'EngineResources.lift_center'*/,
-			}/* Reference: SpriteComponent'Default__LiftCenter.Sprite' */,
+			Default__LiftCenter_Sprite,
 			LoadAsset<SpriteComponent>("Default__LiftCenter.Sprite2")/*Ref SpriteComponent'Default__LiftCenter.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__LiftCenter.Arrow")/*Ref ArrowComponent'Default__LiftCenter.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__LiftCenter.CollisionCylinder")/*Ref CylinderComponent'Default__LiftCenter.CollisionCylinder'*/,

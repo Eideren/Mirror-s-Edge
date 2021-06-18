@@ -7,15 +7,16 @@ public partial class PolyMarker : Keypoint/*
 		hidecategories(Navigation)*/{
 	public PolyMarker()
 	{
+		var Default__PolyMarker_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004D0072
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_PolyMarker")/*Ref Texture2D'EngineResources.S_PolyMarker'*/,
+		}/* Reference: SpriteComponent'Default__PolyMarker.Sprite' */;
 		// Object Offset:0x003A2F11
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004D0072
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_PolyMarker")/*Ref Texture2D'EngineResources.S_PolyMarker'*/,
-			}/* Reference: SpriteComponent'Default__PolyMarker.Sprite' */,
+			Default__PolyMarker_Sprite,
 		};
 	}
 }

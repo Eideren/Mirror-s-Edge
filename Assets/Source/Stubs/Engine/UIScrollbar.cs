@@ -148,8 +148,7 @@ public partial class UIScrollbar : UIObject/*
 	
 	public UIScrollbar()
 	{
-		// Object Offset:0x0044D76D
-		BackgroundImageComponent = new UIComp_DrawImage
+		var Default__UIScrollbar_ScrollBarBackgroundImageTemplate = new UIComp_DrawImage
 		{
 			// Object Offset:0x005D1BBA
 			StyleResolverTag = (name)"Background Image Style",
@@ -158,6 +157,8 @@ public partial class UIScrollbar : UIObject/*
 				DefaultStyleTag = (name)"DefaultScrollZoneStyle",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UIScrollbar.ScrollBarBackgroundImageTemplate' */;
+		// Object Offset:0x0044D76D
+		BackgroundImageComponent = Default__UIScrollbar_ScrollBarBackgroundImageTemplate;
 		IncrementStyle = new UIRoot.UIStyleReference
 		{
 			DefaultStyleTag = (name)"DefaultIncrementButtonStyle",

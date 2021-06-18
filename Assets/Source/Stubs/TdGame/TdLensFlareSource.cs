@@ -6,14 +6,15 @@ public partial class TdLensFlareSource : LensFlareSource/*
 		hidecategories(Navigation)*/{
 	public TdLensFlareSource()
 	{
-		// Object Offset:0x00586C97
-		LensFlareComp = new LensFlareComponent
+		var Default__TdLensFlareSource_LensFlareComponent0 = new LensFlareComponent
 		{
 			// Object Offset:0x01B73901
 			PreviewInnerCone = LoadAsset<DrawLightConeComponent>("Default__TdLensFlareSource.DrawInnerCone0")/*Ref DrawLightConeComponent'Default__TdLensFlareSource.DrawInnerCone0'*/,
 			PreviewOuterCone = LoadAsset<DrawLightConeComponent>("Default__TdLensFlareSource.DrawOuterCone0")/*Ref DrawLightConeComponent'Default__TdLensFlareSource.DrawOuterCone0'*/,
 			PreviewRadius = LoadAsset<DrawLightRadiusComponent>("Default__TdLensFlareSource.DrawRadius0")/*Ref DrawLightRadiusComponent'Default__TdLensFlareSource.DrawRadius0'*/,
 		}/* Reference: LensFlareComponent'Default__TdLensFlareSource.LensFlareComponent0' */;
+		// Object Offset:0x00586C97
+		LensFlareComp = Default__TdLensFlareSource_LensFlareComponent0;
 		bNoDelete = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
@@ -21,13 +22,7 @@ public partial class TdLensFlareSource : LensFlareSource/*
 			LoadAsset<DrawLightConeComponent>("Default__TdLensFlareSource.DrawInnerCone0")/*Ref DrawLightConeComponent'Default__TdLensFlareSource.DrawInnerCone0'*/,
 			LoadAsset<DrawLightConeComponent>("Default__TdLensFlareSource.DrawOuterCone0")/*Ref DrawLightConeComponent'Default__TdLensFlareSource.DrawOuterCone0'*/,
 			LoadAsset<DrawLightRadiusComponent>("Default__TdLensFlareSource.DrawRadius0")/*Ref DrawLightRadiusComponent'Default__TdLensFlareSource.DrawRadius0'*/,
-			new LensFlareComponent
-			{
-				// Object Offset:0x01B73901
-				PreviewInnerCone = LoadAsset<DrawLightConeComponent>("Default__TdLensFlareSource.DrawInnerCone0")/*Ref DrawLightConeComponent'Default__TdLensFlareSource.DrawInnerCone0'*/,
-				PreviewOuterCone = LoadAsset<DrawLightConeComponent>("Default__TdLensFlareSource.DrawOuterCone0")/*Ref DrawLightConeComponent'Default__TdLensFlareSource.DrawOuterCone0'*/,
-				PreviewRadius = LoadAsset<DrawLightRadiusComponent>("Default__TdLensFlareSource.DrawRadius0")/*Ref DrawLightRadiusComponent'Default__TdLensFlareSource.DrawRadius0'*/,
-			}/* Reference: LensFlareComponent'Default__TdLensFlareSource.LensFlareComponent0' */,
+			Default__TdLensFlareSource_LensFlareComponent0,
 			LoadAsset<ArrowComponent>("Default__TdLensFlareSource.ArrowComponent0")/*Ref ArrowComponent'Default__TdLensFlareSource.ArrowComponent0'*/,
 		};
 	}

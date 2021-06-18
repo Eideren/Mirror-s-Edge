@@ -11,6 +11,11 @@ public partial class ParticleModuleColorScaleOverLife : ParticleModuleColorBase/
 	
 	public ParticleModuleColorScaleOverLife()
 	{
+		var Default__ParticleModuleColorScaleOverLife_DistributionAlphaScaleOverLife = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466CAF
+			Constant = 1.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleColorScaleOverLife.DistributionAlphaScaleOverLife' */;
 		// Object Offset:0x0037CECD
 		ColorScaleOverLife = new DistributionVector.RawDistributionVector
 		{

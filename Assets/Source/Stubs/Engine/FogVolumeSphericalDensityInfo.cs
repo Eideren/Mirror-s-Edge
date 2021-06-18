@@ -7,21 +7,18 @@ public partial class FogVolumeSphericalDensityInfo : FogVolumeDensityInfo/*
 		hidecategories(Navigation,Collision)*/{
 	public FogVolumeSphericalDensityInfo()
 	{
-		// Object Offset:0x0031EB78
-		DensityComponent = new FogVolumeSphericalDensityComponent
+		var Default__FogVolumeSphericalDensityInfo_FogVolumeComponent0 = new FogVolumeSphericalDensityComponent
 		{
 			// Object Offset:0x00468EFB
 			PreviewSphereRadius = LoadAsset<DrawLightRadiusComponent>("Default__FogVolumeSphericalDensityInfo.DrawSphereRadius0")/*Ref DrawLightRadiusComponent'Default__FogVolumeSphericalDensityInfo.DrawSphereRadius0'*/,
 		}/* Reference: FogVolumeSphericalDensityComponent'Default__FogVolumeSphericalDensityInfo.FogVolumeComponent0' */;
+		// Object Offset:0x0031EB78
+		DensityComponent = Default__FogVolumeSphericalDensityInfo_FogVolumeComponent0;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__FogVolumeSphericalDensityInfo.Sprite")/*Ref SpriteComponent'Default__FogVolumeSphericalDensityInfo.Sprite'*/,
 			LoadAsset<DrawLightRadiusComponent>("Default__FogVolumeSphericalDensityInfo.DrawSphereRadius0")/*Ref DrawLightRadiusComponent'Default__FogVolumeSphericalDensityInfo.DrawSphereRadius0'*/,
-			new FogVolumeSphericalDensityComponent
-			{
-				// Object Offset:0x00468EFB
-				PreviewSphereRadius = LoadAsset<DrawLightRadiusComponent>("Default__FogVolumeSphericalDensityInfo.DrawSphereRadius0")/*Ref DrawLightRadiusComponent'Default__FogVolumeSphericalDensityInfo.DrawSphereRadius0'*/,
-			}/* Reference: FogVolumeSphericalDensityComponent'Default__FogVolumeSphericalDensityInfo.FogVolumeComponent0' */,
+			Default__FogVolumeSphericalDensityInfo_FogVolumeComponent0,
 		};
 	}
 }

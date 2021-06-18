@@ -163,8 +163,8 @@ public partial class PickupFactory : NavigationPoint/*
 	}
 	
 	public delegate bool ValidTouch_del(Pawn Other);
-	public virtual ValidTouch_del ValidTouch { get => bfield_ValidTouch ?? ((a)=>default); set => bfield_ValidTouch = value; } ValidTouch_del bfield_ValidTouch;
-	public virtual ValidTouch_del global_ValidTouch => (a)=>default;
+	public virtual ValidTouch_del ValidTouch { get => bfield_ValidTouch ?? ((_a)=>default); set => bfield_ValidTouch = value; } ValidTouch_del bfield_ValidTouch;
+	public virtual ValidTouch_del global_ValidTouch => (_a)=>default;
 	
 	public delegate void CheckTouching_del();
 	public virtual CheckTouching_del CheckTouching { get => bfield_CheckTouching ?? (()=>{}); set => bfield_CheckTouching = value; } CheckTouching_del bfield_CheckTouching;
@@ -300,15 +300,16 @@ public partial class PickupFactory : NavigationPoint/*
 	}
 	public PickupFactory()
 	{
-		// Object Offset:0x0039E8ED
-		bOnlyReplicateHidden = true;
-		CylinderComponent = new CylinderComponent
+		var Default__PickupFactory_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x004666B3
 			CollisionHeight = 80.0f,
 			CollisionRadius = 40.0f,
 			CollideActors = true,
 		}/* Reference: CylinderComponent'Default__PickupFactory.CollisionCylinder' */;
+		// Object Offset:0x0039E8ED
+		bOnlyReplicateHidden = true;
+		CylinderComponent = Default__PickupFactory_CollisionCylinder;
 		GoodSprite = LoadAsset<SpriteComponent>("Default__PickupFactory.Sprite")/*Ref SpriteComponent'Default__PickupFactory.Sprite'*/;
 		BadSprite = LoadAsset<SpriteComponent>("Default__PickupFactory.Sprite2")/*Ref SpriteComponent'Default__PickupFactory.Sprite2'*/;
 		bStatic = false;
@@ -321,24 +322,12 @@ public partial class PickupFactory : NavigationPoint/*
 			LoadAsset<SpriteComponent>("Default__PickupFactory.Sprite")/*Ref SpriteComponent'Default__PickupFactory.Sprite'*/,
 			LoadAsset<SpriteComponent>("Default__PickupFactory.Sprite2")/*Ref SpriteComponent'Default__PickupFactory.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__PickupFactory.Arrow")/*Ref ArrowComponent'Default__PickupFactory.Arrow'*/,
-			new CylinderComponent
-			{
-				// Object Offset:0x004666B3
-				CollisionHeight = 80.0f,
-				CollisionRadius = 40.0f,
-				CollideActors = true,
-			}/* Reference: CylinderComponent'Default__PickupFactory.CollisionCylinder' */,
+			Default__PickupFactory_CollisionCylinder,
 			LoadAsset<PathRenderingComponent>("Default__PickupFactory.PathRenderer")/*Ref PathRenderingComponent'Default__PickupFactory.PathRenderer'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetUpdateFrequency = 1.0f;
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x004666B3
-			CollisionHeight = 80.0f,
-			CollisionRadius = 40.0f,
-			CollideActors = true,
-		}/* Reference: CylinderComponent'Default__PickupFactory.CollisionCylinder' */;
+		CollisionComponent = Default__PickupFactory_CollisionCylinder;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

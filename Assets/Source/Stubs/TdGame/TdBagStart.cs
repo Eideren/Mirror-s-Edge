@@ -8,22 +8,19 @@ public partial class TdBagStart : PlayerStart/*
 	
 	public TdBagStart()
 	{
-		// Object Offset:0x0050D049
-		PlayerStartTextureResources = LoadAsset<RequestedTextureResources>("Default__TdBagStart.PlayerStartTextureResourcesObject")/*Ref RequestedTextureResources'Default__TdBagStart.PlayerStartTextureResourcesObject'*/;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdBagStart.CollisionCylinder")/*Ref CylinderComponent'Default__TdBagStart.CollisionCylinder'*/;
-		GoodSprite = new SpriteComponent
+		var Default__TdBagStart_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x02E51DDD
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.BagSpawnIcon")/*Ref Texture2D'TdEditorResources.BagSpawnIcon'*/,
 		}/* Reference: SpriteComponent'Default__TdBagStart.Sprite' */;
+		// Object Offset:0x0050D049
+		PlayerStartTextureResources = LoadAsset<RequestedTextureResources>("Default__TdBagStart.PlayerStartTextureResourcesObject")/*Ref RequestedTextureResources'Default__TdBagStart.PlayerStartTextureResourcesObject'*/;
+		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdBagStart.CollisionCylinder")/*Ref CylinderComponent'Default__TdBagStart.CollisionCylinder'*/;
+		GoodSprite = Default__TdBagStart_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdBagStart.Sprite2")/*Ref SpriteComponent'Default__TdBagStart.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x02E51DDD
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.BagSpawnIcon")/*Ref Texture2D'TdEditorResources.BagSpawnIcon'*/,
-			}/* Reference: SpriteComponent'Default__TdBagStart.Sprite' */,
+			Default__TdBagStart_Sprite,
 			LoadAsset<SpriteComponent>("Default__TdBagStart.Sprite2")/*Ref SpriteComponent'Default__TdBagStart.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__TdBagStart.Arrow")/*Ref ArrowComponent'Default__TdBagStart.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__TdBagStart.CollisionCylinder")/*Ref CylinderComponent'Default__TdBagStart.CollisionCylinder'*/,

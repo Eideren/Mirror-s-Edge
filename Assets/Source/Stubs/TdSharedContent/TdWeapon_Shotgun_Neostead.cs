@@ -28,23 +28,7 @@ public partial class TdWeapon_Shotgun_Neostead : TdWeapon_Heavy/*
 	
 	public TdWeapon_Shotgun_Neostead()
 	{
-		// Object Offset:0x0000E379
-		PelletCount = 10;
-		AimOffsetProfileNames = new array<name>
-		{
-			(name)"Default",
-			(name)"TwoHanded",
-		};
-		WeaponPoseProfileName = (name)"TwoHanded-Neostead";
-		bPlayFlyBys = false;
-		ReloadingState = (name)"WeaponLoopReloading";
-		MuzzleFlashPSCTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_Shotgun_Singleshot_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_Shotgun_Singleshot_01'*/;
-		MuzzleFlashSocket = (name)"Muzzleflash";
-		BulletTraceTemplate = default;
-		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_ShellSlug")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_ShellSlug'*/;
-		ShellEjectSocket = (name)"ShellEject";
-		ShellEjectDelay = 0.90f;
-		FiringWaveform = new ForceFeedbackWaveform
+		var Default__TdWeapon_Shotgun_Neostead_FiringWaveformObj = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x000138E4
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -67,6 +51,55 @@ public partial class TdWeapon_Shotgun_Neostead : TdWeapon_Heavy/*
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdWeapon_Shotgun_Neostead.FiringWaveformObj' */;
+		var Default__TdWeapon_Shotgun_Neostead_FirstPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x00015117
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Neostead.SK_Neostead")/*Ref SkeletalMesh'WP_Neostead.SK_Neostead'*/,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Neostead.AS_C1P_TwoHanded_Neostead")/*Ref TdAnimSet'AS_C1P_TwoHanded_Neostead.AS_C1P_TwoHanded_Neostead'*/,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.FirstPersonMesh' */;
+		var Default__TdWeapon_Shotgun_Neostead_ThirdPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x0001516F
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Neostead.SK_Neostead")/*Ref SkeletalMesh'WP_Neostead.SK_Neostead'*/,
+			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_Neostead.PA_Neostead")/*Ref PhysicsAsset'WP_Neostead.PA_Neostead'*/,
+			PhysicsWeight = 1.0f,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead")/*Ref TdAnimSet'AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead'*/,
+			},
+			bUpdateJointsFromAnimation = true,
+			bEnableFullAnimWeightBodies = true,
+			bUseAsOccluder = false,
+			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
+			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
+			{
+				Default = true,
+				GameplayPhysics = true,
+				EffectPhysics = true,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.ThirdPersonMesh' */;
+		// Object Offset:0x0000E379
+		PelletCount = 10;
+		AimOffsetProfileNames = new array<name>
+		{
+			(name)"Default",
+			(name)"TwoHanded",
+		};
+		WeaponPoseProfileName = (name)"TwoHanded-Neostead";
+		bPlayFlyBys = false;
+		ReloadingState = (name)"WeaponLoopReloading";
+		MuzzleFlashPSCTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_Shotgun_Singleshot_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_MuzzleFlash1p_Shotgun_Singleshot_01'*/;
+		MuzzleFlashSocket = (name)"Muzzleflash";
+		BulletTraceTemplate = default;
+		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_ShellSlug")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_ShellSlug'*/;
+		ShellEjectSocket = (name)"ShellEject";
+		ShellEjectDelay = 0.90f;
+		FiringWaveform = Default__TdWeapon_Shotgun_Neostead_FiringWaveformObj;
 		MaxAmmo = 12;
 		StartReloadTime = 0.66670f;
 		ReloadTime = 1.26670f;
@@ -100,38 +133,8 @@ public partial class TdWeapon_Shotgun_Neostead : TdWeapon_Heavy/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Neostead.AS_C1P_TwoHanded_Neostead")/*Ref TdAnimSet'AS_C1P_TwoHanded_Neostead.AS_C1P_TwoHanded_Neostead'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead")/*Ref TdAnimSet'AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead")/*Ref TdAnimSet'AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead'*/;
-		Mesh1p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00015117
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Neostead.SK_Neostead")/*Ref SkeletalMesh'WP_Neostead.SK_Neostead'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Neostead.AS_C1P_TwoHanded_Neostead")/*Ref TdAnimSet'AS_C1P_TwoHanded_Neostead.AS_C1P_TwoHanded_Neostead'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.FirstPersonMesh' */;
-		Mesh3p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x0001516F
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Neostead.SK_Neostead")/*Ref SkeletalMesh'WP_Neostead.SK_Neostead'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_Neostead.PA_Neostead")/*Ref PhysicsAsset'WP_Neostead.PA_Neostead'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead")/*Ref TdAnimSet'AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bUseAsOccluder = false,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.ThirdPersonMesh' */;
+		Mesh1p = Default__TdWeapon_Shotgun_Neostead_FirstPersonMesh;
+		Mesh3p = Default__TdWeapon_Shotgun_Neostead_ThirdPersonMesh;
 		CombatRange_Min = 500.0f;
 		CombatRange_Max = 4000.0f;
 		CombatRange_Preferred = 1500.0f;
@@ -213,84 +216,13 @@ public partial class TdWeapon_Shotgun_Neostead : TdWeapon_Heavy/*
 		EquipTime = 1.20f;
 		PutDownTime = 1.0f;
 		WeaponRange = 6000.0f;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00015117
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Neostead.SK_Neostead")/*Ref SkeletalMesh'WP_Neostead.SK_Neostead'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Neostead.AS_C1P_TwoHanded_Neostead")/*Ref TdAnimSet'AS_C1P_TwoHanded_Neostead.AS_C1P_TwoHanded_Neostead'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.FirstPersonMesh' */;
-		DroppedPickupMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x0001516F
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Neostead.SK_Neostead")/*Ref SkeletalMesh'WP_Neostead.SK_Neostead'*/,
-			PhysicsAsset = LoadAsset<PhysicsAsset>("WP_Neostead.PA_Neostead")/*Ref PhysicsAsset'WP_Neostead.PA_Neostead'*/,
-			PhysicsWeight = 1.0f,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead")/*Ref TdAnimSet'AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead'*/,
-			},
-			bUpdateJointsFromAnimation = true,
-			bEnableFullAnimWeightBodies = true,
-			bUseAsOccluder = false,
-			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-			{
-				Default = true,
-				GameplayPhysics = true,
-				EffectPhysics = true,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.ThirdPersonMesh' */;
-		PickupFactoryMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00015117
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Neostead.SK_Neostead")/*Ref SkeletalMesh'WP_Neostead.SK_Neostead'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Neostead.AS_C1P_TwoHanded_Neostead")/*Ref TdAnimSet'AS_C1P_TwoHanded_Neostead.AS_C1P_TwoHanded_Neostead'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.FirstPersonMesh' */;
+		Mesh = Default__TdWeapon_Shotgun_Neostead_FirstPersonMesh;
+		DroppedPickupMesh = Default__TdWeapon_Shotgun_Neostead_ThirdPersonMesh;
+		PickupFactoryMesh = Default__TdWeapon_Shotgun_Neostead_FirstPersonMesh;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00015117
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Neostead.SK_Neostead")/*Ref SkeletalMesh'WP_Neostead.SK_Neostead'*/,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Neostead.AS_C1P_TwoHanded_Neostead")/*Ref TdAnimSet'AS_C1P_TwoHanded_Neostead.AS_C1P_TwoHanded_Neostead'*/,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.FirstPersonMesh' */,
-			//Components[1]=
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x0001516F
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Neostead.SK_Neostead")/*Ref SkeletalMesh'WP_Neostead.SK_Neostead'*/,
-				PhysicsAsset = LoadAsset<PhysicsAsset>("WP_Neostead.PA_Neostead")/*Ref PhysicsAsset'WP_Neostead.PA_Neostead'*/,
-				PhysicsWeight = 1.0f,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead")/*Ref TdAnimSet'AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead'*/,
-				},
-				bUpdateJointsFromAnimation = true,
-				bEnableFullAnimWeightBodies = true,
-				bUseAsOccluder = false,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-					GameplayPhysics = true,
-					EffectPhysics = true,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.ThirdPersonMesh' */,
+			Default__TdWeapon_Shotgun_Neostead_FirstPersonMesh,
+			Default__TdWeapon_Shotgun_Neostead_ThirdPersonMesh,
 		};
 	}
 }

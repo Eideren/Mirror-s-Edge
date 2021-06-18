@@ -21,23 +21,20 @@ public partial class TdInterestPoint : NavigationPoint/*
 	
 	public TdInterestPoint()
 	{
-		// Object Offset:0x0057BC9D
-		InvestigationDistance = -1.0f;
-		InvestigationInterval = 10.0f;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdInterestPoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdInterestPoint.CollisionCylinder'*/;
-		GoodSprite = new SpriteComponent
+		var Default__TdInterestPoint_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x02E5208D
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.InvestigateIcon")/*Ref Texture2D'TdEditorResources.InvestigateIcon'*/,
 		}/* Reference: SpriteComponent'Default__TdInterestPoint.Sprite' */;
+		// Object Offset:0x0057BC9D
+		InvestigationDistance = -1.0f;
+		InvestigationInterval = 10.0f;
+		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdInterestPoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdInterestPoint.CollisionCylinder'*/;
+		GoodSprite = Default__TdInterestPoint_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdInterestPoint.Sprite2")/*Ref SpriteComponent'Default__TdInterestPoint.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x02E5208D
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.InvestigateIcon")/*Ref Texture2D'TdEditorResources.InvestigateIcon'*/,
-			}/* Reference: SpriteComponent'Default__TdInterestPoint.Sprite' */,
+			Default__TdInterestPoint_Sprite,
 			LoadAsset<SpriteComponent>("Default__TdInterestPoint.Sprite2")/*Ref SpriteComponent'Default__TdInterestPoint.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__TdInterestPoint.Arrow")/*Ref ArrowComponent'Default__TdInterestPoint.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__TdInterestPoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdInterestPoint.CollisionCylinder'*/,

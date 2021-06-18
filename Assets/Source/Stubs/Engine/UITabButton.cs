@@ -51,28 +51,17 @@ public partial class UITabButton : UILabelButton/*
 	
 	public UITabButton()
 	{
-		// Object Offset:0x00453F17
-		StringRenderComponent = new UIComp_DrawString
+		var Default__UITabButton_LabelStringRenderer = new UIComp_DrawString
 		{
 			// Object Offset:0x005D1FD2
 			StyleResolverTag = (name)"TabButtonCaptionStyle",
 		}/* Reference: UIComp_DrawString'Default__UITabButton.LabelStringRenderer' */;
-		BackgroundImageComponent = new UIComp_DrawImage
+		var Default__UITabButton_BackgroundImageTemplate = new UIComp_DrawImage
 		{
 			// Object Offset:0x005D1E22
 			StyleResolverTag = (name)"TabButtonBackgroundStyle",
 		}/* Reference: UIComp_DrawImage'Default__UITabButton.BackgroundImageTemplate' */;
-		PrivateFlags = 931;
-		DefaultStates = new array< Core.ClassT<UIState> >
-		{
-			ClassT<UIState_Enabled>(),
-			ClassT<UIState_Disabled>(),
-			ClassT<UIState_Focused>(),
-			ClassT<UIState_Active>(),
-			ClassT<UIState_Pressed>(),
-			ClassT<UIState_TargetedTab>(),
-		};
-		EventProvider = new UIComp_Event
+		var Default__UITabButton_WidgetEventComponent = new UIComp_Event
 		{
 			// Object Offset:0x005D26C2
 			DisabledEventAliases = new array<name>
@@ -85,6 +74,20 @@ public partial class UITabButton : UILabelButton/*
 				(name)"NavFocusRight",
 			},
 		}/* Reference: UIComp_Event'Default__UITabButton.WidgetEventComponent' */;
+		// Object Offset:0x00453F17
+		StringRenderComponent = Default__UITabButton_LabelStringRenderer;
+		BackgroundImageComponent = Default__UITabButton_BackgroundImageTemplate;
+		PrivateFlags = 931;
+		DefaultStates = new array< Core.ClassT<UIState> >
+		{
+			ClassT<UIState_Enabled>(),
+			ClassT<UIState_Disabled>(),
+			ClassT<UIState_Focused>(),
+			ClassT<UIState_Active>(),
+			ClassT<UIState_Pressed>(),
+			ClassT<UIState_TargetedTab>(),
+		};
+		EventProvider = Default__UITabButton_WidgetEventComponent;
 		__NotifyActiveStateChanged__Delegate = (Sender, PlayerIndex, NewlyActiveState, PreviouslyActiveState) => OnStateChanged(Sender, PlayerIndex, NewlyActiveState, PreviouslyActiveState);
 	}
 }

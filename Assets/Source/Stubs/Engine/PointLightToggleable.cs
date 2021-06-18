@@ -7,29 +7,26 @@ public partial class PointLightToggleable : PointLight/*
 		hidecategories(Navigation)*/{
 	public PointLightToggleable()
 	{
-		// Object Offset:0x003A2DDA
-		LightComponent = new PointLightComponent
+		var Default__PointLightToggleable_PointLightComponent0 = new PointLightComponent
 		{
 			// Object Offset:0x004CAED2
 			PreviewLightRadius = LoadAsset<DrawLightRadiusComponent>("Default__PointLightToggleable.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__PointLightToggleable.DrawLightRadius0'*/,
 			UseDirectLightMap = false,
 		}/* Reference: PointLightComponent'Default__PointLightToggleable.PointLightComponent0' */;
+		var Default__PointLightToggleable_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004D003E
+			Sprite = LoadAsset<Texture2D>("EngineResources.LightIcons.Light_Point_Toggleable_Statics")/*Ref Texture2D'EngineResources.LightIcons.Light_Point_Toggleable_Statics'*/,
+		}/* Reference: SpriteComponent'Default__PointLightToggleable.Sprite' */;
+		// Object Offset:0x003A2DDA
+		LightComponent = Default__PointLightToggleable_PointLightComponent0;
 		bStatic = false;
 		bHardAttach = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004D003E
-				Sprite = LoadAsset<Texture2D>("EngineResources.LightIcons.Light_Point_Toggleable_Statics")/*Ref Texture2D'EngineResources.LightIcons.Light_Point_Toggleable_Statics'*/,
-			}/* Reference: SpriteComponent'Default__PointLightToggleable.Sprite' */,
+			Default__PointLightToggleable_Sprite,
 			LoadAsset<DrawLightRadiusComponent>("Default__PointLightToggleable.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__PointLightToggleable.DrawLightRadius0'*/,
-			new PointLightComponent
-			{
-				// Object Offset:0x004CAED2
-				PreviewLightRadius = LoadAsset<DrawLightRadiusComponent>("Default__PointLightToggleable.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__PointLightToggleable.DrawLightRadius0'*/,
-				UseDirectLightMap = false,
-			}/* Reference: PointLightComponent'Default__PointLightToggleable.PointLightComponent0' */,
+			Default__PointLightToggleable_PointLightComponent0,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
 	}

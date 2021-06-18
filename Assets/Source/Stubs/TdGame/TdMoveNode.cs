@@ -16,6 +16,11 @@ public partial class TdMoveNode : PathNode/*
 	
 	public TdMoveNode()
 	{
+		var Default__TdMoveNode_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x0057E54C
+			Sprite = LoadAsset<Texture2D>("TdEditorResources.JumpIcon")/*Ref Texture2D'TdEditorResources.JumpIcon'*/,
+		}/* Reference: SpriteComponent'Default__TdMoveNode.Sprite' */;
 		// Object Offset:0x0057E355
 		bNoAutoConnect = true;
 		bIsSkippable = false;
@@ -23,19 +28,11 @@ public partial class TdMoveNode : PathNode/*
 		bIsSpecialMove = true;
 		bCanBePlayerNavigationPoint = false;
 		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdMoveNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode.CollisionCylinder'*/;
-		GoodSprite = new SpriteComponent
-		{
-			// Object Offset:0x0057E54C
-			Sprite = LoadAsset<Texture2D>("TdEditorResources.JumpIcon")/*Ref Texture2D'TdEditorResources.JumpIcon'*/,
-		}/* Reference: SpriteComponent'Default__TdMoveNode.Sprite' */;
+		GoodSprite = Default__TdMoveNode_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdMoveNode.Sprite2")/*Ref SpriteComponent'Default__TdMoveNode.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x0057E54C
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.JumpIcon")/*Ref Texture2D'TdEditorResources.JumpIcon'*/,
-			}/* Reference: SpriteComponent'Default__TdMoveNode.Sprite' */,
+			Default__TdMoveNode_Sprite,
 			LoadAsset<SpriteComponent>("Default__TdMoveNode.Sprite2")/*Ref SpriteComponent'Default__TdMoveNode.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__TdMoveNode.Arrow")/*Ref ArrowComponent'Default__TdMoveNode.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__TdMoveNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode.CollisionCylinder'*/,

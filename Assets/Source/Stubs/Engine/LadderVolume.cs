@@ -42,6 +42,18 @@ public partial class LadderVolume : PhysicsVolume/*
 	
 	public LadderVolume()
 	{
+		var Default__LadderVolume_Arrow = new ArrowComponent
+		{
+			// Object Offset:0x00465AF7
+			ArrowColor = new Color
+			{
+				R=150,
+				G=100,
+				B=150,
+				A=255
+			},
+			ArrowSize = 5.0f,
+		}/* Reference: ArrowComponent'Default__LadderVolume.Arrow' */;
 		// Object Offset:0x0034D091
 		ClimbDir = new Vector
 		{
@@ -55,18 +67,7 @@ public partial class LadderVolume : PhysicsVolume/*
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<BrushComponent>("Default__LadderVolume.BrushComponent0")/*Ref BrushComponent'Default__LadderVolume.BrushComponent0'*/,
-			new ArrowComponent
-			{
-				// Object Offset:0x00465AF7
-				ArrowColor = new Color
-				{
-					R=150,
-					G=100,
-					B=150,
-					A=255
-				},
-				ArrowSize = 5.0f,
-			}/* Reference: ArrowComponent'Default__LadderVolume.Arrow' */,
+			Default__LadderVolume_Arrow,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		CollisionComponent = LoadAsset<BrushComponent>("Default__LadderVolume.BrushComponent0")/*Ref BrushComponent'Default__LadderVolume.BrushComponent0'*/;

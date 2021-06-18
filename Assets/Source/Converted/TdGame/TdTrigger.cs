@@ -119,18 +119,13 @@ public partial class TdTrigger : Trigger/*
 	}
 	public TdTrigger()
 	{
-		// Object Offset:0x0067AFC1
-		Enabled = true;
-		NumberOfRevs = 1;
-		ValveTexture = LoadAsset<Texture2D>("TdEditorResources.ValveIcon")/*Ref Texture2D'TdEditorResources.ValveIcon'*/;
-		ButtonTexture = LoadAsset<Texture2D>("TdEditorResources.ButtonIcon")/*Ref Texture2D'TdEditorResources.ButtonIcon'*/;
-		EditorSprite = new SpriteComponent
+		var Default__TdTrigger_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x0067B218
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.ButtonIcon")/*Ref Texture2D'TdEditorResources.ButtonIcon'*/,
 			Scale = 0.10f,
 		}/* Reference: SpriteComponent'Default__TdTrigger.Sprite' */;
-		ArcComponent = new TdDrawArcComponent
+		var Default__TdTrigger_ArcObject = new TdDrawArcComponent
 		{
 			// Object Offset:0x0067B2E8
 			Rotation = new Rotator
@@ -140,44 +135,38 @@ public partial class TdTrigger : Trigger/*
 				Roll=0
 			},
 		}/* Reference: TdDrawArcComponent'Default__TdTrigger.ArcObject' */;
+		var Default__TdTrigger_TriggerDir = new ArrowComponent
+		{
+			// Object Offset:0x0067B280
+			ArrowColor = new Color
+			{
+				R=255,
+				G=128,
+				B=0,
+				A=255
+			},
+			Rotation = new Rotator
+			{
+				Pitch=0,
+				Yaw=16384,
+				Roll=0
+			},
+		}/* Reference: ArrowComponent'Default__TdTrigger.TriggerDir' */;
+		// Object Offset:0x0067AFC1
+		Enabled = true;
+		NumberOfRevs = 1;
+		ValveTexture = LoadAsset<Texture2D>("TdEditorResources.ValveIcon")/*Ref Texture2D'TdEditorResources.ValveIcon'*/;
+		ButtonTexture = LoadAsset<Texture2D>("TdEditorResources.ButtonIcon")/*Ref Texture2D'TdEditorResources.ButtonIcon'*/;
+		EditorSprite = Default__TdTrigger_Sprite;
+		ArcComponent = Default__TdTrigger_ArcObject;
 		AngleLimit = 175.0f;
 		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdTrigger.CollisionCylinder")/*Ref CylinderComponent'Default__TdTrigger.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x0067B218
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.ButtonIcon")/*Ref Texture2D'TdEditorResources.ButtonIcon'*/,
-				Scale = 0.10f,
-			}/* Reference: SpriteComponent'Default__TdTrigger.Sprite' */,
+			Default__TdTrigger_Sprite,
 			LoadAsset<CylinderComponent>("Default__TdTrigger.CollisionCylinder")/*Ref CylinderComponent'Default__TdTrigger.CollisionCylinder'*/,
-			new ArrowComponent
-			{
-				// Object Offset:0x0067B280
-				ArrowColor = new Color
-				{
-					R=255,
-					G=128,
-					B=0,
-					A=255
-				},
-				Rotation = new Rotator
-				{
-					Pitch=0,
-					Yaw=16384,
-					Roll=0
-				},
-			}/* Reference: ArrowComponent'Default__TdTrigger.TriggerDir' */,
-			new TdDrawArcComponent
-			{
-				// Object Offset:0x0067B2E8
-				Rotation = new Rotator
-				{
-					Pitch=0,
-					Yaw=16384,
-					Roll=0
-				},
-			}/* Reference: TdDrawArcComponent'Default__TdTrigger.ArcObject' */,
+			Default__TdTrigger_TriggerDir,
+			Default__TdTrigger_ArcObject,
 		};
 		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdTrigger.CollisionCylinder")/*Ref CylinderComponent'Default__TdTrigger.CollisionCylinder'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >

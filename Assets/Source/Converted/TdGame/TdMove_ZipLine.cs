@@ -165,19 +165,7 @@ public partial class TdMove_ZipLine : TdPhysicsMove/*
 	
 	public TdMove_ZipLine()
 	{
-		// Object Offset:0x005F2314
-		HangOffset = new Vector
-		{
-			X=0.0f,
-			Y=0.0f,
-			Z=-90.0f
-		};
-		MinZipVelocity = 300.0f;
-		MinZipAcceleration = 400.0f;
-		ZippingSound = LoadAsset<SoundCue>("A_Kits.ZipLine.ZipLine")/*Ref SoundCue'A_Kits.ZipLine.ZipLine'*/;
-		ZipFadeInTime = 0.10f;
-		ZipFadeOutTime = 0.50f;
-		ZiplineWaveform = new ForceFeedbackWaveform
+		var Default__TdMove_ZipLine_ZiplineWaveformObj = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x01B6CF0A
 			bIsLooping = true,
@@ -193,6 +181,19 @@ public partial class TdMove_ZipLine : TdPhysicsMove/*
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdMove_ZipLine.ZiplineWaveformObj' */;
+		// Object Offset:0x005F2314
+		HangOffset = new Vector
+		{
+			X=0.0f,
+			Y=0.0f,
+			Z=-90.0f
+		};
+		MinZipVelocity = 300.0f;
+		MinZipAcceleration = 400.0f;
+		ZippingSound = LoadAsset<SoundCue>("A_Kits.ZipLine.ZipLine")/*Ref SoundCue'A_Kits.ZipLine.ZipLine'*/;
+		ZipFadeInTime = 0.10f;
+		ZipFadeOutTime = 0.50f;
+		ZiplineWaveform = Default__TdMove_ZipLine_ZiplineWaveformObj;
 		PawnPhysics = Actor.EPhysics.PHYS_Flying;
 		ControllerState = (name)"PlayerGrabbing";
 		bShouldHolsterWeapon = true;

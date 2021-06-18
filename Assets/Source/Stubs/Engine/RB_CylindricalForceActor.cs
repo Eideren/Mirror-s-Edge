@@ -36,14 +36,23 @@ public partial class RB_CylindricalForceActor : Actor/*
 	
 	public RB_CylindricalForceActor()
 	{
-		// Object Offset:0x003AD3E1
-		RenderComponent = new DrawCylinderComponent
+		var Default__RB_CylindricalForceActor_DrawCylinder0 = new DrawCylinderComponent
 		{
 			// Object Offset:0x004689FB
 			CylinderRadius = 200.0f,
 			CylinderTopRadius = 200.0f,
 			CylinderHeight = 200.0f,
 		}/* Reference: DrawCylinderComponent'Default__RB_CylindricalForceActor.DrawCylinder0' */;
+		var Default__RB_CylindricalForceActor_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004D022E
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_RadForce")/*Ref Texture2D'EngineResources.S_RadForce'*/,
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__RB_CylindricalForceActor.Sprite' */;
+		// Object Offset:0x003AD3E1
+		RenderComponent = Default__RB_CylindricalForceActor_DrawCylinder0;
 		EscapeVelocity = 10000.0f;
 		ForceRadius = 200.0f;
 		ForceTopRadius = 200.0f;
@@ -73,21 +82,8 @@ public partial class RB_CylindricalForceActor : Actor/*
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new DrawCylinderComponent
-			{
-				// Object Offset:0x004689FB
-				CylinderRadius = 200.0f,
-				CylinderTopRadius = 200.0f,
-				CylinderHeight = 200.0f,
-			}/* Reference: DrawCylinderComponent'Default__RB_CylindricalForceActor.DrawCylinder0' */,
-			new SpriteComponent
-			{
-				// Object Offset:0x004D022E
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_RadForce")/*Ref Texture2D'EngineResources.S_RadForce'*/,
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__RB_CylindricalForceActor.Sprite' */,
+			Default__RB_CylindricalForceActor_DrawCylinder0,
+			Default__RB_CylindricalForceActor_Sprite,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetUpdateFrequency = 0.10f;

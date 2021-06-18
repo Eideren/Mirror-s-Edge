@@ -19,6 +19,11 @@ public partial class ParticleModuleTrailTaper : ParticleModuleTrailBase/*
 	
 	public ParticleModuleTrailTaper()
 	{
+		var Default__ParticleModuleTrailTaper_DistributionTaperFactor = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466EDB
+			Constant = 1.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleTrailTaper.DistributionTaperFactor' */;
 		// Object Offset:0x00383A27
 		TaperFactor = new DistributionFloat.RawDistributionFloat
 		{

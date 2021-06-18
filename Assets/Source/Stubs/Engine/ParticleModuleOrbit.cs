@@ -38,6 +38,36 @@ public partial class ParticleModuleOrbit : ParticleModuleOrbitBase/*
 	
 	public ParticleModuleOrbit()
 	{
+		var Default__ParticleModuleOrbit_DistributionOffsetAmount = new DistributionVectorUniform
+		{
+			// Object Offset:0x00468483
+			Max = new Vector
+			{
+				X=0.0f,
+				Y=50.0f,
+				Z=0.0f
+			},
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleOrbit.DistributionOffsetAmount' */;
+		var Default__ParticleModuleOrbit_DistributionRotationAmount = new DistributionVectorUniform
+		{
+			// Object Offset:0x004684C7
+			Max = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleOrbit.DistributionRotationAmount' */;
+		var Default__ParticleModuleOrbit_DistributionRotationRateAmount = new DistributionVectorUniform
+		{
+			// Object Offset:0x0046850B
+			Max = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleOrbit.DistributionRotationRateAmount' */;
 		// Object Offset:0x0038017A
 		ChainMode = ParticleModuleOrbit.EOrbitChainMode.EOChainMode_Link;
 		OffsetAmount = new DistributionVector.RawDistributionVector

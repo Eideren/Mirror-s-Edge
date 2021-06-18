@@ -19,8 +19,7 @@ public partial class TdUIButtonBarButton : UILabelButton/*
 	
 	public TdUIButtonBarButton()
 	{
-		// Object Offset:0x00680C0C
-		StringRenderComponent = new UIComp_TdDropShadowString
+		var Default__TdUIButtonBarButton_ButtonBarStringRendererDS = new UIComp_TdDropShadowString
 		{
 			// Object Offset:0x03135B66
 			DropShadowStyle = new UIRoot.UIStyleReference
@@ -37,6 +36,8 @@ public partial class TdUIButtonBarButton : UILabelButton/*
 				DefaultStyleTag = (name)"TdLabelTextButtonBarButtonStyle",
 			},
 		}/* Reference: UIComp_TdDropShadowString'Default__TdUIButtonBarButton.ButtonBarStringRendererDS' */;
+		// Object Offset:0x00680C0C
+		StringRenderComponent = Default__TdUIButtonBarButton_ButtonBarStringRendererDS;
 		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__TdUIButtonBarButton.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__TdUIButtonBarButton.BackgroundImageTemplate'*/;
 		bNeverFocus = true;
 		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIButtonBarButton.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIButtonBarButton.WidgetEventComponent'*/;

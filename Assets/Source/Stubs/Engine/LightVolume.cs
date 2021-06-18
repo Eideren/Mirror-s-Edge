@@ -7,29 +7,20 @@ public partial class LightVolume : Volume/*
 		hidecategories(Navigation,Object,Movement,Display)*/{
 	public LightVolume()
 	{
-		// Object Offset:0x00351B08
-		BrushComponent = new BrushComponent
+		var Default__LightVolume_BrushComponent0 = new BrushComponent
 		{
 			// Object Offset:0x004660C3
 			CollideActors = false,
 			BlockNonZeroExtent = false,
 		}/* Reference: BrushComponent'Default__LightVolume.BrushComponent0' */;
+		// Object Offset:0x00351B08
+		BrushComponent = Default__LightVolume_BrushComponent0;
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new BrushComponent
-			{
-				// Object Offset:0x004660C3
-				CollideActors = false,
-				BlockNonZeroExtent = false,
-			}/* Reference: BrushComponent'Default__LightVolume.BrushComponent0' */,
+			Default__LightVolume_BrushComponent0,
 		};
-		CollisionComponent = new BrushComponent
-		{
-			// Object Offset:0x004660C3
-			CollideActors = false,
-			BlockNonZeroExtent = false,
-		}/* Reference: BrushComponent'Default__LightVolume.BrushComponent0' */;
+		CollisionComponent = Default__LightVolume_BrushComponent0;
 		SupportedEvents = default;
 	}
 }

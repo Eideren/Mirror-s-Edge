@@ -20,6 +20,16 @@ public partial class ParticleModuleLocationPrimitiveCylinder : ParticleModuleLoc
 	
 	public ParticleModuleLocationPrimitiveCylinder()
 	{
+		var Default__ParticleModuleLocationPrimitiveCylinder_DistributionStartRadius = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466D2F
+			Constant = 50.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveCylinder.DistributionStartRadius' */;
+		var Default__ParticleModuleLocationPrimitiveCylinder_DistributionStartHeight = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466CFB
+			Constant = 50.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveCylinder.DistributionStartHeight' */;
 		// Object Offset:0x0037ED6D
 		RadialVelocity = true;
 		StartRadius = new DistributionFloat.RawDistributionFloat

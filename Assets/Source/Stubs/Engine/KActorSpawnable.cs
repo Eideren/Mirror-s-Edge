@@ -22,28 +22,21 @@ public partial class KActorSpawnable : KActor/*
 	
 	public KActorSpawnable()
 	{
-		// Object Offset:0x0034B467
-		StaticMeshComponent = new StaticMeshComponent
+		var Default__KActorSpawnable_StaticMeshComponent0 = new StaticMeshComponent
 		{
 			// Object Offset:0x005798BA
 			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KActorSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActorSpawnable.MyLightEnvironment'*/,
 		}/* Reference: StaticMeshComponent'Default__KActorSpawnable.StaticMeshComponent0' */;
+		// Object Offset:0x0034B467
+		StaticMeshComponent = Default__KActorSpawnable_StaticMeshComponent0;
 		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KActorSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActorSpawnable.MyLightEnvironment'*/;
 		bNoDelete = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__KActorSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActorSpawnable.MyLightEnvironment'*/,
-			new StaticMeshComponent
-			{
-				// Object Offset:0x005798BA
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KActorSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActorSpawnable.MyLightEnvironment'*/,
-			}/* Reference: StaticMeshComponent'Default__KActorSpawnable.StaticMeshComponent0' */,
+			Default__KActorSpawnable_StaticMeshComponent0,
 		};
-		CollisionComponent = new StaticMeshComponent
-		{
-			// Object Offset:0x005798BA
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KActorSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActorSpawnable.MyLightEnvironment'*/,
-		}/* Reference: StaticMeshComponent'Default__KActorSpawnable.StaticMeshComponent0' */;
+		CollisionComponent = Default__KActorSpawnable_StaticMeshComponent0;
 	}
 }
 }

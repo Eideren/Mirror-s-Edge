@@ -12,6 +12,16 @@ public partial class ParticleModuleLocationDirect : ParticleModuleLocationBase/*
 	
 	public ParticleModuleLocationDirect()
 	{
+		var Default__ParticleModuleLocationDirect_DistributionScaleFactor = new DistributionVectorConstant
+		{
+			// Object Offset:0x00467FEF
+			Constant = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleLocationDirect.DistributionScaleFactor' */;
 		// Object Offset:0x0037DE51
 		Location = new DistributionVector.RawDistributionVector
 		{

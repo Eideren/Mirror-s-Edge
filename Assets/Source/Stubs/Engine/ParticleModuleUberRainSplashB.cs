@@ -18,6 +18,27 @@ public partial class ParticleModuleUberRainSplashB : ParticleModuleUberBase/*
 	
 	public ParticleModuleUberRainSplashB()
 	{
+		var Default__ParticleModuleUberRainSplashB_DistributionStartSize = new DistributionVectorUniform
+		{
+			// Object Offset:0x00468973
+			Max = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+			Min = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleUberRainSplashB.DistributionStartSize' */;
+		var Default__ParticleModuleUberRainSplashB_DistributionAlphaOverLife = new DistributionFloatConstant
+		{
+			// Object Offset:0x004671FB
+			Constant = 255.90f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleUberRainSplashB.DistributionAlphaOverLife' */;
 		// Object Offset:0x0038A59F
 		Lifetime = new DistributionFloat.RawDistributionFloat
 		{

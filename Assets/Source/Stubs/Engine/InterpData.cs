@@ -16,27 +16,30 @@ public partial class InterpData : SequenceVariable/*
 	
 	public InterpData()
 	{
+		var Default__InterpData_FilterAll = new InterpFilter
+		{
+			// Object Offset:0x0046A5C3
+			Caption = "All",
+		}/* Reference: InterpFilter'Default__InterpData.FilterAll' */;
+		var Default__InterpData_FilterCameras = new InterpFilter_Classes
+		{
+			// Object Offset:0x0046A5EF
+			ClassToFilterBy = ClassT<CameraActor>()/*Ref Class'CameraActor'*/,
+			Caption = "Cameras",
+		}/* Reference: InterpFilter_Classes'Default__InterpData.FilterCameras' */;
+		var Default__InterpData_FilterSkeletalMeshes = new InterpFilter_Classes
+		{
+			// Object Offset:0x0046A63B
+			ClassToFilterBy = ClassT<SkeletalMeshActor>()/*Ref Class'SkeletalMeshActor'*/,
+			Caption = "Skeletal Meshes",
+		}/* Reference: InterpFilter_Classes'Default__InterpData.FilterSkeletalMeshes' */;
 		// Object Offset:0x00340B07
 		InterpLength = 5.0f;
 		DefaultFilters = new array<InterpFilter>
 		{
-			new InterpFilter
-			{
-				// Object Offset:0x0046A5C3
-				Caption = "All",
-			}/* Reference: InterpFilter'Default__InterpData.FilterAll' */,
-			new InterpFilter_Classes
-			{
-				// Object Offset:0x0046A5EF
-				ClassToFilterBy = ClassT<CameraActor>()/*Ref Class'CameraActor'*/,
-				Caption = "Cameras",
-			}/* Reference: InterpFilter_Classes'Default__InterpData.FilterCameras' */,
-			new InterpFilter_Classes
-			{
-				// Object Offset:0x0046A63B
-				ClassToFilterBy = ClassT<SkeletalMeshActor>()/*Ref Class'SkeletalMeshActor'*/,
-				Caption = "Skeletal Meshes",
-			}/* Reference: InterpFilter_Classes'Default__InterpData.FilterSkeletalMeshes' */,
+			Default__InterpData_FilterAll,
+			Default__InterpData_FilterCameras,
+			Default__InterpData_FilterSkeletalMeshes,
 		};
 		EdSectionStart = 1.0f;
 		EdSectionEnd = 2.0f;

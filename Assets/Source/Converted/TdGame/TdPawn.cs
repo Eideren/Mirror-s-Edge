@@ -4043,7 +4043,7 @@ public partial class TdPawn : GamePawn/*
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
 		{
-			/*ignores*/ RegenerateHealth = (a)=>{}; TakeDamage = (a,b,c,d,e,f,g)=>{}; SetMove = (a,b,c)=>default; HandleMoveAction = (a)=>{}; StopCustomAnim = (a,b)=>{}; PlayPhysicsBodyImpact = (a,b)=>{}; PlayDeathEffect = ()=>{};
+			/*ignores*/ RegenerateHealth = (_a)=>{}; TakeDamage = (_1,_2,_3,_4,_5,_6,_a)=>{}; SetMove = (_1,_2,_a)=>default; HandleMoveAction = (_a)=>{}; StopCustomAnim = (_1,_a)=>{}; PlayPhysicsBodyImpact = (_1,_a)=>{}; PlayDeathEffect = ()=>{};
 	
 			RemoveAndDetachPawn = TdPawn_Dying_RemoveAndDetachPawn;
 			DestroyPawn = TdPawn_Dying_DestroyPawn;
@@ -4067,13 +4067,7 @@ public partial class TdPawn : GamePawn/*
 	}
 	public TdPawn()
 	{
-		// Object Offset:0x0051EA70
-		bCanUnCrouch = true;
-		bGoingForward = true;
-		bAllowMoveChange = true;
-		bCharacterInhaling = true;
-		bTakeFallDamage = true;
-		ActorCylinderComponent = new CylinderComponent
+		var Default__TdPawn_ActorCollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x005208B4
 			CollisionHeight = 90.0f,
@@ -4082,6 +4076,45 @@ public partial class TdPawn : GamePawn/*
 			BlockActors = true,
 			BlockZeroExtent = false,
 		}/* Reference: CylinderComponent'Default__TdPawn.ActorCollisionCylinder' */;
+		var Default__TdPawn_CollisionCylinder = new CylinderComponent
+		{
+			// Object Offset:0x00520648
+			CollisionHeight = 90.0f,
+			CollisionRadius = 30.0f,
+			BlockZeroExtent = false,
+		}/* Reference: CylinderComponent'Default__TdPawn.CollisionCylinder' */;
+		var Default__TdPawn_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+			// Object Offset:0x005206CC
+			LightDistance = 8.0f,
+			ShadowFilterQuality = LightComponent.EShadowFilterQuality.SFQ_High,
+			BouncedLightingIntensity = 0.20f,
+		}/* Reference: DynamicLightEnvironmentComponent'Default__TdPawn.MyLightEnvironment' */;
+		var Default__TdPawn_TdPawnMesh3p = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x0052073C
+			bUpdateSkelWhenNotRendered = false,
+			bIgnoreControllersWhenNotRendered = true,
+			bHasPhysicsAssetInstance = true,
+			bDisableWarningWhenAnimNotFound = true,
+			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdPawn.MyLightEnvironment'*/,
+			bOwnerNoSeeWithShadow = true,
+			CollideActors = true,
+			BlockZeroExtent = true,
+			BlockRigidBody = true,
+			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_Pawn,
+			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
+			{
+				Default = true,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdPawn.TdPawnMesh3p' */;
+		// Object Offset:0x0051EA70
+		bCanUnCrouch = true;
+		bGoingForward = true;
+		bAllowMoveChange = true;
+		bCharacterInhaling = true;
+		bTakeFallDamage = true;
+		ActorCylinderComponent = Default__TdPawn_ActorCollisionCylinder;
 		GravityModifier = 1.0f;
 		OldMovementState = TdPawn.EMovement.MOVE_Walking;
 		MovementState = TdPawn.EMovement.MOVE_Walking;
@@ -4331,76 +4364,21 @@ public partial class TdPawn : GamePawn/*
 		BaseEyeHeight = 76.0f;
 		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdPawn.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdPawn.SceneCaptureCharacterComponent0'*/;
 		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdPawn.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdPawn.DrawFrust0'*/;
-		CylinderComponent = new CylinderComponent
-		{
-			// Object Offset:0x00520648
-			CollisionHeight = 90.0f,
-			CollisionRadius = 30.0f,
-			BlockZeroExtent = false,
-		}/* Reference: CylinderComponent'Default__TdPawn.CollisionCylinder' */;
+		CylinderComponent = Default__TdPawn_CollisionCylinder;
 		AlwaysRelevantDistanceSquared = 1000000.0f;
 		InventoryManagerClass = ClassT<TdInventoryManager>()/*Ref Class'TdInventoryManager'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SceneCaptureCharacterComponent>("Default__TdPawn.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdPawn.SceneCaptureCharacterComponent0'*/,
 			LoadAsset<DrawFrustumComponent>("Default__TdPawn.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdPawn.DrawFrust0'*/,
-			new CylinderComponent
-			{
-				// Object Offset:0x00520648
-				CollisionHeight = 90.0f,
-				CollisionRadius = 30.0f,
-				BlockZeroExtent = false,
-			}/* Reference: CylinderComponent'Default__TdPawn.CollisionCylinder' */,
+			Default__TdPawn_CollisionCylinder,
 			LoadAsset<ArrowComponent>("Default__TdPawn.Arrow")/*Ref ArrowComponent'Default__TdPawn.Arrow'*/,
-			new DynamicLightEnvironmentComponent
-			{
-				// Object Offset:0x005206CC
-				LightDistance = 8.0f,
-				ShadowFilterQuality = LightComponent.EShadowFilterQuality.SFQ_High,
-				BouncedLightingIntensity = 0.20f,
-			}/* Reference: DynamicLightEnvironmentComponent'Default__TdPawn.MyLightEnvironment' */,
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x0052073C
-				bUpdateSkelWhenNotRendered = false,
-				bIgnoreControllersWhenNotRendered = true,
-				bHasPhysicsAssetInstance = true,
-				bDisableWarningWhenAnimNotFound = true,
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdPawn.MyLightEnvironment'*/,
-				bOwnerNoSeeWithShadow = true,
-				CollideActors = true,
-				BlockZeroExtent = true,
-				BlockRigidBody = true,
-				RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_Pawn,
-				RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
-				{
-					Default = true,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdPawn.TdPawnMesh3p' */,
-			new CylinderComponent
-			{
-				// Object Offset:0x00520648
-				CollisionHeight = 90.0f,
-				CollisionRadius = 30.0f,
-				BlockZeroExtent = false,
-			}/* Reference: CylinderComponent'Default__TdPawn.CollisionCylinder' */,
-			new CylinderComponent
-			{
-				// Object Offset:0x005208B4
-				CollisionHeight = 90.0f,
-				CollisionRadius = 45.0f,
-				CollideActors = true,
-				BlockActors = true,
-				BlockZeroExtent = false,
-			}/* Reference: CylinderComponent'Default__TdPawn.ActorCollisionCylinder' */,
+			Default__TdPawn_MyLightEnvironment,
+			Default__TdPawn_TdPawnMesh3p,
+			Default__TdPawn_CollisionCylinder,
+			Default__TdPawn_ActorCollisionCylinder,
 		};
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x00520648
-			CollisionHeight = 90.0f,
-			CollisionRadius = 30.0f,
-			BlockZeroExtent = false,
-		}/* Reference: CylinderComponent'Default__TdPawn.CollisionCylinder' */;
+		CollisionComponent = Default__TdPawn_CollisionCylinder;
 	}
 }
 }

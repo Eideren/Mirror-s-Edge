@@ -31,6 +31,13 @@ public partial class MatineeActor : Actor/*
 	
 	public MatineeActor()
 	{
+		var Default__MatineeActor_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004CFDE6
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__MatineeActor.Sprite' */;
 		// Object Offset:0x0035C21E
 		PlayRate = 1.0f;
 		Position = -1.0f;
@@ -40,13 +47,7 @@ public partial class MatineeActor : Actor/*
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004CFDE6
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__MatineeActor.Sprite' */,
+			Default__MatineeActor_Sprite,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetUpdateFrequency = 1.0f;

@@ -20,6 +20,42 @@ public partial class SoundNodeAmbient : SoundNode/*
 	
 	public SoundNodeAmbient()
 	{
+		var Default__SoundNodeAmbient_DistributionMinRadius = new DistributionFloatUniform
+		{
+			// Object Offset:0x00290760
+			Min = 400.0f,
+			Max = 400.0f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAmbient.DistributionMinRadius' */;
+		var Default__SoundNodeAmbient_DistributionMaxRadius = new DistributionFloatUniform
+		{
+			// Object Offset:0x002907B0
+			Min = 5000.0f,
+			Max = 5000.0f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAmbient.DistributionMaxRadius' */;
+		var Default__SoundNodeAmbient_DistributionLPFMinRadius = new DistributionFloatUniform
+		{
+			// Object Offset:0x00290800
+			Min = 1500.0f,
+			Max = 1500.0f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAmbient.DistributionLPFMinRadius' */;
+		var Default__SoundNodeAmbient_DistributionLPFMaxRadius = new DistributionFloatUniform
+		{
+			// Object Offset:0x00290850
+			Min = 2500.0f,
+			Max = 2500.0f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAmbient.DistributionLPFMaxRadius' */;
+		var Default__SoundNodeAmbient_DistributionVolume = new DistributionFloatUniform
+		{
+			// Object Offset:0x002908A0
+			Min = 1.0f,
+			Max = 1.0f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAmbient.DistributionVolume' */;
+		var Default__SoundNodeAmbient_DistributionPitch = new DistributionFloatUniform
+		{
+			// Object Offset:0x002908F0
+			Min = 1.0f,
+			Max = 1.0f,
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAmbient.DistributionPitch' */;
 		// Object Offset:0x0028FDA6
 		MinRadius = new DistributionFloat.RawDistributionFloat
 		{

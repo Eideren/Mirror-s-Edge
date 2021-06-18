@@ -12,16 +12,17 @@ public partial class DialogueManager : Actor/*
 	
 	public DialogueManager()
 	{
+		var Default__DialogueManager_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004CF8D6
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__DialogueManager.Sprite' */;
 		// Object Offset:0x0030CD12
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004CF8D6
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__DialogueManager.Sprite' */,
+			Default__DialogueManager_Sprite,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
 	}

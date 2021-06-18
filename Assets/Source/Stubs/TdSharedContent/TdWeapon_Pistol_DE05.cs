@@ -7,6 +7,27 @@ public partial class TdWeapon_Pistol_DE05 : TdWeapon_Light/*
 		hidecategories(Navigation)*/{
 	public TdWeapon_Pistol_DE05()
 	{
+		var Default__TdWeapon_Pistol_DE05_FirstPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x00014BAB
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Glock18.SK_Glock18")/*Ref SkeletalMesh'WP_Glock18.SK_Glock18'*/,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18")/*Ref TdAnimSet'AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18'*/,
+			},
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.FirstPersonMesh' */;
+		var Default__TdWeapon_Pistol_DE05_ThirdPersonMesh = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x00014C03
+			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Glock18.SK_Glock18")/*Ref SkeletalMesh'WP_Glock18.SK_Glock18'*/,
+			AnimSets = new array<AnimSet>
+			{
+				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
+				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/,
+			},
+			bUseAsOccluder = false,
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.ThirdPersonMesh' */;
 		// Object Offset:0x0000CB08
 		AimOffsetProfileNames = new array<name>
 		{
@@ -23,27 +44,8 @@ public partial class TdWeapon_Pistol_DE05 : TdWeapon_Light/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18")/*Ref TdAnimSet'AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/;
-		Mesh1p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014BAB
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Glock18.SK_Glock18")/*Ref SkeletalMesh'WP_Glock18.SK_Glock18'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18")/*Ref TdAnimSet'AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.FirstPersonMesh' */;
-		Mesh3p = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014C03
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Glock18.SK_Glock18")/*Ref SkeletalMesh'WP_Glock18.SK_Glock18'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/,
-			},
-			bUseAsOccluder = false,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.ThirdPersonMesh' */;
+		Mesh1p = Default__TdWeapon_Pistol_DE05_FirstPersonMesh;
+		Mesh3p = Default__TdWeapon_Pistol_DE05_ThirdPersonMesh;
 		FireInterval = new array<float>
 		{
 			0.230f,
@@ -52,60 +54,13 @@ public partial class TdWeapon_Pistol_DE05 : TdWeapon_Light/*
 		{
 			90.0f,
 		};
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014BAB
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Glock18.SK_Glock18")/*Ref SkeletalMesh'WP_Glock18.SK_Glock18'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18")/*Ref TdAnimSet'AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.FirstPersonMesh' */;
-		DroppedPickupMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014C03
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Glock18.SK_Glock18")/*Ref SkeletalMesh'WP_Glock18.SK_Glock18'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/,
-			},
-			bUseAsOccluder = false,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.ThirdPersonMesh' */;
-		PickupFactoryMesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00014BAB
-			SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Glock18.SK_Glock18")/*Ref SkeletalMesh'WP_Glock18.SK_Glock18'*/,
-			AnimSets = new array<AnimSet>
-			{
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-				LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18")/*Ref TdAnimSet'AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18'*/,
-			},
-		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.FirstPersonMesh' */;
+		Mesh = Default__TdWeapon_Pistol_DE05_FirstPersonMesh;
+		DroppedPickupMesh = Default__TdWeapon_Pistol_DE05_ThirdPersonMesh;
+		PickupFactoryMesh = Default__TdWeapon_Pistol_DE05_FirstPersonMesh;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00014BAB
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Glock18.SK_Glock18")/*Ref SkeletalMesh'WP_Glock18.SK_Glock18'*/,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common")/*Ref TdAnimSet'AS_C1P_OneHanded_Common.AS_C1P_OneHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18")/*Ref TdAnimSet'AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18'*/,
-				},
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.FirstPersonMesh' */,
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00014C03
-				SkeletalMesh = LoadAsset<SkeletalMesh>("WP_Glock18.SK_Glock18")/*Ref SkeletalMesh'WP_Glock18.SK_Glock18'*/,
-				AnimSets = new array<AnimSet>
-				{
-					LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/,
-					LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/,
-				},
-				bUseAsOccluder = false,
-			}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.ThirdPersonMesh' */,
+			Default__TdWeapon_Pistol_DE05_FirstPersonMesh,
+			Default__TdWeapon_Pistol_DE05_ThirdPersonMesh,
 		};
 	}
 }

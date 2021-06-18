@@ -5,8 +5,7 @@ public partial class TdUITutorialList : TdUIImageList/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public TdUITutorialList()
 	{
-		// Object Offset:0x006BC4AD
-		CellDataComponent = new TdUIComp_TutorialListPresenter
+		var Default__TdUITutorialList_TutorialListPresentationComponent = new TdUIComp_TutorialListPresenter
 		{
 			// Object Offset:0x03149F95
 			ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
@@ -17,6 +16,8 @@ public partial class TdUITutorialList : TdUIImageList/*
 				[3] = LoadAsset<UITexture>("Default__TdUITutorialList.TutorialListPresentationComponent.HoverOverlayTemplate")/*Ref UITexture'Default__TdUITutorialList.TutorialListPresentationComponent.HoverOverlayTemplate'*/,
 	 		},
 		}/* Reference: TdUIComp_TutorialListPresenter'Default__TdUITutorialList.TutorialListPresentationComponent' */;
+		// Object Offset:0x006BC4AD
+		CellDataComponent = Default__TdUITutorialList_TutorialListPresentationComponent;
 		EventProvider = LoadAsset<UIComp_Event>("Default__TdUITutorialList.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUITutorialList.WidgetEventComponent'*/;
 	}
 }

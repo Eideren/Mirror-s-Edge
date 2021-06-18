@@ -10,19 +10,16 @@ public partial class JuicePerformancePoint : Keypoint/*
 	
 	public JuicePerformancePoint()
 	{
+		var Default__JuicePerformancePoint_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004CFBA2
+			Sprite = LoadAsset<Texture2D>("TdEditorResources.PerformancePointIcon")/*Ref Texture2D'TdEditorResources.PerformancePointIcon'*/,
+		}/* Reference: SpriteComponent'Default__JuicePerformancePoint.Sprite' */;
 		// Object Offset:0x0034817C
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x004CFBA2
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.PerformancePointIcon")/*Ref Texture2D'TdEditorResources.PerformancePointIcon'*/,
-			}/* Reference: SpriteComponent'Default__JuicePerformancePoint.Sprite' */,
-			new SpriteComponent
-			{
-				// Object Offset:0x004CFBA2
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.PerformancePointIcon")/*Ref Texture2D'TdEditorResources.PerformancePointIcon'*/,
-			}/* Reference: SpriteComponent'Default__JuicePerformancePoint.Sprite' */,
+			Default__JuicePerformancePoint_Sprite,
+			Default__JuicePerformancePoint_Sprite,
 		};
 	}
 }

@@ -32,14 +32,15 @@ public partial class TdBotPawn_Celeste : TdBotPawn_PursuitCop/*
 	}
 	public TdBotPawn_Celeste()
 	{
-		// Object Offset:0x00002EB6
-		CMaxPathDistSq = 25000000.0f;
-		ActorCylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_Celeste.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_Celeste.ActorCollisionCylinder'*/;
-		Mesh3p = new TdSkeletalMeshComponent
+		var Default__TdBotPawn_Celeste_TdPawnMesh3p = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x00003A7E
 			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_Celeste.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_Celeste.MyLightEnvironment'*/,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_Celeste.TdPawnMesh3p' */;
+		// Object Offset:0x00002EB6
+		CMaxPathDistSq = 25000000.0f;
+		ActorCylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_Celeste.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_Celeste.ActorCollisionCylinder'*/;
+		Mesh3p = Default__TdBotPawn_Celeste_TdPawnMesh3p;
 		MoveClasses = new array< Core.ClassT<TdMove> >
 		{
 			default,
@@ -174,11 +175,7 @@ public partial class TdBotPawn_Celeste : TdBotPawn_PursuitCop/*
 		};
 		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawn_Celeste.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_Celeste.SceneCaptureCharacterComponent0'*/;
 		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdBotPawn_Celeste.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn_Celeste.DrawFrust0'*/;
-		Mesh = new TdSkeletalMeshComponent
-		{
-			// Object Offset:0x00003A7E
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_Celeste.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_Celeste.MyLightEnvironment'*/,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_Celeste.TdPawnMesh3p' */;
+		Mesh = Default__TdBotPawn_Celeste_TdPawnMesh3p;
 		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_Celeste.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_Celeste.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
@@ -187,11 +184,7 @@ public partial class TdBotPawn_Celeste : TdBotPawn_PursuitCop/*
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_Celeste.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_Celeste.CollisionCylinder'*/,
 			LoadAsset<ArrowComponent>("Default__TdBotPawn_Celeste.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_Celeste.Arrow'*/,
 			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_Celeste.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_Celeste.MyLightEnvironment'*/,
-			new TdSkeletalMeshComponent
-			{
-				// Object Offset:0x00003A7E
-				LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_Celeste.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_Celeste.MyLightEnvironment'*/,
-			}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_Celeste.TdPawnMesh3p' */,
+			Default__TdBotPawn_Celeste_TdPawnMesh3p,
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_Celeste.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_Celeste.CollisionCylinder'*/,
 			LoadAsset<CylinderComponent>("Default__TdBotPawn_Celeste.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_Celeste.ActorCollisionCylinder'*/,
 		};

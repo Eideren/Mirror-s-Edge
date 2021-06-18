@@ -36,33 +36,31 @@ public partial class RB_LineImpulseActor : Actor/*
 	
 	public RB_LineImpulseActor()
 	{
-		// Object Offset:0x003AE54B
-		ImpulseStrength = 900.0f;
-		ImpulseRange = 200.0f;
-		Arrow = new ArrowComponent
+		var Default__RB_LineImpulseActor_ArrowComponent0 = new ArrowComponent
 		{
 			// Object Offset:0x00465D07
 			ArrowSize = 4.166670f,
 		}/* Reference: ArrowComponent'Default__RB_LineImpulseActor.ArrowComponent0' */;
+		var Default__RB_LineImpulseActor_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x004D02EA
+			Sprite = LoadAsset<Texture2D>("EngineResources.S_LineImpulse")/*Ref Texture2D'EngineResources.S_LineImpulse'*/,
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: SpriteComponent'Default__RB_LineImpulseActor.Sprite' */;
+		// Object Offset:0x003AE54B
+		ImpulseStrength = 900.0f;
+		ImpulseRange = 200.0f;
+		Arrow = Default__RB_LineImpulseActor_ArrowComponent0;
 		bNoDelete = true;
 		bAlwaysRelevant = true;
 		bOnlyDirtyReplication = true;
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new ArrowComponent
-			{
-				// Object Offset:0x00465D07
-				ArrowSize = 4.166670f,
-			}/* Reference: ArrowComponent'Default__RB_LineImpulseActor.ArrowComponent0' */,
-			new SpriteComponent
-			{
-				// Object Offset:0x004D02EA
-				Sprite = LoadAsset<Texture2D>("EngineResources.S_LineImpulse")/*Ref Texture2D'EngineResources.S_LineImpulse'*/,
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: SpriteComponent'Default__RB_LineImpulseActor.Sprite' */,
+			Default__RB_LineImpulseActor_ArrowComponent0,
+			Default__RB_LineImpulseActor_Sprite,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetUpdateFrequency = 0.10f;

@@ -35,35 +35,26 @@ public partial class CoverSlotMarker : NavigationPoint/*
 	
 	public CoverSlotMarker()
 	{
-		// Object Offset:0x002ECE93
-		bSpecialMove = true;
-		Cost = 300;
-		CylinderComponent = new CylinderComponent
+		var Default__CoverSlotMarker_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x0046646B
 			CollisionHeight = 40.0f,
 			CollisionRadius = 40.0f,
 		}/* Reference: CylinderComponent'Default__CoverSlotMarker.CollisionCylinder' */;
+		// Object Offset:0x002ECE93
+		bSpecialMove = true;
+		Cost = 300;
+		CylinderComponent = Default__CoverSlotMarker_CollisionCylinder;
 		GoodSprite = LoadAsset<SpriteComponent>("Default__CoverSlotMarker.Sprite")/*Ref SpriteComponent'Default__CoverSlotMarker.Sprite'*/;
 		BadSprite = LoadAsset<SpriteComponent>("Default__CoverSlotMarker.Sprite2")/*Ref SpriteComponent'Default__CoverSlotMarker.Sprite2'*/;
 		Abbrev = "CSM";
 		bCollideWhenPlacing = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new CylinderComponent
-			{
-				// Object Offset:0x0046646B
-				CollisionHeight = 40.0f,
-				CollisionRadius = 40.0f,
-			}/* Reference: CylinderComponent'Default__CoverSlotMarker.CollisionCylinder' */,
+			Default__CoverSlotMarker_CollisionCylinder,
 			LoadAsset<PathRenderingComponent>("Default__CoverSlotMarker.PathRenderer")/*Ref PathRenderingComponent'Default__CoverSlotMarker.PathRenderer'*/,
 		};
-		CollisionComponent = new CylinderComponent
-		{
-			// Object Offset:0x0046646B
-			CollisionHeight = 40.0f,
-			CollisionRadius = 40.0f,
-		}/* Reference: CylinderComponent'Default__CoverSlotMarker.CollisionCylinder' */;
+		CollisionComponent = Default__CoverSlotMarker_CollisionCylinder;
 	}
 }
 }

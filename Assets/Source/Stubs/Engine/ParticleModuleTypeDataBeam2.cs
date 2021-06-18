@@ -54,6 +54,21 @@ public partial class ParticleModuleTypeDataBeam2 : ParticleModuleTypeDataBase/*
 	
 	public ParticleModuleTypeDataBeam2()
 	{
+		var Default__ParticleModuleTypeDataBeam2_DistributionDistance = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466F0F
+			Constant = 25.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleTypeDataBeam2.DistributionDistance' */;
+		var Default__ParticleModuleTypeDataBeam2_DistributionTaperFactor = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466F43
+			Constant = 1.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleTypeDataBeam2.DistributionTaperFactor' */;
+		var Default__ParticleModuleTypeDataBeam2_DistributionTaperScale = new DistributionFloatConstant
+		{
+			// Object Offset:0x00466F77
+			Constant = 1.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleTypeDataBeam2.DistributionTaperScale' */;
 		// Object Offset:0x003849E8
 		BeamMethod = ParticleModuleTypeDataBeam2.EBeam2Method.PEB2M_Target;
 		TextureTile = 1;

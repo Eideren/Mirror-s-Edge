@@ -18,6 +18,11 @@ public partial class ParticleModuleLocationPrimitiveBase : ParticleModuleLocatio
 	
 	public ParticleModuleLocationPrimitiveBase()
 	{
+		var Default__ParticleModuleLocationPrimitiveBase_DistributionVelocityScale = new DistributionFloatConstant
+		{
+			// Object Offset:0x0037EC2D
+			Constant = 1.0f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveBase.DistributionVelocityScale' */;
 		// Object Offset:0x0037E8A2
 		Positive_X = true;
 		Positive_Y = true;

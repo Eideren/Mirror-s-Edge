@@ -24,21 +24,23 @@ public partial class TdPathLimits : Info/*
 	
 	public TdPathLimits()
 	{
+		var Default__TdPathLimits_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x02E524F1
+			Sprite = LoadAsset<Texture2D>("EditorMaterials.CovergroupIcon")/*Ref Texture2D'EditorMaterials.CovergroupIcon'*/,
+		}/* Reference: SpriteComponent'Default__TdPathLimits.Sprite' */;
+		var Default__TdPathLimits_LimitsRenderer = new TdPathLimitsRenderingComponent
+		{
+			// Object Offset:0x0312212E
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: TdPathLimitsRenderingComponent'Default__TdPathLimits.LimitsRenderer' */;
 		// Object Offset:0x0060A2E2
 		bEnabled = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x02E524F1
-				Sprite = LoadAsset<Texture2D>("EditorMaterials.CovergroupIcon")/*Ref Texture2D'EditorMaterials.CovergroupIcon'*/,
-			}/* Reference: SpriteComponent'Default__TdPathLimits.Sprite' */,
-			new TdPathLimitsRenderingComponent
-			{
-				// Object Offset:0x0312212E
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: TdPathLimitsRenderingComponent'Default__TdPathLimits.LimitsRenderer' */,
+			Default__TdPathLimits_Sprite,
+			Default__TdPathLimits_LimitsRenderer,
 		};
 	}
 }

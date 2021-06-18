@@ -30,6 +30,15 @@ public partial class Light : Actor/*
 	
 	public Light()
 	{
+		var Default__Light_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x0030D263
+			Sprite = LoadAsset<Texture2D>("EngineResources.LightIcons.Light_Point_Stationary_Statics")/*Ref Texture2D'EngineResources.LightIcons.Light_Point_Stationary_Statics'*/,
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+			Scale = 0.250f,
+		}/* Reference: SpriteComponent'Default__Light.Sprite' */;
 		// Object Offset:0x0030D0F2
 		SampleFactor = 1.0f;
 		bStatic = true;
@@ -39,15 +48,7 @@ public partial class Light : Actor/*
 		bMovable = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x0030D263
-				Sprite = LoadAsset<Texture2D>("EngineResources.LightIcons.Light_Point_Stationary_Statics")/*Ref Texture2D'EngineResources.LightIcons.Light_Point_Stationary_Statics'*/,
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-				Scale = 0.250f,
-			}/* Reference: SpriteComponent'Default__Light.Sprite' */,
+			Default__Light_Sprite,
 		};
 	}
 }

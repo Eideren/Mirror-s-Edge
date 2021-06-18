@@ -25,8 +25,7 @@ public partial class UIScriptConsoleScene : UIScene/*
 	
 	public UIScriptConsoleScene()
 	{
-		// Object Offset:0x0044C604
-		BufferText = new UILabel
+		var Default__UIScriptConsoleScene_BufferTextTemplate = new UILabel
 		{
 			// Object Offset:0x005D340E
 			StringRenderComponent = LoadAsset<UIComp_DrawString>("Default__UIScriptConsoleScene.BufferTextTemplate.LabelStringRenderer")/*Ref UIComp_DrawString'Default__UIScriptConsoleScene.BufferTextTemplate.LabelStringRenderer'*/,
@@ -51,7 +50,7 @@ public partial class UIScriptConsoleScene : UIScene/*
 			},
 			EventProvider = LoadAsset<UIComp_Event>("Default__UIScriptConsoleScene.BufferTextTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIScriptConsoleScene.BufferTextTemplate.WidgetEventComponent'*/,
 		}/* Reference: UILabel'Default__UIScriptConsoleScene.BufferTextTemplate' */;
-		BufferBackground = new UIImage
+		var Default__UIScriptConsoleScene_BufferBackgroundTemplate = new UIImage
 		{
 			// Object Offset:0x005D31CE
 			ImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIScriptConsoleScene.BufferBackgroundTemplate.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__UIScriptConsoleScene.BufferBackgroundTemplate.ImageComponentTemplate'*/,
@@ -62,32 +61,39 @@ public partial class UIScriptConsoleScene : UIScene/*
 			},
 			EventProvider = LoadAsset<UIComp_Event>("Default__UIScriptConsoleScene.BufferBackgroundTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIScriptConsoleScene.BufferBackgroundTemplate.WidgetEventComponent'*/,
 		}/* Reference: UIImage'Default__UIScriptConsoleScene.BufferBackgroundTemplate' */;
-		CommandRegion = new ScriptConsoleEntry
+		var Default__UIScriptConsoleScene_CommandRegionTemplate_ConsoleInputTemplate = new UIEditBox
+		{
+			// Object Offset:0x005D2922
+			StringRenderComponent = LoadAsset<UIComp_DrawStringEditbox>("Default__UIScriptConsoleScene.CommandRegionTemplate.ConsoleInputTemplate.EditboxStringRenderer")/*Ref UIComp_DrawStringEditbox'Default__UIScriptConsoleScene.CommandRegionTemplate.ConsoleInputTemplate.EditboxStringRenderer'*/,
+			BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIScriptConsoleScene.CommandRegionTemplate.ConsoleInputTemplate.EditboxBackgroundTemplate")/*Ref UIComp_DrawImage'Default__UIScriptConsoleScene.CommandRegionTemplate.ConsoleInputTemplate.EditboxBackgroundTemplate'*/,
+			__OnCreate__Delegate = (CreatedWidget, CreatorContainer) => OnCreateChild(CreatedWidget, CreatorContainer),
+			EventProvider = LoadAsset<UIComp_Event>("Default__UIScriptConsoleScene.CommandRegionTemplate.ConsoleInputTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIScriptConsoleScene.CommandRegionTemplate.ConsoleInputTemplate.WidgetEventComponent'*/,
+		}/* Reference: UIEditBox'Default__UIScriptConsoleScene.CommandRegionTemplate.ConsoleInputTemplate' */;
+		var Default__UIScriptConsoleScene_CommandRegionTemplate_UpperBorderTemplate = new UIImage
+		{
+			// Object Offset:0x005D32BE
+			ImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIScriptConsoleScene.CommandRegionTemplate.UpperBorderTemplate.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__UIScriptConsoleScene.CommandRegionTemplate.UpperBorderTemplate.ImageComponentTemplate'*/,
+			EventProvider = LoadAsset<UIComp_Event>("Default__UIScriptConsoleScene.CommandRegionTemplate.UpperBorderTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIScriptConsoleScene.CommandRegionTemplate.UpperBorderTemplate.WidgetEventComponent'*/,
+		}/* Reference: UIImage'Default__UIScriptConsoleScene.CommandRegionTemplate.UpperBorderTemplate' */;
+		var Default__UIScriptConsoleScene_CommandRegionTemplate_LowerBorderTemplate = new UIImage
+		{
+			// Object Offset:0x005D327A
+			ImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIScriptConsoleScene.CommandRegionTemplate.LowerBorderTemplate.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__UIScriptConsoleScene.CommandRegionTemplate.LowerBorderTemplate.ImageComponentTemplate'*/,
+			EventProvider = LoadAsset<UIComp_Event>("Default__UIScriptConsoleScene.CommandRegionTemplate.LowerBorderTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIScriptConsoleScene.CommandRegionTemplate.LowerBorderTemplate.WidgetEventComponent'*/,
+		}/* Reference: UIImage'Default__UIScriptConsoleScene.CommandRegionTemplate.LowerBorderTemplate' */;
+		var Default__UIScriptConsoleScene_CommandRegionTemplate = new ScriptConsoleEntry
 		{
 			// Object Offset:0x004CEB8A
-			InputBox = new UIEditBox
-			{
-				// Object Offset:0x005D2922
-				StringRenderComponent = LoadAsset<UIComp_DrawStringEditbox>("Default__UIScriptConsoleScene.CommandRegionTemplate.ConsoleInputTemplate.EditboxStringRenderer")/*Ref UIComp_DrawStringEditbox'Default__UIScriptConsoleScene.CommandRegionTemplate.ConsoleInputTemplate.EditboxStringRenderer'*/,
-				BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIScriptConsoleScene.CommandRegionTemplate.ConsoleInputTemplate.EditboxBackgroundTemplate")/*Ref UIComp_DrawImage'Default__UIScriptConsoleScene.CommandRegionTemplate.ConsoleInputTemplate.EditboxBackgroundTemplate'*/,
-				__OnCreate__Delegate = (CreatedWidget, CreatorContainer) => OnCreateChild(CreatedWidget, CreatorContainer),
-				EventProvider = LoadAsset<UIComp_Event>("Default__UIScriptConsoleScene.CommandRegionTemplate.ConsoleInputTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIScriptConsoleScene.CommandRegionTemplate.ConsoleInputTemplate.WidgetEventComponent'*/,
-			}/* Reference: UIEditBox'Default__UIScriptConsoleScene.CommandRegionTemplate.ConsoleInputTemplate' */,
-			UpperConsoleBorder = new UIImage
-			{
-				// Object Offset:0x005D32BE
-				ImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIScriptConsoleScene.CommandRegionTemplate.UpperBorderTemplate.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__UIScriptConsoleScene.CommandRegionTemplate.UpperBorderTemplate.ImageComponentTemplate'*/,
-				EventProvider = LoadAsset<UIComp_Event>("Default__UIScriptConsoleScene.CommandRegionTemplate.UpperBorderTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIScriptConsoleScene.CommandRegionTemplate.UpperBorderTemplate.WidgetEventComponent'*/,
-			}/* Reference: UIImage'Default__UIScriptConsoleScene.CommandRegionTemplate.UpperBorderTemplate' */,
-			LowerConsoleBorder = new UIImage
-			{
-				// Object Offset:0x005D327A
-				ImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIScriptConsoleScene.CommandRegionTemplate.LowerBorderTemplate.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__UIScriptConsoleScene.CommandRegionTemplate.LowerBorderTemplate.ImageComponentTemplate'*/,
-				EventProvider = LoadAsset<UIComp_Event>("Default__UIScriptConsoleScene.CommandRegionTemplate.LowerBorderTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIScriptConsoleScene.CommandRegionTemplate.LowerBorderTemplate.WidgetEventComponent'*/,
-			}/* Reference: UIImage'Default__UIScriptConsoleScene.CommandRegionTemplate.LowerBorderTemplate' */,
+			InputBox = Default__UIScriptConsoleScene_CommandRegionTemplate_ConsoleInputTemplate,
+			UpperConsoleBorder = Default__UIScriptConsoleScene_CommandRegionTemplate_UpperBorderTemplate,
+			LowerConsoleBorder = Default__UIScriptConsoleScene_CommandRegionTemplate_LowerBorderTemplate,
 			BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIScriptConsoleScene.CommandRegionTemplate.PanelBackgroundTemplate")/*Ref UIComp_DrawImage'Default__UIScriptConsoleScene.CommandRegionTemplate.PanelBackgroundTemplate'*/,
 			EventProvider = LoadAsset<UIComp_Event>("Default__UIScriptConsoleScene.CommandRegionTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIScriptConsoleScene.CommandRegionTemplate.WidgetEventComponent'*/,
 		}/* Reference: ScriptConsoleEntry'Default__UIScriptConsoleScene.CommandRegionTemplate' */;
+		// Object Offset:0x0044C604
+		BufferText = Default__UIScriptConsoleScene_BufferTextTemplate;
+		BufferBackground = Default__UIScriptConsoleScene_BufferBackgroundTemplate;
+		CommandRegion = Default__UIScriptConsoleScene_CommandRegionTemplate;
 		SceneTag = (name)"ConsoleScene";
 		Position = new UIRoot.UIScreenValue_Bounds
 		{

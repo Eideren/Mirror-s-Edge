@@ -146,9 +146,9 @@
         /// <summary>
         /// Returns the position of the first (with bSearchFromRight specified as True: the last) occurrence of S in T or -1 if T does not contain S. This function is case-sensitive. The position of the first character is 0.
         /// </summary>
-        public /*native(126) final function */static int InStr( /*coerce */ String S, /*coerce */String T, /*optional */bool bSearchFromRight = default )
+        public /*native(126) final function */static int InStr( /*coerce */ String S, /*coerce */String T, /*optional */bool? bSearchFromRight = default )
         {
-	        if(bSearchFromRight)
+	        if(bSearchFromRight??false)
 		        return S.ToString().LastIndexOf( T );
 	        return S.ToString().IndexOf( T );
         }
@@ -171,10 +171,10 @@
         /// <summary>
         /// Returns up to j characters from string S, starting with the ith character. If j is omitted or greater than the number of characters after position i, all remaining characters are returned.
         /// </summary>
-        public /*native(127) final function */static String Mid( /*coerce */ String S, int I, /*optional */int J = default )
+        public /*native(127) final function */static String Mid( /*coerce */ String S, int I, /*optional */int? J = default )
         {
 	        var s = S.ToString().Remove( 0, I );
-	        return J == 0 ? s : s.Substring( 0, Min(J, s.Length) );
+	        return J == 0 ? s : s.Substring( 0, Min(J??0, s.Length) );
         }
 
 
@@ -199,7 +199,7 @@
         /// <summary>
         /// Replaces all occurrences of Match in Src with With and returns the result. Any occurrences created as a result of a replacement are ignored. By default Match is matched case-insensitively, unless bCaseSensitive is specified as True.
         /// </summary>
-        public /*native(201) final function */static String Repl( /*coerce */ String Src, /*coerce */String Match, /*coerce */String With, /*optional */bool bCaseSensitive = default )
+        public /*native(201) final function */static String Repl( /*coerce */ String Src, /*coerce */String Match, /*coerce */String With, /*optional */bool? bCaseSensitive = default )
         {
 	        if( Match == "" )
 		        throw new InvalidOperationException();

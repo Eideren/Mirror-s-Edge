@@ -31,8 +31,7 @@ public partial class ScriptConsoleEntry : UIPanel/*
 	
 	public ScriptConsoleEntry()
 	{
-		// Object Offset:0x003B4FEF
-		InputBox = new UIEditBox
+		var Default__ScriptConsoleEntry_ConsoleInputTemplate = new UIEditBox
 		{
 			// Object Offset:0x004CE6F2
 			DataSource = new UIRoot.UIDataStoreBinding
@@ -62,7 +61,7 @@ public partial class ScriptConsoleEntry : UIPanel/*
 			},
 			EventProvider = LoadAsset<UIComp_Event>("Default__ScriptConsoleEntry.ConsoleInputTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__ScriptConsoleEntry.ConsoleInputTemplate.WidgetEventComponent'*/,
 		}/* Reference: UIEditBox'Default__ScriptConsoleEntry.ConsoleInputTemplate' */;
-		UpperConsoleBorder = new UIImage
+		var Default__ScriptConsoleEntry_UpperBorderTemplate = new UIImage
 		{
 			// Object Offset:0x004CE8BA
 			ImageComponent = LoadAsset<UIComp_DrawImage>("Default__ScriptConsoleEntry.UpperBorderTemplate.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__ScriptConsoleEntry.UpperBorderTemplate.ImageComponentTemplate'*/,
@@ -87,7 +86,7 @@ public partial class ScriptConsoleEntry : UIPanel/*
 			},
 			EventProvider = LoadAsset<UIComp_Event>("Default__ScriptConsoleEntry.UpperBorderTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__ScriptConsoleEntry.UpperBorderTemplate.WidgetEventComponent'*/,
 		}/* Reference: UIImage'Default__ScriptConsoleEntry.UpperBorderTemplate' */;
-		LowerConsoleBorder = new UIImage
+		var Default__ScriptConsoleEntry_LowerBorderTemplate = new UIImage
 		{
 			// Object Offset:0x004CE9E6
 			ImageComponent = LoadAsset<UIComp_DrawImage>("Default__ScriptConsoleEntry.LowerBorderTemplate.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__ScriptConsoleEntry.LowerBorderTemplate.ImageComponentTemplate'*/,
@@ -112,7 +111,7 @@ public partial class ScriptConsoleEntry : UIPanel/*
 			},
 			EventProvider = LoadAsset<UIComp_Event>("Default__ScriptConsoleEntry.LowerBorderTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__ScriptConsoleEntry.LowerBorderTemplate.WidgetEventComponent'*/,
 		}/* Reference: UIImage'Default__ScriptConsoleEntry.LowerBorderTemplate' */;
-		BackgroundImageComponent = new UIComp_DrawImage
+		var Default__ScriptConsoleEntry_PanelBackgroundTemplate = new UIComp_DrawImage
 		{
 			// Object Offset:0x004CEB12
 			ImageStyle = new UIRoot.UIStyleReference
@@ -120,6 +119,11 @@ public partial class ScriptConsoleEntry : UIPanel/*
 				DefaultStyleTag = (name)"ConsoleBackgroundStyle",
 			},
 		}/* Reference: UIComp_DrawImage'Default__ScriptConsoleEntry.PanelBackgroundTemplate' */;
+		// Object Offset:0x003B4FEF
+		InputBox = Default__ScriptConsoleEntry_ConsoleInputTemplate;
+		UpperConsoleBorder = Default__ScriptConsoleEntry_UpperBorderTemplate;
+		LowerConsoleBorder = Default__ScriptConsoleEntry_LowerBorderTemplate;
+		BackgroundImageComponent = Default__ScriptConsoleEntry_PanelBackgroundTemplate;
 		WidgetTag = (name)"ConsoleInputBox";
 		PrimaryStyle = new UIRoot.UIStyleReference
 		{

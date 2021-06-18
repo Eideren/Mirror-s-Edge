@@ -121,8 +121,7 @@ public partial class TdTutorialCheckpoint : TdPlaceableCheckpoint/*
 	
 	public TdTutorialCheckpoint()
 	{
-		// Object Offset:0x0067E9D6
-		CheckpointMesh = new StaticMeshComponent
+		var Default__TdTutorialCheckpoint_MyMesh = new StaticMeshComponent
 		{
 			// Object Offset:0x02EA702B
 			StaticMesh = LoadAsset<StaticMesh>("TT_Checkpoints.S_Checkpoint_01")/*Ref StaticMesh'TT_Checkpoints.S_Checkpoint_01'*/,
@@ -136,40 +135,24 @@ public partial class TdTutorialCheckpoint : TdPlaceableCheckpoint/*
 				Z=14.0f
 			},
 		}/* Reference: StaticMeshComponent'Default__TdTutorialCheckpoint.MyMesh' */;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdTutorialCheckpoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdTutorialCheckpoint.CollisionCylinder'*/;
-		GoodSprite = new SpriteComponent
+		var Default__TdTutorialCheckpoint_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x02E528E5
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.TutorialInformation")/*Ref Texture2D'TdEditorResources.TutorialInformation'*/,
 		}/* Reference: SpriteComponent'Default__TdTutorialCheckpoint.Sprite' */;
+		// Object Offset:0x0067E9D6
+		CheckpointMesh = Default__TdTutorialCheckpoint_MyMesh;
+		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdTutorialCheckpoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdTutorialCheckpoint.CollisionCylinder'*/;
+		GoodSprite = Default__TdTutorialCheckpoint_Sprite;
 		BadSprite = LoadAsset<SpriteComponent>("Default__TdTutorialCheckpoint.Sprite2")/*Ref SpriteComponent'Default__TdTutorialCheckpoint.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			//Components[0]=
-			new SpriteComponent
-			{
-				// Object Offset:0x02E528E5
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.TutorialInformation")/*Ref Texture2D'TdEditorResources.TutorialInformation'*/,
-			}/* Reference: SpriteComponent'Default__TdTutorialCheckpoint.Sprite' */,
+			Default__TdTutorialCheckpoint_Sprite,
 			LoadAsset<SpriteComponent>("Default__TdTutorialCheckpoint.Sprite2")/*Ref SpriteComponent'Default__TdTutorialCheckpoint.Sprite2'*/,
 			LoadAsset<ArrowComponent>("Default__TdTutorialCheckpoint.Arrow")/*Ref ArrowComponent'Default__TdTutorialCheckpoint.Arrow'*/,
 			LoadAsset<CylinderComponent>("Default__TdTutorialCheckpoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdTutorialCheckpoint.CollisionCylinder'*/,
 			LoadAsset<PathRenderingComponent>("Default__TdTutorialCheckpoint.PathRenderer")/*Ref PathRenderingComponent'Default__TdTutorialCheckpoint.PathRenderer'*/,
-			//Components[5]=
-			new StaticMeshComponent
-			{
-				// Object Offset:0x02EA702B
-				StaticMesh = LoadAsset<StaticMesh>("TT_Checkpoints.S_Checkpoint_01")/*Ref StaticMesh'TT_Checkpoints.S_Checkpoint_01'*/,
-				HiddenEditor = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-				Scale3D = new Vector
-				{
-					X=1.0f,
-					Y=1.0f,
-					Z=14.0f
-				},
-			}/* Reference: StaticMeshComponent'Default__TdTutorialCheckpoint.MyMesh' */,
+			Default__TdTutorialCheckpoint_MyMesh,
 		};
 		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdTutorialCheckpoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdTutorialCheckpoint.CollisionCylinder'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >

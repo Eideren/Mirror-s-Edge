@@ -9,6 +9,16 @@ public partial class ParticleModuleMeshRotationRate : ParticleModuleRotationRate
 	
 	public ParticleModuleMeshRotationRate()
 	{
+		var Default__ParticleModuleMeshRotationRate_DistributionStartRotationRate = new DistributionVectorUniform
+		{
+			// Object Offset:0x0046843F
+			Max = new Vector
+			{
+				X=360.0f,
+				Y=360.0f,
+				Z=360.0f
+			},
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleMeshRotationRate.DistributionStartRotationRate' */;
 		// Object Offset:0x0037FA21
 		StartRotationRate = new DistributionVector.RawDistributionVector
 		{

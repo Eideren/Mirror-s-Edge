@@ -10,12 +10,13 @@ public partial class PhATSkeletalMeshComponent : SkeletalMeshComponent/*
 	
 	public PhATSkeletalMeshComponent()
 	{
-		// Object Offset:0x0002794A
-		Animations = new AnimNodeSequence
+		var Default__PhATSkeletalMeshComponent_AnimNodeSeq0 = new AnimNodeSequence
 		{
 			// Object Offset:0x0003137B
 			bLooping = true,
 		}/* Reference: AnimNodeSequence'Default__PhATSkeletalMeshComponent.AnimNodeSeq0' */;
+		// Object Offset:0x0002794A
+		Animations = Default__PhATSkeletalMeshComponent_AnimNodeSeq0;
 		PhysicsWeight = 1.0f;
 		ForcedLodModel = 1;
 		bHasPhysicsAssetInstance = true;

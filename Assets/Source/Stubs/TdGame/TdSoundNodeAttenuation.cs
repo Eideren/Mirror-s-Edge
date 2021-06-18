@@ -11,6 +11,12 @@ public partial class TdSoundNodeAttenuation : SoundNodeAttenuation/*
 	
 	public TdSoundNodeAttenuation()
 	{
+		var Default__TdSoundNodeAttenuation_DistributionSpeedOfSound = new DistributionFloatUniform
+		{
+			// Object Offset:0x01B12D0E
+			Min = 33100.0f,
+			Max = 33101.0f,
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionSpeedOfSound' */;
 		// Object Offset:0x0065A7CA
 		SpeedOfSound = new DistributionFloat.RawDistributionFloat
 		{

@@ -12,6 +12,19 @@ public partial class TdGrenadeArea : Actor/*
 	
 	public TdGrenadeArea()
 	{
+		var Default__TdGrenadeArea_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x005449AE
+			Sprite = LoadAsset<Texture2D>("TdEditorResources.GrenadeIcon")/*Ref Texture2D'TdEditorResources.GrenadeIcon'*/,
+			HiddenGame = true,
+		}/* Reference: SpriteComponent'Default__TdGrenadeArea.Sprite' */;
+		var Default__TdGrenadeArea_Renderer = new TdGrenadeTargetAreaRenderingComponent
+		{
+			// Object Offset:0x005449FE
+			HiddenGame = true,
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: TdGrenadeTargetAreaRenderingComponent'Default__TdGrenadeArea.Renderer' */;
 		// Object Offset:0x00544883
 		Radius = 200.0f;
 		Height = 200.0f;
@@ -25,19 +38,8 @@ public partial class TdGrenadeArea : Actor/*
 		bUsedAsTrigger = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x005449AE
-				Sprite = LoadAsset<Texture2D>("TdEditorResources.GrenadeIcon")/*Ref Texture2D'TdEditorResources.GrenadeIcon'*/,
-				HiddenGame = true,
-			}/* Reference: SpriteComponent'Default__TdGrenadeArea.Sprite' */,
-			new TdGrenadeTargetAreaRenderingComponent
-			{
-				// Object Offset:0x005449FE
-				HiddenGame = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: TdGrenadeTargetAreaRenderingComponent'Default__TdGrenadeArea.Renderer' */,
+			Default__TdGrenadeArea_Sprite,
+			Default__TdGrenadeArea_Renderer,
 		};
 	}
 }

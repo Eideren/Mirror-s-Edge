@@ -9,8 +9,7 @@ public partial class TdUILoadIndicator : TdUIObject/*
 	
 	public TdUILoadIndicator()
 	{
-		// Object Offset:0x0068C323
-		IndicatorLabel = new UILabel
+		var Default__TdUILoadIndicator_LoadIndicatorLabel = new UILabel
 		{
 			// Object Offset:0x031573AA
 			StringRenderComponent = LoadAsset<UIComp_DrawString>("Default__TdUILoadIndicator.LoadIndicatorLabel.LabelStringRenderer")/*Ref UIComp_DrawString'Default__TdUILoadIndicator.LoadIndicatorLabel.LabelStringRenderer'*/,
@@ -27,7 +26,7 @@ public partial class TdUILoadIndicator : TdUIObject/*
 			},
 			EventProvider = LoadAsset<UIComp_Event>("Default__TdUILoadIndicator.LoadIndicatorLabel.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUILoadIndicator.LoadIndicatorLabel.WidgetEventComponent'*/,
 		}/* Reference: UILabel'Default__TdUILoadIndicator.LoadIndicatorLabel' */;
-		IndicatorImage = new UIImage
+		var Default__TdUILoadIndicator_LoadIndicatorImage = new UIImage
 		{
 			// Object Offset:0x031574A6
 			ImageComponent = LoadAsset<UIComp_DrawImage>("Default__TdUILoadIndicator.LoadIndicatorImage.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__TdUILoadIndicator.LoadIndicatorImage.ImageComponentTemplate'*/,
@@ -44,7 +43,7 @@ public partial class TdUILoadIndicator : TdUIObject/*
 			},
 			EventProvider = LoadAsset<UIComp_Event>("Default__TdUILoadIndicator.LoadIndicatorImage.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUILoadIndicator.LoadIndicatorImage.WidgetEventComponent'*/,
 		}/* Reference: UIImage'Default__TdUILoadIndicator.LoadIndicatorImage' */;
-		IndicatorLabelBlack = new UILabel
+		var Default__TdUILoadIndicator_LoadIndicatorLabelBlack = new UILabel
 		{
 			// Object Offset:0x031575A2
 			StringRenderComponent = LoadAsset<UIComp_DrawString>("Default__TdUILoadIndicator.LoadIndicatorLabelBlack.LabelStringRenderer")/*Ref UIComp_DrawString'Default__TdUILoadIndicator.LoadIndicatorLabelBlack.LabelStringRenderer'*/,
@@ -61,6 +60,10 @@ public partial class TdUILoadIndicator : TdUIObject/*
 			},
 			EventProvider = LoadAsset<UIComp_Event>("Default__TdUILoadIndicator.LoadIndicatorLabelBlack.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUILoadIndicator.LoadIndicatorLabelBlack.WidgetEventComponent'*/,
 		}/* Reference: UILabel'Default__TdUILoadIndicator.LoadIndicatorLabelBlack' */;
+		// Object Offset:0x0068C323
+		IndicatorLabel = Default__TdUILoadIndicator_LoadIndicatorLabel;
+		IndicatorImage = Default__TdUILoadIndicator_LoadIndicatorImage;
+		IndicatorLabelBlack = Default__TdUILoadIndicator_LoadIndicatorLabelBlack;
 		requiresTick = true;
 		EventProvider = LoadAsset<UIComp_Event>("Default__TdUILoadIndicator.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUILoadIndicator.WidgetEventComponent'*/;
 	}

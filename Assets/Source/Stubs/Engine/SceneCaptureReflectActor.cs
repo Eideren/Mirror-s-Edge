@@ -16,8 +16,7 @@ public partial class SceneCaptureReflectActor : SceneCaptureActor/*
 	
 	public SceneCaptureReflectActor()
 	{
-		// Object Offset:0x003A361B
-		StaticMesh = new StaticMeshComponent
+		var Default__SceneCaptureReflectActor_StaticMeshComponent0 = new StaticMeshComponent
 		{
 			// Object Offset:0x00579B16
 			StaticMesh = LoadAsset<StaticMesh>("EditorMeshes.TexPropPlane")/*Ref StaticMesh'EditorMeshes.TexPropPlane'*/,
@@ -32,26 +31,14 @@ public partial class SceneCaptureReflectActor : SceneCaptureActor/*
 				Z=4.0f
 			},
 		}/* Reference: StaticMeshComponent'Default__SceneCaptureReflectActor.StaticMeshComponent0' */;
+		// Object Offset:0x003A361B
+		StaticMesh = Default__SceneCaptureReflectActor_StaticMeshComponent0;
 		SceneCapture = LoadAsset<SceneCaptureReflectComponent>("Default__SceneCaptureReflectActor.SceneCaptureReflectComponent0")/*Ref SceneCaptureReflectComponent'Default__SceneCaptureReflectActor.SceneCaptureReflectComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
 			LoadAsset<SpriteComponent>("Default__SceneCaptureReflectActor.Sprite")/*Ref SpriteComponent'Default__SceneCaptureReflectActor.Sprite'*/,
 			LoadAsset<SceneCaptureReflectComponent>("Default__SceneCaptureReflectActor.SceneCaptureReflectComponent0")/*Ref SceneCaptureReflectComponent'Default__SceneCaptureReflectActor.SceneCaptureReflectComponent0'*/,
-			new StaticMeshComponent
-			{
-				// Object Offset:0x00579B16
-				StaticMesh = LoadAsset<StaticMesh>("EditorMeshes.TexPropPlane")/*Ref StaticMesh'EditorMeshes.TexPropPlane'*/,
-				HiddenGame = true,
-				CastShadow = false,
-				bAcceptsLights = false,
-				CollideActors = false,
-				Scale3D = new Vector
-				{
-					X=4.0f,
-					Y=4.0f,
-					Z=4.0f
-				},
-			}/* Reference: StaticMeshComponent'Default__SceneCaptureReflectActor.StaticMeshComponent0' */,
+			Default__SceneCaptureReflectActor_StaticMeshComponent0,
 		};
 		Rotation = new Rotator
 		{

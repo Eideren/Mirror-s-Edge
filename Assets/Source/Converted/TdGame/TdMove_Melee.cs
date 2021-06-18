@@ -308,17 +308,7 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 	
 	public TdMove_Melee()
 	{
-		// Object Offset:0x005CDA2D
-		BlendInMissed = 0.080f;
-		BlendOutMissed = 0.10f;
-		TraceExtent = new Vector
-		{
-			X=12.0f,
-			Y=12.0f,
-			Z=12.0f
-		};
-		MeleeDamage = 33.50f;
-		MeleeWaveform = new ForceFeedbackWaveform
+		var Default__TdMove_Melee_MeleeWaveformObj = new ForceFeedbackWaveform
 		{
 			// Object Offset:0x01B6C892
 			Samples = new array<ForceFeedbackWaveform.WaveformSample>
@@ -333,6 +323,17 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 				},
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdMove_Melee.MeleeWaveformObj' */;
+		// Object Offset:0x005CDA2D
+		BlendInMissed = 0.080f;
+		BlendOutMissed = 0.10f;
+		TraceExtent = new Vector
+		{
+			X=12.0f,
+			Y=12.0f,
+			Z=12.0f
+		};
+		MeleeDamage = 33.50f;
+		MeleeWaveform = Default__TdMove_Melee_MeleeWaveformObj;
 		bConstrainLook = true;
 		bUseCameraCollision = true;
 		AimMode = TdPawn.MoveAimMode.MAM_TwoHanded;

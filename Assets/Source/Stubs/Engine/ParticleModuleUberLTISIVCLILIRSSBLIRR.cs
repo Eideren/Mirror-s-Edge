@@ -22,6 +22,58 @@ public partial class ParticleModuleUberLTISIVCLILIRSSBLIRR : ParticleModuleUberB
 	
 	public ParticleModuleUberLTISIVCLILIRSSBLIRR()
 	{
+		var Default__ParticleModuleUberLTISIVCLILIRSSBLIRR_DistributionLifetime = new DistributionFloatUniform
+		{
+			// Object Offset:0x0046770F
+			Min = 1.0f,
+			Max = 1.0f,
+		}/* Reference: DistributionFloatUniform'Default__ParticleModuleUberLTISIVCLILIRSSBLIRR.DistributionLifetime' */;
+		var Default__ParticleModuleUberLTISIVCLILIRSSBLIRR_DistributionStartSize = new DistributionVectorUniform
+		{
+			// Object Offset:0x00468757
+			Max = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+			Min = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleUberLTISIVCLILIRSSBLIRR.DistributionStartSize' */;
+		var Default__ParticleModuleUberLTISIVCLILIRSSBLIRR_DistributionStartVelocity = new DistributionVectorUniform
+		{
+			// Object Offset:0x004687C7
+			Max = new Vector
+			{
+				X=0.0f,
+				Y=0.0f,
+				Z=10.0f
+			},
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleUberLTISIVCLILIRSSBLIRR.DistributionStartVelocity' */;
+		var Default__ParticleModuleUberLTISIVCLILIRSSBLIRR_DistributionAlphaOverLife = new DistributionFloatConstant
+		{
+			// Object Offset:0x004670AB
+			Constant = 255.90f,
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleUberLTISIVCLILIRSSBLIRR.DistributionAlphaOverLife' */;
+		var Default__ParticleModuleUberLTISIVCLILIRSSBLIRR_DistributionStartRotation = new DistributionFloatUniform
+		{
+			// Object Offset:0x0046775F
+			Max = 1.0f,
+		}/* Reference: DistributionFloatUniform'Default__ParticleModuleUberLTISIVCLILIRSSBLIRR.DistributionStartRotation' */;
+		var Default__ParticleModuleUberLTISIVCLILIRSSBLIRR_DistributionLifeMultiplier = new DistributionVectorConstant
+		{
+			// Object Offset:0x004681AB
+			Constant = new Vector
+			{
+				X=1.0f,
+				Y=1.0f,
+				Z=1.0f
+			},
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleUberLTISIVCLILIRSSBLIRR.DistributionLifeMultiplier' */;
 		// Object Offset:0x003872D7
 		Lifetime = new DistributionFloat.RawDistributionFloat
 		{

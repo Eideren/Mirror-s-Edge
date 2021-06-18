@@ -14,8 +14,7 @@ public partial class UIButton : UIObject/*
 	
 	public UIButton()
 	{
-		// Object Offset:0x004192A1
-		BackgroundImageComponent = new UIComp_DrawImage
+		var Default__UIButton_BackgroundImageTemplate = new UIComp_DrawImage
 		{
 			// Object Offset:0x004195DC
 			StyleResolverTag = (name)"Background Image Style",
@@ -24,22 +23,7 @@ public partial class UIButton : UIObject/*
 				DefaultStyleTag = (name)"ButtonBackground",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UIButton.BackgroundImageTemplate' */;
-		ClickedCue = (name)"Clicked";
-		PrimaryStyle = new UIRoot.UIStyleReference
-		{
-			DefaultStyleTag = (name)"ButtonBackground",
-			RequiredStyleClass = ClassT<UIStyle_Image>()/*Ref Class'UIStyle_Image'*/,
-		};
-		bSupportsPrimaryStyle = false;
-		DefaultStates = new array< Core.ClassT<UIState> >
-		{
-			ClassT<UIState_Enabled>(),
-			ClassT<UIState_Disabled>(),
-			ClassT<UIState_Focused>(),
-			ClassT<UIState_Active>(),
-			ClassT<UIState_Pressed>(),
-		};
-		EventProvider = new UIComp_Event
+		var Default__UIButton_WidgetEventComponent = new UIComp_Event
 		{
 			// Object Offset:0x00419528
 			DefaultEvents = new array<UIRoot.DefaultEventSpecification>
@@ -56,6 +40,24 @@ public partial class UIButton : UIObject/*
 				},
 			},
 		}/* Reference: UIComp_Event'Default__UIButton.WidgetEventComponent' */;
+		// Object Offset:0x004192A1
+		BackgroundImageComponent = Default__UIButton_BackgroundImageTemplate;
+		ClickedCue = (name)"Clicked";
+		PrimaryStyle = new UIRoot.UIStyleReference
+		{
+			DefaultStyleTag = (name)"ButtonBackground",
+			RequiredStyleClass = ClassT<UIStyle_Image>()/*Ref Class'UIStyle_Image'*/,
+		};
+		bSupportsPrimaryStyle = false;
+		DefaultStates = new array< Core.ClassT<UIState> >
+		{
+			ClassT<UIState_Enabled>(),
+			ClassT<UIState_Disabled>(),
+			ClassT<UIState_Focused>(),
+			ClassT<UIState_Active>(),
+			ClassT<UIState_Pressed>(),
+		};
+		EventProvider = Default__UIButton_WidgetEventComponent;
 	}
 }
 }

@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -71,90 +69,99 @@ public partial class UIFrameBox : UIContainer/*
 	
 	public UIFrameBox()
 	{
+		var Default__UIFrameBox_TemplateTopLeft = new UIComp_DrawImage
+		{
+			// Object Offset:0x005D181A
+			StyleResolverTag = (name)"Top Left Style",
+			ImageStyle = new UIRoot.UIStyleReference
+			{
+				DefaultStyleTag = (name)"PanelBackground",
+			},
+		}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateTopLeft' */;
+		var Default__UIFrameBox_TemplateTop = new UIComp_DrawImage
+		{
+			// Object Offset:0x005D179A
+			StyleResolverTag = (name)"Top Style",
+			ImageStyle = new UIRoot.UIStyleReference
+			{
+				DefaultStyleTag = (name)"PanelBackground",
+			},
+		}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateTop' */;
+		var Default__UIFrameBox_TemplateTopRight = new UIComp_DrawImage
+		{
+			// Object Offset:0x005D189A
+			StyleResolverTag = (name)"Top Right Style",
+			ImageStyle = new UIRoot.UIStyleReference
+			{
+				DefaultStyleTag = (name)"PanelBackground",
+			},
+		}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateTopRight' */;
+		var Default__UIFrameBox_TemplateCenterLeft = new UIComp_DrawImage
+		{
+			// Object Offset:0x005D169A
+			StyleResolverTag = (name)"Center Left Style",
+			ImageStyle = new UIRoot.UIStyleReference
+			{
+				DefaultStyleTag = (name)"PanelBackground",
+			},
+		}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateCenterLeft' */;
+		var Default__UIFrameBox_TemplateCenter = new UIComp_DrawImage
+		{
+			// Object Offset:0x005D161A
+			StyleResolverTag = (name)"Center Style",
+			ImageStyle = new UIRoot.UIStyleReference
+			{
+				DefaultStyleTag = (name)"PanelBackground",
+			},
+		}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateCenter' */;
+		var Default__UIFrameBox_TemplateCenterRight = new UIComp_DrawImage
+		{
+			// Object Offset:0x005D171A
+			StyleResolverTag = (name)"Center Right Style",
+			ImageStyle = new UIRoot.UIStyleReference
+			{
+				DefaultStyleTag = (name)"PanelBackground",
+			},
+		}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateCenterRight' */;
+		var Default__UIFrameBox_TemplateBottomLeft = new UIComp_DrawImage
+		{
+			// Object Offset:0x005D151A
+			StyleResolverTag = (name)"Bottom Left Style",
+			ImageStyle = new UIRoot.UIStyleReference
+			{
+				DefaultStyleTag = (name)"PanelBackground",
+			},
+		}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateBottomLeft' */;
+		var Default__UIFrameBox_TemplateBottom = new UIComp_DrawImage
+		{
+			// Object Offset:0x005D149A
+			StyleResolverTag = (name)"Bottom Style",
+			ImageStyle = new UIRoot.UIStyleReference
+			{
+				DefaultStyleTag = (name)"PanelBackground",
+			},
+		}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateBottom' */;
+		var Default__UIFrameBox_TemplateBottomRight = new UIComp_DrawImage
+		{
+			// Object Offset:0x005D159A
+			StyleResolverTag = (name)"Bottom Right Style",
+			ImageStyle = new UIRoot.UIStyleReference
+			{
+				DefaultStyleTag = (name)"PanelBackground",
+			},
+		}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateBottomRight' */;
 		// Object Offset:0x00437EF6
 		BackgroundImageComponent = new StaticArray<UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage>/*[9]*/()
 		{ 
-			[0] = new UIComp_DrawImage
-			{
-				// Object Offset:0x005D181A
-				StyleResolverTag = (name)"Top Left Style",
-				ImageStyle = new UIRoot.UIStyleReference
-				{
-					DefaultStyleTag = (name)"PanelBackground",
-				},
-			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateTopLeft' */,
-			[1] = new UIComp_DrawImage
-			{
-				// Object Offset:0x005D179A
-				StyleResolverTag = (name)"Top Style",
-				ImageStyle = new UIRoot.UIStyleReference
-				{
-					DefaultStyleTag = (name)"PanelBackground",
-				},
-			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateTop' */,
-			[2] = new UIComp_DrawImage
-			{
-				// Object Offset:0x005D189A
-				StyleResolverTag = (name)"Top Right Style",
-				ImageStyle = new UIRoot.UIStyleReference
-				{
-					DefaultStyleTag = (name)"PanelBackground",
-				},
-			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateTopRight' */,
-			[3] = new UIComp_DrawImage
-			{
-				// Object Offset:0x005D169A
-				StyleResolverTag = (name)"Center Left Style",
-				ImageStyle = new UIRoot.UIStyleReference
-				{
-					DefaultStyleTag = (name)"PanelBackground",
-				},
-			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateCenterLeft' */,
-			[4] = new UIComp_DrawImage
-			{
-				// Object Offset:0x005D161A
-				StyleResolverTag = (name)"Center Style",
-				ImageStyle = new UIRoot.UIStyleReference
-				{
-					DefaultStyleTag = (name)"PanelBackground",
-				},
-			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateCenter' */,
-			[5] = new UIComp_DrawImage
-			{
-				// Object Offset:0x005D171A
-				StyleResolverTag = (name)"Center Right Style",
-				ImageStyle = new UIRoot.UIStyleReference
-				{
-					DefaultStyleTag = (name)"PanelBackground",
-				},
-			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateCenterRight' */,
-			[6] = new UIComp_DrawImage
-			{
-				// Object Offset:0x005D151A
-				StyleResolverTag = (name)"Bottom Left Style",
-				ImageStyle = new UIRoot.UIStyleReference
-				{
-					DefaultStyleTag = (name)"PanelBackground",
-				},
-			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateBottomLeft' */,
-			[7] = new UIComp_DrawImage
-			{
-				// Object Offset:0x005D149A
-				StyleResolverTag = (name)"Bottom Style",
-				ImageStyle = new UIRoot.UIStyleReference
-				{
-					DefaultStyleTag = (name)"PanelBackground",
-				},
-			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateBottom' */,
-			[8] = new UIComp_DrawImage
-			{
-				// Object Offset:0x005D159A
-				StyleResolverTag = (name)"Bottom Right Style",
-				ImageStyle = new UIRoot.UIStyleReference
-				{
-					DefaultStyleTag = (name)"PanelBackground",
-				},
-			}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateBottomRight' */,
+			[0] = Default__UIFrameBox_TemplateTopLeft,
+			[1] = Default__UIFrameBox_TemplateTop,
+			[2] = Default__UIFrameBox_TemplateTopRight,
+			[3] = Default__UIFrameBox_TemplateCenterLeft,
+			[4] = Default__UIFrameBox_TemplateCenter,
+			[5] = Default__UIFrameBox_TemplateCenterRight,
+			[6] = Default__UIFrameBox_TemplateBottomLeft,
+			[7] = Default__UIFrameBox_TemplateBottom,
+			[8] = Default__UIFrameBox_TemplateBottomRight,
 	 	};
 		BackgroundCornerSizes = new UIFrameBox.CornerSizes
 		{

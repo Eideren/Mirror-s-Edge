@@ -35,21 +35,23 @@ public partial class TdCoverGroup : CoverGroup/*
 	
 	public TdCoverGroup()
 	{
+		var Default__TdCoverGroup_Sprite = new SpriteComponent
+		{
+			// Object Offset:0x02E51EC5
+			Scale = 2.0f,
+		}/* Reference: SpriteComponent'Default__TdCoverGroup.Sprite' */;
+		var Default__TdCoverGroup_TdCoverGroupRenderer = new TdCoverGroupRenderingComponent
+		{
+			// Object Offset:0x03121A3E
+			AlwaysLoadOnClient = false,
+			AlwaysLoadOnServer = false,
+		}/* Reference: TdCoverGroupRenderingComponent'Default__TdCoverGroup.TdCoverGroupRenderer' */;
 		// Object Offset:0x0053E0E8
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new SpriteComponent
-			{
-				// Object Offset:0x02E51EC5
-				Scale = 2.0f,
-			}/* Reference: SpriteComponent'Default__TdCoverGroup.Sprite' */,
+			Default__TdCoverGroup_Sprite,
 			LoadAsset<CoverGroupRenderingComponent>("Default__TdCoverGroup.CoverGroupRenderer")/*Ref CoverGroupRenderingComponent'Default__TdCoverGroup.CoverGroupRenderer'*/,
-			new TdCoverGroupRenderingComponent
-			{
-				// Object Offset:0x03121A3E
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: TdCoverGroupRenderingComponent'Default__TdCoverGroup.TdCoverGroupRenderer' */,
+			Default__TdCoverGroup_TdCoverGroupRenderer,
 		};
 	}
 }

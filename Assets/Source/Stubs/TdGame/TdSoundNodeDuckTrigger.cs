@@ -17,6 +17,18 @@ public partial class TdSoundNodeDuckTrigger : SoundNode/*
 	
 	public TdSoundNodeDuckTrigger()
 	{
+		var Default__TdSoundNodeDuckTrigger_DistributionMinRadius = new DistributionFloatUniform
+		{
+			// Object Offset:0x01AFCB9E
+			Min = 100.0f,
+			Max = 100.0f,
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeDuckTrigger.DistributionMinRadius' */;
+		var Default__TdSoundNodeDuckTrigger_DistributionMaxRadius = new DistributionFloatUniform
+		{
+			// Object Offset:0x01AFCC1A
+			Min = 1000.0f,
+			Max = 1000.0f,
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeDuckTrigger.DistributionMaxRadius' */;
 		// Object Offset:0x0065AE64
 		DuckDuration = 3.0f;
 		DuckLevel = 0.30f;

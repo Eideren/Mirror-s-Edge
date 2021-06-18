@@ -7,8 +7,7 @@ public partial class PathBlockingVolume : Volume/*
 		hidecategories(Navigation,Object,Movement,Display)*/{
 	public PathBlockingVolume()
 	{
-		// Object Offset:0x0038C014
-		BrushComponent = new BrushComponent
+		var Default__PathBlockingVolume_BrushComponent0 = new BrushComponent
 		{
 			// Object Offset:0x00466117
 			BlockActors = true,
@@ -17,30 +16,16 @@ public partial class PathBlockingVolume : Volume/*
 			AlwaysLoadOnClient = false,
 			AlwaysLoadOnServer = false,
 		}/* Reference: BrushComponent'Default__PathBlockingVolume.BrushComponent0' */;
+		// Object Offset:0x0038C014
+		BrushComponent = Default__PathBlockingVolume_BrushComponent0;
 		bWorldGeometry = true;
 		bCollideActors = false;
 		bBlockActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			new BrushComponent
-			{
-				// Object Offset:0x00466117
-				BlockActors = true,
-				BlockZeroExtent = true,
-				BlockRigidBody = true,
-				AlwaysLoadOnClient = false,
-				AlwaysLoadOnServer = false,
-			}/* Reference: BrushComponent'Default__PathBlockingVolume.BrushComponent0' */,
+			Default__PathBlockingVolume_BrushComponent0,
 		};
-		CollisionComponent = new BrushComponent
-		{
-			// Object Offset:0x00466117
-			BlockActors = true,
-			BlockZeroExtent = true,
-			BlockRigidBody = true,
-			AlwaysLoadOnClient = false,
-			AlwaysLoadOnServer = false,
-		}/* Reference: BrushComponent'Default__PathBlockingVolume.BrushComponent0' */;
+		CollisionComponent = Default__PathBlockingVolume_BrushComponent0;
 	}
 }
 }
