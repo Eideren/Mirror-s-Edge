@@ -72,8 +72,8 @@
             public void Normalize()
             {
                 #warning not sure about this
-                Yaw = NormalizeRotAxis(Yaw);
                 Pitch = NormalizeRotAxis(Pitch);
+                Yaw = NormalizeRotAxis(Yaw);
                 Roll = NormalizeRotAxis(Roll);
             }
         }

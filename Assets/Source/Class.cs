@@ -16,7 +16,8 @@ namespace MEdge.Core
                 if (_class != null)
                     return _class;
                 Type constructedType = typeof(_classImp<>).MakeGenericType(GetType());
-                return _class = (Class)Activator.CreateInstance(constructedType, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+                var prop = constructedType.GetField( "Singleton", BindingFlags.Static | BindingFlags.Public );
+                return _class = (Class)prop.GetValue(constructedType);
             }
         }
 

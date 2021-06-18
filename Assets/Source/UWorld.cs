@@ -1,7 +1,10 @@
 ﻿namespace MEdge.Engine
 {
-    using System;
-    using Physics = UnityEngine.Physics;
+    using System.Collections.Generic;
+    using Core;
+    using TdGame;
+    using UnityEngine.Events;
+    using UnityEngine.SceneManagement;
     using V3 = UnityEngine.Vector3;
     using Collider = UnityEngine.Collider;
     using Object = Core.Object;
@@ -9,26 +12,137 @@
 
 
 
-    public class UWorld
-	{
-        public WorldInfo.ENetMode NetMode{ get; private set; }
+    public class UWorld : UnityEngine.MonoBehaviour
+    {
+        public static UWorld Instance => GetInstance();
+        public bool HasBegunPlay{ get; private set; }
         Actor _defaultOuter = new Actor();
-        WorldInfo _worldInfo = new WorldInfo();
+        WorldInfo _worldInfo = new WorldInfo(){ PhysicsVolume = new DefaultPhysicsVolume() };
 
         UnityEngine.BoxCollider _cacheCollider = new UnityEngine.BoxCollider();
 
+        static UWorld _instance;
+        static UnityAction<UnityEngine.SceneManagement.Scene, LoadSceneMode> _onSceneLoadedCached;
 
 
+
+        static UWorld GetInstance()
+        {
+            if( _instance != null && _instance.gameObject != null )
+            {
+                _instance.transform.parent = null;
+                return _instance;
+            }
+
+            var go = new UnityEngine.GameObject( nameof( UWorld ) );
+            DontDestroyOnLoad( go );
+            _instance = go.AddComponent<UWorld>();
+            _instance.LevelStartup();
+            _instance.PlayerLogIn();
+
+            if(_onSceneLoadedCached != null)
+                SceneManager.sceneLoaded -= _onSceneLoadedCached;
+            SceneManager.sceneLoaded += _onSceneLoadedCached = OnSceneLoaded;
+            return _instance;
+        }
+
+
+
+        static void SetCollisionType(Actor a)
+        {
+            // Accuracy of this has not been verified
+            if( a.bCollideActors && a.bBlockActors )
+                a.CollisionType = Actor.ECollisionType.COLLIDE_BlockAll;
+            else if( a.bCollideActors && a.bBlockActors == false )
+                a.CollisionType = Actor.ECollisionType.COLLIDE_TouchAll;
+            else 
+                a.CollisionType = Actor.ECollisionType.COLLIDE_NoCollision;
+        }
+
+
+
+        static void OnSceneLoaded( UnityEngine.SceneManagement.Scene arg0, LoadSceneMode arg1 )
+        {
+            #warning not implemented yet
+        }
+
+
+
+        void LevelStartup()
+        {
+            // https://wiki.beyondunreal.com/Legacy:Chain_Of_Events_At_Level_Startup
+			
+            #warning maybe TdSPStoryGame
+            var gameInfo = new TdSPGame();
+            _worldInfo.Game = gameInfo;
+            String errorString = "";
+
+            HasBegunPlay = true;
+            gameInfo.InitGame("", ref errorString);
+
+            List<(Actor, UnityEngine.GameObject)> actors = new List<(Actor, UnityEngine.GameObject)> { (gameInfo, gameObject) };
+            for( int i = 0; i < SceneManager.sceneCount; i++ )
+            {
+                var scene = SceneManager.GetSceneAt( i );
+                foreach( var rootGameObject in scene.GetRootGameObjects() )
+                {
+                    foreach( var c in rootGameObject.GetComponentsInChildren<UnityEngine.Component>() )
+                    {
+                        if( c is IUObject uObject )
+                        {
+                            if(uObject.GetUObject() is Actor a)
+                                actors.Add( ( a, c.gameObject ) );
+                        }
+                    }
+                }
+            }
+
+            foreach( var (actor, go) in actors )
+            {
+                if( actor.Tag == default )
+                    actor.Tag = actor.Class.Name;
+
+                actor.CreationTime = UnityEngine.Time.time;
+                actor.WorldInfo = _worldInfo;
+                actor.Location = (Object.Vector)go.transform.position;
+                actor.Rotation = (Object.Rotator)go.transform.rotation;
+                actor.PhysicsVolume = _worldInfo.PhysicsVolume ?? throw new System.NullReferenceException();
+            }
+            
+            foreach( var (actor, _) in actors )
+                SetCollisionType( actor );
+
+            foreach( var (actor, _) in actors )
+                actor.PreBeginPlay();
+
+            foreach( var (actor, _) in actors )
+                actor.PostBeginPlay();
+            
+            foreach( var (actor, _) in actors )
+                actor.SetInitialState();
+        }
+
+
+
+        void PlayerLogIn()
+        {
+            /*
+            // https://wiki.beyondunreal.com/Legacy:Chain_Of_Events_When_A_Player_Logs_In
+            GameInfo gi = default;
+            gi.PreLogin();
+            // Mutator.OverrideDownload()
+            gi.Login();*/
+        }
 
         bool FindSpot(Object.Vector extent, ref Object.Vector position, bool bComplex)
         {
             Collider[] colliders = new Collider[ 1 ];
             int iterations = 0;
             _cacheCollider.size = (V3) extent;
-            while(Physics.OverlapBoxNonAlloc( (V3) position, ((V3) extent) / 2f, colliders ) > 0)
+            while(UnityEngine.Physics.OverlapBoxNonAlloc( (V3) position, ((V3) extent) / 2f, colliders ) > 0)
             {
                 var otherCollider = colliders[ 0 ];
-                if( false == Physics.ComputePenetration( _cacheCollider, (V3) position, default,
+                if( false == UnityEngine.Physics.ComputePenetration( _cacheCollider, (V3) position, default,
                     otherCollider, otherCollider.transform.position, otherCollider.transform.rotation,
                     out var direction, out var distance ) )
                 {
@@ -50,7 +164,7 @@
         public T E_UWorld_SpawnActor<T>(Core.ClassT<T> SpawnClass, int a3, float a4, Object.Vector SpawnLocation, Object.Rotator SpawnRotation, Actor ActorTemplate, bool bNoCollisionFail, int networkRelatedParam, Actor SpawnOwner, Pawn Instigator, bool bProbablyNoFail) where T : Actor
 		{
             #warning implement this maybe
-            bool bUWorldHasBegunPlay = true;
+            bool bUWorldHasBegunPlay = this.HasBegunPlay;
             var bUWorldHasBegunPlay2 = bUWorldHasBegunPlay;
             bool bUWorldHasBegunPlay3 = bUWorldHasBegunPlay;
             var SpawnClassCopy = SpawnClass;
@@ -89,7 +203,7 @@
             spawnLocation2.Z = v22;
             v23 = actorTemplateCopy->bForceDemoRelevant;
             if ( (v23 < 0 || (v23 & bCollideWhenPlacing) != 0 && E_maybe_UWorld_GetNetMode(thisUWorldCopy) != 3) && !bNoCollisionFail )*/
-            if ( (actorTemplateCopy.bCollideWhenPlacing != false && this.NetMode != (WorldInfo.ENetMode)3) && !bNoCollisionFail )
+            if ( (actorTemplateCopy.bCollideWhenPlacing != false && _worldInfo.NetMode != (WorldInfo.ENetMode)3) && !bNoCollisionFail )
             {
                 Object.Vector extent;
                 if( actorTemplateCopy.CollisionComponent is CylinderComponent cc )
@@ -152,7 +266,7 @@
             // .text:00C18C00 ConditionalForceUpdateComponents
             #warning ConditionalForceUpdateComponents
             //(*(void (__thiscall **)(_E_struct_AActor *, _DWORD, _DWORD))(constructedActor->VfTableObject.Dummy + 760))(constructedActor, 0, 0);
-            constructedActor.PhysicsVolume = _worldInfo.PhysicsVolume ?? throw new NullReferenceException();
+            constructedActor.PhysicsVolume = _worldInfo.PhysicsVolume ?? throw new System.NullReferenceException();
             constructedActor.SetOwner(SpawnOwner);
             constructedActor.Instigator = Instigator;
 
@@ -170,6 +284,7 @@
                 #warning InitExecution and SetDefaultCollisionType
                 // .text:01105300, InitExecution?
                 //(*(void (__thiscall **)(_E_struct_AActor *))(constructedActor->VfTableObject.Dummy + 260))(constructedActor);
+                SetCollisionType( constructedActor );
                 // .text:00BA6D80, AActor_Spawned -> inlined E_AActor_SetDefaultCollisionType
                 //(*(void (__thiscall **)(_E_struct_AActor *))(constructedActor->VfTableObject.Dummy + 380))(constructedActor);
             }
