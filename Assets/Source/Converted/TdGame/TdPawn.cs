@@ -3057,7 +3057,7 @@ public partial class TdPawn : GamePawn/*
 			}
 			goto J0x08;
 		}
-		return Retvals;
+		return Retvals.NewCopy();
 	}
 	
 	public virtual /*function */SoundCue GetSpecificFootStepSound(TdPhysicalMaterialFootSteps FootStepSounds, int FootDown)
