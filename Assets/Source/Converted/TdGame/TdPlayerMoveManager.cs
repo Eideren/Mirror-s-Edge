@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -287,15 +289,17 @@ public partial class TdPlayerMoveManager : TdMoveManager/* within TdPawn*/{
 					}
 				}
 				break;
-			case TdPawn.EMovement.MOVE_MeleeCrouch/*63*/:
-				if(((int)Action) == ((int)TdPawn.EMovementAction.MA_Stumble/*17*/))
-				{
-					if(Outer.Moves[35].CanDoMove())
-					{
-						Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default(bool?), default(bool?));
-					}
-				}
-				break;
+			#warning Duplicate definition, requires in-game testing to confirm which one is the right one
+			//case TdPawn.EMovement.MOVE_MeleeCrouch/*63*/:
+			//case TdPawn.EMovement.MOVE_MeleeCrouch/*63*/:
+			//	if(((int)Action) == ((int)TdPawn.EMovementAction.MA_Stumble/*17*/))
+			//	{
+			//		if(Outer.Moves[35].CanDoMove())
+			//		{
+			//			Outer.SetMove(TdPawn.EMovement.MOVE_Stumble/*35*/, default, default);
+			//		}
+			//	}
+			//	break;
 			case TdPawn.EMovement.MOVE_Grabbing/*3*/:
 				if(((int)Action) == ((int)TdPawn.EMovementAction.MA_Jump/*1*/))
 				{

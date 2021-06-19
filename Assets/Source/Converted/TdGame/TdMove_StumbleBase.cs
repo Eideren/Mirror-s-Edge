@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -54,9 +56,8 @@ public partial class TdMove_StumbleBase : TdPhysicsMove/*
 		Hit2D.Z = 0.0f;
 		Hit2D = Normal(Hit2D);
 		HitSide = Dot(Hit2D, ((Vector)(PawnOwner.Rotation)));
-		switch(HitDamageType)
-		{
-			case ClassT<TdDmgType_Barge>():
+		
+			if(HitDamageType.IsA(ClassT<TdDmgType_Barge>())){
 				if(HitSide > 0.0f)
 				{
 					ResultStumbleState = TdMove_StumbleBase.EStumbleState.ESS_HitMeleeBargeFront/*5*/;				
@@ -65,72 +66,72 @@ public partial class TdMove_StumbleBase : TdPhysicsMove/*
 				{
 					ResultStumbleState = TdMove_StumbleBase.EStumbleState.ESS_HitMeleeBack/*1*/;
 				}
-				break;
-			case ClassT<TdDmgType_BarbedWire>():
-				ResultStumbleState = ((TdMove_StumbleBase.EStumbleState)((HitSide > 0.0f) ? 1 : 20));
-				break;
-			case ClassT<TdDmgType_Melee>():
-			case ClassT<TdDmgType_MeleeLeft>():
-			case ClassT<TdDmgType_MeleeRight>():
-			case ClassT<TdDmgType_Sniper_Bullet>():
-			case ClassT<TdDmgType_Shove>():
+			}
+			if(HitDamageType.IsA(ClassT<TdDmgType_BarbedWire>())){
+				ResultStumbleState = (TdMove_StumbleBase.EStumbleState)((HitSide > 0.0f) ? 1 : 20);
+			}
+			if(HitDamageType.IsA(ClassT<TdDmgType_Melee>()) 
+			   || HitDamageType.IsA(ClassT<TdDmgType_MeleeLeft>()) 
+			   || HitDamageType.IsA(ClassT<TdDmgType_MeleeRight>()) 
+			   || HitDamageType.IsA(ClassT<TdDmgType_Sniper_Bullet>()) 
+			   || HitDamageType.IsA(ClassT<TdDmgType_Shove>())){
 				if(HitSide > 0.0f)
 				{
-					ResultStumbleState = ((TdMove_StumbleBase.EStumbleState)((HitDamageType == ClassT<TdDmgType_MeleeRight>()) ? 4 : 3));				
+					ResultStumbleState = (TdMove_StumbleBase.EStumbleState)((HitDamageType == ClassT<TdDmgType_MeleeRight>()) ? 4 : 3);				
 				}
 				else
 				{
-					ResultStumbleState = ((TdMove_StumbleBase.EStumbleState)((HitHeight.Z > 145.0f) ? 2 : 1));
+					ResultStumbleState = (TdMove_StumbleBase.EStumbleState)((HitHeight.Z > 145.0f) ? 2 : 1);
 				}
-				break;
-			case ClassT<TdDmgType_MeleeVaultKick>():
+			}
+			if(HitDamageType.IsA(ClassT<TdDmgType_MeleeVaultKick>())){
 				ResultStumbleState = TdMove_StumbleBase.EStumbleState.ESS_HitMeleeVaultKick/*12*/;
-				break;
-			case ClassT<TdDmgType_MeleeAir>():
+			}
+			if(HitDamageType.IsA(ClassT<TdDmgType_MeleeAir>())){
 				if(HitSide > 0.0f)
 				{
-					ResultStumbleState = ((TdMove_StumbleBase.EStumbleState)((HitHeight.Z < 100.0f) ? 11 : 10));				
+					ResultStumbleState = (TdMove_StumbleBase.EStumbleState)((HitHeight.Z < 100.0f) ? 11 : 10);				
 				}
 				else
 				{
-					ResultStumbleState = ((TdMove_StumbleBase.EStumbleState)((HitHeight.Z > 100.0f) ? 2 : 1));
+					ResultStumbleState = (TdMove_StumbleBase.EStumbleState)((HitHeight.Z > 100.0f) ? 2 : 1);
 				}
-				break;
-			case ClassT<TdDmgType_MeleeCrouch>():
+			}
+			if(HitDamageType.IsA(ClassT<TdDmgType_MeleeCrouch>())){
 				if(HitSide > 0.0f)
 				{
 					ResultStumbleState = TdMove_StumbleBase.EStumbleState.ESS_HitMeleeCrouchFront/*6*/;				
 				}
 				else
 				{
-					ResultStumbleState = ((TdMove_StumbleBase.EStumbleState)((HitHeight.Z > 145.0f) ? 2 : 1));
+					ResultStumbleState = (TdMove_StumbleBase.EStumbleState)((HitHeight.Z > 145.0f) ? 2 : 1);
 				}
-				break;
-			case ClassT<TdDmgType_MeleeSlide>():
+			}
+			if(HitDamageType.IsA(ClassT<TdDmgType_MeleeSlide>())){
 				if(HitSide > 0.0f)
 				{
 					ResultStumbleState = TdMove_StumbleBase.EStumbleState.ESS_HitMeleeSlideFront/*7*/;				
 				}
 				else
 				{
-					ResultStumbleState = ((TdMove_StumbleBase.EStumbleState)((HitHeight.Z > 145.0f) ? 2 : 1));
+					ResultStumbleState = (TdMove_StumbleBase.EStumbleState)((HitHeight.Z > 145.0f) ? 2 : 1);
 				}
-				break;
-			case ClassT<TdDmgType_MeleeWallRun>():
+			}
+			if(HitDamageType.IsA(ClassT<TdDmgType_MeleeWallRun>())){
 				if(HitSide > 0.0f)
 				{
-					ResultStumbleState = ((TdMove_StumbleBase.EStumbleState)((Cross(((Vector)(PawnOwner.Rotation)), (Instigator.Location - PawnOwner.Location)).Z > 0.0f) ? 9 : 8));				
+					ResultStumbleState = (TdMove_StumbleBase.EStumbleState)((Cross(((Vector)(PawnOwner.Rotation)), (Instigator.Location - PawnOwner.Location)).Z > 0.0f) ? 9 : 8);				
 				}
 				else
 				{
-					ResultStumbleState = ((TdMove_StumbleBase.EStumbleState)((HitHeight.Z > 145.0f) ? 2 : 1));
+					ResultStumbleState = (TdMove_StumbleBase.EStumbleState)((HitHeight.Z > 145.0f) ? 2 : 1);
 				}
-				break;
-			case ClassT<TdDmgType_MeleeSoccerKick>():
+			}
+			if(HitDamageType.IsA(ClassT<TdDmgType_MeleeSoccerKick>())){
 				ResultStumbleState = TdMove_StumbleBase.EStumbleState.ESS_HitMeleeSoccerKick/*13*/;
-				break;
-			case ClassT<TdDmgType_Shotgun>():
-			case ClassT<TdDmgType_Taser>():
+			}
+			if(HitDamageType.IsA(ClassT<TdDmgType_Shotgun>()) 
+			   || HitDamageType.IsA(ClassT<TdDmgType_Taser>())){
 				if(HitSide < 0.0f)
 				{
 					ResultStumbleState = TdMove_StumbleBase.EStumbleState.ESS_HitSpecialBulletBack/*19*/;				
@@ -146,9 +147,9 @@ public partial class TdMove_StumbleBase : TdPhysicsMove/*
 						ResultStumbleState = TdMove_StumbleBase.EStumbleState.ESS_HitSpecialBulletFront/*17*/;
 					}
 				}
-				break;
-			case ClassT<TdDmgType_LowCaliber_Bullet>():
-			case ClassT<TdDmgType_HighCaliber_Bullet>():
+			}
+			if(HitDamageType.IsA(ClassT<TdDmgType_LowCaliber_Bullet>()) 
+			   || HitDamageType.IsA(ClassT<TdDmgType_HighCaliber_Bullet>())){
 				if(HitSide < 0.0f)
 				{
 					ResultStumbleState = TdMove_StumbleBase.EStumbleState.ESS_HitBulletBack/*16*/;				
@@ -157,10 +158,8 @@ public partial class TdMove_StumbleBase : TdPhysicsMove/*
 				{
 					ResultStumbleState = TdMove_StumbleBase.EStumbleState.ESS_HitBulletFront/*14*/;
 				}
-				break;
-			default:
-				break;
-		}
+			}
+		
 		if(bDebugMove)
 		{
 			TdDebugOutput.DrawVector(PawnOwner.Location, ((Vector)(PawnOwner.Rotation)), 30.0f, 0, 100, 0, true);

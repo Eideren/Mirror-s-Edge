@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdSharedContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -187,7 +189,9 @@ public partial class TdWeapon_Shotgun_Neostead : TdWeapon_Heavy/*
 		KickbackAmount = 50.0f;
 		WeaponFireTypes = new array<Weapon.EWeaponFireType>
 		{
-			149,
+			#warning fallofftype values are weird, replaced with default
+			//149,
+			default
 		};
 		FireInterval = new array<float>
 		{
