@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -137,6 +139,52 @@ public partial class TdSPTutorialGame : TdSPGame,
 	
 	}
 	
+	void TdTutorialListener.OnPlayerSetMove( TdPawn.EMovement NewMove, TdPlayerPawn Pawn )
+	{
+		#warning interface inheritance through delegate instead of function
+		this.OnPlayerSetMove( NewMove, Pawn );
+	}
+
+
+
+	void TdTutorialListener.OnTutorialEvent( int TutorialEvent, TdPawn Pawn )
+	{
+		#warning interface inheritance through delegate instead of function
+		this.OnTutorialEvent( TutorialEvent, Pawn );
+	}
+
+
+
+	bool TdTutorialListener.CanAttack()
+	{
+		#warning interface inheritance through delegate instead of function
+		return this.CanAttack();
+	}
+
+
+
+	bool TdTutorialListener.ValidAttack( ClassT<DamageType> AttackType )
+	{
+		#warning interface inheritance through delegate instead of function
+		return this.ValidAttack(AttackType);
+	}
+
+
+
+	void TdTutorialListener.OnAttackEvent( ClassT<DamageType> AttackType, TdPawn Pawn )
+	{
+		#warning interface inheritance through delegate instead of function
+		this.OnAttackEvent(AttackType, Pawn);
+	}
+
+
+
+	void TdTutorialListener.OnAiKismetEvent( int EventIdentifier )
+	{
+		#warning interface inheritance through delegate instead of function
+		this.OnAiKismetEvent(EventIdentifier);
+	}
+
 	public delegate void OnCheckpointCompleted_del(TdPlaceableCheckpoint Checkpoint, TdPlayerPawn Pawn, TdPlayerController Controller);
 	public virtual OnCheckpointCompleted_del OnCheckpointCompleted { get => bfield_OnCheckpointCompleted ?? TdSPTutorialGame_OnCheckpointCompleted; set => bfield_OnCheckpointCompleted = value; } OnCheckpointCompleted_del bfield_OnCheckpointCompleted;
 	public virtual OnCheckpointCompleted_del global_OnCheckpointCompleted => TdSPTutorialGame_OnCheckpointCompleted;
@@ -626,6 +674,17 @@ public partial class TdSPTutorialGame : TdSPGame,
 	
 	return Waiting();
 	}
+
+	
+	
+	void TdCheckpointListener.OnCheckpointCompleted( TdPlaceableCheckpoint Checkpoint, TdPlayerPawn Pawn, TdPlayerController Controller )
+	{
+		#warning interface inheritance through delegate instead of function
+		this.OnCheckpointCompleted( Checkpoint, Pawn, Controller );
+	}
+	
+	
+	
 	public TdSPTutorialGame()
 	{
 		// Object Offset:0x00670828
