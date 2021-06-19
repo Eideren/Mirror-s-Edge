@@ -107,17 +107,32 @@ public partial class UIContextMenu : UIList/*
 	
 	public UIContextMenu()
 	{
+		var Default__UIContextMenu_ContextMenuDataComponent_NormalOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIContextMenu.ContextMenuDataComponent.NormalOverlayTemplate' */;
+		var Default__UIContextMenu_ContextMenuDataComponent_ActiveOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIContextMenu.ContextMenuDataComponent.ActiveOverlayTemplate' */;
+		var Default__UIContextMenu_ContextMenuDataComponent_SelectionOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIContextMenu.ContextMenuDataComponent.SelectionOverlayTemplate' */;
+		var Default__UIContextMenu_ContextMenuDataComponent_HoverOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIContextMenu.ContextMenuDataComponent.HoverOverlayTemplate' */;
 		var Default__UIContextMenu_ContextMenuDataComponent = new UIComp_ContextMenuListPresenter
 		{
 			// Object Offset:0x005D12D2
 			ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
 			{ 
-				[0] = LoadAsset<UITexture>("Default__UIContextMenu.ContextMenuDataComponent.NormalOverlayTemplate")/*Ref UITexture'Default__UIContextMenu.ContextMenuDataComponent.NormalOverlayTemplate'*/,
-				[1] = LoadAsset<UITexture>("Default__UIContextMenu.ContextMenuDataComponent.ActiveOverlayTemplate")/*Ref UITexture'Default__UIContextMenu.ContextMenuDataComponent.ActiveOverlayTemplate'*/,
-				[2] = LoadAsset<UITexture>("Default__UIContextMenu.ContextMenuDataComponent.SelectionOverlayTemplate")/*Ref UITexture'Default__UIContextMenu.ContextMenuDataComponent.SelectionOverlayTemplate'*/,
-				[3] = LoadAsset<UITexture>("Default__UIContextMenu.ContextMenuDataComponent.HoverOverlayTemplate")/*Ref UITexture'Default__UIContextMenu.ContextMenuDataComponent.HoverOverlayTemplate'*/,
+				[0] = Default__UIContextMenu_ContextMenuDataComponent_NormalOverlayTemplate/*Ref UITexture'Default__UIContextMenu.ContextMenuDataComponent.NormalOverlayTemplate'*/,
+				[1] = Default__UIContextMenu_ContextMenuDataComponent_ActiveOverlayTemplate/*Ref UITexture'Default__UIContextMenu.ContextMenuDataComponent.ActiveOverlayTemplate'*/,
+				[2] = Default__UIContextMenu_ContextMenuDataComponent_SelectionOverlayTemplate/*Ref UITexture'Default__UIContextMenu.ContextMenuDataComponent.SelectionOverlayTemplate'*/,
+				[3] = Default__UIContextMenu_ContextMenuDataComponent_HoverOverlayTemplate/*Ref UITexture'Default__UIContextMenu.ContextMenuDataComponent.HoverOverlayTemplate'*/,
 	 		},
 		}/* Reference: UIComp_ContextMenuListPresenter'Default__UIContextMenu.ContextMenuDataComponent' */;
+		var Default__UIContextMenu_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIContextMenu.WidgetEventComponent' */;
 		// Object Offset:0x00424006
 		ColumnAutoSizeMode = UIList.ECellAutoSizeMode.CELLAUTOSIZE_AdjustList;
 		RowAutoSizeMode = UIList.ECellAutoSizeMode.CELLAUTOSIZE_AdjustList;
@@ -126,7 +141,7 @@ public partial class UIContextMenu : UIList/*
 		bInitializeScrollbars = false;
 		bSingleClickSubmission = true;
 		bUpdateItemUnderCursor = true;
-		CellDataComponent = Default__UIContextMenu_ContextMenuDataComponent;
+		CellDataComponent = Default__UIContextMenu_ContextMenuDataComponent/*Ref UIComp_ContextMenuListPresenter'Default__UIContextMenu.ContextMenuDataComponent'*/;
 		PrimaryStyle = new UIRoot.UIStyleReference
 		{
 			DefaultStyleTag = (name)"DefaultContextMenuStyle",
@@ -151,7 +166,7 @@ public partial class UIContextMenu : UIList/*
 			},
 		};
 		bHidden = true;
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIContextMenu.WidgetEventComponent")/*Ref UIComp_Event'Default__UIContextMenu.WidgetEventComponent'*/;
+		EventProvider = Default__UIContextMenu_WidgetEventComponent/*Ref UIComp_Event'Default__UIContextMenu.WidgetEventComponent'*/;
 	}
 }
 }

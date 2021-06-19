@@ -18,15 +18,18 @@ public partial class DirectionalLightToggleable : DirectionalLight/*
 			// Object Offset:0x004CF942
 			Sprite = LoadAsset<Texture2D>("EngineResources.LightIcons.Light_Directional_Toggleable_DynamicsAndStatics")/*Ref Texture2D'EngineResources.LightIcons.Light_Directional_Toggleable_DynamicsAndStatics'*/,
 		}/* Reference: SpriteComponent'Default__DirectionalLightToggleable.Sprite' */;
+		var Default__DirectionalLightToggleable_ArrowComponent0 = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__DirectionalLightToggleable.ArrowComponent0' */;
 		// Object Offset:0x0030DDD1
-		LightComponent = Default__DirectionalLightToggleable_DirectionalLightComponent0;
+		LightComponent = Default__DirectionalLightToggleable_DirectionalLightComponent0/*Ref DirectionalLightComponent'Default__DirectionalLightToggleable.DirectionalLightComponent0'*/;
 		bStatic = false;
 		bHardAttach = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__DirectionalLightToggleable_Sprite,
-			Default__DirectionalLightToggleable_DirectionalLightComponent0,
-			LoadAsset<ArrowComponent>("Default__DirectionalLightToggleable.ArrowComponent0")/*Ref ArrowComponent'Default__DirectionalLightToggleable.ArrowComponent0'*/,
+			Default__DirectionalLightToggleable_Sprite/*Ref SpriteComponent'Default__DirectionalLightToggleable.Sprite'*/,
+			Default__DirectionalLightToggleable_DirectionalLightComponent0/*Ref DirectionalLightComponent'Default__DirectionalLightToggleable.DirectionalLightComponent0'*/,
+			Default__DirectionalLightToggleable_ArrowComponent0/*Ref ArrowComponent'Default__DirectionalLightToggleable.ArrowComponent0'*/,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
 	}

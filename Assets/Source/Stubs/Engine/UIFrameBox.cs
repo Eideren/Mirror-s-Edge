@@ -150,18 +150,21 @@ public partial class UIFrameBox : UIContainer/*
 				DefaultStyleTag = (name)"PanelBackground",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UIFrameBox.TemplateBottomRight' */;
+		var Default__UIFrameBox_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIFrameBox.WidgetEventComponent' */;
 		// Object Offset:0x00437EF6
 		BackgroundImageComponent = new StaticArray<UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage>/*[9]*/()
 		{ 
-			[0] = Default__UIFrameBox_TemplateTopLeft,
-			[1] = Default__UIFrameBox_TemplateTop,
-			[2] = Default__UIFrameBox_TemplateTopRight,
-			[3] = Default__UIFrameBox_TemplateCenterLeft,
-			[4] = Default__UIFrameBox_TemplateCenter,
-			[5] = Default__UIFrameBox_TemplateCenterRight,
-			[6] = Default__UIFrameBox_TemplateBottomLeft,
-			[7] = Default__UIFrameBox_TemplateBottom,
-			[8] = Default__UIFrameBox_TemplateBottomRight,
+			[0] = Default__UIFrameBox_TemplateTopLeft/*Ref UIComp_DrawImage'Default__UIFrameBox.TemplateTopLeft'*/,
+			[1] = Default__UIFrameBox_TemplateTop/*Ref UIComp_DrawImage'Default__UIFrameBox.TemplateTop'*/,
+			[2] = Default__UIFrameBox_TemplateTopRight/*Ref UIComp_DrawImage'Default__UIFrameBox.TemplateTopRight'*/,
+			[3] = Default__UIFrameBox_TemplateCenterLeft/*Ref UIComp_DrawImage'Default__UIFrameBox.TemplateCenterLeft'*/,
+			[4] = Default__UIFrameBox_TemplateCenter/*Ref UIComp_DrawImage'Default__UIFrameBox.TemplateCenter'*/,
+			[5] = Default__UIFrameBox_TemplateCenterRight/*Ref UIComp_DrawImage'Default__UIFrameBox.TemplateCenterRight'*/,
+			[6] = Default__UIFrameBox_TemplateBottomLeft/*Ref UIComp_DrawImage'Default__UIFrameBox.TemplateBottomLeft'*/,
+			[7] = Default__UIFrameBox_TemplateBottom/*Ref UIComp_DrawImage'Default__UIFrameBox.TemplateBottom'*/,
+			[8] = Default__UIFrameBox_TemplateBottomRight/*Ref UIComp_DrawImage'Default__UIFrameBox.TemplateBottomRight'*/,
 	 	};
 		BackgroundCornerSizes = new UIFrameBox.CornerSizes
 		{
@@ -196,7 +199,7 @@ public partial class UIFrameBox : UIContainer/*
 			RequiredStyleClass = ClassT<UIStyle_Image>()/*Ref Class'UIStyle_Image'*/,
 		};
 		bSupportsPrimaryStyle = false;
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIFrameBox.WidgetEventComponent")/*Ref UIComp_Event'Default__UIFrameBox.WidgetEventComponent'*/;
+		EventProvider = Default__UIFrameBox_WidgetEventComponent/*Ref UIComp_Event'Default__UIFrameBox.WidgetEventComponent'*/;
 	}
 }
 }

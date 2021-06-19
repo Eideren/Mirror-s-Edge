@@ -103,9 +103,12 @@ public partial class TdUIScene_LoadLevel : TdUIScene_SubMenu/*
 	
 	public TdUIScene_LoadLevel()
 	{
+		var Default__TdUIScene_LoadLevel_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_LoadLevel.SceneEventComponent' */;
 		// Object Offset:0x0069C045
 		AnimDuration = 0.30f;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_LoadLevel.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_LoadLevel.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_LoadLevel_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_LoadLevel.SceneEventComponent'*/;
 	}
 }
 }

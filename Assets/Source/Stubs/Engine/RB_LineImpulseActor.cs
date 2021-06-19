@@ -52,15 +52,15 @@ public partial class RB_LineImpulseActor : Actor/*
 		// Object Offset:0x003AE54B
 		ImpulseStrength = 900.0f;
 		ImpulseRange = 200.0f;
-		Arrow = Default__RB_LineImpulseActor_ArrowComponent0;
+		Arrow = Default__RB_LineImpulseActor_ArrowComponent0/*Ref ArrowComponent'Default__RB_LineImpulseActor.ArrowComponent0'*/;
 		bNoDelete = true;
 		bAlwaysRelevant = true;
 		bOnlyDirtyReplication = true;
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__RB_LineImpulseActor_ArrowComponent0,
-			Default__RB_LineImpulseActor_Sprite,
+			Default__RB_LineImpulseActor_ArrowComponent0/*Ref ArrowComponent'Default__RB_LineImpulseActor.ArrowComponent0'*/,
+			Default__RB_LineImpulseActor_Sprite/*Ref SpriteComponent'Default__RB_LineImpulseActor.Sprite'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetUpdateFrequency = 0.10f;

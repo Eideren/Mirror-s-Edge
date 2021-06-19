@@ -40,6 +40,9 @@ public partial class CameraActor : Actor/*
 	
 	public CameraActor()
 	{
+		var Default__CameraActor_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__CameraActor.DrawFrust0' */;
 		var Default__CameraActor_CamMesh0 = new StaticMeshComponent
 		{
 			// Object Offset:0x00312172
@@ -362,13 +365,13 @@ public partial class CameraActor : Actor/*
 				ControlPointsA = default,
 			},
 		};
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__CameraActor.DrawFrust0")/*Ref DrawFrustumComponent'Default__CameraActor.DrawFrust0'*/;
-		MeshComp = Default__CameraActor_CamMesh0;
+		DrawFrustum = Default__CameraActor_DrawFrust0/*Ref DrawFrustumComponent'Default__CameraActor.DrawFrust0'*/;
+		MeshComp = Default__CameraActor_CamMesh0/*Ref StaticMeshComponent'Default__CameraActor.CamMesh0'*/;
 		bNoDelete = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__CameraActor_CamMesh0,
-			LoadAsset<DrawFrustumComponent>("Default__CameraActor.DrawFrust0")/*Ref DrawFrustumComponent'Default__CameraActor.DrawFrust0'*/,
+			Default__CameraActor_CamMesh0/*Ref StaticMeshComponent'Default__CameraActor.CamMesh0'*/,
+			Default__CameraActor_DrawFrust0/*Ref DrawFrustumComponent'Default__CameraActor.DrawFrust0'*/,
 		};
 		Physics = Actor.EPhysics.PHYS_Interpolating;
 		NetUpdateFrequency = 1.0f;

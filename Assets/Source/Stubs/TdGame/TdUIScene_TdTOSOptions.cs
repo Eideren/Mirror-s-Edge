@@ -39,8 +39,11 @@ public partial class TdUIScene_TdTOSOptions : TdUIScene_SubMenu/*
 	
 	public TdUIScene_TdTOSOptions()
 	{
+		var Default__TdUIScene_TdTOSOptions_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_TdTOSOptions.SceneEventComponent' */;
 		// Object Offset:0x006B0D77
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_TdTOSOptions.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_TdTOSOptions.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_TdTOSOptions_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_TdTOSOptions.SceneEventComponent'*/;
 	}
 }
 }

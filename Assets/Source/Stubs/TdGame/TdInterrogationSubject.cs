@@ -109,10 +109,10 @@ public partial class TdInterrogationSubject : Actor/*
 		bCollideActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdInterrogationSubject_CollisionCylinder,
+			Default__TdInterrogationSubject_CollisionCylinder/*Ref CylinderComponent'Default__TdInterrogationSubject.CollisionCylinder'*/,
 		};
 		TickGroup = Object.ETickingGroup.TG_PostAsyncWork;
-		CollisionComponent = Default__TdInterrogationSubject_CollisionCylinder;
+		CollisionComponent = Default__TdInterrogationSubject_CollisionCylinder/*Ref CylinderComponent'Default__TdInterrogationSubject.CollisionCylinder'*/;
 	}
 }
 }

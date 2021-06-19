@@ -47,17 +47,23 @@ public partial class DebugCameraController : PlayerController/*
 	
 	public DebugCameraController()
 	{
+		var Default__DebugCameraController_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__DebugCameraController.CollisionCylinder' */;
+		var Default__DebugCameraController_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__DebugCameraController.Sprite' */;
 		// Object Offset:0x002FA0A1
 		InputClass = ClassT<DebugCameraInput>()/*Ref Class'DebugCameraInput'*/;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__DebugCameraController.CollisionCylinder")/*Ref CylinderComponent'Default__DebugCameraController.CollisionCylinder'*/;
+		CylinderComponent = Default__DebugCameraController_CollisionCylinder/*Ref CylinderComponent'Default__DebugCameraController.CollisionCylinder'*/;
 		bHidden = false;
 		bHiddenEd = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__DebugCameraController.Sprite")/*Ref SpriteComponent'Default__DebugCameraController.Sprite'*/,
-			LoadAsset<CylinderComponent>("Default__DebugCameraController.CollisionCylinder")/*Ref CylinderComponent'Default__DebugCameraController.CollisionCylinder'*/,
+			Default__DebugCameraController_Sprite/*Ref SpriteComponent'Default__DebugCameraController.Sprite'*/,
+			Default__DebugCameraController_CollisionCylinder/*Ref CylinderComponent'Default__DebugCameraController.CollisionCylinder'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__DebugCameraController.CollisionCylinder")/*Ref CylinderComponent'Default__DebugCameraController.CollisionCylinder'*/;
+		CollisionComponent = Default__DebugCameraController_CollisionCylinder/*Ref CylinderComponent'Default__DebugCameraController.CollisionCylinder'*/;
 	}
 }
 }

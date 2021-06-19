@@ -19,11 +19,11 @@ public partial class SkyLight : Light/*
 			Sprite = LoadAsset<Texture2D>("EngineResources.S_SkyLight")/*Ref Texture2D'EngineResources.S_SkyLight'*/,
 		}/* Reference: SpriteComponent'Default__SkyLight.Sprite' */;
 		// Object Offset:0x003E8517
-		LightComponent = Default__SkyLight_SkyLightComponent0;
+		LightComponent = Default__SkyLight_SkyLightComponent0/*Ref SkyLightComponent'Default__SkyLight.SkyLightComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__SkyLight_Sprite,
-			Default__SkyLight_SkyLightComponent0,
+			Default__SkyLight_Sprite/*Ref SpriteComponent'Default__SkyLight.Sprite'*/,
+			Default__SkyLight_SkyLightComponent0/*Ref SkyLightComponent'Default__SkyLight.SkyLightComponent0'*/,
 		};
 	}
 }

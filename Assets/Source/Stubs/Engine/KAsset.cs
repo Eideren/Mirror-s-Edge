@@ -63,6 +63,9 @@ public partial class KAsset : Actor/*
 	}
 	public KAsset()
 	{
+		var Default__KAsset_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+		}/* Reference: DynamicLightEnvironmentComponent'Default__KAsset.MyLightEnvironment' */;
 		var Default__KAsset_KAssetSkelMeshComponent = new SkeletalMeshComponent
 		{
 			// Object Offset:0x0034C2A9
@@ -70,7 +73,7 @@ public partial class KAsset : Actor/*
 			bSkipAllUpdateWhenPhysicsAsleep = true,
 			bHasPhysicsAssetInstance = true,
 			bUpdateKinematicBonesFromAnimation = false,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KAsset.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KAsset.MyLightEnvironment'*/,
+			LightEnvironment = Default__KAsset_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__KAsset.MyLightEnvironment'*/,
 			CollideActors = true,
 			BlockActors = true,
 			BlockZeroExtent = true,
@@ -84,8 +87,8 @@ public partial class KAsset : Actor/*
 			},
 		}/* Reference: SkeletalMeshComponent'Default__KAsset.KAssetSkelMeshComponent' */;
 		// Object Offset:0x0034BF9C
-		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KAsset.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KAsset.MyLightEnvironment'*/;
-		SkeletalMeshComponent = Default__KAsset_KAssetSkelMeshComponent;
+		LightEnvironment = Default__KAsset_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__KAsset.MyLightEnvironment'*/;
+		SkeletalMeshComponent = Default__KAsset_KAssetSkelMeshComponent/*Ref SkeletalMeshComponent'Default__KAsset.KAssetSkelMeshComponent'*/;
 		bDamageAppliesImpulse = true;
 		bNoDelete = true;
 		bAlwaysRelevant = true;
@@ -97,13 +100,13 @@ public partial class KAsset : Actor/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<DynamicLightEnvironmentComponent>("Default__KAsset.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KAsset.MyLightEnvironment'*/,
-			Default__KAsset_KAssetSkelMeshComponent,
+			Default__KAsset_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__KAsset.MyLightEnvironment'*/,
+			Default__KAsset_KAssetSkelMeshComponent/*Ref SkeletalMeshComponent'Default__KAsset.KAssetSkelMeshComponent'*/,
 		};
 		Physics = Actor.EPhysics.PHYS_RigidBody;
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		TickGroup = Object.ETickingGroup.TG_PostAsyncWork;
-		CollisionComponent = Default__KAsset_KAssetSkelMeshComponent;
+		CollisionComponent = Default__KAsset_KAssetSkelMeshComponent/*Ref SkeletalMeshComponent'Default__KAsset.KAssetSkelMeshComponent'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

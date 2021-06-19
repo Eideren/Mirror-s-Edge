@@ -8,14 +8,26 @@ public partial class UIComp_ContextMenuListPresenter : UIComp_ListPresenterCasca
 	
 	public UIComp_ContextMenuListPresenter()
 	{
+		var Default__UIComp_ContextMenuListPresenter_NormalOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIComp_ContextMenuListPresenter.NormalOverlayTemplate' */;
+		var Default__UIComp_ContextMenuListPresenter_ActiveOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIComp_ContextMenuListPresenter.ActiveOverlayTemplate' */;
+		var Default__UIComp_ContextMenuListPresenter_SelectionOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIComp_ContextMenuListPresenter.SelectionOverlayTemplate' */;
+		var Default__UIComp_ContextMenuListPresenter_HoverOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIComp_ContextMenuListPresenter.HoverOverlayTemplate' */;
 		// Object Offset:0x0041D87E
 		bDisplayColumnHeaders = false;
 		ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
 		{ 
-			[0] = LoadAsset<UITexture>("Default__UIComp_ContextMenuListPresenter.NormalOverlayTemplate")/*Ref UITexture'Default__UIComp_ContextMenuListPresenter.NormalOverlayTemplate'*/,
-			[1] = LoadAsset<UITexture>("Default__UIComp_ContextMenuListPresenter.ActiveOverlayTemplate")/*Ref UITexture'Default__UIComp_ContextMenuListPresenter.ActiveOverlayTemplate'*/,
-			[2] = LoadAsset<UITexture>("Default__UIComp_ContextMenuListPresenter.SelectionOverlayTemplate")/*Ref UITexture'Default__UIComp_ContextMenuListPresenter.SelectionOverlayTemplate'*/,
-			[3] = LoadAsset<UITexture>("Default__UIComp_ContextMenuListPresenter.HoverOverlayTemplate")/*Ref UITexture'Default__UIComp_ContextMenuListPresenter.HoverOverlayTemplate'*/,
+			[0] = Default__UIComp_ContextMenuListPresenter_NormalOverlayTemplate/*Ref UITexture'Default__UIComp_ContextMenuListPresenter.NormalOverlayTemplate'*/,
+			[1] = Default__UIComp_ContextMenuListPresenter_ActiveOverlayTemplate/*Ref UITexture'Default__UIComp_ContextMenuListPresenter.ActiveOverlayTemplate'*/,
+			[2] = Default__UIComp_ContextMenuListPresenter_SelectionOverlayTemplate/*Ref UITexture'Default__UIComp_ContextMenuListPresenter.SelectionOverlayTemplate'*/,
+			[3] = Default__UIComp_ContextMenuListPresenter_HoverOverlayTemplate/*Ref UITexture'Default__UIComp_ContextMenuListPresenter.HoverOverlayTemplate'*/,
 	 	};
 	}
 }

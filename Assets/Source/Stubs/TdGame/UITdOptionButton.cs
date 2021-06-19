@@ -196,6 +196,9 @@ public partial class UITdOptionButton : TdUIObject,
 				DefaultStyleTag = (name)"DefaultOptionButtonStyle",
 			},
 		}/* Reference: UIComp_DrawString'Default__UITdOptionButton.LabelStringRenderer' */;
+		var Default__UITdOptionButton_ButtonClickHandler = new UIEvent_OnClick
+		{
+		}/* Reference: UIEvent_OnClick'Default__UITdOptionButton.ButtonClickHandler' */;
 		var Default__UITdOptionButton_WidgetEventComponent = new UIComp_Event
 		{
 			// Object Offset:0x006EE983
@@ -253,8 +256,8 @@ public partial class UITdOptionButton : TdUIObject,
 			Orientation = UIRoot.EUIOrientation.UIORIENT_Horizontal,
 		};
 		bWrapOptions = true;
-		BackgroundImageComponent = Default__UITdOptionButton_BackgroundImageTemplate;
-		StringRenderComponent = Default__UITdOptionButton_LabelStringRenderer;
+		BackgroundImageComponent = Default__UITdOptionButton_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UITdOptionButton.BackgroundImageTemplate'*/;
+		StringRenderComponent = Default__UITdOptionButton_LabelStringRenderer/*Ref UIComp_DrawString'Default__UITdOptionButton.LabelStringRenderer'*/;
 		IncrementCue = (name)"SliderIncrement";
 		DecrementCue = (name)"SliderDecrement";
 		ClickedCue = (name)"Clicked";
@@ -291,7 +294,7 @@ public partial class UITdOptionButton : TdUIObject,
 			ClassT<UIState_Active>(),
 			ClassT<UIState_Pressed>(),
 		};
-		EventProvider = Default__UITdOptionButton_WidgetEventComponent;
+		EventProvider = Default__UITdOptionButton_WidgetEventComponent/*Ref UIComp_Event'Default__UITdOptionButton.WidgetEventComponent'*/;
 	}
 }
 }

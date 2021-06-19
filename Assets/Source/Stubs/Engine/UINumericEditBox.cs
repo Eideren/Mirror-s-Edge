@@ -51,6 +51,15 @@ public partial class UINumericEditBox : UIEditBox/*
 	
 	public UINumericEditBox()
 	{
+		var Default__UINumericEditBox_EditboxStringRenderer = new UIComp_DrawStringEditbox
+		{
+		}/* Reference: UIComp_DrawStringEditbox'Default__UINumericEditBox.EditboxStringRenderer' */;
+		var Default__UINumericEditBox_EditboxBackgroundTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UINumericEditBox.EditboxBackgroundTemplate' */;
+		var Default__UINumericEditBox_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UINumericEditBox.WidgetEventComponent' */;
 		// Object Offset:0x00445167
 		IncrementStyle = new UIRoot.UIStyleReference
 		{
@@ -142,11 +151,11 @@ public partial class UINumericEditBox : UIEditBox/*
 			RequiredFieldType = UIRoot.EUIDataProviderFieldType.DATATYPE_RangeProperty,
 			MarkupString = "Numeric Editbox Text",
 		};
-		StringRenderComponent = LoadAsset<UIComp_DrawStringEditbox>("Default__UINumericEditBox.EditboxStringRenderer")/*Ref UIComp_DrawStringEditbox'Default__UINumericEditBox.EditboxStringRenderer'*/;
-		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UINumericEditBox.EditboxBackgroundTemplate")/*Ref UIComp_DrawImage'Default__UINumericEditBox.EditboxBackgroundTemplate'*/;
+		StringRenderComponent = Default__UINumericEditBox_EditboxStringRenderer/*Ref UIComp_DrawStringEditbox'Default__UINumericEditBox.EditboxStringRenderer'*/;
+		BackgroundImageComponent = Default__UINumericEditBox_EditboxBackgroundTemplate/*Ref UIComp_DrawImage'Default__UINumericEditBox.EditboxBackgroundTemplate'*/;
 		CharacterSet = UIEditBox.EEditBoxCharacterSet.CHARSET_NumericOnly;
 		PrivateFlags = 1024;
-		EventProvider = LoadAsset<UIComp_Event>("Default__UINumericEditBox.WidgetEventComponent")/*Ref UIComp_Event'Default__UINumericEditBox.WidgetEventComponent'*/;
+		EventProvider = Default__UINumericEditBox_WidgetEventComponent/*Ref UIComp_Event'Default__UINumericEditBox.WidgetEventComponent'*/;
 	}
 }
 }

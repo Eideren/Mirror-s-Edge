@@ -11,6 +11,9 @@ public partial class ParticleModuleColor : ParticleModuleColorBase/*
 	
 	public ParticleModuleColor()
 	{
+		var Default__ParticleModuleColor_DistributionStartColor = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleColor.DistributionStartColor' */;
 		var Default__ParticleModuleColor_DistributionStartAlpha = new DistributionFloatConstant
 		{
 			// Object Offset:0x00466C47

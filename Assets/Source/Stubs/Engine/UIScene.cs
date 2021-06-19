@@ -287,6 +287,72 @@ public partial class UIScene : UIScreenObject/*
 	
 	public UIScene()
 	{
+		var Default__UIScene_SceneInitializedEvent = new UIEvent_Initialized
+		{
+			// Object Offset:0x005D2AF5
+			OutputLinks = new array<SequenceOp.SeqOpOutputLink>
+			{
+				new SequenceOp.SeqOpOutputLink
+				{
+					Links = default,
+					LinkDesc = "Output",
+					bHasImpulse = false,
+					bDisabled = false,
+					bDisabledPIE = false,
+					LinkedOp = default,
+					ActivateDelay = 0.0f,
+					DrawY = 0,
+					bHidden = false,
+				},
+			},
+			ObjClassVersion = 4,
+		}/* Reference: UIEvent_Initialized'Default__UIScene.SceneInitializedEvent' */;
+		var Default__UIScene_SceneActivatedEvent = new UIEvent_SceneActivated
+		{
+			// Object Offset:0x005D2C68
+			OutputLinks = new array<SequenceOp.SeqOpOutputLink>
+			{
+				new SequenceOp.SeqOpOutputLink
+				{
+					Links = default,
+					LinkDesc = "Output",
+					bHasImpulse = false,
+					bDisabled = false,
+					bDisabledPIE = false,
+					LinkedOp = default,
+					ActivateDelay = 0.0f,
+					DrawY = 0,
+					bHidden = false,
+				},
+			},
+			ObjClassVersion = 5,
+		}/* Reference: UIEvent_SceneActivated'Default__UIScene.SceneActivatedEvent' */;
+		var Default__UIScene_SceneDeactivatedEvent = new UIEvent_SceneDeactivated
+		{
+			// Object Offset:0x005D2DB7
+			OutputLinks = new array<SequenceOp.SeqOpOutputLink>
+			{
+				new SequenceOp.SeqOpOutputLink
+				{
+					Links = default,
+					LinkDesc = "Output",
+					bHasImpulse = false,
+					bDisabled = false,
+					bDisabledPIE = false,
+					LinkedOp = default,
+					ActivateDelay = 0.0f,
+					DrawY = 0,
+					bHidden = false,
+				},
+			},
+			ObjClassVersion = 5,
+		}/* Reference: UIEvent_SceneDeactivated'Default__UIScene.SceneDeactivatedEvent' */;
+		var Default__UIScene_EnteredStateEvent = new UIEvent_OnEnterState
+		{
+		}/* Reference: UIEvent_OnEnterState'Default__UIScene.EnteredStateEvent' */;
+		var Default__UIScene_LeftStateEvent = new UIEvent_OnLeaveState
+		{
+		}/* Reference: UIEvent_OnLeaveState'Default__UIScene.LeftStateEvent' */;
 		var Default__UIScene_SceneEventComponent = new UIComp_Event
 		{
 			// Object Offset:0x0044AF9E
@@ -349,7 +415,7 @@ public partial class UIScene : UIScreenObject/*
 			ClassT<UIState_Focused>(),
 			ClassT<UIState_Active>(),
 		};
-		EventProvider = Default__UIScene_SceneEventComponent;
+		EventProvider = Default__UIScene_SceneEventComponent/*Ref UIComp_Event'Default__UIScene.SceneEventComponent'*/;
 	}
 }
 }

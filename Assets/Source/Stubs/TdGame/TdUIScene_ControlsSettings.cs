@@ -69,11 +69,14 @@ public partial class TdUIScene_ControlsSettings : TdUIScene_OptionMenu/*
 	
 	public TdUIScene_ControlsSettings()
 	{
+		var Default__TdUIScene_ControlsSettings_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_ControlsSettings.SceneEventComponent' */;
 		// Object Offset:0x005670D3
 		PCControllerImagePath = "TdUIResources_Xbox.360Pad";
 		XBoxControllerImagePath = "TdUIResources_Xbox.360Pad";
 		PS3ControllerImagePath = "TdUIResources_PS3.PS3Pad";
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_ControlsSettings.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_ControlsSettings.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_ControlsSettings_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_ControlsSettings.SceneEventComponent'*/;
 	}
 }
 }

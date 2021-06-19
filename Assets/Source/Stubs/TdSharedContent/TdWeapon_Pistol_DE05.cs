@@ -44,8 +44,8 @@ public partial class TdWeapon_Pistol_DE05 : TdWeapon_Light/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18")/*Ref TdAnimSet'AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/;
-		Mesh1p = Default__TdWeapon_Pistol_DE05_FirstPersonMesh;
-		Mesh3p = Default__TdWeapon_Pistol_DE05_ThirdPersonMesh;
+		Mesh1p = Default__TdWeapon_Pistol_DE05_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_Pistol_DE05_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.ThirdPersonMesh'*/;
 		FireInterval = new array<float>
 		{
 			0.230f,
@@ -54,13 +54,13 @@ public partial class TdWeapon_Pistol_DE05 : TdWeapon_Light/*
 		{
 			90.0f,
 		};
-		Mesh = Default__TdWeapon_Pistol_DE05_FirstPersonMesh;
-		DroppedPickupMesh = Default__TdWeapon_Pistol_DE05_ThirdPersonMesh;
-		PickupFactoryMesh = Default__TdWeapon_Pistol_DE05_FirstPersonMesh;
+		Mesh = Default__TdWeapon_Pistol_DE05_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.FirstPersonMesh'*/;
+		DroppedPickupMesh = Default__TdWeapon_Pistol_DE05_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_Pistol_DE05_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdWeapon_Pistol_DE05_FirstPersonMesh,
-			Default__TdWeapon_Pistol_DE05_ThirdPersonMesh,
+			Default__TdWeapon_Pistol_DE05_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.FirstPersonMesh'*/,
+			Default__TdWeapon_Pistol_DE05_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_DE05.ThirdPersonMesh'*/,
 		};
 	}
 }

@@ -20,10 +20,13 @@ public partial class InternetInfo : Info/*
 	
 	public InternetInfo()
 	{
+		var Default__InternetInfo_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__InternetInfo.Sprite' */;
 		// Object Offset:0x0033E0EF
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__InternetInfo.Sprite")/*Ref SpriteComponent'Default__InternetInfo.Sprite'*/,
+			Default__InternetInfo_Sprite/*Ref SpriteComponent'Default__InternetInfo.Sprite'*/,
 		};
 	}
 }

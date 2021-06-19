@@ -52,6 +52,12 @@ public partial class TdGrenadeTargetArea : TdGrenadeArea/*
 	
 	public TdGrenadeTargetArea()
 	{
+		var Default__TdGrenadeTargetArea_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdGrenadeTargetArea.Sprite' */;
+		var Default__TdGrenadeTargetArea_Renderer = new TdGrenadeTargetAreaRenderingComponent
+		{
+		}/* Reference: TdGrenadeTargetAreaRenderingComponent'Default__TdGrenadeTargetArea.Renderer' */;
 		// Object Offset:0x00544F65
 		ThrowSpeedTweak = -100.0f;
 		TimeToExplode = -1.0f;
@@ -78,8 +84,8 @@ public partial class TdGrenadeTargetArea : TdGrenadeArea/*
 		};
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdGrenadeTargetArea.Sprite")/*Ref SpriteComponent'Default__TdGrenadeTargetArea.Sprite'*/,
-			LoadAsset<TdGrenadeTargetAreaRenderingComponent>("Default__TdGrenadeTargetArea.Renderer")/*Ref TdGrenadeTargetAreaRenderingComponent'Default__TdGrenadeTargetArea.Renderer'*/,
+			Default__TdGrenadeTargetArea_Sprite/*Ref SpriteComponent'Default__TdGrenadeTargetArea.Sprite'*/,
+			Default__TdGrenadeTargetArea_Renderer/*Ref TdGrenadeTargetAreaRenderingComponent'Default__TdGrenadeTargetArea.Renderer'*/,
 		};
 	}
 }

@@ -7,13 +7,16 @@ public partial class TdAIKeepMovingVolume : PhysicsVolume/*
 		hidecategories(Navigation,Object,Movement,Display)*/{
 	public TdAIKeepMovingVolume()
 	{
+		var Default__TdAIKeepMovingVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TdAIKeepMovingVolume.BrushComponent0' */;
 		// Object Offset:0x004EA6C8
-		BrushComponent = LoadAsset<BrushComponent>("Default__TdAIKeepMovingVolume.BrushComponent0")/*Ref BrushComponent'Default__TdAIKeepMovingVolume.BrushComponent0'*/;
+		BrushComponent = Default__TdAIKeepMovingVolume_BrushComponent0/*Ref BrushComponent'Default__TdAIKeepMovingVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TdAIKeepMovingVolume.BrushComponent0")/*Ref BrushComponent'Default__TdAIKeepMovingVolume.BrushComponent0'*/,
+			Default__TdAIKeepMovingVolume_BrushComponent0/*Ref BrushComponent'Default__TdAIKeepMovingVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TdAIKeepMovingVolume.BrushComponent0")/*Ref BrushComponent'Default__TdAIKeepMovingVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TdAIKeepMovingVolume_BrushComponent0/*Ref BrushComponent'Default__TdAIKeepMovingVolume.BrushComponent0'*/;
 	}
 }
 }

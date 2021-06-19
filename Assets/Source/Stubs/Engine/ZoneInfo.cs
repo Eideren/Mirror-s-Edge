@@ -12,6 +12,9 @@ public partial class ZoneInfo : Info/*
 	
 	public ZoneInfo()
 	{
+		var Default__ZoneInfo_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__ZoneInfo.Sprite' */;
 		// Object Offset:0x0046098A
 		KillZ = -262143.0f;
 		SoftKill = 2500.0f;
@@ -21,7 +24,7 @@ public partial class ZoneInfo : Info/*
 		bGameRelevant = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__ZoneInfo.Sprite")/*Ref SpriteComponent'Default__ZoneInfo.Sprite'*/,
+			Default__ZoneInfo_Sprite/*Ref SpriteComponent'Default__ZoneInfo.Sprite'*/,
 		};
 	}
 }

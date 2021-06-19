@@ -20,6 +20,21 @@ public partial class TdUITextSlider : UISlider/*
 	
 	public TdUITextSlider()
 	{
+		var Default__TdUITextSlider_SliderBackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__TdUITextSlider.SliderBackgroundImageTemplate' */;
+		var Default__TdUITextSlider_SliderBarImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__TdUITextSlider.SliderBarImageTemplate' */;
+		var Default__TdUITextSlider_SliderMarkerImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__TdUITextSlider.SliderMarkerImageTemplate' */;
+		var Default__TdUITextSlider_SliderCaptionRenderer = new UIComp_DrawStringSlider
+		{
+		}/* Reference: UIComp_DrawStringSlider'Default__TdUITextSlider.SliderCaptionRenderer' */;
+		var Default__TdUITextSlider_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUITextSlider.WidgetEventComponent' */;
 		// Object Offset:0x006BC092
 		LeftArrowStyle = new UIRoot.UIStyleReference
 		{
@@ -49,16 +64,16 @@ public partial class TdUITextSlider : UISlider/*
 		};
 		LeftArrowState = ClassT<UIState_Enabled>()/*Ref Class'UIState_Enabled'*/;
 		RightArrowState = ClassT<UIState_Enabled>()/*Ref Class'UIState_Enabled'*/;
-		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__TdUITextSlider.SliderBackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__TdUITextSlider.SliderBackgroundImageTemplate'*/;
-		SliderBarImageComponent = LoadAsset<UIComp_DrawImage>("Default__TdUITextSlider.SliderBarImageTemplate")/*Ref UIComp_DrawImage'Default__TdUITextSlider.SliderBarImageTemplate'*/;
-		MarkerImageComponent = LoadAsset<UIComp_DrawImage>("Default__TdUITextSlider.SliderMarkerImageTemplate")/*Ref UIComp_DrawImage'Default__TdUITextSlider.SliderMarkerImageTemplate'*/;
-		CaptionRenderComponent = LoadAsset<UIComp_DrawStringSlider>("Default__TdUITextSlider.SliderCaptionRenderer")/*Ref UIComp_DrawStringSlider'Default__TdUITextSlider.SliderCaptionRenderer'*/;
+		BackgroundImageComponent = Default__TdUITextSlider_SliderBackgroundImageTemplate/*Ref UIComp_DrawImage'Default__TdUITextSlider.SliderBackgroundImageTemplate'*/;
+		SliderBarImageComponent = Default__TdUITextSlider_SliderBarImageTemplate/*Ref UIComp_DrawImage'Default__TdUITextSlider.SliderBarImageTemplate'*/;
+		MarkerImageComponent = Default__TdUITextSlider_SliderMarkerImageTemplate/*Ref UIComp_DrawImage'Default__TdUITextSlider.SliderMarkerImageTemplate'*/;
+		CaptionRenderComponent = Default__TdUITextSlider_SliderCaptionRenderer/*Ref UIComp_DrawStringSlider'Default__TdUITextSlider.SliderCaptionRenderer'*/;
 		PrimaryStyle = new UIRoot.UIStyleReference
 		{
 			DefaultStyleTag = (name)"DefaultComboStyle",
 			RequiredStyleClass = ClassT<UIStyle_Combo>()/*Ref Class'UIStyle_Combo'*/,
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUITextSlider.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUITextSlider.WidgetEventComponent'*/;
+		EventProvider = Default__TdUITextSlider_WidgetEventComponent/*Ref UIComp_Event'Default__TdUITextSlider.WidgetEventComponent'*/;
 	}
 }
 }

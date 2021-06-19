@@ -82,8 +82,11 @@ public partial class TdUIScene_DifficultySettings : TdUIScene_SubMenu/*
 	
 	public TdUIScene_DifficultySettings()
 	{
+		var Default__TdUIScene_DifficultySettings_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_DifficultySettings.SceneEventComponent' */;
 		// Object Offset:0x006953B3
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_DifficultySettings.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_DifficultySettings.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_DifficultySettings_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_DifficultySettings.SceneEventComponent'*/;
 	}
 }
 }

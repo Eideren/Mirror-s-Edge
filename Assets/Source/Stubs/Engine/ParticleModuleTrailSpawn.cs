@@ -28,7 +28,7 @@ public partial class ParticleModuleTrailSpawn : ParticleModuleTrailBase/*
 			Constant = 1.0f,
 		}/* Reference: DistributionFloatParticleParameter'Default__ParticleModuleTrailSpawn.DistributionSpawnDistanceMap' */;
 		// Object Offset:0x003838E0
-		SpawnDistanceMap = Default__ParticleModuleTrailSpawn_DistributionSpawnDistanceMap;
+		SpawnDistanceMap = Default__ParticleModuleTrailSpawn_DistributionSpawnDistanceMap/*Ref DistributionFloatParticleParameter'Default__ParticleModuleTrailSpawn.DistributionSpawnDistanceMap'*/;
 	}
 }
 }

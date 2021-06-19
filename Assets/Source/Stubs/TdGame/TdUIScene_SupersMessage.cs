@@ -15,8 +15,11 @@ public partial class TdUIScene_SupersMessage : TdUIScene/*
 	
 	public TdUIScene_SupersMessage()
 	{
+		var Default__TdUIScene_SupersMessage_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_SupersMessage.SceneEventComponent' */;
 		// Object Offset:0x005621D4
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_SupersMessage.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_SupersMessage.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_SupersMessage_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_SupersMessage.SceneEventComponent'*/;
 	}
 }
 }

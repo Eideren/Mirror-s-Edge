@@ -327,7 +327,7 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 		BargeAddOnSpeed = 200.0f;
 		BargeMaxSpeed = 500.0f;
 		BargeKickThresholdSpeed = 250.0f;
-		BargeWaveform = Default__TdMove_Barge_BargeWaveformObj;
+		BargeWaveform = Default__TdMove_Barge_BargeWaveformObj/*Ref ForceFeedbackWaveform'Default__TdMove_Barge.BargeWaveformObj'*/;
 		bConstrainLook = true;
 		bDisableFaceRotation = true;
 		bTwoHandedFullBodyAnimations = true;

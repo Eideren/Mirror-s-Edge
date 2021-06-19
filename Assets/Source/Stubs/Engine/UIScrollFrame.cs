@@ -115,30 +115,45 @@ public partial class UIScrollFrame : UIContainer/*
 	
 	public UIScrollFrame()
 	{
+		var Default__UIScrollFrame_HorzScrollbarTemplate_ScrollBarBackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UIScrollFrame.HorzScrollbarTemplate.ScrollBarBackgroundImageTemplate' */;
+		var Default__UIScrollFrame_HorzScrollbarTemplate_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIScrollFrame.HorzScrollbarTemplate.WidgetEventComponent' */;
 		var Default__UIScrollFrame_HorzScrollbarTemplate = new UIScrollbar
 		{
 			// Object Offset:0x005D3652
-			BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIScrollFrame.HorzScrollbarTemplate.ScrollBarBackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UIScrollFrame.HorzScrollbarTemplate.ScrollBarBackgroundImageTemplate'*/,
+			BackgroundImageComponent = Default__UIScrollFrame_HorzScrollbarTemplate_ScrollBarBackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UIScrollFrame.HorzScrollbarTemplate.ScrollBarBackgroundImageTemplate'*/,
 			ScrollbarOrientation = UIRoot.EUIOrientation.UIORIENT_Horizontal,
 			__OnScrollActivity__Delegate = (Sender, PositionChange, bPositionMaxed) => ScrollRegion(Sender, PositionChange, bPositionMaxed),
 			__OnClickedScrollZone__Delegate = (Sender, PositionPerc, PlayerIndex) => ScrollZoneClicked(Sender, PositionPerc, PlayerIndex),
 			PrivateFlags = 970,
 			bHidden = true,
-			EventProvider = LoadAsset<UIComp_Event>("Default__UIScrollFrame.HorzScrollbarTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIScrollFrame.HorzScrollbarTemplate.WidgetEventComponent'*/,
+			EventProvider = Default__UIScrollFrame_HorzScrollbarTemplate_WidgetEventComponent/*Ref UIComp_Event'Default__UIScrollFrame.HorzScrollbarTemplate.WidgetEventComponent'*/,
 		}/* Reference: UIScrollbar'Default__UIScrollFrame.HorzScrollbarTemplate' */;
+		var Default__UIScrollFrame_VertScrollbarTemplate_ScrollBarBackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UIScrollFrame.VertScrollbarTemplate.ScrollBarBackgroundImageTemplate' */;
+		var Default__UIScrollFrame_VertScrollbarTemplate_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIScrollFrame.VertScrollbarTemplate.WidgetEventComponent' */;
 		var Default__UIScrollFrame_VertScrollbarTemplate = new UIScrollbar
 		{
 			// Object Offset:0x005D3736
-			BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIScrollFrame.VertScrollbarTemplate.ScrollBarBackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UIScrollFrame.VertScrollbarTemplate.ScrollBarBackgroundImageTemplate'*/,
+			BackgroundImageComponent = Default__UIScrollFrame_VertScrollbarTemplate_ScrollBarBackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UIScrollFrame.VertScrollbarTemplate.ScrollBarBackgroundImageTemplate'*/,
 			__OnScrollActivity__Delegate = (Sender, PositionChange, bPositionMaxed) => ScrollRegion(Sender, PositionChange, bPositionMaxed),
 			__OnClickedScrollZone__Delegate = (Sender, PositionPerc, PlayerIndex) => ScrollZoneClicked(Sender, PositionPerc, PlayerIndex),
 			PrivateFlags = 970,
 			bHidden = true,
-			EventProvider = LoadAsset<UIComp_Event>("Default__UIScrollFrame.VertScrollbarTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIScrollFrame.VertScrollbarTemplate.WidgetEventComponent'*/,
+			EventProvider = Default__UIScrollFrame_VertScrollbarTemplate_WidgetEventComponent/*Ref UIComp_Event'Default__UIScrollFrame.VertScrollbarTemplate.WidgetEventComponent'*/,
 		}/* Reference: UIScrollbar'Default__UIScrollFrame.VertScrollbarTemplate' */;
+		var Default__UIScrollFrame_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIScrollFrame.WidgetEventComponent' */;
 		// Object Offset:0x0044F49F
-		ScrollbarHorizontal = Default__UIScrollFrame_HorzScrollbarTemplate;
-		ScrollbarVertical = Default__UIScrollFrame_VertScrollbarTemplate;
+		ScrollbarHorizontal = Default__UIScrollFrame_HorzScrollbarTemplate/*Ref UIScrollbar'Default__UIScrollFrame.HorzScrollbarTemplate'*/;
+		ScrollbarVertical = Default__UIScrollFrame_VertScrollbarTemplate/*Ref UIScrollbar'Default__UIScrollFrame.VertScrollbarTemplate'*/;
 		VerticalClientRegion = new UIRoot.UIScreenValue_Extent
 		{
 			Value = 0.0f,
@@ -153,7 +168,7 @@ public partial class UIScrollFrame : UIContainer/*
 			RequiredStyleClass = ClassT<UIStyle_Image>()/*Ref Class'UIStyle_Image'*/,
 		};
 		bSupportsPrimaryStyle = false;
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIScrollFrame.WidgetEventComponent")/*Ref UIComp_Event'Default__UIScrollFrame.WidgetEventComponent'*/;
+		EventProvider = Default__UIScrollFrame_WidgetEventComponent/*Ref UIComp_Event'Default__UIScrollFrame.WidgetEventComponent'*/;
 	}
 }
 }

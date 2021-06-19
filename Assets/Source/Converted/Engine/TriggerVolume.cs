@@ -21,6 +21,9 @@ public partial class TriggerVolume : Volume/*
 	
 	public TriggerVolume()
 	{
+		var Default__TriggerVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TriggerVolume.BrushComponent0' */;
 		// Object Offset:0x003133C6
 		BrushColor = new Color
 		{
@@ -30,13 +33,13 @@ public partial class TriggerVolume : Volume/*
 			A=255
 		};
 		bColored = true;
-		BrushComponent = LoadAsset<BrushComponent>("Default__TriggerVolume.BrushComponent0")/*Ref BrushComponent'Default__TriggerVolume.BrushComponent0'*/;
+		BrushComponent = Default__TriggerVolume_BrushComponent0/*Ref BrushComponent'Default__TriggerVolume.BrushComponent0'*/;
 		bProjTarget = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TriggerVolume.BrushComponent0")/*Ref BrushComponent'Default__TriggerVolume.BrushComponent0'*/,
+			Default__TriggerVolume_BrushComponent0/*Ref BrushComponent'Default__TriggerVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TriggerVolume.BrushComponent0")/*Ref BrushComponent'Default__TriggerVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TriggerVolume_BrushComponent0/*Ref BrushComponent'Default__TriggerVolume.BrushComponent0'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

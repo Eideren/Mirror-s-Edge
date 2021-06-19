@@ -164,7 +164,7 @@ public partial class Projectile : Actor/*
 		DamageRadius = 220.0f;
 		MyDamageType = ClassT<DamageType>()/*Ref Class'DamageType'*/;
 		NetCullDistanceSquared = 400000000.0f;
-		CylinderComponent = Default__Projectile_CollisionCylinder;
+		CylinderComponent = Default__Projectile_CollisionCylinder/*Ref CylinderComponent'Default__Projectile.CollisionCylinder'*/;
 		bNetTemporary = true;
 		bReplicateInstigator = true;
 		bGameRelevant = true;
@@ -173,14 +173,14 @@ public partial class Projectile : Actor/*
 		bCollideWorld = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__Projectile_Sprite,
-			Default__Projectile_CollisionCylinder,
+			Default__Projectile_Sprite/*Ref SpriteComponent'Default__Projectile.Sprite'*/,
+			Default__Projectile_CollisionCylinder/*Ref CylinderComponent'Default__Projectile.CollisionCylinder'*/,
 		};
 		Physics = Actor.EPhysics.PHYS_Projectile;
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetPriority = 2.50f;
 		LifeSpan = 14.0f;
-		CollisionComponent = Default__Projectile_CollisionCylinder;
+		CollisionComponent = Default__Projectile_CollisionCylinder/*Ref CylinderComponent'Default__Projectile.CollisionCylinder'*/;
 	}
 }
 }

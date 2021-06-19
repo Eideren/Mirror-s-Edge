@@ -179,6 +179,9 @@ public partial class TdUIScene_MessageBox : TdUIScene_Overlay/*
 	
 	public TdUIScene_MessageBox()
 	{
+		var Default__TdUIScene_MessageBox_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_MessageBox.SceneEventComponent' */;
 		// Object Offset:0x00561B49
 		PotentialOptions = new array<String>
 		{
@@ -219,7 +222,7 @@ public partial class TdUIScene_MessageBox : TdUIScene_Overlay/*
 		};
 		DefaultOptionIdx = -1;
 		bPauseGameWhileActive = false;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_MessageBox.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_MessageBox.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_MessageBox_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_MessageBox.SceneEventComponent'*/;
 	}
 }
 }

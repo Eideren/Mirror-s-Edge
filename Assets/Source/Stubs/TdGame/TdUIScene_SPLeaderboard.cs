@@ -229,10 +229,13 @@ public partial class TdUIScene_SPLeaderboard : TdUIScene_Leaderboard/*
 	
 	public TdUIScene_SPLeaderboard()
 	{
+		var Default__TdUIScene_SPLeaderboard_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_SPLeaderboard.SceneEventComponent' */;
 		// Object Offset:0x006A9723
 		CurrentStretchProviderName = (name)"TdTimeTrialStretches";
 		RequestDelay = 0.30f;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_SPLeaderboard.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_SPLeaderboard.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_SPLeaderboard_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_SPLeaderboard.SceneEventComponent'*/;
 	}
 }
 }

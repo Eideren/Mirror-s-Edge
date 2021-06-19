@@ -64,10 +64,13 @@ public partial class GameRules : Info/*
 	
 	public GameRules()
 	{
+		var Default__GameRules_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__GameRules.Sprite' */;
 		// Object Offset:0x00334F8D
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__GameRules.Sprite")/*Ref SpriteComponent'Default__GameRules.Sprite'*/,
+			Default__GameRules_Sprite/*Ref SpriteComponent'Default__GameRules.Sprite'*/,
 		};
 	}
 }

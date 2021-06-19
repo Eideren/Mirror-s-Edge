@@ -74,14 +74,14 @@ public partial class FoliageFactory : Volume/*
 		SurfaceDensitySideFacing = 1.0f;
 		FacingFalloffExponent = 2.0f;
 		MaxInstanceCount = 10000;
-		BrushComponent = Default__FoliageFactory_BrushComponent0;
+		BrushComponent = Default__FoliageFactory_BrushComponent0/*Ref BrushComponent'Default__FoliageFactory.BrushComponent0'*/;
 		bHidden = false;
 		bMovable = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__FoliageFactory_BrushComponent0,
+			Default__FoliageFactory_BrushComponent0/*Ref BrushComponent'Default__FoliageFactory.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__FoliageFactory_BrushComponent0;
+		CollisionComponent = Default__FoliageFactory_BrushComponent0/*Ref BrushComponent'Default__FoliageFactory.BrushComponent0'*/;
 	}
 }
 }

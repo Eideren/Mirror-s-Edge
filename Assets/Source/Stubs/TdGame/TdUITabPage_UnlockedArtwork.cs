@@ -89,9 +89,12 @@ public partial class TdUITabPage_UnlockedArtwork : TdUITabPage/*
 	
 	public TdUITabPage_UnlockedArtwork()
 	{
+		var Default__TdUITabPage_UnlockedArtwork_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUITabPage_UnlockedArtwork.WidgetEventComponent' */;
 		// Object Offset:0x006B9CB4
 		bArtworkImageIsDirty = true;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUITabPage_UnlockedArtwork.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUITabPage_UnlockedArtwork.WidgetEventComponent'*/;
+		EventProvider = Default__TdUITabPage_UnlockedArtwork_WidgetEventComponent/*Ref UIComp_Event'Default__TdUITabPage_UnlockedArtwork.WidgetEventComponent'*/;
 	}
 }
 }

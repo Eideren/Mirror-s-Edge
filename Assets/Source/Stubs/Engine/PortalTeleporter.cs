@@ -56,23 +56,29 @@ public partial class PortalTeleporter : SceneCapturePortalActor/*
 			HiddenGame = false,
 			CollideActors = true,
 		}/* Reference: StaticMeshComponent'Default__PortalTeleporter.StaticMeshComponent2' */;
+		var Default__PortalTeleporter_SceneCapturePortalComponent0 = new SceneCapturePortalComponent
+		{
+		}/* Reference: SceneCapturePortalComponent'Default__PortalTeleporter.SceneCapturePortalComponent0' */;
+		var Default__PortalTeleporter_StaticMeshComponent1 = new StaticMeshComponent
+		{
+		}/* Reference: StaticMeshComponent'Default__PortalTeleporter.StaticMeshComponent1' */;
 		// Object Offset:0x003A40CF
 		TextureResolutionX = 256;
 		TextureResolutionY = 256;
 		bAlwaysTeleportNonPawns = true;
-		StaticMesh = Default__PortalTeleporter_StaticMeshComponent2;
-		SceneCapture = LoadAsset<SceneCapturePortalComponent>("Default__PortalTeleporter.SceneCapturePortalComponent0")/*Ref SceneCapturePortalComponent'Default__PortalTeleporter.SceneCapturePortalComponent0'*/;
+		StaticMesh = Default__PortalTeleporter_StaticMeshComponent2/*Ref StaticMeshComponent'Default__PortalTeleporter.StaticMeshComponent2'*/;
+		SceneCapture = Default__PortalTeleporter_SceneCapturePortalComponent0/*Ref SceneCapturePortalComponent'Default__PortalTeleporter.SceneCapturePortalComponent0'*/;
 		bWorldGeometry = true;
 		bMovable = false;
 		bCollideActors = true;
 		bBlockActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCapturePortalComponent>("Default__PortalTeleporter.SceneCapturePortalComponent0")/*Ref SceneCapturePortalComponent'Default__PortalTeleporter.SceneCapturePortalComponent0'*/,
-			LoadAsset<StaticMeshComponent>("Default__PortalTeleporter.StaticMeshComponent1")/*Ref StaticMeshComponent'Default__PortalTeleporter.StaticMeshComponent1'*/,
-			Default__PortalTeleporter_StaticMeshComponent2,
+			Default__PortalTeleporter_SceneCapturePortalComponent0/*Ref SceneCapturePortalComponent'Default__PortalTeleporter.SceneCapturePortalComponent0'*/,
+			Default__PortalTeleporter_StaticMeshComponent1/*Ref StaticMeshComponent'Default__PortalTeleporter.StaticMeshComponent1'*/,
+			Default__PortalTeleporter_StaticMeshComponent2/*Ref StaticMeshComponent'Default__PortalTeleporter.StaticMeshComponent2'*/,
 		};
-		CollisionComponent = Default__PortalTeleporter_StaticMeshComponent2;
+		CollisionComponent = Default__PortalTeleporter_StaticMeshComponent2/*Ref StaticMeshComponent'Default__PortalTeleporter.StaticMeshComponent2'*/;
 	}
 }
 }

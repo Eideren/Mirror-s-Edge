@@ -25,6 +25,12 @@ public partial class TdWeapon_Light : TdWeapon/*
 	
 	public TdWeapon_Light()
 	{
+		var Default__TdWeapon_Light_FirstPersonMesh = new TdSkeletalMeshComponent
+		{
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Light.FirstPersonMesh' */;
+		var Default__TdWeapon_Light_ThirdPersonMesh = new TdSkeletalMeshComponent
+		{
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Light.ThirdPersonMesh' */;
 		// Object Offset:0x006CF0A3
 		WeaponPoseProfileName = (name)"Light";
 		MuzzleFlashPSCTemplate = LoadAsset<ParticleSystem>("WeaponEffects.P_WP_Enforcers_Muzzleflash")/*Ref ParticleSystem'WeaponEffects.P_WP_Enforcers_Muzzleflash'*/;
@@ -34,21 +40,21 @@ public partial class TdWeapon_Light : TdWeapon/*
 		WeaponClickSnd = LoadAsset<SoundCue>("A_WP_Handling.1Handed.DryFire")/*Ref SoundCue'A_WP_Handling.1Handed.DryFire'*/;
 		WeaponType = TdPawn.EWeaponType.EWT_Light;
 		DecalTypeToUse = TdWeapon.EWeaponDecalType.EWDT_Light;
-		Mesh1p = LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_Light.FirstPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Light.FirstPersonMesh'*/;
-		Mesh3p = LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_Light.ThirdPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Light.ThirdPersonMesh'*/;
+		Mesh1p = Default__TdWeapon_Light_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Light.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_Light_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Light.ThirdPersonMesh'*/;
 		FiringStatesArray = new array<name>
 		{
 			(name)"WeaponFiring",
 		};
-		Mesh = LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_Light.FirstPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Light.FirstPersonMesh'*/;
+		Mesh = Default__TdWeapon_Light_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Light.FirstPersonMesh'*/;
 		DefaultInventorySlot = Inventory.EInventorySlot.EISlot_LightWeapon;
 		PickupSound = LoadAsset<SoundCue>("A_WP_Handling.1Handed.1HandedHandling")/*Ref SoundCue'A_WP_Handling.1Handed.1HandedHandling'*/;
-		DroppedPickupMesh = LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_Light.ThirdPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Light.ThirdPersonMesh'*/;
-		PickupFactoryMesh = LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_Light.FirstPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Light.FirstPersonMesh'*/;
+		DroppedPickupMesh = Default__TdWeapon_Light_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Light.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_Light_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Light.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_Light.FirstPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Light.FirstPersonMesh'*/,
-			LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_Light.ThirdPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Light.ThirdPersonMesh'*/,
+			Default__TdWeapon_Light_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Light.FirstPersonMesh'*/,
+			Default__TdWeapon_Light_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Light.ThirdPersonMesh'*/,
 		};
 	}
 }

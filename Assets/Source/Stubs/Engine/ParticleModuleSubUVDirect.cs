@@ -10,6 +10,12 @@ public partial class ParticleModuleSubUVDirect : ParticleModuleSubUVBase/*
 	
 	public ParticleModuleSubUVDirect()
 	{
+		var Default__ParticleModuleSubUVDirect_DistributionSubImagePosition = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleSubUVDirect.DistributionSubImagePosition' */;
+		var Default__ParticleModuleSubUVDirect_DistributionSubImageSize = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleSubUVDirect.DistributionSubImageSize' */;
 		// Object Offset:0x00382F48
 		SubUVPosition = new DistributionVector.RawDistributionVector
 		{

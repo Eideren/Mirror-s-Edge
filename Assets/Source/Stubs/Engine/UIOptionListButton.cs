@@ -14,10 +14,16 @@ public partial class UIOptionListButton : UIButton/* within UIOptionListBase*//*
 	
 	public UIOptionListButton()
 	{
+		var Default__UIOptionListButton_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UIOptionListButton.BackgroundImageTemplate' */;
+		var Default__UIOptionListButton_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIOptionListButton.WidgetEventComponent' */;
 		// Object Offset:0x00445AFC
-		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIOptionListButton.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UIOptionListButton.BackgroundImageTemplate'*/;
+		BackgroundImageComponent = Default__UIOptionListButton_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UIOptionListButton.BackgroundImageTemplate'*/;
 		PrivateFlags = 111;
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIOptionListButton.WidgetEventComponent")/*Ref UIComp_Event'Default__UIOptionListButton.WidgetEventComponent'*/;
+		EventProvider = Default__UIOptionListButton_WidgetEventComponent/*Ref UIComp_Event'Default__UIOptionListButton.WidgetEventComponent'*/;
 	}
 }
 }

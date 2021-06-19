@@ -7,9 +7,12 @@ public partial class TdHUDWidget_Team : TdHUDWidget/*
 	
 	public TdHUDWidget_Team()
 	{
+		var Default__TdHUDWidget_Team_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdHUDWidget_Team.WidgetEventComponent' */;
 		// Object Offset:0x00578024
 		requiresTick = true;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdHUDWidget_Team.WidgetEventComponent")/*Ref UIComp_Event'Default__TdHUDWidget_Team.WidgetEventComponent'*/;
+		EventProvider = Default__TdHUDWidget_Team_WidgetEventComponent/*Ref UIComp_Event'Default__TdHUDWidget_Team.WidgetEventComponent'*/;
 	}
 }
 }

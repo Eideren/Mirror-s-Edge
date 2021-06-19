@@ -21,15 +21,18 @@ public partial class DecalActor : Actor/*
 			AlwaysLoadOnClient = false,
 			AlwaysLoadOnServer = false,
 		}/* Reference: SpriteComponent'Default__DecalActor.Sprite' */;
+		var Default__DecalActor_ArrowComponent0 = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__DecalActor.ArrowComponent0' */;
 		// Object Offset:0x003088FA
-		Decal = Default__DecalActor_NewDecalComponent;
+		Decal = Default__DecalActor_NewDecalComponent/*Ref DecalComponent'Default__DecalActor.NewDecalComponent'*/;
 		bStatic = true;
 		bMovable = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__DecalActor_Sprite,
-			Default__DecalActor_NewDecalComponent,
-			LoadAsset<ArrowComponent>("Default__DecalActor.ArrowComponent0")/*Ref ArrowComponent'Default__DecalActor.ArrowComponent0'*/,
+			Default__DecalActor_Sprite/*Ref SpriteComponent'Default__DecalActor.Sprite'*/,
+			Default__DecalActor_NewDecalComponent/*Ref DecalComponent'Default__DecalActor.NewDecalComponent'*/,
+			Default__DecalActor_ArrowComponent0/*Ref ArrowComponent'Default__DecalActor.ArrowComponent0'*/,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
 	}

@@ -26,12 +26,12 @@ public partial class TdMovementExclusionVolume : PhysicsVolume/*
 			A=255
 		};
 		bColored = true;
-		BrushComponent = Default__TdMovementExclusionVolume_BrushComponent0;
+		BrushComponent = Default__TdMovementExclusionVolume_BrushComponent0/*Ref BrushComponent'Default__TdMovementExclusionVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdMovementExclusionVolume_BrushComponent0,
+			Default__TdMovementExclusionVolume_BrushComponent0/*Ref BrushComponent'Default__TdMovementExclusionVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__TdMovementExclusionVolume_BrushComponent0;
+		CollisionComponent = Default__TdMovementExclusionVolume_BrushComponent0/*Ref BrushComponent'Default__TdMovementExclusionVolume.BrushComponent0'*/;
 		SupportedEvents = default;
 	}
 }

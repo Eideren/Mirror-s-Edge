@@ -92,8 +92,11 @@ public partial class TdUIScene_CreatePersona : TdUIScene_SubMenu/*
 	
 	public TdUIScene_CreatePersona()
 	{
+		var Default__TdUIScene_CreatePersona_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_CreatePersona.SceneEventComponent' */;
 		// Object Offset:0x006944A0
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_CreatePersona.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_CreatePersona.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_CreatePersona_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_CreatePersona.SceneEventComponent'*/;
 	}
 }
 }

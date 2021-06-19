@@ -9,6 +9,9 @@ public partial class ParticleModuleLocation : ParticleModuleLocationBase/*
 	
 	public ParticleModuleLocation()
 	{
+		var Default__ParticleModuleLocation_DistributionStartLocation = new DistributionVectorUniform
+		{
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleLocation.DistributionStartLocation' */;
 		// Object Offset:0x0037DB92
 		StartLocation = new DistributionVector.RawDistributionVector
 		{

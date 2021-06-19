@@ -50,9 +50,9 @@ public partial class Route : Info/*
 		bStatic = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__Route_Sprite,
-			Default__Route_Sprite,
-			Default__Route_RouteRenderer,
+			Default__Route_Sprite/*Ref SpriteComponent'Default__Route.Sprite'*/,
+			Default__Route_Sprite/*Ref SpriteComponent'Default__Route.Sprite'*/,
+			Default__Route_RouteRenderer/*Ref RouteRenderingComponent'Default__Route.RouteRenderer'*/,
 		};
 	}
 }

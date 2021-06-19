@@ -32,8 +32,11 @@ public partial class TdUIScene_SPLevelRacePause : TdUIScene_SPPause/*
 	
 	public TdUIScene_SPLevelRacePause()
 	{
+		var Default__TdUIScene_SPLevelRacePause_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_SPLevelRacePause.SceneEventComponent' */;
 		// Object Offset:0x006AC34C
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_SPLevelRacePause.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_SPLevelRacePause.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_SPLevelRacePause_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_SPLevelRacePause.SceneEventComponent'*/;
 	}
 }
 }

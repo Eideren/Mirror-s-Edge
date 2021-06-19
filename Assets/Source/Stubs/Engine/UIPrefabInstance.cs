@@ -24,10 +24,13 @@ public partial class UIPrefabInstance : UIObject/*
 	
 	public UIPrefabInstance()
 	{
+		var Default__UIPrefabInstance_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIPrefabInstance.WidgetEventComponent' */;
 		// Object Offset:0x00448439
 		PI_PackageVersion = -1;
 		PI_LicenseePackageVersion = -1;
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIPrefabInstance.WidgetEventComponent")/*Ref UIComp_Event'Default__UIPrefabInstance.WidgetEventComponent'*/;
+		EventProvider = Default__UIPrefabInstance_WidgetEventComponent/*Ref UIComp_Event'Default__UIPrefabInstance.WidgetEventComponent'*/;
 	}
 }
 }

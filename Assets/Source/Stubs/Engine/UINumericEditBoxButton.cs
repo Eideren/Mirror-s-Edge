@@ -6,10 +6,16 @@ public partial class UINumericEditBoxButton : UIButton/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public UINumericEditBoxButton()
 	{
+		var Default__UINumericEditBoxButton_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UINumericEditBoxButton.BackgroundImageTemplate' */;
+		var Default__UINumericEditBoxButton_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UINumericEditBoxButton.WidgetEventComponent' */;
 		// Object Offset:0x0044599B
-		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UINumericEditBoxButton.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UINumericEditBoxButton.BackgroundImageTemplate'*/;
+		BackgroundImageComponent = Default__UINumericEditBoxButton_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UINumericEditBoxButton.BackgroundImageTemplate'*/;
 		PrivateFlags = 47;
-		EventProvider = LoadAsset<UIComp_Event>("Default__UINumericEditBoxButton.WidgetEventComponent")/*Ref UIComp_Event'Default__UINumericEditBoxButton.WidgetEventComponent'*/;
+		EventProvider = Default__UINumericEditBoxButton_WidgetEventComponent/*Ref UIComp_Event'Default__UINumericEditBoxButton.WidgetEventComponent'*/;
 	}
 }
 }

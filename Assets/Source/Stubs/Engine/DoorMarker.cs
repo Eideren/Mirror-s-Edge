@@ -56,22 +56,37 @@ public partial class DoorMarker : NavigationPoint/*
 	
 	public DoorMarker()
 	{
+		var Default__DoorMarker_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__DoorMarker.CollisionCylinder' */;
+		var Default__DoorMarker_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__DoorMarker.Sprite' */;
+		var Default__DoorMarker_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__DoorMarker.Sprite2' */;
+		var Default__DoorMarker_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__DoorMarker.Arrow' */;
+		var Default__DoorMarker_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__DoorMarker.PathRenderer' */;
 		// Object Offset:0x0030FD9C
 		bInitiallyClosed = true;
 		bSpecialMove = true;
 		ExtraCost = 100;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__DoorMarker.CollisionCylinder")/*Ref CylinderComponent'Default__DoorMarker.CollisionCylinder'*/;
-		GoodSprite = LoadAsset<SpriteComponent>("Default__DoorMarker.Sprite")/*Ref SpriteComponent'Default__DoorMarker.Sprite'*/;
-		BadSprite = LoadAsset<SpriteComponent>("Default__DoorMarker.Sprite2")/*Ref SpriteComponent'Default__DoorMarker.Sprite2'*/;
+		CylinderComponent = Default__DoorMarker_CollisionCylinder/*Ref CylinderComponent'Default__DoorMarker.CollisionCylinder'*/;
+		GoodSprite = Default__DoorMarker_Sprite/*Ref SpriteComponent'Default__DoorMarker.Sprite'*/;
+		BadSprite = Default__DoorMarker_Sprite2/*Ref SpriteComponent'Default__DoorMarker.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__DoorMarker.Sprite")/*Ref SpriteComponent'Default__DoorMarker.Sprite'*/,
-			LoadAsset<SpriteComponent>("Default__DoorMarker.Sprite2")/*Ref SpriteComponent'Default__DoorMarker.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__DoorMarker.Arrow")/*Ref ArrowComponent'Default__DoorMarker.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__DoorMarker.CollisionCylinder")/*Ref CylinderComponent'Default__DoorMarker.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__DoorMarker.PathRenderer")/*Ref PathRenderingComponent'Default__DoorMarker.PathRenderer'*/,
+			Default__DoorMarker_Sprite/*Ref SpriteComponent'Default__DoorMarker.Sprite'*/,
+			Default__DoorMarker_Sprite2/*Ref SpriteComponent'Default__DoorMarker.Sprite2'*/,
+			Default__DoorMarker_Arrow/*Ref ArrowComponent'Default__DoorMarker.Arrow'*/,
+			Default__DoorMarker_CollisionCylinder/*Ref CylinderComponent'Default__DoorMarker.CollisionCylinder'*/,
+			Default__DoorMarker_PathRenderer/*Ref PathRenderingComponent'Default__DoorMarker.PathRenderer'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__DoorMarker.CollisionCylinder")/*Ref CylinderComponent'Default__DoorMarker.CollisionCylinder'*/;
+		CollisionComponent = Default__DoorMarker_CollisionCylinder/*Ref CylinderComponent'Default__DoorMarker.CollisionCylinder'*/;
 	}
 }
 }

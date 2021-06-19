@@ -13,23 +13,38 @@ public partial class TdJumpNode : TdMoveNode/*
 	
 	public TdJumpNode()
 	{
+		var Default__TdJumpNode_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdJumpNode.CollisionCylinder' */;
+		var Default__TdJumpNode_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdJumpNode.Sprite' */;
+		var Default__TdJumpNode_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdJumpNode.Sprite2' */;
+		var Default__TdJumpNode_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdJumpNode.Arrow' */;
+		var Default__TdJumpNode_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__TdJumpNode.PathRenderer' */;
 		// Object Offset:0x0057E690
 		ForcedSpeed = 720.0f;
 		MaxShortJump = 480.0f;
 		MaxMediumJump = 650.0f;
 		MoveReachspecClass = ClassT<TdReachSpec_Jump>()/*Ref Class'TdReachSpec_Jump'*/;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdJumpNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdJumpNode.CollisionCylinder'*/;
-		GoodSprite = LoadAsset<SpriteComponent>("Default__TdJumpNode.Sprite")/*Ref SpriteComponent'Default__TdJumpNode.Sprite'*/;
-		BadSprite = LoadAsset<SpriteComponent>("Default__TdJumpNode.Sprite2")/*Ref SpriteComponent'Default__TdJumpNode.Sprite2'*/;
+		CylinderComponent = Default__TdJumpNode_CollisionCylinder/*Ref CylinderComponent'Default__TdJumpNode.CollisionCylinder'*/;
+		GoodSprite = Default__TdJumpNode_Sprite/*Ref SpriteComponent'Default__TdJumpNode.Sprite'*/;
+		BadSprite = Default__TdJumpNode_Sprite2/*Ref SpriteComponent'Default__TdJumpNode.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdJumpNode.Sprite")/*Ref SpriteComponent'Default__TdJumpNode.Sprite'*/,
-			LoadAsset<SpriteComponent>("Default__TdJumpNode.Sprite2")/*Ref SpriteComponent'Default__TdJumpNode.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__TdJumpNode.Arrow")/*Ref ArrowComponent'Default__TdJumpNode.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__TdJumpNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdJumpNode.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__TdJumpNode.PathRenderer")/*Ref PathRenderingComponent'Default__TdJumpNode.PathRenderer'*/,
+			Default__TdJumpNode_Sprite/*Ref SpriteComponent'Default__TdJumpNode.Sprite'*/,
+			Default__TdJumpNode_Sprite2/*Ref SpriteComponent'Default__TdJumpNode.Sprite2'*/,
+			Default__TdJumpNode_Arrow/*Ref ArrowComponent'Default__TdJumpNode.Arrow'*/,
+			Default__TdJumpNode_CollisionCylinder/*Ref CylinderComponent'Default__TdJumpNode.CollisionCylinder'*/,
+			Default__TdJumpNode_PathRenderer/*Ref PathRenderingComponent'Default__TdJumpNode.PathRenderer'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdJumpNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdJumpNode.CollisionCylinder'*/;
+		CollisionComponent = Default__TdJumpNode_CollisionCylinder/*Ref CylinderComponent'Default__TdJumpNode.CollisionCylinder'*/;
 	}
 }
 }

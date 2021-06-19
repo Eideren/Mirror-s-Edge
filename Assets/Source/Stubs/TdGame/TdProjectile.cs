@@ -17,14 +17,20 @@ public partial class TdProjectile : Projectile/*
 	
 	public TdProjectile()
 	{
+		var Default__TdProjectile_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdProjectile.CollisionCylinder' */;
+		var Default__TdProjectile_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdProjectile.Sprite' */;
 		// Object Offset:0x0064D170
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdProjectile.CollisionCylinder")/*Ref CylinderComponent'Default__TdProjectile.CollisionCylinder'*/;
+		CylinderComponent = Default__TdProjectile_CollisionCylinder/*Ref CylinderComponent'Default__TdProjectile.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdProjectile.Sprite")/*Ref SpriteComponent'Default__TdProjectile.Sprite'*/,
-			LoadAsset<CylinderComponent>("Default__TdProjectile.CollisionCylinder")/*Ref CylinderComponent'Default__TdProjectile.CollisionCylinder'*/,
+			Default__TdProjectile_Sprite/*Ref SpriteComponent'Default__TdProjectile.Sprite'*/,
+			Default__TdProjectile_CollisionCylinder/*Ref CylinderComponent'Default__TdProjectile.CollisionCylinder'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdProjectile.CollisionCylinder")/*Ref CylinderComponent'Default__TdProjectile.CollisionCylinder'*/;
+		CollisionComponent = Default__TdProjectile_CollisionCylinder/*Ref CylinderComponent'Default__TdProjectile.CollisionCylinder'*/;
 	}
 }
 }

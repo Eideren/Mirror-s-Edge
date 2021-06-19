@@ -6,10 +6,13 @@ public partial class TdInv_GasMask : TdEquipment/*
 		hidecategories(Navigation)*/{
 	public TdInv_GasMask()
 	{
+		var Default__TdInv_GasMask_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdInv_GasMask.Sprite' */;
 		// Object Offset:0x0057CAD2
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdInv_GasMask.Sprite")/*Ref SpriteComponent'Default__TdInv_GasMask.Sprite'*/,
+			Default__TdInv_GasMask_Sprite/*Ref SpriteComponent'Default__TdInv_GasMask.Sprite'*/,
 		};
 	}
 }

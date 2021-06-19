@@ -87,9 +87,12 @@ public partial class TdUIScene_MiniMenu : TdUIScene_Overlay/*
 	
 	public TdUIScene_MiniMenu()
 	{
+		var Default__TdUIScene_MiniMenu_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_MiniMenu.SceneEventComponent' */;
 		// Object Offset:0x0055C188
 		MenuDataStoreName = (name)"TdMiniMenuData";
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_MiniMenu.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_MiniMenu.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_MiniMenu_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_MiniMenu.SceneEventComponent'*/;
 	}
 }
 }

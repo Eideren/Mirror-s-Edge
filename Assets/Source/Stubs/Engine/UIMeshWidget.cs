@@ -8,8 +8,14 @@ public partial class UIMeshWidget : UIObject/*
 	
 	public UIMeshWidget()
 	{
+		var Default__UIMeshWidget_WidgetMesh = new StaticMeshComponent
+		{
+		}/* Reference: StaticMeshComponent'Default__UIMeshWidget.WidgetMesh' */;
+		var Default__UIMeshWidget_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIMeshWidget.WidgetEventComponent' */;
 		// Object Offset:0x004449BC
-		Mesh = LoadAsset<StaticMeshComponent>("Default__UIMeshWidget.WidgetMesh")/*Ref StaticMeshComponent'Default__UIMeshWidget.WidgetMesh'*/;
+		Mesh = Default__UIMeshWidget_WidgetMesh/*Ref StaticMeshComponent'Default__UIMeshWidget.WidgetMesh'*/;
 		bSupportsPrimaryStyle = false;
 		bDebugShowBounds = true;
 		DebugBoundsColor = new Color
@@ -20,7 +26,7 @@ public partial class UIMeshWidget : UIObject/*
 			A=255
 		};
 		bSupports3DPrimitives = true;
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIMeshWidget.WidgetEventComponent")/*Ref UIComp_Event'Default__UIMeshWidget.WidgetEventComponent'*/;
+		EventProvider = Default__UIMeshWidget_WidgetEventComponent/*Ref UIComp_Event'Default__UIMeshWidget.WidgetEventComponent'*/;
 	}
 }
 }

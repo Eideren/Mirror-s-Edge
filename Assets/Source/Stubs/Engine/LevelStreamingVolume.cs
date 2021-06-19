@@ -34,13 +34,13 @@ public partial class LevelStreamingVolume : Volume/*
 			BlockNonZeroExtent = false,
 		}/* Reference: BrushComponent'Default__LevelStreamingVolume.BrushComponent0' */;
 		// Object Offset:0x003508FD
-		BrushComponent = Default__LevelStreamingVolume_BrushComponent0;
+		BrushComponent = Default__LevelStreamingVolume_BrushComponent0/*Ref BrushComponent'Default__LevelStreamingVolume.BrushComponent0'*/;
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__LevelStreamingVolume_BrushComponent0,
+			Default__LevelStreamingVolume_BrushComponent0/*Ref BrushComponent'Default__LevelStreamingVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__LevelStreamingVolume_BrushComponent0;
+		CollisionComponent = Default__LevelStreamingVolume_BrushComponent0/*Ref BrushComponent'Default__LevelStreamingVolume.BrushComponent0'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

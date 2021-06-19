@@ -113,11 +113,14 @@ public partial class TdUIScene_Start : TdUIScene/*
 	
 	public TdUIScene_Start()
 	{
+		var Default__TdUIScene_Start_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_Start.SceneEventComponent' */;
 		// Object Offset:0x006AECBC
 		MovieName = "Attract_Movie";
 		TimeTillAttractMovie = 90.0f;
 		TimeTillStartButton = 4.0f;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_Start.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_Start.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_Start_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_Start.SceneEventComponent'*/;
 	}
 }
 }

@@ -167,31 +167,31 @@ public partial class DynamicSMActor : Actor/*
 	
 	public DynamicSMActor()
 	{
-		var Default__DynamicSMActor_StaticMeshComponent0 = new StaticMeshComponent
-		{
-			// Object Offset:0x0031312D
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__DynamicSMActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__DynamicSMActor.MyLightEnvironment'*/,
-			BlockRigidBody = false,
-		}/* Reference: StaticMeshComponent'Default__DynamicSMActor.StaticMeshComponent0' */;
 		var Default__DynamicSMActor_MyLightEnvironment = new DynamicLightEnvironmentComponent
 		{
 			// Object Offset:0x003130F9
 			bEnabled = false,
 		}/* Reference: DynamicLightEnvironmentComponent'Default__DynamicSMActor.MyLightEnvironment' */;
+		var Default__DynamicSMActor_StaticMeshComponent0 = new StaticMeshComponent
+		{
+			// Object Offset:0x0031312D
+			LightEnvironment = Default__DynamicSMActor_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__DynamicSMActor.MyLightEnvironment'*/,
+			BlockRigidBody = false,
+		}/* Reference: StaticMeshComponent'Default__DynamicSMActor.StaticMeshComponent0' */;
 		// Object Offset:0x00312EFB
-		StaticMeshComponent = Default__DynamicSMActor_StaticMeshComponent0;
-		LightEnvironment = Default__DynamicSMActor_MyLightEnvironment;
+		StaticMeshComponent = Default__DynamicSMActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__DynamicSMActor.StaticMeshComponent0'*/;
+		LightEnvironment = Default__DynamicSMActor_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__DynamicSMActor.MyLightEnvironment'*/;
 		bPawnCanBaseOn = true;
 		bGameRelevant = true;
 		bEdShouldSnap = true;
 		bPathColliding = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__DynamicSMActor_MyLightEnvironment,
-			Default__DynamicSMActor_StaticMeshComponent0,
+			Default__DynamicSMActor_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__DynamicSMActor.MyLightEnvironment'*/,
+			Default__DynamicSMActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__DynamicSMActor.StaticMeshComponent0'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
-		CollisionComponent = Default__DynamicSMActor_StaticMeshComponent0;
+		CollisionComponent = Default__DynamicSMActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__DynamicSMActor.StaticMeshComponent0'*/;
 	}
 }
 }

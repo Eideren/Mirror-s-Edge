@@ -52,8 +52,11 @@ public partial class TdUIScene_LoadCheckpoint : TdUIScene_SubMenu/*
 	
 	public TdUIScene_LoadCheckpoint()
 	{
+		var Default__TdUIScene_LoadCheckpoint_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_LoadCheckpoint.SceneEventComponent' */;
 		// Object Offset:0x0069ADE3
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_LoadCheckpoint.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_LoadCheckpoint.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_LoadCheckpoint_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_LoadCheckpoint.SceneEventComponent'*/;
 	}
 }
 }

@@ -19,15 +19,21 @@ public partial class TdEmitter : Emitter/*
 			SecondsBeforeInactive = 0.0f,
 			LODMethod = ParticleSystem.ParticleSystemLODMethod.PARTICLESYSTEMLODMETHOD_DirectSet,
 		}/* Reference: ParticleSystemComponent'Default__TdEmitter.ParticleSystemComponent0' */;
+		var Default__TdEmitter_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdEmitter.Sprite' */;
+		var Default__TdEmitter_ArrowComponent0 = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdEmitter.ArrowComponent0' */;
 		// Object Offset:0x00544290
-		ParticleSystemComponent = Default__TdEmitter_ParticleSystemComponent0;
+		ParticleSystemComponent = Default__TdEmitter_ParticleSystemComponent0/*Ref ParticleSystemComponent'Default__TdEmitter.ParticleSystemComponent0'*/;
 		bDestroyOnSystemFinish = true;
 		bNoDelete = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdEmitter.Sprite")/*Ref SpriteComponent'Default__TdEmitter.Sprite'*/,
-			Default__TdEmitter_ParticleSystemComponent0,
-			LoadAsset<ArrowComponent>("Default__TdEmitter.ArrowComponent0")/*Ref ArrowComponent'Default__TdEmitter.ArrowComponent0'*/,
+			Default__TdEmitter_Sprite/*Ref SpriteComponent'Default__TdEmitter.Sprite'*/,
+			Default__TdEmitter_ParticleSystemComponent0/*Ref ParticleSystemComponent'Default__TdEmitter.ParticleSystemComponent0'*/,
+			Default__TdEmitter_ArrowComponent0/*Ref ArrowComponent'Default__TdEmitter.ArrowComponent0'*/,
 		};
 		LifeSpan = 7.0f;
 	}

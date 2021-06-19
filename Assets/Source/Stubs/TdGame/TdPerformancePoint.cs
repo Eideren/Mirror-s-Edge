@@ -15,8 +15,8 @@ public partial class TdPerformancePoint : Keypoint/*
 		// Object Offset:0x0060AA45
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdPerformancePoint_Sprite,
-			Default__TdPerformancePoint_Sprite,
+			Default__TdPerformancePoint_Sprite/*Ref SpriteComponent'Default__TdPerformancePoint.Sprite'*/,
+			Default__TdPerformancePoint_Sprite/*Ref SpriteComponent'Default__TdPerformancePoint.Sprite'*/,
 		};
 	}
 }

@@ -63,8 +63,11 @@ public partial class TdUIScene_SplashHint : TdUIScene/*
 	
 	public TdUIScene_SplashHint()
 	{
+		var Default__TdUIScene_SplashHint_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_SplashHint.SceneEventComponent' */;
 		// Object Offset:0x005638DF
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_SplashHint.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_SplashHint.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_SplashHint_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_SplashHint.SceneEventComponent'*/;
 	}
 }
 }

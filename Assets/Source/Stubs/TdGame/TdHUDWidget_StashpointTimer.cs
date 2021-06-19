@@ -9,9 +9,12 @@ public partial class TdHUDWidget_StashpointTimer : TdHUDWidget/*
 	
 	public TdHUDWidget_StashpointTimer()
 	{
+		var Default__TdHUDWidget_StashpointTimer_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdHUDWidget_StashpointTimer.WidgetEventComponent' */;
 		// Object Offset:0x00577F29
 		requiresTick = true;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdHUDWidget_StashpointTimer.WidgetEventComponent")/*Ref UIComp_Event'Default__TdHUDWidget_StashpointTimer.WidgetEventComponent'*/;
+		EventProvider = Default__TdHUDWidget_StashpointTimer_WidgetEventComponent/*Ref UIComp_Event'Default__TdHUDWidget_StashpointTimer.WidgetEventComponent'*/;
 	}
 }
 }

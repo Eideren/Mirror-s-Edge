@@ -6,8 +6,11 @@ public partial class TdUIScene_SetMapListPopup : TdUIScene_Popup/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public TdUIScene_SetMapListPopup()
 	{
+		var Default__TdUIScene_SetMapListPopup_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_SetMapListPopup.SceneEventComponent' */;
 		// Object Offset:0x006A62BA
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_SetMapListPopup.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_SetMapListPopup.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_SetMapListPopup_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_SetMapListPopup.SceneEventComponent'*/;
 	}
 }
 }

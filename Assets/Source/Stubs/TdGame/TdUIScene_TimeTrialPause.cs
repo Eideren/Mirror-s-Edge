@@ -54,8 +54,11 @@ public partial class TdUIScene_TimeTrialPause : TdUIScene_Pause/*
 	
 	public TdUIScene_TimeTrialPause()
 	{
+		var Default__TdUIScene_TimeTrialPause_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_TimeTrialPause.SceneEventComponent' */;
 		// Object Offset:0x006B3989
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_TimeTrialPause.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_TimeTrialPause.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_TimeTrialPause_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_TimeTrialPause.SceneEventComponent'*/;
 	}
 }
 }

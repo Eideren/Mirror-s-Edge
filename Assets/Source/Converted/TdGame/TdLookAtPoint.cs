@@ -139,13 +139,16 @@ public partial class TdLookAtPoint : Keypoint/*
 	
 	public TdLookAtPoint()
 	{
+		var Default__TdLookAtPoint_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdLookAtPoint.Sprite' */;
 		// Object Offset:0x0058D368
 		LookAtInterpolationTimer = 0.10f;
 		LookAtDurationTimer = 0.50f;
 		bStatic = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdLookAtPoint.Sprite")/*Ref SpriteComponent'Default__TdLookAtPoint.Sprite'*/,
+			Default__TdLookAtPoint_Sprite/*Ref SpriteComponent'Default__TdLookAtPoint.Sprite'*/,
 		};
 	}
 }

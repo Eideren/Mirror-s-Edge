@@ -181,6 +181,9 @@ public partial class TdPickup : DroppedPickup/*
 			ShadowFilterQuality = LightComponent.EShadowFilterQuality.SFQ_High,
 			BouncedLightingIntensity = 0.20f,
 		}/* Reference: DynamicLightEnvironmentComponent'Default__TdPickup.MyLightEnvironment' */;
+		var Default__TdPickup_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdPickup.Sprite' */;
 		var Default__TdPickup_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x01AB4CDE
@@ -190,19 +193,19 @@ public partial class TdPickup : DroppedPickup/*
 		// Object Offset:0x0060D6F5
 		AmmoCount = -1;
 		ClipCount = -1;
-		MeshLightEnvironment = Default__TdPickup_MyLightEnvironment;
+		MeshLightEnvironment = Default__TdPickup_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdPickup.MyLightEnvironment'*/;
 		bAlwaysRelevant = true;
 		bOnlyDirtyReplication = false;
 		bKillDuringLevelTransition = true;
 		bCollideWorld = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdPickup.Sprite")/*Ref SpriteComponent'Default__TdPickup.Sprite'*/,
-			Default__TdPickup_CollisionCylinder,
-			Default__TdPickup_MyLightEnvironment,
+			Default__TdPickup_Sprite/*Ref SpriteComponent'Default__TdPickup.Sprite'*/,
+			Default__TdPickup_CollisionCylinder/*Ref CylinderComponent'Default__TdPickup.CollisionCylinder'*/,
+			Default__TdPickup_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdPickup.MyLightEnvironment'*/,
 		};
 		LifeSpan = 10.0f;
-		CollisionComponent = Default__TdPickup_CollisionCylinder;
+		CollisionComponent = Default__TdPickup_CollisionCylinder/*Ref CylinderComponent'Default__TdPickup.CollisionCylinder'*/;
 	}
 }
 }

@@ -146,9 +146,12 @@ public partial class TdUIScene_Lobby : TdUIScene,
 	
 	public TdUIScene_Lobby()
 	{
+		var Default__TdUIScene_Lobby_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_Lobby.SceneEventComponent' */;
 		// Object Offset:0x0069D34C
 		SettingsDataStoreName = (name)"TdMPGameSettings";
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_Lobby.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_Lobby.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_Lobby_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_Lobby.SceneEventComponent'*/;
 	}
 }
 }

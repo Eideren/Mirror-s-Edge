@@ -19,6 +19,9 @@ public partial class ParticleModuleUberRainSplashA : ParticleModuleUberBase/*
 	
 	public ParticleModuleUberRainSplashA()
 	{
+		var Default__ParticleModuleUberRainSplashA_DistributionLifetime = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__ParticleModuleUberRainSplashA.DistributionLifetime' */;
 		var Default__ParticleModuleUberRainSplashA_DistributionStartSize = new DistributionVectorUniform
 		{
 			// Object Offset:0x00468903
@@ -45,6 +48,12 @@ public partial class ParticleModuleUberRainSplashA : ParticleModuleUberBase/*
 				Z=360.0f
 			},
 		}/* Reference: DistributionVectorUniform'Default__ParticleModuleUberRainSplashA.DistributionStartRotation' */;
+		var Default__ParticleModuleUberRainSplashA_DistributionLifeMultiplier = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleUberRainSplashA.DistributionLifeMultiplier' */;
+		var Default__ParticleModuleUberRainSplashA_DistributionColorOverLife = new DistributionVectorConstantCurve
+		{
+		}/* Reference: DistributionVectorConstantCurve'Default__ParticleModuleUberRainSplashA.DistributionColorOverLife' */;
 		var Default__ParticleModuleUberRainSplashA_DistributionAlphaOverLife = new DistributionFloatConstant
 		{
 			// Object Offset:0x004671C7

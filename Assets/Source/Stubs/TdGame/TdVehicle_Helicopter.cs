@@ -81,6 +81,18 @@ public partial class TdVehicle_Helicopter : SVehicle/*
 			// Object Offset:0x03128372
 			CastShadow = false,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdVehicle_Helicopter.HelicopterSkeletalMeshObject' */;
+		var Default__TdVehicle_Helicopter_MyStayUprightSetup = new RB_StayUprightSetup
+		{
+		}/* Reference: RB_StayUprightSetup'Default__TdVehicle_Helicopter.MyStayUprightSetup' */;
+		var Default__TdVehicle_Helicopter_MyStayUprightConstraintInstance = new RB_ConstraintInstance
+		{
+		}/* Reference: RB_ConstraintInstance'Default__TdVehicle_Helicopter.MyStayUprightConstraintInstance' */;
+		var Default__TdVehicle_Helicopter_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+		}/* Reference: SceneCaptureCharacterComponent'Default__TdVehicle_Helicopter.SceneCaptureCharacterComponent0' */;
+		var Default__TdVehicle_Helicopter_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__TdVehicle_Helicopter.DrawFrust0' */;
 		var Default__TdVehicle_Helicopter_SVehicleMesh = new SkeletalMeshComponent
 		{
 			// Object Offset:0x0279BF86
@@ -106,7 +118,7 @@ public partial class TdVehicle_Helicopter : SVehicle/*
 		Force = 500.0f;
 		MaxVelocity = 2000.0f;
 		AimWithThisSide = TdAI_HeliController.EHeliAttackSide.ESide_None;
-		HelicopterSkeletalMesh = Default__TdVehicle_Helicopter_HelicopterSkeletalMeshObject;
+		HelicopterSkeletalMesh = Default__TdVehicle_Helicopter_HelicopterSkeletalMeshObject/*Ref TdSkeletalMeshComponent'Default__TdVehicle_Helicopter.HelicopterSkeletalMeshObject'*/;
 		Seats = new array<TdVehicle_Helicopter.GunnerSeat>
 		{
 			new TdVehicle_Helicopter.GunnerSeat
@@ -141,8 +153,8 @@ public partial class TdVehicle_Helicopter : SVehicle/*
 		StayUprightPitchResistAngle = 6.0f;
 		StayUprightStiffness = 200.0f;
 		StayUprightDamping = 40.0f;
-		StayUprightConstraintSetup = LoadAsset<RB_StayUprightSetup>("Default__TdVehicle_Helicopter.MyStayUprightSetup")/*Ref RB_StayUprightSetup'Default__TdVehicle_Helicopter.MyStayUprightSetup'*/;
-		StayUprightConstraintInstance = LoadAsset<RB_ConstraintInstance>("Default__TdVehicle_Helicopter.MyStayUprightConstraintInstance")/*Ref RB_ConstraintInstance'Default__TdVehicle_Helicopter.MyStayUprightConstraintInstance'*/;
+		StayUprightConstraintSetup = Default__TdVehicle_Helicopter_MyStayUprightSetup/*Ref RB_StayUprightSetup'Default__TdVehicle_Helicopter.MyStayUprightSetup'*/;
+		StayUprightConstraintInstance = Default__TdVehicle_Helicopter_MyStayUprightConstraintInstance/*Ref RB_ConstraintInstance'Default__TdVehicle_Helicopter.MyStayUprightConstraintInstance'*/;
 		UprightLiftStrength = 30.0f;
 		UprightTorqueStrength = 40.0f;
 		bTurnInPlace = true;
@@ -156,18 +168,18 @@ public partial class TdVehicle_Helicopter : SVehicle/*
 		BaseEyeHeight = 50.0f;
 		EyeHeight = 50.0f;
 		Health = 300;
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdVehicle_Helicopter.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdVehicle_Helicopter.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdVehicle_Helicopter.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdVehicle_Helicopter.DrawFrust0'*/;
-		Mesh = Default__TdVehicle_Helicopter_SVehicleMesh;
-		CylinderComponent = Default__TdVehicle_Helicopter_CollisionCylinder;
+		SceneCapture = Default__TdVehicle_Helicopter_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdVehicle_Helicopter.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__TdVehicle_Helicopter_DrawFrust0/*Ref DrawFrustumComponent'Default__TdVehicle_Helicopter.DrawFrust0'*/;
+		Mesh = Default__TdVehicle_Helicopter_SVehicleMesh/*Ref SkeletalMeshComponent'Default__TdVehicle_Helicopter.SVehicleMesh'*/;
+		CylinderComponent = Default__TdVehicle_Helicopter_CollisionCylinder/*Ref CylinderComponent'Default__TdVehicle_Helicopter.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCaptureCharacterComponent>("Default__TdVehicle_Helicopter.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdVehicle_Helicopter.SceneCaptureCharacterComponent0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__TdVehicle_Helicopter.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdVehicle_Helicopter.DrawFrust0'*/,
-			Default__TdVehicle_Helicopter_CollisionCylinder,
-			Default__TdVehicle_Helicopter_SVehicleMesh,
+			Default__TdVehicle_Helicopter_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdVehicle_Helicopter.SceneCaptureCharacterComponent0'*/,
+			Default__TdVehicle_Helicopter_DrawFrust0/*Ref DrawFrustumComponent'Default__TdVehicle_Helicopter.DrawFrust0'*/,
+			Default__TdVehicle_Helicopter_CollisionCylinder/*Ref CylinderComponent'Default__TdVehicle_Helicopter.CollisionCylinder'*/,
+			Default__TdVehicle_Helicopter_SVehicleMesh/*Ref SkeletalMeshComponent'Default__TdVehicle_Helicopter.SVehicleMesh'*/,
 		};
-		CollisionComponent = Default__TdVehicle_Helicopter_CollisionCylinder;
+		CollisionComponent = Default__TdVehicle_Helicopter_CollisionCylinder/*Ref CylinderComponent'Default__TdVehicle_Helicopter.CollisionCylinder'*/;
 	}
 }
 }

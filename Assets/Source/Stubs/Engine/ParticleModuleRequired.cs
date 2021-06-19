@@ -35,6 +35,9 @@ public partial class ParticleModuleRequired : ParticleModule/*
 	
 	public ParticleModuleRequired()
 	{
+		var Default__ParticleModuleRequired_RequiredDistributionSpawnRate = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleRequired.RequiredDistributionSpawnRate' */;
 		// Object Offset:0x00380EA7
 		bUseMaxDrawCount = true;
 		EmitterDuration = 1.0f;

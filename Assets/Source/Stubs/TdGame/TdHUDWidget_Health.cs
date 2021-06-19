@@ -7,8 +7,11 @@ public partial class TdHUDWidget_Health : TdHUDWidget/*
 	
 	public TdHUDWidget_Health()
 	{
+		var Default__TdHUDWidget_Health_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdHUDWidget_Health.WidgetEventComponent' */;
 		// Object Offset:0x005777F2
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdHUDWidget_Health.WidgetEventComponent")/*Ref UIComp_Event'Default__TdHUDWidget_Health.WidgetEventComponent'*/;
+		EventProvider = Default__TdHUDWidget_Health_WidgetEventComponent/*Ref UIComp_Event'Default__TdHUDWidget_Health.WidgetEventComponent'*/;
 	}
 }
 }

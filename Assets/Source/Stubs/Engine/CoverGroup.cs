@@ -66,8 +66,8 @@ public partial class CoverGroup : Info/*
 		bStatic = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__CoverGroup_Sprite,
-			Default__CoverGroup_CoverGroupRenderer,
+			Default__CoverGroup_Sprite/*Ref SpriteComponent'Default__CoverGroup.Sprite'*/,
+			Default__CoverGroup_CoverGroupRenderer/*Ref CoverGroupRenderingComponent'Default__CoverGroup.CoverGroupRenderer'*/,
 		};
 	}
 }

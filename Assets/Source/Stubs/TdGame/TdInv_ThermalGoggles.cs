@@ -6,10 +6,13 @@ public partial class TdInv_ThermalGoggles : TdEquipment/*
 		hidecategories(Navigation)*/{
 	public TdInv_ThermalGoggles()
 	{
+		var Default__TdInv_ThermalGoggles_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdInv_ThermalGoggles.Sprite' */;
 		// Object Offset:0x0057CF2D
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdInv_ThermalGoggles.Sprite")/*Ref SpriteComponent'Default__TdInv_ThermalGoggles.Sprite'*/,
+			Default__TdInv_ThermalGoggles_Sprite/*Ref SpriteComponent'Default__TdInv_ThermalGoggles.Sprite'*/,
 		};
 	}
 }

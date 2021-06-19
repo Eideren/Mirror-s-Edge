@@ -420,6 +420,26 @@ public partial class UIObject : UIScreenObject/*
 	
 	public UIObject()
 	{
+		var Default__UIObject_WidgetInitializedEvent = new UIEvent_Initialized
+		{
+			// Object Offset:0x005D29A6
+			OutputLinks = new array<SequenceOp.SeqOpOutputLink>
+			{
+				new SequenceOp.SeqOpOutputLink
+				{
+					Links = default,
+					LinkDesc = "Output",
+					bHasImpulse = false,
+					bDisabled = false,
+					bDisabledPIE = false,
+					LinkedOp = default,
+					ActivateDelay = 0.0f,
+					DrawY = 0,
+					bHidden = false,
+				},
+			},
+			ObjClassVersion = 4,
+		}/* Reference: UIEvent_Initialized'Default__UIObject.WidgetInitializedEvent' */;
 		var Default__UIObject_WidgetEventComponent = new UIComp_Event
 		{
 			// Object Offset:0x002DC098
@@ -569,7 +589,7 @@ public partial class UIObject : UIScreenObject/*
 			B=255,
 			A=255
 		};
-		EventProvider = Default__UIObject_WidgetEventComponent;
+		EventProvider = Default__UIObject_WidgetEventComponent/*Ref UIComp_Event'Default__UIObject.WidgetEventComponent'*/;
 	}
 }
 }

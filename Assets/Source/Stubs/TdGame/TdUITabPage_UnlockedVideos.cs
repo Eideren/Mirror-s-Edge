@@ -82,9 +82,12 @@ public partial class TdUITabPage_UnlockedVideos : TdUITabPage/*
 	
 	public TdUITabPage_UnlockedVideos()
 	{
+		var Default__TdUITabPage_UnlockedVideos_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUITabPage_UnlockedVideos.WidgetEventComponent' */;
 		// Object Offset:0x006BBDD3
 		bPreviewImageIsDirty = true;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUITabPage_UnlockedVideos.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUITabPage_UnlockedVideos.WidgetEventComponent'*/;
+		EventProvider = Default__TdUITabPage_UnlockedVideos_WidgetEventComponent/*Ref UIComp_Event'Default__TdUITabPage_UnlockedVideos.WidgetEventComponent'*/;
 	}
 }
 }

@@ -286,8 +286,8 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 		}/* Reference: ForceFeedbackWaveform'Default__TdMove_IntoClimb.ImpactSoftWaveformObj' */;
 		// Object Offset:0x005C2B95
 		FirstStepZDistance = 38.0f;
-		ImpactHardWaveform = Default__TdMove_IntoClimb_ImpactHardWaveformObj;
-		ImpactSoftWaveform = Default__TdMove_IntoClimb_ImpactSoftWaveformObj;
+		ImpactHardWaveform = Default__TdMove_IntoClimb_ImpactHardWaveformObj/*Ref ForceFeedbackWaveform'Default__TdMove_IntoClimb.ImpactHardWaveformObj'*/;
+		ImpactSoftWaveform = Default__TdMove_IntoClimb_ImpactSoftWaveformObj/*Ref ForceFeedbackWaveform'Default__TdMove_IntoClimb.ImpactSoftWaveformObj'*/;
 		PawnPhysics = Actor.EPhysics.PHYS_Flying;
 		ControllerState = (name)"PlayerWalking";
 		bShouldHolsterWeapon = true;

@@ -14,6 +14,9 @@ public partial class TdGhostPawn : TdGhostPawnBase/*
 			BlockActors = false,
 			BlockNonZeroExtent = false,
 		}/* Reference: CylinderComponent'Default__TdGhostPawn.ActorCollisionCylinder' */;
+		var Default__TdGhostPawn_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+		}/* Reference: DynamicLightEnvironmentComponent'Default__TdGhostPawn.MyLightEnvironment' */;
 		var Default__TdGhostPawn_TdPawnMesh3p = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x000064D3
@@ -23,12 +26,18 @@ public partial class TdGhostPawn : TdGhostPawnBase/*
 			{
 				LoadAsset<TdAnimSet>("AS_F3P_Unarmed.AS_F3P_Unarmed")/*Ref TdAnimSet'AS_F3P_Unarmed.AS_F3P_Unarmed'*/,
 			},
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdGhostPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdGhostPawn.MyLightEnvironment'*/,
+			LightEnvironment = Default__TdGhostPawn_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdGhostPawn.MyLightEnvironment'*/,
 			bOwnerNoSeeWithShadow = false,
 			bCastDynamicShadow = false,
 			CollideActors = false,
 			BlockZeroExtent = false,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdGhostPawn.TdPawnMesh3p' */;
+		var Default__TdGhostPawn_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+		}/* Reference: SceneCaptureCharacterComponent'Default__TdGhostPawn.SceneCaptureCharacterComponent0' */;
+		var Default__TdGhostPawn_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__TdGhostPawn.DrawFrust0' */;
 		var Default__TdGhostPawn_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x00006407
@@ -36,6 +45,9 @@ public partial class TdGhostPawn : TdGhostPawnBase/*
 			BlockActors = false,
 			BlockNonZeroExtent = false,
 		}/* Reference: CylinderComponent'Default__TdGhostPawn.CollisionCylinder' */;
+		var Default__TdGhostPawn_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdGhostPawn.Arrow' */;
 		// Object Offset:0x0000506A
 		TrailParticleSystem_Normal = LoadAsset<ParticleSystem>("TT_Ghost.Effects.PS_FX_GhostTrail_01")/*Ref ParticleSystem'TT_Ghost.Effects.PS_FX_GhostTrail_01'*/;
 		TrailParticleSystem_Wide = LoadAsset<ParticleSystem>("TT_Ghost.Effects.PS_FX_GhostTrail_Wider_01")/*Ref ParticleSystem'TT_Ghost.Effects.PS_FX_GhostTrail_Wider_01'*/;
@@ -50,28 +62,28 @@ public partial class TdGhostPawn : TdGhostPawnBase/*
 		FootDecalMaterial = LoadAsset<DecalMaterial>("TT_Ghost.Materials.M_FX_FootPrintsDecal_01")/*Ref DecalMaterial'TT_Ghost.Materials.M_FX_FootPrintsDecal_01'*/;
 		AmbientSoundSC = LoadAsset<SoundCue>("A_TimeTrial.Cues.Ghost_Proxy")/*Ref SoundCue'A_TimeTrial.Cues.Ghost_Proxy'*/;
 		bDisableCharacterSounds = true;
-		ActorCylinderComponent = Default__TdGhostPawn_ActorCollisionCylinder;
-		Mesh3p = Default__TdGhostPawn_TdPawnMesh3p;
+		ActorCylinderComponent = Default__TdGhostPawn_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdGhostPawn.ActorCollisionCylinder'*/;
+		Mesh3p = Default__TdGhostPawn_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdGhostPawn.TdPawnMesh3p'*/;
 		bSimulateGravity = false;
 		bSimGravityDisabled = true;
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdGhostPawn.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdGhostPawn.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdGhostPawn.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdGhostPawn.DrawFrust0'*/;
-		Mesh = Default__TdGhostPawn_TdPawnMesh3p;
-		CylinderComponent = Default__TdGhostPawn_CollisionCylinder;
+		SceneCapture = Default__TdGhostPawn_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdGhostPawn.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__TdGhostPawn_DrawFrust0/*Ref DrawFrustumComponent'Default__TdGhostPawn.DrawFrust0'*/;
+		Mesh = Default__TdGhostPawn_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdGhostPawn.TdPawnMesh3p'*/;
+		CylinderComponent = Default__TdGhostPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdGhostPawn.CollisionCylinder'*/;
 		bAlwaysRelevant = true;
 		bBlockActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCaptureCharacterComponent>("Default__TdGhostPawn.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdGhostPawn.SceneCaptureCharacterComponent0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__TdGhostPawn.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdGhostPawn.DrawFrust0'*/,
-			Default__TdGhostPawn_CollisionCylinder,
-			LoadAsset<ArrowComponent>("Default__TdGhostPawn.Arrow")/*Ref ArrowComponent'Default__TdGhostPawn.Arrow'*/,
-			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdGhostPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdGhostPawn.MyLightEnvironment'*/,
-			Default__TdGhostPawn_TdPawnMesh3p,
-			Default__TdGhostPawn_CollisionCylinder,
-			Default__TdGhostPawn_ActorCollisionCylinder,
+			Default__TdGhostPawn_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdGhostPawn.SceneCaptureCharacterComponent0'*/,
+			Default__TdGhostPawn_DrawFrust0/*Ref DrawFrustumComponent'Default__TdGhostPawn.DrawFrust0'*/,
+			Default__TdGhostPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdGhostPawn.CollisionCylinder'*/,
+			Default__TdGhostPawn_Arrow/*Ref ArrowComponent'Default__TdGhostPawn.Arrow'*/,
+			Default__TdGhostPawn_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdGhostPawn.MyLightEnvironment'*/,
+			Default__TdGhostPawn_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdGhostPawn.TdPawnMesh3p'*/,
+			Default__TdGhostPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdGhostPawn.CollisionCylinder'*/,
+			Default__TdGhostPawn_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdGhostPawn.ActorCollisionCylinder'*/,
 		};
-		CollisionComponent = Default__TdGhostPawn_CollisionCylinder;
+		CollisionComponent = Default__TdGhostPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdGhostPawn.CollisionCylinder'*/;
 	}
 }
 }

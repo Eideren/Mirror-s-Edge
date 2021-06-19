@@ -59,18 +59,18 @@ public partial class CrowdAttractor : Actor/*
 		bAttractorEnabled = true;
 		bAttractionFalloff = true;
 		ActionRadiusScale = 1.0f;
-		CylinderComponent = Default__CrowdAttractor_CollisionCylinder;
+		CylinderComponent = Default__CrowdAttractor_CollisionCylinder/*Ref CylinderComponent'Default__CrowdAttractor.CollisionCylinder'*/;
 		AttractionRadius = 200.0f;
 		AttractionHeight = 40.0f;
 		KillDist = 256.0f;
 		bNoDelete = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__CrowdAttractor_CollisionCylinder,
-			Default__CrowdAttractor_Sprite,
+			Default__CrowdAttractor_CollisionCylinder/*Ref CylinderComponent'Default__CrowdAttractor.CollisionCylinder'*/,
+			Default__CrowdAttractor_Sprite/*Ref SpriteComponent'Default__CrowdAttractor.Sprite'*/,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
-		CollisionComponent = Default__CrowdAttractor_CollisionCylinder;
+		CollisionComponent = Default__CrowdAttractor_CollisionCylinder/*Ref CylinderComponent'Default__CrowdAttractor.CollisionCylinder'*/;
 	}
 }
 }

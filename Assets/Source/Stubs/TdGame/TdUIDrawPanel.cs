@@ -28,6 +28,9 @@ public partial class TdUIDrawPanel : TdUIObject/*
 	
 	public TdUIDrawPanel()
 	{
+		var Default__TdUIDrawPanel_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIDrawPanel.WidgetEventComponent' */;
 		// Object Offset:0x00683D09
 		DefaultStates = new array< Core.ClassT<UIState> >
 		{
@@ -35,7 +38,7 @@ public partial class TdUIDrawPanel : TdUIObject/*
 			ClassT<UIState_Disabled>(),
 			ClassT<UIState_Focused>(),
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIDrawPanel.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIDrawPanel.WidgetEventComponent'*/;
+		EventProvider = Default__TdUIDrawPanel_WidgetEventComponent/*Ref UIComp_Event'Default__TdUIDrawPanel.WidgetEventComponent'*/;
 	}
 }
 }

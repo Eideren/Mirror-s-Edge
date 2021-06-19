@@ -70,6 +70,12 @@ public partial class TdProj_FlashbangGrenade : TdProj_Grenade/*
 			},
 			Scale = 1.50f,
 		}/* Reference: SkeletalMeshComponent'Default__TdProj_FlashbangGrenade.GrenadeMesh0' */;
+		var Default__TdProj_FlashbangGrenade_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdProj_FlashbangGrenade.CollisionCylinder' */;
+		var Default__TdProj_FlashbangGrenade_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdProj_FlashbangGrenade.Sprite' */;
 		// Object Offset:0x0064EBFA
 		LookAwayDamageScale = 0.30f;
 		DynamicLightFlashDuration = 0.40f;
@@ -81,8 +87,8 @@ public partial class TdProj_FlashbangGrenade : TdProj_Grenade/*
 			A=255
 		};
 		DynamicLightFlashBrightness = 4.0f;
-		DynamicLightFlashLight = Default__TdProj_FlashbangGrenade_LightComponent0;
-		Mesh = Default__TdProj_FlashbangGrenade_GrenadeMesh0;
+		DynamicLightFlashLight = Default__TdProj_FlashbangGrenade_LightComponent0/*Ref PointLightComponent'Default__TdProj_FlashbangGrenade.LightComponent0'*/;
+		Mesh = Default__TdProj_FlashbangGrenade_GrenadeMesh0/*Ref SkeletalMeshComponent'Default__TdProj_FlashbangGrenade.GrenadeMesh0'*/;
 		ExplodingSound = LoadAsset<SoundCue>("A_WP_Grenade_FlashBang.Fire.Det")/*Ref SoundCue'A_WP_Grenade_FlashBang.Fire.Det'*/;
 		BouncingSound = LoadAsset<SoundCue>("A_WP_Grenade_Smoke.Foley.DropBounce")/*Ref SoundCue'A_WP_Grenade_Smoke.Foley.DropBounce'*/;
 		ExplodingEffect = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_WeaponFX_FlashBangGrenade_AfterSmoke_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_WeaponFX_FlashBangGrenade_AfterSmoke_01'*/;
@@ -93,14 +99,14 @@ public partial class TdProj_FlashbangGrenade : TdProj_Grenade/*
 		Damage = 0.0f;
 		DamageRadius = 2000.0f;
 		MyDamageType = ClassT<TdDmgType_Flashbang>()/*Ref Class'TdDmgType_Flashbang'*/;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdProj_FlashbangGrenade.CollisionCylinder")/*Ref CylinderComponent'Default__TdProj_FlashbangGrenade.CollisionCylinder'*/;
+		CylinderComponent = Default__TdProj_FlashbangGrenade_CollisionCylinder/*Ref CylinderComponent'Default__TdProj_FlashbangGrenade.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdProj_FlashbangGrenade.Sprite")/*Ref SpriteComponent'Default__TdProj_FlashbangGrenade.Sprite'*/,
-			LoadAsset<CylinderComponent>("Default__TdProj_FlashbangGrenade.CollisionCylinder")/*Ref CylinderComponent'Default__TdProj_FlashbangGrenade.CollisionCylinder'*/,
-			Default__TdProj_FlashbangGrenade_GrenadeMesh0,
+			Default__TdProj_FlashbangGrenade_Sprite/*Ref SpriteComponent'Default__TdProj_FlashbangGrenade.Sprite'*/,
+			Default__TdProj_FlashbangGrenade_CollisionCylinder/*Ref CylinderComponent'Default__TdProj_FlashbangGrenade.CollisionCylinder'*/,
+			Default__TdProj_FlashbangGrenade_GrenadeMesh0/*Ref SkeletalMeshComponent'Default__TdProj_FlashbangGrenade.GrenadeMesh0'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdProj_FlashbangGrenade.CollisionCylinder")/*Ref CylinderComponent'Default__TdProj_FlashbangGrenade.CollisionCylinder'*/;
+		CollisionComponent = Default__TdProj_FlashbangGrenade_CollisionCylinder/*Ref CylinderComponent'Default__TdProj_FlashbangGrenade.CollisionCylinder'*/;
 	}
 }
 }

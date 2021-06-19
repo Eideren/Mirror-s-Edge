@@ -8,13 +8,25 @@ public partial class UIComp_ListPresenterCascade : UIComp_ListPresenter/* within
 	
 	public UIComp_ListPresenterCascade()
 	{
+		var Default__UIComp_ListPresenterCascade_NormalOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIComp_ListPresenterCascade.NormalOverlayTemplate' */;
+		var Default__UIComp_ListPresenterCascade_ActiveOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIComp_ListPresenterCascade.ActiveOverlayTemplate' */;
+		var Default__UIComp_ListPresenterCascade_SelectionOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIComp_ListPresenterCascade.SelectionOverlayTemplate' */;
+		var Default__UIComp_ListPresenterCascade_HoverOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIComp_ListPresenterCascade.HoverOverlayTemplate' */;
 		// Object Offset:0x0041D767
 		ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
 		{ 
-			[0] = LoadAsset<UITexture>("Default__UIComp_ListPresenterCascade.NormalOverlayTemplate")/*Ref UITexture'Default__UIComp_ListPresenterCascade.NormalOverlayTemplate'*/,
-			[1] = LoadAsset<UITexture>("Default__UIComp_ListPresenterCascade.ActiveOverlayTemplate")/*Ref UITexture'Default__UIComp_ListPresenterCascade.ActiveOverlayTemplate'*/,
-			[2] = LoadAsset<UITexture>("Default__UIComp_ListPresenterCascade.SelectionOverlayTemplate")/*Ref UITexture'Default__UIComp_ListPresenterCascade.SelectionOverlayTemplate'*/,
-			[3] = LoadAsset<UITexture>("Default__UIComp_ListPresenterCascade.HoverOverlayTemplate")/*Ref UITexture'Default__UIComp_ListPresenterCascade.HoverOverlayTemplate'*/,
+			[0] = Default__UIComp_ListPresenterCascade_NormalOverlayTemplate/*Ref UITexture'Default__UIComp_ListPresenterCascade.NormalOverlayTemplate'*/,
+			[1] = Default__UIComp_ListPresenterCascade_ActiveOverlayTemplate/*Ref UITexture'Default__UIComp_ListPresenterCascade.ActiveOverlayTemplate'*/,
+			[2] = Default__UIComp_ListPresenterCascade_SelectionOverlayTemplate/*Ref UITexture'Default__UIComp_ListPresenterCascade.SelectionOverlayTemplate'*/,
+			[3] = Default__UIComp_ListPresenterCascade_HoverOverlayTemplate/*Ref UITexture'Default__UIComp_ListPresenterCascade.HoverOverlayTemplate'*/,
 	 	};
 	}
 }

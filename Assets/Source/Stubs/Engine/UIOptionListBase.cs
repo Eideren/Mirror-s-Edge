@@ -123,10 +123,16 @@ public partial class UIOptionListBase : UIObject,
 	
 	public UIOptionListBase()
 	{
+		var Default__UIOptionListBase_DecrementButtonTemplate_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UIOptionListBase.DecrementButtonTemplate.BackgroundImageTemplate' */;
+		var Default__UIOptionListBase_DecrementButtonTemplate_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIOptionListBase.DecrementButtonTemplate.WidgetEventComponent' */;
 		var Default__UIOptionListBase_DecrementButtonTemplate = new UIOptionListButton
 		{
 			// Object Offset:0x004472D8
-			BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIOptionListBase.DecrementButtonTemplate.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UIOptionListBase.DecrementButtonTemplate.BackgroundImageTemplate'*/,
+			BackgroundImageComponent = Default__UIOptionListBase_DecrementButtonTemplate_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UIOptionListBase.DecrementButtonTemplate.BackgroundImageTemplate'*/,
 			WidgetTag = (name)"DecrementButton",
 			TabIndex = 0,
 			Position = new UIRoot.UIScreenValue_Bounds
@@ -142,12 +148,18 @@ public partial class UIOptionListBase : UIObject,
 					#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
 				},
 			},
-			EventProvider = LoadAsset<UIComp_Event>("Default__UIOptionListBase.DecrementButtonTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIOptionListBase.DecrementButtonTemplate.WidgetEventComponent'*/,
+			EventProvider = Default__UIOptionListBase_DecrementButtonTemplate_WidgetEventComponent/*Ref UIComp_Event'Default__UIOptionListBase.DecrementButtonTemplate.WidgetEventComponent'*/,
 		}/* Reference: UIOptionListButton'Default__UIOptionListBase.DecrementButtonTemplate' */;
+		var Default__UIOptionListBase_IncrementButtonTemplate_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UIOptionListBase.IncrementButtonTemplate.BackgroundImageTemplate' */;
+		var Default__UIOptionListBase_IncrementButtonTemplate_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIOptionListBase.IncrementButtonTemplate.WidgetEventComponent' */;
 		var Default__UIOptionListBase_IncrementButtonTemplate = new UIOptionListButton
 		{
 			// Object Offset:0x004473BC
-			BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIOptionListBase.IncrementButtonTemplate.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UIOptionListBase.IncrementButtonTemplate.BackgroundImageTemplate'*/,
+			BackgroundImageComponent = Default__UIOptionListBase_IncrementButtonTemplate_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UIOptionListBase.IncrementButtonTemplate.BackgroundImageTemplate'*/,
 			WidgetTag = (name)"IncrementButton",
 			TabIndex = 1,
 			Position = new UIRoot.UIScreenValue_Bounds
@@ -155,7 +167,7 @@ public partial class UIOptionListBase : UIObject,
 				Value = 224.0f,
 				ScaleType = UIRoot.EPositionEvalType.EVALPOS_PixelOwner,
 			},
-			EventProvider = LoadAsset<UIComp_Event>("Default__UIOptionListBase.IncrementButtonTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UIOptionListBase.IncrementButtonTemplate.WidgetEventComponent'*/,
+			EventProvider = Default__UIOptionListBase_IncrementButtonTemplate_WidgetEventComponent/*Ref UIComp_Event'Default__UIOptionListBase.IncrementButtonTemplate.WidgetEventComponent'*/,
 		}/* Reference: UIOptionListButton'Default__UIOptionListBase.IncrementButtonTemplate' */;
 		var Default__UIOptionListBase_BackgroundImageTemplate = new UIComp_DrawImage
 		{
@@ -175,6 +187,9 @@ public partial class UIOptionListBase : UIObject,
 				DefaultStyleTag = (name)"DefaultLabelButtonStyle",
 			},
 		}/* Reference: UIComp_DrawString'Default__UIOptionListBase.LabelStringRenderer' */;
+		var Default__UIOptionListBase_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIOptionListBase.WidgetEventComponent' */;
 		// Object Offset:0x00446AB1
 		DecrementStyle = new UIRoot.UIStyleReference
 		{
@@ -202,11 +217,11 @@ public partial class UIOptionListBase : UIObject,
 			},
 			ResolvedStyle = default,
 		};
-		DecrementButton = Default__UIOptionListBase_DecrementButtonTemplate;
-		IncrementButton = Default__UIOptionListBase_IncrementButtonTemplate;
+		DecrementButton = Default__UIOptionListBase_DecrementButtonTemplate/*Ref UIOptionListButton'Default__UIOptionListBase.DecrementButtonTemplate'*/;
+		IncrementButton = Default__UIOptionListBase_IncrementButtonTemplate/*Ref UIOptionListButton'Default__UIOptionListBase.IncrementButtonTemplate'*/;
 		OptionListButtonClass = ClassT<UIOptionListButton>()/*Ref Class'UIOptionListButton'*/;
-		BackgroundImageComponent = Default__UIOptionListBase_BackgroundImageTemplate;
-		StringRenderComponent = Default__UIOptionListBase_LabelStringRenderer;
+		BackgroundImageComponent = Default__UIOptionListBase_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UIOptionListBase.BackgroundImageTemplate'*/;
+		StringRenderComponent = Default__UIOptionListBase_LabelStringRenderer/*Ref UIComp_DrawString'Default__UIOptionListBase.LabelStringRenderer'*/;
 		IncrementCue = (name)"SliderIncrement";
 		DecrementCue = (name)"SliderDecrement";
 		DataSource = new UIRoot.UIDataStoreBinding
@@ -239,8 +254,8 @@ public partial class UIOptionListBase : UIObject,
 		};
 		Children = new array<UIObject>
 		{
-			Default__UIOptionListBase_DecrementButtonTemplate,
-			Default__UIOptionListBase_IncrementButtonTemplate,
+			Default__UIOptionListBase_DecrementButtonTemplate/*Ref UIOptionListButton'Default__UIOptionListBase.DecrementButtonTemplate'*/,
+			Default__UIOptionListBase_IncrementButtonTemplate/*Ref UIOptionListButton'Default__UIOptionListBase.IncrementButtonTemplate'*/,
 		};
 		DefaultStates = new array< Core.ClassT<UIState> >
 		{
@@ -250,7 +265,7 @@ public partial class UIOptionListBase : UIObject,
 			ClassT<UIState_Active>(),
 			ClassT<UIState_Pressed>(),
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIOptionListBase.WidgetEventComponent")/*Ref UIComp_Event'Default__UIOptionListBase.WidgetEventComponent'*/;
+		EventProvider = Default__UIOptionListBase_WidgetEventComponent/*Ref UIComp_Event'Default__UIOptionListBase.WidgetEventComponent'*/;
 	}
 }
 }

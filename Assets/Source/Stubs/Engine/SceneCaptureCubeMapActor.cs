@@ -25,13 +25,16 @@ public partial class SceneCaptureCubeMapActor : SceneCaptureActor/*
 				Z=0.60f
 			},
 		}/* Reference: StaticMeshComponent'Default__SceneCaptureCubeMapActor.StaticMeshComponent0' */;
+		var Default__SceneCaptureCubeMapActor_SceneCaptureCubeMapComponent0 = new SceneCaptureCubeMapComponent
+		{
+		}/* Reference: SceneCaptureCubeMapComponent'Default__SceneCaptureCubeMapActor.SceneCaptureCubeMapComponent0' */;
 		// Object Offset:0x003B25DB
-		StaticMesh = Default__SceneCaptureCubeMapActor_StaticMeshComponent0;
-		SceneCapture = LoadAsset<SceneCaptureCubeMapComponent>("Default__SceneCaptureCubeMapActor.SceneCaptureCubeMapComponent0")/*Ref SceneCaptureCubeMapComponent'Default__SceneCaptureCubeMapActor.SceneCaptureCubeMapComponent0'*/;
+		StaticMesh = Default__SceneCaptureCubeMapActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__SceneCaptureCubeMapActor.StaticMeshComponent0'*/;
+		SceneCapture = Default__SceneCaptureCubeMapActor_SceneCaptureCubeMapComponent0/*Ref SceneCaptureCubeMapComponent'Default__SceneCaptureCubeMapActor.SceneCaptureCubeMapComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCaptureCubeMapComponent>("Default__SceneCaptureCubeMapActor.SceneCaptureCubeMapComponent0")/*Ref SceneCaptureCubeMapComponent'Default__SceneCaptureCubeMapActor.SceneCaptureCubeMapComponent0'*/,
-			Default__SceneCaptureCubeMapActor_StaticMeshComponent0,
+			Default__SceneCaptureCubeMapActor_SceneCaptureCubeMapComponent0/*Ref SceneCaptureCubeMapComponent'Default__SceneCaptureCubeMapActor.SceneCaptureCubeMapComponent0'*/,
+			Default__SceneCaptureCubeMapActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__SceneCaptureCubeMapActor.StaticMeshComponent0'*/,
 		};
 	}
 }

@@ -14,13 +14,13 @@ public partial class LightVolume : Volume/*
 			BlockNonZeroExtent = false,
 		}/* Reference: BrushComponent'Default__LightVolume.BrushComponent0' */;
 		// Object Offset:0x00351B08
-		BrushComponent = Default__LightVolume_BrushComponent0;
+		BrushComponent = Default__LightVolume_BrushComponent0/*Ref BrushComponent'Default__LightVolume.BrushComponent0'*/;
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__LightVolume_BrushComponent0,
+			Default__LightVolume_BrushComponent0/*Ref BrushComponent'Default__LightVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__LightVolume_BrushComponent0;
+		CollisionComponent = Default__LightVolume_BrushComponent0/*Ref BrushComponent'Default__LightVolume.BrushComponent0'*/;
 		SupportedEvents = default;
 	}
 }

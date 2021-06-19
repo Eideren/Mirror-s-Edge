@@ -67,13 +67,13 @@ public partial class ReverbVolume : Volume/*
 			Volume = 0.50f,
 			FadeTime = 2.0f,
 		};
-		BrushComponent = Default__ReverbVolume_BrushComponent0;
+		BrushComponent = Default__ReverbVolume_BrushComponent0/*Ref BrushComponent'Default__ReverbVolume.BrushComponent0'*/;
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__ReverbVolume_BrushComponent0,
+			Default__ReverbVolume_BrushComponent0/*Ref BrushComponent'Default__ReverbVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__ReverbVolume_BrushComponent0;
+		CollisionComponent = Default__ReverbVolume_BrushComponent0/*Ref BrushComponent'Default__ReverbVolume.BrushComponent0'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

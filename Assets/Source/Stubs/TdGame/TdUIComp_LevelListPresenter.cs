@@ -8,13 +8,25 @@ public partial class TdUIComp_LevelListPresenter : TdUIComp_ImageListPresenter/*
 	
 	public TdUIComp_LevelListPresenter()
 	{
+		var Default__TdUIComp_LevelListPresenter_NormalOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_LevelListPresenter.NormalOverlayTemplate' */;
+		var Default__TdUIComp_LevelListPresenter_ActiveOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_LevelListPresenter.ActiveOverlayTemplate' */;
+		var Default__TdUIComp_LevelListPresenter_SelectionOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_LevelListPresenter.SelectionOverlayTemplate' */;
+		var Default__TdUIComp_LevelListPresenter_HoverOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_LevelListPresenter.HoverOverlayTemplate' */;
 		// Object Offset:0x00682D23
 		ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
 		{ 
-			[0] = LoadAsset<UITexture>("Default__TdUIComp_LevelListPresenter.NormalOverlayTemplate")/*Ref UITexture'Default__TdUIComp_LevelListPresenter.NormalOverlayTemplate'*/,
-			[1] = LoadAsset<UITexture>("Default__TdUIComp_LevelListPresenter.ActiveOverlayTemplate")/*Ref UITexture'Default__TdUIComp_LevelListPresenter.ActiveOverlayTemplate'*/,
-			[2] = LoadAsset<UITexture>("Default__TdUIComp_LevelListPresenter.SelectionOverlayTemplate")/*Ref UITexture'Default__TdUIComp_LevelListPresenter.SelectionOverlayTemplate'*/,
-			[3] = LoadAsset<UITexture>("Default__TdUIComp_LevelListPresenter.HoverOverlayTemplate")/*Ref UITexture'Default__TdUIComp_LevelListPresenter.HoverOverlayTemplate'*/,
+			[0] = Default__TdUIComp_LevelListPresenter_NormalOverlayTemplate/*Ref UITexture'Default__TdUIComp_LevelListPresenter.NormalOverlayTemplate'*/,
+			[1] = Default__TdUIComp_LevelListPresenter_ActiveOverlayTemplate/*Ref UITexture'Default__TdUIComp_LevelListPresenter.ActiveOverlayTemplate'*/,
+			[2] = Default__TdUIComp_LevelListPresenter_SelectionOverlayTemplate/*Ref UITexture'Default__TdUIComp_LevelListPresenter.SelectionOverlayTemplate'*/,
+			[3] = Default__TdUIComp_LevelListPresenter_HoverOverlayTemplate/*Ref UITexture'Default__TdUIComp_LevelListPresenter.HoverOverlayTemplate'*/,
 	 	};
 	}
 }

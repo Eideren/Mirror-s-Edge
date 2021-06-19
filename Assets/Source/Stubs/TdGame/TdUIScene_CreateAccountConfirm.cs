@@ -57,8 +57,11 @@ public partial class TdUIScene_CreateAccountConfirm : TdUIScene_SubMenu/*
 	
 	public TdUIScene_CreateAccountConfirm()
 	{
+		var Default__TdUIScene_CreateAccountConfirm_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_CreateAccountConfirm.SceneEventComponent' */;
 		// Object Offset:0x00690871
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_CreateAccountConfirm.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_CreateAccountConfirm.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_CreateAccountConfirm_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_CreateAccountConfirm.SceneEventComponent'*/;
 	}
 }
 }

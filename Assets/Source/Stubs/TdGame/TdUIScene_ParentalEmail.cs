@@ -73,8 +73,11 @@ public partial class TdUIScene_ParentalEmail : TdUIScene_SubMenu/*
 	
 	public TdUIScene_ParentalEmail()
 	{
+		var Default__TdUIScene_ParentalEmail_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_ParentalEmail.SceneEventComponent' */;
 		// Object Offset:0x006A52E5
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_ParentalEmail.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_ParentalEmail.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_ParentalEmail_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_ParentalEmail.SceneEventComponent'*/;
 	}
 }
 }

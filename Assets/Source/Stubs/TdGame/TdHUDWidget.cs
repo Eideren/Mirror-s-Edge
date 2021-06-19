@@ -6,8 +6,11 @@ public partial class TdHUDWidget : TdHUDObject/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public TdHUDWidget()
 	{
+		var Default__TdHUDWidget_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdHUDWidget.WidgetEventComponent' */;
 		// Object Offset:0x00577505
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdHUDWidget.WidgetEventComponent")/*Ref UIComp_Event'Default__TdHUDWidget.WidgetEventComponent'*/;
+		EventProvider = Default__TdHUDWidget_WidgetEventComponent/*Ref UIComp_Event'Default__TdHUDWidget.WidgetEventComponent'*/;
 	}
 }
 }

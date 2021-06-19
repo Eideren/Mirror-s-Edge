@@ -5,10 +5,19 @@ public partial class UITdShelfOptionButton : UITdOptionButton/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public UITdShelfOptionButton()
 	{
+		var Default__UITdShelfOptionButton_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UITdShelfOptionButton.BackgroundImageTemplate' */;
+		var Default__UITdShelfOptionButton_LabelStringRenderer = new UIComp_DrawString
+		{
+		}/* Reference: UIComp_DrawString'Default__UITdShelfOptionButton.LabelStringRenderer' */;
+		var Default__UITdShelfOptionButton_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UITdShelfOptionButton.WidgetEventComponent' */;
 		// Object Offset:0x006EEB37
-		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UITdShelfOptionButton.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UITdShelfOptionButton.BackgroundImageTemplate'*/;
-		StringRenderComponent = LoadAsset<UIComp_DrawString>("Default__UITdShelfOptionButton.LabelStringRenderer")/*Ref UIComp_DrawString'Default__UITdShelfOptionButton.LabelStringRenderer'*/;
-		EventProvider = LoadAsset<UIComp_Event>("Default__UITdShelfOptionButton.WidgetEventComponent")/*Ref UIComp_Event'Default__UITdShelfOptionButton.WidgetEventComponent'*/;
+		BackgroundImageComponent = Default__UITdShelfOptionButton_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UITdShelfOptionButton.BackgroundImageTemplate'*/;
+		StringRenderComponent = Default__UITdShelfOptionButton_LabelStringRenderer/*Ref UIComp_DrawString'Default__UITdShelfOptionButton.LabelStringRenderer'*/;
+		EventProvider = Default__UITdShelfOptionButton_WidgetEventComponent/*Ref UIComp_Event'Default__UITdShelfOptionButton.WidgetEventComponent'*/;
 	}
 }
 }

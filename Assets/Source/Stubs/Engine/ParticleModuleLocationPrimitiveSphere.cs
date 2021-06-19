@@ -14,6 +14,12 @@ public partial class ParticleModuleLocationPrimitiveSphere : ParticleModuleLocat
 			// Object Offset:0x00466D7B
 			Constant = 50.0f,
 		}/* Reference: DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveSphere.DistributionStartRadius' */;
+		var Default__ParticleModuleLocationPrimitiveSphere_DistributionVelocityScale = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveSphere.DistributionVelocityScale' */;
+		var Default__ParticleModuleLocationPrimitiveSphere_DistributionStartLocation = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleLocationPrimitiveSphere.DistributionStartLocation' */;
 		// Object Offset:0x0037F154
 		StartRadius = new DistributionFloat.RawDistributionFloat
 		{

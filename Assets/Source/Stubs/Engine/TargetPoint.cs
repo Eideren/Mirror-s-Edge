@@ -16,7 +16,7 @@ public partial class TargetPoint : Keypoint/*
 		bStatic = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TargetPoint_Sprite,
+			Default__TargetPoint_Sprite/*Ref SpriteComponent'Default__TargetPoint.Sprite'*/,
 		};
 	}
 }

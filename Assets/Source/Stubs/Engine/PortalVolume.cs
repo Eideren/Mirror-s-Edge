@@ -16,13 +16,13 @@ public partial class PortalVolume : Volume/*
 			BlockNonZeroExtent = false,
 		}/* Reference: BrushComponent'Default__PortalVolume.BrushComponent0' */;
 		// Object Offset:0x003A4346
-		BrushComponent = Default__PortalVolume_BrushComponent0;
+		BrushComponent = Default__PortalVolume_BrushComponent0/*Ref BrushComponent'Default__PortalVolume.BrushComponent0'*/;
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__PortalVolume_BrushComponent0,
+			Default__PortalVolume_BrushComponent0/*Ref BrushComponent'Default__PortalVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__PortalVolume_BrushComponent0;
+		CollisionComponent = Default__PortalVolume_BrushComponent0/*Ref BrushComponent'Default__PortalVolume.BrushComponent0'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

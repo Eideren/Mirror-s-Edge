@@ -17,6 +17,9 @@ public partial class SceneCapturePortalActor : SceneCaptureReflectActor/*
 			AlwaysLoadOnClient = false,
 			AlwaysLoadOnServer = false,
 		}/* Reference: StaticMeshComponent'Default__SceneCapturePortalActor.StaticMeshComponent2' */;
+		var Default__SceneCapturePortalActor_SceneCapturePortalComponent0 = new SceneCapturePortalComponent
+		{
+		}/* Reference: SceneCapturePortalComponent'Default__SceneCapturePortalActor.SceneCapturePortalComponent0' */;
 		var Default__SceneCapturePortalActor_StaticMeshComponent1 = new StaticMeshComponent
 		{
 			// Object Offset:0x003A3AC8
@@ -35,13 +38,13 @@ public partial class SceneCapturePortalActor : SceneCaptureReflectActor/*
 			},
 		}/* Reference: StaticMeshComponent'Default__SceneCapturePortalActor.StaticMeshComponent1' */;
 		// Object Offset:0x003A3989
-		StaticMesh = Default__SceneCapturePortalActor_StaticMeshComponent2;
-		SceneCapture = LoadAsset<SceneCapturePortalComponent>("Default__SceneCapturePortalActor.SceneCapturePortalComponent0")/*Ref SceneCapturePortalComponent'Default__SceneCapturePortalActor.SceneCapturePortalComponent0'*/;
+		StaticMesh = Default__SceneCapturePortalActor_StaticMeshComponent2/*Ref StaticMeshComponent'Default__SceneCapturePortalActor.StaticMeshComponent2'*/;
+		SceneCapture = Default__SceneCapturePortalActor_SceneCapturePortalComponent0/*Ref SceneCapturePortalComponent'Default__SceneCapturePortalActor.SceneCapturePortalComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCapturePortalComponent>("Default__SceneCapturePortalActor.SceneCapturePortalComponent0")/*Ref SceneCapturePortalComponent'Default__SceneCapturePortalActor.SceneCapturePortalComponent0'*/,
-			Default__SceneCapturePortalActor_StaticMeshComponent1,
-			Default__SceneCapturePortalActor_StaticMeshComponent2,
+			Default__SceneCapturePortalActor_SceneCapturePortalComponent0/*Ref SceneCapturePortalComponent'Default__SceneCapturePortalActor.SceneCapturePortalComponent0'*/,
+			Default__SceneCapturePortalActor_StaticMeshComponent1/*Ref StaticMeshComponent'Default__SceneCapturePortalActor.StaticMeshComponent1'*/,
+			Default__SceneCapturePortalActor_StaticMeshComponent2/*Ref StaticMeshComponent'Default__SceneCapturePortalActor.StaticMeshComponent2'*/,
 		};
 		Rotation = new Rotator
 		{

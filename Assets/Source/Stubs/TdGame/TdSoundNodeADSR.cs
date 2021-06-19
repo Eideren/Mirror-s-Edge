@@ -27,12 +27,21 @@ public partial class TdSoundNodeADSR : SoundNode/*
 	
 	public TdSoundNodeADSR()
 	{
+		var Default__TdSoundNodeADSR_DistributionAttack = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeADSR.DistributionAttack' */;
+		var Default__TdSoundNodeADSR_DistributionDecay = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeADSR.DistributionDecay' */;
 		var Default__TdSoundNodeADSR_DistributionSustain = new DistributionFloatUniform
 		{
 			// Object Offset:0x01AFC87E
 			Min = 1.0f,
 			Max = 1.0f,
 		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeADSR.DistributionSustain' */;
+		var Default__TdSoundNodeADSR_DistributionRelease = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeADSR.DistributionRelease' */;
 		// Object Offset:0x00659A40
 		Attack = new DistributionFloat.RawDistributionFloat
 		{

@@ -124,10 +124,13 @@ public partial class Mutator : Info/*
 	
 	public Mutator()
 	{
+		var Default__Mutator_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__Mutator.Sprite' */;
 		// Object Offset:0x0035EA97
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__Mutator.Sprite")/*Ref SpriteComponent'Default__Mutator.Sprite'*/,
+			Default__Mutator_Sprite/*Ref SpriteComponent'Default__Mutator.Sprite'*/,
 		};
 	}
 }

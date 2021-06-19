@@ -3416,6 +3416,9 @@ public partial class TdAIController : AIController,
 	}
 	public TdAIController()
 	{
+		var Default__TdAIController_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAIController.Sprite' */;
 		// Object Offset:0x004CF28E
 		CurrentAdvanceAction = TdAIController.AdvanceAction.AA_StandAndFire;
 		bFirstShot = true;
@@ -3476,7 +3479,7 @@ public partial class TdAIController : AIController,
 		bCanDoSpecial = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAIController.Sprite")/*Ref SpriteComponent'Default__TdAIController.Sprite'*/,
+			Default__TdAIController_Sprite/*Ref SpriteComponent'Default__TdAIController.Sprite'*/,
 		};
 		RotationRate = new Rotator
 		{

@@ -15,12 +15,12 @@ public partial class TdAIBlockingVolume : BlockingVolume/*
 			BlockRigidBody = false,
 		}/* Reference: BrushComponent'Default__TdAIBlockingVolume.BrushComponent0' */;
 		// Object Offset:0x004E7DBC
-		BrushComponent = Default__TdAIBlockingVolume_BrushComponent0;
+		BrushComponent = Default__TdAIBlockingVolume_BrushComponent0/*Ref BrushComponent'Default__TdAIBlockingVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdAIBlockingVolume_BrushComponent0,
+			Default__TdAIBlockingVolume_BrushComponent0/*Ref BrushComponent'Default__TdAIBlockingVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__TdAIBlockingVolume_BrushComponent0;
+		CollisionComponent = Default__TdAIBlockingVolume_BrushComponent0/*Ref BrushComponent'Default__TdAIBlockingVolume.BrushComponent0'*/;
 	}
 }
 }

@@ -7,8 +7,11 @@ public partial class TdUIScene_Popup : TdUIScene/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public TdUIScene_Popup()
 	{
+		var Default__TdUIScene_Popup_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_Popup.SceneEventComponent' */;
 		// Object Offset:0x006A5430
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_Popup.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_Popup.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_Popup_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_Popup.SceneEventComponent'*/;
 	}
 }
 }

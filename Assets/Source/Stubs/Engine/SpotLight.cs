@@ -7,12 +7,29 @@ public partial class SpotLight : Light/*
 		hidecategories(Navigation)*/{
 	public SpotLight()
 	{
+		var Default__SpotLight_DrawInnerCone0 = new DrawLightConeComponent
+		{
+		}/* Reference: DrawLightConeComponent'Default__SpotLight.DrawInnerCone0' */;
+		var Default__SpotLight_DrawOuterCone0 = new DrawLightConeComponent
+		{
+			// Object Offset:0x003ED338
+			ConeColor = new Color
+			{
+				R=200,
+				G=255,
+				B=255,
+				A=255
+			},
+		}/* Reference: DrawLightConeComponent'Default__SpotLight.DrawOuterCone0' */;
+		var Default__SpotLight_DrawLightRadius0 = new DrawLightRadiusComponent
+		{
+		}/* Reference: DrawLightRadiusComponent'Default__SpotLight.DrawLightRadius0' */;
 		var Default__SpotLight_SpotLightComponent0 = new SpotLightComponent
 		{
 			// Object Offset:0x003ED374
-			PreviewInnerCone = LoadAsset<DrawLightConeComponent>("Default__SpotLight.DrawInnerCone0")/*Ref DrawLightConeComponent'Default__SpotLight.DrawInnerCone0'*/,
-			PreviewOuterCone = LoadAsset<DrawLightConeComponent>("Default__SpotLight.DrawOuterCone0")/*Ref DrawLightConeComponent'Default__SpotLight.DrawOuterCone0'*/,
-			PreviewLightRadius = LoadAsset<DrawLightRadiusComponent>("Default__SpotLight.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__SpotLight.DrawLightRadius0'*/,
+			PreviewInnerCone = Default__SpotLight_DrawInnerCone0/*Ref DrawLightConeComponent'Default__SpotLight.DrawInnerCone0'*/,
+			PreviewOuterCone = Default__SpotLight_DrawOuterCone0/*Ref DrawLightConeComponent'Default__SpotLight.DrawOuterCone0'*/,
+			PreviewLightRadius = Default__SpotLight_DrawLightRadius0/*Ref DrawLightRadiusComponent'Default__SpotLight.DrawLightRadius0'*/,
 			CastDynamicShadows = false,
 			UseDirectLightMap = true,
 			LightingChannels = new LightComponent.LightingChannelContainer
@@ -26,17 +43,6 @@ public partial class SpotLight : Light/*
 			// Object Offset:0x003ED2D4
 			Sprite = LoadAsset<Texture2D>("EngineResources.LightIcons.Light_Spot_Stationary_Statics")/*Ref Texture2D'EngineResources.LightIcons.Light_Spot_Stationary_Statics'*/,
 		}/* Reference: SpriteComponent'Default__SpotLight.Sprite' */;
-		var Default__SpotLight_DrawOuterCone0 = new DrawLightConeComponent
-		{
-			// Object Offset:0x003ED338
-			ConeColor = new Color
-			{
-				R=200,
-				G=255,
-				B=255,
-				A=255
-			},
-		}/* Reference: DrawLightConeComponent'Default__SpotLight.DrawOuterCone0' */;
 		var Default__SpotLight_ArrowComponent0 = new ArrowComponent
 		{
 			// Object Offset:0x003ED484
@@ -49,15 +55,15 @@ public partial class SpotLight : Light/*
 			},
 		}/* Reference: ArrowComponent'Default__SpotLight.ArrowComponent0' */;
 		// Object Offset:0x003ED16D
-		LightComponent = Default__SpotLight_SpotLightComponent0;
+		LightComponent = Default__SpotLight_SpotLightComponent0/*Ref SpotLightComponent'Default__SpotLight.SpotLightComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__SpotLight_Sprite,
-			LoadAsset<DrawLightRadiusComponent>("Default__SpotLight.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__SpotLight.DrawLightRadius0'*/,
-			LoadAsset<DrawLightConeComponent>("Default__SpotLight.DrawInnerCone0")/*Ref DrawLightConeComponent'Default__SpotLight.DrawInnerCone0'*/,
-			Default__SpotLight_DrawOuterCone0,
-			Default__SpotLight_SpotLightComponent0,
-			Default__SpotLight_ArrowComponent0,
+			Default__SpotLight_Sprite/*Ref SpriteComponent'Default__SpotLight.Sprite'*/,
+			Default__SpotLight_DrawLightRadius0/*Ref DrawLightRadiusComponent'Default__SpotLight.DrawLightRadius0'*/,
+			Default__SpotLight_DrawInnerCone0/*Ref DrawLightConeComponent'Default__SpotLight.DrawInnerCone0'*/,
+			Default__SpotLight_DrawOuterCone0/*Ref DrawLightConeComponent'Default__SpotLight.DrawOuterCone0'*/,
+			Default__SpotLight_SpotLightComponent0/*Ref SpotLightComponent'Default__SpotLight.SpotLightComponent0'*/,
+			Default__SpotLight_ArrowComponent0/*Ref ArrowComponent'Default__SpotLight.ArrowComponent0'*/,
 		};
 		Rotation = new Rotator
 		{

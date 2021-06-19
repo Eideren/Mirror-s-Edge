@@ -34,6 +34,9 @@ public partial class ParticleModuleUberRainImpacts : ParticleModuleUberBase/*
 	
 	public ParticleModuleUberRainImpacts()
 	{
+		var Default__ParticleModuleUberRainImpacts_DistributionLifetime = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__ParticleModuleUberRainImpacts.DistributionLifetime' */;
 		var Default__ParticleModuleUberRainImpacts_DistributionStartSize = new DistributionVectorUniform
 		{
 			// Object Offset:0x0046884F
@@ -60,11 +63,17 @@ public partial class ParticleModuleUberRainImpacts : ParticleModuleUberBase/*
 				Z=360.0f
 			},
 		}/* Reference: DistributionVectorUniform'Default__ParticleModuleUberRainImpacts.DistributionStartRotation' */;
+		var Default__ParticleModuleUberRainImpacts_DistributionLifeMultiplier = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleUberRainImpacts.DistributionLifeMultiplier' */;
 		var Default__ParticleModuleUberRainImpacts_DistributionPC_VelocityScale = new DistributionFloatConstant
 		{
 			// Object Offset:0x00467193
 			Constant = 1.0f,
 		}/* Reference: DistributionFloatConstant'Default__ParticleModuleUberRainImpacts.DistributionPC_VelocityScale' */;
+		var Default__ParticleModuleUberRainImpacts_DistributionPC_StartLocation = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleUberRainImpacts.DistributionPC_StartLocation' */;
 		var Default__ParticleModuleUberRainImpacts_DistributionPC_StartRadius = new DistributionFloatConstant
 		{
 			// Object Offset:0x0046715F
@@ -75,6 +84,9 @@ public partial class ParticleModuleUberRainImpacts : ParticleModuleUberBase/*
 			// Object Offset:0x0046712B
 			Constant = 50.0f,
 		}/* Reference: DistributionFloatConstant'Default__ParticleModuleUberRainImpacts.DistributionPC_StartHeight' */;
+		var Default__ParticleModuleUberRainImpacts_DistributionColorOverLife = new DistributionVectorConstantCurve
+		{
+		}/* Reference: DistributionVectorConstantCurve'Default__ParticleModuleUberRainImpacts.DistributionColorOverLife' */;
 		var Default__ParticleModuleUberRainImpacts_DistributionAlphaOverLife = new DistributionFloatConstant
 		{
 			// Object Offset:0x004670F7

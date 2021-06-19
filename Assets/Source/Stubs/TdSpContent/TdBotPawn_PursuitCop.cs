@@ -49,13 +49,28 @@ public partial class TdBotPawn_PursuitCop : TdBotPawn/*
 			// Object Offset:0x000225DA
 			CollisionRadius = 70.0f,
 		}/* Reference: CylinderComponent'Default__TdBotPawn_PursuitCop.ActorCollisionCylinder' */;
+		var Default__TdBotPawn_PursuitCop_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+		}/* Reference: DynamicLightEnvironmentComponent'Default__TdBotPawn_PursuitCop.MyLightEnvironment' */;
 		var Default__TdBotPawn_PursuitCop_TdPawnMesh3p = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x00022C02
 			AnimTreeTemplate = LoadAsset<AnimTree>("AT_Cop.AT_Cop")/*Ref AnimTree'AT_Cop.AT_Cop'*/,
 			PhysicsAsset = LoadAsset<PhysicsAsset>("CH_TKY_Cop_SWAT.Male3p_Physics")/*Ref PhysicsAsset'CH_TKY_Cop_SWAT.Male3p_Physics'*/,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PursuitCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PursuitCop.MyLightEnvironment'*/,
+			LightEnvironment = Default__TdBotPawn_PursuitCop_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PursuitCop.MyLightEnvironment'*/,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_PursuitCop.TdPawnMesh3p' */;
+		var Default__TdBotPawn_PursuitCop_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+		}/* Reference: SceneCaptureCharacterComponent'Default__TdBotPawn_PursuitCop.SceneCaptureCharacterComponent0' */;
+		var Default__TdBotPawn_PursuitCop_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__TdBotPawn_PursuitCop.DrawFrust0' */;
+		var Default__TdBotPawn_PursuitCop_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdBotPawn_PursuitCop.CollisionCylinder' */;
+		var Default__TdBotPawn_PursuitCop_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdBotPawn_PursuitCop.Arrow' */;
 		// Object Offset:0x0001ED14
 		FootStepPitchMultiplier = 1.50f;
 		bCanDoTakedownMoves = true;
@@ -90,8 +105,8 @@ public partial class TdBotPawn_PursuitCop : TdBotPawn/*
 		RotationSpeedDiffForMaxAcceleration = 18000;
 		AnimationRunSpeed = 720.0f;
 		bDisableSkelControlSpring = true;
-		ActorCylinderComponent = Default__TdBotPawn_PursuitCop_ActorCollisionCylinder;
-		Mesh3p = Default__TdBotPawn_PursuitCop_TdPawnMesh3p;
+		ActorCylinderComponent = Default__TdBotPawn_PursuitCop_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_PursuitCop.ActorCollisionCylinder'*/;
+		Mesh3p = Default__TdBotPawn_PursuitCop_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_PursuitCop.TdPawnMesh3p'*/;
 		MoveClasses = new array< Core.ClassT<TdMove> >
 		{
 			default,
@@ -264,22 +279,22 @@ public partial class TdBotPawn_PursuitCop : TdBotPawn/*
 		bCanWalkOffLedges = true;
 		WalkingPct = 0.30f;
 		AIMaxFallSpeedFactor = 3.0f;
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawn_PursuitCop.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_PursuitCop.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdBotPawn_PursuitCop.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn_PursuitCop.DrawFrust0'*/;
-		Mesh = Default__TdBotPawn_PursuitCop_TdPawnMesh3p;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_PursuitCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PursuitCop.CollisionCylinder'*/;
+		SceneCapture = Default__TdBotPawn_PursuitCop_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_PursuitCop.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__TdBotPawn_PursuitCop_DrawFrust0/*Ref DrawFrustumComponent'Default__TdBotPawn_PursuitCop.DrawFrust0'*/;
+		Mesh = Default__TdBotPawn_PursuitCop_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_PursuitCop.TdPawnMesh3p'*/;
+		CylinderComponent = Default__TdBotPawn_PursuitCop_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_PursuitCop.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawn_PursuitCop.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_PursuitCop.SceneCaptureCharacterComponent0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__TdBotPawn_PursuitCop.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn_PursuitCop.DrawFrust0'*/,
-			LoadAsset<CylinderComponent>("Default__TdBotPawn_PursuitCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PursuitCop.CollisionCylinder'*/,
-			LoadAsset<ArrowComponent>("Default__TdBotPawn_PursuitCop.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_PursuitCop.Arrow'*/,
-			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PursuitCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PursuitCop.MyLightEnvironment'*/,
-			Default__TdBotPawn_PursuitCop_TdPawnMesh3p,
-			LoadAsset<CylinderComponent>("Default__TdBotPawn_PursuitCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PursuitCop.CollisionCylinder'*/,
-			Default__TdBotPawn_PursuitCop_ActorCollisionCylinder,
+			Default__TdBotPawn_PursuitCop_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_PursuitCop.SceneCaptureCharacterComponent0'*/,
+			Default__TdBotPawn_PursuitCop_DrawFrust0/*Ref DrawFrustumComponent'Default__TdBotPawn_PursuitCop.DrawFrust0'*/,
+			Default__TdBotPawn_PursuitCop_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_PursuitCop.CollisionCylinder'*/,
+			Default__TdBotPawn_PursuitCop_Arrow/*Ref ArrowComponent'Default__TdBotPawn_PursuitCop.Arrow'*/,
+			Default__TdBotPawn_PursuitCop_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PursuitCop.MyLightEnvironment'*/,
+			Default__TdBotPawn_PursuitCop_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_PursuitCop.TdPawnMesh3p'*/,
+			Default__TdBotPawn_PursuitCop_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_PursuitCop.CollisionCylinder'*/,
+			Default__TdBotPawn_PursuitCop_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_PursuitCop.ActorCollisionCylinder'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_PursuitCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PursuitCop.CollisionCylinder'*/;
+		CollisionComponent = Default__TdBotPawn_PursuitCop_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_PursuitCop.CollisionCylinder'*/;
 	}
 }
 }

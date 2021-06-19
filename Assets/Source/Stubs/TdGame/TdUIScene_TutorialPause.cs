@@ -42,8 +42,11 @@ public partial class TdUIScene_TutorialPause : TdUIScene_Pause/*
 	
 	public TdUIScene_TutorialPause()
 	{
+		var Default__TdUIScene_TutorialPause_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_TutorialPause.SceneEventComponent' */;
 		// Object Offset:0x006B6622
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_TutorialPause.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_TutorialPause.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_TutorialPause_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_TutorialPause.SceneEventComponent'*/;
 	}
 }
 }

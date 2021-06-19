@@ -7,22 +7,40 @@ public partial class TdBotPawn_PatrolCop_Steyr : TdBotPawn_PatrolCop/*
 		hidecategories(Navigation)*/{
 	public TdBotPawn_PatrolCop_Steyr()
 	{
-		var Default__TdBotPawn_PatrolCop_Steyr_AdditionalSkeletalMeshComponent = new TdSkeletalMeshComponent
+		var Default__TdBotPawn_PatrolCop_Steyr_MyLightEnvironment = new DynamicLightEnvironmentComponent
 		{
-			// Object Offset:0x00022B62
-			ParentAnimComponent = LoadAsset<TdSkeletalMeshComponent>("Default__TdBotPawn_PatrolCop_Steyr.TdPawnMesh3p")/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Steyr.TdPawnMesh3p'*/,
-			ShadowParent = LoadAsset<TdSkeletalMeshComponent>("Default__TdBotPawn_PatrolCop_Steyr.TdPawnMesh3p")/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Steyr.TdPawnMesh3p'*/,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PatrolCop_Steyr.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop_Steyr.MyLightEnvironment'*/,
-		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Steyr.AdditionalSkeletalMeshComponent' */;
+		}/* Reference: DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop_Steyr.MyLightEnvironment' */;
 		var Default__TdBotPawn_PatrolCop_Steyr_TdPawnMesh3p = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x00022BCE
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PatrolCop_Steyr.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop_Steyr.MyLightEnvironment'*/,
+			LightEnvironment = Default__TdBotPawn_PatrolCop_Steyr_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop_Steyr.MyLightEnvironment'*/,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Steyr.TdPawnMesh3p' */;
+		var Default__TdBotPawn_PatrolCop_Steyr_AdditionalSkeletalMeshComponent = new TdSkeletalMeshComponent
+		{
+			// Object Offset:0x00022B62
+			ParentAnimComponent = Default__TdBotPawn_PatrolCop_Steyr_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Steyr.TdPawnMesh3p'*/,
+			ShadowParent = Default__TdBotPawn_PatrolCop_Steyr_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Steyr.TdPawnMesh3p'*/,
+			LightEnvironment = Default__TdBotPawn_PatrolCop_Steyr_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop_Steyr.MyLightEnvironment'*/,
+		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Steyr.AdditionalSkeletalMeshComponent' */;
+		var Default__TdBotPawn_PatrolCop_Steyr_ActorCollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdBotPawn_PatrolCop_Steyr.ActorCollisionCylinder' */;
+		var Default__TdBotPawn_PatrolCop_Steyr_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+		}/* Reference: SceneCaptureCharacterComponent'Default__TdBotPawn_PatrolCop_Steyr.SceneCaptureCharacterComponent0' */;
+		var Default__TdBotPawn_PatrolCop_Steyr_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__TdBotPawn_PatrolCop_Steyr.DrawFrust0' */;
+		var Default__TdBotPawn_PatrolCop_Steyr_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdBotPawn_PatrolCop_Steyr.CollisionCylinder' */;
+		var Default__TdBotPawn_PatrolCop_Steyr_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdBotPawn_PatrolCop_Steyr.Arrow' */;
 		// Object Offset:0x0001DDD3
-		AdditionalSkeletalMesh = Default__TdBotPawn_PatrolCop_Steyr_AdditionalSkeletalMeshComponent;
-		ActorCylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_PatrolCop_Steyr.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Steyr.ActorCollisionCylinder'*/;
-		Mesh3p = Default__TdBotPawn_PatrolCop_Steyr_TdPawnMesh3p;
+		AdditionalSkeletalMesh = Default__TdBotPawn_PatrolCop_Steyr_AdditionalSkeletalMeshComponent/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Steyr.AdditionalSkeletalMeshComponent'*/;
+		ActorCylinderComponent = Default__TdBotPawn_PatrolCop_Steyr_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Steyr.ActorCollisionCylinder'*/;
+		Mesh3p = Default__TdBotPawn_PatrolCop_Steyr_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Steyr.TdPawnMesh3p'*/;
 		ArmorBulletsHeadSettings = new TdPawn.ArmorSettings
 		{
 			Medium = 0.10f,
@@ -89,22 +107,22 @@ public partial class TdBotPawn_PatrolCop_Steyr : TdBotPawn_PatrolCop/*
 			Medium = 0.20f,
 			Hard = 0.30f,
 		};
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawn_PatrolCop_Steyr.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_PatrolCop_Steyr.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdBotPawn_PatrolCop_Steyr.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn_PatrolCop_Steyr.DrawFrust0'*/;
-		Mesh = Default__TdBotPawn_PatrolCop_Steyr_TdPawnMesh3p;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_PatrolCop_Steyr.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Steyr.CollisionCylinder'*/;
+		SceneCapture = Default__TdBotPawn_PatrolCop_Steyr_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_PatrolCop_Steyr.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__TdBotPawn_PatrolCop_Steyr_DrawFrust0/*Ref DrawFrustumComponent'Default__TdBotPawn_PatrolCop_Steyr.DrawFrust0'*/;
+		Mesh = Default__TdBotPawn_PatrolCop_Steyr_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Steyr.TdPawnMesh3p'*/;
+		CylinderComponent = Default__TdBotPawn_PatrolCop_Steyr_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Steyr.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawn_PatrolCop_Steyr.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_PatrolCop_Steyr.SceneCaptureCharacterComponent0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__TdBotPawn_PatrolCop_Steyr.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn_PatrolCop_Steyr.DrawFrust0'*/,
-			LoadAsset<CylinderComponent>("Default__TdBotPawn_PatrolCop_Steyr.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Steyr.CollisionCylinder'*/,
-			LoadAsset<ArrowComponent>("Default__TdBotPawn_PatrolCop_Steyr.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_PatrolCop_Steyr.Arrow'*/,
-			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_PatrolCop_Steyr.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop_Steyr.MyLightEnvironment'*/,
-			Default__TdBotPawn_PatrolCop_Steyr_TdPawnMesh3p,
-			LoadAsset<CylinderComponent>("Default__TdBotPawn_PatrolCop_Steyr.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Steyr.CollisionCylinder'*/,
-			LoadAsset<CylinderComponent>("Default__TdBotPawn_PatrolCop_Steyr.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Steyr.ActorCollisionCylinder'*/,
+			Default__TdBotPawn_PatrolCop_Steyr_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_PatrolCop_Steyr.SceneCaptureCharacterComponent0'*/,
+			Default__TdBotPawn_PatrolCop_Steyr_DrawFrust0/*Ref DrawFrustumComponent'Default__TdBotPawn_PatrolCop_Steyr.DrawFrust0'*/,
+			Default__TdBotPawn_PatrolCop_Steyr_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Steyr.CollisionCylinder'*/,
+			Default__TdBotPawn_PatrolCop_Steyr_Arrow/*Ref ArrowComponent'Default__TdBotPawn_PatrolCop_Steyr.Arrow'*/,
+			Default__TdBotPawn_PatrolCop_Steyr_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_PatrolCop_Steyr.MyLightEnvironment'*/,
+			Default__TdBotPawn_PatrolCop_Steyr_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_PatrolCop_Steyr.TdPawnMesh3p'*/,
+			Default__TdBotPawn_PatrolCop_Steyr_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Steyr.CollisionCylinder'*/,
+			Default__TdBotPawn_PatrolCop_Steyr_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Steyr.ActorCollisionCylinder'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_PatrolCop_Steyr.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Steyr.CollisionCylinder'*/;
+		CollisionComponent = Default__TdBotPawn_PatrolCop_Steyr_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_PatrolCop_Steyr.CollisionCylinder'*/;
 	}
 }
 }

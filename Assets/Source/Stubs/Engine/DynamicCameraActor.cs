@@ -7,14 +7,20 @@ public partial class DynamicCameraActor : CameraActor/*
 		hidecategories(Navigation)*/{
 	public DynamicCameraActor()
 	{
+		var Default__DynamicCameraActor_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__DynamicCameraActor.DrawFrust0' */;
+		var Default__DynamicCameraActor_CamMesh0 = new StaticMeshComponent
+		{
+		}/* Reference: StaticMeshComponent'Default__DynamicCameraActor.CamMesh0' */;
 		// Object Offset:0x0031224E
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__DynamicCameraActor.DrawFrust0")/*Ref DrawFrustumComponent'Default__DynamicCameraActor.DrawFrust0'*/;
-		MeshComp = LoadAsset<StaticMeshComponent>("Default__DynamicCameraActor.CamMesh0")/*Ref StaticMeshComponent'Default__DynamicCameraActor.CamMesh0'*/;
+		DrawFrustum = Default__DynamicCameraActor_DrawFrust0/*Ref DrawFrustumComponent'Default__DynamicCameraActor.DrawFrust0'*/;
+		MeshComp = Default__DynamicCameraActor_CamMesh0/*Ref StaticMeshComponent'Default__DynamicCameraActor.CamMesh0'*/;
 		bNoDelete = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<StaticMeshComponent>("Default__DynamicCameraActor.CamMesh0")/*Ref StaticMeshComponent'Default__DynamicCameraActor.CamMesh0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__DynamicCameraActor.DrawFrust0")/*Ref DrawFrustumComponent'Default__DynamicCameraActor.DrawFrust0'*/,
+			Default__DynamicCameraActor_CamMesh0/*Ref StaticMeshComponent'Default__DynamicCameraActor.CamMesh0'*/,
+			Default__DynamicCameraActor_DrawFrust0/*Ref DrawFrustumComponent'Default__DynamicCameraActor.DrawFrust0'*/,
 		};
 	}
 }

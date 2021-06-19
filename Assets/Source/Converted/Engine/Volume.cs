@@ -151,14 +151,14 @@ public partial class Volume : Brush/*
 			AlwaysLoadOnServer = true,
 		}/* Reference: BrushComponent'Default__Volume.BrushComponent0' */;
 		// Object Offset:0x002B21CB
-		BrushComponent = Default__Volume_BrushComponent0;
+		BrushComponent = Default__Volume_BrushComponent0/*Ref BrushComponent'Default__Volume.BrushComponent0'*/;
 		bSkipActorPropertyReplication = true;
 		bCollideActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__Volume_BrushComponent0,
+			Default__Volume_BrushComponent0/*Ref BrushComponent'Default__Volume.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__Volume_BrushComponent0;
+		CollisionComponent = Default__Volume_BrushComponent0/*Ref BrushComponent'Default__Volume.BrushComponent0'*/;
 	}
 }
 }

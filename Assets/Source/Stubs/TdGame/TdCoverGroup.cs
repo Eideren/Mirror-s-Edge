@@ -40,6 +40,9 @@ public partial class TdCoverGroup : CoverGroup/*
 			// Object Offset:0x02E51EC5
 			Scale = 2.0f,
 		}/* Reference: SpriteComponent'Default__TdCoverGroup.Sprite' */;
+		var Default__TdCoverGroup_CoverGroupRenderer = new CoverGroupRenderingComponent
+		{
+		}/* Reference: CoverGroupRenderingComponent'Default__TdCoverGroup.CoverGroupRenderer' */;
 		var Default__TdCoverGroup_TdCoverGroupRenderer = new TdCoverGroupRenderingComponent
 		{
 			// Object Offset:0x03121A3E
@@ -49,9 +52,9 @@ public partial class TdCoverGroup : CoverGroup/*
 		// Object Offset:0x0053E0E8
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdCoverGroup_Sprite,
-			LoadAsset<CoverGroupRenderingComponent>("Default__TdCoverGroup.CoverGroupRenderer")/*Ref CoverGroupRenderingComponent'Default__TdCoverGroup.CoverGroupRenderer'*/,
-			Default__TdCoverGroup_TdCoverGroupRenderer,
+			Default__TdCoverGroup_Sprite/*Ref SpriteComponent'Default__TdCoverGroup.Sprite'*/,
+			Default__TdCoverGroup_CoverGroupRenderer/*Ref CoverGroupRenderingComponent'Default__TdCoverGroup.CoverGroupRenderer'*/,
+			Default__TdCoverGroup_TdCoverGroupRenderer/*Ref TdCoverGroupRenderingComponent'Default__TdCoverGroup.TdCoverGroupRenderer'*/,
 		};
 	}
 }

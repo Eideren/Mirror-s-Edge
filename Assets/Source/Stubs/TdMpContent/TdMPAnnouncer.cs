@@ -6,10 +6,13 @@ public partial class TdMPAnnouncer : TdAnnouncerBase/*
 		hidecategories(Navigation,Movement,Collision)*/{
 	public TdMPAnnouncer()
 	{
+		var Default__TdMPAnnouncer_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdMPAnnouncer.Sprite' */;
 		// Object Offset:0x0000D032
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdMPAnnouncer.Sprite")/*Ref SpriteComponent'Default__TdMPAnnouncer.Sprite'*/,
+			Default__TdMPAnnouncer_Sprite/*Ref SpriteComponent'Default__TdMPAnnouncer.Sprite'*/,
 		};
 	}
 }

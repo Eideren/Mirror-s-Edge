@@ -34,10 +34,13 @@ public partial class TdAI_HeliSniper : TdAIController/*
 	}
 	public TdAI_HeliSniper()
 	{
+		var Default__TdAI_HeliSniper_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAI_HeliSniper.Sprite' */;
 		// Object Offset:0x004DCAA9
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAI_HeliSniper.Sprite")/*Ref SpriteComponent'Default__TdAI_HeliSniper.Sprite'*/,
+			Default__TdAI_HeliSniper_Sprite/*Ref SpriteComponent'Default__TdAI_HeliSniper.Sprite'*/,
 		};
 	}
 }

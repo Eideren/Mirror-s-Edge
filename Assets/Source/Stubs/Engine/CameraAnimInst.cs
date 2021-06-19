@@ -41,8 +41,11 @@ public partial class CameraAnimInst : Object/*
 	
 	public CameraAnimInst()
 	{
+		var Default__CameraAnimInst_InterpGroupInst0 = new InterpGroupInst
+		{
+		}/* Reference: InterpGroupInst'Default__CameraAnimInst.InterpGroupInst0' */;
 		// Object Offset:0x002B6065
-		InterpGroupInst = LoadAsset<InterpGroupInst>("Default__CameraAnimInst.InterpGroupInst0")/*Ref InterpGroupInst'Default__CameraAnimInst.InterpGroupInst0'*/;
+		InterpGroupInst = Default__CameraAnimInst_InterpGroupInst0/*Ref InterpGroupInst'Default__CameraAnimInst.InterpGroupInst0'*/;
 		bFinished = true;
 		PlayRate = 1.0f;
 	}

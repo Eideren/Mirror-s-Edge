@@ -9,10 +9,16 @@ public partial class TdUILobbyPlayerWidget : TdUIPlayerSlotBase/*
 	
 	public TdUILobbyPlayerWidget()
 	{
+		var Default__TdUILobbyPlayerWidget_iPlayerNameLabel_LabelStringRenderer = new UIComp_DrawString
+		{
+		}/* Reference: UIComp_DrawString'Default__TdUILobbyPlayerWidget.iPlayerNameLabel.LabelStringRenderer' */;
+		var Default__TdUILobbyPlayerWidget_iPlayerNameLabel_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUILobbyPlayerWidget.iPlayerNameLabel.WidgetEventComponent' */;
 		var Default__TdUILobbyPlayerWidget_iPlayerNameLabel = new TdUIFocusLabel
 		{
 			// Object Offset:0x0314A04D
-			StringRenderComponent = LoadAsset<UIComp_DrawString>("Default__TdUILobbyPlayerWidget.iPlayerNameLabel.LabelStringRenderer")/*Ref UIComp_DrawString'Default__TdUILobbyPlayerWidget.iPlayerNameLabel.LabelStringRenderer'*/,
+			StringRenderComponent = Default__TdUILobbyPlayerWidget_iPlayerNameLabel_LabelStringRenderer/*Ref UIComp_DrawString'Default__TdUILobbyPlayerWidget.iPlayerNameLabel.LabelStringRenderer'*/,
 			WidgetTag = (name)"PlayerNameLabel",
 			Position = new UIRoot.UIScreenValue_Bounds
 			{
@@ -30,12 +36,18 @@ public partial class TdUILobbyPlayerWidget : TdUIPlayerSlotBase/*
 					#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
 				},
 			},
-			EventProvider = LoadAsset<UIComp_Event>("Default__TdUILobbyPlayerWidget.iPlayerNameLabel.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUILobbyPlayerWidget.iPlayerNameLabel.WidgetEventComponent'*/,
+			EventProvider = Default__TdUILobbyPlayerWidget_iPlayerNameLabel_WidgetEventComponent/*Ref UIComp_Event'Default__TdUILobbyPlayerWidget.iPlayerNameLabel.WidgetEventComponent'*/,
 		}/* Reference: TdUIFocusLabel'Default__TdUILobbyPlayerWidget.iPlayerNameLabel' */;
+		var Default__TdUILobbyPlayerWidget_iPlayerIsReadyImage_ImageComponentTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__TdUILobbyPlayerWidget.iPlayerIsReadyImage.ImageComponentTemplate' */;
+		var Default__TdUILobbyPlayerWidget_iPlayerIsReadyImage_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUILobbyPlayerWidget.iPlayerIsReadyImage.WidgetEventComponent' */;
 		var Default__TdUILobbyPlayerWidget_iPlayerIsReadyImage = new UIImage
 		{
 			// Object Offset:0x037AD7AE
-			ImageComponent = LoadAsset<UIComp_DrawImage>("Default__TdUILobbyPlayerWidget.iPlayerIsReadyImage.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__TdUILobbyPlayerWidget.iPlayerIsReadyImage.ImageComponentTemplate'*/,
+			ImageComponent = Default__TdUILobbyPlayerWidget_iPlayerIsReadyImage_ImageComponentTemplate/*Ref UIComp_DrawImage'Default__TdUILobbyPlayerWidget.iPlayerIsReadyImage.ImageComponentTemplate'*/,
 			WidgetTag = (name)"PlayerIsReadyImage",
 			Position = new UIRoot.UIScreenValue_Bounds
 			{
@@ -52,12 +64,18 @@ public partial class TdUILobbyPlayerWidget : TdUIPlayerSlotBase/*
 					#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
 				},
 			},
-			EventProvider = LoadAsset<UIComp_Event>("Default__TdUILobbyPlayerWidget.iPlayerIsReadyImage.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUILobbyPlayerWidget.iPlayerIsReadyImage.WidgetEventComponent'*/,
+			EventProvider = Default__TdUILobbyPlayerWidget_iPlayerIsReadyImage_WidgetEventComponent/*Ref UIComp_Event'Default__TdUILobbyPlayerWidget.iPlayerIsReadyImage.WidgetEventComponent'*/,
 		}/* Reference: UIImage'Default__TdUILobbyPlayerWidget.iPlayerIsReadyImage' */;
+		var Default__TdUILobbyPlayerWidget_iPlayerRoleImage_ImageComponentTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__TdUILobbyPlayerWidget.iPlayerRoleImage.ImageComponentTemplate' */;
+		var Default__TdUILobbyPlayerWidget_iPlayerRoleImage_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUILobbyPlayerWidget.iPlayerRoleImage.WidgetEventComponent' */;
 		var Default__TdUILobbyPlayerWidget_iPlayerRoleImage = new UIImage
 		{
 			// Object Offset:0x037AD8B2
-			ImageComponent = LoadAsset<UIComp_DrawImage>("Default__TdUILobbyPlayerWidget.iPlayerRoleImage.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__TdUILobbyPlayerWidget.iPlayerRoleImage.ImageComponentTemplate'*/,
+			ImageComponent = Default__TdUILobbyPlayerWidget_iPlayerRoleImage_ImageComponentTemplate/*Ref UIComp_DrawImage'Default__TdUILobbyPlayerWidget.iPlayerRoleImage.ImageComponentTemplate'*/,
 			WidgetTag = (name)"PlayerRoleImage",
 			Position = new UIRoot.UIScreenValue_Bounds
 			{
@@ -75,14 +93,20 @@ public partial class TdUILobbyPlayerWidget : TdUIPlayerSlotBase/*
 					#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
 				},
 			},
-			EventProvider = LoadAsset<UIComp_Event>("Default__TdUILobbyPlayerWidget.iPlayerRoleImage.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUILobbyPlayerWidget.iPlayerRoleImage.WidgetEventComponent'*/,
+			EventProvider = Default__TdUILobbyPlayerWidget_iPlayerRoleImage_WidgetEventComponent/*Ref UIComp_Event'Default__TdUILobbyPlayerWidget.iPlayerRoleImage.WidgetEventComponent'*/,
 		}/* Reference: UIImage'Default__TdUILobbyPlayerWidget.iPlayerRoleImage' */;
+		var Default__TdUILobbyPlayerWidget_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__TdUILobbyPlayerWidget.BackgroundImageTemplate' */;
+		var Default__TdUILobbyPlayerWidget_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUILobbyPlayerWidget.WidgetEventComponent' */;
 		// Object Offset:0x0068C639
-		PlayerNameLabel = Default__TdUILobbyPlayerWidget_iPlayerNameLabel;
-		PlayerIsReadyImage = Default__TdUILobbyPlayerWidget_iPlayerIsReadyImage;
-		PlayerRoleImage = Default__TdUILobbyPlayerWidget_iPlayerRoleImage;
-		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__TdUILobbyPlayerWidget.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__TdUILobbyPlayerWidget.BackgroundImageTemplate'*/;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUILobbyPlayerWidget.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUILobbyPlayerWidget.WidgetEventComponent'*/;
+		PlayerNameLabel = Default__TdUILobbyPlayerWidget_iPlayerNameLabel/*Ref TdUIFocusLabel'Default__TdUILobbyPlayerWidget.iPlayerNameLabel'*/;
+		PlayerIsReadyImage = Default__TdUILobbyPlayerWidget_iPlayerIsReadyImage/*Ref UIImage'Default__TdUILobbyPlayerWidget.iPlayerIsReadyImage'*/;
+		PlayerRoleImage = Default__TdUILobbyPlayerWidget_iPlayerRoleImage/*Ref UIImage'Default__TdUILobbyPlayerWidget.iPlayerRoleImage'*/;
+		BackgroundImageComponent = Default__TdUILobbyPlayerWidget_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__TdUILobbyPlayerWidget.BackgroundImageTemplate'*/;
+		EventProvider = Default__TdUILobbyPlayerWidget_WidgetEventComponent/*Ref UIComp_Event'Default__TdUILobbyPlayerWidget.WidgetEventComponent'*/;
 	}
 }
 }

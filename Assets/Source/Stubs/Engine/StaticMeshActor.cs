@@ -59,7 +59,7 @@ public partial class StaticMeshActor : StaticMeshActorBase/*
 			AlwaysLoadOnServer = false,
 		}/* Reference: TdLOIRenderingComponent'Default__StaticMeshActor.LOIRenderer' */;
 		// Object Offset:0x003EE14E
-		StaticMeshComponent = Default__StaticMeshActor_StaticMeshComponent0;
+		StaticMeshComponent = Default__StaticMeshActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__StaticMeshActor.StaticMeshComponent0'*/;
 		LOILookAtDelay = -1.0f;
 		LOIMinDuration = 1.50f;
 		LOIDistance = 1500.0f;
@@ -71,10 +71,10 @@ public partial class StaticMeshActor : StaticMeshActorBase/*
 		};
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__StaticMeshActor_StaticMeshComponent0,
-			Default__StaticMeshActor_LOIRenderer,
+			Default__StaticMeshActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__StaticMeshActor.StaticMeshComponent0'*/,
+			Default__StaticMeshActor_LOIRenderer/*Ref TdLOIRenderingComponent'Default__StaticMeshActor.LOIRenderer'*/,
 		};
-		CollisionComponent = Default__StaticMeshActor_StaticMeshComponent0;
+		CollisionComponent = Default__StaticMeshActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__StaticMeshActor.StaticMeshComponent0'*/;
 	}
 }
 }

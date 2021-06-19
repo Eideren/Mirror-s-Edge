@@ -9,6 +9,9 @@ public partial class ParticleModuleSubUV : ParticleModuleSubUVBase/*
 	
 	public ParticleModuleSubUV()
 	{
+		var Default__ParticleModuleSubUV_DistributionSubImage = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleSubUV.DistributionSubImage' */;
 		// Object Offset:0x00382D11
 		SubImageIndex = new DistributionFloat.RawDistributionFloat
 		{

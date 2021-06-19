@@ -84,6 +84,12 @@ public partial class TdProj_Grenade : TdProjectile/*
 	}
 	public TdProj_Grenade()
 	{
+		var Default__TdProj_Grenade_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdProj_Grenade.CollisionCylinder' */;
+		var Default__TdProj_Grenade_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdProj_Grenade.Sprite' */;
 		// Object Offset:0x0064E0CC
 		TimeToExplode = 9.0f;
 		ExplodingSound = LoadAsset<SoundCue>("A_WP_Default.Fire.Reverb")/*Ref SoundCue'A_WP_Default.Fire.Reverb'*/;
@@ -96,7 +102,7 @@ public partial class TdProj_Grenade : TdProjectile/*
 		MaxSpeed = 0.0f;
 		Damage = 50.0f;
 		MomentumTransfer = 1.0f;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdProj_Grenade.CollisionCylinder")/*Ref CylinderComponent'Default__TdProj_Grenade.CollisionCylinder'*/;
+		CylinderComponent = Default__TdProj_Grenade_CollisionCylinder/*Ref CylinderComponent'Default__TdProj_Grenade.CollisionCylinder'*/;
 		bAlwaysRelevant = true;
 		bNetInitialRotation = true;
 		bKillDuringLevelTransition = true;
@@ -104,13 +110,13 @@ public partial class TdProj_Grenade : TdProjectile/*
 		bBounce = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdProj_Grenade.Sprite")/*Ref SpriteComponent'Default__TdProj_Grenade.Sprite'*/,
-			LoadAsset<CylinderComponent>("Default__TdProj_Grenade.CollisionCylinder")/*Ref CylinderComponent'Default__TdProj_Grenade.CollisionCylinder'*/,
+			Default__TdProj_Grenade_Sprite/*Ref SpriteComponent'Default__TdProj_Grenade.Sprite'*/,
+			Default__TdProj_Grenade_CollisionCylinder/*Ref CylinderComponent'Default__TdProj_Grenade.CollisionCylinder'*/,
 		};
 		Physics = Actor.EPhysics.PHYS_RigidBody;
 		TickGroup = Object.ETickingGroup.TG_PostAsyncWork;
 		LifeSpan = 10.0f;
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdProj_Grenade.CollisionCylinder")/*Ref CylinderComponent'Default__TdProj_Grenade.CollisionCylinder'*/;
+		CollisionComponent = Default__TdProj_Grenade_CollisionCylinder/*Ref CylinderComponent'Default__TdProj_Grenade.CollisionCylinder'*/;
 	}
 }
 }

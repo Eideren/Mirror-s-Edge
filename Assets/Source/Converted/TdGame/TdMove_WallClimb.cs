@@ -223,7 +223,7 @@ public partial class TdMove_WallClimb : TdPhysicsMove/*
 		MinWallHeight = 180.0f;
 		MinUpwardsVelocityToDoubleJump = 100.0f;
 		MaxIntoWallClimbVelocityToDoubleJump = 100.0f;
-		IntoWallClimbWaveform = Default__TdMove_WallClimb_IntoWallClimbWaveformObj;
+		IntoWallClimbWaveform = Default__TdMove_WallClimb_IntoWallClimbWaveformObj/*Ref ForceFeedbackWaveform'Default__TdMove_WallClimb.IntoWallClimbWaveformObj'*/;
 		PawnPhysics = Actor.EPhysics.PHYS_WallClimbing;
 		ControllerState = (name)"PlayerWallWalking";
 		bCheckForGrab = true;

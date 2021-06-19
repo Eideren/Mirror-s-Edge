@@ -82,23 +82,32 @@ public partial class Teleporter : NavigationPoint/*
 			// Object Offset:0x004D06A6
 			Sprite = LoadAsset<Texture2D>("EngineResources.S_Teleport")/*Ref Texture2D'EngineResources.S_Teleport'*/,
 		}/* Reference: SpriteComponent'Default__Teleporter.Sprite' */;
+		var Default__Teleporter_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__Teleporter.Sprite2' */;
+		var Default__Teleporter_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__Teleporter.Arrow' */;
+		var Default__Teleporter_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__Teleporter.PathRenderer' */;
 		// Object Offset:0x003FA344
 		bChangesYaw = true;
 		bEnabled = true;
-		CylinderComponent = Default__Teleporter_CollisionCylinder;
-		GoodSprite = Default__Teleporter_Sprite;
-		BadSprite = LoadAsset<SpriteComponent>("Default__Teleporter.Sprite2")/*Ref SpriteComponent'Default__Teleporter.Sprite2'*/;
+		CylinderComponent = Default__Teleporter_CollisionCylinder/*Ref CylinderComponent'Default__Teleporter.CollisionCylinder'*/;
+		GoodSprite = Default__Teleporter_Sprite/*Ref SpriteComponent'Default__Teleporter.Sprite'*/;
+		BadSprite = Default__Teleporter_Sprite2/*Ref SpriteComponent'Default__Teleporter.Sprite2'*/;
 		bCollideActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__Teleporter_Sprite,
-			LoadAsset<SpriteComponent>("Default__Teleporter.Sprite2")/*Ref SpriteComponent'Default__Teleporter.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__Teleporter.Arrow")/*Ref ArrowComponent'Default__Teleporter.Arrow'*/,
-			Default__Teleporter_CollisionCylinder,
-			LoadAsset<PathRenderingComponent>("Default__Teleporter.PathRenderer")/*Ref PathRenderingComponent'Default__Teleporter.PathRenderer'*/,
+			Default__Teleporter_Sprite/*Ref SpriteComponent'Default__Teleporter.Sprite'*/,
+			Default__Teleporter_Sprite2/*Ref SpriteComponent'Default__Teleporter.Sprite2'*/,
+			Default__Teleporter_Arrow/*Ref ArrowComponent'Default__Teleporter.Arrow'*/,
+			Default__Teleporter_CollisionCylinder/*Ref CylinderComponent'Default__Teleporter.CollisionCylinder'*/,
+			Default__Teleporter_PathRenderer/*Ref PathRenderingComponent'Default__Teleporter.PathRenderer'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
-		CollisionComponent = Default__Teleporter_CollisionCylinder;
+		CollisionComponent = Default__Teleporter_CollisionCylinder/*Ref CylinderComponent'Default__Teleporter.CollisionCylinder'*/;
 	}
 }
 }

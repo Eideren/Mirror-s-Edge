@@ -124,8 +124,11 @@ public partial class TdUIScene_EndOfRace : TdUIScene/*
 	
 	public TdUIScene_EndOfRace()
 	{
+		var Default__TdUIScene_EndOfRace_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_EndOfRace.SceneEventComponent' */;
 		// Object Offset:0x00698051
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_EndOfRace.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_EndOfRace.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_EndOfRace_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_EndOfRace.SceneEventComponent'*/;
 	}
 }
 }

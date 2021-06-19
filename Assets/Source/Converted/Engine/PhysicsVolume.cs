@@ -223,15 +223,15 @@ public partial class PhysicsVolume : Volume/*
 		DamageType = ClassT<DamageType>()/*Ref Class'DamageType'*/;
 		FluidFriction = 0.30f;
 		MaxDampingForce = 1000000.0f;
-		BrushComponent = Default__PhysicsVolume_BrushComponent0;
+		BrushComponent = Default__PhysicsVolume_BrushComponent0/*Ref BrushComponent'Default__PhysicsVolume.BrushComponent0'*/;
 		bAlwaysRelevant = true;
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__PhysicsVolume_BrushComponent0,
+			Default__PhysicsVolume_BrushComponent0/*Ref BrushComponent'Default__PhysicsVolume.BrushComponent0'*/,
 		};
 		NetUpdateFrequency = 0.10f;
-		CollisionComponent = Default__PhysicsVolume_BrushComponent0;
+		CollisionComponent = Default__PhysicsVolume_BrushComponent0/*Ref BrushComponent'Default__PhysicsVolume.BrushComponent0'*/;
 	}
 }
 }

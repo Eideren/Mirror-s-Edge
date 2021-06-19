@@ -6,22 +6,25 @@ public partial class DynamicSMActor_Spawnable : DynamicSMActor/*
 		hidecategories(Navigation)*/{
 	public DynamicSMActor_Spawnable()
 	{
+		var Default__DynamicSMActor_Spawnable_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+		}/* Reference: DynamicLightEnvironmentComponent'Default__DynamicSMActor_Spawnable.MyLightEnvironment' */;
 		var Default__DynamicSMActor_Spawnable_StaticMeshComponent0 = new StaticMeshComponent
 		{
 			// Object Offset:0x005797E2
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__DynamicSMActor_Spawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__DynamicSMActor_Spawnable.MyLightEnvironment'*/,
+			LightEnvironment = Default__DynamicSMActor_Spawnable_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__DynamicSMActor_Spawnable.MyLightEnvironment'*/,
 		}/* Reference: StaticMeshComponent'Default__DynamicSMActor_Spawnable.StaticMeshComponent0' */;
 		// Object Offset:0x00313181
-		StaticMeshComponent = Default__DynamicSMActor_Spawnable_StaticMeshComponent0;
-		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__DynamicSMActor_Spawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__DynamicSMActor_Spawnable.MyLightEnvironment'*/;
+		StaticMeshComponent = Default__DynamicSMActor_Spawnable_StaticMeshComponent0/*Ref StaticMeshComponent'Default__DynamicSMActor_Spawnable.StaticMeshComponent0'*/;
+		LightEnvironment = Default__DynamicSMActor_Spawnable_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__DynamicSMActor_Spawnable.MyLightEnvironment'*/;
 		bCollideActors = true;
 		bBlockActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<DynamicLightEnvironmentComponent>("Default__DynamicSMActor_Spawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__DynamicSMActor_Spawnable.MyLightEnvironment'*/,
-			Default__DynamicSMActor_Spawnable_StaticMeshComponent0,
+			Default__DynamicSMActor_Spawnable_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__DynamicSMActor_Spawnable.MyLightEnvironment'*/,
+			Default__DynamicSMActor_Spawnable_StaticMeshComponent0/*Ref StaticMeshComponent'Default__DynamicSMActor_Spawnable.StaticMeshComponent0'*/,
 		};
-		CollisionComponent = Default__DynamicSMActor_Spawnable_StaticMeshComponent0;
+		CollisionComponent = Default__DynamicSMActor_Spawnable_StaticMeshComponent0/*Ref StaticMeshComponent'Default__DynamicSMActor_Spawnable.StaticMeshComponent0'*/;
 	}
 }
 }

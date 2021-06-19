@@ -15,14 +15,26 @@ public partial class TdUIComp_MenuListPresenter : TdUIComp_ListPresenterBase/* w
 	
 	public TdUIComp_MenuListPresenter()
 	{
+		var Default__TdUIComp_MenuListPresenter_NormalOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_MenuListPresenter.NormalOverlayTemplate' */;
+		var Default__TdUIComp_MenuListPresenter_ActiveOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_MenuListPresenter.ActiveOverlayTemplate' */;
+		var Default__TdUIComp_MenuListPresenter_SelectionOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_MenuListPresenter.SelectionOverlayTemplate' */;
+		var Default__TdUIComp_MenuListPresenter_HoverOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_MenuListPresenter.HoverOverlayTemplate' */;
 		// Object Offset:0x006830CD
 		CaptionHeight = 20;
 		ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
 		{ 
-			[0] = LoadAsset<UITexture>("Default__TdUIComp_MenuListPresenter.NormalOverlayTemplate")/*Ref UITexture'Default__TdUIComp_MenuListPresenter.NormalOverlayTemplate'*/,
-			[1] = LoadAsset<UITexture>("Default__TdUIComp_MenuListPresenter.ActiveOverlayTemplate")/*Ref UITexture'Default__TdUIComp_MenuListPresenter.ActiveOverlayTemplate'*/,
-			[2] = LoadAsset<UITexture>("Default__TdUIComp_MenuListPresenter.SelectionOverlayTemplate")/*Ref UITexture'Default__TdUIComp_MenuListPresenter.SelectionOverlayTemplate'*/,
-			[3] = LoadAsset<UITexture>("Default__TdUIComp_MenuListPresenter.HoverOverlayTemplate")/*Ref UITexture'Default__TdUIComp_MenuListPresenter.HoverOverlayTemplate'*/,
+			[0] = Default__TdUIComp_MenuListPresenter_NormalOverlayTemplate/*Ref UITexture'Default__TdUIComp_MenuListPresenter.NormalOverlayTemplate'*/,
+			[1] = Default__TdUIComp_MenuListPresenter_ActiveOverlayTemplate/*Ref UITexture'Default__TdUIComp_MenuListPresenter.ActiveOverlayTemplate'*/,
+			[2] = Default__TdUIComp_MenuListPresenter_SelectionOverlayTemplate/*Ref UITexture'Default__TdUIComp_MenuListPresenter.SelectionOverlayTemplate'*/,
+			[3] = Default__TdUIComp_MenuListPresenter_HoverOverlayTemplate/*Ref UITexture'Default__TdUIComp_MenuListPresenter.HoverOverlayTemplate'*/,
 	 	};
 	}
 }

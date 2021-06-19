@@ -52,8 +52,11 @@ public partial class TdUIScene_EndOfLevelRace : TdUIScene/*
 	
 	public TdUIScene_EndOfLevelRace()
 	{
+		var Default__TdUIScene_EndOfLevelRace_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_EndOfLevelRace.SceneEventComponent' */;
 		// Object Offset:0x00695E41
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_EndOfLevelRace.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_EndOfLevelRace.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_EndOfLevelRace_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_EndOfLevelRace.SceneEventComponent'*/;
 	}
 }
 }

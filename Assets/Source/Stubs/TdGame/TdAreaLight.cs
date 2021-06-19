@@ -23,11 +23,6 @@ public partial class TdAreaLight : PointLight/*
 			AlwaysLoadOnClient = false,
 			AlwaysLoadOnServer = false,
 		}/* Reference: DrawBoxComponent'Default__TdAreaLight.DrawBoxComponent0' */;
-		var Default__TdAreaLight_PointLightComponent0 = new PointLightComponent
-		{
-			// Object Offset:0x01D76313
-			PreviewLightRadius = LoadAsset<DrawLightRadiusComponent>("Default__TdAreaLight.DrawLightRadius0")/*Ref DrawLightRadiusComponent'Default__TdAreaLight.DrawLightRadius0'*/,
-		}/* Reference: PointLightComponent'Default__TdAreaLight.PointLightComponent0' */;
 		var Default__TdAreaLight_DrawLightRadius0 = new DrawLightRadiusComponent
 		{
 			// Object Offset:0x01B6857E
@@ -38,6 +33,14 @@ public partial class TdAreaLight : PointLight/*
 				Z=0.010f
 			},
 		}/* Reference: DrawLightRadiusComponent'Default__TdAreaLight.DrawLightRadius0' */;
+		var Default__TdAreaLight_PointLightComponent0 = new PointLightComponent
+		{
+			// Object Offset:0x01D76313
+			PreviewLightRadius = Default__TdAreaLight_DrawLightRadius0/*Ref DrawLightRadiusComponent'Default__TdAreaLight.DrawLightRadius0'*/,
+		}/* Reference: PointLightComponent'Default__TdAreaLight.PointLightComponent0' */;
+		var Default__TdAreaLight_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAreaLight.Sprite' */;
 		var Default__TdAreaLight_ArrowComponent0 = new ArrowComponent
 		{
 			// Object Offset:0x01AB4066
@@ -62,16 +65,16 @@ public partial class TdAreaLight : PointLight/*
 			},
 		}/* Reference: ArrowComponent'Default__TdAreaLight.ArrowComponent0' */;
 		// Object Offset:0x00509407
-		BoxComponent = Default__TdAreaLight_DrawBoxComponent0;
+		BoxComponent = Default__TdAreaLight_DrawBoxComponent0/*Ref DrawBoxComponent'Default__TdAreaLight.DrawBoxComponent0'*/;
 		WindowLightAngle = 0.20f;
-		LightComponent = Default__TdAreaLight_PointLightComponent0;
+		LightComponent = Default__TdAreaLight_PointLightComponent0/*Ref PointLightComponent'Default__TdAreaLight.PointLightComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAreaLight.Sprite")/*Ref SpriteComponent'Default__TdAreaLight.Sprite'*/,
-			Default__TdAreaLight_DrawLightRadius0,
-			Default__TdAreaLight_PointLightComponent0,
-			Default__TdAreaLight_DrawBoxComponent0,
-			Default__TdAreaLight_ArrowComponent0,
+			Default__TdAreaLight_Sprite/*Ref SpriteComponent'Default__TdAreaLight.Sprite'*/,
+			Default__TdAreaLight_DrawLightRadius0/*Ref DrawLightRadiusComponent'Default__TdAreaLight.DrawLightRadius0'*/,
+			Default__TdAreaLight_PointLightComponent0/*Ref PointLightComponent'Default__TdAreaLight.PointLightComponent0'*/,
+			Default__TdAreaLight_DrawBoxComponent0/*Ref DrawBoxComponent'Default__TdAreaLight.DrawBoxComponent0'*/,
+			Default__TdAreaLight_ArrowComponent0/*Ref ArrowComponent'Default__TdAreaLight.ArrowComponent0'*/,
 		};
 		Rotation = new Rotator
 		{

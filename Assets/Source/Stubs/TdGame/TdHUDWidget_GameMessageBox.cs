@@ -7,9 +7,12 @@ public partial class TdHUDWidget_GameMessageBox : TdHUDWidget/*
 	
 	public TdHUDWidget_GameMessageBox()
 	{
+		var Default__TdHUDWidget_GameMessageBox_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdHUDWidget_GameMessageBox.WidgetEventComponent' */;
 		// Object Offset:0x005775FC
 		requiresTick = true;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdHUDWidget_GameMessageBox.WidgetEventComponent")/*Ref UIComp_Event'Default__TdHUDWidget_GameMessageBox.WidgetEventComponent'*/;
+		EventProvider = Default__TdHUDWidget_GameMessageBox_WidgetEventComponent/*Ref UIComp_Event'Default__TdHUDWidget_GameMessageBox.WidgetEventComponent'*/;
 	}
 }
 }

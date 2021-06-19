@@ -128,10 +128,13 @@ public partial class UISlider : UIObject,
 				DefaultStyleTag = (name)"DefaultSliderMarkerStyle",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UISlider.SliderMarkerImageTemplate' */;
+		var Default__UISlider_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UISlider.WidgetEventComponent' */;
 		// Object Offset:0x00450883
-		BackgroundImageComponent = Default__UISlider_SliderBackgroundImageTemplate;
-		SliderBarImageComponent = Default__UISlider_SliderBarImageTemplate;
-		MarkerImageComponent = Default__UISlider_SliderMarkerImageTemplate;
+		BackgroundImageComponent = Default__UISlider_SliderBackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UISlider.SliderBackgroundImageTemplate'*/;
+		SliderBarImageComponent = Default__UISlider_SliderBarImageTemplate/*Ref UIComp_DrawImage'Default__UISlider.SliderBarImageTemplate'*/;
+		MarkerImageComponent = Default__UISlider_SliderMarkerImageTemplate/*Ref UIComp_DrawImage'Default__UISlider.SliderMarkerImageTemplate'*/;
 		DataSource = new UIRoot.UIDataStoreBinding
 		{
 			Subscriber = default,
@@ -198,7 +201,7 @@ public partial class UISlider : UIObject,
 			ClassT<UIState_Active>(),
 			ClassT<UIState_Pressed>(),
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__UISlider.WidgetEventComponent")/*Ref UIComp_Event'Default__UISlider.WidgetEventComponent'*/;
+		EventProvider = Default__UISlider_WidgetEventComponent/*Ref UIComp_Event'Default__UISlider.WidgetEventComponent'*/;
 		__NotifyActiveStateChanged__Delegate = (Sender, PlayerIndex, NewlyActiveState, PreviouslyActiveState) => OnStateChanged(Sender, PlayerIndex, NewlyActiveState, PreviouslyActiveState);
 	}
 }

@@ -23,33 +23,45 @@ public partial class TdMoveNode_GrabHeave : TdMoveNode/*
 			AlwaysLoadOnClient = false,
 			AlwaysLoadOnServer = false,
 		}/* Reference: SpriteComponent'Default__TdMoveNode_GrabHeave.Sprite_Grab' */;
+		var Default__TdMoveNode_GrabHeave_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdMoveNode_GrabHeave.CollisionCylinder' */;
 		var Default__TdMoveNode_GrabHeave_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x02E52295
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.VaultStartIcon")/*Ref Texture2D'TdEditorResources.VaultStartIcon'*/,
 		}/* Reference: SpriteComponent'Default__TdMoveNode_GrabHeave.Sprite' */;
+		var Default__TdMoveNode_GrabHeave_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdMoveNode_GrabHeave.Sprite2' */;
+		var Default__TdMoveNode_GrabHeave_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdMoveNode_GrabHeave.Arrow' */;
+		var Default__TdMoveNode_GrabHeave_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__TdMoveNode_GrabHeave.PathRenderer' */;
 		// Object Offset:0x005F2C9C
 		WallDistance = 140.0f;
 		MinWallHeight = 175.0f;
 		MaxWallHeight = 350.0f;
 		bDoAutoWallAdjustment = true;
-		MoveIcon = Default__TdMoveNode_GrabHeave_Sprite_Grab;
+		MoveIcon = Default__TdMoveNode_GrabHeave_Sprite_Grab/*Ref SpriteComponent'Default__TdMoveNode_GrabHeave.Sprite_Grab'*/;
 		MoveReachspecClass = ClassT<TdReachSpec_GrabHeave>()/*Ref Class'TdReachSpec_GrabHeave'*/;
 		SpecialMoveCost = 1200;
 		bNeedsVelocityToTrigger = false;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdMoveNode_GrabHeave.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode_GrabHeave.CollisionCylinder'*/;
-		GoodSprite = Default__TdMoveNode_GrabHeave_Sprite;
-		BadSprite = LoadAsset<SpriteComponent>("Default__TdMoveNode_GrabHeave.Sprite2")/*Ref SpriteComponent'Default__TdMoveNode_GrabHeave.Sprite2'*/;
+		CylinderComponent = Default__TdMoveNode_GrabHeave_CollisionCylinder/*Ref CylinderComponent'Default__TdMoveNode_GrabHeave.CollisionCylinder'*/;
+		GoodSprite = Default__TdMoveNode_GrabHeave_Sprite/*Ref SpriteComponent'Default__TdMoveNode_GrabHeave.Sprite'*/;
+		BadSprite = Default__TdMoveNode_GrabHeave_Sprite2/*Ref SpriteComponent'Default__TdMoveNode_GrabHeave.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdMoveNode_GrabHeave_Sprite,
-			LoadAsset<SpriteComponent>("Default__TdMoveNode_GrabHeave.Sprite2")/*Ref SpriteComponent'Default__TdMoveNode_GrabHeave.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__TdMoveNode_GrabHeave.Arrow")/*Ref ArrowComponent'Default__TdMoveNode_GrabHeave.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__TdMoveNode_GrabHeave.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode_GrabHeave.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__TdMoveNode_GrabHeave.PathRenderer")/*Ref PathRenderingComponent'Default__TdMoveNode_GrabHeave.PathRenderer'*/,
-			Default__TdMoveNode_GrabHeave_Sprite_Grab,
+			Default__TdMoveNode_GrabHeave_Sprite/*Ref SpriteComponent'Default__TdMoveNode_GrabHeave.Sprite'*/,
+			Default__TdMoveNode_GrabHeave_Sprite2/*Ref SpriteComponent'Default__TdMoveNode_GrabHeave.Sprite2'*/,
+			Default__TdMoveNode_GrabHeave_Arrow/*Ref ArrowComponent'Default__TdMoveNode_GrabHeave.Arrow'*/,
+			Default__TdMoveNode_GrabHeave_CollisionCylinder/*Ref CylinderComponent'Default__TdMoveNode_GrabHeave.CollisionCylinder'*/,
+			Default__TdMoveNode_GrabHeave_PathRenderer/*Ref PathRenderingComponent'Default__TdMoveNode_GrabHeave.PathRenderer'*/,
+			Default__TdMoveNode_GrabHeave_Sprite_Grab/*Ref SpriteComponent'Default__TdMoveNode_GrabHeave.Sprite_Grab'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdMoveNode_GrabHeave.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode_GrabHeave.CollisionCylinder'*/;
+		CollisionComponent = Default__TdMoveNode_GrabHeave_CollisionCylinder/*Ref CylinderComponent'Default__TdMoveNode_GrabHeave.CollisionCylinder'*/;
 	}
 }
 }

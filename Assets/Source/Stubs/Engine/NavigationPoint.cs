@@ -289,13 +289,16 @@ public partial class NavigationPoint : Actor/*
 			},
 			ArrowSize = 0.50f,
 		}/* Reference: ArrowComponent'Default__NavigationPoint.Arrow' */;
+		var Default__NavigationPoint_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__NavigationPoint.PathRenderer' */;
 		// Object Offset:0x002AFAF2
 		bMayCausePain = true;
 		bMustTouchToReach = true;
 		bIsSkippable = true;
-		CylinderComponent = Default__NavigationPoint_CollisionCylinder;
-		GoodSprite = Default__NavigationPoint_Sprite;
-		BadSprite = Default__NavigationPoint_Sprite2;
+		CylinderComponent = Default__NavigationPoint_CollisionCylinder/*Ref CylinderComponent'Default__NavigationPoint.CollisionCylinder'*/;
+		GoodSprite = Default__NavigationPoint_Sprite/*Ref SpriteComponent'Default__NavigationPoint.Sprite'*/;
+		BadSprite = Default__NavigationPoint_Sprite2/*Ref SpriteComponent'Default__NavigationPoint.Sprite2'*/;
 		NetworkID = -1;
 		Abbrev = "NP?";
 		bStatic = true;
@@ -303,14 +306,14 @@ public partial class NavigationPoint : Actor/*
 		bCollideWhenPlacing = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__NavigationPoint_Sprite,
-			Default__NavigationPoint_Sprite2,
-			Default__NavigationPoint_Arrow,
-			Default__NavigationPoint_CollisionCylinder,
-			LoadAsset<PathRenderingComponent>("Default__NavigationPoint.PathRenderer")/*Ref PathRenderingComponent'Default__NavigationPoint.PathRenderer'*/,
+			Default__NavigationPoint_Sprite/*Ref SpriteComponent'Default__NavigationPoint.Sprite'*/,
+			Default__NavigationPoint_Sprite2/*Ref SpriteComponent'Default__NavigationPoint.Sprite2'*/,
+			Default__NavigationPoint_Arrow/*Ref ArrowComponent'Default__NavigationPoint.Arrow'*/,
+			Default__NavigationPoint_CollisionCylinder/*Ref CylinderComponent'Default__NavigationPoint.CollisionCylinder'*/,
+			Default__NavigationPoint_PathRenderer/*Ref PathRenderingComponent'Default__NavigationPoint.PathRenderer'*/,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
-		CollisionComponent = Default__NavigationPoint_CollisionCylinder;
+		CollisionComponent = Default__NavigationPoint_CollisionCylinder/*Ref CylinderComponent'Default__NavigationPoint.CollisionCylinder'*/;
 	}
 }
 }

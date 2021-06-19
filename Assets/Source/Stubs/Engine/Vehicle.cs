@@ -328,6 +328,15 @@ public partial class Vehicle : Pawn/*
 	}
 	public Vehicle()
 	{
+		var Default__Vehicle_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+		}/* Reference: SceneCaptureCharacterComponent'Default__Vehicle.SceneCaptureCharacterComponent0' */;
+		var Default__Vehicle_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__Vehicle.DrawFrust0' */;
+		var Default__Vehicle_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__Vehicle.CollisionCylinder' */;
 		// Object Offset:0x003F2257
 		bAttachDriver = true;
 		bRetryPathfindingWithDriver = true;
@@ -340,17 +349,17 @@ public partial class Vehicle : Pawn/*
 		bCanBeBaseForPawns = true;
 		bDontPossess = true;
 		bPathfindsAsVehicle = true;
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__Vehicle.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__Vehicle.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__Vehicle.DrawFrust0")/*Ref DrawFrustumComponent'Default__Vehicle.DrawFrust0'*/;
+		SceneCapture = Default__Vehicle_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__Vehicle.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__Vehicle_DrawFrust0/*Ref DrawFrustumComponent'Default__Vehicle.DrawFrust0'*/;
 		LandMovementState = (name)"PlayerDriving";
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__Vehicle.CollisionCylinder")/*Ref CylinderComponent'Default__Vehicle.CollisionCylinder'*/;
+		CylinderComponent = Default__Vehicle_CollisionCylinder/*Ref CylinderComponent'Default__Vehicle.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCaptureCharacterComponent>("Default__Vehicle.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__Vehicle.SceneCaptureCharacterComponent0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__Vehicle.DrawFrust0")/*Ref DrawFrustumComponent'Default__Vehicle.DrawFrust0'*/,
-			LoadAsset<CylinderComponent>("Default__Vehicle.CollisionCylinder")/*Ref CylinderComponent'Default__Vehicle.CollisionCylinder'*/,
+			Default__Vehicle_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__Vehicle.SceneCaptureCharacterComponent0'*/,
+			Default__Vehicle_DrawFrust0/*Ref DrawFrustumComponent'Default__Vehicle.DrawFrust0'*/,
+			Default__Vehicle_CollisionCylinder/*Ref CylinderComponent'Default__Vehicle.CollisionCylinder'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__Vehicle.CollisionCylinder")/*Ref CylinderComponent'Default__Vehicle.CollisionCylinder'*/;
+		CollisionComponent = Default__Vehicle_CollisionCylinder/*Ref CylinderComponent'Default__Vehicle.CollisionCylinder'*/;
 	}
 }
 }

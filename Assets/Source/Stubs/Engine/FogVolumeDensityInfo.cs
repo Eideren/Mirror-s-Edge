@@ -32,11 +32,14 @@ public partial class FogVolumeDensityInfo : Info/*
 	
 	public FogVolumeDensityInfo()
 	{
+		var Default__FogVolumeDensityInfo_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__FogVolumeDensityInfo.Sprite' */;
 		// Object Offset:0x0031E475
 		bNoDelete = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__FogVolumeDensityInfo.Sprite")/*Ref SpriteComponent'Default__FogVolumeDensityInfo.Sprite'*/,
+			Default__FogVolumeDensityInfo_Sprite/*Ref SpriteComponent'Default__FogVolumeDensityInfo.Sprite'*/,
 		};
 	}
 }

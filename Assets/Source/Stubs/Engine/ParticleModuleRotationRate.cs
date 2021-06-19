@@ -9,6 +9,9 @@ public partial class ParticleModuleRotationRate : ParticleModuleRotationRateBase
 	
 	public ParticleModuleRotationRate()
 	{
+		var Default__ParticleModuleRotationRate_DistributionStartRotationRate = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleRotationRate.DistributionStartRotationRate' */;
 		// Object Offset:0x003815DC
 		StartRotationRate = new DistributionFloat.RawDistributionFloat
 		{

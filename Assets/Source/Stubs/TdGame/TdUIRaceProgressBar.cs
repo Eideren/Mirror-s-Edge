@@ -39,6 +39,9 @@ public partial class TdUIRaceProgressBar : TdUIObject/*
 	
 	public TdUIRaceProgressBar()
 	{
+		var Default__TdUIRaceProgressBar_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIRaceProgressBar.WidgetEventComponent' */;
 		// Object Offset:0x0068CD18
 		SectionData = new array<float>
 		{
@@ -64,7 +67,7 @@ public partial class TdUIRaceProgressBar : TdUIObject/*
 		{
 			RequiredStyleClass = ClassT<UIStyle_Combo>()/*Ref Class'UIStyle_Combo'*/,
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIRaceProgressBar.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIRaceProgressBar.WidgetEventComponent'*/;
+		EventProvider = Default__TdUIRaceProgressBar_WidgetEventComponent/*Ref UIComp_Event'Default__TdUIRaceProgressBar.WidgetEventComponent'*/;
 	}
 }
 }

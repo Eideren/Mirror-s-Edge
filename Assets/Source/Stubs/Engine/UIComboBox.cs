@@ -151,6 +151,9 @@ public partial class UIComboBox : UIObject,
 	
 	public UIComboBox()
 	{
+		var Default__UIComboBox_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIComboBox.WidgetEventComponent' */;
 		// Object Offset:0x0041B835
 		ComboEditboxClass = ClassT<UIEditBox>()/*Ref Class'UIEditBox'*/;
 		ComboButtonClass = ClassT<UIToggleButton>()/*Ref Class'UIToggleButton'*/;
@@ -190,7 +193,7 @@ public partial class UIComboBox : UIObject,
 			ClassT<UIState_Focused>(),
 			ClassT<UIState_Pressed>(),
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIComboBox.WidgetEventComponent")/*Ref UIComp_Event'Default__UIComboBox.WidgetEventComponent'*/;
+		EventProvider = Default__UIComboBox_WidgetEventComponent/*Ref UIComp_Event'Default__UIComboBox.WidgetEventComponent'*/;
 	}
 }
 }

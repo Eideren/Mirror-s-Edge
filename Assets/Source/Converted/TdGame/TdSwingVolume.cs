@@ -33,17 +33,26 @@ public partial class TdSwingVolume : TdMovementVolume/*
 	
 	public TdSwingVolume()
 	{
+		var Default__TdSwingVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TdSwingVolume.BrushComponent0' */;
+		var Default__TdSwingVolume_WallDir = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdSwingVolume.WallDir' */;
+		var Default__TdSwingVolume_MovementMesh = new TdMoveVolumeRenderComponent
+		{
+		}/* Reference: TdMoveVolumeRenderComponent'Default__TdSwingVolume.MovementMesh' */;
 		// Object Offset:0x006740FD
 		bThickGrip = true;
 		bLatent = true;
-		BrushComponent = LoadAsset<BrushComponent>("Default__TdSwingVolume.BrushComponent0")/*Ref BrushComponent'Default__TdSwingVolume.BrushComponent0'*/;
+		BrushComponent = Default__TdSwingVolume_BrushComponent0/*Ref BrushComponent'Default__TdSwingVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TdSwingVolume.BrushComponent0")/*Ref BrushComponent'Default__TdSwingVolume.BrushComponent0'*/,
-			LoadAsset<ArrowComponent>("Default__TdSwingVolume.WallDir")/*Ref ArrowComponent'Default__TdSwingVolume.WallDir'*/,
-			LoadAsset<TdMoveVolumeRenderComponent>("Default__TdSwingVolume.MovementMesh")/*Ref TdMoveVolumeRenderComponent'Default__TdSwingVolume.MovementMesh'*/,
+			Default__TdSwingVolume_BrushComponent0/*Ref BrushComponent'Default__TdSwingVolume.BrushComponent0'*/,
+			Default__TdSwingVolume_WallDir/*Ref ArrowComponent'Default__TdSwingVolume.WallDir'*/,
+			Default__TdSwingVolume_MovementMesh/*Ref TdMoveVolumeRenderComponent'Default__TdSwingVolume.MovementMesh'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TdSwingVolume.BrushComponent0")/*Ref BrushComponent'Default__TdSwingVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TdSwingVolume_BrushComponent0/*Ref BrushComponent'Default__TdSwingVolume.BrushComponent0'*/;
 	}
 }
 }

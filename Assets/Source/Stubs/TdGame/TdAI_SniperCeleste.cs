@@ -41,10 +41,13 @@ public partial class TdAI_SniperCeleste : TdAI_Sniper/*
 	}
 	public TdAI_SniperCeleste()
 	{
+		var Default__TdAI_SniperCeleste_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAI_SniperCeleste.Sprite' */;
 		// Object Offset:0x004E2744
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAI_SniperCeleste.Sprite")/*Ref SpriteComponent'Default__TdAI_SniperCeleste.Sprite'*/,
+			Default__TdAI_SniperCeleste_Sprite/*Ref SpriteComponent'Default__TdAI_SniperCeleste.Sprite'*/,
 		};
 	}
 }

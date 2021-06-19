@@ -40,8 +40,11 @@ public partial class UIPrefab : UIObject/*
 	
 	public UIPrefab()
 	{
+		var Default__UIPrefab_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIPrefab.WidgetEventComponent' */;
 		// Object Offset:0x00448089
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIPrefab.WidgetEventComponent")/*Ref UIComp_Event'Default__UIPrefab.WidgetEventComponent'*/;
+		EventProvider = Default__UIPrefab_WidgetEventComponent/*Ref UIComp_Event'Default__UIPrefab.WidgetEventComponent'*/;
 	}
 }
 }

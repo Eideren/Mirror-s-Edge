@@ -8,13 +8,19 @@ public partial class TdSpectatorPoint : CameraActor/*
 	
 	public TdSpectatorPoint()
 	{
+		var Default__TdSpectatorPoint_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__TdSpectatorPoint.DrawFrust0' */;
+		var Default__TdSpectatorPoint_CamMesh0 = new StaticMeshComponent
+		{
+		}/* Reference: StaticMeshComponent'Default__TdSpectatorPoint.CamMesh0' */;
 		// Object Offset:0x0065BDAD
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdSpectatorPoint.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdSpectatorPoint.DrawFrust0'*/;
-		MeshComp = LoadAsset<StaticMeshComponent>("Default__TdSpectatorPoint.CamMesh0")/*Ref StaticMeshComponent'Default__TdSpectatorPoint.CamMesh0'*/;
+		DrawFrustum = Default__TdSpectatorPoint_DrawFrust0/*Ref DrawFrustumComponent'Default__TdSpectatorPoint.DrawFrust0'*/;
+		MeshComp = Default__TdSpectatorPoint_CamMesh0/*Ref StaticMeshComponent'Default__TdSpectatorPoint.CamMesh0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<StaticMeshComponent>("Default__TdSpectatorPoint.CamMesh0")/*Ref StaticMeshComponent'Default__TdSpectatorPoint.CamMesh0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__TdSpectatorPoint.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdSpectatorPoint.DrawFrust0'*/,
+			Default__TdSpectatorPoint_CamMesh0/*Ref StaticMeshComponent'Default__TdSpectatorPoint.CamMesh0'*/,
+			Default__TdSpectatorPoint_DrawFrust0/*Ref DrawFrustumComponent'Default__TdSpectatorPoint.DrawFrust0'*/,
 		};
 	}
 }

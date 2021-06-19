@@ -136,6 +136,9 @@ public partial class TdStashpoint : Actor/*
 	}
 	public TdStashpoint()
 	{
+		var Default__TdStashpoint_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdStashpoint.CollisionCylinder' */;
 		// Object Offset:0x00537E37
 		TerritoryOfTeam = -1;
 		bNotifyKismet = true;
@@ -145,11 +148,11 @@ public partial class TdStashpoint : Actor/*
 		bCollideWorld = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<CylinderComponent>("Default__TdStashpoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdStashpoint.CollisionCylinder'*/,
+			Default__TdStashpoint_CollisionCylinder/*Ref CylinderComponent'Default__TdStashpoint.CollisionCylinder'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetPriority = 3.0f;
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdStashpoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdStashpoint.CollisionCylinder'*/;
+		CollisionComponent = Default__TdStashpoint_CollisionCylinder/*Ref CylinderComponent'Default__TdStashpoint.CollisionCylinder'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

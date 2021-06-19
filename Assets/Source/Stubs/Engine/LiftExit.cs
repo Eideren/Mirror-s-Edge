@@ -27,27 +27,39 @@ public partial class LiftExit : NavigationPoint/*
 	
 	public LiftExit()
 	{
+		var Default__LiftExit_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__LiftExit.CollisionCylinder' */;
 		var Default__LiftExit_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x004CFCE2
 			Sprite = LoadAsset<Texture2D>("EngineResources.lift_exit")/*Ref Texture2D'EngineResources.lift_exit'*/,
 		}/* Reference: SpriteComponent'Default__LiftExit.Sprite' */;
+		var Default__LiftExit_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__LiftExit.Sprite2' */;
+		var Default__LiftExit_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__LiftExit.Arrow' */;
+		var Default__LiftExit_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__LiftExit.PathRenderer' */;
 		// Object Offset:0x00351822
 		bNeverUseStrafing = true;
 		bForceNoStrafing = true;
 		bSpecialMove = true;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__LiftExit.CollisionCylinder")/*Ref CylinderComponent'Default__LiftExit.CollisionCylinder'*/;
-		GoodSprite = Default__LiftExit_Sprite;
-		BadSprite = LoadAsset<SpriteComponent>("Default__LiftExit.Sprite2")/*Ref SpriteComponent'Default__LiftExit.Sprite2'*/;
+		CylinderComponent = Default__LiftExit_CollisionCylinder/*Ref CylinderComponent'Default__LiftExit.CollisionCylinder'*/;
+		GoodSprite = Default__LiftExit_Sprite/*Ref SpriteComponent'Default__LiftExit.Sprite'*/;
+		BadSprite = Default__LiftExit_Sprite2/*Ref SpriteComponent'Default__LiftExit.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__LiftExit_Sprite,
-			LoadAsset<SpriteComponent>("Default__LiftExit.Sprite2")/*Ref SpriteComponent'Default__LiftExit.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__LiftExit.Arrow")/*Ref ArrowComponent'Default__LiftExit.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__LiftExit.CollisionCylinder")/*Ref CylinderComponent'Default__LiftExit.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__LiftExit.PathRenderer")/*Ref PathRenderingComponent'Default__LiftExit.PathRenderer'*/,
+			Default__LiftExit_Sprite/*Ref SpriteComponent'Default__LiftExit.Sprite'*/,
+			Default__LiftExit_Sprite2/*Ref SpriteComponent'Default__LiftExit.Sprite2'*/,
+			Default__LiftExit_Arrow/*Ref ArrowComponent'Default__LiftExit.Arrow'*/,
+			Default__LiftExit_CollisionCylinder/*Ref CylinderComponent'Default__LiftExit.CollisionCylinder'*/,
+			Default__LiftExit_PathRenderer/*Ref PathRenderingComponent'Default__LiftExit.PathRenderer'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__LiftExit.CollisionCylinder")/*Ref CylinderComponent'Default__LiftExit.CollisionCylinder'*/;
+		CollisionComponent = Default__LiftExit_CollisionCylinder/*Ref CylinderComponent'Default__LiftExit.CollisionCylinder'*/;
 	}
 }
 }

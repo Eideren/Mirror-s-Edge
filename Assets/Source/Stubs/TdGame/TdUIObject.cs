@@ -64,8 +64,11 @@ public partial class TdUIObject : UIObject/*
 	
 	public TdUIObject()
 	{
+		var Default__TdUIObject_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIObject.WidgetEventComponent' */;
 		// Object Offset:0x005764AB
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIObject.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIObject.WidgetEventComponent'*/;
+		EventProvider = Default__TdUIObject_WidgetEventComponent/*Ref UIComp_Event'Default__TdUIObject.WidgetEventComponent'*/;
 	}
 }
 }

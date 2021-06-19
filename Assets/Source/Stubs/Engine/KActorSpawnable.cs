@@ -22,21 +22,24 @@ public partial class KActorSpawnable : KActor/*
 	
 	public KActorSpawnable()
 	{
+		var Default__KActorSpawnable_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+		}/* Reference: DynamicLightEnvironmentComponent'Default__KActorSpawnable.MyLightEnvironment' */;
 		var Default__KActorSpawnable_StaticMeshComponent0 = new StaticMeshComponent
 		{
 			// Object Offset:0x005798BA
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KActorSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActorSpawnable.MyLightEnvironment'*/,
+			LightEnvironment = Default__KActorSpawnable_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__KActorSpawnable.MyLightEnvironment'*/,
 		}/* Reference: StaticMeshComponent'Default__KActorSpawnable.StaticMeshComponent0' */;
 		// Object Offset:0x0034B467
-		StaticMeshComponent = Default__KActorSpawnable_StaticMeshComponent0;
-		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KActorSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActorSpawnable.MyLightEnvironment'*/;
+		StaticMeshComponent = Default__KActorSpawnable_StaticMeshComponent0/*Ref StaticMeshComponent'Default__KActorSpawnable.StaticMeshComponent0'*/;
+		LightEnvironment = Default__KActorSpawnable_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__KActorSpawnable.MyLightEnvironment'*/;
 		bNoDelete = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<DynamicLightEnvironmentComponent>("Default__KActorSpawnable.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActorSpawnable.MyLightEnvironment'*/,
-			Default__KActorSpawnable_StaticMeshComponent0,
+			Default__KActorSpawnable_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__KActorSpawnable.MyLightEnvironment'*/,
+			Default__KActorSpawnable_StaticMeshComponent0/*Ref StaticMeshComponent'Default__KActorSpawnable.StaticMeshComponent0'*/,
 		};
-		CollisionComponent = Default__KActorSpawnable_StaticMeshComponent0;
+		CollisionComponent = Default__KActorSpawnable_StaticMeshComponent0/*Ref StaticMeshComponent'Default__KActorSpawnable.StaticMeshComponent0'*/;
 	}
 }
 }

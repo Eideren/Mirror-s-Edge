@@ -160,36 +160,48 @@ public partial class TdTimerCheckpoint : TdPlaceableCheckpoint/*
 			// Object Offset:0x02EA6F2F
 			StaticMesh = LoadAsset<StaticMesh>("TT_Checkpoints.S_Checkpoint_01")/*Ref StaticMesh'TT_Checkpoints.S_Checkpoint_01'*/,
 		}/* Reference: StaticMeshComponent'Default__TdTimerCheckpoint.MyMesh' */;
+		var Default__TdTimerCheckpoint_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdTimerCheckpoint.CollisionCylinder' */;
 		var Default__TdTimerCheckpoint_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x02E52819
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.Timer")/*Ref Texture2D'TdEditorResources.Timer'*/,
 		}/* Reference: SpriteComponent'Default__TdTimerCheckpoint.Sprite' */;
+		var Default__TdTimerCheckpoint_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdTimerCheckpoint.Sprite2' */;
+		var Default__TdTimerCheckpoint_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdTimerCheckpoint.Arrow' */;
+		var Default__TdTimerCheckpoint_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__TdTimerCheckpoint.PathRenderer' */;
 		// Object Offset:0x00676817
 		InitialHeight = -1.0f;
 		InitialRadius = -1.0f;
-		EffectPSComponent = Default__TdTimerCheckpoint_ArrowComponent;
+		EffectPSComponent = Default__TdTimerCheckpoint_ArrowComponent/*Ref ParticleSystemComponent'Default__TdTimerCheckpoint.ArrowComponent'*/;
 		FadeTime = 0.50f;
-		CheckpointTimeMesh = Default__TdTimerCheckpoint_MyTimerMesh;
-		CheckpointFinishlineMesh = Default__TdTimerCheckpoint_MyFinishlineMesh;
-		CheckpointMesh = Default__TdTimerCheckpoint_MyMesh;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdTimerCheckpoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdTimerCheckpoint.CollisionCylinder'*/;
-		GoodSprite = Default__TdTimerCheckpoint_Sprite;
-		BadSprite = LoadAsset<SpriteComponent>("Default__TdTimerCheckpoint.Sprite2")/*Ref SpriteComponent'Default__TdTimerCheckpoint.Sprite2'*/;
+		CheckpointTimeMesh = Default__TdTimerCheckpoint_MyTimerMesh/*Ref StaticMeshComponent'Default__TdTimerCheckpoint.MyTimerMesh'*/;
+		CheckpointFinishlineMesh = Default__TdTimerCheckpoint_MyFinishlineMesh/*Ref StaticMeshComponent'Default__TdTimerCheckpoint.MyFinishlineMesh'*/;
+		CheckpointMesh = Default__TdTimerCheckpoint_MyMesh/*Ref StaticMeshComponent'Default__TdTimerCheckpoint.MyMesh'*/;
+		CylinderComponent = Default__TdTimerCheckpoint_CollisionCylinder/*Ref CylinderComponent'Default__TdTimerCheckpoint.CollisionCylinder'*/;
+		GoodSprite = Default__TdTimerCheckpoint_Sprite/*Ref SpriteComponent'Default__TdTimerCheckpoint.Sprite'*/;
+		BadSprite = Default__TdTimerCheckpoint_Sprite2/*Ref SpriteComponent'Default__TdTimerCheckpoint.Sprite2'*/;
 		bStatic = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdTimerCheckpoint_Sprite,
-			LoadAsset<SpriteComponent>("Default__TdTimerCheckpoint.Sprite2")/*Ref SpriteComponent'Default__TdTimerCheckpoint.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__TdTimerCheckpoint.Arrow")/*Ref ArrowComponent'Default__TdTimerCheckpoint.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__TdTimerCheckpoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdTimerCheckpoint.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__TdTimerCheckpoint.PathRenderer")/*Ref PathRenderingComponent'Default__TdTimerCheckpoint.PathRenderer'*/,
-			Default__TdTimerCheckpoint_MyMesh,
-			Default__TdTimerCheckpoint_MyTimerMesh,
-			Default__TdTimerCheckpoint_MyFinishlineMesh,
-			Default__TdTimerCheckpoint_ArrowComponent,
+			Default__TdTimerCheckpoint_Sprite/*Ref SpriteComponent'Default__TdTimerCheckpoint.Sprite'*/,
+			Default__TdTimerCheckpoint_Sprite2/*Ref SpriteComponent'Default__TdTimerCheckpoint.Sprite2'*/,
+			Default__TdTimerCheckpoint_Arrow/*Ref ArrowComponent'Default__TdTimerCheckpoint.Arrow'*/,
+			Default__TdTimerCheckpoint_CollisionCylinder/*Ref CylinderComponent'Default__TdTimerCheckpoint.CollisionCylinder'*/,
+			Default__TdTimerCheckpoint_PathRenderer/*Ref PathRenderingComponent'Default__TdTimerCheckpoint.PathRenderer'*/,
+			Default__TdTimerCheckpoint_MyMesh/*Ref StaticMeshComponent'Default__TdTimerCheckpoint.MyMesh'*/,
+			Default__TdTimerCheckpoint_MyTimerMesh/*Ref StaticMeshComponent'Default__TdTimerCheckpoint.MyTimerMesh'*/,
+			Default__TdTimerCheckpoint_MyFinishlineMesh/*Ref StaticMeshComponent'Default__TdTimerCheckpoint.MyFinishlineMesh'*/,
+			Default__TdTimerCheckpoint_ArrowComponent/*Ref ParticleSystemComponent'Default__TdTimerCheckpoint.ArrowComponent'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdTimerCheckpoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdTimerCheckpoint.CollisionCylinder'*/;
+		CollisionComponent = Default__TdTimerCheckpoint_CollisionCylinder/*Ref CylinderComponent'Default__TdTimerCheckpoint.CollisionCylinder'*/;
 	}
 }
 }

@@ -42,8 +42,8 @@ public partial class TdDmgType_ElectricShock : TdDamageType{
 		DamageZDirection = 0.20f;
 		bCausePhysicalHitReaction = false;
 		bExtraMomentumZ = false;
-		DamagedFFWaveform = Default__TdDmgType_ElectricShock_ForceFeedbackWaveform0;
-		KilledFFWaveform = Default__TdDmgType_ElectricShock_ForceFeedbackWaveform1;
+		DamagedFFWaveform = Default__TdDmgType_ElectricShock_ForceFeedbackWaveform0/*Ref ForceFeedbackWaveform'Default__TdDmgType_ElectricShock.ForceFeedbackWaveform0'*/;
+		KilledFFWaveform = Default__TdDmgType_ElectricShock_ForceFeedbackWaveform1/*Ref ForceFeedbackWaveform'Default__TdDmgType_ElectricShock.ForceFeedbackWaveform1'*/;
 	}
 }
 }

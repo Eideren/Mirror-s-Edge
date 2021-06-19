@@ -8,14 +8,20 @@ public partial class GameProjectile : Projectile/*
 		hidecategories(Navigation)*/{
 	public GameProjectile()
 	{
+		var Default__GameProjectile_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__GameProjectile.CollisionCylinder' */;
+		var Default__GameProjectile_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__GameProjectile.Sprite' */;
 		// Object Offset:0x00007733
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__GameProjectile.CollisionCylinder")/*Ref CylinderComponent'Default__GameProjectile.CollisionCylinder'*/;
+		CylinderComponent = Default__GameProjectile_CollisionCylinder/*Ref CylinderComponent'Default__GameProjectile.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__GameProjectile.Sprite")/*Ref SpriteComponent'Default__GameProjectile.Sprite'*/,
-			LoadAsset<CylinderComponent>("Default__GameProjectile.CollisionCylinder")/*Ref CylinderComponent'Default__GameProjectile.CollisionCylinder'*/,
+			Default__GameProjectile_Sprite/*Ref SpriteComponent'Default__GameProjectile.Sprite'*/,
+			Default__GameProjectile_CollisionCylinder/*Ref CylinderComponent'Default__GameProjectile.CollisionCylinder'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__GameProjectile.CollisionCylinder")/*Ref CylinderComponent'Default__GameProjectile.CollisionCylinder'*/;
+		CollisionComponent = Default__GameProjectile_CollisionCylinder/*Ref CylinderComponent'Default__GameProjectile.CollisionCylinder'*/;
 	}
 }
 }

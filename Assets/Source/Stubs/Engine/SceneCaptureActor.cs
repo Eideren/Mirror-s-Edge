@@ -21,7 +21,7 @@ public partial class SceneCaptureActor : Actor/*
 		bNoDelete = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__SceneCaptureActor_Sprite,
+			Default__SceneCaptureActor_Sprite/*Ref SpriteComponent'Default__SceneCaptureActor.Sprite'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 	}

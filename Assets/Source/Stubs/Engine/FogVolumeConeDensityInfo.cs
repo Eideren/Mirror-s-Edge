@@ -8,11 +8,6 @@ public partial class FogVolumeConeDensityInfo : FogVolumeDensityInfo/*
 		hidecategories(Navigation,Collision)*/{
 	public FogVolumeConeDensityInfo()
 	{
-		var Default__FogVolumeConeDensityInfo_FogVolumeComponent0 = new FogVolumeConeDensityComponent
-		{
-			// Object Offset:0x00468E97
-			PreviewCone = LoadAsset<DrawLightConeComponent>("Default__FogVolumeConeDensityInfo.DrawCone0")/*Ref DrawLightConeComponent'Default__FogVolumeConeDensityInfo.DrawCone0'*/,
-		}/* Reference: FogVolumeConeDensityComponent'Default__FogVolumeConeDensityInfo.FogVolumeComponent0' */;
 		var Default__FogVolumeConeDensityInfo_DrawCone0 = new DrawLightConeComponent
 		{
 			// Object Offset:0x00468AEB
@@ -24,13 +19,21 @@ public partial class FogVolumeConeDensityInfo : FogVolumeDensityInfo/*
 				A=255
 			},
 		}/* Reference: DrawLightConeComponent'Default__FogVolumeConeDensityInfo.DrawCone0' */;
+		var Default__FogVolumeConeDensityInfo_FogVolumeComponent0 = new FogVolumeConeDensityComponent
+		{
+			// Object Offset:0x00468E97
+			PreviewCone = Default__FogVolumeConeDensityInfo_DrawCone0/*Ref DrawLightConeComponent'Default__FogVolumeConeDensityInfo.DrawCone0'*/,
+		}/* Reference: FogVolumeConeDensityComponent'Default__FogVolumeConeDensityInfo.FogVolumeComponent0' */;
+		var Default__FogVolumeConeDensityInfo_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__FogVolumeConeDensityInfo.Sprite' */;
 		// Object Offset:0x0031E586
-		DensityComponent = Default__FogVolumeConeDensityInfo_FogVolumeComponent0;
+		DensityComponent = Default__FogVolumeConeDensityInfo_FogVolumeComponent0/*Ref FogVolumeConeDensityComponent'Default__FogVolumeConeDensityInfo.FogVolumeComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__FogVolumeConeDensityInfo.Sprite")/*Ref SpriteComponent'Default__FogVolumeConeDensityInfo.Sprite'*/,
-			Default__FogVolumeConeDensityInfo_DrawCone0,
-			Default__FogVolumeConeDensityInfo_FogVolumeComponent0,
+			Default__FogVolumeConeDensityInfo_Sprite/*Ref SpriteComponent'Default__FogVolumeConeDensityInfo.Sprite'*/,
+			Default__FogVolumeConeDensityInfo_DrawCone0/*Ref DrawLightConeComponent'Default__FogVolumeConeDensityInfo.DrawCone0'*/,
+			Default__FogVolumeConeDensityInfo_FogVolumeComponent0/*Ref FogVolumeConeDensityComponent'Default__FogVolumeConeDensityInfo.FogVolumeComponent0'*/,
 		};
 	}
 }

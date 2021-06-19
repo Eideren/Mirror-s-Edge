@@ -75,7 +75,7 @@ public partial class TdWeapon_Pistol_Glock18c : TdWeapon_Light/*
 		MuzzleFlashSocket = (name)"Muzzleflash";
 		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_Shell9mm_Auto")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_Shell9mm_Auto'*/;
 		ShellEjectSocket = (name)"ShellEject";
-		FiringWaveform = Default__TdWeapon_Pistol_Glock18c_FiringWaveformObj;
+		FiringWaveform = Default__TdWeapon_Pistol_Glock18c_FiringWaveformObj/*Ref ForceFeedbackWaveform'Default__TdWeapon_Pistol_Glock18c.FiringWaveformObj'*/;
 		ReloadTime = 2.0f;
 		InstantHitDamageMP = new array<float>
 		{
@@ -104,8 +104,8 @@ public partial class TdWeapon_Pistol_Glock18c : TdWeapon_Light/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18")/*Ref TdAnimSet'AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/;
-		Mesh1p = Default__TdWeapon_Pistol_Glock18c_FirstPersonMesh;
-		Mesh3p = Default__TdWeapon_Pistol_Glock18c_ThirdPersonMesh;
+		Mesh1p = Default__TdWeapon_Pistol_Glock18c_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Glock18c.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_Pistol_Glock18c_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Glock18c.ThirdPersonMesh'*/;
 		CombatRange_Min = 1200.0f;
 		CombatRange_Max = 2500.0f;
 		AimedBurst_Near = new TdWeapon.AIBurstInfo
@@ -170,13 +170,13 @@ public partial class TdWeapon_Pistol_Glock18c : TdWeapon_Light/*
 		};
 		EquipTime = 0.750f;
 		WeaponRange = 4500.0f;
-		Mesh = Default__TdWeapon_Pistol_Glock18c_FirstPersonMesh;
-		DroppedPickupMesh = Default__TdWeapon_Pistol_Glock18c_ThirdPersonMesh;
-		PickupFactoryMesh = Default__TdWeapon_Pistol_Glock18c_FirstPersonMesh;
+		Mesh = Default__TdWeapon_Pistol_Glock18c_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Glock18c.FirstPersonMesh'*/;
+		DroppedPickupMesh = Default__TdWeapon_Pistol_Glock18c_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Glock18c.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_Pistol_Glock18c_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Glock18c.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdWeapon_Pistol_Glock18c_FirstPersonMesh,
-			Default__TdWeapon_Pistol_Glock18c_ThirdPersonMesh,
+			Default__TdWeapon_Pistol_Glock18c_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Glock18c.FirstPersonMesh'*/,
+			Default__TdWeapon_Pistol_Glock18c_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Glock18c.ThirdPersonMesh'*/,
 		};
 	}
 }

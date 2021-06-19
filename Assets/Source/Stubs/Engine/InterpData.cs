@@ -37,9 +37,9 @@ public partial class InterpData : SequenceVariable/*
 		InterpLength = 5.0f;
 		DefaultFilters = new array<InterpFilter>
 		{
-			Default__InterpData_FilterAll,
-			Default__InterpData_FilterCameras,
-			Default__InterpData_FilterSkeletalMeshes,
+			Default__InterpData_FilterAll/*Ref InterpFilter'Default__InterpData.FilterAll'*/,
+			Default__InterpData_FilterCameras/*Ref InterpFilter_Classes'Default__InterpData.FilterCameras'*/,
+			Default__InterpData_FilterSkeletalMeshes/*Ref InterpFilter_Classes'Default__InterpData.FilterSkeletalMeshes'*/,
 		};
 		EdSectionStart = 1.0f;
 		EdSectionEnd = 2.0f;

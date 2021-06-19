@@ -117,7 +117,7 @@ public partial class EmitterPool : Actor/*
 			AbsoluteRotation = true,
 		}/* Reference: ParticleSystemComponent'Default__EmitterPool.ParticleSystemComponent0' */;
 		// Object Offset:0x00317B7C
-		PSCTemplate = Default__EmitterPool_ParticleSystemComponent0;
+		PSCTemplate = Default__EmitterPool_ParticleSystemComponent0/*Ref ParticleSystemComponent'Default__EmitterPool.ParticleSystemComponent0'*/;
 		SMC_MIC_ReductionTime = 2.50f;
 		IdealStaticMeshComponents = 250;
 		IdealMaterialInstanceConstants = 250;

@@ -54,8 +54,11 @@ public partial class TdUIScene_ObjectivesScene : TdUIScene/*
 	
 	public TdUIScene_ObjectivesScene()
 	{
+		var Default__TdUIScene_ObjectivesScene_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_ObjectivesScene.SceneEventComponent' */;
 		// Object Offset:0x0068F2B2
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_ObjectivesScene.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_ObjectivesScene.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_ObjectivesScene_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_ObjectivesScene.SceneEventComponent'*/;
 	}
 }
 }

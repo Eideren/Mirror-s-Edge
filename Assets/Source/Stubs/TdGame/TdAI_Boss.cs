@@ -19,10 +19,13 @@ public partial class TdAI_Boss : TdAIController/*
 	
 	public TdAI_Boss()
 	{
+		var Default__TdAI_Boss_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAI_Boss.Sprite' */;
 		// Object Offset:0x004D0FA2
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAI_Boss.Sprite")/*Ref SpriteComponent'Default__TdAI_Boss.Sprite'*/,
+			Default__TdAI_Boss_Sprite/*Ref SpriteComponent'Default__TdAI_Boss.Sprite'*/,
 		};
 	}
 }

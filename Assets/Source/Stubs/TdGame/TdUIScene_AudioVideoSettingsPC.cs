@@ -6,8 +6,11 @@ public partial class TdUIScene_AudioVideoSettingsPC : TdUIScene_AudioVideoSettin
 		hidecategories(Object,UIRoot,Object)*/{
 	public TdUIScene_AudioVideoSettingsPC()
 	{
+		var Default__TdUIScene_AudioVideoSettingsPC_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_AudioVideoSettingsPC.SceneEventComponent' */;
 		// Object Offset:0x0068E3D1
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_AudioVideoSettingsPC.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_AudioVideoSettingsPC.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_AudioVideoSettingsPC_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_AudioVideoSettingsPC.SceneEventComponent'*/;
 	}
 }
 }

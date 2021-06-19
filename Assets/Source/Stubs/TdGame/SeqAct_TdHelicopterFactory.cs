@@ -9,8 +9,11 @@ public partial class SeqAct_TdHelicopterFactory : SeqAct_ActorFactoryEx/*
 	
 	public SeqAct_TdHelicopterFactory()
 	{
+		var Default__SeqAct_TdHelicopterFactory_TdHelicopterFactory = new TdActorFactoryHelicopter
+		{
+		}/* Reference: TdActorFactoryHelicopter'Default__SeqAct_TdHelicopterFactory.TdHelicopterFactory' */;
 		// Object Offset:0x0049BA88
-		Factory = LoadAsset<TdActorFactoryHelicopter>("Default__SeqAct_TdHelicopterFactory.TdHelicopterFactory")/*Ref TdActorFactoryHelicopter'Default__SeqAct_TdHelicopterFactory.TdHelicopterFactory'*/;
+		Factory = Default__SeqAct_TdHelicopterFactory_TdHelicopterFactory/*Ref TdActorFactoryHelicopter'Default__SeqAct_TdHelicopterFactory.TdHelicopterFactory'*/;
 		VariableLinks = new array<SequenceOp.SeqVarLink>
 		{
 			new SequenceOp.SeqVarLink

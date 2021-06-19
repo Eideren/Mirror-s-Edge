@@ -7,8 +7,11 @@ public partial class TdUIScene_Overlay : TdUIScene/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public TdUIScene_Overlay()
 	{
+		var Default__TdUIScene_Overlay_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_Overlay.SceneEventComponent' */;
 		// Object Offset:0x0055B569
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_Overlay.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_Overlay.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_Overlay_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_Overlay.SceneEventComponent'*/;
 	}
 }
 }

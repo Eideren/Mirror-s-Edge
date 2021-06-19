@@ -113,25 +113,37 @@ public partial class TdPlaceableCheckpoint : NavigationPoint,
 			CollisionRadius = 100.0f,
 			CollideActors = true,
 		}/* Reference: CylinderComponent'Default__TdPlaceableCheckpoint.CollisionCylinder' */;
+		var Default__TdPlaceableCheckpoint_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdPlaceableCheckpoint.Sprite' */;
+		var Default__TdPlaceableCheckpoint_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdPlaceableCheckpoint.Sprite2' */;
+		var Default__TdPlaceableCheckpoint_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdPlaceableCheckpoint.Arrow' */;
+		var Default__TdPlaceableCheckpoint_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__TdPlaceableCheckpoint.PathRenderer' */;
 		// Object Offset:0x0060E364
 		bEnabled = true;
 		bActive = true;
 		bShouldBeBased = true;
-		CheckpointMesh = Default__TdPlaceableCheckpoint_MyMesh;
-		CylinderComponent = Default__TdPlaceableCheckpoint_CollisionCylinder;
-		GoodSprite = LoadAsset<SpriteComponent>("Default__TdPlaceableCheckpoint.Sprite")/*Ref SpriteComponent'Default__TdPlaceableCheckpoint.Sprite'*/;
-		BadSprite = LoadAsset<SpriteComponent>("Default__TdPlaceableCheckpoint.Sprite2")/*Ref SpriteComponent'Default__TdPlaceableCheckpoint.Sprite2'*/;
+		CheckpointMesh = Default__TdPlaceableCheckpoint_MyMesh/*Ref StaticMeshComponent'Default__TdPlaceableCheckpoint.MyMesh'*/;
+		CylinderComponent = Default__TdPlaceableCheckpoint_CollisionCylinder/*Ref CylinderComponent'Default__TdPlaceableCheckpoint.CollisionCylinder'*/;
+		GoodSprite = Default__TdPlaceableCheckpoint_Sprite/*Ref SpriteComponent'Default__TdPlaceableCheckpoint.Sprite'*/;
+		BadSprite = Default__TdPlaceableCheckpoint_Sprite2/*Ref SpriteComponent'Default__TdPlaceableCheckpoint.Sprite2'*/;
 		bCollideActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdPlaceableCheckpoint.Sprite")/*Ref SpriteComponent'Default__TdPlaceableCheckpoint.Sprite'*/,
-			LoadAsset<SpriteComponent>("Default__TdPlaceableCheckpoint.Sprite2")/*Ref SpriteComponent'Default__TdPlaceableCheckpoint.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__TdPlaceableCheckpoint.Arrow")/*Ref ArrowComponent'Default__TdPlaceableCheckpoint.Arrow'*/,
-			Default__TdPlaceableCheckpoint_CollisionCylinder,
-			LoadAsset<PathRenderingComponent>("Default__TdPlaceableCheckpoint.PathRenderer")/*Ref PathRenderingComponent'Default__TdPlaceableCheckpoint.PathRenderer'*/,
-			Default__TdPlaceableCheckpoint_MyMesh,
+			Default__TdPlaceableCheckpoint_Sprite/*Ref SpriteComponent'Default__TdPlaceableCheckpoint.Sprite'*/,
+			Default__TdPlaceableCheckpoint_Sprite2/*Ref SpriteComponent'Default__TdPlaceableCheckpoint.Sprite2'*/,
+			Default__TdPlaceableCheckpoint_Arrow/*Ref ArrowComponent'Default__TdPlaceableCheckpoint.Arrow'*/,
+			Default__TdPlaceableCheckpoint_CollisionCylinder/*Ref CylinderComponent'Default__TdPlaceableCheckpoint.CollisionCylinder'*/,
+			Default__TdPlaceableCheckpoint_PathRenderer/*Ref PathRenderingComponent'Default__TdPlaceableCheckpoint.PathRenderer'*/,
+			Default__TdPlaceableCheckpoint_MyMesh/*Ref StaticMeshComponent'Default__TdPlaceableCheckpoint.MyMesh'*/,
 		};
-		CollisionComponent = Default__TdPlaceableCheckpoint_CollisionCylinder;
+		CollisionComponent = Default__TdPlaceableCheckpoint_CollisionCylinder/*Ref CylinderComponent'Default__TdPlaceableCheckpoint.CollisionCylinder'*/;
 	}
 }
 }

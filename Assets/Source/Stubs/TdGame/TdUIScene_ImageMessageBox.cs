@@ -18,8 +18,11 @@ public partial class TdUIScene_ImageMessageBox : TdUIScene_MessageBox/*
 	
 	public TdUIScene_ImageMessageBox()
 	{
+		var Default__TdUIScene_ImageMessageBox_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_ImageMessageBox.SceneEventComponent' */;
 		// Object Offset:0x00561FFA
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_ImageMessageBox.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_ImageMessageBox.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_ImageMessageBox_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_ImageMessageBox.SceneEventComponent'*/;
 	}
 }
 }

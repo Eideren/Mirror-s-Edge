@@ -323,6 +323,9 @@ public partial class KActor : DynamicSMActor/*
 	}
 	public KActor()
 	{
+		var Default__KActor_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+		}/* Reference: DynamicLightEnvironmentComponent'Default__KActor.MyLightEnvironment' */;
 		var Default__KActor_StaticMeshComponent0 = new StaticMeshComponent
 		{
 			// Object Offset:0x0034B244
@@ -333,7 +336,7 @@ public partial class KActor : DynamicSMActor/*
 				B=128,
 				A=255
 			},
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActor.MyLightEnvironment'*/,
+			LightEnvironment = Default__KActor_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__KActor.MyLightEnvironment'*/,
 			BlockRigidBody = true,
 			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
 			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
@@ -348,8 +351,8 @@ public partial class KActor : DynamicSMActor/*
 		LOILookAtDelay = -1.0f;
 		LOIMinDuration = 1.50f;
 		LOIDistance = 1500.0f;
-		StaticMeshComponent = Default__KActor_StaticMeshComponent0;
-		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__KActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActor.MyLightEnvironment'*/;
+		StaticMeshComponent = Default__KActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__KActor.StaticMeshComponent0'*/;
+		LightEnvironment = Default__KActor_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__KActor.MyLightEnvironment'*/;
 		bPawnCanBaseOn = false;
 		bSafeBaseIfAsleep = true;
 		bNoDelete = true;
@@ -364,12 +367,12 @@ public partial class KActor : DynamicSMActor/*
 		bNoEncroachCheck = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<DynamicLightEnvironmentComponent>("Default__KActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__KActor.MyLightEnvironment'*/,
-			Default__KActor_StaticMeshComponent0,
+			Default__KActor_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__KActor.MyLightEnvironment'*/,
+			Default__KActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__KActor.StaticMeshComponent0'*/,
 		};
 		Physics = Actor.EPhysics.PHYS_RigidBody;
 		TickGroup = Object.ETickingGroup.TG_PostAsyncWork;
-		CollisionComponent = Default__KActor_StaticMeshComponent0;
+		CollisionComponent = Default__KActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__KActor.StaticMeshComponent0'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

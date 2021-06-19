@@ -36,8 +36,8 @@ public partial class Note : Actor/*
 		bMovable = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__Note_Arrow,
-			Default__Note_Sprite,
+			Default__Note_Arrow/*Ref ArrowComponent'Default__Note.Arrow'*/,
+			Default__Note_Sprite/*Ref SpriteComponent'Default__Note.Sprite'*/,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
 	}

@@ -307,11 +307,23 @@ public partial class PickupFactory : NavigationPoint/*
 			CollisionRadius = 40.0f,
 			CollideActors = true,
 		}/* Reference: CylinderComponent'Default__PickupFactory.CollisionCylinder' */;
+		var Default__PickupFactory_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__PickupFactory.Sprite' */;
+		var Default__PickupFactory_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__PickupFactory.Sprite2' */;
+		var Default__PickupFactory_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__PickupFactory.Arrow' */;
+		var Default__PickupFactory_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__PickupFactory.PathRenderer' */;
 		// Object Offset:0x0039E8ED
 		bOnlyReplicateHidden = true;
-		CylinderComponent = Default__PickupFactory_CollisionCylinder;
-		GoodSprite = LoadAsset<SpriteComponent>("Default__PickupFactory.Sprite")/*Ref SpriteComponent'Default__PickupFactory.Sprite'*/;
-		BadSprite = LoadAsset<SpriteComponent>("Default__PickupFactory.Sprite2")/*Ref SpriteComponent'Default__PickupFactory.Sprite2'*/;
+		CylinderComponent = Default__PickupFactory_CollisionCylinder/*Ref CylinderComponent'Default__PickupFactory.CollisionCylinder'*/;
+		GoodSprite = Default__PickupFactory_Sprite/*Ref SpriteComponent'Default__PickupFactory.Sprite'*/;
+		BadSprite = Default__PickupFactory_Sprite2/*Ref SpriteComponent'Default__PickupFactory.Sprite2'*/;
 		bStatic = false;
 		bIgnoreEncroachers = true;
 		bAlwaysRelevant = true;
@@ -319,15 +331,15 @@ public partial class PickupFactory : NavigationPoint/*
 		bCollideActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__PickupFactory.Sprite")/*Ref SpriteComponent'Default__PickupFactory.Sprite'*/,
-			LoadAsset<SpriteComponent>("Default__PickupFactory.Sprite2")/*Ref SpriteComponent'Default__PickupFactory.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__PickupFactory.Arrow")/*Ref ArrowComponent'Default__PickupFactory.Arrow'*/,
-			Default__PickupFactory_CollisionCylinder,
-			LoadAsset<PathRenderingComponent>("Default__PickupFactory.PathRenderer")/*Ref PathRenderingComponent'Default__PickupFactory.PathRenderer'*/,
+			Default__PickupFactory_Sprite/*Ref SpriteComponent'Default__PickupFactory.Sprite'*/,
+			Default__PickupFactory_Sprite2/*Ref SpriteComponent'Default__PickupFactory.Sprite2'*/,
+			Default__PickupFactory_Arrow/*Ref ArrowComponent'Default__PickupFactory.Arrow'*/,
+			Default__PickupFactory_CollisionCylinder/*Ref CylinderComponent'Default__PickupFactory.CollisionCylinder'*/,
+			Default__PickupFactory_PathRenderer/*Ref PathRenderingComponent'Default__PickupFactory.PathRenderer'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetUpdateFrequency = 1.0f;
-		CollisionComponent = Default__PickupFactory_CollisionCylinder;
+		CollisionComponent = Default__PickupFactory_CollisionCylinder/*Ref CylinderComponent'Default__PickupFactory.CollisionCylinder'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

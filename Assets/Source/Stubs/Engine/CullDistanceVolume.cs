@@ -44,13 +44,13 @@ public partial class CullDistanceVolume : Volume/*
 			},
 		};
 		bEnabled = true;
-		BrushComponent = Default__CullDistanceVolume_BrushComponent0;
+		BrushComponent = Default__CullDistanceVolume_BrushComponent0/*Ref BrushComponent'Default__CullDistanceVolume.BrushComponent0'*/;
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__CullDistanceVolume_BrushComponent0,
+			Default__CullDistanceVolume_BrushComponent0/*Ref BrushComponent'Default__CullDistanceVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__CullDistanceVolume_BrushComponent0;
+		CollisionComponent = Default__CullDistanceVolume_BrushComponent0/*Ref BrushComponent'Default__CullDistanceVolume.BrushComponent0'*/;
 		SupportedEvents = default;
 	}
 }

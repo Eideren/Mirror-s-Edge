@@ -11,6 +11,12 @@ public partial class TdExplosiveTargetArea : TdGrenadeTargetArea/*
 	
 	public TdExplosiveTargetArea()
 	{
+		var Default__TdExplosiveTargetArea_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdExplosiveTargetArea.Sprite' */;
+		var Default__TdExplosiveTargetArea_Renderer = new TdGrenadeTargetAreaRenderingComponent
+		{
+		}/* Reference: TdGrenadeTargetAreaRenderingComponent'Default__TdExplosiveTargetArea.Renderer' */;
 		// Object Offset:0x005451A0
 		ExplosiveLinkColor = new Color
 		{
@@ -30,8 +36,8 @@ public partial class TdExplosiveTargetArea : TdGrenadeTargetArea/*
 		};
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdExplosiveTargetArea.Sprite")/*Ref SpriteComponent'Default__TdExplosiveTargetArea.Sprite'*/,
-			LoadAsset<TdGrenadeTargetAreaRenderingComponent>("Default__TdExplosiveTargetArea.Renderer")/*Ref TdGrenadeTargetAreaRenderingComponent'Default__TdExplosiveTargetArea.Renderer'*/,
+			Default__TdExplosiveTargetArea_Sprite/*Ref SpriteComponent'Default__TdExplosiveTargetArea.Sprite'*/,
+			Default__TdExplosiveTargetArea_Renderer/*Ref TdGrenadeTargetAreaRenderingComponent'Default__TdExplosiveTargetArea.Renderer'*/,
 		};
 	}
 }

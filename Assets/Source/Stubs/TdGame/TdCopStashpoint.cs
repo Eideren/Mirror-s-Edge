@@ -62,9 +62,9 @@ public partial class TdCopStashpoint : TdStashpoint/*
 		bNoDelete = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdCopStashpoint_CollisionCylinder,
+			Default__TdCopStashpoint_CollisionCylinder/*Ref CylinderComponent'Default__TdCopStashpoint.CollisionCylinder'*/,
 		};
-		CollisionComponent = Default__TdCopStashpoint_CollisionCylinder;
+		CollisionComponent = Default__TdCopStashpoint_CollisionCylinder/*Ref CylinderComponent'Default__TdCopStashpoint.CollisionCylinder'*/;
 	}
 }
 }

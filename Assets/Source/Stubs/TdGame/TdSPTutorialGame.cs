@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -136,9 +138,7 @@ public partial class TdSPTutorialGame : TdSPGame,
 	{
 	
 	}
-
-
-
+	
 	void TdTutorialListener.OnPlayerSetMove( TdPawn.EMovement NewMove, TdPlayerPawn Pawn )
 	{
 		#warning interface inheritance through delegate instead of function
@@ -184,8 +184,6 @@ public partial class TdSPTutorialGame : TdSPGame,
 		#warning interface inheritance through delegate instead of function
 		this.OnAiKismetEvent(EventIdentifier);
 	}
-
-
 
 	public delegate void OnCheckpointCompleted_del(TdPlaceableCheckpoint Checkpoint, TdPlayerPawn Pawn, TdPlayerController Controller);
 	public virtual OnCheckpointCompleted_del OnCheckpointCompleted { get => bfield_OnCheckpointCompleted ?? TdSPTutorialGame_OnCheckpointCompleted; set => bfield_OnCheckpointCompleted = value; } OnCheckpointCompleted_del bfield_OnCheckpointCompleted;
@@ -676,6 +674,17 @@ public partial class TdSPTutorialGame : TdSPGame,
 	
 	return Waiting();
 	}
+
+	
+	
+	void TdCheckpointListener.OnCheckpointCompleted( TdPlaceableCheckpoint Checkpoint, TdPlayerPawn Pawn, TdPlayerController Controller )
+	{
+		#warning interface inheritance through delegate instead of function
+		this.OnCheckpointCompleted( Checkpoint, Pawn, Controller );
+	}
+	
+	
+	
 	public TdSPTutorialGame()
 	{
 		// Object Offset:0x00670828
@@ -689,14 +698,6 @@ public partial class TdSPTutorialGame : TdSPGame,
 		};
 		DefaultPawnClass = ClassT<TdTutorialPawn>()/*Ref Class'TdTutorialPawn'*/;
 		HUDType = ClassT<TdTutorialHUD>()/*Ref Class'TdTutorialHUD'*/;
-	}
-
-
-
-	void TdCheckpointListener.OnCheckpointCompleted( TdPlaceableCheckpoint Checkpoint, TdPlayerPawn Pawn, TdPlayerController Controller )
-	{
-		#warning interface inheritance through delegate instead of function
-		this.OnCheckpointCompleted( Checkpoint, Pawn, Controller );
 	}
 }
 }

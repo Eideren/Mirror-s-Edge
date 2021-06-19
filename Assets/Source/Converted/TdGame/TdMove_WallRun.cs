@@ -398,7 +398,7 @@ public partial class TdMove_WallRun : TdPhysicsMove/*
 		MaximumVelocityIntoWall = 700.0f;
 		WallrunStartUpperBodyAnimPlayRate = 0.60f;
 		LookAlongWallInterpolationTime = 0.20f;
-		IntoWallrunWaveform = Default__TdMove_WallRun_IntoWallrunWaveformObj;
+		IntoWallrunWaveform = Default__TdMove_WallRun_IntoWallrunWaveformObj/*Ref ForceFeedbackWaveform'Default__TdMove_WallRun.IntoWallrunWaveformObj'*/;
 		ControllerState = (name)"PlayerWallWalking";
 		bConstrainLook = true;
 		bUseAbsoluteYawConstraint = true;

@@ -43,6 +43,9 @@ public partial class TdHudHitIndicator : TdHUDObject/*
 	
 	public TdHudHitIndicator()
 	{
+		var Default__TdHudHitIndicator_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdHudHitIndicator.WidgetEventComponent' */;
 		// Object Offset:0x00577266
 		MaxNoOfIndicators = 3;
 		FadeTime = 0.50f;
@@ -67,7 +70,7 @@ public partial class TdHudHitIndicator : TdHUDObject/*
 				[3] = UIRoot.EPositionEvalType.EVALPOS_PercentageScene,
 			},
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdHudHitIndicator.WidgetEventComponent")/*Ref UIComp_Event'Default__TdHudHitIndicator.WidgetEventComponent'*/;
+		EventProvider = Default__TdHudHitIndicator_WidgetEventComponent/*Ref UIComp_Event'Default__TdHudHitIndicator.WidgetEventComponent'*/;
 	}
 }
 }

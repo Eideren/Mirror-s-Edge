@@ -22,18 +22,39 @@ public partial class UINumericOptionList : UIOptionListBase/*
 	
 	public UINumericOptionList()
 	{
+		var Default__UINumericOptionList_DecrementButtonTemplate_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UINumericOptionList.DecrementButtonTemplate.BackgroundImageTemplate' */;
+		var Default__UINumericOptionList_DecrementButtonTemplate_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UINumericOptionList.DecrementButtonTemplate.WidgetEventComponent' */;
 		var Default__UINumericOptionList_DecrementButtonTemplate = new UIOptionListButton
 		{
 			// Object Offset:0x005D3542
-			BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UINumericOptionList.DecrementButtonTemplate.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UINumericOptionList.DecrementButtonTemplate.BackgroundImageTemplate'*/,
-			EventProvider = LoadAsset<UIComp_Event>("Default__UINumericOptionList.DecrementButtonTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UINumericOptionList.DecrementButtonTemplate.WidgetEventComponent'*/,
+			BackgroundImageComponent = Default__UINumericOptionList_DecrementButtonTemplate_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UINumericOptionList.DecrementButtonTemplate.BackgroundImageTemplate'*/,
+			EventProvider = Default__UINumericOptionList_DecrementButtonTemplate_WidgetEventComponent/*Ref UIComp_Event'Default__UINumericOptionList.DecrementButtonTemplate.WidgetEventComponent'*/,
 		}/* Reference: UIOptionListButton'Default__UINumericOptionList.DecrementButtonTemplate' */;
+		var Default__UINumericOptionList_IncrementButtonTemplate_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UINumericOptionList.IncrementButtonTemplate.BackgroundImageTemplate' */;
+		var Default__UINumericOptionList_IncrementButtonTemplate_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UINumericOptionList.IncrementButtonTemplate.WidgetEventComponent' */;
 		var Default__UINumericOptionList_IncrementButtonTemplate = new UIOptionListButton
 		{
 			// Object Offset:0x005D3586
-			BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UINumericOptionList.IncrementButtonTemplate.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UINumericOptionList.IncrementButtonTemplate.BackgroundImageTemplate'*/,
-			EventProvider = LoadAsset<UIComp_Event>("Default__UINumericOptionList.IncrementButtonTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__UINumericOptionList.IncrementButtonTemplate.WidgetEventComponent'*/,
+			BackgroundImageComponent = Default__UINumericOptionList_IncrementButtonTemplate_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UINumericOptionList.IncrementButtonTemplate.BackgroundImageTemplate'*/,
+			EventProvider = Default__UINumericOptionList_IncrementButtonTemplate_WidgetEventComponent/*Ref UIComp_Event'Default__UINumericOptionList.IncrementButtonTemplate.WidgetEventComponent'*/,
 		}/* Reference: UIOptionListButton'Default__UINumericOptionList.IncrementButtonTemplate' */;
+		var Default__UINumericOptionList_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UINumericOptionList.BackgroundImageTemplate' */;
+		var Default__UINumericOptionList_LabelStringRenderer = new UIComp_DrawString
+		{
+		}/* Reference: UIComp_DrawString'Default__UINumericOptionList.LabelStringRenderer' */;
+		var Default__UINumericOptionList_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UINumericOptionList.WidgetEventComponent' */;
 		// Object Offset:0x00447635
 		RangeValue = new UIRoot.UIRangeData
 		{
@@ -43,20 +64,20 @@ public partial class UINumericOptionList : UIOptionListBase/*
 			NudgeValue = 1.0f,
 			bIntRange = false,
 		};
-		DecrementButton = Default__UINumericOptionList_DecrementButtonTemplate;
-		IncrementButton = Default__UINumericOptionList_IncrementButtonTemplate;
-		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UINumericOptionList.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UINumericOptionList.BackgroundImageTemplate'*/;
-		StringRenderComponent = LoadAsset<UIComp_DrawString>("Default__UINumericOptionList.LabelStringRenderer")/*Ref UIComp_DrawString'Default__UINumericOptionList.LabelStringRenderer'*/;
+		DecrementButton = Default__UINumericOptionList_DecrementButtonTemplate/*Ref UIOptionListButton'Default__UINumericOptionList.DecrementButtonTemplate'*/;
+		IncrementButton = Default__UINumericOptionList_IncrementButtonTemplate/*Ref UIOptionListButton'Default__UINumericOptionList.IncrementButtonTemplate'*/;
+		BackgroundImageComponent = Default__UINumericOptionList_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UINumericOptionList.BackgroundImageTemplate'*/;
+		StringRenderComponent = Default__UINumericOptionList_LabelStringRenderer/*Ref UIComp_DrawString'Default__UINumericOptionList.LabelStringRenderer'*/;
 		DataSource = new UIRoot.UIDataStoreBinding
 		{
 			RequiredFieldType = UIRoot.EUIDataProviderFieldType.DATATYPE_RangeProperty,
 		};
 		Children = new array<UIObject>
 		{
-			Default__UINumericOptionList_DecrementButtonTemplate,
-			Default__UINumericOptionList_IncrementButtonTemplate,
+			Default__UINumericOptionList_DecrementButtonTemplate/*Ref UIOptionListButton'Default__UINumericOptionList.DecrementButtonTemplate'*/,
+			Default__UINumericOptionList_IncrementButtonTemplate/*Ref UIOptionListButton'Default__UINumericOptionList.IncrementButtonTemplate'*/,
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__UINumericOptionList.WidgetEventComponent")/*Ref UIComp_Event'Default__UINumericOptionList.WidgetEventComponent'*/;
+		EventProvider = Default__UINumericOptionList_WidgetEventComponent/*Ref UIComp_Event'Default__UINumericOptionList.WidgetEventComponent'*/;
 	}
 }
 }

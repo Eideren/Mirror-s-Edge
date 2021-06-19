@@ -90,6 +90,12 @@ public partial class UICheckbox : UIButton,
 				DefaultStyleTag = (name)"DefaultCheckbox",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UICheckbox.CheckedImageTemplate' */;
+		var Default__UICheckbox_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UICheckbox.BackgroundImageTemplate' */;
+		var Default__UICheckbox_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UICheckbox.WidgetEventComponent' */;
 		// Object Offset:0x00419E86
 		CheckedCue = (name)"CheckboxChecked";
 		UncheckedCue = (name)"CheckboxUnchecked";
@@ -103,10 +109,10 @@ public partial class UICheckbox : UIButton,
 			DataStoreField = (name)"None",
 			ResolvedDataStore = default,
 		};
-		CheckedImageComponent = Default__UICheckbox_CheckedImageTemplate;
-		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UICheckbox.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UICheckbox.BackgroundImageTemplate'*/;
+		CheckedImageComponent = Default__UICheckbox_CheckedImageTemplate/*Ref UIComp_DrawImage'Default__UICheckbox.CheckedImageTemplate'*/;
+		BackgroundImageComponent = Default__UICheckbox_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UICheckbox.BackgroundImageTemplate'*/;
 		ClickedCue = (name)"None";
-		EventProvider = LoadAsset<UIComp_Event>("Default__UICheckbox.WidgetEventComponent")/*Ref UIComp_Event'Default__UICheckbox.WidgetEventComponent'*/;
+		EventProvider = Default__UICheckbox_WidgetEventComponent/*Ref UIComp_Event'Default__UICheckbox.WidgetEventComponent'*/;
 	}
 }
 }

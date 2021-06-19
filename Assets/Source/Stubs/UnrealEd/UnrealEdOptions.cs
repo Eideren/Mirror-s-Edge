@@ -41,6 +41,9 @@ public partial class UnrealEdOptions : Object/*
 	
 	public UnrealEdOptions()
 	{
+		var Default__UnrealEdOptions_EditorKeyBindingsInst = new UnrealEdKeyBindings
+		{
+		}/* Reference: UnrealEdKeyBindings'Default__UnrealEdOptions.EditorKeyBindingsInst' */;
 		// Object Offset:0x0002F9DA
 		EditorCategories = new array</*config */UnrealEdOptions.EditorCommandCategory>
 		{
@@ -296,7 +299,7 @@ public partial class UnrealEdOptions : Object/*
 				Description = "CurveEditor_ChangeInterpModeCONSTANT_Desc",
 			},
 		};
-		EditorKeyBindings = LoadAsset<UnrealEdKeyBindings>("Default__UnrealEdOptions.EditorKeyBindingsInst")/*Ref UnrealEdKeyBindings'Default__UnrealEdOptions.EditorKeyBindingsInst'*/;
+		EditorKeyBindings = Default__UnrealEdOptions_EditorKeyBindingsInst/*Ref UnrealEdKeyBindings'Default__UnrealEdOptions.EditorKeyBindingsInst'*/;
 	}
 }
 }

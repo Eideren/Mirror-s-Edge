@@ -15,13 +15,13 @@ public partial class TdReflectionVolume : Volume/*
 			BlockNonZeroExtent = false,
 		}/* Reference: BrushComponent'Default__TdReflectionVolume.BrushComponent0' */;
 		// Object Offset:0x0065485F
-		BrushComponent = Default__TdReflectionVolume_BrushComponent0;
+		BrushComponent = Default__TdReflectionVolume_BrushComponent0/*Ref BrushComponent'Default__TdReflectionVolume.BrushComponent0'*/;
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdReflectionVolume_BrushComponent0,
+			Default__TdReflectionVolume_BrushComponent0/*Ref BrushComponent'Default__TdReflectionVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__TdReflectionVolume_BrushComponent0;
+		CollisionComponent = Default__TdReflectionVolume_BrushComponent0/*Ref BrushComponent'Default__TdReflectionVolume.BrushComponent0'*/;
 	}
 }
 }

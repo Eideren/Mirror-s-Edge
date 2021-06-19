@@ -9,12 +9,15 @@ public partial class FluidSurfaceActor : Actor/*
 	
 	public FluidSurfaceActor()
 	{
+		var Default__FluidSurfaceActor_NewFluidComponent = new FluidSurfaceComponent
+		{
+		}/* Reference: FluidSurfaceComponent'Default__FluidSurfaceActor.NewFluidComponent' */;
 		// Object Offset:0x0031DCB5
-		Fluid = LoadAsset<FluidSurfaceComponent>("Default__FluidSurfaceActor.NewFluidComponent")/*Ref FluidSurfaceComponent'Default__FluidSurfaceActor.NewFluidComponent'*/;
+		Fluid = Default__FluidSurfaceActor_NewFluidComponent/*Ref FluidSurfaceComponent'Default__FluidSurfaceActor.NewFluidComponent'*/;
 		bMovable = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<FluidSurfaceComponent>("Default__FluidSurfaceActor.NewFluidComponent")/*Ref FluidSurfaceComponent'Default__FluidSurfaceActor.NewFluidComponent'*/,
+			Default__FluidSurfaceActor_NewFluidComponent/*Ref FluidSurfaceComponent'Default__FluidSurfaceActor.NewFluidComponent'*/,
 		};
 	}
 }

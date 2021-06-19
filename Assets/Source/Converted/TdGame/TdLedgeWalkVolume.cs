@@ -74,16 +74,25 @@ public partial class TdLedgeWalkVolume : TdMovementVolume/*
 	
 	public TdLedgeWalkVolume()
 	{
+		var Default__TdLedgeWalkVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TdLedgeWalkVolume.BrushComponent0' */;
+		var Default__TdLedgeWalkVolume_WallDir = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdLedgeWalkVolume.WallDir' */;
+		var Default__TdLedgeWalkVolume_MovementMesh = new TdMoveVolumeRenderComponent
+		{
+		}/* Reference: TdMoveVolumeRenderComponent'Default__TdLedgeWalkVolume.MovementMesh' */;
 		// Object Offset:0x00586B44
 		bLatent = true;
-		BrushComponent = LoadAsset<BrushComponent>("Default__TdLedgeWalkVolume.BrushComponent0")/*Ref BrushComponent'Default__TdLedgeWalkVolume.BrushComponent0'*/;
+		BrushComponent = Default__TdLedgeWalkVolume_BrushComponent0/*Ref BrushComponent'Default__TdLedgeWalkVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TdLedgeWalkVolume.BrushComponent0")/*Ref BrushComponent'Default__TdLedgeWalkVolume.BrushComponent0'*/,
-			LoadAsset<ArrowComponent>("Default__TdLedgeWalkVolume.WallDir")/*Ref ArrowComponent'Default__TdLedgeWalkVolume.WallDir'*/,
-			LoadAsset<TdMoveVolumeRenderComponent>("Default__TdLedgeWalkVolume.MovementMesh")/*Ref TdMoveVolumeRenderComponent'Default__TdLedgeWalkVolume.MovementMesh'*/,
+			Default__TdLedgeWalkVolume_BrushComponent0/*Ref BrushComponent'Default__TdLedgeWalkVolume.BrushComponent0'*/,
+			Default__TdLedgeWalkVolume_WallDir/*Ref ArrowComponent'Default__TdLedgeWalkVolume.WallDir'*/,
+			Default__TdLedgeWalkVolume_MovementMesh/*Ref TdMoveVolumeRenderComponent'Default__TdLedgeWalkVolume.MovementMesh'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TdLedgeWalkVolume.BrushComponent0")/*Ref BrushComponent'Default__TdLedgeWalkVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TdLedgeWalkVolume_BrushComponent0/*Ref BrushComponent'Default__TdLedgeWalkVolume.BrushComponent0'*/;
 	}
 }
 }

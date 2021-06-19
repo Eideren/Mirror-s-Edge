@@ -7,14 +7,20 @@ public partial class SkyLightToggleable : SkyLight/*
 		hidecategories(Navigation)*/{
 	public SkyLightToggleable()
 	{
+		var Default__SkyLightToggleable_SkyLightComponent0 = new SkyLightComponent
+		{
+		}/* Reference: SkyLightComponent'Default__SkyLightToggleable.SkyLightComponent0' */;
+		var Default__SkyLightToggleable_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__SkyLightToggleable.Sprite' */;
 		// Object Offset:0x003E8672
-		LightComponent = LoadAsset<SkyLightComponent>("Default__SkyLightToggleable.SkyLightComponent0")/*Ref SkyLightComponent'Default__SkyLightToggleable.SkyLightComponent0'*/;
+		LightComponent = Default__SkyLightToggleable_SkyLightComponent0/*Ref SkyLightComponent'Default__SkyLightToggleable.SkyLightComponent0'*/;
 		bStatic = false;
 		bHardAttach = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__SkyLightToggleable.Sprite")/*Ref SpriteComponent'Default__SkyLightToggleable.Sprite'*/,
-			LoadAsset<SkyLightComponent>("Default__SkyLightToggleable.SkyLightComponent0")/*Ref SkyLightComponent'Default__SkyLightToggleable.SkyLightComponent0'*/,
+			Default__SkyLightToggleable_Sprite/*Ref SpriteComponent'Default__SkyLightToggleable.Sprite'*/,
+			Default__SkyLightToggleable_SkyLightComponent0/*Ref SkyLightComponent'Default__SkyLightToggleable.SkyLightComponent0'*/,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
 	}

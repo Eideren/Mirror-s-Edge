@@ -7,12 +7,18 @@ public partial class FogVolumeConstantDensityInfo : FogVolumeDensityInfo/*
 		hidecategories(Navigation,Collision)*/{
 	public FogVolumeConstantDensityInfo()
 	{
+		var Default__FogVolumeConstantDensityInfo_FogVolumeComponent0 = new FogVolumeConstantDensityComponent
+		{
+		}/* Reference: FogVolumeConstantDensityComponent'Default__FogVolumeConstantDensityInfo.FogVolumeComponent0' */;
+		var Default__FogVolumeConstantDensityInfo_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__FogVolumeConstantDensityInfo.Sprite' */;
 		// Object Offset:0x0031E734
-		DensityComponent = LoadAsset<FogVolumeConstantDensityComponent>("Default__FogVolumeConstantDensityInfo.FogVolumeComponent0")/*Ref FogVolumeConstantDensityComponent'Default__FogVolumeConstantDensityInfo.FogVolumeComponent0'*/;
+		DensityComponent = Default__FogVolumeConstantDensityInfo_FogVolumeComponent0/*Ref FogVolumeConstantDensityComponent'Default__FogVolumeConstantDensityInfo.FogVolumeComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__FogVolumeConstantDensityInfo.Sprite")/*Ref SpriteComponent'Default__FogVolumeConstantDensityInfo.Sprite'*/,
-			LoadAsset<FogVolumeConstantDensityComponent>("Default__FogVolumeConstantDensityInfo.FogVolumeComponent0")/*Ref FogVolumeConstantDensityComponent'Default__FogVolumeConstantDensityInfo.FogVolumeComponent0'*/,
+			Default__FogVolumeConstantDensityInfo_Sprite/*Ref SpriteComponent'Default__FogVolumeConstantDensityInfo.Sprite'*/,
+			Default__FogVolumeConstantDensityInfo_FogVolumeComponent0/*Ref FogVolumeConstantDensityComponent'Default__FogVolumeConstantDensityInfo.FogVolumeComponent0'*/,
 		};
 	}
 }

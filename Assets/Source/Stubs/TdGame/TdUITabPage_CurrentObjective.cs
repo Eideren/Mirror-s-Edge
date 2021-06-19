@@ -43,8 +43,11 @@ public partial class TdUITabPage_CurrentObjective : TdUITabPage/*
 	
 	public TdUITabPage_CurrentObjective()
 	{
+		var Default__TdUITabPage_CurrentObjective_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUITabPage_CurrentObjective.WidgetEventComponent' */;
 		// Object Offset:0x006B845D
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUITabPage_CurrentObjective.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUITabPage_CurrentObjective.WidgetEventComponent'*/;
+		EventProvider = Default__TdUITabPage_CurrentObjective_WidgetEventComponent/*Ref UIComp_Event'Default__TdUITabPage_CurrentObjective.WidgetEventComponent'*/;
 	}
 }
 }

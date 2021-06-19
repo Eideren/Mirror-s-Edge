@@ -41,6 +41,9 @@ public partial class RB_ConstraintActor : Actor/*
 	
 	public RB_ConstraintActor()
 	{
+		var Default__RB_ConstraintActor_MyConstraintInstance = new RB_ConstraintInstance
+		{
+		}/* Reference: RB_ConstraintInstance'Default__RB_ConstraintActor.MyConstraintInstance' */;
 		var Default__RB_ConstraintActor_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x003AC32E
@@ -48,8 +51,11 @@ public partial class RB_ConstraintActor : Actor/*
 			AlwaysLoadOnClient = false,
 			AlwaysLoadOnServer = false,
 		}/* Reference: SpriteComponent'Default__RB_ConstraintActor.Sprite' */;
+		var Default__RB_ConstraintActor_MyConDrawComponent = new RB_ConstraintDrawComponent
+		{
+		}/* Reference: RB_ConstraintDrawComponent'Default__RB_ConstraintActor.MyConDrawComponent' */;
 		// Object Offset:0x003AC11B
-		ConstraintInstance = LoadAsset<RB_ConstraintInstance>("Default__RB_ConstraintActor.MyConstraintInstance")/*Ref RB_ConstraintInstance'Default__RB_ConstraintActor.MyConstraintInstance'*/;
+		ConstraintInstance = Default__RB_ConstraintActor_MyConstraintInstance/*Ref RB_ConstraintInstance'Default__RB_ConstraintActor.MyConstraintInstance'*/;
 		bUpdateActor1RefFrame = true;
 		bUpdateActor2RefFrame = true;
 		bHidden = true;
@@ -57,8 +63,8 @@ public partial class RB_ConstraintActor : Actor/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__RB_ConstraintActor_Sprite,
-			LoadAsset<RB_ConstraintDrawComponent>("Default__RB_ConstraintActor.MyConDrawComponent")/*Ref RB_ConstraintDrawComponent'Default__RB_ConstraintActor.MyConDrawComponent'*/,
+			Default__RB_ConstraintActor_Sprite/*Ref SpriteComponent'Default__RB_ConstraintActor.Sprite'*/,
+			Default__RB_ConstraintActor_MyConDrawComponent/*Ref RB_ConstraintDrawComponent'Default__RB_ConstraintActor.MyConDrawComponent'*/,
 		};
 		Physics = Actor.EPhysics.PHYS_RigidBody;
 		TickGroup = Object.ETickingGroup.TG_PostAsyncWork;

@@ -20,6 +20,9 @@ public partial class SceneCapture2DActor : SceneCaptureActor/*
 				A=255
 			},
 		}/* Reference: DrawFrustumComponent'Default__SceneCapture2DActor.DrawFrust0' */;
+		var Default__SceneCapture2DActor_SceneCapture2DComponent0 = new SceneCapture2DComponent
+		{
+		}/* Reference: SceneCapture2DComponent'Default__SceneCapture2DActor.SceneCapture2DComponent0' */;
 		var Default__SceneCapture2DActor_CamMesh0 = new StaticMeshComponent
 		{
 			// Object Offset:0x00579962
@@ -32,13 +35,13 @@ public partial class SceneCapture2DActor : SceneCaptureActor/*
 			AlwaysLoadOnServer = false,
 		}/* Reference: StaticMeshComponent'Default__SceneCapture2DActor.CamMesh0' */;
 		// Object Offset:0x003B22ED
-		DrawFrustum = Default__SceneCapture2DActor_DrawFrust0;
-		SceneCapture = LoadAsset<SceneCapture2DComponent>("Default__SceneCapture2DActor.SceneCapture2DComponent0")/*Ref SceneCapture2DComponent'Default__SceneCapture2DActor.SceneCapture2DComponent0'*/;
+		DrawFrustum = Default__SceneCapture2DActor_DrawFrust0/*Ref DrawFrustumComponent'Default__SceneCapture2DActor.DrawFrust0'*/;
+		SceneCapture = Default__SceneCapture2DActor_SceneCapture2DComponent0/*Ref SceneCapture2DComponent'Default__SceneCapture2DActor.SceneCapture2DComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCapture2DComponent>("Default__SceneCapture2DActor.SceneCapture2DComponent0")/*Ref SceneCapture2DComponent'Default__SceneCapture2DActor.SceneCapture2DComponent0'*/,
-			Default__SceneCapture2DActor_CamMesh0,
-			Default__SceneCapture2DActor_DrawFrust0,
+			Default__SceneCapture2DActor_SceneCapture2DComponent0/*Ref SceneCapture2DComponent'Default__SceneCapture2DActor.SceneCapture2DComponent0'*/,
+			Default__SceneCapture2DActor_CamMesh0/*Ref StaticMeshComponent'Default__SceneCapture2DActor.CamMesh0'*/,
+			Default__SceneCapture2DActor_DrawFrust0/*Ref DrawFrustumComponent'Default__SceneCapture2DActor.DrawFrust0'*/,
 		};
 	}
 }

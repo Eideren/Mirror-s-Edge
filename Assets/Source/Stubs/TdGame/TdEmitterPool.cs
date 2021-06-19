@@ -7,8 +7,11 @@ public partial class TdEmitterPool : EmitterPool/*
 		hidecategories(Navigation)*/{
 	public TdEmitterPool()
 	{
+		var Default__TdEmitterPool_ParticleSystemComponent0 = new ParticleSystemComponent
+		{
+		}/* Reference: ParticleSystemComponent'Default__TdEmitterPool.ParticleSystemComponent0' */;
 		// Object Offset:0x005443CF
-		PSCTemplate = LoadAsset<ParticleSystemComponent>("Default__TdEmitterPool.ParticleSystemComponent0")/*Ref ParticleSystemComponent'Default__TdEmitterPool.ParticleSystemComponent0'*/;
+		PSCTemplate = Default__TdEmitterPool_ParticleSystemComponent0/*Ref ParticleSystemComponent'Default__TdEmitterPool.ParticleSystemComponent0'*/;
 		MaxActiveEffects = 20;
 		SMC_MIC_ReductionTime = 2.0f;
 		IdealStaticMeshComponents = 200;

@@ -71,7 +71,7 @@ public partial class TdWeapon_Pistol_BerettaM93R : TdWeapon_Light/*
 		MuzzleFlashSocket = (name)"Muzzleflash";
 		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_Shell9mm_Auto")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_Shell9mm_Auto'*/;
 		ShellEjectSocket = (name)"ShellEject";
-		FiringWaveform = Default__TdWeapon_Pistol_BerettaM93R_FiringWaveformObj;
+		FiringWaveform = Default__TdWeapon_Pistol_BerettaM93R_FiringWaveformObj/*Ref ForceFeedbackWaveform'Default__TdWeapon_Pistol_BerettaM93R.FiringWaveformObj'*/;
 		MaxAmmo = 21;
 		ReloadTime = 2.0f;
 		AmmoCount = 21;
@@ -104,8 +104,8 @@ public partial class TdWeapon_Pistol_BerettaM93R : TdWeapon_Light/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_C1P_OneHanded_BerettaM93R.AS_C1P_OneHanded_BerettaM93R'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R")/*Ref TdAnimSet'AS_F3P_OneHanded_BerettaM93R.AS_F3P_OneHanded_BerettaM93R'*/;
-		Mesh1p = Default__TdWeapon_Pistol_BerettaM93R_FirstPersonMesh;
-		Mesh3p = Default__TdWeapon_Pistol_BerettaM93R_ThirdPersonMesh;
+		Mesh1p = Default__TdWeapon_Pistol_BerettaM93R_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_Pistol_BerettaM93R_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.ThirdPersonMesh'*/;
 		CombatRange_Min = 1200.0f;
 		CombatRange_Max = 2500.0f;
 		AimedBurst_Near = new TdWeapon.AIBurstInfo
@@ -151,13 +151,13 @@ public partial class TdWeapon_Pistol_BerettaM93R : TdWeapon_Light/*
 		};
 		EquipTime = 0.750f;
 		WeaponRange = 4500.0f;
-		Mesh = Default__TdWeapon_Pistol_BerettaM93R_FirstPersonMesh;
-		DroppedPickupMesh = Default__TdWeapon_Pistol_BerettaM93R_ThirdPersonMesh;
-		PickupFactoryMesh = Default__TdWeapon_Pistol_BerettaM93R_FirstPersonMesh;
+		Mesh = Default__TdWeapon_Pistol_BerettaM93R_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.FirstPersonMesh'*/;
+		DroppedPickupMesh = Default__TdWeapon_Pistol_BerettaM93R_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_Pistol_BerettaM93R_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdWeapon_Pistol_BerettaM93R_FirstPersonMesh,
-			Default__TdWeapon_Pistol_BerettaM93R_ThirdPersonMesh,
+			Default__TdWeapon_Pistol_BerettaM93R_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.FirstPersonMesh'*/,
+			Default__TdWeapon_Pistol_BerettaM93R_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_BerettaM93R.ThirdPersonMesh'*/,
 		};
 	}
 }

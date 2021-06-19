@@ -21,26 +21,38 @@ public partial class TdInterestPoint : NavigationPoint/*
 	
 	public TdInterestPoint()
 	{
+		var Default__TdInterestPoint_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdInterestPoint.CollisionCylinder' */;
 		var Default__TdInterestPoint_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x02E5208D
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.InvestigateIcon")/*Ref Texture2D'TdEditorResources.InvestigateIcon'*/,
 		}/* Reference: SpriteComponent'Default__TdInterestPoint.Sprite' */;
+		var Default__TdInterestPoint_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdInterestPoint.Sprite2' */;
+		var Default__TdInterestPoint_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdInterestPoint.Arrow' */;
+		var Default__TdInterestPoint_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__TdInterestPoint.PathRenderer' */;
 		// Object Offset:0x0057BC9D
 		InvestigationDistance = -1.0f;
 		InvestigationInterval = 10.0f;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdInterestPoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdInterestPoint.CollisionCylinder'*/;
-		GoodSprite = Default__TdInterestPoint_Sprite;
-		BadSprite = LoadAsset<SpriteComponent>("Default__TdInterestPoint.Sprite2")/*Ref SpriteComponent'Default__TdInterestPoint.Sprite2'*/;
+		CylinderComponent = Default__TdInterestPoint_CollisionCylinder/*Ref CylinderComponent'Default__TdInterestPoint.CollisionCylinder'*/;
+		GoodSprite = Default__TdInterestPoint_Sprite/*Ref SpriteComponent'Default__TdInterestPoint.Sprite'*/;
+		BadSprite = Default__TdInterestPoint_Sprite2/*Ref SpriteComponent'Default__TdInterestPoint.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdInterestPoint_Sprite,
-			LoadAsset<SpriteComponent>("Default__TdInterestPoint.Sprite2")/*Ref SpriteComponent'Default__TdInterestPoint.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__TdInterestPoint.Arrow")/*Ref ArrowComponent'Default__TdInterestPoint.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__TdInterestPoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdInterestPoint.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__TdInterestPoint.PathRenderer")/*Ref PathRenderingComponent'Default__TdInterestPoint.PathRenderer'*/,
+			Default__TdInterestPoint_Sprite/*Ref SpriteComponent'Default__TdInterestPoint.Sprite'*/,
+			Default__TdInterestPoint_Sprite2/*Ref SpriteComponent'Default__TdInterestPoint.Sprite2'*/,
+			Default__TdInterestPoint_Arrow/*Ref ArrowComponent'Default__TdInterestPoint.Arrow'*/,
+			Default__TdInterestPoint_CollisionCylinder/*Ref CylinderComponent'Default__TdInterestPoint.CollisionCylinder'*/,
+			Default__TdInterestPoint_PathRenderer/*Ref PathRenderingComponent'Default__TdInterestPoint.PathRenderer'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdInterestPoint.CollisionCylinder")/*Ref CylinderComponent'Default__TdInterestPoint.CollisionCylinder'*/;
+		CollisionComponent = Default__TdInterestPoint_CollisionCylinder/*Ref CylinderComponent'Default__TdInterestPoint.CollisionCylinder'*/;
 	}
 }
 }

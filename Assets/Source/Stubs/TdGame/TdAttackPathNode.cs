@@ -18,23 +18,41 @@ public partial class TdAttackPathNode : TdConfinedVolumePathNode/*
 	
 	public TdAttackPathNode()
 	{
+		var Default__TdAttackPathNode_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdAttackPathNode.CollisionCylinder' */;
+		var Default__TdAttackPathNode_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAttackPathNode.Sprite' */;
+		var Default__TdAttackPathNode_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAttackPathNode.Sprite2' */;
+		var Default__TdAttackPathNode_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdAttackPathNode.Arrow' */;
+		var Default__TdAttackPathNode_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__TdAttackPathNode.PathRenderer' */;
+		var Default__TdAttackPathNode_VolumeRenderer = new TdAttackPathNodeRenderingComponent
+		{
+		}/* Reference: TdAttackPathNodeRenderingComponent'Default__TdAttackPathNode.VolumeRenderer' */;
 		// Object Offset:0x00509ABA
 		AttackVolumeHeight = 2000.0f;
 		AttackVolumeAngle = 45.0f;
 		AttackVolumeRadius = 3000.0f;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdAttackPathNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdAttackPathNode.CollisionCylinder'*/;
-		GoodSprite = LoadAsset<SpriteComponent>("Default__TdAttackPathNode.Sprite")/*Ref SpriteComponent'Default__TdAttackPathNode.Sprite'*/;
-		BadSprite = LoadAsset<SpriteComponent>("Default__TdAttackPathNode.Sprite2")/*Ref SpriteComponent'Default__TdAttackPathNode.Sprite2'*/;
+		CylinderComponent = Default__TdAttackPathNode_CollisionCylinder/*Ref CylinderComponent'Default__TdAttackPathNode.CollisionCylinder'*/;
+		GoodSprite = Default__TdAttackPathNode_Sprite/*Ref SpriteComponent'Default__TdAttackPathNode.Sprite'*/;
+		BadSprite = Default__TdAttackPathNode_Sprite2/*Ref SpriteComponent'Default__TdAttackPathNode.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAttackPathNode.Sprite")/*Ref SpriteComponent'Default__TdAttackPathNode.Sprite'*/,
-			LoadAsset<SpriteComponent>("Default__TdAttackPathNode.Sprite2")/*Ref SpriteComponent'Default__TdAttackPathNode.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__TdAttackPathNode.Arrow")/*Ref ArrowComponent'Default__TdAttackPathNode.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__TdAttackPathNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdAttackPathNode.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__TdAttackPathNode.PathRenderer")/*Ref PathRenderingComponent'Default__TdAttackPathNode.PathRenderer'*/,
-			LoadAsset<TdAttackPathNodeRenderingComponent>("Default__TdAttackPathNode.VolumeRenderer")/*Ref TdAttackPathNodeRenderingComponent'Default__TdAttackPathNode.VolumeRenderer'*/,
+			Default__TdAttackPathNode_Sprite/*Ref SpriteComponent'Default__TdAttackPathNode.Sprite'*/,
+			Default__TdAttackPathNode_Sprite2/*Ref SpriteComponent'Default__TdAttackPathNode.Sprite2'*/,
+			Default__TdAttackPathNode_Arrow/*Ref ArrowComponent'Default__TdAttackPathNode.Arrow'*/,
+			Default__TdAttackPathNode_CollisionCylinder/*Ref CylinderComponent'Default__TdAttackPathNode.CollisionCylinder'*/,
+			Default__TdAttackPathNode_PathRenderer/*Ref PathRenderingComponent'Default__TdAttackPathNode.PathRenderer'*/,
+			Default__TdAttackPathNode_VolumeRenderer/*Ref TdAttackPathNodeRenderingComponent'Default__TdAttackPathNode.VolumeRenderer'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdAttackPathNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdAttackPathNode.CollisionCylinder'*/;
+		CollisionComponent = Default__TdAttackPathNode_CollisionCylinder/*Ref CylinderComponent'Default__TdAttackPathNode.CollisionCylinder'*/;
 	}
 }
 }

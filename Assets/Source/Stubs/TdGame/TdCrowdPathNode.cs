@@ -21,26 +21,38 @@ public partial class TdCrowdPathNode : PathNode/*
 	
 	public TdCrowdPathNode()
 	{
+		var Default__TdCrowdPathNode_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdCrowdPathNode.CollisionCylinder' */;
 		var Default__TdCrowdPathNode_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x02E51EF9
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.CrowdPathIcon")/*Ref Texture2D'TdEditorResources.CrowdPathIcon'*/,
 		}/* Reference: SpriteComponent'Default__TdCrowdPathNode.Sprite' */;
+		var Default__TdCrowdPathNode_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdCrowdPathNode.Sprite2' */;
+		var Default__TdCrowdPathNode_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdCrowdPathNode.Arrow' */;
+		var Default__TdCrowdPathNode_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__TdCrowdPathNode.PathRenderer' */;
 		// Object Offset:0x0053E8B0
 		bNoAutoConnect = true;
 		bCanBePlayerNavigationPoint = false;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdCrowdPathNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdCrowdPathNode.CollisionCylinder'*/;
-		GoodSprite = Default__TdCrowdPathNode_Sprite;
-		BadSprite = LoadAsset<SpriteComponent>("Default__TdCrowdPathNode.Sprite2")/*Ref SpriteComponent'Default__TdCrowdPathNode.Sprite2'*/;
+		CylinderComponent = Default__TdCrowdPathNode_CollisionCylinder/*Ref CylinderComponent'Default__TdCrowdPathNode.CollisionCylinder'*/;
+		GoodSprite = Default__TdCrowdPathNode_Sprite/*Ref SpriteComponent'Default__TdCrowdPathNode.Sprite'*/;
+		BadSprite = Default__TdCrowdPathNode_Sprite2/*Ref SpriteComponent'Default__TdCrowdPathNode.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdCrowdPathNode_Sprite,
-			LoadAsset<SpriteComponent>("Default__TdCrowdPathNode.Sprite2")/*Ref SpriteComponent'Default__TdCrowdPathNode.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__TdCrowdPathNode.Arrow")/*Ref ArrowComponent'Default__TdCrowdPathNode.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__TdCrowdPathNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdCrowdPathNode.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__TdCrowdPathNode.PathRenderer")/*Ref PathRenderingComponent'Default__TdCrowdPathNode.PathRenderer'*/,
+			Default__TdCrowdPathNode_Sprite/*Ref SpriteComponent'Default__TdCrowdPathNode.Sprite'*/,
+			Default__TdCrowdPathNode_Sprite2/*Ref SpriteComponent'Default__TdCrowdPathNode.Sprite2'*/,
+			Default__TdCrowdPathNode_Arrow/*Ref ArrowComponent'Default__TdCrowdPathNode.Arrow'*/,
+			Default__TdCrowdPathNode_CollisionCylinder/*Ref CylinderComponent'Default__TdCrowdPathNode.CollisionCylinder'*/,
+			Default__TdCrowdPathNode_PathRenderer/*Ref PathRenderingComponent'Default__TdCrowdPathNode.PathRenderer'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdCrowdPathNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdCrowdPathNode.CollisionCylinder'*/;
+		CollisionComponent = Default__TdCrowdPathNode_CollisionCylinder/*Ref CylinderComponent'Default__TdCrowdPathNode.CollisionCylinder'*/;
 	}
 }
 }

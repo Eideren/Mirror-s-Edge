@@ -8,6 +8,9 @@ public partial class UIContainer : UIObject/*
 	
 	public UIContainer()
 	{
+		var Default__UIContainer_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIContainer.WidgetEventComponent' */;
 		// Object Offset:0x003B480F
 		DefaultStates = new array< Core.ClassT<UIState> >
 		{
@@ -15,7 +18,7 @@ public partial class UIContainer : UIObject/*
 			ClassT<UIState_Disabled>(),
 			ClassT<UIState_Focused>(),
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIContainer.WidgetEventComponent")/*Ref UIComp_Event'Default__UIContainer.WidgetEventComponent'*/;
+		EventProvider = Default__UIContainer_WidgetEventComponent/*Ref UIComp_Event'Default__UIContainer.WidgetEventComponent'*/;
 	}
 }
 }

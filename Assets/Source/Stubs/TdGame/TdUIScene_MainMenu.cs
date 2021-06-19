@@ -390,6 +390,9 @@ public partial class TdUIScene_MainMenu : TdUIScene/*
 	
 	public TdUIScene_MainMenu()
 	{
+		var Default__TdUIScene_MainMenu_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_MainMenu.SceneEventComponent' */;
 		// Object Offset:0x006A204B
 		PanelNames = new StaticArray<name, name, name, name>/*[4]*/()
 		{ 
@@ -424,7 +427,7 @@ public partial class TdUIScene_MainMenu : TdUIScene/*
 		DefaultStickWidth = 0.050f;
 		TimeToFadeStart = 2.0f;
 		FadeTime = 1.0f;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_MainMenu.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_MainMenu.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_MainMenu_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_MainMenu.SceneEventComponent'*/;
 	}
 }
 }

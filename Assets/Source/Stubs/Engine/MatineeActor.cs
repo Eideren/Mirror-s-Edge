@@ -47,7 +47,7 @@ public partial class MatineeActor : Actor/*
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__MatineeActor_Sprite,
+			Default__MatineeActor_Sprite/*Ref SpriteComponent'Default__MatineeActor.Sprite'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetUpdateFrequency = 1.0f;

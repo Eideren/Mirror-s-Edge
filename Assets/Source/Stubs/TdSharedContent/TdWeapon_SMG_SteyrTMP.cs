@@ -94,8 +94,8 @@ public partial class TdWeapon_SMG_SteyrTMP : TdWeapon_Light/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_C1P_OneHanded_SteyrTMP.AS_C1P_OneHanded_SteyrTMP'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP")/*Ref TdAnimSet'AS_F3P_OneHanded_SteyrTMP.AS_F3P_OneHanded_SteyrTMP'*/;
-		Mesh1p = Default__TdWeapon_SMG_SteyrTMP_FirstPersonMesh;
-		Mesh3p = Default__TdWeapon_SMG_SteyrTMP_ThirdPersonMesh;
+		Mesh1p = Default__TdWeapon_SMG_SteyrTMP_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_SMG_SteyrTMP_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.ThirdPersonMesh'*/;
 		AimedBurst_Near = new TdWeapon.AIBurstInfo
 		{
 			Length_Min = 6,
@@ -130,13 +130,13 @@ public partial class TdWeapon_SMG_SteyrTMP : TdWeapon_Light/*
 		};
 		EquipTime = 0.750f;
 		WeaponRange = 3000.0f;
-		Mesh = Default__TdWeapon_SMG_SteyrTMP_FirstPersonMesh;
-		DroppedPickupMesh = Default__TdWeapon_SMG_SteyrTMP_ThirdPersonMesh;
-		PickupFactoryMesh = Default__TdWeapon_SMG_SteyrTMP_FirstPersonMesh;
+		Mesh = Default__TdWeapon_SMG_SteyrTMP_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.FirstPersonMesh'*/;
+		DroppedPickupMesh = Default__TdWeapon_SMG_SteyrTMP_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_SMG_SteyrTMP_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdWeapon_SMG_SteyrTMP_FirstPersonMesh,
-			Default__TdWeapon_SMG_SteyrTMP_ThirdPersonMesh,
+			Default__TdWeapon_SMG_SteyrTMP_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.FirstPersonMesh'*/,
+			Default__TdWeapon_SMG_SteyrTMP_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_SMG_SteyrTMP.ThirdPersonMesh'*/,
 		};
 	}
 }

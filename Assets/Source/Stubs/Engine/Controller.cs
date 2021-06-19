@@ -825,7 +825,7 @@ public partial class Controller : Actor/*
 		bHiddenEd = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__Controller_Sprite,
+			Default__Controller_Sprite/*Ref SpriteComponent'Default__Controller.Sprite'*/,
 		};
 		RotationRate = new Rotator
 		{

@@ -465,7 +465,7 @@ public partial class Actor : Object/*
 	public /*transient */bool bPathTemp;
 	public bool bScriptInitialized;
 	public/*(Advanced)*/ bool bLockLocation;
-	public /*private const export editinline */array</*export editinline */ActorComponent> Components;
+	public /*private const export editinline */array</*export editinline */ActorComponent> Components = new array<ActorComponent>();
 	public /*private const export editinline transient */array</*export editinline */ActorComponent> AllComponents;
 	public /*private native const */Object.RenderCommandFence DetachFence;
 	public float CustomTimeDilation;

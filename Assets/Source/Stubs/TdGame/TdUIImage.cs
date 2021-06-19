@@ -25,6 +25,9 @@ public partial class TdUIImage : TdUIObject/*
 	
 	public TdUIImage()
 	{
+		var Default__TdUIImage_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIImage.WidgetEventComponent' */;
 		// Object Offset:0x0068754C
 		ImageColor = new LinearColor
 		{
@@ -34,7 +37,7 @@ public partial class TdUIImage : TdUIObject/*
 			A=1.0f
 		};
 		Scale = 1.0f;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIImage.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIImage.WidgetEventComponent'*/;
+		EventProvider = Default__TdUIImage_WidgetEventComponent/*Ref UIComp_Event'Default__TdUIImage.WidgetEventComponent'*/;
 	}
 }
 }

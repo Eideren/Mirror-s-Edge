@@ -24,6 +24,12 @@ public partial class ParticleModuleAttractorParticle : ParticleModuleAttractorBa
 	
 	public ParticleModuleAttractorParticle()
 	{
+		var Default__ParticleModuleAttractorParticle_DistributionRange = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleAttractorParticle.DistributionRange' */;
+		var Default__ParticleModuleAttractorParticle_DistributionStrength = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleAttractorParticle.DistributionStrength' */;
 		// Object Offset:0x0037959E
 		Range = new DistributionFloat.RawDistributionFloat
 		{

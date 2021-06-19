@@ -21,29 +21,44 @@ public partial class TdSniperSpot : NavigationPoint/*
 	
 	public TdSniperSpot()
 	{
+		var Default__TdSniperSpot_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdSniperSpot.CollisionCylinder' */;
 		var Default__TdSniperSpot_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x02E525B9
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.SuppressIcon")/*Ref Texture2D'TdEditorResources.SuppressIcon'*/,
 		}/* Reference: SpriteComponent'Default__TdSniperSpot.Sprite' */;
+		var Default__TdSniperSpot_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdSniperSpot.Sprite2' */;
+		var Default__TdSniperSpot_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdSniperSpot.Arrow' */;
+		var Default__TdSniperSpot_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__TdSniperSpot.PathRenderer' */;
+		var Default__TdSniperSpot_NodeRenderer = new TdSniperNodeRenderingComponent
+		{
+		}/* Reference: TdSniperNodeRenderingComponent'Default__TdSniperSpot.NodeRenderer' */;
 		// Object Offset:0x006595AA
 		Crouch = true;
 		AttackVolumeHeight = 2000.0f;
 		AttackVolumeAngle = 45.0f;
 		AttackVolumeRadius = 3000.0f;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdSniperSpot.CollisionCylinder")/*Ref CylinderComponent'Default__TdSniperSpot.CollisionCylinder'*/;
-		GoodSprite = Default__TdSniperSpot_Sprite;
-		BadSprite = LoadAsset<SpriteComponent>("Default__TdSniperSpot.Sprite2")/*Ref SpriteComponent'Default__TdSniperSpot.Sprite2'*/;
+		CylinderComponent = Default__TdSniperSpot_CollisionCylinder/*Ref CylinderComponent'Default__TdSniperSpot.CollisionCylinder'*/;
+		GoodSprite = Default__TdSniperSpot_Sprite/*Ref SpriteComponent'Default__TdSniperSpot.Sprite'*/;
+		BadSprite = Default__TdSniperSpot_Sprite2/*Ref SpriteComponent'Default__TdSniperSpot.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdSniperSpot_Sprite,
-			LoadAsset<SpriteComponent>("Default__TdSniperSpot.Sprite2")/*Ref SpriteComponent'Default__TdSniperSpot.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__TdSniperSpot.Arrow")/*Ref ArrowComponent'Default__TdSniperSpot.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__TdSniperSpot.CollisionCylinder")/*Ref CylinderComponent'Default__TdSniperSpot.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__TdSniperSpot.PathRenderer")/*Ref PathRenderingComponent'Default__TdSniperSpot.PathRenderer'*/,
-			LoadAsset<TdSniperNodeRenderingComponent>("Default__TdSniperSpot.NodeRenderer")/*Ref TdSniperNodeRenderingComponent'Default__TdSniperSpot.NodeRenderer'*/,
+			Default__TdSniperSpot_Sprite/*Ref SpriteComponent'Default__TdSniperSpot.Sprite'*/,
+			Default__TdSniperSpot_Sprite2/*Ref SpriteComponent'Default__TdSniperSpot.Sprite2'*/,
+			Default__TdSniperSpot_Arrow/*Ref ArrowComponent'Default__TdSniperSpot.Arrow'*/,
+			Default__TdSniperSpot_CollisionCylinder/*Ref CylinderComponent'Default__TdSniperSpot.CollisionCylinder'*/,
+			Default__TdSniperSpot_PathRenderer/*Ref PathRenderingComponent'Default__TdSniperSpot.PathRenderer'*/,
+			Default__TdSniperSpot_NodeRenderer/*Ref TdSniperNodeRenderingComponent'Default__TdSniperSpot.NodeRenderer'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdSniperSpot.CollisionCylinder")/*Ref CylinderComponent'Default__TdSniperSpot.CollisionCylinder'*/;
+		CollisionComponent = Default__TdSniperSpot_CollisionCylinder/*Ref CylinderComponent'Default__TdSniperSpot.CollisionCylinder'*/;
 	}
 }
 }

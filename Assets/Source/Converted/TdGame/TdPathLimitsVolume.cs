@@ -56,6 +56,9 @@ public partial class TdPathLimitsVolume : Volume/*
 	}
 	public TdPathLimitsVolume()
 	{
+		var Default__TdPathLimitsVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TdPathLimitsVolume.BrushComponent0' */;
 		// Object Offset:0x0060A773
 		bEnabled = true;
 		BrushColor = new Color
@@ -66,13 +69,13 @@ public partial class TdPathLimitsVolume : Volume/*
 			A=255
 		};
 		bColored = true;
-		BrushComponent = LoadAsset<BrushComponent>("Default__TdPathLimitsVolume.BrushComponent0")/*Ref BrushComponent'Default__TdPathLimitsVolume.BrushComponent0'*/;
+		BrushComponent = Default__TdPathLimitsVolume_BrushComponent0/*Ref BrushComponent'Default__TdPathLimitsVolume.BrushComponent0'*/;
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TdPathLimitsVolume.BrushComponent0")/*Ref BrushComponent'Default__TdPathLimitsVolume.BrushComponent0'*/,
+			Default__TdPathLimitsVolume_BrushComponent0/*Ref BrushComponent'Default__TdPathLimitsVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TdPathLimitsVolume.BrushComponent0")/*Ref BrushComponent'Default__TdPathLimitsVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TdPathLimitsVolume_BrushComponent0/*Ref BrushComponent'Default__TdPathLimitsVolume.BrushComponent0'*/;
 	}
 }
 }

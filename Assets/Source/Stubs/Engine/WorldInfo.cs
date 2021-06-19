@@ -535,6 +535,9 @@ public partial class WorldInfo : ZoneInfo/*
 	}
 	public WorldInfo()
 	{
+		var Default__WorldInfo_PhysicsLODVerticalEmitter0 = new PhysicsLODVerticalEmitter
+		{
+		}/* Reference: PhysicsLODVerticalEmitter'Default__WorldInfo.PhysicsLODVerticalEmitter0' */;
 		// Object Offset:0x004622A5
 		IBLIntensity = 1.0f;
 		CameraResolution = new Vector2D
@@ -1716,7 +1719,7 @@ public partial class WorldInfo : ZoneInfo/*
 				MaxSubSteps = 2,
 			},
 		};
-		EmitterVertical = LoadAsset<PhysicsLODVerticalEmitter>("Default__WorldInfo.PhysicsLODVerticalEmitter0")/*Ref PhysicsLODVerticalEmitter'Default__WorldInfo.PhysicsLODVerticalEmitter0'*/;
+		EmitterVertical = Default__WorldInfo_PhysicsLODVerticalEmitter0/*Ref PhysicsLODVerticalEmitter'Default__WorldInfo.PhysicsLODVerticalEmitter0'*/;
 		VerticalProperties = new WorldInfo.PhysXVerticalProperties
 		{
 			Emitters = new WorldInfo.PhysXEmitterVerticalProperties

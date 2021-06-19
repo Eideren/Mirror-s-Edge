@@ -16,9 +16,12 @@ public partial class TdUITabPage : UITabPage/*
 	
 	public TdUITabPage()
 	{
+		var Default__TdUITabPage_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUITabPage.WidgetEventComponent' */;
 		// Object Offset:0x006B7C29
 		ButtonClass = ClassT<TdUITabButton>()/*Ref Class'TdUITabButton'*/;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUITabPage.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUITabPage.WidgetEventComponent'*/;
+		EventProvider = Default__TdUITabPage_WidgetEventComponent/*Ref UIComp_Event'Default__TdUITabPage.WidgetEventComponent'*/;
 	}
 }
 }

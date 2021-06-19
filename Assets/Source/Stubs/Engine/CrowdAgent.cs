@@ -62,12 +62,21 @@ public partial class CrowdAgent : Actor/*
 	}
 	public CrowdAgent()
 	{
+		var Default__CrowdAgent_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+			// Object Offset:0x00468D2F
+			InvisibleUpdateTime = 5.0f,
+			MinTimeBetweenFullUpdates = 2.0f,
+			bCastShadows = false,
+			bEnabled = false,
+			TickGroup = Object.ETickingGroup.TG_DuringAsyncWork,
+		}/* Reference: DynamicLightEnvironmentComponent'Default__CrowdAgent.MyLightEnvironment' */;
 		var Default__CrowdAgent_SkeletalMeshComponent0 = new SkeletalMeshComponent
 		{
 			// Object Offset:0x004CEC22
 			bUpdateSkelWhenNotRendered = false,
 			bEnableLineCheckWithBounds = true,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__CrowdAgent.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__CrowdAgent.MyLightEnvironment'*/,
+			LightEnvironment = Default__CrowdAgent_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__CrowdAgent.MyLightEnvironment'*/,
 			bCastDynamicShadow = false,
 			CollideActors = true,
 			BlockZeroExtent = true,
@@ -79,25 +88,16 @@ public partial class CrowdAgent : Actor/*
 				EffectPhysics = true,
 			},
 		}/* Reference: SkeletalMeshComponent'Default__CrowdAgent.SkeletalMeshComponent0' */;
-		var Default__CrowdAgent_MyLightEnvironment = new DynamicLightEnvironmentComponent
-		{
-			// Object Offset:0x00468D2F
-			InvisibleUpdateTime = 5.0f,
-			MinTimeBetweenFullUpdates = 2.0f,
-			bCastShadows = false,
-			bEnabled = false,
-			TickGroup = Object.ETickingGroup.TG_DuringAsyncWork,
-		}/* Reference: DynamicLightEnvironmentComponent'Default__CrowdAgent.MyLightEnvironment' */;
 		// Object Offset:0x002F4240
-		SkeletalMeshComponent = Default__CrowdAgent_SkeletalMeshComponent0;
-		LightEnvironment = Default__CrowdAgent_MyLightEnvironment;
+		SkeletalMeshComponent = Default__CrowdAgent_SkeletalMeshComponent0/*Ref SkeletalMeshComponent'Default__CrowdAgent.SkeletalMeshComponent0'*/;
+		LightEnvironment = Default__CrowdAgent_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__CrowdAgent.MyLightEnvironment'*/;
 		bCollideActors = true;
 		bProjTarget = true;
 		bNoEncroachCheck = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__CrowdAgent_MyLightEnvironment,
-			Default__CrowdAgent_SkeletalMeshComponent0,
+			Default__CrowdAgent_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__CrowdAgent.MyLightEnvironment'*/,
+			Default__CrowdAgent_SkeletalMeshComponent0/*Ref SkeletalMeshComponent'Default__CrowdAgent.SkeletalMeshComponent0'*/,
 		};
 		Physics = Actor.EPhysics.PHYS_Interpolating;
 	}

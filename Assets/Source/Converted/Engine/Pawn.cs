@@ -2752,8 +2752,8 @@ public partial class Pawn : Actor/*
 		BaseEyeHeight = 64.0f;
 		EyeHeight = 54.0f;
 		Health = 100;
-		SceneCapture = Default__Pawn_SceneCaptureCharacterComponent0;
-		DrawFrustum = Default__Pawn_DrawFrust0;
+		SceneCapture = Default__Pawn_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__Pawn.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__Pawn_DrawFrust0/*Ref DrawFrustumComponent'Default__Pawn.DrawFrust0'*/;
 		noise1time = -10.0f;
 		noise2time = -10.0f;
 		SoundDampening = 1.0f;
@@ -2761,7 +2761,7 @@ public partial class Pawn : Actor/*
 		ControllerClass = ClassT<AIController>()/*Ref Class'AIController'*/;
 		LandMovementState = (name)"PlayerWalking";
 		WaterMovementState = (name)"PlayerSwimming";
-		CylinderComponent = Default__Pawn_CollisionCylinder;
+		CylinderComponent = Default__Pawn_CollisionCylinder/*Ref CylinderComponent'Default__Pawn.CollisionCylinder'*/;
 		RBPushRadius = 10.0f;
 		RBPushStrength = 50.0f;
 		VehicleCheckRadius = 150.0f;
@@ -2779,15 +2779,15 @@ public partial class Pawn : Actor/*
 		bProjTarget = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__Pawn_SceneCaptureCharacterComponent0,
-			Default__Pawn_DrawFrust0,
-			Default__Pawn_Sprite,
-			Default__Pawn_CollisionCylinder,
-			Default__Pawn_Arrow,
+			Default__Pawn_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__Pawn.SceneCaptureCharacterComponent0'*/,
+			Default__Pawn_DrawFrust0/*Ref DrawFrustumComponent'Default__Pawn.DrawFrust0'*/,
+			Default__Pawn_Sprite/*Ref SpriteComponent'Default__Pawn.Sprite'*/,
+			Default__Pawn_CollisionCylinder/*Ref CylinderComponent'Default__Pawn.CollisionCylinder'*/,
+			Default__Pawn_Arrow/*Ref ArrowComponent'Default__Pawn.Arrow'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetPriority = 2.0f;
-		CollisionComponent = Default__Pawn_CollisionCylinder;
+		CollisionComponent = Default__Pawn_CollisionCylinder/*Ref CylinderComponent'Default__Pawn.CollisionCylinder'*/;
 		RotationRate = new Rotator
 		{
 			Pitch=20000,

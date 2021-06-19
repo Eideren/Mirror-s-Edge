@@ -15,6 +15,18 @@ public partial class SoundNodeOscillator : SoundNode/*
 	
 	public SoundNodeOscillator()
 	{
+		var Default__SoundNodeOscillator_DistributionAmplitude = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeOscillator.DistributionAmplitude' */;
+		var Default__SoundNodeOscillator_DistributionFrequency = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeOscillator.DistributionFrequency' */;
+		var Default__SoundNodeOscillator_DistributionOffset = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeOscillator.DistributionOffset' */;
+		var Default__SoundNodeOscillator_DistributionCenter = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeOscillator.DistributionCenter' */;
 		// Object Offset:0x003EA0AF
 		Amplitude = new DistributionFloat.RawDistributionFloat
 		{

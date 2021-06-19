@@ -22,8 +22,11 @@ public partial class TdUIScene_VideoSettings : TdUIScene_OptionMenu/*
 	
 	public TdUIScene_VideoSettings()
 	{
+		var Default__TdUIScene_VideoSettings_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_VideoSettings.SceneEventComponent' */;
 		// Object Offset:0x00568414
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_VideoSettings.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_VideoSettings.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_VideoSettings_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_VideoSettings.SceneEventComponent'*/;
 	}
 }
 }

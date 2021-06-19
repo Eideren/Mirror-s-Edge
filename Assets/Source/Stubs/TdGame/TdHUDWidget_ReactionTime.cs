@@ -7,9 +7,12 @@ public partial class TdHUDWidget_ReactionTime : TdHUDWidget/*
 	
 	public TdHUDWidget_ReactionTime()
 	{
+		var Default__TdHUDWidget_ReactionTime_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdHUDWidget_ReactionTime.WidgetEventComponent' */;
 		// Object Offset:0x00577DD6
 		requiresTick = true;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdHUDWidget_ReactionTime.WidgetEventComponent")/*Ref UIComp_Event'Default__TdHUDWidget_ReactionTime.WidgetEventComponent'*/;
+		EventProvider = Default__TdHUDWidget_ReactionTime_WidgetEventComponent/*Ref UIComp_Event'Default__TdHUDWidget_ReactionTime.WidgetEventComponent'*/;
 	}
 }
 }

@@ -51,10 +51,13 @@ public partial class BroadcastHandler : Info/*
 	
 	public BroadcastHandler()
 	{
+		var Default__BroadcastHandler_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__BroadcastHandler.Sprite' */;
 		// Object Offset:0x002B33B4
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__BroadcastHandler.Sprite")/*Ref SpriteComponent'Default__BroadcastHandler.Sprite'*/,
+			Default__BroadcastHandler_Sprite/*Ref SpriteComponent'Default__BroadcastHandler.Sprite'*/,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
 	}

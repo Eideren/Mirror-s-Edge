@@ -45,8 +45,11 @@ public partial class TdUIScene_Unlocks : TdUIScene/*
 	
 	public TdUIScene_Unlocks()
 	{
+		var Default__TdUIScene_Unlocks_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_Unlocks.SceneEventComponent' */;
 		// Object Offset:0x006B6F46
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_Unlocks.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_Unlocks.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_Unlocks_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_Unlocks.SceneEventComponent'*/;
 	}
 }
 }

@@ -89,7 +89,7 @@ public partial class TdMove_SkillRoll : TdPhysicsMove/*
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdMove_SkillRoll.ImpactSkilledWaveformObj' */;
 		// Object Offset:0x005D85CA
-		ImpactSkilledWaveform = Default__TdMove_SkillRoll_ImpactSkilledWaveformObj;
+		ImpactSkilledWaveform = Default__TdMove_SkillRoll_ImpactSkilledWaveformObj/*Ref ForceFeedbackWaveform'Default__TdMove_SkillRoll.ImpactSkilledWaveformObj'*/;
 		ControllerState = (name)"PlayerGrabbing";
 		bConstrainLook = true;
 		bDisableFaceRotation = true;

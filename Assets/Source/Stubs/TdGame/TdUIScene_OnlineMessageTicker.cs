@@ -12,8 +12,11 @@ public partial class TdUIScene_OnlineMessageTicker : TdUIScene_Overlay/*
 	
 	public TdUIScene_OnlineMessageTicker()
 	{
+		var Default__TdUIScene_OnlineMessageTicker_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_OnlineMessageTicker.SceneEventComponent' */;
 		// Object Offset:0x006A4794
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_OnlineMessageTicker.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_OnlineMessageTicker.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_OnlineMessageTicker_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_OnlineMessageTicker.SceneEventComponent'*/;
 	}
 }
 }

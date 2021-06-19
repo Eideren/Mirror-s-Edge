@@ -69,7 +69,7 @@ public partial class Trigger : Actor/*
 			AlwaysLoadOnServer = false,
 		}/* Reference: SpriteComponent'Default__Trigger.Sprite' */;
 		// Object Offset:0x003FF47B
-		CylinderComponent = Default__Trigger_CollisionCylinder;
+		CylinderComponent = Default__Trigger_CollisionCylinder/*Ref CylinderComponent'Default__Trigger.CollisionCylinder'*/;
 		AITriggerDelay = 2.0f;
 		bHidden = true;
 		bNoDelete = true;
@@ -77,10 +77,10 @@ public partial class Trigger : Actor/*
 		bProjTarget = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__Trigger_Sprite,
-			Default__Trigger_CollisionCylinder,
+			Default__Trigger_Sprite/*Ref SpriteComponent'Default__Trigger.Sprite'*/,
+			Default__Trigger_CollisionCylinder/*Ref CylinderComponent'Default__Trigger.CollisionCylinder'*/,
 		};
-		CollisionComponent = Default__Trigger_CollisionCylinder;
+		CollisionComponent = Default__Trigger_CollisionCylinder/*Ref CylinderComponent'Default__Trigger.CollisionCylinder'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

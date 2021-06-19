@@ -142,8 +142,11 @@ public partial class TdUIScene_VideoSettingsPC : TdUIScene_VideoSettings/*
 	
 	public TdUIScene_VideoSettingsPC()
 	{
+		var Default__TdUIScene_VideoSettingsPC_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_VideoSettingsPC.SceneEventComponent' */;
 		// Object Offset:0x0056A43B
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_VideoSettingsPC.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_VideoSettingsPC.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_VideoSettingsPC_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_VideoSettingsPC.SceneEventComponent'*/;
 	}
 }
 }

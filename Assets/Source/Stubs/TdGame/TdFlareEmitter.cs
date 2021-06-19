@@ -20,14 +20,23 @@ public partial class TdFlareEmitter : Emitter/*
 			bOverrideLODMethod = true,
 			LODMethod = ParticleSystem.ParticleSystemLODMethod.PARTICLESYSTEMLODMETHOD_DirectSet,
 		}/* Reference: TdParticleSystemComponent'Default__TdFlareEmitter.TdParticleSystemComponent0' */;
+		var Default__TdFlareEmitter_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdFlareEmitter.Sprite' */;
+		var Default__TdFlareEmitter_ParticleSystemComponent0 = new ParticleSystemComponent
+		{
+		}/* Reference: ParticleSystemComponent'Default__TdFlareEmitter.ParticleSystemComponent0' */;
+		var Default__TdFlareEmitter_ArrowComponent0 = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdFlareEmitter.ArrowComponent0' */;
 		// Object Offset:0x00541B57
-		ParticleSystemComponent = Default__TdFlareEmitter_TdParticleSystemComponent0;
+		ParticleSystemComponent = Default__TdFlareEmitter_TdParticleSystemComponent0/*Ref TdParticleSystemComponent'Default__TdFlareEmitter.TdParticleSystemComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdFlareEmitter.Sprite")/*Ref SpriteComponent'Default__TdFlareEmitter.Sprite'*/,
-			LoadAsset<ParticleSystemComponent>("Default__TdFlareEmitter.ParticleSystemComponent0")/*Ref ParticleSystemComponent'Default__TdFlareEmitter.ParticleSystemComponent0'*/,
-			LoadAsset<ArrowComponent>("Default__TdFlareEmitter.ArrowComponent0")/*Ref ArrowComponent'Default__TdFlareEmitter.ArrowComponent0'*/,
-			Default__TdFlareEmitter_TdParticleSystemComponent0,
+			Default__TdFlareEmitter_Sprite/*Ref SpriteComponent'Default__TdFlareEmitter.Sprite'*/,
+			Default__TdFlareEmitter_ParticleSystemComponent0/*Ref ParticleSystemComponent'Default__TdFlareEmitter.ParticleSystemComponent0'*/,
+			Default__TdFlareEmitter_ArrowComponent0/*Ref ArrowComponent'Default__TdFlareEmitter.ArrowComponent0'*/,
+			Default__TdFlareEmitter_TdParticleSystemComponent0/*Ref TdParticleSystemComponent'Default__TdFlareEmitter.TdParticleSystemComponent0'*/,
 		};
 	}
 }

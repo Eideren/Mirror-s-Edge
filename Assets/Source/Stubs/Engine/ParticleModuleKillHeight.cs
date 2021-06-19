@@ -11,6 +11,9 @@ public partial class ParticleModuleKillHeight : ParticleModuleKillBase/*
 	
 	public ParticleModuleKillHeight()
 	{
+		var Default__ParticleModuleKillHeight_DistributionHeight = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleKillHeight.DistributionHeight' */;
 		// Object Offset:0x0037D69A
 		Height = new DistributionFloat.RawDistributionFloat
 		{

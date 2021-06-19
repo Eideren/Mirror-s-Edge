@@ -425,17 +425,32 @@ public partial class UIList : UIObject,
 	
 	public UIList()
 	{
+		var Default__UIList_ListPresentationComponent_NormalOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIList.ListPresentationComponent.NormalOverlayTemplate' */;
+		var Default__UIList_ListPresentationComponent_ActiveOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIList.ListPresentationComponent.ActiveOverlayTemplate' */;
+		var Default__UIList_ListPresentationComponent_SelectionOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIList.ListPresentationComponent.SelectionOverlayTemplate' */;
+		var Default__UIList_ListPresentationComponent_HoverOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIList.ListPresentationComponent.HoverOverlayTemplate' */;
 		var Default__UIList_ListPresentationComponent = new UIComp_ListPresenter
 		{
 			// Object Offset:0x004228AB
 			ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
 			{ 
-				[0] = LoadAsset<UITexture>("Default__UIList.ListPresentationComponent.NormalOverlayTemplate")/*Ref UITexture'Default__UIList.ListPresentationComponent.NormalOverlayTemplate'*/,
-				[1] = LoadAsset<UITexture>("Default__UIList.ListPresentationComponent.ActiveOverlayTemplate")/*Ref UITexture'Default__UIList.ListPresentationComponent.ActiveOverlayTemplate'*/,
-				[2] = LoadAsset<UITexture>("Default__UIList.ListPresentationComponent.SelectionOverlayTemplate")/*Ref UITexture'Default__UIList.ListPresentationComponent.SelectionOverlayTemplate'*/,
-				[3] = LoadAsset<UITexture>("Default__UIList.ListPresentationComponent.HoverOverlayTemplate")/*Ref UITexture'Default__UIList.ListPresentationComponent.HoverOverlayTemplate'*/,
+				[0] = Default__UIList_ListPresentationComponent_NormalOverlayTemplate/*Ref UITexture'Default__UIList.ListPresentationComponent.NormalOverlayTemplate'*/,
+				[1] = Default__UIList_ListPresentationComponent_ActiveOverlayTemplate/*Ref UITexture'Default__UIList.ListPresentationComponent.ActiveOverlayTemplate'*/,
+				[2] = Default__UIList_ListPresentationComponent_SelectionOverlayTemplate/*Ref UITexture'Default__UIList.ListPresentationComponent.SelectionOverlayTemplate'*/,
+				[3] = Default__UIList_ListPresentationComponent_HoverOverlayTemplate/*Ref UITexture'Default__UIList.ListPresentationComponent.HoverOverlayTemplate'*/,
 	 		},
 		}/* Reference: UIComp_ListPresenter'Default__UIList.ListPresentationComponent' */;
+		var Default__UIList_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIList.WidgetEventComponent' */;
 		// Object Offset:0x00421280
 		RowHeight = new UIRoot.UIScreenValue_Extent
 		{
@@ -641,7 +656,7 @@ public partial class UIList : UIObject,
 			DataStoreField = (name)"None",
 			ResolvedDataStore = default,
 		};
-		CellDataComponent = Default__UIList_ListPresentationComponent;
+		CellDataComponent = Default__UIList_ListPresentationComponent/*Ref UIComp_ListPresenter'Default__UIList.ListPresentationComponent'*/;
 		SubmitDataSuccessCue = (name)"ListSubmit";
 		SubmitDataFailedCue = (name)"GenericError";
 		DecrementIndexCue = (name)"ListUp";
@@ -670,7 +685,7 @@ public partial class UIList : UIObject,
 			ClassT<UIState_Active>(),
 			ClassT<UIState_Pressed>(),
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIList.WidgetEventComponent")/*Ref UIComp_Event'Default__UIList.WidgetEventComponent'*/;
+		EventProvider = Default__UIList_WidgetEventComponent/*Ref UIComp_Event'Default__UIList.WidgetEventComponent'*/;
 		__NotifyActiveStateChanged__Delegate = (Sender, PlayerIndex, NewlyActiveState, PreviouslyActiveState) => OnStateChanged(Sender, PlayerIndex, NewlyActiveState, PreviouslyActiveState);
 	}
 }

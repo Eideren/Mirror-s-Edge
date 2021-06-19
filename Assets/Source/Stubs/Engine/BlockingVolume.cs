@@ -17,16 +17,16 @@ public partial class BlockingVolume : Volume/*
 		}/* Reference: BrushComponent'Default__BlockingVolume.BrushComponent0' */;
 		// Object Offset:0x002B247E
 		bClampFluid = true;
-		BrushComponent = Default__BlockingVolume_BrushComponent0;
+		BrushComponent = Default__BlockingVolume_BrushComponent0/*Ref BrushComponent'Default__BlockingVolume.BrushComponent0'*/;
 		bExludeHandMoves = true;
 		bExludeFootMoves = true;
 		bWorldGeometry = true;
 		bBlockActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__BlockingVolume_BrushComponent0,
+			Default__BlockingVolume_BrushComponent0/*Ref BrushComponent'Default__BlockingVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__BlockingVolume_BrushComponent0;
+		CollisionComponent = Default__BlockingVolume_BrushComponent0/*Ref BrushComponent'Default__BlockingVolume.BrushComponent0'*/;
 	}
 }
 }

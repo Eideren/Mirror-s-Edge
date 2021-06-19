@@ -22,7 +22,7 @@ public partial class DialogueManager : Actor/*
 		// Object Offset:0x0030CD12
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__DialogueManager_Sprite,
+			Default__DialogueManager_Sprite/*Ref SpriteComponent'Default__DialogueManager.Sprite'*/,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
 	}

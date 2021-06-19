@@ -282,6 +282,18 @@ public partial class SVehicle : Vehicle/*
 	}
 	public SVehicle()
 	{
+		var Default__SVehicle_MyStayUprightSetup = new RB_StayUprightSetup
+		{
+		}/* Reference: RB_StayUprightSetup'Default__SVehicle.MyStayUprightSetup' */;
+		var Default__SVehicle_MyStayUprightConstraintInstance = new RB_ConstraintInstance
+		{
+		}/* Reference: RB_ConstraintInstance'Default__SVehicle.MyStayUprightConstraintInstance' */;
+		var Default__SVehicle_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+		}/* Reference: SceneCaptureCharacterComponent'Default__SVehicle.SceneCaptureCharacterComponent0' */;
+		var Default__SVehicle_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__SVehicle.DrawFrust0' */;
 		var Default__SVehicle_SVehicleMesh = new SkeletalMeshComponent
 		{
 			// Object Offset:0x004CEE36
@@ -303,6 +315,9 @@ public partial class SVehicle : Vehicle/*
 			bNotifyRigidBodyCollision = true,
 			ScriptRigidBodyCollisionThreshold = 250.0f,
 		}/* Reference: SkeletalMeshComponent'Default__SVehicle.SVehicleMesh' */;
+		var Default__SVehicle_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__SVehicle.CollisionCylinder' */;
 		// Object Offset:0x003F5B3E
 		InertiaTensorMultiplier = new Vector
 		{
@@ -311,8 +326,8 @@ public partial class SVehicle : Vehicle/*
 			Z=1.0f
 		};
 		bCanFlip = true;
-		StayUprightConstraintSetup = LoadAsset<RB_StayUprightSetup>("Default__SVehicle.MyStayUprightSetup")/*Ref RB_StayUprightSetup'Default__SVehicle.MyStayUprightSetup'*/;
-		StayUprightConstraintInstance = LoadAsset<RB_ConstraintInstance>("Default__SVehicle.MyStayUprightConstraintInstance")/*Ref RB_ConstraintInstance'Default__SVehicle.MyStayUprightConstraintInstance'*/;
+		StayUprightConstraintSetup = Default__SVehicle_MyStayUprightSetup/*Ref RB_StayUprightSetup'Default__SVehicle.MyStayUprightSetup'*/;
+		StayUprightConstraintInstance = Default__SVehicle_MyStayUprightConstraintInstance/*Ref RB_ConstraintInstance'Default__SVehicle.MyStayUprightConstraintInstance'*/;
 		HeavySuspensionShiftPercent = 0.50f;
 		MaxSpeed = 2500.0f;
 		MaxAngularVelocity = 75000.0f;
@@ -332,23 +347,23 @@ public partial class SVehicle : Vehicle/*
 		};
 		CamDist = 512.0f;
 		RadialImpulseScaling = 1.0f;
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__SVehicle.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__SVehicle.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__SVehicle.DrawFrust0")/*Ref DrawFrustumComponent'Default__SVehicle.DrawFrust0'*/;
-		Mesh = Default__SVehicle_SVehicleMesh;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__SVehicle.CollisionCylinder")/*Ref CylinderComponent'Default__SVehicle.CollisionCylinder'*/;
+		SceneCapture = Default__SVehicle_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__SVehicle.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__SVehicle_DrawFrust0/*Ref DrawFrustumComponent'Default__SVehicle.DrawFrust0'*/;
+		Mesh = Default__SVehicle_SVehicleMesh/*Ref SkeletalMeshComponent'Default__SVehicle.SVehicleMesh'*/;
+		CylinderComponent = Default__SVehicle_CollisionCylinder/*Ref CylinderComponent'Default__SVehicle.CollisionCylinder'*/;
 		bNetInitialRotation = true;
 		bBlocksTeleport = true;
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCaptureCharacterComponent>("Default__SVehicle.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__SVehicle.SceneCaptureCharacterComponent0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__SVehicle.DrawFrust0")/*Ref DrawFrustumComponent'Default__SVehicle.DrawFrust0'*/,
-			LoadAsset<CylinderComponent>("Default__SVehicle.CollisionCylinder")/*Ref CylinderComponent'Default__SVehicle.CollisionCylinder'*/,
-			Default__SVehicle_SVehicleMesh,
+			Default__SVehicle_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__SVehicle.SceneCaptureCharacterComponent0'*/,
+			Default__SVehicle_DrawFrust0/*Ref DrawFrustumComponent'Default__SVehicle.DrawFrust0'*/,
+			Default__SVehicle_CollisionCylinder/*Ref CylinderComponent'Default__SVehicle.CollisionCylinder'*/,
+			Default__SVehicle_SVehicleMesh/*Ref SkeletalMeshComponent'Default__SVehicle.SVehicleMesh'*/,
 		};
 		Physics = Actor.EPhysics.PHYS_RigidBody;
 		TickGroup = Object.ETickingGroup.TG_PostAsyncWork;
-		CollisionComponent = Default__SVehicle_SVehicleMesh;
+		CollisionComponent = Default__SVehicle_SVehicleMesh/*Ref SkeletalMeshComponent'Default__SVehicle.SVehicleMesh'*/;
 	}
 }
 }

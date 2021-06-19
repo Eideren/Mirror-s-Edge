@@ -266,15 +266,27 @@ public partial class UIComp_ListPresenter : UIComp_ListComponentBase,
 	
 	public UIComp_ListPresenter()
 	{
+		var Default__UIComp_ListPresenter_NormalOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIComp_ListPresenter.NormalOverlayTemplate' */;
+		var Default__UIComp_ListPresenter_ActiveOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIComp_ListPresenter.ActiveOverlayTemplate' */;
+		var Default__UIComp_ListPresenter_SelectionOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIComp_ListPresenter.SelectionOverlayTemplate' */;
+		var Default__UIComp_ListPresenter_HoverOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__UIComp_ListPresenter.HoverOverlayTemplate' */;
 		// Object Offset:0x0041D5D4
 		bDisplayColumnHeaders = true;
 		bReapplyFormatting = true;
 		ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
 		{ 
-			[0] = LoadAsset<UITexture>("Default__UIComp_ListPresenter.NormalOverlayTemplate")/*Ref UITexture'Default__UIComp_ListPresenter.NormalOverlayTemplate'*/,
-			[1] = LoadAsset<UITexture>("Default__UIComp_ListPresenter.ActiveOverlayTemplate")/*Ref UITexture'Default__UIComp_ListPresenter.ActiveOverlayTemplate'*/,
-			[2] = LoadAsset<UITexture>("Default__UIComp_ListPresenter.SelectionOverlayTemplate")/*Ref UITexture'Default__UIComp_ListPresenter.SelectionOverlayTemplate'*/,
-			[3] = LoadAsset<UITexture>("Default__UIComp_ListPresenter.HoverOverlayTemplate")/*Ref UITexture'Default__UIComp_ListPresenter.HoverOverlayTemplate'*/,
+			[0] = Default__UIComp_ListPresenter_NormalOverlayTemplate/*Ref UITexture'Default__UIComp_ListPresenter.NormalOverlayTemplate'*/,
+			[1] = Default__UIComp_ListPresenter_ActiveOverlayTemplate/*Ref UITexture'Default__UIComp_ListPresenter.ActiveOverlayTemplate'*/,
+			[2] = Default__UIComp_ListPresenter_SelectionOverlayTemplate/*Ref UITexture'Default__UIComp_ListPresenter.SelectionOverlayTemplate'*/,
+			[3] = Default__UIComp_ListPresenter_HoverOverlayTemplate/*Ref UITexture'Default__UIComp_ListPresenter.HoverOverlayTemplate'*/,
 	 	};
 	}
 }

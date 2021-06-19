@@ -5,8 +5,11 @@ public partial class TdHUDWidget_InterrogationBar : TdHUDWidget_ProgressBar/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public TdHUDWidget_InterrogationBar()
 	{
+		var Default__TdHUDWidget_InterrogationBar_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdHUDWidget_InterrogationBar.WidgetEventComponent' */;
 		// Object Offset:0x00577A8C
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdHUDWidget_InterrogationBar.WidgetEventComponent")/*Ref UIComp_Event'Default__TdHUDWidget_InterrogationBar.WidgetEventComponent'*/;
+		EventProvider = Default__TdHUDWidget_InterrogationBar_WidgetEventComponent/*Ref UIComp_Event'Default__TdHUDWidget_InterrogationBar.WidgetEventComponent'*/;
 	}
 }
 }

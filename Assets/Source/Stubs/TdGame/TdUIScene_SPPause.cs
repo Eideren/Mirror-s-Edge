@@ -37,8 +37,11 @@ public partial class TdUIScene_SPPause : TdUIScene_Pause/*
 	
 	public TdUIScene_SPPause()
 	{
+		var Default__TdUIScene_SPPause_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_SPPause.SceneEventComponent' */;
 		// Object Offset:0x006ABD96
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_SPPause.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_SPPause.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_SPPause_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_SPPause.SceneEventComponent'*/;
 	}
 }
 }

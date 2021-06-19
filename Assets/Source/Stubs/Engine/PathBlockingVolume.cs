@@ -17,15 +17,15 @@ public partial class PathBlockingVolume : Volume/*
 			AlwaysLoadOnServer = false,
 		}/* Reference: BrushComponent'Default__PathBlockingVolume.BrushComponent0' */;
 		// Object Offset:0x0038C014
-		BrushComponent = Default__PathBlockingVolume_BrushComponent0;
+		BrushComponent = Default__PathBlockingVolume_BrushComponent0/*Ref BrushComponent'Default__PathBlockingVolume.BrushComponent0'*/;
 		bWorldGeometry = true;
 		bCollideActors = false;
 		bBlockActors = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__PathBlockingVolume_BrushComponent0,
+			Default__PathBlockingVolume_BrushComponent0/*Ref BrushComponent'Default__PathBlockingVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__PathBlockingVolume_BrushComponent0;
+		CollisionComponent = Default__PathBlockingVolume_BrushComponent0/*Ref BrushComponent'Default__PathBlockingVolume.BrushComponent0'*/;
 	}
 }
 }

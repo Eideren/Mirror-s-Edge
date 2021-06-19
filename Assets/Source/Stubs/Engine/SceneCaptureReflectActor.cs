@@ -31,14 +31,20 @@ public partial class SceneCaptureReflectActor : SceneCaptureActor/*
 				Z=4.0f
 			},
 		}/* Reference: StaticMeshComponent'Default__SceneCaptureReflectActor.StaticMeshComponent0' */;
+		var Default__SceneCaptureReflectActor_SceneCaptureReflectComponent0 = new SceneCaptureReflectComponent
+		{
+		}/* Reference: SceneCaptureReflectComponent'Default__SceneCaptureReflectActor.SceneCaptureReflectComponent0' */;
+		var Default__SceneCaptureReflectActor_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__SceneCaptureReflectActor.Sprite' */;
 		// Object Offset:0x003A361B
-		StaticMesh = Default__SceneCaptureReflectActor_StaticMeshComponent0;
-		SceneCapture = LoadAsset<SceneCaptureReflectComponent>("Default__SceneCaptureReflectActor.SceneCaptureReflectComponent0")/*Ref SceneCaptureReflectComponent'Default__SceneCaptureReflectActor.SceneCaptureReflectComponent0'*/;
+		StaticMesh = Default__SceneCaptureReflectActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__SceneCaptureReflectActor.StaticMeshComponent0'*/;
+		SceneCapture = Default__SceneCaptureReflectActor_SceneCaptureReflectComponent0/*Ref SceneCaptureReflectComponent'Default__SceneCaptureReflectActor.SceneCaptureReflectComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__SceneCaptureReflectActor.Sprite")/*Ref SpriteComponent'Default__SceneCaptureReflectActor.Sprite'*/,
-			LoadAsset<SceneCaptureReflectComponent>("Default__SceneCaptureReflectActor.SceneCaptureReflectComponent0")/*Ref SceneCaptureReflectComponent'Default__SceneCaptureReflectActor.SceneCaptureReflectComponent0'*/,
-			Default__SceneCaptureReflectActor_StaticMeshComponent0,
+			Default__SceneCaptureReflectActor_Sprite/*Ref SpriteComponent'Default__SceneCaptureReflectActor.Sprite'*/,
+			Default__SceneCaptureReflectActor_SceneCaptureReflectComponent0/*Ref SceneCaptureReflectComponent'Default__SceneCaptureReflectActor.SceneCaptureReflectComponent0'*/,
+			Default__SceneCaptureReflectActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__SceneCaptureReflectActor.StaticMeshComponent0'*/,
 		};
 		Rotation = new Rotator
 		{

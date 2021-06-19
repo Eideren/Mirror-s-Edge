@@ -16,6 +16,9 @@ public partial class TdValveSkeletalMeshActor : SkeletalMeshActor/*
 	
 	public TdValveSkeletalMeshActor()
 	{
+		var Default__TdValveSkeletalMeshActor_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+		}/* Reference: DynamicLightEnvironmentComponent'Default__TdValveSkeletalMeshActor.MyLightEnvironment' */;
 		var Default__TdValveSkeletalMeshActor_SkeletalMeshComponent0 = new SkeletalMeshComponent
 		{
 			// Object Offset:0x0279BEAA
@@ -26,20 +29,23 @@ public partial class TdValveSkeletalMeshActor : SkeletalMeshActor/*
 			{
 				LoadAsset<TdAnimSet>("AS_Valve.AS_Valve")/*Ref TdAnimSet'AS_Valve.AS_Valve'*/,
 			},
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdValveSkeletalMeshActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdValveSkeletalMeshActor.MyLightEnvironment'*/,
+			LightEnvironment = Default__TdValveSkeletalMeshActor_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdValveSkeletalMeshActor.MyLightEnvironment'*/,
 		}/* Reference: SkeletalMeshComponent'Default__TdValveSkeletalMeshActor.SkeletalMeshComponent0' */;
+		var Default__TdValveSkeletalMeshActor_FaceAudioComponent = new AudioComponent
+		{
+		}/* Reference: AudioComponent'Default__TdValveSkeletalMeshActor.FaceAudioComponent' */;
 		// Object Offset:0x006BCAB2
-		SkeletalMeshComponent = Default__TdValveSkeletalMeshActor_SkeletalMeshComponent0;
-		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdValveSkeletalMeshActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdValveSkeletalMeshActor.MyLightEnvironment'*/;
-		FacialAudioComp = LoadAsset<AudioComponent>("Default__TdValveSkeletalMeshActor.FaceAudioComponent")/*Ref AudioComponent'Default__TdValveSkeletalMeshActor.FaceAudioComponent'*/;
+		SkeletalMeshComponent = Default__TdValveSkeletalMeshActor_SkeletalMeshComponent0/*Ref SkeletalMeshComponent'Default__TdValveSkeletalMeshActor.SkeletalMeshComponent0'*/;
+		LightEnvironment = Default__TdValveSkeletalMeshActor_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdValveSkeletalMeshActor.MyLightEnvironment'*/;
+		FacialAudioComp = Default__TdValveSkeletalMeshActor_FaceAudioComponent/*Ref AudioComponent'Default__TdValveSkeletalMeshActor.FaceAudioComponent'*/;
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdValveSkeletalMeshActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdValveSkeletalMeshActor.MyLightEnvironment'*/,
-			Default__TdValveSkeletalMeshActor_SkeletalMeshComponent0,
-			LoadAsset<AudioComponent>("Default__TdValveSkeletalMeshActor.FaceAudioComponent")/*Ref AudioComponent'Default__TdValveSkeletalMeshActor.FaceAudioComponent'*/,
+			Default__TdValveSkeletalMeshActor_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdValveSkeletalMeshActor.MyLightEnvironment'*/,
+			Default__TdValveSkeletalMeshActor_SkeletalMeshComponent0/*Ref SkeletalMeshComponent'Default__TdValveSkeletalMeshActor.SkeletalMeshComponent0'*/,
+			Default__TdValveSkeletalMeshActor_FaceAudioComponent/*Ref AudioComponent'Default__TdValveSkeletalMeshActor.FaceAudioComponent'*/,
 		};
-		CollisionComponent = Default__TdValveSkeletalMeshActor_SkeletalMeshComponent0;
+		CollisionComponent = Default__TdValveSkeletalMeshActor_SkeletalMeshComponent0/*Ref SkeletalMeshComponent'Default__TdValveSkeletalMeshActor.SkeletalMeshComponent0'*/;
 	}
 }
 }

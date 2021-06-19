@@ -23,15 +23,18 @@ public partial class UIPanel : UIContainer/*
 				DefaultStyleTag = (name)"PanelBackground",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UIPanel.PanelBackgroundTemplate' */;
+		var Default__UIPanel_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIPanel.WidgetEventComponent' */;
 		// Object Offset:0x003B49E8
-		BackgroundImageComponent = Default__UIPanel_PanelBackgroundTemplate;
+		BackgroundImageComponent = Default__UIPanel_PanelBackgroundTemplate/*Ref UIComp_DrawImage'Default__UIPanel.PanelBackgroundTemplate'*/;
 		PrimaryStyle = new UIRoot.UIStyleReference
 		{
 			DefaultStyleTag = (name)"PanelBackground",
 			RequiredStyleClass = ClassT<UIStyle_Image>()/*Ref Class'UIStyle_Image'*/,
 		};
 		bSupportsPrimaryStyle = false;
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIPanel.WidgetEventComponent")/*Ref UIComp_Event'Default__UIPanel.WidgetEventComponent'*/;
+		EventProvider = Default__UIPanel_WidgetEventComponent/*Ref UIComp_Event'Default__UIPanel.WidgetEventComponent'*/;
 	}
 }
 }

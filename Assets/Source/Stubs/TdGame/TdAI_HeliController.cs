@@ -251,6 +251,9 @@ public partial class TdAI_HeliController : AIController/*
 	}
 	public TdAI_HeliController()
 	{
+		var Default__TdAI_HeliController_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAI_HeliController.Sprite' */;
 		// Object Offset:0x004D3235
 		MaxRememberTime = 180.0f;
 		DistanceNodePlayerWeight = 1.50f;
@@ -260,7 +263,7 @@ public partial class TdAI_HeliController : AIController/*
 		BigFloat = 10000000.0f;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAI_HeliController.Sprite")/*Ref SpriteComponent'Default__TdAI_HeliController.Sprite'*/,
+			Default__TdAI_HeliController_Sprite/*Ref SpriteComponent'Default__TdAI_HeliController.Sprite'*/,
 		};
 	}
 }

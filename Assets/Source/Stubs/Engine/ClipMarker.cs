@@ -16,7 +16,7 @@ public partial class ClipMarker : Keypoint/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__ClipMarker_Sprite,
+			Default__ClipMarker_Sprite/*Ref SpriteComponent'Default__ClipMarker.Sprite'*/,
 		};
 	}
 }

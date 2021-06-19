@@ -65,8 +65,11 @@ public partial class TdUIScene_TOS : TdUIScene_SubMenu/*
 	
 	public TdUIScene_TOS()
 	{
+		var Default__TdUIScene_TOS_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_TOS.SceneEventComponent' */;
 		// Object Offset:0x006B459F
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_TOS.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_TOS.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_TOS_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_TOS.SceneEventComponent'*/;
 	}
 }
 }

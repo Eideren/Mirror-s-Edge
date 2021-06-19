@@ -59,6 +59,9 @@ public partial class SeqAct_TdActorFactory : SeqAct_ActorFactoryEx/*
 	
 	public SeqAct_TdActorFactory()
 	{
+		var Default__SeqAct_TdActorFactory_TdFactory = new TdActorFactoryAI
+		{
+		}/* Reference: TdActorFactoryAI'Default__SeqAct_TdActorFactory.TdFactory' */;
 		// Object Offset:0x00493EC3
 		BotTemplate = ClassT<AITemplate_Default>()/*Ref Class'AITemplate_Default'*/;
 		MainWeaponAmmoDrop_Easy = -1;
@@ -67,7 +70,7 @@ public partial class SeqAct_TdActorFactory : SeqAct_ActorFactoryEx/*
 		MainWeaponAmmoDisarm_Easy = -1;
 		MainWeaponAmmoDisarm_Medium = -1;
 		MainWeaponAmmoDisarm_Hard = -1;
-		Factory = LoadAsset<TdActorFactoryAI>("Default__SeqAct_TdActorFactory.TdFactory")/*Ref TdActorFactoryAI'Default__SeqAct_TdActorFactory.TdFactory'*/;
+		Factory = Default__SeqAct_TdActorFactory_TdFactory/*Ref TdActorFactoryAI'Default__SeqAct_TdActorFactory.TdFactory'*/;
 		InputLinks = new array<SequenceOp.SeqOpInputLink>
 		{
 			new SequenceOp.SeqOpInputLink

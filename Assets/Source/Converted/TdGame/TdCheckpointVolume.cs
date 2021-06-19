@@ -59,12 +59,12 @@ public partial class TdCheckpointVolume : Volume/*
 			bAcceptsLights = false,
 		}/* Reference: BrushComponent'Default__TdCheckpointVolume.BrushComponent0' */;
 		// Object Offset:0x0053642D
-		BrushComponent = Default__TdCheckpointVolume_BrushComponent0;
+		BrushComponent = Default__TdCheckpointVolume_BrushComponent0/*Ref BrushComponent'Default__TdCheckpointVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdCheckpointVolume_BrushComponent0,
+			Default__TdCheckpointVolume_BrushComponent0/*Ref BrushComponent'Default__TdCheckpointVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__TdCheckpointVolume_BrushComponent0;
+		CollisionComponent = Default__TdCheckpointVolume_BrushComponent0/*Ref BrushComponent'Default__TdCheckpointVolume.BrushComponent0'*/;
 	}
 }
 }

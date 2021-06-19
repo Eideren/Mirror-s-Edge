@@ -40,16 +40,25 @@ public partial class TdBalanceWalkVolume : TdMovementVolume/*
 	
 	public TdBalanceWalkVolume()
 	{
+		var Default__TdBalanceWalkVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TdBalanceWalkVolume.BrushComponent0' */;
+		var Default__TdBalanceWalkVolume_WallDir = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdBalanceWalkVolume.WallDir' */;
+		var Default__TdBalanceWalkVolume_MovementMesh = new TdMoveVolumeRenderComponent
+		{
+		}/* Reference: TdMoveVolumeRenderComponent'Default__TdBalanceWalkVolume.MovementMesh' */;
 		// Object Offset:0x0050E3E0
 		bLatent = true;
-		BrushComponent = LoadAsset<BrushComponent>("Default__TdBalanceWalkVolume.BrushComponent0")/*Ref BrushComponent'Default__TdBalanceWalkVolume.BrushComponent0'*/;
+		BrushComponent = Default__TdBalanceWalkVolume_BrushComponent0/*Ref BrushComponent'Default__TdBalanceWalkVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TdBalanceWalkVolume.BrushComponent0")/*Ref BrushComponent'Default__TdBalanceWalkVolume.BrushComponent0'*/,
-			LoadAsset<ArrowComponent>("Default__TdBalanceWalkVolume.WallDir")/*Ref ArrowComponent'Default__TdBalanceWalkVolume.WallDir'*/,
-			LoadAsset<TdMoveVolumeRenderComponent>("Default__TdBalanceWalkVolume.MovementMesh")/*Ref TdMoveVolumeRenderComponent'Default__TdBalanceWalkVolume.MovementMesh'*/,
+			Default__TdBalanceWalkVolume_BrushComponent0/*Ref BrushComponent'Default__TdBalanceWalkVolume.BrushComponent0'*/,
+			Default__TdBalanceWalkVolume_WallDir/*Ref ArrowComponent'Default__TdBalanceWalkVolume.WallDir'*/,
+			Default__TdBalanceWalkVolume_MovementMesh/*Ref TdMoveVolumeRenderComponent'Default__TdBalanceWalkVolume.MovementMesh'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TdBalanceWalkVolume.BrushComponent0")/*Ref BrushComponent'Default__TdBalanceWalkVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TdBalanceWalkVolume_BrushComponent0/*Ref BrushComponent'Default__TdBalanceWalkVolume.BrushComponent0'*/;
 	}
 }
 }

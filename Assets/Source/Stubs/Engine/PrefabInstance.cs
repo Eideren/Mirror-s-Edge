@@ -32,7 +32,7 @@ public partial class PrefabInstance : Actor/*
 		PI_LicenseePackageVersion = -1;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__PrefabInstance_Sprite,
+			Default__PrefabInstance_Sprite/*Ref SpriteComponent'Default__PrefabInstance.Sprite'*/,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
 	}

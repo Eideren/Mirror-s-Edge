@@ -61,7 +61,7 @@ public partial class RB_RadialForceActor : Actor/*
 			AlwaysLoadOnServer = false,
 		}/* Reference: SpriteComponent'Default__RB_RadialForceActor.Sprite' */;
 		// Object Offset:0x003AEE49
-		RenderComponent = Default__RB_RadialForceActor_DrawSphere0;
+		RenderComponent = Default__RB_RadialForceActor_DrawSphere0/*Ref DrawSphereComponent'Default__RB_RadialForceActor.DrawSphere0'*/;
 		ForceStrength = 10.0f;
 		ForceRadius = 200.0f;
 		bForceApplyToCloth = true;
@@ -89,8 +89,8 @@ public partial class RB_RadialForceActor : Actor/*
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__RB_RadialForceActor_DrawSphere0,
-			Default__RB_RadialForceActor_Sprite,
+			Default__RB_RadialForceActor_DrawSphere0/*Ref DrawSphereComponent'Default__RB_RadialForceActor.DrawSphere0'*/,
+			Default__RB_RadialForceActor_Sprite/*Ref SpriteComponent'Default__RB_RadialForceActor.Sprite'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetUpdateFrequency = 0.10f;

@@ -42,6 +42,15 @@ public partial class Scout : Pawn/*
 	
 	public Scout()
 	{
+		var Default__Scout_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+		}/* Reference: SceneCaptureCharacterComponent'Default__Scout.SceneCaptureCharacterComponent0' */;
+		var Default__Scout_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__Scout.DrawFrust0' */;
+		var Default__Scout_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__Scout.CollisionCylinder' */;
 		// Object Offset:0x003B42C0
 		PathSizes = new array<Scout.PathSizeInfo>
 		{
@@ -85,9 +94,9 @@ public partial class Scout : Pawn/*
 		MinNumPlayerStarts = 1;
 		DefaultReachSpecClass = ClassT<ReachSpec>()/*Ref Class'ReachSpec'*/;
 		AccelRate = 1.0f;
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__Scout.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__Scout.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__Scout.DrawFrust0")/*Ref DrawFrustumComponent'Default__Scout.DrawFrust0'*/;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__Scout.CollisionCylinder")/*Ref CylinderComponent'Default__Scout.CollisionCylinder'*/;
+		SceneCapture = Default__Scout_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__Scout.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__Scout_DrawFrust0/*Ref DrawFrustumComponent'Default__Scout.DrawFrust0'*/;
+		CylinderComponent = Default__Scout_CollisionCylinder/*Ref CylinderComponent'Default__Scout.CollisionCylinder'*/;
 		bCollideActors = false;
 		bCollideWorld = false;
 		bBlockActors = false;
@@ -95,12 +104,12 @@ public partial class Scout : Pawn/*
 		bPathColliding = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCaptureCharacterComponent>("Default__Scout.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__Scout.SceneCaptureCharacterComponent0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__Scout.DrawFrust0")/*Ref DrawFrustumComponent'Default__Scout.DrawFrust0'*/,
-			LoadAsset<CylinderComponent>("Default__Scout.CollisionCylinder")/*Ref CylinderComponent'Default__Scout.CollisionCylinder'*/,
+			Default__Scout_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__Scout.SceneCaptureCharacterComponent0'*/,
+			Default__Scout_DrawFrust0/*Ref DrawFrustumComponent'Default__Scout.DrawFrust0'*/,
+			Default__Scout_CollisionCylinder/*Ref CylinderComponent'Default__Scout.CollisionCylinder'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_None;
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__Scout.CollisionCylinder")/*Ref CylinderComponent'Default__Scout.CollisionCylinder'*/;
+		CollisionComponent = Default__Scout_CollisionCylinder/*Ref CylinderComponent'Default__Scout.CollisionCylinder'*/;
 	}
 }
 }

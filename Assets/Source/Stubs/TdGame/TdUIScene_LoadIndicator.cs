@@ -31,6 +31,9 @@ public partial class TdUIScene_LoadIndicator : TdUIScene/*
 	
 	public TdUIScene_LoadIndicator()
 	{
+		var Default__TdUIScene_LoadIndicator_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_LoadIndicator.SceneEventComponent' */;
 		// Object Offset:0x0055C818
 		WriteMessage = "SAVING...";
 		LongWriteMessage = "SAVING, PLEASE DON'T TURN THE SYSTEM OFF";
@@ -46,7 +49,7 @@ public partial class TdUIScene_LoadIndicator : TdUIScene/*
 		SaveMaterialBlack = LoadAsset<Material>("TdUIResources.Materials.AnimationSavingBlack")/*Ref Material'TdUIResources.Materials.AnimationSavingBlack'*/;
 		LoadMaterial = LoadAsset<Material>("TdUIResources.Materials.AnimationLoading")/*Ref Material'TdUIResources.Materials.AnimationLoading'*/;
 		LoadMaterialBlack = LoadAsset<Material>("TdUIResources.Materials.AnimationLoadingBlack")/*Ref Material'TdUIResources.Materials.AnimationLoadingBlack'*/;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_LoadIndicator.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_LoadIndicator.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_LoadIndicator_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_LoadIndicator.SceneEventComponent'*/;
 	}
 }
 }

@@ -119,6 +119,9 @@ public partial class AccessControl : Info/*
 	
 	public AccessControl()
 	{
+		var Default__AccessControl_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__AccessControl.Sprite' */;
 		// Object Offset:0x00260271
 		IPPolicies = new array</*config */String>
 		{
@@ -146,7 +149,7 @@ public partial class AccessControl : Info/*
 	 	};
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__AccessControl.Sprite")/*Ref SpriteComponent'Default__AccessControl.Sprite'*/,
+			Default__AccessControl_Sprite/*Ref SpriteComponent'Default__AccessControl.Sprite'*/,
 		};
 	}
 }

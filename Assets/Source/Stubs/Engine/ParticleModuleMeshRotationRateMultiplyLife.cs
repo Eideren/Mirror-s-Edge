@@ -9,6 +9,9 @@ public partial class ParticleModuleMeshRotationRateMultiplyLife : ParticleModule
 	
 	public ParticleModuleMeshRotationRateMultiplyLife()
 	{
+		var Default__ParticleModuleMeshRotationRateMultiplyLife_DistributionLifeMultiplier = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleMeshRotationRateMultiplyLife.DistributionLifeMultiplier' */;
 		// Object Offset:0x0037FC50
 		LifeMultiplier = new DistributionVector.RawDistributionVector
 		{

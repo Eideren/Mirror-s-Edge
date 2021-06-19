@@ -85,8 +85,11 @@ public partial class TdUIScene_GameSettings : TdUIScene_OptionMenu/*
 	
 	public TdUIScene_GameSettings()
 	{
+		var Default__TdUIScene_GameSettings_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_GameSettings.SceneEventComponent' */;
 		// Object Offset:0x0056BB17
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_GameSettings.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_GameSettings.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_GameSettings_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_GameSettings.SceneEventComponent'*/;
 	}
 }
 }

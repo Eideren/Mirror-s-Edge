@@ -12,6 +12,12 @@ public partial class ParticleModuleKillBox : ParticleModuleKillBase/*
 	
 	public ParticleModuleKillBox()
 	{
+		var Default__ParticleModuleKillBox_DistributionLowerLeftCorner = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleKillBox.DistributionLowerLeftCorner' */;
+		var Default__ParticleModuleKillBox_DistributionUpperRightCorner = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleKillBox.DistributionUpperRightCorner' */;
 		// Object Offset:0x0037D303
 		LowerLeftCorner = new DistributionVector.RawDistributionVector
 		{

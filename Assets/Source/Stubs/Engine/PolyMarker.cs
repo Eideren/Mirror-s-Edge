@@ -16,7 +16,7 @@ public partial class PolyMarker : Keypoint/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__PolyMarker_Sprite,
+			Default__PolyMarker_Sprite/*Ref SpriteComponent'Default__PolyMarker.Sprite'*/,
 		};
 	}
 }

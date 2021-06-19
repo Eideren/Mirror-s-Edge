@@ -74,12 +74,15 @@ public partial class TdAI_MeleeDummy : TdAI_Dummy/*
 	}
 	public TdAI_MeleeDummy()
 	{
+		var Default__TdAI_MeleeDummy_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAI_MeleeDummy.Sprite' */;
 		// Object Offset:0x004DCF8E
 		bCanSee = true;
 		bCanHear = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAI_MeleeDummy.Sprite")/*Ref SpriteComponent'Default__TdAI_MeleeDummy.Sprite'*/,
+			Default__TdAI_MeleeDummy_Sprite/*Ref SpriteComponent'Default__TdAI_MeleeDummy.Sprite'*/,
 		};
 		RotationRate = new Rotator
 		{

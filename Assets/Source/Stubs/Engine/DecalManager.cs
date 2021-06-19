@@ -58,8 +58,11 @@ public partial class DecalManager : Actor/*
 	
 	public DecalManager()
 	{
+		var Default__DecalManager_BaseDecal = new DecalComponent
+		{
+		}/* Reference: DecalComponent'Default__DecalManager.BaseDecal' */;
 		// Object Offset:0x003095F4
-		DecalTemplate = LoadAsset<DecalComponent>("Default__DecalManager.BaseDecal")/*Ref DecalComponent'Default__DecalManager.BaseDecal'*/;
+		DecalTemplate = Default__DecalManager_BaseDecal/*Ref DecalComponent'Default__DecalManager.BaseDecal'*/;
 		MaxActiveDecals = 100;
 		DecalLifeSpan = 30.0f;
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;

@@ -36,14 +36,20 @@ public partial class TriggerStreamingLevel : Trigger/*
 	}
 	public TriggerStreamingLevel()
 	{
+		var Default__TriggerStreamingLevel_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TriggerStreamingLevel.CollisionCylinder' */;
+		var Default__TriggerStreamingLevel_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TriggerStreamingLevel.Sprite' */;
 		// Object Offset:0x004000B6
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TriggerStreamingLevel.CollisionCylinder")/*Ref CylinderComponent'Default__TriggerStreamingLevel.CollisionCylinder'*/;
+		CylinderComponent = Default__TriggerStreamingLevel_CollisionCylinder/*Ref CylinderComponent'Default__TriggerStreamingLevel.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TriggerStreamingLevel.Sprite")/*Ref SpriteComponent'Default__TriggerStreamingLevel.Sprite'*/,
-			LoadAsset<CylinderComponent>("Default__TriggerStreamingLevel.CollisionCylinder")/*Ref CylinderComponent'Default__TriggerStreamingLevel.CollisionCylinder'*/,
+			Default__TriggerStreamingLevel_Sprite/*Ref SpriteComponent'Default__TriggerStreamingLevel.Sprite'*/,
+			Default__TriggerStreamingLevel_CollisionCylinder/*Ref CylinderComponent'Default__TriggerStreamingLevel.CollisionCylinder'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TriggerStreamingLevel.CollisionCylinder")/*Ref CylinderComponent'Default__TriggerStreamingLevel.CollisionCylinder'*/;
+		CollisionComponent = Default__TriggerStreamingLevel_CollisionCylinder/*Ref CylinderComponent'Default__TriggerStreamingLevel.CollisionCylinder'*/;
 	}
 }
 }

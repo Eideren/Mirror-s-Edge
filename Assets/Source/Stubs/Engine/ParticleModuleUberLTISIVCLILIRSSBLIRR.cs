@@ -54,11 +54,20 @@ public partial class ParticleModuleUberLTISIVCLILIRSSBLIRR : ParticleModuleUberB
 				Z=10.0f
 			},
 		}/* Reference: DistributionVectorUniform'Default__ParticleModuleUberLTISIVCLILIRSSBLIRR.DistributionStartVelocity' */;
+		var Default__ParticleModuleUberLTISIVCLILIRSSBLIRR_DistributionStartVelocityRadial = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__ParticleModuleUberLTISIVCLILIRSSBLIRR.DistributionStartVelocityRadial' */;
+		var Default__ParticleModuleUberLTISIVCLILIRSSBLIRR_DistributionColorOverLife = new DistributionVectorConstantCurve
+		{
+		}/* Reference: DistributionVectorConstantCurve'Default__ParticleModuleUberLTISIVCLILIRSSBLIRR.DistributionColorOverLife' */;
 		var Default__ParticleModuleUberLTISIVCLILIRSSBLIRR_DistributionAlphaOverLife = new DistributionFloatConstant
 		{
 			// Object Offset:0x004670AB
 			Constant = 255.90f,
 		}/* Reference: DistributionFloatConstant'Default__ParticleModuleUberLTISIVCLILIRSSBLIRR.DistributionAlphaOverLife' */;
+		var Default__ParticleModuleUberLTISIVCLILIRSSBLIRR_DistributionStartLocation = new DistributionVectorUniform
+		{
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleUberLTISIVCLILIRSSBLIRR.DistributionStartLocation' */;
 		var Default__ParticleModuleUberLTISIVCLILIRSSBLIRR_DistributionStartRotation = new DistributionFloatUniform
 		{
 			// Object Offset:0x0046775F
@@ -74,6 +83,9 @@ public partial class ParticleModuleUberLTISIVCLILIRSSBLIRR : ParticleModuleUberB
 				Z=1.0f
 			},
 		}/* Reference: DistributionVectorConstant'Default__ParticleModuleUberLTISIVCLILIRSSBLIRR.DistributionLifeMultiplier' */;
+		var Default__ParticleModuleUberLTISIVCLILIRSSBLIRR_DistributionStartRotationRate = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleUberLTISIVCLILIRSSBLIRR.DistributionStartRotationRate' */;
 		// Object Offset:0x003872D7
 		Lifetime = new DistributionFloat.RawDistributionFloat
 		{

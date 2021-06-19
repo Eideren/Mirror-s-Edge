@@ -6,10 +6,13 @@ public partial class TdKillZoneKiller : Info/*
 		hidecategories(Navigation,Movement,Collision)*/{
 	public TdKillZoneKiller()
 	{
+		var Default__TdKillZoneKiller_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdKillZoneKiller.Sprite' */;
 		// Object Offset:0x00580E08
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdKillZoneKiller.Sprite")/*Ref SpriteComponent'Default__TdKillZoneKiller.Sprite'*/,
+			Default__TdKillZoneKiller_Sprite/*Ref SpriteComponent'Default__TdKillZoneKiller.Sprite'*/,
 		};
 	}
 }

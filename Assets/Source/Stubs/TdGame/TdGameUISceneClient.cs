@@ -594,10 +594,10 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 		};
 		AnimSequencePool = new array<UIAnimationSeq>
 		{
-			Default__TdGameUISceneClient_seqFirstStarFadeIn,
-			Default__TdGameUISceneClient_seqStarFadeIn,
-			Default__TdGameUISceneClient_seqControllerFlash,
-			Default__TdGameUISceneClient_seqLogoFade,
+			Default__TdGameUISceneClient_seqFirstStarFadeIn/*Ref UIAnimationSeq'Default__TdGameUISceneClient.seqFirstStarFadeIn'*/,
+			Default__TdGameUISceneClient_seqStarFadeIn/*Ref UIAnimationSeq'Default__TdGameUISceneClient.seqStarFadeIn'*/,
+			Default__TdGameUISceneClient_seqControllerFlash/*Ref UIAnimationSeq'Default__TdGameUISceneClient.seqControllerFlash'*/,
+			Default__TdGameUISceneClient_seqLogoFade/*Ref UIAnimationSeq'Default__TdGameUISceneClient.seqLogoFade'*/,
 		};
 	}
 }

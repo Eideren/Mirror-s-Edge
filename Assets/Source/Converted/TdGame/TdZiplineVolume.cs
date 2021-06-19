@@ -37,17 +37,26 @@ public partial class TdZiplineVolume : TdMovementVolume/*
 	
 	public TdZiplineVolume()
 	{
+		var Default__TdZiplineVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TdZiplineVolume.BrushComponent0' */;
+		var Default__TdZiplineVolume_WallDir = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdZiplineVolume.WallDir' */;
+		var Default__TdZiplineVolume_MovementMesh = new TdMoveVolumeRenderComponent
+		{
+		}/* Reference: TdMoveVolumeRenderComponent'Default__TdZiplineVolume.MovementMesh' */;
 		// Object Offset:0x006D0944
 		LandingStrip = 500.0f;
 		bLatent = true;
-		BrushComponent = LoadAsset<BrushComponent>("Default__TdZiplineVolume.BrushComponent0")/*Ref BrushComponent'Default__TdZiplineVolume.BrushComponent0'*/;
+		BrushComponent = Default__TdZiplineVolume_BrushComponent0/*Ref BrushComponent'Default__TdZiplineVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TdZiplineVolume.BrushComponent0")/*Ref BrushComponent'Default__TdZiplineVolume.BrushComponent0'*/,
-			LoadAsset<ArrowComponent>("Default__TdZiplineVolume.WallDir")/*Ref ArrowComponent'Default__TdZiplineVolume.WallDir'*/,
-			LoadAsset<TdMoveVolumeRenderComponent>("Default__TdZiplineVolume.MovementMesh")/*Ref TdMoveVolumeRenderComponent'Default__TdZiplineVolume.MovementMesh'*/,
+			Default__TdZiplineVolume_BrushComponent0/*Ref BrushComponent'Default__TdZiplineVolume.BrushComponent0'*/,
+			Default__TdZiplineVolume_WallDir/*Ref ArrowComponent'Default__TdZiplineVolume.WallDir'*/,
+			Default__TdZiplineVolume_MovementMesh/*Ref TdMoveVolumeRenderComponent'Default__TdZiplineVolume.MovementMesh'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TdZiplineVolume.BrushComponent0")/*Ref BrushComponent'Default__TdZiplineVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TdZiplineVolume_BrushComponent0/*Ref BrushComponent'Default__TdZiplineVolume.BrushComponent0'*/;
 	}
 }
 }

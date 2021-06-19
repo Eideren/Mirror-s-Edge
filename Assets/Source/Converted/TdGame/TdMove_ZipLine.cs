@@ -193,7 +193,7 @@ public partial class TdMove_ZipLine : TdPhysicsMove/*
 		ZippingSound = LoadAsset<SoundCue>("A_Kits.ZipLine.ZipLine")/*Ref SoundCue'A_Kits.ZipLine.ZipLine'*/;
 		ZipFadeInTime = 0.10f;
 		ZipFadeOutTime = 0.50f;
-		ZiplineWaveform = Default__TdMove_ZipLine_ZiplineWaveformObj;
+		ZiplineWaveform = Default__TdMove_ZipLine_ZiplineWaveformObj/*Ref ForceFeedbackWaveform'Default__TdMove_ZipLine.ZiplineWaveformObj'*/;
 		PawnPhysics = Actor.EPhysics.PHYS_Flying;
 		ControllerState = (name)"PlayerGrabbing";
 		bShouldHolsterWeapon = true;

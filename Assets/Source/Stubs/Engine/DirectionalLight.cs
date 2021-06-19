@@ -29,12 +29,12 @@ public partial class DirectionalLight : Light/*
 			},
 		}/* Reference: ArrowComponent'Default__DirectionalLight.ArrowComponent0' */;
 		// Object Offset:0x0030DBEE
-		LightComponent = Default__DirectionalLight_DirectionalLightComponent0;
+		LightComponent = Default__DirectionalLight_DirectionalLightComponent0/*Ref DirectionalLightComponent'Default__DirectionalLight.DirectionalLightComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__DirectionalLight_Sprite,
-			Default__DirectionalLight_DirectionalLightComponent0,
-			Default__DirectionalLight_ArrowComponent0,
+			Default__DirectionalLight_Sprite/*Ref SpriteComponent'Default__DirectionalLight.Sprite'*/,
+			Default__DirectionalLight_DirectionalLightComponent0/*Ref DirectionalLightComponent'Default__DirectionalLight.DirectionalLightComponent0'*/,
+			Default__DirectionalLight_ArrowComponent0/*Ref ArrowComponent'Default__DirectionalLight.ArrowComponent0'*/,
 		};
 		Rotation = new Rotator
 		{

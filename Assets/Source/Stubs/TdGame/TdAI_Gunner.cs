@@ -72,10 +72,13 @@ public partial class TdAI_Gunner : TdAIController/*
 	}
 	public TdAI_Gunner()
 	{
+		var Default__TdAI_Gunner_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAI_Gunner.Sprite' */;
 		// Object Offset:0x004DC889
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAI_Gunner.Sprite")/*Ref SpriteComponent'Default__TdAI_Gunner.Sprite'*/,
+			Default__TdAI_Gunner_Sprite/*Ref SpriteComponent'Default__TdAI_Gunner.Sprite'*/,
 		};
 	}
 }

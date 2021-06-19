@@ -37,11 +37,23 @@ public partial class LiftCenter : NavigationPoint/*
 	
 	public LiftCenter()
 	{
+		var Default__LiftCenter_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__LiftCenter.CollisionCylinder' */;
 		var Default__LiftCenter_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x004CFC96
 			Sprite = LoadAsset<Texture2D>("EngineResources.lift_center")/*Ref Texture2D'EngineResources.lift_center'*/,
 		}/* Reference: SpriteComponent'Default__LiftCenter.Sprite' */;
+		var Default__LiftCenter_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__LiftCenter.Sprite2' */;
+		var Default__LiftCenter_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__LiftCenter.Arrow' */;
+		var Default__LiftCenter_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__LiftCenter.PathRenderer' */;
 		// Object Offset:0x003510D7
 		MaxDist2D = 400.0f;
 		CollisionHeight = 50.0f;
@@ -50,19 +62,19 @@ public partial class LiftCenter : NavigationPoint/*
 		bSpecialMove = true;
 		bNoAutoConnect = true;
 		ExtraCost = 400;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__LiftCenter.CollisionCylinder")/*Ref CylinderComponent'Default__LiftCenter.CollisionCylinder'*/;
-		GoodSprite = Default__LiftCenter_Sprite;
-		BadSprite = LoadAsset<SpriteComponent>("Default__LiftCenter.Sprite2")/*Ref SpriteComponent'Default__LiftCenter.Sprite2'*/;
+		CylinderComponent = Default__LiftCenter_CollisionCylinder/*Ref CylinderComponent'Default__LiftCenter.CollisionCylinder'*/;
+		GoodSprite = Default__LiftCenter_Sprite/*Ref SpriteComponent'Default__LiftCenter.Sprite'*/;
+		BadSprite = Default__LiftCenter_Sprite2/*Ref SpriteComponent'Default__LiftCenter.Sprite2'*/;
 		bStatic = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__LiftCenter_Sprite,
-			LoadAsset<SpriteComponent>("Default__LiftCenter.Sprite2")/*Ref SpriteComponent'Default__LiftCenter.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__LiftCenter.Arrow")/*Ref ArrowComponent'Default__LiftCenter.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__LiftCenter.CollisionCylinder")/*Ref CylinderComponent'Default__LiftCenter.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__LiftCenter.PathRenderer")/*Ref PathRenderingComponent'Default__LiftCenter.PathRenderer'*/,
+			Default__LiftCenter_Sprite/*Ref SpriteComponent'Default__LiftCenter.Sprite'*/,
+			Default__LiftCenter_Sprite2/*Ref SpriteComponent'Default__LiftCenter.Sprite2'*/,
+			Default__LiftCenter_Arrow/*Ref ArrowComponent'Default__LiftCenter.Arrow'*/,
+			Default__LiftCenter_CollisionCylinder/*Ref CylinderComponent'Default__LiftCenter.CollisionCylinder'*/,
+			Default__LiftCenter_PathRenderer/*Ref PathRenderingComponent'Default__LiftCenter.PathRenderer'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__LiftCenter.CollisionCylinder")/*Ref CylinderComponent'Default__LiftCenter.CollisionCylinder'*/;
+		CollisionComponent = Default__LiftCenter_CollisionCylinder/*Ref CylinderComponent'Default__LiftCenter.CollisionCylinder'*/;
 	}
 }
 }

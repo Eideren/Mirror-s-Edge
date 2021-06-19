@@ -145,9 +145,12 @@ public partial class TdUIScene_SPLevelRace : TdUIScene_SubMenu/*
 	
 	public TdUIScene_SPLevelRace()
 	{
+		var Default__TdUIScene_SPLevelRace_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_SPLevelRace.SceneEventComponent' */;
 		// Object Offset:0x006AB2FB
 		RequestDelay = 0.30f;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_SPLevelRace.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_SPLevelRace.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_SPLevelRace_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_SPLevelRace.SceneEventComponent'*/;
 	}
 }
 }

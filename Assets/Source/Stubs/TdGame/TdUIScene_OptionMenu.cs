@@ -168,8 +168,11 @@ public partial class TdUIScene_OptionMenu : TdUIScene_SubMenu/*
 	
 	public TdUIScene_OptionMenu()
 	{
+		var Default__TdUIScene_OptionMenu_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_OptionMenu.SceneEventComponent' */;
 		// Object Offset:0x00565B4B
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_OptionMenu.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_OptionMenu.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_OptionMenu_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_OptionMenu.SceneEventComponent'*/;
 	}
 }
 }

@@ -11,8 +11,11 @@ public partial class TdUIScene_HUD : TdUIScene/*
 	
 	public TdUIScene_HUD()
 	{
+		var Default__TdUIScene_HUD_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_HUD.SceneEventComponent' */;
 		// Object Offset:0x0069A41F
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_HUD.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_HUD.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_HUD_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_HUD.SceneEventComponent'*/;
 	}
 }
 }

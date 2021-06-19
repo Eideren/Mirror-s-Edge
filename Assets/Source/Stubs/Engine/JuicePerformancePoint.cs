@@ -18,8 +18,8 @@ public partial class JuicePerformancePoint : Keypoint/*
 		// Object Offset:0x0034817C
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__JuicePerformancePoint_Sprite,
-			Default__JuicePerformancePoint_Sprite,
+			Default__JuicePerformancePoint_Sprite/*Ref SpriteComponent'Default__JuicePerformancePoint.Sprite'*/,
+			Default__JuicePerformancePoint_Sprite/*Ref SpriteComponent'Default__JuicePerformancePoint.Sprite'*/,
 		};
 	}
 }

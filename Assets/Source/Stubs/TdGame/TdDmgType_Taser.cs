@@ -43,8 +43,8 @@ public partial class TdDmgType_Taser : TdDamageType{
 		bCausesBlood = false;
 		KDamageImpulse = 1000.0f;
 		KImpulseRadius = 20.0f;
-		DamagedFFWaveform = Default__TdDmgType_Taser_ForceFeedbackWaveform0;
-		KilledFFWaveform = Default__TdDmgType_Taser_ForceFeedbackWaveform1;
+		DamagedFFWaveform = Default__TdDmgType_Taser_ForceFeedbackWaveform0/*Ref ForceFeedbackWaveform'Default__TdDmgType_Taser.ForceFeedbackWaveform0'*/;
+		KilledFFWaveform = Default__TdDmgType_Taser_ForceFeedbackWaveform1/*Ref ForceFeedbackWaveform'Default__TdDmgType_Taser.ForceFeedbackWaveform1'*/;
 	}
 }
 }

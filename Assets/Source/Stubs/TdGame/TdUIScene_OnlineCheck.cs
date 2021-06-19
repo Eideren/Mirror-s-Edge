@@ -48,8 +48,11 @@ public partial class TdUIScene_OnlineCheck : TdUIScene_SubMenu/*
 	
 	public TdUIScene_OnlineCheck()
 	{
+		var Default__TdUIScene_OnlineCheck_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_OnlineCheck.SceneEventComponent' */;
 		// Object Offset:0x006A45A5
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_OnlineCheck.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_OnlineCheck.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_OnlineCheck_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_OnlineCheck.SceneEventComponent'*/;
 	}
 }
 }

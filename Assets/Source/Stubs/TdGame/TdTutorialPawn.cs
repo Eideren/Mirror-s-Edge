@@ -45,27 +45,48 @@ public partial class TdTutorialPawn : TdPlayerPawn/*
 	}
 	public TdTutorialPawn()
 	{
+		var Default__TdTutorialPawn_ActorCollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdTutorialPawn.ActorCollisionCylinder' */;
+		var Default__TdTutorialPawn_MyLightEnvironment1P = new DynamicLightEnvironmentComponent
+		{
+		}/* Reference: DynamicLightEnvironmentComponent'Default__TdTutorialPawn.MyLightEnvironment1P' */;
 		var Default__TdTutorialPawn_TdPawnMesh1p = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x031282BA
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdTutorialPawn.MyLightEnvironment1P")/*Ref DynamicLightEnvironmentComponent'Default__TdTutorialPawn.MyLightEnvironment1P'*/,
+			LightEnvironment = Default__TdTutorialPawn_MyLightEnvironment1P/*Ref DynamicLightEnvironmentComponent'Default__TdTutorialPawn.MyLightEnvironment1P'*/,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdTutorialPawn.TdPawnMesh1p' */;
+		var Default__TdTutorialPawn_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+		}/* Reference: DynamicLightEnvironmentComponent'Default__TdTutorialPawn.MyLightEnvironment' */;
 		var Default__TdTutorialPawn_TdPawnMesh3p = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x0312833E
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdTutorialPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdTutorialPawn.MyLightEnvironment'*/,
+			LightEnvironment = Default__TdTutorialPawn_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdTutorialPawn.MyLightEnvironment'*/,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdTutorialPawn.TdPawnMesh3p' */;
 		var Default__TdTutorialPawn_TdPawnMesh1pLowerBody = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x031282EE
-			ParentAnimComponent = LoadAsset<TdSkeletalMeshComponent>("Default__TdTutorialPawn.TdPawnMesh1p")/*Ref TdSkeletalMeshComponent'Default__TdTutorialPawn.TdPawnMesh1p'*/,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdTutorialPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdTutorialPawn.MyLightEnvironment'*/,
+			ParentAnimComponent = Default__TdTutorialPawn_TdPawnMesh1p/*Ref TdSkeletalMeshComponent'Default__TdTutorialPawn.TdPawnMesh1p'*/,
+			LightEnvironment = Default__TdTutorialPawn_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdTutorialPawn.MyLightEnvironment'*/,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdTutorialPawn.TdPawnMesh1pLowerBody' */;
+		var Default__TdTutorialPawn_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+		}/* Reference: SceneCaptureCharacterComponent'Default__TdTutorialPawn.SceneCaptureCharacterComponent0' */;
+		var Default__TdTutorialPawn_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__TdTutorialPawn.DrawFrust0' */;
+		var Default__TdTutorialPawn_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdTutorialPawn.CollisionCylinder' */;
+		var Default__TdTutorialPawn_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdTutorialPawn.Arrow' */;
 		// Object Offset:0x0067FFE6
-		ActorCylinderComponent = LoadAsset<CylinderComponent>("Default__TdTutorialPawn.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdTutorialPawn.ActorCollisionCylinder'*/;
-		Mesh1p = Default__TdTutorialPawn_TdPawnMesh1p;
-		Mesh3p = Default__TdTutorialPawn_TdPawnMesh3p;
-		Mesh1pLowerBody = Default__TdTutorialPawn_TdPawnMesh1pLowerBody;
+		ActorCylinderComponent = Default__TdTutorialPawn_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdTutorialPawn.ActorCollisionCylinder'*/;
+		Mesh1p = Default__TdTutorialPawn_TdPawnMesh1p/*Ref TdSkeletalMeshComponent'Default__TdTutorialPawn.TdPawnMesh1p'*/;
+		Mesh3p = Default__TdTutorialPawn_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdTutorialPawn.TdPawnMesh3p'*/;
+		Mesh1pLowerBody = Default__TdTutorialPawn_TdPawnMesh1pLowerBody/*Ref TdSkeletalMeshComponent'Default__TdTutorialPawn.TdPawnMesh1pLowerBody'*/;
 		MoveClasses = new array< Core.ClassT<TdMove> >
 		{
 			default,
@@ -163,23 +184,23 @@ public partial class TdTutorialPawn : TdPlayerPawn/*
 			default,
 			ClassT<TdMove_Cutscene>(),
 		};
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdTutorialPawn.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdTutorialPawn.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdTutorialPawn.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdTutorialPawn.DrawFrust0'*/;
-		Mesh = Default__TdTutorialPawn_TdPawnMesh3p;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdTutorialPawn.CollisionCylinder")/*Ref CylinderComponent'Default__TdTutorialPawn.CollisionCylinder'*/;
+		SceneCapture = Default__TdTutorialPawn_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdTutorialPawn.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__TdTutorialPawn_DrawFrust0/*Ref DrawFrustumComponent'Default__TdTutorialPawn.DrawFrust0'*/;
+		Mesh = Default__TdTutorialPawn_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdTutorialPawn.TdPawnMesh3p'*/;
+		CylinderComponent = Default__TdTutorialPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdTutorialPawn.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCaptureCharacterComponent>("Default__TdTutorialPawn.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdTutorialPawn.SceneCaptureCharacterComponent0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__TdTutorialPawn.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdTutorialPawn.DrawFrust0'*/,
-			LoadAsset<CylinderComponent>("Default__TdTutorialPawn.CollisionCylinder")/*Ref CylinderComponent'Default__TdTutorialPawn.CollisionCylinder'*/,
-			LoadAsset<ArrowComponent>("Default__TdTutorialPawn.Arrow")/*Ref ArrowComponent'Default__TdTutorialPawn.Arrow'*/,
-			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdTutorialPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdTutorialPawn.MyLightEnvironment'*/,
-			Default__TdTutorialPawn_TdPawnMesh3p,
-			LoadAsset<CylinderComponent>("Default__TdTutorialPawn.CollisionCylinder")/*Ref CylinderComponent'Default__TdTutorialPawn.CollisionCylinder'*/,
-			LoadAsset<CylinderComponent>("Default__TdTutorialPawn.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdTutorialPawn.ActorCollisionCylinder'*/,
-			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdTutorialPawn.MyLightEnvironment1P")/*Ref DynamicLightEnvironmentComponent'Default__TdTutorialPawn.MyLightEnvironment1P'*/,
+			Default__TdTutorialPawn_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdTutorialPawn.SceneCaptureCharacterComponent0'*/,
+			Default__TdTutorialPawn_DrawFrust0/*Ref DrawFrustumComponent'Default__TdTutorialPawn.DrawFrust0'*/,
+			Default__TdTutorialPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdTutorialPawn.CollisionCylinder'*/,
+			Default__TdTutorialPawn_Arrow/*Ref ArrowComponent'Default__TdTutorialPawn.Arrow'*/,
+			Default__TdTutorialPawn_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdTutorialPawn.MyLightEnvironment'*/,
+			Default__TdTutorialPawn_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdTutorialPawn.TdPawnMesh3p'*/,
+			Default__TdTutorialPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdTutorialPawn.CollisionCylinder'*/,
+			Default__TdTutorialPawn_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdTutorialPawn.ActorCollisionCylinder'*/,
+			Default__TdTutorialPawn_MyLightEnvironment1P/*Ref DynamicLightEnvironmentComponent'Default__TdTutorialPawn.MyLightEnvironment1P'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdTutorialPawn.CollisionCylinder")/*Ref CylinderComponent'Default__TdTutorialPawn.CollisionCylinder'*/;
+		CollisionComponent = Default__TdTutorialPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdTutorialPawn.CollisionCylinder'*/;
 	}
 }
 }

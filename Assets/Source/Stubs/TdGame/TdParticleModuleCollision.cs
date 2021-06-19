@@ -23,6 +23,21 @@ public partial class TdParticleModuleCollision : ParticleModuleCollision/*
 	
 	public TdParticleModuleCollision()
 	{
+		var Default__TdParticleModuleCollision_DistributionDampingFactor = new DistributionVectorUniform
+		{
+		}/* Reference: DistributionVectorUniform'Default__TdParticleModuleCollision.DistributionDampingFactor' */;
+		var Default__TdParticleModuleCollision_DistributionDampingFactorRotation = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__TdParticleModuleCollision.DistributionDampingFactorRotation' */;
+		var Default__TdParticleModuleCollision_DistributionMaxCollisions = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__TdParticleModuleCollision.DistributionMaxCollisions' */;
+		var Default__TdParticleModuleCollision_DistributionParticleMass = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__TdParticleModuleCollision.DistributionParticleMass' */;
+		var Default__TdParticleModuleCollision_DistributionDelayAmount = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__TdParticleModuleCollision.DistributionDelayAmount' */;
 		// Object Offset:0x00609DDC
 		DefaultImpactMaterial = LoadAsset<PhysicalMaterial>("TDPhysicalMaterials.PM_Default")/*Ref PhysicalMaterial'TDPhysicalMaterials.PM_Default'*/;
 		DampingFactor = new DistributionVector.RawDistributionVector

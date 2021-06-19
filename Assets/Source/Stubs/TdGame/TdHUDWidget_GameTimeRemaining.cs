@@ -7,9 +7,12 @@ public partial class TdHUDWidget_GameTimeRemaining : TdHUDWidget/*
 	
 	public TdHUDWidget_GameTimeRemaining()
 	{
+		var Default__TdHUDWidget_GameTimeRemaining_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdHUDWidget_GameTimeRemaining.WidgetEventComponent' */;
 		// Object Offset:0x005776F7
 		requiresTick = true;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdHUDWidget_GameTimeRemaining.WidgetEventComponent")/*Ref UIComp_Event'Default__TdHUDWidget_GameTimeRemaining.WidgetEventComponent'*/;
+		EventProvider = Default__TdHUDWidget_GameTimeRemaining_WidgetEventComponent/*Ref UIComp_Event'Default__TdHUDWidget_GameTimeRemaining.WidgetEventComponent'*/;
 	}
 }
 }

@@ -35,8 +35,11 @@ public partial class TdUIScene_BigOverlayImage : TdUIScene_Overlay/*
 	
 	public TdUIScene_BigOverlayImage()
 	{
+		var Default__TdUIScene_BigOverlayImage_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_BigOverlayImage.SceneEventComponent' */;
 		// Object Offset:0x0068E7F1
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_BigOverlayImage.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_BigOverlayImage.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_BigOverlayImage_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_BigOverlayImage.SceneEventComponent'*/;
 	}
 }
 }

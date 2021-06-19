@@ -347,6 +347,9 @@ public partial class TdKillZoneVolume : Volume/*
 	}
 	public TdKillZoneVolume()
 	{
+		var Default__TdKillZoneVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TdKillZoneVolume.BrushComponent0' */;
 		// Object Offset:0x00582E87
 		DamagePerShot = 40.0f;
 		LaserBeamTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_WeaponFX_LaserBeam_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_WeaponFX_LaserBeam_01'*/;
@@ -367,14 +370,14 @@ public partial class TdKillZoneVolume : Volume/*
 			A=255
 		};
 		bColored = true;
-		BrushComponent = LoadAsset<BrushComponent>("Default__TdKillZoneVolume.BrushComponent0")/*Ref BrushComponent'Default__TdKillZoneVolume.BrushComponent0'*/;
+		BrushComponent = Default__TdKillZoneVolume_BrushComponent0/*Ref BrushComponent'Default__TdKillZoneVolume.BrushComponent0'*/;
 		bStatic = false;
 		bSkipActorPropertyReplication = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TdKillZoneVolume.BrushComponent0")/*Ref BrushComponent'Default__TdKillZoneVolume.BrushComponent0'*/,
+			Default__TdKillZoneVolume_BrushComponent0/*Ref BrushComponent'Default__TdKillZoneVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TdKillZoneVolume.BrushComponent0")/*Ref BrushComponent'Default__TdKillZoneVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TdKillZoneVolume_BrushComponent0/*Ref BrushComponent'Default__TdKillZoneVolume.BrushComponent0'*/;
 	}
 }
 }

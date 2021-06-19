@@ -16,21 +16,36 @@ public partial class PortalMarker : NavigationPoint/*
 	
 	public PortalMarker()
 	{
+		var Default__PortalMarker_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__PortalMarker.CollisionCylinder' */;
+		var Default__PortalMarker_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__PortalMarker.Sprite' */;
+		var Default__PortalMarker_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__PortalMarker.Sprite2' */;
+		var Default__PortalMarker_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__PortalMarker.Arrow' */;
+		var Default__PortalMarker_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__PortalMarker.PathRenderer' */;
 		// Object Offset:0x003A309E
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__PortalMarker.CollisionCylinder")/*Ref CylinderComponent'Default__PortalMarker.CollisionCylinder'*/;
-		GoodSprite = LoadAsset<SpriteComponent>("Default__PortalMarker.Sprite")/*Ref SpriteComponent'Default__PortalMarker.Sprite'*/;
-		BadSprite = LoadAsset<SpriteComponent>("Default__PortalMarker.Sprite2")/*Ref SpriteComponent'Default__PortalMarker.Sprite2'*/;
+		CylinderComponent = Default__PortalMarker_CollisionCylinder/*Ref CylinderComponent'Default__PortalMarker.CollisionCylinder'*/;
+		GoodSprite = Default__PortalMarker_Sprite/*Ref SpriteComponent'Default__PortalMarker.Sprite'*/;
+		BadSprite = Default__PortalMarker_Sprite2/*Ref SpriteComponent'Default__PortalMarker.Sprite2'*/;
 		bCollideWhenPlacing = false;
 		bHiddenEd = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__PortalMarker.Sprite")/*Ref SpriteComponent'Default__PortalMarker.Sprite'*/,
-			LoadAsset<SpriteComponent>("Default__PortalMarker.Sprite2")/*Ref SpriteComponent'Default__PortalMarker.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__PortalMarker.Arrow")/*Ref ArrowComponent'Default__PortalMarker.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__PortalMarker.CollisionCylinder")/*Ref CylinderComponent'Default__PortalMarker.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__PortalMarker.PathRenderer")/*Ref PathRenderingComponent'Default__PortalMarker.PathRenderer'*/,
+			Default__PortalMarker_Sprite/*Ref SpriteComponent'Default__PortalMarker.Sprite'*/,
+			Default__PortalMarker_Sprite2/*Ref SpriteComponent'Default__PortalMarker.Sprite2'*/,
+			Default__PortalMarker_Arrow/*Ref ArrowComponent'Default__PortalMarker.Arrow'*/,
+			Default__PortalMarker_CollisionCylinder/*Ref CylinderComponent'Default__PortalMarker.CollisionCylinder'*/,
+			Default__PortalMarker_PathRenderer/*Ref PathRenderingComponent'Default__PortalMarker.PathRenderer'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__PortalMarker.CollisionCylinder")/*Ref CylinderComponent'Default__PortalMarker.CollisionCylinder'*/;
+		CollisionComponent = Default__PortalMarker_CollisionCylinder/*Ref CylinderComponent'Default__PortalMarker.CollisionCylinder'*/;
 	}
 }
 }

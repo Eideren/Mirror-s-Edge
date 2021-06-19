@@ -106,6 +106,9 @@ public partial class TdUIDrawPlayersPanel : TdUIDrawPanel/*
 	
 	public TdUIDrawPlayersPanel()
 	{
+		var Default__TdUIDrawPlayersPanel_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIDrawPlayersPanel.WidgetEventComponent' */;
 		// Object Offset:0x0068517F
 		ClickedCue = (name)"Clicked";
 		ResourceDataStoreName = (name)"TdGameData";
@@ -139,7 +142,7 @@ public partial class TdUIDrawPlayersPanel : TdUIDrawPanel/*
 			ClassT<UIState_Active>(),
 			ClassT<UIState_Pressed>(),
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIDrawPlayersPanel.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIDrawPlayersPanel.WidgetEventComponent'*/;
+		EventProvider = Default__TdUIDrawPlayersPanel_WidgetEventComponent/*Ref UIComp_Event'Default__TdUIDrawPlayersPanel.WidgetEventComponent'*/;
 	}
 }
 }

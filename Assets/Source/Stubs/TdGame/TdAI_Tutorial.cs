@@ -306,11 +306,14 @@ public partial class TdAI_Tutorial : TdAIController/*
 	}
 	public TdAI_Tutorial()
 	{
+		var Default__TdAI_Tutorial_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAI_Tutorial.Sprite' */;
 		// Object Offset:0x004E4C63
 		bAllowFocus = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAI_Tutorial.Sprite")/*Ref SpriteComponent'Default__TdAI_Tutorial.Sprite'*/,
+			Default__TdAI_Tutorial_Sprite/*Ref SpriteComponent'Default__TdAI_Tutorial.Sprite'*/,
 		};
 	}
 }

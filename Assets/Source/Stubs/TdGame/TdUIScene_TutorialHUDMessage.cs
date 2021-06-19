@@ -71,13 +71,16 @@ public partial class TdUIScene_TutorialHUDMessage : TdUIScene/*
 	
 	public TdUIScene_TutorialHUDMessage()
 	{
+		var Default__TdUIScene_TutorialHUDMessage_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_TutorialHUDMessage.SceneEventComponent' */;
 		// Object Offset:0x006B5EDD
 		Duration = -1.0f;
 		bDisplayCursor = false;
 		bAlwaysRenderScene = true;
 		bPauseGameWhileActive = false;
 		SceneInputMode = UIRoot.EScreenInputMode.INPUTMODE_None;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_TutorialHUDMessage.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_TutorialHUDMessage.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_TutorialHUDMessage_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_TutorialHUDMessage.SceneEventComponent'*/;
 	}
 }
 }

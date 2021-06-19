@@ -20,6 +20,9 @@ public partial class ParticleModuleCollision : ParticleModuleCollisionBase/*
 	
 	public ParticleModuleCollision()
 	{
+		var Default__ParticleModuleCollision_DistributionDampingFactor = new DistributionVectorUniform
+		{
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleCollision.DistributionDampingFactor' */;
 		var Default__ParticleModuleCollision_DistributionDampingFactorRotation = new DistributionVectorConstant
 		{
 			// Object Offset:0x00467F4B
@@ -30,11 +33,17 @@ public partial class ParticleModuleCollision : ParticleModuleCollisionBase/*
 				Z=1.0f
 			},
 		}/* Reference: DistributionVectorConstant'Default__ParticleModuleCollision.DistributionDampingFactorRotation' */;
+		var Default__ParticleModuleCollision_DistributionMaxCollisions = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__ParticleModuleCollision.DistributionMaxCollisions' */;
 		var Default__ParticleModuleCollision_DistributionParticleMass = new DistributionFloatConstant
 		{
 			// Object Offset:0x00466C13
 			Constant = 0.10f,
 		}/* Reference: DistributionFloatConstant'Default__ParticleModuleCollision.DistributionParticleMass' */;
+		var Default__ParticleModuleCollision_DistributionDelayAmount = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleCollision.DistributionDelayAmount' */;
 		// Object Offset:0x0037BE4E
 		DampingFactor = new DistributionVector.RawDistributionVector
 		{

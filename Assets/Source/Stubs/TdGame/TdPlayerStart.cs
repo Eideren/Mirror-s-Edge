@@ -23,29 +23,41 @@ public partial class TdPlayerStart : PlayerStart/*
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.GenericSpawnIcon")/*Ref Texture2D'TdEditorResources.GenericSpawnIcon'*/,
 			Scale = 0.330f,
 		}/* Reference: SpriteComponent'Default__TdPlayerStart.Sprite' */;
+		var Default__TdPlayerStart_PlayerStartTextureResourcesObject = new RequestedTextureResources
+		{
+		}/* Reference: RequestedTextureResources'Default__TdPlayerStart.PlayerStartTextureResourcesObject' */;
 		var Default__TdPlayerStart_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x00674812
 			CollisionHeight = 94.0f,
 		}/* Reference: CylinderComponent'Default__TdPlayerStart.CollisionCylinder' */;
+		var Default__TdPlayerStart_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdPlayerStart.Sprite2' */;
+		var Default__TdPlayerStart_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdPlayerStart.Arrow' */;
+		var Default__TdPlayerStart_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__TdPlayerStart.PathRenderer' */;
 		// Object Offset:0x00631808
 		Radius = 300.0f;
-		SphereRenderComponent = Default__TdPlayerStart_SpawnRadiusSphere;
-		GenericSprite = Default__TdPlayerStart_Sprite;
-		PlayerStartTextureResources = LoadAsset<RequestedTextureResources>("Default__TdPlayerStart.PlayerStartTextureResourcesObject")/*Ref RequestedTextureResources'Default__TdPlayerStart.PlayerStartTextureResourcesObject'*/;
-		CylinderComponent = Default__TdPlayerStart_CollisionCylinder;
-		GoodSprite = Default__TdPlayerStart_Sprite;
-		BadSprite = LoadAsset<SpriteComponent>("Default__TdPlayerStart.Sprite2")/*Ref SpriteComponent'Default__TdPlayerStart.Sprite2'*/;
+		SphereRenderComponent = Default__TdPlayerStart_SpawnRadiusSphere/*Ref DrawSphereComponent'Default__TdPlayerStart.SpawnRadiusSphere'*/;
+		GenericSprite = Default__TdPlayerStart_Sprite/*Ref SpriteComponent'Default__TdPlayerStart.Sprite'*/;
+		PlayerStartTextureResources = Default__TdPlayerStart_PlayerStartTextureResourcesObject/*Ref RequestedTextureResources'Default__TdPlayerStart.PlayerStartTextureResourcesObject'*/;
+		CylinderComponent = Default__TdPlayerStart_CollisionCylinder/*Ref CylinderComponent'Default__TdPlayerStart.CollisionCylinder'*/;
+		GoodSprite = Default__TdPlayerStart_Sprite/*Ref SpriteComponent'Default__TdPlayerStart.Sprite'*/;
+		BadSprite = Default__TdPlayerStart_Sprite2/*Ref SpriteComponent'Default__TdPlayerStart.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdPlayerStart_Sprite,
-			LoadAsset<SpriteComponent>("Default__TdPlayerStart.Sprite2")/*Ref SpriteComponent'Default__TdPlayerStart.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__TdPlayerStart.Arrow")/*Ref ArrowComponent'Default__TdPlayerStart.Arrow'*/,
-			Default__TdPlayerStart_CollisionCylinder,
-			LoadAsset<PathRenderingComponent>("Default__TdPlayerStart.PathRenderer")/*Ref PathRenderingComponent'Default__TdPlayerStart.PathRenderer'*/,
-			Default__TdPlayerStart_SpawnRadiusSphere,
+			Default__TdPlayerStart_Sprite/*Ref SpriteComponent'Default__TdPlayerStart.Sprite'*/,
+			Default__TdPlayerStart_Sprite2/*Ref SpriteComponent'Default__TdPlayerStart.Sprite2'*/,
+			Default__TdPlayerStart_Arrow/*Ref ArrowComponent'Default__TdPlayerStart.Arrow'*/,
+			Default__TdPlayerStart_CollisionCylinder/*Ref CylinderComponent'Default__TdPlayerStart.CollisionCylinder'*/,
+			Default__TdPlayerStart_PathRenderer/*Ref PathRenderingComponent'Default__TdPlayerStart.PathRenderer'*/,
+			Default__TdPlayerStart_SpawnRadiusSphere/*Ref DrawSphereComponent'Default__TdPlayerStart.SpawnRadiusSphere'*/,
 		};
-		CollisionComponent = Default__TdPlayerStart_CollisionCylinder;
+		CollisionComponent = Default__TdPlayerStart_CollisionCylinder/*Ref CylinderComponent'Default__TdPlayerStart.CollisionCylinder'*/;
 	}
 }
 }

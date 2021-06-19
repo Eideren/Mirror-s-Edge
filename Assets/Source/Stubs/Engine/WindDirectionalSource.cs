@@ -8,6 +8,12 @@ public partial class WindDirectionalSource : Info/*
 	
 	public WindDirectionalSource()
 	{
+		var Default__WindDirectionalSource_WindDirectionalSourceComponent0 = new WindDirectionalSourceComponent
+		{
+		}/* Reference: WindDirectionalSourceComponent'Default__WindDirectionalSource.WindDirectionalSourceComponent0' */;
+		var Default__WindDirectionalSource_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__WindDirectionalSource.Sprite' */;
 		var Default__WindDirectionalSource_ArrowComponent0 = new ArrowComponent
 		{
 			// Object Offset:0x00465E2F
@@ -20,13 +26,13 @@ public partial class WindDirectionalSource : Info/*
 			},
 		}/* Reference: ArrowComponent'Default__WindDirectionalSource.ArrowComponent0' */;
 		// Object Offset:0x004607C7
-		Component = LoadAsset<WindDirectionalSourceComponent>("Default__WindDirectionalSource.WindDirectionalSourceComponent0")/*Ref WindDirectionalSourceComponent'Default__WindDirectionalSource.WindDirectionalSourceComponent0'*/;
+		Component = Default__WindDirectionalSource_WindDirectionalSourceComponent0/*Ref WindDirectionalSourceComponent'Default__WindDirectionalSource.WindDirectionalSourceComponent0'*/;
 		bStatic = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__WindDirectionalSource.Sprite")/*Ref SpriteComponent'Default__WindDirectionalSource.Sprite'*/,
-			LoadAsset<WindDirectionalSourceComponent>("Default__WindDirectionalSource.WindDirectionalSourceComponent0")/*Ref WindDirectionalSourceComponent'Default__WindDirectionalSource.WindDirectionalSourceComponent0'*/,
-			Default__WindDirectionalSource_ArrowComponent0,
+			Default__WindDirectionalSource_Sprite/*Ref SpriteComponent'Default__WindDirectionalSource.Sprite'*/,
+			Default__WindDirectionalSource_WindDirectionalSourceComponent0/*Ref WindDirectionalSourceComponent'Default__WindDirectionalSource.WindDirectionalSourceComponent0'*/,
+			Default__WindDirectionalSource_ArrowComponent0/*Ref ArrowComponent'Default__WindDirectionalSource.ArrowComponent0'*/,
 		};
 	}
 }

@@ -27,10 +27,13 @@ public partial class TdAnnouncerBase : Info/*
 	
 	public TdAnnouncerBase()
 	{
+		var Default__TdAnnouncerBase_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAnnouncerBase.Sprite' */;
 		// Object Offset:0x005092A8
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAnnouncerBase.Sprite")/*Ref SpriteComponent'Default__TdAnnouncerBase.Sprite'*/,
+			Default__TdAnnouncerBase_Sprite/*Ref SpriteComponent'Default__TdAnnouncerBase.Sprite'*/,
 		};
 	}
 }

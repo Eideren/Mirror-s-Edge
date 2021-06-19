@@ -95,10 +95,13 @@ public partial class TdUIScene_StartRace : TdUIScene/*
 	
 	public TdUIScene_StartRace()
 	{
+		var Default__TdUIScene_StartRace_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_StartRace.SceneEventComponent' */;
 		// Object Offset:0x006B05F9
 		TimeToFadeStart = 17.0f;
 		FadeTime = 2.0f;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_StartRace.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_StartRace.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_StartRace_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_StartRace.SceneEventComponent'*/;
 	}
 }
 }

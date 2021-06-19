@@ -21,7 +21,7 @@ public partial class Keypoint : Actor/*
 		bHidden = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__Keypoint_Sprite,
+			Default__Keypoint_Sprite/*Ref SpriteComponent'Default__Keypoint.Sprite'*/,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
 	}

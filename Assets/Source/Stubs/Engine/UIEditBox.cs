@@ -145,6 +145,9 @@ public partial class UIEditBox : UIObject,
 			// Object Offset:0x00444B9B
 			StyleResolverTag = (name)"Background Image Style",
 		}/* Reference: UIComp_DrawImage'Default__UIEditBox.EditboxBackgroundTemplate' */;
+		var Default__UIEditBox_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIEditBox.WidgetEventComponent' */;
 		// Object Offset:0x002E2970
 		DataSource = new UIRoot.UIDataStoreBinding
 		{
@@ -156,8 +159,8 @@ public partial class UIEditBox : UIObject,
 			DataStoreField = (name)"None",
 			ResolvedDataStore = default,
 		};
-		StringRenderComponent = Default__UIEditBox_EditboxStringRenderer;
-		BackgroundImageComponent = Default__UIEditBox_EditboxBackgroundTemplate;
+		StringRenderComponent = Default__UIEditBox_EditboxStringRenderer/*Ref UIComp_DrawStringEditbox'Default__UIEditBox.EditboxStringRenderer'*/;
+		BackgroundImageComponent = Default__UIEditBox_EditboxBackgroundTemplate/*Ref UIComp_DrawImage'Default__UIEditBox.EditboxBackgroundTemplate'*/;
 		InitialValue = "Initial Editbox Value";
 		PrimaryStyle = new UIRoot.UIStyleReference
 		{
@@ -173,7 +176,7 @@ public partial class UIEditBox : UIObject,
 			ClassT<UIState_Active>(),
 			ClassT<UIState_Pressed>(),
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIEditBox.WidgetEventComponent")/*Ref UIComp_Event'Default__UIEditBox.WidgetEventComponent'*/;
+		EventProvider = Default__UIEditBox_WidgetEventComponent/*Ref UIComp_Event'Default__UIEditBox.WidgetEventComponent'*/;
 	}
 }
 }

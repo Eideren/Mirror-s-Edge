@@ -39,18 +39,27 @@ public partial class TdBarbedWireVolume : TdMovementVolume/*
 	}
 	public TdBarbedWireVolume()
 	{
+		var Default__TdBarbedWireVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TdBarbedWireVolume.BrushComponent0' */;
+		var Default__TdBarbedWireVolume_WallDir = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdBarbedWireVolume.WallDir' */;
+		var Default__TdBarbedWireVolume_MovementMesh = new TdMoveVolumeRenderComponent
+		{
+		}/* Reference: TdMoveVolumeRenderComponent'Default__TdBarbedWireVolume.MovementMesh' */;
 		// Object Offset:0x0050E83A
 		bPainCausing = true;
 		DamagePerSec = 35.0f;
 		DamageType = ClassT<TdDmgType_BarbedWire>()/*Ref Class'TdDmgType_BarbedWire'*/;
-		BrushComponent = LoadAsset<BrushComponent>("Default__TdBarbedWireVolume.BrushComponent0")/*Ref BrushComponent'Default__TdBarbedWireVolume.BrushComponent0'*/;
+		BrushComponent = Default__TdBarbedWireVolume_BrushComponent0/*Ref BrushComponent'Default__TdBarbedWireVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TdBarbedWireVolume.BrushComponent0")/*Ref BrushComponent'Default__TdBarbedWireVolume.BrushComponent0'*/,
-			LoadAsset<ArrowComponent>("Default__TdBarbedWireVolume.WallDir")/*Ref ArrowComponent'Default__TdBarbedWireVolume.WallDir'*/,
-			LoadAsset<TdMoveVolumeRenderComponent>("Default__TdBarbedWireVolume.MovementMesh")/*Ref TdMoveVolumeRenderComponent'Default__TdBarbedWireVolume.MovementMesh'*/,
+			Default__TdBarbedWireVolume_BrushComponent0/*Ref BrushComponent'Default__TdBarbedWireVolume.BrushComponent0'*/,
+			Default__TdBarbedWireVolume_WallDir/*Ref ArrowComponent'Default__TdBarbedWireVolume.WallDir'*/,
+			Default__TdBarbedWireVolume_MovementMesh/*Ref TdMoveVolumeRenderComponent'Default__TdBarbedWireVolume.MovementMesh'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TdBarbedWireVolume.BrushComponent0")/*Ref BrushComponent'Default__TdBarbedWireVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TdBarbedWireVolume_BrushComponent0/*Ref BrushComponent'Default__TdBarbedWireVolume.BrushComponent0'*/;
 	}
 }
 }

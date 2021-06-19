@@ -312,8 +312,8 @@ public partial class TdMove_Landing : TdMove/*
 		HardLandingHeight = 530.0f;
 		SkillRollLandingHeight = 200.0f;
 		SoftLandingHeight = 300.0f;
-		ImpactHeavyWaveform = Default__TdMove_Landing_ImpactHeavyWaveformObj;
-		ImpactMediumWaveform = Default__TdMove_Landing_ImpactMediumWaveformObj;
+		ImpactHeavyWaveform = Default__TdMove_Landing_ImpactHeavyWaveformObj/*Ref ForceFeedbackWaveform'Default__TdMove_Landing.ImpactHeavyWaveformObj'*/;
+		ImpactMediumWaveform = Default__TdMove_Landing_ImpactMediumWaveformObj/*Ref ForceFeedbackWaveform'Default__TdMove_Landing.ImpactMediumWaveformObj'*/;
 		SoftLandingEffect = LoadAsset<ParticleSystem>("FX_InteractionEffects.Effects.PS_FX_Landing_SoftObject_01")/*Ref ParticleSystem'FX_InteractionEffects.Effects.PS_FX_Landing_SoftObject_01'*/;
 	}
 }

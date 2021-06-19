@@ -13,6 +13,18 @@ public partial class TdUIComp_TutorialListPresenter : TdUIComp_ImageListPresente
 	
 	public TdUIComp_TutorialListPresenter()
 	{
+		var Default__TdUIComp_TutorialListPresenter_NormalOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_TutorialListPresenter.NormalOverlayTemplate' */;
+		var Default__TdUIComp_TutorialListPresenter_ActiveOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_TutorialListPresenter.ActiveOverlayTemplate' */;
+		var Default__TdUIComp_TutorialListPresenter_SelectionOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_TutorialListPresenter.SelectionOverlayTemplate' */;
+		var Default__TdUIComp_TutorialListPresenter_HoverOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_TutorialListPresenter.HoverOverlayTemplate' */;
 		// Object Offset:0x006837FD
 		UnselectedBgColor = new Color
 		{
@@ -23,10 +35,10 @@ public partial class TdUIComp_TutorialListPresenter : TdUIComp_ImageListPresente
 		};
 		ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
 		{ 
-			[0] = LoadAsset<UITexture>("Default__TdUIComp_TutorialListPresenter.NormalOverlayTemplate")/*Ref UITexture'Default__TdUIComp_TutorialListPresenter.NormalOverlayTemplate'*/,
-			[1] = LoadAsset<UITexture>("Default__TdUIComp_TutorialListPresenter.ActiveOverlayTemplate")/*Ref UITexture'Default__TdUIComp_TutorialListPresenter.ActiveOverlayTemplate'*/,
-			[2] = LoadAsset<UITexture>("Default__TdUIComp_TutorialListPresenter.SelectionOverlayTemplate")/*Ref UITexture'Default__TdUIComp_TutorialListPresenter.SelectionOverlayTemplate'*/,
-			[3] = LoadAsset<UITexture>("Default__TdUIComp_TutorialListPresenter.HoverOverlayTemplate")/*Ref UITexture'Default__TdUIComp_TutorialListPresenter.HoverOverlayTemplate'*/,
+			[0] = Default__TdUIComp_TutorialListPresenter_NormalOverlayTemplate/*Ref UITexture'Default__TdUIComp_TutorialListPresenter.NormalOverlayTemplate'*/,
+			[1] = Default__TdUIComp_TutorialListPresenter_ActiveOverlayTemplate/*Ref UITexture'Default__TdUIComp_TutorialListPresenter.ActiveOverlayTemplate'*/,
+			[2] = Default__TdUIComp_TutorialListPresenter_SelectionOverlayTemplate/*Ref UITexture'Default__TdUIComp_TutorialListPresenter.SelectionOverlayTemplate'*/,
+			[3] = Default__TdUIComp_TutorialListPresenter_HoverOverlayTemplate/*Ref UITexture'Default__TdUIComp_TutorialListPresenter.HoverOverlayTemplate'*/,
 	 	};
 	}
 }

@@ -6,8 +6,11 @@ public partial class TdUIScene_TempLoginScene : TdUIScene/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public TdUIScene_TempLoginScene()
 	{
+		var Default__TdUIScene_TempLoginScene_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_TempLoginScene.SceneEventComponent' */;
 		// Object Offset:0x006B0E6E
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_TempLoginScene.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_TempLoginScene.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_TempLoginScene_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_TempLoginScene.SceneEventComponent'*/;
 	}
 }
 }

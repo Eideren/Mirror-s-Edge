@@ -9,6 +9,9 @@ public partial class ParticleModuleLifetime : ParticleModuleLifetimeBase/*
 	
 	public ParticleModuleLifetime()
 	{
+		var Default__ParticleModuleLifetime_DistributionLifetime = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__ParticleModuleLifetime.DistributionLifetime' */;
 		// Object Offset:0x0037D920
 		Lifetime = new DistributionFloat.RawDistributionFloat
 		{

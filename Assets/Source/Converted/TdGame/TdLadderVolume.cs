@@ -101,6 +101,15 @@ public partial class TdLadderVolume : TdMovementVolume/*
 	
 	public TdLadderVolume()
 	{
+		var Default__TdLadderVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TdLadderVolume.BrushComponent0' */;
+		var Default__TdLadderVolume_WallDir = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdLadderVolume.WallDir' */;
+		var Default__TdLadderVolume_MovementMesh = new TdMoveVolumeRenderComponent
+		{
+		}/* Reference: TdMoveVolumeRenderComponent'Default__TdLadderVolume.MovementMesh' */;
 		// Object Offset:0x005839BF
 		StepHeight = 32.0f;
 		ZOffsetPipe = -5.0f;
@@ -108,14 +117,14 @@ public partial class TdLadderVolume : TdMovementVolume/*
 		XYOffsetPipe = -62.0f;
 		bCanExitAtTop = true;
 		bLatent = true;
-		BrushComponent = LoadAsset<BrushComponent>("Default__TdLadderVolume.BrushComponent0")/*Ref BrushComponent'Default__TdLadderVolume.BrushComponent0'*/;
+		BrushComponent = Default__TdLadderVolume_BrushComponent0/*Ref BrushComponent'Default__TdLadderVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TdLadderVolume.BrushComponent0")/*Ref BrushComponent'Default__TdLadderVolume.BrushComponent0'*/,
-			LoadAsset<ArrowComponent>("Default__TdLadderVolume.WallDir")/*Ref ArrowComponent'Default__TdLadderVolume.WallDir'*/,
-			LoadAsset<TdMoveVolumeRenderComponent>("Default__TdLadderVolume.MovementMesh")/*Ref TdMoveVolumeRenderComponent'Default__TdLadderVolume.MovementMesh'*/,
+			Default__TdLadderVolume_BrushComponent0/*Ref BrushComponent'Default__TdLadderVolume.BrushComponent0'*/,
+			Default__TdLadderVolume_WallDir/*Ref ArrowComponent'Default__TdLadderVolume.WallDir'*/,
+			Default__TdLadderVolume_MovementMesh/*Ref TdMoveVolumeRenderComponent'Default__TdLadderVolume.MovementMesh'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TdLadderVolume.BrushComponent0")/*Ref BrushComponent'Default__TdLadderVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TdLadderVolume_BrushComponent0/*Ref BrushComponent'Default__TdLadderVolume.BrushComponent0'*/;
 	}
 }
 }

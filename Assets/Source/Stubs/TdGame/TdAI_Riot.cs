@@ -324,6 +324,9 @@ public partial class TdAI_Riot : TdAIController/*
 	}
 	public TdAI_Riot()
 	{
+		var Default__TdAI_Riot_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAI_Riot.Sprite' */;
 		// Object Offset:0x004E0255
 		MeleeTimer = 2.0f;
 		CFormationWidth = 100.0f;
@@ -332,7 +335,7 @@ public partial class TdAI_Riot : TdAIController/*
 		MeleeState = (name)"RiotMelee";
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAI_Riot.Sprite")/*Ref SpriteComponent'Default__TdAI_Riot.Sprite'*/,
+			Default__TdAI_Riot_Sprite/*Ref SpriteComponent'Default__TdAI_Riot.Sprite'*/,
 		};
 	}
 }

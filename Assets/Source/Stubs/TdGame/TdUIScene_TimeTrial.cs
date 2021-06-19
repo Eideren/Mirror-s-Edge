@@ -155,9 +155,12 @@ public partial class TdUIScene_TimeTrial : TdUIScene_SubMenu/*
 	
 	public TdUIScene_TimeTrial()
 	{
+		var Default__TdUIScene_TimeTrial_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_TimeTrial.SceneEventComponent' */;
 		// Object Offset:0x006B2CB2
 		RequestDelay = 0.30f;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_TimeTrial.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_TimeTrial.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_TimeTrial_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_TimeTrial.SceneEventComponent'*/;
 	}
 }
 }

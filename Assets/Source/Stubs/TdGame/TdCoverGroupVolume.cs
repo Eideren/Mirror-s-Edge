@@ -32,6 +32,9 @@ public partial class TdCoverGroupVolume : Volume/*
 	}
 	public TdCoverGroupVolume()
 	{
+		var Default__TdCoverGroupVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TdCoverGroupVolume.BrushComponent0' */;
 		// Object Offset:0x0053E539
 		BrushColor = new Color
 		{
@@ -41,13 +44,13 @@ public partial class TdCoverGroupVolume : Volume/*
 			A=255
 		};
 		bColored = true;
-		BrushComponent = LoadAsset<BrushComponent>("Default__TdCoverGroupVolume.BrushComponent0")/*Ref BrushComponent'Default__TdCoverGroupVolume.BrushComponent0'*/;
+		BrushComponent = Default__TdCoverGroupVolume_BrushComponent0/*Ref BrushComponent'Default__TdCoverGroupVolume.BrushComponent0'*/;
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TdCoverGroupVolume.BrushComponent0")/*Ref BrushComponent'Default__TdCoverGroupVolume.BrushComponent0'*/,
+			Default__TdCoverGroupVolume_BrushComponent0/*Ref BrushComponent'Default__TdCoverGroupVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TdCoverGroupVolume.BrushComponent0")/*Ref BrushComponent'Default__TdCoverGroupVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TdCoverGroupVolume_BrushComponent0/*Ref BrushComponent'Default__TdCoverGroupVolume.BrushComponent0'*/;
 	}
 }
 }

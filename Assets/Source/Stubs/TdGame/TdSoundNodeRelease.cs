@@ -15,6 +15,9 @@ public partial class TdSoundNodeRelease : SoundNode/*
 	
 	public TdSoundNodeRelease()
 	{
+		var Default__TdSoundNodeRelease_DistributionRelease = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeRelease.DistributionRelease' */;
 		// Object Offset:0x0065B6B4
 		Release = new DistributionFloat.RawDistributionFloat
 		{

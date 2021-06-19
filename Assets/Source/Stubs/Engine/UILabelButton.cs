@@ -93,6 +93,12 @@ public partial class UILabelButton : UIButton,
 				DefaultStyleTag = (name)"DefaultLabelButtonStyle",
 			},
 		}/* Reference: UIComp_DrawString'Default__UILabelButton.LabelStringRenderer' */;
+		var Default__UILabelButton_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UILabelButton.BackgroundImageTemplate' */;
+		var Default__UILabelButton_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UILabelButton.WidgetEventComponent' */;
 		// Object Offset:0x0044448D
 		CaptionDataSource = new UIRoot.UIDataStoreBinding
 		{
@@ -104,14 +110,14 @@ public partial class UILabelButton : UIButton,
 			DataStoreField = (name)"None",
 			ResolvedDataStore = default,
 		};
-		StringRenderComponent = Default__UILabelButton_LabelStringRenderer;
-		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UILabelButton.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UILabelButton.BackgroundImageTemplate'*/;
+		StringRenderComponent = Default__UILabelButton_LabelStringRenderer/*Ref UIComp_DrawString'Default__UILabelButton.LabelStringRenderer'*/;
+		BackgroundImageComponent = Default__UILabelButton_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UILabelButton.BackgroundImageTemplate'*/;
 		PrimaryStyle = new UIRoot.UIStyleReference
 		{
 			DefaultStyleTag = (name)"DefaultLabelButtonStyle",
 			RequiredStyleClass = ClassT<UIStyle_Combo>()/*Ref Class'UIStyle_Combo'*/,
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__UILabelButton.WidgetEventComponent")/*Ref UIComp_Event'Default__UILabelButton.WidgetEventComponent'*/;
+		EventProvider = Default__UILabelButton_WidgetEventComponent/*Ref UIComp_Event'Default__UILabelButton.WidgetEventComponent'*/;
 	}
 }
 }

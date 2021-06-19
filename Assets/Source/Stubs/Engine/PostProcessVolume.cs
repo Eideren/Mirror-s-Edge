@@ -2028,15 +2028,15 @@ public partial class PostProcessVolume : Volume/*
 				ControlPointsA = default,
 			},
 		};
-		BrushComponent = Default__PostProcessVolume_BrushComponent0;
+		BrushComponent = Default__PostProcessVolume_BrushComponent0/*Ref BrushComponent'Default__PostProcessVolume.BrushComponent0'*/;
 		bStatic = false;
 		bStasis = true;
 		bCollideActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__PostProcessVolume_BrushComponent0,
+			Default__PostProcessVolume_BrushComponent0/*Ref BrushComponent'Default__PostProcessVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__PostProcessVolume_BrushComponent0;
+		CollisionComponent = Default__PostProcessVolume_BrushComponent0/*Ref BrushComponent'Default__PostProcessVolume.BrushComponent0'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

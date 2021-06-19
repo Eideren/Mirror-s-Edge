@@ -10,6 +10,12 @@ public partial class ParticleModuleVelocity : ParticleModuleVelocityBase/*
 	
 	public ParticleModuleVelocity()
 	{
+		var Default__ParticleModuleVelocity_DistributionStartVelocity = new DistributionVectorUniform
+		{
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleVelocity.DistributionStartVelocity' */;
+		var Default__ParticleModuleVelocity_DistributionStartVelocityRadial = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__ParticleModuleVelocity.DistributionStartVelocityRadial' */;
 		// Object Offset:0x0038AE8D
 		StartVelocity = new DistributionVector.RawDistributionVector
 		{

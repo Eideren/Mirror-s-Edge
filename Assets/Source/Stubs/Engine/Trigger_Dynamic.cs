@@ -6,14 +6,20 @@ public partial class Trigger_Dynamic : Trigger/*
 		hidecategories(Navigation)*/{
 	public Trigger_Dynamic()
 	{
+		var Default__Trigger_Dynamic_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__Trigger_Dynamic.CollisionCylinder' */;
+		var Default__Trigger_Dynamic_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__Trigger_Dynamic.Sprite' */;
 		// Object Offset:0x003FF732
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__Trigger_Dynamic.CollisionCylinder")/*Ref CylinderComponent'Default__Trigger_Dynamic.CollisionCylinder'*/;
+		CylinderComponent = Default__Trigger_Dynamic_CollisionCylinder/*Ref CylinderComponent'Default__Trigger_Dynamic.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__Trigger_Dynamic.Sprite")/*Ref SpriteComponent'Default__Trigger_Dynamic.Sprite'*/,
-			LoadAsset<CylinderComponent>("Default__Trigger_Dynamic.CollisionCylinder")/*Ref CylinderComponent'Default__Trigger_Dynamic.CollisionCylinder'*/,
+			Default__Trigger_Dynamic_Sprite/*Ref SpriteComponent'Default__Trigger_Dynamic.Sprite'*/,
+			Default__Trigger_Dynamic_CollisionCylinder/*Ref CylinderComponent'Default__Trigger_Dynamic.CollisionCylinder'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__Trigger_Dynamic.CollisionCylinder")/*Ref CylinderComponent'Default__Trigger_Dynamic.CollisionCylinder'*/;
+		CollisionComponent = Default__Trigger_Dynamic_CollisionCylinder/*Ref CylinderComponent'Default__Trigger_Dynamic.CollisionCylinder'*/;
 	}
 }
 }

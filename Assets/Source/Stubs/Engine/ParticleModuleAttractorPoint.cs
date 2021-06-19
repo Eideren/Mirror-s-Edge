@@ -14,6 +14,15 @@ public partial class ParticleModuleAttractorPoint : ParticleModuleAttractorBase/
 	
 	public ParticleModuleAttractorPoint()
 	{
+		var Default__ParticleModuleAttractorPoint_DistributionPosition = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleAttractorPoint.DistributionPosition' */;
+		var Default__ParticleModuleAttractorPoint_DistributionRange = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleAttractorPoint.DistributionRange' */;
+		var Default__ParticleModuleAttractorPoint_DistributionStrength = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleAttractorPoint.DistributionStrength' */;
 		// Object Offset:0x003799BD
 		Position = new DistributionVector.RawDistributionVector
 		{

@@ -21,9 +21,9 @@ public partial class TdMarker : Note/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdMarker_Arrow,
-			Default__TdMarker_Sprite,
-			Default__TdMarker_Arrow,
+			Default__TdMarker_Arrow/*Ref ArrowComponent'Default__TdMarker.Arrow'*/,
+			Default__TdMarker_Sprite/*Ref SpriteComponent'Default__TdMarker.Sprite'*/,
+			Default__TdMarker_Arrow/*Ref ArrowComponent'Default__TdMarker.Arrow'*/,
 		};
 	}
 }

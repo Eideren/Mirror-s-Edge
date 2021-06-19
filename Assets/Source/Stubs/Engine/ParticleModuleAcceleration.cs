@@ -9,6 +9,9 @@ public partial class ParticleModuleAcceleration : ParticleModuleAccelerationBase
 	
 	public ParticleModuleAcceleration()
 	{
+		var Default__ParticleModuleAcceleration_DistributionAcceleration = new DistributionVectorUniform
+		{
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleAcceleration.DistributionAcceleration' */;
 		// Object Offset:0x00378BAE
 		Acceleration = new DistributionVector.RawDistributionVector
 		{

@@ -38,8 +38,8 @@ public partial class TdGrenadeArea : Actor/*
 		bUsedAsTrigger = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdGrenadeArea_Sprite,
-			Default__TdGrenadeArea_Renderer,
+			Default__TdGrenadeArea_Sprite/*Ref SpriteComponent'Default__TdGrenadeArea.Sprite'*/,
+			Default__TdGrenadeArea_Renderer/*Ref TdGrenadeTargetAreaRenderingComponent'Default__TdGrenadeArea.Renderer'*/,
 		};
 	}
 }

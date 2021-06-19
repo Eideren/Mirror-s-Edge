@@ -6,8 +6,11 @@ public partial class TdUIScene_HostMatch : TdUIScene_SubMenu/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public TdUIScene_HostMatch()
 	{
+		var Default__TdUIScene_HostMatch_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_HostMatch.SceneEventComponent' */;
 		// Object Offset:0x0069A332
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_HostMatch.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_HostMatch.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_HostMatch_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_HostMatch.SceneEventComponent'*/;
 	}
 }
 }

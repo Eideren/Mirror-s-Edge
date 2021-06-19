@@ -6,11 +6,14 @@ public partial class TdTTAnnouncer : TdAnnouncerBase/*
 		hidecategories(Navigation,Movement,Collision)*/{
 	public TdTTAnnouncer()
 	{
+		var Default__TdTTAnnouncer_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdTTAnnouncer.Sprite' */;
 		// Object Offset:0x00005D7C
 		RadioSoundCueTemplate = LoadAsset<SoundCue>("A_VO_Trial_Announcer.A_VO_Trial_SoundCueTemplate")/*Ref SoundCue'A_VO_Trial_Announcer.A_VO_Trial_SoundCueTemplate'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdTTAnnouncer.Sprite")/*Ref SpriteComponent'Default__TdTTAnnouncer.Sprite'*/,
+			Default__TdTTAnnouncer_Sprite/*Ref SpriteComponent'Default__TdTTAnnouncer.Sprite'*/,
 		};
 	}
 }

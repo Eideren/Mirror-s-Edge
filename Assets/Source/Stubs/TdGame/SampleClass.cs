@@ -53,7 +53,7 @@ public partial class SampleClass : Actor/*
 		MyString = "Test";
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__SampleClass_Sprite,
+			Default__SampleClass_Sprite/*Ref SpriteComponent'Default__SampleClass.Sprite'*/,
 		};
 	}
 }

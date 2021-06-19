@@ -100,8 +100,11 @@ public partial class TdUIScene_CreateAccountPC : TdUIScene_SubMenu,
 	
 	public TdUIScene_CreateAccountPC()
 	{
+		var Default__TdUIScene_CreateAccountPC_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_CreateAccountPC.SceneEventComponent' */;
 		// Object Offset:0x00693443
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_CreateAccountPC.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_CreateAccountPC.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_CreateAccountPC_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_CreateAccountPC.SceneEventComponent'*/;
 	}
 }
 }

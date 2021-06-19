@@ -52,7 +52,7 @@ public partial class RB_CylindricalForceActor : Actor/*
 			AlwaysLoadOnServer = false,
 		}/* Reference: SpriteComponent'Default__RB_CylindricalForceActor.Sprite' */;
 		// Object Offset:0x003AD3E1
-		RenderComponent = Default__RB_CylindricalForceActor_DrawCylinder0;
+		RenderComponent = Default__RB_CylindricalForceActor_DrawCylinder0/*Ref DrawCylinderComponent'Default__RB_CylindricalForceActor.DrawCylinder0'*/;
 		EscapeVelocity = 10000.0f;
 		ForceRadius = 200.0f;
 		ForceTopRadius = 200.0f;
@@ -82,8 +82,8 @@ public partial class RB_CylindricalForceActor : Actor/*
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__RB_CylindricalForceActor_DrawCylinder0,
-			Default__RB_CylindricalForceActor_Sprite,
+			Default__RB_CylindricalForceActor_DrawCylinder0/*Ref DrawCylinderComponent'Default__RB_CylindricalForceActor.DrawCylinder0'*/,
+			Default__RB_CylindricalForceActor_Sprite/*Ref SpriteComponent'Default__RB_CylindricalForceActor.Sprite'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetUpdateFrequency = 0.10f;

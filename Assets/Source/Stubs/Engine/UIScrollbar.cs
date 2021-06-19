@@ -157,8 +157,11 @@ public partial class UIScrollbar : UIObject/*
 				DefaultStyleTag = (name)"DefaultScrollZoneStyle",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UIScrollbar.ScrollBarBackgroundImageTemplate' */;
+		var Default__UIScrollbar_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIScrollbar.WidgetEventComponent' */;
 		// Object Offset:0x0044D76D
-		BackgroundImageComponent = Default__UIScrollbar_ScrollBarBackgroundImageTemplate;
+		BackgroundImageComponent = Default__UIScrollbar_ScrollBarBackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UIScrollbar.ScrollBarBackgroundImageTemplate'*/;
 		IncrementStyle = new UIRoot.UIStyleReference
 		{
 			DefaultStyleTag = (name)"DefaultIncrementButtonStyle",
@@ -250,7 +253,7 @@ public partial class UIScrollbar : UIObject/*
 			ClassT<UIState_Pressed>(),
 			ClassT<UIState_Active>(),
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIScrollbar.WidgetEventComponent")/*Ref UIComp_Event'Default__UIScrollbar.WidgetEventComponent'*/;
+		EventProvider = Default__UIScrollbar_WidgetEventComponent/*Ref UIComp_Event'Default__UIScrollbar.WidgetEventComponent'*/;
 	}
 }
 }

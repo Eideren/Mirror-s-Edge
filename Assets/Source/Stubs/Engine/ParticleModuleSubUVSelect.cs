@@ -9,6 +9,9 @@ public partial class ParticleModuleSubUVSelect : ParticleModuleSubUVBase/*
 	
 	public ParticleModuleSubUVSelect()
 	{
+		var Default__ParticleModuleSubUVSelect_DistributionSubImageSelect = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleSubUVSelect.DistributionSubImageSelect' */;
 		// Object Offset:0x0038326B
 		SubImageSelect = new DistributionVector.RawDistributionVector
 		{

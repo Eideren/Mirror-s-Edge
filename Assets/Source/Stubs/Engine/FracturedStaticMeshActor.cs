@@ -83,7 +83,7 @@ public partial class FracturedStaticMeshActor : Actor/*
 			bCastDynamicShadow = false,
 		}/* Reference: FracturedStaticMeshComponent'Default__FracturedStaticMeshActor.FracturedStaticMeshComponent0' */;
 		// Object Offset:0x00322D6C
-		FracturedStaticMeshComponent = Default__FracturedStaticMeshActor_FracturedStaticMeshComponent0;
+		FracturedStaticMeshComponent = Default__FracturedStaticMeshActor_FracturedStaticMeshComponent0/*Ref FracturedStaticMeshComponent'Default__FracturedStaticMeshActor.FracturedStaticMeshComponent0'*/;
 		bNoDelete = true;
 		bWorldGeometry = true;
 		bRouteBeginPlayEvenIfStatic = false;
@@ -94,9 +94,9 @@ public partial class FracturedStaticMeshActor : Actor/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__FracturedStaticMeshActor_FracturedStaticMeshComponent0,
+			Default__FracturedStaticMeshActor_FracturedStaticMeshComponent0/*Ref FracturedStaticMeshComponent'Default__FracturedStaticMeshActor.FracturedStaticMeshComponent0'*/,
 		};
-		CollisionComponent = Default__FracturedStaticMeshActor_FracturedStaticMeshComponent0;
+		CollisionComponent = Default__FracturedStaticMeshActor_FracturedStaticMeshComponent0/*Ref FracturedStaticMeshComponent'Default__FracturedStaticMeshActor.FracturedStaticMeshComponent0'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

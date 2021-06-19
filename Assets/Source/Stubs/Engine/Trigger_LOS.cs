@@ -17,14 +17,20 @@ public partial class Trigger_LOS : Trigger/*
 	}
 	public Trigger_LOS()
 	{
+		var Default__Trigger_LOS_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__Trigger_LOS.CollisionCylinder' */;
+		var Default__Trigger_LOS_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__Trigger_LOS.Sprite' */;
 		// Object Offset:0x003FFB87
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__Trigger_LOS.CollisionCylinder")/*Ref CylinderComponent'Default__Trigger_LOS.CollisionCylinder'*/;
+		CylinderComponent = Default__Trigger_LOS_CollisionCylinder/*Ref CylinderComponent'Default__Trigger_LOS.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__Trigger_LOS.Sprite")/*Ref SpriteComponent'Default__Trigger_LOS.Sprite'*/,
-			LoadAsset<CylinderComponent>("Default__Trigger_LOS.CollisionCylinder")/*Ref CylinderComponent'Default__Trigger_LOS.CollisionCylinder'*/,
+			Default__Trigger_LOS_Sprite/*Ref SpriteComponent'Default__Trigger_LOS.Sprite'*/,
+			Default__Trigger_LOS_CollisionCylinder/*Ref CylinderComponent'Default__Trigger_LOS.CollisionCylinder'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__Trigger_LOS.CollisionCylinder")/*Ref CylinderComponent'Default__Trigger_LOS.CollisionCylinder'*/;
+		CollisionComponent = Default__Trigger_LOS_CollisionCylinder/*Ref CylinderComponent'Default__Trigger_LOS.CollisionCylinder'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_LOS>(),

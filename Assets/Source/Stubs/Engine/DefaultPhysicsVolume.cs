@@ -13,15 +13,18 @@ public partial class DefaultPhysicsVolume : PhysicsVolume/*
 	
 	public DefaultPhysicsVolume()
 	{
+		var Default__DefaultPhysicsVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__DefaultPhysicsVolume.BrushComponent0' */;
 		// Object Offset:0x0030CAD9
-		BrushComponent = LoadAsset<BrushComponent>("Default__DefaultPhysicsVolume.BrushComponent0")/*Ref BrushComponent'Default__DefaultPhysicsVolume.BrushComponent0'*/;
+		BrushComponent = Default__DefaultPhysicsVolume_BrushComponent0/*Ref BrushComponent'Default__DefaultPhysicsVolume.BrushComponent0'*/;
 		bStatic = false;
 		bNoDelete = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__DefaultPhysicsVolume.BrushComponent0")/*Ref BrushComponent'Default__DefaultPhysicsVolume.BrushComponent0'*/,
+			Default__DefaultPhysicsVolume_BrushComponent0/*Ref BrushComponent'Default__DefaultPhysicsVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__DefaultPhysicsVolume.BrushComponent0")/*Ref BrushComponent'Default__DefaultPhysicsVolume.BrushComponent0'*/;
+		CollisionComponent = Default__DefaultPhysicsVolume_BrushComponent0/*Ref BrushComponent'Default__DefaultPhysicsVolume.BrushComponent0'*/;
 	}
 }
 }

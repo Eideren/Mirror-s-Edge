@@ -97,6 +97,9 @@ public partial class TdMovementVolume : PhysicsVolume/*
 	
 	public TdMovementVolume()
 	{
+		var Default__TdMovementVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TdMovementVolume.BrushComponent0' */;
 		var Default__TdMovementVolume_WallDir = new ArrowComponent
 		{
 			// Object Offset:0x0050E0F3
@@ -119,15 +122,15 @@ public partial class TdMovementVolume : PhysicsVolume/*
 		bAutoPath = true;
 		bHideSplineMarkers = true;
 		NumSplineSegments = 10;
-		BrushComponent = LoadAsset<BrushComponent>("Default__TdMovementVolume.BrushComponent0")/*Ref BrushComponent'Default__TdMovementVolume.BrushComponent0'*/;
+		BrushComponent = Default__TdMovementVolume_BrushComponent0/*Ref BrushComponent'Default__TdMovementVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TdMovementVolume.BrushComponent0")/*Ref BrushComponent'Default__TdMovementVolume.BrushComponent0'*/,
-			Default__TdMovementVolume_WallDir,
-			Default__TdMovementVolume_MovementMesh,
+			Default__TdMovementVolume_BrushComponent0/*Ref BrushComponent'Default__TdMovementVolume.BrushComponent0'*/,
+			Default__TdMovementVolume_WallDir/*Ref ArrowComponent'Default__TdMovementVolume.WallDir'*/,
+			Default__TdMovementVolume_MovementMesh/*Ref TdMoveVolumeRenderComponent'Default__TdMovementVolume.MovementMesh'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TdMovementVolume.BrushComponent0")/*Ref BrushComponent'Default__TdMovementVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TdMovementVolume_BrushComponent0/*Ref BrushComponent'Default__TdMovementVolume.BrushComponent0'*/;
 	}
 }
 }

@@ -6,6 +6,9 @@ public partial class DynamicTriggerVolume : TriggerVolume/*
 		hidecategories(Navigation,Object,Display)*/{
 	public DynamicTriggerVolume()
 	{
+		var Default__DynamicTriggerVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__DynamicTriggerVolume.BrushComponent0' */;
 		// Object Offset:0x0031356D
 		BrushColor = new Color
 		{
@@ -14,15 +17,15 @@ public partial class DynamicTriggerVolume : TriggerVolume/*
 			B=255,
 			A=255
 		};
-		BrushComponent = LoadAsset<BrushComponent>("Default__DynamicTriggerVolume.BrushComponent0")/*Ref BrushComponent'Default__DynamicTriggerVolume.BrushComponent0'*/;
+		BrushComponent = Default__DynamicTriggerVolume_BrushComponent0/*Ref BrushComponent'Default__DynamicTriggerVolume.BrushComponent0'*/;
 		bStatic = false;
 		bAlwaysRelevant = true;
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__DynamicTriggerVolume.BrushComponent0")/*Ref BrushComponent'Default__DynamicTriggerVolume.BrushComponent0'*/,
+			Default__DynamicTriggerVolume_BrushComponent0/*Ref BrushComponent'Default__DynamicTriggerVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__DynamicTriggerVolume.BrushComponent0")/*Ref BrushComponent'Default__DynamicTriggerVolume.BrushComponent0'*/;
+		CollisionComponent = Default__DynamicTriggerVolume_BrushComponent0/*Ref BrushComponent'Default__DynamicTriggerVolume.BrushComponent0'*/;
 	}
 }
 }

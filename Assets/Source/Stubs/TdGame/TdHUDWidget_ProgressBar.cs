@@ -10,9 +10,12 @@ public partial class TdHUDWidget_ProgressBar : TdHUDWidget/*
 	
 	public TdHUDWidget_ProgressBar()
 	{
+		var Default__TdHUDWidget_ProgressBar_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdHUDWidget_ProgressBar.WidgetEventComponent' */;
 		// Object Offset:0x00577961
 		requiresTick = true;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdHUDWidget_ProgressBar.WidgetEventComponent")/*Ref UIComp_Event'Default__TdHUDWidget_ProgressBar.WidgetEventComponent'*/;
+		EventProvider = Default__TdHUDWidget_ProgressBar_WidgetEventComponent/*Ref UIComp_Event'Default__TdHUDWidget_ProgressBar.WidgetEventComponent'*/;
 	}
 }
 }

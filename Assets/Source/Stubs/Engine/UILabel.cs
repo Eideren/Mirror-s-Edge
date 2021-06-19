@@ -89,6 +89,12 @@ public partial class UILabel : UIObject,
 	
 	public UILabel()
 	{
+		var Default__UILabel_LabelStringRenderer = new UIComp_DrawString
+		{
+		}/* Reference: UIComp_DrawString'Default__UILabel.LabelStringRenderer' */;
+		var Default__UILabel_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UILabel.WidgetEventComponent' */;
 		// Object Offset:0x002DF540
 		DataSource = new UIRoot.UIDataStoreBinding
 		{
@@ -100,7 +106,7 @@ public partial class UILabel : UIObject,
 			DataStoreField = (name)"None",
 			ResolvedDataStore = default,
 		};
-		StringRenderComponent = LoadAsset<UIComp_DrawString>("Default__UILabel.LabelStringRenderer")/*Ref UIComp_DrawString'Default__UILabel.LabelStringRenderer'*/;
+		StringRenderComponent = Default__UILabel_LabelStringRenderer/*Ref UIComp_DrawString'Default__UILabel.LabelStringRenderer'*/;
 		PrimaryStyle = new UIRoot.UIStyleReference
 		{
 			RequiredStyleClass = ClassT<UIStyle_Combo>()/*Ref Class'UIStyle_Combo'*/,
@@ -121,7 +127,7 @@ public partial class UILabel : UIObject,
 				#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
 			},
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__UILabel.WidgetEventComponent")/*Ref UIComp_Event'Default__UILabel.WidgetEventComponent'*/;
+		EventProvider = Default__UILabel_WidgetEventComponent/*Ref UIComp_Event'Default__UILabel.WidgetEventComponent'*/;
 	}
 }
 }

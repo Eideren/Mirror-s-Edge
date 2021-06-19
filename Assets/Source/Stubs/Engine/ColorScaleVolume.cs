@@ -28,6 +28,9 @@ public partial class ColorScaleVolume : Volume/*
 	}
 	public ColorScaleVolume()
 	{
+		var Default__ColorScaleVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__ColorScaleVolume.BrushComponent0' */;
 		// Object Offset:0x002BCFD3
 		ColorScale = new Vector
 		{
@@ -36,12 +39,12 @@ public partial class ColorScaleVolume : Volume/*
 			Z=1.0f
 		};
 		InterpTime = 1.0f;
-		BrushComponent = LoadAsset<BrushComponent>("Default__ColorScaleVolume.BrushComponent0")/*Ref BrushComponent'Default__ColorScaleVolume.BrushComponent0'*/;
+		BrushComponent = Default__ColorScaleVolume_BrushComponent0/*Ref BrushComponent'Default__ColorScaleVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__ColorScaleVolume.BrushComponent0")/*Ref BrushComponent'Default__ColorScaleVolume.BrushComponent0'*/,
+			Default__ColorScaleVolume_BrushComponent0/*Ref BrushComponent'Default__ColorScaleVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__ColorScaleVolume.BrushComponent0")/*Ref BrushComponent'Default__ColorScaleVolume.BrushComponent0'*/;
+		CollisionComponent = Default__ColorScaleVolume_BrushComponent0/*Ref BrushComponent'Default__ColorScaleVolume.BrushComponent0'*/;
 	}
 }
 }

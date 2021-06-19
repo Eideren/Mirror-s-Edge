@@ -38,10 +38,13 @@ public partial class TdAI_Assault : TdAIController/*
 	}
 	public TdAI_Assault()
 	{
+		var Default__TdAI_Assault_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAI_Assault.Sprite' */;
 		// Object Offset:0x004D0DEF
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAI_Assault.Sprite")/*Ref SpriteComponent'Default__TdAI_Assault.Sprite'*/,
+			Default__TdAI_Assault_Sprite/*Ref SpriteComponent'Default__TdAI_Assault.Sprite'*/,
 		};
 	}
 }

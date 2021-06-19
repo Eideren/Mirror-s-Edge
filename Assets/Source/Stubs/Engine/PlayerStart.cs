@@ -16,6 +16,9 @@ public partial class PlayerStart : NavigationPoint/*
 	
 	public PlayerStart()
 	{
+		var Default__PlayerStart_PlayerStartTextureResourcesObject = new RequestedTextureResources
+		{
+		}/* Reference: RequestedTextureResources'Default__PlayerStart.PlayerStartTextureResourcesObject' */;
 		var Default__PlayerStart_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x0046671F
@@ -27,22 +30,31 @@ public partial class PlayerStart : NavigationPoint/*
 			// Object Offset:0x004CFFBE
 			Sprite = LoadAsset<Texture2D>("EngineResources.S_Player")/*Ref Texture2D'EngineResources.S_Player'*/,
 		}/* Reference: SpriteComponent'Default__PlayerStart.Sprite' */;
+		var Default__PlayerStart_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__PlayerStart.Sprite2' */;
+		var Default__PlayerStart_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__PlayerStart.Arrow' */;
+		var Default__PlayerStart_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__PlayerStart.PathRenderer' */;
 		// Object Offset:0x003A24DC
-		PlayerStartTextureResources = LoadAsset<RequestedTextureResources>("Default__PlayerStart.PlayerStartTextureResourcesObject")/*Ref RequestedTextureResources'Default__PlayerStart.PlayerStartTextureResourcesObject'*/;
+		PlayerStartTextureResources = Default__PlayerStart_PlayerStartTextureResourcesObject/*Ref RequestedTextureResources'Default__PlayerStart.PlayerStartTextureResourcesObject'*/;
 		bEnabled = true;
 		bPrimaryStart = true;
-		CylinderComponent = Default__PlayerStart_CollisionCylinder;
-		GoodSprite = Default__PlayerStart_Sprite;
-		BadSprite = LoadAsset<SpriteComponent>("Default__PlayerStart.Sprite2")/*Ref SpriteComponent'Default__PlayerStart.Sprite2'*/;
+		CylinderComponent = Default__PlayerStart_CollisionCylinder/*Ref CylinderComponent'Default__PlayerStart.CollisionCylinder'*/;
+		GoodSprite = Default__PlayerStart_Sprite/*Ref SpriteComponent'Default__PlayerStart.Sprite'*/;
+		BadSprite = Default__PlayerStart_Sprite2/*Ref SpriteComponent'Default__PlayerStart.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__PlayerStart_Sprite,
-			LoadAsset<SpriteComponent>("Default__PlayerStart.Sprite2")/*Ref SpriteComponent'Default__PlayerStart.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__PlayerStart.Arrow")/*Ref ArrowComponent'Default__PlayerStart.Arrow'*/,
-			Default__PlayerStart_CollisionCylinder,
-			LoadAsset<PathRenderingComponent>("Default__PlayerStart.PathRenderer")/*Ref PathRenderingComponent'Default__PlayerStart.PathRenderer'*/,
+			Default__PlayerStart_Sprite/*Ref SpriteComponent'Default__PlayerStart.Sprite'*/,
+			Default__PlayerStart_Sprite2/*Ref SpriteComponent'Default__PlayerStart.Sprite2'*/,
+			Default__PlayerStart_Arrow/*Ref ArrowComponent'Default__PlayerStart.Arrow'*/,
+			Default__PlayerStart_CollisionCylinder/*Ref CylinderComponent'Default__PlayerStart.CollisionCylinder'*/,
+			Default__PlayerStart_PathRenderer/*Ref PathRenderingComponent'Default__PlayerStart.PathRenderer'*/,
 		};
-		CollisionComponent = Default__PlayerStart_CollisionCylinder;
+		CollisionComponent = Default__PlayerStart_CollisionCylinder/*Ref CylinderComponent'Default__PlayerStart.CollisionCylinder'*/;
 	}
 }
 }

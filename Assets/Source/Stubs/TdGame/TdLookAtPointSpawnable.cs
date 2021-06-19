@@ -6,10 +6,13 @@ public partial class TdLookAtPointSpawnable : TdLookAtPoint/*
 		hidecategories(Navigation)*/{
 	public TdLookAtPointSpawnable()
 	{
+		var Default__TdLookAtPointSpawnable_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdLookAtPointSpawnable.Sprite' */;
 		// Object Offset:0x0058D4CB
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdLookAtPointSpawnable.Sprite")/*Ref SpriteComponent'Default__TdLookAtPointSpawnable.Sprite'*/,
+			Default__TdLookAtPointSpawnable_Sprite/*Ref SpriteComponent'Default__TdLookAtPointSpawnable.Sprite'*/,
 		};
 	}
 }

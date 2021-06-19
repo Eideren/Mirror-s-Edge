@@ -182,7 +182,7 @@ public partial class TdMove_MeleeBase : TdPhysicsMove/*
 		MaxMeleeDistance = 180.0f;
 		MaxMeleeAngle = 0.50f;
 		CanDoMoveTaserLimit = 0.80f;
-		MeleeWaveform = Default__TdMove_MeleeBase_MeleeWaveformObj;
+		MeleeWaveform = Default__TdMove_MeleeBase_MeleeWaveformObj/*Ref ForceFeedbackWaveform'Default__TdMove_MeleeBase.MeleeWaveformObj'*/;
 		MovementGroup = TdMove.EMovementGroup.MG_NonInteractive;
 		AimMode = TdPawn.MoveAimMode.MAM_NoHands;
 	}

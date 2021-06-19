@@ -16,7 +16,7 @@ public partial class PhATSkeletalMeshComponent : SkeletalMeshComponent/*
 			bLooping = true,
 		}/* Reference: AnimNodeSequence'Default__PhATSkeletalMeshComponent.AnimNodeSeq0' */;
 		// Object Offset:0x0002794A
-		Animations = Default__PhATSkeletalMeshComponent_AnimNodeSeq0;
+		Animations = Default__PhATSkeletalMeshComponent_AnimNodeSeq0/*Ref AnimNodeSequence'Default__PhATSkeletalMeshComponent.AnimNodeSeq0'*/;
 		PhysicsWeight = 1.0f;
 		ForcedLodModel = 1;
 		bHasPhysicsAssetInstance = true;

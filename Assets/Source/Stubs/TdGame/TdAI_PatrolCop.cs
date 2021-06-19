@@ -7,10 +7,13 @@ public partial class TdAI_PatrolCop : TdAIController/*
 		hidecategories(Navigation)*/{
 	public TdAI_PatrolCop()
 	{
+		var Default__TdAI_PatrolCop_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAI_PatrolCop.Sprite' */;
 		// Object Offset:0x004DD0B9
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAI_PatrolCop.Sprite")/*Ref SpriteComponent'Default__TdAI_PatrolCop.Sprite'*/,
+			Default__TdAI_PatrolCop_Sprite/*Ref SpriteComponent'Default__TdAI_PatrolCop.Sprite'*/,
 		};
 	}
 }

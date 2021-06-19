@@ -5,6 +5,15 @@ public partial class SeqAct_TdCrowdSpawner : SeqAct_CrowdSpawner/*
 		hidecategories(Object)*/{
 	public SeqAct_TdCrowdSpawner()
 	{
+		var Default__SeqAct_TdCrowdSpawner_DistributionActionDuration = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__SeqAct_TdCrowdSpawner.DistributionActionDuration' */;
+		var Default__SeqAct_TdCrowdSpawner_DistributionActionInterval = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__SeqAct_TdCrowdSpawner.DistributionActionInterval' */;
+		var Default__SeqAct_TdCrowdSpawner_DistributionTargetActionInterval = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__SeqAct_TdCrowdSpawner.DistributionTargetActionInterval' */;
 		// Object Offset:0x004977D3
 		CrowdNodeClass = ClassT<TdCrowdPathNode>()/*Ref Class'TdCrowdPathNode'*/;
 		ActionDuration = new DistributionFloat.RawDistributionFloat

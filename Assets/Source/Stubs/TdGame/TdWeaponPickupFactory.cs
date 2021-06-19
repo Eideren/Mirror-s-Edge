@@ -29,19 +29,34 @@ public partial class TdWeaponPickupFactory : PickupFactory/*
 	
 	public TdWeaponPickupFactory()
 	{
+		var Default__TdWeaponPickupFactory_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdWeaponPickupFactory.CollisionCylinder' */;
+		var Default__TdWeaponPickupFactory_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdWeaponPickupFactory.Sprite' */;
+		var Default__TdWeaponPickupFactory_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdWeaponPickupFactory.Sprite2' */;
+		var Default__TdWeaponPickupFactory_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdWeaponPickupFactory.Arrow' */;
+		var Default__TdWeaponPickupFactory_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__TdWeaponPickupFactory.PathRenderer' */;
 		// Object Offset:0x006D056D
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdWeaponPickupFactory.CollisionCylinder")/*Ref CylinderComponent'Default__TdWeaponPickupFactory.CollisionCylinder'*/;
-		GoodSprite = LoadAsset<SpriteComponent>("Default__TdWeaponPickupFactory.Sprite")/*Ref SpriteComponent'Default__TdWeaponPickupFactory.Sprite'*/;
-		BadSprite = LoadAsset<SpriteComponent>("Default__TdWeaponPickupFactory.Sprite2")/*Ref SpriteComponent'Default__TdWeaponPickupFactory.Sprite2'*/;
+		CylinderComponent = Default__TdWeaponPickupFactory_CollisionCylinder/*Ref CylinderComponent'Default__TdWeaponPickupFactory.CollisionCylinder'*/;
+		GoodSprite = Default__TdWeaponPickupFactory_Sprite/*Ref SpriteComponent'Default__TdWeaponPickupFactory.Sprite'*/;
+		BadSprite = Default__TdWeaponPickupFactory_Sprite2/*Ref SpriteComponent'Default__TdWeaponPickupFactory.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdWeaponPickupFactory.Sprite")/*Ref SpriteComponent'Default__TdWeaponPickupFactory.Sprite'*/,
-			LoadAsset<SpriteComponent>("Default__TdWeaponPickupFactory.Sprite2")/*Ref SpriteComponent'Default__TdWeaponPickupFactory.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__TdWeaponPickupFactory.Arrow")/*Ref ArrowComponent'Default__TdWeaponPickupFactory.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__TdWeaponPickupFactory.CollisionCylinder")/*Ref CylinderComponent'Default__TdWeaponPickupFactory.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__TdWeaponPickupFactory.PathRenderer")/*Ref PathRenderingComponent'Default__TdWeaponPickupFactory.PathRenderer'*/,
+			Default__TdWeaponPickupFactory_Sprite/*Ref SpriteComponent'Default__TdWeaponPickupFactory.Sprite'*/,
+			Default__TdWeaponPickupFactory_Sprite2/*Ref SpriteComponent'Default__TdWeaponPickupFactory.Sprite2'*/,
+			Default__TdWeaponPickupFactory_Arrow/*Ref ArrowComponent'Default__TdWeaponPickupFactory.Arrow'*/,
+			Default__TdWeaponPickupFactory_CollisionCylinder/*Ref CylinderComponent'Default__TdWeaponPickupFactory.CollisionCylinder'*/,
+			Default__TdWeaponPickupFactory_PathRenderer/*Ref PathRenderingComponent'Default__TdWeaponPickupFactory.PathRenderer'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdWeaponPickupFactory.CollisionCylinder")/*Ref CylinderComponent'Default__TdWeaponPickupFactory.CollisionCylinder'*/;
+		CollisionComponent = Default__TdWeaponPickupFactory_CollisionCylinder/*Ref CylinderComponent'Default__TdWeaponPickupFactory.CollisionCylinder'*/;
 	}
 }
 }

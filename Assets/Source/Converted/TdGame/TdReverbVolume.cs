@@ -43,6 +43,9 @@ public partial class TdReverbVolume : ReverbVolume/*
 			bShouldRemainActiveIfDropped = true,
 			bAllowSpatialization = false,
 		}/* Reference: AudioComponent'Default__TdReverbVolume.StereoAmbientComponent' */;
+		var Default__TdReverbVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TdReverbVolume.BrushComponent0' */;
 		// Object Offset:0x00654B9A
 		StereoAmbient = new TdReverbVolume.StereoAmbientStruct
 		{
@@ -51,14 +54,14 @@ public partial class TdReverbVolume : ReverbVolume/*
 			FadeInTime = 0.50f,
 			FadeOutTime = 2.0f,
 		};
-		AmbientSoundComponent = Default__TdReverbVolume_StereoAmbientComponent;
-		BrushComponent = LoadAsset<BrushComponent>("Default__TdReverbVolume.BrushComponent0")/*Ref BrushComponent'Default__TdReverbVolume.BrushComponent0'*/;
+		AmbientSoundComponent = Default__TdReverbVolume_StereoAmbientComponent/*Ref AudioComponent'Default__TdReverbVolume.StereoAmbientComponent'*/;
+		BrushComponent = Default__TdReverbVolume_BrushComponent0/*Ref BrushComponent'Default__TdReverbVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TdReverbVolume.BrushComponent0")/*Ref BrushComponent'Default__TdReverbVolume.BrushComponent0'*/,
-			Default__TdReverbVolume_StereoAmbientComponent,
+			Default__TdReverbVolume_BrushComponent0/*Ref BrushComponent'Default__TdReverbVolume.BrushComponent0'*/,
+			Default__TdReverbVolume_StereoAmbientComponent/*Ref AudioComponent'Default__TdReverbVolume.StereoAmbientComponent'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TdReverbVolume.BrushComponent0")/*Ref BrushComponent'Default__TdReverbVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TdReverbVolume_BrushComponent0/*Ref BrushComponent'Default__TdReverbVolume.BrushComponent0'*/;
 	}
 }
 }

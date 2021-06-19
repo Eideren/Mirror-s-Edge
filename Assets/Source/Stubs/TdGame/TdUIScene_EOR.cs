@@ -37,8 +37,11 @@ public partial class TdUIScene_EOR : TdUIScene/*
 	
 	public TdUIScene_EOR()
 	{
+		var Default__TdUIScene_EOR_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_EOR.SceneEventComponent' */;
 		// Object Offset:0x00698884
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_EOR.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_EOR.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_EOR_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_EOR.SceneEventComponent'*/;
 	}
 }
 }

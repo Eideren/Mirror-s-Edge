@@ -8,25 +8,40 @@ public partial class TdBagStart : PlayerStart/*
 	
 	public TdBagStart()
 	{
+		var Default__TdBagStart_PlayerStartTextureResourcesObject = new RequestedTextureResources
+		{
+		}/* Reference: RequestedTextureResources'Default__TdBagStart.PlayerStartTextureResourcesObject' */;
+		var Default__TdBagStart_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdBagStart.CollisionCylinder' */;
 		var Default__TdBagStart_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x02E51DDD
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.BagSpawnIcon")/*Ref Texture2D'TdEditorResources.BagSpawnIcon'*/,
 		}/* Reference: SpriteComponent'Default__TdBagStart.Sprite' */;
+		var Default__TdBagStart_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdBagStart.Sprite2' */;
+		var Default__TdBagStart_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdBagStart.Arrow' */;
+		var Default__TdBagStart_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__TdBagStart.PathRenderer' */;
 		// Object Offset:0x0050D049
-		PlayerStartTextureResources = LoadAsset<RequestedTextureResources>("Default__TdBagStart.PlayerStartTextureResourcesObject")/*Ref RequestedTextureResources'Default__TdBagStart.PlayerStartTextureResourcesObject'*/;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdBagStart.CollisionCylinder")/*Ref CylinderComponent'Default__TdBagStart.CollisionCylinder'*/;
-		GoodSprite = Default__TdBagStart_Sprite;
-		BadSprite = LoadAsset<SpriteComponent>("Default__TdBagStart.Sprite2")/*Ref SpriteComponent'Default__TdBagStart.Sprite2'*/;
+		PlayerStartTextureResources = Default__TdBagStart_PlayerStartTextureResourcesObject/*Ref RequestedTextureResources'Default__TdBagStart.PlayerStartTextureResourcesObject'*/;
+		CylinderComponent = Default__TdBagStart_CollisionCylinder/*Ref CylinderComponent'Default__TdBagStart.CollisionCylinder'*/;
+		GoodSprite = Default__TdBagStart_Sprite/*Ref SpriteComponent'Default__TdBagStart.Sprite'*/;
+		BadSprite = Default__TdBagStart_Sprite2/*Ref SpriteComponent'Default__TdBagStart.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdBagStart_Sprite,
-			LoadAsset<SpriteComponent>("Default__TdBagStart.Sprite2")/*Ref SpriteComponent'Default__TdBagStart.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__TdBagStart.Arrow")/*Ref ArrowComponent'Default__TdBagStart.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__TdBagStart.CollisionCylinder")/*Ref CylinderComponent'Default__TdBagStart.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__TdBagStart.PathRenderer")/*Ref PathRenderingComponent'Default__TdBagStart.PathRenderer'*/,
+			Default__TdBagStart_Sprite/*Ref SpriteComponent'Default__TdBagStart.Sprite'*/,
+			Default__TdBagStart_Sprite2/*Ref SpriteComponent'Default__TdBagStart.Sprite2'*/,
+			Default__TdBagStart_Arrow/*Ref ArrowComponent'Default__TdBagStart.Arrow'*/,
+			Default__TdBagStart_CollisionCylinder/*Ref CylinderComponent'Default__TdBagStart.CollisionCylinder'*/,
+			Default__TdBagStart_PathRenderer/*Ref PathRenderingComponent'Default__TdBagStart.PathRenderer'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdBagStart.CollisionCylinder")/*Ref CylinderComponent'Default__TdBagStart.CollisionCylinder'*/;
+		CollisionComponent = Default__TdBagStart_CollisionCylinder/*Ref CylinderComponent'Default__TdBagStart.CollisionCylinder'*/;
 	}
 }
 }

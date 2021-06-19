@@ -33,6 +33,9 @@ public partial class TdUIDrawLobbyPlayersPanel : TdUIDrawPlayersPanel/*
 	
 	public TdUIDrawLobbyPlayersPanel()
 	{
+		var Default__TdUIDrawLobbyPlayersPanel_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIDrawLobbyPlayersPanel.WidgetEventComponent' */;
 		// Object Offset:0x006870ED
 		PlayerSlotBGColor = new Color
 		{
@@ -48,7 +51,7 @@ public partial class TdUIDrawLobbyPlayersPanel : TdUIDrawPlayersPanel/*
 			B=0,
 			A=255
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIDrawLobbyPlayersPanel.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIDrawLobbyPlayersPanel.WidgetEventComponent'*/;
+		EventProvider = Default__TdUIDrawLobbyPlayersPanel_WidgetEventComponent/*Ref UIComp_Event'Default__TdUIDrawLobbyPlayersPanel.WidgetEventComponent'*/;
 	}
 }
 }

@@ -41,8 +41,8 @@ public partial class RB_Thruster : Actor/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__RB_Thruster_ArrowComponent0,
-			Default__RB_Thruster_Sprite,
+			Default__RB_Thruster_ArrowComponent0/*Ref ArrowComponent'Default__RB_Thruster.ArrowComponent0'*/,
+			Default__RB_Thruster_Sprite/*Ref SpriteComponent'Default__RB_Thruster.Sprite'*/,
 		};
 	}
 }

@@ -73,6 +73,9 @@ public partial class TdAI_BossHeliController : TdAI_HeliController/*
 	}
 	public TdAI_BossHeliController()
 	{
+		var Default__TdAI_BossHeliController_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAI_BossHeliController.Sprite' */;
 		// Object Offset:0x004D3E3C
 		NodeInvalidatedTime = -1000.0f;
 		PlayerNearDistance = 3000.0f;
@@ -81,7 +84,7 @@ public partial class TdAI_BossHeliController : TdAI_HeliController/*
 		bMuted = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAI_BossHeliController.Sprite")/*Ref SpriteComponent'Default__TdAI_BossHeliController.Sprite'*/,
+			Default__TdAI_BossHeliController_Sprite/*Ref SpriteComponent'Default__TdAI_BossHeliController.Sprite'*/,
 		};
 	}
 }

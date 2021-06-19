@@ -1591,13 +1591,31 @@ public partial class TdBotPawn : TdPawn/*
 	}
 	public TdBotPawn()
 	{
+		var Default__TdBotPawn_ActorCollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdBotPawn.ActorCollisionCylinder' */;
+		var Default__TdBotPawn_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+		}/* Reference: DynamicLightEnvironmentComponent'Default__TdBotPawn.MyLightEnvironment' */;
 		var Default__TdBotPawn_TdPawnMesh3p = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x0052DA8C
 			SkeletalMesh = LoadAsset<SkeletalMesh>("CH_TKY_Crim_Fixer.SK_TKY_Crim_Fixer")/*Ref SkeletalMesh'CH_TKY_Crim_Fixer.SK_TKY_Crim_Fixer'*/,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn.MyLightEnvironment'*/,
+			LightEnvironment = Default__TdBotPawn_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn.MyLightEnvironment'*/,
 			bOwnerNoSeeWithShadow = false,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn.TdPawnMesh3p' */;
+		var Default__TdBotPawn_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+		}/* Reference: SceneCaptureCharacterComponent'Default__TdBotPawn.SceneCaptureCharacterComponent0' */;
+		var Default__TdBotPawn_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__TdBotPawn.DrawFrust0' */;
+		var Default__TdBotPawn_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdBotPawn.CollisionCylinder' */;
+		var Default__TdBotPawn_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdBotPawn.Arrow' */;
 		// Object Offset:0x0052AEAD
 		bAllowStandingTurning = true;
 		bDebugOutput = true;
@@ -1875,8 +1893,8 @@ public partial class TdBotPawn : TdPawn/*
 		AiProfileName = (name)"Default";
 		AnimationRunSpeed = 500.0f;
 		AnimationWalkSpeed = 200.0f;
-		ActorCylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn.ActorCollisionCylinder'*/;
-		Mesh3p = Default__TdBotPawn_TdPawnMesh3p;
+		ActorCylinderComponent = Default__TdBotPawn_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn.ActorCollisionCylinder'*/;
+		Mesh3p = Default__TdBotPawn_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn.TdPawnMesh3p'*/;
 		MoveManagerClass = ClassT<TdBotMoveManager>()/*Ref Class'TdBotMoveManager'*/;
 		MoveClasses = new array< Core.ClassT<TdMove> >
 		{
@@ -1995,23 +2013,23 @@ public partial class TdBotPawn : TdPawn/*
 		SightRadius = 9000.0f;
 		PeripheralVision = -0.20f;
 		AirControl = 0.0f;
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawn.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdBotPawn.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn.DrawFrust0'*/;
+		SceneCapture = Default__TdBotPawn_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__TdBotPawn_DrawFrust0/*Ref DrawFrustumComponent'Default__TdBotPawn.DrawFrust0'*/;
 		ControllerClass = ClassT<TdAIController>()/*Ref Class'TdAIController'*/;
-		Mesh = Default__TdBotPawn_TdPawnMesh3p;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn.CollisionCylinder'*/;
+		Mesh = Default__TdBotPawn_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn.TdPawnMesh3p'*/;
+		CylinderComponent = Default__TdBotPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawn.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn.SceneCaptureCharacterComponent0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__TdBotPawn.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn.DrawFrust0'*/,
-			LoadAsset<CylinderComponent>("Default__TdBotPawn.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn.CollisionCylinder'*/,
-			LoadAsset<ArrowComponent>("Default__TdBotPawn.Arrow")/*Ref ArrowComponent'Default__TdBotPawn.Arrow'*/,
-			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn.MyLightEnvironment'*/,
-			Default__TdBotPawn_TdPawnMesh3p,
-			LoadAsset<CylinderComponent>("Default__TdBotPawn.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn.CollisionCylinder'*/,
-			LoadAsset<CylinderComponent>("Default__TdBotPawn.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn.ActorCollisionCylinder'*/,
+			Default__TdBotPawn_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn.SceneCaptureCharacterComponent0'*/,
+			Default__TdBotPawn_DrawFrust0/*Ref DrawFrustumComponent'Default__TdBotPawn.DrawFrust0'*/,
+			Default__TdBotPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn.CollisionCylinder'*/,
+			Default__TdBotPawn_Arrow/*Ref ArrowComponent'Default__TdBotPawn.Arrow'*/,
+			Default__TdBotPawn_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn.MyLightEnvironment'*/,
+			Default__TdBotPawn_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn.TdPawnMesh3p'*/,
+			Default__TdBotPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn.CollisionCylinder'*/,
+			Default__TdBotPawn_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn.ActorCollisionCylinder'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn.CollisionCylinder'*/;
+		CollisionComponent = Default__TdBotPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn.CollisionCylinder'*/;
 		RotationRate = new Rotator
 		{
 			Pitch=20000,

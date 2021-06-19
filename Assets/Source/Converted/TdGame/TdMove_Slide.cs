@@ -227,7 +227,7 @@ public partial class TdMove_Slide : TdMove/*
 		SlideAbortSpeed = 250.0f;
 		SlideAbortTime = 2.0f;
 		MaxFloorInclineZ = 0.50f;
-		SlideWaveform = Default__TdMove_Slide_SlideWaveformObj;
+		SlideWaveform = Default__TdMove_Slide_SlideWaveformObj/*Ref ForceFeedbackWaveform'Default__TdMove_Slide.SlideWaveformObj'*/;
 		FrictionModifier = 0.10f;
 		bConstrainLook = true;
 		bDisableFaceRotation = true;

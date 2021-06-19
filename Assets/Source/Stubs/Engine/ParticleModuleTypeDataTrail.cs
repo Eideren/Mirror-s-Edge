@@ -17,6 +17,9 @@ public partial class ParticleModuleTypeDataTrail : ParticleModuleTypeDataBase/*
 	
 	public ParticleModuleTypeDataTrail()
 	{
+		var Default__ParticleModuleTypeDataTrail_DistributionTension = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleTypeDataTrail.DistributionTension' */;
 		// Object Offset:0x003856D4
 		RenderGeometry = true;
 		TessellationFactor = 1;

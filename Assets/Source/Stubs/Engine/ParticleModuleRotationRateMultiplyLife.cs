@@ -9,6 +9,9 @@ public partial class ParticleModuleRotationRateMultiplyLife : ParticleModuleRota
 	
 	public ParticleModuleRotationRateMultiplyLife()
 	{
+		var Default__ParticleModuleRotationRateMultiplyLife_DistributionLifeMultiplier = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleRotationRateMultiplyLife.DistributionLifeMultiplier' */;
 		// Object Offset:0x003817C7
 		LifeMultiplier = new DistributionFloat.RawDistributionFloat
 		{

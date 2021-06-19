@@ -123,10 +123,13 @@ public partial class UIProgressBar : UIObject,
 			// Object Offset:0x005D1B0A
 			StyleResolverTag = (name)"Overlay Image Style",
 		}/* Reference: UIComp_DrawImage'Default__UIProgressBar.ProgressBarOverlayImageTemplate' */;
+		var Default__UIProgressBar_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIProgressBar.WidgetEventComponent' */;
 		// Object Offset:0x0044BCA4
-		BackgroundImageComponent = Default__UIProgressBar_ProgressBarBackgroundImageTemplate;
-		FillImageComponent = Default__UIProgressBar_ProgressBarFillImageTemplate;
-		OverlayImageComponent = Default__UIProgressBar_ProgressBarOverlayImageTemplate;
+		BackgroundImageComponent = Default__UIProgressBar_ProgressBarBackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UIProgressBar.ProgressBarBackgroundImageTemplate'*/;
+		FillImageComponent = Default__UIProgressBar_ProgressBarFillImageTemplate/*Ref UIComp_DrawImage'Default__UIProgressBar.ProgressBarFillImageTemplate'*/;
+		OverlayImageComponent = Default__UIProgressBar_ProgressBarOverlayImageTemplate/*Ref UIComp_DrawImage'Default__UIProgressBar.ProgressBarOverlayImageTemplate'*/;
 		DataSource = new UIRoot.UIDataStoreBinding
 		{
 			Subscriber = default,
@@ -172,7 +175,7 @@ public partial class UIProgressBar : UIObject,
 			ClassT<UIState_Active>(),
 			ClassT<UIState_Pressed>(),
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIProgressBar.WidgetEventComponent")/*Ref UIComp_Event'Default__UIProgressBar.WidgetEventComponent'*/;
+		EventProvider = Default__UIProgressBar_WidgetEventComponent/*Ref UIComp_Event'Default__UIProgressBar.WidgetEventComponent'*/;
 	}
 }
 }

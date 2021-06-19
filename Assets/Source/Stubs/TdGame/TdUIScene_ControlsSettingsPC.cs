@@ -45,8 +45,11 @@ public partial class TdUIScene_ControlsSettingsPC : TdUIScene_OptionMenu/*
 	
 	public TdUIScene_ControlsSettingsPC()
 	{
+		var Default__TdUIScene_ControlsSettingsPC_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_ControlsSettingsPC.SceneEventComponent' */;
 		// Object Offset:0x00567A13
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_ControlsSettingsPC.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_ControlsSettingsPC.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_ControlsSettingsPC_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_ControlsSettingsPC.SceneEventComponent'*/;
 	}
 }
 }

@@ -41,6 +41,12 @@ public partial class ConsoleEntry : UIObject/*
 	
 	public ConsoleEntry()
 	{
+		var Default__ConsoleEntry_ConsolePromptTemplate_LabelStringRenderer = new UIComp_DrawString
+		{
+		}/* Reference: UIComp_DrawString'Default__ConsoleEntry.ConsolePromptTemplate.LabelStringRenderer' */;
+		var Default__ConsoleEntry_ConsolePromptTemplate_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__ConsoleEntry.ConsolePromptTemplate.WidgetEventComponent' */;
 		var Default__ConsoleEntry_ConsolePromptTemplate = new UILabel
 		{
 			// Object Offset:0x005D3302
@@ -48,7 +54,7 @@ public partial class ConsoleEntry : UIObject/*
 			{
 				MarkupString = "(> ",
 			},
-			StringRenderComponent = LoadAsset<UIComp_DrawString>("Default__ConsoleEntry.ConsolePromptTemplate.LabelStringRenderer")/*Ref UIComp_DrawString'Default__ConsoleEntry.ConsolePromptTemplate.LabelStringRenderer'*/,
+			StringRenderComponent = Default__ConsoleEntry_ConsolePromptTemplate_LabelStringRenderer/*Ref UIComp_DrawString'Default__ConsoleEntry.ConsolePromptTemplate.LabelStringRenderer'*/,
 			WidgetTag = (name)"ConsolePrompt",
 			TabIndex = 2,
 			Position = new UIRoot.UIScreenValue_Bounds
@@ -59,21 +65,36 @@ public partial class ConsoleEntry : UIObject/*
 					#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
 				},
 			},
-			EventProvider = LoadAsset<UIComp_Event>("Default__ConsoleEntry.ConsolePromptTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__ConsoleEntry.ConsolePromptTemplate.WidgetEventComponent'*/,
+			EventProvider = Default__ConsoleEntry_ConsolePromptTemplate_WidgetEventComponent/*Ref UIComp_Event'Default__ConsoleEntry.ConsolePromptTemplate.WidgetEventComponent'*/,
 		}/* Reference: UILabel'Default__ConsoleEntry.ConsolePromptTemplate' */;
+		var Default__ConsoleEntry_ConsolePromptBackgroundTemplate_ImageComponentTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__ConsoleEntry.ConsolePromptBackgroundTemplate.ImageComponentTemplate' */;
+		var Default__ConsoleEntry_ConsolePromptBackgroundTemplate_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__ConsoleEntry.ConsolePromptBackgroundTemplate.WidgetEventComponent' */;
 		var Default__ConsoleEntry_ConsolePromptBackgroundTemplate = new UIImage
 		{
 			// Object Offset:0x005D2F06
-			ImageComponent = LoadAsset<UIComp_DrawImage>("Default__ConsoleEntry.ConsolePromptBackgroundTemplate.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__ConsoleEntry.ConsolePromptBackgroundTemplate.ImageComponentTemplate'*/,
+			ImageComponent = Default__ConsoleEntry_ConsolePromptBackgroundTemplate_ImageComponentTemplate/*Ref UIComp_DrawImage'Default__ConsoleEntry.ConsolePromptBackgroundTemplate.ImageComponentTemplate'*/,
 			WidgetTag = (name)"ConsoleBackground",
 			TabIndex = 1,
-			EventProvider = LoadAsset<UIComp_Event>("Default__ConsoleEntry.ConsolePromptBackgroundTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__ConsoleEntry.ConsolePromptBackgroundTemplate.WidgetEventComponent'*/,
+			EventProvider = Default__ConsoleEntry_ConsolePromptBackgroundTemplate_WidgetEventComponent/*Ref UIComp_Event'Default__ConsoleEntry.ConsolePromptBackgroundTemplate.WidgetEventComponent'*/,
 		}/* Reference: UIImage'Default__ConsoleEntry.ConsolePromptBackgroundTemplate' */;
+		var Default__ConsoleEntry_InputBoxTemplate_EditboxStringRenderer = new UIComp_DrawStringEditbox
+		{
+		}/* Reference: UIComp_DrawStringEditbox'Default__ConsoleEntry.InputBoxTemplate.EditboxStringRenderer' */;
+		var Default__ConsoleEntry_InputBoxTemplate_EditboxBackgroundTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__ConsoleEntry.InputBoxTemplate.EditboxBackgroundTemplate' */;
+		var Default__ConsoleEntry_InputBoxTemplate_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__ConsoleEntry.InputBoxTemplate.WidgetEventComponent' */;
 		var Default__ConsoleEntry_InputBoxTemplate = new UIEditBox
 		{
 			// Object Offset:0x005D283E
-			StringRenderComponent = LoadAsset<UIComp_DrawStringEditbox>("Default__ConsoleEntry.InputBoxTemplate.EditboxStringRenderer")/*Ref UIComp_DrawStringEditbox'Default__ConsoleEntry.InputBoxTemplate.EditboxStringRenderer'*/,
-			BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__ConsoleEntry.InputBoxTemplate.EditboxBackgroundTemplate")/*Ref UIComp_DrawImage'Default__ConsoleEntry.InputBoxTemplate.EditboxBackgroundTemplate'*/,
+			StringRenderComponent = Default__ConsoleEntry_InputBoxTemplate_EditboxStringRenderer/*Ref UIComp_DrawStringEditbox'Default__ConsoleEntry.InputBoxTemplate.EditboxStringRenderer'*/,
+			BackgroundImageComponent = Default__ConsoleEntry_InputBoxTemplate_EditboxBackgroundTemplate/*Ref UIComp_DrawImage'Default__ConsoleEntry.InputBoxTemplate.EditboxBackgroundTemplate'*/,
 			WidgetTag = (name)"InputBox",
 			TabIndex = 0,
 			Position = new UIRoot.UIScreenValue_Bounds
@@ -84,12 +105,18 @@ public partial class ConsoleEntry : UIObject/*
 					#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
 				},
 			},
-			EventProvider = LoadAsset<UIComp_Event>("Default__ConsoleEntry.InputBoxTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__ConsoleEntry.InputBoxTemplate.WidgetEventComponent'*/,
+			EventProvider = Default__ConsoleEntry_InputBoxTemplate_WidgetEventComponent/*Ref UIComp_Event'Default__ConsoleEntry.InputBoxTemplate.WidgetEventComponent'*/,
 		}/* Reference: UIEditBox'Default__ConsoleEntry.InputBoxTemplate' */;
+		var Default__ConsoleEntry_LowerConsoleBorderTemplate_ImageComponentTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__ConsoleEntry.LowerConsoleBorderTemplate.ImageComponentTemplate' */;
+		var Default__ConsoleEntry_LowerConsoleBorderTemplate_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__ConsoleEntry.LowerConsoleBorderTemplate.WidgetEventComponent' */;
 		var Default__ConsoleEntry_LowerConsoleBorderTemplate = new UIImage
 		{
 			// Object Offset:0x005D2F86
-			ImageComponent = LoadAsset<UIComp_DrawImage>("Default__ConsoleEntry.LowerConsoleBorderTemplate.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__ConsoleEntry.LowerConsoleBorderTemplate.ImageComponentTemplate'*/,
+			ImageComponent = Default__ConsoleEntry_LowerConsoleBorderTemplate_ImageComponentTemplate/*Ref UIComp_DrawImage'Default__ConsoleEntry.LowerConsoleBorderTemplate.ImageComponentTemplate'*/,
 			WidgetTag = (name)"LowerConsoleBorder",
 			TabIndex = 3,
 			Position = new UIRoot.UIScreenValue_Bounds
@@ -105,12 +132,18 @@ public partial class ConsoleEntry : UIObject/*
 					#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
 				},
 			},
-			EventProvider = LoadAsset<UIComp_Event>("Default__ConsoleEntry.LowerConsoleBorderTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__ConsoleEntry.LowerConsoleBorderTemplate.WidgetEventComponent'*/,
+			EventProvider = Default__ConsoleEntry_LowerConsoleBorderTemplate_WidgetEventComponent/*Ref UIComp_Event'Default__ConsoleEntry.LowerConsoleBorderTemplate.WidgetEventComponent'*/,
 		}/* Reference: UIImage'Default__ConsoleEntry.LowerConsoleBorderTemplate' */;
+		var Default__ConsoleEntry_UpperConsoleBorderTemplate_ImageComponentTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__ConsoleEntry.UpperConsoleBorderTemplate.ImageComponentTemplate' */;
+		var Default__ConsoleEntry_UpperConsoleBorderTemplate_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__ConsoleEntry.UpperConsoleBorderTemplate.WidgetEventComponent' */;
 		var Default__ConsoleEntry_UpperConsoleBorderTemplate = new UIImage
 		{
 			// Object Offset:0x005D306A
-			ImageComponent = LoadAsset<UIComp_DrawImage>("Default__ConsoleEntry.UpperConsoleBorderTemplate.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__ConsoleEntry.UpperConsoleBorderTemplate.ImageComponentTemplate'*/,
+			ImageComponent = Default__ConsoleEntry_UpperConsoleBorderTemplate_ImageComponentTemplate/*Ref UIComp_DrawImage'Default__ConsoleEntry.UpperConsoleBorderTemplate.ImageComponentTemplate'*/,
 			WidgetTag = (name)"UpperConsoleBorder",
 			TabIndex = 4,
 			DockTargets = new UIRoot.UIDockingSet
@@ -132,14 +165,17 @@ public partial class ConsoleEntry : UIObject/*
 					#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
 				},
 			},
-			EventProvider = LoadAsset<UIComp_Event>("Default__ConsoleEntry.UpperConsoleBorderTemplate.WidgetEventComponent")/*Ref UIComp_Event'Default__ConsoleEntry.UpperConsoleBorderTemplate.WidgetEventComponent'*/,
+			EventProvider = Default__ConsoleEntry_UpperConsoleBorderTemplate_WidgetEventComponent/*Ref UIComp_Event'Default__ConsoleEntry.UpperConsoleBorderTemplate.WidgetEventComponent'*/,
 		}/* Reference: UIImage'Default__ConsoleEntry.UpperConsoleBorderTemplate' */;
+		var Default__ConsoleEntry_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__ConsoleEntry.WidgetEventComponent' */;
 		// Object Offset:0x002E3309
-		ConsolePromptLabel = Default__ConsoleEntry_ConsolePromptTemplate;
-		ConsolePromptBackground = Default__ConsoleEntry_ConsolePromptBackgroundTemplate;
-		InputBox = Default__ConsoleEntry_InputBoxTemplate;
-		LowerConsoleBorder = Default__ConsoleEntry_LowerConsoleBorderTemplate;
-		UpperConsoleBorder = Default__ConsoleEntry_UpperConsoleBorderTemplate;
+		ConsolePromptLabel = Default__ConsoleEntry_ConsolePromptTemplate/*Ref UILabel'Default__ConsoleEntry.ConsolePromptTemplate'*/;
+		ConsolePromptBackground = Default__ConsoleEntry_ConsolePromptBackgroundTemplate/*Ref UIImage'Default__ConsoleEntry.ConsolePromptBackgroundTemplate'*/;
+		InputBox = Default__ConsoleEntry_InputBoxTemplate/*Ref UIEditBox'Default__ConsoleEntry.InputBoxTemplate'*/;
+		LowerConsoleBorder = Default__ConsoleEntry_LowerConsoleBorderTemplate/*Ref UIImage'Default__ConsoleEntry.LowerConsoleBorderTemplate'*/;
+		UpperConsoleBorder = Default__ConsoleEntry_UpperConsoleBorderTemplate/*Ref UIImage'Default__ConsoleEntry.UpperConsoleBorderTemplate'*/;
 		WidgetTag = (name)"ConsoleEntry";
 		PrimaryStyle = new UIRoot.UIStyleReference
 		{
@@ -148,11 +184,11 @@ public partial class ConsoleEntry : UIObject/*
 		bSupportsPrimaryStyle = false;
 		Children = new array<UIObject>
 		{
-			Default__ConsoleEntry_InputBoxTemplate,
-			Default__ConsoleEntry_ConsolePromptBackgroundTemplate,
-			Default__ConsoleEntry_ConsolePromptTemplate,
-			Default__ConsoleEntry_LowerConsoleBorderTemplate,
-			Default__ConsoleEntry_UpperConsoleBorderTemplate,
+			Default__ConsoleEntry_InputBoxTemplate/*Ref UIEditBox'Default__ConsoleEntry.InputBoxTemplate'*/,
+			Default__ConsoleEntry_ConsolePromptBackgroundTemplate/*Ref UIImage'Default__ConsoleEntry.ConsolePromptBackgroundTemplate'*/,
+			Default__ConsoleEntry_ConsolePromptTemplate/*Ref UILabel'Default__ConsoleEntry.ConsolePromptTemplate'*/,
+			Default__ConsoleEntry_LowerConsoleBorderTemplate/*Ref UIImage'Default__ConsoleEntry.LowerConsoleBorderTemplate'*/,
+			Default__ConsoleEntry_UpperConsoleBorderTemplate/*Ref UIImage'Default__ConsoleEntry.UpperConsoleBorderTemplate'*/,
 		};
 		DefaultStates = new array< Core.ClassT<UIState> >
 		{
@@ -160,7 +196,7 @@ public partial class ConsoleEntry : UIObject/*
 			ClassT<UIState_Disabled>(),
 			ClassT<UIState_Focused>(),
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__ConsoleEntry.WidgetEventComponent")/*Ref UIComp_Event'Default__ConsoleEntry.WidgetEventComponent'*/;
+		EventProvider = Default__ConsoleEntry_WidgetEventComponent/*Ref UIComp_Event'Default__ConsoleEntry.WidgetEventComponent'*/;
 	}
 }
 }

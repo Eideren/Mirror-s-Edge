@@ -75,8 +75,11 @@ public partial class TdUIScene_StarRating : TdUIScene/*
 	
 	public TdUIScene_StarRating()
 	{
+		var Default__TdUIScene_StarRating_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_StarRating.SceneEventComponent' */;
 		// Object Offset:0x006AD5C1
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_StarRating.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_StarRating.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_StarRating_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_StarRating.SceneEventComponent'*/;
 	}
 }
 }

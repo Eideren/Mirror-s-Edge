@@ -171,6 +171,18 @@ public partial class TdVehicle : SVehicle/*
 	
 	public TdVehicle()
 	{
+		var Default__TdVehicle_MyStayUprightSetup = new RB_StayUprightSetup
+		{
+		}/* Reference: RB_StayUprightSetup'Default__TdVehicle.MyStayUprightSetup' */;
+		var Default__TdVehicle_MyStayUprightConstraintInstance = new RB_ConstraintInstance
+		{
+		}/* Reference: RB_ConstraintInstance'Default__TdVehicle.MyStayUprightConstraintInstance' */;
+		var Default__TdVehicle_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+		}/* Reference: SceneCaptureCharacterComponent'Default__TdVehicle.SceneCaptureCharacterComponent0' */;
+		var Default__TdVehicle_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__TdVehicle.DrawFrust0' */;
 		var Default__TdVehicle_SVehicleMesh = new SkeletalMeshComponent
 		{
 			// Object Offset:0x0279BF52
@@ -185,24 +197,24 @@ public partial class TdVehicle : SVehicle/*
 			BlockNonZeroExtent = false,
 		}/* Reference: CylinderComponent'Default__TdVehicle.CollisionCylinder' */;
 		// Object Offset:0x006BE6C1
-		StayUprightConstraintSetup = LoadAsset<RB_StayUprightSetup>("Default__TdVehicle.MyStayUprightSetup")/*Ref RB_StayUprightSetup'Default__TdVehicle.MyStayUprightSetup'*/;
-		StayUprightConstraintInstance = LoadAsset<RB_ConstraintInstance>("Default__TdVehicle.MyStayUprightConstraintInstance")/*Ref RB_ConstraintInstance'Default__TdVehicle.MyStayUprightConstraintInstance'*/;
+		StayUprightConstraintSetup = Default__TdVehicle_MyStayUprightSetup/*Ref RB_StayUprightSetup'Default__TdVehicle.MyStayUprightSetup'*/;
+		StayUprightConstraintInstance = Default__TdVehicle_MyStayUprightConstraintInstance/*Ref RB_ConstraintInstance'Default__TdVehicle.MyStayUprightConstraintInstance'*/;
 		bDriverIsVisible = true;
 		MomentumMult = 2.0f;
 		MinCrushSpeed = 100.0f;
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdVehicle.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdVehicle.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdVehicle.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdVehicle.DrawFrust0'*/;
-		Mesh = Default__TdVehicle_SVehicleMesh;
-		CylinderComponent = Default__TdVehicle_CollisionCylinder;
+		SceneCapture = Default__TdVehicle_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdVehicle.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__TdVehicle_DrawFrust0/*Ref DrawFrustumComponent'Default__TdVehicle.DrawFrust0'*/;
+		Mesh = Default__TdVehicle_SVehicleMesh/*Ref SkeletalMeshComponent'Default__TdVehicle.SVehicleMesh'*/;
+		CylinderComponent = Default__TdVehicle_CollisionCylinder/*Ref CylinderComponent'Default__TdVehicle.CollisionCylinder'*/;
 		InventoryManagerClass = ClassT<TdInventoryManager>()/*Ref Class'TdInventoryManager'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCaptureCharacterComponent>("Default__TdVehicle.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdVehicle.SceneCaptureCharacterComponent0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__TdVehicle.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdVehicle.DrawFrust0'*/,
-			Default__TdVehicle_CollisionCylinder,
-			Default__TdVehicle_SVehicleMesh,
+			Default__TdVehicle_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdVehicle.SceneCaptureCharacterComponent0'*/,
+			Default__TdVehicle_DrawFrust0/*Ref DrawFrustumComponent'Default__TdVehicle.DrawFrust0'*/,
+			Default__TdVehicle_CollisionCylinder/*Ref CylinderComponent'Default__TdVehicle.CollisionCylinder'*/,
+			Default__TdVehicle_SVehicleMesh/*Ref SkeletalMeshComponent'Default__TdVehicle.SVehicleMesh'*/,
 		};
-		CollisionComponent = Default__TdVehicle_SVehicleMesh;
+		CollisionComponent = Default__TdVehicle_SVehicleMesh/*Ref SkeletalMeshComponent'Default__TdVehicle.SVehicleMesh'*/;
 	}
 }
 }

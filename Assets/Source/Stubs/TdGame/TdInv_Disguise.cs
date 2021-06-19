@@ -6,10 +6,13 @@ public partial class TdInv_Disguise : TdEquipment/*
 		hidecategories(Navigation)*/{
 	public TdInv_Disguise()
 	{
+		var Default__TdInv_Disguise_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdInv_Disguise.Sprite' */;
 		// Object Offset:0x0057CA2F
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdInv_Disguise.Sprite")/*Ref SpriteComponent'Default__TdInv_Disguise.Sprite'*/,
+			Default__TdInv_Disguise_Sprite/*Ref SpriteComponent'Default__TdInv_Disguise.Sprite'*/,
 		};
 	}
 }

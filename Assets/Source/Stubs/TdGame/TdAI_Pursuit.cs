@@ -609,6 +609,9 @@ public partial class TdAI_Pursuit : TdAIController/*
 	}
 	public TdAI_Pursuit()
 	{
+		var Default__TdAI_Pursuit_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAI_Pursuit.Sprite' */;
 		// Object Offset:0x004DA06E
 		MeleeSubState = TdAI_Pursuit.EMeleeSubState.E_WantToAttack;
 		DebugMeleeAttack = TdAI_Pursuit.EPursuitMeleeAttackType.EMeleeAttack_None;
@@ -661,7 +664,7 @@ public partial class TdAI_Pursuit : TdAIController/*
 		MeleeState = (name)"PursuitMelee";
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAI_Pursuit.Sprite")/*Ref SpriteComponent'Default__TdAI_Pursuit.Sprite'*/,
+			Default__TdAI_Pursuit_Sprite/*Ref SpriteComponent'Default__TdAI_Pursuit.Sprite'*/,
 		};
 	}
 }

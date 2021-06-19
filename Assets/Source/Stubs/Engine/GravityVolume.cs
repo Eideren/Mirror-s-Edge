@@ -9,14 +9,17 @@ public partial class GravityVolume : PhysicsVolume/*
 	
 	public GravityVolume()
 	{
+		var Default__GravityVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__GravityVolume.BrushComponent0' */;
 		// Object Offset:0x0033D81D
 		GravityZ = -520.0f;
-		BrushComponent = LoadAsset<BrushComponent>("Default__GravityVolume.BrushComponent0")/*Ref BrushComponent'Default__GravityVolume.BrushComponent0'*/;
+		BrushComponent = Default__GravityVolume_BrushComponent0/*Ref BrushComponent'Default__GravityVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__GravityVolume.BrushComponent0")/*Ref BrushComponent'Default__GravityVolume.BrushComponent0'*/,
+			Default__GravityVolume_BrushComponent0/*Ref BrushComponent'Default__GravityVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__GravityVolume.BrushComponent0")/*Ref BrushComponent'Default__GravityVolume.BrushComponent0'*/;
+		CollisionComponent = Default__GravityVolume_BrushComponent0/*Ref BrushComponent'Default__GravityVolume.BrushComponent0'*/;
 	}
 }
 }

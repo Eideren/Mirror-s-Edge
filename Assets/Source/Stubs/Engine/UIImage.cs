@@ -61,6 +61,12 @@ public partial class UIImage : UIObject,
 	
 	public UIImage()
 	{
+		var Default__UIImage_ImageComponentTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UIImage.ImageComponentTemplate' */;
+		var Default__UIImage_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIImage.WidgetEventComponent' */;
 		// Object Offset:0x002E0DF5
 		ImageDataSource = new UIRoot.UIDataStoreBinding
 		{
@@ -72,7 +78,7 @@ public partial class UIImage : UIObject,
 			DataStoreField = (name)"None",
 			ResolvedDataStore = default,
 		};
-		ImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIImage.ImageComponentTemplate")/*Ref UIComp_DrawImage'Default__UIImage.ImageComponentTemplate'*/;
+		ImageComponent = Default__UIImage_ImageComponentTemplate/*Ref UIComp_DrawImage'Default__UIImage.ImageComponentTemplate'*/;
 		PrimaryStyle = new UIRoot.UIStyleReference
 		{
 			DefaultStyleTag = (name)"DefaultImageStyle",
@@ -94,7 +100,7 @@ public partial class UIImage : UIObject,
 				#warning index access seems to hint that the collection is not wholly assigned to, this should probably be changed to assigning to specific indices on the existing collection instead of assigning a whole new collection
 			},
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIImage.WidgetEventComponent")/*Ref UIComp_Event'Default__UIImage.WidgetEventComponent'*/;
+		EventProvider = Default__UIImage_WidgetEventComponent/*Ref UIComp_Event'Default__UIImage.WidgetEventComponent'*/;
 	}
 }
 }

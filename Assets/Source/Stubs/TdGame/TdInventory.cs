@@ -6,10 +6,13 @@ public partial class TdInventory : Inventory/*
 		hidecategories(Navigation)*/{
 	public TdInventory()
 	{
+		var Default__TdInventory_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdInventory.Sprite' */;
 		// Object Offset:0x0057CFD0
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdInventory.Sprite")/*Ref SpriteComponent'Default__TdInventory.Sprite'*/,
+			Default__TdInventory_Sprite/*Ref SpriteComponent'Default__TdInventory.Sprite'*/,
 		};
 	}
 }

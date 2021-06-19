@@ -34,13 +34,16 @@ public partial class TdInv_Shield : TdEquipment/*
 			BlockZeroExtent = true,
 			BlockNonZeroExtent = true,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdInv_Shield.RiotShield' */;
+		var Default__TdInv_Shield_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdInv_Shield.Sprite' */;
 		// Object Offset:0x0057CE2A
-		Mesh3p = Default__TdInv_Shield_RiotShield;
+		Mesh3p = Default__TdInv_Shield_RiotShield/*Ref TdSkeletalMeshComponent'Default__TdInv_Shield.RiotShield'*/;
 		Health = 100;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdInv_Shield.Sprite")/*Ref SpriteComponent'Default__TdInv_Shield.Sprite'*/,
-			Default__TdInv_Shield_RiotShield,
+			Default__TdInv_Shield_Sprite/*Ref SpriteComponent'Default__TdInv_Shield.Sprite'*/,
+			Default__TdInv_Shield_RiotShield/*Ref TdSkeletalMeshComponent'Default__TdInv_Shield.RiotShield'*/,
 		};
 	}
 }

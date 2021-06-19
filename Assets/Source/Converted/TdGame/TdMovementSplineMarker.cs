@@ -20,7 +20,7 @@ public partial class TdMovementSplineMarker : Keypoint/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdMovementSplineMarker_Sprite,
+			Default__TdMovementSplineMarker_Sprite/*Ref SpriteComponent'Default__TdMovementSplineMarker.Sprite'*/,
 		};
 	}
 }

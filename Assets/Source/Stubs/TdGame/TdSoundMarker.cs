@@ -6,6 +6,9 @@ public partial class TdSoundMarker : TdMarker/*
 		hidecategories(Navigation)*/{
 	public TdSoundMarker()
 	{
+		var Default__TdSoundMarker_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdSoundMarker.Arrow' */;
 		var Default__TdSoundMarker_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x02E52605
@@ -15,9 +18,9 @@ public partial class TdSoundMarker : TdMarker/*
 		// Object Offset:0x006597A1
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<ArrowComponent>("Default__TdSoundMarker.Arrow")/*Ref ArrowComponent'Default__TdSoundMarker.Arrow'*/,
-			Default__TdSoundMarker_Sprite,
-			LoadAsset<ArrowComponent>("Default__TdSoundMarker.Arrow")/*Ref ArrowComponent'Default__TdSoundMarker.Arrow'*/,
+			Default__TdSoundMarker_Arrow/*Ref ArrowComponent'Default__TdSoundMarker.Arrow'*/,
+			Default__TdSoundMarker_Sprite/*Ref SpriteComponent'Default__TdSoundMarker.Sprite'*/,
+			Default__TdSoundMarker_Arrow/*Ref ArrowComponent'Default__TdSoundMarker.Arrow'*/,
 		};
 	}
 }

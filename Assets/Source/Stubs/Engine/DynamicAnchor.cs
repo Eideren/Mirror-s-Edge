@@ -9,22 +9,37 @@ public partial class DynamicAnchor : NavigationPoint/*
 	
 	public DynamicAnchor()
 	{
+		var Default__DynamicAnchor_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__DynamicAnchor.CollisionCylinder' */;
+		var Default__DynamicAnchor_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__DynamicAnchor.Sprite' */;
+		var Default__DynamicAnchor_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__DynamicAnchor.Sprite2' */;
+		var Default__DynamicAnchor_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__DynamicAnchor.Arrow' */;
+		var Default__DynamicAnchor_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__DynamicAnchor.PathRenderer' */;
 		// Object Offset:0x00311DDC
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__DynamicAnchor.CollisionCylinder")/*Ref CylinderComponent'Default__DynamicAnchor.CollisionCylinder'*/;
-		GoodSprite = LoadAsset<SpriteComponent>("Default__DynamicAnchor.Sprite")/*Ref SpriteComponent'Default__DynamicAnchor.Sprite'*/;
-		BadSprite = LoadAsset<SpriteComponent>("Default__DynamicAnchor.Sprite2")/*Ref SpriteComponent'Default__DynamicAnchor.Sprite2'*/;
+		CylinderComponent = Default__DynamicAnchor_CollisionCylinder/*Ref CylinderComponent'Default__DynamicAnchor.CollisionCylinder'*/;
+		GoodSprite = Default__DynamicAnchor_Sprite/*Ref SpriteComponent'Default__DynamicAnchor.Sprite'*/;
+		BadSprite = Default__DynamicAnchor_Sprite2/*Ref SpriteComponent'Default__DynamicAnchor.Sprite2'*/;
 		bStatic = false;
 		bNoDelete = false;
 		bCollideWhenPlacing = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__DynamicAnchor.Sprite")/*Ref SpriteComponent'Default__DynamicAnchor.Sprite'*/,
-			LoadAsset<SpriteComponent>("Default__DynamicAnchor.Sprite2")/*Ref SpriteComponent'Default__DynamicAnchor.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__DynamicAnchor.Arrow")/*Ref ArrowComponent'Default__DynamicAnchor.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__DynamicAnchor.CollisionCylinder")/*Ref CylinderComponent'Default__DynamicAnchor.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__DynamicAnchor.PathRenderer")/*Ref PathRenderingComponent'Default__DynamicAnchor.PathRenderer'*/,
+			Default__DynamicAnchor_Sprite/*Ref SpriteComponent'Default__DynamicAnchor.Sprite'*/,
+			Default__DynamicAnchor_Sprite2/*Ref SpriteComponent'Default__DynamicAnchor.Sprite2'*/,
+			Default__DynamicAnchor_Arrow/*Ref ArrowComponent'Default__DynamicAnchor.Arrow'*/,
+			Default__DynamicAnchor_CollisionCylinder/*Ref CylinderComponent'Default__DynamicAnchor.CollisionCylinder'*/,
+			Default__DynamicAnchor_PathRenderer/*Ref PathRenderingComponent'Default__DynamicAnchor.PathRenderer'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__DynamicAnchor.CollisionCylinder")/*Ref CylinderComponent'Default__DynamicAnchor.CollisionCylinder'*/;
+		CollisionComponent = Default__DynamicAnchor_CollisionCylinder/*Ref CylinderComponent'Default__DynamicAnchor.CollisionCylinder'*/;
 	}
 }
 }

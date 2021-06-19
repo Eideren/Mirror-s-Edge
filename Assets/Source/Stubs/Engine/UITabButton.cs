@@ -75,8 +75,8 @@ public partial class UITabButton : UILabelButton/*
 			},
 		}/* Reference: UIComp_Event'Default__UITabButton.WidgetEventComponent' */;
 		// Object Offset:0x00453F17
-		StringRenderComponent = Default__UITabButton_LabelStringRenderer;
-		BackgroundImageComponent = Default__UITabButton_BackgroundImageTemplate;
+		StringRenderComponent = Default__UITabButton_LabelStringRenderer/*Ref UIComp_DrawString'Default__UITabButton.LabelStringRenderer'*/;
+		BackgroundImageComponent = Default__UITabButton_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UITabButton.BackgroundImageTemplate'*/;
 		PrivateFlags = 931;
 		DefaultStates = new array< Core.ClassT<UIState> >
 		{
@@ -87,7 +87,7 @@ public partial class UITabButton : UILabelButton/*
 			ClassT<UIState_Pressed>(),
 			ClassT<UIState_TargetedTab>(),
 		};
-		EventProvider = Default__UITabButton_WidgetEventComponent;
+		EventProvider = Default__UITabButton_WidgetEventComponent/*Ref UIComp_Event'Default__UITabButton.WidgetEventComponent'*/;
 		__NotifyActiveStateChanged__Delegate = (Sender, PlayerIndex, NewlyActiveState, PreviouslyActiveState) => OnStateChanged(Sender, PlayerIndex, NewlyActiveState, PreviouslyActiveState);
 	}
 }

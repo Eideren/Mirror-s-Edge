@@ -180,6 +180,9 @@ public partial class TdAi_Celeste : TdAI_Pursuit/*
 	}
 	public TdAi_Celeste()
 	{
+		var Default__TdAi_Celeste_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAi_Celeste.Sprite' */;
 		// Object Offset:0x004DBDF5
 		FirstTaserDelay = 0.50f;
 		TaserBurstLength = 1.0f;
@@ -201,7 +204,7 @@ public partial class TdAi_Celeste : TdAI_Pursuit/*
 		};
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAi_Celeste.Sprite")/*Ref SpriteComponent'Default__TdAi_Celeste.Sprite'*/,
+			Default__TdAi_Celeste_Sprite/*Ref SpriteComponent'Default__TdAi_Celeste.Sprite'*/,
 		};
 	}
 }

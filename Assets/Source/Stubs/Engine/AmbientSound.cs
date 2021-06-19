@@ -24,11 +24,11 @@ public partial class AmbientSound : Keypoint/*
 		}/* Reference: SpriteComponent'Default__AmbientSound.Sprite' */;
 		// Object Offset:0x0028F043
 		bAutoPlay = true;
-		AudioComponent = Default__AmbientSound_AudioComponent0;
+		AudioComponent = Default__AmbientSound_AudioComponent0/*Ref AudioComponent'Default__AmbientSound.AudioComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__AmbientSound_Sprite,
-			Default__AmbientSound_AudioComponent0,
+			Default__AmbientSound_Sprite/*Ref SpriteComponent'Default__AmbientSound.Sprite'*/,
+			Default__AmbientSound_AudioComponent0/*Ref AudioComponent'Default__AmbientSound.AudioComponent0'*/,
 		};
 	}
 }

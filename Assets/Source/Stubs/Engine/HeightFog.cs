@@ -30,13 +30,19 @@ public partial class HeightFog : Info/*
 	
 	public HeightFog()
 	{
+		var Default__HeightFog_HeightFogComponent0 = new HeightFogComponent
+		{
+		}/* Reference: HeightFogComponent'Default__HeightFog.HeightFogComponent0' */;
+		var Default__HeightFog_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__HeightFog.Sprite' */;
 		// Object Offset:0x0033DE96
-		Component = LoadAsset<HeightFogComponent>("Default__HeightFog.HeightFogComponent0")/*Ref HeightFogComponent'Default__HeightFog.HeightFogComponent0'*/;
+		Component = Default__HeightFog_HeightFogComponent0/*Ref HeightFogComponent'Default__HeightFog.HeightFogComponent0'*/;
 		bNoDelete = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__HeightFog.Sprite")/*Ref SpriteComponent'Default__HeightFog.Sprite'*/,
-			LoadAsset<HeightFogComponent>("Default__HeightFog.HeightFogComponent0")/*Ref HeightFogComponent'Default__HeightFog.HeightFogComponent0'*/,
+			Default__HeightFog_Sprite/*Ref SpriteComponent'Default__HeightFog.Sprite'*/,
+			Default__HeightFog_HeightFogComponent0/*Ref HeightFogComponent'Default__HeightFog.HeightFogComponent0'*/,
 		};
 	}
 }

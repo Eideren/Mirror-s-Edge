@@ -12,6 +12,12 @@ public partial class ParticleModuleLocationDirect : ParticleModuleLocationBase/*
 	
 	public ParticleModuleLocationDirect()
 	{
+		var Default__ParticleModuleLocationDirect_DistributionLocation = new DistributionVectorUniform
+		{
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleLocationDirect.DistributionLocation' */;
+		var Default__ParticleModuleLocationDirect_DistributionLocationOffset = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleLocationDirect.DistributionLocationOffset' */;
 		var Default__ParticleModuleLocationDirect_DistributionScaleFactor = new DistributionVectorConstant
 		{
 			// Object Offset:0x00467FEF
@@ -22,6 +28,9 @@ public partial class ParticleModuleLocationDirect : ParticleModuleLocationBase/*
 				Z=1.0f
 			},
 		}/* Reference: DistributionVectorConstant'Default__ParticleModuleLocationDirect.DistributionScaleFactor' */;
+		var Default__ParticleModuleLocationDirect_DistributionDirection = new DistributionVectorUniform
+		{
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleLocationDirect.DistributionDirection' */;
 		// Object Offset:0x0037DE51
 		Location = new DistributionVector.RawDistributionVector
 		{

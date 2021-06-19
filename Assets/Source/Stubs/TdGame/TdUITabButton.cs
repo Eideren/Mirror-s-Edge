@@ -6,11 +6,20 @@ public partial class TdUITabButton : UITabButton/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public TdUITabButton()
 	{
+		var Default__TdUITabButton_LabelStringRenderer = new UIComp_DrawString
+		{
+		}/* Reference: UIComp_DrawString'Default__TdUITabButton.LabelStringRenderer' */;
+		var Default__TdUITabButton_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__TdUITabButton.BackgroundImageTemplate' */;
+		var Default__TdUITabButton_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUITabButton.WidgetEventComponent' */;
 		// Object Offset:0x006B70D5
-		StringRenderComponent = LoadAsset<UIComp_DrawString>("Default__TdUITabButton.LabelStringRenderer")/*Ref UIComp_DrawString'Default__TdUITabButton.LabelStringRenderer'*/;
-		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__TdUITabButton.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__TdUITabButton.BackgroundImageTemplate'*/;
+		StringRenderComponent = Default__TdUITabButton_LabelStringRenderer/*Ref UIComp_DrawString'Default__TdUITabButton.LabelStringRenderer'*/;
+		BackgroundImageComponent = Default__TdUITabButton_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__TdUITabButton.BackgroundImageTemplate'*/;
 		PrivateFlags = 935;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUITabButton.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUITabButton.WidgetEventComponent'*/;
+		EventProvider = Default__TdUITabButton_WidgetEventComponent/*Ref UIComp_Event'Default__TdUITabButton.WidgetEventComponent'*/;
 	}
 }
 }

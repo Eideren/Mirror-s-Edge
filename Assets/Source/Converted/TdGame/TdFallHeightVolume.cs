@@ -27,14 +27,20 @@ public partial class TdFallHeightVolume : TdMovementVolume/*
 	}
 	public TdFallHeightVolume()
 	{
+		var Default__TdFallHeightVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TdFallHeightVolume.BrushComponent0' */;
+		var Default__TdFallHeightVolume_MovementMesh = new TdMoveVolumeRenderComponent
+		{
+		}/* Reference: TdMoveVolumeRenderComponent'Default__TdFallHeightVolume.MovementMesh' */;
 		// Object Offset:0x005454BD
-		BrushComponent = LoadAsset<BrushComponent>("Default__TdFallHeightVolume.BrushComponent0")/*Ref BrushComponent'Default__TdFallHeightVolume.BrushComponent0'*/;
+		BrushComponent = Default__TdFallHeightVolume_BrushComponent0/*Ref BrushComponent'Default__TdFallHeightVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TdFallHeightVolume.BrushComponent0")/*Ref BrushComponent'Default__TdFallHeightVolume.BrushComponent0'*/,
-			LoadAsset<TdMoveVolumeRenderComponent>("Default__TdFallHeightVolume.MovementMesh")/*Ref TdMoveVolumeRenderComponent'Default__TdFallHeightVolume.MovementMesh'*/,
+			Default__TdFallHeightVolume_BrushComponent0/*Ref BrushComponent'Default__TdFallHeightVolume.BrushComponent0'*/,
+			Default__TdFallHeightVolume_MovementMesh/*Ref TdMoveVolumeRenderComponent'Default__TdFallHeightVolume.MovementMesh'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TdFallHeightVolume.BrushComponent0")/*Ref BrushComponent'Default__TdFallHeightVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TdFallHeightVolume_BrushComponent0/*Ref BrushComponent'Default__TdFallHeightVolume.BrushComponent0'*/;
 	}
 }
 }

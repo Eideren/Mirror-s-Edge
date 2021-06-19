@@ -71,8 +71,8 @@ public partial class TdDamageType : DamageType/*
 		KDamageImpulse = 50000.0f;
 		KDeathUpKick = 50.0f;
 		KImpulseRadius = 0.0f;
-		DamagedFFWaveform = Default__TdDamageType_ForceFeedbackWaveform0;
-		KilledFFWaveform = Default__TdDamageType_ForceFeedbackWaveform1;
+		DamagedFFWaveform = Default__TdDamageType_ForceFeedbackWaveform0/*Ref ForceFeedbackWaveform'Default__TdDamageType.ForceFeedbackWaveform0'*/;
+		KilledFFWaveform = Default__TdDamageType_ForceFeedbackWaveform1/*Ref ForceFeedbackWaveform'Default__TdDamageType.ForceFeedbackWaveform1'*/;
 	}
 }
 }

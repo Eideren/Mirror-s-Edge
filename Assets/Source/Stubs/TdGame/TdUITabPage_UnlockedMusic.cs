@@ -64,8 +64,11 @@ public partial class TdUITabPage_UnlockedMusic : TdUITabPage/*
 	
 	public TdUITabPage_UnlockedMusic()
 	{
+		var Default__TdUITabPage_UnlockedMusic_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUITabPage_UnlockedMusic.WidgetEventComponent' */;
 		// Object Offset:0x006BAA2D
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUITabPage_UnlockedMusic.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUITabPage_UnlockedMusic.WidgetEventComponent'*/;
+		EventProvider = Default__TdUITabPage_UnlockedMusic_WidgetEventComponent/*Ref UIComp_Event'Default__TdUITabPage_UnlockedMusic.WidgetEventComponent'*/;
 	}
 }
 }

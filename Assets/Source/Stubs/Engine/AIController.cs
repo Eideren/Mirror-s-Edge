@@ -138,13 +138,16 @@ public partial class AIController : Controller/*
 	}
 	public AIController()
 	{
+		var Default__AIController_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__AIController.Sprite' */;
 		// Object Offset:0x0028CCB2
 		bAdjustFromWalls = true;
 		bCanDoSpecial = true;
 		MinHitWall = -0.50f;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__AIController.Sprite")/*Ref SpriteComponent'Default__AIController.Sprite'*/,
+			Default__AIController_Sprite/*Ref SpriteComponent'Default__AIController.Sprite'*/,
 		};
 	}
 }

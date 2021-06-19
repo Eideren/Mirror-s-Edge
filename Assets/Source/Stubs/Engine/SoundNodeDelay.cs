@@ -10,6 +10,9 @@ public partial class SoundNodeDelay : SoundNode/*
 	
 	public SoundNodeDelay()
 	{
+		var Default__SoundNodeDelay_DistributionDelayDuration = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeDelay.DistributionDelayDuration' */;
 		// Object Offset:0x003E9092
 		DelayDuration = new DistributionFloat.RawDistributionFloat
 		{

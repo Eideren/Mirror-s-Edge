@@ -6,8 +6,14 @@ public partial class TdUIFocusLabel : UILabel/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public TdUIFocusLabel()
 	{
+		var Default__TdUIFocusLabel_LabelStringRenderer = new UIComp_DrawString
+		{
+		}/* Reference: UIComp_DrawString'Default__TdUIFocusLabel.LabelStringRenderer' */;
+		var Default__TdUIFocusLabel_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIFocusLabel.WidgetEventComponent' */;
 		// Object Offset:0x00687220
-		StringRenderComponent = LoadAsset<UIComp_DrawString>("Default__TdUIFocusLabel.LabelStringRenderer")/*Ref UIComp_DrawString'Default__TdUIFocusLabel.LabelStringRenderer'*/;
+		StringRenderComponent = Default__TdUIFocusLabel_LabelStringRenderer/*Ref UIComp_DrawString'Default__TdUIFocusLabel.LabelStringRenderer'*/;
 		DefaultStates = new array< Core.ClassT<UIState> >
 		{
 			ClassT<UIState_Enabled>(),
@@ -15,7 +21,7 @@ public partial class TdUIFocusLabel : UILabel/*
 			ClassT<UIState_Focused>(),
 			ClassT<TdUIState_FakeActive>(),
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIFocusLabel.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIFocusLabel.WidgetEventComponent'*/;
+		EventProvider = Default__TdUIFocusLabel_WidgetEventComponent/*Ref UIComp_Event'Default__TdUIFocusLabel.WidgetEventComponent'*/;
 	}
 }
 }

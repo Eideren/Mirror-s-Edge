@@ -19,17 +19,29 @@ public partial class TdDirectionalFlareEmitter : TdFlareEmitter/*
 	
 	public TdDirectionalFlareEmitter()
 	{
+		var Default__TdDirectionalFlareEmitter_TdParticleSystemComponent0 = new TdParticleSystemComponent
+		{
+		}/* Reference: TdParticleSystemComponent'Default__TdDirectionalFlareEmitter.TdParticleSystemComponent0' */;
+		var Default__TdDirectionalFlareEmitter_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdDirectionalFlareEmitter.Sprite' */;
+		var Default__TdDirectionalFlareEmitter_ParticleSystemComponent0 = new ParticleSystemComponent
+		{
+		}/* Reference: ParticleSystemComponent'Default__TdDirectionalFlareEmitter.ParticleSystemComponent0' */;
+		var Default__TdDirectionalFlareEmitter_ArrowComponent0 = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdDirectionalFlareEmitter.ArrowComponent0' */;
 		// Object Offset:0x00541E67
 		Cone = 200.0f;
 		MaxScale = 1.0f;
 		ImpactEffect = LoadAsset<ParticleSystem>("TdSpecialEffects.SpecFlare")/*Ref ParticleSystem'TdSpecialEffects.SpecFlare'*/;
-		ParticleSystemComponent = LoadAsset<TdParticleSystemComponent>("Default__TdDirectionalFlareEmitter.TdParticleSystemComponent0")/*Ref TdParticleSystemComponent'Default__TdDirectionalFlareEmitter.TdParticleSystemComponent0'*/;
+		ParticleSystemComponent = Default__TdDirectionalFlareEmitter_TdParticleSystemComponent0/*Ref TdParticleSystemComponent'Default__TdDirectionalFlareEmitter.TdParticleSystemComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdDirectionalFlareEmitter.Sprite")/*Ref SpriteComponent'Default__TdDirectionalFlareEmitter.Sprite'*/,
-			LoadAsset<ParticleSystemComponent>("Default__TdDirectionalFlareEmitter.ParticleSystemComponent0")/*Ref ParticleSystemComponent'Default__TdDirectionalFlareEmitter.ParticleSystemComponent0'*/,
-			LoadAsset<ArrowComponent>("Default__TdDirectionalFlareEmitter.ArrowComponent0")/*Ref ArrowComponent'Default__TdDirectionalFlareEmitter.ArrowComponent0'*/,
-			LoadAsset<TdParticleSystemComponent>("Default__TdDirectionalFlareEmitter.TdParticleSystemComponent0")/*Ref TdParticleSystemComponent'Default__TdDirectionalFlareEmitter.TdParticleSystemComponent0'*/,
+			Default__TdDirectionalFlareEmitter_Sprite/*Ref SpriteComponent'Default__TdDirectionalFlareEmitter.Sprite'*/,
+			Default__TdDirectionalFlareEmitter_ParticleSystemComponent0/*Ref ParticleSystemComponent'Default__TdDirectionalFlareEmitter.ParticleSystemComponent0'*/,
+			Default__TdDirectionalFlareEmitter_ArrowComponent0/*Ref ArrowComponent'Default__TdDirectionalFlareEmitter.ArrowComponent0'*/,
+			Default__TdDirectionalFlareEmitter_TdParticleSystemComponent0/*Ref TdParticleSystemComponent'Default__TdDirectionalFlareEmitter.TdParticleSystemComponent0'*/,
 		};
 	}
 }

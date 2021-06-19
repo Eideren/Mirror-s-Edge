@@ -6,13 +6,16 @@ public partial class TdTriggerVolume : TriggerVolume/*
 		hidecategories(Navigation,Object,Movement,Display)*/{
 	public TdTriggerVolume()
 	{
+		var Default__TdTriggerVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TdTriggerVolume.BrushComponent0' */;
 		// Object Offset:0x0067B46F
-		BrushComponent = LoadAsset<BrushComponent>("Default__TdTriggerVolume.BrushComponent0")/*Ref BrushComponent'Default__TdTriggerVolume.BrushComponent0'*/;
+		BrushComponent = Default__TdTriggerVolume_BrushComponent0/*Ref BrushComponent'Default__TdTriggerVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TdTriggerVolume.BrushComponent0")/*Ref BrushComponent'Default__TdTriggerVolume.BrushComponent0'*/,
+			Default__TdTriggerVolume_BrushComponent0/*Ref BrushComponent'Default__TdTriggerVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TdTriggerVolume.BrushComponent0")/*Ref BrushComponent'Default__TdTriggerVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TdTriggerVolume_BrushComponent0/*Ref BrushComponent'Default__TdTriggerVolume.BrushComponent0'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

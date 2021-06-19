@@ -198,14 +198,14 @@ public partial class DroppedPickup : Actor/*
 		bCollideWorld = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__DroppedPickup_Sprite,
-			Default__DroppedPickup_CollisionCylinder,
+			Default__DroppedPickup_Sprite/*Ref SpriteComponent'Default__DroppedPickup.Sprite'*/,
+			Default__DroppedPickup_CollisionCylinder/*Ref CylinderComponent'Default__DroppedPickup.CollisionCylinder'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
 		NetUpdateFrequency = 8.0f;
 		NetPriority = 1.40f;
 		LifeSpan = 16.0f;
-		CollisionComponent = Default__DroppedPickup_CollisionCylinder;
+		CollisionComponent = Default__DroppedPickup_CollisionCylinder/*Ref CylinderComponent'Default__DroppedPickup.CollisionCylinder'*/;
 		RotationRate = new Rotator
 		{
 			Pitch=0,

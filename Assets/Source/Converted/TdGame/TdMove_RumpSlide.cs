@@ -94,7 +94,7 @@ public partial class TdMove_RumpSlide : TdPhysicsMove/*
 			},
 		}/* Reference: ForceFeedbackWaveform'Default__TdMove_RumpSlide.SlideWaveformObj' */;
 		// Object Offset:0x005D7C21
-		SlideWaveform = Default__TdMove_RumpSlide_SlideWaveformObj;
+		SlideWaveform = Default__TdMove_RumpSlide_SlideWaveformObj/*Ref ForceFeedbackWaveform'Default__TdMove_RumpSlide.SlideWaveformObj'*/;
 		MaxSlideSpeed = 1000.0f;
 		SideControl = 350.0f;
 		GravityModifier = 0.50f;

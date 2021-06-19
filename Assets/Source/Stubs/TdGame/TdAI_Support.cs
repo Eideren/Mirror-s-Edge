@@ -54,10 +54,13 @@ public partial class TdAI_Support : TdAIController/*
 	}
 	public TdAI_Support()
 	{
+		var Default__TdAI_Support_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAI_Support.Sprite' */;
 		// Object Offset:0x004E2E88
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAI_Support.Sprite")/*Ref SpriteComponent'Default__TdAI_Support.Sprite'*/,
+			Default__TdAI_Support_Sprite/*Ref SpriteComponent'Default__TdAI_Support.Sprite'*/,
 		};
 	}
 }

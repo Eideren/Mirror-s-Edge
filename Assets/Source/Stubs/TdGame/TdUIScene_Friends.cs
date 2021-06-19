@@ -103,8 +103,11 @@ public partial class TdUIScene_Friends : TdUIScene/*
 	
 	public TdUIScene_Friends()
 	{
+		var Default__TdUIScene_Friends_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_Friends.SceneEventComponent' */;
 		// Object Offset:0x006999F7
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_Friends.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_Friends.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_Friends_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_Friends.SceneEventComponent'*/;
 	}
 }
 }

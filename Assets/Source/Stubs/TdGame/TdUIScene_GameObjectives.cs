@@ -27,10 +27,13 @@ public partial class TdUIScene_GameObjectives : TdUIScene_ObjectivesScene/*
 	
 	public TdUIScene_GameObjectives()
 	{
+		var Default__TdUIScene_GameObjectives_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_GameObjectives.SceneEventComponent' */;
 		// Object Offset:0x0069A21F
 		ObjectivesToReadFieldName = (name)"Objectives";
 		FinishedObjectivesToReadFieldName = (name)"FinishedObjectives";
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_GameObjectives.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_GameObjectives.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_GameObjectives_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_GameObjectives.SceneEventComponent'*/;
 	}
 }
 }

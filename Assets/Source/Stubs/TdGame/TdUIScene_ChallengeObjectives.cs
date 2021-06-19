@@ -53,10 +53,13 @@ public partial class TdUIScene_ChallengeObjectives : TdUIScene_ObjectivesScene/*
 	
 	public TdUIScene_ChallengeObjectives()
 	{
+		var Default__TdUIScene_ChallengeObjectives_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_ChallengeObjectives.SceneEventComponent' */;
 		// Object Offset:0x0068FD95
 		ObjectivesToReadFieldName = (name)"Challenges";
 		FinishedObjectivesToReadFieldName = (name)"FinishedChallenges";
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_ChallengeObjectives.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_ChallengeObjectives.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_ChallengeObjectives_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_ChallengeObjectives.SceneEventComponent'*/;
 	}
 }
 }

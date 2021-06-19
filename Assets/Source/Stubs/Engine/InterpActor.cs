@@ -142,6 +142,9 @@ public partial class InterpActor : DynamicSMActor/*
 	
 	public InterpActor()
 	{
+		var Default__InterpActor_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+		}/* Reference: DynamicLightEnvironmentComponent'Default__InterpActor.MyLightEnvironment' */;
 		var Default__InterpActor_StaticMeshComponent0 = new StaticMeshComponent
 		{
 			// Object Offset:0x0057981A
@@ -152,7 +155,7 @@ public partial class InterpActor : DynamicSMActor/*
 				B=255,
 				A=255
 			},
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__InterpActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__InterpActor.MyLightEnvironment'*/,
+			LightEnvironment = Default__InterpActor_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__InterpActor.MyLightEnvironment'*/,
 			RBCollideWithChannels = new PrimitiveComponent.RBCollisionChannelContainer
 			{
 				Default = true,
@@ -165,22 +168,22 @@ public partial class InterpActor : DynamicSMActor/*
 		LOILookAtDelay = -1.0f;
 		LOIMinDuration = 1.50f;
 		LOIDistance = 1500.0f;
-		StaticMeshComponent = Default__InterpActor_StaticMeshComponent0;
-		LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__InterpActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__InterpActor.MyLightEnvironment'*/;
+		StaticMeshComponent = Default__InterpActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__InterpActor.StaticMeshComponent0'*/;
+		LightEnvironment = Default__InterpActor_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__InterpActor.MyLightEnvironment'*/;
 		bNoDelete = true;
 		bAlwaysRelevant = true;
 		bOnlyDirtyReplication = true;
 		bBlocksTeleport = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<DynamicLightEnvironmentComponent>("Default__InterpActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__InterpActor.MyLightEnvironment'*/,
-			Default__InterpActor_StaticMeshComponent0,
+			Default__InterpActor_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__InterpActor.MyLightEnvironment'*/,
+			Default__InterpActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__InterpActor.StaticMeshComponent0'*/,
 		};
 		Physics = Actor.EPhysics.PHYS_Interpolating;
 		RemoteRole = Actor.ENetRole.ROLE_None;
 		NetUpdateFrequency = 1.0f;
 		NetPriority = 2.70f;
-		CollisionComponent = Default__InterpActor_StaticMeshComponent0;
+		CollisionComponent = Default__InterpActor_StaticMeshComponent0/*Ref StaticMeshComponent'Default__InterpActor.StaticMeshComponent0'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

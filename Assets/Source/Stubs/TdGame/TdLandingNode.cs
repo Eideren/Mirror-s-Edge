@@ -7,19 +7,34 @@ public partial class TdLandingNode : TdMoveNode/*
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
 	public TdLandingNode()
 	{
+		var Default__TdLandingNode_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdLandingNode.CollisionCylinder' */;
+		var Default__TdLandingNode_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdLandingNode.Sprite' */;
+		var Default__TdLandingNode_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdLandingNode.Sprite2' */;
+		var Default__TdLandingNode_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdLandingNode.Arrow' */;
+		var Default__TdLandingNode_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__TdLandingNode.PathRenderer' */;
 		// Object Offset:0x00583BCE
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdLandingNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdLandingNode.CollisionCylinder'*/;
-		GoodSprite = LoadAsset<SpriteComponent>("Default__TdLandingNode.Sprite")/*Ref SpriteComponent'Default__TdLandingNode.Sprite'*/;
-		BadSprite = LoadAsset<SpriteComponent>("Default__TdLandingNode.Sprite2")/*Ref SpriteComponent'Default__TdLandingNode.Sprite2'*/;
+		CylinderComponent = Default__TdLandingNode_CollisionCylinder/*Ref CylinderComponent'Default__TdLandingNode.CollisionCylinder'*/;
+		GoodSprite = Default__TdLandingNode_Sprite/*Ref SpriteComponent'Default__TdLandingNode.Sprite'*/;
+		BadSprite = Default__TdLandingNode_Sprite2/*Ref SpriteComponent'Default__TdLandingNode.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdLandingNode.Sprite")/*Ref SpriteComponent'Default__TdLandingNode.Sprite'*/,
-			LoadAsset<SpriteComponent>("Default__TdLandingNode.Sprite2")/*Ref SpriteComponent'Default__TdLandingNode.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__TdLandingNode.Arrow")/*Ref ArrowComponent'Default__TdLandingNode.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__TdLandingNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdLandingNode.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__TdLandingNode.PathRenderer")/*Ref PathRenderingComponent'Default__TdLandingNode.PathRenderer'*/,
+			Default__TdLandingNode_Sprite/*Ref SpriteComponent'Default__TdLandingNode.Sprite'*/,
+			Default__TdLandingNode_Sprite2/*Ref SpriteComponent'Default__TdLandingNode.Sprite2'*/,
+			Default__TdLandingNode_Arrow/*Ref ArrowComponent'Default__TdLandingNode.Arrow'*/,
+			Default__TdLandingNode_CollisionCylinder/*Ref CylinderComponent'Default__TdLandingNode.CollisionCylinder'*/,
+			Default__TdLandingNode_PathRenderer/*Ref PathRenderingComponent'Default__TdLandingNode.PathRenderer'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdLandingNode.CollisionCylinder")/*Ref CylinderComponent'Default__TdLandingNode.CollisionCylinder'*/;
+		CollisionComponent = Default__TdLandingNode_CollisionCylinder/*Ref CylinderComponent'Default__TdLandingNode.CollisionCylinder'*/;
 	}
 }
 }

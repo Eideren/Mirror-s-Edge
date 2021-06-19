@@ -41,20 +41,29 @@ public partial class CoverSlotMarker : NavigationPoint/*
 			CollisionHeight = 40.0f,
 			CollisionRadius = 40.0f,
 		}/* Reference: CylinderComponent'Default__CoverSlotMarker.CollisionCylinder' */;
+		var Default__CoverSlotMarker_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__CoverSlotMarker.Sprite' */;
+		var Default__CoverSlotMarker_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__CoverSlotMarker.Sprite2' */;
+		var Default__CoverSlotMarker_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__CoverSlotMarker.PathRenderer' */;
 		// Object Offset:0x002ECE93
 		bSpecialMove = true;
 		Cost = 300;
-		CylinderComponent = Default__CoverSlotMarker_CollisionCylinder;
-		GoodSprite = LoadAsset<SpriteComponent>("Default__CoverSlotMarker.Sprite")/*Ref SpriteComponent'Default__CoverSlotMarker.Sprite'*/;
-		BadSprite = LoadAsset<SpriteComponent>("Default__CoverSlotMarker.Sprite2")/*Ref SpriteComponent'Default__CoverSlotMarker.Sprite2'*/;
+		CylinderComponent = Default__CoverSlotMarker_CollisionCylinder/*Ref CylinderComponent'Default__CoverSlotMarker.CollisionCylinder'*/;
+		GoodSprite = Default__CoverSlotMarker_Sprite/*Ref SpriteComponent'Default__CoverSlotMarker.Sprite'*/;
+		BadSprite = Default__CoverSlotMarker_Sprite2/*Ref SpriteComponent'Default__CoverSlotMarker.Sprite2'*/;
 		Abbrev = "CSM";
 		bCollideWhenPlacing = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__CoverSlotMarker_CollisionCylinder,
-			LoadAsset<PathRenderingComponent>("Default__CoverSlotMarker.PathRenderer")/*Ref PathRenderingComponent'Default__CoverSlotMarker.PathRenderer'*/,
+			Default__CoverSlotMarker_CollisionCylinder/*Ref CylinderComponent'Default__CoverSlotMarker.CollisionCylinder'*/,
+			Default__CoverSlotMarker_PathRenderer/*Ref PathRenderingComponent'Default__CoverSlotMarker.PathRenderer'*/,
 		};
-		CollisionComponent = Default__CoverSlotMarker_CollisionCylinder;
+		CollisionComponent = Default__CoverSlotMarker_CollisionCylinder/*Ref CylinderComponent'Default__CoverSlotMarker.CollisionCylinder'*/;
 	}
 }
 }

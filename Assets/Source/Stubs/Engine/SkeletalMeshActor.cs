@@ -145,12 +145,20 @@ public partial class SkeletalMeshActor : Actor/*
 	}
 	public SkeletalMeshActor()
 	{
+		var Default__SkeletalMeshActor_AnimNodeSeq0 = new AnimNodeSequence
+		{
+		}/* Reference: AnimNodeSequence'Default__SkeletalMeshActor.AnimNodeSeq0' */;
+		var Default__SkeletalMeshActor_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+			// Object Offset:0x003E7270
+			bEnabled = false,
+		}/* Reference: DynamicLightEnvironmentComponent'Default__SkeletalMeshActor.MyLightEnvironment' */;
 		var Default__SkeletalMeshActor_SkeletalMeshComponent0 = new SkeletalMeshComponent
 		{
 			// Object Offset:0x003E72A4
-			Animations = LoadAsset<AnimNodeSequence>("Default__SkeletalMeshActor.AnimNodeSeq0")/*Ref AnimNodeSequence'Default__SkeletalMeshActor.AnimNodeSeq0'*/,
+			Animations = Default__SkeletalMeshActor_AnimNodeSeq0/*Ref AnimNodeSequence'Default__SkeletalMeshActor.AnimNodeSeq0'*/,
 			bForceMeshObjectUpdates = true,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__SkeletalMeshActor.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActor.MyLightEnvironment'*/,
+			LightEnvironment = Default__SkeletalMeshActor_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActor.MyLightEnvironment'*/,
 			CollideActors = true,
 			BlockZeroExtent = true,
 			RBChannel = PrimitiveComponent.ERBCollisionChannel.RBCC_GameplayPhysics,
@@ -161,15 +169,13 @@ public partial class SkeletalMeshActor : Actor/*
 				EffectPhysics = true,
 			},
 		}/* Reference: SkeletalMeshComponent'Default__SkeletalMeshActor.SkeletalMeshComponent0' */;
-		var Default__SkeletalMeshActor_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		var Default__SkeletalMeshActor_FaceAudioComponent = new AudioComponent
 		{
-			// Object Offset:0x003E7270
-			bEnabled = false,
-		}/* Reference: DynamicLightEnvironmentComponent'Default__SkeletalMeshActor.MyLightEnvironment' */;
+		}/* Reference: AudioComponent'Default__SkeletalMeshActor.FaceAudioComponent' */;
 		// Object Offset:0x003E6F63
-		SkeletalMeshComponent = Default__SkeletalMeshActor_SkeletalMeshComponent0;
-		LightEnvironment = Default__SkeletalMeshActor_MyLightEnvironment;
-		FacialAudioComp = LoadAsset<AudioComponent>("Default__SkeletalMeshActor.FaceAudioComponent")/*Ref AudioComponent'Default__SkeletalMeshActor.FaceAudioComponent'*/;
+		SkeletalMeshComponent = Default__SkeletalMeshActor_SkeletalMeshComponent0/*Ref SkeletalMeshComponent'Default__SkeletalMeshActor.SkeletalMeshComponent0'*/;
+		LightEnvironment = Default__SkeletalMeshActor_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActor.MyLightEnvironment'*/;
+		FacialAudioComp = Default__SkeletalMeshActor_FaceAudioComponent/*Ref AudioComponent'Default__SkeletalMeshActor.FaceAudioComponent'*/;
 		LOILookAtDelay = -1.0f;
 		LOIMinDuration = 1.50f;
 		LOIDistance = 1500.0f;
@@ -179,11 +185,11 @@ public partial class SkeletalMeshActor : Actor/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__SkeletalMeshActor_MyLightEnvironment,
-			Default__SkeletalMeshActor_SkeletalMeshComponent0,
-			LoadAsset<AudioComponent>("Default__SkeletalMeshActor.FaceAudioComponent")/*Ref AudioComponent'Default__SkeletalMeshActor.FaceAudioComponent'*/,
+			Default__SkeletalMeshActor_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__SkeletalMeshActor.MyLightEnvironment'*/,
+			Default__SkeletalMeshActor_SkeletalMeshComponent0/*Ref SkeletalMeshComponent'Default__SkeletalMeshActor.SkeletalMeshComponent0'*/,
+			Default__SkeletalMeshActor_FaceAudioComponent/*Ref AudioComponent'Default__SkeletalMeshActor.FaceAudioComponent'*/,
 		};
-		CollisionComponent = Default__SkeletalMeshActor_SkeletalMeshComponent0;
+		CollisionComponent = Default__SkeletalMeshActor_SkeletalMeshComponent0/*Ref SkeletalMeshComponent'Default__SkeletalMeshActor.SkeletalMeshComponent0'*/;
 	}
 }
 }

@@ -6,8 +6,11 @@ public partial class TdUIScene_EOM : TdUIScene/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public TdUIScene_EOM()
 	{
+		var Default__TdUIScene_EOM_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_EOM.SceneEventComponent' */;
 		// Object Offset:0x006981E4
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_EOM.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_EOM.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_EOM_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_EOM.SceneEventComponent'*/;
 	}
 }
 }

@@ -21,6 +21,18 @@ public partial class TdUIComp_ImageListPresenter : TdUIComp_ListPresenterBase/* 
 	
 	public TdUIComp_ImageListPresenter()
 	{
+		var Default__TdUIComp_ImageListPresenter_NormalOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_ImageListPresenter.NormalOverlayTemplate' */;
+		var Default__TdUIComp_ImageListPresenter_ActiveOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_ImageListPresenter.ActiveOverlayTemplate' */;
+		var Default__TdUIComp_ImageListPresenter_SelectionOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_ImageListPresenter.SelectionOverlayTemplate' */;
+		var Default__TdUIComp_ImageListPresenter_HoverOverlayTemplate = new UITexture
+		{
+		}/* Reference: UITexture'Default__TdUIComp_ImageListPresenter.HoverOverlayTemplate' */;
 		// Object Offset:0x00682B2C
 		SelectedFont = LoadAsset<MultiFont>("UI_Fonts_Final.Helvetica_Small_Normal")/*Ref MultiFont'UI_Fonts_Final.Helvetica_Small_Normal'*/;
 		UnselectedFont = LoadAsset<MultiFont>("UI_Fonts_Final.Helvetica_Small_Normal")/*Ref MultiFont'UI_Fonts_Final.Helvetica_Small_Normal'*/;
@@ -43,10 +55,10 @@ public partial class TdUIComp_ImageListPresenter : TdUIComp_ListPresenterBase/* 
 		Padding_Y = 5.0f;
 		ListItemOverlay = new StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/()
 		{ 
-			[0] = LoadAsset<UITexture>("Default__TdUIComp_ImageListPresenter.NormalOverlayTemplate")/*Ref UITexture'Default__TdUIComp_ImageListPresenter.NormalOverlayTemplate'*/,
-			[1] = LoadAsset<UITexture>("Default__TdUIComp_ImageListPresenter.ActiveOverlayTemplate")/*Ref UITexture'Default__TdUIComp_ImageListPresenter.ActiveOverlayTemplate'*/,
-			[2] = LoadAsset<UITexture>("Default__TdUIComp_ImageListPresenter.SelectionOverlayTemplate")/*Ref UITexture'Default__TdUIComp_ImageListPresenter.SelectionOverlayTemplate'*/,
-			[3] = LoadAsset<UITexture>("Default__TdUIComp_ImageListPresenter.HoverOverlayTemplate")/*Ref UITexture'Default__TdUIComp_ImageListPresenter.HoverOverlayTemplate'*/,
+			[0] = Default__TdUIComp_ImageListPresenter_NormalOverlayTemplate/*Ref UITexture'Default__TdUIComp_ImageListPresenter.NormalOverlayTemplate'*/,
+			[1] = Default__TdUIComp_ImageListPresenter_ActiveOverlayTemplate/*Ref UITexture'Default__TdUIComp_ImageListPresenter.ActiveOverlayTemplate'*/,
+			[2] = Default__TdUIComp_ImageListPresenter_SelectionOverlayTemplate/*Ref UITexture'Default__TdUIComp_ImageListPresenter.SelectionOverlayTemplate'*/,
+			[3] = Default__TdUIComp_ImageListPresenter_HoverOverlayTemplate/*Ref UITexture'Default__TdUIComp_ImageListPresenter.HoverOverlayTemplate'*/,
 	 	};
 	}
 }

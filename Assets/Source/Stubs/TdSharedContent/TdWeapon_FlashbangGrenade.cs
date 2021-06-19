@@ -7,6 +7,9 @@ public partial class TdWeapon_FlashbangGrenade : TdWeapon_Grenade/*
 		hidecategories(Navigation)*/{
 	public TdWeapon_FlashbangGrenade()
 	{
+		var Default__TdWeapon_FlashbangGrenade_FirstPersonMesh = new TdSkeletalMeshComponent
+		{
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_FlashbangGrenade.FirstPersonMesh' */;
 		var Default__TdWeapon_FlashbangGrenade_ThirdPersonMesh = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x000145D3
@@ -24,8 +27,8 @@ public partial class TdWeapon_FlashbangGrenade : TdWeapon_Grenade/*
 		ReloadTime = 0.20f;
 		AmmoCount = 20;
 		FallOffDistance = 100.0f;
-		Mesh1p = LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_FlashbangGrenade.FirstPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_FlashbangGrenade.FirstPersonMesh'*/;
-		Mesh3p = Default__TdWeapon_FlashbangGrenade_ThirdPersonMesh;
+		Mesh1p = Default__TdWeapon_FlashbangGrenade_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_FlashbangGrenade.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_FlashbangGrenade_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_FlashbangGrenade.ThirdPersonMesh'*/;
 		WeaponProjectiles = new array< Core.ClassT<Projectile> >
 		{
 			ClassT<TdProj_FlashbangGrenade>(),
@@ -45,13 +48,13 @@ public partial class TdWeapon_FlashbangGrenade : TdWeapon_Grenade/*
 		EquipTime = 2.0f;
 		PutDownTime = 3.0f;
 		WeaponRange = 1000.0f;
-		Mesh = LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_FlashbangGrenade.FirstPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_FlashbangGrenade.FirstPersonMesh'*/;
-		DroppedPickupMesh = Default__TdWeapon_FlashbangGrenade_ThirdPersonMesh;
-		PickupFactoryMesh = LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_FlashbangGrenade.FirstPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_FlashbangGrenade.FirstPersonMesh'*/;
+		Mesh = Default__TdWeapon_FlashbangGrenade_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_FlashbangGrenade.FirstPersonMesh'*/;
+		DroppedPickupMesh = Default__TdWeapon_FlashbangGrenade_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_FlashbangGrenade.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_FlashbangGrenade_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_FlashbangGrenade.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_FlashbangGrenade.FirstPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_FlashbangGrenade.FirstPersonMesh'*/,
-			Default__TdWeapon_FlashbangGrenade_ThirdPersonMesh,
+			Default__TdWeapon_FlashbangGrenade_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_FlashbangGrenade.FirstPersonMesh'*/,
+			Default__TdWeapon_FlashbangGrenade_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_FlashbangGrenade.ThirdPersonMesh'*/,
 		};
 	}
 }

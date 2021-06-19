@@ -7,6 +7,9 @@ public partial class DynamicBlockingVolume : BlockingVolume/*
 		hidecategories(Navigation,Object,Display)*/{
 	public DynamicBlockingVolume()
 	{
+		var Default__DynamicBlockingVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__DynamicBlockingVolume.BrushComponent0' */;
 		// Object Offset:0x00311FEF
 		BrushColor = new Color
 		{
@@ -15,16 +18,16 @@ public partial class DynamicBlockingVolume : BlockingVolume/*
 			B=100,
 			A=255
 		};
-		BrushComponent = LoadAsset<BrushComponent>("Default__DynamicBlockingVolume.BrushComponent0")/*Ref BrushComponent'Default__DynamicBlockingVolume.BrushComponent0'*/;
+		BrushComponent = Default__DynamicBlockingVolume_BrushComponent0/*Ref BrushComponent'Default__DynamicBlockingVolume.BrushComponent0'*/;
 		bStatic = false;
 		bAlwaysRelevant = true;
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__DynamicBlockingVolume.BrushComponent0")/*Ref BrushComponent'Default__DynamicBlockingVolume.BrushComponent0'*/,
+			Default__DynamicBlockingVolume_BrushComponent0/*Ref BrushComponent'Default__DynamicBlockingVolume.BrushComponent0'*/,
 		};
 		Physics = Actor.EPhysics.PHYS_Interpolating;
-		CollisionComponent = LoadAsset<BrushComponent>("Default__DynamicBlockingVolume.BrushComponent0")/*Ref BrushComponent'Default__DynamicBlockingVolume.BrushComponent0'*/;
+		CollisionComponent = Default__DynamicBlockingVolume_BrushComponent0/*Ref BrushComponent'Default__DynamicBlockingVolume.BrushComponent0'*/;
 	}
 }
 }

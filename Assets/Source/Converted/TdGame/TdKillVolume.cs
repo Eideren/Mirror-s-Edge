@@ -48,16 +48,19 @@ public partial class TdKillVolume : PhysicsVolume/*
 	}
 	public TdKillVolume()
 	{
+		var Default__TdKillVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__TdKillVolume.BrushComponent0' */;
 		// Object Offset:0x00580C91
 		KillDamageType = ClassT<TdDmgType_OutOfBounds>()/*Ref Class'TdDmgType_OutOfBounds'*/;
 		AffectPlayer = true;
 		AffectAI = true;
-		BrushComponent = LoadAsset<BrushComponent>("Default__TdKillVolume.BrushComponent0")/*Ref BrushComponent'Default__TdKillVolume.BrushComponent0'*/;
+		BrushComponent = Default__TdKillVolume_BrushComponent0/*Ref BrushComponent'Default__TdKillVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__TdKillVolume.BrushComponent0")/*Ref BrushComponent'Default__TdKillVolume.BrushComponent0'*/,
+			Default__TdKillVolume_BrushComponent0/*Ref BrushComponent'Default__TdKillVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = LoadAsset<BrushComponent>("Default__TdKillVolume.BrushComponent0")/*Ref BrushComponent'Default__TdKillVolume.BrushComponent0'*/;
+		CollisionComponent = Default__TdKillVolume_BrushComponent0/*Ref BrushComponent'Default__TdKillVolume.BrushComponent0'*/;
 	}
 }
 }

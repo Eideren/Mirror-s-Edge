@@ -23,6 +23,9 @@ public partial class UIButton : UIObject/*
 				DefaultStyleTag = (name)"ButtonBackground",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UIButton.BackgroundImageTemplate' */;
+		var Default__UIButton_ButtonClickHandler = new UIEvent_OnClick
+		{
+		}/* Reference: UIEvent_OnClick'Default__UIButton.ButtonClickHandler' */;
 		var Default__UIButton_WidgetEventComponent = new UIComp_Event
 		{
 			// Object Offset:0x00419528
@@ -41,7 +44,7 @@ public partial class UIButton : UIObject/*
 			},
 		}/* Reference: UIComp_Event'Default__UIButton.WidgetEventComponent' */;
 		// Object Offset:0x004192A1
-		BackgroundImageComponent = Default__UIButton_BackgroundImageTemplate;
+		BackgroundImageComponent = Default__UIButton_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UIButton.BackgroundImageTemplate'*/;
 		ClickedCue = (name)"Clicked";
 		PrimaryStyle = new UIRoot.UIStyleReference
 		{
@@ -57,7 +60,7 @@ public partial class UIButton : UIObject/*
 			ClassT<UIState_Active>(),
 			ClassT<UIState_Pressed>(),
 		};
-		EventProvider = Default__UIButton_WidgetEventComponent;
+		EventProvider = Default__UIButton_WidgetEventComponent/*Ref UIComp_Event'Default__UIButton.WidgetEventComponent'*/;
 	}
 }
 }

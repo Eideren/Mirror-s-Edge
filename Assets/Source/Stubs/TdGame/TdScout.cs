@@ -11,6 +11,12 @@ public partial class TdScout : Scout/*
 	
 	public TdScout()
 	{
+		var Default__TdScout_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+		}/* Reference: SceneCaptureCharacterComponent'Default__TdScout.SceneCaptureCharacterComponent0' */;
+		var Default__TdScout_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__TdScout.DrawFrust0' */;
 		var Default__TdScout_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x01AB4DE2
@@ -84,16 +90,16 @@ public partial class TdScout : Scout/*
 		MaxJumpHeight = 25.0f;
 		WalkableFloorZ = 0.80f;
 		bCanWalkOffLedges = true;
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdScout.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdScout.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdScout.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdScout.DrawFrust0'*/;
-		CylinderComponent = Default__TdScout_CollisionCylinder;
+		SceneCapture = Default__TdScout_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdScout.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__TdScout_DrawFrust0/*Ref DrawFrustumComponent'Default__TdScout.DrawFrust0'*/;
+		CylinderComponent = Default__TdScout_CollisionCylinder/*Ref CylinderComponent'Default__TdScout.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCaptureCharacterComponent>("Default__TdScout.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdScout.SceneCaptureCharacterComponent0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__TdScout.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdScout.DrawFrust0'*/,
-			Default__TdScout_CollisionCylinder,
+			Default__TdScout_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdScout.SceneCaptureCharacterComponent0'*/,
+			Default__TdScout_DrawFrust0/*Ref DrawFrustumComponent'Default__TdScout.DrawFrust0'*/,
+			Default__TdScout_CollisionCylinder/*Ref CylinderComponent'Default__TdScout.CollisionCylinder'*/,
 		};
-		CollisionComponent = Default__TdScout_CollisionCylinder;
+		CollisionComponent = Default__TdScout_CollisionCylinder/*Ref CylinderComponent'Default__TdScout.CollisionCylinder'*/;
 	}
 }
 }

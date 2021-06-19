@@ -69,10 +69,13 @@ public partial class TdAI_Dummy : TdAIController/*
 	}
 	public TdAI_Dummy()
 	{
+		var Default__TdAI_Dummy_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAI_Dummy.Sprite' */;
 		// Object Offset:0x004DC407
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAI_Dummy.Sprite")/*Ref SpriteComponent'Default__TdAI_Dummy.Sprite'*/,
+			Default__TdAI_Dummy_Sprite/*Ref SpriteComponent'Default__TdAI_Dummy.Sprite'*/,
 		};
 	}
 }

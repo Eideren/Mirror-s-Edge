@@ -92,6 +92,9 @@ public partial class TdUIScene_TdCredits : TdUIScene/*
 	
 	public TdUIScene_TdCredits()
 	{
+		var Default__TdUIScene_TdCredits_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_TdCredits.SceneEventComponent' */;
 		// Object Offset:0x00562E75
 		ScrollSpeed = 14.90f;
 		CurrentCreditsTextColor = new LinearColor
@@ -102,7 +105,7 @@ public partial class TdUIScene_TdCredits : TdUIScene/*
 			A=1.0f
 		};
 		MaxBlocksToRead = 6;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_TdCredits.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_TdCredits.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_TdCredits_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_TdCredits.SceneEventComponent'*/;
 	}
 }
 }

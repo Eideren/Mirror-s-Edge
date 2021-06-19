@@ -12,14 +12,32 @@ public partial class TdBotPawn_SniperCop : TdBotPawn_Assault/*
 	
 	public TdBotPawn_SniperCop()
 	{
+		var Default__TdBotPawn_SniperCop_ActorCollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdBotPawn_SniperCop.ActorCollisionCylinder' */;
+		var Default__TdBotPawn_SniperCop_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+		}/* Reference: DynamicLightEnvironmentComponent'Default__TdBotPawn_SniperCop.MyLightEnvironment' */;
 		var Default__TdBotPawn_SniperCop_TdPawnMesh3p = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x00022CDA
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_SniperCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_SniperCop.MyLightEnvironment'*/,
+			LightEnvironment = Default__TdBotPawn_SniperCop_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_SniperCop.MyLightEnvironment'*/,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_SniperCop.TdPawnMesh3p' */;
+		var Default__TdBotPawn_SniperCop_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+		}/* Reference: SceneCaptureCharacterComponent'Default__TdBotPawn_SniperCop.SceneCaptureCharacterComponent0' */;
+		var Default__TdBotPawn_SniperCop_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__TdBotPawn_SniperCop.DrawFrust0' */;
+		var Default__TdBotPawn_SniperCop_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdBotPawn_SniperCop.CollisionCylinder' */;
+		var Default__TdBotPawn_SniperCop_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdBotPawn_SniperCop.Arrow' */;
 		// Object Offset:0x00020910
-		ActorCylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_SniperCop.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.ActorCollisionCylinder'*/;
-		Mesh3p = Default__TdBotPawn_SniperCop_TdPawnMesh3p;
+		ActorCylinderComponent = Default__TdBotPawn_SniperCop_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.ActorCollisionCylinder'*/;
+		Mesh3p = Default__TdBotPawn_SniperCop_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_SniperCop.TdPawnMesh3p'*/;
 		MoveClasses = new array< Core.ClassT<TdMove> >
 		{
 			default,
@@ -189,22 +207,22 @@ public partial class TdBotPawn_SniperCop : TdBotPawn_Assault/*
 			Medium = 0.30f,
 			Hard = 0.40f,
 		};
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawn_SniperCop.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_SniperCop.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdBotPawn_SniperCop.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn_SniperCop.DrawFrust0'*/;
-		Mesh = Default__TdBotPawn_SniperCop_TdPawnMesh3p;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_SniperCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.CollisionCylinder'*/;
+		SceneCapture = Default__TdBotPawn_SniperCop_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_SniperCop.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__TdBotPawn_SniperCop_DrawFrust0/*Ref DrawFrustumComponent'Default__TdBotPawn_SniperCop.DrawFrust0'*/;
+		Mesh = Default__TdBotPawn_SniperCop_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_SniperCop.TdPawnMesh3p'*/;
+		CylinderComponent = Default__TdBotPawn_SniperCop_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawn_SniperCop.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_SniperCop.SceneCaptureCharacterComponent0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__TdBotPawn_SniperCop.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn_SniperCop.DrawFrust0'*/,
-			LoadAsset<CylinderComponent>("Default__TdBotPawn_SniperCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.CollisionCylinder'*/,
-			LoadAsset<ArrowComponent>("Default__TdBotPawn_SniperCop.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_SniperCop.Arrow'*/,
-			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_SniperCop.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_SniperCop.MyLightEnvironment'*/,
-			Default__TdBotPawn_SniperCop_TdPawnMesh3p,
-			LoadAsset<CylinderComponent>("Default__TdBotPawn_SniperCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.CollisionCylinder'*/,
-			LoadAsset<CylinderComponent>("Default__TdBotPawn_SniperCop.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.ActorCollisionCylinder'*/,
+			Default__TdBotPawn_SniperCop_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_SniperCop.SceneCaptureCharacterComponent0'*/,
+			Default__TdBotPawn_SniperCop_DrawFrust0/*Ref DrawFrustumComponent'Default__TdBotPawn_SniperCop.DrawFrust0'*/,
+			Default__TdBotPawn_SniperCop_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.CollisionCylinder'*/,
+			Default__TdBotPawn_SniperCop_Arrow/*Ref ArrowComponent'Default__TdBotPawn_SniperCop.Arrow'*/,
+			Default__TdBotPawn_SniperCop_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_SniperCop.MyLightEnvironment'*/,
+			Default__TdBotPawn_SniperCop_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_SniperCop.TdPawnMesh3p'*/,
+			Default__TdBotPawn_SniperCop_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.CollisionCylinder'*/,
+			Default__TdBotPawn_SniperCop_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.ActorCollisionCylinder'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_SniperCop.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.CollisionCylinder'*/;
+		CollisionComponent = Default__TdBotPawn_SniperCop_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_SniperCop.CollisionCylinder'*/;
 	}
 }
 }

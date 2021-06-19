@@ -34,6 +34,24 @@ public partial class SoundNodeAmbientNonLoop : SoundNodeAmbient/*
 			Min = 1.0f,
 			Max = 1.0f,
 		}/* Reference: DistributionFloatUniform'Default__SoundNodeAmbientNonLoop.DistributionDelayTime' */;
+		var Default__SoundNodeAmbientNonLoop_DistributionMinRadius = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAmbientNonLoop.DistributionMinRadius' */;
+		var Default__SoundNodeAmbientNonLoop_DistributionMaxRadius = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAmbientNonLoop.DistributionMaxRadius' */;
+		var Default__SoundNodeAmbientNonLoop_DistributionLPFMinRadius = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAmbientNonLoop.DistributionLPFMinRadius' */;
+		var Default__SoundNodeAmbientNonLoop_DistributionLPFMaxRadius = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAmbientNonLoop.DistributionLPFMaxRadius' */;
+		var Default__SoundNodeAmbientNonLoop_DistributionVolume = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAmbientNonLoop.DistributionVolume' */;
+		var Default__SoundNodeAmbientNonLoop_DistributionPitch = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__SoundNodeAmbientNonLoop.DistributionPitch' */;
 		// Object Offset:0x00290B2C
 		DelayTime = new DistributionFloat.RawDistributionFloat
 		{

@@ -45,10 +45,13 @@ public partial class FileWriter : Info/*
 	
 	public FileWriter()
 	{
+		var Default__FileWriter_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__FileWriter.Sprite' */;
 		// Object Offset:0x0031D52C
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__FileWriter.Sprite")/*Ref SpriteComponent'Default__FileWriter.Sprite'*/,
+			Default__FileWriter_Sprite/*Ref SpriteComponent'Default__FileWriter.Sprite'*/,
 		};
 	}
 }

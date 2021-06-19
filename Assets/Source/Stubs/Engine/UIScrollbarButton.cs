@@ -8,10 +8,16 @@ public partial class UIScrollbarButton : UIButton/* within UIScrollbar*//*
 	
 	public UIScrollbarButton()
 	{
+		var Default__UIScrollbarButton_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UIScrollbarButton.BackgroundImageTemplate' */;
+		var Default__UIScrollbarButton_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIScrollbarButton.WidgetEventComponent' */;
 		// Object Offset:0x0044E064
-		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIScrollbarButton.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UIScrollbarButton.BackgroundImageTemplate'*/;
+		BackgroundImageComponent = Default__UIScrollbarButton_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UIScrollbarButton.BackgroundImageTemplate'*/;
 		PrivateFlags = 47;
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIScrollbarButton.WidgetEventComponent")/*Ref UIComp_Event'Default__UIScrollbarButton.WidgetEventComponent'*/;
+		EventProvider = Default__UIScrollbarButton_WidgetEventComponent/*Ref UIComp_Event'Default__UIScrollbarButton.WidgetEventComponent'*/;
 	}
 }
 }

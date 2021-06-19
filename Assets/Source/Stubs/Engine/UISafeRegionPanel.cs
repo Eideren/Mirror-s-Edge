@@ -20,13 +20,16 @@ public partial class UISafeRegionPanel : UIContainer/*
 	
 	public UISafeRegionPanel()
 	{
+		var Default__UISafeRegionPanel_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UISafeRegionPanel.WidgetEventComponent' */;
 		// Object Offset:0x0044C27B
 		RegionPercentages = new array</*editinline config */float>
 		{
 			0.850f,
 			0.80f,
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__UISafeRegionPanel.WidgetEventComponent")/*Ref UIComp_Event'Default__UISafeRegionPanel.WidgetEventComponent'*/;
+		EventProvider = Default__UISafeRegionPanel_WidgetEventComponent/*Ref UIComp_Event'Default__UISafeRegionPanel.WidgetEventComponent'*/;
 	}
 }
 }

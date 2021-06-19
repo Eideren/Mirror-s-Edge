@@ -516,9 +516,12 @@ public partial class TdUIScene : UIScene/*
 	
 	public TdUIScene()
 	{
+		var Default__TdUIScene_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene.SceneEventComponent' */;
 		// Object Offset:0x0055B07E
 		SceneAnimDuration = 0.250f;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene.SceneEventComponent'*/;
 	}
 }
 }

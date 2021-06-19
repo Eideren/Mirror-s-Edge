@@ -23,6 +23,9 @@ public partial class ParticleModuleLocationPrimitiveBase : ParticleModuleLocatio
 			// Object Offset:0x0037EC2D
 			Constant = 1.0f,
 		}/* Reference: DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveBase.DistributionVelocityScale' */;
+		var Default__ParticleModuleLocationPrimitiveBase_DistributionStartLocation = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleLocationPrimitiveBase.DistributionStartLocation' */;
 		// Object Offset:0x0037E8A2
 		Positive_X = true;
 		Positive_Y = true;

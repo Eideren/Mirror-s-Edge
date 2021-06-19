@@ -27,11 +27,20 @@ public partial class TdBotPawnNoPhysics : TdBotPawn/*
 			BlockActors = false,
 			BlockNonZeroExtent = false,
 		}/* Reference: CylinderComponent'Default__TdBotPawnNoPhysics.ActorCollisionCylinder' */;
+		var Default__TdBotPawnNoPhysics_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+		}/* Reference: DynamicLightEnvironmentComponent'Default__TdBotPawnNoPhysics.MyLightEnvironment' */;
 		var Default__TdBotPawnNoPhysics_TdPawnMesh3p = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x031281AE
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawnNoPhysics.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawnNoPhysics.MyLightEnvironment'*/,
+			LightEnvironment = Default__TdBotPawnNoPhysics_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawnNoPhysics.MyLightEnvironment'*/,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawnNoPhysics.TdPawnMesh3p' */;
+		var Default__TdBotPawnNoPhysics_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+		}/* Reference: SceneCaptureCharacterComponent'Default__TdBotPawnNoPhysics.SceneCaptureCharacterComponent0' */;
+		var Default__TdBotPawnNoPhysics_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__TdBotPawnNoPhysics.DrawFrust0' */;
 		var Default__TdBotPawnNoPhysics_CollisionCylinder = new CylinderComponent
 		{
 			// Object Offset:0x01AB4A02
@@ -39,28 +48,31 @@ public partial class TdBotPawnNoPhysics : TdBotPawn/*
 			BlockActors = false,
 			BlockNonZeroExtent = false,
 		}/* Reference: CylinderComponent'Default__TdBotPawnNoPhysics.CollisionCylinder' */;
+		var Default__TdBotPawnNoPhysics_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdBotPawnNoPhysics.Arrow' */;
 		// Object Offset:0x0052E774
-		ActorCylinderComponent = Default__TdBotPawnNoPhysics_ActorCollisionCylinder;
-		Mesh3p = Default__TdBotPawnNoPhysics_TdPawnMesh3p;
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawnNoPhysics.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawnNoPhysics.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdBotPawnNoPhysics.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawnNoPhysics.DrawFrust0'*/;
-		Mesh = Default__TdBotPawnNoPhysics_TdPawnMesh3p;
-		CylinderComponent = Default__TdBotPawnNoPhysics_CollisionCylinder;
+		ActorCylinderComponent = Default__TdBotPawnNoPhysics_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdBotPawnNoPhysics.ActorCollisionCylinder'*/;
+		Mesh3p = Default__TdBotPawnNoPhysics_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawnNoPhysics.TdPawnMesh3p'*/;
+		SceneCapture = Default__TdBotPawnNoPhysics_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdBotPawnNoPhysics.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__TdBotPawnNoPhysics_DrawFrust0/*Ref DrawFrustumComponent'Default__TdBotPawnNoPhysics.DrawFrust0'*/;
+		Mesh = Default__TdBotPawnNoPhysics_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawnNoPhysics.TdPawnMesh3p'*/;
+		CylinderComponent = Default__TdBotPawnNoPhysics_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawnNoPhysics.CollisionCylinder'*/;
 		bAlwaysRelevant = true;
 		bCollideActors = false;
 		bBlockActors = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawnNoPhysics.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawnNoPhysics.SceneCaptureCharacterComponent0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__TdBotPawnNoPhysics.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawnNoPhysics.DrawFrust0'*/,
-			Default__TdBotPawnNoPhysics_CollisionCylinder,
-			LoadAsset<ArrowComponent>("Default__TdBotPawnNoPhysics.Arrow")/*Ref ArrowComponent'Default__TdBotPawnNoPhysics.Arrow'*/,
-			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawnNoPhysics.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawnNoPhysics.MyLightEnvironment'*/,
-			Default__TdBotPawnNoPhysics_TdPawnMesh3p,
-			Default__TdBotPawnNoPhysics_CollisionCylinder,
-			Default__TdBotPawnNoPhysics_ActorCollisionCylinder,
+			Default__TdBotPawnNoPhysics_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdBotPawnNoPhysics.SceneCaptureCharacterComponent0'*/,
+			Default__TdBotPawnNoPhysics_DrawFrust0/*Ref DrawFrustumComponent'Default__TdBotPawnNoPhysics.DrawFrust0'*/,
+			Default__TdBotPawnNoPhysics_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawnNoPhysics.CollisionCylinder'*/,
+			Default__TdBotPawnNoPhysics_Arrow/*Ref ArrowComponent'Default__TdBotPawnNoPhysics.Arrow'*/,
+			Default__TdBotPawnNoPhysics_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawnNoPhysics.MyLightEnvironment'*/,
+			Default__TdBotPawnNoPhysics_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawnNoPhysics.TdPawnMesh3p'*/,
+			Default__TdBotPawnNoPhysics_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawnNoPhysics.CollisionCylinder'*/,
+			Default__TdBotPawnNoPhysics_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdBotPawnNoPhysics.ActorCollisionCylinder'*/,
 		};
-		CollisionComponent = Default__TdBotPawnNoPhysics_CollisionCylinder;
+		CollisionComponent = Default__TdBotPawnNoPhysics_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawnNoPhysics.CollisionCylinder'*/;
 	}
 }
 }

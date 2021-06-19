@@ -24,10 +24,13 @@ public partial class VolumeTimer : Info/*
 	}
 	public VolumeTimer()
 	{
+		var Default__VolumeTimer_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__VolumeTimer.Sprite' */;
 		// Object Offset:0x00459833
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__VolumeTimer.Sprite")/*Ref SpriteComponent'Default__VolumeTimer.Sprite'*/,
+			Default__VolumeTimer_Sprite/*Ref SpriteComponent'Default__VolumeTimer.Sprite'*/,
 		};
 	}
 }

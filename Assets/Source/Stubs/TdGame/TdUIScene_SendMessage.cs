@@ -63,8 +63,11 @@ public partial class TdUIScene_SendMessage : TdUIScene_SubMenu/*
 	
 	public TdUIScene_SendMessage()
 	{
+		var Default__TdUIScene_SendMessage_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_SendMessage.SceneEventComponent' */;
 		// Object Offset:0x006A6193
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_SendMessage.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_SendMessage.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_SendMessage_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_SendMessage.SceneEventComponent'*/;
 	}
 }
 }

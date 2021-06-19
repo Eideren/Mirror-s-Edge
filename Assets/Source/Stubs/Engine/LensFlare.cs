@@ -189,6 +189,9 @@ public partial class LensFlare : Object/*
 	
 	public LensFlare()
 	{
+		var Default__LensFlare_DistributionLFMaterialIndex = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__LensFlare.DistributionLFMaterialIndex' */;
 		var Default__LensFlare_DistributionScaling = new DistributionFloatConstant
 		{
 			// Object Offset:0x00466A1B
@@ -204,6 +207,9 @@ public partial class LensFlare : Object/*
 				Z=0.0f
 			},
 		}/* Reference: DistributionVectorConstant'Default__LensFlare.DistributionAxisScaling' */;
+		var Default__LensFlare_DistributionRotation = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__LensFlare.DistributionRotation' */;
 		var Default__LensFlare_DistributionColor = new DistributionVectorConstant
 		{
 			// Object Offset:0x00467C87
@@ -219,6 +225,9 @@ public partial class LensFlare : Object/*
 			// Object Offset:0x00466983
 			Constant = 1.0f,
 		}/* Reference: DistributionFloatConstant'Default__LensFlare.DistributionAlpha' */;
+		var Default__LensFlare_DistributionOffset = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__LensFlare.DistributionOffset' */;
 		var Default__LensFlare_DistributionDistMap_Scale = new DistributionVectorConstant
 		{
 			// Object Offset:0x00467D0F

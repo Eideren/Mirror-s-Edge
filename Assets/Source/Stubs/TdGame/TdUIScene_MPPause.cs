@@ -6,8 +6,11 @@ public partial class TdUIScene_MPPause : TdUIScene_Pause/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public TdUIScene_MPPause()
 	{
+		var Default__TdUIScene_MPPause_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_MPPause.SceneEventComponent' */;
 		// Object Offset:0x006A2741
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_MPPause.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_MPPause.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_MPPause_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_MPPause.SceneEventComponent'*/;
 	}
 }
 }

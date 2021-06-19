@@ -21,7 +21,7 @@ public partial class MaterialInstanceActor : Actor/*
 		bNoDelete = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__MaterialInstanceActor_Sprite,
+			Default__MaterialInstanceActor_Sprite/*Ref SpriteComponent'Default__MaterialInstanceActor.Sprite'*/,
 		};
 	}
 }

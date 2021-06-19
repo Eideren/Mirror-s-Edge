@@ -50,12 +50,12 @@ public partial class WaterVolume : PhysicsVolume/*
 		bWaterVolume = true;
 		FluidFriction = 2.40f;
 		LocationName = "under water";
-		BrushComponent = Default__WaterVolume_BrushComponent0;
+		BrushComponent = Default__WaterVolume_BrushComponent0/*Ref BrushComponent'Default__WaterVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__WaterVolume_BrushComponent0,
+			Default__WaterVolume_BrushComponent0/*Ref BrushComponent'Default__WaterVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__WaterVolume_BrushComponent0;
+		CollisionComponent = Default__WaterVolume_BrushComponent0/*Ref BrushComponent'Default__WaterVolume.BrushComponent0'*/;
 	}
 }
 }

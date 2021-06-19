@@ -96,8 +96,11 @@ public partial class TdUIScene_KeyMappings : TdUIScene_OptionMenu/*
 	
 	public TdUIScene_KeyMappings()
 	{
+		var Default__TdUIScene_KeyMappings_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_KeyMappings.SceneEventComponent' */;
 		// Object Offset:0x0056D1D0
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_KeyMappings.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_KeyMappings.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_KeyMappings_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_KeyMappings.SceneEventComponent'*/;
 	}
 }
 }

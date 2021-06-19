@@ -12,13 +12,31 @@ public partial class TdBotPawn_Support : TdBotPawn/*
 	
 	public TdBotPawn_Support()
 	{
+		var Default__TdBotPawn_Support_ActorCollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdBotPawn_Support.ActorCollisionCylinder' */;
+		var Default__TdBotPawn_Support_MyLightEnvironment = new DynamicLightEnvironmentComponent
+		{
+		}/* Reference: DynamicLightEnvironmentComponent'Default__TdBotPawn_Support.MyLightEnvironment' */;
 		var Default__TdBotPawn_Support_TdPawnMesh3p = new TdSkeletalMeshComponent
 		{
 			// Object Offset:0x00022D0E
 			AnimTreeTemplate = LoadAsset<AnimTree>("AT_Cop.AT_Cop")/*Ref AnimTree'AT_Cop.AT_Cop'*/,
 			PhysicsAsset = LoadAsset<PhysicsAsset>("CH_TKY_Cop_SWAT.Male3p_Physics")/*Ref PhysicsAsset'CH_TKY_Cop_SWAT.Male3p_Physics'*/,
-			LightEnvironment = LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_Support.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_Support.MyLightEnvironment'*/,
+			LightEnvironment = Default__TdBotPawn_Support_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_Support.MyLightEnvironment'*/,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdBotPawn_Support.TdPawnMesh3p' */;
+		var Default__TdBotPawn_Support_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+		}/* Reference: SceneCaptureCharacterComponent'Default__TdBotPawn_Support.SceneCaptureCharacterComponent0' */;
+		var Default__TdBotPawn_Support_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__TdBotPawn_Support.DrawFrust0' */;
+		var Default__TdBotPawn_Support_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdBotPawn_Support.CollisionCylinder' */;
+		var Default__TdBotPawn_Support_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdBotPawn_Support.Arrow' */;
 		// Object Offset:0x000212BC
 		DeathAnimDeathFront = new TdBotPawn.DeathAnimData
 		{
@@ -67,8 +85,8 @@ public partial class TdBotPawn_Support : TdBotPawn/*
 			TimeToFullRagdoll = 0.50f,
 		};
 		AnimationWalkSpeed = 140.0f;
-		ActorCylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_Support.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_Support.ActorCollisionCylinder'*/;
-		Mesh3p = Default__TdBotPawn_Support_TdPawnMesh3p;
+		ActorCylinderComponent = Default__TdBotPawn_Support_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_Support.ActorCollisionCylinder'*/;
+		Mesh3p = Default__TdBotPawn_Support_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_Support.TdPawnMesh3p'*/;
 		MoveClasses = new array< Core.ClassT<TdMove> >
 		{
 			default,
@@ -238,22 +256,22 @@ public partial class TdBotPawn_Support : TdBotPawn/*
 			Medium = 0.50f,
 			Hard = 0.60f,
 		};
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawn_Support.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_Support.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdBotPawn_Support.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn_Support.DrawFrust0'*/;
-		Mesh = Default__TdBotPawn_Support_TdPawnMesh3p;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_Support.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_Support.CollisionCylinder'*/;
+		SceneCapture = Default__TdBotPawn_Support_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_Support.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__TdBotPawn_Support_DrawFrust0/*Ref DrawFrustumComponent'Default__TdBotPawn_Support.DrawFrust0'*/;
+		Mesh = Default__TdBotPawn_Support_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_Support.TdPawnMesh3p'*/;
+		CylinderComponent = Default__TdBotPawn_Support_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_Support.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SceneCaptureCharacterComponent>("Default__TdBotPawn_Support.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_Support.SceneCaptureCharacterComponent0'*/,
-			LoadAsset<DrawFrustumComponent>("Default__TdBotPawn_Support.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdBotPawn_Support.DrawFrust0'*/,
-			LoadAsset<CylinderComponent>("Default__TdBotPawn_Support.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_Support.CollisionCylinder'*/,
-			LoadAsset<ArrowComponent>("Default__TdBotPawn_Support.Arrow")/*Ref ArrowComponent'Default__TdBotPawn_Support.Arrow'*/,
-			LoadAsset<DynamicLightEnvironmentComponent>("Default__TdBotPawn_Support.MyLightEnvironment")/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_Support.MyLightEnvironment'*/,
-			Default__TdBotPawn_Support_TdPawnMesh3p,
-			LoadAsset<CylinderComponent>("Default__TdBotPawn_Support.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_Support.CollisionCylinder'*/,
-			LoadAsset<CylinderComponent>("Default__TdBotPawn_Support.ActorCollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_Support.ActorCollisionCylinder'*/,
+			Default__TdBotPawn_Support_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdBotPawn_Support.SceneCaptureCharacterComponent0'*/,
+			Default__TdBotPawn_Support_DrawFrust0/*Ref DrawFrustumComponent'Default__TdBotPawn_Support.DrawFrust0'*/,
+			Default__TdBotPawn_Support_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_Support.CollisionCylinder'*/,
+			Default__TdBotPawn_Support_Arrow/*Ref ArrowComponent'Default__TdBotPawn_Support.Arrow'*/,
+			Default__TdBotPawn_Support_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdBotPawn_Support.MyLightEnvironment'*/,
+			Default__TdBotPawn_Support_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdBotPawn_Support.TdPawnMesh3p'*/,
+			Default__TdBotPawn_Support_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_Support.CollisionCylinder'*/,
+			Default__TdBotPawn_Support_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_Support.ActorCollisionCylinder'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdBotPawn_Support.CollisionCylinder")/*Ref CylinderComponent'Default__TdBotPawn_Support.CollisionCylinder'*/;
+		CollisionComponent = Default__TdBotPawn_Support_CollisionCylinder/*Ref CylinderComponent'Default__TdBotPawn_Support.CollisionCylinder'*/;
 	}
 }
 }

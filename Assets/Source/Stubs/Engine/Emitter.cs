@@ -101,16 +101,16 @@ public partial class Emitter : Actor/*
 			ArrowSize = 1.50f,
 		}/* Reference: ArrowComponent'Default__Emitter.ArrowComponent0' */;
 		// Object Offset:0x00316C09
-		ParticleSystemComponent = Default__Emitter_ParticleSystemComponent0;
+		ParticleSystemComponent = Default__Emitter_ParticleSystemComponent0/*Ref ParticleSystemComponent'Default__Emitter.ParticleSystemComponent0'*/;
 		bNoDelete = true;
 		bHardAttach = true;
 		bGameRelevant = true;
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__Emitter_Sprite,
-			Default__Emitter_ParticleSystemComponent0,
-			Default__Emitter_ArrowComponent0,
+			Default__Emitter_Sprite/*Ref SpriteComponent'Default__Emitter.Sprite'*/,
+			Default__Emitter_ParticleSystemComponent0/*Ref ParticleSystemComponent'Default__Emitter.ParticleSystemComponent0'*/,
+			Default__Emitter_ArrowComponent0/*Ref ArrowComponent'Default__Emitter.ArrowComponent0'*/,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
 	}

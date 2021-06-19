@@ -65,7 +65,7 @@ public partial class TdWeapon_Pistol_Colt1911 : TdWeapon_Light/*
 		MuzzleFlashSocket = (name)"Muzzleflash";
 		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_Shell9mm_Auto")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_Shell9mm_Auto'*/;
 		ShellEjectSocket = (name)"ShellEject";
-		FiringWaveform = Default__TdWeapon_Pistol_Colt1911_FiringWaveformObj;
+		FiringWaveform = Default__TdWeapon_Pistol_Colt1911_FiringWaveformObj/*Ref ForceFeedbackWaveform'Default__TdWeapon_Pistol_Colt1911.FiringWaveformObj'*/;
 		MaxAmmo = 8;
 		ReloadTime = 2.0f;
 		BurstMax = 1;
@@ -97,8 +97,8 @@ public partial class TdWeapon_Pistol_Colt1911 : TdWeapon_Light/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Colt1911.AS_C1P_OneHanded_Colt1911")/*Ref TdAnimSet'AS_C1P_OneHanded_Colt1911.AS_C1P_OneHanded_Colt1911'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Colt1911.AS_F3P_OneHanded_Colt1911")/*Ref TdAnimSet'AS_F3P_OneHanded_Colt1911.AS_F3P_OneHanded_Colt1911'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Colt1911.AS_F3P_OneHanded_Colt1911")/*Ref TdAnimSet'AS_F3P_OneHanded_Colt1911.AS_F3P_OneHanded_Colt1911'*/;
-		Mesh1p = Default__TdWeapon_Pistol_Colt1911_FirstPersonMesh;
-		Mesh3p = Default__TdWeapon_Pistol_Colt1911_ThirdPersonMesh;
+		Mesh1p = Default__TdWeapon_Pistol_Colt1911_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Colt1911.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_Pistol_Colt1911_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Colt1911.ThirdPersonMesh'*/;
 		CombatRange_Min = 1200.0f;
 		CombatRange_Max = 2000.0f;
 		CombatRange_Preferred = 1500.0f;
@@ -157,13 +157,13 @@ public partial class TdWeapon_Pistol_Colt1911 : TdWeapon_Light/*
 		};
 		EquipTime = 0.750f;
 		WeaponRange = 4500.0f;
-		Mesh = Default__TdWeapon_Pistol_Colt1911_FirstPersonMesh;
-		DroppedPickupMesh = Default__TdWeapon_Pistol_Colt1911_ThirdPersonMesh;
-		PickupFactoryMesh = Default__TdWeapon_Pistol_Colt1911_FirstPersonMesh;
+		Mesh = Default__TdWeapon_Pistol_Colt1911_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Colt1911.FirstPersonMesh'*/;
+		DroppedPickupMesh = Default__TdWeapon_Pistol_Colt1911_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Colt1911.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_Pistol_Colt1911_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Colt1911.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdWeapon_Pistol_Colt1911_FirstPersonMesh,
-			Default__TdWeapon_Pistol_Colt1911_ThirdPersonMesh,
+			Default__TdWeapon_Pistol_Colt1911_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Colt1911.FirstPersonMesh'*/,
+			Default__TdWeapon_Pistol_Colt1911_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_Colt1911.ThirdPersonMesh'*/,
 		};
 	}
 }

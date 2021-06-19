@@ -10,6 +10,9 @@ public partial class ParticleModuleRotationOverLifetime : ParticleModuleRotation
 	
 	public ParticleModuleRotationOverLifetime()
 	{
+		var Default__ParticleModuleRotationOverLifetime_DistributionRotOverLife = new DistributionFloatConstantCurve
+		{
+		}/* Reference: DistributionFloatConstantCurve'Default__ParticleModuleRotationOverLifetime.DistributionRotOverLife' */;
 		// Object Offset:0x003813D5
 		RotationOverLife = new DistributionFloat.RawDistributionFloat
 		{

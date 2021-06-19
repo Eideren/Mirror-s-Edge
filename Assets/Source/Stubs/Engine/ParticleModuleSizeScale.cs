@@ -12,6 +12,9 @@ public partial class ParticleModuleSizeScale : ParticleModuleSizeBase/*
 	
 	public ParticleModuleSizeScale()
 	{
+		var Default__ParticleModuleSizeScale_DistributionSizeScale = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleSizeScale.DistributionSizeScale' */;
 		// Object Offset:0x003822C2
 		SizeScale = new DistributionVector.RawDistributionVector
 		{

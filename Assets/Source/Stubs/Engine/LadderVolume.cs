@@ -42,6 +42,9 @@ public partial class LadderVolume : PhysicsVolume/*
 	
 	public LadderVolume()
 	{
+		var Default__LadderVolume_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__LadderVolume.BrushComponent0' */;
 		var Default__LadderVolume_Arrow = new ArrowComponent
 		{
 			// Object Offset:0x00465AF7
@@ -63,14 +66,14 @@ public partial class LadderVolume : PhysicsVolume/*
 		};
 		bAutoPath = true;
 		bAllowLadderStrafing = true;
-		BrushComponent = LoadAsset<BrushComponent>("Default__LadderVolume.BrushComponent0")/*Ref BrushComponent'Default__LadderVolume.BrushComponent0'*/;
+		BrushComponent = Default__LadderVolume_BrushComponent0/*Ref BrushComponent'Default__LadderVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__LadderVolume.BrushComponent0")/*Ref BrushComponent'Default__LadderVolume.BrushComponent0'*/,
-			Default__LadderVolume_Arrow,
+			Default__LadderVolume_BrushComponent0/*Ref BrushComponent'Default__LadderVolume.BrushComponent0'*/,
+			Default__LadderVolume_Arrow/*Ref ArrowComponent'Default__LadderVolume.Arrow'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_SimulatedProxy;
-		CollisionComponent = LoadAsset<BrushComponent>("Default__LadderVolume.BrushComponent0")/*Ref BrushComponent'Default__LadderVolume.BrushComponent0'*/;
+		CollisionComponent = Default__LadderVolume_BrushComponent0/*Ref BrushComponent'Default__LadderVolume.BrushComponent0'*/;
 	}
 }
 }

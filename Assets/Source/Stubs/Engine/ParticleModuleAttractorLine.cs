@@ -12,6 +12,12 @@ public partial class ParticleModuleAttractorLine : ParticleModuleAttractorBase/*
 	
 	public ParticleModuleAttractorLine()
 	{
+		var Default__ParticleModuleAttractorLine_DistributionRange = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleAttractorLine.DistributionRange' */;
+		var Default__ParticleModuleAttractorLine_DistributionStrength = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleAttractorLine.DistributionStrength' */;
 		// Object Offset:0x003790E7
 		Range = new DistributionFloat.RawDistributionFloat
 		{

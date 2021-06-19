@@ -48,11 +48,20 @@ public partial class ParticleModuleUberLTISIVCLIL : ParticleModuleUberBase/*
 				Z=10.0f
 			},
 		}/* Reference: DistributionVectorUniform'Default__ParticleModuleUberLTISIVCLIL.DistributionStartVelocity' */;
+		var Default__ParticleModuleUberLTISIVCLIL_DistributionStartVelocityRadial = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__ParticleModuleUberLTISIVCLIL.DistributionStartVelocityRadial' */;
+		var Default__ParticleModuleUberLTISIVCLIL_DistributionColorOverLife = new DistributionVectorConstantCurve
+		{
+		}/* Reference: DistributionVectorConstantCurve'Default__ParticleModuleUberLTISIVCLIL.DistributionColorOverLife' */;
 		var Default__ParticleModuleUberLTISIVCLIL_DistributionAlphaOverLife = new DistributionFloatConstant
 		{
 			// Object Offset:0x00467077
 			Constant = 255.90f,
 		}/* Reference: DistributionFloatConstant'Default__ParticleModuleUberLTISIVCLIL.DistributionAlphaOverLife' */;
+		var Default__ParticleModuleUberLTISIVCLIL_DistributionStartLocation = new DistributionVectorUniform
+		{
+		}/* Reference: DistributionVectorUniform'Default__ParticleModuleUberLTISIVCLIL.DistributionStartLocation' */;
 		// Object Offset:0x00386730
 		Lifetime = new DistributionFloat.RawDistributionFloat
 		{

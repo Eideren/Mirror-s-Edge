@@ -39,8 +39,8 @@ public partial class TdPathLimits : Info/*
 		bEnabled = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdPathLimits_Sprite,
-			Default__TdPathLimits_LimitsRenderer,
+			Default__TdPathLimits_Sprite/*Ref SpriteComponent'Default__TdPathLimits.Sprite'*/,
+			Default__TdPathLimits_LimitsRenderer/*Ref TdPathLimitsRenderingComponent'Default__TdPathLimits.LimitsRenderer'*/,
 		};
 	}
 }

@@ -29,10 +29,13 @@ public partial class TdEquipment : Inventory/*
 	
 	public TdEquipment()
 	{
+		var Default__TdEquipment_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdEquipment.Sprite' */;
 		// Object Offset:0x0054468D
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdEquipment.Sprite")/*Ref SpriteComponent'Default__TdEquipment.Sprite'*/,
+			Default__TdEquipment_Sprite/*Ref SpriteComponent'Default__TdEquipment.Sprite'*/,
 		};
 	}
 }

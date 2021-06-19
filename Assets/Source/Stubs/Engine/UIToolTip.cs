@@ -91,8 +91,8 @@ public partial class UIToolTip : UILabel/*
 		// Object Offset:0x0045929B
 		bPendingPositionUpdate = true;
 		bAutoHideOnInput = true;
-		StringRenderComponent = Default__UIToolTip_LabelStringRenderer;
-		LabelBackground = Default__UIToolTip_TooltipBackgroundRenderer;
+		StringRenderComponent = Default__UIToolTip_LabelStringRenderer/*Ref UIComp_DrawString'Default__UIToolTip.LabelStringRenderer'*/;
+		LabelBackground = Default__UIToolTip_TooltipBackgroundRenderer/*Ref UIComp_DrawImage'Default__UIToolTip.TooltipBackgroundRenderer'*/;
 		PrivateFlags = 986;
 		EventProvider = default;
 	}

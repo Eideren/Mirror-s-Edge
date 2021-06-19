@@ -11,6 +11,9 @@ public partial class TdHUDWidget_OnlineMessageTicker : TdHUDWidget/*
 	
 	public TdHUDWidget_OnlineMessageTicker()
 	{
+		var Default__TdHUDWidget_OnlineMessageTicker_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdHUDWidget_OnlineMessageTicker.WidgetEventComponent' */;
 		// Object Offset:0x00577C43
 		requiresTick = true;
 		Position = new UIRoot.UIScreenValue_Bounds
@@ -23,7 +26,7 @@ public partial class TdHUDWidget_OnlineMessageTicker : TdHUDWidget/*
 				[3] = 0.80f,
 			},
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdHUDWidget_OnlineMessageTicker.WidgetEventComponent")/*Ref UIComp_Event'Default__TdHUDWidget_OnlineMessageTicker.WidgetEventComponent'*/;
+		EventProvider = Default__TdHUDWidget_OnlineMessageTicker_WidgetEventComponent/*Ref UIComp_Event'Default__TdHUDWidget_OnlineMessageTicker.WidgetEventComponent'*/;
 	}
 }
 }

@@ -17,10 +17,13 @@ public partial class FileLog : FileWriter/*
 	
 	public FileLog()
 	{
+		var Default__FileLog_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__FileLog.Sprite' */;
 		// Object Offset:0x0031D748
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__FileLog.Sprite")/*Ref SpriteComponent'Default__FileLog.Sprite'*/,
+			Default__FileLog_Sprite/*Ref SpriteComponent'Default__FileLog.Sprite'*/,
 		};
 	}
 }

@@ -13,13 +13,13 @@ public partial class TdAIPawnBlockingVolume : BlockingVolume/*
 			BlockRigidBody = false,
 		}/* Reference: BrushComponent'Default__TdAIPawnBlockingVolume.BrushComponent0' */;
 		// Object Offset:0x004F1D3B
-		BrushComponent = Default__TdAIPawnBlockingVolume_BrushComponent0;
+		BrushComponent = Default__TdAIPawnBlockingVolume_BrushComponent0/*Ref BrushComponent'Default__TdAIPawnBlockingVolume.BrushComponent0'*/;
 		bWorldGeometry = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdAIPawnBlockingVolume_BrushComponent0,
+			Default__TdAIPawnBlockingVolume_BrushComponent0/*Ref BrushComponent'Default__TdAIPawnBlockingVolume.BrushComponent0'*/,
 		};
-		CollisionComponent = Default__TdAIPawnBlockingVolume_BrushComponent0;
+		CollisionComponent = Default__TdAIPawnBlockingVolume_BrushComponent0/*Ref BrushComponent'Default__TdAIPawnBlockingVolume.BrushComponent0'*/;
 	}
 }
 }

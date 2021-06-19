@@ -56,11 +56,11 @@ public partial class TdStashCompleter : TdStashpoint/*
 		bCollideWorld = false;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdStashCompleter_CollisionCylinder,
-			Default__TdStashCompleter_CollisionCylinder,
+			Default__TdStashCompleter_CollisionCylinder/*Ref CylinderComponent'Default__TdStashCompleter.CollisionCylinder'*/,
+			Default__TdStashCompleter_CollisionCylinder/*Ref CylinderComponent'Default__TdStashCompleter.CollisionCylinder'*/,
 		};
 		RemoteRole = Actor.ENetRole.ROLE_None;
-		CollisionComponent = Default__TdStashCompleter_CollisionCylinder;
+		CollisionComponent = Default__TdStashCompleter_CollisionCylinder/*Ref CylinderComponent'Default__TdStashCompleter.CollisionCylinder'*/;
 	}
 }
 }

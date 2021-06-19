@@ -39,8 +39,8 @@ public partial class TdWeapon_SmokeGrenade : TdWeapon_Grenade/*
 		ReloadTime = 0.20f;
 		AmmoCount = 20;
 		FallOffDistance = 100.0f;
-		Mesh1p = Default__TdWeapon_SmokeGrenade_FirstPersonMesh;
-		Mesh3p = Default__TdWeapon_SmokeGrenade_ThirdPersonMesh;
+		Mesh1p = Default__TdWeapon_SmokeGrenade_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_SmokeGrenade_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.ThirdPersonMesh'*/;
 		WeaponProjectiles = new array< Core.ClassT<Projectile> >
 		{
 			ClassT<TdProj_SmokeGrenade>(),
@@ -60,13 +60,13 @@ public partial class TdWeapon_SmokeGrenade : TdWeapon_Grenade/*
 		EquipTime = 2.0f;
 		PutDownTime = 3.0f;
 		WeaponRange = 1000.0f;
-		Mesh = Default__TdWeapon_SmokeGrenade_FirstPersonMesh;
-		DroppedPickupMesh = Default__TdWeapon_SmokeGrenade_ThirdPersonMesh;
-		PickupFactoryMesh = Default__TdWeapon_SmokeGrenade_FirstPersonMesh;
+		Mesh = Default__TdWeapon_SmokeGrenade_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.FirstPersonMesh'*/;
+		DroppedPickupMesh = Default__TdWeapon_SmokeGrenade_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_SmokeGrenade_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdWeapon_SmokeGrenade_FirstPersonMesh,
-			Default__TdWeapon_SmokeGrenade_ThirdPersonMesh,
+			Default__TdWeapon_SmokeGrenade_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.FirstPersonMesh'*/,
+			Default__TdWeapon_SmokeGrenade_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_SmokeGrenade.ThirdPersonMesh'*/,
 		};
 	}
 }

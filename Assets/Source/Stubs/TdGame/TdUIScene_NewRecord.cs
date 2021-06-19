@@ -108,8 +108,11 @@ public partial class TdUIScene_NewRecord : TdUIScene/*
 	
 	public TdUIScene_NewRecord()
 	{
+		var Default__TdUIScene_NewRecord_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_NewRecord.SceneEventComponent' */;
 		// Object Offset:0x006A3ECF
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_NewRecord.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_NewRecord.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_NewRecord_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_NewRecord.SceneEventComponent'*/;
 	}
 }
 }

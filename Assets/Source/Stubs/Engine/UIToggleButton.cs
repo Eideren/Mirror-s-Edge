@@ -58,6 +58,15 @@ public partial class UIToggleButton : UILabelButton/*
 				DefaultStyleTag = (name)"DefaultToggleButtonBackgroundStyle",
 			},
 		}/* Reference: UIComp_DrawImage'Default__UIToggleButton.CheckedBackgroundImageTemplate' */;
+		var Default__UIToggleButton_LabelStringRenderer = new UIComp_DrawString
+		{
+		}/* Reference: UIComp_DrawString'Default__UIToggleButton.LabelStringRenderer' */;
+		var Default__UIToggleButton_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__UIToggleButton.BackgroundImageTemplate' */;
+		var Default__UIToggleButton_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIToggleButton.WidgetEventComponent' */;
 		// Object Offset:0x00458B7D
 		ValueDataSource = new UIRoot.UIDataStoreBinding
 		{
@@ -69,12 +78,12 @@ public partial class UIToggleButton : UILabelButton/*
 			DataStoreField = (name)"None",
 			ResolvedDataStore = default,
 		};
-		CheckedStringRenderComponent = Default__UIToggleButton_CheckedLabelStringRenderer;
-		CheckedBackgroundImageComponent = Default__UIToggleButton_CheckedBackgroundImageTemplate;
-		StringRenderComponent = LoadAsset<UIComp_DrawString>("Default__UIToggleButton.LabelStringRenderer")/*Ref UIComp_DrawString'Default__UIToggleButton.LabelStringRenderer'*/;
-		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__UIToggleButton.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__UIToggleButton.BackgroundImageTemplate'*/;
+		CheckedStringRenderComponent = Default__UIToggleButton_CheckedLabelStringRenderer/*Ref UIComp_DrawString'Default__UIToggleButton.CheckedLabelStringRenderer'*/;
+		CheckedBackgroundImageComponent = Default__UIToggleButton_CheckedBackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UIToggleButton.CheckedBackgroundImageTemplate'*/;
+		StringRenderComponent = Default__UIToggleButton_LabelStringRenderer/*Ref UIComp_DrawString'Default__UIToggleButton.LabelStringRenderer'*/;
+		BackgroundImageComponent = Default__UIToggleButton_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__UIToggleButton.BackgroundImageTemplate'*/;
 		__OnClicked__Delegate = (EventObject, PlayerIndex) => ButtonClicked(EventObject, PlayerIndex);
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIToggleButton.WidgetEventComponent")/*Ref UIComp_Event'Default__UIToggleButton.WidgetEventComponent'*/;
+		EventProvider = Default__UIToggleButton_WidgetEventComponent/*Ref UIComp_Event'Default__UIToggleButton.WidgetEventComponent'*/;
 	}
 }
 }

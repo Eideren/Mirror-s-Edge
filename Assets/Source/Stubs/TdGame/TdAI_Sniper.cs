@@ -220,10 +220,13 @@ public partial class TdAI_Sniper : TdAIController/*
 	}
 	public TdAI_Sniper()
 	{
+		var Default__TdAI_Sniper_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdAI_Sniper.Sprite' */;
 		// Object Offset:0x004E23DF
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdAI_Sniper.Sprite")/*Ref SpriteComponent'Default__TdAI_Sniper.Sprite'*/,
+			Default__TdAI_Sniper_Sprite/*Ref SpriteComponent'Default__TdAI_Sniper.Sprite'*/,
 		};
 	}
 }

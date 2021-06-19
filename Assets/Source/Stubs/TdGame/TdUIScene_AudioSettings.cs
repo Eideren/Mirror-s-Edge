@@ -45,8 +45,11 @@ public partial class TdUIScene_AudioSettings : TdUIScene_OptionMenu/*
 	
 	public TdUIScene_AudioSettings()
 	{
+		var Default__TdUIScene_AudioSettings_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_AudioSettings.SceneEventComponent' */;
 		// Object Offset:0x00568107
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_AudioSettings.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_AudioSettings.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_AudioSettings_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_AudioSettings.SceneEventComponent'*/;
 	}
 }
 }

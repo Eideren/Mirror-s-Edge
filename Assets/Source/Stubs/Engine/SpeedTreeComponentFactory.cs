@@ -10,8 +10,11 @@ public partial class SpeedTreeComponentFactory : PrimitiveComponentFactory/*
 	
 	public SpeedTreeComponentFactory()
 	{
+		var Default__SpeedTreeComponentFactory_SpeedTreeComponent0 = new SpeedTreeComponent
+		{
+		}/* Reference: SpeedTreeComponent'Default__SpeedTreeComponentFactory.SpeedTreeComponent0' */;
 		// Object Offset:0x003ECDC8
-		SpeedTreeComponent = LoadAsset<SpeedTreeComponent>("Default__SpeedTreeComponentFactory.SpeedTreeComponent0")/*Ref SpeedTreeComponent'Default__SpeedTreeComponentFactory.SpeedTreeComponent0'*/;
+		SpeedTreeComponent = Default__SpeedTreeComponentFactory_SpeedTreeComponent0/*Ref SpeedTreeComponent'Default__SpeedTreeComponentFactory.SpeedTreeComponent0'*/;
 		CollideActors = true;
 		BlockActors = true;
 		BlockZeroExtent = true;

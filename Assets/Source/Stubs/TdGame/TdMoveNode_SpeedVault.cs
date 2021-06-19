@@ -7,23 +7,44 @@ public partial class TdMoveNode_SpeedVault : TdMoveNode_Vault/*
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
 	public TdMoveNode_SpeedVault()
 	{
+		var Default__TdMoveNode_SpeedVault_Sprite_VaultOnto = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite_VaultOnto' */;
+		var Default__TdMoveNode_SpeedVault_Sprite_VaultOver = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite_VaultOver' */;
+		var Default__TdMoveNode_SpeedVault_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdMoveNode_SpeedVault.CollisionCylinder' */;
+		var Default__TdMoveNode_SpeedVault_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite' */;
+		var Default__TdMoveNode_SpeedVault_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite2' */;
+		var Default__TdMoveNode_SpeedVault_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdMoveNode_SpeedVault.Arrow' */;
+		var Default__TdMoveNode_SpeedVault_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__TdMoveNode_SpeedVault.PathRenderer' */;
 		// Object Offset:0x005F3B8B
-		VaultOntoIcon = LoadAsset<SpriteComponent>("Default__TdMoveNode_SpeedVault.Sprite_VaultOnto")/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite_VaultOnto'*/;
-		VaultOverIcon = LoadAsset<SpriteComponent>("Default__TdMoveNode_SpeedVault.Sprite_VaultOver")/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite_VaultOver'*/;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdMoveNode_SpeedVault.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode_SpeedVault.CollisionCylinder'*/;
-		GoodSprite = LoadAsset<SpriteComponent>("Default__TdMoveNode_SpeedVault.Sprite")/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite'*/;
-		BadSprite = LoadAsset<SpriteComponent>("Default__TdMoveNode_SpeedVault.Sprite2")/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite2'*/;
+		VaultOntoIcon = Default__TdMoveNode_SpeedVault_Sprite_VaultOnto/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite_VaultOnto'*/;
+		VaultOverIcon = Default__TdMoveNode_SpeedVault_Sprite_VaultOver/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite_VaultOver'*/;
+		CylinderComponent = Default__TdMoveNode_SpeedVault_CollisionCylinder/*Ref CylinderComponent'Default__TdMoveNode_SpeedVault.CollisionCylinder'*/;
+		GoodSprite = Default__TdMoveNode_SpeedVault_Sprite/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite'*/;
+		BadSprite = Default__TdMoveNode_SpeedVault_Sprite2/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdMoveNode_SpeedVault.Sprite")/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite'*/,
-			LoadAsset<SpriteComponent>("Default__TdMoveNode_SpeedVault.Sprite2")/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__TdMoveNode_SpeedVault.Arrow")/*Ref ArrowComponent'Default__TdMoveNode_SpeedVault.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__TdMoveNode_SpeedVault.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode_SpeedVault.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__TdMoveNode_SpeedVault.PathRenderer")/*Ref PathRenderingComponent'Default__TdMoveNode_SpeedVault.PathRenderer'*/,
-			LoadAsset<SpriteComponent>("Default__TdMoveNode_SpeedVault.Sprite_VaultOver")/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite_VaultOver'*/,
-			LoadAsset<SpriteComponent>("Default__TdMoveNode_SpeedVault.Sprite_VaultOnto")/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite_VaultOnto'*/,
+			Default__TdMoveNode_SpeedVault_Sprite/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite'*/,
+			Default__TdMoveNode_SpeedVault_Sprite2/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite2'*/,
+			Default__TdMoveNode_SpeedVault_Arrow/*Ref ArrowComponent'Default__TdMoveNode_SpeedVault.Arrow'*/,
+			Default__TdMoveNode_SpeedVault_CollisionCylinder/*Ref CylinderComponent'Default__TdMoveNode_SpeedVault.CollisionCylinder'*/,
+			Default__TdMoveNode_SpeedVault_PathRenderer/*Ref PathRenderingComponent'Default__TdMoveNode_SpeedVault.PathRenderer'*/,
+			Default__TdMoveNode_SpeedVault_Sprite_VaultOver/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite_VaultOver'*/,
+			Default__TdMoveNode_SpeedVault_Sprite_VaultOnto/*Ref SpriteComponent'Default__TdMoveNode_SpeedVault.Sprite_VaultOnto'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdMoveNode_SpeedVault.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode_SpeedVault.CollisionCylinder'*/;
+		CollisionComponent = Default__TdMoveNode_SpeedVault_CollisionCylinder/*Ref CylinderComponent'Default__TdMoveNode_SpeedVault.CollisionCylinder'*/;
 	}
 }
 }

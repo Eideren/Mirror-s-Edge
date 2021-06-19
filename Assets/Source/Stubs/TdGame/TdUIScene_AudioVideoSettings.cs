@@ -6,8 +6,11 @@ public partial class TdUIScene_AudioVideoSettings : TdUIScene_SubMenu/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public TdUIScene_AudioVideoSettings()
 	{
+		var Default__TdUIScene_AudioVideoSettings_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_AudioVideoSettings.SceneEventComponent' */;
 		// Object Offset:0x0068E30A
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_AudioVideoSettings.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_AudioVideoSettings.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_AudioVideoSettings_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_AudioVideoSettings.SceneEventComponent'*/;
 	}
 }
 }

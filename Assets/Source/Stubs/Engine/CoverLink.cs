@@ -585,6 +585,12 @@ public partial class CoverLink : NavigationPoint/*
 			// Object Offset:0x004CF76A
 			Sprite = LoadAsset<Texture2D>("EngineResources.CoverNodeNone")/*Ref Texture2D'EngineResources.CoverNodeNone'*/,
 		}/* Reference: SpriteComponent'Default__CoverLink.Sprite' */;
+		var Default__CoverLink_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__CoverLink.Sprite2' */;
+		var Default__CoverLink_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__CoverLink.Arrow' */;
 		var Default__CoverLink_CoverMesh = new CoverMeshComponent
 		{
 			// Object Offset:0x0046637F
@@ -710,19 +716,19 @@ public partial class CoverLink : NavigationPoint/*
 		TurnDist = 512.0f;
 		DangerScale = 2.0f;
 		bSpecialMove = true;
-		CylinderComponent = Default__CoverLink_CollisionCylinder;
-		GoodSprite = Default__CoverLink_Sprite;
-		BadSprite = LoadAsset<SpriteComponent>("Default__CoverLink.Sprite2")/*Ref SpriteComponent'Default__CoverLink.Sprite2'*/;
+		CylinderComponent = Default__CoverLink_CollisionCylinder/*Ref CylinderComponent'Default__CoverLink.CollisionCylinder'*/;
+		GoodSprite = Default__CoverLink_Sprite/*Ref SpriteComponent'Default__CoverLink.Sprite'*/;
+		BadSprite = Default__CoverLink_Sprite2/*Ref SpriteComponent'Default__CoverLink.Sprite2'*/;
 		Abbrev = "CL";
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__CoverLink_Sprite,
-			LoadAsset<SpriteComponent>("Default__CoverLink.Sprite2")/*Ref SpriteComponent'Default__CoverLink.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__CoverLink.Arrow")/*Ref ArrowComponent'Default__CoverLink.Arrow'*/,
-			Default__CoverLink_CollisionCylinder,
-			Default__CoverLink_CoverMesh,
+			Default__CoverLink_Sprite/*Ref SpriteComponent'Default__CoverLink.Sprite'*/,
+			Default__CoverLink_Sprite2/*Ref SpriteComponent'Default__CoverLink.Sprite2'*/,
+			Default__CoverLink_Arrow/*Ref ArrowComponent'Default__CoverLink.Arrow'*/,
+			Default__CoverLink_CollisionCylinder/*Ref CylinderComponent'Default__CoverLink.CollisionCylinder'*/,
+			Default__CoverLink_CoverMesh/*Ref CoverMeshComponent'Default__CoverLink.CoverMesh'*/,
 		};
-		CollisionComponent = Default__CoverLink_CollisionCylinder;
+		CollisionComponent = Default__CoverLink_CollisionCylinder/*Ref CylinderComponent'Default__CoverLink.CollisionCylinder'*/;
 	}
 }
 }

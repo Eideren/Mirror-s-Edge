@@ -13,8 +13,11 @@ public partial class TdUIScene_EndLogo : TdUIScene/*
 	
 	public TdUIScene_EndLogo()
 	{
+		var Default__TdUIScene_EndLogo_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_EndLogo.SceneEventComponent' */;
 		// Object Offset:0x0069559F
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_EndLogo.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_EndLogo.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_EndLogo_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_EndLogo.SceneEventComponent'*/;
 	}
 }
 }

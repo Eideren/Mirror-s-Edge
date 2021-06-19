@@ -22,8 +22,11 @@ public partial class TdUIScene_SubMenu : TdUIScene/*
 	
 	public TdUIScene_SubMenu()
 	{
+		var Default__TdUIScene_SubMenu_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_SubMenu.SceneEventComponent' */;
 		// Object Offset:0x00563DC9
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_SubMenu.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_SubMenu.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_SubMenu_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_SubMenu.SceneEventComponent'*/;
 	}
 }
 }

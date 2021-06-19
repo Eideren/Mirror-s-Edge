@@ -14,8 +14,11 @@ public partial class TdHUDObject : TdUIObject/*
 	
 	public TdHUDObject()
 	{
+		var Default__TdHUDObject_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdHUDObject.WidgetEventComponent' */;
 		// Object Offset:0x0057664B
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdHUDObject.WidgetEventComponent")/*Ref UIComp_Event'Default__TdHUDObject.WidgetEventComponent'*/;
+		EventProvider = Default__TdHUDObject_WidgetEventComponent/*Ref UIComp_Event'Default__TdHUDObject.WidgetEventComponent'*/;
 	}
 }
 }

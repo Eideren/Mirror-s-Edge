@@ -135,6 +135,9 @@ public partial class TdTrigger : Trigger/*
 				Roll=0
 			},
 		}/* Reference: TdDrawArcComponent'Default__TdTrigger.ArcObject' */;
+		var Default__TdTrigger_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdTrigger.CollisionCylinder' */;
 		var Default__TdTrigger_TriggerDir = new ArrowComponent
 		{
 			// Object Offset:0x0067B280
@@ -157,18 +160,18 @@ public partial class TdTrigger : Trigger/*
 		NumberOfRevs = 1;
 		ValveTexture = LoadAsset<Texture2D>("TdEditorResources.ValveIcon")/*Ref Texture2D'TdEditorResources.ValveIcon'*/;
 		ButtonTexture = LoadAsset<Texture2D>("TdEditorResources.ButtonIcon")/*Ref Texture2D'TdEditorResources.ButtonIcon'*/;
-		EditorSprite = Default__TdTrigger_Sprite;
-		ArcComponent = Default__TdTrigger_ArcObject;
+		EditorSprite = Default__TdTrigger_Sprite/*Ref SpriteComponent'Default__TdTrigger.Sprite'*/;
+		ArcComponent = Default__TdTrigger_ArcObject/*Ref TdDrawArcComponent'Default__TdTrigger.ArcObject'*/;
 		AngleLimit = 175.0f;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdTrigger.CollisionCylinder")/*Ref CylinderComponent'Default__TdTrigger.CollisionCylinder'*/;
+		CylinderComponent = Default__TdTrigger_CollisionCylinder/*Ref CylinderComponent'Default__TdTrigger.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdTrigger_Sprite,
-			LoadAsset<CylinderComponent>("Default__TdTrigger.CollisionCylinder")/*Ref CylinderComponent'Default__TdTrigger.CollisionCylinder'*/,
-			Default__TdTrigger_TriggerDir,
-			Default__TdTrigger_ArcObject,
+			Default__TdTrigger_Sprite/*Ref SpriteComponent'Default__TdTrigger.Sprite'*/,
+			Default__TdTrigger_CollisionCylinder/*Ref CylinderComponent'Default__TdTrigger.CollisionCylinder'*/,
+			Default__TdTrigger_TriggerDir/*Ref ArrowComponent'Default__TdTrigger.TriggerDir'*/,
+			Default__TdTrigger_ArcObject/*Ref TdDrawArcComponent'Default__TdTrigger.ArcObject'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdTrigger.CollisionCylinder")/*Ref CylinderComponent'Default__TdTrigger.CollisionCylinder'*/;
+		CollisionComponent = Default__TdTrigger_CollisionCylinder/*Ref CylinderComponent'Default__TdTrigger.CollisionCylinder'*/;
 		SupportedEvents = new array< Core.ClassT<SequenceEvent> >
 		{
 			ClassT<SeqEvent_Touch>(),

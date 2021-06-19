@@ -58,6 +58,9 @@ public partial class ParticleModuleBeamNoise : ParticleModuleBeamBase/*
 			// Object Offset:0x00466B5F
 			Constant = 250.0f,
 		}/* Reference: DistributionFloatConstant'Default__ParticleModuleBeamNoise.DistributionNoiseTangentStrength' */;
+		var Default__ParticleModuleBeamNoise_DistributionNoiseScale = new DistributionFloatConstantCurve
+		{
+		}/* Reference: DistributionFloatConstantCurve'Default__ParticleModuleBeamNoise.DistributionNoiseScale' */;
 		// Object Offset:0x0037A926
 		NoiseRange = new DistributionVector.RawDistributionVector
 		{

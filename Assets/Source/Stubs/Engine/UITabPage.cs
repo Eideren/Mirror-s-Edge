@@ -119,6 +119,9 @@ public partial class UITabPage : UIContainer,
 	
 	public UITabPage()
 	{
+		var Default__UITabPage_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UITabPage.WidgetEventComponent' */;
 		// Object Offset:0x00458410
 		ButtonClass = ClassT<UITabButton>()/*Ref Class'UITabButton'*/;
 		ButtonToolTip = new UIRoot.UIDataStoreBinding
@@ -142,7 +145,7 @@ public partial class UITabPage : UIContainer,
 			ResolvedDataStore = default,
 		};
 		PrivateFlags = 640;
-		EventProvider = LoadAsset<UIComp_Event>("Default__UITabPage.WidgetEventComponent")/*Ref UIComp_Event'Default__UITabPage.WidgetEventComponent'*/;
+		EventProvider = Default__UITabPage_WidgetEventComponent/*Ref UIComp_Event'Default__UITabPage.WidgetEventComponent'*/;
 		__NotifyActiveStateChanged__Delegate = (Sender, PlayerIndex, NewlyActiveState, PreviouslyActiveState) => OnActiveStateChanged(Sender, PlayerIndex, NewlyActiveState, PreviouslyActiveState);
 	}
 }

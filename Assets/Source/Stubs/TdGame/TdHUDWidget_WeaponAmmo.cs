@@ -7,9 +7,12 @@ public partial class TdHUDWidget_WeaponAmmo : TdHUDWidget/*
 	
 	public TdHUDWidget_WeaponAmmo()
 	{
+		var Default__TdHUDWidget_WeaponAmmo_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdHUDWidget_WeaponAmmo.WidgetEventComponent' */;
 		// Object Offset:0x0057811F
 		requiresTick = true;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdHUDWidget_WeaponAmmo.WidgetEventComponent")/*Ref UIComp_Event'Default__TdHUDWidget_WeaponAmmo.WidgetEventComponent'*/;
+		EventProvider = Default__TdHUDWidget_WeaponAmmo_WidgetEventComponent/*Ref UIComp_Event'Default__TdHUDWidget_WeaponAmmo.WidgetEventComponent'*/;
 	}
 }
 }

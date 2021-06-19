@@ -8,26 +8,38 @@ public partial class TdMoveNode_Slide : TdMoveNode/*
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
 	public TdMoveNode_Slide()
 	{
+		var Default__TdMoveNode_Slide_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdMoveNode_Slide.CollisionCylinder' */;
 		var Default__TdMoveNode_Slide_Sprite = new SpriteComponent
 		{
 			// Object Offset:0x02E52415
 			Sprite = LoadAsset<Texture2D>("TdEditorResources.SpeedVaultIcon")/*Ref Texture2D'TdEditorResources.SpeedVaultIcon'*/,
 		}/* Reference: SpriteComponent'Default__TdMoveNode_Slide.Sprite' */;
+		var Default__TdMoveNode_Slide_Sprite2 = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdMoveNode_Slide.Sprite2' */;
+		var Default__TdMoveNode_Slide_Arrow = new ArrowComponent
+		{
+		}/* Reference: ArrowComponent'Default__TdMoveNode_Slide.Arrow' */;
+		var Default__TdMoveNode_Slide_PathRenderer = new PathRenderingComponent
+		{
+		}/* Reference: PathRenderingComponent'Default__TdMoveNode_Slide.PathRenderer' */;
 		// Object Offset:0x005F39E8
 		MoveReachspecClass = ClassT<TdReachSpec_Slide>()/*Ref Class'TdReachSpec_Slide'*/;
 		SpecialMoveCost = 400;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdMoveNode_Slide.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode_Slide.CollisionCylinder'*/;
-		GoodSprite = Default__TdMoveNode_Slide_Sprite;
-		BadSprite = LoadAsset<SpriteComponent>("Default__TdMoveNode_Slide.Sprite2")/*Ref SpriteComponent'Default__TdMoveNode_Slide.Sprite2'*/;
+		CylinderComponent = Default__TdMoveNode_Slide_CollisionCylinder/*Ref CylinderComponent'Default__TdMoveNode_Slide.CollisionCylinder'*/;
+		GoodSprite = Default__TdMoveNode_Slide_Sprite/*Ref SpriteComponent'Default__TdMoveNode_Slide.Sprite'*/;
+		BadSprite = Default__TdMoveNode_Slide_Sprite2/*Ref SpriteComponent'Default__TdMoveNode_Slide.Sprite2'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdMoveNode_Slide_Sprite,
-			LoadAsset<SpriteComponent>("Default__TdMoveNode_Slide.Sprite2")/*Ref SpriteComponent'Default__TdMoveNode_Slide.Sprite2'*/,
-			LoadAsset<ArrowComponent>("Default__TdMoveNode_Slide.Arrow")/*Ref ArrowComponent'Default__TdMoveNode_Slide.Arrow'*/,
-			LoadAsset<CylinderComponent>("Default__TdMoveNode_Slide.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode_Slide.CollisionCylinder'*/,
-			LoadAsset<PathRenderingComponent>("Default__TdMoveNode_Slide.PathRenderer")/*Ref PathRenderingComponent'Default__TdMoveNode_Slide.PathRenderer'*/,
+			Default__TdMoveNode_Slide_Sprite/*Ref SpriteComponent'Default__TdMoveNode_Slide.Sprite'*/,
+			Default__TdMoveNode_Slide_Sprite2/*Ref SpriteComponent'Default__TdMoveNode_Slide.Sprite2'*/,
+			Default__TdMoveNode_Slide_Arrow/*Ref ArrowComponent'Default__TdMoveNode_Slide.Arrow'*/,
+			Default__TdMoveNode_Slide_CollisionCylinder/*Ref CylinderComponent'Default__TdMoveNode_Slide.CollisionCylinder'*/,
+			Default__TdMoveNode_Slide_PathRenderer/*Ref PathRenderingComponent'Default__TdMoveNode_Slide.PathRenderer'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdMoveNode_Slide.CollisionCylinder")/*Ref CylinderComponent'Default__TdMoveNode_Slide.CollisionCylinder'*/;
+		CollisionComponent = Default__TdMoveNode_Slide_CollisionCylinder/*Ref CylinderComponent'Default__TdMoveNode_Slide.CollisionCylinder'*/;
 	}
 }
 }

@@ -49,10 +49,19 @@ public partial class TdDummyPawn : GamePawn/*
 	}
 	public TdDummyPawn()
 	{
+		var Default__TdDummyPawn_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
+		{
+		}/* Reference: SceneCaptureCharacterComponent'Default__TdDummyPawn.SceneCaptureCharacterComponent0' */;
+		var Default__TdDummyPawn_DrawFrust0 = new DrawFrustumComponent
+		{
+		}/* Reference: DrawFrustumComponent'Default__TdDummyPawn.DrawFrust0' */;
+		var Default__TdDummyPawn_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdDummyPawn.CollisionCylinder' */;
 		// Object Offset:0x00543D92
-		SceneCapture = LoadAsset<SceneCaptureCharacterComponent>("Default__TdDummyPawn.SceneCaptureCharacterComponent0")/*Ref SceneCaptureCharacterComponent'Default__TdDummyPawn.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = LoadAsset<DrawFrustumComponent>("Default__TdDummyPawn.DrawFrust0")/*Ref DrawFrustumComponent'Default__TdDummyPawn.DrawFrust0'*/;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdDummyPawn.CollisionCylinder")/*Ref CylinderComponent'Default__TdDummyPawn.CollisionCylinder'*/;
+		SceneCapture = Default__TdDummyPawn_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdDummyPawn.SceneCaptureCharacterComponent0'*/;
+		DrawFrustum = Default__TdDummyPawn_DrawFrust0/*Ref DrawFrustumComponent'Default__TdDummyPawn.DrawFrust0'*/;
+		CylinderComponent = Default__TdDummyPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdDummyPawn.CollisionCylinder'*/;
 		bGameRelevant = true;
 		bCollideActors = false;
 		Components = default;

@@ -9,8 +9,11 @@ public partial class UIPrefabScene : UIScene/*
 	
 	public UIPrefabScene()
 	{
+		var Default__UIPrefabScene_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__UIPrefabScene.SceneEventComponent' */;
 		// Object Offset:0x0044B142
-		EventProvider = LoadAsset<UIComp_Event>("Default__UIPrefabScene.SceneEventComponent")/*Ref UIComp_Event'Default__UIPrefabScene.SceneEventComponent'*/;
+		EventProvider = Default__UIPrefabScene_SceneEventComponent/*Ref UIComp_Event'Default__UIPrefabScene.SceneEventComponent'*/;
 	}
 }
 }

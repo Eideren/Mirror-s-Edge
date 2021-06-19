@@ -112,8 +112,11 @@ public partial class TdUIScene_AccountLoginPC : TdUIScene_SubMenu/*
 	
 	public TdUIScene_AccountLoginPC()
 	{
+		var Default__TdUIScene_AccountLoginPC_SceneEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIScene_AccountLoginPC.SceneEventComponent' */;
 		// Object Offset:0x0068E16B
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIScene_AccountLoginPC.SceneEventComponent")/*Ref UIComp_Event'Default__TdUIScene_AccountLoginPC.SceneEventComponent'*/;
+		EventProvider = Default__TdUIScene_AccountLoginPC_SceneEventComponent/*Ref UIComp_Event'Default__TdUIScene_AccountLoginPC.SceneEventComponent'*/;
 	}
 }
 }

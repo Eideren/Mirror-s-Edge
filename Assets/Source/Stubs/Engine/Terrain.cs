@@ -271,7 +271,7 @@ public partial class Terrain : Info/*
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__Terrain_Sprite,
+			Default__Terrain_Sprite/*Ref SpriteComponent'Default__Terrain.Sprite'*/,
 		};
 		DrawScale3D = new Vector
 		{

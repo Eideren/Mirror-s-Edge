@@ -38,6 +38,15 @@ public partial class ParticleModuleBeamModifier : ParticleModuleBeamBase/*
 	
 	public ParticleModuleBeamModifier()
 	{
+		var Default__ParticleModuleBeamModifier_DistributionPosition = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleBeamModifier.DistributionPosition' */;
+		var Default__ParticleModuleBeamModifier_DistributionTangent = new DistributionVectorConstant
+		{
+		}/* Reference: DistributionVectorConstant'Default__ParticleModuleBeamModifier.DistributionTangent' */;
+		var Default__ParticleModuleBeamModifier_DistributionStrength = new DistributionFloatConstant
+		{
+		}/* Reference: DistributionFloatConstant'Default__ParticleModuleBeamModifier.DistributionStrength' */;
 		// Object Offset:0x0037A1B3
 		Position = new DistributionVector.RawDistributionVector
 		{

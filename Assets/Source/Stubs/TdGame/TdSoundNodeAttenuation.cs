@@ -17,6 +17,18 @@ public partial class TdSoundNodeAttenuation : SoundNodeAttenuation/*
 			Min = 33100.0f,
 			Max = 33101.0f,
 		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionSpeedOfSound' */;
+		var Default__TdSoundNodeAttenuation_DistributionMinRadius = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionMinRadius' */;
+		var Default__TdSoundNodeAttenuation_DistributionMaxRadius = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionMaxRadius' */;
+		var Default__TdSoundNodeAttenuation_DistributionLPFMinRadius = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionLPFMinRadius' */;
+		var Default__TdSoundNodeAttenuation_DistributionLPFMaxRadius = new DistributionFloatUniform
+		{
+		}/* Reference: DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionLPFMaxRadius' */;
 		// Object Offset:0x0065A7CA
 		SpeedOfSound = new DistributionFloat.RawDistributionFloat
 		{

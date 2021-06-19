@@ -90,7 +90,7 @@ public partial class Info : Actor/*
 		bOnlyDirtyReplication = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__Info_Sprite,
+			Default__Info_Sprite/*Ref SpriteComponent'Default__Info.Sprite'*/,
 		};
 		NetUpdateFrequency = 10.0f;
 	}

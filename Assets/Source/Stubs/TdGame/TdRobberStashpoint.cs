@@ -59,10 +59,10 @@ public partial class TdRobberStashpoint : TdStashpoint/*
 		TerritoryOfTeam = 0;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdRobberStashpoint_CollisionCylinder,
-			Default__TdRobberStashpoint_StaticMeshComponent0,
+			Default__TdRobberStashpoint_CollisionCylinder/*Ref CylinderComponent'Default__TdRobberStashpoint.CollisionCylinder'*/,
+			Default__TdRobberStashpoint_StaticMeshComponent0/*Ref StaticMeshComponent'Default__TdRobberStashpoint.StaticMeshComponent0'*/,
 		};
-		CollisionComponent = Default__TdRobberStashpoint_CollisionCylinder;
+		CollisionComponent = Default__TdRobberStashpoint_CollisionCylinder/*Ref CylinderComponent'Default__TdRobberStashpoint.CollisionCylinder'*/;
 	}
 }
 }

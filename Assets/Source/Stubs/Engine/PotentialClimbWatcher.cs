@@ -18,10 +18,13 @@ public partial class PotentialClimbWatcher : Info/*
 	}
 	public PotentialClimbWatcher()
 	{
+		var Default__PotentialClimbWatcher_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__PotentialClimbWatcher.Sprite' */;
 		// Object Offset:0x003A7903
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__PotentialClimbWatcher.Sprite")/*Ref SpriteComponent'Default__PotentialClimbWatcher.Sprite'*/,
+			Default__PotentialClimbWatcher_Sprite/*Ref SpriteComponent'Default__PotentialClimbWatcher.Sprite'*/,
 		};
 	}
 }
