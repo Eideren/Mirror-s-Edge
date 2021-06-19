@@ -1,6 +1,7 @@
 ﻿namespace MEdge.Engine
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Core;
     using TdGame;
     using UnityEngine.Events;
@@ -16,8 +17,8 @@
     {
         public static UWorld Instance => GetInstance();
         public bool HasBegunPlay{ get; private set; }
-        Actor _defaultOuter = new Actor();
-        WorldInfo _worldInfo = new WorldInfo(){ PhysicsVolume = new DefaultPhysicsVolume() };
+        Actor _defaultOuter;
+        WorldInfo _worldInfo;
 
         UnityEngine.BoxCollider _cacheCollider = new UnityEngine.BoxCollider();
 
@@ -37,6 +38,8 @@
             var go = new UnityEngine.GameObject( nameof( UWorld ) );
             DontDestroyOnLoad( go );
             _instance = go.AddComponent<UWorld>();
+            _instance._worldInfo = new WorldInfo { PhysicsVolume = new DefaultPhysicsVolume() };
+            _instance._defaultOuter = new Actor();
             _instance.LevelStartup();
             _instance.PlayerLogIn();
 
@@ -84,15 +87,15 @@
             for( int i = 0; i < SceneManager.sceneCount; i++ )
             {
                 var scene = SceneManager.GetSceneAt( i );
-                foreach( var rootGameObject in scene.GetRootGameObjects() )
+                foreach( var comp in 
+                    from r in scene.GetRootGameObjects()
+                    from c in r.GetComponentsInChildren<UnityEngine.Component>()
+                    select c)
                 {
-                    foreach( var c in rootGameObject.GetComponentsInChildren<UnityEngine.Component>() )
+                    if( comp is IUObject uObject )
                     {
-                        if( c is IUObject uObject )
-                        {
-                            if(uObject.GetUObject() is Actor a)
-                                actors.Add( ( a, c.gameObject ) );
-                        }
+                        if(uObject.GetUObject() is Actor a)
+                            actors.Add( ( a, comp.gameObject ) );
                     }
                 }
             }

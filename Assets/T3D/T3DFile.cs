@@ -9,7 +9,7 @@
 
 
 
-	public class T3DFile : ScriptableObject, ISerializationCallbackReceiver
+	public class T3DFile : ScriptableObject, ISerializationCallbackReceiver, MEdge.Source.IAsset
 	{
 		public T3DNode Root;
 
@@ -84,6 +84,10 @@
 			node = newNode;
 			return index;
 		}
+
+
+
+		public object GetRuntimeAsset() => T3DSerialization.Deserialize( Root, null, null );
 	}
 
 
