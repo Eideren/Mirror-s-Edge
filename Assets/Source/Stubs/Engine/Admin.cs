@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -12,8 +10,7 @@ public partial class Admin : PlayerController/*
 	
 	}
 	
-	#warning Renamed member, c# naming scheme
-	public virtual /*exec function */void Admin_(String CommandLine)
+	public virtual /*exec function */void Admin(String CommandLine)
 	{
 	
 	}
@@ -70,14 +67,20 @@ public partial class Admin : PlayerController/*
 	
 	public Admin()
 	{
+		var Default__Admin_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__Admin.CollisionCylinder' */;
+		var Default__Admin_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__Admin.Sprite' */;
 		// Object Offset:0x0028B0A1
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__Admin.CollisionCylinder")/*Ref CylinderComponent'Default__Admin.CollisionCylinder'*/;
+		CylinderComponent = Default__Admin_CollisionCylinder/*Ref CylinderComponent'Default__Admin.CollisionCylinder'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__Admin.Sprite")/*Ref SpriteComponent'Default__Admin.Sprite'*/,
-			LoadAsset<CylinderComponent>("Default__Admin.CollisionCylinder")/*Ref CylinderComponent'Default__Admin.CollisionCylinder'*/,
+			Default__Admin_Sprite/*Ref SpriteComponent'Default__Admin.Sprite'*/,
+			Default__Admin_CollisionCylinder/*Ref CylinderComponent'Default__Admin.CollisionCylinder'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__Admin.CollisionCylinder")/*Ref CylinderComponent'Default__Admin.CollisionCylinder'*/;
+		CollisionComponent = Default__Admin_CollisionCylinder/*Ref CylinderComponent'Default__Admin.CollisionCylinder'*/;
 	}
 }
 }

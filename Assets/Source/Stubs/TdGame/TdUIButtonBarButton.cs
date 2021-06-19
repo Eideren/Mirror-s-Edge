@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -27,7 +25,7 @@ public partial class TdUIButtonBarButton : UILabelButton/*
 				DefaultStyleTag = (name)"TdLabelTextButtonBarButtonStyleDropShadow",
 			},
 			StyleResolverTag = (name)"Caption Style",
-			AutoSizeParameters = new UIRoot.AutoSizeData
+			AutoSizeParameters[0] = new UIRoot.AutoSizeData
 			{
 				bAutoSizeEnabled = true,
 			},
@@ -36,11 +34,17 @@ public partial class TdUIButtonBarButton : UILabelButton/*
 				DefaultStyleTag = (name)"TdLabelTextButtonBarButtonStyle",
 			},
 		}/* Reference: UIComp_TdDropShadowString'Default__TdUIButtonBarButton.ButtonBarStringRendererDS' */;
+		var Default__TdUIButtonBarButton_BackgroundImageTemplate = new UIComp_DrawImage
+		{
+		}/* Reference: UIComp_DrawImage'Default__TdUIButtonBarButton.BackgroundImageTemplate' */;
+		var Default__TdUIButtonBarButton_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIButtonBarButton.WidgetEventComponent' */;
 		// Object Offset:0x00680C0C
-		StringRenderComponent = Default__TdUIButtonBarButton_ButtonBarStringRendererDS;
-		BackgroundImageComponent = LoadAsset<UIComp_DrawImage>("Default__TdUIButtonBarButton.BackgroundImageTemplate")/*Ref UIComp_DrawImage'Default__TdUIButtonBarButton.BackgroundImageTemplate'*/;
+		StringRenderComponent = Default__TdUIButtonBarButton_ButtonBarStringRendererDS/*Ref UIComp_TdDropShadowString'Default__TdUIButtonBarButton.ButtonBarStringRendererDS'*/;
+		BackgroundImageComponent = Default__TdUIButtonBarButton_BackgroundImageTemplate/*Ref UIComp_DrawImage'Default__TdUIButtonBarButton.BackgroundImageTemplate'*/;
 		bNeverFocus = true;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIButtonBarButton.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIButtonBarButton.WidgetEventComponent'*/;
+		EventProvider = Default__TdUIButtonBarButton_WidgetEventComponent/*Ref UIComp_Event'Default__TdUIButtonBarButton.WidgetEventComponent'*/;
 	}
 }
 }

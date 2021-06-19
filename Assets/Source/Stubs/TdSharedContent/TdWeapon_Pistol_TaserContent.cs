@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdSharedContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -80,8 +78,8 @@ public partial class TdWeapon_Pistol_TaserContent : TdWeapon_Pistol_Taser/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Taser.AS_C1P_OneHanded_Taser")/*Ref TdAnimSet'AS_C1P_OneHanded_Taser.AS_C1P_OneHanded_Taser'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser")/*Ref TdAnimSet'AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser")/*Ref TdAnimSet'AS_F3P_OneHanded_Taser.AS_F3P_OneHanded_Taser'*/;
-		Mesh1p = Default__TdWeapon_Pistol_TaserContent_FirstPersonMesh;
-		Mesh3p = Default__TdWeapon_Pistol_TaserContent_ThirdPersonMesh;
+		Mesh1p = Default__TdWeapon_Pistol_TaserContent_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_Pistol_TaserContent_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.ThirdPersonMesh'*/;
 		StickyMaxDistance = 2000.0f;
 		CombatRange_Min = 100.0f;
 		CombatRange_Max = 1000.0f;
@@ -136,9 +134,7 @@ public partial class TdWeapon_Pistol_TaserContent : TdWeapon_Pistol_Taser/*
 		PreReloadTime = 0.50f;
 		WeaponFireTypes = new array<Weapon.EWeaponFireType>
 		{
-			#warning fallofftype values are weird, replaced with default
-			//149,
-			default
+			149,
 		};
 		FireInterval = new array<float>
 		{
@@ -162,13 +158,13 @@ public partial class TdWeapon_Pistol_TaserContent : TdWeapon_Pistol_Taser/*
 		};
 		EquipTime = 0.750f;
 		WeaponRange = 1000.0f;
-		Mesh = Default__TdWeapon_Pistol_TaserContent_FirstPersonMesh;
-		DroppedPickupMesh = Default__TdWeapon_Pistol_TaserContent_ThirdPersonMesh;
-		PickupFactoryMesh = Default__TdWeapon_Pistol_TaserContent_FirstPersonMesh;
+		Mesh = Default__TdWeapon_Pistol_TaserContent_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.FirstPersonMesh'*/;
+		DroppedPickupMesh = Default__TdWeapon_Pistol_TaserContent_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_Pistol_TaserContent_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdWeapon_Pistol_TaserContent_FirstPersonMesh,
-			Default__TdWeapon_Pistol_TaserContent_ThirdPersonMesh,
+			Default__TdWeapon_Pistol_TaserContent_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.FirstPersonMesh'*/,
+			Default__TdWeapon_Pistol_TaserContent_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Pistol_TaserContent.ThirdPersonMesh'*/,
 		};
 	}
 }

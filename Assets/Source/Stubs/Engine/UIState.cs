@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -76,16 +74,7 @@ public partial class UIState : UIRoot,
 	{
 		#warning NATIVE FUNCTION !
 	}
-
-
-
-	public void RemoveSequenceObjects( array<SequenceObject> ObjectsToRemove )
-	{
-		// INTERFACE FUNCTION, WAS NOT PART OF THE DECOMPILATION PROCESS
-	}
-
-
-
+	
 	// Export UUIState::execRemoveSequenceObjects(FFrame&, void* const)
 	public virtual /*native final function */void RemoveSequenceObjects(/*const */ref array<SequenceObject> ObjectsToRemove)
 	{

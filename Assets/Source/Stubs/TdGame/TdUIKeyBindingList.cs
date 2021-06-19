@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -132,8 +130,7 @@ public partial class TdUIKeyBindingList : TdUIWidgetList/*
 	
 	}
 	
-	#warning override on a delegate removed
-	public /*override*/ /*function */bool OnClicked(UIScreenObject Sender, int PlayerIndex)
+	public override /*function */bool OnClicked(UIScreenObject Sender, int PlayerIndex)
 	{
 	
 		return default;
@@ -163,9 +160,12 @@ public partial class TdUIKeyBindingList : TdUIWidgetList/*
 	
 	public TdUIKeyBindingList()
 	{
+		var Default__TdUIKeyBindingList_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIKeyBindingList.WidgetEventComponent' */;
 		// Object Offset:0x0068BE6D
 		NumButtons = 2;
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIKeyBindingList.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIKeyBindingList.WidgetEventComponent'*/;
+		EventProvider = Default__TdUIKeyBindingList_WidgetEventComponent/*Ref UIComp_Event'Default__TdUIKeyBindingList.WidgetEventComponent'*/;
 	}
 }
 }

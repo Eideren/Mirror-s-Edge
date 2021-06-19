@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdSharedContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -89,7 +87,7 @@ public partial class TdWeapon_AssaultRifle_FNSCARL : TdWeapon_Heavy/*
 		BulletTraceTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_Heavy_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_Heavy_01'*/;
 		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_Shell556_Auto")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_Shell556_Auto'*/;
 		ShellEjectSocket = (name)"ShellEject";
-		FiringWaveform = Default__TdWeapon_AssaultRifle_FNSCARL_FiringWaveformObj;
+		FiringWaveform = Default__TdWeapon_AssaultRifle_FNSCARL_FiringWaveformObj/*Ref ForceFeedbackWaveform'Default__TdWeapon_AssaultRifle_FNSCARL.FiringWaveformObj'*/;
 		MaxAmmo = 30;
 		ReloadTime = 2.20f;
 		AmmoCount = 30;
@@ -103,9 +101,7 @@ public partial class TdWeapon_AssaultRifle_FNSCARL : TdWeapon_Heavy/*
 		};
 		WeaponFallOffTypes = new array<TdWeapon.EWeaponFallOffType>
 		{
-			#warning fallofftype values are weird, replaced with default
-			//147,
-			default
+			147,
 		};
 		FallOffDistance = 2000.0f;
 		DeathAnimType = 2;
@@ -128,8 +124,8 @@ public partial class TdWeapon_AssaultRifle_FNSCARL : TdWeapon_Heavy/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_FNSCARL.AS_C1P_TwoHanded_FNSCARL")/*Ref TdAnimSet'AS_C1P_TwoHanded_FNSCARL.AS_C1P_TwoHanded_FNSCARL'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNSCARL.AS_F3P_TwoHanded_FNSCARL'*/;
-		Mesh1p = Default__TdWeapon_AssaultRifle_FNSCARL_FirstPersonMesh;
-		Mesh3p = Default__TdWeapon_AssaultRifle_FNSCARL_ThirdPersonMesh;
+		Mesh1p = Default__TdWeapon_AssaultRifle_FNSCARL_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_AssaultRifle_FNSCARL_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.ThirdPersonMesh'*/;
 		CombatRange_Min = 2000.0f;
 		CombatRange_Max = 5000.0f;
 		CombatRange_Preferred = 3000.0f;
@@ -192,13 +188,13 @@ public partial class TdWeapon_AssaultRifle_FNSCARL : TdWeapon_Heavy/*
 		};
 		EquipTime = 0.750f;
 		WeaponRange = 9000.0f;
-		Mesh = Default__TdWeapon_AssaultRifle_FNSCARL_FirstPersonMesh;
-		DroppedPickupMesh = Default__TdWeapon_AssaultRifle_FNSCARL_ThirdPersonMesh;
-		PickupFactoryMesh = Default__TdWeapon_AssaultRifle_FNSCARL_FirstPersonMesh;
+		Mesh = Default__TdWeapon_AssaultRifle_FNSCARL_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.FirstPersonMesh'*/;
+		DroppedPickupMesh = Default__TdWeapon_AssaultRifle_FNSCARL_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_AssaultRifle_FNSCARL_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdWeapon_AssaultRifle_FNSCARL_FirstPersonMesh,
-			Default__TdWeapon_AssaultRifle_FNSCARL_ThirdPersonMesh,
+			Default__TdWeapon_AssaultRifle_FNSCARL_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.FirstPersonMesh'*/,
+			Default__TdWeapon_AssaultRifle_FNSCARL_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_FNSCARL.ThirdPersonMesh'*/,
 		};
 	}
 }

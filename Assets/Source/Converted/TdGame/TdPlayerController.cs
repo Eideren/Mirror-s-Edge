@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -1228,8 +1226,7 @@ public partial class TdPlayerController : GamePlayerController,
 			}
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			#warning commented out UI debug function
-			// base(Actor).DisplayDebug(HUD, ref/*probably?*/ out_YL, ref/*probably?*/ out_YPos);
+			base(Actor).DisplayDebug(HUD, ref/*probably?*/ out_YL, ref/*probably?*/ out_YPos);
 		}
 		if((PlayerCamera != default) && HUD.ShouldDisplayDebug("Camera"))
 		{
@@ -4623,6 +4620,12 @@ public partial class TdPlayerController : GamePlayerController,
 	}
 	public TdPlayerController()
 	{
+		var Default__TdPlayerController_CollisionCylinder = new CylinderComponent
+		{
+		}/* Reference: CylinderComponent'Default__TdPlayerController.CollisionCylinder' */;
+		var Default__TdPlayerController_Sprite = new SpriteComponent
+		{
+		}/* Reference: SpriteComponent'Default__TdPlayerController.Sprite' */;
 		// Object Offset:0x006251F4
 		bLeftThumbStickPassedDeadZone = true;
 		bRightThumbStickPassedDeadZone = true;
@@ -4670,15 +4673,15 @@ public partial class TdPlayerController : GamePlayerController,
 		SavedMoveClass = ClassT<TdSavedMove>()/*Ref Class'TdSavedMove'*/;
 		CheatClass = ClassT<TdCheatManager>()/*Ref Class'TdCheatManager'*/;
 		InputClass = ClassT<TdPlayerInputConsole>()/*Ref Class'TdPlayerInputConsole'*/;
-		CylinderComponent = LoadAsset<CylinderComponent>("Default__TdPlayerController.CollisionCylinder")/*Ref CylinderComponent'Default__TdPlayerController.CollisionCylinder'*/;
+		CylinderComponent = Default__TdPlayerController_CollisionCylinder/*Ref CylinderComponent'Default__TdPlayerController.CollisionCylinder'*/;
 		bNotifyFallingHitWall = true;
 		MinHitWall = 1.0f;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<SpriteComponent>("Default__TdPlayerController.Sprite")/*Ref SpriteComponent'Default__TdPlayerController.Sprite'*/,
-			LoadAsset<CylinderComponent>("Default__TdPlayerController.CollisionCylinder")/*Ref CylinderComponent'Default__TdPlayerController.CollisionCylinder'*/,
+			Default__TdPlayerController_Sprite/*Ref SpriteComponent'Default__TdPlayerController.Sprite'*/,
+			Default__TdPlayerController_CollisionCylinder/*Ref CylinderComponent'Default__TdPlayerController.CollisionCylinder'*/,
 		};
-		CollisionComponent = LoadAsset<CylinderComponent>("Default__TdPlayerController.CollisionCylinder")/*Ref CylinderComponent'Default__TdPlayerController.CollisionCylinder'*/;
+		CollisionComponent = Default__TdPlayerController_CollisionCylinder/*Ref CylinderComponent'Default__TdPlayerController.CollisionCylinder'*/;
 	}
 }
 }

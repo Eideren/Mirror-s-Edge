@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -97,10 +95,8 @@ public partial class PlayerInput : Input/* within PlayerController*//*
 		aMouseY *= (MouseSensitivity * FOVScale);
 	}
 	
-	public virtual /*event */void PlayerInput_(float DeltaTime)
+	public virtual /*event */void PlayerInput(float DeltaTime)
 	{
-		// Initially 'PlayerInput', renamed to 'PlayerInput_' as c#'s naming scheme doesn't allow members with the same name as their class
-		
 		/*local */float FOVScale = default, TimeScale = default;
 	
 		RawJoyUp = aBaseY;

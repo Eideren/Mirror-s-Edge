@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -1187,7 +1185,7 @@ public partial class TdWeapon : Weapon/*
 		TimeThrownWeaponStaysInWorld = 1000;
 		MuzzleFlashSocket = (name)"MuzzleFlashSocket";
 		BulletTraceTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_01'*/;
-		FiringWaveform = Default__TdWeapon_FiringWaveformObj;
+		FiringWaveform = Default__TdWeapon_FiringWaveformObj/*Ref ForceFeedbackWaveform'Default__TdWeapon.FiringWaveformObj'*/;
 		MaxAmmo = 33;
 		ReloadTime = 2.30f;
 		BurstMax = 3;
@@ -1221,9 +1219,7 @@ public partial class TdWeapon : Weapon/*
 		};
 		WeaponFallOffTypes = new array<TdWeapon.EWeaponFallOffType>
 		{
-			#warning weird ass EWeaponFallOffType value replaced with default
-			//150,
-			default
+			150,
 		};
 		FallOffDistance = 1000.0f;
 		WeaponFireSnd1p = new array<SoundCue>
@@ -1246,8 +1242,8 @@ public partial class TdWeapon : Weapon/*
 		NumberOfSlapBacks = 2;
 		RangeOfSlapBackRays = 10000;
 		DecalTypeToUse = TdWeapon.EWeaponDecalType.EWDT_None;
-		Mesh1p = Default__TdWeapon_FirstPersonMesh;
-		Mesh3p = Default__TdWeapon_ThirdPersonMesh;
+		Mesh1p = Default__TdWeapon_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon.ThirdPersonMesh'*/;
 		MaxAssistDistance = 600;
 		AssistInnerRadius = 0.40f;
 		AssistInnerHeight = 0.40f;
@@ -1331,9 +1327,7 @@ public partial class TdWeapon : Weapon/*
 		};
 		WeaponFireTypes = new array<Weapon.EWeaponFireType>
 		{
-			#warning weird ass EWeaponFireType value replaced with default
-			//154,
-			default
+			154,
 		};
 		FireInterval = new array<float>
 		{
@@ -1358,15 +1352,15 @@ public partial class TdWeapon : Weapon/*
 		EquipTime = 0.30f;
 		PutDownTime = 0.30f;
 		WeaponRange = 12000.0f;
-		Mesh = Default__TdWeapon_FirstPersonMesh;
+		Mesh = Default__TdWeapon_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon.FirstPersonMesh'*/;
 		PickupSound = LoadAsset<SoundCue>("A_WP_Default.Fire.Fire")/*Ref SoundCue'A_WP_Default.Fire.Fire'*/;
 		DroppedPickupClass = ClassT<TdPickup>()/*Ref Class'TdPickup'*/;
-		DroppedPickupMesh = Default__TdWeapon_ThirdPersonMesh;
-		PickupFactoryMesh = Default__TdWeapon_FirstPersonMesh;
+		DroppedPickupMesh = Default__TdWeapon_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdWeapon_FirstPersonMesh,
-			Default__TdWeapon_ThirdPersonMesh,
+			Default__TdWeapon_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon.FirstPersonMesh'*/,
+			Default__TdWeapon_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon.ThirdPersonMesh'*/,
 		};
 	}
 }

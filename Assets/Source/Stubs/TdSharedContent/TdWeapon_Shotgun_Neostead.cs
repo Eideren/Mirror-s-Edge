@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdSharedContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -99,7 +97,7 @@ public partial class TdWeapon_Shotgun_Neostead : TdWeapon_Heavy/*
 		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_ShellSlug")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_ShellSlug'*/;
 		ShellEjectSocket = (name)"ShellEject";
 		ShellEjectDelay = 0.90f;
-		FiringWaveform = Default__TdWeapon_Shotgun_Neostead_FiringWaveformObj;
+		FiringWaveform = Default__TdWeapon_Shotgun_Neostead_FiringWaveformObj/*Ref ForceFeedbackWaveform'Default__TdWeapon_Shotgun_Neostead.FiringWaveformObj'*/;
 		MaxAmmo = 12;
 		StartReloadTime = 0.66670f;
 		ReloadTime = 1.26670f;
@@ -133,8 +131,8 @@ public partial class TdWeapon_Shotgun_Neostead : TdWeapon_Heavy/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Neostead.AS_C1P_TwoHanded_Neostead")/*Ref TdAnimSet'AS_C1P_TwoHanded_Neostead.AS_C1P_TwoHanded_Neostead'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead")/*Ref TdAnimSet'AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead")/*Ref TdAnimSet'AS_F3P_TwoHanded_Neostead.AS_F3P_TwoHanded_Neostead'*/;
-		Mesh1p = Default__TdWeapon_Shotgun_Neostead_FirstPersonMesh;
-		Mesh3p = Default__TdWeapon_Shotgun_Neostead_ThirdPersonMesh;
+		Mesh1p = Default__TdWeapon_Shotgun_Neostead_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_Shotgun_Neostead_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.ThirdPersonMesh'*/;
 		CombatRange_Min = 500.0f;
 		CombatRange_Max = 4000.0f;
 		CombatRange_Preferred = 1500.0f;
@@ -189,9 +187,7 @@ public partial class TdWeapon_Shotgun_Neostead : TdWeapon_Heavy/*
 		KickbackAmount = 50.0f;
 		WeaponFireTypes = new array<Weapon.EWeaponFireType>
 		{
-			#warning fallofftype values are weird, replaced with default
-			//149,
-			default
+			149,
 		};
 		FireInterval = new array<float>
 		{
@@ -216,13 +212,13 @@ public partial class TdWeapon_Shotgun_Neostead : TdWeapon_Heavy/*
 		EquipTime = 1.20f;
 		PutDownTime = 1.0f;
 		WeaponRange = 6000.0f;
-		Mesh = Default__TdWeapon_Shotgun_Neostead_FirstPersonMesh;
-		DroppedPickupMesh = Default__TdWeapon_Shotgun_Neostead_ThirdPersonMesh;
-		PickupFactoryMesh = Default__TdWeapon_Shotgun_Neostead_FirstPersonMesh;
+		Mesh = Default__TdWeapon_Shotgun_Neostead_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.FirstPersonMesh'*/;
+		DroppedPickupMesh = Default__TdWeapon_Shotgun_Neostead_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_Shotgun_Neostead_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdWeapon_Shotgun_Neostead_FirstPersonMesh,
-			Default__TdWeapon_Shotgun_Neostead_ThirdPersonMesh,
+			Default__TdWeapon_Shotgun_Neostead_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.FirstPersonMesh'*/,
+			Default__TdWeapon_Shotgun_Neostead_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Shotgun_Neostead.ThirdPersonMesh'*/,
 		};
 	}
 }

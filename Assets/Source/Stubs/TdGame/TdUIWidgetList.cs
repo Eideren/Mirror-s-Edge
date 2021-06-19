@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -107,8 +105,7 @@ public partial class TdUIWidgetList : TdUIDrawPanel,
 		return default;
 	}
 	
-	#warning is overriding a delegate !? Probably the default implementation
-	public /*override*/ /*function */void OnValueChanged(UIObject Sender, int PlayerIndex)
+	public override /*function */void OnValueChanged(UIObject Sender, int PlayerIndex)
 	{
 	
 	}
@@ -189,6 +186,9 @@ public partial class TdUIWidgetList : TdUIDrawPanel,
 	
 	public TdUIWidgetList()
 	{
+		var Default__TdUIWidgetList_WidgetEventComponent = new UIComp_Event
+		{
+		}/* Reference: UIComp_Event'Default__TdUIWidgetList.WidgetEventComponent' */;
 		// Object Offset:0x00689E54
 		DataSource = new UIRoot.UIDataStoreBinding
 		{
@@ -208,7 +208,7 @@ public partial class TdUIWidgetList : TdUIDrawPanel,
 			ClassT<UIState_Focused>(),
 			ClassT<UIState_Active>(),
 		};
-		EventProvider = LoadAsset<UIComp_Event>("Default__TdUIWidgetList.WidgetEventComponent")/*Ref UIComp_Event'Default__TdUIWidgetList.WidgetEventComponent'*/;
+		EventProvider = Default__TdUIWidgetList_WidgetEventComponent/*Ref UIComp_Event'Default__TdUIWidgetList.WidgetEventComponent'*/;
 	}
 }
 }

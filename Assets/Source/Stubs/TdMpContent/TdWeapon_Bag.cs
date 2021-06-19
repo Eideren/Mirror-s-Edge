@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdMpContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -264,8 +262,8 @@ public partial class TdWeapon_Bag : TdWeapon_Light/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18")/*Ref TdAnimSet'AS_C1P_OneHanded_Glock18.AS_C1P_OneHanded_Glock18'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18")/*Ref TdAnimSet'AS_F3P_OneHanded_Glock18.AS_F3P_OneHanded_Glock18'*/;
-		Mesh1p = Default__TdWeapon_Bag_FirstPersonMesh;
-		Mesh3p = Default__TdWeapon_Bag_ThirdPersonMesh;
+		Mesh1p = Default__TdWeapon_Bag_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Bag.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_Bag_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Bag.ThirdPersonMesh'*/;
 		DefaultDecalMaterial = default;
 		DefaultImpactMaterial = default;
 		FiringStatesArray = new array<name>
@@ -274,9 +272,7 @@ public partial class TdWeapon_Bag : TdWeapon_Light/*
 		};
 		WeaponFireTypes = new array<Weapon.EWeaponFireType>
 		{
-			#warning EWeaponFireType values are deserialized weird, replaced with default
-			//116,
-			default,
+			116,
 		};
 		FireInterval = new array<float>
 		{
@@ -300,7 +296,7 @@ public partial class TdWeapon_Bag : TdWeapon_Light/*
 		};
 		EquipTime = 0.50f;
 		WeaponRange = 0.0f;
-		Mesh = Default__TdWeapon_Bag_FirstPersonMesh;
+		Mesh = Default__TdWeapon_Bag_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Bag.FirstPersonMesh'*/;
 		bDropOnDeath = true;
 		InventorySlot = Inventory.EInventorySlot.EISlot_LightWeapon;
 		DroppedPickupClass = default;
@@ -308,8 +304,8 @@ public partial class TdWeapon_Bag : TdWeapon_Light/*
 		PickupFactoryMesh = default;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdWeapon_Bag_FirstPersonMesh,
-			Default__TdWeapon_Bag_ThirdPersonMesh,
+			Default__TdWeapon_Bag_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Bag.FirstPersonMesh'*/,
+			Default__TdWeapon_Bag_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Bag.ThirdPersonMesh'*/,
 		};
 	}
 }

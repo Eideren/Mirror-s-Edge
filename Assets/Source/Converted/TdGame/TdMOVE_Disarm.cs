@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -229,7 +227,7 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 	
 	public virtual /*function */void TakeDisarmedPawnsWeapon()
 	{
-		WeaponClass = DisarmedPawn.Weapon.Class as ClassT<Inventory>/*Added explicit cast here*/;
+		WeaponClass = DisarmedPawn.Weapon.Class;
 		if(WeaponClass != default)
 		{
 			if(((WeaponClass) as ClassT<TdWeapon_Pistol_Taser>) != default)
@@ -354,7 +352,7 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 		}/* Reference: ForceFeedbackWaveform'Default__TdMOVE_Disarm.DisarmWaveformObj' */;
 		// Object Offset:0x005B228D
 		DisarmOffset = 109.9020f;
-		DisarmWaveform = Default__TdMOVE_Disarm_DisarmWaveformObj;
+		DisarmWaveform = Default__TdMOVE_Disarm_DisarmWaveformObj/*Ref ForceFeedbackWaveform'Default__TdMOVE_Disarm.DisarmWaveformObj'*/;
 		PawnPhysics = Actor.EPhysics.PHYS_Flying;
 		AiAimPenalties = new TdMove.AIAimingModifierSettings
 		{

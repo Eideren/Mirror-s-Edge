@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -39,25 +37,27 @@ public partial class Brush : Actor/*
 	public int PolyFlags;
 	public/*()*/ bool bColored;
 	public bool bSolidWhenSelected;
-	#warning renamed Brush to _Brush, c# doesn't allow match name between members and class
-	public /*const export */Model _Brush;
+	public /*const export */Model Brush;
 	public /*const editconst export editinline */BrushComponent BrushComponent;
 	public array<Brush.GeomSelection> SavedSelections;
 	
 	public Brush()
 	{
+		var Default__Brush_BrushComponent0 = new BrushComponent
+		{
+		}/* Reference: BrushComponent'Default__Brush.BrushComponent0' */;
 		// Object Offset:0x002B1736
-		BrushComponent = LoadAsset<BrushComponent>("Default__Brush.BrushComponent0")/*Ref BrushComponent'Default__Brush.BrushComponent0'*/;
+		BrushComponent = Default__Brush_BrushComponent0/*Ref BrushComponent'Default__Brush.BrushComponent0'*/;
 		bStatic = true;
 		bHidden = true;
 		bNoDelete = true;
 		bEdShouldSnap = true;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<BrushComponent>("Default__Brush.BrushComponent0")/*Ref BrushComponent'Default__Brush.BrushComponent0'*/,
+			Default__Brush_BrushComponent0/*Ref BrushComponent'Default__Brush.BrushComponent0'*/,
 		};
 		TickGroup = Object.ETickingGroup.TG_DuringAsyncWork;
-		CollisionComponent = LoadAsset<BrushComponent>("Default__Brush.BrushComponent0")/*Ref BrushComponent'Default__Brush.BrushComponent0'*/;
+		CollisionComponent = Default__Brush_BrushComponent0/*Ref BrushComponent'Default__Brush.BrushComponent0'*/;
 	}
 }
 }

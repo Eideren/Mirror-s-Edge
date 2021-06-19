@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -229,7 +227,7 @@ public partial class TdMove_Swing : TdPhysicsMove/*
 						{
 							if((Abs(SwingVelocity) < 1.0f) && Abs(SwingAngle) < (3.1415930f / ((float)(8))))
 							{
-								if(CanShimmy((MoveRight) ? 1.0f : -1.0f))
+								if(CanShimmy(((TdPawn.EMovementAction)((MoveRight) ? 1.0f : -1.0f))))
 								{
 									bIsShimmying = true;
 									ShimmyVelocity = 35.0f * ((MoveRight) ? 1.0f : -1.0f);

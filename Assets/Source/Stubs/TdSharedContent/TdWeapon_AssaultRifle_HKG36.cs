@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdSharedContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -68,9 +66,7 @@ public partial class TdWeapon_AssaultRifle_HKG36 : TdWeapon_Heavy/*
 		};
 		WeaponFallOffTypes = new array<TdWeapon.EWeaponFallOffType>
 		{
-			#warning fallofftype values are weird, replaced with default
-			//147,
-			default
+			147,
 		};
 		FallOffDistance = 2000.0f;
 		DeathAnimType = 2;
@@ -93,8 +89,8 @@ public partial class TdWeapon_AssaultRifle_HKG36 : TdWeapon_Heavy/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_G36C.AS_C1P_TwoHanded_G36C")/*Ref TdAnimSet'AS_C1P_TwoHanded_G36C.AS_C1P_TwoHanded_G36C'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_G36C.AS_F3P_TwoHanded_G36C")/*Ref TdAnimSet'AS_F3P_TwoHanded_G36C.AS_F3P_TwoHanded_G36C'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_G36C.AS_F3P_TwoHanded_G36C")/*Ref TdAnimSet'AS_F3P_TwoHanded_G36C.AS_F3P_TwoHanded_G36C'*/;
-		Mesh1p = Default__TdWeapon_AssaultRifle_HKG36_FirstPersonMesh;
-		Mesh3p = Default__TdWeapon_AssaultRifle_HKG36_ThirdPersonMesh;
+		Mesh1p = Default__TdWeapon_AssaultRifle_HKG36_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_HKG36.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_AssaultRifle_HKG36_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_HKG36.ThirdPersonMesh'*/;
 		CombatRange_Min = 2000.0f;
 		CombatRange_Max = 5000.0f;
 		CombatRange_Preferred = 3000.0f;
@@ -147,13 +143,13 @@ public partial class TdWeapon_AssaultRifle_HKG36 : TdWeapon_Heavy/*
 		};
 		EquipTime = 0.750f;
 		WeaponRange = 9000.0f;
-		Mesh = Default__TdWeapon_AssaultRifle_HKG36_FirstPersonMesh;
-		DroppedPickupMesh = Default__TdWeapon_AssaultRifle_HKG36_ThirdPersonMesh;
-		PickupFactoryMesh = Default__TdWeapon_AssaultRifle_HKG36_FirstPersonMesh;
+		Mesh = Default__TdWeapon_AssaultRifle_HKG36_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_HKG36.FirstPersonMesh'*/;
+		DroppedPickupMesh = Default__TdWeapon_AssaultRifle_HKG36_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_HKG36.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_AssaultRifle_HKG36_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_HKG36.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdWeapon_AssaultRifle_HKG36_FirstPersonMesh,
-			Default__TdWeapon_AssaultRifle_HKG36_ThirdPersonMesh,
+			Default__TdWeapon_AssaultRifle_HKG36_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_HKG36.FirstPersonMesh'*/,
+			Default__TdWeapon_AssaultRifle_HKG36_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_AssaultRifle_HKG36.ThirdPersonMesh'*/,
 		};
 	}
 }

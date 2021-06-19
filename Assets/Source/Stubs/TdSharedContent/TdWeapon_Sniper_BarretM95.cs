@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdSharedContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -201,7 +199,7 @@ public partial class TdWeapon_Sniper_BarretM95 : TdWeapon_Heavy/*
 		BulletTraceTemplate = default;
 		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_Shell556_Auto")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_Shell556_Auto'*/;
 		ShellEjectSocket = (name)"ShellEject";
-		FiringWaveform = Default__TdWeapon_Sniper_BarretM95_FiringWaveformObj;
+		FiringWaveform = Default__TdWeapon_Sniper_BarretM95_FiringWaveformObj/*Ref ForceFeedbackWaveform'Default__TdWeapon_Sniper_BarretM95.FiringWaveformObj'*/;
 		MaxAmmo = 20;
 		ReloadTime = 4.0f;
 		BurstMax = 1;
@@ -213,9 +211,7 @@ public partial class TdWeapon_Sniper_BarretM95 : TdWeapon_Heavy/*
 		};
 		WeaponFallOffTypes = new array<TdWeapon.EWeaponFallOffType>
 		{
-			#warning fallofftype values are weird, replaced with default
-			//148,
-			default
+			148,
 		};
 		FallOffDistance = 180000.0f;
 		WeaponFireSnd1p = new array<SoundCue>
@@ -242,8 +238,8 @@ public partial class TdWeapon_Sniper_BarretM95 : TdWeapon_Heavy/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_M95.AS_C1P_TwoHanded_M95")/*Ref TdAnimSet'AS_C1P_TwoHanded_M95.AS_C1P_TwoHanded_M95'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_M95.AS_F3P_TwoHanded_M95")/*Ref TdAnimSet'AS_F3P_TwoHanded_M95.AS_F3P_TwoHanded_M95'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_M95.AS_F3P_TwoHanded_M95")/*Ref TdAnimSet'AS_F3P_TwoHanded_M95.AS_F3P_TwoHanded_M95'*/;
-		Mesh1p = Default__TdWeapon_Sniper_BarretM95_FirstPersonMesh;
-		Mesh3p = Default__TdWeapon_Sniper_BarretM95_ThirdPersonMesh;
+		Mesh1p = Default__TdWeapon_Sniper_BarretM95_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Sniper_BarretM95.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_Sniper_BarretM95_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Sniper_BarretM95.ThirdPersonMesh'*/;
 		AIDamageMultiplier = 0.80f;
 		CombatRange_Min = 800.0f;
 		CombatRange_Max = 20000.0f;
@@ -319,14 +315,14 @@ public partial class TdWeapon_Sniper_BarretM95 : TdWeapon_Heavy/*
 		};
 		EquipTime = 0.750f;
 		WeaponRange = 20000.0f;
-		Mesh = Default__TdWeapon_Sniper_BarretM95_FirstPersonMesh;
+		Mesh = Default__TdWeapon_Sniper_BarretM95_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Sniper_BarretM95.FirstPersonMesh'*/;
 		PickupSound = LoadAsset<SoundCue>("A_WP_Handling.Heavy.HeavyHandling")/*Ref SoundCue'A_WP_Handling.Heavy.HeavyHandling'*/;
-		DroppedPickupMesh = Default__TdWeapon_Sniper_BarretM95_ThirdPersonMesh;
-		PickupFactoryMesh = Default__TdWeapon_Sniper_BarretM95_FirstPersonMesh;
+		DroppedPickupMesh = Default__TdWeapon_Sniper_BarretM95_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Sniper_BarretM95.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_Sniper_BarretM95_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Sniper_BarretM95.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdWeapon_Sniper_BarretM95_FirstPersonMesh,
-			Default__TdWeapon_Sniper_BarretM95_ThirdPersonMesh,
+			Default__TdWeapon_Sniper_BarretM95_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Sniper_BarretM95.FirstPersonMesh'*/,
+			Default__TdWeapon_Sniper_BarretM95_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Sniper_BarretM95.ThirdPersonMesh'*/,
 		};
 	}
 }

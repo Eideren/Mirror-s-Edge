@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdSharedContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -76,7 +74,7 @@ public partial class TdWeapon_Machinegun_FNMinimi : TdWeapon_Heavy/*
 		BulletTraceTemplate = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_Heavy_01")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_BulletTracerDistort_Heavy_01'*/;
 		ShellEjectPS = LoadAsset<ParticleSystem>("FX_WeaponEffects.Effects.PS_FX_Shell556_Auto")/*Ref ParticleSystem'FX_WeaponEffects.Effects.PS_FX_Shell556_Auto'*/;
 		ShellEjectSocket = (name)"ShellEject";
-		FiringWaveform = Default__TdWeapon_Machinegun_FNMinimi_FiringWaveformObj;
+		FiringWaveform = Default__TdWeapon_Machinegun_FNMinimi_FiringWaveformObj/*Ref ForceFeedbackWaveform'Default__TdWeapon_Machinegun_FNMinimi.FiringWaveformObj'*/;
 		MaxAmmo = 99;
 		ReloadTime = 6.60f;
 		AmmoCount = 99;
@@ -90,9 +88,7 @@ public partial class TdWeapon_Machinegun_FNMinimi : TdWeapon_Heavy/*
 		};
 		WeaponFallOffTypes = new array<TdWeapon.EWeaponFallOffType>
 		{
-			#warning fallofftype values are weird, replaced with default
-			//147,
-			default
+			147,
 		};
 		FallOffDistance = 6000.0f;
 		DeathAnimType = 5;
@@ -117,8 +113,8 @@ public partial class TdWeapon_Machinegun_FNMinimi : TdWeapon_Heavy/*
 		AnimationSetCharacter1p = LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_FNMinimi.AS_C1P_TwoHanded_FNMinimi")/*Ref TdAnimSet'AS_C1P_TwoHanded_FNMinimi.AS_C1P_TwoHanded_FNMinimi'*/;
 		AnimationSetFemale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi'*/;
 		AnimationSetMale3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi")/*Ref TdAnimSet'AS_F3P_TwoHanded_FNMinimi.AS_F3P_TwoHanded_FNMinimi'*/;
-		Mesh1p = Default__TdWeapon_Machinegun_FNMinimi_FirstPersonMesh;
-		Mesh3p = Default__TdWeapon_Machinegun_FNMinimi_ThirdPersonMesh;
+		Mesh1p = Default__TdWeapon_Machinegun_FNMinimi_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_Machinegun_FNMinimi_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.ThirdPersonMesh'*/;
 		CombatRange_Min = 500.0f;
 		CombatRange_Max = 15000.0f;
 		CombatRange_Preferred = 1000.0f;
@@ -189,14 +185,14 @@ public partial class TdWeapon_Machinegun_FNMinimi : TdWeapon_Heavy/*
 		};
 		EquipTime = 1.0f;
 		WeaponRange = 20000.0f;
-		Mesh = Default__TdWeapon_Machinegun_FNMinimi_FirstPersonMesh;
+		Mesh = Default__TdWeapon_Machinegun_FNMinimi_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.FirstPersonMesh'*/;
 		PickupSound = LoadAsset<SoundCue>("A_WP_Handling.Heavy.HeavyHandling")/*Ref SoundCue'A_WP_Handling.Heavy.HeavyHandling'*/;
-		DroppedPickupMesh = Default__TdWeapon_Machinegun_FNMinimi_ThirdPersonMesh;
-		PickupFactoryMesh = Default__TdWeapon_Machinegun_FNMinimi_FirstPersonMesh;
+		DroppedPickupMesh = Default__TdWeapon_Machinegun_FNMinimi_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_Machinegun_FNMinimi_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			Default__TdWeapon_Machinegun_FNMinimi_FirstPersonMesh,
-			Default__TdWeapon_Machinegun_FNMinimi_ThirdPersonMesh,
+			Default__TdWeapon_Machinegun_FNMinimi_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.FirstPersonMesh'*/,
+			Default__TdWeapon_Machinegun_FNMinimi_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Machinegun_FNMinimi.ThirdPersonMesh'*/,
 		};
 	}
 }

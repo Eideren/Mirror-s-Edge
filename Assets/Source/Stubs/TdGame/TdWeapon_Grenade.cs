@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -173,11 +171,17 @@ public partial class TdWeapon_Grenade : TdWeapon/*
 	}
 	public TdWeapon_Grenade()
 	{
+		var Default__TdWeapon_Grenade_FirstPersonMesh = new TdSkeletalMeshComponent
+		{
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Grenade.FirstPersonMesh' */;
+		var Default__TdWeapon_Grenade_ThirdPersonMesh = new TdSkeletalMeshComponent
+		{
+		}/* Reference: TdSkeletalMeshComponent'Default__TdWeapon_Grenade.ThirdPersonMesh' */;
 		// Object Offset:0x006CE725
 		WeaponPoseProfileName = (name)"Grenade";
 		WeaponType = TdPawn.EWeaponType.EWT_Light;
-		Mesh1p = LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_Grenade.FirstPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Grenade.FirstPersonMesh'*/;
-		Mesh3p = LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_Grenade.ThirdPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Grenade.ThirdPersonMesh'*/;
+		Mesh1p = Default__TdWeapon_Grenade_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Grenade.FirstPersonMesh'*/;
+		Mesh3p = Default__TdWeapon_Grenade_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Grenade.ThirdPersonMesh'*/;
 		MaxAssistDistance = 15000;
 		MaxAssistValuePitch = 0.60f;
 		FiringStatesArray = new array<name>
@@ -186,20 +190,18 @@ public partial class TdWeapon_Grenade : TdWeapon/*
 		};
 		WeaponFireTypes = new array<Weapon.EWeaponFireType>
 		{
-			#warning weird ass EWeaponFireType value replaced with default
-			//155,
-			default
+			155,
 		};
 		EquipTime = 0.450f;
 		PutDownTime = 0.50f;
 		bCanThrow = false;
-		Mesh = LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_Grenade.FirstPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Grenade.FirstPersonMesh'*/;
-		DroppedPickupMesh = LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_Grenade.ThirdPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Grenade.ThirdPersonMesh'*/;
-		PickupFactoryMesh = LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_Grenade.FirstPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Grenade.FirstPersonMesh'*/;
+		Mesh = Default__TdWeapon_Grenade_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Grenade.FirstPersonMesh'*/;
+		DroppedPickupMesh = Default__TdWeapon_Grenade_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Grenade.ThirdPersonMesh'*/;
+		PickupFactoryMesh = Default__TdWeapon_Grenade_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Grenade.FirstPersonMesh'*/;
 		Components = new array</*export editinline */ActorComponent>
 		{
-			LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_Grenade.FirstPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Grenade.FirstPersonMesh'*/,
-			LoadAsset<TdSkeletalMeshComponent>("Default__TdWeapon_Grenade.ThirdPersonMesh")/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Grenade.ThirdPersonMesh'*/,
+			Default__TdWeapon_Grenade_FirstPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Grenade.FirstPersonMesh'*/,
+			Default__TdWeapon_Grenade_ThirdPersonMesh/*Ref TdSkeletalMeshComponent'Default__TdWeapon_Grenade.ThirdPersonMesh'*/,
 		};
 	}
 }
