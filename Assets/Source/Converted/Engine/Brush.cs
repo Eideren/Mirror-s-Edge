@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -37,7 +39,8 @@ public partial class Brush : Actor/*
 	public int PolyFlags;
 	public/*()*/ bool bColored;
 	public bool bSolidWhenSelected;
-	public /*const export */Model Brush;
+	#warning renamed Brush to _Brush, c# doesn't allow match name between members and class
+	public /*const export */Model _Brush;
 	public /*const editconst export editinline */BrushComponent BrushComponent;
 	public array<Brush.GeomSelection> SavedSelections;
 	

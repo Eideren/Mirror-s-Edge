@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -10,7 +12,8 @@ public partial class Admin : PlayerController/*
 	
 	}
 	
-	public virtual /*exec function */void Admin(String CommandLine)
+	#warning Renamed member, c# naming scheme
+	public virtual /*exec function */void Admin_(String CommandLine)
 	{
 	
 	}

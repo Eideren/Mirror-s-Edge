@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -256,7 +258,7 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 	
 	public override /*simulated function */Core.ClassT<DamageType> GetDamageType()
 	{
-		return ((((int)MeleeType) == ((int)TdMove_Melee.EMoveMeleeType.MT_AtBentOverEnemy/*2*/)) ? ClassT<TdDmgType_MeleeSoccerKick>() : ((bLeft) ? ClassT<TdDmgType_MeleeLeft>() : ClassT<TdDmgType_MeleeRight>()));
+		return ((((int)MeleeType) == ((int)TdMove_Melee.EMoveMeleeType.MT_AtBentOverEnemy/*2*/)) ? (Core.ClassT<DamageType>)ClassT<TdDmgType_MeleeSoccerKick>() : ((bLeft) ? (Core.ClassT<DamageType>)ClassT<TdDmgType_MeleeLeft>() : (Core.ClassT<DamageType>)ClassT<TdDmgType_MeleeRight>()));
 	}
 	
 	public virtual /*function */bool TestHit()
@@ -276,7 +278,7 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 		if(((Dot(Normal(ToTarget2d), ((Vector)(PawnOwner.Rotation)))) > 0.80f) && VSize(ToTarget) < 170.0f)
 		{
 			ImpactMomentum = ((Vector)(PawnOwner.Rotation)) * 150.0f;
-			DamageType = ((bLeft) ? ClassT<TdDmgType_MeleeLeft>() : ClassT<TdDmgType_MeleeRight>());
+			DamageType = ((bLeft) ? (Core.ClassT<TdDamageType>)ClassT<TdDmgType_MeleeLeft>() : (Core.ClassT<TdDamageType>)ClassT<TdDmgType_MeleeRight>());
 			Damage = MeleeDamage;
 			HitLocation = PawnOwner.Mesh1p.GetBoneLocation(((bLeft) ? "LeftHand" : "RightHand"), default(int?));
 			Hit.Material = default;

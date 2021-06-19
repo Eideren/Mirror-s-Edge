@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -113,7 +115,7 @@ public partial class TdMove_MeleeSlide : TdMove_MeleeBase/*
 	
 	public override /*simulated function */Core.ClassT<DamageType> GetDamageType()
 	{
-		return ((((int)MeleeState) == ((int)TdMove_MeleeBase.EMeleeState.MS_MeleeAttackFinishing/*2*/)) ? ClassT<TdDmgType_Melee>() : ClassT<TdDmgType_MeleeSlide>());
+		return ((((int)MeleeState) == ((int)TdMove_MeleeBase.EMeleeState.MS_MeleeAttackFinishing/*2*/)) ? (Core.ClassT<DamageType>)ClassT<TdDmgType_Melee>() : (Core.ClassT<DamageType>)ClassT<TdDmgType_MeleeSlide>());
 	}
 	
 	public override /*simulated function */void TriggerMove()

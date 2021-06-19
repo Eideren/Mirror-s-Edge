@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -1226,7 +1228,8 @@ public partial class TdPlayerController : GamePlayerController,
 			}
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			base(Actor).DisplayDebug(HUD, ref/*probably?*/ out_YL, ref/*probably?*/ out_YPos);
+			#warning commented out UI debug function
+			// base(Actor).DisplayDebug(HUD, ref/*probably?*/ out_YL, ref/*probably?*/ out_YPos);
 		}
 		if((PlayerCamera != default) && HUD.ShouldDisplayDebug("Camera"))
 		{

@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -235,7 +237,7 @@ public partial class UITabControl : UIObject/*
 			ClassT<UIState_Active>(),
 		};
 		EventProvider = Default__UITabControl_WidgetEventComponent/*Ref UIComp_Event'Default__UITabControl.WidgetEventComponent'*/;
-		__OnRawInputKey__Delegate = (EventParms) => ProcessInputKey(EventParms);
+		__OnRawInputKey__Delegate = ProcessInputKey;
 	}
 }
 }

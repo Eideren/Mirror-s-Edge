@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -48,7 +50,9 @@ public partial class TdSPStoryGame : TdSPGame/*
 	{
 		base.InitAI();
 		VoiceOverManager = Spawn(ClassT<TdAIVoiceOverManager>(), default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
-		BossFights.Add(0);
+		
+		#warning weird ass add commented out
+		//BossFights.Add(0);
 		BossFights[0] =  ClassT<TdBossFight>().New(this);
 	}
 	

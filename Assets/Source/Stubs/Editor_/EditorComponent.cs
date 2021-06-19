@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.Editor{
 using Core; using Engine; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -55,7 +57,7 @@ public partial class EditorComponent : PrimitiveComponent/*
 			B=0,
 			A=0
 		};
-		DepthPriorityGroup = Scene.ESceneDepthPriorityGroup.SDPG_UnrealEdBackground;
+		DepthPriorityGroup = MEdge.Engine.Scene.ESceneDepthPriorityGroup.SDPG_UnrealEdBackground;
 	}
 }
 }
