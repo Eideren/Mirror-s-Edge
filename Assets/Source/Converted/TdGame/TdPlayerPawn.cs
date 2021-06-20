@@ -1263,7 +1263,7 @@ public partial class TdPlayerPawn : TdPawn/*
 	
 		if(bEnableHairPhysics)
 		{
-			Mesh3p.PhysicsAssetInstance.SetNamedBodiesFixed(false, HairBones, Mesh3p, false);
+			Mesh3p.PhysicsAssetInstance.SetNamedBodiesFixed(false, HairBones.NewCopy(), Mesh3p, false);
 			I = 0;
 			J0x36:{}
 			if(I < Mesh3p.PhysicsAsset.BodySetup.Length)
@@ -1289,7 +1289,7 @@ public partial class TdPlayerPawn : TdPawn/*
 	
 	public virtual /*simulated event */void DisableHairRagdoll()
 	{
-		Mesh3p.PhysicsAssetInstance.SetNamedBodiesFixed(true, HairBones, Mesh3p, false);
+		Mesh3p.PhysicsAssetInstance.SetNamedBodiesFixed(true, HairBones.NewCopy(), Mesh3p, false);
 	}
 	
 	public override /*simulated function */void PlayDying(Core.ClassT<DamageType> DamageType, Object.Vector HitLoc)
@@ -1417,7 +1417,7 @@ public partial class TdPlayerPawn : TdPawn/*
 			Mesh3p.AnimSets[4] = InAnimSets[1];
 		}
 		SetFirstPersonDPG(Scene.ESceneDepthPriorityGroup.SDPG_Intermediate/*2*/);
-		MAT_BeginAnimControl(InAnimSets);
+		MAT_BeginAnimControl(InAnimSets.NewCopy());
 		SetTimer(0.50f, false, "CheckForSkippableCutscene", default(Object?));
 	}
 	
@@ -1441,7 +1441,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		{
 			return;
 		}
-		MAT_SetAnimWeights(SlotInfos);
+		MAT_SetAnimWeights(SlotInfos.NewCopy());
 	}
 	
 	public override /*event */void FinishAnimControl()

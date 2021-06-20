@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -39,7 +37,7 @@ public partial class Canvas : Object/*
 	public bool bNoSmooth;
 	public /*const */int SizeX;
 	public /*const */int SizeY;
-	public /*native const */Object.Pointer Canvas_; // c# naming scheme renamed
+	public /*native const */Object.Pointer Canvas;
 	public /*native const */Object.Pointer SceneView;
 	public Object.Plane ColorModulate;
 	public Texture2D DefaultTexture;

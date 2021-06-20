@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -2449,7 +2447,7 @@ public partial class TdPawn : GamePawn/*
 		{
 			return false;
 		}
-		Mesh3p.PhysicsAssetInstance.SetNamedBodiesFixed(false, Hit.DamageType.DefaultAs<TdDamageType>().PhysicsBodyImpactBoneList, Mesh3p, false);
+		Mesh3p.PhysicsAssetInstance.SetNamedBodiesFixed(false, Hit.DamageType.DefaultAs<TdDamageType>().PhysicsBodyImpactBoneList.NewCopy(), Mesh3p, false);
 		Mesh3p.bUpdateJointsFromAnimation = true;
 		MotorStrength = Hit.DamageType.DefaultAs<TdDamageType>().PhysHitReactionMotorStrength;
 		Mesh3p.PhysicsAssetInstance.SetAllMotorsAngularDriveParams(MotorStrength.X, MotorStrength.Y, 0.0f);
@@ -3872,11 +3870,11 @@ public partial class TdPawn : GamePawn/*
 	}
 	
 	// Export UTdPawn::execGetAverageSpeed(FFrame&, void* const)
-	/*public virtual native function float GetAverageSpeed(float Time)
+	public virtual /*native function */float GetAverageSpeed(float Time)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
-	}*/
+	}
 	
 	public override /*simulated function */void SetWeapon(Weapon W)
 	{

@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -107,8 +105,7 @@ public partial class TdUIWidgetList : TdUIDrawPanel,
 		return default;
 	}
 	
-	#warning is overriding a delegate !? Probably the default implementation
-	public /*override*/ /*function */void OnValueChanged(UIObject Sender, int PlayerIndex)
+	public override /*function */void OnValueChanged(UIObject Sender, int PlayerIndex)
 	{
 	
 	}

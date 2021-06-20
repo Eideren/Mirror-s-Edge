@@ -12,7 +12,7 @@ namespace MEdge
     /// but every time the entire array is copied."
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class array<T> : IEnumerable<T>
+    public struct array<T> : IEnumerable<T>
     {
         private const int DefaultCapacity = 4;
         private static readonly T[] s_emptyArray = new T[0];
@@ -58,9 +58,16 @@ namespace MEdge
             }
         }
 
-        internal T[] _items;
+
+        internal T[] _items
+        {
+            get => __items ?? s_emptyArray;
+            set => __items = value;
+        }
         internal int _size;
         private int _version;
+
+        T[] __items;
         
         
         /// <summary>
@@ -83,11 +90,6 @@ namespace MEdge
             get => this[i.GetHashCode()];
             set => this[i.GetHashCode()] = value;
         }*/
-        
-        public array()
-        {
-            _items = s_emptyArray;
-        }
 
         public int Find(T val) => Array.IndexOf(_items, val, 0, _size);
 
@@ -177,6 +179,19 @@ namespace MEdge
             _size++;
             _version++;
         }
+
+
+
+        public array<T> NewCopy()
+        {
+            var newArr = new T[Length];
+            Array.Copy( _items, newArr, Length );
+            var cpy = this;
+            cpy.__items = newArr;
+            return cpy;
+        }
+
+
 
         // Non-inline from List.Add to improve its code quality as uncommon path
         [MethodImpl(MethodImplOptions.NoInlining)]

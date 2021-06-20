@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -530,7 +528,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		CurrentTackData = CheckpointManager.GetTrackData(Stretch, ChoosePlayerStart(default, (byte)default(byte?)));
 		bInitailRaceSpawn = false;
 		TargetTTData = TimeTrialData.GetTargetRaceData();
-		CreateTimeData(CurrentTackData, TargetTTData.TotalTime, TargetTTData.IntermediateTimes, ref/*probably?*/ NewTimeData);
+		CreateTimeData(CurrentTackData, TargetTTData.TotalTime, TargetTTData.IntermediateTimes.NewCopy(), ref/*probably?*/ NewTimeData);
 		Idx = 0;
 		J0x90:{}
 		if(Idx < NewTimeData.IntermediateTimes.Length)
@@ -748,9 +746,8 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	public virtual SendFinishlineKismet_del SendFinishlineKismet { get => bfield_SendFinishlineKismet ?? ((_a)=>{}); set => bfield_SendFinishlineKismet = value; } SendFinishlineKismet_del bfield_SendFinishlineKismet;
 	public virtual SendFinishlineKismet_del global_SendFinishlineKismet => (_a)=>{};
 	
-	#warning Renamed RaceOver, conflicting with state of the same name
 	public delegate void RaceOver_del();
-	public virtual RaceOver_del RaceOver_ { get => bfield_RaceOver ?? (()=>{}); set => bfield_RaceOver = value; } RaceOver_del bfield_RaceOver;
+	public virtual RaceOver_del RaceOver { get => bfield_RaceOver ?? (()=>{}); set => bfield_RaceOver = value; } RaceOver_del bfield_RaceOver;
 	public virtual RaceOver_del global_RaceOver => ()=>{};
 	
 	public delegate void KillRacingPawn_del();
@@ -1284,7 +1281,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	
 	protected /*function */void TdSPTimeTrialGame_EndAnimation_RaceOver()// state function
 	{
-		((RacingPlayer.myHUD) as TdTimeTrialHUD).TriggerCustomColorBlink(0.060f, 0.40f, 1.0f, 1.0f, 1.0f, true, () => OnMaxFaded());
+		((RacingPlayer.myHUD) as TdTimeTrialHUD).TriggerCustomColorBlink(0.060f, 0.40f, 1.0f, 1.0f, 1.0f, true, OnMaxFaded);
 	}
 	
 	protected /*function */void TdSPTimeTrialGame_EndAnimation_OnMaxFaded()// state function
@@ -1310,7 +1307,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		{
 			/*ignores*/ PrepareRace = ()=>{};
 	
-			RaceOver_ = TdSPTimeTrialGame_EndAnimation_RaceOver;
+			RaceOver = TdSPTimeTrialGame_EndAnimation_RaceOver;
 			OnMaxFaded = TdSPTimeTrialGame_EndAnimation_OnMaxFaded;
 	
 			if(jumpTo == null || jumpTo == "Begin")
@@ -1391,16 +1388,6 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	
 	return PreRace();
 	}
-
-
-
-	void TdCheckpointListener.OnCheckpointCompleted( TdPlaceableCheckpoint Checkpoint, TdPlayerPawn Pawn, TdPlayerController Controller )
-	{
-		OnCheckpointCompleted( Checkpoint, Pawn, Controller );
-	}
-	
-	
-	
 	public TdSPTimeTrialGame()
 	{
 		// Object Offset:0x00668EAD

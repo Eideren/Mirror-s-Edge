@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdSharedContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -136,9 +134,7 @@ public partial class TdWeapon_Pistol_TaserContent : TdWeapon_Pistol_Taser/*
 		PreReloadTime = 0.50f;
 		WeaponFireTypes = new array<Weapon.EWeaponFireType>
 		{
-			#warning fallofftype values are weird, replaced with default
-			//149,
-			default
+			149,
 		};
 		FireInterval = new array<float>
 		{

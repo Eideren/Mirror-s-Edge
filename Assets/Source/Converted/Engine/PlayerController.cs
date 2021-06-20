@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -1464,7 +1462,7 @@ public partial class PlayerController : Controller/*
 			Say(msg);
 			return;
 		}
-		WorldInfo.Game.BroadcastTeam(this, WorldInfo.Game.Static.ParseMessageString(this, msg), "TeamSay");
+		WorldInfo.Game.BroadcastTeam(this, WorldInfo.Game.ParseMessageString(this, msg), "TeamSay");
 	}
 	
 	public virtual /*event */void PreClientTravel()
@@ -1890,8 +1888,7 @@ public partial class PlayerController : Controller/*
 	{
 		if(PlayerReplicationInfo != default)
 		{
-			#warning replaced base call with standard call
-			PlayerReplicationInfo/*.base(PlayerController)*/.UpdatePing(TimeStamp);
+			PlayerReplicationInfo.base(PlayerController).UpdatePing(TimeStamp);
 			if((WorldInfo.TimeSeconds - LastPingUpdate) > ((float)(4)))
 			{
 				if((bDynamicNetSpeed && OldPing > (DynamicPingThreshold * 0.0010f)) && PlayerReplicationInfo.ExactPing > (DynamicPingThreshold * 0.0010f))
@@ -2461,28 +2458,23 @@ public partial class PlayerController : Controller/*
 			ConsoleCommand("DEFER LOADGAME QUICKSAVE.SAV", default(bool?));
 		}
 	}
-
-
-	#warning split default delegate implementation
-	public delegate bool CanUnpause();
-	public bool CanUnpause_Default()
+	
+	public delegate bool CanUnpause()
 	{
-		// Originally 'WorldInfo.Pauser == this;', haven't verified if this works
-		return WorldInfo.Pauser == this.PlayerReplicationInfo;
+		return WorldInfo.Pauser == this;
 	}
 	
 	public virtual /*function */bool SetPause(bool bPause, /*optional *//*delegate*/PlayerController.CanUnpause? _CanUnpauseDelegate = default)
 	{
 		/*local */bool bResult = default;
 	
-		var CanUnpauseDelegate = _CanUnpauseDelegate ?? /*default*/CanUnpause_Default;
+		var CanUnpauseDelegate = _CanUnpauseDelegate ?? default;
 		if(((int)WorldInfo.NetMode) != ((int)WorldInfo.ENetMode.NM_Client/*3*/))
 		{
 			if(bPause == true)
 			{
 				bFire = (byte)0;
-				// 'Cast' delegate
-				bResult = WorldInfo.Game.SetPause(this, () => CanUnpauseDelegate());
+				bResult = WorldInfo.Game.SetPause(this, CanUnpauseDelegate);
 				if(bResult)
 				{
 					if(ForceFeedbackManager != default)
@@ -3158,7 +3150,7 @@ public partial class PlayerController : Controller/*
 			}
 			AcknowledgePossession(Pawn);
 		}
-		PlayerInput.PlayerInput_(DeltaTime);
+		PlayerInput.PlayerInput(DeltaTime);
 		if(bUpdatePosition)
 		{
 			ClientUpdatePosition();
@@ -4061,7 +4053,7 @@ public partial class PlayerController : Controller/*
 	{
 		/*local */Class saveClass = default;
 	
-		saveClass = ((DynamicLoadObject(ClassName, ClassT<Class>(), default)) as ClassT<Object>) as Class;
+		saveClass = ((DynamicLoadObject(ClassName, ClassT<Class>(), default(bool?))) as ClassT<Object>);
 		if(saveClass != default)
 		{
 			saveClass.Static.StaticSaveConfig();

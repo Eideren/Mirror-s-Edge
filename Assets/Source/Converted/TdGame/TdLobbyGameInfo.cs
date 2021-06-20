@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -363,7 +361,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 				Roles = TdGameData.GetRolesList(Team);
 				PlayerRole = TdGameData.GetRoleClassNameFromIndex(Roles[TdPRI.RoleIndexInTeam]);
 			}
-			if((AsNetConnection(P.Player)) != default)
+			if(((P.Player) as NetConnection) != default)
 			{
 				URL = (((URL + "?Team=") + ((Team)).ToString()) + "?Character=") + PlayerRole;
 				P.ClientTravel(URL, Actor.ETravelType.TRAVEL_Relative/*2*/, bSeamless, default(Object.Guid?));

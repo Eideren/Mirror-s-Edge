@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -465,7 +463,7 @@ public partial class Actor : Object/*
 	public /*transient */bool bPathTemp;
 	public bool bScriptInitialized;
 	public/*(Advanced)*/ bool bLockLocation;
-	public /*private const export editinline */array</*export editinline */ActorComponent> Components = new array<ActorComponent>();
+	public /*private const export editinline */array</*export editinline */ActorComponent> Components;
 	public /*private const export editinline transient */array</*export editinline */ActorComponent> AllComponents;
 	public /*private native const */Object.RenderCommandFence DetachFence;
 	public float CustomTimeDilation;
@@ -876,6 +874,10 @@ public partial class Actor : Object/*
 	public delegate void Tick_del(float DeltaTime);
 	public virtual Tick_del Tick { get => bfield_Tick ?? Actor_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public virtual Tick_del global_Tick => Actor_Tick;
+	public /*event */void Actor_Tick(float DeltaTime)
+	{
+	
+	}
 	
 	public delegate void Timer_del();
 	public virtual Timer_del Timer { get => bfield_Timer ?? Actor_Timer; set => bfield_Timer = value; } Timer_del bfield_Timer;
@@ -1080,6 +1082,20 @@ public partial class Actor : Object/*
 	public virtual /*native function */void GetBoundingCylinder(ref float CollisionRadius, ref float CollisionHeight)
 	{
 		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execSpawn(FFrame&, void* const)
+	public virtual /*native final function */Actor Spawn(Core.ClassT<Actor> SpawnClass, /*optional */Actor? _SpawnOwner = default, /*optional */name? _SpawnTag = default, /*optional */Object.Vector? _SpawnLocation = default, /*optional */Object.Rotator? _SpawnRotation = default, /*optional */Actor? _ActorTemplate = default, /*optional */bool? _bNoCollisionFail = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execDestroy(FFrame&, void* const)
+	public virtual /*native(279) final function */bool Destroy()
+	{
+		#warning NATIVE FUNCTION !
+		return default;
 	}
 	
 	public virtual /*event */void TornOff()

@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -142,13 +140,7 @@ public partial class GameInfo : Info/*
 	
 	public /*function */static bool UseLowGore(WorldInfo WI)
 	{
-		#warning static function overriding is not implemented, this function looks like it relies on it
-		// thankfully it is never overriden so the line below has been changed to work around the issue
-		// Note: DefaultAs returns a new object of the instance from which we called the static function,
-		//       it can be 'GameInfo' or any other class deriving from it. 
-		
-		//return (DefaultAs<GameInfo>().GoreLevel > 0) && ((int)WI.NetMode) != ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/);
-		return (new GameInfo().GoreLevel > 0) && ((int)WI.NetMode) != ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/);
+		return (DefaultAs<GameInfo>().GoreLevel > 0) && ((int)WI.NetMode) != ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/);
 	}
 	
 	public virtual /*function */CoverReplicator GetCoverReplicator()
@@ -275,7 +267,7 @@ public partial class GameInfo : Info/*
 	
 	public virtual /*function */void InitGameReplicationInfo()
 	{
-		GameReplicationInfo.GameClass = (ClassT<GameInfo>)Class;
+		GameReplicationInfo.GameClass = Class;
 		GameReplicationInfo.MaxLives = MaxLives;
 	}
 	
@@ -297,9 +289,9 @@ public partial class GameInfo : Info/*
 		/*local */int I = default;
 	
 		S = WorldInfo.GetAddressURL();
-		I = InStr(S, ":", default);
+		I = InStr(S, ":", default(bool?));
 		assert(I >= 0);
-		return StringToInt((Mid(S, I + 1, default)));
+		return StringToInt((Mid(S, I + 1, default(int?))));
 	}
 	
 	public delegate bool CanOpenPauseMenu_del();
@@ -309,11 +301,8 @@ public partial class GameInfo : Info/*
 	{
 		return true;
 	}
-
-
-	#warning Default declaration for delegate split into own function
-	public delegate bool CanUnpause();
-	public bool CanUnpause_Default()
+	
+	public delegate bool CanUnpause()
 	{
 		return true;
 	}
@@ -351,9 +340,7 @@ public partial class GameInfo : Info/*
 		if(Index < Pausers.Length)
 		{
 			CanUnpauseCriteriaMet = Pausers[Index];
-			#warning Changed to default declaration
-			//if(CanUnpause())
-			if(CanUnpause_Default())
+			if(CanUnpause())
 			{
 				Pausers.Remove(Index, 1);
 				-- Index;
@@ -377,9 +364,7 @@ public partial class GameInfo : Info/*
 		if(Index < Pausers.Length)
 		{
 			CanUnpauseCriteriaMet = Pausers[Index];
-			#warning Changed to default declaration
-			if(CanUnpause_Default())
-			//if(CanUnpause())
+			if(CanUnpause())
 			{			
 			}
 			++ Index;
@@ -506,13 +491,7 @@ public partial class GameInfo : Info/*
 	
 	public /*event */static Core.ClassT<GameInfo> SetGameType(String MapName, String Options, String Portal)
 	{
-		#warning static function overriding is not implemented, this function looks like it relies on it
-		// thankfully it is never overriden so the line below has been changed to work around the issue
-		// Note: DefaultAs returns a new object of the instance from which we called the static function,
-		//       it can be 'GameInfo' or any other class deriving from it. 
-
-		//return DefaultAs<Object>().Class;
-		return ClassT<GameInfo>();
+		return DefaultAs<Object>().Class;
 	}
 	
 	public virtual /*event */void InitGame(String Options, ref String ErrorMessage)
@@ -798,7 +777,7 @@ public partial class GameInfo : Info/*
 		using var e210 = WorldInfo.AllControllers(ClassT<PlayerController>()).GetEnumerator();
 		while(e210.MoveNext() && (P = (PlayerController)e210.Current) == P)
 		{
-			if(AsNetConnection(P.Player) != default)
+			if(((P.Player) as NetConnection) != default)
 			{
 				P.ClientTravel(URL, Actor.ETravelType.TRAVEL_Relative/*2*/, bSeamless, NextMapGuid);
 				continue;
@@ -1149,7 +1128,7 @@ public partial class GameInfo : Info/*
 		/*local */int LevelIndex = default;
 		/*local */LevelStreaming TheLevel = default;
 	
-		if((((PC.Player) as LocalPlayer) == default) && AsChildConnection(PC.Player) == default)
+		if((((PC.Player) as LocalPlayer) == default) && ((PC.Player) as ChildConnection) == default)
 		{
 			if(WorldInfo.CommittedLevelNames.Length > 0)
 			{
@@ -1377,15 +1356,11 @@ public partial class GameInfo : Info/*
 		while(e0.MoveNext() && (C = (Controller)e0.Current) == C)
 		{
 		}
-		#warning not sure what's going on here, I'll just log stuff
-		System.Console.WriteLine( $"{nameof(GameInfo_NotifyKilled)} called, function is mangled" );
-		/*
 		@NULL
 		Killer
 		Killed
 		KilledPawn
 		)		
-		*/
 	}
 	
 	public virtual /*function */void Killed(Controller Killer, Controller KilledPlayer, Pawn KilledPawn, Core.ClassT<DamageType> DamageType)
@@ -1576,14 +1551,14 @@ public partial class GameInfo : Info/*
 			if((AutomatedTestingMapIndex >= 0) && Len(AutomatedMapTestingTransitionMap) > 0)
 			{
 				++ AutomatedTestingMapIndex;
-				AutomatedTestingMapIndex *= -1;
+				AutomatedTestingMapIndex *= ((float)(-1));
 				MapName = AutomatedMapTestingTransitionMap;			
 			}
 			else
 			{
 				if(Len(AutomatedMapTestingTransitionMap) > 0)
 				{
-					AutomatedTestingMapIndex *= -1;
+					AutomatedTestingMapIndex *= ((float)(-1));
 				}
 				if(AutomatedTestingMapIndex >= AutomatedMapTestingList.Length)
 				{
@@ -2686,7 +2661,7 @@ public partial class GameInfo : Info/*
 	{
 		if(NotEqual_InterfaceInterface(GameInterface, (default(OnlineGameInterface))))
 		{
-			GameInterface.AddArbitrationRegistrationCompleteDelegate(b => ArbitrationRegistrationComplete(b));
+			GameInterface.AddArbitrationRegistrationCompleteDelegate(ArbitrationRegistrationComplete);
 			GameInterface.RegisterForArbitration();		
 		}
 		else
@@ -2697,7 +2672,7 @@ public partial class GameInfo : Info/*
 	
 	protected /*function */void GameInfo_PendingMatch_ArbitrationRegistrationComplete(bool bWasSuccessful)// state function
 	{
-		GameInterface.AddArbitrationRegistrationCompleteDelegate(b => ArbitrationRegistrationComplete(b));
+		GameInterface.AddArbitrationRegistrationCompleteDelegate(ArbitrationRegistrationComplete);
 		if(bWasSuccessful)
 		{
 			StartArbitratedMatch();		
@@ -2759,7 +2734,7 @@ public partial class GameInfo : Info/*
 		SetTimer(0.0f, false, "ArbitrationTimeout", default(Object?));
 		if(NotEqual_InterfaceInterface(GameInterface, (default(OnlineGameInterface))))
 		{
-			GameInterface.ClearArbitrationRegistrationCompleteDelegate(b => ArbitrationRegistrationComplete(b));
+			GameInterface.ClearArbitrationRegistrationCompleteDelegate(ArbitrationRegistrationComplete);
 		}
 	}
 	

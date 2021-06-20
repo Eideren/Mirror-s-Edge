@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -17,7 +15,7 @@ public partial class Inventory : Actor/*
 		EISlot_MAX
 	};
 	
-	public Inventory Inventory_; // Renamed C# naming scheme
+	public Inventory Inventory;
 	public InventoryManager InvManager;
 	public /*databinding const localized */String ItemName;
 	public bool bRenderOverlays;
