@@ -243,7 +243,7 @@
 				return;
 
 			n.bRelevant = false;
-			if( n is AnimNodeBlendBase bb && bb.Children != null )
+			if( n is AnimNodeBlendBase bb )
 			{
 				foreach( var child in bb.Children )
 				{

@@ -51,14 +51,12 @@
 
 		class AnimNodeDrawer : INode
 		{
-			static WeakCache<array<AnimNodeBlendBase.AnimBlendChild>, List<BlendChildSlot>> blendChildKeys = new WeakCache<array<AnimNodeBlendBase.AnimBlendChild>, List<BlendChildSlot>>();
+			Dictionary<IField, List<BlendChildSlot>> blendChildKeys = new Dictionary<IField, List<BlendChildSlot>>();
 
 
 
 			class BlendChildSlot
 			{
-				public array<AnimNodeBlendBase.AnimBlendChild> Array;
-				public int Index;
 			}
 
 
@@ -155,11 +153,11 @@
 				{
 					case IField<array<AnimNodeBlendBase.AnimBlendChild>> fChildren:
 					{
-						var children = fChildren.Ref( cache );
 						_drawer.DrawLabel( field.Info.Name );
-						var blendChildSlots = blendChildKeys[ children ];
+						var blendChildSlots = blendChildKeys[ fChildren ];
+						var children = fChildren.Ref( cache );
 						while( blendChildSlots.Count < children.Length ) 
-							blendChildSlots.Add( new BlendChildSlot { Array = children, Index = blendChildSlots.Count } );
+							blendChildSlots.Add( new BlendChildSlot() );
 
 						for( int i = 0; i < children.Length; i++ )
 						{
@@ -168,6 +166,8 @@
 							_drawer.MarkNextAsLinkStart( thisTarget, ref child.Anim );
 							_drawer.DrawLabel( " -" );
 						}
+
+						fChildren.Ref( cache ) = children;
 
 						break;
 					}

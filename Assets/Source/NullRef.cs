@@ -8,7 +8,7 @@ namespace MEdge.Core
         {
             get
             {
-                _back_array_int_ = null;
+                _back_array_int_ = default;
                 return ref _back_array_int_;
             }
         }
@@ -17,7 +17,7 @@ namespace MEdge.Core
         {
             get
             {
-                _back_array_SequenceEvent_ = null;
+                _back_array_SequenceEvent_ = default;
                 return ref _back_array_SequenceEvent_;
             }
         }

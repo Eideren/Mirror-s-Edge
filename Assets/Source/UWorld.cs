@@ -305,18 +305,15 @@
                 //(*(void (__thiscall **)(_E_struct_AActor *))(constructedActor->VfTableObject.Dummy + 472))(constructedActor);
                 if ( (constructedActor.bDeleteMe) != false && !bProbablyNoFail )
                     return null;
-                if( constructedActor.Components != null )
+                for ( int i = 0; i < constructedActor.Components.Length; ++i )
                 {
-                    for ( int i = 0; i < constructedActor.Components.Length; ++i )
+                    var v34 = constructedActor.Components;
+                    networkRelatedBool = v34[i] == null;
+                    var v35 = v34[i] as ActorComponent;
+                    if( ! networkRelatedBool )
                     {
-                        var v34 = constructedActor.Components;
-                        networkRelatedBool = v34[i] == null;
-                        var v35 = v34[i] as ActorComponent;
-                        if( ! networkRelatedBool )
-                        {
-                            #warning maybe start component state here ?
-                            //E_UActorComponent_ConditionalBeginPlay(*v35);
-                        }
+                        #warning maybe start component state here ?
+                        //E_UActorComponent_ConditionalBeginPlay(*v35);
                     }
                 }
             }

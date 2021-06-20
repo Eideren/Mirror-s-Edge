@@ -7,15 +7,14 @@ namespace MEdge
 {
     /// <summary>
     /// This type might not entirely reflect how Unreal Engine's UScript array works,
-    /// mainly the fact that unreal script's array are more like structs;
+    /// mainly the fact that unreal script's array are more like weird structs;
     /// "[...](They can be) passed as function parameters and returned as function results,
-    /// but every time the entire array is copied."
+    /// but every time the entire array is copied." - https://wiki.beyondunreal.com/Types#Composite_types
+    /// Use the <see cref="NewCopy()"/> function to manually replicate this behavior
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public struct array<T> : IEnumerable<T>
     {
         private const int DefaultCapacity = 4;
-        private static readonly T[] s_emptyArray = new T[0];
 
         public int Capacity
         {
@@ -40,7 +39,7 @@ namespace MEdge
                     }
                     else
                     {
-                        _items = s_emptyArray;
+                        _items = Array.Empty<T>();
                     }
                 }
             }
@@ -61,7 +60,7 @@ namespace MEdge
 
         internal T[] _items
         {
-            get => __items ?? s_emptyArray;
+            get => __items ?? Array.Empty<T>();
             set => __items = value;
         }
         internal int _size;
