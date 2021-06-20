@@ -141,7 +141,7 @@ public partial class Camera : Actor/*
 	
 	public virtual /*function */void SetFOV(float NewFOV)
 	{
-		if((NewFOV < ((float)(1))) || NewFOV > ((float)(170)))
+		if(((NewFOV < ((float)(1))) || NewFOV > ((float)(170))))
 		{
 			bLockedFOV = false;
 			return;
@@ -276,14 +276,14 @@ public partial class Camera : Actor/*
 		if(CamActor != default)
 		{
 			CamActor.GetCameraView(DeltaTime, ref/*probably?*/ OutVT.POV);
-			bConstrainAspectRatio = bConstrainAspectRatio || CamActor.bConstrainAspectRatio;
+			bConstrainAspectRatio = (bConstrainAspectRatio || CamActor.bConstrainAspectRatio);
 			OutVT.AspectRatio = CamActor.AspectRatio;
 			bCamOverridePostProcess = CamActor.bCamOverridePostProcess;
 			CamPostProcessSettings = CamActor.CamOverridePostProcess;		
 		}
 		else
 		{
-			if((((OutVT.Target) as Pawn) == default) || !((OutVT.Target) as Pawn).CalcCamera(DeltaTime, ref/*probably?*/ OutVT.POV.Location, ref/*probably?*/ OutVT.POV.Rotation, ref/*probably?*/ OutVT.POV.FOV))
+			if(((((OutVT.Target) as Pawn) == default) || !((OutVT.Target) as Pawn).CalcCamera(DeltaTime, ref/*probably?*/ OutVT.POV.Location, ref/*probably?*/ OutVT.POV.Rotation, ref/*probably?*/ OutVT.POV.FOV)))
 			{
 				bDoNotApplyModifiers = true;
 				switch(CameraStyle)

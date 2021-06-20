@@ -81,7 +81,7 @@ public partial class TdLadderVolume : TdMovementVolume/*
 		{
 			return;
 		}
-		if((((int)TdP.MovementState) == ((int)TdPawn.EMovement.MOVE_Climb/*21*/)) || ((int)TdP.MovementState) == ((int)TdPawn.EMovement.MOVE_IntoClimb/*22*/))
+		if(((((int)TdP.MovementState) == ((int)TdPawn.EMovement.MOVE_Climb/*21*/)) || ((int)TdP.MovementState) == ((int)TdPawn.EMovement.MOVE_IntoClimb/*22*/)))
 		{
 			return;
 		}

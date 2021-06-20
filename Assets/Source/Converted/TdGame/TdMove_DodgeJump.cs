@@ -24,7 +24,7 @@ public partial class TdMove_DodgeJump : TdPhysicsMove/*
 		{
 			return false;
 		}
-		if(!(((int)PawnOwner.MoveActionHint) == ((int)TdPawn.EMoveActionHint.MAH_Left/*1*/)) || ((int)PawnOwner.MoveActionHint) == ((int)TdPawn.EMoveActionHint.MAH_Right/*2*/))
+		if(!((((int)PawnOwner.MoveActionHint) == ((int)TdPawn.EMoveActionHint.MAH_Left/*1*/)) || ((int)PawnOwner.MoveActionHint) == ((int)TdPawn.EMoveActionHint.MAH_Right/*2*/)))
 		{
 			return false;
 		}

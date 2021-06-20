@@ -36,7 +36,7 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		{
 			return false;
 		}
-		if((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Crouch/*15*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Slide/*16*/))
+		if(((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Crouch/*15*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Slide/*16*/)))
 		{
 			Start = PawnOwner.Location;
 			End = Start;
@@ -109,8 +109,8 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		{
 			UpdateMeleeAutoLockOn(TdPC, DeltaTime, out_Rotation, ref/*probably?*/ DeltaRot);
 		}
-		bMovingView = (((DeltaRot.Yaw > 0) || DeltaRot.Yaw < 0) || DeltaRot.Pitch > 0) || DeltaRot.Pitch < 0;
-		if((((int)PawnOwner.CurrentWalkingState) > ((int)TdPawn.WalkingState.WAS_Idle/*0*/)) || bMovingView)
+		bMovingView = ((((((DeltaRot.Yaw > 0) || DeltaRot.Yaw < 0)) || DeltaRot.Pitch > 0)) || DeltaRot.Pitch < 0);
+		if(((((int)PawnOwner.CurrentWalkingState) > ((int)TdPawn.WalkingState.WAS_Idle/*0*/)) || bMovingView))
 		{
 			if(bIsPlayingIdleAnim)
 			{
@@ -256,7 +256,7 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 			if(MovementTraceForBlockingEx(TraceEnd, TraceStart, TraceExtent, ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal))
 			{
 				HitTime = VSize(HitLocation - TraceStart) / VSize(TraceEnd - TraceStart);
-				if((MaxLookConstraint.Pitch < 14000) || HitTime < 0.80f)
+				if(((MaxLookConstraint.Pitch < 14000) || HitTime < 0.80f))
 				{
 					MinLookConstraint.Pitch = ((int)(((float)(Normalize(CameraRotation).Pitch)) * HitTime));				
 				}

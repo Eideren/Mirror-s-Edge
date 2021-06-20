@@ -48,7 +48,7 @@ public partial class Vehicle : Pawn/*
 	//	 if(bNetDirty && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
 	//		bDriving;
 	//
-	//	 if((bNetDirty && (bNetOwner || Driver == default) || !Driver.bHidden) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
+	//	 if((bNetDirty && (((bNetOwner || Driver == default)) || !Driver.bHidden)) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
 	//		Driver;
 	//}
 	

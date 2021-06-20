@@ -135,7 +135,7 @@ public partial class PhysicsVolume : Volume/*
 	public /*simulated event */void PhysicsVolume_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)
 	{
 		/*Transformed 'base.' to specific call*/Actor_Touch(Other, OtherComp, HitLocation, HitNormal);
-		if((Other == default) || Other.bStatic)
+		if(((Other == default) || Other.bStatic))
 		{
 			return;
 		}

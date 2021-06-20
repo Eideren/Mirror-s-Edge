@@ -29,7 +29,7 @@ public partial class TdMove_GrabJump : TdPhysicsMove/*
 		{
 			return false;
 		}
-		return (((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Grabbing/*3*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Climb/*21*/);
+		return ((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Grabbing/*3*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Climb/*21*/));
 	}
 	
 	public override /*simulated function */void StartMove()
@@ -79,7 +79,7 @@ public partial class TdMove_GrabJump : TdPhysicsMove/*
 	{
 		/*local */TdPlayerController PlayerController = default;
 	
-		if((MoveActiveTime < 0.050f) && ((DeltaRot.Yaw > 300) && DeltaJumpYaw >= 27000) || (DeltaRot.Yaw < -300) && DeltaJumpYaw < -27000)
+		if((MoveActiveTime < 0.050f) && (((DeltaRot.Yaw > 300) && DeltaJumpYaw >= 27000) || (DeltaRot.Yaw < -300) && DeltaJumpYaw < -27000))
 		{
 			PlayerController = ((PawnOwner.Controller) as TdPlayerController);
 			if(PlayerController != default)

@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -192,9 +190,7 @@ public partial class TdWeapon_Grenade : TdWeapon/*
 		};
 		WeaponFireTypes = new array<Weapon.EWeaponFireType>
 		{
-			#warning weird ass EWeaponFireType value replaced with default
-			//155,
-			default
+			155,
 		};
 		EquipTime = 0.450f;
 		PutDownTime = 0.50f;

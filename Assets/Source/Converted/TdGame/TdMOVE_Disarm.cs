@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -23,7 +21,7 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 		/*local */TdAIController DisarmedController = default;
 	
 		myController = ((PawnOwner.Controller) as TdPlayerController);
-		if((!base.CanDoMove() || PawnOwner.Weapon != default) || myController == default)
+		if((((!base.CanDoMove() || PawnOwner.Weapon != default)) || myController == default))
 		{
 			return false;
 		}
@@ -31,7 +29,7 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 		{
 			return true;
 		}
-		if((myController.TargetPawn == default) || myController.TargetPawn.Controller == default)
+		if(((myController.TargetPawn == default) || myController.TargetPawn.Controller == default))
 		{
 			return false;
 		}
@@ -59,7 +57,7 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 		/*local */Object.Rotator YawOffset = default;
 	
 		base.StartMove();
-		if(bForceMiss || ((int)DisarmState) == ((int)TdAIController.EDisarmState.DS_Miss/*1*/))
+		if((bForceMiss || ((int)DisarmState) == ((int)TdAIController.EDisarmState.DS_Miss/*1*/)))
 		{
 			TargetLocation = PawnOwner.Location;
 			TargetRotation = PawnOwner.Rotation;
@@ -229,7 +227,7 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 	
 	public virtual /*function */void TakeDisarmedPawnsWeapon()
 	{
-		WeaponClass = DisarmedPawn.Weapon.Class as ClassT<Inventory>/*Added explicit cast here*/;
+		WeaponClass = DisarmedPawn.Weapon.Class;
 		if(WeaponClass != default)
 		{
 			if(((WeaponClass) as ClassT<TdWeapon_Pistol_Taser>) != default)

@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -405,7 +403,7 @@ public partial class PrimitiveComponent : ActorComponent/*
 	public PrimitiveComponent()
 	{
 		// Object Offset:0x0025C7E6
-		DepthPriorityGroup = MEdge.Engine.Scene.ESceneDepthPriorityGroup.SDPG_World;
+		DepthPriorityGroup = Scene.ESceneDepthPriorityGroup.SDPG_World;
 		MotionBlurScale = 1.0f;
 		bAllowCullDistanceVolume = true;
 		bAcceptsDecalsDuringGameplay = true;

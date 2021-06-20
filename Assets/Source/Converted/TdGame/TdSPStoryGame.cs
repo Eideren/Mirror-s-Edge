@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -49,10 +47,8 @@ public partial class TdSPStoryGame : TdSPGame/*
 	public override /*function */void InitAI()
 	{
 		base.InitAI();
-		VoiceOverManager = Spawn(ClassT<TdAIVoiceOverManager>(), default, default, default, default, default, default);
-		
-		#warning weird ass add commented out
-		//BossFights.Add(0);
+		VoiceOverManager = Spawn(ClassT<TdAIVoiceOverManager>(), default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+		BossFights.Add(0);
 		BossFights[0] =  ClassT<TdBossFight>().New(this);
 	}
 	
@@ -123,7 +119,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 		/*local */int TeamNum = default, Idx = default;
 		/*local */SeqEvent_PlayerSpawned SpawnedEvent = default;
 	
-		TeamNum = (((NewPlayer.PlayerReplicationInfo == default) || NewPlayer.PlayerReplicationInfo.Team == default) ? 255 : NewPlayer.PlayerReplicationInfo.Team.TeamIndex);
+		TeamNum = ((((NewPlayer.PlayerReplicationInfo == default) || NewPlayer.PlayerReplicationInfo.Team == default)) ? 255 : NewPlayer.PlayerReplicationInfo.Team.TeamIndex);
 		StartSpot = FindPlayerStart(NewPlayer, (byte)((byte)(TeamNum)), default(String?));
 		if(StartSpot == default)
 		{
@@ -241,7 +237,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 		{
 			using var v = CurrentCheckpoint.GeneratedEvents.GetEnumerator();while(v.MoveNext() && (Event = (SequenceEvent)v.Current) == Event)
 			{
-				if(Event.IsA("SeqEvt_TdCheckpointLoaded") || Event.IsA("SeqEvt_TdCheckpointActivated"))
+				if((Event.IsA("SeqEvt_TdCheckpointLoaded") || Event.IsA("SeqEvt_TdCheckpointActivated")))
 				{
 					Event.CheckActivate(NewPlayer, NewPlayer.Pawn, default(bool?), ref/*probably?*/ /*null*/NullRef.array_int_, default(bool?));
 				}			

@@ -466,8 +466,8 @@ public partial class TdPlayerPawn : TdPawn/*
 	
 		FallHeight = EnterFallingHeight - Location.Z;
 		bLandedOnSoftSurface = ((Moves[20]) as TdMove_Landing).IsLandingOnSoftObject();
-		bDeathFall = ((((int)MovementState) == ((int)TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/)) && IsInState("UncontrolledFall", default(bool?))) || FallHeight >= FallingUncontrolledHeight;
-		if(bLandedOnSoftSurface || (!bDeathFall && FallHeight < ((Moves[20]) as TdMove_Landing).HardLandingHeight) || CanSkillRoll())
+		bDeathFall = (((((int)MovementState) == ((int)TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/)) && IsInState("UncontrolledFall", default(bool?))) || FallHeight >= FallingUncontrolledHeight);
+		if((bLandedOnSoftSurface || ((!bDeathFall && FallHeight < ((Moves[20]) as TdMove_Landing).HardLandingHeight) || CanSkillRoll())))
 		{
 			MakeNoise(0.50f, "PlayerMovementNoise");		
 		}
@@ -564,7 +564,7 @@ public partial class TdPlayerPawn : TdPawn/*
 			}
 		}
 		PlayerController = ((Controller) as TdPlayerController);
-		if((PlayerController != default) && !IsInState("UncontrolledFall", default(bool?)) || IsInState("Dying", default(bool?)))
+		if((PlayerController != default) && !(IsInState("UncontrolledFall", default(bool?)) || IsInState("Dying", default(bool?))))
 		{
 			if(!RollTriggerPressed && ((int)PlayerController.bDuck) == ((int)1))
 			{
@@ -722,7 +722,7 @@ public partial class TdPlayerPawn : TdPawn/*
 	{
 		/*local */Object.Vector CamLoc = default;
 	
-		if((IsFirstPerson()) || Mesh == Mesh1p)
+		if(((IsFirstPerson()) || Mesh == Mesh1p))
 		{
 			CamLoc = PlayerCameraLocation;		
 		}
@@ -744,7 +744,7 @@ public partial class TdPlayerPawn : TdPawn/*
 	{
 		/*local */Object.Rotator CamRot = default;
 	
-		if((IsFirstPerson()) || Mesh == Mesh1p)
+		if(((IsFirstPerson()) || Mesh == Mesh1p))
 		{
 			CamRot = PlayerCameraRotation;		
 		}
@@ -1076,8 +1076,8 @@ public partial class TdPlayerPawn : TdPawn/*
 		/*local */bool bIsFirstPerson = default, bIsServer = default;
 	
 		bIsFirstPerson = IsLocallyControlled();
-		bIsServer = (((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/)) || ((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_ListenServer/*2*/);
-		if(bIsFirstPerson || bIsServer)
+		bIsServer = ((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/)) || ((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_ListenServer/*2*/));
+		if((bIsFirstPerson || bIsServer))
 		{
 			Enable1P();		
 		}
@@ -1297,7 +1297,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		SetIgnoreMoveInput(default(float?));
 		SetIgnoreLookInput(default(float?));
 		UpdateAnimSets(default);
-		if((((int)MovementState) == ((int)TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/)) || ((int)MovementState) == ((int)TdPawn.EMovement.MOVE_180TurnInAir/*25*/))
+		if(((((int)MovementState) == ((int)TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/)) || ((int)MovementState) == ((int)TdPawn.EMovement.MOVE_180TurnInAir/*25*/)))
 		{
 			((Controller) as TdPlayerController).SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_DEATH_BY_FALLING/*8*/, default(float?), default(bool?), 1.50f);
 			SetTimer(0.010f, false, "PlayDeathAnim", default(Object?));		
@@ -1578,13 +1578,13 @@ public partial class TdPlayerPawn : TdPawn/*
 		UseRootMotion(true);
 		Velocity = vect(0.0f, 0.0f, 0.0f);
 		SetTimer(2.0f, false, "TurnOffRootMotion", default(Object?));
-		if((((int)OldMovementState) == ((int)TdPawn.EMovement.MOVE_Grabbing/*3*/)) || ((int)OldMovementState) == ((int)TdPawn.EMovement.MOVE_Climb/*21*/))
+		if(((((int)OldMovementState) == ((int)TdPawn.EMovement.MOVE_Grabbing/*3*/)) || ((int)OldMovementState) == ((int)TdPawn.EMovement.MOVE_Climb/*21*/)))
 		{
 			PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "die", 1.0f, 0.30f, -1.0f, false, true, true, default(bool?));		
 		}
 		else
 		{
-			if((((int)MovementState) == ((int)TdPawn.EMovement.MOVE_Falling/*2*/)) || ((int)MovementState) == ((int)TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/))
+			if(((((int)MovementState) == ((int)TdPawn.EMovement.MOVE_Falling/*2*/)) || ((int)MovementState) == ((int)TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/)))
 			{
 				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDie", 1.0f, 0.30f, -1.0f, false, true, true, default(bool?));			
 			}
@@ -1646,7 +1646,7 @@ public partial class TdPlayerPawn : TdPawn/*
 	
 	protected /*event */void TdPlayerPawn_UncontrolledFall_Landed(Object.Vector aNormal, Actor anActor)// state function
 	{
-		if(bTakeFallDamage || ((int)MovementState) != ((int)TdPawn.EMovement.MOVE_SoftLanding/*78*/))
+		if((bTakeFallDamage || ((int)MovementState) != ((int)TdPawn.EMovement.MOVE_SoftLanding/*78*/)))
 		{
 			TakeFallingDamage();
 		}

@@ -124,7 +124,7 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 	
 	public virtual /*simulated function */bool PassThroughDamage(Actor HitActor)
 	{
-		return !HitActor.bBlockActors && HitActor.IsA("Trigger") || HitActor.IsA("TriggerVolume");
+		return !HitActor.bBlockActors && (HitActor.IsA("Trigger") || HitActor.IsA("TriggerVolume"));
 	}
 	
 	public override /*function */bool CanDoMove()
@@ -259,7 +259,7 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 	
 		if(bBargeWithHands)
 		{
-			if((BargeActor == default) || bHasDealtDamage)
+			if(((BargeActor == default) || bHasDealtDamage))
 			{
 				return;
 			}

@@ -48,7 +48,7 @@ public partial class TdMPTeamDMGame : TdMPTeamGame/*
 			Tps = ((P) as TdTeamPlayerStart);
 			if(Tps != default)
 			{
-				if((Tps.RobberSpawn && ((int)Team) == ((int)0)) || Tps.CopSpawn && ((int)Team) == ((int)1))
+				if(((Tps.RobberSpawn && ((int)Team) == ((int)0)) || Tps.CopSpawn && ((int)Team) == ((int)1)))
 				{
 					return ((float)(((P.bPrimaryStart) ? 1000 : 20)));
 				}
@@ -78,7 +78,7 @@ public partial class TdMPTeamDMGame : TdMPTeamGame/*
 	
 	public override /*function */void ScoreKill(Controller Killer, Controller Other)
 	{
-		if((Killer == Other) || Killer == default)
+		if(((Killer == Other) || Killer == default))
 		{
 			if((Other != default) && Other.PlayerReplicationInfo != default)
 			{

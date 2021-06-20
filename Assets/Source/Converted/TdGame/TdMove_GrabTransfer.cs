@@ -54,7 +54,7 @@ public partial class TdMove_GrabTransfer : TdPhysicsMove/*
 		{
 			return false;
 		}
-		return (((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Grabbing/*3*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Climb/*21*/);
+		return ((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Grabbing/*3*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Climb/*21*/));
 	}
 	
 	public override /*simulated function */void StartMove()

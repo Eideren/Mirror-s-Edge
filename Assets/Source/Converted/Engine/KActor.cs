@@ -136,7 +136,7 @@ public partial class KActor : DynamicSMActor/*
 		}
 		else
 		{
-			if(((VarName == "DrawScaleX") || VarName == "DrawScaleY") || VarName == "DrawScaleZ")
+			if(((((VarName == "DrawScaleX") || VarName == "DrawScaleY")) || VarName == "DrawScaleZ"))
 			{
 				NewDrawScale3D.X = DrawScaleX;
 				NewDrawScale3D.Y = DrawScaleY;
@@ -289,7 +289,7 @@ public partial class KActor : DynamicSMActor/*
 	
 	public override /*function */void OnDeactivateLOI(SeqAct_DeactivateLOI Sender)
 	{
-		if(!bLOIObject || !WorldInfo.IsLOIEnabled())
+		if((!bLOIObject || !WorldInfo.IsLOIEnabled()))
 		{
 			return;
 		}
@@ -301,7 +301,7 @@ public partial class KActor : DynamicSMActor/*
 	
 	public override /*function */void OnActivateLOI(SeqAct_ActivateLOI Sender)
 	{
-		if(!bLOIObject || !WorldInfo.IsLOIEnabled())
+		if((!bLOIObject || !WorldInfo.IsLOIEnabled()))
 		{
 			return;
 		}

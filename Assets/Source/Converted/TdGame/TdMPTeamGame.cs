@@ -115,7 +115,7 @@ public partial class TdMPTeamGame : TdMPGame/*
 		{
 			NewTeam = Teams[((int)PickTeam(255, Other))];
 		}
-		if((Other.PlayerReplicationInfo.Team == default) || Other.PlayerReplicationInfo.Team != NewTeam)
+		if(((Other.PlayerReplicationInfo.Team == default) || Other.PlayerReplicationInfo.Team != NewTeam))
 		{
 			SetTeam(Other, NewTeam, bNewTeam);
 			return true;
@@ -142,11 +142,11 @@ public partial class TdMPTeamGame : TdMPGame/*
 	
 	public override /*function */bool CanSpectate(PlayerController Viewer, PlayerReplicationInfo ViewTarget)
 	{
-		if((ViewTarget == default) || ViewTarget.bOnlySpectator)
+		if(((ViewTarget == default) || ViewTarget.bOnlySpectator))
 		{
 			return false;
 		}
-		return Viewer.PlayerReplicationInfo.bOnlySpectator || ViewTarget.Team == Viewer.PlayerReplicationInfo.Team;
+		return (Viewer.PlayerReplicationInfo.bOnlySpectator || ViewTarget.Team == Viewer.PlayerReplicationInfo.Team);
 	}
 	
 	public override /*function */void ReduceDamage(ref int Damage, Pawn injured, Controller InstigatedBy, Object.Vector HitLocation, ref Object.Vector Momentum, Core.ClassT<DamageType> DamageType)
@@ -174,7 +174,7 @@ public partial class TdMPTeamGame : TdMPGame/*
 		}
 		else
 		{
-			if((((P) as TdTeamPlayerStart).TeamNumber == 2) || ((int)((byte)(((P) as TdTeamPlayerStart).TeamNumber))) == ((int)Team))
+			if(((((P) as TdTeamPlayerStart).TeamNumber == 2) || ((int)((byte)(((P) as TdTeamPlayerStart).TeamNumber))) == ((int)Team)))
 			{
 				return 1.0f + FRand();			
 			}

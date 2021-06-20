@@ -24,7 +24,7 @@ public partial class TdMove_Interact : TdPhysicsMove/*
 		{
 			return false;
 		}
-		if((CurrentTrigger == default) || CurrentEvent == default)
+		if(((CurrentTrigger == default) || CurrentEvent == default))
 		{
 			return false;
 		}
@@ -42,7 +42,7 @@ public partial class TdMove_Interact : TdPhysicsMove/*
 		{
 			return false;
 		}
-		if((((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_Button/*0*/)) || ((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_ButtonHigh/*2*/))
+		if(((((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_Button/*0*/)) || ((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_ButtonHigh/*2*/)))
 		{
 			NormalFromTrigger2D = Normal(Y);
 			DistanceToInteractableObject = DistanceToAButton;		
@@ -92,7 +92,7 @@ public partial class TdMove_Interact : TdPhysicsMove/*
 	
 	public virtual /*private final simulated function */void UpdateEventDelay()
 	{
-		if((((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_Button/*0*/)) || ((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_ButtonHigh/*2*/))
+		if(((((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_Button/*0*/)) || ((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_ButtonHigh/*2*/)))
 		{
 			AnimationInteractionDelay = 0.60f;		
 		}
@@ -123,7 +123,7 @@ public partial class TdMove_Interact : TdPhysicsMove/*
 		}
 		else
 		{
-			if((((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_Button/*0*/)) || ((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_ButtonHigh/*2*/))
+			if(((((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_Button/*0*/)) || ((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_ButtonHigh/*2*/)))
 			{
 				WalkTime = 0.20f;
 				WalkSpeed = ((float)(Clamp(((int)(VSize2D(MoveLocation - PawnOwner.Location) / WalkTime)), 100, 1000)));
@@ -133,7 +133,7 @@ public partial class TdMove_Interact : TdPhysicsMove/*
 		SetPreciseRotation(Normalize(((Rotator)(-NormalFromTrigger2D))), WalkTime);
 		SetPreciseLocation(MoveLocation, TdMove.EPreciseLocationMode.PLM_Walk/*1*/, WalkSpeed);
 		WeaponType = ((TdPawn.EWeaponType)PawnOwner.GetWeaponType());
-		if((((int)WeaponType) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)) || (((int)WeaponType) == ((int)TdPawn.EWeaponType.EWT_Light/*2*/)) && ((int)PawnOwner.WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Ready/*2*/))
+		if(((((int)WeaponType) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)) || (((int)WeaponType) == ((int)TdPawn.EWeaponType.EWT_Light/*2*/)) && ((int)PawnOwner.WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Ready/*2*/)))
 		{
 			PlayMoveAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, "unholster", -1.80f, 0.20f, -1.0f, default(bool?), default(bool?));
 			PawnOwner.SetCustomAnimsBlendOutTime(TdPawn.CustomNodeType.CNT_Weapon/*7*/, -1.0f);
@@ -172,7 +172,7 @@ public partial class TdMove_Interact : TdPhysicsMove/*
 		PawnOwner.SetCollision(PawnOwner.bCollideActors, true, default(bool?));
 		PawnOwner.bCollideWorld = true;
 		PawnOwner.SetPhysics(Actor.EPhysics.PHYS_Walking/*1*/);
-		if((((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_Button/*0*/)) || ((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_ButtonHigh/*2*/))
+		if(((((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_Button/*0*/)) || ((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_ButtonHigh/*2*/)))
 		{
 			PlayInteractAnimation(((((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_Button/*0*/)) ? "interactbutton" : "interactbuttonhigh"), 1.0f, 0.20f, 0.450f);
 			PawnOwner.SetIgnoreLookInput(-1.0f);
@@ -329,7 +329,7 @@ public partial class TdMove_Interact : TdPhysicsMove/*
 		}
 		else
 		{
-			if((((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_Button/*0*/)) || ((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_ButtonHigh/*2*/))
+			if(((((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_Button/*0*/)) || ((int)CurrentTrigger.TriggerType) == ((int)TdTrigger.ETriggerInteractType.TIT_ButtonHigh/*2*/)))
 			{
 				ActivateOutputLink(3);
 				PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));

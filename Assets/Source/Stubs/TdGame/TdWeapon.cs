@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -1221,9 +1219,7 @@ public partial class TdWeapon : Weapon/*
 		};
 		WeaponFallOffTypes = new array<TdWeapon.EWeaponFallOffType>
 		{
-			#warning weird ass EWeaponFallOffType value replaced with default
-			//150,
-			default
+			150,
 		};
 		FallOffDistance = 1000.0f;
 		WeaponFireSnd1p = new array<SoundCue>
@@ -1331,9 +1327,7 @@ public partial class TdWeapon : Weapon/*
 		};
 		WeaponFireTypes = new array<Weapon.EWeaponFireType>
 		{
-			#warning weird ass EWeaponFireType value replaced with default
-			//154,
-			default
+			154,
 		};
 		FireInterval = new array<float>
 		{

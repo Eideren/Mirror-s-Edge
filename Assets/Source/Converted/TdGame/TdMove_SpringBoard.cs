@@ -27,7 +27,7 @@ public partial class TdMove_SpringBoard : TdPhysicsMove/*
 		/*local */float DistanceToStep = default, TimeToLedge = default;
 		/*local */Object.Vector TestLocation = default;
 	
-		if(!base.CanDoMove() || !PawnOwner.bFoundLedge)
+		if((!base.CanDoMove() || !PawnOwner.bFoundLedge))
 		{
 			return false;
 		}

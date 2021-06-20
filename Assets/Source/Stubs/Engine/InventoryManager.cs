@@ -13,7 +13,7 @@ public partial class InventoryManager : Actor/*
 	
 	//replication
 	//{
-	//	 if((((!bSkipActorPropertyReplication || bNetInitial) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty) && bNetOwner)
+	//	 if(((((!bSkipActorPropertyReplication || bNetInitial)) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty) && bNetOwner)
 	//		InventoryChain;
 	//}
 	

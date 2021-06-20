@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -655,20 +653,20 @@ public partial class TdPawn : GamePawn/*
 	
 	//replication
 	//{
-	//	 if(bDemoRecording || (bNetDirty && bNetOwner) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
+	//	 if((bDemoRecording || (bNetDirty && bNetOwner) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)))
 	//		TaserDamageLevel;
 	//
-	//	 if(bDemoRecording || (!bNetOwner && bNetDirty) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
+	//	 if((bDemoRecording || (!bNetOwner && bNetDirty) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)))
 	//		AnimationMovementState, CurrentGrabTurnType, 
 	//		LadderType, ReloadCount, 
 	//		ReplicatedCustomAnim, ReplicatedMovementState, 
 	//		ReplicatedWeaponClass, bClimbDownFast, 
 	//		bClimbLeftHand;
 	//
-	//	 if(bDemoRecording || !bNetOwner && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
+	//	 if((bDemoRecording || !bNetOwner && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)))
 	//		LastPhysHitInfo, RemoteViewYaw;
 	//
-	//	 if(bDemoRecording || !bNetOwner && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
+	//	 if((bDemoRecording || !bNetOwner && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)))
 	//		PatchOne, PatchThree, 
 	//		PatchTwo;
 	//}
@@ -976,7 +974,7 @@ public partial class TdPawn : GamePawn/*
 	
 	public virtual /*function */void NotifyNewMove()
 	{
-		if((((int)OldMovementState) == ((int)TdPawn.EMovement.MOVE_Slide/*16*/)) || ((int)OldMovementState) == ((int)TdPawn.EMovement.MOVE_MeleeSlide/*48*/))
+		if(((((int)OldMovementState) == ((int)TdPawn.EMovement.MOVE_Slide/*16*/)) || ((int)OldMovementState) == ((int)TdPawn.EMovement.MOVE_MeleeSlide/*48*/)))
 		{
 			SlideStoppedTimeStamp = WorldInfo.TimeSeconds;
 		}
@@ -1289,7 +1287,7 @@ public partial class TdPawn : GamePawn/*
 	{
 		if(WeaponToAttach != default)
 		{
-			if(IsLocallyControlled() && (IsFirstPerson()) || Mesh == Mesh1p)
+			if(IsLocallyControlled() && ((IsFirstPerson()) || Mesh == Mesh1p))
 			{
 				((WeaponToAttach) as TdWeapon).AttachWeaponComponentsToPlayer(true);			
 			}
@@ -1486,7 +1484,7 @@ public partial class TdPawn : GamePawn/*
 	
 	public virtual /*function */bool CanZoom()
 	{
-		return !(((((int)Moves[((int)MovementState)].MovementGroup) > ((int)TdMove.EMovementGroup.MG_Free/*0*/)) || ((int)AgainstWallState) != ((int)TdPawn.EAgainstWallState.AW_None/*0*/)) || ((int)WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/)) || IsTimerActive("DropWeapon", default(Object?));
+		return !((((((((int)Moves[((int)MovementState)].MovementGroup) > ((int)TdMove.EMovementGroup.MG_Free/*0*/)) || ((int)AgainstWallState) != ((int)TdPawn.EAgainstWallState.AW_None/*0*/))) || ((int)WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/))) || IsTimerActive("DropWeapon", default(Object?)));
 	}
 	
 	public virtual /*simulated function */void DropWeapon()
@@ -1499,7 +1497,7 @@ public partial class TdPawn : GamePawn/*
 		{
 			return;
 		}
-		if((((int)WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/)) || IsTimerActive("RemoveWeaponAfterDrop", default(Object?)))
+		if(((((int)WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/)) || IsTimerActive("RemoveWeaponAfterDrop", default(Object?))))
 		{
 			return;
 		}
@@ -2077,7 +2075,7 @@ public partial class TdPawn : GamePawn/*
 		}
 		if(IsHumanControlled())
 		{
-			if(((((DamageType) as ClassT<TdDmgType_Shove>) != default) || ((DamageType) as ClassT<TdDmgType_Melee>) != default) || ((DamageType) as ClassT<TdDmgType_Taser>) != default)
+			if(((((((DamageType) as ClassT<TdDmgType_Shove>) != default) || ((DamageType) as ClassT<TdDmgType_Melee>) != default)) || ((DamageType) as ClassT<TdDmgType_Taser>) != default))
 			{
 				StumbleDamage(((InstigatedBy != default) ? ((InstigatedBy.Pawn) as TdPawn) : default), HitLocation, damageMomentum, DamageType);			
 			}
@@ -2100,7 +2098,7 @@ public partial class TdPawn : GamePawn/*
 	{
 		/*local */Object.Vector ElectricShockVelocity = default;
 	
-		if((DamageType == ClassT<TdDmgType_Flashbang>()) || DamageType == ClassT<TdDmgType_HeavyFlashbang>())
+		if(((DamageType == ClassT<TdDmgType_Flashbang>()) || DamageType == ClassT<TdDmgType_HeavyFlashbang>()))
 		{
 			StunDamageLevel = FClamp(StunDamageLevel + ((float)(Damage)), 0.0f, 100.0f);
 			Damage = 1;		
@@ -2127,7 +2125,7 @@ public partial class TdPawn : GamePawn/*
 	{
 		/*local */TdPlayerController TargetPC = default, SourcePC = default;
 	
-		if((((DamageType) as ClassT<TdDmgType_Bullet>) != default) || DamageType == ClassT<TdDmgType_Taser>())
+		if(((((DamageType) as ClassT<TdDmgType_Bullet>) != default) || DamageType == ClassT<TdDmgType_Taser>()))
 		{
 			if(InstigatedBy != default)
 			{
@@ -2183,7 +2181,7 @@ public partial class TdPawn : GamePawn/*
 		}
 		else
 		{
-			if(((MeshComponent.IsChildBoneOf(HitInfo.BoneName, "LeftUpLeg") || MeshComponent.IsChildBoneOf(HitInfo.BoneName, "RightUpLeg")) || HitInfo.BoneName == "RightUpLeg") || HitInfo.BoneName == "LeftUpLeg")
+			if((((((MeshComponent.IsChildBoneOf(HitInfo.BoneName, "LeftUpLeg") || MeshComponent.IsChildBoneOf(HitInfo.BoneName, "RightUpLeg"))) || HitInfo.BoneName == "RightUpLeg")) || HitInfo.BoneName == "LeftUpLeg"))
 			{
 				if(((DamageType) as ClassT<TdDmgType_Melee>) != default)
 				{
@@ -2241,11 +2239,11 @@ public partial class TdPawn : GamePawn/*
 	public override /*function */void AddVelocity(Object.Vector NewVelocity, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default)
 	{
 		var HitInfo = _HitInfo ?? default;
-		if(bIgnoreForces || NewVelocity == vect(0.0f, 0.0f, 0.0f))
+		if((bIgnoreForces || NewVelocity == vect(0.0f, 0.0f, 0.0f)))
 		{
 			return;
 		}
-		if((((int)Physics) == ((int)Actor.EPhysics.PHYS_Walking/*1*/)) || ((((int)Physics) == ((int)Actor.EPhysics.PHYS_Ladder/*9*/)) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_Spider/*8*/)) && NewVelocity.Z > DefaultAs<Pawn>().JumpZ)
+		if(((((int)Physics) == ((int)Actor.EPhysics.PHYS_Walking/*1*/)) || (((((int)Physics) == ((int)Actor.EPhysics.PHYS_Ladder/*9*/)) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_Spider/*8*/))) && NewVelocity.Z > DefaultAs<Pawn>().JumpZ))
 		{
 			SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
 		}
@@ -2386,7 +2384,7 @@ public partial class TdPawn : GamePawn/*
 	public virtual CanSkillRoll_del global_CanSkillRoll => TdPawn_CanSkillRoll;
 	public /*simulated function */bool TdPawn_CanSkillRoll()
 	{
-		if(((((((int)GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)) || ((int)MovementState) == ((int)TdPawn.EMovement.MOVE_180TurnInAir/*25*/)) || ((int)MovementState) == ((int)TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/)) || ((int)MovementState) == ((int)TdPawn.EMovement.MOVE_MeleeAir/*32*/)) || (((int)MovementState) == ((int)TdPawn.EMovement.MOVE_Landing/*20*/)) && Moves[((int)OldMovementState)].IsA("TdMove_MeleeBase"))
+		if(((((((((((int)GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)) || ((int)MovementState) == ((int)TdPawn.EMovement.MOVE_180TurnInAir/*25*/))) || ((int)MovementState) == ((int)TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/))) || ((int)MovementState) == ((int)TdPawn.EMovement.MOVE_MeleeAir/*32*/))) || (((int)MovementState) == ((int)TdPawn.EMovement.MOVE_Landing/*20*/)) && Moves[((int)OldMovementState)].IsA("TdMove_MeleeBase")))
 		{
 			return false;
 		}
@@ -2398,11 +2396,11 @@ public partial class TdPawn : GamePawn/*
 	public virtual PlayPhysicsBodyImpact_del global_PlayPhysicsBodyImpact => TdPawn_PlayPhysicsBodyImpact;
 	public /*simulated function */void TdPawn_PlayPhysicsBodyImpact(Controller InstigatedBy, TdPawn.PhysicalHitInfo Hit)
 	{
-		if((((Mesh3p == default) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_RigidBody/*10*/)) || bPlayedDeath) || IsInState("Dying", default(bool?)))
+		if(((((((Mesh3p == default) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_RigidBody/*10*/))) || bPlayedDeath)) || IsInState("Dying", default(bool?))))
 		{
 			return;
 		}
-		if((Mesh3p.PhysicsAsset == default) || Mesh3p.PhysicsAssetInstance == default)
+		if(((Mesh3p.PhysicsAsset == default) || Mesh3p.PhysicsAssetInstance == default))
 		{
 			return;
 		}
@@ -2410,7 +2408,7 @@ public partial class TdPawn : GamePawn/*
 		{
 			return;
 		}
-		if((((int)MovementState) != ((int)TdPawn.EMovement.MOVE_Stumble/*35*/)) || ((Hit.DamageType) as ClassT<TdDmgType_Melee>) != default)
+		if(((((int)MovementState) != ((int)TdPawn.EMovement.MOVE_Stumble/*35*/)) || ((Hit.DamageType) as ClassT<TdDmgType_Melee>) != default))
 		{
 			StumbleDamage(((InstigatedBy == default) ? default : ((InstigatedBy.Pawn) as TdPawn)), Hit.HitLocation, Hit.Momentum, Hit.DamageType);
 		}
@@ -2526,7 +2524,7 @@ public partial class TdPawn : GamePawn/*
 		/*local */PlayerController PC = default;
 	
 		PC = ((Controller) as PlayerController);
-		return ((PC != default) && PC.PlayerCamera != default) && ((((PC.PlayerCamera.CameraStyle == "FreeCam") || PC.PlayerCamera.CameraStyle == "FreeFlight") || PC.PlayerCamera.CameraStyle == "Fixed") || PC.PlayerCamera.CameraStyle == "ThirdPerson") || PC.PlayerCamera.CameraStyle == "FixedPerson";
+		return ((PC != default) && PC.PlayerCamera != default) && ((((((((PC.PlayerCamera.CameraStyle == "FreeCam") || PC.PlayerCamera.CameraStyle == "FreeFlight")) || PC.PlayerCamera.CameraStyle == "Fixed")) || PC.PlayerCamera.CameraStyle == "ThirdPerson")) || PC.PlayerCamera.CameraStyle == "FixedPerson");
 	}
 	
 	public override /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon? _CurrentWeapon = default)
@@ -2663,7 +2661,7 @@ public partial class TdPawn : GamePawn/*
 	
 	public virtual /*simulated function */void GetWeaponJointPosition(ref Object.Vector JointLoc, ref Object.Rotator JointRot)
 	{
-		if(IsLocallyControlled() && (IsFirstPerson()) || Mesh == Mesh1p)
+		if(IsLocallyControlled() && ((IsFirstPerson()) || Mesh == Mesh1p))
 		{
 			JointLoc = Mesh1p.GetBoneLocation("RightWeapon", 0);
 			JointRot = QuatToRotator(Mesh1p.GetBoneQuaternion("RightWeapon", 0));		
@@ -2854,7 +2852,7 @@ public partial class TdPawn : GamePawn/*
 					break;
 				case TdPawn.EMovement.MOVE_Barge/*19*/:
 				case TdPawn.EMovement.MOVE_WallKick/*23*/:
-					if((triggerID > 20) || triggerID == 11)
+					if(((triggerID > 20) || triggerID == 11))
 					{
 						TraceStart = Location;
 						TraceDest = TraceStart + ((FacingDir * ((float)(4))) * FootstepTraceLength);					
@@ -2893,14 +2891,14 @@ public partial class TdPawn : GamePawn/*
 			if((HitInfo.Material == default) && HitInfo.PhysMaterial == default)
 			{
 				TraceActor = Trace(ref/*probably?*/ out_HitLocation, ref/*probably?*/ out_HitNormal, TraceDest, HitLocation, true, vect(0.0f, 0.0f, 0.0f), ref/*probably?*/ newHitInfo, 1);
-				if((TraceActor != default) && (newHitInfo.Material != default) || newHitInfo.PhysMaterial != default)
+				if((TraceActor != default) && ((newHitInfo.Material != default) || newHitInfo.PhysMaterial != default))
 				{
 					HitInfo = newHitInfo;
 					HitLocation = out_HitLocation;
 					HitNormal = out_HitNormal;
 				}
 			}
-			if((((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) || IsLocallyControlled())
+			if(((((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) || IsLocallyControlled()))
 			{
 				ActuallyPlayFootStepSound(triggerID, HitInfo, TraceStart);
 				Loudness = VelocityMagnitude / GroundSpeed;
@@ -2921,7 +2919,7 @@ public partial class TdPawn : GamePawn/*
 		/*local */Object.Vector triggerLocation = default;
 	
 		var HitLoc = _HitLoc ?? default;
-		if((FootDown == 12) || (FootDown >= 26) && FootDown < 31)
+		if(((FootDown == 12) || (FootDown >= 26) && FootDown < 31))
 		{
 			return;
 		}
@@ -3218,7 +3216,7 @@ public partial class TdPawn : GamePawn/*
 		HitInfo = CheckSlideSurface();
 		SoundToPlay = GetSlideSound(HitInfo);
 		ActiveComponent = ((bAlternateSound) ? SlidingSoundComponent1 : SlidingSoundComponent0);
-		if((ActiveComponent == default) || ActiveComponent.SoundCue != SoundToPlay)
+		if(((ActiveComponent == default) || ActiveComponent.SoundCue != SoundToPlay))
 		{
 			bAlternateSound = !bAlternateSound;
 			if(ActiveComponent != default)
@@ -3520,7 +3518,7 @@ public partial class TdPawn : GamePawn/*
 		{
 			return;
 		}
-		if(PC.bCinematicMode || PC.IsButtonInputIgnored())
+		if((PC.bCinematicMode || PC.IsButtonInputIgnored()))
 		{
 			return;
 		}
@@ -3539,7 +3537,7 @@ public partial class TdPawn : GamePawn/*
 		PC = ((Controller) as TdPlayerController);
 		if((PC != default) && PC.PlayerCamera.CameraStyle != "FreeFlight")
 		{
-			if(PC.bCinematicMode || PC.IsButtonInputIgnored())
+			if((PC.bCinematicMode || PC.IsButtonInputIgnored()))
 			{
 				return;
 			}
@@ -3562,7 +3560,7 @@ public partial class TdPawn : GamePawn/*
 		{
 			return;
 		}
-		if(PC.bCinematicMode || PC.IsButtonInputIgnored())
+		if((PC.bCinematicMode || PC.IsButtonInputIgnored()))
 		{
 			return;
 		}
@@ -3581,7 +3579,7 @@ public partial class TdPawn : GamePawn/*
 		PC = ((Controller) as TdPlayerController);
 		if((PC != default) && PC.PlayerCamera.CameraStyle != "FreeFlight")
 		{
-			if(PC.bCinematicMode || PC.IsButtonInputIgnored())
+			if((PC.bCinematicMode || PC.IsButtonInputIgnored()))
 			{
 				return;
 			}
@@ -3826,7 +3824,7 @@ public partial class TdPawn : GamePawn/*
 			}
 			botVec = P.Location - Start;
 			botDist = Dot(botVec, Dir);
-			if((botDist < ((float)(100))) || botDist > Dist)
+			if(((botDist < ((float)(100))) || botDist > Dist))
 			{
 				continue;			
 			}
@@ -3872,11 +3870,11 @@ public partial class TdPawn : GamePawn/*
 	}
 	
 	// Export UTdPawn::execGetAverageSpeed(FFrame&, void* const)
-	/*public virtual native function float GetAverageSpeed(float Time)
+	public virtual /*native function */float GetAverageSpeed(float Time)
 	{
 		#warning NATIVE FUNCTION !
 		return default;
-	}*/
+	}
 	
 	public override /*simulated function */void SetWeapon(Weapon W)
 	{
@@ -4006,7 +4004,7 @@ public partial class TdPawn : GamePawn/*
 		/*local */array<SequenceEvent> TouchEvents = default;
 		/*local */Actor A = default;
 	
-		if(bTearOff && (((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/)) || IsLocallyControlled())
+		if(bTearOff && ((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/)) || IsLocallyControlled()))
 		{
 			LifeSpan = MaxTimeBeforeRemovingDeadBody;
 		}

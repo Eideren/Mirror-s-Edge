@@ -94,7 +94,7 @@ public partial class TdMove_AirBarge : TdMove_Barge/*
 	{
 		/*local */int Idx = default;
 	
-		if(bIsLanding || bHasDealtDamage)
+		if((bIsLanding || bHasDealtDamage))
 		{
 			return;
 		}

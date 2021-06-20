@@ -121,7 +121,7 @@ public partial class TdMove_LedgeWalk : TdPhysicsMove/*
 	
 	public override /*simulated function */void UpdateViewRotation(ref Object.Rotator out_Rotation, float DeltaTime, ref Object.Rotator DeltaRot)
 	{
-		if(((DeltaRot.Yaw > 0) || DeltaRot.Yaw < 0) || (DeltaRot.Pitch > 0) || DeltaRot.Pitch < 0)
+		if(((((DeltaRot.Yaw > 0) || DeltaRot.Yaw < 0)) || ((DeltaRot.Pitch > 0) || DeltaRot.Pitch < 0)))
 		{
 			AbortLookAtTarget();
 		}

@@ -20,12 +20,12 @@ public partial class TdMove_Disarmed : TdPhysicsMove/*
 		PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, 0.10f);
 		NodeType = TdPawn.CustomNodeType.CNT_CannedUpperBody/*1*/;
 		AnimationSequence = PawnOwner.GetCustomAnimation(((TdPawn.CustomNodeType)NodeType));
-		if((AnimationSequence == default) || AnimationSequence.AnimSeqName != "MeleeStart")
+		if(((AnimationSequence == default) || AnimationSequence.AnimSeqName != "MeleeStart"))
 		{
 			NodeType = TdPawn.CustomNodeType.CNT_Canned/*0*/;
 			AnimationSequence = PawnOwner.GetCustomAnimation(((TdPawn.CustomNodeType)NodeType));
 		}
-		if((AnimationSequence == default) || AnimationSequence.AnimSeqName != "MeleeStart")
+		if(((AnimationSequence == default) || AnimationSequence.AnimSeqName != "MeleeStart"))
 		{		
 		}
 		else

@@ -192,14 +192,14 @@ public partial class Pawn : Actor/*
 	//		GroundSpeed, InvManager, 
 	//		JumpZ, WaterSpeed;
 	//
-	//	 if((bNetDirty && !bNetOwner || bDemoRecording) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
+	//	 if((bNetDirty && (!bNetOwner || bDemoRecording)) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
 	//		FiringMode, FlashCount, 
 	//		bIsCrouched;
 	//
 	//	 if((bTearOff && bNetDirty) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
 	//		TearOffMomentum;
 	//
-	//	 if((!bNetOwner || bDemoRecording) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
+	//	 if(((!bNetOwner || bDemoRecording)) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
 	//		RemoteViewPitch;
 	//}
 	
@@ -394,7 +394,7 @@ public partial class Pawn : Actor/*
 	public override Reset_del global_Reset => Pawn_Reset;
 	public /*function */void Pawn_Reset()
 	{
-		if((Controller == default) || Controller.bIsPlayer)
+		if(((Controller == default) || Controller.bIsPlayer))
 		{
 			DetachFromController(default(bool?));
 			Destroy();		
@@ -706,7 +706,7 @@ public partial class Pawn : Actor/*
 	
 	public virtual /*function */bool CanGrabLadder()
 	{
-		return ((bCanClimbLadders && Controller != default) && ((int)Physics) != ((int)Actor.EPhysics.PHYS_Ladder/*9*/)) && (((int)Physics) != ((int)Actor.EPhysics.PHYS_Falling/*2*/)) || Abs(Velocity.Z) <= JumpZ;
+		return ((bCanClimbLadders && Controller != default) && ((int)Physics) != ((int)Actor.EPhysics.PHYS_Ladder/*9*/)) && ((((int)Physics) != ((int)Actor.EPhysics.PHYS_Falling/*2*/)) || Abs(Velocity.Z) <= JumpZ);
 	}
 	
 	public virtual /*function */bool RecommendLongRangedAttack()
@@ -734,7 +734,7 @@ public partial class Pawn : Actor/*
 	
 	public override /*simulated function */bool CanSplash()
 	{
-		if((((WorldInfo.TimeSeconds - SplashTime) > 0.150f) && (((int)Physics) == ((int)Actor.EPhysics.PHYS_Falling/*2*/)) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_Flying/*4*/)) && Abs(Velocity.Z) > ((float)(100)))
+		if((((WorldInfo.TimeSeconds - SplashTime) > 0.150f) && ((((int)Physics) == ((int)Actor.EPhysics.PHYS_Falling/*2*/)) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_Flying/*4*/))) && Abs(Velocity.Z) > ((float)(100)))
 		{
 			SplashTime = WorldInfo.TimeSeconds;
 			return true;
@@ -797,7 +797,7 @@ public partial class Pawn : Actor/*
 		if(HUD.ShouldDisplayDebug("Physics"))
 		{
 			T = (((("Floor " + ((Floor)).ToString()) + " DesiredSpeed ") + ((DesiredSpeed)).ToString()) + " Crouched ") + ((bIsCrouched)).ToString();
-			if((OnLadder != default) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_Ladder/*9*/))
+			if(((OnLadder != default) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_Ladder/*9*/)))
 			{
 				T = (T + " on ladder ") + ((OnLadder)).ToString();
 			}
@@ -1001,7 +1001,7 @@ public partial class Pawn : Actor/*
 	
 	public virtual /*simulated function */Object.Rotator GetAdjustedAimFor(Weapon W, Object.Vector StartFireLoc)
 	{
-		if((Controller == default) || ((int)Role) < ((int)Actor.ENetRole.ROLE_Authority/*3*/))
+		if(((Controller == default) || ((int)Role) < ((int)Actor.ENetRole.ROLE_Authority/*3*/)))
 		{
 			return GetBaseAimRotation();
 		}
@@ -1032,12 +1032,12 @@ public partial class Pawn : Actor/*
 	
 	public virtual /*simulated function */bool AffectedByHitEffects()
 	{
-		return (Controller == default) || Controller.bAffectedByHitEffects;
+		return ((Controller == default) || Controller.bAffectedByHitEffects);
 	}
 	
 	public virtual /*function */bool NearMoveTarget()
 	{
-		if((Controller == default) || Controller.MoveTarget == default)
+		if(((Controller == default) || Controller.MoveTarget == default))
 		{
 			return false;
 		}
@@ -1152,7 +1152,7 @@ public partial class Pawn : Actor/*
 	
 	public virtual /*simulated function */void UnCrouch()
 	{
-		if(bIsCrouched || bWantsToCrouch)
+		if((bIsCrouched || bWantsToCrouch))
 		{
 			ShouldCrouch(false);
 		}
@@ -1185,11 +1185,11 @@ public partial class Pawn : Actor/*
 	public virtual /*function */void AddVelocity(Object.Vector NewVelocity, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default)
 	{
 		var HitInfo = _HitInfo ?? default;
-		if(bIgnoreForces || NewVelocity == vect(0.0f, 0.0f, 0.0f))
+		if((bIgnoreForces || NewVelocity == vect(0.0f, 0.0f, 0.0f)))
 		{
 			return;
 		}
-		if((((int)Physics) == ((int)Actor.EPhysics.PHYS_Walking/*1*/)) || ((((int)Physics) == ((int)Actor.EPhysics.PHYS_Ladder/*9*/)) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_Spider/*8*/)) && NewVelocity.Z > DefaultAs<Pawn>().JumpZ)
+		if(((((int)Physics) == ((int)Actor.EPhysics.PHYS_Walking/*1*/)) || (((((int)Physics) == ((int)Actor.EPhysics.PHYS_Ladder/*9*/)) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_Spider/*8*/))) && NewVelocity.Z > DefaultAs<Pawn>().JumpZ))
 		{
 			SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
 		}
@@ -1292,7 +1292,7 @@ public partial class Pawn : Actor/*
 			}
 			else
 			{
-				if((((int)Physics) == ((int)Actor.EPhysics.PHYS_Walking/*1*/)) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_Falling/*2*/))
+				if(((((int)Physics) == ((int)Actor.EPhysics.PHYS_Walking/*1*/)) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_Falling/*2*/)))
 				{
 					NewRotation.Pitch = 0;
 				}
@@ -1303,11 +1303,11 @@ public partial class Pawn : Actor/*
 	
 	public override /*event */bool EncroachingOn(Actor Other)
 	{
-		if(Other.bWorldGeometry || Other.bBlocksTeleport)
+		if((Other.bWorldGeometry || Other.bBlocksTeleport))
 		{
 			return true;
 		}
-		if(((Controller == default) || !Controller.bIsPlayer) && ((Other) as Pawn) != default)
+		if((((Controller == default) || !Controller.bIsPlayer)) && ((Other) as Pawn) != default)
 		{
 			return true;
 		}
@@ -1360,7 +1360,7 @@ public partial class Pawn : Actor/*
 	{
 		/*local */DynamicSMActor Dyn = default;
 	
-		if((((Base) as Pawn) != default) && (DrivenVehicle == default) || !DrivenVehicle.IsBasedOn(Base))
+		if((((Base) as Pawn) != default) && ((DrivenVehicle == default) || !DrivenVehicle.IsBasedOn(Base)))
 		{
 			if(!((Base) as Pawn).CanBeBaseForPawn(this))
 			{
@@ -1651,7 +1651,7 @@ public partial class Pawn : Actor/*
 	
 		var HitInfo = _HitInfo ?? default;
 		var DamageCauser = _DamageCauser ?? default;
-		if((((int)Role) < ((int)Actor.ENetRole.ROLE_Authority/*3*/)) || Health <= 0)
+		if(((((int)Role) < ((int)Actor.ENetRole.ROLE_Authority/*3*/)) || Health <= 0))
 		{
 			return;
 		}
@@ -1766,11 +1766,11 @@ public partial class Pawn : Actor/*
 		{
 			DamageType = ClassT<DamageType>();
 		}
-		if((bDeleteMe || WorldInfo.Game == default) || WorldInfo.Game.bLevelChange)
+		if((((bDeleteMe || WorldInfo.Game == default)) || WorldInfo.Game.bLevelChange))
 		{
 			return false;
 		}
-		if((DamageType.DefaultAs<DamageType>().bCausedByWorld && (Killer == default) || Killer == Controller) && LastHitBy != default)
+		if((DamageType.DefaultAs<DamageType>().bCausedByWorld && ((Killer == default) || Killer == Controller)) && LastHitBy != default)
 		{
 			Killer = LastHitBy;
 		}
@@ -1846,7 +1846,7 @@ public partial class Pawn : Actor/*
 	
 	public virtual /*event */void HeadVolumeChange(PhysicsVolume newHeadVolume)
 	{
-		if((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Client/*3*/)) || Controller == default)
+		if(((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Client/*3*/)) || Controller == default))
 		{
 			return;
 		}
@@ -1911,7 +1911,7 @@ public partial class Pawn : Actor/*
 	{
 		if(HeadVolume.bWaterVolume)
 		{
-			if(((Health < 0) || ((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Client/*3*/)) || DrivenVehicle != default)
+			if(((((Health < 0) || ((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Client/*3*/))) || DrivenVehicle != default))
 			{
 				return;
 			}
@@ -1966,7 +1966,7 @@ public partial class Pawn : Actor/*
 			Start.Z += MaxOutOfWaterStepHeight;
 			Checkpoint = Start + ((3.20f * CylinderComponent.CollisionRadius) * WallNormal);
 			HitActor = Trace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, Checkpoint, Start, true, default(Object.Vector?), ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, 8);
-			if((HitActor == default) || HitNormal.Z > 0.70f)
+			if(((HitActor == default) || HitNormal.Z > 0.70f))
 			{
 				return true;
 			}
@@ -1976,7 +1976,7 @@ public partial class Pawn : Actor/*
 	
 	public virtual /*function */bool DoJump(bool bUpdating)
 	{
-		if(((bJumpCapable && !bIsCrouched) && !bWantsToCrouch) && ((((int)Physics) == ((int)Actor.EPhysics.PHYS_Walking/*1*/)) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_Ladder/*9*/)) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_Spider/*8*/))
+		if(((bJumpCapable && !bIsCrouched) && !bWantsToCrouch) && ((((((int)Physics) == ((int)Actor.EPhysics.PHYS_Walking/*1*/)) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_Ladder/*9*/))) || ((int)Physics) == ((int)Actor.EPhysics.PHYS_Spider/*8*/)))
 		{
 			if(((int)Physics) == ((int)Actor.EPhysics.PHYS_Spider/*8*/))
 			{
@@ -2017,7 +2017,7 @@ public partial class Pawn : Actor/*
 	
 	public virtual /*function */void PlayHit(float Damage, Controller InstigatedBy, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, Object.Vector Momentum, Actor.TraceHitInfo HitInfo)
 	{
-		if((Damage <= ((float)(0))) && (Controller == default) || !Controller.bGodMode)
+		if((Damage <= ((float)(0))) && ((Controller == default) || !Controller.bGodMode))
 		{
 			return;
 		}
@@ -2304,7 +2304,7 @@ public partial class Pawn : Actor/*
 			{
 			}
 		}
-		if(bValidBone || bValidSocket)
+		if((bValidBone || bValidSocket))
 		{
 			bOldCollideActors = Attachment.bCollideActors;
 			bOldBlockActors = Attachment.bBlockActors;
@@ -2428,14 +2428,14 @@ public partial class Pawn : Actor/*
 				return true;
 			}
 		}
-		if((SpawnLocation != Location) || (WorldInfo.TimeSeconds - LastRenderTime) < 1.0f)
+		if(((SpawnLocation != Location) || (WorldInfo.TimeSeconds - LastRenderTime) < 1.0f))
 		{
 			
 			// foreach LocalPlayerControllers(ClassT<PlayerController>(), ref/*probably?*/ P)
 			using var e216 = LocalPlayerControllers(ClassT<PlayerController>()).GetEnumerator();
 			while(e216.MoveNext() && (P = (PlayerController)e216.Current) == P)
 			{
-				if((P.ViewTarget != default) && (P.Pawn == this) || CheckMaxEffectDistance(P, SpawnLocation, CullDistance))
+				if((P.ViewTarget != default) && ((P.Pawn == this) || CheckMaxEffectDistance(P, SpawnLocation, CullDistance)))
 				{				
 					return true;
 				}			

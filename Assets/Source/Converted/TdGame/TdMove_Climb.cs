@@ -116,7 +116,7 @@ public partial class TdMove_Climb : TdPhysicsMove/*
 			SetLookAtTargetAngle(Normalize(LookAtAngle), 0.20f, 1.0f);
 		}
 		WantedAction = ((TdPawn.EMovementAction)Action);
-		if(bIsPlayingAnimation || bUsePreciseLocation)
+		if((bIsPlayingAnimation || bUsePreciseLocation))
 		{
 			AbortLookAtTarget();
 			return;
@@ -171,7 +171,7 @@ public partial class TdMove_Climb : TdPhysicsMove/*
 	
 	public override /*simulated function */void OnCeaseRelevantRootMotion(AnimNodeSequence SeqNode)
 	{
-		if((((int)ClimbState) == ((int)TdMove_Climb.EClimbState.CS_ExitAtTop/*1*/)) || ((int)ClimbState) == ((int)TdMove_Climb.EClimbState.CS_ExitAtBottom/*2*/))
+		if(((((int)ClimbState) == ((int)TdMove_Climb.EClimbState.CS_ExitAtTop/*1*/)) || ((int)ClimbState) == ((int)TdMove_Climb.EClimbState.CS_ExitAtBottom/*2*/)))
 		{
 			if(((int)PawnOwner.MoveActionHint) == ((int)TdPawn.EMoveActionHint.MAH_Up/*3*/))
 			{
@@ -188,7 +188,7 @@ public partial class TdMove_Climb : TdPhysicsMove/*
 		/*local */int CurrentStep = default;
 	
 		CurrentStep = Ladder.GetClosestStep(PawnOwner.Location.Z);
-		if((((int)WantedAction) == ((int)TdPawn.EMovementAction.MA_ClimbUp/*7*/)) || ((int)WantedAction) == ((int)TdPawn.EMovementAction.MA_ClimbUpLong/*9*/))
+		if(((((int)WantedAction) == ((int)TdPawn.EMovementAction.MA_ClimbUp/*7*/)) || ((int)WantedAction) == ((int)TdPawn.EMovementAction.MA_ClimbUpLong/*9*/)))
 		{
 			if(CurrentStep == Ladder.GetLastStep())
 			{
@@ -211,7 +211,7 @@ public partial class TdMove_Climb : TdPhysicsMove/*
 		}
 		else
 		{
-			if((((int)WantedAction) == ((int)TdPawn.EMovementAction.MA_ClimbDown/*8*/)) || ((int)WantedAction) == ((int)TdPawn.EMovementAction.MA_ClimbDownLong/*10*/))
+			if(((((int)WantedAction) == ((int)TdPawn.EMovementAction.MA_ClimbDown/*8*/)) || ((int)WantedAction) == ((int)TdPawn.EMovementAction.MA_ClimbDownLong/*10*/)))
 			{
 				if(CurrentStep > 1)
 				{

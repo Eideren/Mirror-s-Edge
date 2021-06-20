@@ -322,7 +322,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 	{
 		if(CanDropDown())
 		{
-			if(((((int)CurrentShimmyMove) != ((int)TdMove_Grab.EShimmyType.ShimmyAroundCorner/*2*/)) && ((int)PawnOwner.CurrentGrabTurnType) == ((int)TdPawn.EGrabTurnType.GTT_None/*0*/)) && !bGrabFromVerticalWallrun || bGrabFromVerticalWallrun && MoveActiveTime > 1.0f)
+			if(((((int)CurrentShimmyMove) != ((int)TdMove_Grab.EShimmyType.ShimmyAroundCorner/*2*/)) && ((int)PawnOwner.CurrentGrabTurnType) == ((int)TdPawn.EGrabTurnType.GTT_None/*0*/)) && (!bGrabFromVerticalWallrun || bGrabFromVerticalWallrun && MoveActiveTime > 1.0f))
 			{
 				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((IsHangingFree()) ? "HangFreeEnd" : "HangEnd"), 1.0f, 0.10f, 0.20f, default(bool?), default(bool?));
 				PawnOwner.SetAnimationMovementState(TdPawn.EMovement.MOVE_Falling/*2*/, 0.20f);
@@ -359,12 +359,12 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		/*local */Object.Rotator ControllerDeltaRot = default, LookAtAfterVertigo = default;
 		/*local */int HangFreeTurnConstraintAngleDelta = default;
 	
-		if(bHangFreeVertigoEffect || ((int)CurrentFoldedType) != ((int)TdMove_Grab.EGrabFoldedType.GFT_None/*0*/))
+		if((bHangFreeVertigoEffect || ((int)CurrentFoldedType) != ((int)TdMove_Grab.EGrabFoldedType.GFT_None/*0*/)))
 		{
 			DeltaRot.Pitch = 0;
 			DeltaRot.Yaw = 0;
 		}
-		if(((DeltaRot.Yaw > 0) || DeltaRot.Yaw < 0) || (DeltaRot.Pitch > 0) || DeltaRot.Pitch < 0)
+		if(((((DeltaRot.Yaw > 0) || DeltaRot.Yaw < 0)) || ((DeltaRot.Pitch > 0) || DeltaRot.Pitch < 0)))
 		{
 			AbortLookAtTarget();
 		}
@@ -374,7 +374,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		bIsWithinForwardView = (((float)(ControllerDeltaRot.Yaw)) < StartTurningAngle) && ((float)(ControllerDeltaRot.Yaw)) > -StartTurningAngle;
 		bIsTurnedRight = ControllerDeltaRot.Yaw >= 0;
 		HangFreeTurnConstraintAngleDelta = 750;
-		bShouldTriggerHangFreeTurn = ((IsHangingFree()) && (ControllerDeltaRot.Yaw >= (HangFreeMaxLookContraint.Yaw - HangFreeTurnConstraintAngleDelta)) || ControllerDeltaRot.Yaw <= (HangFreeMinLookContraint.Yaw + HangFreeTurnConstraintAngleDelta)) && !bHangFreeVertigoEffect;
+		bShouldTriggerHangFreeTurn = ((IsHangingFree()) && ((ControllerDeltaRot.Yaw >= (HangFreeMaxLookContraint.Yaw - HangFreeTurnConstraintAngleDelta)) || ControllerDeltaRot.Yaw <= (HangFreeMinLookContraint.Yaw + HangFreeTurnConstraintAngleDelta))) && !bHangFreeVertigoEffect;
 		if(!IsHangingFree())
 		{
 			if(((int)PawnOwner.CurrentGrabTurnType) == ((int)TdPawn.EGrabTurnType.GTT_None/*0*/))
@@ -506,12 +506,12 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 			AbortShimmy(default(bool?));
 			return;
 		}
-		if(((((int)CurrentShimmyMove) == ((int)TdMove_Grab.EShimmyType.ShimmyAroundCorner/*2*/)) || bHangFreeVertigoEffect) || ((int)CurrentFoldedType) == ((int)TdMove_Grab.EGrabFoldedType.GFT_Start/*1*/))
+		if(((((((int)CurrentShimmyMove) == ((int)TdMove_Grab.EShimmyType.ShimmyAroundCorner/*2*/)) || bHangFreeVertigoEffect)) || ((int)CurrentFoldedType) == ((int)TdMove_Grab.EGrabFoldedType.GFT_Start/*1*/)))
 		{
 			return;
 		}
-		MoveLeft = ((((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyLeft/*12*/)) || ((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyLeftLong/*13*/)) && MoveActiveTime > DisableShimmyTime;
-		MoveRight = ((((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyRight/*14*/)) || ((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyRightLong/*15*/)) && MoveActiveTime > DisableShimmyTime;
+		MoveLeft = (((((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyLeft/*12*/)) || ((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyLeftLong/*13*/))) && MoveActiveTime > DisableShimmyTime;
+		MoveRight = (((((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyRight/*14*/)) || ((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyRightLong/*15*/))) && MoveActiveTime > DisableShimmyTime;
 		if(bSlopedLedge)
 		{
 			return;
@@ -520,7 +520,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		{
 			return;
 		}
-		if((MoveLeft || MoveRight) && !bIsWithinForwardView && !IsHangingFree())
+		if(((MoveLeft || MoveRight)) && !bIsWithinForwardView && !IsHangingFree())
 		{
 			return;
 		}
@@ -532,7 +532,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 			AbortLookAtTarget();
 			SetLookAtTargetAngle(Normalize(LookAtAngle), 0.20f, default(float?));
 		}
-		if((MoveLeft || MoveRight) && (PawnOwner.WorldInfo.TimeSeconds - LastShimmyTimeSeconds) > 0.50f)
+		if(((MoveLeft || MoveRight)) && (PawnOwner.WorldInfo.TimeSeconds - LastShimmyTimeSeconds) > 0.50f)
 		{
 			if(CanShimmy(((TdPawn.EMovementAction)Action)))
 			{
@@ -557,7 +557,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 			return false;
 		}
 		PawnOwner.GetAxes(PawnOwner.Rotation, ref/*probably?*/ X, ref/*probably?*/ Y, ref/*probably?*/ Z);
-		Direction = (((((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeft/*12*/)) || ((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeftLong/*13*/)) ? -Y : Y);
+		Direction = ((((((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeft/*12*/)) || ((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeftLong/*13*/))) ? -Y : Y);
 		Direction = Normal(Direction);
 		Direction.Z = 0.0f;
 		DistanceCheck = 35.0f;
@@ -581,7 +581,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		/*local */bool MoveLeft = default;
 	
 		PawnOwner.GetAxes(PawnOwner.Rotation, ref/*probably?*/ X, ref/*probably?*/ Y, ref/*probably?*/ Z);
-		MoveLeft = (((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeft/*12*/)) || ((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeftLong/*13*/);
+		MoveLeft = ((((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeft/*12*/)) || ((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeftLong/*13*/));
 		Direction = ((MoveLeft) ? -Y : Y);
 		Direction = Normal(Direction);
 		Direction.Z = 0.0f;
@@ -618,7 +618,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 	{
 		/*local */bool MoveLeft = default;
 	
-		MoveLeft = (((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeft/*12*/)) || ((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeftLong/*13*/);
+		MoveLeft = ((((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeft/*12*/)) || ((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeftLong/*13*/));
 		if(((int)CurrentShimmyMove) != ((int)TdMove_Grab.EShimmyType.Shimmy/*0*/))
 		{
 			AbortLookAtTarget();
@@ -637,7 +637,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		/*local */bool MoveLeft = default;
 		/*local */Object.Vector X = default, Y = default, Z = default;
 	
-		MoveLeft = (((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeft/*12*/)) || ((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeftLong/*13*/);
+		MoveLeft = ((((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeft/*12*/)) || ((int)ShimmyAction) == ((int)TdPawn.EMovementAction.MA_ShimmyLeftLong/*13*/));
 		PawnOwner.GetAxes(PawnOwner.Rotation, ref/*probably?*/ X, ref/*probably?*/ Y, ref/*probably?*/ Z);
 		PawnOwner.UseRootMotion(true);
 		SetMoveTimer(0.10f, false, "StartRootRotation");
@@ -691,7 +691,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 			else
 			{
 				NormalizedPosition = CustomAnimNode.GetNormalizedPosition();
-				if(((NormalizedPosition > 0.10f) && NormalizedPosition < 0.250f) || NormalizedPosition > 0.80f)
+				if((((NormalizedPosition > 0.10f) && NormalizedPosition < 0.250f) || NormalizedPosition > 0.80f))
 				{
 					PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, 0.40f);
 					CurrentShimmyMove = TdMove_Grab.EShimmyType.NoShimmy/*3*/;

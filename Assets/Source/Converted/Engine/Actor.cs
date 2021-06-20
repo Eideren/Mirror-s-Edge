@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -465,7 +463,7 @@ public partial class Actor : Object/*
 	public /*transient */bool bPathTemp;
 	public bool bScriptInitialized;
 	public/*(Advanced)*/ bool bLockLocation;
-	public /*private const export editinline */array</*export editinline */ActorComponent> Components = new array<ActorComponent>();
+	public /*private const export editinline */array</*export editinline */ActorComponent> Components;
 	public /*private const export editinline transient */array</*export editinline */ActorComponent> AllComponents;
 	public /*private native const */Object.RenderCommandFence DetachFence;
 	public float CustomTimeDilation;
@@ -521,39 +519,39 @@ public partial class Actor : Object/*
 	
 	//replication
 	//{
-	//	 if(((!bSkipActorPropertyReplication || bNetInitial) && bReplicateMovement) && ((((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_AutonomousProxy/*2*/)) && bNetInitial) || ((((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_SimulatedProxy/*1*/)) && bNetInitial || bUpdateSimulatedPosition) && (Base == default) || Base.bWorldGeometry)
+	//	 if((((!bSkipActorPropertyReplication || bNetInitial)) && bReplicateMovement) && (((((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_AutonomousProxy/*2*/)) && bNetInitial) || ((((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_SimulatedProxy/*1*/)) && (bNetInitial || bUpdateSimulatedPosition)) && ((Base == default) || Base.bWorldGeometry)))
 	//		Location, Rotation;
 	//
-	//	 if(((!bSkipActorPropertyReplication || bNetInitial) && bReplicateMovement) && ((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_SimulatedProxy/*1*/))
+	//	 if((((!bSkipActorPropertyReplication || bNetInitial)) && bReplicateMovement) && ((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_SimulatedProxy/*1*/))
 	//		Base;
 	//
-	//	 if((((((!bSkipActorPropertyReplication || bNetInitial) && bReplicateMovement) && bNetInitial || bUpdateSimulatedPosition) && ((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_SimulatedProxy/*1*/)) && Base != default) && !Base.bWorldGeometry)
+	//	 if(((((((!bSkipActorPropertyReplication || bNetInitial)) && bReplicateMovement) && (bNetInitial || bUpdateSimulatedPosition)) && ((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_SimulatedProxy/*1*/)) && Base != default) && !Base.bWorldGeometry)
 	//		RelativeLocation, RelativeRotation;
 	//
-	//	 if(((!bSkipActorPropertyReplication || bNetInitial) && bReplicateMovement) && (((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_SimulatedProxy/*1*/)) && bNetInitial || bUpdateSimulatedPosition)
+	//	 if((((!bSkipActorPropertyReplication || bNetInitial)) && bReplicateMovement) && (((int)RemoteRole) == ((int)Actor.ENetRole.ROLE_SimulatedProxy/*1*/)) && (bNetInitial || bUpdateSimulatedPosition))
 	//		Physics, Velocity;
 	//
-	//	 if((!bSkipActorPropertyReplication || bNetInitial) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
+	//	 if(((!bSkipActorPropertyReplication || bNetInitial)) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
 	//		bHardAttach;
 	//
-	//	 if(((!bSkipActorPropertyReplication || bNetInitial) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty)
+	//	 if((((!bSkipActorPropertyReplication || bNetInitial)) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty)
 	//		bHidden;
 	//
-	//	 if((((!bSkipActorPropertyReplication || bNetInitial) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty) && bCollideActors || bCollideWorld)
+	//	 if(((((!bSkipActorPropertyReplication || bNetInitial)) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty) && (bCollideActors || bCollideWorld))
 	//		bBlockActors, bProjTarget;
 	//
-	//	 if((!bSkipActorPropertyReplication || bNetInitial) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
+	//	 if(((!bSkipActorPropertyReplication || bNetInitial)) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
 	//		RemoteRole, Role, 
 	//		bNetOwner, bTearOff;
 	//
-	//	 if((((!bSkipActorPropertyReplication || bNetInitial) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty) && bReplicateInstigator)
+	//	 if(((((!bSkipActorPropertyReplication || bNetInitial)) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty) && bReplicateInstigator)
 	//		Instigator;
 	//
-	//	 if(((!bSkipActorPropertyReplication || bNetInitial) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty)
+	//	 if((((!bSkipActorPropertyReplication || bNetInitial)) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty)
 	//		DrawScale, bCollideActors, 
 	//		bCollideWorld;
 	//
-	//	 if(((bNetOwner && !bSkipActorPropertyReplication || bNetInitial) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty)
+	//	 if(((bNetOwner && (!bSkipActorPropertyReplication || bNetInitial)) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && bNetDirty)
 	//		Owner;
 	//}
 	
@@ -876,6 +874,10 @@ public partial class Actor : Object/*
 	public delegate void Tick_del(float DeltaTime);
 	public virtual Tick_del Tick { get => bfield_Tick ?? Actor_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public virtual Tick_del global_Tick => Actor_Tick;
+	public /*event */void Actor_Tick(float DeltaTime)
+	{
+	
+	}
 	
 	public delegate void Timer_del();
 	public virtual Timer_del Timer { get => bfield_Timer ?? Actor_Timer; set => bfield_Timer = value; } Timer_del bfield_Timer;
@@ -1080,6 +1082,20 @@ public partial class Actor : Object/*
 	public virtual /*native function */void GetBoundingCylinder(ref float CollisionRadius, ref float CollisionHeight)
 	{
 		#warning NATIVE FUNCTION !
+	}
+	
+	// Export UActor::execSpawn(FFrame&, void* const)
+	public virtual /*native final function */Actor Spawn(Core.ClassT<Actor> SpawnClass, /*optional */Actor? _SpawnOwner = default, /*optional */name? _SpawnTag = default, /*optional */Object.Vector? _SpawnLocation = default, /*optional */Object.Rotator? _SpawnRotation = default, /*optional */Actor? _ActorTemplate = default, /*optional */bool? _bNoCollisionFail = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UActor::execDestroy(FFrame&, void* const)
+	public virtual /*native(279) final function */bool Destroy()
+	{
+		#warning NATIVE FUNCTION !
+		return default;
 	}
 	
 	public virtual /*event */void TornOff()
@@ -1296,7 +1312,7 @@ public partial class Actor : Object/*
 		}
 		else
 		{
-			if((bPhysXMutatable || (!bGameRelevant && !bStatic) && ((int)WorldInfo.NetMode) != ((int)WorldInfo.ENetMode.NM_Client/*3*/)) && !WorldInfo.Game.CheckRelevance(this))
+			if(((bPhysXMutatable || (!bGameRelevant && !bStatic) && ((int)WorldInfo.NetMode) != ((int)WorldInfo.ENetMode.NM_Client/*3*/))) && !WorldInfo.Game.CheckRelevance(this))
 			{
 				if(bNoDelete)
 				{
@@ -1361,7 +1377,7 @@ public partial class Actor : Object/*
 	
 	public virtual /*simulated function */bool StopsProjectile(Projectile P)
 	{
-		return bProjTarget || bBlockActors;
+		return (bProjTarget || bBlockActors);
 	}
 	
 	public virtual /*simulated function */bool HurtRadius(float BaseDamage, float DamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, /*optional */Actor? _IgnoredActor = default, /*optional */Controller? _InstigatedByController = default, /*optional */bool? _bDoFullDamage = default)
@@ -1383,10 +1399,10 @@ public partial class Actor : Object/*
 		using var e62 = VisibleCollidingActors(ClassT<Actor>(), DamageRadius, HurtOrigin, default(bool?)).GetEnumerator();
 		while(e62.MoveNext() && (Victim = (Actor)e62.Current) == Victim)
 		{
-			if(((!Victim.bWorldGeometry && Victim != this) && Victim != IgnoredActor) && Victim.bProjTarget || ((Victim) as NavigationPoint) == default)
+			if(((!Victim.bWorldGeometry && Victim != this) && Victim != IgnoredActor) && (Victim.bProjTarget || ((Victim) as NavigationPoint) == default))
 			{
 				Victim.TakeRadiusDamage(InstigatedByController, BaseDamage, DamageRadius, DamageType, Momentum, HurtOrigin, bDoFullDamage, this);
-				bCausedDamage = bCausedDamage || Victim.bProjTarget;
+				bCausedDamage = (bCausedDamage || Victim.bProjTarget);
 			}		
 		}	
 		bHurtEntry = false;
@@ -1464,7 +1480,7 @@ public partial class Actor : Object/*
 		{
 			return;
 		}
-		if((HitInfo.HitComponent == default) || (((HitInfo.HitComponent) as SkeletalMeshComponent) == default) && ((FallBackComponent) as SkeletalMeshComponent) != default)
+		if(((HitInfo.HitComponent == default) || (((HitInfo.HitComponent) as SkeletalMeshComponent) == default) && ((FallBackComponent) as SkeletalMeshComponent) != default))
 		{
 			HitInfo.HitComponent = FallBackComponent;
 		}
@@ -1943,7 +1959,7 @@ public partial class Actor : Object/*
 		var bIncludeDisabled = _bIncludeDisabled ?? default;
 		using var v = GeneratedEvents.GetEnumerator();while(v.MoveNext() && (Evt = (SequenceEvent)v.Current) == Evt)
 		{
-			if((((Evt != default) && Evt.bEnabled || bIncludeDisabled) && ClassIsChildOf(Evt.Class, EventClass)) && (Evt.MaxTriggerCount == 0) || Evt.MaxTriggerCount > Evt.TriggerCount)
+			if((((Evt != default) && (Evt.bEnabled || bIncludeDisabled)) && ClassIsChildOf(Evt.Class, EventClass)) && ((Evt.MaxTriggerCount == 0) || Evt.MaxTriggerCount > Evt.TriggerCount))
 			{
 				out_EventList.AddItem(Evt);
 				bFoundEvent = true;
@@ -1983,7 +1999,7 @@ public partial class Actor : Object/*
 	
 	public virtual /*simulated function */void OnDestroy(SeqAct_Destroy Action)
 	{
-		if(bNoDelete || ((int)Role) < ((int)Actor.ENetRole.ROLE_Authority/*3*/))
+		if((bNoDelete || ((int)Role) < ((int)Actor.ENetRole.ROLE_Authority/*3*/)))
 		{
 			ShutDown();		
 		}
@@ -2220,7 +2236,7 @@ public partial class Actor : Object/*
 	
 		Attachment.SetBase(default, default(Object.Vector?), default(SkeletalMeshComponent?), default(name?));
 		Attachment.SetHardAttach(Action.bHardAttach);
-		if(Action.bUseRelativeOffset || Action.bUseRelativeRotation)
+		if((Action.bUseRelativeOffset || Action.bUseRelativeRotation))
 		{
 			bOldCollideActors = Attachment.bCollideActors;
 			bOldBlockActors = Attachment.bBlockActors;

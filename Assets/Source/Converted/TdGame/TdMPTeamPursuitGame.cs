@@ -78,7 +78,7 @@ public partial class TdMPTeamPursuitGame : TdMPTeamGame/*
 	
 	public override /*function */void ScoreKill(Controller Killer, Controller Other)
 	{
-		if((Killer == Other) || Killer == default)
+		if(((Killer == Other) || Killer == default))
 		{
 			if((Other != default) && Other.PlayerReplicationInfo != default)
 			{
@@ -158,7 +158,7 @@ public partial class TdMPTeamPursuitGame : TdMPTeamGame/*
 		ResultClass = ((C) as TdPlayerController).CharacterClass;
 		if(ResultClass == default)
 		{
-			if((CriminalClasses.Length == 0) || PoliceClasses.Length == 0)
+			if(((CriminalClasses.Length == 0) || PoliceClasses.Length == 0))
 			{
 				ResultClass = DefaultPawnClass;			
 			}

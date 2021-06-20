@@ -41,7 +41,7 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 		{
 			return false;
 		}
-		if(((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Climb/*21*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Cutscene/*93*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_IntoClimb/*22*/))
+		if(((((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Climb/*21*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Cutscene/*93*/))) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_IntoClimb/*22*/)))
 		{
 			return false;
 		}
@@ -55,14 +55,14 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 		BehindLadder = (Dot(PawnToLadder2D, ((Vector)(Ladder.Rotation)))) < 0.0f;
 		if(PawnOwner.Location.Z > Ladder.GetLadderLocation(Ladder.PawnLadderLocations.Length - 1).Z)
 		{
-			if((Angle > -0.850f) || ((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/))
+			if(((Angle > -0.850f) || ((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)))
 			{
 				return false;
 			}		
 		}
 		else
 		{
-			if((Angle < -0.10f) || BehindLadder)
+			if(((Angle < -0.10f) || BehindLadder))
 			{
 				return false;
 			}
@@ -145,7 +145,7 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 					}
 					else
 					{
-						if((PawnOwner.Velocity.Z < -200.0f) || ((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_GrabTransfer/*31*/))
+						if(((PawnOwner.Velocity.Z < -200.0f) || ((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_GrabTransfer/*31*/)))
 						{
 							PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbHangStart" : "LadderClimbHangStart"), 1.0f, 0.10f, 0.250f, default(bool?), default(bool?));
 							((PawnOwner.Controller) as TdPlayerController).ClientPlayForceFeedbackWaveform(ImpactSoftWaveform);
@@ -227,7 +227,7 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 	{
 		/*local */int CurrentLadderStep = default;
 	
-		if((((int)ClimbState) == ((int)TdMove_IntoClimb.EClimbEnterState.CES_EnteringAtTop/*0*/)) || ((int)ClimbState) == ((int)TdMove_IntoClimb.EClimbEnterState.CES_EnteringAtBottom/*1*/))
+		if(((((int)ClimbState) == ((int)TdMove_IntoClimb.EClimbEnterState.CES_EnteringAtTop/*0*/)) || ((int)ClimbState) == ((int)TdMove_IntoClimb.EClimbEnterState.CES_EnteringAtBottom/*1*/)))
 		{
 			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
 			return;

@@ -27,7 +27,7 @@ public partial class TdMove_AutoStepUp : TdPhysicsMove/*
 			return false;
 		}
 		return false;
-		if(PawnOwner.bFoundLedgeExcludesFootMoves || (PawnOwner.MovementActor != default) && PawnOwner.MovementActor.bExludeFootMoves)
+		if((PawnOwner.bFoundLedgeExcludesFootMoves || (PawnOwner.MovementActor != default) && PawnOwner.MovementActor.bExludeFootMoves))
 		{
 			return false;
 		}
@@ -39,7 +39,7 @@ public partial class TdMove_AutoStepUp : TdPhysicsMove/*
 		ToLedge2D.Z = 0.0f;
 		DistanceToLedge = VSize2D(ToLedge2D);
 		TimeToLedge = DistanceToLedge / ((float)(Max(150, ((int)(VSize2D(PawnOwner.Velocity))))));
-		if((TimeToLedge > 0.350f) || DistanceToLedge > 100.0f)
+		if(((TimeToLedge > 0.350f) || DistanceToLedge > 100.0f))
 		{
 			return false;
 		}
@@ -47,12 +47,12 @@ public partial class TdMove_AutoStepUp : TdPhysicsMove/*
 		{
 			return false;
 		}
-		if((PawnOwner.Velocity.Z < -600.0f) || PawnOwner.Velocity.Z > 0.0f)
+		if(((PawnOwner.Velocity.Z < -600.0f) || PawnOwner.Velocity.Z > 0.0f))
 		{
 			return false;
 		}
 		HandplantHeight = (PawnOwner.MoveLedgeLocation.Z - PawnOwner.Location.Z) + PawnOwner.CylinderComponent.CollisionHeight;
-		if((HandplantHeight > StepUpHighMaxHeight) || HandplantHeight < StepUpHighMinHeight)
+		if(((HandplantHeight > StepUpHighMaxHeight) || HandplantHeight < StepUpHighMinHeight))
 		{
 			return false;
 		}

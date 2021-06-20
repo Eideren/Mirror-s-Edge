@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -574,54 +572,54 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 		return default;
 	}
 	
-	//// Export USkeletalMeshComponent::execFindAnimNode(FFrame&, void* const)
-	//public virtual /*native final function */AnimNode FindAnimNode(name InNodeName)
-	//{
-	//	#warning NATIVE FUNCTION !
-	//	return default;
-	//}
-	//
-	//// Export USkeletalMeshComponent::execAllAnimNodes(FFrame&, void* const)
-	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<AnimNode/* Node*/> AllAnimNodes(Core.ClassT<AnimNode> BaseClass)
-	//{
-	//	#warning NATIVE FUNCTION !
-	//	yield return default;
-	//}
-	//
-	//// Export USkeletalMeshComponent::execFindSkelControl(FFrame&, void* const)
-	//public virtual /*native final function */SkelControlBase FindSkelControl(name InControlName)
-	//{
-	//	#warning NATIVE FUNCTION !
-	//	return default;
-	//}
-	//
-	//// Export USkeletalMeshComponent::execFindMorphNode(FFrame&, void* const)
-	//public virtual /*native final function */MorphNodeBase FindMorphNode(name InNodeName)
-	//{
-	//	#warning NATIVE FUNCTION !
-	//	return default;
-	//}
-	//
-	//// Export USkeletalMeshComponent::execGetBoneQuaternion(FFrame&, void* const)
-	//public virtual /*native final function */Object.Quat GetBoneQuaternion(name BoneName, /*optional */int? _Space = default)
-	//{
-	//	#warning NATIVE FUNCTION !
-	//	return default;
-	//}
-	//
-	//// Export USkeletalMeshComponent::execGetBoneLocation(FFrame&, void* const)
-	//public virtual /*native final function */Object.Vector GetBoneLocation(name BoneName, /*optional */int? _Space = default)
-	//{
-	//	#warning NATIVE FUNCTION !
-	//	return default;
-	//}
-	//
-	//// Export USkeletalMeshComponent::execMatchRefBone(FFrame&, void* const)
-	//public virtual /*native final function */int MatchRefBone(name BoneName)
-	//{
-	//	#warning NATIVE FUNCTION !
-	//	return default;
-	//}
+	// Export USkeletalMeshComponent::execFindAnimNode(FFrame&, void* const)
+	public virtual /*native final function */AnimNode FindAnimNode(name InNodeName)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export USkeletalMeshComponent::execAllAnimNodes(FFrame&, void* const)
+	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<AnimNode/* Node*/> AllAnimNodes(Core.ClassT<AnimNode> BaseClass)
+	{
+		#warning NATIVE FUNCTION !
+		yield return default;
+	}
+	
+	// Export USkeletalMeshComponent::execFindSkelControl(FFrame&, void* const)
+	public virtual /*native final function */SkelControlBase FindSkelControl(name InControlName)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export USkeletalMeshComponent::execFindMorphNode(FFrame&, void* const)
+	public virtual /*native final function */MorphNodeBase FindMorphNode(name InNodeName)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export USkeletalMeshComponent::execGetBoneQuaternion(FFrame&, void* const)
+	public virtual /*native final function */Object.Quat GetBoneQuaternion(name BoneName, /*optional */int? _Space = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export USkeletalMeshComponent::execGetBoneLocation(FFrame&, void* const)
+	public virtual /*native final function */Object.Vector GetBoneLocation(name BoneName, /*optional */int? _Space = default)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export USkeletalMeshComponent::execMatchRefBone(FFrame&, void* const)
+	public virtual /*native final function */int MatchRefBone(name BoneName)
+	{
+		#warning NATIVE FUNCTION !
+		return default;
+	}
 	
 	// Export USkeletalMeshComponent::execGetBoneMatrix(FFrame&, void* const)
 	public virtual /*native final function */Object.Matrix GetBoneMatrix(int BoneIndex)
@@ -726,17 +724,17 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 		#warning NATIVE FUNCTION !
 	}
 	
-	//// Export USkeletalMeshComponent::execForceSkelUpdate(FFrame&, void* const)
-	//public virtual /*native final function */void ForceSkelUpdate()
-	//{
-	//	#warning NATIVE FUNCTION !
-	//}
-	//
-	//// Export USkeletalMeshComponent::execUpdateAnimations(FFrame&, void* const)
-	//public virtual /*native final function */void UpdateAnimations()
-	//{
-	//	#warning NATIVE FUNCTION !
-	//}
+	// Export USkeletalMeshComponent::execForceSkelUpdate(FFrame&, void* const)
+	public virtual /*native final function */void ForceSkelUpdate()
+	{
+		#warning NATIVE FUNCTION !
+	}
+	
+	// Export USkeletalMeshComponent::execUpdateAnimations(FFrame&, void* const)
+	public virtual /*native final function */void UpdateAnimations()
+	{
+		#warning NATIVE FUNCTION !
+	}
 	
 	// Export USkeletalMeshComponent::execGetBonesWithinRadius(FFrame&, void* const)
 	public virtual /*native final function */bool GetBonesWithinRadius(Object.Vector Origin, float Radius, int TraceFlags, ref array<name> out_Bones)
@@ -811,7 +809,7 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 			if((AnimNode.AnimSeq != default) && AnimNode.AnimSeq.SequenceName == AnimName)
 			{
 				DesiredRate = ((Duration > 0.0f) ? AnimNode.AnimSeq.SequenceLength / Duration : 1.0f);
-				if(bRestartIfAlreadyPlaying || !AnimNode.bPlaying)
+				if((bRestartIfAlreadyPlaying || !AnimNode.bPlaying))
 				{
 					AnimNode.PlayAnim(bLoop, DesiredRate, default(float?));				
 				}

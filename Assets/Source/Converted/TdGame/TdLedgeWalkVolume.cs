@@ -61,7 +61,7 @@ public partial class TdLedgeWalkVolume : TdMovementVolume/*
 	public override /*simulated function */void PawnUpdate(TdPawn TdP)
 	{
 		base.PawnUpdate(TdP);
-		if((((int)TdP.MovementState) == ((int)TdPawn.EMovement.MOVE_LedgeWalk/*30*/)) || ((int)TdP.Role) < ((int)Actor.ENetRole.ROLE_AutonomousProxy/*2*/))
+		if(((((int)TdP.MovementState) == ((int)TdPawn.EMovement.MOVE_LedgeWalk/*30*/)) || ((int)TdP.Role) < ((int)Actor.ENetRole.ROLE_AutonomousProxy/*2*/)))
 		{
 			return;
 		}

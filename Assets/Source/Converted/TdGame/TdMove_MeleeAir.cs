@@ -243,7 +243,7 @@ public partial class TdMove_MeleeAir : TdMove_MeleeBase/*
 				PawnOwner.SetCustomAnimsBlendOutTime(TdPawn.CustomNodeType.CNT_FullBody/*2*/, 0.10f);
 				PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeInAirHit", 1.0f, 0.10f, 0.20f, default(bool?), default(bool?));
 			}
-			if((((int)MeleeType) == ((int)TdMove_MeleeAir.EMeleeAirType.MAT_FromJumpHigh/*2*/)) || ((int)MeleeType) == ((int)TdMove_MeleeAir.EMeleeAirType.MAT_FromJump/*0*/))
+			if(((((int)MeleeType) == ((int)TdMove_MeleeAir.EMeleeAirType.MAT_FromJumpHigh/*2*/)) || ((int)MeleeType) == ((int)TdMove_MeleeAir.EMeleeAirType.MAT_FromJump/*0*/)))
 			{
 				PawnOwner.Velocity = Normal(PawnOwner.Location - TargetPawn.Location) * 500.0f;
 				PawnOwner.Velocity.Z = 50.0f;

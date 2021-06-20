@@ -10,7 +10,7 @@ public partial class TdMove_MeleeAirAbove : TdMove_MeleeBase/*
 	{
 		/*local */TdPawn TargetPawnCached = default;
 	
-		if((TargetPawn == default) || TargetPawn.IsPendingKill())
+		if(((TargetPawn == default) || TargetPawn.IsPendingKill()))
 		{
 			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Falling/*2*/, default(bool?), default(bool?));
 			return;

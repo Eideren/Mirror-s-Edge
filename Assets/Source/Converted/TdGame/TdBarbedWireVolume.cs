@@ -15,7 +15,7 @@ public partial class TdBarbedWireVolume : TdMovementVolume/*
 		/*local */TdMove_StumbleBase StumbleMove = default;
 	
 		PlayerPawn = ((Other) as TdPlayerPawn);
-		if((((PlayerPawn == default) || PlayerPawn.Health <= 0) || ((int)PlayerPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Stumble/*35*/)) || !PlayerPawn.CanDoMove(TdPawn.EMovement.MOVE_Stumble/*35*/))
+		if(((((((PlayerPawn == default) || PlayerPawn.Health <= 0)) || ((int)PlayerPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Stumble/*35*/))) || !PlayerPawn.CanDoMove(TdPawn.EMovement.MOVE_Stumble/*35*/)))
 		{
 			return;
 		}

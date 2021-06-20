@@ -36,7 +36,7 @@ public partial class TdKillVolume : PhysicsVolume/*
 		if(!Other.bScriptInitialized)
 		{
 		}
-		if(((Other.IsA("TdBotPawn") && AffectAI) || Other.IsA("TdPlayerPawn") && AffectPlayer) || Other.IsA("TdBagKActor"))
+		if(((((Other.IsA("TdBotPawn") && AffectAI) || Other.IsA("TdPlayerPawn") && AffectPlayer)) || Other.IsA("TdBagKActor")))
 		{
 			Other.FellOutOfWorld(KillDamageType);
 		}

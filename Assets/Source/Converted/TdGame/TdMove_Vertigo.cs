@@ -68,7 +68,7 @@ public partial class TdMove_Vertigo : TdPhysicsMove/*
 		EdgeHeading = ((Rotator)(DiffBetweenPawnAndEdge));
 		PawnHeading = PawnOwner.Rotation;
 		Delta = Normalize(EdgeHeading - PawnHeading);
-		if((Delta.Yaw < -8000) || Delta.Yaw > 8000)
+		if(((Delta.Yaw < -8000) || Delta.Yaw > 8000))
 		{
 			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
 		}

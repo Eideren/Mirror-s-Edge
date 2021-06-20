@@ -65,7 +65,7 @@ public partial class TdMove_Jump : TdPhysicsMove/*
 			WantedJumpVelocity += PawnOwner.Base.Velocity;
 		}
 		base.StartMove();
-		if(!PawnOwner.bFoundLedge || ((int)PawnOwner.GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/))
+		if((!PawnOwner.bFoundLedge || ((int)PawnOwner.GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)))
 		{
 			StartJump();		
 		}

@@ -45,7 +45,7 @@ public partial class TdSavedMove : SavedMove{
 		bReleasedJump = TdPC.bReleasedJump;
 		bDoubleJump = TdPC.bDoubleJump;
 		bPreciseDestination = TdPC.bPreciseDestination;
-		bForceRMVelocity = ((TdPC.Pawn != default) && TdPC.Pawn.Mesh != default) && (((int)TdPC.Pawn.Mesh.RootMotionMode) == ((int)SkeletalMeshComponent.ERootMotionMode.RMM_Accel/*3*/)) || ((int)TdPC.Pawn.Mesh.RootMotionMode) == ((int)SkeletalMeshComponent.ERootMotionMode.RMM_Velocity/*1*/);
+		bForceRMVelocity = ((TdPC.Pawn != default) && TdPC.Pawn.Mesh != default) && ((((int)TdPC.Pawn.Mesh.RootMotionMode) == ((int)SkeletalMeshComponent.ERootMotionMode.RMM_Accel/*3*/)) || ((int)TdPC.Pawn.Mesh.RootMotionMode) == ((int)SkeletalMeshComponent.ERootMotionMode.RMM_Velocity/*1*/));
 		TimeStamp = P.WorldInfo.TimeSeconds;
 	}
 	
@@ -81,13 +81,13 @@ public partial class TdSavedMove : SavedMove{
 	{
 		/*local */Object.Vector AccelNorm = default, CompareAccelNorm = default;
 	
-		if(bPressedJump || bReleasedJump)
+		if((bPressedJump || bReleasedJump))
 		{
 			return true;
 		}
 		AccelNorm = Normal(Acceleration);
 		CompareAccelNorm = Normal(CompareAccel);
-		return ((CompareAccel != AccelNorm) && (Dot(CompareAccelNorm, AccelNorm)) < AccelDotThreshold) || VSizeSq2D(Acceleration) > ((float)(16000000));
+		return (((CompareAccel != AccelNorm) && (Dot(CompareAccelNorm, AccelNorm)) < AccelDotThreshold) || VSizeSq2D(Acceleration) > ((float)(16000000)));
 	}
 	
 	public override /*function */bool CanCombineWith(SavedMove NewMove, Pawn inPawn, float MaxDelta)
@@ -101,11 +101,11 @@ public partial class TdSavedMove : SavedMove{
 		}
 		if(NewMove.Acceleration == vect(0.0f, 0.0f, 0.0f))
 		{
-			return ((((((((((((((((Acceleration == vect(0.0f, 0.0f, 0.0f)) && StartVelocity == vect(0.0f, 0.0f, 0.0f)) && NewMove.StartVelocity == vect(0.0f, 0.0f, 0.0f)) && ((int)SavedPhysics) == ((int)inPawn.Physics)) && !bPressedJump) && !NewMove.bPressedJump) && !bReleasedJump) && !NewTdMove.bReleasedJump) && bRun == NewMove.bRun) && bDuck == NewMove.bDuck) && bPreciseDestination == NewMove.bPreciseDestination) && bDoubleJump == NewMove.bDoubleJump) && (((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_None/*0*/)) || ((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_Active/*5*/)) && ((int)NewMove.DoubleClickMove) == ((int)DoubleClickMove)) && !bForceRMVelocity) && !NewMove.bForceRMVelocity) && ((int)MoveActionHint) == ((int)NewTdMove.MoveActionHint);		
+			return ((((((((((((((((Acceleration == vect(0.0f, 0.0f, 0.0f)) && StartVelocity == vect(0.0f, 0.0f, 0.0f)) && NewMove.StartVelocity == vect(0.0f, 0.0f, 0.0f)) && ((int)SavedPhysics) == ((int)inPawn.Physics)) && !bPressedJump) && !NewMove.bPressedJump) && !bReleasedJump) && !NewTdMove.bReleasedJump) && bRun == NewMove.bRun) && bDuck == NewMove.bDuck) && bPreciseDestination == NewMove.bPreciseDestination) && bDoubleJump == NewMove.bDoubleJump) && ((((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_None/*0*/)) || ((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_Active/*5*/))) && ((int)NewMove.DoubleClickMove) == ((int)DoubleClickMove)) && !bForceRMVelocity) && !NewMove.bForceRMVelocity) && ((int)MoveActionHint) == ((int)NewTdMove.MoveActionHint);		
 		}
 		else
 		{
-			return ((((((((((((((((inPawn != default) && (NewMove.Delta + Delta) < MaxDelta) && ((int)SavedPhysics) == ((int)inPawn.Physics)) && !bPressedJump) && !NewMove.bPressedJump) && !bReleasedJump) && !NewTdMove.bReleasedJump) && bRun == NewMove.bRun) && bDuck == NewMove.bDuck) && bDoubleJump == NewMove.bDoubleJump) && bPreciseDestination == NewMove.bPreciseDestination) && (((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_None/*0*/)) || ((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_Active/*5*/)) && ((int)NewMove.DoubleClickMove) == ((int)DoubleClickMove)) && (Dot(Normal(Acceleration), Normal(NewMove.Acceleration))) > 0.990f) && !bForceRMVelocity) && !NewMove.bForceRMVelocity) && ((int)MoveActionHint) == ((int)NewTdMove.MoveActionHint);
+			return ((((((((((((((((inPawn != default) && (NewMove.Delta + Delta) < MaxDelta) && ((int)SavedPhysics) == ((int)inPawn.Physics)) && !bPressedJump) && !NewMove.bPressedJump) && !bReleasedJump) && !NewTdMove.bReleasedJump) && bRun == NewMove.bRun) && bDuck == NewMove.bDuck) && bDoubleJump == NewMove.bDoubleJump) && bPreciseDestination == NewMove.bPreciseDestination) && ((((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_None/*0*/)) || ((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_Active/*5*/))) && ((int)NewMove.DoubleClickMove) == ((int)DoubleClickMove)) && (Dot(Normal(Acceleration), Normal(NewMove.Acceleration))) > 0.990f) && !bForceRMVelocity) && !NewMove.bForceRMVelocity) && ((int)MoveActionHint) == ((int)NewTdMove.MoveActionHint);
 		}
 		#warning decompiling process did not include a return on the last line, added default return
 	

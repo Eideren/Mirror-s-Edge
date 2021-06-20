@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -191,8 +189,8 @@ public partial class TdMove_Swing : TdPhysicsMove/*
 		/*local */bool MoveLeft = default, MoveRight = default;
 		/*local */float JumpAngle = default;
 	
-		MoveLeft = (((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyLeft/*12*/)) || ((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyLeftLong/*13*/);
-		MoveRight = (((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyRight/*14*/)) || ((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyRightLong/*15*/);
+		MoveLeft = ((((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyLeft/*12*/)) || ((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyLeftLong/*13*/));
+		MoveRight = ((((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyRight/*14*/)) || ((int)Action) == ((int)TdPawn.EMovementAction.MA_ShimmyRightLong/*15*/));
 		if(((int)Action) == ((int)TdPawn.EMovementAction.MA_Jump/*1*/))
 		{
 			JumpAngle = FMin(3.1415930f / 2.0f, SwingAngle - SwingAngleTimingOffset);
@@ -225,11 +223,11 @@ public partial class TdMove_Swing : TdPhysicsMove/*
 					}
 					else
 					{
-						if(((!bIsTurning && !bIsShimmying) && MoveLeft || MoveRight) && !Volume.bSnapToCenter)
+						if(((!bIsTurning && !bIsShimmying) && (MoveLeft || MoveRight)) && !Volume.bSnapToCenter)
 						{
 							if((Abs(SwingVelocity) < 1.0f) && Abs(SwingAngle) < (3.1415930f / ((float)(8))))
 							{
-								if(CanShimmy((MoveRight) ? 1.0f : -1.0f))
+								if(CanShimmy(((TdPawn.EMovementAction)((MoveRight) ? 1.0f : -1.0f))))
 								{
 									bIsShimmying = true;
 									ShimmyVelocity = 35.0f * ((MoveRight) ? 1.0f : -1.0f);

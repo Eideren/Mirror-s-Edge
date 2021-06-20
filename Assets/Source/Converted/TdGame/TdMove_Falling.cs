@@ -17,7 +17,7 @@ public partial class TdMove_Falling : TdPhysicsMove/*
 		{
 			return false;
 		}
-		if((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Crouch/*15*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Slide/*16*/))
+		if(((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Crouch/*15*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Slide/*16*/)))
 		{
 			StandLocation = PawnOwner.Location;
 			StandLocation.Z += 34.0f;

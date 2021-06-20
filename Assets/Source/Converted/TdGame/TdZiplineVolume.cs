@@ -19,7 +19,7 @@ public partial class TdZiplineVolume : TdMovementVolume/*
 		{
 			return;
 		}
-		if((((int)TdP.MovementState) == ((int)TdPawn.EMovement.MOVE_ZipLine/*28*/)) || ((int)TdP.MovementState) == ((int)TdPawn.EMovement.MOVE_IntoZipLine/*27*/))
+		if(((((int)TdP.MovementState) == ((int)TdPawn.EMovement.MOVE_ZipLine/*28*/)) || ((int)TdP.MovementState) == ((int)TdPawn.EMovement.MOVE_IntoZipLine/*27*/)))
 		{
 			return;
 		}

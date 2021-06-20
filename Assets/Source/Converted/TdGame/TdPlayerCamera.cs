@@ -42,12 +42,12 @@ public partial class TdPlayerCamera : Camera/*
 		if(CamActor != default)
 		{
 			CamActor.GetCameraView(DeltaTime, ref/*probably?*/ OutVT.POV);
-			bConstrainAspectRatio = bConstrainAspectRatio || CamActor.bConstrainAspectRatio;
+			bConstrainAspectRatio = (bConstrainAspectRatio || CamActor.bConstrainAspectRatio);
 			OutVT.AspectRatio = CamActor.AspectRatio;		
 		}
 		else
 		{
-			if(((OutVT.Target != default) && ((OutVT.Target) as Pawn) == default) || !((OutVT.Target) as Pawn).CalcCamera(DeltaTime, ref/*probably?*/ OutVT.POV.Location, ref/*probably?*/ OutVT.POV.Rotation, ref/*probably?*/ OutVT.POV.FOV))
+			if((((OutVT.Target != default) && ((OutVT.Target) as Pawn) == default) || !((OutVT.Target) as Pawn).CalcCamera(DeltaTime, ref/*probably?*/ OutVT.POV.Location, ref/*probably?*/ OutVT.POV.Rotation, ref/*probably?*/ OutVT.POV.FOV)))
 			{
 				if(((OutVT.Target) as TdPawn) != default)
 				{

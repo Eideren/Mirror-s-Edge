@@ -17,7 +17,7 @@ public partial class TdMove_Stumble : TdMove_StumbleBase/*
 	
 	public override /*simulated function */bool CanDoMove()
 	{
-		if(((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Crouch/*15*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_MeleeCrouch/*63*/)) && CanStand(PawnOwner.Location + vect(0.0f, 0.0f, 30.0f), default(bool?)))
+		if((((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Crouch/*15*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_MeleeCrouch/*63*/))) && CanStand(PawnOwner.Location + vect(0.0f, 0.0f, 30.0f), default(bool?)))
 		{
 			return true;
 		}
@@ -136,7 +136,7 @@ public partial class TdMove_Stumble : TdMove_StumbleBase/*
 		{
 			PawnOwner.SetWeaponAnimState(((TdPawn.EWeaponAnimState)PrevWeaponAnimState));
 		}
-		if((CurrentCustomAnimName == "GetHitStumbleBwdFar") || CurrentCustomAnimName == "GetHitStumbleBwd")
+		if(((CurrentCustomAnimName == "GetHitStumbleBwdFar") || CurrentCustomAnimName == "GetHitStumbleBwd"))
 		{
 			PawnOwner.SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));		
 		}

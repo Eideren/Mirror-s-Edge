@@ -30,7 +30,7 @@ public partial class TdMove_SoftLanding : TdPhysicsMove/*
 	public override /*simulated function */void UpdateViewRotation(ref Object.Rotator out_Rotation, float DeltaTime, ref Object.Rotator DeltaRot)
 	{
 		base.UpdateViewRotation(ref/*probably?*/ out_Rotation, DeltaTime, ref/*probably?*/ DeltaRot);
-		if((DeltaRot.Yaw > 0) || DeltaRot.Yaw < 0)
+		if(((DeltaRot.Yaw > 0) || DeltaRot.Yaw < 0))
 		{
 			AbortLookAtTarget();
 		}

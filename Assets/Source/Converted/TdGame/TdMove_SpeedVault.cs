@@ -111,7 +111,7 @@ public partial class TdMove_SpeedVault : TdPhysicsMove/*
 		J0x3F:{}
 		if(Idx < VaultTypes.Length)
 		{
-			if((HandplantHeight < VaultTypes[Idx].MinHeight) || HandplantHeight > VaultTypes[Idx].MaxHeight)
+			if(((HandplantHeight < VaultTypes[Idx].MinHeight) || HandplantHeight > VaultTypes[Idx].MaxHeight))
 			{
 				goto J0x22D;
 			}
@@ -154,11 +154,11 @@ public partial class TdMove_SpeedVault : TdPhysicsMove/*
 	
 		bVaultOnto = false;
 		bEndMoveFalling = false;
-		if((!base.CanDoMove() || !PawnOwner.bFoundLedge) || ((int)PawnOwner.GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/))
+		if((((!base.CanDoMove() || !PawnOwner.bFoundLedge)) || ((int)PawnOwner.GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)))
 		{
 			return false;
 		}
-		if((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_VaultOver/*9*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_SpeedVaulting/*8*/))
+		if(((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_VaultOver/*9*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_SpeedVaulting/*8*/)))
 		{
 			return false;
 		}
@@ -167,7 +167,7 @@ public partial class TdMove_SpeedVault : TdPhysicsMove/*
 			return false;
 		}
 		RefPawnLocation = ((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Grabbing/*3*/)) ? ((PawnOwner.Moves[31]) as TdMove_GrabTransfer).TransferLocation : PawnOwner.Location);
-		if(PawnOwner.bFoundLedgeExcludesHandMoves || (PawnOwner.MovementActor != default) && PawnOwner.MovementActor.bExludeHandMoves)
+		if((PawnOwner.bFoundLedgeExcludesHandMoves || (PawnOwner.MovementActor != default) && PawnOwner.MovementActor.bExludeHandMoves))
 		{
 			return false;
 		}
@@ -226,7 +226,7 @@ public partial class TdMove_SpeedVault : TdPhysicsMove/*
 			VaultEndPosition = PawnOwner.MoveLedgeLocation + (MoveDirection * ((float)(Min(((int)(VSize2D(VaultEndPosition - PawnOwner.MoveLedgeLocation))), Max(48, ((int)(FloorVelocity * VaultTypes[ActiveVaultType].VaultTimeDown)))))));
 			VaultEndPosition.Z = EndLocationZ;
 		}
-		if((((int)PawnOwner.MovementState) != ((int)TdPawn.EMovement.MOVE_Grabbing/*3*/)) && (PawnOwner.Velocity.Z < VaultTypes[ActiveVaultType].MinSpeedZ) || PawnOwner.Velocity.Z > VaultTypes[ActiveVaultType].MaxSpeedZ)
+		if((((int)PawnOwner.MovementState) != ((int)TdPawn.EMovement.MOVE_Grabbing/*3*/)) && ((PawnOwner.Velocity.Z < VaultTypes[ActiveVaultType].MinSpeedZ) || PawnOwner.Velocity.Z > VaultTypes[ActiveVaultType].MaxSpeedZ))
 		{
 			return false;
 		}
@@ -521,7 +521,7 @@ public partial class TdMove_SpeedVault : TdPhysicsMove/*
 						PawnOwner.SetWeaponAnimState(TdPawn.EWeaponAnimState.WS_Relaxed/*1*/);
 					}
 					bUsePreciseLocation = false;
-					if(bVaultOnto || !bEndMoveFalling)
+					if((bVaultOnto || !bEndMoveFalling))
 					{
 						PawnOwner.SetMove(((TdPawn.EMovement)((bVaultOnto) ? 1 : 20)), default(bool?), default(bool?));
 						SavedVelocity.Z = FMax(0.0f, PawnOwner.Velocity.Z);

@@ -111,7 +111,7 @@ public partial class DynamicSMActor : Actor/*
 	
 	public virtual /*simulated function */bool CanBasePawn(Pawn P)
 	{
-		if(bPawnCanBaseOn || (bSafeBaseIfAsleep && StaticMeshComponent != default) && !StaticMeshComponent.RigidBodyIsAwake(default(name?)))
+		if((bPawnCanBaseOn || (bSafeBaseIfAsleep && StaticMeshComponent != default) && !StaticMeshComponent.RigidBodyIsAwake(default(name?))))
 		{
 			return true;
 		}

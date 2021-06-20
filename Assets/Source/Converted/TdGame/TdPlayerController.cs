@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -252,7 +250,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	public virtual /*function */void ConditionalBlockWhileLoading()
 	{
-		if((((myHUD != default) && !WorldInfo.IsConsoleBuild(default(WorldInfo.EConsoleType?))) && false) && !myPawn.bAllowMoveChange || myPawn.bSRPauseTimer)
+		if((((myHUD != default) && !WorldInfo.IsConsoleBuild(default(WorldInfo.EConsoleType?))) && false) && (!myPawn.bAllowMoveChange || myPawn.bSRPauseTimer))
 		{
 			((myHUD) as TdHUD).NotifyDiskAccess(true, TsSystem.ETsDiskAccess.TSD_LoadingLevel/*10*/);
 			ClientFlushLevelStreaming();
@@ -330,7 +328,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	public virtual /*function */void PlayAnnouncement(Core.ClassT<TdLocalMessage> InMessageClass, SoundNodeWave Announcement)
 	{
-		if((WorldInfo.GRI == default) || Announcer == default)
+		if(((WorldInfo.GRI == default) || Announcer == default))
 		{
 			return;
 		}
@@ -386,7 +384,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	public virtual /*exec function */void ReloadWeapon()
 	{
-		if(((((int)myPawn.Moves[((int)myPawn.MovementState)].MovementGroup) > ((int)TdMove.EMovementGroup.MG_Free/*0*/)) || ((int)myPawn.AgainstWallState) != ((int)TdPawn.EAgainstWallState.AW_None/*0*/)) || ((int)myPawn.WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/))
+		if(((((((int)myPawn.Moves[((int)myPawn.MovementState)].MovementGroup) > ((int)TdMove.EMovementGroup.MG_Free/*0*/)) || ((int)myPawn.AgainstWallState) != ((int)TdPawn.EAgainstWallState.AW_None/*0*/))) || ((int)myPawn.WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/)))
 		{
 			return;
 		}
@@ -409,7 +407,7 @@ public partial class TdPlayerController : GamePlayerController,
 		myPawn.OnTutorialEvent(19);
 		InvMan = ((Pawn.InvManager) as TdInventoryManager);
 		DisarmTimeMultiplier = 1.0f;
-		if((((((((((((int)myPawn.AgainstWallState) != ((int)TdPawn.EAgainstWallState.AW_None/*0*/)) || ((int)myPawn.WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/)) || WorldInfo.Pauser != default) || myPawn.IsFiring()) || myPawn.IsReloading()) || bCinematicMode) || ((int)myPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Falling/*2*/)) || ((int)myPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Landing/*20*/)) || ((int)myPawn.Moves[((int)myPawn.MovementState)].MovementGroup) > ((int)TdMove.EMovementGroup.MG_Free/*0*/)) || ((myPawn.Weapon) as TdWeapon).IsZooming())
+		if(((((((((((((((((((((int)myPawn.AgainstWallState) != ((int)TdPawn.EAgainstWallState.AW_None/*0*/)) || ((int)myPawn.WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/))) || WorldInfo.Pauser != default)) || myPawn.IsFiring())) || myPawn.IsReloading())) || bCinematicMode)) || ((int)myPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Falling/*2*/))) || ((int)myPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Landing/*20*/))) || ((int)myPawn.Moves[((int)myPawn.MovementState)].MovementGroup) > ((int)TdMove.EMovementGroup.MG_Free/*0*/))) || ((myPawn.Weapon) as TdWeapon).IsZooming()))
 		{
 			return;		
 		}
@@ -702,7 +700,7 @@ public partial class TdPlayerController : GamePlayerController,
 		}
 		else
 		{
-			if(((SourceActor == (GetViewTarget())) || SourceActor == this) || SourceActor == Pawn)
+			if(((((SourceActor == (GetViewTarget())) || SourceActor == this)) || SourceActor == Pawn))
 			{
 				AC = GetPooledAudioComponent(ASound, default, bStopWhenOwnerDestroyed, default(bool?), default(Object.Vector?));
 				if(AC == default)
@@ -776,7 +774,7 @@ public partial class TdPlayerController : GamePlayerController,
 					}
 				}
 			}
-			if(((((ASound.SoundGroup == "VOMain") || ASound.SoundGroup == "DialogueRadio") || ASound.SoundGroup == "DialogueFaith") || ASound.SoundGroup == "DialogueOther") && !(WorldInfo.Game != default) && WorldInfo.Game.IsA("TdSPTimeTrialGame"))
+			if((((((((ASound.SoundGroup == "VOMain") || ASound.SoundGroup == "DialogueRadio")) || ASound.SoundGroup == "DialogueFaith")) || ASound.SoundGroup == "DialogueOther")) && !(WorldInfo.Game != default) && WorldInfo.Game.IsA("TdSPTimeTrialGame"))
 			{
 				SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_INGAME_VO/*2*/, ASound.GetCueDuration() + 0.30f, default(bool?), default(float?));
 			}
@@ -788,7 +786,7 @@ public partial class TdPlayerController : GamePlayerController,
 		switch(SoundMode)
 		{
 			case AudioDevice.ESoundMode.SOUNDMODE_INGAME_VO/*2*/:
-				if(((((bReactionTime || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_GENERIC_DEATH/*9*/)) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_DEATH_BY_FALLING/*8*/)) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_INGAME_CUTSCENES/*1*/)) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_CUSTOM_TRACK_INGAME_CUTSCENES/*7*/)) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_FALLING_TO_DEATH/*6*/))
+				if((((((((((bReactionTime || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_GENERIC_DEATH/*9*/))) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_DEATH_BY_FALLING/*8*/))) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_INGAME_CUTSCENES/*1*/))) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_CUSTOM_TRACK_INGAME_CUTSCENES/*7*/))) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_FALLING_TO_DEATH/*6*/)))
 				{
 					return false;
 				}
@@ -801,19 +799,19 @@ public partial class TdPlayerController : GamePlayerController,
 				goto case AudioDevice.ESoundMode.SOUNDMODE_REACTION_TIME/*3*/;// UnrealScript fallthrough
 			case AudioDevice.ESoundMode.SOUNDMODE_REACTION_TIME/*3*/:
 			case AudioDevice.ESoundMode.SOUNDMODE_PAUSE/*4*/:
-				if(((((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_GENERIC_DEATH/*9*/)) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_DEATH_BY_FALLING/*8*/)) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_FALLING_TO_DEATH/*6*/))
+				if(((((((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_GENERIC_DEATH/*9*/)) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_DEATH_BY_FALLING/*8*/))) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_FALLING_TO_DEATH/*6*/)))
 				{
 					return false;
 				}
 				break;
 			case AudioDevice.ESoundMode.SOUNDMODE_INGAME_CUTSCENES/*1*/:
-				if(((((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_GENERIC_DEATH/*9*/)) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_DEATH_BY_FALLING/*8*/)) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_FALLING_TO_DEATH/*6*/))
+				if(((((((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_GENERIC_DEATH/*9*/)) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_DEATH_BY_FALLING/*8*/))) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_FALLING_TO_DEATH/*6*/)))
 				{
 					return false;
 				}
 				break;
 			case AudioDevice.ESoundMode.SOUNDMODE_CUSTOM_TRACK_INGAME_CUTSCENES/*7*/:
-				if((((((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_INGAME_CUTSCENES/*1*/)) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_GENERIC_DEATH/*9*/)) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_DEATH_BY_FALLING/*8*/)) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_FALLING_TO_DEATH/*6*/))
+				if(((((((((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_INGAME_CUTSCENES/*1*/)) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_GENERIC_DEATH/*9*/))) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_DEATH_BY_FALLING/*8*/))) || ((int)CurrentSoundMode) == ((int)AudioDevice.ESoundMode.SOUNDMODE_FALLING_TO_DEATH/*6*/)))
 				{
 					return false;
 				}
@@ -833,7 +831,7 @@ public partial class TdPlayerController : GamePlayerController,
 		{
 			return;
 		}
-		if((Duration > 0.0f) && (((int)CurrentSoundMode) != ((int)SoundMode)) || GetTimerRate("ClearSoundMode", default(Object?)) < Duration)
+		if((Duration > 0.0f) && ((((int)CurrentSoundMode) != ((int)SoundMode)) || GetTimerRate("ClearSoundMode", default(Object?)) < Duration))
 		{
 			SetTimer(Duration, false, "ClearSoundMode", default(Object?));
 		}
@@ -901,7 +899,7 @@ public partial class TdPlayerController : GamePlayerController,
 	public /*exec function */void TdPlayerController_StartFire(/*optional */byte? _FireModeNum = default)
 	{
 		var FireModeNum = _FireModeNum ?? default;
-		if(((myPawn.Weapon.IsA("TdWeapon_Light") && ((int)myPawn.Moves[((int)myPawn.MovementState)].MovementGroup) >= ((int)TdMove.EMovementGroup.MG_TwoHandsBusy/*2*/)) || myPawn.Weapon.IsA("TdWeapon_Heavy") && ((int)myPawn.Moves[((int)myPawn.MovementState)].MovementGroup) >= ((int)TdMove.EMovementGroup.MG_OneHandBusy/*1*/)) || ((int)myPawn.WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/))
+		if(((((myPawn.Weapon.IsA("TdWeapon_Light") && ((int)myPawn.Moves[((int)myPawn.MovementState)].MovementGroup) >= ((int)TdMove.EMovementGroup.MG_TwoHandsBusy/*2*/)) || myPawn.Weapon.IsA("TdWeapon_Heavy") && ((int)myPawn.Moves[((int)myPawn.MovementState)].MovementGroup) >= ((int)TdMove.EMovementGroup.MG_OneHandBusy/*1*/))) || ((int)myPawn.WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/)))
 		{
 			return;
 		}
@@ -1228,8 +1226,7 @@ public partial class TdPlayerController : GamePlayerController,
 			}
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
-			#warning commented out UI debug function
-			// base(Actor).DisplayDebug(HUD, ref/*probably?*/ out_YL, ref/*probably?*/ out_YPos);
+			base(Actor).DisplayDebug(HUD, ref/*probably?*/ out_YL, ref/*probably?*/ out_YPos);
 		}
 		if((PlayerCamera != default) && HUD.ShouldDisplayDebug("Camera"))
 		{
@@ -1614,7 +1611,7 @@ public partial class TdPlayerController : GamePlayerController,
 			PawnRot.Roll = 256 * ((int)ClientRoll);
 			Pawn.FaceRotation(PawnRot, DeltaTime);
 		}
-		if((Pawn == default) || !Pawn.bHardAttach)
+		if(((Pawn == default) || !Pawn.bHardAttach))
 		{
 			SavedMoveClass.Static.SetFlags((byte)MoveFlags, this);
 			ProcessMove(DeltaTime, InAccel, Actor.EDoubleClickDir.DCLICK_None/*0*/, DeltaRot);
@@ -1781,7 +1778,7 @@ public partial class TdPlayerController : GamePlayerController,
 	{
 		if(IsLoadingLevel())
 		{
-			if(!Action.bOnlyInSpeedrun || WorldInfo.Game.IsA("TdSPLevelRace"))
+			if((!Action.bOnlyInSpeedrun || WorldInfo.Game.IsA("TdSPLevelRace")))
 			{
 				((myHUD) as TdHUD).NotifyDiskAccess(true, TsSystem.ETsDiskAccess.TSD_LoadingLevel/*10*/);
 				ClientFlushLevelStreaming();
@@ -1824,7 +1821,7 @@ public partial class TdPlayerController : GamePlayerController,
 		{
 			return;
 		}
-		if(bCinematicMode || IsButtonInputIgnored())
+		if((bCinematicMode || IsButtonInputIgnored()))
 		{
 			return;
 		}
@@ -1832,11 +1829,11 @@ public partial class TdPlayerController : GamePlayerController,
 		{
 			return;
 		}
-		if(myPawn.IsInState("Dying", default(bool?)) || myPawn.IsInState("UncontrolledFall", default(bool?)))
+		if((myPawn.IsInState("Dying", default(bool?)) || myPawn.IsInState("UncontrolledFall", default(bool?))))
 		{
 			return;
 		}
-		if((ReactionTimeEnergy < ((float)(100))) || WorldInfo.Game.GameSpeed < 1.0f)
+		if(((ReactionTimeEnergy < ((float)(100))) || WorldInfo.Game.GameSpeed < 1.0f))
 		{
 			return;
 		}
@@ -1859,7 +1856,7 @@ public partial class TdPlayerController : GamePlayerController,
 		HUD = ((myHUD) as TdHUD);
 		CurrentWeapon = ((myPawn.Weapon) as TdWeapon);
 		CurrentMove = myPawn.Moves[((int)myPawn.MovementState)];
-		if(((HUD == default) || CurrentWeapon == default) || CurrentMove == default)
+		if(((((HUD == default) || CurrentWeapon == default)) || CurrentMove == default))
 		{
 			return;
 		}
@@ -1873,7 +1870,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	public virtual /*exec function */void LookBehind()
 	{
-		if((IsButtonInputIgnored()) || myPawn == default)
+		if(((IsButtonInputIgnored()) || myPawn == default))
 		{
 			return;
 		}
@@ -1899,7 +1896,7 @@ public partial class TdPlayerController : GamePlayerController,
 		{
 			return;
 		}
-		if(!myPawn.HasWeapon() || (((int)myPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Walking/*1*/)) && myPawn.Moves[19].CanDoMove())
+		if((!myPawn.HasWeapon() || (((int)myPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Walking/*1*/)) && myPawn.Moves[19].CanDoMove()))
 		{
 			myPawn.HandleMoveAction(TdPawn.EMovementAction.MA_Melee/*3*/);		
 		}
@@ -1976,7 +1973,7 @@ public partial class TdPlayerController : GamePlayerController,
 		/*local */TdPawn P = default, ClosestPawn = default;
 		/*local */float MinDistance = default;
 	
-		if((Pawn == default) || Pawn.Controller == default)
+		if(((Pawn == default) || Pawn.Controller == default))
 		{
 			return default;
 		}
@@ -2174,7 +2171,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	public virtual /*exec function */void PlayIdleDemo()
 	{
-		if(((IsButtonInputIgnored()) || myPawn == default) || myPawn.Weapon != default)
+		if(((((IsButtonInputIgnored()) || myPawn == default)) || myPawn.Weapon != default))
 		{
 			return;
 		}
@@ -2185,12 +2182,12 @@ public partial class TdPlayerController : GamePlayerController,
 	{
 		/*local */bool bIsCrouching = default;
 	
-		if(((IsButtonInputIgnored()) && ((int)bDuck) != ((int)0)) || myPawn == default)
+		if((((IsButtonInputIgnored()) && ((int)bDuck) != ((int)0)) || myPawn == default))
 		{
 			return;
 		}
-		bIsCrouching = myPawn.IsInMove(TdPawn.EMovement.MOVE_Crouch/*15*/) || myPawn.IsInMove(TdPawn.EMovement.MOVE_Slide/*16*/);
-		if(bIsCrouching && (((int)bDuck) == ((int)0)) || ((int)myPawn.Physics) == ((int)Actor.EPhysics.PHYS_Falling/*2*/))
+		bIsCrouching = (myPawn.IsInMove(TdPawn.EMovement.MOVE_Crouch/*15*/) || myPawn.IsInMove(TdPawn.EMovement.MOVE_Slide/*16*/));
+		if(bIsCrouching && ((((int)bDuck) == ((int)0)) || ((int)myPawn.Physics) == ((int)Actor.EPhysics.PHYS_Falling/*2*/)))
 		{
 			myPawn.HandleMoveAction(TdPawn.EMovementAction.MA_StopCrouch/*6*/);		
 		}
@@ -2245,7 +2242,7 @@ public partial class TdPlayerController : GamePlayerController,
 		/*local */TdPawn.EMoveActionHint Hint = default;
 		/*local */bool bMax = default;
 	
-		if((IsButtonInputIgnored()) || myPawn == default)
+		if(((IsButtonInputIgnored()) || myPawn == default))
 		{
 			return;
 		}
@@ -2457,7 +2454,7 @@ public partial class TdPlayerController : GamePlayerController,
 			}
 			ProfileSettings.ApplyGamepadBindings(TdInput, PresetMappings.NewCopy());
 		}
-		ControllerTilt = !ProfileSettings.GetProfileSettingValueIdByName("ControllerTilt", ref/*probably?*/ Value) || Value == 1;
+		ControllerTilt = (!ProfileSettings.GetProfileSettingValueIdByName("ControllerTilt", ref/*probably?*/ Value) || Value == 1);
 		SetControllerTiltDesiredIfAvailable(ControllerTilt);
 		SetControllerTiltActive(ControllerTilt);
 		ControllerTilt = ControllerTilt && IsControllerTiltActive();
@@ -2628,7 +2625,7 @@ public partial class TdPlayerController : GamePlayerController,
 		/*local */TdProfileSettings ProfileSettings = default;
 		/*local */int SettingId = default;
 	
-		if((I < 0) || I > 2)
+		if(((I < 0) || I > 2))
 		{
 			return;
 		}
@@ -3114,7 +3111,7 @@ public partial class TdPlayerController : GamePlayerController,
 		/*local */UIDataStore_TdTimeTrialData TimeTrialData = default;
 		/*local */int ProviderIndex = default;
 	
-		if(((OnlineResult != default) && OnlineResult.bBeatQualifyerTime) || OfflineResult.bBeatQualifyerTime)
+		if((((OnlineResult != default) && OnlineResult.bBeatQualifyerTime) || OfflineResult.bBeatQualifyerTime))
 		{
 			DataStoreManager = UIInteraction.GetDataStoreClient();
 			if(DataStoreManager != default)
@@ -3134,19 +3131,19 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	public virtual /*function */void OnTTStretchCompleted(TdTTResult OnlineResult, TdTTResult OfflineResult)
 	{
-		if(((OnlineResult != default) && OnlineResult.CurrentTime.TotalRating >= 50) || OfflineResult.CurrentTime.TotalRating >= 50)
+		if((((OnlineResult != default) && OnlineResult.CurrentTime.TotalRating >= 50) || OfflineResult.CurrentTime.TotalRating >= 50))
 		{
 			UnlockAchievement(15);
 		}
-		if(((OnlineResult != default) && OnlineResult.CurrentTime.TotalRating >= 35) || OfflineResult.CurrentTime.TotalRating >= 35)
+		if((((OnlineResult != default) && OnlineResult.CurrentTime.TotalRating >= 35) || OfflineResult.CurrentTime.TotalRating >= 35))
 		{
 			UnlockAchievement(14);
 		}
-		if(((OnlineResult != default) && OnlineResult.CurrentTime.TotalRating >= 20) || OfflineResult.CurrentTime.TotalRating >= 20)
+		if((((OnlineResult != default) && OnlineResult.CurrentTime.TotalRating >= 20) || OfflineResult.CurrentTime.TotalRating >= 20))
 		{
 			UnlockAchievement(13);
 		}
-		if(((OnlineResult != default) && OnlineResult.bBeatQualifyerTime) || OfflineResult.bBeatQualifyerTime)
+		if((((OnlineResult != default) && OnlineResult.bBeatQualifyerTime) || OfflineResult.bBeatQualifyerTime))
 		{
 			UnlockAchievement(10);
 		}
@@ -3189,7 +3186,7 @@ public partial class TdPlayerController : GamePlayerController,
 		{
 			return;
 		}
-		if((((int)myPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Walking/*1*/)) || ((int)myPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Crouch/*15*/))
+		if(((((int)myPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Walking/*1*/)) || ((int)myPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Crouch/*15*/)))
 		{
 			TdW = ((Pawn.Weapon) as TdWeapon);
 			if(((TdW != default) && TdW.bCanZoom) && !TdW.IsZooming())
@@ -3291,7 +3288,7 @@ public partial class TdPlayerController : GamePlayerController,
 		}
 		else
 		{
-			if((((WorldInfo.GRI.GameClass) as ClassT<TdSPStoryGame>) != default) || ((WorldInfo.GRI.GameClass) as ClassT<TdSPTutorialGame>) != default)
+			if(((((WorldInfo.GRI.GameClass) as ClassT<TdSPStoryGame>) != default) || ((WorldInfo.GRI.GameClass) as ClassT<TdSPTutorialGame>) != default))
 			{
 				if(((WorldInfo.GRI.GameClass) as ClassT<TdSPLevelRace>) != default)
 				{
@@ -3576,7 +3573,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	protected /*function */void TdPlayerController_PlayerWalking_ProcessMove(float DeltaTime, Object.Vector newAccel, Actor.EDoubleClickDir DoubleClickMove, Object.Rotator DeltaRot)// state function
 	{
-		if((Pawn == default) || myPawn == default)
+		if(((Pawn == default) || myPawn == default))
 		{
 			return;
 		}
@@ -3743,7 +3740,7 @@ public partial class TdPlayerController : GamePlayerController,
 		/*local */TdWeapon TdW = default;
 	
 		TdW = ((myPawn.Weapon) as TdWeapon);
-		return (((int)myPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Walking/*1*/)) && (TdW == default) || (((int)TdW.WeaponType) != ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)) && !TdW.IsZoomingOrZoomed();
+		return (((int)myPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Walking/*1*/)) && ((TdW == default) || (((int)TdW.WeaponType) != ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)) && !TdW.IsZoomingOrZoomed());
 	}
 	
 	protected /*event */void TdPlayerController_PlayerWalking_PlayStopLeft()// state function
@@ -3824,7 +3821,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	protected /*function */void TdPlayerController_PlayerGrabbing_ProcessMove(float DeltaTime, Object.Vector newAccel, Actor.EDoubleClickDir DoubleClickMove, Object.Rotator DeltaRot)// state function
 	{
-		if((myPawn != default) && !myPawn.bForceRMVelocity || myPawn.bIsUsingRootMotion)
+		if((myPawn != default) && !(myPawn.bForceRMVelocity || myPawn.bIsUsingRootMotion))
 		{
 			if(newAccel.Y > 8.0f)
 			{
@@ -4033,7 +4030,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	protected /*function */void TdPlayerController_PlayerLedgeWalking_ProcessMove(float DeltaTime, Object.Vector newAccel, Actor.EDoubleClickDir DoubleClickMove, Object.Rotator DeltaRot)// state function
 	{
-		if((myPawn != default) && !myPawn.bForceRMVelocity || myPawn.bIsUsingRootMotion)
+		if((myPawn != default) && !(myPawn.bForceRMVelocity || myPawn.bIsUsingRootMotion))
 		{
 			if(newAccel.Y > 6.0f)
 			{

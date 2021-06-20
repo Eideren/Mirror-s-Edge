@@ -144,7 +144,7 @@ public partial class TdMPGame : TdGameInfo/*
 		/*local */int RandIndex = default;
 		/*local */String ClassName = default;
 	
-		if((CriminalClasses.Length == 0) || PoliceClasses.Length == 0)
+		if(((CriminalClasses.Length == 0) || PoliceClasses.Length == 0))
 		{
 			return DefaultPawnClass;
 		}
@@ -320,7 +320,7 @@ public partial class TdMPGame : TdGameInfo/*
 	
 	public virtual /*function */bool CheckStartGame()
 	{
-		if((NumTravellingPlayers > 0) || MinWarmupPlayersNeeded > NumPlayers)
+		if(((NumTravellingPlayers > 0) || MinWarmupPlayersNeeded > NumPlayers))
 		{
 			return false;
 		}
@@ -367,7 +367,7 @@ public partial class TdMPGame : TdGameInfo/*
 	protected /*function */void TdMPGame_PendingMatch_BeginState(name PreviousStateName)// state function
 	{
 		/*Transformed 'base.' to specific call*/Object_BeginState(PreviousStateName);
-		if(!bUseWarmup || bUseWarmup && CheckStartGame())
+		if((!bUseWarmup || bUseWarmup && CheckStartGame()))
 		{
 			StartMatch();		
 		}

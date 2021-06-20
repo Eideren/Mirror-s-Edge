@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -70,7 +68,7 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 	
 	public override /*simulated function */void HandleMoveAction(TdPawn.EMovementAction Action)
 	{
-		if((((int)Action) != ((int)TdPawn.EMovementAction.MA_Melee/*3*/)) || !bWindowOpen)
+		if(((((int)Action) != ((int)TdPawn.EMovementAction.MA_Melee/*3*/)) || !bWindowOpen))
 		{
 			return;
 		}
@@ -166,7 +164,7 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 		{
 			StumbleMove = ((TargetPawn.Moves[35]) as TdMove_StumbleBase);
 		}
-		if((((TargetPawn != default) && ((int)TargetPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Stumble/*35*/)) && TargetPawn.IsA("TdBotPawn_Assault") || TargetPawn.IsA("TdBotPawn_PatrolCop")) && (((int)StumbleMove.StumbleState) == ((int)TdMove_StumbleBase.EStumbleState.ESS_HitMeleeAirBodyFront/*11*/)) || ((int)StumbleMove.StumbleState) == ((int)TdMove_StumbleBase.EStumbleState.ESS_HitMeleeSlideFront/*7*/))
+		if((((TargetPawn != default) && ((int)TargetPawn.MovementState) == ((int)TdPawn.EMovement.MOVE_Stumble/*35*/)) && (TargetPawn.IsA("TdBotPawn_Assault") || TargetPawn.IsA("TdBotPawn_PatrolCop"))) && ((((int)StumbleMove.StumbleState) == ((int)TdMove_StumbleBase.EStumbleState.ESS_HitMeleeAirBodyFront/*11*/)) || ((int)StumbleMove.StumbleState) == ((int)TdMove_StumbleBase.EStumbleState.ESS_HitMeleeSlideFront/*7*/)))
 		{
 			ResetCameraLook(0.40f);
 			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "MeleeBentOverStart", 1.0f, 0.10f, -1.0f, default(bool?), default(bool?));
@@ -258,7 +256,7 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 	
 	public override /*simulated function */Core.ClassT<DamageType> GetDamageType()
 	{
-		return ((((int)MeleeType) == ((int)TdMove_Melee.EMoveMeleeType.MT_AtBentOverEnemy/*2*/)) ? (Core.ClassT<DamageType>)ClassT<TdDmgType_MeleeSoccerKick>() : ((bLeft) ? (Core.ClassT<DamageType>)ClassT<TdDmgType_MeleeLeft>() : (Core.ClassT<DamageType>)ClassT<TdDmgType_MeleeRight>()));
+		return ((((int)MeleeType) == ((int)TdMove_Melee.EMoveMeleeType.MT_AtBentOverEnemy/*2*/)) ? ClassT<TdDmgType_MeleeSoccerKick>() : ((bLeft) ? ClassT<TdDmgType_MeleeLeft>() : ClassT<TdDmgType_MeleeRight>()));
 	}
 	
 	public virtual /*function */bool TestHit()
@@ -278,7 +276,7 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 		if(((Dot(Normal(ToTarget2d), ((Vector)(PawnOwner.Rotation)))) > 0.80f) && VSize(ToTarget) < 170.0f)
 		{
 			ImpactMomentum = ((Vector)(PawnOwner.Rotation)) * 150.0f;
-			DamageType = ((bLeft) ? (Core.ClassT<TdDamageType>)ClassT<TdDmgType_MeleeLeft>() : (Core.ClassT<TdDamageType>)ClassT<TdDmgType_MeleeRight>());
+			DamageType = ((bLeft) ? ClassT<TdDmgType_MeleeLeft>() : ClassT<TdDmgType_MeleeRight>());
 			Damage = MeleeDamage;
 			HitLocation = PawnOwner.Mesh1p.GetBoneLocation(((bLeft) ? "LeftHand" : "RightHand"), default(int?));
 			Hit.Material = default;

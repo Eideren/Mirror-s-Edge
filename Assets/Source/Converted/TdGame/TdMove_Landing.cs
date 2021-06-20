@@ -25,7 +25,7 @@ public partial class TdMove_Landing : TdMove/*
 	
 	public override /*function */bool CanDoMove()
 	{
-		if((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Balance/*29*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_SkillRoll/*91*/))
+		if(((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Balance/*29*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_SkillRoll/*91*/)))
 		{
 			return false;
 		}
@@ -64,14 +64,14 @@ public partial class TdMove_Landing : TdMove/*
 		bLandedOnSoftSurface = bHardLanding && bLastLandingWasOnSoftObject;
 		DotHeadingAndVel = Dot(Normal(((Vector)(PawnOwner.Rotation))), Normal(PawnOwner.Velocity));
 		bSkillRollLanding = !bLandedOnSoftSurface && (FallingHeight >= SkillRollLandingHeight) && PawnOwner.CanSkillRoll();
-		bMovingBackwards = (((DotHeadingAndVel < -0.30f) && ((int)PawnOwner.CurrentWalkingState) >= ((int)TdPawn.WalkingState.WAS_Run/*4*/)) || bCameFrom180InAir) || (((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_SoftLanding/*78*/)) && SoftLandingMove.bMovingBackwards;
+		bMovingBackwards = (((((DotHeadingAndVel < -0.30f) && ((int)PawnOwner.CurrentWalkingState) >= ((int)TdPawn.WalkingState.WAS_Run/*4*/)) || bCameFrom180InAir)) || (((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_SoftLanding/*78*/)) && SoftLandingMove.bMovingBackwards);
 		if(bSkillRollLanding && !bMovingBackwards)
 		{
 			PawnOwner.SetMove(TdPawn.EMovement.MOVE_SkillRoll/*91*/, default(bool?), default(bool?));		
 		}
 		else
 		{
-			if((((bCameFrom180InAir || ((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_LayOnGround/*26*/)) || bHardLanding && bMovingBackwards) || bLastLandingWasOnSoftObject && bMovingBackwards) || bForceLandBack)
+			if((((((((bCameFrom180InAir || ((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_LayOnGround/*26*/))) || bHardLanding && bMovingBackwards)) || bLastLandingWasOnSoftObject && bMovingBackwards)) || bForceLandBack))
 			{
 				LandBackwards();			
 			}
@@ -83,7 +83,7 @@ public partial class TdMove_Landing : TdMove/*
 				}
 				else
 				{
-					if(bHardLanding && !PawnOwner.bUncontrolledSlide || (((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_RumpSlide/*38*/)) && RumpSlideMove.bTouchedFallHeightVolume)
+					if(bHardLanding && (!PawnOwner.bUncontrolledSlide || (((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_RumpSlide/*38*/)) && RumpSlideMove.bTouchedFallHeightVolume))
 					{
 						LandHard();					
 					}
@@ -128,7 +128,7 @@ public partial class TdMove_Landing : TdMove/*
 		/*local */bool bShouldSubtract = default;
 	
 		FallMove = ((PawnOwner.Moves[2]) as TdMove_Falling);
-		bShouldSubtract = (((((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_Falling/*2*/)) && (((int)FallMove.PreviousMove) == ((int)TdPawn.EMovement.MOVE_Jump/*11*/)) || ((int)FallMove.PreviousMove) == ((int)TdPawn.EMovement.MOVE_MeleeAir/*32*/)) || ((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_Coil/*61*/)) || ((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_MeleeAir/*32*/);
+		bShouldSubtract = (((((((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_Falling/*2*/)) && ((((int)FallMove.PreviousMove) == ((int)TdPawn.EMovement.MOVE_Jump/*11*/)) || ((int)FallMove.PreviousMove) == ((int)TdPawn.EMovement.MOVE_MeleeAir/*32*/))) || ((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_Coil/*61*/))) || ((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_MeleeAir/*32*/));
 		if(bShouldSubtract && ((int)PawnOwner.GetWeaponType()) != ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/))
 		{
 			JumpMove = ((PawnOwner.Moves[11]) as TdMove_Jump);
@@ -207,7 +207,7 @@ public partial class TdMove_Landing : TdMove/*
 	{
 		/*local */TdPlayerController PC = default;
 	
-		if((((int)PawnOwner.GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)) || FRand() < 0.50f)
+		if(((((int)PawnOwner.GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)) || FRand() < 0.50f))
 		{
 			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((name)("FallingLandHard")), 1.0f, 0.050f, 0.20f, false, default(bool?));		
 		}

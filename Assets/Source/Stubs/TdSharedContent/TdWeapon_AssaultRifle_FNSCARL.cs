@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.TdSharedContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -103,9 +101,7 @@ public partial class TdWeapon_AssaultRifle_FNSCARL : TdWeapon_Heavy/*
 		};
 		WeaponFallOffTypes = new array<TdWeapon.EWeaponFallOffType>
 		{
-			#warning fallofftype values are weird, replaced with default
-			//147,
-			default
+			147,
 		};
 		FallOffDistance = 2000.0f;
 		DeathAnimType = 2;

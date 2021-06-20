@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -53,8 +51,7 @@ public partial class SessionSettingsProvider : UISettingsProvider/* within UIDat
 	public SessionSettingsProvider()
 	{
 		// Object Offset:0x003E1BD6
-		#warning commented out impossible to fullfil constraints, ClassT<> requires a class type
-		//ProviderClientClass = ClassT<UISettingsClient>()/*Ref Class'UISettingsClient'*/;
+		ProviderClientClass = ClassT<UISettingsClient>()/*Ref Class'UISettingsClient'*/;
 		ProviderTag = (name)"SessionSettingsProvider";
 	}
 }

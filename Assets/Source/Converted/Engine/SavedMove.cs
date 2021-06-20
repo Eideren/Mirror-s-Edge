@@ -47,7 +47,7 @@ public partial class SavedMove : Object/*
 	
 	public virtual /*function */void PostUpdate(PlayerController P)
 	{
-		bDoubleJump = P.bDoubleJump || bDoubleJump;
+		bDoubleJump = (P.bDoubleJump || bDoubleJump);
 		if(P.Pawn != default)
 		{
 			RMVelocity = P.Pawn.RMVelocity;
@@ -66,7 +66,7 @@ public partial class SavedMove : Object/*
 	{
 		/*local */Object.Vector AccelNorm = default;
 	
-		if((bPressedJump || bDoubleJump) || ((((int)DoubleClickMove) != ((int)Actor.EDoubleClickDir.DCLICK_None/*0*/)) && ((int)DoubleClickMove) != ((int)Actor.EDoubleClickDir.DCLICK_Active/*5*/)) && ((int)DoubleClickMove) != ((int)Actor.EDoubleClickDir.DCLICK_Done/*6*/))
+		if((((bPressedJump || bDoubleJump)) || ((((int)DoubleClickMove) != ((int)Actor.EDoubleClickDir.DCLICK_None/*0*/)) && ((int)DoubleClickMove) != ((int)Actor.EDoubleClickDir.DCLICK_Active/*5*/)) && ((int)DoubleClickMove) != ((int)Actor.EDoubleClickDir.DCLICK_Done/*6*/)))
 		{
 			return true;
 		}
@@ -105,11 +105,11 @@ public partial class SavedMove : Object/*
 		}
 		if(NewMove.Acceleration == vect(0.0f, 0.0f, 0.0f))
 		{
-			return ((((((((((((((Acceleration == vect(0.0f, 0.0f, 0.0f)) && StartVelocity == vect(0.0f, 0.0f, 0.0f)) && NewMove.StartVelocity == vect(0.0f, 0.0f, 0.0f)) && ((int)SavedPhysics) == ((int)inPawn.Physics)) && !bPressedJump) && !NewMove.bPressedJump) && bRun == NewMove.bRun) && bDuck == NewMove.bDuck) && bPreciseDestination == NewMove.bPreciseDestination) && bDoubleJump == NewMove.bDoubleJump) && (((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_None/*0*/)) || ((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_Active/*5*/)) && ((int)NewMove.DoubleClickMove) == ((int)DoubleClickMove)) && !bForceRMVelocity) && !NewMove.bForceRMVelocity) && CustomTimeDilation == NewMove.CustomTimeDilation;		
+			return ((((((((((((((Acceleration == vect(0.0f, 0.0f, 0.0f)) && StartVelocity == vect(0.0f, 0.0f, 0.0f)) && NewMove.StartVelocity == vect(0.0f, 0.0f, 0.0f)) && ((int)SavedPhysics) == ((int)inPawn.Physics)) && !bPressedJump) && !NewMove.bPressedJump) && bRun == NewMove.bRun) && bDuck == NewMove.bDuck) && bPreciseDestination == NewMove.bPreciseDestination) && bDoubleJump == NewMove.bDoubleJump) && ((((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_None/*0*/)) || ((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_Active/*5*/))) && ((int)NewMove.DoubleClickMove) == ((int)DoubleClickMove)) && !bForceRMVelocity) && !NewMove.bForceRMVelocity) && CustomTimeDilation == NewMove.CustomTimeDilation;		
 		}
 		else
 		{
-			return ((((((((((((((inPawn != default) && (NewMove.Delta + Delta) < MaxDelta) && ((int)SavedPhysics) == ((int)inPawn.Physics)) && !bPressedJump) && !NewMove.bPressedJump) && bRun == NewMove.bRun) && bDuck == NewMove.bDuck) && bDoubleJump == NewMove.bDoubleJump) && bPreciseDestination == NewMove.bPreciseDestination) && (((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_None/*0*/)) || ((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_Active/*5*/)) && ((int)NewMove.DoubleClickMove) == ((int)DoubleClickMove)) && (Dot(Normal(Acceleration), Normal(NewMove.Acceleration))) > 0.990f) && !bForceRMVelocity) && !NewMove.bForceRMVelocity) && CustomTimeDilation == NewMove.CustomTimeDilation;
+			return ((((((((((((((inPawn != default) && (NewMove.Delta + Delta) < MaxDelta) && ((int)SavedPhysics) == ((int)inPawn.Physics)) && !bPressedJump) && !NewMove.bPressedJump) && bRun == NewMove.bRun) && bDuck == NewMove.bDuck) && bDoubleJump == NewMove.bDoubleJump) && bPreciseDestination == NewMove.bPreciseDestination) && ((((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_None/*0*/)) || ((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_Active/*5*/))) && ((int)NewMove.DoubleClickMove) == ((int)DoubleClickMove)) && (Dot(Normal(Acceleration), Normal(NewMove.Acceleration))) > 0.990f) && !bForceRMVelocity) && !NewMove.bForceRMVelocity) && CustomTimeDilation == NewMove.CustomTimeDilation;
 		}
 		#warning decompiling process did not include a return on the last line, added default return
 	
@@ -134,7 +134,7 @@ public partial class SavedMove : Object/*
 		bPressedJump = P.bPressedJump;
 		bDoubleJump = P.bDoubleJump;
 		bPreciseDestination = P.bPreciseDestination;
-		bForceRMVelocity = P.bPreciseDestination || ((P.Pawn != default) && P.Pawn.Mesh != default) && (((int)P.Pawn.Mesh.RootMotionMode) == ((int)SkeletalMeshComponent.ERootMotionMode.RMM_Accel/*3*/)) || ((int)P.Pawn.Mesh.RootMotionMode) == ((int)SkeletalMeshComponent.ERootMotionMode.RMM_Velocity/*1*/);
+		bForceRMVelocity = (P.bPreciseDestination || ((P.Pawn != default) && P.Pawn.Mesh != default) && ((((int)P.Pawn.Mesh.RootMotionMode) == ((int)SkeletalMeshComponent.ERootMotionMode.RMM_Accel/*3*/)) || ((int)P.Pawn.Mesh.RootMotionMode) == ((int)SkeletalMeshComponent.ERootMotionMode.RMM_Velocity/*1*/)));
 		TimeStamp = P.WorldInfo.TimeSeconds;
 	}
 	

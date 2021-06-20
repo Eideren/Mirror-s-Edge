@@ -16,7 +16,7 @@ public partial class TdMove_WallrunDodgeJump : TdPhysicsMove/*
 		{
 			return false;
 		}
-		if(((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_WallRunningLeft/*5*/)) && ((int)PawnOwner.MoveActionHint) == ((int)TdPawn.EMoveActionHint.MAH_Right/*2*/)) || (((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_WallRunningRight/*4*/)) && ((int)PawnOwner.MoveActionHint) == ((int)TdPawn.EMoveActionHint.MAH_Left/*1*/))
+		if((((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_WallRunningLeft/*5*/)) && ((int)PawnOwner.MoveActionHint) == ((int)TdPawn.EMoveActionHint.MAH_Right/*2*/)) || (((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_WallRunningRight/*4*/)) && ((int)PawnOwner.MoveActionHint) == ((int)TdPawn.EMoveActionHint.MAH_Left/*1*/)))
 		{
 			return true;
 		}

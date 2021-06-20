@@ -23,7 +23,7 @@ public partial class TdMove_IntoZipLine : TdPhysicsMove/*
 		{
 			return false;
 		}
-		if((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_ZipLine/*28*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_IntoZipLine/*27*/))
+		if(((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_ZipLine/*28*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_IntoZipLine/*27*/)))
 		{
 			return false;
 		}
@@ -31,7 +31,7 @@ public partial class TdMove_IntoZipLine : TdPhysicsMove/*
 		{
 			return false;
 		}
-		if(((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Walking/*1*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Crouch/*15*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Slide/*16*/))
+		if(((((((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Walking/*1*/)) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Crouch/*15*/))) || ((int)PawnOwner.MovementState) == ((int)TdPawn.EMovement.MOVE_Slide/*16*/)))
 		{
 			return false;
 		}

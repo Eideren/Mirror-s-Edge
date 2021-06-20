@@ -425,7 +425,7 @@ public partial class TdMove : Object/*
 		PC = ((PawnOwner.Controller) as TdPlayerController);
 		PawnOwner.SetIgnoreMoveInput(DisableMovementTime);
 		PawnOwner.SetIgnoreLookInput(DisableLookTime);
-		if(((PC != default) && PawnOwner.Weapon != default) && (PawnOwner.Weapon.IsA("TdWeapon_Light") && ((int)MovementGroup) >= ((int)TdMove.EMovementGroup.MG_TwoHandsBusy/*2*/)) || PawnOwner.Weapon.IsA("TdWeapon_Heavy") && ((int)MovementGroup) >= ((int)TdMove.EMovementGroup.MG_OneHandBusy/*1*/))
+		if(((PC != default) && PawnOwner.Weapon != default) && ((PawnOwner.Weapon.IsA("TdWeapon_Light") && ((int)MovementGroup) >= ((int)TdMove.EMovementGroup.MG_TwoHandsBusy/*2*/)) || PawnOwner.Weapon.IsA("TdWeapon_Heavy") && ((int)MovementGroup) >= ((int)TdMove.EMovementGroup.MG_OneHandBusy/*1*/)))
 		{
 			PC.StopFire((byte)default(byte?));
 		}
@@ -525,7 +525,7 @@ public partial class TdMove : Object/*
 		{
 			PawnOwner.SetWeaponAnimState(TdPawn.EWeaponAnimState.WS_Ready/*2*/);
 		}
-		if(bLookAtTargetAngle || bLookAtTargetLocation)
+		if((bLookAtTargetAngle || bLookAtTargetLocation))
 		{
 			AbortLookAtTarget();
 		}
@@ -632,7 +632,7 @@ public partial class TdMove : Object/*
 	
 		if(bLookAtTargetLocation)
 		{
-			if((LookAtTargetDuration == -1.0f) || LookAtTargetDuration >= MoveActiveTime)
+			if(((LookAtTargetDuration == -1.0f) || LookAtTargetDuration >= MoveActiveTime))
 			{
 				PawnOwner.GetActorEyesViewPoint(ref/*probably?*/ HeadPos, ref/*probably?*/ HeadRot);
 				WantedLookDir = LookAtTargetLocation - HeadPos;
@@ -650,7 +650,7 @@ public partial class TdMove : Object/*
 		{
 			if(bLookAtTargetAngle)
 			{
-				if((LookAtTargetDuration == -1.0f) || LookAtTargetDuration >= MoveActiveTime)
+				if(((LookAtTargetDuration == -1.0f) || LookAtTargetDuration >= MoveActiveTime))
 				{
 					WantedRotation = LookAtTargetAngle;
 					HeadRot = Normalize(out_Rotation);
@@ -663,7 +663,7 @@ public partial class TdMove : Object/*
 				}
 			}
 		}
-		if(bConstrainLook || PawnOwner.bConstrainLook)
+		if((bConstrainLook || PawnOwner.bConstrainLook))
 		{
 			ControllerDelta = Normalize(Normalize(out_Rotation) - Normalize(PawnOwner.Rotation));
 			if(bUseAbsoluteYawConstraint)
@@ -722,7 +722,7 @@ public partial class TdMove : Object/*
 				TdPC.TargetingPawn = default;
 				return;
 			}
-			if(!bPerformingDisarm && (((VSize(TdPC.TargetingPawn.Location - PawnOwner.Location) > 350.0f) || Abs(TdPC.TargetingPawn.Location.Z - PawnOwner.Location.Z) > 150.0f) || TdPC.TargetingPawn.Health <= 0) || (PawnOwner.WorldInfo.TimeSeconds - TdPC.TargetingPawn.LastRenderTime) > 2.0f)
+			if(!bPerformingDisarm && ((((((VSize(TdPC.TargetingPawn.Location - PawnOwner.Location) > 350.0f) || Abs(TdPC.TargetingPawn.Location.Z - PawnOwner.Location.Z) > 150.0f)) || TdPC.TargetingPawn.Health <= 0)) || (PawnOwner.WorldInfo.TimeSeconds - TdPC.TargetingPawn.LastRenderTime) > 2.0f))
 			{
 				TdPC.TargetingPawn = default;
 				TdPC.TargetingPawnInterp = 0.0f;
@@ -731,7 +731,7 @@ public partial class TdMove : Object/*
 			ToTargetRot = Normalize(((Rotator)(TdPC.TargetingPawn.Location - PawnOwner.Location)));
 			ToTargetDelta = ((float)(Normalize(ToTargetRot - Normalize(TdPC.Rotation)).Yaw));
 			bPositiveOnJoyIsTowardsEnemy = ToTargetDelta > ((float)(0));
-			if(!bPerformingDisarm && ((TdPC.PlayerInput.RawJoyRight > 0.70f) && TdPC.PlayerInput.RawJoyLookRight < -0.70f) || (TdPC.PlayerInput.RawJoyRight < -0.70f) && TdPC.PlayerInput.RawJoyLookRight > 0.70f)
+			if(!bPerformingDisarm && (((TdPC.PlayerInput.RawJoyRight > 0.70f) && TdPC.PlayerInput.RawJoyLookRight < -0.70f) || (TdPC.PlayerInput.RawJoyRight < -0.70f) && TdPC.PlayerInput.RawJoyLookRight > 0.70f))
 			{
 				TdPC.TargetingPawnInterp = 0.0f;
 				if(Abs(ToTargetDelta) > TdPC.TargetingCutoffAngle)
@@ -743,7 +743,7 @@ public partial class TdMove : Object/*
 			}
 			else
 			{
-				if(!bPerformingDisarm && (((TdPC.PlayerInput.RawJoyLookRight < 0.0f) && bPositiveOnJoyIsTowardsEnemy) || (TdPC.PlayerInput.RawJoyLookRight > 0.0f) && !bPositiveOnJoyIsTowardsEnemy) || Abs(ToTargetDelta) < ((float)(100)))
+				if(!bPerformingDisarm && (((((TdPC.PlayerInput.RawJoyLookRight < 0.0f) && bPositiveOnJoyIsTowardsEnemy) || (TdPC.PlayerInput.RawJoyLookRight > 0.0f) && !bPositiveOnJoyIsTowardsEnemy)) || Abs(ToTargetDelta) < ((float)(100))))
 				{
 					TdPC.TargetingPawnInterp = 0.0f;
 					if(Abs(ToTargetDelta) > TdPC.TargetingCutoffAngle)

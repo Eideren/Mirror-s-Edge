@@ -49,11 +49,11 @@ public partial class TdMove_LayOnGround : TdPhysicsMove/*
 	public override /*simulated function */void HandleMoveAction(TdPawn.EMovementAction Action)
 	{
 		base.HandleMoveAction(((TdPawn.EMovementAction)Action));
-		if((PawnOwner.TaserDamageLevel > 0.0f) || ((PawnOwner) as TdPlayerPawn).bStuckOnGround)
+		if(((PawnOwner.TaserDamageLevel > 0.0f) || ((PawnOwner) as TdPlayerPawn).bStuckOnGround))
 		{
 			return;
 		}
-		if((((int)Action) == ((int)TdPawn.EMovementAction.MA_Jump/*1*/)) || ((int)PawnOwner.MoveActionHint) == ((int)TdPawn.EMoveActionHint.MAH_Up/*3*/))
+		if(((((int)Action) == ((int)TdPawn.EMovementAction.MA_Jump/*1*/)) || ((int)PawnOwner.MoveActionHint) == ((int)TdPawn.EMoveActionHint.MAH_Up/*3*/)))
 		{
 			if(CanStand(PawnOwner.Location + vect(0.0f, 0.0f, 30.0f), default(bool?)))
 			{

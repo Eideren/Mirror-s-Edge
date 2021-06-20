@@ -1,5 +1,3 @@
-// NO OVERWRITE
-
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -920,7 +918,7 @@ public partial class PlayerController : Controller/*
 	public /*reliable client simulated function */void PlayerController_ClientGotoState(name NewState, /*optional */name? _NewLabel = default)
 	{
 		var NewLabel = _NewLabel ?? default;
-		if(((NewLabel == "Begin") || NewLabel == "None") && !IsInState(NewState, default(bool?)))
+		if((((NewLabel == "Begin") || NewLabel == "None")) && !IsInState(NewState, default(bool?)))
 		{
 			GotoState(NewState, default(name?), default(bool?), default(bool?));		
 		}
@@ -1090,7 +1088,7 @@ public partial class PlayerController : Controller/*
 		var RelatedPRI_1 = _RelatedPRI_1 ?? default;
 		var RelatedPRI_2 = _RelatedPRI_2 ?? default;
 		var OptionalObject = _OptionalObject ?? default;
-		if((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/)) || WorldInfo.GRI == default)
+		if(((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/)) || WorldInfo.GRI == default))
 		{
 			return;
 		}
@@ -1132,7 +1130,7 @@ public partial class PlayerController : Controller/*
 		}
 		else
 		{
-			if((SourceActor == (GetViewTarget())) || SourceActor == this)
+			if(((SourceActor == (GetViewTarget())) || SourceActor == this))
 			{
 				AC = GetPooledAudioComponent(ASound, default, bStopWhenOwnerDestroyed, default(bool?), default(Object.Vector?));
 				if(AC == default)
@@ -1228,7 +1226,7 @@ public partial class PlayerController : Controller/*
 	{
 		var Type = _Type ?? default;
 		var MsgLifeTime = _MsgLifeTime ?? default;
-		if((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/)) || WorldInfo.GRI == default)
+		if(((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/)) || WorldInfo.GRI == default))
 		{
 			return;
 		}
@@ -1248,14 +1246,14 @@ public partial class PlayerController : Controller/*
 		{
 			myHUD.Message(PRI, S, Type, MsgLifeTime);
 		}
-		if(((Type == "Say") || Type == "TeamSay") && PRI != default)
+		if((((Type == "Say") || Type == "TeamSay")) && PRI != default)
 		{
 			S = (PRI.PlayerName + ": ") + S;
 			bIsUserCreated = true;
 		}
 		if(Player != default)
 		{
-			if(!bIsUserCreated || bIsUserCreated && CanViewUserCreatedContent())
+			if((!bIsUserCreated || bIsUserCreated && CanViewUserCreatedContent()))
 			{
 				((Player) as LocalPlayer).ViewportClient.ViewportConsole.OutputText(S);
 			}
@@ -1272,7 +1270,7 @@ public partial class PlayerController : Controller/*
 		/*local */LocalPlayer LP = default;
 	
 		LP = ((Player) as LocalPlayer);
-		if((((int)Role) < ((int)Actor.ENetRole.ROLE_Authority/*3*/)) || LP != default)
+		if(((((int)Role) < ((int)Actor.ENetRole.ROLE_Authority/*3*/)) || LP != default))
 		{
 			if(OnlineSub != default)
 			{
@@ -1295,7 +1293,7 @@ public partial class PlayerController : Controller/*
 		/*local */Pawn Driver = default;
 	
 		ClientPlayForceFeedbackWaveform(default);
-		if((((int)Role) < ((int)Actor.ENetRole.ROLE_Authority/*3*/)) || ((Player) as LocalPlayer) != default)
+		if(((((int)Role) < ((int)Actor.ENetRole.ROLE_Authority/*3*/)) || ((Player) as LocalPlayer) != default))
 		{
 			ClearOnlineDelegates();
 		}
@@ -1357,7 +1355,7 @@ public partial class PlayerController : Controller/*
 			PlayerCamera.SetFOV(F);
 			return;
 		}
-		if(((F >= 80.0f) || ((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Standalone/*0*/)) || PlayerReplicationInfo.bOnlySpectator)
+		if(((((F >= 80.0f) || ((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Standalone/*0*/))) || PlayerReplicationInfo.bOnlySpectator))
 		{
 			DefaultFOV = FClamp(F, 80.0f, 100.0f);
 			DesiredFOV = DefaultFOV;
@@ -1382,7 +1380,7 @@ public partial class PlayerController : Controller/*
 	{
 		/*local */int I = default;
 	
-		if((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Standalone/*0*/)) || PlayerReplicationInfo.bAdmin)
+		if(((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Standalone/*0*/)) || PlayerReplicationInfo.bAdmin))
 		{
 			return true;
 		}
@@ -1464,7 +1462,7 @@ public partial class PlayerController : Controller/*
 			Say(msg);
 			return;
 		}
-		WorldInfo.Game.BroadcastTeam(this, WorldInfo.Game.Static.ParseMessageString(this, msg), "TeamSay");
+		WorldInfo.Game.BroadcastTeam(this, WorldInfo.Game.ParseMessageString(this, msg), "TeamSay");
 	}
 	
 	public virtual /*event */void PreClientTravel()
@@ -1527,7 +1525,7 @@ public partial class PlayerController : Controller/*
 	
 	public virtual /*function */bool UsingFirstPersonCamera()
 	{
-		return ((PlayerCamera == default) || PlayerCamera.CameraStyle == "FirstPerson") && ((Player) as LocalPlayer) != default;
+		return (((PlayerCamera == default) || PlayerCamera.CameraStyle == "FirstPerson")) && ((Player) as LocalPlayer) != default;
 	}
 	
 	public virtual /*function */void ClientVoiceMessage(PlayerReplicationInfo Sender, PlayerReplicationInfo Recipient, name MessageType, byte messageID)
@@ -1649,7 +1647,7 @@ public partial class PlayerController : Controller/*
 		{
 			Rot.Roll = 256 * ((int)ClientRoll);
 			Rot.Yaw = ViewYaw;
-			if((((int)Pawn.Physics) == ((int)Actor.EPhysics.PHYS_Swimming/*3*/)) || ((int)Pawn.Physics) == ((int)Actor.EPhysics.PHYS_Flying/*4*/))
+			if(((((int)Pawn.Physics) == ((int)Actor.EPhysics.PHYS_Swimming/*3*/)) || ((int)Pawn.Physics) == ((int)Actor.EPhysics.PHYS_Flying/*4*/)))
 			{
 				maxPitch = 2;			
 			}
@@ -1719,7 +1717,7 @@ public partial class PlayerController : Controller/*
 				PendingAdjustment.newPhysics = Pawn.Physics;
 				PendingAdjustment.NewVel = Pawn.Velocity;
 				PendingAdjustment.NewBase = Pawn.Base;
-				if((((Pawn.Base) as InterpActor) != default) || ((Pawn.Base) as Vehicle) != default)
+				if(((((Pawn.Base) as InterpActor) != default) || ((Pawn.Base) as Vehicle) != default))
 				{
 					PendingAdjustment.NewLoc = Pawn.Location - Pawn.Base.Location;				
 				}
@@ -1753,7 +1751,7 @@ public partial class PlayerController : Controller/*
 		}
 		else
 		{
-			if((Pawn == default) || ((int)Pawn.Physics) != ((int)Actor.EPhysics.PHYS_Spider/*8*/))
+			if(((Pawn == default) || ((int)Pawn.Physics) != ((int)Actor.EPhysics.PHYS_Spider/*8*/)))
 			{
 				if(PendingAdjustment.NewVel == vect(0.0f, 0.0f, 0.0f))
 				{
@@ -1890,8 +1888,7 @@ public partial class PlayerController : Controller/*
 	{
 		if(PlayerReplicationInfo != default)
 		{
-			#warning replaced base call with standard call
-			PlayerReplicationInfo/*.base(PlayerController)*/.UpdatePing(TimeStamp);
+			PlayerReplicationInfo.base(PlayerController).UpdatePing(TimeStamp);
 			if((WorldInfo.TimeSeconds - LastPingUpdate) > ((float)(4)))
 			{
 				if((bDynamicNetSpeed && OldPing > (DynamicPingThreshold * 0.0010f)) && PlayerReplicationInfo.ExactPing > (DynamicPingThreshold * 0.0010f))
@@ -1939,7 +1936,7 @@ public partial class PlayerController : Controller/*
 			}
 			MoveActor = Pawn;
 			TheViewTarget = GetViewTarget();
-			if((TheViewTarget != Pawn) && (TheViewTarget == this) || (((TheViewTarget) as Pawn) != default) && ((TheViewTarget) as Pawn).Health <= 0)
+			if((TheViewTarget != Pawn) && ((TheViewTarget == this) || (((TheViewTarget) as Pawn) != default) && ((TheViewTarget) as Pawn).Health <= 0))
 			{
 				ResetCameraMode();
 				SetViewTarget(Pawn, default(Camera.ViewTargetTransitionParams?));
@@ -1998,9 +1995,9 @@ public partial class PlayerController : Controller/*
 				{
 					LastAckedAccel = CurrentMove.Acceleration;
 					FreeMoves.Clear();
-					if(((((NewBase) as InterpActor) != default) || ((NewBase) as Vehicle) != default) && NewBase == CurrentMove.EndBase)
+					if((((((NewBase) as InterpActor) != default) || ((NewBase) as Vehicle) != default)) && NewBase == CurrentMove.EndBase)
 					{
-						if(((GetStateName() == NewState) && IsInState("PlayerWalking", default(bool?))) && (((int)MoveActor.Physics) == ((int)Actor.EPhysics.PHYS_Walking/*1*/)) || ((int)MoveActor.Physics) == ((int)Actor.EPhysics.PHYS_Falling/*2*/))
+						if(((GetStateName() == NewState) && IsInState("PlayerWalking", default(bool?))) && ((((int)MoveActor.Physics) == ((int)Actor.EPhysics.PHYS_Walking/*1*/)) || ((int)MoveActor.Physics) == ((int)Actor.EPhysics.PHYS_Falling/*2*/)))
 						{
 							if(VSizeSq(CurrentMove.SavedRelativeLocation - NewLocation) < 3.0f)
 							{
@@ -2019,7 +2016,7 @@ public partial class PlayerController : Controller/*
 					}
 					else
 					{
-						if(((((VSizeSq(CurrentMove.SavedLocation - NewLocation) < 3.0f) && VSizeSq(CurrentMove.SavedVelocity - NewVelocity) < 9.0f) && GetStateName() == NewState) && IsInState("PlayerWalking", default(bool?))) && (((int)MoveActor.Physics) == ((int)Actor.EPhysics.PHYS_Walking/*1*/)) || ((int)MoveActor.Physics) == ((int)Actor.EPhysics.PHYS_Falling/*2*/))
+						if(((((VSizeSq(CurrentMove.SavedLocation - NewLocation) < 3.0f) && VSizeSq(CurrentMove.SavedVelocity - NewVelocity) < 9.0f) && GetStateName() == NewState) && IsInState("PlayerWalking", default(bool?))) && ((((int)MoveActor.Physics) == ((int)Actor.EPhysics.PHYS_Walking/*1*/)) || ((int)MoveActor.Physics) == ((int)Actor.EPhysics.PHYS_Falling/*2*/)))
 						{
 							CurrentMove = default;
 							return;
@@ -2079,7 +2076,7 @@ public partial class PlayerController : Controller/*
 			CurrentMove = CurrentMove.NextMove;
 			goto J0x5D4;
 		}
-		if((((NewBase) as InterpActor) != default) || ((NewBase) as Vehicle) != default)
+		if(((((NewBase) as InterpActor) != default) || ((NewBase) as Vehicle) != default))
 		{
 			NewLocation += NewBase.Location;
 		}
@@ -2461,28 +2458,23 @@ public partial class PlayerController : Controller/*
 			ConsoleCommand("DEFER LOADGAME QUICKSAVE.SAV", default(bool?));
 		}
 	}
-
-
-	#warning split default delegate implementation
-	public delegate bool CanUnpause();
-	public bool CanUnpause_Default()
+	
+	public delegate bool CanUnpause()
 	{
-		// Originally 'WorldInfo.Pauser == this;', haven't verified if this works
-		return WorldInfo.Pauser == this.PlayerReplicationInfo;
+		return WorldInfo.Pauser == this;
 	}
 	
 	public virtual /*function */bool SetPause(bool bPause, /*optional *//*delegate*/PlayerController.CanUnpause? _CanUnpauseDelegate = default)
 	{
 		/*local */bool bResult = default;
 	
-		var CanUnpauseDelegate = _CanUnpauseDelegate ?? /*default*/CanUnpause_Default;
+		var CanUnpauseDelegate = _CanUnpauseDelegate ?? default;
 		if(((int)WorldInfo.NetMode) != ((int)WorldInfo.ENetMode.NM_Client/*3*/))
 		{
 			if(bPause == true)
 			{
 				bFire = (byte)0;
-				// 'Cast' delegate
-				bResult = WorldInfo.Game.SetPause(this, () => CanUnpauseDelegate());
+				bResult = WorldInfo.Game.SetPause(this, CanUnpauseDelegate);
 				if(bResult)
 				{
 					if(ForceFeedbackManager != default)
@@ -2548,7 +2540,7 @@ public partial class PlayerController : Controller/*
 	
 	public virtual /*reliable server function */void ServerUTrace()
 	{
-		if((((int)WorldInfo.NetMode) != ((int)WorldInfo.ENetMode.NM_Standalone/*0*/)) && (PlayerReplicationInfo == default) || !PlayerReplicationInfo.bAdmin)
+		if((((int)WorldInfo.NetMode) != ((int)WorldInfo.ENetMode.NM_Standalone/*0*/)) && ((PlayerReplicationInfo == default) || !PlayerReplicationInfo.bAdmin))
 		{
 			return;
 		}
@@ -2570,7 +2562,7 @@ public partial class PlayerController : Controller/*
 	public virtual ThrowWeapon_del global_ThrowWeapon => PlayerController_ThrowWeapon;
 	public /*exec function */void PlayerController_ThrowWeapon()
 	{
-		if((Pawn == default) || Pawn.Weapon == default)
+		if(((Pawn == default) || Pawn.Weapon == default))
 		{
 			return;
 		}
@@ -2687,7 +2679,7 @@ public partial class PlayerController : Controller/*
 				if(Idx < checkTrigger.GeneratedEvents.Length)
 				{
 					UseSeq = ((checkTrigger.GeneratedEvents[Idx]) as SeqEvent_Used);
-					if((((UseSeq != default) && !bUsuableOnly || checkTrigger.GeneratedEvents[Idx].CheckActivate(checkTrigger, Pawn, true, ref/*probably?*/ /*null*/NullRef.array_int_, default(bool?))) && (Dot(Normal(checkTrigger.Location - cameraLoc), ((Vector)(cameraRot)))) >= minDot) && ((UseSeq.bAimToInteract && IsAimingAt(checkTrigger, 0.980f)) && VSize(Pawn.Location - checkTrigger.Location) <= UseSeq.InteractDistance) || !UseSeq.bAimToInteract && VSize(Pawn.Location - checkTrigger.Location) <= UseSeq.InteractDistance)
+					if((((UseSeq != default) && (!bUsuableOnly || checkTrigger.GeneratedEvents[Idx].CheckActivate(checkTrigger, Pawn, true, ref/*probably?*/ /*null*/NullRef.array_int_, default(bool?)))) && (Dot(Normal(checkTrigger.Location - cameraLoc), ((Vector)(cameraRot)))) >= minDot) && (((UseSeq.bAimToInteract && IsAimingAt(checkTrigger, 0.980f)) && VSize(Pawn.Location - checkTrigger.Location) <= UseSeq.InteractDistance) || !UseSeq.bAimToInteract && VSize(Pawn.Location - checkTrigger.Location) <= UseSeq.InteractDistance))
 					{
 						out_useList[out_useList.Length] = checkTrigger;
 						Idx = checkTrigger.GeneratedEvents.Length;
@@ -2729,7 +2721,7 @@ public partial class PlayerController : Controller/*
 			}
 			return true;
 		}
-		if((Pawn == default) || !Pawn.bCanUse)
+		if(((Pawn == default) || !Pawn.bCanUse))
 		{
 			return true;
 		}
@@ -2769,7 +2761,7 @@ public partial class PlayerController : Controller/*
 			VLoc2D = V.Location;
 			VLoc2D.Z = 0.0f;
 			NewDot = Dot(Normal(VLoc2D - PawnLoc2D), ViewDir);
-			if((Best == default) || NewDot > BestDot)
+			if(((Best == default) || NewDot > BestDot))
 			{
 				if(FastTrace(V.Location, Pawn.Location, default(Object.Vector?), default(bool?)))
 				{
@@ -2859,7 +2851,7 @@ public partial class PlayerController : Controller/*
 	public virtual ServerSuicide_del global_ServerSuicide => PlayerController_ServerSuicide;
 	public /*reliable server function */void PlayerController_ServerSuicide()
 	{
-		if((Pawn != default) && ((WorldInfo.TimeSeconds - Pawn.LastStartTime) > ((float)(10))) || ((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Standalone/*0*/))
+		if((Pawn != default) && (((WorldInfo.TimeSeconds - Pawn.LastStartTime) > ((float)(10))) || ((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Standalone/*0*/)))
 		{
 			Pawn.Suicide();
 		}
@@ -2897,7 +2889,7 @@ public partial class PlayerController : Controller/*
 	
 	public virtual /*exec function */void SwitchTeam()
 	{
-		if((PlayerReplicationInfo.Team == default) || PlayerReplicationInfo.Team.TeamIndex == 1)
+		if(((PlayerReplicationInfo.Team == default) || PlayerReplicationInfo.Team.TeamIndex == 1))
 		{
 			ServerChangeTeam(0);		
 		}
@@ -2918,7 +2910,7 @@ public partial class PlayerController : Controller/*
 		}
 		else
 		{
-			if((((ApproximatelyEqual(TeamName, "red")) || PlayerReplicationInfo == default) || PlayerReplicationInfo.Team == default) || PlayerReplicationInfo.Team.TeamIndex > 1)
+			if(((((((ApproximatelyEqual(TeamName, "red")) || PlayerReplicationInfo == default)) || PlayerReplicationInfo.Team == default)) || PlayerReplicationInfo.Team.TeamIndex > 1))
 			{
 				N = 0;			
 			}
@@ -2950,7 +2942,7 @@ public partial class PlayerController : Controller/*
 	
 	public virtual /*exec function */void SwitchLevel(String URL)
 	{
-		if((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Standalone/*0*/)) || ((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_ListenServer/*2*/))
+		if(((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_Standalone/*0*/)) || ((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_ListenServer/*2*/)))
 		{
 			WorldInfo.ServerTravel(URL, default(bool?));
 		}
@@ -3158,7 +3150,7 @@ public partial class PlayerController : Controller/*
 			}
 			AcknowledgePossession(Pawn);
 		}
-		PlayerInput.PlayerInput_(DeltaTime);
+		PlayerInput.PlayerInput(DeltaTime);
 		if(bUpdatePosition)
 		{
 			ClientUpdatePosition();
@@ -3196,7 +3188,7 @@ public partial class PlayerController : Controller/*
 		/*local */bool bNoZAdjust = default, bInstantHit = default;
 		/*local */Object.Rotator BaseAimRot = default, AimRot = default;
 	
-		bInstantHit = (W == default) || W.bInstantHit;
+		bInstantHit = ((W == default) || W.bInstantHit);
 		BaseAimRot = ((Pawn != default) ? Pawn.GetBaseAimRotation() : Rotation);
 		FireDir = ((Vector)(BaseAimRot));
 		HitActor = Trace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, StartFireLoc + (W.GetTraceRange() * FireDir), StartFireLoc, true, default(Object.Vector?), ref/*probably?*/ /*null*/NullRef.Actor_TraceHitInfo, default(int?));
@@ -4061,7 +4053,7 @@ public partial class PlayerController : Controller/*
 	{
 		/*local */Class saveClass = default;
 	
-		saveClass = ((DynamicLoadObject(ClassName, ClassT<Class>(), default)) as ClassT<Object>) as Class;
+		saveClass = ((DynamicLoadObject(ClassName, ClassT<Class>(), default(bool?))) as ClassT<Object>);
 		if(saveClass != default)
 		{
 			saveClass.Static.StaticSaveConfig();
@@ -4414,7 +4406,7 @@ public partial class PlayerController : Controller/*
 			LocPlayer = ((PC.Player) as LocalPlayer);
 			if(LocPlayer != default)
 			{
-				if((((int)OnlineSub.PlayerInterface.GetLoginStatus(((byte)(LocPlayer.ControllerId)))) != ((int)OnlineSubsystem.ELoginStatus.LS_LoggedIn/*2*/)) || ((int)OnlineSub.PlayerInterface.CanPlayOnline(((byte)(LocPlayer.ControllerId)))) == ((int)0))
+				if(((((int)OnlineSub.PlayerInterface.GetLoginStatus(((byte)(LocPlayer.ControllerId)))) != ((int)OnlineSubsystem.ELoginStatus.LS_LoggedIn/*2*/)) || ((int)OnlineSub.PlayerInterface.CanPlayOnline(((byte)(LocPlayer.ControllerId)))) == ((int)0)))
 				{				
 					return false;
 				}
@@ -5186,7 +5178,7 @@ public partial class PlayerController : Controller/*
 				if(Pawn.Velocity.Z > ((float)(0)))
 				{
 					GetAxes(Rotation, ref/*probably?*/ X, ref/*probably?*/ Y, ref/*probably?*/ Z);
-					Pawn.bUpAndOut = ((Dot(X, Pawn.Acceleration)) > ((float)(0))) && (Pawn.Acceleration.Z > ((float)(0))) || Rotation.Pitch > 2048;
+					Pawn.bUpAndOut = ((Dot(X, Pawn.Acceleration)) > ((float)(0))) && ((Pawn.Acceleration.Z > ((float)(0))) || Rotation.Pitch > 2048);
 					if(Pawn.bUpAndOut && Pawn.CheckWaterJump(ref/*probably?*/ HitNormal))
 					{
 						Pawn.Velocity.Z = Pawn.OutofWaterZ;
@@ -5194,7 +5186,7 @@ public partial class PlayerController : Controller/*
 					}
 					else
 					{
-						if((Pawn.Velocity.Z > ((float)(160))) || !Pawn.TouchingWaterVolume())
+						if(((Pawn.Velocity.Z > ((float)(160))) || !Pawn.TouchingWaterVolume()))
 						{
 							GotoState(Pawn.LandMovementState, default(name?), default(bool?), default(bool?));						
 						}
@@ -5658,7 +5650,7 @@ public partial class PlayerController : Controller/*
 		}
 		else
 		{
-			if(!IsTimerActive(default(name?), default(Object?)) || GetTimerCount(default(name?), default(Object?)) > 1.0f)
+			if((!IsTimerActive(default(name?), default(Object?)) || GetTimerCount(default(name?), default(Object?)) > 1.0f))
 			{
 				SetTimer(0.20f, true, default(name?), default(Object?));
 				AskForPawn();
@@ -5900,7 +5892,7 @@ public partial class PlayerController : Controller/*
 		var FireModeNum = _FireModeNum ?? default;
 		if(bFrozen)
 		{
-			if(!IsTimerActive(default(name?), default(Object?)) || GetTimerCount(default(name?), default(Object?)) > MinRespawnDelay)
+			if((!IsTimerActive(default(name?), default(Object?)) || GetTimerCount(default(name?), default(Object?)) > MinRespawnDelay))
 			{
 				bFrozen = false;
 			}
@@ -5949,7 +5941,7 @@ public partial class PlayerController : Controller/*
 		}
 		else
 		{
-			if(!IsTimerActive(default(name?), default(Object?)) || GetTimerCount(default(name?), default(Object?)) > MinRespawnDelay)
+			if((!IsTimerActive(default(name?), default(Object?)) || GetTimerCount(default(name?), default(Object?)) > MinRespawnDelay))
 			{
 				bFrozen = false;
 			}

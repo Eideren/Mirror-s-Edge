@@ -44,7 +44,7 @@ public partial class TdMove_MeleeBase : TdPhysicsMove/*
 		{
 			return false;
 		}
-		if((((int)PawnOwner.WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Reload/*3*/)) || ((int)PawnOwner.WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/))
+		if(((((int)PawnOwner.WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Reload/*3*/)) || ((int)PawnOwner.WeaponAnimState) == ((int)TdPawn.EWeaponAnimState.WS_Throwing/*4*/)))
 		{
 			return false;
 		}
