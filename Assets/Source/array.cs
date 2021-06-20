@@ -6,7 +6,10 @@ using System.Runtime.CompilerServices;
 namespace MEdge
 {
     /// <summary>
-    /// This type might not entirely reflect how Unreal Engine's UScript array works, still wip
+    /// This type might not entirely reflect how Unreal Engine's UScript array works,
+    /// mainly the fact that unreal script's array are more like structs;
+    /// "[...](They can be) passed as function parameters and returned as function results,
+    /// but every time the entire array is copied."
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class array<T> : IEnumerable<T>
@@ -118,6 +121,17 @@ namespace MEdge
             }
             _version++;
         }
+
+
+
+        public void RemoveItem(T item)
+        {
+            int i;
+            while((i = Array.IndexOf( _items, item, 0, Length )) != -1)
+                RemoveAt( i );
+        }
+
+
 
         public void AddItem(T item) => Add(item);
 

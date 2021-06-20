@@ -15,7 +15,8 @@
 
 		void Start()
 		{
-			ObjectToTick = UWorld.Instance.E_UWorld_SpawnActor( Object.ClassT<TdPlayerPawn>(), 0, 0, (Object.Vector)this.transform.position, (Object.Rotator)this.transform.rotation, null, false, 0, null, null, false );
+			UWorld.EnsureStart();
+			//ObjectToTick = UWorld.Instance.E_UWorld_SpawnActor( Object.ClassT<TdPlayerPawn>(), 0, 0, (Object.Vector)this.transform.position, (Object.Rotator)this.transform.rotation, null, false, 0, null, null, false );
 		}
 
 

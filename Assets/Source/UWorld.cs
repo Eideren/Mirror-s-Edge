@@ -27,6 +27,13 @@
 
 
 
+        public static void EnsureStart()
+        {
+            var v = Instance;
+        }
+
+
+
         static UWorld GetInstance()
         {
             if( _instance != null && _instance.gameObject != null )
@@ -75,8 +82,8 @@
         {
             // https://wiki.beyondunreal.com/Legacy:Chain_Of_Events_At_Level_Startup
 			
-            #warning maybe TdSPStoryGame
-            var gameInfo = new TdSPGame();
+            var gameInfo = new TdSPStoryGame();
+            gameInfo.WorldInfo = _worldInfo;
             _worldInfo.Game = gameInfo;
             String errorString = "";
 
@@ -129,12 +136,11 @@
 
         void PlayerLogIn()
         {
-            /*
             // https://wiki.beyondunreal.com/Legacy:Chain_Of_Events_When_A_Player_Logs_In
-            GameInfo gi = default;
-            gi.PreLogin();
-            // Mutator.OverrideDownload()
-            gi.Login();*/
+            String err = default;
+            _worldInfo.Game.PreLogin( default, default, ref err );
+            var controller = _worldInfo.Game.Login( default, default, ref err );
+            _worldInfo.Game.PostLogin( controller );
         }
 
         bool FindSpot(Object.Vector extent, ref Object.Vector position, bool bComplex)
@@ -299,15 +305,18 @@
                 //(*(void (__thiscall **)(_E_struct_AActor *))(constructedActor->VfTableObject.Dummy + 472))(constructedActor);
                 if ( (constructedActor.bDeleteMe) != false && !bProbablyNoFail )
                     return null;
-                for ( int i = 0; i < constructedActor.Components.Length; ++i )
+                if( constructedActor.Components != null )
                 {
-                    var v34 = constructedActor.Components;
-                    networkRelatedBool = v34[i] == null;
-                    var v35 = v34[i] as ActorComponent;
-                    if( ! networkRelatedBool )
+                    for ( int i = 0; i < constructedActor.Components.Length; ++i )
                     {
-                        #warning maybe start component state here ?
-                        //E_UActorComponent_ConditionalBeginPlay(*v35);
+                        var v34 = constructedActor.Components;
+                        networkRelatedBool = v34[i] == null;
+                        var v35 = v34[i] as ActorComponent;
+                        if( ! networkRelatedBool )
+                        {
+                            #warning maybe start component state here ?
+                            //E_UActorComponent_ConditionalBeginPlay(*v35);
+                        }
                     }
                 }
             }
