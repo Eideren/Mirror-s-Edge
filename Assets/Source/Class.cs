@@ -35,7 +35,7 @@ namespace MEdge.Core
         public virtual String Name => throw new InvalidOperationException();
         public virtual T DefaultAs<T>() where T : class => throw new InvalidOperationException();
         public virtual Type CSharpType => throw new InvalidOperationException();
-        public virtual bool IsParentOf( Class c ) => throw new InvalidOperationException();
+        public virtual bool IsBaseOf( Class c ) => throw new InvalidOperationException();
         public override bool IsA( name typeName ) => throw new InvalidOperationException();
 
         public override bool Equals(object obj) => obj is Class c && this == c;
@@ -50,7 +50,7 @@ namespace MEdge.Core
         public bool IsA(name typeName);
         public bool IsA(Class type);
         public dynamic Static { get; }
-        public bool IsParentOf( Class c );
+        public bool IsBaseOf( Class c );
         public String Name{ get; }
     }
         
@@ -65,8 +65,8 @@ namespace MEdge.Core
         public CType New(Object outer = null) => new CType(){ Outer = outer };
         public override T2 DefaultAs<T2>() where T2 : class => new CType() as T2;
         public override Type CSharpType => typeof(CType);
-        public virtual bool IsA(Class type) => type.IsParentOf( this );
-        public override bool IsParentOf( Class c ) => c is ClassT<CType>;
+        public virtual bool IsA(Class type) => type.IsBaseOf( this );
+        public override bool IsBaseOf( Class c ) => c is ClassT<CType>;
         public override bool IsA( name typeName )
         {
             for( var t = CSharpType; t != null; t = t.BaseType )

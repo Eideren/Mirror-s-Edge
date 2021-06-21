@@ -94,7 +94,7 @@
         // Export UObject::execClassIsChildOf(FFrame&, void* const)
         public /*native(258) final function */static bool ClassIsChildOf<T>( Core.Class TestClass, Core.ClassT<T> ParentClass )
         {
-	        return ParentClass.IsParentOf(TestClass);
+	        return ParentClass.IsBaseOf(TestClass);
         }
 
 

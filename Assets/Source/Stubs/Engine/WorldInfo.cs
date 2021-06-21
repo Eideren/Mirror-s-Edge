@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -291,12 +293,12 @@ public partial class WorldInfo : ZoneInfo/*
 		return default;
 	}
 	
-	// Export UWorldInfo::execGetGravityZ(FFrame&, void* const)
-	public override /*native function */float GetGravityZ()
-	{
-		#warning NATIVE FUNCTION !
-		return default;
-	}
+	//// Export UWorldInfo::execGetGravityZ(FFrame&, void* const)
+	//public override /*native function */float GetGravityZ()
+	//{
+	//	#warning NATIVE FUNCTION !
+	//	return default;
+	//}
 	
 	// Export UWorldInfo::execGetGameSequence(FFrame&, void* const)
 	public virtual /*native final function */Sequence GetGameSequence()
@@ -397,12 +399,12 @@ public partial class WorldInfo : ZoneInfo/*
 	
 	}
 	
-	// Export UWorldInfo::execAllNavigationPoints(FFrame&, void* const)
-	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<NavigationPoint/* N*/> AllNavigationPoints(Core.ClassT<NavigationPoint> BaseClass)
-	{
-		#warning NATIVE FUNCTION !
-		yield break;
-	}
+	//// Export UWorldInfo::execAllNavigationPoints(FFrame&, void* const)
+	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<NavigationPoint/* N*/> AllNavigationPoints(Core.ClassT<NavigationPoint> BaseClass)
+	//{
+	//	#warning NATIVE FUNCTION !
+	//	yield break;
+	//}
 	
 	// Export UWorldInfo::execRadiusNavigationPoints(FFrame&, void* const)
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<NavigationPoint/* N*/> RadiusNavigationPoints(Core.ClassT<NavigationPoint> BaseClass, Object.Vector Point, float Radius)
@@ -417,19 +419,19 @@ public partial class WorldInfo : ZoneInfo/*
 		#warning NATIVE FUNCTION !
 	}
 	
-	// Export UWorldInfo::execAllControllers(FFrame&, void* const)
-	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Controller/* C*/> AllControllers(Core.ClassT<Controller> BaseClass)
-	{
-		#warning NATIVE FUNCTION !
-		yield break;
-	}
-	
-	// Export UWorldInfo::execAllPawns(FFrame&, void* const)
-	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Pawn/* P*/> AllPawns(Core.ClassT<Pawn> BaseClass, /*optional */Object.Vector? _TestLocation = default, /*optional */float? _TestRadius = default)
-	{
-		#warning NATIVE FUNCTION !
-		yield break;
-	}
+	//// Export UWorldInfo::execAllControllers(FFrame&, void* const)
+	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Controller/* C*/> AllControllers(Core.ClassT<Controller> BaseClass)
+	//{
+	//	#warning NATIVE FUNCTION !
+	//	yield break;
+	//}
+	//
+	//// Export UWorldInfo::execAllPawns(FFrame&, void* const)
+	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Pawn/* P*/> AllPawns(Core.ClassT<Pawn> BaseClass, /*optional */Object.Vector? _TestLocation = default, /*optional */float? _TestRadius = default)
+	//{
+	//	#warning NATIVE FUNCTION !
+	//	yield break;
+	//}
 	
 	// Export UWorldInfo::execNotifyMatchStarted(FFrame&, void* const)
 	public virtual /*native final function */void NotifyMatchStarted(/*optional */bool? _bShouldActivateLevelStartupEvents = default, /*optional */bool? _bShouldActivateLevelBeginningEvents = default, /*optional */bool? _bShouldActivateLevelLoadedEvents = default)

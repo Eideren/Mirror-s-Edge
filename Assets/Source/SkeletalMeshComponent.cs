@@ -63,7 +63,7 @@
 		{
 			foreach( var node in EnumerateAllNodes( Animations ) )
 			{
-				if( BaseClass.IsParentOf( node.Class ) )
+				if( BaseClass.IsBaseOf( node.Class ) )
 					yield return node;
 			}
 		}

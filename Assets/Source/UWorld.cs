@@ -107,6 +107,9 @@
                 }
             }
 
+            foreach( var (actor, _) in actors )
+                _instance._worldInfo._allActors.Add( actor );
+
             foreach( var (actor, go) in actors )
             {
                 if( actor.Tag == default )
@@ -351,6 +354,8 @@
                 (*(void (__thiscall **)(_E_struct_AActor *, _DWORD))(constructedActor->VfTableObject.Dummy + 24))(constructedActor, 0);// .text:01104B00
                 constructedActor->bExludeHandMoves &= 0xFFFFFFBF;
             }*/
+            
+            _instance._worldInfo._allActors.Add( constructedActor );
             return constructedActor;
 		}
 	}
