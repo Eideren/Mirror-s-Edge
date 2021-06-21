@@ -8,12 +8,15 @@
 	public partial class WorldInfo
 	{
 		internal HashSet<Actor> _allActors = new HashSet<Actor>();
+
+		bool _gravitySet = false;
 		
 		// Export UWorldInfo::execGetGravityZ(FFrame&, void* const)
 		public override /*native function */float GetGravityZ()
 		{
-			#warning NATIVE FUNCTION !
-			return default;
+			if( _gravitySet == false )
+				this.GlobalGravityZ = this.WorldGravityZ = this.DefaultGravityZ;
+			return this.WorldGravityZ;
 		}
 		
 		// Export UWorldInfo::execAllNavigationPoints(FFrame&, void* const)

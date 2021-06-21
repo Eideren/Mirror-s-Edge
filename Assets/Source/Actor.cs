@@ -144,6 +144,11 @@
 			 // #warning NATIVE FUNCTION !
 			yield break;
 		}
-
+	
+		// Export UActor::execGetGravityZ(FFrame&, void* const)
+		public virtual /*native function */float GetGravityZ()
+		{
+			return WorldInfo.GetGravityZ();
+		}
     }
 }

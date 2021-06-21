@@ -1489,13 +1489,6 @@ public partial class Actor : Object/*
 		}
 	}
 	
-	// Export UActor::execGetGravityZ(FFrame&, void* const)
-	public virtual /*native function */float GetGravityZ()
-	{
-		#warning NATIVE FUNCTION !
-		return default;
-	}
-	
 	public virtual /*function */void DebugFreezeGame()
 	{
 		/*local */PlayerController PC = default;
