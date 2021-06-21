@@ -19,42 +19,42 @@ public partial class TdBagMessage : TdLocalMessage{
 	
 	public /*simulated function */static SoundCue Get3DAnnouncementSound(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _AnnouncerPRI = default, /*optional */PlayerReplicationInfo? _OtherPRI = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*simulated function */static SoundNodeWave GetAnnouncementSound(PlayerController LocalController, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _PitcherPRI = default, /*optional */PlayerReplicationInfo? _RecieverPRI = default, /*optional */Object? _OptionalObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*simulated function */static void ClientReceive(PlayerController P, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _PitcherPRI = default, /*optional */PlayerReplicationInfo? _RecieverPRI = default, /*optional */Object? _OptionalObject = default)
 	{
-	
+		// stub
 	}
 	
 	public /*function */static float GetLifeTime(int Switch)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static Object.Color GetColor(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _PitcherPRI = default, /*optional */PlayerReplicationInfo? _RecieverPRI = default, /*optional */Object? _OptionalObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static float GetPos(int Switch, HUD myHUD)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static String GetString(/*optional */int? _InSwitch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _PitcherPRI = default, /*optional */PlayerReplicationInfo? _RecieverPRI = default, /*optional */Object? _OptionalObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

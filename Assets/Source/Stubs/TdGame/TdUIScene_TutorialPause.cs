@@ -6,38 +6,38 @@ public partial class TdUIScene_TutorialPause : TdUIScene_Pause/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleOptionButton(UILabelButton OptionButton)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void Skip_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void NotifySkipMsgBox_OptionSelected(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnSkip_Confirm(TdUIScene_MessageBox MsgBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStayInTutorial(bool bStayInTutorial)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSkipTutorial()
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_TutorialPause()

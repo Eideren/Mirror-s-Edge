@@ -15,6 +15,7 @@ public partial class SeqEvent_Touch : SequenceEvent/*
 	public virtual /*native final function */bool CheckTouchActivate(Actor InOriginator, Actor InInstigator, /*optional */bool? _bTest = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -22,17 +23,18 @@ public partial class SeqEvent_Touch : SequenceEvent/*
 	public virtual /*native final function */bool CheckUnTouchActivate(Actor InOriginator, Actor InInstigator, /*optional */bool? _bTest = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */void Toggled()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyTouchingPawnDied(Pawn P)
 	{
-	
+		// stub
 	}
 	
 	public SeqEvent_Touch()

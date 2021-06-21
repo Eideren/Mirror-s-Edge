@@ -7,7 +7,7 @@ public partial class Path_AlongLine : PathConstraint/*
 	
 	public /*function */static bool AlongLine(Pawn P, Object.Vector Dir)
 	{
-	
+		// stub
 		return default;
 	}
 	

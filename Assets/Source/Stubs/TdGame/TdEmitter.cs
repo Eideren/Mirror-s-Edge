@@ -7,7 +7,7 @@ public partial class TdEmitter : Emitter/*
 		hidecategories(Navigation)*/{
 	public virtual /*simulated function */void KillProjectile()
 	{
-	
+		// stub
 	}
 	
 	public TdEmitter()

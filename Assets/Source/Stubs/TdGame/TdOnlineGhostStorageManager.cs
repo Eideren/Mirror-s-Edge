@@ -23,97 +23,99 @@ public partial class TdOnlineGhostStorageManager : TdGhostStorageManager/*
 	
 	public override /*function */void OnConnectionLost()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool ReadGhost(TdGhost.TdGhostInfo GhostInfo, /*delegate*/TdGhostStorageManager.OnReadGhostComplete ReadCompleted)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool WriteGhost(TdGhost Ghost, OnlineSubsystem.UniqueNetId InPlayerId, /*delegate*/TdGhostStorageManager.OnWriteGhostComplete WriteCompleted)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void FetchLockerCompleteCallbackRead(bool bSuccess)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ReadGhostCompleteCallback(bool bSuccess)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void FetchLockerCompleteCallbackWrite(bool Success)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void CleanLocker()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void RunStatReads()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnStatReadDone(bool bSuccess)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void DeleteUnreferencedFiles()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void RunFileDeletions()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnFileDeleted(bool bSuccess)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void TryWriteFile()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void WriteGhostCompleteCallback(bool bSuccess)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */int GetNewGhostTag()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void ExtractGhostReferences(TdOnlineStatsRead Stats)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdOnlineGhostStorageManager::execFindUnusedTags(FFrame&, void* const)
 	public virtual /*private native final function */void FindUnusedTags()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdOnlineGhostStorageManager::execGetCachedGhost(FFrame&, void* const)
 	public virtual /*private native final function */TdGhost GetCachedGhost(TdGhost.TdGhostInfo GhostInfo)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -121,6 +123,7 @@ public partial class TdOnlineGhostStorageManager : TdGhostStorageManager/*
 	public virtual /*private native final function */void CacheGhost(TdGhost.TdGhostInfo GhostInfo, ref array<byte> GhostBytes)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public TdOnlineGhostStorageManager()

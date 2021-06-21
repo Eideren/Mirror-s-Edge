@@ -67,134 +67,135 @@ public partial class TdAI_HeliController : AIController/*
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override Tick_del Tick { get => bfield_Tick ?? TdAI_HeliController_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAI_HeliController_Tick;
 	public /*event */void TdAI_HeliController_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawPosition()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSetHeliTarget(SeqAct_SetHeliTarget seqAct)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSetHeliSpeed(SeqAct_SetHeliSpeed seqAct)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetHeliSpeed(TdAI_HeliController.HeliSpeed Speed)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Say(int VO)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawDebugInfo(PlayerController PlayerC, Canvas aCanvas)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAI_HeliController::execDrawPath(FFrame&, void* const)
 	public virtual /*native function */void DrawPath()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override Possess_del Possess { get => bfield_Possess ?? TdAI_HeliController_Possess; set => bfield_Possess = value; } Possess_del bfield_Possess;
 	public override Possess_del global_Possess => TdAI_HeliController_Possess;
 	public /*event */void TdAI_HeliController_Possess(Pawn aPawn, bool bVehicleTransition)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateVisitedNodes()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */float GetTimeFactor(TdAttackPathNode Node)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnAIAbortMoveToActor(SeqAct_AIAbortMoveToActor inAction)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void CheckTargetPoint()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DebugMoveTo(NavigationPoint navpoint)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void SkipPathNode()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */TdAI_HeliController.EAdjustPosition CurrentPositionOk()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */TdAttackPathNode FindBestAttackPoint(ref float PrioValue)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetPrio(TdAttackPathNode Node, Object.Vector PlayerPosition)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float VerticalAngleToPos(Object.Vector pos, Object.Vector Source)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void FindPlayerController()
 	{
-	
+		// stub
 	}
 	
 	public override SeePlayer_del SeePlayer { get => bfield_SeePlayer ?? TdAI_HeliController_SeePlayer; set => bfield_SeePlayer = value; } SeePlayer_del bfield_SeePlayer;
 	public override SeePlayer_del global_SeePlayer => TdAI_HeliController_SeePlayer;
 	public /*event */void TdAI_HeliController_SeePlayer(Pawn Seen)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnMute(bool bMute)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */Object.Vector vec3(float X, float Y, float Z)
 	{
-	
+		// stub
 		return default;
 	}
 	protected override void RestoreDefaultFunction()
@@ -207,12 +208,12 @@ public partial class TdAI_HeliController : AIController/*
 	
 	protected /*event */void TdAI_HeliController_ScriptedMove_PoppedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void TdAI_HeliController_ScriptedMove_PushedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) ScriptedMove()/*state ScriptedMove*/
@@ -223,12 +224,12 @@ public partial class TdAI_HeliController : AIController/*
 	
 	protected /*function */void TdAI_HeliController_SearchAndDestroy_ContinuedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_HeliController_SearchAndDestroy_PausedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) SearchAndDestroy()/*auto state SearchAndDestroy*/

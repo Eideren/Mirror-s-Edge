@@ -10,38 +10,38 @@ public partial class TdMove_EnterCover : TdMove/*
 	
 	public override /*function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void FailedToReachPreciseLocation()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReachedPreciseLocation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetCoverEntered()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnAnimationStopped(AnimNodeSequence SeqNode)
 	{
-	
+		// stub
 	}
 	
 }

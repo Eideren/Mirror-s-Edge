@@ -9,6 +9,7 @@ public partial class TdCrowdPathNode : PathNode/*
 	public override /*native function */bool HasVisibilityTo(Object.Vector Offset, NavigationPoint Other, Object.Vector otherOffset)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -16,6 +17,7 @@ public partial class TdCrowdPathNode : PathNode/*
 	public override /*native function */bool CanBeSeenFrom(Object.Vector Offset, NavigationPoint Other, Object.Vector otherOffset)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

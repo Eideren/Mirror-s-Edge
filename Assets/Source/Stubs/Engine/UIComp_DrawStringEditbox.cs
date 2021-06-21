@@ -35,6 +35,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	public virtual /*native final function */bool SetUserText(String NewValue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -42,6 +43,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	public virtual /*native final function */int GetUserTextLength()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -49,6 +51,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	public virtual /*native final function */bool SetSelectionRange(int StartIndex, int EndIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -56,6 +59,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	public virtual /*native final function */bool SetSelectionStart(int StartIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -63,6 +67,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	public virtual /*native final function */bool SetSelectionEnd(int EndIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -70,6 +75,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	public virtual /*native final function */bool ClearSelection()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -77,6 +83,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	public virtual /*native final function */bool GetSelectionRange(ref int out_StartIndex, ref int out_EndIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -84,6 +91,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	public virtual /*native final function */String GetSelectedText()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

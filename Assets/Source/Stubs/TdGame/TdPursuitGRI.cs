@@ -31,34 +31,34 @@ public partial class TdPursuitGRI : TdBagGRI/*
 	public override Timer_del global_Timer => TdPursuitGRI_Timer;
 	public /*simulated event */void TdPursuitGRI_Timer()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */Object.Vector FindBestBagStart()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float RateBagStart(TdBagStart Bs, TdMPTeamPursuitGame MyGameMode)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void OnCarriedObjectTouchedGround(Actor CarriedActor)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnDropCarriedObject(TdPlayerReplicationInfo PRI, Actor CarriedActor)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStashingCompleted(TdStashpoint Stashpoint)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

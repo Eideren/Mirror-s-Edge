@@ -15,42 +15,42 @@ public partial class TdMove_GrabPullUpBot : TdMove_AISpecialMove/*
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void PostStopMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void HeaveInitiatedNotify()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void HeaveCompletedNotify()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCeaseRelevantRootMotion(AnimNodeSequence SeqNode)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnAnimationStopped(AnimNodeSequence SeqNode)
 	{
-	
+		// stub
 	}
 	
 	public TdMove_GrabPullUpBot()

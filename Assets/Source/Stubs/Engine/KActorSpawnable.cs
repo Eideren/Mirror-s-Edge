@@ -6,18 +6,19 @@ public partial class KActorSpawnable : KActor/*
 		notplaceable*/{
 	public virtual /*simulated function */void Initialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void Recycle()
 	{
-	
+		// stub
 	}
 	
 	// Export UKActorSpawnable::execResetComponents(FFrame&, void* const)
 	public virtual /*native function */void ResetComponents()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public KActorSpawnable()

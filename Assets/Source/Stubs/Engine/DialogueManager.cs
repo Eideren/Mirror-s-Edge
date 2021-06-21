@@ -6,7 +6,7 @@ public partial class DialogueManager : Actor/*
 		hidecategories(Navigation)*/{
 	public virtual /*function */bool TriggerDialogueEvent(Core.ClassT<SequenceEvent> InEventClass, Actor InInstigator, Actor InOriginator)
 	{
-	
+		// stub
 		return default;
 	}
 	

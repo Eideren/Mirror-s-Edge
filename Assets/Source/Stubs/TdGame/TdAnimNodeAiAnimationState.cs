@@ -8,12 +8,12 @@ public partial class TdAnimNodeAiAnimationState : TdAnimNodeState/*
 	
 	public override /*event */void OnInit()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void OverrideStateMapping()
 	{
-	
+		// stub
 	}
 	
 	public TdAnimNodeAiAnimationState()

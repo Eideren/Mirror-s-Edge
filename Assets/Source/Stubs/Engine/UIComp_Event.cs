@@ -14,12 +14,14 @@ public partial class UIComp_Event : UIComponent/* within UIScreenObject*//*
 	public virtual /*native final function */void RegisterInputEvents(UIState InputEventOwner, int PlayerIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIComp_Event::execUnregisterInputEvents(FFrame&, void* const)
 	public virtual /*native final function */void UnregisterInputEvents(UIState InputEventOwner, int PlayerIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 }

@@ -46,12 +46,14 @@ public partial class UIComp_ListElementSorter : UIComp_ListComponentBase/* withi
 	public virtual /*native final function */void ResetSortColumns(/*optional */bool? _bResort = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIComp_ListElementSorter::execSortItems(FFrame&, void* const)
 	public virtual /*native final function */bool SortItems(int ColumnIndex, /*optional */bool? _bSecondarySort = default, /*optional */bool? _bCaseSensitive = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -59,6 +61,7 @@ public partial class UIComp_ListElementSorter : UIComp_ListComponentBase/* withi
 	public virtual /*native final function */bool ResortItems(/*optional */bool? _bCaseSensitive = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

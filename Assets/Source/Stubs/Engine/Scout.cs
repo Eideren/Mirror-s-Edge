@@ -37,7 +37,7 @@ public partial class Scout : Pawn/*
 	
 	public override /*simulated event */void PreBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public Scout()

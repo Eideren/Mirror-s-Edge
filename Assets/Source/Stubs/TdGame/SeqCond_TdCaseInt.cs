@@ -9,7 +9,7 @@ public partial class SeqCond_TdCaseInt : SequenceCondition/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqCond_TdCaseInt()

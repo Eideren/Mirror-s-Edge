@@ -15,6 +15,7 @@ public partial class UIString : UIRoot/* within UIScreenObject*//*
 	public virtual /*native final function */bool SetValue(String InputString, bool bIgnoreMarkup)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -22,6 +23,7 @@ public partial class UIString : UIRoot/* within UIScreenObject*//*
 	public virtual /*native final function */String GetValue(/*optional */bool? _bReturnProcessedText = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -29,12 +31,14 @@ public partial class UIString : UIRoot/* within UIScreenObject*//*
 	public virtual /*native final function */void GetAutoScaleValue(Object.Vector2D BoundingRegionSize, Object.Vector2D StringSize, ref Object.Vector2D out_AutoScalePercent)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIString::execContainsMarkup(FFrame&, void* const)
 	public virtual /*native final function */bool ContainsMarkup()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

@@ -358,6 +358,7 @@ public partial class TdAIController : AIController,
 	public virtual /*private native final function */float CurrentRouteDist()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -365,6 +366,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */float CheckRemainingPathLength(float AngularLimit)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -372,6 +374,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */NavigationPoint FindGoodFiringPosition(int NetworkID, /*optional */Class? _RequiredClass = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -379,6 +382,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */TdSuppressionSpot FindSuppressionSpot()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -386,6 +390,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */bool IsFiringPositionUsed(NavigationPoint Nav)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -393,6 +398,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final latent function */Flow SetCoverAction(byte CoverAction)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -400,6 +406,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */bool NextNodeIsJumpNode()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -407,6 +414,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */bool ShouldForceSpeed()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -414,6 +422,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */float GetForcedSpeed(ref Object.Vector EndLocation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -421,24 +430,28 @@ public partial class TdAIController : AIController,
 	public /*native final function */static void TdDrawDebugLine(Object.Vector LineStart, Object.Vector LineEnd, byte R, byte G, byte B)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAIController::execTdDrawDebugSphere(FFrame&, void* const)
 	public /*native final function */static void TdDrawDebugSphere(Object.Vector Center, float Radius, int Segments, byte R, byte G, byte B)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAIController::execTdFlushLines(FFrame&, void* const)
 	public /*native final function */static void TdFlushLines()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAIController::execThrowGrenade(FFrame&, void* const)
 	public virtual /*native final latent function */Flow ThrowGrenade()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -446,6 +459,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final latent function */Flow TdMoveTo(Object.Vector NewDestination, /*optional */Actor? _ViewFocus = default, /*optional */bool? _bShouldWalk = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -453,6 +467,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */bool PointReachableFrom(Object.Vector Start, Object.Vector End)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -460,6 +475,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */bool IsForcedToWalkToNextNode(/*optional */int? _NodeOffset = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -467,6 +483,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native function */bool EnoughSpaceForStartMove(float SpaceNeeded)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -474,6 +491,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */bool WillShotHitPlayer(TdPlayerPawn PlayerPawn, Object.Vector StartLocation, Object.Vector AimRotation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -481,12 +499,13 @@ public partial class TdAIController : AIController,
 	public virtual /*native function */bool HaveAValidCoverPath()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AddSpecialOutput(ref String Text)
 	{
-	
+		// stub
 	}
 	
 	public delegate void UpdateMoveToActorPosition_del();
@@ -494,191 +513,192 @@ public partial class TdAIController : AIController,
 	public virtual UpdateMoveToActorPosition_del global_UpdateMoveToActorPosition => TdAIController_UpdateMoveToActorPosition;
 	public /*function */void TdAIController_UpdateMoveToActorPosition()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void AddToScreenLog(String Text, /*optional */name? _Category = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsFiltered(name Category)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ToggleScreenLogFilter(name Category)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ToggleAILogFilter(name Category)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawScreenLog(Canvas aCanvas)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearScreenLog()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ToggleDebugHalt()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ToggleDebugLineOfSight()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawDebugInfo(PlayerController PlayerC, Canvas aCanvas)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawLatentAction(ref String Text)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawOldPath()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIController::execDrawPath(FFrame&, void* const)
 	public virtual /*native final function */void DrawPath()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */void DrawPathnodesCloseToCamera(Canvas aCanvas)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawGages(Canvas aCanvas)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawNavigationCost(PlayerController PlayerC, Canvas aCanvas)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawNeighbourCosts(PlayerController PlayerC, Canvas aCanvas, NavigationPoint Node, ref array<NavigationPoint> out_Visited)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawReachSpecCost(PlayerController PlayerC, Canvas aCanvas, TdReachSpec Spec)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DebugMeleeDamageBot(TdPlayerController PC)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ShowAimingLines()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final event */void AILog_Internal(/*coerce */String LogText, /*optional */name? _LogCategory = default, /*optional */bool? _bForce = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void LogFunction_Internal(/*coerce */String FuncName, bool Start, /*coerce optional */String? _S = default, /*optional */name? _LogCategory = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool TdPointReachable(Object.Vector aPoint, /*optional */bool? _bTestBotPawns = default, /*optional */float? _minTimeToCollision = default, /*optional */float? _minDistFromLine = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool TdActorReachable(Actor anActor, /*optional */bool? _bTestBotPawns = default, /*optional */float? _minTimeToCollision = default, /*optional */float? _minDistFromLine = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */Object.Vector GetPredictedEnemyLocation()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsPredictedEnemyReachable(/*optional */bool? _bTestBotPawns = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void HoldFire(bool flag)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UnholdFire()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetBossStage(int stage)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsLastActuallySeenLocationWithinDot(float dotValue)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsEnemyWithinDot(float dotValue)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void Crouch(bool flag)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool UpdatePath()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AbortMoveTo()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AbortMovement()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsInLatentMovement()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -686,103 +706,104 @@ public partial class TdAIController : AIController,
 	public virtual /*native function */bool IsMoving()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsRunning()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsInMelee()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void Pause()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool HasShield()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */name GetCurrentStateName()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsCurrentStateInterruptable()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetInterruptable(bool flag, name Identifier)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetPawnRotation(Object.Rotator PawnRotation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetLocationXY(Object.Vector PawnLocation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsAtEnd(Object.Vector Start, Object.Vector End)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ClientMessage(/*coerce */String S)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */Object.Vector vec3(float X, float Y, float Z)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */Object.Vector GetLeftEnemyDir()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsEnemyLookingAtMe2D(float dotLimit)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsEnemyAimingAtMe(float Dist)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsPointAwayFromEnemy(Object.Vector P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsEnemy(Controller C)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -790,12 +811,13 @@ public partial class TdAIController : AIController,
 	public virtual /*native function */float GetCombatDistance()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */float GetPreferredCombatDistance()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -803,33 +825,34 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */bool AllowFocusRotation()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */bool IsFriendlyPawn(Pawn TestPlayer)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void Halt()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Freeze()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ForceKeepMoving(bool flag)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsForcedToKeepMoving()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -837,50 +860,53 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */void DrawTimeline(Canvas aCanvas)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAIController::execRemoveFromTimeline(FFrame&, void* const)
 	public virtual /*native final function */void RemoveFromTimeline()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAIController::execDrawNavigation(FFrame&, void* const)
 	public virtual /*native final function */void DrawNavigation()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override Possess_del Possess { get => bfield_Possess ?? TdAIController_Possess; set => bfield_Possess = value; } Possess_del bfield_Possess;
 	public override Possess_del global_Possess => TdAIController_Possess;
 	public /*event */void TdAIController_Possess(Pawn inPawn, bool bVehicleTransition)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void UnPossess()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void Initialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetAI()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */TdAimBotBase CreateAimBot()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -889,13 +915,14 @@ public partial class TdAIController : AIController,
 	public virtual Say_del global_Say => TdAIController_Say;
 	public /*event */void TdAIController_Say(int VO, /*optional */float? _probability = default, /*optional */int? _answer = default, /*optional */float? _answerprob = default)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIController::execClosestFriend(FFrame&, void* const)
 	public virtual /*native final function */TdAIController ClosestFriend()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -903,24 +930,24 @@ public partial class TdAIController : AIController,
 	public override PawnDied_del global_PawnDied => TdAIController_PawnDied;
 	public /*function */void TdAIController_PawnDied(Pawn inPawn)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ReportBotDied()
 	{
-	
+		// stub
 	}
 	
 	public override NotifyKilled_del NotifyKilled { get => bfield_NotifyKilled ?? TdAIController_NotifyKilled; set => bfield_NotifyKilled = value; } NotifyKilled_del bfield_NotifyKilled;
 	public override NotifyKilled_del global_NotifyKilled => TdAIController_NotifyKilled;
 	public /*function */void TdAIController_NotifyKilled(Controller Killer, Controller Killed, Pawn KilledPawn)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyEnemyKilled()
 	{
-	
+		// stub
 	}
 	
 	public delegate void NotifyStumbleComplete_del();
@@ -928,73 +955,73 @@ public partial class TdAIController : AIController,
 	public virtual NotifyStumbleComplete_del global_NotifyStumbleComplete => TdAIController_NotifyStumbleComplete;
 	public /*function */void TdAIController_NotifyStumbleComplete()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnNewTeam(AITeam NewTeam)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnMute(bool bMute)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */int GetDifficultyLevel()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void UpdateDifficultyLevel()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetDifficultyLevel(int Difficulty)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */int RetrieveDifficultyLevel()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated event */int SetupTemplate(AITemplate TheTemplate)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public override Reset_del Reset { get => bfield_Reset ?? TdAIController_Reset; set => bfield_Reset = value; } Reset_del bfield_Reset;
 	public override Reset_del global_Reset => TdAIController_Reset;
 	public /*function */void TdAIController_Reset()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void Restart(bool bVehicleTransition)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsOkToUpdatePath()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool AreFlagsOkForPathUpdate()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -1003,19 +1030,19 @@ public partial class TdAIController : AIController,
 	public virtual OkToDoStartMove_del global_OkToDoStartMove => TdAIController_OkToDoStartMove;
 	public /*function */bool TdAIController_OkToDoStartMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetCurrentRouteDist()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CurrentRouteContainsMoves()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -1023,86 +1050,93 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */void UpdateCurrentRouteDist()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */void UpdateCurrentRouteDistDirect(Object.Vector Goal)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */Object.Vector GetMoveToDestination()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyGrenadeExploded(Object.Vector ExplosionLocation, float Lifetime)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIController::execPreSuperTick(FFrame&, void* const)
 	public virtual /*native final function */void PreSuperTick(float DeltaTime)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAIController::execPostSuperTick(FFrame&, void* const)
 	public virtual /*native final function */void PostSuperTick(float DeltaTime)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override Tick_del Tick { get => bfield_Tick ?? TdAIController_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAIController_Tick;
 	public /*event */void TdAIController_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIController::execUpdateAnchor(FFrame&, void* const)
 	public virtual /*native function */void UpdateAnchor()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAIController::execSetBestAnchor(FFrame&, void* const)
 	public virtual /*native function */void SetBestAnchor()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*event */void NoReachableAnchor()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool TryToTeleportToNearestAnchor()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ForceNewPath()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateFiringMood()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIController::execUpdateAggressionLevel(FFrame&, void* const)
 	public virtual /*native final function */void UpdateAggressionLevel()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAIController::execUpdateCombatDistances(FFrame&, void* const)
 	public virtual /*native function */void UpdateCombatDistances()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void UpdatePawnFocus_del();
@@ -1110,17 +1144,17 @@ public partial class TdAIController : AIController,
 	public virtual UpdatePawnFocus_del global_UpdatePawnFocus => TdAIController_UpdatePawnFocus;
 	public /*function */void TdAIController_UpdatePawnFocus()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetWantedFocus(TdFocusHandler.FocusType F)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetFocus(TdFocusHandler.FocusType F)
 	{
-	
+		// stub
 	}
 	
 	public delegate void UpdatePose_del();
@@ -1128,37 +1162,37 @@ public partial class TdAIController : AIController,
 	public virtual UpdatePose_del global_UpdatePose => TdAIController_UpdatePose;
 	public /*function */void TdAIController_UpdatePose()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetWantedPose(TdBotPawn.EPose P)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetPose(TdBotPawn.EPose P)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void SetRotationReduction(float reductionFactor)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void DebugGotoState(name NewState, /*optional */name? _Label = default, /*optional */String? _Reason = default, /*optional */bool? _bForceEvents = default, /*optional */bool? _ForceStateChange = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected final function */void TdGotoState(name NewState, /*optional */name? _Label = default, /*optional */String? _Reason = default, /*optional */bool? _bForceEvents = default, /*optional */bool? _ForceStateChange = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected final function */void TdPushState(name NewState, /*optional */name? _NewLabel = default, /*optional */String? _Reason = default, /*optional */bool? _ForceStateChange = default)
 	{
-	
+		// stub
 	}
 	
 	public delegate void TestCombatTransitions_del();
@@ -1166,47 +1200,47 @@ public partial class TdAIController : AIController,
 	public virtual TestCombatTransitions_del global_TestCombatTransitions => TdAIController_TestCombatTransitions;
 	public /*function */void TdAIController_TestCombatTransitions()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool CanSearch()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CanInvestigate()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool IsInCombat()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void UpdateCombatState()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StartTestingCombatTransitions()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void ExposePlayer()
 	{
-	
+		// stub
 	}
 	
 	public override SeePlayer_del SeePlayer { get => bfield_SeePlayer ?? TdAIController_SeePlayer; set => bfield_SeePlayer = value; } SeePlayer_del bfield_SeePlayer;
 	public override SeePlayer_del global_SeePlayer => TdAIController_SeePlayer;
 	public /*event */void TdAIController_SeePlayer(Pawn P)
 	{
-	
+		// stub
 	}
 	
 	public delegate void HandleEnemySeen_del(Pawn aPawn);
@@ -1214,43 +1248,43 @@ public partial class TdAIController : AIController,
 	public virtual HandleEnemySeen_del global_HandleEnemySeen => TdAIController_HandleEnemySeen;
 	public /*function */void TdAIController_HandleEnemySeen(Pawn aPawn)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void HandleSuspectSpotted(Pawn aPawn)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void HandleEnemyExposed(Pawn aPawn)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void EnemyNotVisible()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool HasAnyEnemies()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetEnemy(Pawn NewEnemy)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void NotifyEnemyVisibilityChange(bool visible)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestLastKnownLocationVisible()
 	{
-	
+		// stub
 	}
 	
 	public delegate void NotifyDamage_del(Controller InstigatedBy, Core.ClassT<DamageType> DamageType, int Damage);
@@ -1258,23 +1292,24 @@ public partial class TdAIController : AIController,
 	public virtual NotifyDamage_del global_NotifyDamage => TdAIController_NotifyDamage;
 	public /*function */void TdAIController_NotifyDamage(Controller InstigatedBy, Core.ClassT<DamageType> DamageType, int Damage)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ReportNearMiss(float Distance)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AddSuppressionFactor(float S)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIController::execWeAreSuppressed(FFrame&, void* const)
 	public virtual /*native final function */bool WeAreSuppressed()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -1283,78 +1318,79 @@ public partial class TdAIController : AIController,
 	public virtual NotifySuppressed_del global_NotifySuppressed => TdAIController_NotifySuppressed;
 	public /*function */void TdAIController_NotifySuppressed()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void HearNoise(float Loudness, Actor NoiseMaker, /*optional */name? _NoiseType = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool AskToPathfindToEnemy()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */void SucceededPathToEnemy(Object.Vector GoalPosition)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void SetFailedPathToEnemy()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */bool HasEnemyMovedSinceLastFailedPath()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ResetFocus()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyWeaponEmpty()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AiReload()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIController::execOkToLaySuppressionFire(FFrame&, void* const)
 	public virtual /*native final function */bool OkToLaySuppressionFire()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyReloaded()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void NotifyWeaponFired(Weapon W, byte FireMode)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnWeaponFired(Weapon PawnWeapon)
 	{
-	
+		// stub
 	}
 	
 	public override SwitchToBestWeapon_del SwitchToBestWeapon { get => bfield_SwitchToBestWeapon ?? TdAIController_SwitchToBestWeapon; set => bfield_SwitchToBestWeapon = value; } SwitchToBestWeapon_del bfield_SwitchToBestWeapon;
 	public override SwitchToBestWeapon_del global_SwitchToBestWeapon => TdAIController_SwitchToBestWeapon;
 	public /*exec function */void TdAIController_SwitchToBestWeapon(/*optional */bool? _bForceNewWeapon = default)
 	{
-	
+		// stub
 	}
 	
 	public delegate bool IsOkToFire_del();
@@ -1362,13 +1398,13 @@ public partial class TdAIController : AIController,
 	public virtual IsOkToFire_del global_IsOkToFire => TdAIController_IsOkToFire;
 	public /*function */bool TdAIController_IsOkToFire()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CanFireFromHere()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -1377,7 +1413,7 @@ public partial class TdAIController : AIController,
 	public virtual IsWithinAttackAngle_del global_IsWithinAttackAngle => TdAIController_IsWithinAttackAngle;
 	public /*function */bool TdAIController_IsWithinAttackAngle()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -1385,6 +1421,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native function */bool ShouldKeepFiring()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -1392,6 +1429,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native function */void CheckFireCondition()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate bool AllowFire_del();
@@ -1399,13 +1437,13 @@ public partial class TdAIController : AIController,
 	public virtual AllowFire_del global_AllowFire => TdAIController_AllowFire;
 	public /*event */bool TdAIController_AllowFire()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ForceFire(bool bForce)
 	{
-	
+		// stub
 	}
 	
 	public delegate void StartFiring_del();
@@ -1413,18 +1451,19 @@ public partial class TdAIController : AIController,
 	public virtual StartFiring_del global_StartFiring => TdAIController_StartFiring;
 	public /*function */void TdAIController_StartFiring()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void StopFiring()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIController::execIsAIBlockingPath(FFrame&, void* const)
 	public virtual /*native final function */TdBotPawn IsAIBlockingPath(Object.Vector pos, /*optional */float? _minTimeToCollision = default, /*optional */float? _minDistFromLine = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -1432,18 +1471,20 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */bool CanSeePlayerFromPoint(NavigationPoint np)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void GetPlayerViewPoint(ref Object.Vector out_Location, ref Object.Rotator out_Rotation)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIController::execSelectAdvancePoint(FFrame&, void* const)
 	public virtual /*native final function */NavigationPoint SelectAdvancePoint(int NetworkID, /*optional */float? _MaxDist = default, /*optional */float? _MinDist = default, /*optional */Class? _RequiredClass = default, /*optional */bool? _bTestVisibility = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -1451,6 +1492,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */NavigationPoint GetNavpointClosestToPoint(Object.Vector Point, int NetworkID, /*optional */float? _MaxDist = default, /*optional */float? _MinDist = default, /*optional */float? _MaxDistZ = default, /*optional */float? _MinDistZ = default, /*optional */Class? _RequiredClass = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -1458,6 +1500,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */bool CanBeAnchor(NavigationPoint P)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -1465,6 +1508,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */bool CanBeDestination(NavigationPoint P)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -1472,12 +1516,13 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */NavigationPoint GetNearestAnchor()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsHitRelevant(Core.ClassT<DamageType> DamageType, name BoneName)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -1485,53 +1530,53 @@ public partial class TdAIController : AIController,
 	public override GetAdjustedAimFor_del global_GetAdjustedAimFor => TdAIController_GetAdjustedAimFor;
 	public /*function */Object.Rotator TdAIController_GetAdjustedAimFor(Weapon iWeapon, Object.Vector StartFireLocation)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void TdVaultOver()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void TdSpeedVault()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void TdJump()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void TdShortJump()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void TdMediumJump()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void TdLongJump()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void TdGrabHeave()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void Slide(Object.Vector EndTarget)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void StopSlide()
 	{
-	
+		// stub
 	}
 	
 	public delegate bool NotifyPrepareForMeleeAttack_del(Core.ClassT<DamageType> MeleeDamageType);
@@ -1539,205 +1584,207 @@ public partial class TdAIController : AIController,
 	public virtual NotifyPrepareForMeleeAttack_del global_NotifyPrepareForMeleeAttack => TdAIController_NotifyPrepareForMeleeAttack;
 	public /*function */bool TdAIController_NotifyPrepareForMeleeAttack(Core.ClassT<DamageType> MeleeDamageType)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void StartBlocking()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStoppedBlocking()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStumble(bool bAllowRotation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStumbleEnded()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnMeleedFromAir()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnDisarmed()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */TdAIController.EDisarmState QueryDisarmState(TdPawn Disarmer)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool StartCannedMove(int Move)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void TriggerCannedAnim(int Move, name CannedAnimationName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StorePathfindingParams()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetPathfindingParams(bool UseSaferPaths, bool AvoidPopulatedPaths)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RestorePathfindingParams()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool TdFindPathToward(Actor anActor)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void TdFindPathTo(Object.Vector aPoint)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void ClearMovementFlags()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIController::execSetWalkingToNode(FFrame&, void* const)
 	public virtual /*native final function */void SetWalkingToNode(bool flag)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAIController::execIsWalkingToNode(FFrame&, void* const)
 	public virtual /*native final function */bool IsWalkingToNode()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void ClearRouteCache()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void BackupPath()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void ClearOldPath()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StoreMovementVariables()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RestoreMovementVariables()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearMovementVariables()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OccupyPath()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UnoccupyPath()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RemoveFromOccupied(NavigationPoint P)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearPathFor(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool AdjustAround(Pawn Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void EnableBumps()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */Object.Vector GetFloor()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetGrabJumpTime()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetCameraRotationAid(Object.Rotator desiredRot)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetIsInCover(bool bActivateInCover)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool ForceShootAt(TdExplosiveTargetArea TargetArea)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool ForceGrenadeThrow(TdGrenadeTargetArea TargetArea)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool ThrowGrenadeRequest(TdGrenadeTargetArea TargetArea)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnAIThrowGrenade(SeqAct_AIThrowGrenade seqAct)
 	{
-	
+		// stub
 	}
 	
 	public delegate bool IsThrowingKismetTriggeredGrenade_del();
@@ -1745,53 +1792,53 @@ public partial class TdAIController : AIController,
 	public virtual IsThrowingKismetTriggeredGrenade_del global_IsThrowingKismetTriggeredGrenade => TdAIController_IsThrowingKismetTriggeredGrenade;
 	public /*event */bool TdAIController_IsThrowingKismetTriggeredGrenade()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void WaitForKismetCommand()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StartScriptedFire(Actor ScriptedTarget)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void CoverGoToState(String iState)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void MoveToPos(Object.Vector pos)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void WalkToPos(Object.Vector pos)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RunToPos(Object.Vector pos)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void MoveStraightToPos(Object.Vector pos)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void MoveStraightToActor(Actor TargetActor)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ActivateStasis(bool flag, bool UpdateState)
 	{
-	
+		// stub
 	}
 	
 	public delegate void AdvanceTimerCallback_del();
@@ -1799,90 +1846,90 @@ public partial class TdAIController : AIController,
 	public virtual AdvanceTimerCallback_del global_AdvanceTimerCallback => TdAIController_AdvanceTimerCallback;
 	public /*function */void TdAIController_AdvanceTimerCallback()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ReportAdvancing(Object.Vector Dest)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ReportMoveBack(int VO)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShouldWeAdvance()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsOkToRun()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsReadyToMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void UpdateWalking()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestAdvanceMovement()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void UpdateAdvanceState(name Label, String Reason)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsEnemyBehindMe()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ShouldBackaway()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ShouldMoveIn()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void NotifyNewPlayerNavigationPoint()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsEnemyOnDifferentNetwork()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool RandomCrouch()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool AskToCrouch()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -1891,101 +1938,101 @@ public partial class TdAIController : AIController,
 	public virtual CheckCrouching_del global_CheckCrouching => TdAIController_CheckCrouching;
 	public /*function */void TdAIController_CheckCrouching()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void BeginAdvance()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void EndAdvance()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */Object.Vector GetAdvancePoint()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CheckBackupDirectionValid(Object.Vector Dir)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool NotifyHitWall(Object.Vector HitNormal, Actor Wall)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */void HitWall(Object.Vector HitNormal, Actor Wall, PrimitiveComponent WallComp)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool NotifyBump(Actor Other, Object.Vector HitNormal)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool FindBackupDirFromHitNormal(Object.Vector HitNormal)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void UpdateBackup()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OkToLookBack()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void LookBack()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetAdvanceAction(TdAIController.AdvanceAction aa)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool FindBackupDir()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */Object.Vector GetFindLineOfFirePos(float Dist)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyPlayerReachable()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShouldGetWithinPathlimits()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool EnemyHarmless()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -1994,131 +2041,131 @@ public partial class TdAIController : AIController,
 	public virtual ShouldEnterMelee_del global_ShouldEnterMelee => TdAIController_ShouldEnterMelee;
 	public /*function */bool TdAIController_ShouldEnterMelee(float Range)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsPredictedPositionWithinMeleeRange(float Range)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyMeleeFinished()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShouldDoSecondSwing()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool EnemyIsDisarming()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool RotationOkForMelee()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void UpdateMoveGoal()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetMeleeType(String mt)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool UseFullBodyMelee()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void UpdateFormationPos(Object.Vector pos)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ForceLeaveFormation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void LeaveFormation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsTrailingBehind()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsTrailingBehindAlot()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void OnStartCustomAnimation(name AnimationName, float PlayRate, float BlendInTime, float BlendOutTime, bool bUseRootMotion, bool bUseRootRotation, bool bLoopAnimation, int FinalAnimationState, bool OverrideAll)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnStopCustomAnimation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool IsInAnimationPlaybackState()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetAnimationProperties(name AnimationName, float PlayRate, float BlendInTime, float BlendOutTime, bool bUseRootMotion, bool bUseRootRotation, bool bLoopAnimation, int FinalAnimationState)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnAnimationPlaybackStart()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnAnimationPlaybackExit()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StartAnimationPlayback()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StopAnimationPlayback()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AnimationPlaybackInterrupted()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DropCover(bool ShouldNotify, bool bShouldMarkCoverInvalid, /*optional */bool? _bRetreatFromCover = default)
 	{
-	
+		// stub
 	}
 	
 	public delegate void NotifyCoverDropped_del();
@@ -2126,17 +2173,17 @@ public partial class TdAIController : AIController,
 	public virtual NotifyCoverDropped_del global_NotifyCoverDropped => TdAIController_NotifyCoverDropped;
 	public /*function */void TdAIController_NotifyCoverDropped()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClaimCover(TdCover NewCover, /*optional */bool? _CheckCover = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnFailedEnterCover()
 	{
-	
+		// stub
 	}
 	
 	public delegate void CheckCurrentCover_del();
@@ -2144,24 +2191,24 @@ public partial class TdAIController : AIController,
 	public virtual CheckCurrentCover_del global_CheckCurrentCover => TdAIController_CheckCurrentCover;
 	public /*function */void TdAIController_CheckCurrentCover()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool FindClosestCover()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool FindNewCover(/*optional */float? _minDot = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnMovementStateChange(name NewState)
 	{
-	
+		// stub
 	}
 	
 	public delegate void TestExitStumble_del();
@@ -2169,7 +2216,7 @@ public partial class TdAIController : AIController,
 	public virtual TestExitStumble_del global_TestExitStumble => TdAIController_TestExitStumble;
 	public /*function */void TdAIController_TestExitStumble()
 	{
-	
+		// stub
 	}
 	
 	public delegate void UpdateStumbleRotation_del(bool bAllowRotation);
@@ -2177,61 +2224,61 @@ public partial class TdAIController : AIController,
 	public virtual UpdateStumbleRotation_del global_UpdateStumbleRotation => TdAIController_UpdateStumbleRotation;
 	public /*function */void TdAIController_UpdateStumbleRotation(bool bAllowRotation)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandlePathObstruction(Actor BlockedBy)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void FireFromCover()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool CanSwitchDirection()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SwitchDirection()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void MoveToCover(/*optional */bool? _IsTeamManouver = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */Object.Vector GetRetreatFromCoverDir()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ClearExitedCover()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AddToMoveTimer(float Time)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OkToMoveDirectlyToPoint()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OkToMoveDirectlyToActor()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -2240,46 +2287,46 @@ public partial class TdAIController : AIController,
 	public virtual CheckForceWalk_del global_CheckForceWalk => TdAIController_CheckForceWalk;
 	public /*function */void TdAIController_CheckForceWalk()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TimedAbortMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShouldUsePlayerNavigationPoint()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */bool SetMoveLocationEnemy(/*optional */Actor? _NewMoveFocus = default, /*optional */float? _OffsetDist = default, /*optional */bool? _HaltAfterMove = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final event */bool SetMoveGoal(Actor NewMoveGoal, /*optional */Actor? _NewMoveFocus = default, /*optional */float? _OffsetDist = default, /*optional */bool? _HaltAfterMove = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final event */bool SetMovePoint(Object.Vector NewMovePoint, /*optional */Actor? _NewMoveFocus = default, /*optional */float? _OffsetDist = default, /*optional */bool? _HaltAfterMove = default, /*optional */bool? _CanMoveDirectly = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void MoveToTarget()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */float GetMoveTimeOutDuration()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -2288,79 +2335,80 @@ public partial class TdAIController : AIController,
 	public virtual IsAtMoveGoal_del global_IsAtMoveGoal => TdAIController_IsAtMoveGoal;
 	public /*function */bool TdAIController_IsAtMoveGoal()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void MoveToGoalTimedOut()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AdjustRotation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSetCoverGroup(SeqAct_SetCoverGroup seqAct)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetCoverGroup(CoverGroup NewGroup)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTdSetPathLimits(SeqAct_TdSetPathLimits Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTdAIPerfectAim(SeqAct_TdAIPerfectAim Action)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnAIMoveToActor(SeqAct_AIMoveToActor seqAct)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTdAIPlayAnimation(SeqAct_TdAIPlayAnimation Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTdTutorialReset(SeqAct_TdTutorialReset Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTdAddAdditionalAnimSets(SeqAct_TdAddAdditionalAnimSets Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetImmobile(bool flag)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetStasisMode(bool flag)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ScriptActivated(bool Active)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIController::execPointsLeftInPath(FFrame&, void* const)
 	public virtual /*native final function */int PointsLeftInPath()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -2368,6 +2416,7 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */Object.Vector GetStartPoint()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -2375,103 +2424,108 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */bool CanSkipPathNode(bool testIsSkippable)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyFalling()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIController::execSkipPathNode(FFrame&, void* const)
 	public virtual /*native final simulated function */void SkipPathNode()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAIController::execAfterMovePathCleanup(FFrame&, void* const)
 	public virtual /*native final simulated function */void AfterMovePathCleanup()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAIController::execSetMoveTarget(FFrame&, void* const)
 	public virtual /*native final simulated function */void SetMoveTarget(Actor A)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */void NotifyMoveFinished()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifySetMove(TdPawn.EMovement OldMove, TdPawn.EMovement NewMove, int iCounter)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyMoveChanged(TdPawn.EMovement OldMove, TdPawn.EMovement CurrentMove, int iCounter)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyLandingDone()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void InterruptMovement()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool PreStopMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ShouldStopAfterMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyBossFightOver()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyPawnHasStopped()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ToggleCoverCPOL()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ToggleCoverDetour()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ToggleCoverPath()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RecycleBot()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIController::execOkToEvade(FFrame&, void* const)
 	public virtual /*native final function */bool OkToEvade()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -2479,12 +2533,13 @@ public partial class TdAIController : AIController,
 	public virtual /*native final function */bool OkToBeEvaded()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void StopHere()
 	{
-	
+		// stub
 	}
 	
 	public delegate void RunTest_del();
@@ -2566,12 +2621,12 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_TdState_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_TdState_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TdState()/*state TdState*/
@@ -2594,12 +2649,12 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_TdDead_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */bool TdAIController_TdDead_IsDead()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -2611,7 +2666,7 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_EnemyDead_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) EnemyDead()/*state EnemyDead extends TdState*/
@@ -2622,12 +2677,12 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_ForceThrowGrenadeState_BeginState(name Previous)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_ForceThrowGrenadeState_EndState(name Next)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) ForceThrowGrenadeState()/*state ForceThrowGrenadeState*/
@@ -2638,12 +2693,12 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_ThrowGrenadeState_BeginState(name Previous)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_ThrowGrenadeState_EndState(name Next)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) ThrowGrenadeState()/*state ThrowGrenadeState*/
@@ -2654,17 +2709,17 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_KismetThrowGrenadeState_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_KismetThrowGrenadeState_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */bool TdAIController_KismetThrowGrenadeState_IsThrowingKismetTriggeredGrenade()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -2676,7 +2731,7 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_Idle_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Idle()/*auto state Idle extends TdState*/
@@ -2687,12 +2742,12 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_WaitingForKismetCommand_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_WaitingForKismetCommand_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) WaitingForKismetCommand()/*state WaitingForKismetCommand extends TdState*/
@@ -2703,17 +2758,17 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_ScriptedFire_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_ScriptedFire_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */Object.Rotator TdAIController_ScriptedFire_GetAdjustedAimFor(Weapon Weapon, Object.Vector StartFireLocation)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -2725,12 +2780,12 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_TdTestingState_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_TdTestingState_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TdTestingState()/*state TdTestingState extends TdState*/
@@ -2741,7 +2796,7 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_TestingState_Test_RunTest()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestingState_Test()/*state TestingState_Test extends TdTestingState*/
@@ -2752,7 +2807,7 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */int TdAIController_TestingState_TestCovers_TestCovers()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -2764,7 +2819,7 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_TestingState_Run_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestingState_Run()/*state TestingState_Run extends TdTestingState*/
@@ -2775,27 +2830,27 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_DebugCoverState_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_DebugCoverState_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_DebugCoverState_ContinuedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void TdAIController_DebugCoverState_Tick(float DeltaTime)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_DebugCoverState_UpdatePawnFocus()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) DebugCoverState()/*state DebugCoverState*/
@@ -2818,12 +2873,12 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_TestingState_MoveToPos_BeginState(name Previous)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_TestingState_MoveToPos_EndState(name Next)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestingState_MoveToPos()/*state TestingState_MoveToPos extends TdTestingState*/
@@ -2834,12 +2889,12 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_TestingState_RunToPos_BeginState(name Previous)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_TestingState_RunToPos_EndState(name Next)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestingState_RunToPos()/*state TestingState_RunToPos extends TdTestingState*/
@@ -2850,12 +2905,12 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_TestingState_MoveStraightToPos_BeginState(name Previous)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_TestingState_MoveStraightToPos_EndState(name Next)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestingState_MoveStraightToPos()/*state TestingState_MoveStraightToPos extends TdTestingState*/
@@ -2866,17 +2921,17 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_TestingState_MoveStraightToActor_BeginState(name Previous)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_TestingState_MoveStraightToActor_EndState(name Next)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_TestingState_MoveStraightToActor_UpdateMoveToActorPosition()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestingState_MoveStraightToActor()/*state TestingState_MoveStraightToActor extends TdTestingState*/
@@ -2887,22 +2942,22 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_Immobile_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Immobile_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Immobile_UpdatePawnFocus()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Immobile_UpdatePose()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Immobile()/*state Immobile extends TdState*/
@@ -2913,12 +2968,12 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_Stasis_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Stasis_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Stasis()/*state Stasis extends TdState*/
@@ -2929,7 +2984,7 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_Error_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Error()/*state Error extends TdState*/
@@ -2940,17 +2995,17 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_Advance_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Advance_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Advance_NotifySuppressed()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Advance()/*state Advance extends TdState*/
@@ -2961,12 +3016,12 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_GetWithinPathLimits_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_GetWithinPathLimits_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) GetWithinPathLimits()/*state GetWithinPathLimits extends TdState*/
@@ -2977,37 +3032,37 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_Cover_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Cover_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Cover_ContinuedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Cover_AdvanceTimerCallback()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Cover_NotifyCoverDropped()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Cover_CoverWasDropped()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */bool TdAIController_Cover_ShouldEnterMelee(float Range)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -3019,12 +3074,12 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_Melee_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Melee_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Melee()/*state Melee extends TdState*/
@@ -3035,12 +3090,12 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_ShieldWall_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_ShieldWall_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) ShieldWall()/*state ShieldWall extends TdState*/
@@ -3051,39 +3106,39 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_AnimationPlayback_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_AnimationPlayback_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */bool TdAIController_AnimationPlayback_IsOkToFire()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*event */void TdAIController_AnimationPlayback_SeePlayer(Pawn iPawn)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void TdAIController_AnimationPlayback_Tick(float DeltaTime)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */bool TdAIController_AnimationPlayback_NotifyPrepareForMeleeAttack(Core.ClassT<DamageType> MeleeDamageType)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */void TdAIController_AnimationPlayback_NotifyDamage(Controller InstigatedBy, Core.ClassT<DamageType> DamageType, int Damage)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) AnimationPlayback()/*state AnimationPlayback extends TdState*/
@@ -3094,38 +3149,38 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_CannedMove_BeginState(name Previous)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_CannedMove_EndState(name Next)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_CannedMove_PushedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_CannedMove_PoppedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */bool TdAIController_CannedMove_StopCannedMove()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*protected function */void TdAIController_CannedMove_StartCannedMoveState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*protected function */void TdAIController_CannedMove_StopCannedMoveState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) CannedMove()/*state CannedMove extends TdState*/
@@ -3136,37 +3191,37 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_Stumble_BeginState(name Previous)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Stumble_EndState(name Next)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Stumble_UpdatePose()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Stumble_UpdatePawnFocus()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Stumble_NotifyStumbleComplete()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Stumble_TestExitStumble()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Stumble_UpdateStumbleRotation(bool bAllowRotation)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Stumble()/*state Stumble extends TdState*/
@@ -3177,22 +3232,22 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_Blocking_BeginState(name PreviousState)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Blocking_EndState(name NextState)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Blocking_UpdatePawnFocus()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_Blocking_NotifyStumbleComplete()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Blocking()/*state Blocking extends TdState*/
@@ -3203,59 +3258,59 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_SubAction_FireFromCover_PushedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_SubAction_FireFromCover_PoppedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_SubAction_FireFromCover_UpdatePawnFocus()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */bool TdAIController_SubAction_FireFromCover_IsWithinAttackAngle()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */void TdAIController_SubAction_FireFromCover_NotifyCoverDropped()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_SubAction_FireFromCover_NotifyDamage(Controller InstigatedBy, Core.ClassT<DamageType> DamageType, int Damage)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_SubAction_FireFromCover_NotifySuppressed()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_SubAction_FireFromCover_AdvanceTimerCallback()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_SubAction_FireFromCover_CheckCurrentCover()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */bool TdAIController_SubAction_FireFromCover_IsCoverDirectionValid()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */bool TdAIController_SubAction_FireFromCover_ShouldHoldPosition()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -3267,17 +3322,17 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_SubAction_MoveToCover_PushedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_SubAction_MoveToCover_PoppedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_SubAction_MoveToCover_NotifyCoverDropped()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) SubAction_MoveToCover()/*state SubAction_MoveToCover extends TdState*/
@@ -3288,17 +3343,17 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_SubAction_ExitingCover_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_SubAction_ExitingCover_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void TdAIController_SubAction_ExitingCover_Tick(float DeltaTime)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) SubAction_ExitingCover()/*state SubAction_ExitingCover extends TdState*/
@@ -3309,38 +3364,38 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_SubAction_MoveToGoal_PushedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_SubAction_MoveToGoal_PoppedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_SubAction_MoveToGoal_CheckForceWalk()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_SubAction_MoveToGoal_CheckIntoCover()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */bool TdAIController_SubAction_MoveToGoal_IsAtMoveGoal()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */void TdAIController_SubAction_MoveToGoal_NotifyCoverDropped()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_SubAction_MoveToGoal_StopMoving()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) SubAction_MoveToGoal()/*state SubAction_MoveToGoal extends TdState*/
@@ -3351,12 +3406,12 @@ public partial class TdAIController : AIController,
 	
 	protected /*function */void TdAIController_ScriptedMoveTo_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAIController_ScriptedMoveTo_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) ScriptedMoveTo()/*state ScriptedMoveTo extends TdState*/

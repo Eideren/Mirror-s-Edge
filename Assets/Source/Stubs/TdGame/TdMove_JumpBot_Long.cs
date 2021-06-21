@@ -6,32 +6,32 @@ public partial class TdMove_JumpBot_Long : TdMove_JumpBot_Base/*
 		config(PawnMovement)*/{
 	public override /*simulated function */void BeginJump()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void StartAnticipation()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnTimer()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReachedPreciseLocation()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void FailedToReachPreciseLocation()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void TakeTaserDamage(Object.Vector ImpactMomentum)
 	{
-	
+		// stub
 	}
 	
 }

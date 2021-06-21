@@ -5,28 +5,28 @@ public partial class TdMove_HeadButtedByCeleste : TdMOVE_Disarm/*
 		config(PawnMovement)*/{
 	public override /*function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void TakeDisarmedPawnsWeapon()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void ChooseDisarmType(ref Object.Rotator YawOffset)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TriggerHitPlayer()
 	{
-	
+		// stub
 	}
 	
 }

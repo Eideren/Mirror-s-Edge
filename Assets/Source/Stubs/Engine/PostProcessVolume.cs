@@ -918,7 +918,7 @@ public partial class PostProcessVolume : Volume/*
 	
 	public override /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{
-	
+		// stub
 	}
 	
 	public PostProcessVolume()

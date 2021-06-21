@@ -7,32 +7,32 @@ public partial class TdMove_BotPursuitFinishingAttack : TdMove_BotMelee/*
 	
 	public override /*simulated function */void TriggerMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void TriggerMiss()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void TriggerHit()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnTimer()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */bool TestHit()
 	{
-	
+		// stub
 		return default;
 	}
 	

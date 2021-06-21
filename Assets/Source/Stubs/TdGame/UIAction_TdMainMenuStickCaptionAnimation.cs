@@ -9,12 +9,12 @@ public partial class UIAction_TdMainMenuStickCaptionAnimation : UIAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void CaptionDoneCallback()
 	{
-	
+		// stub
 	}
 	
 	public UIAction_TdMainMenuStickCaptionAnimation()

@@ -95,12 +95,13 @@ public partial class GameEngine : Engine/*
 	public /*native final function */static OnlineSubsystem GetOnlineSubsystem()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */void DispatchExternalUIChange(bool bIsOpening)
 	{
-	
+		// stub
 	}
 	
 	public GameEngine()

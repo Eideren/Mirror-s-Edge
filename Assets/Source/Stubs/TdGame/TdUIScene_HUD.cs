@@ -6,7 +6,7 @@ public partial class TdUIScene_HUD : TdUIScene/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public virtual /*function */void ShowMessage()
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_HUD()

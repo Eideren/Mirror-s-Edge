@@ -16,27 +16,27 @@ public partial class ConsoleEntry : UIObject/*
 	
 	public override /*event */void AddedChild(UIScreenObject WidgetOwner, UIObject NewChild)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void RemovedChild(UIScreenObject WidgetOwner, UIObject OldChild, /*optional */array<UIObject>? _ExclusionSet = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetupDockingLinks()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetValue(String NewValue)
 	{
-	
+		// stub
 	}
 	
 	public ConsoleEntry()

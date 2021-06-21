@@ -10,6 +10,7 @@ public partial class UIDataStore_TdMenuItems : UIDataStore_TdGameResource/*
 	public /*native final function */static void GetAllResourceDataProviders(Core.ClassT<UIResourceDataProvider> ProviderClass, ref array<UIResourceDataProvider> Providers)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public UIDataStore_TdMenuItems()

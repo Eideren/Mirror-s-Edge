@@ -299,93 +299,96 @@ public partial class TdBotPawn : TdPawn/*
 	public virtual /*native simulated function */void UpdateLeaning(float DeltaTime)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdBotPawn::execInitMoveObjects(FFrame&, void* const)
 	public override /*native function */void InitMoveObjects()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdBotPawn::execValidAnchor(FFrame&, void* const)
 	public override /*native function */bool ValidAnchor()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void Initialize(TdAIController C)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void PlayFootStepSound(int FootDown)
 	{
-	
+		// stub
 	}
 	
 	public override Died_del Died { get => bfield_Died ?? TdBotPawn_Died; set => bfield_Died = value; } Died_del bfield_Died;
 	public override Died_del global_Died => TdBotPawn_Died;
 	public /*event */bool TdBotPawn_Died(Controller Killer, Core.ClassT<DamageType> DamageType, Object.Vector HitLocation)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetLocation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void SetPawnRunnerVision(bool bEnabled)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetRunnerVisionEnabled(bool bEnabled)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void UpdateRunnerVision()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void SetChaseAI(bool bFlag)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UseLegRotation(bool bLegRotation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */bool HasUseLegRotationFlagSet()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void PlayCustomAnim(TdPawn.CustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool? _bRootRotation = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void SetCustomAnimsBlendOutTime(TdPawn.CustomNodeType Type, float BlendOutTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool CanDoRunStopTurnMoves()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -393,6 +396,7 @@ public partial class TdBotPawn : TdPawn/*
 	public virtual /*native function */bool TdSetRotation(Object.Rotator NewRotation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -400,36 +404,36 @@ public partial class TdBotPawn : TdPawn/*
 	public override SetMove_del global_SetMove => TdBotPawn_SetMove;
 	public /*simulated event */bool TdBotPawn_SetMove(TdPawn.EMovement NewMove, /*optional */bool? _bViaReplication = default, /*optional */bool? _bCheckCanDo = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated event */bool CanDoMove(TdPawn.EMovement NewMove)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool OkToChangeState()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool OkToUpdatePath()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AddSpecialOutput(ref String Text)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool LoseWeaponAfterDisarm()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -437,152 +441,152 @@ public partial class TdBotPawn : TdPawn/*
 	
 	public virtual /*function */void SetDeathCallback(/*delegate*/TdBotPawn.OnDeath callback)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StopMoving()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnAIReleaseScripting(SeqAct_AIReleaseScripting Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnAIImmobile(SeqAct_AIImmobile Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTdAIStasis(SeqAct_TdAIStasis Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTdSetPathLimits(SeqAct_TdSetPathLimits Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnAIHoldFire(SeqAct_AIHoldFire Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnAIForceWalking(SeqAct_AIForceWalking Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTdAIPerfectAim(SeqAct_TdAIPerfectAim Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnAIFireAt(SeqAct_AIFireAt Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSetCombatRange(SeqAct_SetCombatRange RangeData)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSetCoverGroup(SeqAct_SetCoverGroup Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ActivateStasis(bool flag, bool UpdateControllerState)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */bool IsFirstPerson()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */void AnimNotifyGrenadeThrow()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */bool HasAmmo()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void SetWeaponAnimState(TdPawn.EWeaponAnimState AnimState)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */name GetAimProfileName(name AimNodeName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */name GetPoseProfileName(name PoseNodeName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void InitializeAimOffsetNodes()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void InitializePoseOffsetNodes()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void UpdateAnimSets(/*optional */TdWeapon? _NewWeapon = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void SetAimOffsetNodesProfile(name ProfileName)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void SetWeaponPoseOffsetProfile(name ProfileName)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void SetUnarmed()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void SetArmed()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void EncroachedBy(Actor Other)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */bool AllowStickyAim()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float WhereInWalkCykle()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -591,103 +595,103 @@ public partial class TdBotPawn : TdPawn/*
 	public virtual CanFireWeapon_del global_CanFireWeapon => TdBotPawn_CanFireWeapon;
 	public /*function */bool TdBotPawn_CanFireWeapon()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool WalkingOrStanding()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void FireWhenReady()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void CeaseFire()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void CheckFire()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StartFiringWeapon()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StopFiringWeapon()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsOkToFireBullet()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyOkToBurst()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PauseFiring()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StartNewBurst()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void WeaponFired(bool bViaReplication, /*optional */Object.Vector? _HitLocation = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void BurstOver()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InterruptBurst()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void WeaponStoppedFiring(bool bViaReplication)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */name PlayFireAnimation(name WeaponAnimSeqName, /*optional */bool? _bPlayWeaponAnimSeq = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */float GetReloadPlaybackRate()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */name PlayReloadAnimation(name WeaponAnimSeqName, /*optional */bool? _bPlayWeaponAnimSeq = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float FRandRange(float Min, float Max)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -695,6 +699,7 @@ public partial class TdBotPawn : TdPawn/*
 	public virtual /*native function */TdBotPawn.AIFiringRange GetFiringRange()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -702,6 +707,7 @@ public partial class TdBotPawn : TdPawn/*
 	public virtual /*native final function */TdBotPawn.AIFiringRange ClassifyAIFiringRange(float DistanceSquared)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -709,12 +715,14 @@ public partial class TdBotPawn : TdPawn/*
 	public virtual /*native final function */void SetAIFiringState(TdBotPawn.AIFiringMood M, float DistanceSquared)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdBotPawn::execIsCrouching(FFrame&, void* const)
 	public virtual /*native function */bool IsCrouching()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -722,252 +730,255 @@ public partial class TdBotPawn : TdPawn/*
 	public virtual /*native function */bool IsBusyCrouching()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */void SetPose(TdBotPawn.EPose pose)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdBotPawn::execGetCurrentPose(FFrame&, void* const)
 	public virtual /*native final simulated function */TdBotPawn.EPose GetCurrentPose()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void OnCeaseRelevantRootMotion(AnimNodeSequence SeqNode)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */bool HasShield()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void StartSliding(Object.Vector EndTarget)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StopSliding()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void MakeInvulnerableTo(Core.ClassT<DamageType> DamageType, name Identifier)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void MakeInvulnerableTo_StringVersion(array<name> DamageTypeNames, name Identifier)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RemoveInvulnerableTo(Core.ClassT<DamageType> DamageType, name Identifier)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RemoveAllInvulnerableTo(name Identifier)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */bool IsInvulnerableToThisDamageType(Core.ClassT<DamageType> DamageType)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void AdjustDamage(ref int inDamage, ref Object.Vector OutMomentum, Controller InstigatedBy, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default)
 	{
-	
+		// stub
 	}
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? TdBotPawn_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => TdBotPawn_TakeDamage;
 	public /*function */void TdBotPawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void PlayMeleeImpact(PhysicalMaterial PhysMat, TdPawn.EMeleeImpactType Type, Object.Vector TargetHitLocation, Object.Vector TargetHitNormal, Object.Vector TargetHitMomentum, name TargetHitBone, Core.ClassT<DamageType> DamageType)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool PreventWeaponImpactEffect(Controller InstigatorController)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void StumbleDamage(TdPawn InstigatorPawn, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void BulletDamage(TdPawn InstigatorPawn, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ForceWaitForDamage()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetForceWaitForDamageTimer(float TimeToWait)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void PrepareForMeleeAttack(Core.ClassT<DamageType> MeleeDamageType)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */bool HasMeleeIdleAnimation()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */bool HasMeleeTransitionAnimation()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CanBlock()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ShouldBlock(Core.ClassT<DamageType> MeleeDamageType)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void StartBlocking()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetBlockingParameters()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetCrouchBlockingParameters()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetAirBlockingParameters()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShouldMeleeCauseFall()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ShouldMeleeCauseStumbleFar()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void AddVelocity(Object.Vector NewVelocity, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void CrushedBy(Pawn OtherPawn)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStumble(bool bAllowRotation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStumbleEnded()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnDisarmed()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnMeleedFromAir()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStoppedBlocking()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void CacheAnimNodes()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitAnimationSettings()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitSyncNodes()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void InitializeWeaponAnimationSets()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetAnimationController()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */TdAIAnimationController GetAnimationController()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void IgnoreMoveInput(bool bIgnore)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdBotPawn::execGetIgnoreMoveInput(FFrame&, void* const)
 	public virtual /*native function */bool GetIgnoreMoveInput()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -975,39 +986,41 @@ public partial class TdBotPawn : TdPawn/*
 	public virtual /*native final function */void InterpolateSlope(float DeltaSeconds)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */void AllowStandingTurning(bool bAllowTurning)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void Turn(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public override Tick_del Tick { get => bfield_Tick ?? TdBotPawn_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdBotPawn_Tick;
 	public /*simulated function */void TdBotPawn_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdBotPawn::execUpdateHitReaction(FFrame&, void* const)
 	public virtual /*native function */void UpdateHitReaction(float DeltaTime)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*event */void SpawnedByKismet()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon? _CurrentWeapon = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -1015,6 +1028,7 @@ public partial class TdBotPawn : TdPawn/*
 	public virtual /*native function */float GetMinCombatDistance()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -1022,6 +1036,7 @@ public partial class TdBotPawn : TdPawn/*
 	public virtual /*native final function */float GetMaxCombatDistance()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -1029,6 +1044,7 @@ public partial class TdBotPawn : TdPawn/*
 	public virtual /*protected native final function */float GetMaxCombatDistance_Internal()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -1036,6 +1052,7 @@ public partial class TdBotPawn : TdPawn/*
 	public virtual /*native final function */float GetPreferredCombatDistance()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -1043,148 +1060,150 @@ public partial class TdBotPawn : TdPawn/*
 	public virtual /*protected native final function */float GetPreferredCombatDistance_Internal()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void ForcePreferredCombatRange(float Distance)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ForceMaxCombatRange(float Distance)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetCombatRange()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetTemporaryCombatRange(float Range)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetTemporaryCombatRange()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */float GetWeaponRange()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */void OnAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void DoBotJump()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void DoShortJump()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void DoMediumJump()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void DoLongJump()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void DoVaultOver()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void DoSpeedVault()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void DoGrabHeave()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void AddDefaultInventory()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void AddToInventory(Core.ClassT<TdWeapon> WeaponClass)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetEnemyTarget(TdPawn aPawn)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdBotPawn::execSetAnchor(FFrame&, void* const)
 	public override /*native function */void SetAnchor(NavigationPoint NewAnchor)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */void DrawDebugInfo(PlayerController Player, Canvas aCanvas)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void DrawDebugAnims(HUD HUD, ref float out_YL, ref float out_YPos)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */name GetCurrentProfileName(AnimNodeAimOffset AimNode)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */Object.Rotator GetViewpointRotation()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetGroundSpeed()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool CanAttack(Actor ATarget)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void UpdateAgainstWall()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void PlayWeaponDeploy()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void LookBack()
 	{
-	
+		// stub
 	}
 	
 	public delegate void StopLookback_del();
@@ -1192,90 +1211,92 @@ public partial class TdBotPawn : TdPawn/*
 	public virtual StopLookback_del global_StopLookback => TdBotPawn_StopLookback;
 	public /*function */void TdBotPawn_StopLookback()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void PlayVOAnimation(name VOAnimSeqName, /*optional */bool? _bLooping = default, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated event */void StopVOAnimation(name VOAnimSeqName, /*optional */float? _BlendOutTime = default)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdBotPawn::execUpdateWalkingState(FFrame&, void* const)
 	public override /*native simulated function */void UpdateWalkingState()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*final function */bool IsDead()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void PlayDeathAnim()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void GetDeathAnim(TdBotPawn.DeathAnimType Type, ref TdBotPawn.DeathAnimData Data)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void PlayDying(Core.ClassT<DamageType> DamageType, Object.Vector HitLoc)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void ImpulseHisAss(Object.Vector Direction)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void GiveBoneImpulse()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void TickRagdoll(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void EnableRagdoll()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StartBlendOutMotors()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void TurnOffMotors()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void FullBodyRagdoll()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdBotPawn::execOnContentLoaded(FFrame&, void* const)
 	public virtual /*private native final function */void OnContentLoaded()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*simulated event */int SetupTemplate(AITemplate TheTemplate, bool bGiveDefaultInventory)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -1283,57 +1304,61 @@ public partial class TdBotPawn : TdPawn/*
 	public override /*protected native function */void SetArmorDifficultyLevel(int Difficulty)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*function */void TossInventory(Inventory Inv, /*optional */Object.Vector? _ForceVelocity = default, /*optional */Core.ClassT<DamageType>? _DamageType = default)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdBotPawn::execSetMainWeaponAmmoDrop(FFrame&, void* const)
 	public virtual /*private native final function */void SetMainWeaponAmmoDrop(int Drop_Easy, int Drop_Medium, int Drop_Hard, int Disarm_Easy, int Disarm_Medium, int Disarm_Hard)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*private final function */int GetDifficultyLevel()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int GetMainWeaponAmmoDropsDisarmed(int Difficulty)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int GetMainWeaponAmmoDropsDropped(int Difficulty)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void SetDifficultyLevel(int Difficulty)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void UpdateAnimationBaseSpeed()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdBotPawn::execCheckForProximityShots(FFrame&, void* const)
 	public override /*native function */void CheckForProximityShots(Object.Vector Start, Object.Vector End)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdBotPawn::execGetViewpointLocation(FFrame&, void* const)
 	public override /*native function */Object.Vector GetViewpointLocation(/*optional */bool? _ForceCrouch = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -1341,167 +1366,168 @@ public partial class TdBotPawn : TdPawn/*
 	public override Landed_del global_Landed => TdBotPawn_Landed;
 	public /*event */void TdBotPawn_Landed(Object.Vector aNormal, Actor anActor)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void Falling()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShouldStumbleOffLedge()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*exec function */void ClimbInitiatedNotify()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ClimbCompletedNotify()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void HeaveInitiatedNotify()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void HeaveCompletedNotify()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void BotGrabHeave_JumpInitiatedNotify()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void BotGrabHeave_JumpDoneNotify()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void BotGrabHeave_HeaveNotify()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void OnStumbleCompletedNotifier()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void OnExitCoverNotify()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void OnCoverExitedNotify()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */bool IsForcedToWalk()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */bool WantsToRun()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */void SetWalking(bool bNewIsWalking)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ForceWalking(bool flag, name Identifier)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void SetIsSlowWalking(bool flag)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool GetIsSlowWalking()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */float GetRunSpeed()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */float GetWalkSpeed()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void StartDebugFalling()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateDebugFalling()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdBotPawn::execShouldIgnoreAIPawnBlockingVolumes(FFrame&, void* const)
 	public virtual /*native function */bool ShouldIgnoreAIPawnBlockingVolumes()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetIgnoreAIPawnBlockingVolumes(bool flag)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsDoingSpecialMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void RecycleBot()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RemoveRagDoll()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void DetachFromController(/*optional */bool? _bDestroyController = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool UseWeaponLOI()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */bool IsInMeleeMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -1509,22 +1535,22 @@ public partial class TdBotPawn : TdPawn/*
 	public override Touch_del global_Touch => TdBotPawn_Touch;
 	public /*event */void TdBotPawn_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void UseRootMotion(bool Use)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void UseRootRotation(bool Use)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void PhysicsVolumeChange(PhysicsVolume NewVolume)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{
@@ -1541,22 +1567,22 @@ public partial class TdBotPawn : TdPawn/*
 	
 	protected /*function */void TdBotPawn_LookbackState_PushedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdBotPawn_LookbackState_PoppedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdBotPawn_LookbackState_StopLookback()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */bool TdBotPawn_LookbackState_CanFireWeapon()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -1568,12 +1594,12 @@ public partial class TdBotPawn : TdPawn/*
 	
 	protected /*function */void TdBotPawn_Dying_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void TdBotPawn_Dying_RigidBodyCollision(PrimitiveComponent HitComponent, PrimitiveComponent OtherComponent, /*const */ref Actor.CollisionImpactData RigidCollisionData, int ContactIndex)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Dying()/*state Dying*/

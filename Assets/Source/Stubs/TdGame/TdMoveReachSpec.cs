@@ -11,6 +11,7 @@ public partial class TdMoveReachSpec : TdReachSpec/*
 	public override /*native function */int GetDefaultCostFor(TdBotPawn P)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

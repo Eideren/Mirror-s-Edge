@@ -13,6 +13,7 @@ public partial class TdAttackPathNode : TdConfinedVolumePathNode/*
 	public virtual /*native function */bool PointInside(Object.Vector Point)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

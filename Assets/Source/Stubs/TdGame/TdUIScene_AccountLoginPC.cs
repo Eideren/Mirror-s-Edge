@@ -21,92 +21,92 @@ public partial class TdUIScene_AccountLoginPC : TdUIScene_SubMenu/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Cancel(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_Login(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_CreateAccount(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_EditEditbox(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnCloseScene()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSceneClosed_UserAbort(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnEditBoxChanged(UIObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */bool GetUserData(ref String LoginName, ref String Password)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void TryLogin()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSceneClosed_Login(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnEditEditbox()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnKeyboardInput_Complete(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCreateAccount()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCreateAccount_Prepare(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

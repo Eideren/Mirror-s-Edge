@@ -42,24 +42,28 @@ public partial class TextureFlipBook : Texture2D/*
 	public virtual /*native function */void Play()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTextureFlipBook::execPause(FFrame&, void* const)
 	public virtual /*native function */void Pause()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTextureFlipBook::execStop(FFrame&, void* const)
 	public virtual /*native function */void Stop()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTextureFlipBook::execSetCurrentFrame(FFrame&, void* const)
 	public virtual /*native function */void SetCurrentFrame(int Row, int Col)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public TextureFlipBook()

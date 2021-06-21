@@ -10,17 +10,17 @@ public partial class UIScriptConsoleScene : UIScene/*
 	
 	public override /*event */void Initialized()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCreateChild(UIObject CreatedWidget, UIScreenObject CreatorContainer)
 	{
-	
+		// stub
 	}
 	
 	public UIScriptConsoleScene()

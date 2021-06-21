@@ -22,39 +22,39 @@ public partial class KAsset : Actor/*
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? KAsset_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => KAsset_TakeDamage;
 	public /*event */void KAsset_TakeDamage(int Damage, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void TakeRadiusDamage(Controller InstigatedBy, float BaseDamage, float DamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, bool bFullDamage, Actor DamageCauser)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnTeleport(SeqAct_Teleport inAction)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void DoKismetAttachment(Actor Attachment, SeqAct_AttachToActor Action)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

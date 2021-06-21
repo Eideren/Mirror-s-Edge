@@ -28,17 +28,17 @@ public partial class TdUITabPage_CurrentObjective : TdUITabPage/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void LinkSceneWidgets()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ReadSubObjectiveData()
 	{
-	
+		// stub
 	}
 	
 	public TdUITabPage_CurrentObjective()

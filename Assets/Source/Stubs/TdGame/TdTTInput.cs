@@ -59,17 +59,17 @@ public partial class TdTTInput : Object/*
 	
 	public virtual /*function */void ClearTimeData()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearTTData(ref TdTTInput.TTData Data)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PrintInput()
 	{
-	
+		// stub
 	}
 	
 	public TdTTInput()

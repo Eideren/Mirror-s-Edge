@@ -17,12 +17,14 @@ public partial class FaceFXAsset : Object/*
 	public virtual /*native final function */void MountFaceFXAnimSet(FaceFXAnimSet AnimSet)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UFaceFXAsset::execUnmountFaceFXAnimSet(FFrame&, void* const)
 	public virtual /*native final function */void UnmountFaceFXAnimSet(FaceFXAnimSet AnimSet)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 }

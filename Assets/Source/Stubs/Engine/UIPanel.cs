@@ -9,7 +9,7 @@ public partial class UIPanel : UIContainer/*
 	
 	public virtual /*final function */void SetBackgroundImage(Surface NewImage)
 	{
-	
+		// stub
 	}
 	
 	public UIPanel()

@@ -12,7 +12,7 @@ public partial class TdAI_Support : TdAIController/*
 	public override TestCombatTransitions_del global_TestCombatTransitions => TdAI_Support_TestCombatTransitions;
 	public /*function */void TdAI_Support_TestCombatTransitions()
 	{
-	
+		// stub
 	}
 	
 	public delegate bool RotationDiffNotTooLarge_del();
@@ -26,17 +26,17 @@ public partial class TdAI_Support : TdAIController/*
 	
 	protected /*function */void TdAI_Support_HoldAndSuppress_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_Support_HoldAndSuppress_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */bool TdAI_Support_HoldAndSuppress_RotationDiffNotTooLarge()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -7,7 +7,7 @@ public partial class SeqAct_TdTutorialReset : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdTutorialReset()

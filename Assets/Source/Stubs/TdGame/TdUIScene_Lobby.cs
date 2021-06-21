@@ -44,103 +44,103 @@ public partial class TdUIScene_Lobby : TdUIScene,
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void SceneDeactivated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetPlayerDataWidgetBindings()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnMapOptionList_ActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnButtonsPanel_ActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnPrepareEnterPlayerPanel(UIRoot.EUIWidgetFace EnterFromFace)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnPlayerJoin(Controller Player)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnPlayerLeave(Controller Player)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnPlayerSwitchTeam(Controller Player)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnPlayerSwitchRole(Controller Player)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnPlayerSetReady(Controller Player)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnGameStarted()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void UpdatePlayers(array<PlayerReplicationInfo> pris)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnStartGamePrepare(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnStartGame()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnQuitToMainMenu()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PlayersPanel_OnPlayerSlotClicked(TdPlayerReplicationInfo TdPRI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnKick()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCompare()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

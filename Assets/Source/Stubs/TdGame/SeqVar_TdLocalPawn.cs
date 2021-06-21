@@ -6,7 +6,7 @@ public partial class SeqVar_TdLocalPawn : SeqVar_Object/*
 		hidecategories(Object)*/{
 	public override /*function */Object GetObjectValue()
 	{
-	
+		// stub
 		return default;
 	}
 	

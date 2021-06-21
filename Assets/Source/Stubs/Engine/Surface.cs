@@ -8,6 +8,7 @@ public partial class Surface : Object/*
 	public virtual /*native final function */float GetSurfaceWidth()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -15,6 +16,7 @@ public partial class Surface : Object/*
 	public virtual /*native final function */float GetSurfaceHeight()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

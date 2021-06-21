@@ -11,22 +11,24 @@ public partial class SeqAct_TdIntoCutscene : SeqAct_Latent/*
 	public virtual /*native function */void AbortScriptedMove()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USeqAct_TdIntoCutscene::execFinishScriptedMove(FFrame&, void* const)
 	public virtual /*native function */void FinishScriptedMove()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool Update(float DeltaTime)
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdBossFight : Object{
 	public virtual /*simulated function */void Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 }

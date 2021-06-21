@@ -6,12 +6,12 @@ public partial class TdHudEffect_Saturation : TdHudEffect/*
 		config(HudEffects)*/{
 	public virtual /*function */void SpecialActivatePP()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SpecialDeActivatePP()
 	{
-	
+		// stub
 	}
 	
 	public TdHudEffect_Saturation()

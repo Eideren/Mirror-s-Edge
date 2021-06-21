@@ -77,24 +77,28 @@ public partial class UIScene : UIScreenObject/*
 	public virtual /*native final function */void ForceImmediateSceneUpdate()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIScene::execRebuildDockingStack(FFrame&, void* const)
 	public virtual /*native final function */void RebuildDockingStack()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIScene::execResolveScenePositions(FFrame&, void* const)
 	public virtual /*native final function */void ResolveScenePositions()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIScene::execGetSceneDataStore(FFrame&, void* const)
 	public virtual /*native final function */SceneDataStore GetSceneDataStore()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -102,24 +106,28 @@ public partial class UIScene : UIScreenObject/*
 	public virtual /*native final function */void LoadSceneDataValues()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIScene::execSaveSceneDataValues(FFrame&, void* const)
 	public virtual /*native final function */void SaveSceneDataValues(/*optional */bool? _bUnbindSubscribers = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIScene::execUnbindSubscribers(FFrame&, void* const)
 	public virtual /*native final function */void UnbindSubscribers()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIScene::execResolveDataStore(FFrame&, void* const)
 	public virtual /*native final function */UIDataStore ResolveDataStore(name DataStoreTag, /*optional */LocalPlayer? _InPlayerOwner = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -127,6 +135,7 @@ public partial class UIScene : UIScreenObject/*
 	public virtual /*native final function */UIScene GetPreviousScene(/*optional */bool? _bRequireMatchingPlayerOwner = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -134,12 +143,14 @@ public partial class UIScene : UIScreenObject/*
 	public virtual /*native final function */void SetSceneInputMode(UIRoot.EScreenInputMode NewInputMode)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIScene::execGetWorldInfo(FFrame&, void* const)
 	public virtual /*native function */WorldInfo GetWorldInfo()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -147,6 +158,7 @@ public partial class UIScene : UIScreenObject/*
 	public virtual /*native final function */bool IsSceneActive(/*optional */bool? _bTopmostScene = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -154,6 +166,7 @@ public partial class UIScene : UIScreenObject/*
 	public virtual /*native final function */UIToolTip GetDefaultToolTip()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -161,6 +174,7 @@ public partial class UIScene : UIScreenObject/*
 	public virtual /*native final function */UIContextMenu GetDefaultContextMenu()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -168,6 +182,7 @@ public partial class UIScene : UIScreenObject/*
 	public virtual /*native final function */UIToolTip GetActiveToolTip()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -175,6 +190,7 @@ public partial class UIScene : UIScreenObject/*
 	public virtual /*native final function */bool SetActiveToolTip(UIToolTip NewToolTip)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -182,6 +198,7 @@ public partial class UIScene : UIScreenObject/*
 	public virtual /*native final function */UIContextMenu GetActiveContextMenu()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -189,100 +206,101 @@ public partial class UIScene : UIScreenObject/*
 	public virtual /*native final function */bool SetActiveContextMenu(UIContextMenu NewContextMenu, int PlayerIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void SceneActivated(bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void SceneDeactivated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool PlayInputKeyNotification(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SceneRestored()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SceneSavedForRestore()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final event */void CalculateInputMask()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void SetInputMask(byte NewInputMask, /*optional */bool? _bRecurse = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void SetVisibility(bool bIsVisible)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SceneCreated(UIScene CreatedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyGameSessionEnded()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyOnlineServiceStatusChanged(OnlineSubsystem.EOnlineServerConnectionStatus NewConnectionStatus)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyLinkStatusChanged(bool bConnected)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */UIScene OpenScene(UIScene SceneToOpen, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CloseScene(UIScene SceneToClose, /*optional */bool? _bSkipKismetNotify = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void LogDockingStack()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void LogRenderBounds(int Indent)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void LogCurrentState(int Indent)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AnimEnd(UIObject AnimTarget, int AnimIndex, UIAnimationSeq AnimSeq)
 	{
-	
+		// stub
 	}
 	
 	public UIScene()

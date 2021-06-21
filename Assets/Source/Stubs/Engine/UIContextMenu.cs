@@ -40,6 +40,7 @@ public partial class UIContextMenu : UIList/*
 	public virtual /*native final function */bool IsActiveContextMenu()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -47,6 +48,7 @@ public partial class UIContextMenu : UIList/*
 	public virtual /*native final function */bool Open(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -54,54 +56,55 @@ public partial class UIContextMenu : UIList/*
 	public virtual /*native final function */bool Close(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool SetMenuItems(UIObject Widget, array<String> NewMenuItems, /*optional */bool? _bClearExisting = default, /*optional */int? _InsertIndex = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool InsertMenuItem(UIObject Widget, String Item, /*optional */int? _InsertIndex = default, /*optional */bool? _bAllowDuplicates = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool ClearMenuItems(UIObject Widget)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool RemoveMenuItem(UIObject Widget, String ItemToRemove)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool RemoveMenuItemAtIndex(UIObject Widget, int IndexToRemove)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool GetAllMenuItems(UIObject Widget, ref array<String> out_MenuItems)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool GetMenuItem(UIObject Widget, int IndexToGet, ref String out_MenuItem)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */int FindMenuItemIndex(UIObject Widget, String ItemToFind)
 	{
-	
+		// stub
 		return default;
 	}
 	

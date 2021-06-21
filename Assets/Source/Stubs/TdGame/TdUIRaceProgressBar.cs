@@ -30,11 +30,12 @@ public partial class TdUIRaceProgressBar : TdUIObject/*
 	public virtual /*private native final function */void UpdateSectionData()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */void SetProgressBarInfo(array<float> InSectionData, array<float> InSectionPctLength)
 	{
-	
+		// stub
 	}
 	
 	public TdUIRaceProgressBar()

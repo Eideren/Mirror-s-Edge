@@ -10,24 +10,24 @@ public partial class TdAI_Gunner : TdAIController/*
 	public override TestCombatTransitions_del global_TestCombatTransitions => TdAI_Gunner_TestCombatTransitions;
 	public /*function */void TdAI_Gunner_TestCombatTransitions()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool CanSearch()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool CanInvestigate()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CanSetGoal()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -35,20 +35,21 @@ public partial class TdAI_Gunner : TdAIController/*
 	public override UpdatePose_del global_UpdatePose => TdAI_Gunner_UpdatePose;
 	public /*function */void TdAI_Gunner_UpdatePose()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAI_Gunner::execUpdateAnchor(FFrame&, void* const)
 	public override /*native function */void UpdateAnchor()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override UpdatePawnFocus_del UpdatePawnFocus { get => bfield_UpdatePawnFocus ?? TdAI_Gunner_UpdatePawnFocus; set => bfield_UpdatePawnFocus = value; } UpdatePawnFocus_del bfield_UpdatePawnFocus;
 	public override UpdatePawnFocus_del global_UpdatePawnFocus => TdAI_Gunner_UpdatePawnFocus;
 	public /*function */void TdAI_Gunner_UpdatePawnFocus()
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

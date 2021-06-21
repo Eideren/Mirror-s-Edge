@@ -8,32 +8,32 @@ public partial class TdMove_Disarm_Tutorial : TdMOVE_Disarm/*
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void AlignPawn()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void UpdateViewRotation(ref Object.Rotator PawnRotation, float DeltaTime, ref Object.Rotator DeltaRotation)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void ChooseDisarmType(ref Object.Rotator YawOffset)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void TakeDisarmedPawnsWeapon()
 	{
-	
+		// stub
 	}
 	
 	public TdMove_Disarm_Tutorial()

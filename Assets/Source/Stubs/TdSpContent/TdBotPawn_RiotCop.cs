@@ -9,29 +9,29 @@ public partial class TdBotPawn_RiotCop : TdBotPawn/*
 	public override TakeDamage_del global_TakeDamage => TdBotPawn_RiotCop_TakeDamage;
 	public /*function */void TdBotPawn_RiotCop_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool CanBlock()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void SetWalking(bool Walk)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool ShouldMeleeCauseFall()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool UseWeaponLOI()
 	{
-	
+		// stub
 		return default;
 	}
 	protected override void RestoreDefaultFunction()

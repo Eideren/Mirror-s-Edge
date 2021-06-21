@@ -12,12 +12,12 @@ public partial class UIDataStore_SessionSettings : UIDataStore_Settings/*
 	
 	public virtual /*final function */void ClearDataProviders()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool NotifyGameSessionEnded()
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -10,7 +10,7 @@ public partial class SeqAct_TdInitiateStashing : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdInitiateStashing()

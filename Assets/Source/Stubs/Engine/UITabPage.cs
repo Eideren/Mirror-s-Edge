@@ -18,37 +18,38 @@ public partial class UITabPage : UIContainer,
 	
 	public virtual /*event */bool ActivatePage(int PlayerIndex, bool bActivate, /*optional */bool? _bTakeFocus = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*protected event */static UITabButton CreateTabButton(UITabControl TabControl)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool LinkToTabButton(UITabButton NewButton, UITabControl TabControl)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */void RemovedFromParent(UIScreenObject WidgetOwner)
 	{
-	
+		// stub
 	}
 	
 	// Export UUITabPage::execGetOwnerTabControl(FFrame&, void* const)
 	public virtual /*native final function */UITabControl GetOwnerTabControl()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */UITabButton GetTabButton(/*optional */UITabControl? _TabControl = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -56,12 +57,14 @@ public partial class UITabPage : UIContainer,
 	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUITabPage::execGetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -69,6 +72,7 @@ public partial class UITabPage : UIContainer,
 	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -76,44 +80,47 @@ public partial class UITabPage : UIContainer,
 	public virtual /*native final function */void NotifyDataStoreValueUpdated(UIDataStore SourceDataStore, bool bValuesInvalidated, name PropertyTag, UIDataProvider SourceProvider, int ArrayIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUITabPage::execGetBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void GetBoundDataStores(ref array<UIDataStore> out_BoundDataStores)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUITabPage::execClearBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void ClearBoundDataStores()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */void AddedToTabControl(UITabControl TabControl)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool CanActivatePage(int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetTabCaption(String NewButtonMarkup)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsActivePage()
 	{
-	
+		// stub
 		return default;
 	}
 	

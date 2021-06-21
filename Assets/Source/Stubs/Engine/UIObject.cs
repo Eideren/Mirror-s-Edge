@@ -74,12 +74,14 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */void SetDefaultDataBinding(String MarkupText, int BindingIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execGetDefaultDataBinding(FFrame&, void* const)
 	public virtual /*native final function */String GetDefaultDataBinding(int BindingIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -87,6 +89,7 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */bool ResolveDefaultDataBinding(int BindingIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -94,18 +97,21 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */void GetDefaultDataStores(ref array<UIDataStore> out_BoundDataStores)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execClearDefaultDataBinding(FFrame&, void* const)
 	public virtual /*native final function */void ClearDefaultDataBinding(int BindingIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execGenerateSceneDataStoreMarkup(FFrame&, void* const)
 	public virtual /*native function */String GenerateSceneDataStoreMarkup(/*optional */String? _Group = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -113,6 +119,7 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */String GetToolTipValue()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -120,6 +127,7 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */bool HasTransform(/*optional */bool? _bIncludeParentTransforms = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -127,24 +135,28 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */void SetAnchorPosition(Object.Vector NewAnchorPosition, /*optional */UIRoot.EPositionEvalType? _InputType = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execRotateWidget(FFrame&, void* const)
 	public virtual /*native final function */void RotateWidget(Object.Rotator NewRotationAmount, /*optional */bool? _bAccumulateRotation = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execUpdateRotationMatrix(FFrame&, void* const)
 	public virtual /*native final function */void UpdateRotationMatrix()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execGetAnchorPosition(FFrame&, void* const)
 	public virtual /*native final function */Object.Vector GetAnchorPosition(/*optional */bool? _bRelativeToWidget = default, /*optional */bool? _bPixelSpace = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -152,6 +164,7 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */Object.Matrix GenerateTransformMatrix(/*optional */bool? _bIncludeParentTransforms = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -159,6 +172,7 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */Object.Matrix GetRotationMatrix(/*optional */bool? _bIncludeParentRotations = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -166,12 +180,14 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native function */void NotifyValueChanged(/*optional */int? _PlayerIndex = default, /*optional */int? _NotifyFlags = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execIsContainedBy(FFrame&, void* const)
 	public virtual /*native final function */bool IsContainedBy(UIObject TestWidget)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -179,6 +195,7 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native function */bool SetDockTarget(UIRoot.EUIWidgetFace SourceFace, UIScreenObject Target, UIRoot.EUIWidgetFace TargetFace)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -186,6 +203,7 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native function */bool SetDockPadding(UIRoot.EUIWidgetFace SourceFace, float PaddingValue, /*optional */UIRoot.EUIDockPaddingEvalType? _PaddingInputType = default, /*optional */bool? _bModifyPaddingScaleType = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -193,6 +211,7 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */bool SetDockParameters(UIRoot.EUIWidgetFace SourceFace, UIScreenObject Target, UIRoot.EUIWidgetFace TargetFace, float PaddingValue, /*optional */UIRoot.EUIDockPaddingEvalType? _PaddingInputType = default, /*optional */bool? _bModifyPaddingScaleType = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -200,6 +219,7 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */bool IsDockedTo(/*const */UIScreenObject TargetWidget, /*optional */UIRoot.EUIWidgetFace? _SourceFace = default, /*optional */UIRoot.EUIWidgetFace? _TargetFace = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -207,6 +227,7 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */bool SetNavigationTarget(UIRoot.EUIWidgetFace Face, UIObject NewNavTarget)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -214,6 +235,7 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */bool SetForcedNavigationTarget(UIRoot.EUIWidgetFace Face, UIObject NavTarget, /*optional */bool? _bIsNullOverride = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -221,6 +243,7 @@ public partial class UIObject : UIScreenObject/*
 	public override /*native function */bool CanAcceptFocus(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -228,6 +251,7 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */bool IsPrivateBehaviorSet(int Behavior)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -235,18 +259,21 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */void SetPrivateBehavior(int Behavior, bool Value, /*optional */bool? _bRecurse = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execSetActiveCursorUpdate(FFrame&, void* const)
 	public virtual /*native function */void SetActiveCursorUpdate(bool bShouldReceiveCursorUpdates)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execNeedsActiveCursorUpdates(FFrame&, void* const)
 	public virtual /*native final function */bool NeedsActiveCursorUpdates()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -254,12 +281,14 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */void GetPositionExtents(ref float MinX, ref float MaxX, ref float MinY, ref float MaxY, /*optional */bool? _bIncludeRotation = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execGetPositionExtent(FFrame&, void* const)
 	public virtual /*native final function */float GetPositionExtent(UIRoot.EUIWidgetFace Face, /*optional */bool? _bIncludeRotation = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -267,18 +296,21 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */void AddStyleSubscriber(/*const */ref UIStyleResolver Subscriber)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execRemoveStyleSubscriber(FFrame&, void* const)
 	public virtual /*native final function */void RemoveStyleSubscriber(/*const */ref UIStyleResolver Subscriber)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execFindStyleSubscriberIndex(FFrame&, void* const)
 	public virtual /*native final function */int FindStyleSubscriberIndex(/*const */ref UIStyleResolver Subscriber)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -286,6 +318,7 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */int FindStyleSubscriberIndexById(name StyleSubscriberId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -293,6 +326,7 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native final function */bool SetWidgetStyleByName(name StyleResolverTagToSet, name StyleFriendlyName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -300,120 +334,132 @@ public partial class UIObject : UIScreenObject/*
 	public virtual /*native function */void TickAnim(float DeltaTime)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*final function */UIScene GetScene()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */UIObject GetOwner()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */UIScreenObject GetParent()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void LogRenderBounds(int Indent)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSetDatastoreBinding(UIAction_SetDatastoreBinding Action)
 	{
-	
+		// stub
 	}
 	
 	// Export UUIObject::execAnimSetOpacity(FFrame&, void* const)
 	public virtual /*native function */void AnimSetOpacity(float NewOpacity)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execAnimSetVisibility(FFrame&, void* const)
 	public virtual /*native function */void AnimSetVisibility(bool bIsVisible)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execAnimSetColor(FFrame&, void* const)
 	public virtual /*native function */void AnimSetColor(Object.LinearColor NewColor)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execAnimSetPosition(FFrame&, void* const)
 	public virtual /*native function */void AnimSetPosition(Object.Vector NewPosition)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execAnimSetRelPosition(FFrame&, void* const)
 	public virtual /*native function */void AnimSetRelPosition(Object.Vector NewPosition, Object.Vector InitialPosition)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execAnimSetRotation(FFrame&, void* const)
 	public virtual /*native function */void AnimSetRotation(Object.Rotator NewRotation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execAnimSetScale(FFrame&, void* const)
 	public virtual /*native function */void AnimSetScale(float NewScale)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execAnimSetLeft(FFrame&, void* const)
 	public virtual /*native function */void AnimSetLeft(float NewLeft)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execAnimSetTop(FFrame&, void* const)
 	public virtual /*native function */void AnimSetTop(float NewTop)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execAnimSetRight(FFrame&, void* const)
 	public virtual /*native function */void AnimSetRight(float NewRight)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIObject::execAnimSetBottom(FFrame&, void* const)
 	public virtual /*native function */void AnimSetBottom(float NewBottom)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*event */void PlayUIAnimation(name AnimName, /*optional */UIAnimationSeq? _AnimSeqTemplate = default, /*optional */float? _PlaybackRate = default, /*optional */bool? _bLoop = default, /*optional */float? _InitialPosition = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void StopUIAnimation(name AnimName, /*optional */UIAnimationSeq? _AnimSeq = default, /*optional */bool? _bFinalize = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void ClearUIAnimation(name AnimName, /*optional */UIAnimationSeq? _AnimSeq = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void UIAnimEnd(int SeqIndex)
 	{
-	
+		// stub
 	}
 	
 	public delegate void OnUIAnimEnd(UIObject AnimTarget, int AnimIndex, UIAnimationSeq AnimSeq);

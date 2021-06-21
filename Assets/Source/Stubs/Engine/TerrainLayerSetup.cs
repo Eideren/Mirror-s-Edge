@@ -79,11 +79,12 @@ public partial class TerrainLayerSetup : Object/*
 	public virtual /*native final function */void SetMaterials(array<TerrainLayerSetup.TerrainFilteredMaterial> NewMaterials)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*simulated function */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 }

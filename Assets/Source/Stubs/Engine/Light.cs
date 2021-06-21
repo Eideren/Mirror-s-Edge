@@ -20,12 +20,12 @@ public partial class Light : Actor/*
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{
-	
+		// stub
 	}
 	
 	public Light()

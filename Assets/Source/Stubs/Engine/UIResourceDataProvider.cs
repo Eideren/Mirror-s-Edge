@@ -11,7 +11,7 @@ public partial class UIResourceDataProvider : UIPropertyDataProvider,
 	
 	public virtual /*event */bool IsProviderDisabled()
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -17,6 +17,7 @@ public partial class TpGameManager : TpSystemHandler/*
 	public virtual /*native simulated function */TpCreateGameParams NewCreateGameParams()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -24,12 +25,14 @@ public partial class TpGameManager : TpSystemHandler/*
 	public virtual /*native simulated function */void CreateGameAsync(TpCreateGameParams InParams)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpGameManager::execCreatePlayNowGameAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void CreatePlayNowGameAsync(TpGameBrowser.TpPlayNowCreateGameInfo Info)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnCreateGame(bool bInOk);
@@ -38,6 +41,7 @@ public partial class TpGameManager : TpSystemHandler/*
 	public virtual /*native simulated function */void DestroyGameAsync()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnDestroyGame(bool bInOk);
@@ -46,6 +50,7 @@ public partial class TpGameManager : TpSystemHandler/*
 	public virtual /*native simulated function */void StartGameAsync()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnStartGame(bool bInOk);
@@ -54,6 +59,7 @@ public partial class TpGameManager : TpSystemHandler/*
 	public virtual /*native simulated function */void EndGameAsync()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnEndGame(bool bInOk);
@@ -62,12 +68,14 @@ public partial class TpGameManager : TpSystemHandler/*
 	public virtual /*native simulated function */void JoinGameAsync(TpGameBrowser.TpLobbyRef InLobby, TpGameBrowser.TpGameRef InGame)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpGameManager::execJoinPlayNowGameAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void JoinPlayNowGameAsync(TpGameBrowser.TpPlayNowJoinGameInfo Info)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnJoinGame(bool bInOk, String hostIp);
@@ -76,6 +84,7 @@ public partial class TpGameManager : TpSystemHandler/*
 	public virtual /*native simulated function */void LeaveGameAsync()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnLeaveGame();
@@ -84,6 +93,7 @@ public partial class TpGameManager : TpSystemHandler/*
 	public virtual /*native simulated function */String GetGameHostIp()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -91,6 +101,7 @@ public partial class TpGameManager : TpSystemHandler/*
 	public virtual /*native simulated function */void DisarmConnectionPlayerControllers()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 }

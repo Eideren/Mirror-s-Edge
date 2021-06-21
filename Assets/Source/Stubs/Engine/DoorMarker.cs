@@ -23,34 +23,34 @@ public partial class DoorMarker : NavigationPoint/*
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void MoverOpened()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void MoverClosed()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */Actor SpecialHandling(Pawn Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool ProceedWithMove(Pawn Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool SuggestMovePreparation(Pawn Other)
 	{
-	
+		// stub
 		return default;
 	}
 	

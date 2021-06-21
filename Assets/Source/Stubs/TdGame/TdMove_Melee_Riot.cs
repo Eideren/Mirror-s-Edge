@@ -8,17 +8,17 @@ public partial class TdMove_Melee_Riot : TdMove_BotMelee/*
 	
 	public override /*simulated function */void TriggerMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void TriggerHit()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void TriggerMiss()
 	{
-	
+		// stub
 	}
 	
 	public TdMove_Melee_Riot()

@@ -16,32 +16,32 @@ public partial class TdPossessionHUD : TdMPHUD/*
 	
 	public override /*simulated function */void PreBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void LoadHUDContent(Core.ClassT<TdHUDContent> ContentClass)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawProjectedBag(TdBagPRI MyPRI, TdPossessionGRI MyGRI)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void DrawLivingHUD()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplayBagHolder(TdPlayerReplicationInfo MyPRI, TdPossessionGRI MyGRI)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void DrawScore()
 	{
-	
+		// stub
 	}
 	
 	public TdPossessionHUD()

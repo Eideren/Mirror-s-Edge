@@ -8,13 +8,13 @@ public partial class TdWeapon_Heavy : TdWeapon/*
 		hidecategories(Navigation)*/{
 	public override /*function */ParticleSystem GetSpecificImpactEffect(TdPhysicalMaterialImpactEffects ImpactEffects)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */ParticleSystem GetSpecificImpactEffectPhysX(TdPhysicalMaterialImpactEffects ImpactEffects)
 	{
-	
+		// stub
 		return default;
 	}
 	

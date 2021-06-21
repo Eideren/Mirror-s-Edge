@@ -34,6 +34,7 @@ public partial class TdUIScene_VideoSettingsPC : TdUIScene_VideoSettings/*
 	public virtual /*native function */bool GetSupportedAAModes(ref array<String> AAModes)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -41,85 +42,87 @@ public partial class TdUIScene_VideoSettingsPC : TdUIScene_VideoSettings/*
 	public virtual /*native function */bool GetPhysXSupported()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisableVideoSettings()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnReset()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetupCurrentSettings()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnAccept()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnAcceptForce()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool CheckPhysXChanged()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void PhysXChanged(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PhysXChangedNotSupported(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplayPhysXChangedMsgBox(TdUIScene_MessageBox MsgBox, String Message, String Title)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PhysXChangedMsgBox_PreSelection(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PhysXChangedMsgBox_Selection(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ApplyVideoSettings()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdUIScene_VideoSettingsPC::execGetAntiAliasingString(FFrame&, void* const)
 	public virtual /*private native final function */String GetAntiAliasingString(int MaxMultiSamples)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */int GetAAValue(String AAStr)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -127,16 +130,17 @@ public partial class TdUIScene_VideoSettingsPC : TdUIScene_VideoSettings/*
 	public virtual /*native final function */void ApplyDetectedSettings()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*function */void ResetSettingsToDefault()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -16,7 +16,7 @@ public partial class UIGameInfoSummary : UIResourceDataProvider/*
 	
 	public override /*event */bool IsProviderDisabled()
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -46,61 +46,61 @@ public partial class TdUIDrawPlayersPanel : TdUIDrawPanel/*
 	
 	public override /*function */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdatePlayers(array<PlayerReplicationInfo> pris)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */bool Draw(Canvas C)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*protected function */void DrawTeam(Canvas C, int TeamIndex, int X, int Y, int XL, int YL)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void DrawPlayerSlotBG(Canvas C, int TeamIndex, int PlayerSlotIndex, int X, int Y, int XL, int YL)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void DrawPlayer(Canvas C, TdPlayerReplicationInfo TdPRI, int TeamIndex, bool bIsSelected, int Left, int Top, int Width, int Height)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool TdUIDrawPlayerPanel_OnClicked(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */TdPlayerReplicationInfo GetSelectedTdPRI()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetSelectedSlot(int TeamIndex, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */int GetMaxPlayersInTeam()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int GetMaxTeams()
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -7,7 +7,7 @@ public partial class TdBotPawn_Celeste : TdBotPawn_PursuitCop/*
 		hidecategories(Navigation)*/{
 	public override /*function */bool LoseWeaponAfterDisarm()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -15,14 +15,14 @@ public partial class TdBotPawn_Celeste : TdBotPawn_PursuitCop/*
 	public override TakeDamage_del global_TakeDamage => TdBotPawn_Celeste_TakeDamage;
 	public /*function */void TdBotPawn_Celeste_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
-	
+		// stub
 	}
 	
 	public override RegenerateHealth_del RegenerateHealth { get => bfield_RegenerateHealth ?? TdBotPawn_Celeste_RegenerateHealth; set => bfield_RegenerateHealth = value; } RegenerateHealth_del bfield_RegenerateHealth;
 	public override RegenerateHealth_del global_RegenerateHealth => TdBotPawn_Celeste_RegenerateHealth;
 	public /*function */void TdBotPawn_Celeste_RegenerateHealth(float DeltaTime)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

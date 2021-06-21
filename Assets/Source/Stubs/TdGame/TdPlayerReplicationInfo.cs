@@ -17,67 +17,67 @@ public partial class TdPlayerReplicationInfo : PlayerReplicationInfo/*
 	
 	public virtual /*private final simulated function */void UpdateLobbyBackend()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void ClientInitialize(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable server function */void ServerSetClientVersion(int I)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCarryObject(Actor inActor)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnDropCarriedObject(Actor inActor)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnUseCarriedObject(Actor inActor)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ScorePassedCarriedObject()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ScoreInterceptedCarriedObject()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable server function */void RequestTeamChange(int NewTeam)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable server function */void RequestRoleChange(int NewRoleIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable server function */void RequestSetReady()
 	{
-	
+		// stub
 	}
 	
 	public TdPlayerReplicationInfo()

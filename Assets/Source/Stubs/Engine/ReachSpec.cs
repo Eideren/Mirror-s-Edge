@@ -28,12 +28,13 @@ public partial class ReachSpec : Object/*
 	public virtual /*native final function */int CostFor(Pawn P)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsBlockedFor(Pawn P)
 	{
-	
+		// stub
 		return default;
 	}
 	

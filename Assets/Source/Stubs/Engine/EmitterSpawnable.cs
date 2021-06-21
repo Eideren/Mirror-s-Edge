@@ -14,12 +14,12 @@ public partial class EmitterSpawnable : Emitter/*
 	
 	public override /*simulated event */void SetTemplate(ParticleSystem NewTemplate, /*optional */bool? _bDestroyOnFinish = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public EmitterSpawnable()

@@ -23,6 +23,7 @@ public partial class UIToolTip : UILabel/*
 	public virtual /*native final function */UIToolTip BeginTracking()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -30,6 +31,7 @@ public partial class UIToolTip : UILabel/*
 	public virtual /*native final function */bool EndTracking()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -37,6 +39,7 @@ public partial class UIToolTip : UILabel/*
 	public virtual /*native final function */void UpdateToolTipPosition()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public UIToolTip()

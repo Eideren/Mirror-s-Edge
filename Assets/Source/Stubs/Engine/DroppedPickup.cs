@@ -20,49 +20,51 @@ public partial class DroppedPickup : Actor/*
 	public virtual /*native final function */void AddToNavigation()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UDroppedPickup::execRemoveFromNavigation(FFrame&, void* const)
 	public virtual /*native final function */void RemoveFromNavigation()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public override Reset_del Reset { get => bfield_Reset ?? DroppedPickup_Reset; set => bfield_Reset = value; } Reset_del bfield_Reset;
 	public override Reset_del global_Reset => DroppedPickup_Reset;
 	public /*function */void DroppedPickup_Reset()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated event */void SetPickupMesh(PrimitiveComponent PickupMesh)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated event */void SetPickupParticles(ParticleSystemComponent PickupParticles)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void EncroachedBy(Actor Other)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */float DetourWeight(Pawn Other, float PathWeight)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -70,17 +72,17 @@ public partial class DroppedPickup : Actor/*
 	public override Landed_del global_Landed => DroppedPickup_Landed;
 	public /*event */void DroppedPickup_Landed(Object.Vector HitNormal, Actor FloorActor)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void GiveTo(Pawn P)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void PickedUpBy(Pawn P)
 	{
-	
+		// stub
 	}
 	
 	public delegate void RecheckValidTouch_del();
@@ -88,7 +90,7 @@ public partial class DroppedPickup : Actor/*
 	public virtual RecheckValidTouch_del global_RecheckValidTouch => DroppedPickup_RecheckValidTouch;
 	public /*function */void DroppedPickup_RecheckValidTouch()
 	{
-	
+		// stub
 	}
 	
 	public delegate bool ValidTouch_del(Pawn Other);
@@ -108,38 +110,38 @@ public partial class DroppedPickup : Actor/*
 	
 	protected /*function */bool DroppedPickup_Pickup_ValidTouch(Pawn Other)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */void DroppedPickup_Pickup_RecheckValidTouch()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void DroppedPickup_Pickup_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void DroppedPickup_Pickup_Timer()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void DroppedPickup_Pickup_CheckTouching()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void DroppedPickup_Pickup_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void DroppedPickup_Pickup_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Pickup()/*auto state Pickup*/
@@ -150,7 +152,7 @@ public partial class DroppedPickup : Actor/*
 	
 	protected /*simulated event */void DroppedPickup_FadeOut_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) FadeOut()/*state FadeOut extends Pickup*/

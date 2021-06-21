@@ -103,85 +103,85 @@ public partial class TdCoverController : Actor/*
 	
 	public virtual /*function */void Initialize(TdBotPawn myPawn)
 	{
-	
+		// stub
 	}
 	
 	public override Reset_del Reset { get => bfield_Reset ?? TdCoverController_Reset; set => bfield_Reset = value; } Reset_del bfield_Reset;
 	public override Reset_del global_Reset => TdCoverController_Reset;
 	public /*function */void TdCoverController_Reset()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */TdAIAnimationController GetAnimationController()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */TdCoverController.ECoverControllerAction GetCurrentCoverAction()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsCoverExited()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnEnterCover(TdBotPawn BotPawn, TdCover CurrentCover)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnExitCover()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCoverExited()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetCoverEntered()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ForceExitCover()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetCoverExited()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */TdCoverController.ECoverControllerAction GetCoverControllerAction()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */TdCoverController.ECoverControllerPosition GetCoverControllerPosition()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool AllowFocusRotation()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CanFireWeapon()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -189,113 +189,113 @@ public partial class TdCoverController : Actor/*
 	public override Tick_del global_Tick => TdCoverController_Tick;
 	public /*function */void TdCoverController_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PrePerformCoverAction()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool PerformCoverAction(TdCoverController.ECoverControllerAction CoverAction)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void CoverIdleAction()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AimFireAction()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AimFireLeftAction()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AimFireRightAction()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void EnterCoverAction()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ExitCoverAction()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetPawnLocation(Object.Vector iPawnLocation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetPawnRotation(Object.Rotator iPawnRotation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetPawnCoverPosition(TdCoverController.ECoverControllerPosition CoverPosition, /*optional */bool? _bIgnoreInPosition = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetControllerWaiting(float Time)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ReleaseControllerWaiting()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */bool IsControllerWaiting()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */int sign(int Value)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void VerifyCoverValidity()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool VerifyCoverPosition(Object.Vector CoverPosition)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool VerifyCoverDirection(Object.Rotator CoverDirection)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool VerifyEnteredCoverValid()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool VerifyExitedCoverValid()
 	{
-	
+		// stub
 		return default;
 	}
 	protected override void RestoreDefaultFunction()

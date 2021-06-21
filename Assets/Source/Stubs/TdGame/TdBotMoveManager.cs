@@ -6,7 +6,7 @@ public partial class TdBotMoveManager : TdMoveManager/* within TdBotPawn*/{
 	
 	public override /*simulated function */void HandleMoveAction(TdPawn.EMovementAction Action)
 	{
-	
+		// stub
 	}
 	
 }

@@ -12,11 +12,12 @@ public partial class SeqAct_Latent : SequenceAction/*
 	public virtual /*native function */void AbortFor(Actor latentActor)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*event */bool Update(float DeltaTime)
 	{
-	
+		// stub
 		return default;
 	}
 	

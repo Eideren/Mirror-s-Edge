@@ -27,61 +27,61 @@ public partial class CurrentGameDataStore : UIDataStore_GameState/*
 	
 	public virtual /*final function */void CreateGameDataProvider(GameReplicationInfo GRI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void AddPlayerDataProvider(PlayerReplicationInfo PRI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void RemovePlayerDataProvider(PlayerReplicationInfo PRI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void AddTeamDataProvider(TeamInfo TI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void RemoveTeamDataProvider(TeamInfo TI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */int FindPlayerDataProviderIndex(PlayerReplicationInfo PRI)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */int FindTeamDataProviderIndex(TeamInfo TI)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */PlayerDataProvider GetPlayerDataProvider(PlayerReplicationInfo PRI)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */TeamDataProvider GetTeamDataProvider(TeamInfo TI)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */void ClearDataProviders()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool NotifyGameSessionEnded()
 	{
-	
+		// stub
 		return default;
 	}
 	

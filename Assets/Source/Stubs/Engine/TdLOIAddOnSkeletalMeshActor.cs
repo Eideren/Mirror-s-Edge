@@ -7,17 +7,17 @@ public partial class TdLOIAddOnSkeletalMeshActor : TdLOIAddOnObject/* within Ske
 	
 	public override /*event */void ActivateLOI()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void InitLOI(Actor Player)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void InitLOIMtrlInstances()
 	{
-	
+		// stub
 	}
 	
 }

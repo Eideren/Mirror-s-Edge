@@ -5,7 +5,7 @@ public partial class SeqAct_TdActivateRopeburnDisarm : SequenceAction/*
 		hidecategories(Object)*/{
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdActivateRopeburnDisarm()

@@ -47,6 +47,7 @@ public partial class UIDataStore_TdStringAliasBindingsMap : UIDataStore_StringAl
 	public override /*native function */int GetStringWithFieldName(String FieldName, ref String MappedString)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -54,6 +55,7 @@ public partial class UIDataStore_TdStringAliasBindingsMap : UIDataStore_StringAl
 	public virtual /*native function */int GetBoundStringWithFieldName(String FieldName, ref String MappedString, /*optional */ref int StartIndex/* = default*/, /*optional */ref String BindString/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -61,6 +63,7 @@ public partial class UIDataStore_TdStringAliasBindingsMap : UIDataStore_StringAl
 	public virtual /*protected native final function */bool FindMappingInBoundKeyCache(String Command, ref String MappingStr, ref int FieldIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -68,27 +71,29 @@ public partial class UIDataStore_TdStringAliasBindingsMap : UIDataStore_StringAl
 	public virtual /*protected native final function */void AddMappingToBoundKeyCache(String Command, String MappingStr, int FieldIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIDataStore_TdStringAliasBindingsMap::execClearBoundKeyCache(FFrame&, void* const)
 	public virtual /*native final function */void ClearBoundKeyCache()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*event */void Registered(LocalPlayer PlayerOwner)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void Unregistered(LocalPlayer PlayerOwner)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnControllerChange(int ControllerId, bool Connected)
 	{
-	
+		// stub
 	}
 	
 	public UIDataStore_TdStringAliasBindingsMap()

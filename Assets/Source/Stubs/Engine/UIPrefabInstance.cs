@@ -20,6 +20,7 @@ public partial class UIPrefabInstance : UIObject/*
 	public virtual /*native final function */void DetachFromSourcePrefab()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public UIPrefabInstance()

@@ -17,37 +17,37 @@ public partial class UIDataProvider_OnlineFriendMessages : UIDataProvider_Online
 	
 	public override /*event */void OnRegister(LocalPlayer InPlayer)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void OnUnregister()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ReadMessages()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnFriendInviteReceived(byte LocalUserNum, OnlineSubsystem.UniqueNetId RequestingPlayer, String RequestingNick, String Message)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnFriendMessageReceived(byte LocalUserNum, OnlineSubsystem.UniqueNetId SendingPlayer, String SendingNick, String Message)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnLoginChange()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnGameInviteReceived(byte LocalUserNum, String InviterName)
 	{
-	
+		// stub
 	}
 	
 	public UIDataProvider_OnlineFriendMessages()

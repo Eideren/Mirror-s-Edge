@@ -9,6 +9,7 @@ public partial class TdHUDObject : TdUIObject/*
 	public virtual /*native function */HUD GetHud()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

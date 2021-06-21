@@ -208,7 +208,7 @@ public partial class Material : MaterialInterface/*
 	
 	public virtual /*function */array<Texture> GetTextures()
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -7,7 +7,7 @@ public partial class PostProcessChain : Object/*
 	
 	public virtual /*final function */PostProcessEffect FindPostProcessEffect(name EffectName)
 	{
-	
+		// stub
 		return default;
 	}
 	

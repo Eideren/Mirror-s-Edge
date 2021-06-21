@@ -10,27 +10,27 @@ public partial class SeqAct_TdSupersMessage : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnSupersSceneClosed(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OpenNextSupersScene()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnSupersSceneOpened(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */LocalPlayer GetFirstLocalPlayer()
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -7,13 +7,13 @@ public partial class FailedConnect : LocalMessage/*
 	
 	public /*function */static int GetFailSwitch(String FailString)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static String GetString(/*optional */int? _Switch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

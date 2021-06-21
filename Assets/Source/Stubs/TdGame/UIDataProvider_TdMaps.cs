@@ -35,7 +35,7 @@ public partial class UIDataProvider_TdMaps : UIDataProvider_TdResource/*
 	
 	public override /*event */bool IsProviderDisabled()
 	{
-	
+		// stub
 		return default;
 	}
 	

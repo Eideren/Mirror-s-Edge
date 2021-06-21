@@ -22,16 +22,17 @@ public partial class RB_LineImpulseActor : Actor/*
 	public virtual /*native final function */void FireLineImpulse()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*simulated function */void OnToggle(SeqAct_Toggle inAction)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public RB_LineImpulseActor()

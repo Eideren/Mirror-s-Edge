@@ -6,24 +6,24 @@ public partial class TdOfflineGhostStorageManager : TdGhostStorageManager{
 	
 	public override /*function */bool ReadGhost(TdGhost.TdGhostInfo GhostInfo, /*delegate*/TdGhostStorageManager.OnReadGhostComplete ReadCompleted)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void LocalReadComplete(TsSystem.ETsResult Result, array<byte> ReadBuffer)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool WriteGhost(TdGhost Ghost, OnlineSubsystem.UniqueNetId PlayerId, /*delegate*/TdGhostStorageManager.OnWriteGhostComplete WriteCompleted)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void LocalWriteComplete(TsSystem.ETsResult Result)
 	{
-	
+		// stub
 	}
 	
 }

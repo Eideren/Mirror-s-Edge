@@ -9,7 +9,7 @@ public partial class GameInfoDataProvider : UIDynamicDataProvider/*
 	
 	public override /*event */void ProviderInstanceBound(Object DataSourceInstance)
 	{
-	
+		// stub
 	}
 	
 	public GameInfoDataProvider()

@@ -8,7 +8,7 @@ public partial class SeqAct_TdTriggerPopUp : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdTriggerPopUp()

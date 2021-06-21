@@ -11,14 +11,14 @@ public partial class ColorScaleVolume : Volume/*
 	public override Touch_del global_Touch => ColorScaleVolume_Touch;
 	public /*event */void ColorScaleVolume_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)
 	{
-	
+		// stub
 	}
 	
 	public override UnTouch_del UnTouch { get => bfield_UnTouch ?? ColorScaleVolume_UnTouch; set => bfield_UnTouch = value; } UnTouch_del bfield_UnTouch;
 	public override UnTouch_del global_UnTouch => ColorScaleVolume_UnTouch;
 	public /*event */void ColorScaleVolume_UnTouch(Actor Other)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

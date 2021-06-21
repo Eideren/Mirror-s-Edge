@@ -12,37 +12,37 @@ public partial class DebugCameraController : PlayerController/*
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnActivate(PlayerController PC)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnDeactivate(PlayerController PC)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void SetFreezeRendering()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void MoreSpeed()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void NormalSpeed()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisableDebugCamera()
 	{
-	
+		// stub
 	}
 	
 	public DebugCameraController()

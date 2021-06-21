@@ -9,12 +9,12 @@ public partial class PlayerOwnerDataProvider : PlayerDataProvider/*
 	
 	public virtual /*function */void SetPlayerDataProvider(PlayerDataProvider NewPlayerData)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool CleanupDataProvider()
 	{
-	
+		// stub
 		return default;
 	}
 	

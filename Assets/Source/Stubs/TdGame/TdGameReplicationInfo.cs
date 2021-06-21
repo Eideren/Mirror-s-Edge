@@ -24,83 +24,83 @@ public partial class TdGameReplicationInfo : GameReplicationInfo/*
 	
 	public virtual /*simulated function */bool IsBagGame()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable server function */int ServerGetVersion()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */bool AllowViewTargetSwitching()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnCarryObject(TdPlayerReplicationInfo PRI, Actor CarriedActor)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnDropCarriedObject(TdPlayerReplicationInfo PRI, Actor CarriedActor)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnRespawnCarriedObject(Actor CarriedActor)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCarriedObjectTouchedGround(Actor CarriedActor)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStartMatchInProgress(Object GameRules)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnEndMatchInProgress(Object GameRules)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ForceLobbyUpdate()
 	{
-	
+		// stub
 	}
 	
 	public override Timer_del Timer { get => bfield_Timer ?? TdGameReplicationInfo_Timer; set => bfield_Timer = value; } Timer_del bfield_Timer;
 	public override Timer_del global_Timer => TdGameReplicationInfo_Timer;
 	public /*simulated event */void TdGameReplicationInfo_Timer()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable server function */bool AllPlayersReady()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*reliable server function */void StartGame(String URL)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

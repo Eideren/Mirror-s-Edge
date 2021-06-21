@@ -8,18 +8,18 @@ public partial class TdWeapon_Light : TdWeapon/*
 		hidecategories(Navigation)*/{
 	public override /*simulated function */void ProcessInstantHit(byte FiringMode, Actor.ImpactInfo Impact)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */ParticleSystem GetSpecificImpactEffect(TdPhysicalMaterialImpactEffects ImpactEffects)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */ParticleSystem GetSpecificImpactEffectPhysX(TdPhysicalMaterialImpactEffects ImpactEffects)
 	{
-	
+		// stub
 		return default;
 	}
 	

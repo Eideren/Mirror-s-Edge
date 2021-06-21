@@ -8,7 +8,7 @@ public partial class SeqAct_TdLevelCompleted : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdLevelCompleted()

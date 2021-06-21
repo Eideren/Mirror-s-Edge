@@ -9,7 +9,7 @@ public partial class TdFlareEmitter : Emitter/*
 	
 	public override /*simulated function */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public TdFlareEmitter()

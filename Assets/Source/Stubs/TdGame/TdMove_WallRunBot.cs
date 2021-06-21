@@ -18,42 +18,42 @@ public partial class TdMove_WallRunBot : TdMove_AISpecialMove/*
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReachedPreciseLocation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void FindClimbNotifiers()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void ClimbInitiatedNotify()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void ClimbCompletedNotify()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnAnimationStopped(AnimNodeSequence SeqNode)
 	{
-	
+		// stub
 	}
 	
 }

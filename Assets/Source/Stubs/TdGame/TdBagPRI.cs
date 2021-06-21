@@ -16,22 +16,22 @@ public partial class TdBagPRI : TdPlayerReplicationInfo/*
 	
 	public override /*simulated event */void PreBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnCarryObject(Actor inActor)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnDropCarriedObject(Actor inActor)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void AnnounceYouHaveTheBag()
 	{
-	
+		// stub
 	}
 	
 }

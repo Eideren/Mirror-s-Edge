@@ -18,12 +18,12 @@ public partial class UIDataProvider_OnlinePlayers : UIDataProvider_OnlinePlayerD
 	
 	public override /*event */void OnRegister(LocalPlayer InPlayer)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnPlayersReadComplete()
 	{
-	
+		// stub
 	}
 	
 	public UIDataProvider_OnlinePlayers()

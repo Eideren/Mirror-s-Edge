@@ -47,6 +47,7 @@ public partial class OnlineStats : Object/*
 	public virtual /*native function */bool GetViewId(name ViewName, ref int ViewId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -54,12 +55,13 @@ public partial class OnlineStats : Object/*
 	public virtual /*native function */name GetViewName(int ViewId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */String GetStatKey(int Id)
 	{
-	
+		// stub
 		return default;
 	}
 	

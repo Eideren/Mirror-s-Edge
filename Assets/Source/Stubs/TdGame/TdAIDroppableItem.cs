@@ -6,13 +6,13 @@ public partial class TdAIDroppableItem : Object/*
 		native*/{
 	public virtual /*function */bool CanDrop(TdBotPawn Dropper)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void Drop(TdBotPawn Dropper)
 	{
-	
+		// stub
 	}
 	
 }

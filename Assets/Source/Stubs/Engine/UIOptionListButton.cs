@@ -10,6 +10,7 @@ public partial class UIOptionListButton : UIButton/* within UIOptionListBase*//*
 	public virtual /*native final function */void UpdateButtonState(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public UIOptionListButton()

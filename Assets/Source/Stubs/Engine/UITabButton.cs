@@ -11,23 +11,24 @@ public partial class UITabButton : UILabelButton/*
 	
 	public override /*event */void AddedChild(UIScreenObject WidgetOwner, UIObject NewChild)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void RemovedChild(UIScreenObject WidgetOwner, UIObject OldChild, /*optional */array<UIObject>? _ExclusionSet = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void RemovedFromParent(UIScreenObject WidgetOwner)
 	{
-	
+		// stub
 	}
 	
 	// Export UUITabButton::execCanActivateButton(FFrame&, void* const)
 	public virtual /*native final function */bool CanActivateButton(int PlayerIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -35,18 +36,19 @@ public partial class UITabButton : UILabelButton/*
 	public virtual /*native final function */bool IsTargeted(/*optional */int? _PlayerIndex/* = default*/, /*optional */ref int StateIndex/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */UITabPage GetTabPage()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
 	{
-	
+		// stub
 	}
 	
 	public UITabButton()

@@ -9,20 +9,20 @@ public partial class TdAI_SniperCeleste : TdAI_Sniper/*
 	public override UpdatePose_del global_UpdatePose => TdAI_SniperCeleste_UpdatePose;
 	public /*function */void TdAI_SniperCeleste_UpdatePose()
 	{
-	
+		// stub
 	}
 	
 	public override LaserActive_del LaserActive { get => bfield_LaserActive ?? TdAI_SniperCeleste_LaserActive; set => bfield_LaserActive = value; } LaserActive_del bfield_LaserActive;
 	public override LaserActive_del global_LaserActive => TdAI_SniperCeleste_LaserActive;
 	public /*function */bool TdAI_SniperCeleste_LaserActive()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */TdAIController.EDisarmState QueryDisarmState(TdPawn Disarmer)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -30,7 +30,7 @@ public partial class TdAI_SniperCeleste : TdAI_Sniper/*
 	public override CheckCrouching_del global_CheckCrouching => TdAI_SniperCeleste_CheckCrouching;
 	public /*function */void TdAI_SniperCeleste_CheckCrouching()
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

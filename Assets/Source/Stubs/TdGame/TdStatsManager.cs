@@ -17,49 +17,49 @@ public partial class TdStatsManager : Object/*
 	
 	public virtual /*function */void ResetStatCount(SeqAct_TdRegisterStat.EAchievementStatsID Id, TdProfileSettings P)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetStats(TdProfileSettings P, bool bLevelStats, bool bGameStats, bool bGlobalStats)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SaveStatsToProfile(TdProfileSettings P, bool bLevelStats, bool bGameStats, bool bGlobalStats)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void LoadStatsFromProfile(TdProfileSettings P, bool bLevelStats, bool bGameStats, bool bGlobalStats)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ShowAchievementStats(TdProfileSettings P)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool RegisterStats(SeqAct_TdRegisterStat.EAchievementStatsID Id, float Time, TdProfileSettings P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetToDefaults(TdProfileSettings P)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */int GetStatCount(SeqAct_TdRegisterStat.EAchievementStatsID Id, TdProfileSettings P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool RegisterFoundBag(int BagIndex, TdProfileSettings P)
 	{
-	
+		// stub
 		return default;
 	}
 	

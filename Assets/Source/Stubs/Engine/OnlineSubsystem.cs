@@ -490,61 +490,61 @@ public partial class OnlineSubsystem : Object/*
 	
 	public virtual /*event */bool Init()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool SetAccountInterface(Object NewInterface)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool SetPlayerInterface(Object NewInterface)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool SetPlayerInterfaceEx(Object NewInterface)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool SetSystemInterface(Object NewInterface)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool SetGameInterface(Object NewInterface)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool SetContentInterface(Object NewInterface)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool SetVoiceInterface(Object NewInterface)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool SetStatsInterface(Object NewInterface)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool SetNewsInterface(Object NewInterface)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -552,6 +552,7 @@ public partial class OnlineSubsystem : Object/*
 	public /*native final function */static String UniqueNetIdToString(/*const */ref OnlineSubsystem.UniqueNetId IdToConvert)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -559,6 +560,7 @@ public partial class OnlineSubsystem : Object/*
 	public /*native final function */static bool StringToUniqueNetId(String UniqueNetIdString, ref OnlineSubsystem.UniqueNetId out_UniqueId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

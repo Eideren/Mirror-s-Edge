@@ -7,7 +7,7 @@ public partial class SequenceCondition : SequenceOp/*
 		hidecategories(Object)*/{
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

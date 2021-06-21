@@ -49,25 +49,28 @@ public partial class EmitterPool : Actor/*
 	
 	public virtual /*function */void OnParticleSystemFinished(ParticleSystemComponent PSC)
 	{
-	
+		// stub
 	}
 	
 	// Export UEmitterPool::execReturnToPool(FFrame&, void* const)
 	public virtual /*protected native final function */void ReturnToPool(ParticleSystemComponent PSC)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UEmitterPool::execFreeStaticMeshComponents(FFrame&, void* const)
 	public virtual /*protected native final function */void FreeStaticMeshComponents(ParticleSystemComponent PSC)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UEmitterPool::execGetFreeStaticMeshComponent(FFrame&, void* const)
 	public virtual /*protected native final function */StaticMeshComponent GetFreeStaticMeshComponent(/*optional */bool? _bCreateNewObject = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -75,12 +78,14 @@ public partial class EmitterPool : Actor/*
 	public virtual /*protected native final function */void FreeMaterialInstanceConstants(StaticMeshComponent SMC)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UEmitterPool::execGetFreeMatInstConsts(FFrame&, void* const)
 	public virtual /*protected native final function */MaterialInstanceConstant GetFreeMatInstConsts(/*optional */bool? _bCreateNewObject = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -88,23 +93,24 @@ public partial class EmitterPool : Actor/*
 	public virtual /*protected native final function */ParticleSystemComponent GetPooledComponent(ParticleSystem EmitterTemplate)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */ParticleSystemComponent SpawnEmitter(ParticleSystem EmitterTemplate, Object.Vector SpawnLocation, /*optional */Object.Rotator? _SpawnRotation = default, /*optional */Actor? _AttachToActor = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ResetPool()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */ParticleSystemComponent SpawnEmitterCustomLifetime(ParticleSystem EmitterTemplate)
 	{
-	
+		// stub
 		return default;
 	}
 	

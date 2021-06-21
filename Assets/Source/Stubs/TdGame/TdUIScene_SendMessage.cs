@@ -10,54 +10,54 @@ public partial class TdUIScene_SendMessage : TdUIScene_SubMenu/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Cancel(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_AddFriend(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetTargetPlayer(OnlineSubsystem.UniqueNetId InPlayerNetId, String InPlayerName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AddFriend()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnAddFriendByNameComplete(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnFinishedAddFriend()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCloseScene()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

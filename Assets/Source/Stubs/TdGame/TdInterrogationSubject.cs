@@ -14,27 +14,27 @@ public partial class TdInterrogationSubject : Actor/*
 	
 	public override /*event */void PreBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void InitiateInterrogation(Actor InstigatingActor)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetVictimPRI(TdPursuitPRI NewVictimPRI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetVictimPawn(TdPawn NewVictimPawn)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TimeDestroy()
 	{
-	
+		// stub
 	}
 	
 	public delegate void InterceptInterrogation_del();
@@ -42,7 +42,7 @@ public partial class TdInterrogationSubject : Actor/*
 	public virtual InterceptInterrogation_del global_InterceptInterrogation => TdInterrogationSubject_InterceptInterrogation;
 	public /*function */void TdInterrogationSubject_InterceptInterrogation()
 	{
-	
+		// stub
 	}
 	
 	public delegate void CompleteInterrogation_del();
@@ -56,7 +56,7 @@ public partial class TdInterrogationSubject : Actor/*
 	
 	protected /*singular event */void TdInterrogationSubject_Idle_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Idle()/*auto state Idle*/
@@ -67,12 +67,12 @@ public partial class TdInterrogationSubject : Actor/*
 	
 	protected /*singular event */void TdInterrogationSubject_Interrogating_UnTouch(Actor Other)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*private final function */void TdInterrogationSubject_Interrogating_CompleteInterrogation()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Interrogating()/*state Interrogating*/

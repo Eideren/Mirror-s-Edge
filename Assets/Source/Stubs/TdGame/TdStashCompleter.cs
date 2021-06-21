@@ -8,7 +8,7 @@ public partial class TdStashCompleter : TdStashpoint/*
 	
 	protected /*singular event */void TdStashCompleter_Idle_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Idle()/*auto state Idle*/

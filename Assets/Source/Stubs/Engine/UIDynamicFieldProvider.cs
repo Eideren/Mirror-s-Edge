@@ -16,12 +16,14 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native function */void InitializeRuntimeFields()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIDynamicFieldProvider::execAddField(FFrame&, void* const)
 	public virtual /*native final function */bool AddField(name FieldName, /*optional */UIRoot.EUIDataProviderFieldType? _FieldType/* = default*/, /*optional */bool? _bPersistent/* = default*/, /*optional */ref int out_InsertPosition/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -29,6 +31,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */bool RemoveField(name FieldName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -36,6 +39,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */int FindFieldIndex(name FieldName, /*optional */bool? _bSearchPersistentFields = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -43,6 +47,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */bool ClearFields(/*optional */bool? _bReinitializeRuntimeFields = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -50,6 +55,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */bool GetField(name FieldName, ref UIRoot.UIProviderScriptFieldValue out_Field)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -57,6 +63,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */bool SetField(name FieldName, /*const */ref UIRoot.UIProviderScriptFieldValue FieldValue, /*optional */bool? _bChangeExistingOnly = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -64,12 +71,14 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */void SavePersistentProviderData()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIDynamicFieldProvider::execGetCollectionValueSchema(FFrame&, void* const)
 	public virtual /*native final function */bool GetCollectionValueSchema(name FieldName, ref array<name> out_CellTagArray, /*optional */bool? _bPersistent = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -77,6 +86,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */bool GetCollectionValueArray(name FieldName, ref array<String> out_DataValueArray, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -84,6 +94,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */bool SetCollectionValueArray(name FieldName, /*const */ref array<String> CollectionValues, /*optional */bool? _bClearExisting = default, /*optional */int? _InsertIndex = default, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -91,6 +102,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */bool InsertCollectionValue(name FieldName, /*const */ref String NewValue, /*optional */int? _InsertIndex = default, /*optional */bool? _bPersistent = default, /*optional */bool? _bAllowDuplicateValues = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -98,6 +110,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */bool RemoveCollectionValue(name FieldName, /*const */ref String ValueToRemove, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -105,6 +118,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */bool RemoveCollectionValueByIndex(name FieldName, int ValueIndex, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -112,6 +126,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */bool ReplaceCollectionValue(name FieldName, /*const */ref String CurrentValue, /*const */ref String NewValue, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -119,6 +134,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */bool ReplaceCollectionValueByIndex(name FieldName, int ValueIndex, /*const */ref String NewValue, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -126,6 +142,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */bool ClearCollectionValueArray(name FieldName, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -133,6 +150,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */bool GetCollectionValue(name FieldName, int ValueIndex, ref String out_Value, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -140,6 +158,7 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 	public virtual /*native final function */int FindCollectionValueIndex(name FieldName, /*const */ref String ValueToFind, /*optional */bool? _bPersistent = default, /*optional */name? _CellTag = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

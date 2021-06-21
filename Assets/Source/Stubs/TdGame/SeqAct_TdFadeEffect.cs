@@ -21,22 +21,22 @@ public partial class SeqAct_TdFadeEffect : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void FadeCompleted()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ActivateFadeOutEffect()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ActivateFadeInEffect()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdFadeEffect()

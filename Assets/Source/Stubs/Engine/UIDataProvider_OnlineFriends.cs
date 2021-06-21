@@ -18,27 +18,27 @@ public partial class UIDataProvider_OnlineFriends : UIDataProvider_OnlinePlayerD
 	
 	public override /*event */void OnRegister(LocalPlayer InPlayer)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void OnUnregister()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnFriendsReadComplete(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnLoginChange()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void RefreshFriendsList()
 	{
-	
+		// stub
 	}
 	
 	public UIDataProvider_OnlineFriends()

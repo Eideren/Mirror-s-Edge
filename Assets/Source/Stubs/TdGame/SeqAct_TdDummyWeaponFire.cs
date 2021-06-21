@@ -14,17 +14,17 @@ public partial class SeqAct_TdDummyWeaponFire : SeqAct_Latent/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyDummyFire()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool Update(float DeltaTime)
 	{
-	
+		// stub
 		return default;
 	}
 	

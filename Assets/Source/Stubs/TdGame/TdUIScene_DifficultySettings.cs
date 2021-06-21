@@ -9,74 +9,74 @@ public partial class TdUIScene_DifficultySettings : TdUIScene_SubMenu/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Cancel(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_Accept(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnCancel()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnAccept()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnProfileWriteComplete(bool bSucceeded)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TryWriteProfile()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStartGame()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ProfileWriteFailed_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnProfileWriteFailed_PreSelection(TdUIScene_MessageBox InMessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnProfileWriteFailed_Closed(TdUIScene_MessageBox MsgBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCloseScene()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

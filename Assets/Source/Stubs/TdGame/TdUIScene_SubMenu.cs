@@ -7,17 +7,17 @@ public partial class TdUIScene_SubMenu : TdUIScene/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RegisterFocusLabelParents(UIScreenObject Parent)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateFocusLabelState(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_SubMenu()

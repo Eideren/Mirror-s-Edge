@@ -8,13 +8,13 @@ public partial class SeqVar_ObjectList : SeqVar_Object/*
 	
 	public override /*function */Object GetObjectValue()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void SetObjectValue(Object NewValue)
 	{
-	
+		// stub
 	}
 	
 	public SeqVar_ObjectList()

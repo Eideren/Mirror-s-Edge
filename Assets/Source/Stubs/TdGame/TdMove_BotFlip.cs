@@ -5,17 +5,17 @@ public partial class TdMove_BotFlip : TdMove/*
 		config(PawnMovement)*/{
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 }

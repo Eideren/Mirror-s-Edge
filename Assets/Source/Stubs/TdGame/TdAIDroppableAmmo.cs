@@ -5,13 +5,13 @@ public partial class TdAIDroppableAmmo : TdAIDroppableItem/*
 		editinlinenew*/{
 	public override /*function */bool CanDrop(TdBotPawn Dropper)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void Drop(TdBotPawn Dropper)
 	{
-	
+		// stub
 	}
 	
 }

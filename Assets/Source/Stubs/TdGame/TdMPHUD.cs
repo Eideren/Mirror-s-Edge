@@ -21,67 +21,67 @@ public partial class TdMPHUD : TdHUD/*
 	
 	public override /*function */void LoadHUDContent(Core.ClassT<TdHUDContent> ContentClass)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplayTeam()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawPawnOverlays()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawRoundTimer()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawScore()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawPawnNameOverlay(TdPawn ATdPawn, Object.Vector CameraRotation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawWarmupTimer(TdGameReplicationInfo MyGRI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawWaitingForMorePlayers()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void DrawWarmupHUD()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void DrawLivingHUD()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplayWeaponAmmo(TdWeapon Weapon)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void ProjectOntoScreen(Object.Vector WorldLocation, Object.Vector WorldOffset, Object.Vector2D ClipXBounds, Object.Vector2D ClipYBounds, ref Object.Vector ScreenLocation)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void PlayerOwnerDied()
 	{
-	
+		// stub
 	}
 	
 	public TdMPHUD()

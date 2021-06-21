@@ -80,6 +80,7 @@ public partial class PlayerReplicationInfo : ReplicationInfo/*
 	public virtual /*native final function */bool AreUniqueNetIdsEqual(PlayerReplicationInfo OtherPRI)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -87,116 +88,118 @@ public partial class PlayerReplicationInfo : ReplicationInfo/*
 	public virtual /*native function */String GetPlayerAlias()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void ClientInitialize(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	// Export UPlayerReplicationInfo::execUpdatePing(FFrame&, void* const)
 	public virtual /*native final function */void UpdatePing(float TimeStamp)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*simulated function */bool ShouldBroadCastWelcomeMessage()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public override Reset_del Reset { get => bfield_Reset ?? PlayerReplicationInfo_Reset; set => bfield_Reset = value; } Reset_del bfield_Reset;
 	public override Reset_del global_Reset => PlayerReplicationInfo_Reset;
 	public /*function */void PlayerReplicationInfo_Reset()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */String GetHumanReadableName()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */String GetLocationName()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void UpdatePlayerLocation()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void DisplayDebug(HUD HUD, ref float YL, ref float YPos)
 	{
-	
+		// stub
 	}
 	
 	public override Timer_del Timer { get => bfield_Timer ?? PlayerReplicationInfo_Timer; set => bfield_Timer = value; } Timer_del bfield_Timer;
 	public override Timer_del global_Timer => PlayerReplicationInfo_Timer;
 	public /*event */void PlayerReplicationInfo_Timer()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void SetPlayerName(String S)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetWaitingPlayer(bool B)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */PlayerReplicationInfo Duplicate()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OverrideWith(PlayerReplicationInfo PRI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void CopyProperties(PlayerReplicationInfo PRI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SeamlessTravelTo(PlayerReplicationInfo NewPRI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void BindPlayerOwnerDataProvider()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */bool IsLocalPlayerPRI()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -204,18 +207,19 @@ public partial class PlayerReplicationInfo : ReplicationInfo/*
 	public override /*native simulated function */byte GetTeamNum()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool IsInvalidName()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetPlayerAlias(String NewAlias)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

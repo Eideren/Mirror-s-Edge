@@ -5,12 +5,12 @@ public partial class CameraMode : Object/*
 		native*/{
 	public virtual /*simulated function */void ProcessViewRotation(float DeltaTime, Actor ViewTarget, ref Object.Rotator out_ViewRotation, ref Object.Rotator out_DeltaRot)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool AllowPawnRotation()
 	{
-	
+		// stub
 		return default;
 	}
 	

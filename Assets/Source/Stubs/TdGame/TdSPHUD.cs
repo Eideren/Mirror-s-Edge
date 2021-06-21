@@ -35,43 +35,43 @@ public partial class TdSPHUD : TdHUD/*
 	
 	public override /*function */void LoadHUDContent(Core.ClassT<TdHUDContent> ContentClass)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void DrawLivingHUD()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void ToggleZoomState(bool bZoom)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetDrawCrosshairFlag(TdProfileSettings.EReticuleValues flag)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ActivatePopUp(TdSPHUD.EPopUpType Type, float Duration, String Message)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */String BuildBagString()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void DrawPopUp()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */String LocalizeKeyCommand(String KeyCommand)
 	{
-	
+		// stub
 		return default;
 	}
 	

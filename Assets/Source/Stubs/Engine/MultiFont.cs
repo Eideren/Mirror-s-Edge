@@ -10,6 +10,7 @@ public partial class MultiFont : Font/*
 	public virtual /*native function */int GetResolutionTestTableIndex(float HeightTest)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

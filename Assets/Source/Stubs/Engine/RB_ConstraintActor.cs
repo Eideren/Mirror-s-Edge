@@ -20,23 +20,26 @@ public partial class RB_ConstraintActor : Actor/*
 	public virtual /*native final function */void SetDisableCollision(bool NewDisableCollision)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export URB_ConstraintActor::execInitConstraint(FFrame&, void* const)
 	public virtual /*native final function */void InitConstraint(Actor Actor1, Actor Actor2, /*optional */name? _Actor1Bone = default, /*optional */name? _Actor2Bone = default, /*optional */float? _BreakThreshold = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export URB_ConstraintActor::execTermConstraint(FFrame&, void* const)
 	public virtual /*native final function */void TermConstraint()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*simulated function */void OnDestroy(SeqAct_Destroy Action)
 	{
-	
+		// stub
 	}
 	
 	public RB_ConstraintActor()

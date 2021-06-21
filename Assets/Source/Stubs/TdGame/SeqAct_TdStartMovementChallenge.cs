@@ -7,7 +7,7 @@ public partial class SeqAct_TdStartMovementChallenge : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdStartMovementChallenge()

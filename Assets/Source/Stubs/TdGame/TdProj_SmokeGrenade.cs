@@ -6,7 +6,7 @@ public partial class TdProj_SmokeGrenade : TdProj_Grenade/*
 		hidecategories(Navigation)*/{
 	public override /*simulated function */void GrenadeExplosion(Object.Vector HitLocation, Object.Vector HitNormal, bool bOnGround)
 	{
-	
+		// stub
 	}
 	
 	public TdProj_SmokeGrenade()

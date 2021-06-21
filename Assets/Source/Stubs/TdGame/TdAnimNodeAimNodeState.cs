@@ -10,6 +10,7 @@ public partial class TdAnimNodeAimNodeState : TdAnimNodeState/*
 	public override /*native function */int GetActiveState()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -17,17 +18,18 @@ public partial class TdAnimNodeAimNodeState : TdAnimNodeState/*
 	public override /*native function */float GetBlendValue(int PreviousState, int PendingState)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */void OnInit()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void OverrideStateMapping()
 	{
-	
+		// stub
 	}
 	
 	public TdAnimNodeAimNodeState()

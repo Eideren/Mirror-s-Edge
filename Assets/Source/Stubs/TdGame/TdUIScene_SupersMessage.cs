@@ -10,7 +10,7 @@ public partial class TdUIScene_SupersMessage : TdUIScene/*
 	
 	public virtual /*function */void SetupSupersMessage(String Text, float TextDuration)
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_SupersMessage()

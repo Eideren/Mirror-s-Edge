@@ -7,13 +7,13 @@ public partial class SimpleCommandlet : Commandlet/*
 	
 	public virtual /*function */int TestFunction()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */int Main(String Parms)
 	{
-	
+		// stub
 		return default;
 	}
 	

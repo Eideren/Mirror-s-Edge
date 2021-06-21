@@ -34,7 +34,7 @@ public partial class SeqAct_TdAIPlayAnimation : SeqAct_Latent/*
 	
 	public override /*function */void Reset()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdAIPlayAnimation()

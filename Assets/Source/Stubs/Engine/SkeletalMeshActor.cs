@@ -25,118 +25,118 @@ public partial class SkeletalMeshActor : Actor/*
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? SkeletalMeshActor_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => SkeletalMeshActor_TakeDamage;
 	public /*event */void SkeletalMeshActor_TakeDamage(int DamageAmount, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void BeginAnimControl(array<AnimSet> InAnimSets)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void SetAnimPosition(name SlotName, int ChannelIndex, name InAnimSeqName, float InPosition, bool bFireNotifies, bool bLooping)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void SetAnimWeights(array<Actor.AnimSlotInfo> SlotInfos)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void FinishAnimControl()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */bool PlayActorFaceFXAnim(FaceFXAnimSet AnimSet, String GroupName, String SeqName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated event */void StopActorFaceFXAnim()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */AudioComponent GetFaceFXAudioComponent()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void OnPlayFaceFXAnim(SeqAct_PlayFaceFXAnim inAction)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */FaceFXAsset GetActorFaceFXAsset()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */bool IsActorPlayingFaceFXAnim()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void OnSetSkeletalMesh(SeqAct_SetSkeletalMesh Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnSetMaterial(SeqAct_SetMaterial Action)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ShutDown()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void DoKismetAttachment(Actor Attachment, SeqAct_AttachToActor Action)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void AssignPlayerToLOI(Actor Player)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void ActivateLOI()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnDeactivateLOI(SeqAct_DeactivateLOI Sender)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnActivateLOI(SeqAct_ActivateLOI Sender)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

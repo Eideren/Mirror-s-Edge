@@ -10,23 +10,23 @@ public partial class UISettingsProvider : UIPropertyDataProvider/*
 	
 	public virtual /*function */void LoadPropertyValue(name PropertyName, UIObject Widget)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SavePropertyValue(name PropertyName, UIObject Widget)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnModifiedProperty(name PropertyName, UIObject Widget)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CleanupDataProvider()
 	{
-	
+		// stub
 		return default;
 	}
 	

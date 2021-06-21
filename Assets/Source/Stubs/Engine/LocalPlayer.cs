@@ -363,6 +363,7 @@ public partial class LocalPlayer : Player/* within Engine*//*
 	public virtual /*native final function */bool SpawnPlayActor(String URL, ref String OutError)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -370,39 +371,42 @@ public partial class LocalPlayer : Player/* within Engine*//*
 	public virtual /*native final function */void SendSplitJoin()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export ULocalPlayer::execGetActorVisibility(FFrame&, void* const)
 	public virtual /*native final function */bool GetActorVisibility(Actor TestActor)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void OverridePostProcessSettings(PostProcessVolume.PostProcessSettings OverrideSettings, float StartBlendTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void UpdateOverridePostProcessSettings(PostProcessVolume.PostProcessSettings OverrideSettings)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void ClearPostProcessSettingsOverride()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void SetControllerId(int NewControllerId)
 	{
-	
+		// stub
 	}
 	
 	// Export ULocalPlayer::execInsertPostProcessingChain(FFrame&, void* const)
 	public virtual /*native function */bool InsertPostProcessingChain(PostProcessChain InChain, int InIndex, bool bInClone)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -410,6 +414,7 @@ public partial class LocalPlayer : Player/* within Engine*//*
 	public virtual /*native function */bool RemovePostProcessingChain(int InIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -417,6 +422,7 @@ public partial class LocalPlayer : Player/* within Engine*//*
 	public virtual /*native function */bool RemoveAllPostProcessingChains()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -424,6 +430,7 @@ public partial class LocalPlayer : Player/* within Engine*//*
 	public virtual /*native function */PostProcessChain GetPostProcessChain(int InIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -431,6 +438,7 @@ public partial class LocalPlayer : Player/* within Engine*//*
 	public virtual /*native function */void TouchPlayerPostProcessChain()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public LocalPlayer()

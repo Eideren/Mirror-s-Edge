@@ -7,7 +7,7 @@ public partial class Path_TowardGoal : PathConstraint/*
 	
 	public /*function */static bool TowardGoal(Pawn P, Actor Goal)
 	{
-	
+		// stub
 		return default;
 	}
 	

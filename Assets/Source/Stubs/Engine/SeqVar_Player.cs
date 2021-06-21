@@ -10,7 +10,7 @@ public partial class SeqVar_Player : SeqVar_Object/*
 	
 	public override /*function */Object GetObjectValue()
 	{
-	
+		// stub
 		return default;
 	}
 	

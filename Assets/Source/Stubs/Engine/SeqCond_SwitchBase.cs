@@ -7,23 +7,23 @@ public partial class SeqCond_SwitchBase : SequenceCondition/*
 		hidecategories(Object)*/{
 	public virtual /*event */void VerifyDefaultCaseValue()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool IsFallThruEnabled(int ValueIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void InsertValueEntry(int InsertIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void RemoveValueEntry(int RemoveIndex)
 	{
-	
+		// stub
 	}
 	
 	public SeqCond_SwitchBase()

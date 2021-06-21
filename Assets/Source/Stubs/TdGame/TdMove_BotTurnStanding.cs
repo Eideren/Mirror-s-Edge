@@ -20,62 +20,63 @@ public partial class TdMove_BotTurnStanding : TdPhysicsMove/*
 	
 	public virtual /*event */void SetFocusPoint(Object.Vector P)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdMove_BotTurnStanding::execCalculateLegTurnAngle(FFrame&, void* const)
 	public virtual /*private native final function */float CalculateLegTurnAngle()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetBlendOutTime()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetBlendInTime()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void StartAnimation()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCeaseRelevantRootMotion(AnimNodeSequence SeqNode)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnAnimationStopped(AnimNodeSequence SeqNode)
 	{
-	
+		// stub
 	}
 	
 	public TdMove_BotTurnStanding()

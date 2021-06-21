@@ -14,12 +14,12 @@ public partial class ConeBuilder : BrushBuilder/*
 	
 	public virtual /*function */void BuildCone(int Direction, bool InAlignToSide, int InSides, float InZ, float Radius, name Item)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool Build()
 	{
-	
+		// stub
 		return default;
 	}
 	

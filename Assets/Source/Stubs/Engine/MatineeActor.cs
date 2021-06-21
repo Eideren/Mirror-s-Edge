@@ -26,7 +26,7 @@ public partial class MatineeActor : Actor/*
 	
 	public virtual /*event */void Update()
 	{
-	
+		// stub
 	}
 	
 	public MatineeActor()

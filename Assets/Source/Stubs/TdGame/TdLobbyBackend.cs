@@ -8,73 +8,73 @@ public partial class TdLobbyBackend : Object/*
 	
 	public virtual /*function */void SetListener(TdLobbyEventListener InListener)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Update()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Cleanup()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnPlayerLogin(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnPlayerLogout(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnChangeTeam(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnChangeRole(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSetReady(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnGameStarted()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RequestTeamChange(Controller C, int Dir)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RequestRoleChange(Controller C, int Dir)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RequestSetReady(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool AllPlayersReady()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void StartGame(String MapName, String GameMode)
 	{
-	
+		// stub
 	}
 	
 }

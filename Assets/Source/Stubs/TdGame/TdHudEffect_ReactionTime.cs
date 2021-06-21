@@ -22,11 +22,12 @@ public partial class TdHudEffect_ReactionTime : TdHudEffect/*
 	public virtual /*native final function */void ActivateCharged()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */void Hide()
 	{
-	
+		// stub
 	}
 	
 	public TdHudEffect_ReactionTime()

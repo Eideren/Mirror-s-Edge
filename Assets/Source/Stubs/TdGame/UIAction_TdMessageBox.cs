@@ -12,27 +12,27 @@ public partial class UIAction_TdMessageBox : UIAction/*
 	
 	public virtual /*event */void OnActivated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnMessageBoxOpened(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnMessageBox_OptionSelected(TdUIScene_MessageBox MessageBox, int SelectedOption, int PIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnMessageBox_Accept()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnMessageBox_Cancel()
 	{
-	
+		// stub
 	}
 	
 	public UIAction_TdMessageBox()

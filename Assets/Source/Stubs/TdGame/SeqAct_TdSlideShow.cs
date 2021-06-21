@@ -11,7 +11,7 @@ public partial class SeqAct_TdSlideShow : SequenceAction/*
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -7,7 +7,7 @@ public partial class SeqAct_TdAIPerfectAim : SequenceAction/*
 	
 	public virtual /*function */bool ShouldEnable()
 	{
-	
+		// stub
 		return default;
 	}
 	

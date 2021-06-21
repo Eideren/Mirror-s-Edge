@@ -28,93 +28,93 @@ public partial class TdAIGrenadeController : Actor/*
 	
 	public virtual /*function */TdProj_Grenade GetGrenade()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */TdGrenadeTargetArea GetTargetArea()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */NavigationPoint GetGrenadeNode()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */name GetThrowAnimationName()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ThrowInstantGrenade(TdGrenadeTargetArea TargetArea, Object.Vector FromPosition)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitGrenadeThrowToGrenadeTargetArea(TdBotPawn BotPawn, NavigationPoint GrenadeNodeIn, TdGrenadeTargetArea GrenadeTargetAreaIn)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitGrenadeThrow(TdBotPawn BotPawn, Actor inTargetActor, /*optional */TdAIGrenadeController.EGrenadeThrowType? _Drop = default, /*optional */Core.ClassT<TdProj_Grenade>? _inGrenadeClass = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool ThrowGrenadeTick()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void GrenadeAnimationOnCustomAnimEnd(AnimNodeSequence SequenceNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void AnimNotifyGrenadeThrow()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetThrowGrenadeInFrontValues(Object.Vector Target, Object.Vector SpawnLoc)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetLowThrowGrenadeValues(Object.Vector Target, Object.Vector SpawnLoc)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetNormalThrowGrenadeValues(Object.Vector Target, Object.Vector SpawnLoc)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetGrenadeDropValues(Object.Vector SpawnLoc)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetTrowAtTargetValues(Object.Vector Target, Object.Vector SpawnLoc)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */bool SolveParabolaLineProblem(Object.Vector Target, Object.Vector TargetSpeed, Object.Vector FromPos, float Gravity, float WantedSpeedInXYPlane, ref Object.Vector ResultVelocity)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool SecondDegreeSolver(float A, float bx, float cx2, ref float s0, ref float s1)
 	{
-	
+		// stub
 		return default;
 	}
 	

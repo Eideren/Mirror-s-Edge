@@ -32,17 +32,18 @@ public partial class Teleporter : NavigationPoint/*
 	public override /*native function */bool CanTeleport(Actor A)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */bool Accept(Actor Incoming, Actor Source)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -50,17 +51,17 @@ public partial class Teleporter : NavigationPoint/*
 	public override Touch_del global_Touch => Teleporter_Touch;
 	public /*event */void Teleporter_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void PostTouch(Actor Other)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */Actor SpecialHandling(Pawn Other)
 	{
-	
+		// stub
 		return default;
 	}
 	protected override void RestoreDefaultFunction()

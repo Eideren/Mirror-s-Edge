@@ -11,18 +11,18 @@ public partial class SeqEvent_TakeDamage : SequenceEvent/*
 	
 	public virtual /*final function */bool IsValidDamageType(Core.ClassT<DamageType> inDamageType)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */void HandleDamage(Actor InOriginator, Actor InInstigator, Core.ClassT<DamageType> inDamageType, int inAmount)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void Reset()
 	{
-	
+		// stub
 	}
 	
 	public SeqEvent_TakeDamage()

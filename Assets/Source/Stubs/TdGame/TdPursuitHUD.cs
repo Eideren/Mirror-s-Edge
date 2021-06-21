@@ -22,32 +22,32 @@ public partial class TdPursuitHUD : TdMPHUD/*
 	
 	public override /*simulated event */void PreBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void LoadHUDContent(Core.ClassT<TdHUDContent> ContentClass)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawProjectedStashpoint(TdPursuitGRI MyGRI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawProjectedBag(TdPursuitPRI MyPRI, TdPursuitGRI MyGRI)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void DrawLivingHUD()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplayBagHolder(TdPursuitPRI MyPRI, TdPursuitGRI MyGRI)
 	{
-	
+		// stub
 	}
 	
 	public TdPursuitHUD()

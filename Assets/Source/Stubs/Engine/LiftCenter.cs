@@ -14,24 +14,24 @@ public partial class LiftCenter : NavigationPoint/*
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */Actor SpecialHandling(Pawn Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool SuggestMovePreparation(Pawn Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool ProceedWithMove(Pawn Other)
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -8,13 +8,13 @@ public partial class SeqAct_SetCombatRange : SequenceAction/*
 	
 	public virtual /*function */bool ShouldReset()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ShouldSet()
 	{
-	
+		// stub
 		return default;
 	}
 	

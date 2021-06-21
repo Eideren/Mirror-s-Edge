@@ -7,13 +7,13 @@ public partial class TdAI_Boss : TdAIController/*
 		hidecategories(Navigation)*/{
 	public override /*function */bool CanSearch()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool CanInvestigate()
 	{
-	
+		// stub
 		return default;
 	}
 	

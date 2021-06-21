@@ -24,6 +24,7 @@ public partial class TpCreateGameParams : Object/*
 	public virtual /*native simulated function */Object.Pointer GetOpaqueFeslPointer()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -31,48 +32,56 @@ public partial class TpCreateGameParams : Object/*
 	public virtual /*native simulated function */void SetGameName(String InName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpCreateGameParams::execSetPlayerTypeCapacity(FFrame&, void* const)
 	public virtual /*native simulated function */void SetPlayerTypeCapacity(TpCreateGameParams.TpPlayerType InType, int InCapacity)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpCreateGameParams::execSetPasswordUsed(FFrame&, void* const)
 	public virtual /*native simulated function */void SetPasswordUsed(bool bInUsed)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpCreateGameParams::execSetRanked(FFrame&, void* const)
 	public virtual /*native simulated function */void SetRanked(bool bInRanked)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpCreateGameParams::execSetJoinInProgressEnabled(FFrame&, void* const)
 	public virtual /*native simulated function */void SetJoinInProgressEnabled(bool bInEnabled)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpCreateGameParams::execSetJoinViaPresenceEnabled(FFrame&, void* const)
 	public virtual /*native simulated function */void SetJoinViaPresenceEnabled(bool bInEnabled)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpCreateGameParams::execSetInviteStatus(FFrame&, void* const)
 	public virtual /*native simulated function */void SetInviteStatus(TpCreateGameParams.TpInviteStatus InStatus)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpCreateGameParams::execSetHostMigrationEnabled(FFrame&, void* const)
 	public virtual /*native simulated function */void SetHostMigrationEnabled(bool bInEnabled)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 }

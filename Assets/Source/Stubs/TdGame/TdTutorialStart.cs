@@ -8,7 +8,7 @@ public partial class TdTutorialStart : TdPlayerStart/*
 	
 	public virtual /*function */bool IsStartSpotInTrack(int TrackIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -36,13 +36,14 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 	
 	public override /*event */void Registered(LocalPlayer PlayerOwner)
 	{
-	
+		// stub
 	}
 	
 	// Export UUIDataStore_TdStringList::execGetFieldIndex(FFrame&, void* const)
 	public virtual /*native function */int GetFieldIndex(name FieldName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -50,36 +51,42 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 	public virtual /*native function */void AddStr(name FieldName, String NewString, /*optional */bool? _bBatchOp = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIDataStore_TdStringList::execInsertStr(FFrame&, void* const)
 	public virtual /*native function */void InsertStr(name FieldName, String NewString, int InsertIndex, /*optional */bool? _bBatchOp = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIDataStore_TdStringList::execRemoveStr(FFrame&, void* const)
 	public virtual /*native function */void RemoveStr(name FieldName, String StringToRemove, /*optional */bool? _bBatchOp = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIDataStore_TdStringList::execRemoveStrByIndex(FFrame&, void* const)
 	public virtual /*native function */void RemoveStrByIndex(name FieldName, int Index, /*optional */int? _Count = default, /*optional */bool? _bBatchOp = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIDataStore_TdStringList::execEmpty(FFrame&, void* const)
 	public virtual /*native function */void Empty(name FieldName, /*optional */bool? _bBatchOp = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIDataStore_TdStringList::execFindStr(FFrame&, void* const)
 	public virtual /*native function */int FindStr(name FieldName, String SearchString)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -87,6 +94,7 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 	public virtual /*native function */String GetStr(name FieldName, int StrIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -94,36 +102,37 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 	public virtual /*native function */array<String> GetList(name FieldName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool GetCurrentValue(name FieldName, ref String out_Value)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */int GetCurrentValueIndex(name FieldName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */int SetCurrentValueIndex(name FieldName, int NewValueIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */int Num(name FieldName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ResetValueIndex(name FieldName)
 	{
-	
+		// stub
 	}
 	
 	public UIDataStore_TdStringList()

@@ -30,6 +30,7 @@ public partial class Texture2DComposite : Texture/*
 	public virtual /*native final function */bool SourceTexturesFullyStreamedIn()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -37,12 +38,14 @@ public partial class Texture2DComposite : Texture/*
 	public virtual /*native final function */void UpdateCompositeTexture(int NumMipsToGenerate)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTexture2DComposite::execResetSourceRegions(FFrame&, void* const)
 	public virtual /*native final function */void ResetSourceRegions()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public Texture2DComposite()

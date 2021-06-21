@@ -19,7 +19,7 @@ public partial class SeqAct_TdGetStatCount : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdGetStatCount()

@@ -6,34 +6,34 @@ public partial class TdUIScene_TdTOSOptions : TdUIScene_SubMenu/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Back(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_Submit(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnCloseScene()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSubmit()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

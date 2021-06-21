@@ -21,12 +21,14 @@ public partial class SceneCaptureCharacterComponent : SceneCaptureComponent/*
 	public virtual /*native final function */void SetCaptureParameters(/*optional */TextureRenderTarget2D? _NewTextureTarget = default, /*optional */float? _NewFOV = default, /*optional */float? _NewNearPlane = default, /*optional */float? _NewFarPlane = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USceneCaptureCharacterComponent::execSetView(FFrame&, void* const)
 	public virtual /*native final function */void SetView(Object.Vector NewLocation, Object.Rotator NewRotation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public SceneCaptureCharacterComponent()

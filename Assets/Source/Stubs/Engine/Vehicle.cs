@@ -54,171 +54,172 @@ public partial class Vehicle : Pawn/*
 	
 	public override /*simulated function */void NotifyTeamChanged()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void DisplayDebug(HUD HUD, ref float out_YL, ref float out_YPos)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void Suicide()
 	{
-	
+		// stub
 	}
 	
 	// Export UVehicle::execGetTargetLocation(FFrame&, void* const)
 	public override /*native simulated function */Object.Vector GetTargetLocation(/*optional */Actor? _RequestedBy = default, /*optional */bool? _bRequestAlternateLoc = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void TakeRadiusDamage(Controller InstigatedBy, float BaseDamage, float DamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, bool bFullDamage, Actor DamageCauser)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DriverRadiusDamage(float DamageAmount, float DamageRadius, Controller EventInstigator, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HitLocation, Actor DamageCauser)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void PlayerChangedTeam()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void SetBaseEyeheight()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool CheatWalk()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool CheatGhost()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool CheatFly()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void Destroyed_HandleDriver()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool CanEnterVehicle(Pawn P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool AnySeatAvailable()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool TryToDrive(Pawn P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool DriverEnter(Pawn P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void PossessedBy(Controller C, bool bVehicleTransition)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void EntryAnnouncement(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void AttachDriver(Pawn P)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void DetachDriver(Pawn P)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool ContinueOnFoot()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool DriverLeave(bool bForceLeave)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void SetInputs(float InForward, float InStrafe, float InUp)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DriverLeft()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool PlaceExitingDriver(/*optional */Pawn? _ExitingDriver = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool FindAutoExit(Pawn ExitingDriver)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool TryExitPos(Pawn ExitingDriver, Object.Vector ExitPos, bool bMustFindGround)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void UnPossessed()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */Controller SetKillInstigator(Controller InstigatedBy, Core.ClassT<DamageType> DamageType)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -226,99 +227,99 @@ public partial class Vehicle : Pawn/*
 	public override TakeDamage_del global_TakeDamage => Vehicle_TakeDamage;
 	public /*event */void Vehicle_TakeDamage(int Damage, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AdjustDriverDamage(ref int Damage, Controller InstigatedBy, Object.Vector HitLocation, ref Object.Vector Momentum, Core.ClassT<DamageType> DamageType)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void ThrowActiveWeapon(/*optional */Core.ClassT<DamageType>? _DamageType = default)
 	{
-	
+		// stub
 	}
 	
 	public override Died_del Died { get => bfield_Died ?? Vehicle_Died; set => bfield_Died = value; } Died_del bfield_Died;
 	public override Died_del global_Died => Vehicle_Died;
 	public /*function */bool Vehicle_Died(Controller Killer, Core.ClassT<DamageType> DamageType, Object.Vector HitLocation)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void DriverDied()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void PlayDying(Core.ClassT<DamageType> DamageType, Object.Vector HitLoc)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */name GetDefaultCameraMode(PlayerController RequestedBy)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void FaceRotation(Object.Rotator NewRotation, float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void EncroachedBy(Actor Other)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */Controller GetCollisionDamageInstigator()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool EncroachingOn(Actor Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void CrushedBy(Pawn OtherPawn)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */Object.Vector GetEntryLocation()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void SetDriving(bool B)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void HandleDeadVehicleDriver()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void DrivingStatusChanged()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyDriverTakeHit(Controller InstigatedBy, Object.Vector HitLocation, int Damage, Core.ClassT<DamageType> DamageType, Object.Vector Momentum)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

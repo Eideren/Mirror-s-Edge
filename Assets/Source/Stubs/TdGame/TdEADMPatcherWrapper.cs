@@ -7,6 +7,7 @@ public partial class TdEADMPatcherWrapper : Object/*
 	public /*native function */static bool IsLocalVersionNewerThan(String RequiredVersion)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -14,6 +15,7 @@ public partial class TdEADMPatcherWrapper : Object/*
 	public /*native function */static String GetCDKey()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -21,6 +23,7 @@ public partial class TdEADMPatcherWrapper : Object/*
 	public /*native function */static int GetParamSuffix()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -28,6 +31,7 @@ public partial class TdEADMPatcherWrapper : Object/*
 	public /*native function */static bool IsEADMInstalled()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -35,6 +39,7 @@ public partial class TdEADMPatcherWrapper : Object/*
 	public /*native function */static void StartPatching()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 }

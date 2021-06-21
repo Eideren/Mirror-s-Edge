@@ -10,37 +10,37 @@ public partial class TdUIScene_AudioSettings : TdUIScene_OptionMenu/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void ResetSettingsToDefault()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void InitializeSettings()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SaveWidgetValues()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnAccept()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ApplyAudioSettings()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnOptionValueChanged(UIObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_AudioSettings()

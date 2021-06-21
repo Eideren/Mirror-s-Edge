@@ -13,67 +13,67 @@ public partial class TdOnScreenErrorHandler : TpOnScreenErrorHandler{
 	
 	public override /*function */void Tick(float DeltaSeconds)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void Initialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void Finalize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnConnectionChange(OnlineSubsystem.EOnlineServerConnectionStatus ConnectionStatus)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void HandleConnectionLost()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnConnectionChange_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnLoginChange()
 	{
-	
+		// stub
 	}
 	
 	public /*function */static void CheckRestartGame(UIDataStore_TdGameData.RebootReasonType Reason)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ShowCriticalErrorMessageBox(String UnLoc_Message)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnShowCriticalErrorMessageBox_Init(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCriticalErrorMessageBoxDone(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ShowErrorMessageBox(String UnLoc_Title, String UnLoc_Message)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnGeneralErrorMessageBox_Init(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 }

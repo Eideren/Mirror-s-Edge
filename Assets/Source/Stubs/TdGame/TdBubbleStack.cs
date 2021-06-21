@@ -23,39 +23,39 @@ public partial class TdBubbleStack : Object{
 	
 	public virtual /*function */void Initialize(bool StartValue, /*optional */int? _MaxDepth = default, /*optional */TdAIController? _DebugController = default, /*optional */name? _DebugFilter = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Reset()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool GetBool()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */name GetIdentifier()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void PushBool(bool flag, name Identifier, /*optional */bool? _bDebug = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PopBool(name Identifier, /*optional */bool? _bDebug = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */int FindIdentifier(name Identifier)
 	{
-	
+		// stub
 		return default;
 	}
 	

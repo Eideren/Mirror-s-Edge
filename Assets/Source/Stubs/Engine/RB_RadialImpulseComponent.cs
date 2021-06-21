@@ -15,6 +15,7 @@ public partial class RB_RadialImpulseComponent : PrimitiveComponent/*
 	public virtual /*native function */void FireImpulse(Object.Vector Origin)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public RB_RadialImpulseComponent()

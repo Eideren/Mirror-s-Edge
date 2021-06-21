@@ -5,12 +5,12 @@ public partial class TdMove_Disarmed_BossJK : TdMove_Disarmed_Boss/*
 		config(PawnMovement)*/{
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 }

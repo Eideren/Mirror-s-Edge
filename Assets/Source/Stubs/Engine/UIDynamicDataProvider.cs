@@ -13,6 +13,7 @@ public partial class UIDynamicDataProvider : UIPropertyDataProvider/*
 	public virtual /*native final function */bool BindProviderInstance(Object DataSourceInstance)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -20,34 +21,35 @@ public partial class UIDynamicDataProvider : UIPropertyDataProvider/*
 	public virtual /*native final function */bool UnbindProviderInstance()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void ProviderInstanceBound(Object DataSourceInstance)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void ProviderInstanceUnbound(Object DataSourceInstance)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool IsValidDataSourceClass(Class PotentialDataSourceClass)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */Object GetDataSource()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CleanupDataProvider()
 	{
-	
+		// stub
 		return default;
 	}
 	

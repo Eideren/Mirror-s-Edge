@@ -14,60 +14,60 @@ public partial class TdUIScene_ParentalEmail : TdUIScene_SubMenu/*
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Cancel(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_Continue(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_EditEditbox(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnCloseScene()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSceneClosed_UserAbort(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TryContinue()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSceneClosed_TryContinue(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnEditEditbox()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnKeyboardInput_Complete(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

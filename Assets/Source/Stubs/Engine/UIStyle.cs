@@ -18,6 +18,7 @@ public partial class UIStyle : UIRoot/* within UISkin*//*
 	public virtual /*native final function */UIStyle_Data GetStyleForState(UIState StateObject)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -25,12 +26,13 @@ public partial class UIStyle : UIRoot/* within UISkin*//*
 	public virtual /*native final function */UIStyle_Data GetStyleForStateByClass(Core.ClassT<UIState> StateClass)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*final event */UIStyle_Data GetDefaultStyle()
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -8,14 +8,14 @@ public partial class VolumeTimer : Info/*
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override Timer_del Timer { get => bfield_Timer ?? VolumeTimer_Timer; set => bfield_Timer = value; } Timer_del bfield_Timer;
 	public override Timer_del global_Timer => VolumeTimer_Timer;
 	public /*event */void VolumeTimer_Timer()
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

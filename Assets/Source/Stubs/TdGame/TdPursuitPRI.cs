@@ -13,17 +13,17 @@ public partial class TdPursuitPRI : TdBagPRI/*
 	
 	public override /*function */void OnUseCarriedObject(Actor inActor)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void ScoreInterceptedCarriedObject()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable client simulated function */void ClientBagRequested(Actor Requester)
 	{
-	
+		// stub
 	}
 	
 	public TdPursuitPRI()

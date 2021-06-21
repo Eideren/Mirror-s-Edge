@@ -12,6 +12,7 @@ public partial class SceneCapturePortalComponent : SceneCaptureComponent/*
 	public virtual /*native final function */void SetCaptureParameters(/*optional */TextureRenderTarget2D? _NewTextureTarget = default, /*optional */float? _NewScaleFOV = default, /*optional */Actor? _NewViewDest = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public SceneCapturePortalComponent()

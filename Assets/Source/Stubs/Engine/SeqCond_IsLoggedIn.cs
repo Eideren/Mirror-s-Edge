@@ -8,7 +8,7 @@ public partial class SeqCond_IsLoggedIn : SequenceCondition/*
 	
 	public virtual /*event */bool CheckLogins()
 	{
-	
+		// stub
 		return default;
 	}
 	

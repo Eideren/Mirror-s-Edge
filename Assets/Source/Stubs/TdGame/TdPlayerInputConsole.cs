@@ -22,38 +22,38 @@ public partial class TdPlayerInputConsole : TdPlayerInput/* within TdPlayerContr
 	
 	public override /*simulated function */void InitInputSystem(Class GameInfoClass)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void EnableAA()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void PreProcessInput(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool EqualSigns(float A, float B)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AimAssist(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PerformResponseMapping(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void ViewAcceleration(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public TdPlayerInputConsole()

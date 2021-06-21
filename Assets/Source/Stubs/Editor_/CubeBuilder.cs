@@ -14,12 +14,12 @@ public partial class CubeBuilder : BrushBuilder/*
 	
 	public virtual /*function */void BuildCube(int Direction, float DX, float DY, float dz, bool _tessellated)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool Build()
 	{
-	
+		// stub
 		return default;
 	}
 	

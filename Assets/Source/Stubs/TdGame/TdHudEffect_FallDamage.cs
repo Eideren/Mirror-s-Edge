@@ -17,7 +17,7 @@ public partial class TdHudEffect_FallDamage : TdHudEffect/*
 	
 	public override /*function */void ResetPP()
 	{
-	
+		// stub
 	}
 	
 	public TdHudEffect_FallDamage()

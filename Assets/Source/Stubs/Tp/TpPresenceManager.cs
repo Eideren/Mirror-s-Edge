@@ -26,6 +26,7 @@ public partial class TpPresenceManager : TpSystemHandler/*
 	public virtual /*native simulated function */TpSystemBase.TpPresence GetPresence(OnlineSubsystem.UniqueNetId User)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -33,6 +34,7 @@ public partial class TpPresenceManager : TpSystemHandler/*
 	public virtual /*native simulated function */TpSystemBase.TpPresence GetLocalPresence()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -40,6 +42,7 @@ public partial class TpPresenceManager : TpSystemHandler/*
 	public virtual /*native simulated function */void SetPresence(byte LocalUserNum, int StatusId, int ContextId, int ContextValue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnPresenceUpdated();

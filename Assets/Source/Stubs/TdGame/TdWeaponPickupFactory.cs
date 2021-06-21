@@ -14,17 +14,17 @@ public partial class TdWeaponPickupFactory : PickupFactory/*
 	
 	public override /*simulated function */void PreBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void PickupClassChanged()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public TdWeaponPickupFactory()

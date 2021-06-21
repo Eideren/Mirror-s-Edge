@@ -18,36 +18,37 @@ public partial class LensFlareSource : Actor/*
 	public virtual /*native final function */void SetTemplate(LensFlare NewTemplate)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetFloatParameter(name ParameterName, float Param)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetVectorParameter(name ParameterName, Object.Vector Param)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetColorParameter(name ParameterName, Object.LinearColor Param)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetExtColorParameter(name ParameterName, float Red, float Green, float Blue, float Alpha)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetActorParameter(name ParameterName, Actor Param)
 	{
-	
+		// stub
 	}
 	
 	public LensFlareSource()

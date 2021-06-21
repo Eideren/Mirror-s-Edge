@@ -11,7 +11,7 @@ public partial class SceneCaptureReflectActor : SceneCaptureActor/*
 	
 	public override /*function */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public SceneCaptureReflectActor()

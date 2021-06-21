@@ -13,6 +13,7 @@ public partial class UIAnimationSeq : UIAnimation/*
 	public virtual /*native function */void ApplyAnimation(UIObject TargetWidget, int TrackIndex, float Position, int LFI, int NFI, UIAnimation.UIAnimSeqRef AnimRefInst)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 }

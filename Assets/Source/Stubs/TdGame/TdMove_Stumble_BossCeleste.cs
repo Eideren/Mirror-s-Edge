@@ -5,22 +5,22 @@ public partial class TdMove_Stumble_BossCeleste : TdMove_StumbleBot/*
 		config(PawnMovement)*/{
 	public override /*simulated function */void PlayStumbleAnimation()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnTimer()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 }

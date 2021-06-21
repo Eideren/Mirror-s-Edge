@@ -26,24 +26,26 @@ public partial class SequenceObject : Object/*
 	public virtual /*native final function */void ScriptLog(String LogText, /*optional */bool? _bWarning = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USequenceObject::execGetWorldInfo(FFrame&, void* const)
 	public virtual /*native final function */WorldInfo GetWorldInfo()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool IsValidLevelSequenceObject()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

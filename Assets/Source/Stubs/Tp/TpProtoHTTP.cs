@@ -11,12 +11,14 @@ public partial class TpProtoHTTP : TpSystemHandler/*
 	public virtual /*native simulated function */void Update(float DeltaSeconds)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpProtoHTTP::execGetCurrentVersion(FFrame&, void* const)
 	public virtual /*native simulated function */void GetCurrentVersion(/*optional */String? _Param = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnGetVersion(String Version);

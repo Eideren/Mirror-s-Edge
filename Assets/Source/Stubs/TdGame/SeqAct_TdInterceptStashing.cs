@@ -7,7 +7,7 @@ public partial class SeqAct_TdInterceptStashing : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdInterceptStashing()

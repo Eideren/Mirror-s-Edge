@@ -23,59 +23,59 @@ public partial class TdProj_Grenade : TdProjectile/*
 	
 	public override /*simulated function */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void Init(Object.Vector Direction)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void ActivateCollision()
 	{
-	
+		// stub
 	}
 	
 	public override RigidBodyCollision_del RigidBodyCollision { get => bfield_RigidBodyCollision ?? TdProj_Grenade_RigidBodyCollision; set => bfield_RigidBodyCollision = value; } RigidBodyCollision_del bfield_RigidBodyCollision;
 	public override RigidBodyCollision_del global_RigidBodyCollision => TdProj_Grenade_RigidBodyCollision;
 	public /*event */void TdProj_Grenade_RigidBodyCollision(PrimitiveComponent HitComponent, PrimitiveComponent OtherComponent, /*const */ref Actor.CollisionImpactData RigidCollisionData, int ContactIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void DoExplosion()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void DestroyTheProjectile(ParticleSystemComponent PSC)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void HideProjectile()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void WarnProjExplode()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void Explode(Object.Vector HitLocation, Object.Vector HitNormal)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void GrenadeExplosion(Object.Vector HitLocation, Object.Vector HitNormal, bool bOnGround)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

@@ -31,44 +31,44 @@ public partial class TdGhostPawnBase : TdPawn/*
 	
 	public virtual /*simulated function */void ActivateGhostEffects()
 	{
-	
+		// stub
 	}
 	
 	public override Tick_del Tick { get => bfield_Tick ?? TdGhostPawnBase_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdGhostPawnBase_Tick;
 	public /*simulated function */void TdGhostPawnBase_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void RotateSmooth(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void SetShowGhost(bool bShow)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void ActuallyPlayFootParticleEffect(int FootDown, Actor.TraceHitInfo HitInfo, /*optional */Object.Vector? _HitLoc = default, /*optional */Object.Vector? _HitNormal = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */bool IsSameTeam(Pawn Other)
 	{
-	
+		// stub
 		return default;
 	}
 	protected override void RestoreDefaultFunction()

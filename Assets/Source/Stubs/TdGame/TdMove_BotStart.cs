@@ -39,59 +39,59 @@ public partial class TdMove_BotStart : TdPhysicsMove/*
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetInitialValues()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool GoingStraightForwards()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void StartWalkingWithFocus()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void StartRunning()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */float GetSyncOffset(TdMove_BotStart.LegOffsetType Offset)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void RootRotationCompletedNotify()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCeaseRelevantRootMotion(AnimNodeSequence SeqNode)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnAnimationStopped(AnimNodeSequence SeqNode)
 	{
-	
+		// stub
 	}
 	
 	public TdMove_BotStart()

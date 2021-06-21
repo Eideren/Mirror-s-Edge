@@ -11,7 +11,7 @@ public partial class UIAction_InsertPage : UIAction_TabControl/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public UIAction_InsertPage()

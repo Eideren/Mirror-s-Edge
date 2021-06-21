@@ -9,7 +9,7 @@ public partial class SeqAct_TdAddAdditionalAnimSets : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdAddAdditionalAnimSets()

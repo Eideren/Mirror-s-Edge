@@ -5,7 +5,7 @@ public partial class UIAction_GetActivePage : UIAction_GetPageReference/*
 		hidecategories(Object)*/{
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public UIAction_GetActivePage()

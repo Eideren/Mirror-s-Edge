@@ -8,7 +8,7 @@ public partial class TdUIComp_TutorialListPresenter : TdUIComp_ImageListPresente
 	
 	public override /*event */void DrawElement(Canvas Canvas, int ElementIndex, UIRoot.RenderParameters Parameters, bool bElementIsSelected)
 	{
-	
+		// stub
 	}
 	
 	public TdUIComp_TutorialListPresenter()

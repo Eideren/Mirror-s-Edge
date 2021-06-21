@@ -10,6 +10,7 @@ public partial class UIDataStore_TdGameResource : UIDataStore_GameResource/*
 	public virtual /*native function */int GetProviderCount(name FieldName, /*optional */bool? _bDoNotFilter = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -17,6 +18,7 @@ public partial class UIDataStore_TdGameResource : UIDataStore_GameResource/*
 	public virtual /*native function */bool GetValueFromProviderSet(name ProviderFieldName, name SearchTag, int ListIndex, ref UIRoot.UIProviderFieldValue OutValue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -24,6 +26,7 @@ public partial class UIDataStore_TdGameResource : UIDataStore_GameResource/*
 	public virtual /*native function */bool GetStringValueFromProviderSet(name ProviderFieldName, name SearchTag, int ListIndex, ref String OutString)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

@@ -5,7 +5,7 @@ public partial class TdMove_BargeBot : TdMove_Barge/*
 		config(PawnMovement)*/{
 	public override /*function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	

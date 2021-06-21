@@ -8,7 +8,7 @@ public partial class UIAction_FindPageByCaption : UIAction_GetPageReference/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public UIAction_FindPageByCaption()

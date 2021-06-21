@@ -115,6 +115,7 @@ public partial class NavigationPoint : Actor/*
 	public virtual /*native final function */int Usage()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -122,18 +123,21 @@ public partial class NavigationPoint : Actor/*
 	public virtual /*native final function */void Occupy(Controller NewUser)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UNavigationPoint::execUnoccupy(FFrame&, void* const)
 	public virtual /*native final function */void Unoccupy(Controller OldUser)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UNavigationPoint::execHasVisibilityTo(FFrame&, void* const)
 	public virtual /*native function */bool HasVisibilityTo(Object.Vector Offset, NavigationPoint Other, Object.Vector otherOffset)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -141,6 +145,7 @@ public partial class NavigationPoint : Actor/*
 	public virtual /*native function */bool CanBeSeenFrom(Object.Vector Offset, NavigationPoint Other, Object.Vector otherOffset)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -148,6 +153,7 @@ public partial class NavigationPoint : Actor/*
 	public virtual /*native final function */bool SeenFrom(/*const */NavigationPoint Other)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -155,6 +161,7 @@ public partial class NavigationPoint : Actor/*
 	public virtual /*native final function */bool CanSee(/*const */NavigationPoint Other)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -162,12 +169,14 @@ public partial class NavigationPoint : Actor/*
 	public override /*native function */void GetBoundingCylinder(ref float CollisionRadius, ref float CollisionHeight)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UNavigationPoint::execGetReachSpecTo(FFrame&, void* const)
 	public virtual /*native final function */ReachSpec GetReachSpecTo(NavigationPoint Nav)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -175,18 +184,19 @@ public partial class NavigationPoint : Actor/*
 	public virtual /*native function */bool CanTeleport(Actor A)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */int SpecialCost(Pawn Seeker, ReachSpec Path)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool Accept(Actor Incoming, Actor Source)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -195,37 +205,37 @@ public partial class NavigationPoint : Actor/*
 	public virtual DetourWeight_del global_DetourWeight => NavigationPoint_DetourWeight;
 	public /*event */float NavigationPoint_DetourWeight(Pawn Other, float PathWeight)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool SuggestMovePreparation(Pawn Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ProceedWithMove(Pawn Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsAvailableTo(Actor chkActor)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final function */static NavigationPoint GetNearestNavToActor(Actor chkActor, /*optional */Core.ClassT<NavigationPoint>? _RequiredClass = default, /*optional */array<NavigationPoint>? _ExcludeList = default, /*optional */float? _MinDist = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final function */static NavigationPoint GetNearestNavToPoint(Actor chkActor, Object.Vector ChkPoint, /*optional */Core.ClassT<NavigationPoint>? _RequiredClass = default, /*optional */array<NavigationPoint>? _ExcludeList = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -233,17 +243,18 @@ public partial class NavigationPoint : Actor/*
 	public /*native final function */static bool GetAllNavInRadius(Actor chkActor, Object.Vector ChkPoint, float Radius, ref array<NavigationPoint> out_NavList, /*optional */bool? _bSkipBlocked = default, /*optional */int? _inNetworkID = default, /*optional */Object.Cylinder? _MinSize = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnToggle(SeqAct_Toggle inAction)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */bool OnMatchingNetworks(NavigationPoint Nav)
 	{
-	
+		// stub
 		return default;
 	}
 	protected override void RestoreDefaultFunction()

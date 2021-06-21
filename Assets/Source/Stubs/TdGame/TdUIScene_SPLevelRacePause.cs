@@ -6,28 +6,28 @@ public partial class TdUIScene_SPLevelRacePause : TdUIScene_SPPause/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public override /*function */bool HandleOptionButton(UILabelButton OptionButton)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void Restart_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void NotifyRestartMsgBox_OptionSelected(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnRestart_Confirm(TdUIScene_MessageBox MsgBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnRestartRace()
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_SPLevelRacePause()

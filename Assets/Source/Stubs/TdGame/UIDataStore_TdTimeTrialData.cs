@@ -90,6 +90,7 @@ public partial class UIDataStore_TdTimeTrialData : UIDataStore_TdGameResource/*
 	public virtual /*native function */String GetStretchMapFilename(int ProviderIndex, name FieldName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -97,6 +98,7 @@ public partial class UIDataStore_TdTimeTrialData : UIDataStore_TdGameResource/*
 	public virtual /*native function */int GetStretchId(int ProviderIndex, name FieldName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -104,6 +106,7 @@ public partial class UIDataStore_TdTimeTrialData : UIDataStore_TdGameResource/*
 	public virtual /*native function */int GetStretchIdFromName(name StretchName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -111,290 +114,291 @@ public partial class UIDataStore_TdTimeTrialData : UIDataStore_TdGameResource/*
 	public virtual /*native function */int GetStretchProviderIndexFromId(int StretchId, name FieldName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetStretchReadParams(int ControllerId, int StretchProviderIndex, name FieldName, /*optional */OnlineSubsystem.UniqueNetId? _PlayerNetId = default, /*optional */String? _PlayerName = default, /*optional */TdLeaderboardSettings.ETdTimeFilterSettings? _TimeFrame = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */name GetCurrentWorkingStretchNameId()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int GetCurrentWorkingStretchProviderIndex()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int GetCurrentWorkingStretchId()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetRaceModeId(int RaceMode)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */int GetRaceModeId()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ClearCaches()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitCaches()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ReInit(int ControllerId)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void Registered(LocalPlayer P)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void Unregistered(LocalPlayer P)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnConnectionChange(OnlineSubsystem.EOnlineServerConnectionStatus ConnectionStatus)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnLoginChange()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool NotifyGameSessionEnded()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ReadDataForStretch(bool bInReadOnline, /*delegate*/UIDataStore_TdTimeTrialData.OnTimeDataReadCompleted OnReadCompleted)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ReadFullDataForStretch(bool bInReadOnline, /*delegate*/UIDataStore_TdTimeTrialData.OnTimeDataReadCompleted OnReadCompleted)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool StartReadDataForStretch(/*delegate*/UIDataStore_TdTimeTrialData.OnTimeDataReadCompleted OnReadCompleted)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ReadOfflinePlayerBestForAllStretchs()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */bool ReadOfflineDataForStretch()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void SetStartReadState()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void PrepareReadRequest(TdOnlineStatsRead StatsRead, /*delegate*/UIDataStore_TdTimeTrialData.ReadResultParser ResultParser, bool bIndefinite, bool bMonthly, bool bWeekly)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void RunReadRequests(bool bSuccess)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void BreakStatsRead()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void FinishTimeDataRead(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */bool RequestForMeAndFriendsForUI()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool RequestWorldsBestForUI()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool RequestForMeAndFriends()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool RequestWorldsBest()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool RequestMyWeekly()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool RequestMyMonthly()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool RequestWorldsWeekly()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool RequestWorldsMonthly()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool RequestWeeklyGhostCutoff()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool RequestMonthlyGhostCutoff()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool RequestLeaderboardEntry()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool RequestPlayerTimeAllStretches()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void ParseMeAndFriendsDataForUI(TdOnlineStatsRead StatResult)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ParseWorldsBestDataForUI(TdOnlineStatsRead StatResult)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ParseMeAndFriendsData(TdOnlineStatsRead StatResult)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ParseWorldsBestData(TdOnlineStatsRead StatResult)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ParseMyWeeklyData(TdOnlineStatsRead StatResult)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ParseMyMonthlyData(TdOnlineStatsRead StatResult)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ParseWorldsWeeklyData(TdOnlineStatsRead StatResult)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ParseWorldsMonthlyData(TdOnlineStatsRead StatResult)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ParseWeeklyGhostCutoffData(TdOnlineStatsRead StatResult)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ParseMonthlyGhostCutoffData(TdOnlineStatsRead StatResult)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ParseLeaderboardEntryData(TdOnlineStatsRead StatResult)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ParsePlayerTimeAllStretches(TdOnlineStatsRead StatResult)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ClearTimeData()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */TdTTInput.TTData GetTargetRaceData()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */TdTTResult GetTimeTrialResult()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int CalculateRating(float TotalTime)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -402,22 +406,22 @@ public partial class UIDataStore_TdTimeTrialData : UIDataStore_TdGameResource/*
 	
 	public virtual /*function */void OpenGhost(/*delegate*/UIDataStore_TdTimeTrialData.OnOpenGhostComplete OpenComplete)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SaveGhost(int StretchId, String PlayerName, float TotalTime, bool bStoreOnline, TdGhostManager InGhostManager, /*delegate*/UIDataStore_TdTimeTrialData.OnSaveGhostComplete SaveComplete)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SaveGhostComplete(TdGhostStorageManager.EGhostStorageResult Result, int GhostTag)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OpenGhostComplete(TdGhostStorageManager.EGhostStorageResult Result, TdGhost Ghost)
 	{
-	
+		// stub
 	}
 	
 	public UIDataStore_TdTimeTrialData()

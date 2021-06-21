@@ -19,52 +19,53 @@ public partial class TdUIScene_ControlsSettings : TdUIScene_OptionMenu/*
 	public virtual /*native function */bool GetKeyBindingsData(ref array<UIDataProvider_TdKeyBinding> LabelData)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void InitWidgets()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void HideChild(name ChildName)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void ResetSettingsToDefault()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void InitializeSettings()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnOptionValueChanged(UIObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void UpdateFocusLabelState(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetControllerButtonTags()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetControllerButtonLabel(String KeyName, String Str)
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_ControlsSettings()

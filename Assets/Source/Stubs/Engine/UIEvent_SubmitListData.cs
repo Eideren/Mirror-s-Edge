@@ -8,7 +8,7 @@ public partial class UIEvent_SubmitListData : UIEvent_SubmitData/*
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

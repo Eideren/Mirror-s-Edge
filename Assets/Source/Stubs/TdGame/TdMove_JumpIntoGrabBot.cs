@@ -9,22 +9,22 @@ public partial class TdMove_JumpIntoGrabBot : TdMove_AISpecialMove/*
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReachedPreciseLocation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated event */void PrepareForGrab()
 	{
-	
+		// stub
 	}
 	
 	public TdMove_JumpIntoGrabBot()

@@ -9,17 +9,17 @@ public partial class TetrahedronBuilder : BrushBuilder/*
 	
 	public virtual /*function */void Extrapolate(int A, int B, int C, int Count, float InRadius)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void BuildTetrahedron(float R, int InSphereExtrapolation)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool Build()
 	{
-	
+		// stub
 		return default;
 	}
 	

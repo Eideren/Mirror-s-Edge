@@ -11,22 +11,22 @@ public partial class ScriptConsoleEntry : UIPanel/*
 	
 	public override /*event */void Initialized()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetValue(String NewValue)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCreateChild(UIObject CreatedWidget, UIScreenObject CreatorContainer)
 	{
-	
+		// stub
 	}
 	
 	public ScriptConsoleEntry()

@@ -14,69 +14,69 @@ public partial class TdUITabPage_UnlockedVideos : TdUITabPage/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void LinkSceneWidgets()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnVideosList_ValueChanged(UIObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TickPreviewImageUnlock(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RefreshPreviewImage()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RefreshButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Back(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_Play(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void GetPathFromResourceParm(ref String VideoPath, ref String ImagePath)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PlayMovie()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnWriteProfileSettings_Complete(bool bSuccess)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void VideosList_OnSubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

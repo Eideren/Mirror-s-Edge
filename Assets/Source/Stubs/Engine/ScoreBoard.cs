@@ -10,23 +10,23 @@ public partial class ScoreBoard : HUD/*
 	
 	public override /*function */void DrawHUD()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool UpdateGRI()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void UpdateScoreBoard()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ChangeState(bool bIsVisible)
 	{
-	
+		// stub
 	}
 	
 }

@@ -24,28 +24,28 @@ public partial class Trigger : Actor/*
 	public override Touch_del global_Touch => Trigger_Touch;
 	public /*event */void Trigger_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UnTrigger()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */bool StopsProjectile(Projectile P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void CreateCheckpointRecord(ref Trigger.CheckpointRecord Record)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ApplyCheckpointRecord(/*const */ref Trigger.CheckpointRecord Record)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

@@ -11,6 +11,7 @@ public partial class UIDataProvider_TdStringArray : UIDataProvider_TdSimpleEleme
 	public override /*native function */int GetElementCount()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

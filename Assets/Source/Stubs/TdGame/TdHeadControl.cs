@@ -41,17 +41,17 @@ public partial class TdHeadControl : Object/*
 	
 	public virtual /*function */void Initialize(TdBotPawn OwnerPawn)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ToggleEyelids()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AddSpecialOutput(ref String Text)
 	{
-	
+		// stub
 	}
 	
 	public TdHeadControl()

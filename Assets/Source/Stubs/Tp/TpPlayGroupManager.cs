@@ -22,6 +22,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	public virtual /*native simulated function */bool IsInPlayGroup()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -29,6 +30,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	public virtual /*native simulated function */bool IsPlayGroupOwner()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -36,6 +38,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	public virtual /*native simulated function */array<OnlineSubsystem.PlayGroupListEntry> GetMyPlayGroupList()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -43,6 +46,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	public virtual /*native simulated function */void CreatePlayGroupAsync(OnlineSubsystem.PlayGroupCreateParams Params)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnPlayGroupCreated(bool bInOk);
@@ -51,6 +55,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	public virtual /*native simulated function */void JoinPlayGroupAsync(OnlineSubsystem.UniqueNetId UserId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnPlayGroupJoined(bool bInOk);
@@ -61,6 +66,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	public virtual /*native simulated function */void BroadCastChatMessageAsync(String Message)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnPlayGroupChatMessageReceived(OnlineSubsystem.UniqueNetId SenderId, String Message);
@@ -69,6 +75,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	public virtual /*native simulated function */void DestroyPlayGroupAsync()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnPlayGroupDestroyed();
@@ -77,6 +84,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	public virtual /*native simulated function */void KickMemberAsync(OnlineSubsystem.UniqueNetId UserId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnPlayGroupKicked();
@@ -85,6 +93,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	public virtual /*native simulated function */void LeavePlayGroupAsync()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnLeavePlayGroupComplete();
@@ -95,6 +104,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	public virtual /*native simulated function */void TransferOwnerShipAsync(OnlineSubsystem.UniqueNetId NewOwnerId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnPlayGroupOwnerTransitionStart();

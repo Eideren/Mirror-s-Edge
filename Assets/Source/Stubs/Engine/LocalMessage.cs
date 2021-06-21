@@ -17,72 +17,72 @@ public partial class LocalMessage : Object/*
 	
 	public /*simulated function */static SoundCue Get3DAnnouncementSound(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static int GetMessageArea(/*optional */int? _Switch = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static void ClientReceive(PlayerController P, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
-	
+		// stub
 	}
 	
 	public /*function */static String GetString(/*optional */int? _Switch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static Object.Color GetConsoleColor(PlayerReplicationInfo RelatedPRI_1)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static Object.Color GetColor(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static float GetPos(int Switch, HUD myHUD)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static int GetFontSize(int Switch, PlayerReplicationInfo RelatedPRI1, PlayerReplicationInfo RelatedPRI2, PlayerReplicationInfo LocalPlayer)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static float GetLifeTime(int Switch)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static bool IsConsoleMessage(int Switch)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static bool IsKeyObjectiveMessage(int Switch)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static bool PartiallyDuplicates(int Switch1, int Switch2, Object OptionalObject1, Object OptionalObject2)
 	{
-	
+		// stub
 		return default;
 	}
 	

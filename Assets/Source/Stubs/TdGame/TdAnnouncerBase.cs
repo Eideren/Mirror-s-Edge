@@ -12,17 +12,17 @@ public partial class TdAnnouncerBase : Info/*
 	
 	public override /*function */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public /*function */static void Play3DLocationalAnnouncement(Actor Announcer, Core.ClassT<LocalMessage> InMessageClass, int Switch, bool bReplicateToGhosts, bool bReplicateToOwner, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PlayAnnouncement(Core.ClassT<TdLocalMessage> InMessageClass, SoundNodeWave Announcement)
 	{
-	
+		// stub
 	}
 	
 	public TdAnnouncerBase()

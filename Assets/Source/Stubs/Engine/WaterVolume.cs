@@ -14,24 +14,24 @@ public partial class WaterVolume : PhysicsVolume/*
 	public override Touch_del global_Touch => WaterVolume_Touch;
 	public /*simulated event */void WaterVolume_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PlayEntrySplash(Actor Other)
 	{
-	
+		// stub
 	}
 	
 	public override UnTouch_del UnTouch { get => bfield_UnTouch ?? WaterVolume_UnTouch; set => bfield_UnTouch = value; } UnTouch_del bfield_UnTouch;
 	public override UnTouch_del global_UnTouch => WaterVolume_UnTouch;
 	public /*event */void WaterVolume_UnTouch(Actor Other)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PlayExitSplash(Actor Other)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

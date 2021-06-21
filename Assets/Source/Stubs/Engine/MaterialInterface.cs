@@ -30,6 +30,7 @@ public partial class MaterialInterface : Surface/*
 	public virtual /*native final function */Material GetMaterial()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -37,6 +38,7 @@ public partial class MaterialInterface : Surface/*
 	public virtual /*native final function */PhysicalMaterial GetPhysicalMaterial()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -44,6 +46,7 @@ public partial class MaterialInterface : Surface/*
 	public virtual /*native function */bool GetFontParameterValue(name ParameterName, ref Font OutFontValue, ref int OutFontPage)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -51,6 +54,7 @@ public partial class MaterialInterface : Surface/*
 	public virtual /*native function */bool GetScalarParameterValue(name ParameterName, ref float OutValue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -58,6 +62,7 @@ public partial class MaterialInterface : Surface/*
 	public virtual /*native function */bool GetScalarCurveParameterValue(name ParameterName, ref Object.InterpCurveFloat OutValue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -65,6 +70,7 @@ public partial class MaterialInterface : Surface/*
 	public virtual /*native function */bool GetTextureParameterValue(name ParameterName, ref Texture OutValue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -72,6 +78,7 @@ public partial class MaterialInterface : Surface/*
 	public virtual /*native function */bool GetVectorParameterValue(name ParameterName, ref Object.LinearColor OutValue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -79,6 +86,7 @@ public partial class MaterialInterface : Surface/*
 	public virtual /*native function */bool GetVectorCurveParameterValue(name ParameterName, ref Object.InterpCurveVector OutValue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

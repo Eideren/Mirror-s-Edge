@@ -12,59 +12,59 @@ public partial class TdMove_BotTurnRunning : TdPhysicsMove/*
 	
 	public override /*function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StartTurn()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetRotationCompensationRate(float AnimationRootRotationAngle)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */float GetTurnAngle()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AdjustRotation()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void RootRotationCompletedNotify()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCeaseRelevantRootMotion(AnimNodeSequence SeqNode)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnAnimationStopped(AnimNodeSequence SeqNode)
 	{
-	
+		// stub
 	}
 	
 }

@@ -20,6 +20,7 @@ public partial class Commandlet : Object/*
 	public virtual /*native event */int Main(String Params)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

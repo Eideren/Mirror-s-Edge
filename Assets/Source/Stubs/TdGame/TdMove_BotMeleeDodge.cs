@@ -14,34 +14,34 @@ public partial class TdMove_BotMeleeDodge : TdMove/*
 	
 	public override /*function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsThereRoomForMove(TdMove_BotMeleeDodge.EMeleeDodgeType MoveToDo)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void TriggerMove(TdMove_BotMeleeDodge.EMeleeDodgeType MoveToDo)
 	{
-	
+		// stub
 	}
 	
 }

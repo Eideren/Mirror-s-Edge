@@ -17,28 +17,31 @@ public partial class UINumericEditBox : UIEditBox/*
 	public virtual /*native final function */void IncrementValue(UIScreenObject Sender, int PlayerIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUINumericEditBox::execDecrementValue(FFrame&, void* const)
 	public virtual /*native final function */void DecrementValue(UIScreenObject Sender, int PlayerIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*event */void Initialized()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	// Export UUINumericEditBox::execSetNumericValue(FFrame&, void* const)
 	public virtual /*native final function */bool SetNumericValue(float NewValue, /*optional */bool? _bForceRefreshString = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -46,6 +49,7 @@ public partial class UINumericEditBox : UIEditBox/*
 	public virtual /*native final function */float GetNumericValue()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

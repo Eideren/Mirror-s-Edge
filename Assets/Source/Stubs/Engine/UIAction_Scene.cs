@@ -9,7 +9,7 @@ public partial class UIAction_Scene : UIAction/*
 	
 	public override /*event */bool IsValidLevelSequenceObject()
 	{
-	
+		// stub
 		return default;
 	}
 	

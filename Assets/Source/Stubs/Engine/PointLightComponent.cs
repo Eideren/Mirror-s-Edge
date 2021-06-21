@@ -23,6 +23,7 @@ public partial class PointLightComponent : LightComponent/*
 	public virtual /*native final function */void SetTranslation(Object.Vector NewTranslation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public PointLightComponent()

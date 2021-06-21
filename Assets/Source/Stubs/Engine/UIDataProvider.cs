@@ -36,45 +36,45 @@ public partial class UIDataProvider : UIRoot/*
 	
 	public virtual /*event */void NotifyPropertyChanged(/*optional */name? _PropTag = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected final function */void AddPropertyNotificationChangeRequest(/*delegate*/UIDataProvider.OnDataProviderPropertyChange InDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected final function */void RemovePropertyNotificationChangeRequest(/*delegate*/UIDataProvider.OnDataProviderPropertyChange InDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void GetSupportedScriptFields(ref array<UIDataProvider.UIDataProviderField> out_Fields)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool GetFieldValue(String FieldName, ref UIRoot.UIProviderScriptFieldValue FieldValue, /*optional */int? _ArrayIndex = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool SetFieldValue(String FieldName, /*const */ref UIRoot.UIProviderScriptFieldValue FieldValue, /*optional */int? _ArrayIndex = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */String GenerateScriptMarkupString(name DataTag)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */String GenerateFillerData(String DataTag)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -82,6 +82,7 @@ public partial class UIDataProvider : UIRoot/*
 	public virtual /*native function */bool GetFieldValueFromScript(String FieldName, ref UIRoot.UIProviderFieldValue FieldValue, /*optional */int? _ArrayIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

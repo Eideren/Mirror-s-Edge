@@ -36,12 +36,14 @@ public partial class UIComboBox : UIObject,
 	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIComboBox::execGetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -49,6 +51,7 @@ public partial class UIComboBox : UIObject,
 	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -56,97 +59,101 @@ public partial class UIComboBox : UIObject,
 	public virtual /*native final function */void NotifyDataStoreValueUpdated(UIDataStore SourceDataStore, bool bValuesInvalidated, name PropertyTag, UIDataProvider SourceProvider, int ArrayIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIComboBox::execGetBoundDataStores(FFrame&, void* const)
 	public virtual /*native function */void GetBoundDataStores(ref array<UIDataStore> out_BoundDataStores)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIComboBox::execClearBoundDataStores(FFrame&, void* const)
 	public virtual /*native function */void ClearBoundDataStores()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIComboBox::execSaveSubscriberValue(FFrame&, void* const)
 	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void SetVisibility(bool bIsVisible)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void ShowList(/*optional */int? _PlayerIndex = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void HideList(/*optional */int? _PlayerIndex = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetEditboxText(String NewText, int PlayerIndex, /*optional */bool? _bListItemsOnly = default, /*optional */bool? _bSkipNotification = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */bool IsListDockedToButton()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetListDocking(bool bDockToButton)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void EditboxPressed(UIScreenObject EventObject, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ButtonPressed(UIScreenObject EventObject, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShowListClickHandler(UIScreenObject EventObject, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void EditboxTextChanged(UIObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SelectedItemChanged(UIObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ListItemSelected(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnGetTextValue(UIAction_GetTextValue Action)
 	{
-	
+		// stub
 	}
 	
 	public UIComboBox()

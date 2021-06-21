@@ -48,30 +48,30 @@ public partial class TdVehicle_Helicopter : SVehicle/*
 	
 	public virtual /*function */void Initialize(TdAI_HeliController C)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */int AddGunner(Pawn Pawn)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */Pawn GetGunner(int Index)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int GetNumberOfGunners()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void StartDustEffect()
 	{
-	
+		// stub
 	}
 	
 	public TdVehicle_Helicopter()

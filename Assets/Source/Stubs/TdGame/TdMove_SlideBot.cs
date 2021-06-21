@@ -11,22 +11,22 @@ public partial class TdMove_SlideBot : TdMove_AISpecialMove/*
 	
 	public virtual /*simulated function */void SetEndTarget(Object.Vector P)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void AbortSlide()
 	{
-	
+		// stub
 	}
 	
 	public TdMove_SlideBot()

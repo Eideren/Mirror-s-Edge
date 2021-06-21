@@ -16,74 +16,74 @@ public partial class TdUITabPage_UnlockedArtwork : TdUITabPage/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void LinkSceneWidgets()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnArtworkList_ValueChanged(UIObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TickArtworkUnlock(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RefreshArtworkImage()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RefreshButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Back(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_View(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ViewImage()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnImageSceneOpened(UIScene ActivatedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnImageSceneFullyOpened(UIScene OpenedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnWriteProfileSettings_Complete(bool bSuccess)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ArtworkList_OnSubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

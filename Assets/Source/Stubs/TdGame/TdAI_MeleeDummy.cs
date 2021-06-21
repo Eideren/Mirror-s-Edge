@@ -9,7 +9,7 @@ public partial class TdAI_MeleeDummy : TdAI_Dummy/*
 	
 	public override /*event */void NotifyEnemyVisibilityChange(bool visible)
 	{
-	
+		// stub
 	}
 	
 	public delegate void TestMelee_del();
@@ -17,14 +17,14 @@ public partial class TdAI_MeleeDummy : TdAI_Dummy/*
 	public virtual TestMelee_del global_TestMelee => TdAI_MeleeDummy_TestMelee;
 	public /*function */void TdAI_MeleeDummy_TestMelee()
 	{
-	
+		// stub
 	}
 	
 	public override TestCombatTransitions_del TestCombatTransitions { get => bfield_TestCombatTransitions ?? TdAI_MeleeDummy_TestCombatTransitions; set => bfield_TestCombatTransitions = value; } TestCombatTransitions_del bfield_TestCombatTransitions;
 	public override TestCombatTransitions_del global_TestCombatTransitions => TdAI_MeleeDummy_TestCombatTransitions;
 	public /*function */void TdAI_MeleeDummy_TestCombatTransitions()
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{
@@ -35,17 +35,17 @@ public partial class TdAI_MeleeDummy : TdAI_Dummy/*
 	
 	protected /*function */void TdAI_MeleeDummy_WaitToMelee_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_MeleeDummy_WaitToMelee_ContinuedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_MeleeDummy_WaitToMelee_TestMelee()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) WaitToMelee()/*auto state WaitToMelee extends TdState*/

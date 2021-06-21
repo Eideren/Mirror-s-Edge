@@ -30,18 +30,21 @@ public partial class LensFlareComponent : PrimitiveComponent/*
 	public virtual /*native final function */void SetTemplate(LensFlare NewTemplate)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export ULensFlareComponent::execSetSourceColor(FFrame&, void* const)
 	public virtual /*native function */void SetSourceColor(Object.LinearColor InSourceColor)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export ULensFlareComponent::execSetIsActive(FFrame&, void* const)
 	public virtual /*native function */void SetIsActive(bool bInIsActive)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public LensFlareComponent()

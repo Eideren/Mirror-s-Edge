@@ -5,7 +5,7 @@ public partial class TdMove_Melee_BossCeleste : TdMove_PursuitMelee/*
 		config(AIMeleeAttacks)*/{
 	public override /*function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	

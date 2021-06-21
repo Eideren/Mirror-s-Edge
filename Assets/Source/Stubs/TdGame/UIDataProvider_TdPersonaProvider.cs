@@ -11,12 +11,12 @@ public partial class UIDataProvider_TdPersonaProvider : UIDataProvider_TdResourc
 	
 	public virtual /*event */void OnRegister(LocalPlayer InPlayer)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnUnregister()
 	{
-	
+		// stub
 	}
 	
 }

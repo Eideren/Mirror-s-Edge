@@ -9,12 +9,12 @@ public partial class TdCoverGroupVolume : Volume/*
 	
 	public override /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void CollisionChanged()
 	{
-	
+		// stub
 	}
 	
 	

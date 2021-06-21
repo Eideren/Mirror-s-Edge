@@ -27,27 +27,27 @@ public partial class UIDataProvider_OnlineProfileSettings : UIDataProvider_Onlin
 	
 	public override /*event */void OnRegister(LocalPlayer InPlayer)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void OnUnregister()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnReadProfileComplete(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnLoginChange()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool SaveProfileData()
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -19,6 +19,7 @@ public partial class Player : Object/*
 	public virtual /*native function */void SwitchController(PlayerController PC)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public Player()

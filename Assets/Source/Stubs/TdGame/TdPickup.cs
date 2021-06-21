@@ -24,63 +24,63 @@ public partial class TdPickup : DroppedPickup/*
 	public virtual CanBePickedUpBy_del global_CanBePickedUpBy => TdPickup_CanBePickedUpBy;
 	public /*simulated function */bool TdPickup_CanBePickedUpBy(Pawn P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void SetAmmoCountByDifficulty(int AmmoEasy, int AmmoMedium, int AmmoHard)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void SetPickupMesh(PrimitiveComponent PickupMesh)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TurnOffSkelUpdate()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetAmmoCount(int Count)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetClipCount(int Count)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */int GetAmmoCount()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void GiveTo(Pawn P)
 	{
-	
+		// stub
 	}
 	
 	public override Landed_del Landed { get => bfield_Landed ?? TdPickup_Landed; set => bfield_Landed = value; } Landed_del bfield_Landed;
 	public override Landed_del global_Landed => TdPickup_Landed;
 	public /*event */void TdPickup_Landed(Object.Vector HitNormal, Actor FloorActor)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void CheckForRigidBodySleepState()
 	{
-	
+		// stub
 	}
 	
 	public override RigidBodyCollision_del RigidBodyCollision { get => bfield_RigidBodyCollision ?? TdPickup_RigidBodyCollision; set => bfield_RigidBodyCollision = value; } RigidBodyCollision_del bfield_RigidBodyCollision;
 	public override RigidBodyCollision_del global_RigidBodyCollision => TdPickup_RigidBodyCollision;
 	public /*event */void TdPickup_RigidBodyCollision(PrimitiveComponent HitComponent, PrimitiveComponent OtherComponent, /*const */ref Actor.CollisionImpactData RigidCollisionData, int ContactIndex)
 	{
-	
+		// stub
 	}
 	
 	public delegate void CoolDownTimer_del();
@@ -96,17 +96,17 @@ public partial class TdPickup : DroppedPickup/*
 	
 	protected /*function */void TdPickup_CoolDown_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdPickup_CoolDown_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdPickup_CoolDown_CoolDownTimer()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) CoolDown()/*auto state CoolDown*/
@@ -117,24 +117,24 @@ public partial class TdPickup : DroppedPickup/*
 	
 	protected /*simulated function */bool TdPickup_Pickup_CanBePickedUpBy(Pawn P)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */bool TdPickup_Pickup_ValidTouch(Pawn Other)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */void TdPickup_Pickup_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdPickup_Pickup_Timer()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Pickup()/*state Pickup*/
@@ -145,12 +145,12 @@ public partial class TdPickup : DroppedPickup/*
 	
 	protected /*simulated event */void TdPickup_FadeOut_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void TdPickup_FadeOut_Tick(float DeltaTime)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) FadeOut()/*state FadeOut*/

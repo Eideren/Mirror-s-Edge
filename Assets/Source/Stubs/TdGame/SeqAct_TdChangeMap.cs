@@ -8,7 +8,7 @@ public partial class SeqAct_TdChangeMap : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdChangeMap()

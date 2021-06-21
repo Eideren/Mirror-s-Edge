@@ -12,13 +12,13 @@ public partial class OnlineSubsystemCommonImpl : OnlineSubsystem/*
 	
 	public virtual /*event */String GetPlayerNicknameFromIndex(int UserIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */OnlineSubsystem.UniqueNetId GetPlayerUniqueNetIdFromIndex(int UserIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -5,7 +5,7 @@ public partial class JuiceCommandlet : Commandlet/*
 		transient*/{
 	public override /*event */int Main(String Params)
 	{
-	
+		// stub
 		return default;
 	}
 	

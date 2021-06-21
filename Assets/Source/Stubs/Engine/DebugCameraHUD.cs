@@ -8,12 +8,12 @@ public partial class DebugCameraHUD : HUD/*
 		hidecategories(Navigation)*/{
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void PostRender()
 	{
-	
+		// stub
 	}
 	
 	public DebugCameraHUD()

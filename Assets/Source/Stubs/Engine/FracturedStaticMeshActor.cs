@@ -12,6 +12,7 @@ public partial class FracturedStaticMeshActor : Actor/*
 	public virtual /*native function */FracturedStaticMeshPart SpawnPart(int ChunkIndex, Object.Vector InitialVel, Object.Vector InitialAngVel)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -19,6 +20,7 @@ public partial class FracturedStaticMeshActor : Actor/*
 	public virtual /*native function */FracturedStaticMeshPart SpawnPartMulti(array<int> ChunkIndices, Object.Vector InitialVel, Object.Vector InitialAngVel)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -26,21 +28,22 @@ public partial class FracturedStaticMeshActor : Actor/*
 	public virtual /*native function */void RecreatePhysState()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void ResetHealth()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */array<byte> BreakOffIsolatedIslands(array<byte> FragmentVis, array<int> IgnoreFrags, Object.Vector ChunkDir, array<FracturedStaticMeshPart> DisableCollWithPart)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -48,17 +51,17 @@ public partial class FracturedStaticMeshActor : Actor/*
 	public override TakeDamage_del global_TakeDamage => FracturedStaticMeshActor_TakeDamage;
 	public /*event */void FracturedStaticMeshActor_TakeDamage(int Damage, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void Explode()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void BreakOffPartsInRadius(Object.Vector Origin, float Radius, float RBStrength)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

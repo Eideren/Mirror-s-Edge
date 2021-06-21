@@ -13,40 +13,44 @@ public partial class UILabelButton : UIButton,
 	public virtual /*native function */void SetCaption(String NewText)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*final event */String GetCaption()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnSetLabelText(UIAction_SetLabelText Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnGetTextValue(UIAction_GetTextValue Action)
 	{
-	
+		// stub
 	}
 	
 	// Export UUILabelButton::execSetTextAlignment(FFrame&, void* const)
 	public virtual /*native final function */void SetTextAlignment(UIRoot.EUIAlignment Horizontal, UIRoot.EUIAlignment Vertical)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUILabelButton::execSetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUILabelButton::execGetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -54,6 +58,7 @@ public partial class UILabelButton : UIButton,
 	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -61,24 +66,28 @@ public partial class UILabelButton : UIButton,
 	public virtual /*native final function */void NotifyDataStoreValueUpdated(UIDataStore SourceDataStore, bool bValuesInvalidated, name PropertyTag, UIDataProvider SourceProvider, int ArrayIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUILabelButton::execGetBoundDataStores(FFrame&, void* const)
 	public virtual /*native function */void GetBoundDataStores(ref array<UIDataStore> out_BoundDataStores)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUILabelButton::execClearBoundDataStores(FFrame&, void* const)
 	public virtual /*native function */void ClearBoundDataStores()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUILabelButton::execSaveSubscriberValue(FFrame&, void* const)
 	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

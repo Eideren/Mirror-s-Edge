@@ -143,12 +143,14 @@ public partial class TsSystem : Object/*
 	public /*native final function */static void SetTsSystem(TsSystem Ts)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTsSystem::execGetTsSystem(FFrame&, void* const)
 	public /*native final function */static TsSystem GetTsSystem()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -156,6 +158,7 @@ public partial class TsSystem : Object/*
 	public virtual /*native final function */bool HasPendingSaveTasks()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -163,6 +166,7 @@ public partial class TsSystem : Object/*
 	public /*native final function */static TsSystem.ETsError GetLastError(ref String ErrorString)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -170,12 +174,14 @@ public partial class TsSystem : Object/*
 	public virtual /*native function */void DisableSystem()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTsSystem::execProcessTick(FFrame&, void* const)
 	public virtual /*native function */void ProcessTick(float DeltaTime)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnInitializeComplete(TsSystem.ETsResult Result);
@@ -190,33 +196,34 @@ public partial class TsSystem : Object/*
 	
 	public virtual /*function */void RegisterWriteProfileSettingsDelegate(/*delegate*/TsSystem.OnWriteProfileSettingsComplete WriteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UnRegisterWriteProfileSettingsDelegate(/*delegate*/TsSystem.OnWriteProfileSettingsComplete WriteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RegisterReadProfileSettingsDelegate(/*delegate*/TsSystem.OnReadProfileSettingsComplete ReadDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UnRegisterReadProfileSettingsDelegate(/*delegate*/TsSystem.OnReadProfileSettingsComplete ReadDelegate)
 	{
-	
+		// stub
 	}
 	
 	// Export UTsSystem::execClearCachedProfile(FFrame&, void* const)
 	public virtual /*native function */void ClearCachedProfile()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */bool IsCorruptProfileDetected()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -224,11 +231,12 @@ public partial class TsSystem : Object/*
 	public virtual /*native function */void SetNoSaving(bool bValue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */bool IsNoSaving()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -236,24 +244,26 @@ public partial class TsSystem : Object/*
 	
 	public virtual /*function */void RegisterOnDiskAccessDelegate(/*delegate*/TsSystem.OnDiskAccess DiskAccessDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UnRegisterOnDiskAccessDelegate(/*delegate*/TsSystem.OnDiskAccess DiskAccessDelegate)
 	{
-	
+		// stub
 	}
 	
 	// Export UTsSystem::execInitialize(FFrame&, void* const)
 	public virtual /*native function */void Initialize()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTsSystem::execCheckStorageDevice(FFrame&, void* const)
 	public virtual /*native function */bool CheckStorageDevice()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -261,36 +271,42 @@ public partial class TsSystem : Object/*
 	public virtual /*native function */void InitializeToC(byte LocalUserNum, bool bAutoReplaceCorrupt, /*delegate*/TsSystem.OnInitializeComplete InitializeComplete)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTsSystem::execWriteSaveData(FFrame&, void* const)
 	public virtual /*native function */void WriteSaveData(ref TsSystem.TsSaveData InData, /*delegate*/TsSystem.OnWriteDataComplete AddComplete)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTsSystem::execReadSaveData(FFrame&, void* const)
 	public virtual /*native function */void ReadSaveData(TsSystem.ETsSaveType SaveType, int Id, /*delegate*/TsSystem.OnReadDataComplete ReadComplete)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTsSystem::execWriteSPData(FFrame&, void* const)
 	public virtual /*native function */void WriteSPData(ref TsSystem.TsSaveData InData, /*delegate*/TsSystem.OnWriteDataComplete SaveComplete)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTsSystem::execReadSPData(FFrame&, void* const)
 	public virtual /*native function */void ReadSPData(/*delegate*/TsSystem.OnReadDataComplete ReadComplete)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTsSystem::execWriteProfileSettings(FFrame&, void* const)
 	public virtual /*native function */bool WriteProfileSettings(byte LocalUserNum, ref OnlineProfileSettings ProfileSettings)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -298,6 +314,7 @@ public partial class TsSystem : Object/*
 	public virtual /*native function */bool ReadProfileSettings(byte LocalUserNum, ref OnlineProfileSettings ProfileSettings)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -305,18 +322,21 @@ public partial class TsSystem : Object/*
 	public virtual /*native function */void CopyProfileSettings(OnlineProfileSettings Src, OnlineProfileSettings Dest)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTsSystem::execInitTrophyAsync(FFrame&, void* const)
 	public virtual /*native final function */void InitTrophyAsync(int InContext, int InHandle)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTsSystem::execUnlockTrophyAsync(FFrame&, void* const)
 	public virtual /*native final function */void UnlockTrophyAsync(int InContext, int InHandle, int InTrophyId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public TsSystem()

@@ -13,13 +13,14 @@ public partial class TpRankingService : TpSystemHandler/*
 	
 	public override /*simulated function */void Initialize(TpSystemBase InSystemBase)
 	{
-	
+		// stub
 	}
 	
 	// Export UTpRankingService::execReadOnlineStats(FFrame&, void* const)
 	public virtual /*native function */bool ReadOnlineStats(/*const */ref array<OnlineSubsystem.UniqueNetId> Players, OnlineStatsRead StatsRead)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -27,6 +28,7 @@ public partial class TpRankingService : TpSystemHandler/*
 	public virtual /*native function */bool ReadOnlineStatsForFriends(OnlineStatsRead StatsRead)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -34,6 +36,7 @@ public partial class TpRankingService : TpSystemHandler/*
 	public virtual /*native function */bool ReadOnlineStatsByRank(OnlineStatsRead StatsRead, /*optional */int? _StartIndex = default, /*optional */int? _NumToRead = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -41,6 +44,7 @@ public partial class TpRankingService : TpSystemHandler/*
 	public virtual /*native function */bool ReadOnlineStatsByRankAroundPlayer(OnlineStatsRead StatsRead, /*optional */int? _NumRows = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -50,12 +54,14 @@ public partial class TpRankingService : TpSystemHandler/*
 	public virtual /*native function */void FreeStats(OnlineStatsRead StatsRead)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpRankingService::execWriteOnlinePlayerScores(FFrame&, void* const)
 	public virtual /*native function */bool WriteOnlinePlayerScores(/*const */ref array<OnlineSubsystem.OnlinePlayerScore> PlayerScores)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -63,6 +69,7 @@ public partial class TpRankingService : TpSystemHandler/*
 	public virtual /*native function */bool WriteOnlineStats(OnlineSubsystem.UniqueNetId Player, OnlineStatsWrite StatsWrite)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -70,6 +77,7 @@ public partial class TpRankingService : TpSystemHandler/*
 	public virtual /*native function */bool FlushOnlineStats()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

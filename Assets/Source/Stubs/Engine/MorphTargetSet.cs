@@ -10,6 +10,7 @@ public partial class MorphTargetSet : Object/*
 	public virtual /*native final function */MorphTarget FindMorphTarget(name MorphTargetName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

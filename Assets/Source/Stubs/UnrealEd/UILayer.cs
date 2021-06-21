@@ -28,6 +28,7 @@ public partial class UILayer : UILayerBase/*
 	public virtual /*native final function */bool InsertNode(/*const */ref UILayer.UILayerNode NodeToInsert, /*optional */int? _InsertIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -35,6 +36,7 @@ public partial class UILayer : UILayerBase/*
 	public virtual /*native final function */bool RemoveNode(/*const */ref UILayer.UILayerNode ExistingNode)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -42,6 +44,7 @@ public partial class UILayer : UILayerBase/*
 	public virtual /*native final function */int FindNodeIndex(/*const */Object NodeObject)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

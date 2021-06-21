@@ -7,17 +7,17 @@ public partial class TdLOIAddOnKActor : TdLOIAddOnObject/* within KActor*//*
 	
 	public override /*event */void ActivateLOI()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void InitLOI(Actor Player)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void InitLOIMtrlInstances()
 	{
-	
+		// stub
 	}
 	
 }

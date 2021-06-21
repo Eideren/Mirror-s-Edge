@@ -19,48 +19,48 @@ public partial class SeqAct_TdTutorialMessage : SequenceAction/*
 	
 	public virtual /*function */LocalPlayer GetFirstLocalPlayer()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void Reset()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void BeginShowTutorialMessage()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnPrevScene_Deactivated(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ShowTutorialMessage()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTutorialMessageOpened(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSceneDeactivated(UIScene DeactivatedScene)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool IsValidLevelSequenceObject()
 	{
-	
+		// stub
 		return default;
 	}
 	

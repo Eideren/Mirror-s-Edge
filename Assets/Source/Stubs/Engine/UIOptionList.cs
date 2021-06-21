@@ -11,6 +11,7 @@ public partial class UIOptionList : UIOptionListBase/*
 	public virtual /*native final function */bool GetListValue(int ListIndex, ref String OutValue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -18,18 +19,21 @@ public partial class UIOptionList : UIOptionListBase/*
 	public virtual /*native function */void SetPrevValue()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIOptionList::execSetNextValue(FFrame&, void* const)
 	public virtual /*native function */void SetNextValue()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIOptionList::execGetCurrentIndex(FFrame&, void* const)
 	public virtual /*native function */int GetCurrentIndex()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -37,11 +41,12 @@ public partial class UIOptionList : UIOptionListBase/*
 	public virtual /*native function */void SetCurrentIndex(int NewIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*protected final function */void OnSetListIndex(UIAction_SetListIndex Action)
 	{
-	
+		// stub
 	}
 	
 	public UIOptionList()

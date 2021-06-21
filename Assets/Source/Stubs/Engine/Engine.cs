@@ -197,6 +197,7 @@ public partial class Engine : Subsystem/*
 	public /*native final function */static WorldInfo GetCurrentWorldInfo()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -204,6 +205,7 @@ public partial class Engine : Subsystem/*
 	public /*native final function */static Font GetTinyFont()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -211,6 +213,7 @@ public partial class Engine : Subsystem/*
 	public /*native final function */static Font GetSmallFont()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -218,6 +221,7 @@ public partial class Engine : Subsystem/*
 	public /*native final function */static Font GetMediumFont()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -225,6 +229,7 @@ public partial class Engine : Subsystem/*
 	public /*native final function */static Font GetLargeFont()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -232,6 +237,7 @@ public partial class Engine : Subsystem/*
 	public /*native final function */static Font GetAdditionalFont(int AdditionalFontIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -239,6 +245,7 @@ public partial class Engine : Subsystem/*
 	public /*native final function */static bool IsSplitScreen()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -246,6 +253,7 @@ public partial class Engine : Subsystem/*
 	public /*native final function */static AudioDevice GetAudioDevice()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -253,6 +261,7 @@ public partial class Engine : Subsystem/*
 	public /*native final function */static String GetLastMovieName()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -260,6 +269,7 @@ public partial class Engine : Subsystem/*
 	public /*native final function */static bool PlayLoadMapMovie()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -267,29 +277,33 @@ public partial class Engine : Subsystem/*
 	public /*native final function */static void StopMovie(bool bDelayStopUntilGameHasRendered)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UEngine::execRemoveAllOverlays(FFrame&, void* const)
 	public /*native final function */static void RemoveAllOverlays()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UEngine::execAddOverlay(FFrame&, void* const)
 	public /*native final function */static void AddOverlay(Font Font, String Text, float X, float Y, float ScaleX, float ScaleY, bool bIsCentered, /*optional */ref Object.LinearColor TextColor/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UEngine::execAddOverlayWrapped(FFrame&, void* const)
 	public /*native final function */static void AddOverlayWrapped(Font Font, String Text, float X, float Y, float ScaleX, float ScaleY, float WrapWidth, /*optional */ref Object.LinearColor TextColor/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*event */void DispatchExternalUIChange(bool bIsOpening)
 	{
-	
+		// stub
 	}
 	
 	public Engine()

@@ -9,7 +9,7 @@ public partial class UIAction_GetPageReference : UIAction_TabControl/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public UIAction_GetPageReference()

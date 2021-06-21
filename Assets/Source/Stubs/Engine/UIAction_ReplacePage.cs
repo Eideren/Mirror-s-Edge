@@ -11,7 +11,7 @@ public partial class UIAction_ReplacePage : UIAction_TabControl/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public UIAction_ReplacePage()

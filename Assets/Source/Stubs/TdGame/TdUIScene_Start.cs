@@ -28,87 +28,88 @@ public partial class TdUIScene_Start : TdUIScene/*
 	public override /*native function */void StopMovie()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*event */void SceneActivated(bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void RebootReasonSigninChangeTitle_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnRebootErrorMessageCallback(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void CheckProfile()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnUIChanged(bool bIsOpening)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ShowNoProfileErrorBox()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ShowNoProfileErrorBox_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnShowNoProfileErrorBox(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ShowSaveInfoBox()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ShowSaveInfoBox_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnShowSaveInfoBox(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void InitSavefileSystem(/*optional */bool? _bAutoReplaceCorrupt = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnInitSavefileSystemDone()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void StartGameNoSave()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void StartGame()
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_Start()

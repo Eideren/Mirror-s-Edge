@@ -37,17 +37,18 @@ public partial class TdGrenadeTargetArea : TdGrenadeArea/*
 	public virtual /*native function */bool IsPawnInArea(Pawn inPawn)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void ThrowGrenade()
 	{
-	
+		// stub
 	}
 	
 	public TdGrenadeTargetArea()

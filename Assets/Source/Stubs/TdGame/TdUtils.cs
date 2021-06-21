@@ -7,6 +7,7 @@ public partial class TdUtils : Object/*
 	public /*native final function */static float CosineInterp(float A, float B, float T)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -14,6 +15,7 @@ public partial class TdUtils : Object/*
 	public /*native final function */static String FormatTime(String SecondsString)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -21,6 +23,7 @@ public partial class TdUtils : Object/*
 	public /*native final function */static String FormatFloatTime(float Time)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

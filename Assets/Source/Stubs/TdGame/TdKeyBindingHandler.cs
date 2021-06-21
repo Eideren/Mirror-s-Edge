@@ -74,12 +74,14 @@ public partial class TdKeyBindingHandler : Object/*
 	public virtual /*native function */void RefreshBindingButtons()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdKeyBindingHandler::execGetBindKeyFromCommand(FFrame&, void* const)
 	public virtual /*native function */String GetBindKeyFromCommand(String Command, ref int StartIdx)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -89,108 +91,108 @@ public partial class TdKeyBindingHandler : Object/*
 	
 	public virtual /*function */void Initialize(TdUIScene inOwnerScene, array<TdKeyBindingHandler.KeyBindWidgetData> InKeyBindWidgets, /*optional *//*delegate*/TdKeyBindingHandler.OnSettingsChangedDelegate? _OnChangedDelegate = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool GetKeyBindIndicesFromObject(UIObject Sender, ref int WidgetsIndexResult, ref int ButtonsIndexResult)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ResetToDefaults()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnBindButton_InputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnKeyBindButton_Clicked_MsgBoxInit(UIScene OpenedScene, bool bInitialAcivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnBindKeyMessageBox_HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool BindingsHaveChanged()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsAlreadyBound(name KeyName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SpawnBindStompWarningMessage()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSpawnBindStompWarningMessage_Init(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnMessageBox_BindOverwriteConfirm(TdUIScene_MessageBox MessageBox, int SelectedItem, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void CancelKeyBind()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AttemptKeyBind()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void BindKey()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UnbindKey(name BindName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void FinishKeyBinding(bool bInPromptForBindStomp)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnFinisKeyBinding_MsgBoxClosed()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void FinishBinding()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool AllActionsHaveBind()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

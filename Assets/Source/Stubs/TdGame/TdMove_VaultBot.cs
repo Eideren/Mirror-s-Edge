@@ -14,6 +14,7 @@ public partial class TdMove_VaultBot : TdMove_AISpecialMove/*
 	public virtual /*native final function */Object.Vector GetPreciseLocation()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -21,59 +22,60 @@ public partial class TdMove_VaultBot : TdMove_AISpecialMove/*
 	public virtual /*native final function */Object.Rotator GetPreciseRotation()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReachedPreciseLocation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */name GetAnimationName()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetRootMotionScale()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void EnableHeadAim()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnLandedTimer()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCeaseRelevantRootMotion(AnimNodeSequence SeqNode)
 	{
-	
+		// stub
 	}
 	
 	public TdMove_VaultBot()

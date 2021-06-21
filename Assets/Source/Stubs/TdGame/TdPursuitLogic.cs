@@ -12,68 +12,68 @@ public partial class TdPursuitLogic : Object,
 	
 	public virtual /*function */Actor GetBagActor()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void Initialize(TdGameInfo InGameInfo)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStartMatchInProgress()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnEndMatchInProgress()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStashingInitiated(TdStashpoint Stashpoint)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStashingIntercepted(TdStashpoint Stashpoint)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStashingCompleted(TdStashpoint Stashpoint)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStashingProgressed(TdStashpoint Stashpoint, float TimeUntilCompletion)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCarried(TdCarriable Carriable)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnDropped(TdCarriable Carriable)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnBeginBagSearch(Object.Vector StashLocation, TdPlayerReplicationInfo PRI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnResurrected(TdCarriable Carriable)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTouchedGround(TdCarriable Carriable)
 	{
-	
+		// stub
 	}
 	
 }

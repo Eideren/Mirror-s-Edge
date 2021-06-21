@@ -9,19 +9,19 @@ public partial class TdBotPawn_PursuitCop : TdBotPawn/*
 	
 	public override /*function */bool CanBlock()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */SoundCue GetSpecificFootStepSound(TdPhysicalMaterialFootSteps FootStepSounds, int FootDown)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool ShouldMeleeCauseStumbleFar()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -29,12 +29,12 @@ public partial class TdBotPawn_PursuitCop : TdBotPawn/*
 	public override TakeDamage_del global_TakeDamage => TdBotPawn_PursuitCop_TakeDamage;
 	public /*function */void TdBotPawn_PursuitCop_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool IsDoingSpecialMove()
 	{
-	
+		// stub
 		return default;
 	}
 	protected override void RestoreDefaultFunction()

@@ -26,7 +26,7 @@ public partial class TdUIScene_LoadIndicator : TdUIScene/*
 	
 	public virtual /*function */void Setup(String Message, bool bSaving, /*optional */bool? _bBlack = default)
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_LoadIndicator()

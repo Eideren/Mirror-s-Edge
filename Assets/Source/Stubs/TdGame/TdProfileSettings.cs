@@ -413,33 +413,33 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	
 	public virtual /*function */void ResetIdsToDefault(array<int> ProfileIds)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetIdToDefault(int ProfileId)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetHintShown(int HintId)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool IsHintShown(int HintId)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetUnlockViewed(int UnlockProfileId)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool IsUnlockViewed(int UnlockProfileId)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -447,6 +447,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	public virtual /*native function */bool GetTTStretchTotalTimeOnly(int ProfileSettingId, ref float TotalTime)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -454,6 +455,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	public virtual /*private native final function */bool SetTTStretchTime(int ProfileSettingId, float TotalTime, ref array<float> IntermediateTimes, float AverageSpeed, float DistanceRun)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -461,199 +463,200 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	public virtual /*private native final function */bool GetTTStretchTime(int ProfileSettingId, ref float TotalTime, ref array<float> IntermediateTimes, ref float AverageSpeed, ref float DistanceRun)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool GetTotalTimeOnlyForStretch(int Stretch, ref float TotalTime)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool GetTTTimeForStretch(int Stretch, ref float TotalTime, ref array<float> IntermediateTimes, ref float AverageSpeed, ref float DistanceRun)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool SetTTTimeForStretch(int Stretch, float TotalTime, ref array<float> IntermediateTimes, float AverageSpeed, float DistanceRun)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int GetTimeTrialRating()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool SetTimeTrialRating(int Value)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsAllLevelsUnlocked(/*optional */bool? _bHardDifficulty = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsLevelUnlocked(int LevelIndex, /*optional */bool? _bHardDifficulty = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool UnlockLevel(int LevelIndex, /*optional */bool? _bHardDifficulty = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool LockLevel(int LevelIndex, /*optional */bool? _bHardDifficulty = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool LockAllLevels()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool UnlockAllLevels()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsHiddenBagFound(int BagIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int NumBagsFoundTotal()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int NumBagsFoundForLevel(int LevelIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsAllBagsFound()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsXBagsFound(TdStatsManager StatsManager)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool SetTTStretchCompletedUnderQualifyerTime(int StretchIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsTTStretchCompletedUnderQualifyerTime(int StretchIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsTTStretchUnlocked(int StretchIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void LockAllTTStretches()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UnLockAllTTStretches()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool UnlockTTStretch(int StretchIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool LockTTStretch(int StretchIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsAllTTStretchesUnlocked()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsAllTTStretchesCompletedUnderQualifierTime(int Difficulty)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnTTStretchCompleted(int TTStretch, float TotalTime, array<float> IntermediateTimes, float AverageSpeed, float DistanceRun, int UnlockIdx)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void MarkCompletedUnderQualifyerTime(int CompletedTTStretch, float TotalTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */name CanUnlockTTStretch(int CompletedTTStretch, float TotalTime)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnLevelCompleted(int LevelIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool GetProfileSettingValueIntByName(name SettingName, ref int OutValue)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool GetProfileSettingValueFloatByName(name SettingName, ref float OutValue)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool GetProfileSettingValueStringByName(name SettingName, ref String OutValue)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool GetProfileSettingValueIdByName(name SettingName, ref int OutValue)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -661,163 +664,165 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	public /*native function */static void ResetKeysToDefault(/*optional */LocalPlayer? _InPlayerOwner = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdProfileSettings::execSetToDefaults(FFrame&, void* const)
 	public override /*native event */void SetToDefaults()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*event */void ScriptSetToDefaults()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StoreKeys(/*optional */PlayerInput? _PInput = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StoreKeyBindings(array<Input.KeyBind> Bindings)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */int GetProfileIDForDBA(TdProfileSettings.EDigitalButtonActions KeyAction)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int GetDBAFromCommand(String Command)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void GetKeyNamesFromDBA(TdProfileSettings.EDigitalButtonActions DBACommand, ref array<name> KeyNames, PlayerInput PInput)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetKeyBindingUsingCommand(String KeyCommand, StaticArray<name, name, name, name>/*[4]*/ KeyBinds)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */name FindKeyName(TdProfileSettings.ETDBindableKeys KeyEnum)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int FindKeyEnum(name KeyName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetKeyBinding(TdProfileSettings.EDigitalButtonActions KeyAction, StaticArray<name, name, name, name>/*[4]*/ KeyBinds)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UnbindKey(PlayerInput PInput, name BindName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ApplyAllKeyBindings(PlayerInput PInput)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ApplyKeyBindings(PlayerInput PInput)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ApplyGamepadBindings(PlayerInput PInput, /*optional */array<Input.KeyBind>? _PresetMappings = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */array<Input.KeyBind> GetGamepadBinds()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */array<Input.KeyBind> GetGamepadLayoutBinds(array<Input.KeyBind> GamepadBinds, TdProfileSettings.EControllerConfigValues Layout)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*protected function */void InvertControllerConf_Sticks(ref array<Input.KeyBind> Binds)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void InvertControllerConf_Buttons(ref array<Input.KeyBind> Binds)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void InvertGamepadBinds(StaticArray<String, String, String, String>/*[4]*/ KeysToInvert, ref array<Input.KeyBind> Binds)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ApplyControllerBindings(PlayerInput PInput)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ApplyKeyBinding(PlayerInput PInput, TdProfileSettings.EDigitalButtonActions Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RemoveDBABindings(PlayerInput PInput)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsKeyBoundToCommand(PlayerInput PInput, String Command, String Key)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool SetLastSavedMap(String MapName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool SetLastSavedCheckpoint(String CheckpointName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool GetLastSavedMap(ref String MapName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool GetLastSavedCheckpoint(ref String CheckpointName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool IsProfileSettingEnabled(name FieldName, int Index)
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -32,94 +32,94 @@ public partial class TdMenuPostProcesWrapper : Object{
 	
 	public virtual /*function */void Initialize(array<UIImage> PanelImages, /*optional *//*delegate*/TdMenuPostProcesWrapper.OnPanelAnimFinished? _PanelAnimFinished = default, /*optional */float? _UnfocusedMinWidth = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Destroy()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetAnimDurations(float PanelAnimDur)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsAnimating()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void UpdatePanelAnimation(int PanelIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */int GetActivePanelIndex()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetSelectionFieldPos(int PanelIndex, float Top, float Bottom)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DeativatePanel(int PanelIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetActivePanel(int PanelIndexToActivate, /*optional */bool? _bSkipAnimation = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetPanelWidth(int PanelIndex, float NewWidth)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetSelectionField(int PanelIndex, float TopPos, float BottomPos)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetPanelSelFieldVis(int PanelIndex, bool bVisible)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetPanelMovementOffset(int PanelIndex, float Offset)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetPanelSideOffset(int PanelIndex, float LeftOffset, float RightOffset)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetPanelMovementAmount(int PanelIndex, float Amount)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetSelectionColor(Object.LinearColor SelColor)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetParamFloat(int PanelIndex, name ParamName, float Value)
 	{
-	
+		// stub
 	}
 	
 	public TdMenuPostProcesWrapper()

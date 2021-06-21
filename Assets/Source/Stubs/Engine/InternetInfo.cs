@@ -8,13 +8,13 @@ public partial class InternetInfo : Info/*
 		hidecategories(Navigation,Movement,Collision)*/{
 	public virtual /*function */String GetBeaconAddress(int I)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */String GetBeaconText(int I)
 	{
-	
+		// stub
 		return default;
 	}
 	

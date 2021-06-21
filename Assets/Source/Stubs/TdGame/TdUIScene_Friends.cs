@@ -11,93 +11,93 @@ public partial class TdUIScene_Friends : TdUIScene/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Back(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_AddFriend(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_RemoveFriend(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool GetCurrentFriendNick(ref String FriendNick)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool GetCurrentFriendNetId(ref OnlineSubsystem.UniqueNetId FriendNetId)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void AddFriend()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void RemoveFriend()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void RemoveFriend_Init(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnRemoveFriend_MsgBoxCallback(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnRemoveFriend_Confirm()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void RefreshList()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */bool OnFriendsList_Updated(UIObject Sender, int BindingIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnCloseScene()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

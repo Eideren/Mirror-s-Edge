@@ -73,6 +73,7 @@ public partial class DecalComponent : PrimitiveComponent/*
 	public virtual /*native final function */void ResetToDefaults()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public DecalComponent()

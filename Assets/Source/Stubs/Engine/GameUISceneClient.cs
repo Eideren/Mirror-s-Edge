@@ -45,6 +45,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	public /*native final function */static WorldInfo.ENetMode GetCurrentNetMode()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -52,6 +53,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	public virtual /*native final function */UIScene GetTransientScene()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -59,6 +61,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	public virtual /*native final function */UIScene CreateScene(Core.ClassT<UIScene> SceneClass, /*optional */name? _SceneTag = default, /*optional */UIScene? _SceneTemplate = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -66,6 +69,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	public virtual /*native final function */UIObject CreateTransientWidget(Core.ClassT<UIObject> WidgetClass, name WidgetTag, /*optional */UIObject? _Owner = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -73,6 +77,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	public virtual /*native final function */UIScene FindSceneByTag(name SceneTag, /*optional */LocalPlayer? _SceneOwner = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -80,24 +85,28 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	public virtual /*native final function */void RequestInputProcessingUpdate()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UGameUISceneClient::execRequestCursorRenderUpdate(FFrame&, void* const)
 	public virtual /*native final function */void RequestCursorRenderUpdate()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UGameUISceneClient::execRequestPausedUpdate(FFrame&, void* const)
 	public virtual /*native final function */void RequestPausedUpdate()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UGameUISceneClient::execCanUnpauseInternalUI(FFrame&, void* const)
 	public virtual /*native final function */bool CanUnpauseInternalUI()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -105,139 +114,140 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	public virtual /*native function */bool SetActiveControl(UIObject NewActiveControl)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void ActivateBGSaturation(bool bActive, int Mask)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void ConditionalPause(bool bDesiredPauseState)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool CanShowToolTips()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyGameSessionEnded()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyOnlineServiceStatusChanged(OnlineSubsystem.EOnlineServerConnectionStatus NewConnectionStatus)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyLinkStatusChanged(bool bConnected)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyPlayerAdded(int PlayerIndex, LocalPlayer AddedPlayer)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyPlayerRemoved(int PlayerIndex, LocalPlayer RemovedPlayer)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */UIScene GetActiveScene()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SaveMenuProgression()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearMenuProgression()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RestoreMenuProgression(/*optional */UIScene? _BaseScene = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowDockingStacks()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowRenderBounds()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowMenuStates()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ToggleDebugInput(/*optional */bool? _bEnable = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void CreateMenu(Core.ClassT<UIScene> SceneClass, /*optional */int? _PlayerIndex = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void OpenMenu(String MenuPath, /*optional */int? _PlayerIndex = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void CloseMenu(name SceneName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowDataStoreField(String DataStoreMarkup)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void RefreshFormatting()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowDataStores(/*optional */bool? _bVerbose = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowMenuProgression()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AnimSubscribe(UIObject Target)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AnimUnSubscribe(UIObject Target)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */UIAnimationSeq AnimLookupSequence(name SequenceName)
 	{
-	
+		// stub
 		return default;
 	}
 	

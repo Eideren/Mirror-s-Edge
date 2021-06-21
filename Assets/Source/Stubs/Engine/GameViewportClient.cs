@@ -113,6 +113,7 @@ public partial class GameViewportClient : Object/* within Engine*//*
 	public virtual /*native function */String ConsoleCommand(String Command)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -120,190 +121,192 @@ public partial class GameViewportClient : Object/* within Engine*//*
 	public virtual /*native final function */void GetViewportSize(ref Object.Vector2D out_ViewportSize)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UGameViewportClient::execIsFullScreenViewport(FFrame&, void* const)
 	public virtual /*native final function */bool IsFullScreenViewport()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */LocalPlayer CreatePlayer(int ControllerId, ref String OutError, bool bSpawnActor)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool RemovePlayer(LocalPlayer ExPlayer)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final event */LocalPlayer FindPlayerByControllerId(int ControllerId)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*exec function */void DebugCreatePlayer(int ControllerId)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void SSSwapControllers()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void DebugRemovePlayer(int ControllerId)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void SetSplit(int Mode)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowTitleSafeArea()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void SetConsoleTarget(int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool Init(ref String OutError)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */int InsertInteraction(Interaction NewInteraction, /*optional */int? _InIndex = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void GameSessionEnded()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetSplitscreenConfiguration(GameViewportClient.ESplitScreenType SplitType)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void LayoutPlayers()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool GetSubtitleRegion(ref Object.Vector2D MinPos, ref Object.Vector2D MaxPos)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */int ConvertLocalPlayerToGamePlayerIndex(LocalPlayer LPlayer)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */bool HasTopSafeZone(int LocalPlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */bool HasBottomSafeZone(int LocalPlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */bool HasLeftSafeZone(int LocalPlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */bool HasRightSafeZone(int LocalPlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */void GetPixelSizeOfScreen(ref float out_Width, ref float out_Height, Canvas Canvas, int LocalPlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void CalculateSafeZoneValues(ref float out_Horizontal, ref float out_Vertical, Canvas Canvas, int LocalPlayerIndex, bool bUseMaxPercent)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */float CalculateDeadZone(LocalPlayer LPlayer, GameViewportClient.ESafeZoneType SZType, Canvas Canvas, /*optional */bool? _bUseMaxPercent = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */void CalculatePixelCenter(ref float out_CenterX, ref float out_CenterY, LocalPlayer LPlayer, Canvas Canvas, /*optional */bool? _bUseMaxPercent = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawTitleSafeArea(Canvas Canvas)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void PostRender(Canvas Canvas)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawTransition(Canvas Canvas)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawTransitionMessage(Canvas Canvas, String Message)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void NotifyPlayerAdded(int PlayerIndex, LocalPlayer AddedPlayer)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void NotifyPlayerRemoved(int PlayerIndex, LocalPlayer RemovedPlayer)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void AddLocalPlayer(LocalPlayer NewPlayer)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void RemoveLocalPlayer(LocalPlayer ExistingPlayer)
 	{
-	
+		// stub
 	}
 	
 	public GameViewportClient()

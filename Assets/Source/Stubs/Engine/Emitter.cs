@@ -19,56 +19,57 @@ public partial class Emitter : Actor/*
 	public virtual /*native event */void SetTemplate(ParticleSystem NewTemplate, /*optional */bool? _bDestroyOnFinish = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnParticleSystemFinished(ParticleSystemComponent FinishedComponent)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetFloatParameter(name ParameterName, float Param)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetVectorParameter(name ParameterName, Object.Vector Param)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetColorParameter(name ParameterName, Object.Color Param)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetExtColorParameter(name ParameterName, byte Red, byte Green, byte Blue, byte Alpha)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetActorParameter(name ParameterName, Actor Param)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void OnSetParticleSysParam(SeqAct_SetParticleSysParam Action)
 	{
-	
+		// stub
 	}
 	
 	public Emitter()

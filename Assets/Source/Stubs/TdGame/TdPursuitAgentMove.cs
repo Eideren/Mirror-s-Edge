@@ -5,7 +5,7 @@ public partial class TdPursuitAgentMove : TdPhysicsMove/*
 		config(PawnMovement)*/{
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 }

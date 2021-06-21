@@ -15,17 +15,18 @@ public partial class UIDataStore_PlayerSettings : UIDataStore_Settings/*
 	public virtual /*native final function */LocalPlayer GetPlayerOwner()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */void ClearDataProviders()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool NotifyGameSessionEnded()
 	{
-	
+		// stub
 		return default;
 	}
 	

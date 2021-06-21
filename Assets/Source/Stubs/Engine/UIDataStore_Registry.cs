@@ -9,7 +9,7 @@ public partial class UIDataStore_Registry : UIDataStore/*
 	
 	public virtual /*final function */UIDynamicFieldProvider GetDataProvider()
 	{
-	
+		// stub
 		return default;
 	}
 	

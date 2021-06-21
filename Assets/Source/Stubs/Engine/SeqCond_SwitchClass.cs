@@ -21,23 +21,23 @@ public partial class SeqCond_SwitchClass : SeqCond_SwitchBase/*
 	
 	public override /*event */void VerifyDefaultCaseValue()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool IsFallThruEnabled(int ValueIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */void InsertValueEntry(int InsertIndex)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void RemoveValueEntry(int RemoveIndex)
 	{
-	
+		// stub
 	}
 	
 	public SeqCond_SwitchClass()

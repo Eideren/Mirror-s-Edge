@@ -18,6 +18,7 @@ public partial class PortalTeleporter : SceneCapturePortalActor/*
 	public virtual /*native final function */bool TransformActor(Actor A)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -25,6 +26,7 @@ public partial class PortalTeleporter : SceneCapturePortalActor/*
 	public virtual /*native final function */Object.Vector TransformVectorDir(Object.Vector V)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -32,6 +34,7 @@ public partial class PortalTeleporter : SceneCapturePortalActor/*
 	public virtual /*native final function */Object.Vector TransformHitLocation(Object.Vector HitLocation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -39,12 +42,13 @@ public partial class PortalTeleporter : SceneCapturePortalActor/*
 	public virtual /*native final function */TextureRenderTarget2D CreatePortalTexture()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */bool StopsProjectile(Projectile P)
 	{
-	
+		// stub
 		return default;
 	}
 	

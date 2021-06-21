@@ -34,19 +34,19 @@ public partial class DamageType : Object/*
 	
 	public /*function */static String DeathMessage(PlayerReplicationInfo Killer, PlayerReplicationInfo Victim)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static String SuicideMessage(PlayerReplicationInfo Victim)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static float VehicleDamageScalingFor(Vehicle V)
 	{
-	
+		// stub
 		return default;
 	}
 	

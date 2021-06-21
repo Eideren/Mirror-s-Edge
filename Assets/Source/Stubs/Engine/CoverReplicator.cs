@@ -40,82 +40,82 @@ public partial class CoverReplicator : ReplicationInfo/*
 	
 	public virtual /*function */void PurgeOldEntries()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ReplicateInitialCoverInfo()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable server function */void ServerSendInitialCoverReplicationInfo(int Index)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable client simulated function */void ClientReceiveInitialCoverReplicationInfo(int Index, CoverLink Link, byte NumSlotsEnabled, StaticArray<byte, byte, byte, byte, byte, byte, byte, byte>/*[8]*/ SlotsEnabled, byte NumSlotsDisabled, StaticArray<byte, byte, byte, byte, byte, byte, byte, byte>/*[8]*/ SlotsDisabled, byte NumSlotsAdjusted, StaticArray<byte, byte, byte, byte, byte, byte, byte, byte>/*[8]*/ SlotsAdjusted, byte NumCoverTypesChanged, StaticArray<CoverReplicator.ManualCoverTypeInfo, CoverReplicator.ManualCoverTypeInfo, CoverReplicator.ManualCoverTypeInfo, CoverReplicator.ManualCoverTypeInfo, CoverReplicator.ManualCoverTypeInfo, CoverReplicator.ManualCoverTypeInfo, CoverReplicator.ManualCoverTypeInfo, CoverReplicator.ManualCoverTypeInfo>/*[8]*/ SlotsCoverTypeChanged, bool bDone)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyEnabledSlots(CoverLink Link, /*const */ref array<int> SlotIndices)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable server function */void ServerSendEnabledSlots(int Index)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable client simulated function */void ClientReceiveEnabledSlots(int Index, CoverLink Link, byte NumSlotsEnabled, StaticArray<byte, byte, byte, byte, byte, byte, byte, byte>/*[8]*/ SlotsEnabled, bool bDone)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyDisabledSlots(CoverLink Link, /*const */ref array<int> SlotIndices)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable server function */void ServerSendDisabledSlots(int Index)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable client simulated function */void ClientReceiveDisabledSlots(int Index, CoverLink Link, byte NumSlotsDisabled, StaticArray<byte, byte, byte, byte, byte, byte, byte, byte>/*[8]*/ SlotsDisabled, bool bDone)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyAutoAdjustSlots(CoverLink Link, /*const */ref array<int> SlotIndices)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable server function */void ServerSendAdjustedSlots(int Index)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable client simulated function */void ClientReceiveAdjustedSlots(int Index, CoverLink Link, byte NumSlotsAdjusted, StaticArray<byte, byte, byte, byte, byte, byte, byte, byte>/*[8]*/ SlotsAdjusted, bool bDone)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifySetManualCoverTypeForSlots(CoverLink Link, /*const */ref array<int> SlotIndices, CoverLink.ECoverType NewCoverType)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable server function */void ServerSendManualCoverTypeSlots(int Index)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*reliable client simulated function */void ClientReceiveManualCoverTypeSlots(int Index, CoverLink Link, byte NumCoverTypesChanged, StaticArray<CoverReplicator.ManualCoverTypeInfo, CoverReplicator.ManualCoverTypeInfo, CoverReplicator.ManualCoverTypeInfo, CoverReplicator.ManualCoverTypeInfo, CoverReplicator.ManualCoverTypeInfo, CoverReplicator.ManualCoverTypeInfo, CoverReplicator.ManualCoverTypeInfo, CoverReplicator.ManualCoverTypeInfo>/*[8]*/ SlotsCoverTypeChanged, bool bDone)
 	{
-	
+		// stub
 	}
 	
 	public CoverReplicator()

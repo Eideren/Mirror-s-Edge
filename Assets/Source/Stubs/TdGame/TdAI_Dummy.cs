@@ -12,19 +12,19 @@ public partial class TdAI_Dummy : TdAIController/*
 	public override SeePlayer_del global_SeePlayer => TdAI_Dummy_SeePlayer;
 	public /*event */void TdAI_Dummy_SeePlayer(Pawn aPawn)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void HearNoise(float Loudness, Actor NoiseMaker, /*optional */name? _NoiseType = default)
 	{
-	
+		// stub
 	}
 	
 	public override AllowFire_del AllowFire { get => bfield_AllowFire ?? TdAI_Dummy_AllowFire; set => bfield_AllowFire = value; } AllowFire_del bfield_AllowFire;
 	public override AllowFire_del global_AllowFire => TdAI_Dummy_AllowFire;
 	public /*event */bool TdAI_Dummy_AllowFire()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -32,14 +32,14 @@ public partial class TdAI_Dummy : TdAIController/*
 	public override TestCombatTransitions_del global_TestCombatTransitions => TdAI_Dummy_TestCombatTransitions;
 	public /*function */void TdAI_Dummy_TestCombatTransitions()
 	{
-	
+		// stub
 	}
 	
 	public override UpdatePawnFocus_del UpdatePawnFocus { get => bfield_UpdatePawnFocus ?? TdAI_Dummy_UpdatePawnFocus; set => bfield_UpdatePawnFocus = value; } UpdatePawnFocus_del bfield_UpdatePawnFocus;
 	public override UpdatePawnFocus_del global_UpdatePawnFocus => TdAI_Dummy_UpdatePawnFocus;
 	public /*function */void TdAI_Dummy_UpdatePawnFocus()
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

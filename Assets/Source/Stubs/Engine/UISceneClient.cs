@@ -24,6 +24,7 @@ public partial class UISceneClient : UIRoot/*
 	public virtual /*native final function */bool ChangeActiveSkin(UISkin NewActiveSkin)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -31,6 +32,7 @@ public partial class UISceneClient : UIRoot/*
 	public virtual /*native final function */bool IsUIActive(/*optional */int? _Flags = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -38,6 +40,7 @@ public partial class UISceneClient : UIRoot/*
 	public virtual /*native final function */bool IsSceneInitialized(UIScene Scene)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -45,6 +48,7 @@ public partial class UISceneClient : UIRoot/*
 	public virtual /*native final function */bool InitializeScene(UIScene Scene, /*optional */LocalPlayer? _SceneOwner/* = default*/, /*optional */ref UIScene InitializedScene/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -52,6 +56,7 @@ public partial class UISceneClient : UIRoot/*
 	public virtual /*native final function */bool OpenScene(UIScene Scene, /*optional */LocalPlayer? _SceneOwner/* = default*/, /*optional */ref UIScene OpenedScene/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -59,6 +64,7 @@ public partial class UISceneClient : UIRoot/*
 	public virtual /*native function */bool CloseScene(UIScene Scene)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -66,12 +72,14 @@ public partial class UISceneClient : UIRoot/*
 	public virtual /*native final function */void SetMousePosition(int NewMouseX, int NewMouseY)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUISceneClient::execChangeMouseCursor(FFrame&, void* const)
 	public virtual /*native final function */bool ChangeMouseCursor(name CursorName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -79,12 +87,14 @@ public partial class UISceneClient : UIRoot/*
 	public virtual /*native final function */void UpdateCanvasToScreen()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUISceneClient::execGetCanvasToScreen(FFrame&, void* const)
 	public virtual /*native final function */Object.Matrix GetCanvasToScreen(/*const optional */UIObject? _Widget = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -92,12 +102,13 @@ public partial class UISceneClient : UIRoot/*
 	public virtual /*native final function */Object.Matrix GetInverseCanvasToScreen(/*const optional */UIObject? _Widget = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */UIScene GetActiveScene()
 	{
-	
+		// stub
 		return default;
 	}
 	

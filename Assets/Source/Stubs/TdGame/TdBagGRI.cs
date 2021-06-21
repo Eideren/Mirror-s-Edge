@@ -20,39 +20,39 @@ public partial class TdBagGRI : TdGameReplicationInfo/*
 	
 	public override /*simulated event */void PreBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */bool IsBagGame()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */Object.Vector FindBestBagStart()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void OnCarryObject(TdPlayerReplicationInfo PRI, Actor CarriedActor)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnDropCarriedObject(TdPlayerReplicationInfo PRI, Actor CarriedActor)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnRespawnCarriedObject(Actor CarriedActor)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnCarriedObjectTouchedGround(Actor CarriedActor)
 	{
-	
+		// stub
 	}
 	
 }

@@ -18,91 +18,91 @@ public partial class TdUIScene_CreateAccountConsole : TdUIScene_SubMenu,
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Cancel(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_Continue(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_EditEditbox(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnCloseScene()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSceneClosed_UserAbort(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetValues(String Email, String Password, bool bAllowEaEmail, bool bAllowTPEmail)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnEditBoxChanged(UIObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */bool GetUserData(ref String LoginName, ref String Password)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void TryContinue()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnEditEditbox()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnKeyboardInput_Complete(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void CreateAccountDone(int Error, /*optional */String? _LocError = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetSceneDeactivatedDelegate(/*delegate*/UIScene.OnSceneDeactivated SceneDeactivated)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void CreateAccountError_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

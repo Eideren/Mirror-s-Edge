@@ -8,7 +8,7 @@ public partial class SeqVar_UIRange : SequenceVariable/*
 	
 	public override /*event */bool IsValidLevelSequenceObject()
 	{
-	
+		// stub
 		return default;
 	}
 	

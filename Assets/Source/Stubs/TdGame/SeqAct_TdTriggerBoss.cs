@@ -7,7 +7,7 @@ public partial class SeqAct_TdTriggerBoss : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdTriggerBoss()

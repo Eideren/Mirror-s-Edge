@@ -9,7 +9,7 @@ public partial class TdMove_BotStartWalking : TdMove_BotStart/*
 	
 	public override /*function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	

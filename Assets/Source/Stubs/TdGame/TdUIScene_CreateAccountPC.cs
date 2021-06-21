@@ -27,74 +27,74 @@ public partial class TdUIScene_CreateAccountPC : TdUIScene_SubMenu,
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCountryComboList_VisibilityChanged(UIScreenObject SourceWidget, bool bIsVisible)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetValues(bool bAllowEaEmail, bool bAllowTPEmail)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Cancel(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_Continue(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnCloseScene()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSceneClosed_UserAbort(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TryContinue()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void TryContinueFail_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void CreateAccountDone(int Error, /*optional */String? _LocError = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetSceneDeactivatedDelegate(/*delegate*/UIScene.OnSceneDeactivated SceneDeactivated)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void CreateAccountFail_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

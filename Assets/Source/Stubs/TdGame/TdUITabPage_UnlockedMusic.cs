@@ -11,54 +11,54 @@ public partial class TdUITabPage_UnlockedMusic : TdUITabPage/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void LinkSceneWidgets()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnMusicList_ValueChanged(UIObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RefreshButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Back(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_PlayMusic(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void PlayMusic()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnWriteProfileSettings_Complete(bool bSuccess)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void MusicList_OnSubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

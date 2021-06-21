@@ -8,7 +8,7 @@ public partial class TdEmoteMessage : TdLocalMessage{
 	
 	public /*simulated function */static SoundCue Get3DAnnouncementSound(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _AnnouncerPRI = default, /*optional */PlayerReplicationInfo? _OtherPRI = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

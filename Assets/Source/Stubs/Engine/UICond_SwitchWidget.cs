@@ -5,7 +5,7 @@ public partial class UICond_SwitchWidget : SeqCond_SwitchObject/*
 		hidecategories(Object)*/{
 	public override /*event */bool IsValidLevelSequenceObject()
 	{
-	
+		// stub
 		return default;
 	}
 	

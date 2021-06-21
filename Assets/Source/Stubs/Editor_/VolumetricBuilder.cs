@@ -10,12 +10,12 @@ public partial class VolumetricBuilder : BrushBuilder/*
 	
 	public virtual /*function */void BuildVolumetric(int Direction, int InNumSheets, float InZ, float InRadius)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool Build()
 	{
-	
+		// stub
 		return default;
 	}
 	

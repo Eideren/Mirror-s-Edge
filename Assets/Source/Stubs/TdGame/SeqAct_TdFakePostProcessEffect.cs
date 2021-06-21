@@ -18,12 +18,12 @@ public partial class SeqAct_TdFakePostProcessEffect : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */TdPlayerController GetPlayerController()
 	{
-	
+		// stub
 		return default;
 	}
 	

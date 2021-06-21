@@ -9,7 +9,7 @@ public partial class Goal_AtActor : PathGoalEvaluator/*
 	
 	public /*function */static bool AtActor(Pawn P, Actor Goal, /*optional */float? _Dist = default, /*optional */bool? _bReturnPartial = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

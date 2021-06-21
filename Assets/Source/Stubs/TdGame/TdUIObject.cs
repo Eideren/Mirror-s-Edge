@@ -13,6 +13,7 @@ public partial class TdUIObject : UIObject/*
 	public virtual /*native function */TdPlayerController GetTdPlayerController(/*optional */int? _Index = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -20,6 +21,7 @@ public partial class TdUIObject : UIObject/*
 	public virtual /*native function */TdPawn GetTdPawn()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -27,6 +29,7 @@ public partial class TdUIObject : UIObject/*
 	public virtual /*native function */TdPlayerReplicationInfo GetPRI()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -34,32 +37,33 @@ public partial class TdUIObject : UIObject/*
 	public virtual /*native function */WorldInfo GetWorldInfo()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */void Initialized()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void AddChildToTickStack(TdUIObject ChildToAdd)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void RemoveChildFromTickStack(TdUIObject ChildToRemove)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void AddedChild(UIScreenObject WidgetOwner, UIObject NewChild)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void RemovedChild(UIScreenObject WidgetOwner, UIObject OldChild, /*optional */array<UIObject>? _ExclusionSet = default)
 	{
-	
+		// stub
 	}
 	
 	public TdUIObject()

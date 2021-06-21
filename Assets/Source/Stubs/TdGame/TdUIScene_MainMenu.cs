@@ -65,326 +65,326 @@ public partial class TdUIScene_MainMenu : TdUIScene/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitializeWidgetsData()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ButtonStateChange(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void UpdateButtonBar(bool bAcceptVisible)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateGamepadSettingVis(bool bIsVisible)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnControllerChange(int ControllerId, bool Connected)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_ShowFriends(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_QuitGame(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnPanelButton_Clicked(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */void SceneActivated(bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ConnectionLost_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnRebootErrorMessageCallback(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void SceneDeactivated()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SceneSavedForRestore()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SceneRestored()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool HandleButtonClicked(UILabelButton InButton)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnStartGame()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnStartGame_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnNewGameWarning_PreCallback(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnNewGameWarning_Callback(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OpenNewGameScene(bool bSkipPrevSceneAnim)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnLoadLevel()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnLoadSaveGame()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool CanContinueGame()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnTimeTrialRace()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnLevelRace()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTimeTrialLeaderboard()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnShowFriends()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnShowFriendsScene_Callback(UIScene.ESceneTransitionAnim SceneAnim)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnControlsSettings()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnAudioSettings()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnVideoSettings()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnGameSettings()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnGamepadSettings()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnDownloads()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnDownloads_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnAchievements()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCredits()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnUnlocks()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OpenTimeTrialSceneCallback(/*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OpenTimeTrialOfflineSceneCallback(/*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OpenLevelRaceSceneCallback(/*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OpenLevelRaceOfflineSceneCallback(/*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OpenLeaderboardSceneCallback(/*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonClicked_Panel0(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonClicked_Panel1(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonClicked_Panel2(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonClicked_Panel3(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateSelectionField()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ReadInitialWidgetValues()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void SetInitialWidgetValues()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnQuitGame()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnQuitConfirm_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnQuitConfirmed(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SwitchTab(int Dir)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetActivePanel(int PanelIndex, /*optional */bool? _Silent = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PanelAnimFinished(int FinishedPanelIndex, bool bPanelActive)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetPanelVisibility(int PanelIndex, bool bVisible)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SetCaptionVisibility(int PanelIndex, bool bVisible)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnActivated(UIScene ActivatedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

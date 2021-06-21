@@ -15,12 +15,12 @@ public partial class UIAction_ShowKeyboardUI : UIAction/*
 	
 	public virtual /*event */void ReadKeyboardInput()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnKeyboardInputDone(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	public UIAction_ShowKeyboardUI()

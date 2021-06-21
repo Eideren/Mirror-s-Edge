@@ -8,7 +8,7 @@ public partial class UIAction_TdStringToName : UIAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public UIAction_TdStringToName()

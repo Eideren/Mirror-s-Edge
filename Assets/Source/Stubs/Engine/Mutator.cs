@@ -12,114 +12,114 @@ public partial class Mutator : Info/*
 	
 	public override /*event */void PreBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool MutatorIsAllowed()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Mutate(String MutateString, PlayerController Sender)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ModifyLogin(ref String Portal, ref String Options)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ModifyPlayer(Pawn Other)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AddMutator(Mutator M)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool AlwaysKeep(Actor Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsRelevant(Actor Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CheckRelevance(Actor Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CheckReplacement(Actor Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void GetServerDetails(ref Info.ServerResponseLine ServerState)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void GetServerPlayers(ref Info.ServerResponseLine ServerState)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */String ParseChatPercVar(Controller Who, String Cmd)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyLogout(Controller Exiting)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyLogin(Controller NewPlayer)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DriverEnteredVehicle(Vehicle V, Pawn P)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool CanLeaveVehicle(Vehicle V, Pawn P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void DriverLeftVehicle(Vehicle V, Pawn P)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitMutator(String Options, ref String ErrorMessage)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void GetSeamlessTravelActorList(bool bToEntry, ref array<Actor> ActorList)
 	{
-	
+		// stub
 	}
 	
 	public Mutator()

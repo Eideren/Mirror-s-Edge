@@ -55,6 +55,7 @@ public partial class GameBreakableActor : KActor/*
 	public virtual /*native function */Object.Vector GetOffsetToWorld(Object.Vector Offset)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -62,49 +63,50 @@ public partial class GameBreakableActor : KActor/*
 	public virtual /*native function */void SetParticlesLighting(Emitter Emit)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? GameBreakableActor_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => GameBreakableActor_TakeDamage;
 	public /*event */void GameBreakableActor_TakeDamage(int Damage, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TakeLastDamage(int Damage, Controller EventInstigator, bool bIsBroken, int BrokenStep)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TakeStepDamage(int Damage, Controller EventInstigator, bool bIsBroken, int BrokenStep)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */bool IsValidDamageType(Core.ClassT<DamageType> inDamageType)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void BreakStepApart(int BrokenStep)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void BreakLastApart(Controller EventInstigator)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void HideAndDestroy()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void Destroyed()
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

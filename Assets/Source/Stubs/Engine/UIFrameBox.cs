@@ -64,7 +64,7 @@ public partial class UIFrameBox : UIContainer/*
 	
 	public virtual /*final function */void SetBackgroundImage(UIFrameBox.EFrameBoxImage ImageToSet, Surface NewImage)
 	{
-	
+		// stub
 	}
 	
 	public UIFrameBox()

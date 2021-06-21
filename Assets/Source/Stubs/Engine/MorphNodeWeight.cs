@@ -10,6 +10,7 @@ public partial class MorphNodeWeight : MorphNodeWeightBase/*
 	public virtual /*native function */void SetNodeWeight(float NewWeight)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public MorphNodeWeight()

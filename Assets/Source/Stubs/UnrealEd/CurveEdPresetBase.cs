@@ -6,48 +6,48 @@ public partial class CurveEdPresetBase : Object/*
 		native*/{
 	public virtual /*function */String GetDisplayName()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool AreSettingsValid(bool bIsSaving)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool GetRequiredKeyInTimes(ref array<float> RequiredKeyInTimes)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool GenerateCurve(ref array<float> RequiredKeyInTimes, ref array<CurveEdPresetCurve.PresetGeneratedPoint> GeneratedPoints)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void FetchDisplayName(ref String OutName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool CheckAreSettingsValid(bool bIsSaving)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool FetchRequiredKeyInTimes(ref array<float> RequiredKeyInTimes)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool GenerateCurveData(ref array<float> RequiredKeyInTimes, ref array<CurveEdPresetCurve.PresetGeneratedPoint> GeneratedPoints)
 	{
-	
+		// stub
 		return default;
 	}
 	

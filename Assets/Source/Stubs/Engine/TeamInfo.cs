@@ -23,40 +23,40 @@ public partial class TeamInfo : ReplicationInfo/*
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool AddToTeam(Controller Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void RemoveFromTeam(Controller Other)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */String GetHumanReadableName()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */Object.Color GetHUDColor()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */Object.Color GetTextColor()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -64,6 +64,7 @@ public partial class TeamInfo : ReplicationInfo/*
 	public override /*native simulated function */byte GetTeamNum()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

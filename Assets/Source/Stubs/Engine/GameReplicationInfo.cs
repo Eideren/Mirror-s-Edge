@@ -56,145 +56,146 @@ public partial class GameReplicationInfo : ReplicationInfo/*
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override Reset_del Reset { get => bfield_Reset ?? GameReplicationInfo_Reset; set => bfield_Reset = value; } Reset_del bfield_Reset;
 	public override Reset_del global_Reset => GameReplicationInfo_Reset;
 	public /*function */void GameReplicationInfo_Reset()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public override Timer_del Timer { get => bfield_Timer ?? GameReplicationInfo_Timer; set => bfield_Timer = value; } Timer_del bfield_Timer;
 	public override Timer_del global_Timer => GameReplicationInfo_Timer;
 	public /*simulated event */void GameReplicationInfo_Timer()
 	{
-	
+		// stub
 	}
 	
 	// Export UGameReplicationInfo::execOnSameTeam(FFrame&, void* const)
 	public virtual /*native simulated function */bool OnSameTeam(Actor A, Actor B)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */PlayerReplicationInfo FindPlayerByID(int PlayerId)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void AddPRI(PlayerReplicationInfo PRI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void RemovePRI(PlayerReplicationInfo PRI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetTeam(int Index, TeamInfo TI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void GetPRIArray(ref array<PlayerReplicationInfo> pris)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */bool InOrder(PlayerReplicationInfo P1, PlayerReplicationInfo P2)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void SortPRIArray()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void InitializeGameDataStore()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void CleanupGameDataStore()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StartMatch()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void EndGame()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */OnlineGameInterface GetOnlineGameInterface()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated event */void OnlineSession_StartMatch()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated event */void OnlineSession_EndMatch()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated event */void OnlineSession_EndSession(bool bForced)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */bool IsMultiplayerGame()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool AllowViewTargetSwitching()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool IsCoopMultiplayerGame()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool PreventPause()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool ShouldShowGore()
 	{
-	
+		// stub
 		return default;
 	}
 	protected override void RestoreDefaultFunction()

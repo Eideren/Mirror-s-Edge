@@ -28,35 +28,36 @@ public partial class Projectile : Actor/*
 	
 	public override /*event */bool EncroachingOn(Actor Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */void PreBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Init(Object.Vector Direction)
 	{
-	
+		// stub
 	}
 	
 	// Export UProjectile::execGetTeamNum(FFrame&, void* const)
 	public override /*native simulated function */byte GetTeamNum()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */bool CanSplash()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -64,12 +65,12 @@ public partial class Projectile : Actor/*
 	public override Reset_del global_Reset => Projectile_Reset;
 	public /*function */void Projectile_Reset()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */bool HurtRadius(float DamageAmount, float InDamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, /*optional */Actor? _IgnoredActor = default, /*optional */Controller? _InstigatedByController = default, /*optional */bool? _bDoFullDamage = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -77,37 +78,37 @@ public partial class Projectile : Actor/*
 	public override Touch_del global_Touch => Projectile_Touch;
 	public /*singular simulated event */void Projectile_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void ProcessTouch(Actor Other, Object.Vector HitLocation, Object.Vector HitNormal)
 	{
-	
+		// stub
 	}
 	
 	public override /*singular simulated event */void HitWall(Object.Vector HitNormal, Actor Wall, PrimitiveComponent WallComp)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void EncroachedBy(Actor Other)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void Explode(Object.Vector HitLocation, Object.Vector HitNormal)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final simulated function */void RandSpin(float spinRate)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool IsStationary()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -115,24 +116,24 @@ public partial class Projectile : Actor/*
 	public override FellOutOfWorld_del global_FellOutOfWorld => Projectile_FellOutOfWorld;
 	public /*simulated event */void Projectile_FellOutOfWorld(Core.ClassT<DamageType> dmgType)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */float GetTimeToLocation(Object.Vector TargetLoc)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*simulated function */static float StaticGetTimeToLocation(Object.Vector TargetLoc, Object.Vector StartLoc, Controller RequestedBy)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*simulated function */static float GetRange()
 	{
-	
+		// stub
 		return default;
 	}
 	protected override void RestoreDefaultFunction()

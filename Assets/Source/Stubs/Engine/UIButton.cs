@@ -9,7 +9,7 @@ public partial class UIButton : UIObject/*
 	
 	public virtual /*final function */void SetImage(Surface NewImage)
 	{
-	
+		// stub
 	}
 	
 	public UIButton()

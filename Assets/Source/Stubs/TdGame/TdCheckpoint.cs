@@ -12,18 +12,18 @@ public partial class TdCheckpoint : Checkpoint/*
 	
 	public virtual /*function */void OnTdCheckpoint(SeqAct_TdCheckpoint CheckpointAction)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShouldDoCheckpoint(TdPlayerController PC)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated event */void HandlePawnTeleport(TdPawn Pawn, TdPlayerController PlayerController)
 	{
-	
+		// stub
 	}
 	
 	public TdCheckpoint()

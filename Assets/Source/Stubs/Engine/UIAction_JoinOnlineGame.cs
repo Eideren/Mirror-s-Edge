@@ -11,17 +11,17 @@ public partial class UIAction_JoinOnlineGame : UIAction/*
 	
 	public virtual /*event */void JoinOnlineGame(byte ControllerId, OnlineGameSearch.OnlineGameSearchResult GameToJoin, WorldInfo InWorldInfo)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnJoinGameComplete(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */String BuildJoinURL(String ResolvedConnectionURL)
 	{
-	
+		// stub
 		return default;
 	}
 	

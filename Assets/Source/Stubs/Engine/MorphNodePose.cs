@@ -12,6 +12,7 @@ public partial class MorphNodePose : MorphNodeBase/*
 	public virtual /*native final function */void SetMorphTarget(name MorphTargetName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public MorphNodePose()

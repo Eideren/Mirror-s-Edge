@@ -5,12 +5,12 @@ public partial class TdMove_Disarmed_BossCeleste : TdMove_DisarmedBot/*
 		config(PawnMovement)*/{
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void DisarmCompleted()
 	{
-	
+		// stub
 	}
 	
 }

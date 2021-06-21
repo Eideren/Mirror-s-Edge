@@ -6,7 +6,7 @@ public partial class UIAction_RefreshBindingValue : UIAction_DataStore/*
 		hidecategories(Object)*/{
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

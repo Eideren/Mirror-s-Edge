@@ -23,6 +23,7 @@ public partial class FileWriter : Info/*
 	public virtual /*native final function */bool OpenFile(/*coerce */String InFilename, /*optional */FileWriter.FWFileType? _InFileType = default, /*optional */String? _InExtension = default, /*optional */bool? _bUnique = default, /*optional */bool? _bIncludeTimeStamp = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -30,17 +31,19 @@ public partial class FileWriter : Info/*
 	public virtual /*native final function */void CloseFile()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UFileWriter::execLogf(FFrame&, void* const)
 	public virtual /*native final function */void Logf(/*coerce */String logString)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public FileWriter()

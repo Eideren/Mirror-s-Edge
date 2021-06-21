@@ -24,24 +24,24 @@ public partial class TdGhostStorageManager : Object/*
 	
 	public virtual /*function */void OnConnectionLost()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ReadGhost(TdGhost.TdGhostInfo GhostInfo, /*delegate*/TdGhostStorageManager.OnReadGhostComplete ReadCompleted)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool WriteGhost(TdGhost Ghost, OnlineSubsystem.UniqueNetId PlayerId, /*delegate*/TdGhostStorageManager.OnWriteGhostComplete WriteCompleted)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*protected function */bool InfoIsConsistent(TdGhost.TdGhostInfo Info1, TdGhost.TdGhostInfo Info2)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -49,12 +49,14 @@ public partial class TdGhostStorageManager : Object/*
 	public virtual /*protected native function */void SerializeGhost(ref TdGhost Ghost, ref array<byte> Bytes)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdGhostStorageManager::execDeSerializeGhost(FFrame&, void* const)
 	public virtual /*protected native function */TdGhostStorageManager.EGhostStorageResult DeSerializeGhost(ref TdGhost Ghost, ref array<byte> Bytes)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

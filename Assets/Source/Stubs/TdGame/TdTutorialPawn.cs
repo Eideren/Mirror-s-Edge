@@ -11,31 +11,31 @@ public partial class TdTutorialPawn : TdPlayerPawn/*
 	public override SetMove_del global_SetMove => TdTutorialPawn_SetMove;
 	public /*simulated event */bool TdTutorialPawn_SetMove(TdPawn.EMovement NewMove, /*optional */bool? _bViaReplication = default, /*optional */bool? _bCheckCanDo = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void OnTutorialEvent(int TutorialEvent)
 	{
-	
+		// stub
 	}
 	
 	public override Died_del Died { get => bfield_Died ?? TdTutorialPawn_Died; set => bfield_Died = value; } Died_del bfield_Died;
 	public override Died_del global_Died => TdTutorialPawn_Died;
 	public /*function */bool TdTutorialPawn_Died(Controller Killer, Core.ClassT<DamageType> DamageType, Object.Vector HitLocation)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void TossWeapon(Weapon Weap, /*optional */Object.Vector? _ForceVelocity = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void UpdateAnimSets(/*optional */TdWeapon? _iWeapon = default)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

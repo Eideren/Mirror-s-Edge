@@ -7,7 +7,7 @@ public partial class SeqAct_SetVector : SeqAct_SetSequenceVariable/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_SetVector()

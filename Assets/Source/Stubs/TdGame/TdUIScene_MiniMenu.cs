@@ -18,70 +18,70 @@ public partial class TdUIScene_MiniMenu : TdUIScene_Overlay/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Back(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_Accept(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnCloseScene()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void SceneDeactivated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnOptionsList_SubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AddOption(String Option, /*delegate*/TdUIScene_MiniMenu.OnOptionCallback CallbackFunc)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnOptionSelected()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void FireOptionSelected(/*delegate*/TdUIScene_MiniMenu.OnOptionCallback OptionCallback)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSceneClosed_FireOption(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnMBInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

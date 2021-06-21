@@ -14,12 +14,13 @@ public partial class TdPathLimits : Info/*
 	public virtual /*native function */bool Contains(Object.Vector TestLocation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{
-	
+		// stub
 	}
 	
 	public TdPathLimits()

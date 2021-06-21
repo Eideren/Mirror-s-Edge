@@ -279,24 +279,26 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native function */PostProcessVolume.PostProcessSettings GetModifiedPostProcessSettings()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */void SetSceneExposureReset(bool B)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */bool IsServer()
 	{
-	
+		// stub
 		return default;
 	}
 	
-	//// Export UWorldInfo::execGetGravityZ(FFrame&, void* const)
+	// Export UWorldInfo::execGetGravityZ(FFrame&, void* const)
 	//public override /*native function */float GetGravityZ()
 	//{
 	//	#warning NATIVE FUNCTION !
+	//	// stub
 	//	return default;
 	//}
 	
@@ -304,6 +306,7 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native final function */Sequence GetGameSequence()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -311,12 +314,14 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native final function */void SetLevelRBGravity(Object.Vector NewGrav)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UWorldInfo::execGetLocalURL(FFrame&, void* const)
 	public virtual /*native simulated function */String GetLocalURL()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -324,6 +329,7 @@ public partial class WorldInfo : ZoneInfo/*
 	public /*native final simulated function */static bool IsDemoBuild()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -331,6 +337,7 @@ public partial class WorldInfo : ZoneInfo/*
 	public /*native final simulated function */static bool IsConsoleBuild(/*optional */WorldInfo.EConsoleType? _ConsoleType = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -338,6 +345,7 @@ public partial class WorldInfo : ZoneInfo/*
 	public /*native final simulated function */static bool IsPlayInEditor()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -345,64 +353,68 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native final simulated function */void ForceGarbageCollection(/*optional */bool? _bFullPurge = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UWorldInfo::execVerifyNavList(FFrame&, void* const)
 	public virtual /*native final simulated function */void VerifyNavList()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UWorldInfo::execGetAddressURL(FFrame&, void* const)
 	public virtual /*native simulated function */String GetAddressURL()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */Core.ClassT<GameInfo> GetGameClass()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool IsLOIEnabled()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void ServerTravel(String URL, /*optional */bool? _bAbsolute = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ThisIsNeverExecuted(DefaultPhysicsVolume P)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void PreBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override Reset_del Reset { get => bfield_Reset ?? WorldInfo_Reset; set => bfield_Reset = value; } Reset_del bfield_Reset;
 	public override Reset_del global_Reset => WorldInfo_Reset;
 	public /*function */void WorldInfo_Reset()
 	{
-	
+		// stub
 	}
 	
-	//// Export UWorldInfo::execAllNavigationPoints(FFrame&, void* const)
+	// Export UWorldInfo::execAllNavigationPoints(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<NavigationPoint/* N*/> AllNavigationPoints(Core.ClassT<NavigationPoint> BaseClass)
 	//{
 	//	#warning NATIVE FUNCTION !
+	//	// stub
 	//	yield break;
 	//}
 	
@@ -410,6 +422,7 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<NavigationPoint/* N*/> RadiusNavigationPoints(Core.ClassT<NavigationPoint> BaseClass, Object.Vector Point, float Radius)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		yield break;
 	}
 	
@@ -417,12 +430,14 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native final function */void NavigationPointCheck(Object.Vector Point, Object.Vector Extent, /*optional */ref array<NavigationPoint> Navs/* = default*/, /*optional */ref array<ReachSpec> Specs/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
-	//// Export UWorldInfo::execAllControllers(FFrame&, void* const)
+	// Export UWorldInfo::execAllControllers(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Controller/* C*/> AllControllers(Core.ClassT<Controller> BaseClass)
 	//{
 	//	#warning NATIVE FUNCTION !
+	//	// stub
 	//	yield break;
 	//}
 	//
@@ -430,6 +445,7 @@ public partial class WorldInfo : ZoneInfo/*
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Pawn/* P*/> AllPawns(Core.ClassT<Pawn> BaseClass, /*optional */Object.Vector? _TestLocation = default, /*optional */float? _TestRadius = default)
 	//{
 	//	#warning NATIVE FUNCTION !
+	//	// stub
 	//	yield break;
 	//}
 	
@@ -437,18 +453,21 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native final function */void NotifyMatchStarted(/*optional */bool? _bShouldActivateLevelStartupEvents = default, /*optional */bool? _bShouldActivateLevelBeginningEvents = default, /*optional */bool? _bShouldActivateLevelLoadedEvents = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UWorldInfo::execPrepareMapChange(FFrame&, void* const)
 	public virtual /*native final function */void PrepareMapChange(/*const */ref array<name> LevelNames)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UWorldInfo::execIsPreparingMapChange(FFrame&, void* const)
 	public virtual /*native final function */bool IsPreparingMapChange()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -456,6 +475,7 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native final function */bool IsMapChangeReady()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -463,18 +483,21 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native final function */void CommitMapChange(/*optional */bool? _bShouldSkipLevelStartupEvent = default, /*optional */bool? _bShouldSkipLevelBeginningEvent = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UWorldInfo::execSeamlessTravel(FFrame&, void* const)
 	public virtual /*native final function */void SeamlessTravel(String URL, /*optional */bool? _bAbsolute = default, /*init optional */Object.Guid? _MapPackageGuid = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UWorldInfo::execIsInSeamlessTravel(FFrame&, void* const)
 	public virtual /*native final function */bool IsInSeamlessTravel()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -482,12 +505,14 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native final function */void SetSeamlessTravelMidpointPause(bool bNowPaused)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UWorldInfo::execGetMapInfo(FFrame&, void* const)
 	public virtual /*native final function */MapInfo GetMapInfo()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -495,12 +520,14 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native final function */void SetMapInfo(MapInfo NewMapInfo)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UWorldInfo::execGetMapName(FFrame&, void* const)
 	public virtual /*native final function */String GetMapName(/*optional */bool? _bIncludePrefix = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -508,6 +535,7 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native final function */Scene.EDetailMode GetDetailMode()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -515,6 +543,7 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native final function */bool IsRecordingDemo()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -522,6 +551,7 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native final function */bool IsPlayingDemo()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -529,6 +559,7 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native function */void DoMemoryTracking()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

@@ -14,29 +14,29 @@ public partial class TdAI_BossHeliController : TdAI_HeliController/*
 	public override Tick_del global_Tick => TdAI_BossHeliController_Tick;
 	public /*event */void TdAI_BossHeliController_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */float GetPrio(TdAttackPathNode Node, Object.Vector PlayerPosition)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */TdAttackPathNode FindBestAttackPoint(ref float PrioValue)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void InvalidateNode()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void CheckForPlayer()
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{
@@ -46,12 +46,12 @@ public partial class TdAI_BossHeliController : TdAI_HeliController/*
 	
 	protected /*function */void TdAI_BossHeliController_SearchAndDestroy_ContinuedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_BossHeliController_SearchAndDestroy_PausedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) SearchAndDestroy()/*auto state SearchAndDestroy*/

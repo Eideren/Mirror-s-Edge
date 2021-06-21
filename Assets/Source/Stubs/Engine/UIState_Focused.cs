@@ -7,7 +7,7 @@ public partial class UIState_Focused : UIState/*
 		hidecategories(Object,UIRoot)*/{
 	public override /*event */bool ActivateState(UIScreenObject Target, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	

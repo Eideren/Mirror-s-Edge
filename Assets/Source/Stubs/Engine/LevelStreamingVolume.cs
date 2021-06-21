@@ -22,7 +22,7 @@ public partial class LevelStreamingVolume : Volume/*
 	
 	public override /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{
-	
+		// stub
 	}
 	
 	public LevelStreamingVolume()

@@ -18,7 +18,7 @@ public partial class UIAction_GetPrivilegeLevel : UIAction/*
 	
 	public virtual /*event */OnlineSubsystem.EFeaturePrivilegeLevel GetPrivilegeLevel(int ControllerId)
 	{
-	
+		// stub
 		return default;
 	}
 	

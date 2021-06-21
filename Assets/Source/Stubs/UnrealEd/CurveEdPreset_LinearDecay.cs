@@ -12,25 +12,25 @@ public partial class CurveEdPreset_LinearDecay : CurveEdPresetBase/*
 	
 	public override /*function */String GetDisplayName()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool AreSettingsValid(bool bIsSaving)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool GetRequiredKeyInTimes(ref array<float> RequiredKeyInTimes)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool GenerateCurve(ref array<float> RequiredKeyInTimes, ref array<CurveEdPresetCurve.PresetGeneratedPoint> GeneratedPoints)
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -113,180 +113,182 @@ public partial class HUD : Actor/*
 	public virtual /*native final function */void Draw3DLine(Object.Vector Start, Object.Vector End, Object.Color LineColor)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UHUD::execDraw2DLine(FFrame&, void* const)
 	public virtual /*native final function */void Draw2DLine(int X1, int Y1, int X2, int Y2, Object.Color LineColor)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SpawnScoreBoard(Core.ClassT<ScoreBoard> ScoringType)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ToggleHUD()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowHUD()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowScores()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void SetShowScores(bool bNewValue)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowDebug(/*optional */name? _DebugType = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShouldDisplayDebug(name DebugType)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*exec function */void FXPlay(Core.ClassT<Pawn> aClass, String FXAnimPath)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void FXStop(Core.ClassT<Pawn> aClass)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawRoute(Pawn Target)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PreCalcValues()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void PostRender()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawHUD()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawDemoHUD()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawEngineHUD()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplayProgressMessage()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplayBadConnectionAlert()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearMessage(ref HUD.HudLocalizedMessage M)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Message(PlayerReplicationInfo PRI, /*coerce */String msg, name MsgType, /*optional */float? _Lifetime = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplayConsoleMessages()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AddConsoleMessage(String M, Core.ClassT<LocalMessage> InMessageClass, PlayerReplicationInfo PRI, /*optional */float? _Lifetime = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void LocalizedMessage(Core.ClassT<LocalMessage> InMessageClass, PlayerReplicationInfo RelatedPRI_1, String CriticalString, int Switch, float Position, float Lifetime, int FontSize, Object.Color DrawColor, /*optional */Object? _OptionalObject = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AddLocalizedMessage(int Index, Core.ClassT<LocalMessage> InMessageClass, String CriticalString, int Switch, float Position, float Lifetime, int FontSize, Object.Color DrawColor, /*optional */int? _MessageCount = default, /*optional */Object? _OptionalObject = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void GetScreenCoords(float PosY, ref float ScreenX, ref float ScreenY, ref HUD.HudLocalizedMessage InMessage)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawMessage(int I, float PosY, ref float DX, ref float DY)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawMessageText(HUD.HudLocalizedMessage LocalMessage, float ScreenX, float ScreenY)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplayLocalMessages()
 	{
-	
+		// stub
 	}
 	
 	public /*function */static Font GetFontSizeIndex(int FontSize)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static Object.Color GetRYGColorRamp(float Pct)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void PlayerOwnerDied()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnLostFocusPause(bool Enable)
 	{
-	
+		// stub
 	}
 	
 	public HUD()

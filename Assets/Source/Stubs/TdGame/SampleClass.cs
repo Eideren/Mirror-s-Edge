@@ -16,24 +16,25 @@ public partial class SampleClass : Actor/*
 	public virtual /*native function */int SampleNativeFunction(int I, String S, Object.Vector V)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void SampleEvent(int I)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override Timer_del Timer { get => bfield_Timer ?? SampleClass_Timer; set => bfield_Timer = value; } Timer_del bfield_Timer;
 	public override Timer_del global_Timer => SampleClass_Timer;
 	public /*function */void SampleClass_Timer()
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

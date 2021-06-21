@@ -105,12 +105,14 @@ public partial class TpConnection : TpSystemHandler/*
 	public virtual /*native simulated function */void ConnectAsync()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpConnection::execConnectSilentAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void ConnectSilentAsync(/*optional */String? _EncLogin = default, /*optional */String? _Persona = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnConnectionFailed(TpConnection.TpConnectionError InError);
@@ -125,18 +127,21 @@ public partial class TpConnection : TpSystemHandler/*
 	public virtual /*native simulated function */void LoginAccountAsync(String InName, String InPasswd)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpConnection::execLoginEncAccountAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void LoginEncAccountAsync(String EncLogin)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpConnection::execLoginPersonaAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void LoginPersonaAsync(String InName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnPartiallyLoggedIn(array<String> InSubNames);
@@ -149,6 +154,7 @@ public partial class TpConnection : TpSystemHandler/*
 	public virtual /*native simulated function */void PrepareCreateAccountAsync()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnCreateAccountReady(String Email, String Pass, bool bAllowEaEmail, bool bAllowTPEmail, bool bIsConsole);
@@ -157,6 +163,7 @@ public partial class TpConnection : TpSystemHandler/*
 	public virtual /*native simulated function */bool CreateAccountAsync(TpConnection.TpCreateAccountParams InParams)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -164,6 +171,7 @@ public partial class TpConnection : TpSystemHandler/*
 	public virtual /*native simulated function */void CreateAccountConsoleAsync(String Email, String Pass, bool bAllowEaEmail, bool bAllowThirdPartyEmail)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnCreateAccountError(TpAccount.TpAccountError InError);
@@ -174,6 +182,7 @@ public partial class TpConnection : TpSystemHandler/*
 	public virtual /*native simulated function */void CreateAccountGetTOSAsync(String ISOCode)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnGetTOS(String TOSText);
@@ -182,6 +191,7 @@ public partial class TpConnection : TpSystemHandler/*
 	public virtual /*native simulated function */void CreateAccountAcceptTOSAsync(bool Accept)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnDisplayPersonas(array<String> Personas);
@@ -190,6 +200,7 @@ public partial class TpConnection : TpSystemHandler/*
 	public virtual /*native simulated function */void CreatePersonaAsync(String Persona)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnCreatePersonaError(int ErrorCode);
@@ -198,6 +209,7 @@ public partial class TpConnection : TpSystemHandler/*
 	public virtual /*native simulated function */void DisconnectAsync()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnDisconnect();
@@ -206,6 +218,7 @@ public partial class TpConnection : TpSystemHandler/*
 	public virtual /*native simulated function */void ConfirmMessage()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnDisplayConfirmMessage(String Message);
@@ -214,6 +227,7 @@ public partial class TpConnection : TpSystemHandler/*
 	public virtual /*native simulated function */void ConfirmParentalEmail(String Email)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnDisplayParentalEmail();
@@ -222,24 +236,27 @@ public partial class TpConnection : TpSystemHandler/*
 	public virtual /*native simulated function */void RepromptDisplay()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpConnection::execSetActiveControllerId(FFrame&, void* const)
 	public virtual /*native simulated function */void SetActiveControllerId(byte LocalUserNum)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpConnection::execIsAuthenticated(FFrame&, void* const)
 	public virtual /*native simulated function */bool IsAuthenticated()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*final simulated function */bool IsLanGame()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -247,6 +264,7 @@ public partial class TpConnection : TpSystemHandler/*
 	public virtual /*native simulated function */bool IsConnected()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -254,6 +272,7 @@ public partial class TpConnection : TpSystemHandler/*
 	public virtual /*native simulated function */bool IsLoggedIn()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

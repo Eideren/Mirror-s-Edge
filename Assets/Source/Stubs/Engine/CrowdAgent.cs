@@ -42,18 +42,19 @@ public partial class CrowdAgent : Actor/*
 	public virtual /*native function */void PlayDeath()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? CrowdAgent_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => CrowdAgent_TakeDamage;
 	public /*function */void CrowdAgent_TakeDamage(int DamageAmount, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated event */void SpawnActionEffect(Object.Vector ActionTarget)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

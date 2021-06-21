@@ -7,7 +7,7 @@ public partial class UIAction_RemovePage : UIAction_TabControl/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public UIAction_RemovePage()

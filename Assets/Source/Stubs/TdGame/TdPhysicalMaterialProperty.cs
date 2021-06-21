@@ -20,6 +20,7 @@ public partial class TdPhysicalMaterialProperty : PhysicalMaterialPropertyBase/*
 	public virtual /*native final simulated function */SoundCue GetParticleImpactSound(TdParticleModuleCollision.ECollisionParticleType Type)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

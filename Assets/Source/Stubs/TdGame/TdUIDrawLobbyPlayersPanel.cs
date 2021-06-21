@@ -8,27 +8,27 @@ public partial class TdUIDrawLobbyPlayersPanel : TdUIDrawPlayersPanel/*
 	
 	public override /*protected function */void DrawPlayerSlotBG(Canvas C, int TeamIndex, int PlayerSlotIndex, int X, int Y, int XL, int YL)
 	{
-	
+		// stub
 	}
 	
 	public override /*protected function */void DrawPlayer(Canvas C, TdPlayerReplicationInfo TdPRI, int TeamIndex, bool bIsSelected, int Left, int Top, int Width, int Height)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void DrawPlayerName(Canvas C, String PlayerName, bool bIsSelected, int Left, int Top, int Width, int Height)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void DrawPlayerRole(Canvas C, int RoleId, int Left, int Top, int Width, int Height)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void DrawPlayerIsReady(Canvas C, int Left, int Top, int Width, int Height)
 	{
-	
+		// stub
 	}
 	
 	public TdUIDrawLobbyPlayersPanel()

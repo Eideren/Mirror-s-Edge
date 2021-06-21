@@ -19,74 +19,74 @@ public partial class TdUIScene_CreatePersona : TdUIScene_SubMenu/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Cancel(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_Submit(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnPersonasList_ValueChanged(UIObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetListPersonas(array<String> Personas)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdatePersonasBox()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSubmit()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnCloseScene_LoginPersona(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnCloseScene_CreatePersona(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSubmitError_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCancel()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PersonasList_OnSubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

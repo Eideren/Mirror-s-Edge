@@ -7,17 +7,17 @@ public partial class TdUIScene_VideoSettings : TdUIScene_OptionMenu/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public override /*function */void ResetSettingsToDefault()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void InitializeSettings()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SaveWidgetValues()
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_VideoSettings()

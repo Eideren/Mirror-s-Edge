@@ -36,55 +36,55 @@ public partial class UIDataStore_TdOnlineStats : UIDataStore_OnlineStats/*
 	
 	public override /*event */void Init()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetCurrentStretchId(int StretchId)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */OnlineStatsRead GetStatsReadObject(name FieldName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void SetStatsReadInfo()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitCaches()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearCaches()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool RefreshStats(byte ControllerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void OnReadComplete(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ReadPlayerStats()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ReadLeaderboardStats()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -92,12 +92,13 @@ public partial class UIDataStore_TdOnlineStats : UIDataStore_OnlineStats/*
 	public virtual /*native function */int GetPlayerRank(int PlayerIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */int FindLocalPlayerIndex()
 	{
-	
+		// stub
 		return default;
 	}
 	

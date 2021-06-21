@@ -41,19 +41,19 @@ public partial class OnlineGameInterfaceImpl : Object,
 	
 	public virtual /*function */OnlineSubsystem.EOnlineGameState GetOnlineGameState()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */OnlineGameSettings GetGameSettings()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */OnlineGameSearch GetGameSearch()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -61,22 +61,23 @@ public partial class OnlineGameInterfaceImpl : Object,
 	public virtual /*native function */bool CreateOnlineGame(byte HostingPlayerNum, OnlineGameSettings NewGameSettings)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AddCreateOnlineGameCompleteDelegate(/*delegate*/OnlineGameInterface.OnCreateOnlineGameComplete CreateOnlineGameCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearCreateOnlineGameCompleteDelegate(/*delegate*/OnlineGameInterface.OnCreateOnlineGameComplete CreateOnlineGameCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool UpdateOnlineGame(OnlineGameSettings UpdatedGameSettings)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -84,57 +85,61 @@ public partial class OnlineGameInterfaceImpl : Object,
 	public virtual /*native function */bool DestroyOnlineGame()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AddDestroyOnlineGameCompleteDelegate(/*delegate*/OnlineGameInterface.OnDestroyOnlineGameComplete DestroyOnlineGameCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearDestroyOnlineGameCompleteDelegate(/*delegate*/OnlineGameInterface.OnDestroyOnlineGameComplete DestroyOnlineGameCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	// Export UOnlineGameInterfaceImpl::execFindOnlineGames(FFrame&, void* const)
 	public virtual /*native function */bool FindOnlineGames(byte SearchingPlayerNum, OnlineGameSearch SearchSettings)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AddFindOnlineGamesCompleteDelegate(/*delegate*/OnlineGameInterface.OnFindOnlineGamesComplete FindOnlineGamesCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearFindOnlineGamesCompleteDelegate(/*delegate*/OnlineGameInterface.OnFindOnlineGamesComplete FindOnlineGamesCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	// Export UOnlineGameInterfaceImpl::execCancelFindOnlineGames(FFrame&, void* const)
 	public virtual /*native function */bool CancelFindOnlineGames()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AddCancelFindOnlineGamesCompleteDelegate(/*delegate*/OnlineGameInterface.OnCancelFindOnlineGamesComplete CancelFindOnlineGamesCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearCancelFindOnlineGamesCompleteDelegate(/*delegate*/OnlineGameInterface.OnCancelFindOnlineGamesComplete CancelFindOnlineGamesCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	// Export UOnlineGameInterfaceImpl::execFreeSearchResults(FFrame&, void* const)
 	public virtual /*native function */bool FreeSearchResults(OnlineGameSearch Search)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -142,133 +147,137 @@ public partial class OnlineGameInterfaceImpl : Object,
 	public virtual /*native function */bool JoinOnlineGame(byte PlayerNum, /*const */ref OnlineGameSearch.OnlineGameSearchResult DesiredGame)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AddJoinOnlineGameCompleteDelegate(/*delegate*/OnlineGameInterface.OnJoinOnlineGameComplete JoinOnlineGameCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearJoinOnlineGameCompleteDelegate(/*delegate*/OnlineGameInterface.OnJoinOnlineGameComplete JoinOnlineGameCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	// Export UOnlineGameInterfaceImpl::execGetResolvedConnectString(FFrame&, void* const)
 	public virtual /*native function */bool GetResolvedConnectString(ref String ConnectInfo)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool RegisterPlayer(OnlineSubsystem.UniqueNetId PlayerId, bool bWasInvited)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AddRegisterPlayerCompleteDelegate(/*delegate*/OnlineGameInterface.OnRegisterPlayerComplete RegisterPlayerCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearRegisterPlayerCompleteDelegate(/*delegate*/OnlineGameInterface.OnRegisterPlayerComplete RegisterPlayerCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool UnregisterPlayer(OnlineSubsystem.UniqueNetId PlayerId)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AddUnregisterPlayerCompleteDelegate(/*delegate*/OnlineGameInterface.OnUnregisterPlayerComplete UnregisterPlayerCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearUnregisterPlayerCompleteDelegate(/*delegate*/OnlineGameInterface.OnUnregisterPlayerComplete UnregisterPlayerCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	// Export UOnlineGameInterfaceImpl::execStartOnlineGame(FFrame&, void* const)
 	public virtual /*native function */bool StartOnlineGame()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AddStartOnlineGameCompleteDelegate(/*delegate*/OnlineGameInterface.OnStartOnlineGameComplete StartOnlineGameCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearStartOnlineGameCompleteDelegate(/*delegate*/OnlineGameInterface.OnStartOnlineGameComplete StartOnlineGameCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	// Export UOnlineGameInterfaceImpl::execEndOnlineGame(FFrame&, void* const)
 	public virtual /*native function */bool EndOnlineGame()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AddEndOnlineGameCompleteDelegate(/*delegate*/OnlineGameInterface.OnEndOnlineGameComplete EndOnlineGameCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearEndOnlineGameCompleteDelegate(/*delegate*/OnlineGameInterface.OnEndOnlineGameComplete EndOnlineGameCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool RegisterForArbitration()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AddArbitrationRegistrationCompleteDelegate(/*delegate*/OnlineGameInterface.OnArbitrationRegistrationComplete ArbitrationRegistrationCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearArbitrationRegistrationCompleteDelegate(/*delegate*/OnlineGameInterface.OnArbitrationRegistrationComplete ArbitrationRegistrationCompleteDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */array<OnlineSubsystem.OnlineArbitrationRegistrant> GetArbitratedPlayers()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AddGameInviteAcceptedDelegate(byte LocalUserNum, /*delegate*/OnlineGameInterface.OnGameInviteAccepted GameInviteAcceptedDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearGameInviteAcceptedDelegate(byte LocalUserNum, /*delegate*/OnlineGameInterface.OnGameInviteAccepted GameInviteAcceptedDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool AcceptGameInvite(byte LocalUserNum)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool RecalculateSkillRating(/*const */ref array<OnlineSubsystem.UniqueNetId> Players)
 	{
-	
+		// stub
 		return default;
 	}
 	

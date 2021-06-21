@@ -12,7 +12,7 @@ public partial class SeqAct_Delay : SeqAct_Latent/*
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

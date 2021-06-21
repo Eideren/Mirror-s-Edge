@@ -57,35 +57,36 @@ public partial class UIDataStore_OnlineStats : UIDataStore_Remote,
 	
 	public virtual /*event */void Init()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetStatsReadInfo()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool RefreshStats(byte ControllerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool ShowGamercard(byte ConrollerIndex, int ListIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnReadComplete(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	// Export UUIDataStore_OnlineStats::execSortResultsByRank(FFrame&, void* const)
 	public virtual /*native function */void SortResultsByRank()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public UIDataStore_OnlineStats()

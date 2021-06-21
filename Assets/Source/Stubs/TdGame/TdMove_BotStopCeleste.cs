@@ -5,7 +5,7 @@ public partial class TdMove_BotStopCeleste : TdMove_BotStop/*
 		config(PawnMovement)*/{
 	public override /*function */float GetBlendOutTime()
 	{
-	
+		// stub
 		return default;
 	}
 	

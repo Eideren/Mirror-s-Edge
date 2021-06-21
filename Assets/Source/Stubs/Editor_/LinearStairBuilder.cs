@@ -12,7 +12,7 @@ public partial class LinearStairBuilder : BrushBuilder/*
 	
 	public override /*event */bool Build()
 	{
-	
+		// stub
 		return default;
 	}
 	

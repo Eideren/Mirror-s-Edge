@@ -42,6 +42,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	public override /*native simulated function */bool SetStaticMesh(StaticMesh NewMesh)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -49,12 +50,14 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	public virtual /*native simulated function */void SetVisibleFragments(array<byte> VisibilityFactors)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UFracturedStaticMeshComponent::execGetVisibleFragments(FFrame&, void* const)
 	public virtual /*native simulated function */array<byte> GetVisibleFragments()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -62,6 +65,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	public virtual /*native simulated function */bool IsFragmentVisible(int FragmentIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -69,6 +73,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	public virtual /*native simulated function */bool IsFragmentDestroyable(int FragmentIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -76,6 +81,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	public virtual /*native simulated function */bool IsRootFragment(int FragmentIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -83,6 +89,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	public virtual /*native function */Object.Box GetFragmentBox(int FragmentIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -90,6 +97,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	public virtual /*native function */Object.Vector GetFragmentAverageExteriorNormal(int FragmentIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -97,6 +105,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	public virtual /*native function */int GetNumFragments()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -104,6 +113,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	public virtual /*native function */int GetCoreFragmentIndex()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -111,6 +121,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	public virtual /*native simulated function */array<FracturedStaticMeshComponent.FragmentGroup> GetFragmentGroups(array<int> IgnoreFragments, float MinConnectionArea)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

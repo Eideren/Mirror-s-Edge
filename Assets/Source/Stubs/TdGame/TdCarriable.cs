@@ -37,67 +37,67 @@ public partial class TdCarriable : Object,
 	
 	public virtual /*function */void Initialize(TdCarriableListener InListener, TdBagGRI InGRI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RespawnActorProxy(Object.Vector InLocation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTouched(TdPlayerPawn InCarrierPawn)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnResurrected()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsCarried()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnTouchedGround()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void HintUnreachable()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */Object.Vector GetLocation()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */Pawn GetCarryingPawn()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */Actor GetCarriedActor()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnCarried(TdPlayerPawn InCarrierPawn)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnDropped(TdPlayerPawn InCarrierPawn, Object.Vector StartLocation, Object.Rotator StartRotation, Object.Vector WithForce)
 	{
-	
+		// stub
 		return default;
 	}
 	

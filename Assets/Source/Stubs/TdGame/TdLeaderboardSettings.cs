@@ -36,7 +36,7 @@ public partial class TdLeaderboardSettings : Settings/*
 	
 	public virtual /*function */void StepSettingValue(int SettingId, /*optional */bool? _bIncrease = default)
 	{
-	
+		// stub
 	}
 	
 	public TdLeaderboardSettings()

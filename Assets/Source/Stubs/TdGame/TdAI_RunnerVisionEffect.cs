@@ -6,7 +6,7 @@ public partial class TdAI_RunnerVisionEffect : InterpActor/*
 		hidecategories(Navigation)*/{
 	public virtual /*simulated function */void Initialize()
 	{
-	
+		// stub
 	}
 	
 	public TdAI_RunnerVisionEffect()

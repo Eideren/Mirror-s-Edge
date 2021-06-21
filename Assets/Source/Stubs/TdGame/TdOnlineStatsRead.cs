@@ -9,6 +9,7 @@ public partial class TdOnlineStatsRead : OnlineStatsRead/*
 	public virtual /*native function */float GetFloatStat(OnlineSubsystem.UniqueNetId UniqId, int StatId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -16,6 +17,7 @@ public partial class TdOnlineStatsRead : OnlineStatsRead/*
 	public virtual /*native function */int GetIntStat(OnlineSubsystem.UniqueNetId UniqId, int StatId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -23,6 +25,7 @@ public partial class TdOnlineStatsRead : OnlineStatsRead/*
 	public virtual /*native function */float GetFloatStatFromRow(int Row, int StatId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -30,12 +33,13 @@ public partial class TdOnlineStatsRead : OnlineStatsRead/*
 	public virtual /*native function */int GetIntStatFromRow(int Row, int StatId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetStretchId(int InStretchId)
 	{
-	
+		// stub
 	}
 	
 }

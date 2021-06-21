@@ -17,49 +17,49 @@ public partial class TdUIScene_TOS : TdUIScene_SubMenu/*
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Cancel(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_Accept(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetTOSMessage(String Message)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnAcceptTOS()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCloseScene_Accept(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCancelTOS()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCloseScene_Cancel(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

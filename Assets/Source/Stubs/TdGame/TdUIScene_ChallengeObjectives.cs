@@ -6,48 +6,48 @@ public partial class TdUIScene_ChallengeObjectives : TdUIScene_ObjectivesScene/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnFinishedObjectivesList_SubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnTabPageActivated(UITabControl Sender, UITabPage NewlyActivePage, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_StartChallenge(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void StartChallenge()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnCloseScene()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSceneDeactivated_RestartMovementChallenge(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSceneDeactivated_RestartCurrentMovementChallenge(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -28,17 +28,17 @@ public partial class TdHudHitIndicator : TdHUDObject/*
 	
 	public override /*event */void Initialized()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TrackDamage(Object.Vector HitDir, int Damage, Core.ClassT<DamageType> DamageType)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void FlashDamage(float FlashPosition)
 	{
-	
+		// stub
 	}
 	
 	public TdHudHitIndicator()

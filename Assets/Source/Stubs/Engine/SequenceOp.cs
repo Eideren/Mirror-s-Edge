@@ -135,6 +135,7 @@ public partial class SequenceOp : SequenceObject/*
 	public virtual /*native final function */bool HasLinkedOps(/*optional */bool? _bConsiderInputLinks = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -142,68 +143,74 @@ public partial class SequenceOp : SequenceObject/*
 	public virtual /*native final function */void GetLinkedObjects(ref array<SequenceObject> out_Objects, /*optional */Core.ClassT<SequenceObject>? _ObjectType = default, /*optional */bool? _bRecurse = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USequenceOp::execGetObjectVars(FFrame&, void* const)
 	public virtual /*native final function */void GetObjectVars(ref array<Object> objVars, /*optional */String? _inDesc = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USequenceOp::execGetBoolVars(FFrame&, void* const)
 	public virtual /*native final function */void GetBoolVars(ref array<byte> boolVars, /*optional */String? _inDesc = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USequenceOp::execLinkedVariables(FFrame&, void* const)
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<SequenceVariable/* OutVariable*/> LinkedVariables(Core.ClassT<SequenceVariable> VarClass, /*optional */String? _inDesc = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		yield break;
 	}
 	
 	public virtual /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void Deactivated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void VersionUpdated(int OldVersion, int NewVersion)
 	{
-	
+		// stub
 	}
 	
 	// Export USequenceOp::execPopulateLinkedVariableValues(FFrame&, void* const)
 	public virtual /*native final function */void PopulateLinkedVariableValues()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USequenceOp::execPublishLinkedVariableValues(FFrame&, void* const)
 	public virtual /*native final function */void PublishLinkedVariableValues()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */void Reset()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */Pawn GetPawn(Actor TheActor)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */Controller GetController(Actor TheActor)
 	{
-	
+		// stub
 		return default;
 	}
 	

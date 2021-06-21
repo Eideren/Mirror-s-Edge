@@ -9,7 +9,7 @@ public partial class UIEvent_ProcessInput : UIEvent/*
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

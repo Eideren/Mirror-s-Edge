@@ -28,18 +28,19 @@ public partial class TdGameEngine : GameEngine/*
 	public /*native final function */static name GetLanguage()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */String GetHintMessage(bool bIsTTGame)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void OnLoadLevel()
 	{
-	
+		// stub
 	}
 	
 	public TdGameEngine()

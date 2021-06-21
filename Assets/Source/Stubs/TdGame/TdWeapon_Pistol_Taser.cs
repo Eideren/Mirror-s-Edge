@@ -15,53 +15,53 @@ public partial class TdWeapon_Pistol_Taser : TdWeapon_Light/*
 	
 	public override /*simulated function */void CustomFire()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void PlayFiringSound()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void PlayReverbSound()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void SpawnImpactSounds(Actor.ImpactInfo Impact)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void CauseMuzzleFlash()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetFlashLocation(Object.Vector HitLocation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void ProcessTaserHit(byte FiringMode, Actor.ImpactInfo Impact)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void SpawnImpactEffects(Actor.ImpactInfo Impact)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void SpawnTracerEffect(Object.Vector HitLocation)
 	{
-	
+		// stub
 	}
 	
 	
 	protected /*simulated function */bool TdWeapon_Pistol_Taser_WeaponFiring_ShouldRefire()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -73,7 +73,7 @@ public partial class TdWeapon_Pistol_Taser : TdWeapon_Light/*
 	
 	protected /*simulated event */void TdWeapon_Pistol_Taser_WeaponPuttingDown_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) WeaponPuttingDown()/*simulated state WeaponPuttingDown*/

@@ -7,12 +7,12 @@ public partial class TdBotPawn_JKSniper : TdBotPawnNoPhysics/*
 		hidecategories(Navigation)*/{
 	public override /*simulated function */void Turn(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */Object.Vector GetViewpointLocation(/*optional */bool? _ForceCrouch = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

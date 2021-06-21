@@ -99,71 +99,71 @@ public partial class TdAIManager : Actor/*
 	public override Tick_del global_Tick => TdAIManager_Tick;
 	public /*event */void TdAIManager_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateFiringStats()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ReportBulletFired()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ReportFireIntent()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OkToFireBullet()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ClearFiringStats()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool AskToBurst(TdBotPawn Pawn, float BurstDuration)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CheckBurstPriority(TdBotPawn Pawn)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool PrioritizedOver(TdBotPawn P1, TdBotPawn P2)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void UpdateBursts()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ReportBurstFinished(TdBotPawn Pawn)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void RemoveBurst(TdBotPawn Pawn)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OkToStartTestingCombatTransitions()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -171,61 +171,63 @@ public partial class TdAIManager : Actor/*
 	public virtual /*native function */TdBotPawn GetBlockingPawn(TdAIController me, bool bCrouching, /*optional */bool? _UpdateMoveDir = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyPlayerNavigationPointChanged()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIManager::execIsOkToUpdateVisibility(FFrame&, void* const)
 	public virtual /*native function */bool IsOkToUpdateVisibility(TdAIController C)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool AllowPathfinding(TdAIController C)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsPathfindingTimestampOkForNewPathfind(TdAIController C)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void RegisterPathfind(TdAIController C)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TimestampPathfind(TdAIController C)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RegisterWaitTime(float WaitTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawDebugInfo(PlayerController PlayerC, Canvas aCanvas)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ShowPrioritizedBurst()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */float GetAveragePathfindsPerSecond()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -233,39 +235,42 @@ public partial class TdAIManager : Actor/*
 	public virtual /*native function */void UpdatePlayerNavigationPoint()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAIManager::execUpdatePlayerNavigationPointForShieldWall(FFrame&, void* const)
 	public virtual /*native function */void UpdatePlayerNavigationPointForShieldWall(AITeam Team)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */void AddTeam(AITeam T)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RemoveTeam(AITeam T)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */NavigationPoint GetPlayerNavigationPointForShieldWall()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyCheckedLastSeenPosition()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIManager::execPlayerMoveOkForLastSeenLocationUpdate(FFrame&, void* const)
 	public virtual /*native function */bool PlayerMoveOkForLastSeenLocationUpdate(TdPawn aPawn)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -273,120 +278,125 @@ public partial class TdAIManager : Actor/*
 	public virtual /*native final function */void SetLastSeenLocation(/*optional */TdPawn? _aPawn = default, /*optional */Object.Vector? _L = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAIManager::execFindPredictedLastSeenLocation(FFrame&, void* const)
 	public virtual /*private native final function */void FindPredictedLastSeenLocation()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAIManager::execSetLastSeenLocationLocal(FFrame&, void* const)
 	public virtual /*private native final function */void SetLastSeenLocationLocal(Object.Vector Loc)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAIManager::execRestoreOldLastSeenLocation(FFrame&, void* const)
 	public virtual /*private native final function */void RestoreOldLastSeenLocation(Object.Vector L)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */void SetPlayer(TdPlayerPawn InPlayer)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Add(TdAIController Bot)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RemoveBot(TdAIController Bot)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AddGrenadeArea(TdGrenadeTargetArea TargetArea)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RemoveGrenadeArea(TdGrenadeTargetArea TargetArea)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void FinishedThrowingGrenade(TdProj_Grenade Grenade)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool NearbyOffensiveGrenadeExists(TdBotPawn Pawn)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyGrenadeExploded(Object.Vector ExplosionLocation, float Lifetime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void GrenadeTick()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyPlayerSpotted(Pawn TheEnemy)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ReportUsingMelee(TdAIController C, bool flag)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OkToMelee(TdAIController C)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool SomeoneElseIsPursuingOrMeleeing(TdAIController me)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsAnyoneDoingAFinishingAttack(/*optional */TdAIController? _exclude = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsAnyoneEngagedInCloseCombat(TdAIController me)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyPlayerReachable()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ChaseAI()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAIManager::execGetNumberOfFriendsWithinRadius2D(FFrame&, void* const)
 	public virtual /*native final function */int GetNumberOfFriendsWithinRadius2D(TdAIController me, Object.Vector pos, float Radius)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -394,6 +404,7 @@ public partial class TdAIManager : Actor/*
 	public virtual /*native final function */bool FindBestTaserSpot(TdAIController C, ref NavigationPoint np, Object.Vector Point, int NetworkID, /*optional */float? _MaxDist = default, /*optional */float? _MaxDistZ = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -401,6 +412,7 @@ public partial class TdAIManager : Actor/*
 	public virtual /*native final function */bool IsGoalForAnyBot(NavigationPoint np, /*optional */TdAIController? _exclude = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	protected override void RestoreDefaultFunction()

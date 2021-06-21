@@ -14,12 +14,14 @@ public partial class TpFileLockerService : TpSystemHandler/*
 	public virtual /*native simulated function */void Update(float DeltaSeconds)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpFileLockerService::execFetchLocker(FFrame&, void* const)
 	public virtual /*native function */bool FetchLocker(String UserName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -29,6 +31,7 @@ public partial class TpFileLockerService : TpSystemHandler/*
 	public virtual /*native function */bool ReadFileFromLocker(ref OnlineSubsystem.OnlineFileLockerFile File)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -38,6 +41,7 @@ public partial class TpFileLockerService : TpSystemHandler/*
 	public virtual /*native function */bool WriteFileToLocker(ref OnlineSubsystem.OnlineFileLockerFile File)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -47,6 +51,7 @@ public partial class TpFileLockerService : TpSystemHandler/*
 	public virtual /*native function */bool DeleteFileFromLocker(ref OnlineSubsystem.OnlineFileLockerFile FileInfo)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -56,6 +61,7 @@ public partial class TpFileLockerService : TpSystemHandler/*
 	public virtual /*native function */array<OnlineSubsystem.OnlineFileLockerFileInfo> ListFileLocker()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

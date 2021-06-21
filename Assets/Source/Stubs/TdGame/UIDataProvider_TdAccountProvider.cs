@@ -28,22 +28,22 @@ public partial class UIDataProvider_TdAccountProvider : UIDataProvider_TdResourc
 	
 	public virtual /*event */void OnRegister(LocalPlayer InPlayer)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnUnregister()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AddCountry(String CountryName, String CountryTag, int RegisterMinAge, int ParentalControlMinAge)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearCountries()
 	{
-	
+		// stub
 	}
 	
 	public UIDataProvider_TdAccountProvider()

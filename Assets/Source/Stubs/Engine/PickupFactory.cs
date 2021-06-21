@@ -29,57 +29,57 @@ public partial class PickupFactory : NavigationPoint/*
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void PreBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void InitializePickup()
 	{
-	
+		// stub
 	}
 	
 	public override SetInitialState_del SetInitialState { get => bfield_SetInitialState ?? PickupFactory_SetInitialState; set => bfield_SetInitialState = value; } SetInitialState_del bfield_SetInitialState;
 	public override SetInitialState_del global_SetInitialState => PickupFactory_SetInitialState;
 	public /*simulated event */void PickupFactory_SetInitialState()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void ShutDown()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetPickupMesh()
 	{
-	
+		// stub
 	}
 	
 	public /*function */static void StaticPrecache(WorldInfo W)
 	{
-	
+		// stub
 	}
 	
 	public override Reset_del Reset { get => bfield_Reset ?? PickupFactory_Reset; set => bfield_Reset = value; } Reset_del bfield_Reset;
 	public override Reset_del global_Reset => PickupFactory_Reset;
 	public /*function */void PickupFactory_Reset()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool CheckForErrors()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetRespawn()
 	{
-	
+		// stub
 	}
 	
 	public delegate void StartSleeping_del();
@@ -87,20 +87,20 @@ public partial class PickupFactory : NavigationPoint/*
 	public virtual StartSleeping_del global_StartSleeping => PickupFactory_StartSleeping;
 	public /*function */void PickupFactory_StartSleeping()
 	{
-	
+		// stub
 	}
 	
 	public override DetourWeight_del DetourWeight { get => bfield_DetourWeight ?? PickupFactory_DetourWeight; set => bfield_DetourWeight = value; } DetourWeight_del bfield_DetourWeight;
 	public override DetourWeight_del global_DetourWeight => PickupFactory_DetourWeight;
 	public /*event */float PickupFactory_DetourWeight(Pawn Other, float PathWeight)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SpawnCopyFor(Pawn Recipient)
 	{
-	
+		// stub
 	}
 	
 	public delegate bool ReadyToPickup_del(float MaxWait);
@@ -108,18 +108,18 @@ public partial class PickupFactory : NavigationPoint/*
 	public virtual ReadyToPickup_del global_ReadyToPickup => PickupFactory_ReadyToPickup;
 	public /*function */bool PickupFactory_ReadyToPickup(float MaxWait)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void GiveTo(Pawn P)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void PickedUpBy(Pawn P)
 	{
-	
+		// stub
 	}
 	
 	public delegate void RecheckValidTouch_del();
@@ -127,38 +127,38 @@ public partial class PickupFactory : NavigationPoint/*
 	public virtual RecheckValidTouch_del global_RecheckValidTouch => PickupFactory_RecheckValidTouch;
 	public /*function */void PickupFactory_RecheckValidTouch()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */float GetRespawnTime()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void RespawnEffect()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetPickupHidden()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetPickupVisible()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShouldRespawn()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -182,40 +182,40 @@ public partial class PickupFactory : NavigationPoint/*
 	
 	protected /*event */float PickupFactory_Pickup_DetourWeight(Pawn Other, float PathWeight)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */bool PickupFactory_Pickup_ReadyToPickup(float MaxWait)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */bool PickupFactory_Pickup_ValidTouch(Pawn Other)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */void PickupFactory_Pickup_RecheckValidTouch()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void PickupFactory_Pickup_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void PickupFactory_Pickup_CheckTouching()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void PickupFactory_Pickup_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Pickup()/*auto state Pickup*/
@@ -226,12 +226,12 @@ public partial class PickupFactory : NavigationPoint/*
 	
 	protected /*function */void PickupFactory_WaitingForMatch_MatchStarting()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void PickupFactory_WaitingForMatch_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) WaitingForMatch()/*state WaitingForMatch*/
@@ -242,18 +242,18 @@ public partial class PickupFactory : NavigationPoint/*
 	
 	protected /*function */bool PickupFactory_Sleeping_ReadyToPickup(float MaxWait)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*event */void PickupFactory_Sleeping_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void PickupFactory_Sleeping_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Sleeping()/*state Sleeping*/
@@ -264,18 +264,18 @@ public partial class PickupFactory : NavigationPoint/*
 	
 	protected /*function */bool PickupFactory_Disabled_ReadyToPickup(float MaxWait)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated event */void PickupFactory_Disabled_SetInitialState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated event */void PickupFactory_Disabled_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Disabled()/*state Disabled*/

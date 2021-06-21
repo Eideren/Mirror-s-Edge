@@ -105,6 +105,7 @@ public partial class UISceneManager : Object/*
 	public virtual /*native final function */void GetSupportedUIStates(ref array<UISceneManager.UIStateResourceInfo> out_SupportedStates, /*optional */Core.ClassT<UIScreenObject>? _WidgetClass = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public UISceneManager()

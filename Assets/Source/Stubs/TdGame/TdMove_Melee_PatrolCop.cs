@@ -5,7 +5,7 @@ public partial class TdMove_Melee_PatrolCop : TdMove_BotMelee/*
 		config(AIMeleeAttacks)*/{
 	public override /*simulated function */void TriggerMiss()
 	{
-	
+		// stub
 	}
 	
 	public TdMove_Melee_PatrolCop()

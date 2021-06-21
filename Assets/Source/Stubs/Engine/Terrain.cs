@@ -199,11 +199,12 @@ public partial class Terrain : Info/*
 	public virtual /*native final function */void CalcLayerBounds()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public Terrain()

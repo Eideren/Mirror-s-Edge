@@ -29,6 +29,7 @@ public partial class SoundCue : Object/*
 	public virtual /*native function */float GetCueDuration()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

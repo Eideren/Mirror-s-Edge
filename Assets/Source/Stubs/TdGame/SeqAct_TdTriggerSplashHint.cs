@@ -9,27 +9,27 @@ public partial class SeqAct_TdTriggerSplashHint : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnHintSceneClosed(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OpenNextHintScene()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnHintSceneOpened(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */LocalPlayer GetFirstLocalPlayer()
 	{
-	
+		// stub
 		return default;
 	}
 	

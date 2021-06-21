@@ -106,36 +106,42 @@ public partial class MaterialInstanceConstant : MaterialInstance/*
 	public override /*native function */void SetParent(MaterialInterface NewParent)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UMaterialInstanceConstant::execSetScalarParameterValue(FFrame&, void* const)
 	public override /*native function */void SetScalarParameterValue(name ParameterName, float Value)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UMaterialInstanceConstant::execSetTextureParameterValue(FFrame&, void* const)
 	public override /*native function */void SetTextureParameterValue(name ParameterName, Texture Value)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UMaterialInstanceConstant::execSetVectorParameterValue(FFrame&, void* const)
 	public override /*native function */void SetVectorParameterValue(name ParameterName, Object.LinearColor Value)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UMaterialInstanceConstant::execSetFontParameterValue(FFrame&, void* const)
 	public override /*native function */void SetFontParameterValue(name ParameterName, Font FontValue, int FontPage)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UMaterialInstanceConstant::execClearParameterValues(FFrame&, void* const)
 	public override /*native function */void ClearParameterValues()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 }

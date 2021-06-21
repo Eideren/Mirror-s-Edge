@@ -19,14 +19,14 @@ public partial class CrowdReplicationActor : Actor/*
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public override Tick_del Tick { get => bfield_Tick ?? CrowdReplicationActor_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => CrowdReplicationActor_Tick;
 	public /*simulated event */void CrowdReplicationActor_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

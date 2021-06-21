@@ -10,43 +10,43 @@ public partial class BroadcastHandler : Info/*
 	
 	public virtual /*function */void UpdateSentText()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool AllowsBroadcast(Actor broadcaster, int InLen)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void BroadcastText(PlayerReplicationInfo SenderPRI, PlayerController Receiver, /*coerce */String msg, /*optional */name? _Type = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void BroadcastLocalized(Actor Sender, PlayerController Receiver, Core.ClassT<LocalMessage> Message, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Broadcast(Actor Sender, /*coerce */String msg, /*optional */name? _Type = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void BroadcastTeam(Controller Sender, /*coerce */String msg, /*optional */name? _Type = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void AllowBroadcastLocalized(Actor Sender, Core.ClassT<LocalMessage> Message, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void AllowBroadcastLocalizedTeam(int TeamIndex, Actor Sender, Core.ClassT<LocalMessage> Message, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
 	{
-	
+		// stub
 	}
 	
 	public BroadcastHandler()

@@ -126,72 +126,74 @@ public partial class SVehicle : Vehicle/*
 	public virtual /*native final function */void SetWheelCollision(int WheelNum, bool bCollision)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void PostInitAnimTree(SkeletalMeshComponent SkelComp)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void TurnOff()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StopVehicleSounds()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void TakeRadiusDamage(Controller InstigatedBy, float BaseDamage, float DamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, bool bFullDamage, Actor DamageCauser)
 	{
-	
+		// stub
 	}
 	
 	// Export USVehicle::execInitVehicleRagdoll(FFrame&, void* const)
 	public virtual /*native function */void InitVehicleRagdoll(SkeletalMesh RagdollMesh, PhysicsAsset RagdollPhysAsset, Object.Vector ActorMove)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*function */void AddVelocity(Object.Vector NewVelocity, Object.Vector HitLocation, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default)
 	{
-	
+		// stub
 	}
 	
 	public override Died_del Died { get => bfield_Died ?? SVehicle_Died; set => bfield_Died = value; } Died_del bfield_Died;
 	public override Died_del global_Died => SVehicle_Died;
 	public /*function */bool SVehicle_Died(Controller Killer, Core.ClassT<DamageType> DamageType, Object.Vector HitLocation)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */bool CalcCamera(float fDeltaTime, ref Object.Vector out_CamLoc, ref Object.Rotator out_CamRot, ref float out_FOV)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */name GetDefaultCameraMode(PlayerController RequestedBy)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool TryToDrive(Pawn P)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -199,80 +201,81 @@ public partial class SVehicle : Vehicle/*
 	public virtual /*native simulated function */bool HasWheelsOnGround()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void StartEngineSound()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StartEngineSoundTimed()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StopEngineSound()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StopEngineSoundTimed()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void VehiclePlayEnterSound()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void VehiclePlayExitSound()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void DrivingStatusChanged()
 	{
-	
+		// stub
 	}
 	
 	public override RigidBodyCollision_del RigidBodyCollision { get => bfield_RigidBodyCollision ?? SVehicle_RigidBodyCollision; set => bfield_RigidBodyCollision = value; } RigidBodyCollision_del bfield_RigidBodyCollision;
 	public override RigidBodyCollision_del global_RigidBodyCollision => SVehicle_RigidBodyCollision;
 	public /*simulated event */void SVehicle_RigidBodyCollision(PrimitiveComponent HitComponent, PrimitiveComponent OtherComponent, /*const */ref Actor.CollisionImpactData RigidCollisionData, int ContactIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated event */void SuspensionHeavyShift(float Delta)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void PostTeleport(Teleporter OutTeleporter)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void DisplayDebug(HUD HUD, ref float out_YL, ref float out_YPos)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void DisplayWheelsDebug(HUD HUD, float YL)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */float HermiteEval(float Slip)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void GetSVehicleDebug(ref array<String> DebugInfo)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

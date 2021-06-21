@@ -5,7 +5,7 @@ public partial class SeqAct_ToggleHidden : SeqAct_Toggle/*
 		hidecategories(Object)*/{
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

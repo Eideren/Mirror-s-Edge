@@ -7,7 +7,7 @@ public partial class PowerupDataProvider : InventoryDataProvider/*
 		hidecategories(Object,UIRoot)*/{
 	public override /*event */bool IsValidDataSourceClass(Class PotentialDataSourceClass)
 	{
-	
+		// stub
 		return default;
 	}
 	

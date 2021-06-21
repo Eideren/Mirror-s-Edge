@@ -26,182 +26,182 @@ public partial class TdAITestScripts : Actor/*
 	
 	public virtual /*function */void Init(TdCheatManager InCheatManager, TdAIController Controller)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RunAllTests()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestStartRunNativeAngles()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestStartRunAllAngles()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestStartRunAllAnglesLegRotation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestStartRunDynamicAngles()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestStartWalkNativeAngles()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestStartWalkAllAngles()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestStartWalkAllAnglesLegRotation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestStopRunAnimAngles()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestStopRunAllAngles()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestStopRunDynamicTarget()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestStopWalkAnimAngles()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestStopWalkAllAngles()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestStopWalkDynamicTarget()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestTurningAnimAngles()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestTurningAllAngles()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestTurningRandomAngles()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StartTestAimPoses()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void BackOneTest()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NextTest()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SlomoSpeed(float SlomoSpeed)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */Object.Vector GetMoveToLocation(float Angle)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetAiRotation(int AiRotation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PutAiInPositionForStartTest()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PutPlayerInDefaultPosition()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool HasReachedTarget(Object.Vector Target)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool HasReachedStopTarget(Object.Vector Target)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void PutAiInPositionForStopTest(float Angle, float Dist)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PutPlayerInPositionForTurningTest(float Angle)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */Object.Vector GetStopLocation()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AdjustRotationForMovingBackwards(float Angle)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawDebug()
 	{
-	
+		// stub
 	}
 	
 	
 	protected /*function */void TdAITestScripts_TestStartRun_AnimationAngles_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestStartRun_AnimationAngles_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStartRun_AnimationAngles()/*state TestStartRun_AnimationAngles*/
@@ -212,12 +212,12 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStartRun_AllAngles_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestStartRun_AllAngles_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStartRun_AllAngles()/*state TestStartRun_AllAngles*/
@@ -228,12 +228,12 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStartRun_LegRotation_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestStartRun_LegRotation_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStartRun_LegRotation()/*state TestStartRun_LegRotation*/
@@ -244,12 +244,12 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStartRun_DynamicAngle_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestStartRun_DynamicAngle_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStartRun_DynamicAngle()/*state TestStartRun_DynamicAngle*/
@@ -260,12 +260,12 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStartWalk_AnimationAngles_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestStartWalk_AnimationAngles_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStartWalk_AnimationAngles()/*state TestStartWalk_AnimationAngles*/
@@ -276,12 +276,12 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStartWalk_AllAngles_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestStartWalk_AllAngles_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStartWalk_AllAngles()/*state TestStartWalk_AllAngles*/
@@ -292,12 +292,12 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStartWalk_LegRotation_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestStartWalk_LegRotation_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStartWalk_LegRotation()/*state TestStartWalk_LegRotation*/
@@ -308,7 +308,7 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStopRun_AnimationAngles_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStopRun_AnimationAngles()/*state TestStopRun_AnimationAngles*/
@@ -319,12 +319,12 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStopRun_AllAngles_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestStopRun_AllAngles_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStopRun_AllAngles()/*state TestStopRun_AllAngles*/
@@ -335,12 +335,12 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStopRun_DynamicTarget_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestStopRun_DynamicTarget_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStopRun_DynamicTarget()/*state TestStopRun_DynamicTarget*/
@@ -351,12 +351,12 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStopWalk_AnimationAngles_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestStopWalk_AnimationAngles_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStopWalk_AnimationAngles()/*state TestStopWalk_AnimationAngles*/
@@ -367,12 +367,12 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStopWalk_AllAngels_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestStopWalk_AllAngels_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStopWalk_AllAngels()/*state TestStopWalk_AllAngels*/
@@ -383,12 +383,12 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStopWalk_DynamicTarget_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestStopWalk_DynamicTarget_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStopWalk_DynamicTarget()/*state TestStopWalk_DynamicTarget*/
@@ -399,12 +399,12 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStandingTurning_AnimationAngles_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestStandingTurning_AnimationAngles_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStandingTurning_AnimationAngles()/*state TestStandingTurning_AnimationAngles*/
@@ -415,12 +415,12 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStandingTurning_AllAngles_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestStandingTurning_AllAngles_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStandingTurning_AllAngles()/*state TestStandingTurning_AllAngles*/
@@ -431,12 +431,12 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStandingTurning_AllAnglesLegOffset_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestStandingTurning_AllAnglesLegOffset_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStandingTurning_AllAnglesLegOffset()/*state TestStandingTurning_AllAnglesLegOffset*/
@@ -447,7 +447,7 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestStandingTurning_OrdinaryTurningSystem_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestStandingTurning_OrdinaryTurningSystem()/*state TestStandingTurning_OrdinaryTurningSystem*/
@@ -458,12 +458,12 @@ public partial class TdAITestScripts : Actor/*
 	
 	protected /*function */void TdAITestScripts_TestAimPoses_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAITestScripts_TestAimPoses_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) TestAimPoses()/*state TestAimPoses*/

@@ -54,23 +54,26 @@ public partial class SeqAct_Interp : SeqAct_Latent/*
 	public virtual /*native final function */void SetPosition(float NewPosition, /*optional */bool? _bJump = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USeqAct_Interp::execStop(FFrame&, void* const)
 	public virtual /*native final function */void Stop()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USeqAct_Interp::execAddPlayerToDirectorTracks(FFrame&, void* const)
 	public virtual /*native final function */void AddPlayerToDirectorTracks(PlayerController PC)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*function */void Reset()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_Interp()

@@ -8,17 +8,17 @@ public partial class TdMove_FallingBot : TdMove_AISpecialMove/*
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated event */void CloseToGround()
 	{
-	
+		// stub
 	}
 	
 	public TdMove_FallingBot()

@@ -17,13 +17,14 @@ public partial class TdUIDrawPanel : TdUIObject/*
 	public virtual /*native final function */void Draw2DLine(int X1, int Y1, int X2, int Y2, Object.Color LineColor)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate bool DrawDelegate(Canvas C);
 	
 	public virtual /*event */void DrawPanel()
 	{
-	
+		// stub
 	}
 	
 	public TdUIDrawPanel()

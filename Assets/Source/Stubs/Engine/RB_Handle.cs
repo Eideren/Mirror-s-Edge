@@ -25,42 +25,49 @@ public partial class RB_Handle : ActorComponent/*
 	public virtual /*native function */void GrabComponent(PrimitiveComponent Component, name InBoneName, Object.Vector GrabLocation, bool bConstrainRotation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export URB_Handle::execReleaseComponent(FFrame&, void* const)
 	public virtual /*native function */void ReleaseComponent()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export URB_Handle::execSetLocation(FFrame&, void* const)
 	public virtual /*native function */void SetLocation(Object.Vector NewLocation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export URB_Handle::execSetSmoothLocation(FFrame&, void* const)
 	public virtual /*native function */void SetSmoothLocation(Object.Vector NewLocation, float MoveTime)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export URB_Handle::execUpdateSmoothLocation(FFrame&, void* const)
 	public virtual /*native function */void UpdateSmoothLocation(/*const */ref Object.Vector NewLocation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export URB_Handle::execSetOrientation(FFrame&, void* const)
 	public virtual /*native function */void SetOrientation(Object.Quat NewOrientation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export URB_Handle::execGetOrientation(FFrame&, void* const)
 	public virtual /*native function */Object.Quat GetOrientation()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

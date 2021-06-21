@@ -12,22 +12,22 @@ public partial class TdSPLevelRaceHUD : TdSPHUD/*
 	
 	public override /*function */void LoadHUDContent(Core.ClassT<TdHUDContent> ContentClass)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void DrawLivingHUD()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawRaceTimer(TdSPLevelRace Game, bool bBothTimes)
 	{
-	
+		// stub
 	}
 	
 	public TdSPLevelRaceHUD()

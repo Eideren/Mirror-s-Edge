@@ -30,47 +30,49 @@ public partial class TdLOIAddOnObject : Object/*
 	public virtual /*native function */void RegisterLOIGroups(array<name> LOIGroups)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdLOIAddOnObject::execActivateLOIGroups(FFrame&, void* const)
 	public virtual /*native function */void ActivateLOIGroups(array<name> LOIGroups)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */void InitLOIMtrlInstances()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void ActivateLOI()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnActivateLOI(SeqAct_ActivateLOI Sender)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnDeactivateLOI(SeqAct_DeactivateLOI Sender)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitLOI(Actor Player)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void LookAtActivationAttempt()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void ActivateThisLOIObject()
 	{
-	
+		// stub
 	}
 	
 	public TdLOIAddOnObject()

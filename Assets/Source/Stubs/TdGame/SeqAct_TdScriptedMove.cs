@@ -13,23 +13,25 @@ public partial class SeqAct_TdScriptedMove : SeqAct_Latent/*
 	public virtual /*native function */void AbortScriptedMove()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USeqAct_TdScriptedMove::execFinishScriptedMove(FFrame&, void* const)
 	public virtual /*native function */void FinishScriptedMove()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */int DeltaAngle(int AngleOne, int AngleTwo)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool Update(float DeltaTime)
 	{
-	
+		// stub
 		return default;
 	}
 	

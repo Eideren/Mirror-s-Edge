@@ -152,12 +152,13 @@ public partial class AITemplate : Object/*
 	public virtual /*native final function */Class GetClassFromName(String TheClassName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetRandomMeleePredictionTime()
 	{
-	
+		// stub
 		return default;
 	}
 	

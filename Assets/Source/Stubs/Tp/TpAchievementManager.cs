@@ -30,6 +30,7 @@ public partial class TpAchievementManager : TpSystemHandler/*
 	public virtual /*native simulated function */void GrantAward(ref TpAchievementManager.AchBind Award)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void OnGrantAward();
@@ -38,6 +39,7 @@ public partial class TpAchievementManager : TpSystemHandler/*
 	public virtual /*native simulated function */bool ShowXBOXAchievementsUI(byte LocalUserNum)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

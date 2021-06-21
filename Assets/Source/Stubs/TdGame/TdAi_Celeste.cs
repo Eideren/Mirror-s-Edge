@@ -25,61 +25,61 @@ public partial class TdAi_Celeste : TdAI_Pursuit/*
 	
 	public override /*function */void AddSpecialOutput(ref String Text)
 	{
-	
+		// stub
 	}
 	
 	public override AllowFire_del AllowFire { get => bfield_AllowFire ?? TdAi_Celeste_AllowFire; set => bfield_AllowFire = value; } AllowFire_del bfield_AllowFire;
 	public override AllowFire_del global_AllowFire => TdAi_Celeste_AllowFire;
 	public /*event */bool TdAi_Celeste_AllowFire()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsGapBetweenMeAndEnemyAprox()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */TdAi_Celeste.ECelesteStage GetCelesteBossFightStage()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */TdAI_Pursuit.EPursuitMeleeAttackType GetPendingCelesteMeleeAttack()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool NotifyBump(Actor Other, Object.Vector HitNormal)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool ShouldEnterHold()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool ShouldTaserOnInterruptedMelee()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool UseGetDistance()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -87,19 +87,19 @@ public partial class TdAi_Celeste : TdAI_Pursuit/*
 	public override ShouldEnterMelee_del global_ShouldEnterMelee => TdAi_Celeste_ShouldEnterMelee;
 	public /*function */bool TdAi_Celeste_ShouldEnterMelee(float Range)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */TdAIController.EDisarmState QueryDisarmState(TdPawn Disarmer)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool OkToMoveDirectlyToPoint()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -107,50 +107,50 @@ public partial class TdAi_Celeste : TdAI_Pursuit/*
 	public override NotifyPrepareForMeleeAttack_del global_NotifyPrepareForMeleeAttack => TdAi_Celeste_NotifyPrepareForMeleeAttack;
 	public /*function */bool TdAi_Celeste_NotifyPrepareForMeleeAttack(Core.ClassT<DamageType> MeleeDamageType)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyDisarmed()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RemovePlayerStuckOnGround()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public override NotifyDamage_del NotifyDamage { get => bfield_NotifyDamage ?? TdAi_Celeste_NotifyDamage; set => bfield_NotifyDamage = value; } NotifyDamage_del bfield_NotifyDamage;
 	public override NotifyDamage_del global_NotifyDamage => TdAi_Celeste_NotifyDamage;
 	public /*function */void TdAi_Celeste_NotifyDamage(Controller InstigatedBy, Core.ClassT<DamageType> DamageType, int Damage)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearRecentHitsTaken()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void NotifyAttackMiss(TdAI_Pursuit.EPursuitMeleeAttackType AttackType)
 	{
-	
+		// stub
 	}
 	
 	public override /*protected function */void ChooseLongRangeAttackMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*protected function */void ChoosePrepAndAttackMove()
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{
@@ -163,7 +163,7 @@ public partial class TdAi_Celeste : TdAI_Pursuit/*
 	
 	protected /*function */void TdAi_Celeste_Taser_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Taser()/*state Taser*/

@@ -18,6 +18,7 @@ public partial class UIEvent : SequenceEvent/*
 	public virtual /*native final function */UIScreenObject GetOwner()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -25,6 +26,7 @@ public partial class UIEvent : SequenceEvent/*
 	public virtual /*native final function */UIScene GetOwnerScene()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -32,6 +34,7 @@ public partial class UIEvent : SequenceEvent/*
 	public virtual /*native final function */bool CanBeActivated(int ControllerIndex, UIScreenObject InEventOwner, /*optional */Object? _InEventActivator/* = default*/, /*optional */bool? _bActivateImmediately/* = default*/, /*const optional */ref array<int> IndicesToActivate/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -39,6 +42,7 @@ public partial class UIEvent : SequenceEvent/*
 	public virtual /*native final function */bool ConditionalActivateUIEvent(int ControllerIndex, UIScreenObject InEventOwner, /*optional */Object? _InEventActivator/* = default*/, /*optional */bool? _bActivateImmediately/* = default*/, /*const optional */ref array<int> IndicesToActivate/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -46,24 +50,25 @@ public partial class UIEvent : SequenceEvent/*
 	public virtual /*native final function */bool ActivateUIEvent(int ControllerIndex, UIScreenObject InEventOwner, /*optional */Object? _InEventActivator/* = default*/, /*optional */bool? _bActivateImmediately/* = default*/, /*const optional */ref array<int> IndicesToActivate/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool IsValidLevelSequenceObject()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool ShouldAlwaysInstance()
 	{
-	
+		// stub
 		return default;
 	}
 	

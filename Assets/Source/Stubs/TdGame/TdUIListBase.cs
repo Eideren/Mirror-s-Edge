@@ -7,13 +7,14 @@ public partial class TdUIListBase : UIList/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdUIListBase::execGetCellFieldValue(FFrame&, void* const)
 	public virtual /*native function */bool GetCellFieldValue(UIList InList, name InCellTag, int InListIndex, ref UIRoot.UIProviderFieldValue OutValue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -21,6 +22,7 @@ public partial class TdUIListBase : UIList/*
 	public override /*native function */float GetRowHeight(/*optional */int? _RowIndex = default, /*optional */bool? _bColHeader = default, /*optional */bool? _bReturnUnformattedValue = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

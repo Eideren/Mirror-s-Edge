@@ -6,7 +6,7 @@ public partial class UIEvent_SliderValueChanged : UIEvent_ValueChanged/*
 		hidecategories(Object)*/{
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

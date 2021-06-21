@@ -20,77 +20,78 @@ public partial class TdUIScene_KeyMappings : TdUIScene_OptionMenu/*
 	public override /*native function */void RebuildNavigationLinks()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTabPageActivated(UITabControl Sender, UITabPage NewlyActivePage, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void InitWidgets()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsAllowedBindingKey(name Key)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetBindLabelState(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void ResetSettingsToDefault()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void DoReset()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnAccept()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnMessageBox_UnboundKeys(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void InitializeSettings()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnOptionValueChanged(UIObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnMouseSettingsChanges()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnChange()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

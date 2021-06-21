@@ -8,7 +8,7 @@ public partial class TdUIScene_EndLogo : TdUIScene/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_EndLogo()

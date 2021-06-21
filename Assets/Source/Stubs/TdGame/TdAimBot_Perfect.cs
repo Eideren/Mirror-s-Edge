@@ -7,24 +7,24 @@ public partial class TdAimBot_Perfect : TdAimBotBase/* within TdAIController*//*
 	
 	public override /*function */Object.Vector GetAimLocation(TdPlayerPawn Target, /*optional */bool? _bUseFullDispersion = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */float GetDispersionModifier()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void SetWeapon(Weapon iWeapon)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool IsHitRelevant(Core.ClassT<DamageType> DamageType, name BoneName)
 	{
-	
+		// stub
 		return default;
 	}
 	

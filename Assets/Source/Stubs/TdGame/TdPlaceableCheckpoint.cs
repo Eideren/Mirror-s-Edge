@@ -19,75 +19,75 @@ public partial class TdPlaceableCheckpoint : NavigationPoint,
 	public override Reset_del global_Reset => TdPlaceableCheckpoint_Reset;
 	public /*function */void TdPlaceableCheckpoint_Reset()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */int GetNumTracks()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int GetTrackIndex(int ArrayIdx)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int GetOrderIndex(int ArrayIdx)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int GetOrderIndexForTrack(int TrackIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetLastCheckpoint(int TrackIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShouldGenerateTrackData(int TrackIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetListener(TdCheckpointListener InListener)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Show(bool bShow, /*optional */int? _Track = default, /*optional */bool? _bNoFade = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsCheckpointInTrack(int TrackIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetDirectionHint(Object.Rotator NextCheckpointHint)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTouchedVolume(TdPlayerPawn Pawn, TdPlayerController Controller)
 	{
-	
+		// stub
 	}
 	
 	public override Touch_del Touch { get => bfield_Touch ?? TdPlaceableCheckpoint_Touch; set => bfield_Touch = value; } Touch_del bfield_Touch;
 	public override Touch_del global_Touch => TdPlaceableCheckpoint_Touch;
 	public /*event */void TdPlaceableCheckpoint_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

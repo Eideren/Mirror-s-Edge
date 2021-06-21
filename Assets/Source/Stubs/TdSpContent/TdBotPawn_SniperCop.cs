@@ -7,7 +7,7 @@ public partial class TdBotPawn_SniperCop : TdBotPawn_Assault/*
 		hidecategories(Navigation)*/{
 	public override /*function */void PauseFiring()
 	{
-	
+		// stub
 	}
 	
 	public TdBotPawn_SniperCop()

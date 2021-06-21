@@ -12,27 +12,27 @@ public partial class TdUIScene_EOR : TdUIScene/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateRoundTimer(TdGameReplicationInfo GRI, TdPlayerReplicationInfo Winner)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateRoundScore(TdGameReplicationInfo GRI, TdPlayerReplicationInfo Winner)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PlayersPanel_OnPlayerSlotClicked(TdPlayerReplicationInfo TdPRI)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCompare()
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_EOR()

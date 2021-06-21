@@ -8,12 +8,12 @@ public partial class TdUIScene_ImageMessageBox : TdUIScene_MessageBox/*
 	
 	public virtual /*function */void SetImage(Surface InImage)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetImageMarkup(String Markup)
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_ImageMessageBox()

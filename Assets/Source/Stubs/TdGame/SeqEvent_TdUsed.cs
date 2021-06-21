@@ -9,7 +9,7 @@ public partial class SeqEvent_TdUsed : SeqEvent_Used/*
 	
 	public override /*function */void Reset()
 	{
-	
+		// stub
 	}
 	
 	public SeqEvent_TdUsed()

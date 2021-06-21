@@ -36,6 +36,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */int GetMapIndexFromFileName(String Filename)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -43,6 +44,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */int GetMapIndexFromMapName(String MapName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -50,6 +52,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */String GetFileNameFromMapIndex(int MapIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -57,6 +60,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */String GetMapNameFromMapIndex(int MapIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -64,6 +68,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */int GetTutorialMapIndex()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -71,6 +76,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */array<int> GetRolesList(/*optional */int? _Team = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -78,6 +84,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */int GetNumRoles(/*optional */int? _Team = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -85,6 +92,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */int GetRoleIndexFromRoleId(int RoleId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -92,6 +100,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */int GetRoleIdFromRoleIndex(int RoleIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -99,6 +108,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */String GetRoleClassNameFromIndex(int RoleIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -106,6 +116,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */String GetRoleNameFromIndex(int RoleIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -113,6 +124,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */String GetRoleImageMarkupFromIndex(int RoleIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -120,6 +132,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */String GetGameModeClassNameFromIndex(int Index)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -127,6 +140,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */int GetMapNumCheckpoints(int Index)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -134,6 +148,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */String GetCheckpointFriendlyNameFromIndex(int Index)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -141,6 +156,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */String GetCheckpointDescriptionFromIndex(int Index)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -148,6 +164,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */String GetCheckpointNameFromIndex(int Index)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -155,6 +172,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */String GetCheckpointNameFromIndexAndMap(int MapIndex, int CheckpointIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -162,43 +180,44 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	public virtual /*native function */String GetCheckpointImageMarkupFromIndex(int Index)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool IsElementEnabled(name FieldName, int CollectionIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void StartNewGameWithTutorial(/*optional */bool? _bPlayCutScene = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StartNewGame(bool bShouldSaveCheckpointProgress, bool bAllowSPLevelAchievements)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StartGame(String LevelName, /*optional */String? _CheckpointName = default, /*optional */String? _GameMode = default, /*optional */String? _URL = default, /*optional */bool? _bShouldSaveCheckpointProgress = default, /*optional */bool? _bAllowSPLevelAchievements = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void QuitToMainMenu()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void RestartFromLastCheckpoint(/*optional */bool? _bShouldSaveCheckpointProgress = default, /*optional */bool? _bAllowSPLevelAchievements = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void Registered(LocalPlayer PlayerOwner)
 	{
-	
+		// stub
 	}
 	
 	public UIDataStore_TdGameData()

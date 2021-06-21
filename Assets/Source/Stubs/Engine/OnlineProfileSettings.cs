@@ -200,6 +200,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool GetProfileSettingId(name ProfileSettingName, ref int ProfileSettingId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -207,6 +208,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */name GetProfileSettingName(int ProfileSettingId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -214,6 +216,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */String GetProfileSettingColumnHeader(int ProfileSettingId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -221,6 +224,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool IsProfileSettingIdMapped(int ProfileSettingId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -228,6 +232,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool GetProfileSettingValue(int ProfileSettingId, ref String Value)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -235,6 +240,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */name GetProfileSettingValueName(int ProfileSettingId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -242,6 +248,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool GetProfileSettingValues(int ProfileSettingId, ref array<name> Values)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -249,6 +256,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool GetProfileSettingValueByName(name ProfileSettingName, ref String Value)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -256,6 +264,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool SetProfileSettingValueByName(name ProfileSettingName, /*const */ref String NewValue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -263,6 +272,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool SetProfileSettingValue(int ProfileSettingId, /*const */ref String NewValue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -270,6 +280,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool GetProfileSettingValueId(int ProfileSettingId, ref int ValueId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -277,6 +288,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool GetProfileSettingValueInt(int ProfileSettingId, ref int Value)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -284,6 +296,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool GetProfileSettingValueFloat(int ProfileSettingId, ref float Value)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -291,6 +304,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool SetProfileSettingValueId(int ProfileSettingId, int Value)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -298,6 +312,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool SetProfileSettingValueInt(int ProfileSettingId, int Value)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -305,6 +320,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool SetProfileSettingValueFloat(int ProfileSettingId, float Value)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -312,29 +328,33 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native event */void SetToDefaults()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*event */void ScriptSetToDefaults()
 	{
-	
+		// stub
 	}
 	
 	// Export UOnlineProfileSettings::execAppendVersionToReadIds(FFrame&, void* const)
 	public virtual /*native function */void AppendVersionToReadIds()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UOnlineProfileSettings::execAppendVersionToSettings(FFrame&, void* const)
 	public virtual /*native function */void AppendVersionToSettings()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UOnlineProfileSettings::execGetVersionNumber(FFrame&, void* const)
 	public virtual /*native function */int GetVersionNumber()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -342,12 +362,14 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */void SetDefaultVersionNumber()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UOnlineProfileSettings::execGetProfileSettingMappingType(FFrame&, void* const)
 	public virtual /*native function */bool GetProfileSettingMappingType(int ProfileId, ref Settings.EPropertyValueMappingType OutType)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -355,6 +377,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool GetProfileSettingRange(int ProfileId, ref float OutMinValue, ref float OutMaxValue, ref float RangeIncrement, ref byte bFormatAsInt)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -362,6 +385,7 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool SetRangedProfileSettingValue(int ProfileId, float NewValue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -369,12 +393,13 @@ public partial class OnlineProfileSettings : Object/*
 	public virtual /*native function */bool GetRangedProfileSettingValue(int ProfileId, ref float OutValue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool IsProfileSettingEnabled(name FieldName, int Index)
 	{
-	
+		// stub
 		return default;
 	}
 	

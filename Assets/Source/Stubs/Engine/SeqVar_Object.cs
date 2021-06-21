@@ -9,13 +9,13 @@ public partial class SeqVar_Object : SequenceVariable/*
 	
 	public virtual /*function */Object GetObjectValue()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetObjectValue(Object NewValue)
 	{
-	
+		// stub
 	}
 	
 	public SeqVar_Object()

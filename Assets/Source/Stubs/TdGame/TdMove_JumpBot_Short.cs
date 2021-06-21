@@ -5,12 +5,12 @@ public partial class TdMove_JumpBot_Short : TdMove_JumpBot_Base/*
 		config(PawnMovement)*/{
 	public override /*simulated function */void BeginJump()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 }

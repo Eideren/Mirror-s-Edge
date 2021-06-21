@@ -7,12 +7,12 @@ public partial class TdOnlineStatsWrite : OnlineStatsWrite/*
 	
 	public virtual /*function */void WriteStats(OnlineSubsystem.UniqueNetId UniqId, Info StatInfo, OnlineStatsInterface StatsInterface)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetStretchId(int InStretchId)
 	{
-	
+		// stub
 	}
 	
 }

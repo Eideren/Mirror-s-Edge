@@ -8,7 +8,7 @@ public partial class Trigger_LOS : Trigger/*
 	public override Tick_del global_Tick => Trigger_LOS_Tick;
 	public /*simulated event */void Trigger_LOS_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

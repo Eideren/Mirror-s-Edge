@@ -16,49 +16,49 @@ public partial class TdUIScene_SplashHint : TdUIScene/*
 	
 	public override /*event */void Initialized()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetupHint(int Number)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Accept(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnCloseScene()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */void OnPostTick(float DeltaTime, bool bTopmostScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ActivateInput(bool bActive)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitSceneLabels()
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_SplashHint()

@@ -7,7 +7,7 @@ public partial class SeqAct_ControlMovieTexture : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_ControlMovieTexture()

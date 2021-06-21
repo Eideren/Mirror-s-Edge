@@ -73,6 +73,7 @@ public partial class TdAIAnimationController : Actor/*
 	public virtual /*native function */TdAIAnimationController.EAiAnimationState GetAnimationState()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -80,6 +81,7 @@ public partial class TdAIAnimationController : Actor/*
 	public virtual /*native function */TdAIAnimationController.EAimState GetAimState()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -87,6 +89,7 @@ public partial class TdAIAnimationController : Actor/*
 	public virtual /*native function */float GetAimStateBlendValue()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -94,6 +97,7 @@ public partial class TdAIAnimationController : Actor/*
 	public virtual /*native function */bool IsBusyMelee()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -101,6 +105,7 @@ public partial class TdAIAnimationController : Actor/*
 	public virtual /*native function */bool IsBusyCrouching()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -108,6 +113,7 @@ public partial class TdAIAnimationController : Actor/*
 	public virtual /*native function */bool IsInMeleeState()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -115,6 +121,7 @@ public partial class TdAIAnimationController : Actor/*
 	public virtual /*native function */bool IsInCrouchState()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -122,6 +129,7 @@ public partial class TdAIAnimationController : Actor/*
 	public virtual /*native function */bool UseLazySpring()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -129,6 +137,7 @@ public partial class TdAIAnimationController : Actor/*
 	public virtual /*native function */bool IsInCover()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -136,6 +145,7 @@ public partial class TdAIAnimationController : Actor/*
 	public virtual /*native function */TdAIAnimationController.ECoverState GetCoverStateNative()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -143,257 +153,258 @@ public partial class TdAIAnimationController : Actor/*
 	public virtual /*native function */CoverLink.ECoverDirection GetCoverDirectionNative()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void Init(TdSkeletalMeshComponent Component)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AssignController(TdAIController iAiController, TdBotPawn iAiPawn)
 	{
-	
+		// stub
 	}
 	
 	public override Tick_del Tick { get => bfield_Tick ?? TdAIAnimationController_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAIAnimationController_Tick;
 	public /*function */void TdAIAnimationController_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated event */bool IsPlayingCoverAnimation()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated event */bool IsPlayingCustomAnimation()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool StopCoverAnimation(/*optional */float? _StopTime = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */AnimNodeSequence GetCoverAnimation()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void PlayCoverAnimation(TdAIAnimationController.ECoverAnimation CoverAnimation, TdAIAnimationController.ECoverDirectionState CoverAnimationDirectionState, CoverLink.ECoverType CoverType, /*optional */bool? _Short = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetCoverAnimationSequenceName(name AnimationName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */name GetCoverAnimationSequenceName()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void CoverAnimationOnCustomAnimEnd(AnimNodeSequence SequenceNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void CoverAnimationOnCeaseRelevantRootMotion(AnimNodeSequence SequenceNode)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetCoverState(TdAIAnimationController.ECoverState iCoverState)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */TdAIAnimationController.ECoverState GetCoverState()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetPendingCoverState(TdAIAnimationController.ECoverState iPendingCoverState)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */TdAIAnimationController.ECoverState GetPendingCoverState()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void UpdateCoverState()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetCoverDirection(TdAIAnimationController.ECoverDirectionState iCoverDirection)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */TdAIAnimationController.ECoverDirectionState GetCoverDirection()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void StartAimFire(TdAIAnimationController.ECoverDirectionState CoverAnimationDirectionState, CoverLink.ECoverType CoverType)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StopAimFire(TdAIAnimationController.ECoverDirectionState CoverAnimationDirectionState, CoverLink.ECoverType CoverType)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */name GetFireAnimationName()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void PlayFireAnimation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PlayReloadAnimation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */float GetReloadPlaybackRate()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void PlayCustomCannedAnimation(name AnimationName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PlayFaceAnimation(name AnimName, /*optional */bool? _bLooping = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StopFaceAnimation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */AnimNodeAimOffset GetActiveAimNode()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetAimState(TdAIAnimationController.EAimState iAimState, float BlendTime, bool bInstantRotationUpdate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateLegRotation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool CanFireWeapon()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool IsWalking()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void TimerSetUseLazySpring()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetUseLazySpring(bool bUse, /*optional */float? _Time = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCoverEntered()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCoverExited()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetAnimationState()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearAnimationState()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetMeleeState()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ReleaseMeleeState()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnSetMelee()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnReleaseMelee()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetCrouchState()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ReleaseCrouchState()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnSetCrouch()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnReleaseCrouch()
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

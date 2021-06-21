@@ -7,7 +7,7 @@ public partial class TdBotPawn_Dummy : TdBotPawn/*
 		hidecategories(Navigation)*/{
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public TdBotPawn_Dummy()

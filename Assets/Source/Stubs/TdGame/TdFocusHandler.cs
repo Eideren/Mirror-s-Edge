@@ -22,18 +22,19 @@ public partial class TdFocusHandler : Object/* within TdAIController*//*
 	
 	public virtual /*function */void Initialize(TdAIController C)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetFocus(TdFocusHandler.FocusType Focus)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdFocusHandler::execGetFocus(FFrame&, void* const)
 	public virtual /*native function */bool GetFocus(ref Object.Vector out_Focus)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -41,6 +42,7 @@ public partial class TdFocusHandler : Object/* within TdAIController*//*
 	public virtual /*native function */Object.Vector GetFocusLocation()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -48,22 +50,23 @@ public partial class TdFocusHandler : Object/* within TdAIController*//*
 	public virtual /*native function */bool HasFocus()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetFocalPoint(Object.Vector NewFocus)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetActorFocus(Actor NewFocus)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */String GetDescription()
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -10,7 +10,7 @@ public partial class TdUIComp_MenuListPresenter : TdUIComp_ListPresenterBase/* w
 	
 	public override /*event */void DrawElement(Canvas Canvas, int ElementIndex, UIRoot.RenderParameters Parameters, bool bElementIsSelected)
 	{
-	
+		// stub
 	}
 	
 	public TdUIComp_MenuListPresenter()

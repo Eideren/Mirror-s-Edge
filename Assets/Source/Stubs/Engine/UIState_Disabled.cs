@@ -7,13 +7,13 @@ public partial class UIState_Disabled : UIState/*
 		hidecategories(Object,UIRoot)*/{
 	public override /*event */bool ActivateState(UIScreenObject Target, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool IsStateAllowed(UIScreenObject Target, UIState NewState, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	

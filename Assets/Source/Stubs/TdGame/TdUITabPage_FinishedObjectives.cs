@@ -10,22 +10,22 @@ public partial class TdUITabPage_FinishedObjectives : TdUITabPage/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnFinishedObjectivesList_ValueChanged(UIObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateDescription()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void FinishedObjectivesList_OnSubmitSelection(UIList Sender, /*optional */int? _PlayerIndex = default)
 	{
-	
+		// stub
 	}
 	
 	public TdUITabPage_FinishedObjectives()

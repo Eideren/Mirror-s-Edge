@@ -13,12 +13,12 @@ public partial class CylinderBuilder : BrushBuilder/*
 	
 	public virtual /*function */void BuildCylinder(int Direction, bool InAlignToSide, int InSides, float InZ, float Radius)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool Build()
 	{
-	
+		// stub
 		return default;
 	}
 	

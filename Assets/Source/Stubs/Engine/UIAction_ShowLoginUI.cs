@@ -9,17 +9,17 @@ public partial class UIAction_ShowLoginUI : UIAction/*
 	
 	public virtual /*event */void ShowUI()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnLoginChanged()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnLoginCancelled()
 	{
-	
+		// stub
 	}
 	
 	public UIAction_ShowLoginUI()

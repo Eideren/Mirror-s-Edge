@@ -6,7 +6,7 @@ public partial class TdTutorialMessage : TdLocalMessage{
 	
 	public /*function */static String GetString(/*optional */int? _Switch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo? _Killer = default, /*optional */PlayerReplicationInfo? _Victim = default, /*optional */Object? _OptionalObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

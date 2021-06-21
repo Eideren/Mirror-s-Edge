@@ -6,7 +6,7 @@ public partial class SeqAct_AIFireAt : SequenceAction/*
 		hidecategories(Object)*/{
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

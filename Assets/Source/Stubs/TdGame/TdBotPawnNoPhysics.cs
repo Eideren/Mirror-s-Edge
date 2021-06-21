@@ -10,7 +10,7 @@ public partial class TdBotPawnNoPhysics : TdBotPawn/*
 	public override SetMove_del global_SetMove => TdBotPawnNoPhysics_SetMove;
 	public /*simulated event */bool TdBotPawnNoPhysics_SetMove(TdPawn.EMovement NewMove, /*optional */bool? _bViaReplication = default, /*optional */bool? _bCheckCanDo = default)
 	{
-	
+		// stub
 		return default;
 	}
 	protected override void RestoreDefaultFunction()

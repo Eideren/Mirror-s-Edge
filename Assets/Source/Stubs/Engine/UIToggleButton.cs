@@ -13,11 +13,12 @@ public partial class UIToggleButton : UILabelButton/*
 	public override /*native function */void SetCaption(String NewText)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*final function */bool IsChecked()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -25,17 +26,18 @@ public partial class UIToggleButton : UILabelButton/*
 	public virtual /*native final function */void SetValue(bool bShouldBeChecked, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */bool ButtonClicked(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */void OnSetBoolValue(UIAction_SetBoolValue Action)
 	{
-	
+		// stub
 	}
 	
 	public UIToggleButton()

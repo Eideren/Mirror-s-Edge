@@ -10,6 +10,7 @@ public partial class LightEnvironmentComponent : ActorComponent/*
 	public virtual /*native final function */void SetEnabled(bool bNewEnabled)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public LightEnvironmentComponent()

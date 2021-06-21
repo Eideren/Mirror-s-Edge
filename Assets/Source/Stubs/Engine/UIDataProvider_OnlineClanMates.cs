@@ -10,12 +10,12 @@ public partial class UIDataProvider_OnlineClanMates : UIDataProvider_OnlinePlaye
 	
 	public override /*event */void OnRegister(LocalPlayer InPlayer)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnClanMatesReadComplete()
 	{
-	
+		// stub
 	}
 	
 }

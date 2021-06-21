@@ -15,16 +15,17 @@ public partial class UIAction_ShowDeviceSelectionUI : UIAction/*
 	public virtual /*native function */void WriteToVariables()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*event */void SelectDevice()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnDeviceSelectionComplete(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	public UIAction_ShowDeviceSelectionUI()

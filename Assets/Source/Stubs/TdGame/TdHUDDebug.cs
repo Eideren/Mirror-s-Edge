@@ -36,148 +36,149 @@ public partial class TdHUDDebug : Object/* within TdHUD*//*
 	
 	public virtual /*function */void DrawDebugHUD()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TimedScreenMessage(String Message, float Time)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowLookAtPoints()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void SetActiveActor(int Index)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void CycleActiveActor()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void SetAiTutorialPawnActive()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowAnims(/*optional */name? _StartingPoint = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void SetShowAnimTimeLine(bool flag)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowAnimTimeLine()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void SetShowDebug(bool flag, /*optional */name? _DebugType = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void DebugNetAnim()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowSkeletalMeshInfo()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void DebugAnims()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void FixedSlomo(float Speed)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void FlushAnimTimeLine()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void FlushAnimWeightBoxes()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void PlayAnimation(name AnimationName, /*optional */TdPawn.CustomNodeType? _AnimationType = default, /*optional */bool? _RootMotion = default, /*optional */bool? _RootRotation = default, /*optional */float? _BlendTime = default, /*optional */int? _Index = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowGraph()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowAIStates()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawPath(Pawn Target, /*optional */float? _Time = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawVisibilityValues()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowPathInfo(int Index)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void ShowMemoryBudget()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void DumpMemoryAllocations()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void PPToggle(int Index)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void DebugCheckpoints()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*exec function */void DebugCheckpointsOrder()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdHUDDebug::execPopulateCheckpointList(FFrame&, void* const)
 	public virtual /*native function */void PopulateCheckpointList()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*exec function */void DebugCheckpointsPath()
 	{
-	
+		// stub
 	}
 	
 	public TdHUDDebug()

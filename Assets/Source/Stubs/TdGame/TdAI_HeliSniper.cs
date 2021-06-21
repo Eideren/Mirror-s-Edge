@@ -10,20 +10,21 @@ public partial class TdAI_HeliSniper : TdAIController/*
 	public override /*native function */void UpdateAnchor()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override UpdatePose_del UpdatePose { get => bfield_UpdatePose ?? TdAI_HeliSniper_UpdatePose; set => bfield_UpdatePose = value; } UpdatePose_del bfield_UpdatePose;
 	public override UpdatePose_del global_UpdatePose => TdAI_HeliSniper_UpdatePose;
 	public /*function */void TdAI_HeliSniper_UpdatePose()
 	{
-	
+		// stub
 	}
 	
 	public override ShouldEnterMelee_del ShouldEnterMelee { get => bfield_ShouldEnterMelee ?? TdAI_HeliSniper_ShouldEnterMelee; set => bfield_ShouldEnterMelee = value; } ShouldEnterMelee_del bfield_ShouldEnterMelee;
 	public override ShouldEnterMelee_del global_ShouldEnterMelee => TdAI_HeliSniper_ShouldEnterMelee;
 	public /*function */bool TdAI_HeliSniper_ShouldEnterMelee(float Range)
 	{
-	
+		// stub
 		return default;
 	}
 	protected override void RestoreDefaultFunction()

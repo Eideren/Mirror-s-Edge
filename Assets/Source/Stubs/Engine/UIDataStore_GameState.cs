@@ -12,7 +12,7 @@ public partial class UIDataStore_GameState : UIDataStore/*
 	
 	public override /*function */bool NotifyGameSessionEnded()
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -10,12 +10,12 @@ public partial class UIDataProvider_OnlinePlayerDataBase : UIDataProvider/*
 	
 	public virtual /*event */void OnRegister(LocalPlayer InPlayer)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnUnregister()
 	{
-	
+		// stub
 	}
 	
 }

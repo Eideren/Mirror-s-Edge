@@ -30,19 +30,21 @@ public partial class UIEditBox : UIObject,
 	
 	public virtual /*final function */void SetBackgroundImage(Surface NewImage)
 	{
-	
+		// stub
 	}
 	
 	// Export UUIEditBox::execSetValue(FFrame&, void* const)
 	public virtual /*native final function */void SetValue(String NewText, /*optional */int? _PlayerIndex = default, /*optional */bool? _bSkipNotification = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIEditBox::execGetValue(FFrame&, void* const)
 	public virtual /*native final function */String GetValue(/*optional */bool? _bReturnUserText = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -50,6 +52,7 @@ public partial class UIEditBox : UIObject,
 	public virtual /*native function */int CalculateCaretPositionFromCursorLocation(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -57,12 +60,14 @@ public partial class UIEditBox : UIObject,
 	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIEditBox::execGetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -70,6 +75,7 @@ public partial class UIEditBox : UIObject,
 	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -77,56 +83,60 @@ public partial class UIEditBox : UIObject,
 	public virtual /*native final function */void NotifyDataStoreValueUpdated(UIDataStore SourceDataStore, bool bValuesInvalidated, name PropertyTag, UIDataProvider SourceProvider, int ArrayIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIEditBox::execGetBoundDataStores(FFrame&, void* const)
 	public virtual /*native function */void GetBoundDataStores(ref array<UIDataStore> out_BoundDataStores)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIEditBox::execClearBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void ClearBoundDataStores()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIEditBox::execSaveSubscriberValue(FFrame&, void* const)
 	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */void Initialized()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */bool IsReadOnly()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetReadOnly(bool bShouldBeReadOnly)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void IgnoreMarkup(bool bShouldIgnoreMarkup)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSetLabelText(UIAction_SetLabelText Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnGetTextValue(UIAction_GetTextValue Action)
 	{
-	
+		// stub
 	}
 	
 	public UIEditBox()

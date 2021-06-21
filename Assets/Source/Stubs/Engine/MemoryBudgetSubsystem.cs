@@ -11,6 +11,7 @@ public partial class MemoryBudgetSubsystem : Subsystem/*
 	public /*native event */static MemoryBudgetSubsystem GetSubsystem()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -18,18 +19,21 @@ public partial class MemoryBudgetSubsystem : Subsystem/*
 	public virtual /*native function */void RenderAllocations(Canvas Canvas)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UMemoryBudgetSubsystem::execDumpAllocations(FFrame&, void* const)
 	public virtual /*native function */void DumpAllocations()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UMemoryBudgetSubsystem::execDumpAudioAllocationsByType(FFrame&, void* const)
 	public virtual /*native function */void DumpAudioAllocationsByType()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public MemoryBudgetSubsystem()

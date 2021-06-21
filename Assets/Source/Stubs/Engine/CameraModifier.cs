@@ -10,51 +10,51 @@ public partial class CameraModifier : Object/*
 	
 	public virtual /*function */void Init()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ModifyCamera(Camera Camera, float DeltaTime, ref Object.TPOV OutPOV)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool AddCameraModifier(Camera Camera)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool RemoveCameraModifier(Camera Camera)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool IsDisabled()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void DisableModifier()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void EnableModifier()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ToggleModifier()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */bool ProcessViewRotation(Actor ViewTarget, float DeltaTime, ref Object.Rotator out_ViewRotation, ref Object.Rotator out_DeltaRot)
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -2246,7 +2246,7 @@ public partial class UIRoot : Object/*
 	
 	public /*final function */static bool IsConsole(/*optional */WorldInfo.EConsoleType? _ConsoleType = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -2254,6 +2254,7 @@ public partial class UIRoot : Object/*
 	public /*native final function */static UIInteraction GetCurrentUIController()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -2261,6 +2262,7 @@ public partial class UIRoot : Object/*
 	public /*native final function */static GameUISceneClient GetSceneClient()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -2268,6 +2270,7 @@ public partial class UIRoot : Object/*
 	public /*native final function */static UIRoot.EUIOrientation GetFaceOrientation(UIRoot.EUIWidgetFace Face)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -2275,6 +2278,7 @@ public partial class UIRoot : Object/*
 	public /*native final function */static bool GetCursorPosition(ref int CursorX, ref int CursorY, /*const optional */UIScene? _Scene = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -2282,6 +2286,7 @@ public partial class UIRoot : Object/*
 	public /*native final function */static bool GetCursorSize(ref float CursorXL, ref float CursorYL)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -2289,12 +2294,14 @@ public partial class UIRoot : Object/*
 	public /*native final function */static void SetMouseCaptureOverride(bool bCaptureMouse)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIRoot::execGetPrimitiveTransform(FFrame&, void* const)
 	public /*native final function */static Object.Matrix GetPrimitiveTransform(UIObject Widget, /*optional */bool? _bIncludeAnchorPosition = default, /*optional */bool? _bIncudeRotation = default, /*optional */bool? _bIncludeScale = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -2302,12 +2309,13 @@ public partial class UIRoot : Object/*
 	public /*native final function */static bool SetDataStoreFieldValue(String InDataStoreMarkup, /*const */ref UIRoot.UIProviderFieldValue InFieldValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public /*function */static bool SetDataStoreStringValue(String InDataStoreMarkup, String InStringValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -2315,18 +2323,19 @@ public partial class UIRoot : Object/*
 	public /*native final function */static bool GetDataStoreFieldValue(String InDataStoreMarkup, ref UIRoot.UIProviderFieldValue OutFieldValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public /*function */static bool GetDataStoreStringValue(String InDataStoreMarkup, ref String OutStringValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final function */static String ConvertWidgetIDToString(UIObject SourceWidget)
 	{
-	
+		// stub
 		return default;
 	}
 	

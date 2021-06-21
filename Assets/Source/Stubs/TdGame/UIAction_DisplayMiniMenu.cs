@@ -10,7 +10,7 @@ public partial class UIAction_DisplayMiniMenu : UIAction/*
 	
 	public virtual /*function */void OnMenuClosed(int InPlayerIndex, bool bInAcceptOk)
 	{
-	
+		// stub
 	}
 	
 	public UIAction_DisplayMiniMenu()

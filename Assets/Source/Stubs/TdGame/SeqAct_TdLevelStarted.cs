@@ -5,7 +5,7 @@ public partial class SeqAct_TdLevelStarted : SequenceAction/*
 		hidecategories(Object)*/{
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdLevelStarted()

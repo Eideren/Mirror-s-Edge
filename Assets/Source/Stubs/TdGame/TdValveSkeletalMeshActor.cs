@@ -6,12 +6,12 @@ public partial class TdValveSkeletalMeshActor : SkeletalMeshActor/*
 		hidecategories(Navigation)*/{
 	public virtual /*simulated function */void PlayAnimation(name AnimSeqName, float Rate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void AddValveRoll(int RollValue)
 	{
-	
+		// stub
 	}
 	
 	public TdValveSkeletalMeshActor()

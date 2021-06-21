@@ -18,6 +18,7 @@ public partial class HeightFogComponent : ActorComponent/*
 	public virtual /*native final function */void SetEnabled(bool bSetEnabled)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public HeightFogComponent()

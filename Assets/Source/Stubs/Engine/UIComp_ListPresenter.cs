@@ -234,12 +234,14 @@ public partial class UIComp_ListPresenter : UIComp_ListComponentBase,
 	public virtual /*native final function */void EnableColumnHeaderRendering(/*optional */bool? _bShouldRenderColHeaders = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIComp_ListPresenter::execShouldRenderColumnHeaders(FFrame&, void* const)
 	public virtual /*native final function */bool ShouldRenderColumnHeaders()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -247,6 +249,7 @@ public partial class UIComp_ListPresenter : UIComp_ListComponentBase,
 	public virtual /*native final function */bool ShouldAdjustListBounds(UIRoot.EUIOrientation Orientation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -254,6 +257,7 @@ public partial class UIComp_ListPresenter : UIComp_ListComponentBase,
 	public virtual /*native final function */UIListElementCellProvider GetCellSchemaProvider()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -261,6 +265,7 @@ public partial class UIComp_ListPresenter : UIComp_ListComponentBase,
 	public virtual /*native final function */int FindElementIndex(int DataSourceIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

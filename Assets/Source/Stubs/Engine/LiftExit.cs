@@ -10,18 +10,18 @@ public partial class LiftExit : NavigationPoint/*
 	
 	public virtual /*function */bool CanBeReachedFromLiftBy(Pawn Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void WaitForLift(Pawn Other)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool SuggestMovePreparation(Pawn Other)
 	{
-	
+		// stub
 		return default;
 	}
 	

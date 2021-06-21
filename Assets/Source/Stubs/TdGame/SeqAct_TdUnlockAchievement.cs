@@ -58,7 +58,7 @@ public partial class SeqAct_TdUnlockAchievement : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdUnlockAchievement()

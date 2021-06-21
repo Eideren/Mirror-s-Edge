@@ -18,12 +18,12 @@ public partial class UIDataStore_TdLoginData : UIDataStore_TdGameResource/*
 	
 	public virtual /*event */void OnRegister(LocalPlayer InPlayer)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnUnregister()
 	{
-	
+		// stub
 	}
 	
 	public UIDataStore_TdLoginData()

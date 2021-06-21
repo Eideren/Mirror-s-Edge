@@ -31,7 +31,7 @@ public partial class RB_CylindricalForceActor : Actor/*
 	
 	public virtual /*simulated function */void OnToggle(SeqAct_Toggle inAction)
 	{
-	
+		// stub
 	}
 	
 	public RB_CylindricalForceActor()

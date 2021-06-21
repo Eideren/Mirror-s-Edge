@@ -28,40 +28,40 @@ public partial class UIDataStore_OnlineGameSettings : UIDataStore_Settings/*
 	
 	public virtual /*event */bool CreateGame(byte ControllerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */OnlineGameSettings GetCurrentGameSettings()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */UIDataProvider_Settings GetCurrentProvider()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void SetCurrentByIndex(int NewIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void SetCurrentByName(name SettingsName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void MoveToNext()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void MoveToPrevious()
 	{
-	
+		// stub
 	}
 	
 	public UIDataStore_OnlineGameSettings()

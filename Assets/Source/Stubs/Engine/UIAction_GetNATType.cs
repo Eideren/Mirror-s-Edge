@@ -9,7 +9,7 @@ public partial class UIAction_GetNATType : UIAction/*
 	
 	public virtual /*event */bool GetNATType(ref OnlineSubsystem.ENATType OutNATType)
 	{
-	
+		// stub
 		return default;
 	}
 	

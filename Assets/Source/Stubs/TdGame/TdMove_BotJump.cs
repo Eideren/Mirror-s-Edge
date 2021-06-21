@@ -23,53 +23,54 @@ public partial class TdMove_BotJump : TdPhysicsMove/*
 	public virtual /*native function */Object.Vector GetPreciseLandingLocation()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated event */void StartAnticipation()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnTimer()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReachedPreciseLocation()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void FailedToReachPreciseLocation()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void TakeTaserDamage(Object.Vector ImpactMomentum)
 	{
-	
+		// stub
 	}
 	
 	public TdMove_BotJump()

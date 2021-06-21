@@ -27,7 +27,7 @@ public partial class CrowdAttractor : Actor/*
 	
 	public virtual /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{
-	
+		// stub
 	}
 	
 	public CrowdAttractor()

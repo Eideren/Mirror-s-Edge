@@ -6,33 +6,33 @@ public partial class TdUIScene_SPPause : TdUIScene_Pause/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleOptionButton(UILabelButton OptionButton)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void LostLastCheckpoint_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnLoadLastCheckpoint_PreConfirm(TdUIScene_MessageBox MsgBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnLoadLastCheckpoint_Confirm(TdUIScene_MessageBox MsgBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void LoadLastLevelCheckpoint()
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_SPPause()

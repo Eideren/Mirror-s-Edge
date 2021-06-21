@@ -5,12 +5,12 @@ public partial class TdUITabPage : UITabPage/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public virtual /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

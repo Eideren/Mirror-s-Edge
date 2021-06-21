@@ -5,7 +5,7 @@ public partial class UIAction_GetPageCount : UIAction_TabControl/*
 		hidecategories(Object)*/{
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public UIAction_GetPageCount()

@@ -31,28 +31,29 @@ public partial class DecalManager : Actor/*
 	public /*native final function */static bool AreDynamicDecalsEnabled()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void DecalFinished(DecalComponent Decal)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool CanSpawnDecals()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ResetPool()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */DecalComponent SpawnDecal(MaterialInterface DecalMaterial, Object.Vector DecalLocation, Object.Rotator DecalOrientation, float Width, float Height, float Thickness, bool bNoClip, /*optional */float? _DecalRotation = default, /*optional */PrimitiveComponent? _HitComponent = default, /*optional */bool? _bProjectOnTerrain = default, /*optional */bool? _bProjectOnSkeletalMeshes = default, /*optional */name? _HitBone = default, /*optional */int? _HitNodeIndex = default, /*optional */int? _HitLevelIndex = default, /*optional */float? _InDecalLifeSpan = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

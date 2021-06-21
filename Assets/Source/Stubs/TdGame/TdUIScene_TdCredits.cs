@@ -51,42 +51,42 @@ public partial class TdUIScene_TdCredits : TdUIScene/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateSceneWidgets()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void SceneDeactivated()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void OnPostTick(float DeltaTime, bool bTopmostScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetFinalCredits(/*delegate*/TdUIScene_TdCredits.OnCloseCredits OnClose)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCloseScene()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SceneClosed(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

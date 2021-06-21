@@ -23,6 +23,7 @@ public partial class TdReachSpec : ReachSpec/*
 	public virtual /*native function */int GetCostFor(Pawn P)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -30,6 +31,7 @@ public partial class TdReachSpec : ReachSpec/*
 	public virtual /*native function */int GetDefaultCostFor(TdBotPawn P)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -37,6 +39,7 @@ public partial class TdReachSpec : ReachSpec/*
 	public virtual /*native function */int AdjustedCostFor(Pawn P, NavigationPoint Anchor, NavigationPoint Goal, int Cost)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

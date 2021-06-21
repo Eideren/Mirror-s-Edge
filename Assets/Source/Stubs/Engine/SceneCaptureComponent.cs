@@ -32,6 +32,7 @@ public partial class SceneCaptureComponent : ActorComponent/*
 	public virtual /*native final function */void SetFrameRate(float NewFrameRate)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public SceneCaptureComponent()

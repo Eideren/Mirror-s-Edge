@@ -5,22 +5,22 @@ public partial class TdMove_MeleeAirAboveBot : TdMove_MeleeBase/*
 		config(PawnMovement)*/{
 	public virtual /*function */void PlayCannedAnim(name AnimationName)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnTimer()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public TdMove_MeleeAirAboveBot()

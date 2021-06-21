@@ -13,7 +13,7 @@ public partial class EditorUISceneClient : UISceneClient/*
 	
 	public virtual /*exec function */void ShowDockingStacks()
 	{
-	
+		// stub
 	}
 	
 }

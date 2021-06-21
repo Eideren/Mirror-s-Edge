@@ -11,7 +11,7 @@ public partial class UIAction_GetLoggedInPlayerCount : UIAction/*
 	
 	public virtual /*event */void GetLoginStatus()
 	{
-	
+		// stub
 	}
 	
 	public UIAction_GetLoggedInPlayerCount()

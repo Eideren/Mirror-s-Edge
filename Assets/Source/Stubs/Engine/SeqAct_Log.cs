@@ -12,7 +12,7 @@ public partial class SeqAct_Log : SequenceAction/*
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

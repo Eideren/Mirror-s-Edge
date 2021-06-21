@@ -27,6 +27,7 @@ public partial class UIDataStore_TdGameObjectivesData : UIDataStore_TdGameResour
 	public virtual /*native function */int GetNumFinishedObjectives(name FieldName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -34,12 +35,14 @@ public partial class UIDataStore_TdGameObjectivesData : UIDataStore_TdGameResour
 	public virtual /*native function */void UpdateObjectives(name FieldName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIDataStore_TdGameObjectivesData::execGetSubObjectives(FFrame&, void* const)
 	public virtual /*native function */bool GetSubObjectives(name FieldName, ref array<UIDataProvider_TdGameObjectiveProvider.SubObjectiveStruct> Objectives, /*optional */bool? _bFilter = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -47,6 +50,7 @@ public partial class UIDataStore_TdGameObjectivesData : UIDataStore_TdGameResour
 	public virtual /*native function */bool GetActiveSubObjective(name FieldName, ref UIDataProvider_TdGameObjectiveProvider.SubObjectiveStruct CurrentObjective)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -54,28 +58,29 @@ public partial class UIDataStore_TdGameObjectivesData : UIDataStore_TdGameResour
 	public virtual /*native function */void SetActiveSubObjective(name FieldName, name SubObjectiveTag, /*optional */bool? _bOnlyHigher = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */bool ResolveSubObjectiveMapping(name MappingName, ref name SubObjectiveName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool IsElementEnabled(name FieldName, int CollectionIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ResolveAndSetCheckpointObjective(name ObjectiveGameType, name CheckpointName, /*optional */bool? _bOnlyHigher = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearCurrentSubObjective()
 	{
-	
+		// stub
 	}
 	
 	public UIDataStore_TdGameObjectivesData()

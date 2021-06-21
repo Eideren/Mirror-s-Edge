@@ -5,27 +5,27 @@ public partial class TdUIDrawEORPlayersPanel : TdUIDrawPlayersPanel/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public override /*protected function */void DrawPlayerSlotBG(Canvas C, int TeamIndex, int PlayerSlotIndex, int X, int Y, int XL, int YL)
 	{
-	
+		// stub
 	}
 	
 	public override /*protected function */void DrawPlayer(Canvas C, TdPlayerReplicationInfo TdPRI, int TeamIndex, bool bIsSelected, int Left, int Top, int Width, int Height)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void DrawPlayerName(Canvas C, String PlayerName, int Left, int Top, int Width, int Height)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void DrawPlayerKillsDeaths(Canvas C, int Kills, int Deaths, int Left, int Top, int Width, int Height)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void DrawPlayerScore(Canvas C, int Score, int Left, int Top, int Width, int Height)
 	{
-	
+		// stub
 	}
 	
 	public TdUIDrawEORPlayersPanel()

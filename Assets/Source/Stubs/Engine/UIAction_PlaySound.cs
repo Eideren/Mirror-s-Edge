@@ -5,7 +5,7 @@ public partial class UIAction_PlaySound : SeqAct_PlaySound/*
 		hidecategories(Object)*/{
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

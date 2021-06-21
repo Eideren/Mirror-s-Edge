@@ -28,6 +28,7 @@ public partial class DataStoreClient : UIRoot/*
 	public virtual /*native final function */UIDataStore FindDataStore(name DataStoreTag, /*optional */LocalPlayer? _PlayerOwner = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -35,6 +36,7 @@ public partial class DataStoreClient : UIRoot/*
 	public virtual /*native final function */UIDataStore CreateDataStore(Core.ClassT<UIDataStore> DataStoreClass)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -42,6 +44,7 @@ public partial class DataStoreClient : UIRoot/*
 	public virtual /*native final function */bool RegisterDataStore(UIDataStore DataStore, /*optional */LocalPlayer? _PlayerOwner = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -49,6 +52,7 @@ public partial class DataStoreClient : UIRoot/*
 	public virtual /*native final function */bool UnregisterDataStore(UIDataStore DataStore)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -56,29 +60,31 @@ public partial class DataStoreClient : UIRoot/*
 	public virtual /*native final function */void GetAvailableDataStores(UIScene CurrentScene, ref array<UIDataStore> out_DataStores)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UDataStoreClient::execFindPlayerDataStoreIndex(FFrame&, void* const)
 	public virtual /*native final function */int FindPlayerDataStoreIndex(LocalPlayer PlayerOwner)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */Core.ClassT<UIDataStore> FindDataStoreClass(Core.ClassT<UIDataStore> RequiredMetaClass)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final event */void NotifyGameSessionEnded()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void DebugDumpDataStoreInfo(bool bVerbose)
 	{
-	
+		// stub
 	}
 	
 	public DataStoreClient()

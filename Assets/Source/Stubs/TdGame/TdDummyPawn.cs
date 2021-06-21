@@ -9,30 +9,30 @@ public partial class TdDummyPawn : GamePawn/*
 	
 	public virtual /*function */bool StopWeaponFiring()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void WeaponFired(bool bViaReplication, /*optional */Object.Vector? _HitLocation = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */Object.Rotator GetAdjustedAimFor(Weapon InWeapon, Object.Vector projStart)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon? _CurrentWeapon = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */Object.Vector GetPawnViewLocation()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -40,7 +40,7 @@ public partial class TdDummyPawn : GamePawn/*
 	public override Tick_del global_Tick => TdDummyPawn_Tick;
 	public /*simulated event */void TdDummyPawn_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

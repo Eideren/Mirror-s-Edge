@@ -15,6 +15,7 @@ public partial class TextureRenderTarget2D : TextureRenderTarget/*
 	public /*native final function */static TextureRenderTarget2D Create(int InSizeX, int InSizeY, /*optional */Texture.EPixelFormat? _InFormat = default, /*optional */Object.LinearColor? _InClearColor = default, /*optional */bool? _bOnlyRenderOnce = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

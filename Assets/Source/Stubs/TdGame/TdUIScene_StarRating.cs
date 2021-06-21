@@ -18,58 +18,58 @@ public partial class TdUIScene_StarRating : TdUIScene/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitializeScene(UIDataStore_TdTimeTrialData TimeTrialData, int CurrentStretchProviderIdx)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void AnimEnd(UIObject AnimTarget, int AnimIndex, UIAnimationSeq AnimSeq)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetStarsText(int Stars, String MapName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetTotalText(int Stars, TdTTResult TTResult)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetStarRating(UIDataStore_TdTimeTrialData TimeTrialData, int CurrentStretchProviderIdx)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Continue(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnContinue()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnContinue_Done(UIScene OpenedScene)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

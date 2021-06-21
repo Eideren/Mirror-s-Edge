@@ -8,48 +8,48 @@ public partial class TdUIScene_TimeTrialPause : TdUIScene_Pause/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnBack()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleOptionButton(UILabelButton OptionButton)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void Restart_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void NotifyRestartMsgBox_OptionSelected(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnRestart_Confirm(TdUIScene_MessageBox MsgBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnToggleGhost()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnRestartStretch()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSceneClosed(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_TimeTrialPause()

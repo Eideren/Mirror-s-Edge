@@ -23,97 +23,97 @@ public partial class AccessControl : Info/*
 	
 	public virtual /*function */bool IsAdmin(PlayerController P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool SetAdminPassword(String P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetGamePassword(String P)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool RequiresPassword()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */Controller GetControllerFromString(String Target)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void Kick(String Target)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void KickBan(String Target)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool KickPlayer(PlayerController C, String KickReason)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool AdminLogin(PlayerController P, String Password)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool AdminLogout(PlayerController P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void AdminEntered(PlayerController P)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AdminExited(PlayerController P)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ParseAdminOptions(String Options)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ValidLogin(String UserName, String Password)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void PreLogin(String Options, String Address, ref String OutError, bool bSpectator)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool CheckIPPolicy(String Address)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsIDBanned(/*const */ref OnlineSubsystem.UniqueNetId NetID)
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -24,12 +24,14 @@ public partial class RB_Spring : ActorComponent/*
 	public virtual /*native function */void SetComponents(PrimitiveComponent InComponent1, name InBoneName1, Object.Vector Position1, PrimitiveComponent InComponent2, name InBoneName2, Object.Vector Position2)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export URB_Spring::execClear(FFrame&, void* const)
 	public virtual /*native function */void Clear()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public RB_Spring()

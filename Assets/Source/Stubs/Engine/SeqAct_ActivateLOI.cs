@@ -7,7 +7,7 @@ public partial class SeqAct_ActivateLOI : SequenceAction/*
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

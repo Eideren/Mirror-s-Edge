@@ -11,25 +11,25 @@ public partial class TdAI_Assault : TdAIController/*
 	
 	public override /*event */bool ThrowGrenadeRequest(TdGrenadeTargetArea TargetArea)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void NotifyGrenadeExploded(Object.Vector ExplosionLocation, float Lifetime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetCombatRange()
 	{
-	
+		// stub
 	}
 	
 	public override Tick_del Tick { get => bfield_Tick ?? TdAI_Assault_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAI_Assault_Tick;
 	public /*event */void TdAI_Assault_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

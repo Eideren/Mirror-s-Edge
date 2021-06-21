@@ -7,7 +7,7 @@ public partial class UIEvent_SceneActivated : UIEvent_Scene/*
 	
 	public override /*event */void Deactivated()
 	{
-	
+		// stub
 	}
 	
 	public UIEvent_SceneActivated()

@@ -16,12 +16,12 @@ public partial class SpiralStairBuilder : BrushBuilder/*
 	
 	public virtual /*function */void BuildCurvedStair(int Direction)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool Build()
 	{
-	
+		// stub
 		return default;
 	}
 	

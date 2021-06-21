@@ -23,66 +23,66 @@ public partial class TdMove_PursuitMelee : TdMove_BotMelee/*
 	
 	public override /*function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool IsInterruptableByDodge()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void TriggerMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */TdMove_BotMelee.MeleeAttackProperties GetAttackProperties(TdAI_Pursuit.EPursuitMeleeAttackType Attack)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void TriggerHit()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void TriggerMiss()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StopMissAnimation()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */Core.ClassT<DamageType> GetDamageType()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void EnableLOI()
 	{
-	
+		// stub
 	}
 	
 	public TdMove_PursuitMelee()

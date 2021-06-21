@@ -16,144 +16,144 @@ public partial class TdUIScene_Pause : TdUIScene/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */bool NoClickDuringSave(name buttonname)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void UpdateNoClickDuringSave()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void UpdateButtonBar(bool bAcceptVisible)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnControllerChange(int ControllerId, bool Connected)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void SceneDeactivated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Back(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnBack()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnOptionButtonClicked(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool HandleOptionButton(UILabelButton OptionButton)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void Quit_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void NotifyQuitMsgBox_OptionSelected(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnQuit_Confirm(TdUIScene_MessageBox MsgBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnResumeGameButton(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnResumeGame()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool CloseScene(UIScene SceneToClose, /*optional */bool? _bSkipKismetNotify = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnOpenOptions()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnQuitToMainMenu()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetTitleLabel(String Text)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OpenPanel()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PanelAnimFinished(int FinishedPanelIndex, bool bPanelActive)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void OnPostTick(float DeltaTime, bool bTopmostScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateSelectionField()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PlayClosingAnim()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool IsAnimatingScene()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

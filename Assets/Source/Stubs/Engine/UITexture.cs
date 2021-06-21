@@ -12,18 +12,20 @@ public partial class UITexture : UIRoot/*
 	public virtual /*native final function */void SetImageStyle(UIStyle_Image NewImageStyle)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUITexture::execHasValidStyleData(FFrame&, void* const)
 	public virtual /*native final function */bool HasValidStyleData()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */Surface GetSurface()
 	{
-	
+		// stub
 		return default;
 	}
 	

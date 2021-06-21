@@ -27,18 +27,18 @@ public partial class TdTeamInfo : TeamInfo/*
 	
 	public override /*function */bool AddToTeam(Controller Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void RemoveFromTeam(Controller Other)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */Object.Color GetTextColor()
 	{
-	
+		// stub
 		return default;
 	}
 	

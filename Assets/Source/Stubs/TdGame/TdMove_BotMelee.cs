@@ -60,92 +60,92 @@ public partial class TdMove_BotMelee : TdPhysicsMove/*
 	
 	public virtual /*function */bool IsInterruptableByDodge()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnTimer()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void EnableLOI()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */float GetAnimationLenght()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void PostStopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnAfterFirstAnimation()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnAnimationStopped(AnimNodeSequence SeqNode)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void TriggerMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool TestHit()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void TriggerMiss()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void TriggerHit()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */Core.ClassT<DamageType> GetDamageType()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void TriggerHitPlayer()
 	{
-	
+		// stub
 	}
 	
 	public TdMove_BotMelee()

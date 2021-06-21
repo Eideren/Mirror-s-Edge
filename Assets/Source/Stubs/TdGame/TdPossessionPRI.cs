@@ -6,12 +6,12 @@ public partial class TdPossessionPRI : TdBagPRI/*
 		hidecategories(Navigation,Movement,Collision)*/{
 	public override /*function */void OnCarryObject(Actor inActor)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnDropCarriedObject(Actor inActor)
 	{
-	
+		// stub
 	}
 	
 }

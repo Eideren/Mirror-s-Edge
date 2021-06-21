@@ -106,12 +106,12 @@ public partial class TdAI_Pursuit : TdAIController/*
 	
 	public override /*function */void AddSpecialOutput(ref String Text)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */TdAI_Pursuit.EPursuitMeleeAttackType GetPendingMeleeAttack()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -119,6 +119,7 @@ public partial class TdAI_Pursuit : TdAIController/*
 	public virtual /*native final function */bool HasSpawned()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -126,36 +127,36 @@ public partial class TdAI_Pursuit : TdAIController/*
 	public override Possess_del global_Possess => TdAI_Pursuit_Possess;
 	public /*event */void TdAI_Pursuit_Possess(Pawn inPawn, bool bVehicleTransition)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool CanSearch()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool CanInvestigate()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CanSetGoal()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool ShouldStopAfterMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */TdAIController.EDisarmState QueryDisarmState(TdPawn Disarmer)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -163,101 +164,101 @@ public partial class TdAI_Pursuit : TdAIController/*
 	public override TestCombatTransitions_del global_TestCombatTransitions => TdAI_Pursuit_TestCombatTransitions;
 	public /*function */void TdAI_Pursuit_TestCombatTransitions()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool IsOkToUpdatePath()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void ReportNearMiss(float Distance)
 	{
-	
+		// stub
 	}
 	
 	public override Tick_del Tick { get => bfield_Tick ?? TdAI_Pursuit_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAI_Pursuit_Tick;
 	public /*event */void TdAI_Pursuit_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public override NotifyDamage_del NotifyDamage { get => bfield_NotifyDamage ?? TdAI_Pursuit_NotifyDamage; set => bfield_NotifyDamage = value; } NotifyDamage_del bfield_NotifyDamage;
 	public override NotifyDamage_del global_NotifyDamage => TdAI_Pursuit_NotifyDamage;
 	public /*function */void TdAI_Pursuit_NotifyDamage(Controller InstigatedBy, Core.ClassT<DamageType> DamageType, int Damage)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool UseGetDistance()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void StartWalkingOrRunning()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StartRunning()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void ForceNewPath()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool PreStopMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyMoveStopped()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TaserStateChange()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void CheckExitTaserState()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShouldEnterTaserState()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void NotifyPlayerReachable()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdatePlayerLookAtOffset()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShouldEnterAdvance()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ShouldExitAdvance()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -265,23 +266,23 @@ public partial class TdAI_Pursuit : TdAIController/*
 	public override CheckCrouching_del global_CheckCrouching => TdAI_Pursuit_CheckCrouching;
 	public /*function */void TdAI_Pursuit_CheckCrouching()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void UpdateCombatDistances()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool ShouldBackaway()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool ShouldMoveIn()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -289,76 +290,76 @@ public partial class TdAI_Pursuit : TdAIController/*
 	public override AllowFire_del global_AllowFire => TdAI_Pursuit_AllowFire;
 	public /*event */bool TdAI_Pursuit_AllowFire()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool IsOkToRun()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void TestAdvanceMovement()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void BeginAdvance()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void EndAdvance()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShouldEnterHold()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool ThrowGrenadeRequest(TdGrenadeTargetArea TargetArea)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */Object.Vector GetPredictedEnemyLocation()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */Object.Vector GetPredictedEnemyLocationAfterDoingMeleeAttack(TdAI_Pursuit.EPursuitMeleeAttackType MeleeAttackType)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetAttackSpeedFactor(TdAI_Pursuit.EPursuitMeleeAttackType AttackType)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool AskToCrouch()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsDoingFinishingAttack()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetAttackDelay()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -366,120 +367,120 @@ public partial class TdAI_Pursuit : TdAIController/*
 	public override ShouldEnterMelee_del global_ShouldEnterMelee => TdAI_Pursuit_ShouldEnterMelee;
 	public /*function */bool TdAI_Pursuit_ShouldEnterMelee(float Range)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ShouldExitMelee()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OkToMelee()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void GoTo_WantMeleeDistance()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void GoTo_MeleePenelty()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void GoTo_WantToMeleeAttack()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateMeleeSubstate()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TestMelee()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TriggerMeleeMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ExitMelee(String S)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ShoveEnemy()
 	{
-	
+		// stub
 	}
 	
 	public override NotifyPrepareForMeleeAttack_del NotifyPrepareForMeleeAttack { get => bfield_NotifyPrepareForMeleeAttack ?? TdAI_Pursuit_NotifyPrepareForMeleeAttack; set => bfield_NotifyPrepareForMeleeAttack = value; } NotifyPrepareForMeleeAttack_del bfield_NotifyPrepareForMeleeAttack;
 	public override NotifyPrepareForMeleeAttack_del global_NotifyPrepareForMeleeAttack => TdAI_Pursuit_NotifyPrepareForMeleeAttack;
 	public /*function */bool TdAI_Pursuit_NotifyPrepareForMeleeAttack(Core.ClassT<DamageType> MeleeDamageType)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyFinishingMovePossible()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */float GetPredictedEnemyDistance(float Time)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ReleaseMeleeLock()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShouldTaserOnInterruptedMelee()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void NotifyAttackMiss(TdAI_Pursuit.EPursuitMeleeAttackType AttackType)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void ChoosePrepAndAttackMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void ChooseLongRangeAttackMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void ChoosePointBlankAttackMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void SetAttackMoveProperties()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void PrepMoveTimerFunction()
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{
@@ -496,12 +497,12 @@ public partial class TdAI_Pursuit : TdAIController/*
 	
 	protected /*function */void TdAI_Pursuit_Pursuit_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_Pursuit_Pursuit_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Pursuit()/*state Pursuit extends TdState*/
@@ -512,12 +513,12 @@ public partial class TdAI_Pursuit : TdAIController/*
 	
 	protected /*function */void TdAI_Pursuit_Taser_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_Pursuit_Taser_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Taser()/*state Taser extends TdState*/
@@ -534,12 +535,12 @@ public partial class TdAI_Pursuit : TdAIController/*
 	
 	protected /*function */void TdAI_Pursuit_Hold_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_Pursuit_Hold_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Hold()/*state Hold*/
@@ -550,27 +551,27 @@ public partial class TdAI_Pursuit : TdAIController/*
 	
 	protected /*function */void TdAI_Pursuit_PursuitMelee_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_Pursuit_PursuitMelee_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void TdAI_Pursuit_PursuitMelee_Tick(float DeltaTime)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_Pursuit_PursuitMelee_UpdatePawnFocus()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */bool TdAI_Pursuit_PursuitMelee_OkToDoStartMove()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -582,12 +583,12 @@ public partial class TdAI_Pursuit : TdAIController/*
 	
 	protected /*function */void TdAI_Pursuit_MeleeInterrupted_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_Pursuit_MeleeInterrupted_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) MeleeInterrupted()/*state MeleeInterrupted extends TdState*/

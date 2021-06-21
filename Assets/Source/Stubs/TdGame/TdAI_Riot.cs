@@ -26,63 +26,64 @@ public partial class TdAI_Riot : TdAIController/*
 	public override Possess_del global_Possess => TdAI_Riot_Possess;
 	public /*event */void TdAI_Riot_Possess(Pawn inPawn, bool bVehicleTransition)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateFormationRadius()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool TdFindPathToward(Actor anActor)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void TdFindPathTo(Object.Vector aPoint)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAI_Riot::execSetBestAnchor(FFrame&, void* const)
 	public override /*native function */void SetBestAnchor()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*function */bool OkToMoveDirectlyToPoint()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsInFormation(Pawn P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void Initialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void ReportBotDied()
 	{
-	
+		// stub
 	}
 	
 	public override AllowFire_del AllowFire { get => bfield_AllowFire ?? TdAI_Riot_AllowFire; set => bfield_AllowFire = value; } AllowFire_del bfield_AllowFire;
 	public override AllowFire_del global_AllowFire => TdAI_Riot_AllowFire;
 	public /*event */bool TdAI_Riot_AllowFire()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -90,33 +91,33 @@ public partial class TdAI_Riot : TdAIController/*
 	public override CheckCrouching_del global_CheckCrouching => TdAI_Riot_CheckCrouching;
 	public /*function */void TdAI_Riot_CheckCrouching()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool IsOkToRun()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void AddSpecialOutput(ref String Text)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void BeginAdvance()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void EndAdvance()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */Object.Vector GetAdvancePoint()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -124,165 +125,166 @@ public partial class TdAI_Riot : TdAIController/*
 	public virtual /*native function */bool IsWide()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool ShouldBackaway()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool ShouldMoveIn()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void NotifyNewPlayerNavigationPointForShieldWall()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool ShouldStop()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void TestAdvanceMovement()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AssignPosition(TdAIController C, int pos)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResignPosition(int pos)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool CloserThanCurrentClient(TdAIController C, int I)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ApplyForFormationPosition(TdAIController C)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CanMoveIntoPosition(TdAIController C)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void RemoveFromFormation(TdAIController C)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void BreakFormation()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool IsReadyToMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool AreClientsReadyToMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool EnemyVisibleToWholeFormation()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ApplyForShieldMasterPosition()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetShieldMaster()
 	{
-	
+		// stub
 	}
 	
 	public override Tick_del Tick { get => bfield_Tick ?? TdAI_Riot_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAI_Riot_Tick;
 	public /*event */void TdAI_Riot_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SwitchFormationPositions()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TrySwitchPositions(int P1, int P2)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SwitchPositions(int P1, int P2)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool AnyClientsTrailingBehind()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool AnyClientsTrailingBehindAlot()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetMoveDist()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void UpdateShieldFormation(float FormationWidth, float FormationDepth)
 	{
-	
+		// stub
 	}
 	
 	public override ShouldEnterMelee_del ShouldEnterMelee { get => bfield_ShouldEnterMelee ?? TdAI_Riot_ShouldEnterMelee; set => bfield_ShouldEnterMelee = value; } ShouldEnterMelee_del bfield_ShouldEnterMelee;
 	public override ShouldEnterMelee_del global_ShouldEnterMelee => TdAI_Riot_ShouldEnterMelee;
 	public /*function */bool TdAI_Riot_ShouldEnterMelee(float Range)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */TdAIController.EDisarmState QueryDisarmState(TdPawn Disarmer)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool AskToCrouch()
 	{
-	
+		// stub
 		return default;
 	}
 	protected override void RestoreDefaultFunction()
@@ -297,17 +299,17 @@ public partial class TdAI_Riot : TdAIController/*
 	
 	protected /*function */void TdAI_Riot_RiotMelee_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_Riot_RiotMelee_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_Riot_RiotMelee_UpdatePawnFocus()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) RiotMelee()/*state RiotMelee extends TdState*/

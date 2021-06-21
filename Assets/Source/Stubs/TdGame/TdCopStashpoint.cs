@@ -10,7 +10,7 @@ public partial class TdCopStashpoint : TdStashpoint/*
 	
 	protected /*singular event */void TdCopStashpoint_Idle_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Idle()/*auto state Idle*/
@@ -21,12 +21,12 @@ public partial class TdCopStashpoint : TdStashpoint/*
 	
 	protected /*singular event */void TdCopStashpoint_Stashing_UnTouch(Actor Other)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*singular event */void TdCopStashpoint_Stashing_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Stashing()/*state Stashing*/

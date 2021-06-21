@@ -8,6 +8,7 @@ public partial class TdSkeletalMeshCommandlet : Commandlet/*
 	public override /*native event */int Main(String Params)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

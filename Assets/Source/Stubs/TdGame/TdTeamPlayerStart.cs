@@ -13,7 +13,7 @@ public partial class TdTeamPlayerStart : TdPlayerStart/*
 	
 	public override /*function */void PreBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public TdTeamPlayerStart()

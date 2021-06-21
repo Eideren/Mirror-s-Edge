@@ -7,12 +7,12 @@ public partial class FileLog : FileWriter/*
 		hidecategories(Navigation,Movement,Collision)*/{
 	public virtual /*function */void OpenLog(/*coerce */String LogFilename, /*optional */String? _extension = default, /*optional */bool? _bUnique = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void CloseLog()
 	{
-	
+		// stub
 	}
 	
 	public FileLog()

@@ -56,6 +56,7 @@ public partial class Font : Object/*
 	public virtual /*native function */int GetResolutionPageIndex(float HeightTest)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -63,6 +64,7 @@ public partial class Font : Object/*
 	public virtual /*native function */float GetScalingFactor(float HeightTest)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -70,6 +72,7 @@ public partial class Font : Object/*
 	public virtual /*native final function */float GetAuthoredViewportHeight(float ViewportHeight)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -77,6 +80,7 @@ public partial class Font : Object/*
 	public virtual /*native function */float GetMaxCharHeight()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

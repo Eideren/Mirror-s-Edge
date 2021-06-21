@@ -32,94 +32,94 @@ public partial class TdSPPostProcessingBase : Object/* within TdSPGame*//*
 	
 	public virtual /*function */void ProcessRace(TdTTInput RaceInput, int InStretchId, /*delegate*/TdSPPostProcessingBase.OnPostProcessDone PostProcessDone)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void UpdateOnlineStats(TdTTInput TTOnlineInput, bool bOnlyAllTime, /*optional */int? _InGhostTag = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void WriteOnlineStatsCompletedCallback(bool bSuccess)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void UpdateOfflineStats(TdTTInput TTOfflineInput)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnProfileWriteComplete(bool bSuccess)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void UpdateDataStoreAndResult(TdTTInput TTInput, bool bSaveSuccess)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected final function */void FinishPostProcessing()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */bool WasNewRecord(float TimeToBeat, float MyTime)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*protected function */float RoundTime(float N)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*protected function */void ShowLoadScene(/*delegate*/TdUIScene.OnSceneFullyOpened SceneFullyOpened)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnShowLoadScene_Init(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void CloseLoadScene()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void SetError(String Title, String Message)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnLoadSceneClosed(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ShowErrorMessageBox()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnShowErrorMessageBox_Init(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnErrorMessageBoxClosed(TdUIScene_MessageBox InMessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PPOnlineConnectionLost()
 	{
-	
+		// stub
 	}
 	
 }

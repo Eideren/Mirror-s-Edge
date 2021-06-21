@@ -15,34 +15,34 @@ public partial class TdGameViewportClient : GameViewportClient/* within Engine*/
 	
 	public override /*event */bool Init(ref String OutError)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */String GetHintMessage(int GameType)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void DrawTransition(Canvas Canvas)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void PostRender(Canvas Canvas)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawLoading(Canvas Canvas)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool GetSubtitleRegion(ref Object.Vector2D MinPos, ref Object.Vector2D MaxPos)
 	{
-	
+		// stub
 		return default;
 	}
 	

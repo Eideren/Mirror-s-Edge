@@ -20,27 +20,27 @@ public partial class StaticMeshActor : StaticMeshActorBase/*
 	
 	public override /*event */void PreBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void AssignPlayerToLOI(Actor Player)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void ActivateLOI()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnDeactivateLOI(SeqAct_DeactivateLOI Sender)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnActivateLOI(SeqAct_ActivateLOI Sender)
 	{
-	
+		// stub
 	}
 	
 	public StaticMeshActor()

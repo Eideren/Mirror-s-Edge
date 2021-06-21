@@ -14,7 +14,7 @@ public partial class TdDirectionalFlareEmitter : TdFlareEmitter/*
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public TdDirectionalFlareEmitter()

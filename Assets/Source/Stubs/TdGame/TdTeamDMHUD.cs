@@ -11,7 +11,7 @@ public partial class TdTeamDMHUD : TdMPHUD/*
 	
 	public override /*function */void DrawScore()
 	{
-	
+		// stub
 	}
 	
 	public TdTeamDMHUD()

@@ -14,12 +14,12 @@ public partial class UICheckbox : UIButton,
 	
 	public virtual /*final function */void SetCheckImage(Surface NewImage)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */bool IsChecked()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -27,12 +27,14 @@ public partial class UICheckbox : UIButton,
 	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUICheckbox::execGetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -40,6 +42,7 @@ public partial class UICheckbox : UIButton,
 	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -47,24 +50,28 @@ public partial class UICheckbox : UIButton,
 	public virtual /*native final function */void NotifyDataStoreValueUpdated(UIDataStore SourceDataStore, bool bValuesInvalidated, name PropertyTag, UIDataProvider SourceProvider, int ArrayIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUICheckbox::execGetBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void GetBoundDataStores(ref array<UIDataStore> out_BoundDataStores)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUICheckbox::execClearBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void ClearBoundDataStores()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUICheckbox::execSaveSubscriberValue(FFrame&, void* const)
 	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -72,11 +79,12 @@ public partial class UICheckbox : UIButton,
 	public virtual /*native function */void SetValue(bool bShouldBeChecked, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*final function */void OnSetBoolValue(UIAction_SetBoolValue Action)
 	{
-	
+		// stub
 	}
 	
 	public UICheckbox()

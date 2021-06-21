@@ -24,59 +24,59 @@ public partial class TdStashpoint : Actor/*
 	
 	public virtual /*function */void OnStartMatchInProgress()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */float GetDuration()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */bool IsTeamTerritory(TeamInfo Info)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */void ClearStashInterceptTimer()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void ClearStashCompleteTimer()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void SetListener(TdStashpointListener InListener)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void SendKismetEvent(Core.ClassT<SequenceEvent> EventType)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void NotifyInitiated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void NotifyIntercepted()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void NotifyCompleted()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void NotifyProgressed()
 	{
-	
+		// stub
 	}
 	
 	public delegate void InitiateStashing_del();
@@ -84,7 +84,7 @@ public partial class TdStashpoint : Actor/*
 	public virtual InitiateStashing_del global_InitiateStashing => TdStashpoint_InitiateStashing;
 	public /*function */void TdStashpoint_InitiateStashing()
 	{
-	
+		// stub
 	}
 	
 	public delegate void InterceptStashing_del();
@@ -92,7 +92,7 @@ public partial class TdStashpoint : Actor/*
 	public virtual InterceptStashing_del global_InterceptStashing => TdStashpoint_InterceptStashing;
 	public /*function */void TdStashpoint_InterceptStashing()
 	{
-	
+		// stub
 	}
 	
 	public delegate void CompleteStashing_del();
@@ -100,7 +100,7 @@ public partial class TdStashpoint : Actor/*
 	public virtual CompleteStashing_del global_CompleteStashing => TdStashpoint_CompleteStashing;
 	public /*function */void TdStashpoint_CompleteStashing()
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

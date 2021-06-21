@@ -7,34 +7,34 @@ public partial class TdBotPawn_Tutorial : TdBotPawn/*
 		hidecategories(Navigation)*/{
 	public virtual /*exec function */void AnimationHideWeapon()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void Turn(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? TdBotPawn_Tutorial_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => TdBotPawn_Tutorial_TakeDamage;
 	public /*function */void TdBotPawn_Tutorial_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void AddToInventory(Core.ClassT<TdWeapon> WeaponClass)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool PreventWeaponImpactEffect(Controller InstigatorController)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -42,30 +42,30 @@ public partial class TdBotPawn_Tutorial : TdBotPawn/*
 	public override Landed_del global_Landed => TdBotPawn_Tutorial_Landed;
 	public /*event */void TdBotPawn_Tutorial_Landed(Object.Vector iNormal, Actor iActor)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool ShouldBlock(Core.ClassT<DamageType> MeleeDamageType)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool ShouldMeleeCauseFall()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool ShouldMeleeCauseStumbleFar()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void UseLegRotation(bool UseLegRotation)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

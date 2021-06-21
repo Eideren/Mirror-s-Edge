@@ -13,25 +13,25 @@ public partial class TdProj_FlashbangGrenade : TdProj_Grenade/*
 	
 	public override /*simulated function */bool HurtRadius(float BaseDamage, float InDamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, /*optional */Actor? _IgnoredActor = default, /*optional */Controller? _InstigatedByController = default, /*optional */bool? _bDoFullDamage = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void TriggerDynamicLightFlash()
 	{
-	
+		// stub
 	}
 	
 	public override Tick_del Tick { get => bfield_Tick ?? TdProj_FlashbangGrenade_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdProj_FlashbangGrenade_Tick;
 	public /*event */void TdProj_FlashbangGrenade_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void DisableDynamicLightFlash()
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

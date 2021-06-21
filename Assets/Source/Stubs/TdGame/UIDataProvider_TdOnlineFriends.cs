@@ -7,17 +7,17 @@ public partial class UIDataProvider_TdOnlineFriends : UIDataProvider_OnlineFrien
 		hidecategories(Object,UIRoot)*/{
 	public override /*event */void OnRegister(LocalPlayer InPlayer)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void OnUnregister()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnFriendsChange()
 	{
-	
+		// stub
 	}
 	
 	public UIDataProvider_TdOnlineFriends()

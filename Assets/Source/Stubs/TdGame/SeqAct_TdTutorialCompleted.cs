@@ -8,12 +8,12 @@ public partial class SeqAct_TdTutorialCompleted : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStayInTutorial(bool bStayInTutorial)
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdTutorialCompleted()

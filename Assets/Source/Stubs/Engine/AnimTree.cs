@@ -61,6 +61,7 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	public virtual /*native final function */SkelControlBase FindSkelControl(name InControlName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -68,6 +69,7 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	public virtual /*native final function */MorphNodeBase FindMorphNode(name InNodeName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -75,6 +77,7 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	public virtual /*native final function */bool SetAnimGroupForNode(AnimNodeSequence SeqNode, name GroupName, /*optional */bool? _bCreateIfNotFound = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -82,6 +85,7 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	public virtual /*native final function */AnimNodeSequence GetGroupSynchMaster(name GroupName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -89,6 +93,7 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	public virtual /*native final function */AnimNodeSequence GetGroupNotifyMaster(name GroupName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -96,12 +101,14 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	public virtual /*native final function */void ForceGroupRelativePosition(name GroupName, float RelativePosition)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UAnimTree::execGetGroupRelativePosition(FFrame&, void* const)
 	public virtual /*native final function */float GetGroupRelativePosition(name GroupName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -109,12 +116,14 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	public virtual /*native final function */void SetGroupRateScale(name GroupName, float NewRateScale)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UAnimTree::execGetGroupIndex(FFrame&, void* const)
 	public virtual /*native final function */int GetGroupIndex(name GroupName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

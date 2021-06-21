@@ -9,7 +9,7 @@ public partial class SequenceVariable : SequenceObject/*
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

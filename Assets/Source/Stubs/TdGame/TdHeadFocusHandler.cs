@@ -21,65 +21,66 @@ public partial class TdHeadFocusHandler : Object/*
 	
 	public virtual /*function */void Initialize(TdAIController Controller)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void AddSpecialOutput(ref String Text)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdHeadFocusHandler::execTick(FFrame&, void* const)
 	public virtual /*native function */void Tick(float DeltaTime)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */bool IsActivated()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void FocusOnActor(Actor Focus, Object.Vector Offset, name Identifier)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool AllowStateChanges()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetAllowStateChanges(bool iAllowStateChanges)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PushEnabled(bool bEnable, name Identifier)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PopEnabled(name Identifier)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void UpdateFocusState()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ActivateHeadControl(bool flag)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ToggleEyelids()
 	{
-	
+		// stub
 	}
 	
 	public TdHeadFocusHandler()

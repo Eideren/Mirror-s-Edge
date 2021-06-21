@@ -30,42 +30,42 @@ public partial class UIDataStore_OnlinePlayerData : UIDataStore_Remote,
 	
 	public virtual /*event */void OnRegister(LocalPlayer InPlayer)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnUnregister()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnLoginChange()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnPlayerDataChange()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void RegisterDelegates()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnProviderChanged(UIDataProvider SourceProvider, /*optional */name? _PropTag = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnDownloadableContentQueryDone(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool SaveProfileData()
 	{
-	
+		// stub
 		return default;
 	}
 	

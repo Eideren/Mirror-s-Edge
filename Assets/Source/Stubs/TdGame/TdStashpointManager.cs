@@ -8,40 +8,40 @@ public partial class TdStashpointManager : Actor/*
 	
 	public virtual /*function */void Initialize(TdPursuitGRI InGRI, TdStashpointListener InListener)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */array<TdStashpoint> GetStashpoints(/*optional */int? _TeamIndex = default, /*optional */int? _StashPointID = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnStartMatchInProgress()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SendKismetOnStartMatchInProgress()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */int GetFirstRunnerStashPointID()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */Actor AddStashPoint(Object.Vector StashLocation, Core.ClassT<TdStashpoint> StashpointClass)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool RemoveStashPoint(TdStashpoint StashpointToRemove)
 	{
-	
+		// stub
 		return default;
 	}
 	

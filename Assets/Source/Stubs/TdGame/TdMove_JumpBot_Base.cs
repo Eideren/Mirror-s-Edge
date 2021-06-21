@@ -13,43 +13,44 @@ public partial class TdMove_JumpBot_Base : TdMove_AISpecialMove/*
 	public virtual /*native function */Object.Vector GetPreciseLandingLocation()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SafetyLanding()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void BeginJump()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated event */void StartAnticipation()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Pause()
 	{
-	
+		// stub
 	}
 	
 	public TdMove_JumpBot_Base()

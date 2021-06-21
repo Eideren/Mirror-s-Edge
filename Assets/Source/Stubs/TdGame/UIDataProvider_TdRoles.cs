@@ -15,7 +15,7 @@ public partial class UIDataProvider_TdRoles : UIDataProvider_TdResource/*
 	
 	public override /*event */bool IsProviderDisabled()
 	{
-	
+		// stub
 		return default;
 	}
 	

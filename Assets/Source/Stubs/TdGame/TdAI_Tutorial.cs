@@ -16,29 +16,30 @@ public partial class TdAI_Tutorial : TdAIController/*
 	public override /*native function */void UpdateAnchor()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*event */void Initialize()
 	{
-	
+		// stub
 	}
 	
 	public override Tick_del Tick { get => bfield_Tick ?? TdAI_Tutorial_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAI_Tutorial_Tick;
 	public /*event */void TdAI_Tutorial_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool CanAttack()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ShouldBlockAttack(Core.ClassT<DamageType> AttackType)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -46,7 +47,7 @@ public partial class TdAI_Tutorial : TdAIController/*
 	public override NotifyPrepareForMeleeAttack_del global_NotifyPrepareForMeleeAttack => TdAI_Tutorial_NotifyPrepareForMeleeAttack;
 	public /*function */bool TdAI_Tutorial_NotifyPrepareForMeleeAttack(Core.ClassT<DamageType> MeleeDamageType)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -54,86 +55,86 @@ public partial class TdAI_Tutorial : TdAIController/*
 	public override NotifyDamage_del global_NotifyDamage => TdAI_Tutorial_NotifyDamage;
 	public /*function */void TdAI_Tutorial_NotifyDamage(Controller ControllerInstigator, Core.ClassT<DamageType> DamageType, int Damage)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool IsHitRelevant(Core.ClassT<DamageType> DamageType, name BoneName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void NotifyMeleeFinished()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnDisarmed()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void TriggerCannedAnim(int Move, name AnimationName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void EmitFailedEvent()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void EmitMeleeAttackSucceededEvent()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void EmitPreAttackEvent()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void EmitPostAttackEvent()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void EmitDisarmSucceededEvent()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void EmitWeaponDroppedEvent()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTdAiInitiateAttack(SeqAct_TdAiInitiateAttack Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsCloseToPlayer()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsFacingPlayer()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsDisarmChallenge()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool PlayerHasWeapon()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -141,54 +142,55 @@ public partial class TdAI_Tutorial : TdAIController/*
 	public override /*native function */void SetBestAnchor()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */void OnResetChallenge()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetPose()
 	{
-	
+		// stub
 	}
 	
 	public override UpdatePose_del UpdatePose { get => bfield_UpdatePose ?? TdAI_Tutorial_UpdatePose; set => bfield_UpdatePose = value; } UpdatePose_del bfield_UpdatePose;
 	public override UpdatePose_del global_UpdatePose => TdAI_Tutorial_UpdatePose;
 	public /*function */void TdAI_Tutorial_UpdatePose()
 	{
-	
+		// stub
 	}
 	
 	public override UpdatePawnFocus_del UpdatePawnFocus { get => bfield_UpdatePawnFocus ?? TdAI_Tutorial_UpdatePawnFocus; set => bfield_UpdatePawnFocus = value; } UpdatePawnFocus_del bfield_UpdatePawnFocus;
 	public override UpdatePawnFocus_del global_UpdatePawnFocus => TdAI_Tutorial_UpdatePawnFocus;
 	public /*function */void TdAI_Tutorial_UpdatePawnFocus()
 	{
-	
+		// stub
 	}
 	
 	public override SeePlayer_del SeePlayer { get => bfield_SeePlayer ?? TdAI_Tutorial_SeePlayer; set => bfield_SeePlayer = value; } SeePlayer_del bfield_SeePlayer;
 	public override SeePlayer_del global_SeePlayer => TdAI_Tutorial_SeePlayer;
 	public /*event */void TdAI_Tutorial_SeePlayer(Pawn iPawn)
 	{
-	
+		// stub
 	}
 	
 	public override TestCombatTransitions_del TestCombatTransitions { get => bfield_TestCombatTransitions ?? TdAI_Tutorial_TestCombatTransitions; set => bfield_TestCombatTransitions = value; } TestCombatTransitions_del bfield_TestCombatTransitions;
 	public override TestCombatTransitions_del global_TestCombatTransitions => TdAI_Tutorial_TestCombatTransitions;
 	public /*function */void TdAI_Tutorial_TestCombatTransitions()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetIdleState()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */int SetupTemplate(AITemplate TheTemplate)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -213,7 +215,7 @@ public partial class TdAI_Tutorial : TdAIController/*
 	
 	protected /*function */void TdAI_Tutorial_Idle_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Idle()/*auto state Idle*/
@@ -230,13 +232,13 @@ public partial class TdAI_Tutorial : TdAIController/*
 	
 	protected /*function */bool TdAI_Tutorial_AnimationPlayback_NotifyPrepareForMeleeAttack(Core.ClassT<DamageType> MeleeDamageType)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */void TdAI_Tutorial_AnimationPlayback_NotifyDamage(Controller ControllerInstigator, Core.ClassT<DamageType> DamageType, int Damage)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) AnimationPlayback()/*state AnimationPlayback*/
@@ -247,7 +249,7 @@ public partial class TdAI_Tutorial : TdAIController/*
 	
 	protected /*function */void TdAI_Tutorial_Stumble_UpdatePose()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Stumble()/*state Stumble*/
@@ -258,28 +260,28 @@ public partial class TdAI_Tutorial : TdAIController/*
 	
 	protected /*function */void TdAI_Tutorial_CombatTutorialMelee_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_Tutorial_CombatTutorialMelee_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void TdAI_Tutorial_CombatTutorialMelee_Tick(float DeltaTime)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */bool TdAI_Tutorial_CombatTutorialMelee_ShouldEmitPreAttackEvent()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */bool TdAI_Tutorial_CombatTutorialMelee_ShouldEnterMeleeMove()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	

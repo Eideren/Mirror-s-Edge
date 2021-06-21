@@ -8,7 +8,7 @@ public partial class DefaultPhysicsVolume : PhysicsVolume/*
 		hidecategories(Navigation,Object,Movement,Display)*/{
 	public override /*event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public DefaultPhysicsVolume()

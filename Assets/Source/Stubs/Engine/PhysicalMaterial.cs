@@ -30,7 +30,7 @@ public partial class PhysicalMaterial : Object/*
 	
 	public virtual /*function */PhysicalMaterialPropertyBase GetPhysicalMaterialProperty(Core.ClassT<PhysicalMaterialPropertyBase> DesiredClass)
 	{
-	
+		// stub
 		return default;
 	}
 	

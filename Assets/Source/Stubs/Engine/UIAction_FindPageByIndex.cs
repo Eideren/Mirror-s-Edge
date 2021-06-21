@@ -7,7 +7,7 @@ public partial class UIAction_FindPageByIndex : UIAction_GetPageReference/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public UIAction_FindPageByIndex()

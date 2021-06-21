@@ -15,6 +15,7 @@ public partial class UIDataStore_TdTutorialData : UIDataStore_TdGameResource,
 	public virtual /*native function */int GetChallengeIdFromIndex(int Index)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -22,17 +23,18 @@ public partial class UIDataStore_TdTutorialData : UIDataStore_TdGameResource,
 	public virtual /*native function */float GetTimeForChallengeGrade(int ChallengeId, int Grade)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */void Registered(LocalPlayer Player)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final event */TdProfileSettings GetProfileSettings()
 	{
-	
+		// stub
 		return default;
 	}
 	

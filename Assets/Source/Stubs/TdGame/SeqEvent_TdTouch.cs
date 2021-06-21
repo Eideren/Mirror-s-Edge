@@ -8,7 +8,7 @@ public partial class SeqEvent_TdTouch : SeqEvent_Touch/*
 	
 	public virtual /*event */bool ShouldActivate(Actor InOriginator, Actor InInstigator)
 	{
-	
+		// stub
 		return default;
 	}
 	

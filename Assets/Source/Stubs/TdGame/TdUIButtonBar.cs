@@ -17,6 +17,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 	public override /*native function */bool CanAcceptFocus(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -24,73 +25,74 @@ public partial class TdUIButtonBar : TdUIObject/*
 	public virtual /*native function */UIRoot.InputEventParameters BuildFakeInputEvent(/*const */ref UIRoot.InputEventParameters SourceEvent, name FakeKey)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnControllerChange(int ControllerId, bool Connected)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */int AppendButton(String ButtonTextMarkup, /*delegate*/UIObject.OnClicked ButtonDelegate)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void CheckMarkup(ref String ButtonTextMarkup)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetButton(int ButtonIndex, String ButtonTextMarkup, /*delegate*/UIObject.OnClicked ButtonDelegate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearButton(int ButtonIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearButtons()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ToggleButton(int ButtonIndex, bool bActive)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ToggleAllButtons(bool bActive)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ToggleSetButtons(bool bActive)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisableButton(int ButtonIndex, bool bDisable)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisableAllButtons(bool bDisable)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PlayInputNotificationClickToKey(UIScreenObject EventObject, UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 	}
 	
 	public TdUIButtonBar()

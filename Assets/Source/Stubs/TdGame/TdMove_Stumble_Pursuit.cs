@@ -5,7 +5,7 @@ public partial class TdMove_Stumble_Pursuit : TdMove_StumbleBot/*
 		config(PawnMovement)*/{
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 }

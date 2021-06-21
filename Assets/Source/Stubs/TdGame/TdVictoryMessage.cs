@@ -4,19 +4,19 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdVictoryMessage : TdLocalMessage{
 	public /*function */static String GetMacthVictoryMessage(/*optional */PlayerReplicationInfo? _Winner = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static String GetRoundVictoryMessage(/*optional */PlayerReplicationInfo? _Winner = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static String GetRoundVictoryReason(/*optional */PlayerReplicationInfo? _Winner = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

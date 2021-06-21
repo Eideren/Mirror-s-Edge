@@ -19,27 +19,27 @@ public partial class AmbientSoundSimpleToggleable : AmbientSoundSimple/*
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StartPlaying()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StopPlaying()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{
-	
+		// stub
 	}
 	
 	public AmbientSoundSimpleToggleable()

@@ -10,12 +10,12 @@ public partial class SeqAct_TdSpawnPooledEmitter : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void Reset()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdSpawnPooledEmitter()

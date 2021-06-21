@@ -31,12 +31,14 @@ public partial class UISkin : UIDataStore/*
 	public virtual /*native final function */void GetAvailableStyles(ref array<UIStyle> out_Styles, /*optional */bool? _bIncludeInheritedStyles = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUISkin::execGetCursorResource(FFrame&, void* const)
 	public virtual /*native final function */UITexture GetCursorResource(name CursorName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -44,6 +46,7 @@ public partial class UISkin : UIDataStore/*
 	public virtual /*native final function */bool AddUISoundCue(name SoundCueName, SoundCue SoundToPlay)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -51,6 +54,7 @@ public partial class UISkin : UIDataStore/*
 	public virtual /*native final function */bool RemoveUISoundCue(name SoundCueName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -58,6 +62,7 @@ public partial class UISkin : UIDataStore/*
 	public virtual /*native final function */bool GetUISoundCue(name SoundCueName, ref SoundCue out_UISoundCue)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -65,12 +70,14 @@ public partial class UISkin : UIDataStore/*
 	public virtual /*native final function */void GetSkinSoundCues(ref array<UISkin.UISoundCue> out_SoundCues)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUISkin::execIsInheritedGroupName(FFrame&, void* const)
 	public virtual /*native final function */bool IsInheritedGroupName(String StyleGroupName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -78,6 +85,7 @@ public partial class UISkin : UIDataStore/*
 	public virtual /*native final function */bool AddStyleGroupName(String StyleGroupName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -85,6 +93,7 @@ public partial class UISkin : UIDataStore/*
 	public virtual /*native final function */bool RemoveStyleGroupName(String StyleGroupName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -92,6 +101,7 @@ public partial class UISkin : UIDataStore/*
 	public virtual /*native final function */bool RenameStyleGroup(String OldStyleGroupName, String NewStyleGroupName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -99,6 +109,7 @@ public partial class UISkin : UIDataStore/*
 	public virtual /*native final function */String GetStyleGroupAtIndex(int Index)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -106,6 +117,7 @@ public partial class UISkin : UIDataStore/*
 	public virtual /*native final function */int FindStyleGroupIndex(String StyleGroupName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -113,6 +125,7 @@ public partial class UISkin : UIDataStore/*
 	public virtual /*native final function */void GetStyleGroups(ref array<String> StyleGroupArray, /*optional */bool? _bIncludeInheritedGroups = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public UISkin()

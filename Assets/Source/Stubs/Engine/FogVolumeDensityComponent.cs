@@ -16,6 +16,7 @@ public partial class FogVolumeDensityComponent : ActorComponent/*
 	public virtual /*native final function */void SetEnabled(bool bSetEnabled)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public FogVolumeDensityComponent()

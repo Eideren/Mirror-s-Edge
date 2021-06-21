@@ -136,174 +136,176 @@ public partial class TdHudEffectManager : Object/* within TdHUD*//*
 	public virtual /*native final function */void DisplayHit(Object.Vector HitDir, int Damage, TdHUD.EDamageType DamageType)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdHudEffectManager::execGetRelativeHitPos(FFrame&, void* const)
 	public virtual /*native final function */Object.Vector GetRelativeHitPos(Object.Vector Offset, Object.Rotator CameraRotation, float Direction)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void FadeOutHelper(float Time, Object.LinearColor FadeColor, /*optional */bool? _bRealTime = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StartUp()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitUIPostProcess()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ToggleUIPostProcess()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void BlurInUI(float FadeInTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void BlurOutUI(float FadeOutTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetUIBlur(float T)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetUIBlurEnabled(bool bEnabled)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void Update(float DeltaTime, float RenderDelta)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateUncontrolledFalling(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsPlayerInUncontrolledSpeed(ref Object.Vector FallingVelocity)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void ResetParticles()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetPPEffects()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateStreakEffect(float Delta)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetHealthEffect()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetScopeEffect()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplayDeath()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UnDisplayDeath()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateDOF(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateBlur_UI(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ActivateZoomInDOF()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ActivateSaturationEffect()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DeActivateSaturationEffect()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DeActivateZoomInDOF()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitSavedDOFValues()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ActivateReactionTimeTeaser()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ActivateForcedMotionBlur(Object.Vector Direction, float Amount)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DeActivateForcedMotionBlur()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetMotionBlurEffects()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ActivateForcedUncontrolledFall(Object.Vector Direction)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DeActivateForcedUncontrolledFall()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TogglePostProcessEffects(bool bEnable)
 	{
-	
+		// stub
 	}
 	
 	public TdHudEffectManager()

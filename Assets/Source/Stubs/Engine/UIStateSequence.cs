@@ -8,6 +8,7 @@ public partial class UIStateSequence : UISequence/*
 	public virtual /*native final function */UIState GetOwnerState()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

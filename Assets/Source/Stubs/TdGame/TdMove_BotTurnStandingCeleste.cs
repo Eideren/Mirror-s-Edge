@@ -5,13 +5,13 @@ public partial class TdMove_BotTurnStandingCeleste : TdMove_BotTurnStanding/*
 		config(PawnMovement)*/{
 	public override /*function */float GetBlendOutTime()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */float GetBlendInTime()
 	{
-	
+		// stub
 		return default;
 	}
 	

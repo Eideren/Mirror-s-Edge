@@ -10,7 +10,7 @@ public partial class Ladder : NavigationPoint/*
 	
 	public override /*event */bool SuggestMovePreparation(Pawn Other)
 	{
-	
+		// stub
 		return default;
 	}
 	

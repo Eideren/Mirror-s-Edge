@@ -9,7 +9,7 @@ public partial class GamePawn : Pawn/*
 		hidecategories(Navigation)*/{
 	public virtual /*simulated function */void GetTargetFrictionCylinder(ref float CylinderRadius, ref float CylinderHeight)
 	{
-	
+		// stub
 	}
 	
 	public GamePawn()

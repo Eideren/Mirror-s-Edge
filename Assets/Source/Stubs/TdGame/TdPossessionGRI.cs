@@ -18,7 +18,7 @@ public partial class TdPossessionGRI : TdBagGRI/*
 	public override Timer_del global_Timer => TdPossessionGRI_Timer;
 	public /*simulated event */void TdPossessionGRI_Timer()
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

@@ -141,6 +141,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public /*native simulated function */static TpSystemBase Get()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -148,18 +149,21 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual /*protected native simulated function */void Initialize(TpSystemBase.TpInitializeParams InParams)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpSystemBase::execEnd(FFrame&, void* const)
 	public virtual /*protected native simulated function */void End()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpSystemBase::execNpEventLoopControl(FFrame&, void* const)
 	public virtual /*protected native simulated function */void NpEventLoopControl(int Op)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public delegate void ProcessTick_del(float DeltaSeconds);
@@ -167,7 +171,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual ProcessTick_del global_ProcessTick => TpSystemBase_ProcessTick;
 	public /*protected simulated event */void TpSystemBase_ProcessTick(float DeltaSeconds)
 	{
-	
+		// stub
 	}
 	
 	public delegate TpAssociationManager GetAssociationManager_del();
@@ -175,7 +179,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual GetAssociationManager_del global_GetAssociationManager => TpSystemBase_GetAssociationManager;
 	public /*simulated event */TpAssociationManager TpSystemBase_GetAssociationManager()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -184,7 +188,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual GetPlayGroupManager_del global_GetPlayGroupManager => TpSystemBase_GetPlayGroupManager;
 	public /*simulated event */TpPlayGroupManager TpSystemBase_GetPlayGroupManager()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -193,7 +197,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual GetRankingService_del global_GetRankingService => TpSystemBase_GetRankingService;
 	public /*simulated event */TpRankingService TpSystemBase_GetRankingService()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -202,7 +206,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual GetPresenceManager_del global_GetPresenceManager => TpSystemBase_GetPresenceManager;
 	public /*simulated event */TpPresenceManager TpSystemBase_GetPresenceManager()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -211,7 +215,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual GetUserManager_del global_GetUserManager => TpSystemBase_GetUserManager;
 	public /*simulated event */TpUserManager TpSystemBase_GetUserManager()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -220,7 +224,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual GetConnection_del global_GetConnection => TpSystemBase_GetConnection;
 	public /*simulated event */TpConnection TpSystemBase_GetConnection()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -229,7 +233,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual GetGameBrowser_del global_GetGameBrowser => TpSystemBase_GetGameBrowser;
 	public /*simulated event */TpGameBrowser TpSystemBase_GetGameBrowser()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -238,7 +242,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual GetGameManager_del global_GetGameManager => TpSystemBase_GetGameManager;
 	public /*simulated event */TpGameManager TpSystemBase_GetGameManager()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -247,7 +251,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual GetMessageService_del global_GetMessageService => TpSystemBase_GetMessageService;
 	public /*simulated event */TpMessageService TpSystemBase_GetMessageService()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -256,7 +260,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual GetAchievementManager_del global_GetAchievementManager => TpSystemBase_GetAchievementManager;
 	public /*simulated event */TpAchievementManager TpSystemBase_GetAchievementManager()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -265,7 +269,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual GetFileLockerService_del global_GetFileLockerService => TpSystemBase_GetFileLockerService;
 	public /*simulated event */TpFileLockerService TpSystemBase_GetFileLockerService()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -274,7 +278,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual GetProtoHTTP_del global_GetProtoHTTP => TpSystemBase_GetProtoHTTP;
 	public /*simulated event */TpProtoHTTP TpSystemBase_GetProtoHTTP()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -283,7 +287,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual ImpelConnected_del global_ImpelConnected => TpSystemBase_ImpelConnected;
 	public /*protected simulated event */void TpSystemBase_ImpelConnected()
 	{
-	
+		// stub
 	}
 	
 	public delegate void ImpelDisconnected_del();
@@ -291,7 +295,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual ImpelDisconnected_del global_ImpelDisconnected => TpSystemBase_ImpelDisconnected;
 	public /*protected simulated event */void TpSystemBase_ImpelDisconnected()
 	{
-	
+		// stub
 	}
 	
 	public delegate void ImpelGameCreated_del();
@@ -299,7 +303,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual ImpelGameCreated_del global_ImpelGameCreated => TpSystemBase_ImpelGameCreated;
 	public /*protected simulated event */void TpSystemBase_ImpelGameCreated()
 	{
-	
+		// stub
 	}
 	
 	public delegate void ImpelGameDestroyed_del();
@@ -307,7 +311,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual ImpelGameDestroyed_del global_ImpelGameDestroyed => TpSystemBase_ImpelGameDestroyed;
 	public /*protected simulated event */void TpSystemBase_ImpelGameDestroyed()
 	{
-	
+		// stub
 	}
 	
 	public delegate void ImpelGameJoined_del();
@@ -315,23 +319,23 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	public virtual ImpelGameJoined_del global_ImpelGameJoined => TpSystemBase_ImpelGameJoined;
 	public /*protected simulated event */void TpSystemBase_ImpelGameJoined()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated event */void RegisterLatestError(TpSystemBase.TpErrorInfo LatestError)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */TpSystemBase.TpErrorInfo GetLatestError()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void SetOnScreenHandler(TpOnScreenErrorHandler Handler)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

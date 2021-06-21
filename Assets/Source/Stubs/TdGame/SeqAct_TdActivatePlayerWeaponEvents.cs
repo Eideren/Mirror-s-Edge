@@ -5,7 +5,7 @@ public partial class SeqAct_TdActivatePlayerWeaponEvents : SequenceAction/*
 		hidecategories(Object)*/{
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdActivatePlayerWeaponEvents()

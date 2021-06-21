@@ -36,47 +36,47 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 	
 	public override /*function */void Initialized()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetInputText(String Text)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetCursorPos(int Position)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void PurgeCommandFromHistory(String Command)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ConsoleCommand(String Command)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearOutput()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OutputTextLine(/*coerce */String Text)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OutputText(/*coerce */String Text)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void StartTyping(/*coerce */String Text)
 	{
-	
+		// stub
 	}
 	
 	public delegate void PostRender_Console_del(Canvas Canvas);
@@ -84,7 +84,7 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 	public virtual PostRender_Console_del global_PostRender_Console => Console_PostRender_Console;
 	public /*function */void Console_PostRender_Console(Canvas Canvas)
 	{
-	
+		// stub
 	}
 	
 	public delegate bool InputKey_del(int ControllerId, name Key, Object.EInputEvent Event, /*optional */float? _AmountDepressed = default, /*optional */bool? _bGamepad = default);
@@ -92,7 +92,7 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 	public virtual InputKey_del global_InputKey => Console_InputKey;
 	public /*function */bool Console_InputKey(int ControllerId, name Key, Object.EInputEvent Event, /*optional */float? _AmountDepressed = default, /*optional */bool? _bGamepad = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -101,25 +101,25 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 	public virtual InputChar_del global_InputChar => Console_InputChar;
 	public /*function */bool Console_InputChar(int ControllerId, String Unicode)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsUIConsoleOpen()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsUIMiniConsoleOpen()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void FlushPlayerInput()
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{
@@ -131,29 +131,29 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 	
 	protected /*function */bool Console_Typing_InputChar(int ControllerId, String Unicode)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */bool Console_Typing_InputKey(int ControllerId, name Key, Object.EInputEvent Event, /*optional */float? _AmountDepressed = default, /*optional */bool? _bGamepad = default)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*event */void Console_Typing_PostRender_Console(Canvas Canvas)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void Console_Typing_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void Console_Typing_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Typing()/*state Typing*/
@@ -164,29 +164,29 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 	
 	protected /*function */bool Console_Open_InputChar(int ControllerId, String Unicode)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */bool Console_Open_InputKey(int ControllerId, name Key, Object.EInputEvent Event, /*optional */float? _AmountDepressed = default, /*optional */bool? _bGamepad = default)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*event */void Console_Open_PostRender_Console(Canvas Canvas)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void Console_Open_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */void Console_Open_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Open()/*state Open*/

@@ -140,27 +140,29 @@ public partial class SeqAct_CrowdSpawner : SeqAct_Latent/*
 	public virtual /*native simulated function */void KillAgents()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USeqAct_CrowdSpawner::execUpdateSpawning(FFrame&, void* const)
 	public virtual /*native simulated function */void UpdateSpawning(float DeltaSeconds)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*function */void Reset()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void CreateAttachments(CrowdAgent Agent)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */CrowdAgent SpawnAgent(Actor SpawnLoc)
 	{
-	
+		// stub
 		return default;
 	}
 	

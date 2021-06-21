@@ -5,23 +5,23 @@ public partial class TdMove_StumbleTutorialBot : TdMove_StumbleBot/*
 		config(PawnMovement)*/{
 	public override /*function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void PlayStumbleAnimation()
 	{
-	
+		// stub
 	}
 	
 }

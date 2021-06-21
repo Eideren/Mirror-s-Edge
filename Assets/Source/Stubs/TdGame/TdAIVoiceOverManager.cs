@@ -176,17 +176,17 @@ public partial class TdAIVoiceOverManager : Actor/*
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */void InitializeVoiceOvers()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected function */bool ReadVOData(Core.ClassT<TdAIVoiceOverData> Data)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -194,56 +194,56 @@ public partial class TdAIVoiceOverManager : Actor/*
 	public override Reset_del global_Reset => TdAIVoiceOverManager_Reset;
 	public /*function */void TdAIVoiceOverManager_Reset()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */int GetVoiceNumber()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*protected function */int GetVariation(TdAIVoiceOverManager.EVoiceOver VO, int voice, ref int subvariant)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void TriggerVO(Pawn Bot, int VO, int voice, /*optional */int? _answer = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */TdAIVoiceOverManager.AIVoiceItem InitItem(TdAIVoiceOverManager.EVoiceOver VO, Pawn Bot, float TimeTriggered, int voice, /*optional */TdAIVoiceOverManager.EVoiceOver? _answer = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float PlayWithRadioNoise(SoundCue Cue, Pawn Source)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void Mute()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void UnMute()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected event */void Speak(TdAIVoiceOverManager.EVoiceOver VO, Pawn Speaker, int voice, TdAIVoiceOverManager.EVoiceOver answer)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */Pawn FindFriendWithVoice(Pawn Bot, int voice)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -251,28 +251,29 @@ public partial class TdAIVoiceOverManager : Actor/*
 	public virtual /*private native final function */float NoiseLevel()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void DrawDebugInfo(Canvas aCanvas)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */bool IsDelayed(int VO)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void RemoveSpeaker(Pawn Speaker)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetLastSpeaker(Pawn Speaker)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

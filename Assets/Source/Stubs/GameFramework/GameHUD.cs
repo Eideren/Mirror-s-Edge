@@ -23,17 +23,17 @@ public partial class GameHUD : HUD/*
 	
 	public virtual /*function */void SetHUDDrawColor(GameHUD.EGameHUDColor eColor, /*optional */byte? _Alpha = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StartDrawingChapterTitle(String ChapterName, String ActName, float TotalDrawTime, float TotalFadeTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StopDrawingChapterTitle()
 	{
-	
+		// stub
 	}
 	
 }

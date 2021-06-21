@@ -11,7 +11,7 @@ public partial class TdUIComp_ListPresenterBase : UIComp_ListPresenter/* within 
 	
 	public virtual /*event */void DrawElement(Canvas Canvas, int ElementIndex, UIRoot.RenderParameters Parameters, bool bElementIsSelected)
 	{
-	
+		// stub
 	}
 	
 	public TdUIComp_ListPresenterBase()

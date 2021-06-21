@@ -7,7 +7,7 @@ public partial class TdBotPawn_Support : TdBotPawn/*
 		hidecategories(Navigation)*/{
 	public override /*function */void SetWalking(bool Walk)
 	{
-	
+		// stub
 	}
 	
 	public TdBotPawn_Support()

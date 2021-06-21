@@ -10,13 +10,13 @@ public partial class TdInterestPoint : NavigationPoint/*
 	
 	public virtual /*function */bool ShouldBeInvestigated(float GameTime)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void MarkInvestigated(float GameTime)
 	{
-	
+		// stub
 	}
 	
 	public TdInterestPoint()

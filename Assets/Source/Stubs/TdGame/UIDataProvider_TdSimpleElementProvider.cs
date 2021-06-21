@@ -12,6 +12,7 @@ public partial class UIDataProvider_TdSimpleElementProvider : UIDataProvider,
 	public virtual /*native function */int GetElementCount()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

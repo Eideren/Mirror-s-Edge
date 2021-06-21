@@ -13,22 +13,23 @@ public partial class UIDataStore_TdStringAliasMap : UIDataStore_StringAliasMap/*
 	public override /*native function */int GetStringWithFieldName(String FieldName, ref String MappedString)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */void Registered(LocalPlayer PlayerOwner)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void Unregistered(LocalPlayer PlayerOwner)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnControllerChange(int ControllerId, bool Connected)
 	{
-	
+		// stub
 	}
 	
 	public UIDataStore_TdStringAliasMap()

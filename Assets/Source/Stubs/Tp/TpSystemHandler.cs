@@ -11,22 +11,24 @@ public partial class TpSystemHandler : Object/*
 	public virtual /*private native final simulated function */void InitializeNative()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpSystemHandler::execFinalizeNative(FFrame&, void* const)
 	public virtual /*private native final simulated function */void FinalizeNative()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*simulated function */void Initialize(TpSystemBase InSystemBase)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final simulated function */void Finalize()
 	{
-	
+		// stub
 	}
 	
 }

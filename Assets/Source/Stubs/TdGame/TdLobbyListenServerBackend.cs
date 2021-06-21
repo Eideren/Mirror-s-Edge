@@ -14,79 +14,79 @@ public partial class TdLobbyListenServerBackend : TdLobbyBackend/*
 	
 	public virtual /*event */void CheckGRI(WorldInfo InInfo)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void Cleanup()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void Update()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */TdLobbyGameInfo.LobbyPlayerStruct InitPlayerData(PlayerReplicationInfo PRI)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void OnPlayerLogin(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnPlayerLogout(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnChangeTeam(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnChangeRole(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnSetReady(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnGameStarted()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void RequestTeamChange(Controller C, int Dir)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void RequestRoleChange(Controller C, int Dir)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void RequestSetReady(Controller C)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool AllPlayersReady()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void StartGame(String MapName, String GameMode)
 	{
-	
+		// stub
 	}
 	
 	public TdLobbyListenServerBackend()

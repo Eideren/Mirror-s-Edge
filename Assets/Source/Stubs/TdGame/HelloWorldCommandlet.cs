@@ -8,7 +8,7 @@ public partial class HelloWorldCommandlet : Commandlet/*
 	
 	public override /*function */int Main(String Parms)
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -12,12 +12,12 @@ public partial class UIDataStore_TdMiniMenuData : UIDataStore_TdGameResource,
 	
 	public virtual /*final function */void Initialize(TdUIScene_MiniMenu InMenuScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void Clean()
 	{
-	
+		// stub
 	}
 	
 	public UIDataStore_TdMiniMenuData()

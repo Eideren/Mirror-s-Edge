@@ -29,52 +29,54 @@ public partial class TdAimBotBase : Object/* within TdAIController*//*
 	public virtual /*native function */void Tick(float DeltaTime)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAimBotBase::execGetImprovementRate(FFrame&, void* const)
 	public virtual /*native function */float GetImprovementRate()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void Render(TdPlayerPawn PlayerPawn)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */Object.Vector GetAimLocation(TdPlayerPawn Target, /*optional */bool? _bUseFullDispersion = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetDispersionModifier()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetWeapon(Weapon iWeapon)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsHitRelevant(Core.ClassT<DamageType> DamageType, name BoneName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetOffsetThreshold()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetOffset()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -82,47 +84,48 @@ public partial class TdAimBotBase : Object/* within TdAIController*//*
 	public virtual /*native final function */float GetMaxOffset()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetMinOffset()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OverrideImprovementRate(float NewImprovementRate)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */float GetSidewaysMultiplier()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetAwayMultiplier()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetTowardMultiplier()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool MoveControlledDisperion()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CanHit()
 	{
-	
+		// stub
 		return default;
 	}
 	

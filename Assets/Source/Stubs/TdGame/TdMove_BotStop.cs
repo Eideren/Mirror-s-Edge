@@ -31,108 +31,108 @@ public partial class TdMove_BotStop : TdMove/*
 	
 	public virtual /*function */bool GetStopAnimationStarted()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void UseDebugPerfectStop(bool Input)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void SetMoveDestination(Object.Vector Dest)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool WillFallDown(/*optional */float? _ExtraDistance = default, /*optional */bool? _AddMoveLength = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void Fail()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */bool IsWalkingStop()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool IsDistanceOk()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */float GetBlendOutTime()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */void CalculateBestStop(float IdealStopTime)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void CheckFalling()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void OnTimer()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void ActivateStopMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void StopWalking()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void StopRunning()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCustomAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnAnimationStopped(AnimNodeSequence SeqNode)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void OnCeaseRelevantRootMotion(AnimNodeSequence SeqNode)
 	{
-	
+		// stub
 	}
 	
 	public TdMove_BotStop()

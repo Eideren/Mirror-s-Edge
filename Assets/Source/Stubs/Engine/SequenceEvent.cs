@@ -38,24 +38,25 @@ public partial class SequenceEvent : SequenceOp/*
 	
 	public virtual /*event */void RegisterEvent()
 	{
-	
+		// stub
 	}
 	
 	// Export USequenceEvent::execCheckActivate(FFrame&, void* const)
 	public virtual /*native final function */bool CheckActivate(Actor InOriginator, Actor InInstigator, /*optional */bool? _bTest/* = default*/, /*const optional */ref array<int> ActivateIndices/* = default*/, /*optional */bool? _bPushTop = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*function */void Reset()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void Toggled()
 	{
-	
+		// stub
 	}
 	
 	public SequenceEvent()

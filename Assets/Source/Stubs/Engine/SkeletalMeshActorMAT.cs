@@ -11,66 +11,72 @@ public partial class SkeletalMeshActorMAT : SkeletalMeshActor/*
 	public virtual /*native function */void MAT_BeginAnimControl(array<AnimSet> InAnimSets)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USkeletalMeshActorMAT::execMAT_SetAnimPosition(FFrame&, void* const)
 	public virtual /*native function */void MAT_SetAnimPosition(name SlotName, int ChannelIndex, name InAnimSeqName, float InPosition, bool bFireNotifies, bool bLooping)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USkeletalMeshActorMAT::execMAT_SetAnimWeights(FFrame&, void* const)
 	public virtual /*native function */void MAT_SetAnimWeights(array<Actor.AnimSlotInfo> SlotInfos)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USkeletalMeshActorMAT::execMAT_FinishAnimControl(FFrame&, void* const)
 	public virtual /*native function */void MAT_FinishAnimControl()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USkeletalMeshActorMAT::execMAT_SetMorphWeight(FFrame&, void* const)
 	public virtual /*native function */void MAT_SetMorphWeight(name MorphNodeName, float MorphWeight)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export USkeletalMeshActorMAT::execMAT_SetSkelControlScale(FFrame&, void* const)
 	public virtual /*native function */void MAT_SetSkelControlScale(name SkelControlName, float Scale)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*simulated event */void BeginAnimControl(array<AnimSet> InAnimSets)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void SetAnimPosition(name SlotName, int ChannelIndex, name InAnimSeqName, float InPosition, bool bFireNotifies, bool bLooping)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void SetAnimWeights(array<Actor.AnimSlotInfo> SlotInfos)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void FinishAnimControl()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void SetMorphWeight(name MorphNodeName, float MorphWeight)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void SetSkelControlScale(name SkelControlName, float Scale)
 	{
-	
+		// stub
 	}
 	
 	public SkeletalMeshActorMAT()

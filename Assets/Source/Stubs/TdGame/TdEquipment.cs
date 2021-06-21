@@ -8,23 +8,23 @@ public partial class TdEquipment : Inventory/*
 	
 	public override /*simulated function */void RenderOverlays(HUD H)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Activate()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsActive()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void Deactivate()
 	{
-	
+		// stub
 	}
 	
 	public TdEquipment()

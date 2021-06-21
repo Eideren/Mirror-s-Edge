@@ -7,7 +7,7 @@ public partial class UIState_TargetedTab : UIState/*
 		hidecategories(Object,UIRoot)*/{
 	public override /*event */bool IsWidgetClassSupported(Core.ClassT<UIScreenObject> WidgetClass)
 	{
-	
+		// stub
 		return default;
 	}
 	

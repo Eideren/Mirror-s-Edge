@@ -23,102 +23,102 @@ public partial class TdUIScene_EndOfRace : TdUIScene/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetMapStarRating(UIDataStore_TdTimeTrialData TimeTrialData)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnOptionValueChanged(UIObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetUpRaceProgressBar(UIDataStore_TdTimeTrialData TimeTrialData, TdTTResult TTResult, TdTTInput.TTData CompareData)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetUndefinedTargetTime()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */String FormatDistance(float Distance)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */String FormatAverageSpeed(float AverageSpeed)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void InitializeScene(UIDataStore_TdTimeTrialData TimeTrialData, int CurrentStretchProviderIdx, TdTTResult TTResult, TdTTInput.TTData CompareData)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Continue(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool OnButtonBar_Restart(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnContinue()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSceneClosed_Continue(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnRestart()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void HUDFadeScreenCallback()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSceneClosed_Restart(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_ShowGamerCard(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnShowGamerCard()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

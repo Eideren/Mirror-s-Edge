@@ -10,12 +10,12 @@ public partial class PlayerSettingsProvider : UISettingsProvider/* within UIData
 	
 	public virtual /*event */void OnRegister(LocalPlayer InPlayer)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnUnregister()
 	{
-	
+		// stub
 	}
 	
 	public PlayerSettingsProvider()

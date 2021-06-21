@@ -6,7 +6,7 @@ public partial class SeqEvt_TdStashPoint : SequenceEvent/*
 		hidecategories(Object)*/{
 	public virtual /*function */void HandleStashPointEvent(TdStashpoint TriggerStashpoint)
 	{
-	
+		// stub
 	}
 	
 }

@@ -27,7 +27,7 @@ public partial class TriggerStreamingLevel : Trigger/*
 	public override Touch_del global_Touch => TriggerStreamingLevel_Touch;
 	public /*event */void TriggerStreamingLevel_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

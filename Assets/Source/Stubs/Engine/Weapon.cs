@@ -45,51 +45,51 @@ public partial class Weapon : Inventory/*
 	
 	public override /*simulated event */void Destroyed()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void ItemRemovedFromInvManager()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */bool IsActiveWeapon()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void HolderDied()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */bool DoOverrideNextWeapon()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool DoOverridePrevWeapon()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void DropFrom(Object.Vector StartLocation, Object.Vector StartVelocity)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */bool CanThrow()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*reliable client simulated function */void ClientWeaponThrown()
 	{
-	
+		// stub
 	}
 	
 	public delegate bool IsFiring_del();
@@ -97,209 +97,209 @@ public partial class Weapon : Inventory/*
 	public virtual IsFiring_del global_IsFiring => Weapon_IsFiring;
 	public /*simulated event */bool Weapon_IsFiring()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool DenyClientWeaponSet()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void DisplayDebug(HUD HUD, ref float out_YL, ref float out_YPos)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void GetWeaponDebug(ref array<String> DebugInfo)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void DumpWeaponDebugToLog()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void WeaponLog(/*coerce */String msg, /*coerce */String FuncStr)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ConsumeAmmo(byte FireModeNum)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */int AddAmmo(int Amount)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool HasAmmo(byte FireModeNum, /*optional */int? _Amount = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool HasAnyAmmo()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool PendingFire(int FireMode)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void SetPendingFire(int FireMode)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void ClearPendingFire(int FireMode)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */Core.ClassT<Projectile> GetProjectileClass()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */Object.Rotator AddSpread(Object.Rotator BaseAim)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */float MaxRange()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float GetDamageRadius()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void GivenTo(Pawn thisPawn, /*optional */bool? _bDoNotActivate = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */float GetAIRating()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */float GetWeaponRating()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool RecommendRangedAttack()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool FocusOnLeader(bool bLeaderFiring)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool RecommendLongRangedAttack()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float RangedAttackTime()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CanAttack(Actor Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float SuggestAttackStyle()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */float SuggestDefenseStyle()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool FireOnRelease()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */AnimNodeSequence GetWeaponAnimNodeSeq()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void WeaponPlaySound(SoundCue Sound, /*optional */float? _NoiseLoudness = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void PlayWeaponAnimation(name Sequence, float fDesiredDuration, /*optional */bool? _bLoop = default, /*optional */SkeletalMeshComponent? _SkelMesh = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StopWeaponAnimation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void PlayFireEffects(byte FireModeNum, /*optional */Object.Vector? _HitLocation = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StopFireEffects(byte FireModeNum)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void PlayFiringSound()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */float GetFireInterval(byte FireModeNum)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void TimeWeaponFiring(byte FireModeNum)
 	{
-	
+		// stub
 	}
 	
 	public delegate void RefireCheckTimer_del();
@@ -307,17 +307,17 @@ public partial class Weapon : Inventory/*
 	public virtual RefireCheckTimer_del global_RefireCheckTimer => Weapon_RefireCheckTimer;
 	public /*simulated function */void Weapon_RefireCheckTimer()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void TimeWeaponPutDown()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void TimeWeaponEquipping()
 	{
-	
+		// stub
 	}
 	
 	public delegate void Activate_del();
@@ -325,17 +325,17 @@ public partial class Weapon : Inventory/*
 	public virtual Activate_del global_Activate => Weapon_Activate;
 	public /*simulated function */void Weapon_Activate()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void PutDownWeapon()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool DenyPickupQuery(Core.ClassT<Inventory> ItemClass, Actor Pickup)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -344,58 +344,58 @@ public partial class Weapon : Inventory/*
 	public virtual WeaponEmpty_del global_WeaponEmpty => Weapon_WeaponEmpty;
 	public /*simulated function */void Weapon_WeaponEmpty()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void IncrementFlashCount()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void ClearFlashCount()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetFlashLocation(Object.Vector HitLocation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearFlashLocation()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void AttachWeaponTo(SkeletalMeshComponent MeshCpnt, /*optional */name? _SocketName = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void DetachWeapon()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void GetViewAxes(ref Object.Vector XAxis, ref Object.Vector YAxis, ref Object.Vector ZAxis)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */float AdjustFOVAngle(float FOVAngle)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*reliable client simulated function */void ClientWeaponSet(bool bOptionalSet)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void WeaponCalcCamera(float fDeltaTime, ref Object.Vector out_CamLoc, ref Object.Rotator out_CamRot)
 	{
-	
+		// stub
 	}
 	
 	public delegate void StartFire_del(byte FireModeNum);
@@ -403,7 +403,7 @@ public partial class Weapon : Inventory/*
 	public virtual StartFire_del global_StartFire => Weapon_StartFire;
 	public /*simulated function */void Weapon_StartFire(byte FireModeNum)
 	{
-	
+		// stub
 	}
 	
 	public delegate void ServerStartFire_del(byte FireModeNum);
@@ -411,7 +411,7 @@ public partial class Weapon : Inventory/*
 	public virtual ServerStartFire_del global_ServerStartFire => Weapon_ServerStartFire;
 	public /*reliable server function */void Weapon_ServerStartFire(byte FireModeNum)
 	{
-	
+		// stub
 	}
 	
 	public delegate void BeginFire_del(byte FireModeNum);
@@ -419,12 +419,12 @@ public partial class Weapon : Inventory/*
 	public virtual BeginFire_del global_BeginFire => Weapon_BeginFire;
 	public /*simulated function */void Weapon_BeginFire(byte FireModeNum)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StopFire(byte FireModeNum)
 	{
-	
+		// stub
 	}
 	
 	public delegate void ServerStopFire_del(byte FireModeNum);
@@ -432,99 +432,99 @@ public partial class Weapon : Inventory/*
 	public virtual ServerStopFire_del global_ServerStopFire => Weapon_ServerStopFire;
 	public /*reliable server function */void Weapon_ServerStopFire(byte FireModeNum)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void EndFire(byte FireModeNum)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void ForceEndFire()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SendToFiringState(byte FireModeNum)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void SetCurrentFireMode(byte FiringModeNum)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void FireModeUpdated(byte FiringMode, bool bViaReplication)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void FireAmmunition()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */Object.Rotator GetAdjustedAim(Object.Vector StartFireLoc)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */float GetTraceRange()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */Actor GetTraceOwner()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */Actor.ImpactInfo CalcWeaponFire(Object.Vector StartTrace, Object.Vector EndTrace, /*optional */ref array<Actor.ImpactInfo> ImpactList/* = default*/)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool PassThroughDamage(Actor HitActor, /*optional */Actor.TraceHitInfo? _HitInfo = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void InstantFire()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void ProcessInstantHit(byte FiringMode, Actor.ImpactInfo Impact)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */Projectile ProjectileFire()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void CustomFire()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated event */Object.Vector GetMuzzleLoc()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */Object.Vector GetPhysicalFireStartLoc(/*optional */Object.Vector? _AimDir = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -533,23 +533,23 @@ public partial class Weapon : Inventory/*
 	public virtual TryPutDown_del global_TryPutDown => Weapon_TryPutDown;
 	public /*simulated function */bool Weapon_TryPutDown()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void HandleFinishedFiring()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyWeaponFired(byte FireMode)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyWeaponFinishedFiring(byte FireMode)
 	{
-	
+		// stub
 	}
 	
 	public delegate bool ShouldRefire_del();
@@ -557,13 +557,13 @@ public partial class Weapon : Inventory/*
 	public virtual ShouldRefire_del global_ShouldRefire => Weapon_ShouldRefire;
 	public /*simulated function */bool Weapon_ShouldRefire()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */bool StillFiring(byte FireMode)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -599,17 +599,17 @@ public partial class Weapon : Inventory/*
 	
 	protected /*reliable server function */void Weapon_Inactive_ServerStartFire(byte FireModeNum)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*reliable server function */void Weapon_Inactive_ServerStopFire(byte FireModeNum)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated function */bool Weapon_Inactive_TryPutDown()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -621,23 +621,23 @@ public partial class Weapon : Inventory/*
 	
 	protected /*simulated event */void Weapon_Active_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated function */void Weapon_Active_BeginFire(byte FireModeNum)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated function */bool Weapon_Active_ReadyToFire(bool bFinished)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated function */bool Weapon_Active_TryPutDown()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -649,23 +649,23 @@ public partial class Weapon : Inventory/*
 	
 	protected /*simulated event */bool Weapon_WeaponFiring_IsFiring()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated function */void Weapon_WeaponFiring_RefireCheckTimer()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated event */void Weapon_WeaponFiring_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated event */void Weapon_WeaponFiring_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) WeaponFiring()/*simulated state WeaponFiring*/
@@ -676,17 +676,17 @@ public partial class Weapon : Inventory/*
 	
 	protected /*simulated event */void Weapon_WeaponEquipping_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated event */void Weapon_WeaponEquipping_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated function */void Weapon_WeaponEquipping_WeaponEquipped()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) WeaponEquipping()/*simulated state WeaponEquipping*/
@@ -697,23 +697,23 @@ public partial class Weapon : Inventory/*
 	
 	protected /*simulated event */void Weapon_WeaponPuttingDown_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated function */void Weapon_WeaponPuttingDown_WeaponIsDown()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated function */bool Weapon_WeaponPuttingDown_TryPutDown()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated event */void Weapon_WeaponPuttingDown_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) WeaponPuttingDown()/*simulated state WeaponPuttingDown*/
@@ -724,17 +724,17 @@ public partial class Weapon : Inventory/*
 	
 	protected /*simulated function */void Weapon_PendingClientWeaponSet_PendingWeaponSetTimer()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated event */void Weapon_PendingClientWeaponSet_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated event */void Weapon_PendingClientWeaponSet_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) PendingClientWeaponSet()/*state PendingClientWeaponSet*/

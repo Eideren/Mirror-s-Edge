@@ -30,17 +30,17 @@ public partial class PlayerOwnerDataStore : UIDataStore_GameState/*
 	
 	public virtual /*function */void SetPlayerDataProvider(PlayerDataProvider NewPlayerData)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void ClearDataProviders()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool NotifyGameSessionEnded()
 	{
-	
+		// stub
 		return default;
 	}
 	

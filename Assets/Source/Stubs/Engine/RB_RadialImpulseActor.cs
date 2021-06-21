@@ -17,12 +17,12 @@ public partial class RB_RadialImpulseActor : Actor/*
 	
 	public virtual /*simulated function */void OnToggle(SeqAct_Toggle inAction)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void ReplicatedEvent(name VarName)
 	{
-	
+		// stub
 	}
 	
 	public RB_RadialImpulseActor()

@@ -40,21 +40,22 @@ public partial class SeqAct_TdActorFactory : SeqAct_ActorFactoryEx/*
 	public virtual /*native function */void EveryoneDied()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*event */void OnSpawn(TdBotPawn NewBot)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void Reset()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnDeath(TdBotPawn Victim)
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdActorFactory()

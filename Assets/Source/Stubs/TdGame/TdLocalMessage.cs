@@ -54,19 +54,19 @@ public partial class TdLocalMessage : LocalMessage{
 	
 	public /*simulated function */static SoundNodeWave GetAnnouncementSound(PlayerController P, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _PitcherPRI = default, /*optional */PlayerReplicationInfo? _RecieverPRI = default, /*optional */Object? _OptionalObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static int GetMessageArea(/*optional */int? _Switch = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*function */static float GetPos(int Switch, HUD myHUD)
 	{
-	
+		// stub
 		return default;
 	}
 	

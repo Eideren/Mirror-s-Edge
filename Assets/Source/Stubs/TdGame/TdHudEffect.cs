@@ -58,12 +58,12 @@ public partial class TdHudEffect : Object/*
 	
 	public virtual /*function */void InitializePP(PostProcessEffect PPE)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ResetPP()
 	{
-	
+		// stub
 	}
 	
 	public TdHudEffect()

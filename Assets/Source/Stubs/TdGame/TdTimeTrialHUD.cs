@@ -31,82 +31,82 @@ public partial class TdTimeTrialHUD : TdSPHUD/*
 	
 	public override /*function */void LoadHUDContent(Core.ClassT<TdHUDContent> ContentClass)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void CacheMeasurementUnitInfo()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void DrawLivingHUD()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TriggerRestartRaceblink()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void TriggerRestartRaceblinkCallback()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void PauseGame()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawSpeed(ref float PosY)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawTrackProgress(TdSPTimeTrialGame Game)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawStarRating(TdSPTimeTrialGame Game)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DrawRaceTimer(TdSPTimeTrialGame Game)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OpenInGameMenu()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void PlayerOwnerRestart()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void UnPauseGame(UIScene DeactivatedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TriggerCheckPointEffect()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void ActivatePopUp(TdSPHUD.EPopUpType Type, float Duration, String Message)
 	{
-	
+		// stub
 	}
 	
 	public TdTimeTrialHUD()

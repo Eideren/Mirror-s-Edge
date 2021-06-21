@@ -12,12 +12,12 @@ public partial class TdTutorialHUD : TdSPHUD/*
 	
 	public override /*function */void LoadHUDContent(Core.ClassT<TdHUDContent> ContentClass)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void DrawLivingHUD()
 	{
-	
+		// stub
 	}
 	
 	public TdTutorialHUD()

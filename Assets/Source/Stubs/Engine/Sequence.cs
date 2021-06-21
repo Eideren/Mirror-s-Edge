@@ -36,17 +36,19 @@ public partial class Sequence : SequenceOp/*
 	public virtual /*native final function */void FindSeqObjectsByClass(Core.ClassT<SequenceObject> DesiredClass, bool bRecursive, ref array<SequenceObject> OutputObjects)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*function */void Reset()
 	{
-	
+		// stub
 	}
 	
 	// Export USequence::execSetEnabled(FFrame&, void* const)
 	public virtual /*native final function */void SetEnabled(bool bInEnabled)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public Sequence()

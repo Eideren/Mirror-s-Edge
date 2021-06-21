@@ -16,17 +16,17 @@ public partial class ForceFeedbackManager : Object/* within PlayerController*//*
 	
 	public virtual /*simulated function */void PlayForceFeedbackWaveform(ForceFeedbackWaveform Waveform)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void StopForceFeedbackWaveform(/*optional */ForceFeedbackWaveform? _Waveform = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void PauseWaveform(/*optional */bool? _bPause = default)
 	{
-	
+		// stub
 	}
 	
 	public ForceFeedbackManager()

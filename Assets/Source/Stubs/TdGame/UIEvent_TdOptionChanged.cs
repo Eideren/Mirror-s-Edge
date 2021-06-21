@@ -9,7 +9,7 @@ public partial class UIEvent_TdOptionChanged : UIEvent_ValueChanged/*
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

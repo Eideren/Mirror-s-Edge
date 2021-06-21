@@ -55,7 +55,7 @@ public partial class SeqAct_TdRegisterStat : SequenceAction/*
 	
 	public override /*event */void Activated()
 	{
-	
+		// stub
 	}
 	
 	public SeqAct_TdRegisterStat()

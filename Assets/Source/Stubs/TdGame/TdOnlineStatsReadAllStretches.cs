@@ -7,11 +7,12 @@ public partial class TdOnlineStatsReadAllStretches : TdOnlineStatsRead/*
 	public virtual /*native function */void SetStatId(int InStatId, Settings.ESettingsDataType InDataType)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public override /*function */void SetStretchId(int InStretchId)
 	{
-	
+		// stub
 	}
 	
 	public TdOnlineStatsReadAllStretches()

@@ -21,76 +21,76 @@ public partial class TdUIScene_StartRace : TdUIScene/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Quit(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnQuit()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_ShowGamerCard(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnShowGamerCard()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Race(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetMapStarRating(UIDataStore_TdTimeTrialData TimeTrialData)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitializeScene(UIDataStore_TdTimeTrialData TTData)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStartRace()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSceneClosed(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TurnOffFade()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */void OnPreTick(float DeltaTime, bool bTopmostScene)
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_StartRace()

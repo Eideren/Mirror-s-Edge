@@ -16,24 +16,26 @@ public partial class UIProgressBar : UIObject,
 	
 	public virtual /*protected final function */void OnSetProgressBarValue(UIAction_SetProgressBarValue Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected final function */void OnGetProgressBarValue(UIAction_GetProgressBarValue Action)
 	{
-	
+		// stub
 	}
 	
 	// Export UUIProgressBar::execSetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIProgressBar::execGetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -41,6 +43,7 @@ public partial class UIProgressBar : UIObject,
 	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -48,24 +51,28 @@ public partial class UIProgressBar : UIObject,
 	public virtual /*native final function */void NotifyDataStoreValueUpdated(UIDataStore SourceDataStore, bool bValuesInvalidated, name PropertyTag, UIDataProvider SourceProvider, int ArrayIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIProgressBar::execGetBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void GetBoundDataStores(ref array<UIDataStore> out_BoundDataStores)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIProgressBar::execClearBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void ClearBoundDataStores()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIProgressBar::execSaveSubscriberValue(FFrame&, void* const)
 	public virtual /*native final function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int? _BindingIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -73,6 +80,7 @@ public partial class UIProgressBar : UIObject,
 	public virtual /*native final function */bool SetValue(/*coerce */float NewValue, /*optional */bool? _bPercentageValue = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -80,22 +88,23 @@ public partial class UIProgressBar : UIObject,
 	public virtual /*native final function */float GetValue(/*optional */bool? _bPercentageValue = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */void SetBackgroundImage(Surface NewImage)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void SetFillImage(Surface NewImage)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void SetOverlayImage(Surface NewImage)
 	{
-	
+		// stub
 	}
 	
 	public UIProgressBar()

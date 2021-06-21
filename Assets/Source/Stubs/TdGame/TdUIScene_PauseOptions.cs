@@ -6,48 +6,48 @@ public partial class TdUIScene_PauseOptions : TdUIScene_Pause/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public override /*function */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnControllerChange(int ControllerId, bool Connected)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateGamepadSettingVis(bool bIsVisible)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleOptionButton(UILabelButton OptionButton)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnOpenControlsSettings()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnOpenAudioSettings()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnOpenVideoSettings()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnOpenGameSettings()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnOpenGamepadSettings()
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_PauseOptions()

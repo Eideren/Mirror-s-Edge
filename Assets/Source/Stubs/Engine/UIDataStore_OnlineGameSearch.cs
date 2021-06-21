@@ -41,41 +41,41 @@ public partial class UIDataStore_OnlineGameSearch : UIDataStore_Remote,
 	
 	public virtual /*event */void Init()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool InvalidateCurrentSearchResults()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool SubmitGameSearch(byte ControllerIndex, /*optional */bool? _bInvalidateExistingSearchResults = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*protected function */bool OverrideQuerySubmission(byte ControllerId, OnlineGameSearch Search)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnSearchComplete(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */bool GetSearchResultFromIndex(int ListIndex, ref OnlineGameSearch.OnlineGameSearchResult Result)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool ShowHostGamercard(byte ControllerIndex, int ListIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -83,49 +83,50 @@ public partial class UIDataStore_OnlineGameSearch : UIDataStore_Remote,
 	public virtual /*native function */void BuildSearchResults()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*event */OnlineGameSearch GetCurrentGameSearch()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */OnlineGameSearch GetActiveGameSearch()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int FindSearchConfigurationIndex(name SearchTag)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void SetCurrentByIndex(int NewIndex, /*optional */bool? _bInvalidateExistingSearchResults = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void SetCurrentByName(name SearchName, /*optional */bool? _bInvalidateExistingSearchResults = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void MoveToNext(/*optional */bool? _bInvalidateExistingSearchResults = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void MoveToPrevious(/*optional */bool? _bInvalidateExistingSearchResults = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearAllSearchResults()
 	{
-	
+		// stub
 	}
 	
 	public UIDataStore_OnlineGameSearch()

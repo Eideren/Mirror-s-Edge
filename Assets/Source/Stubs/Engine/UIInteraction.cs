@@ -71,6 +71,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	public /*native final function */static int GetPlayerCount()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -78,6 +79,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	public /*native final function */static int GetPlayerIndex(int ControllerId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -85,6 +87,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	public /*native final function */static int GetPlayerControllerId(int PlayerIndex)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -92,6 +95,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	public /*native final function */static DataStoreClient GetDataStoreClient()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -99,6 +103,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	public /*native final function */static bool IsMenuLevel(/*optional */String? _MapName = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -106,34 +111,36 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	public virtual /*native final function */bool PlayUISound(name SoundCueName, /*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*function */void NotifyPlayerAdded(int PlayerIndex, LocalPlayer AddedPlayer)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void NotifyPlayerRemoved(int PlayerIndex, LocalPlayer RemovedPlayer)
 	{
-	
+		// stub
 	}
 	
 	// Export UUIInteraction::execCreateTransientWidget(FFrame&, void* const)
 	public virtual /*native final function */UIObject CreateTransientWidget(Core.ClassT<UIObject> WidgetClass, name WidgetTag, /*optional */UIObject? _Owner = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */void SetMousePosition(int NewMouseX, int NewMouseY)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */UIScene GetTransientScene()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -141,66 +148,67 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	public virtual /*native final function */UIScene CreateScene(Core.ClassT<UIScene> SceneClass, /*optional */name? _SceneTag = default, /*optional */UIScene? _SceneTemplate = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */bool OpenScene(UIScene Scene, /*optional */LocalPlayer? _SceneOwner/* = default*/, /*optional */ref UIScene OpenedScene/* = default*/)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool MergeScene(UIScene SourceScene, /*optional */UIScene? _SceneTarget = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */bool CloseScene(UIScene Scene)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */UIScene FindSceneByTag(name SceneTag, /*optional */LocalPlayer? _SceneOwner = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final event */static OnlineSubsystem.ELoginStatus GetLoginStatus(int ControllerId)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final event */static bool HasLinkConnection()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final event */static bool IsLoggedIn(int ControllerId, /*optional */bool? _bRequireOnlineLogin = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final event */static bool CanPlayOnline(int ControllerId)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final event */static OnlineSubsystem.ENATType GetNATType()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void NotifyGameSessionEnded()
 	{
-	
+		// stub
 	}
 	
 	public UIInteraction()

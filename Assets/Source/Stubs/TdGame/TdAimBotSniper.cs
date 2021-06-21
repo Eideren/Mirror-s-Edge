@@ -30,25 +30,28 @@ public partial class TdAimBotSniper : TdAimBotBase/* within TdAI_Sniper*//*
 	
 	public virtual /*function */void NotifyWeaponFired(Weapon W, byte FireMode)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAimBotSniper::execTick(FFrame&, void* const)
 	public override /*native function */void Tick(float DeltaTime)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAimBotSniper::execResetAiming(FFrame&, void* const)
 	public virtual /*native function */void ResetAiming()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdAimBotSniper::execGetTargetPos(FFrame&, void* const)
 	public virtual /*native function */Object.Vector GetTargetPos(TdPlayerPawn Target)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -56,28 +59,29 @@ public partial class TdAimBotSniper : TdAimBotBase/* within TdAI_Sniper*//*
 	public virtual /*native function */void UpdateBlindPos(float DeltaTime)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */Object.Rotator GetRotation(TdPlayerPawn Target)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void Render(TdPlayerPawn Target)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */Object.Vector GetAimLocation(TdPlayerPawn Target, /*optional */bool? _bUseFullDispersion = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool AllowFire(TdPlayerPawn Target)
 	{
-	
+		// stub
 		return default;
 	}
 	

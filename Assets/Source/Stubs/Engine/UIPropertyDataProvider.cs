@@ -10,7 +10,7 @@ public partial class UIPropertyDataProvider : UIDataProvider/*
 	
 	public virtual /*event */bool GetCustomPropertyValue(ref UIRoot.UIProviderScriptFieldValue PropertyValue, /*optional */int? _ArrayIndex = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

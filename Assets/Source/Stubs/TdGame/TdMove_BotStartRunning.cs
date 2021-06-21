@@ -12,24 +12,24 @@ public partial class TdMove_BotStartRunning : TdMove_BotStart/*
 	
 	public virtual /*event */float TimeSinceMoveStarted()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool CanDoMove()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated function */void StartMove()
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */void StopMove()
 	{
-	
+		// stub
 	}
 	
 	public TdMove_BotStartRunning()

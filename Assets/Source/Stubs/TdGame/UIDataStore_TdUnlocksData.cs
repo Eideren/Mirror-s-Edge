@@ -8,7 +8,7 @@ public partial class UIDataStore_TdUnlocksData : UIDataStore_TdGameResource/*
 		hidecategories(Object,UIRoot)*/{
 	public virtual /*event */bool IsElementEnabled(name FieldName, int CollectionIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	

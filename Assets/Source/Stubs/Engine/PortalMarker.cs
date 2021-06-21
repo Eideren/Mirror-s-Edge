@@ -11,6 +11,7 @@ public partial class PortalMarker : NavigationPoint/*
 	public override /*native function */bool CanTeleport(Actor A)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

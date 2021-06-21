@@ -16,28 +16,28 @@ public partial class LadderVolume : PhysicsVolume/*
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool InUse(Pawn Ignored)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*simulated event */void PawnEnteredVolume(Pawn P)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void PawnLeavingVolume(Pawn P)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void PhysicsChangedFor(Actor Other)
 	{
-	
+		// stub
 	}
 	
 	public LadderVolume()

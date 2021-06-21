@@ -12,17 +12,17 @@ public partial class TdUIScene_GameObjectives : TdUIScene_ObjectivesScene/*
 	
 	public override /*event */void Initialized()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitSceneLabels()
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene_GameObjectives()

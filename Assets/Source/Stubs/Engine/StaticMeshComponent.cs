@@ -39,6 +39,7 @@ public partial class StaticMeshComponent : MeshComponent/*
 	public virtual /*native simulated function */bool SetStaticMesh(StaticMesh NewMesh)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -46,6 +47,7 @@ public partial class StaticMeshComponent : MeshComponent/*
 	public virtual /*native simulated function */void DisableRBCollisionWithSMC(StaticMeshComponent OtherSMC, bool bDisabled)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public StaticMeshComponent()

@@ -56,88 +56,88 @@ public partial class InterpActor : DynamicSMActor/*
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */bool EncroachingOn(Actor Other)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */void RanInto(Actor Other)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void Attach(Actor Other)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void Detach(Actor Other)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Restart()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void FinishedOpen()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */void PlayMovingSound(bool bClosing)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void InterpolationStarted(SeqAct_Interp InterpAction)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void InterpolationFinished(SeqAct_Interp InterpAction)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */void InterpolationChanged(SeqAct_Interp InterpAction)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void CreateCheckpointRecord(ref InterpActor.CheckpointRecord Record)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ApplyCheckpointRecord(/*const */ref InterpActor.CheckpointRecord Record)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void AssignPlayerToLOI(Actor Player)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void ActivateLOI()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnDeactivateLOI(SeqAct_DeactivateLOI Sender)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnActivateLOI(SeqAct_ActivateLOI Sender)
 	{
-	
+		// stub
 	}
 	
 	public InterpActor()

@@ -40,80 +40,80 @@ public partial class TdTimerCheckpoint : TdPlaceableCheckpoint/*
 	
 	public virtual /*private final function */void AlignToGround(bool bIsLastCheckpoint)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ScaleHeight()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetUpCheckpoint(bool bIsLastCheckpoint)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */int GetNumTracks()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool ShouldGenerateTrackData(int TrackIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */int GetTrackIndex(int ArrayIdx)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */int GetOrderIndex(int ArrayIdx)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */int GetOrderIndexForTrack(int TrackIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void SetLastCheckpoint(int TrackIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsLastcheckpointInTrack(int Track)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool HasIntermediateTimeInTrack(int Track)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void SetDirectionHint(Object.Rotator NextCheckpointHint)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void Show(bool bShow, /*optional */int? _Track = default, /*optional */bool? _bNoFade = default)
 	{
-	
+		// stub
 	}
 	
 	
 	protected /*function */void TdTimerCheckpoint_Fading_Tick(float DeltaTime)// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) Fading()/*state Fading*/

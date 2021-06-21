@@ -54,126 +54,126 @@ public partial class TdUIScene_MessageBox : TdUIScene_Overlay/*
 	
 	public virtual /*function */void SetPotentialOptions(array<String> InPotentialOptions, /*optional */array<TdUIScene_MessageBox.PotentialOptionKeys>? _InPotentialOptionKeyMappings = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetPotentialOptionKeyMappings(array<TdUIScene_MessageBox.PotentialOptionKeys> InPotentialOptionKeyMappings)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetTitle(String NewTitle)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetMessage(String NewMessage)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetScale(float ScaleX, float ScaleY)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ReSize()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Close(/*optional */bool? _bOverrideTimeDelay = default, /*optional */bool? _bSimulateCancel = default, /*optional */int? _PlayerIndex = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplayAcceptBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplayCancelBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplayAcceptCancelBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default, /*optional */bool? _RenderParents = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsDeviceRemoved()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void DisplayAcceptCancelRetryBoxOnline(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default, /*optional */bool? _RenderParents = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplayAcceptCancelRetryBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default, /*optional */bool? _RenderParents = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplayModalBox(String Message, /*optional */String? _Title = default, /*optional */float? _InMinDisplayTime = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void OnPostTick(float DeltaTime, bool bTopmostScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void Display(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default, /*optional */bool? _RenderParents = default, /*optional */int? _InDefaultOptionIdx = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool PlayInputKeyNotification(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OptionSelected(int OptionIdx, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCloseScene(/*optional *//*delegate*/UIScene.OnSceneDeactivated? _SceneClosedDelegate = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnSceneClosed(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnOptionSelected(UIScene ClosedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnOptionButton_Clicked(UIScreenObject EventObject, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int FindCancelButtonIndex(/*optional */String? _CancelButtonMarkupString = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

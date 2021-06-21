@@ -18,30 +18,32 @@ public partial class TdConsole : Console/* within GameViewportClient*//*
 	public virtual /*native function */void InitKeyStrings()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdConsole::execFindKeyWord(FFrame&, void* const)
 	public virtual /*native function */bool FindKeyWord(String Str, ref String KeyWord, ref int Index)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*function */void Initialized()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */String GetStringToComplete(String TypedStrTmp)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	
 	protected /*event */bool TdConsole_Typing_InputKey(int ControllerId, name Key, Object.EInputEvent Event, /*optional */float? _AmountDepressed = default, /*optional */bool? _bGamepad = default)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	

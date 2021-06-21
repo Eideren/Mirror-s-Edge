@@ -33,51 +33,51 @@ public partial class TdAI_Sniper : TdAIController/*
 	
 	public override /*function */bool CanSearch()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool CanInvestigate()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void DrawDebugInfo(PlayerController PlayerC, Canvas aCanvas)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */Object.Vector GetWeaponStartTraceLocation()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void NotifyWeaponFired(Weapon W, byte FireMode)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnAISetSniperBlindAimSpot(SeqAct_AISetSniperBlindAimSpot seqAct)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated event */int SetupTemplate(AITemplate TheTemplate)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */TdAimBotBase CreateAimBot()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -85,40 +85,41 @@ public partial class TdAI_Sniper : TdAIController/*
 	public override Tick_del global_Tick => TdAI_Sniper_Tick;
 	public /*event */void TdAI_Sniper_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void UpdateCombatState()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void OnTdAIPerfectAim(SeqAct_TdAIPerfectAim Action)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateAlternativeTarget()
 	{
-	
+		// stub
 	}
 	
 	public override TestCombatTransitions_del TestCombatTransitions { get => bfield_TestCombatTransitions ?? TdAI_Sniper_TestCombatTransitions; set => bfield_TestCombatTransitions = value; } TestCombatTransitions_del bfield_TestCombatTransitions;
 	public override TestCombatTransitions_del global_TestCombatTransitions => TdAI_Sniper_TestCombatTransitions;
 	public /*function */void TdAI_Sniper_TestCombatTransitions()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdAI_Sniper::execCheckFireCondition(FFrame&, void* const)
 	public override /*native function */void CheckFireCondition()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public virtual /*function */bool EnemyClose()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -127,20 +128,20 @@ public partial class TdAI_Sniper : TdAIController/*
 	public virtual UpdateFocalPoint_del global_UpdateFocalPoint => TdAI_Sniper_UpdateFocalPoint;
 	public /*function */void TdAI_Sniper_UpdateFocalPoint()
 	{
-	
+		// stub
 	}
 	
 	public override AllowFire_del AllowFire { get => bfield_AllowFire ?? TdAI_Sniper_AllowFire; set => bfield_AllowFire = value; } AllowFire_del bfield_AllowFire;
 	public override AllowFire_del global_AllowFire => TdAI_Sniper_AllowFire;
 	public /*event */bool TdAI_Sniper_AllowFire()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */TdAI_Sniper.FindResult FindSniperSpot()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -149,13 +150,13 @@ public partial class TdAI_Sniper : TdAIController/*
 	public virtual LaserActive_del global_LaserActive => TdAI_Sniper_LaserActive;
 	public /*function */bool TdAI_Sniper_LaserActive()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool ForceShootAt(TdExplosiveTargetArea TargetArea)
 	{
-	
+		// stub
 		return default;
 	}
 	protected override void RestoreDefaultFunction()
@@ -170,39 +171,39 @@ public partial class TdAI_Sniper : TdAIController/*
 	
 	protected /*function */void TdAI_Sniper_HoldAndSnipe_BeginState(name PreviousStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_Sniper_HoldAndSnipe_EndState(name NextStateName)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */void TdAI_Sniper_HoldAndSnipe_UpdateFocalPoint()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*event */bool TdAI_Sniper_HoldAndSnipe_AllowFire()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */bool TdAI_Sniper_HoldAndSnipe_LaserActive()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*function */void TdAI_Sniper_HoldAndSnipe_CheckCrouching()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*function */Object.Rotator TdAI_Sniper_HoldAndSnipe_GetAdjustedAimFor(Weapon W, Object.Vector StartFireLoc)// state function
 	{
-	
+		// stub
 		return default;
 	}
 	

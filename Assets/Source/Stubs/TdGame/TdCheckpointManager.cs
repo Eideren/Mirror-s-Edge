@@ -31,96 +31,97 @@ public partial class TdCheckpointManager : Object/*
 	public virtual /*native final function */TdCheckpoint FindCurrentCheckpoint()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void Initialize(UIDataStore_TdGameData TdGameData)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnProfileReadComplete(bool bSuccess)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnLoginChange()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool CanContinueGame()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool GetContinueGame(ref String Map, ref String Checkpoint)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */String GetActiveCheckpoint()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SetActiveCheckpoint(String NewCheckpoint)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */String GetActiveMap()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void SetNewCheckpoint(TdCheckpoint NewCheckpoint, TdPlayerController PC, /*optional */bool? _skipSaveToDisk = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TryWriteProfile()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnProfileWriteComplete(bool bSuccess)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ShowErrorMessageBox()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnShowErrorMessageBox_Init(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnErrorMessageBoxClosed(TdUIScene_MessageBox InMessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ClearGameProgress()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final event */void GetMapAndCheckpointIndex(String MapName, String CheckpointName, ref int MapIndex, ref int CheckpointIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void CacheCheckpointInformation(UIDataStore_TdGameData TdGameData)
 	{
-	
+		// stub
 	}
 	
 }

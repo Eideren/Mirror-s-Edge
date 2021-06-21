@@ -9,7 +9,7 @@ public partial class PotentialClimbWatcher : Info/*
 	public override Tick_del global_Tick => PotentialClimbWatcher_Tick;
 	public /*simulated event */void PotentialClimbWatcher_Tick(float DeltaTime)
 	{
-	
+		// stub
 	}
 	protected override void RestoreDefaultFunction()
 	{

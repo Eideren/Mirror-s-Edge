@@ -32,87 +32,88 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 	
 	public override /*event */void ActivateBGSaturation(bool bActive, int Mask)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsTransitioning()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OpenSceneEx(UIScene SceneToOpen, /*optional */LocalPlayer? _Player = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */UIScene InstantOpenScene(UIScene SceneToOpen, LocalPlayer Player, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OpenMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OpenTinyMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OpenImageMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnMsgBoxInit(UIScene ActivatedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OpenLoadingScene(String Text, LocalPlayer Player, /*optional *//*delegate*/TdGameUISceneClient.LoadingSceneOpened? _SceneOpened = default, /*optional *//*delegate*/TdUIScene.OnSceneFullyOpened? _SceneFullyOpened = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void LoadingScene_Init(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void LoadingScene_FullyOpened(UIScene OpenedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */UIDataStore FindDataStore(name DataStoreTag, /*optional */LocalPlayer? _InPlayerOwner = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */UIDataStore_TdGameData GetGameDataStore()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void NotifyGameSessionEnded()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void NotifyOnlineServiceStatusChanged(OnlineSubsystem.EOnlineServerConnectionStatus NewConnectionStatus)
 	{
-	
+		// stub
 	}
 	
 	// Export UTdGameUISceneClient::execOpenDiskAccessScene(FFrame&, void* const)
 	public virtual /*native final function */bool OpenDiskAccessScene(UIScene Scene, /*optional */ref UIScene OpenedScene/* = default*/)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -120,6 +121,7 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 	public virtual /*native final function */bool CloseDiskAccessScene()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -127,6 +129,7 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 	public virtual /*native function */void ForceStopMovie()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public TdGameUISceneClient()

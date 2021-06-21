@@ -18,54 +18,54 @@ public partial class TdUIScene_TutorialHUDMessage : TdUIScene/*
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetupCustomButtonBar(String ButtonCallout, TdProfileSettings.EDigitalButtonActions Key, bool bFallThrough)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool OnButtonBar_Continue(UIScreenObject Sender, int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnContinue()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetText(String Text)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnPauseGame()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnOpenInGameMenu()
 	{
-	
+		// stub
 	}
 	
 	public override /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool PlayInputKeyNotification(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	

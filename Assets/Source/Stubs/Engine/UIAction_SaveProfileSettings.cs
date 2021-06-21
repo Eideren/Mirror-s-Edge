@@ -9,17 +9,17 @@ public partial class UIAction_SaveProfileSettings : UIAction/*
 	
 	public virtual /*event */void RegisterDelegate()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void ClearDelegate()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnProfileWriteComplete(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	public UIAction_SaveProfileSettings()

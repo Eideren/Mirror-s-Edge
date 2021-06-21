@@ -23,19 +23,19 @@ public partial class TdTTResult : Object/*
 	
 	public virtual /*function */bool WasNewRecord()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IncreasedStarRating()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void PrintResult()
 	{
-	
+		// stub
 	}
 	
 	public TdTTResult()

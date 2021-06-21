@@ -74,99 +74,99 @@ public partial class TdVehicle : SVehicle/*
 	
 	public override /*simulated function */void PostBeginPlay()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void InitializeSeats()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool SeatAvailable(int seatIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */int GetSeatIndexForController(Controller ControllerToMove)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */Controller GetControllerForSeatIndex(int seatIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*reliable server function */void ServerChangeSeat(int RequestedSeat)
 	{
-	
+		// stub
 	}
 	
 	public override /*simulated function */bool CalcCamera(float DeltaTime, ref Object.Vector out_CamLoc, ref Object.Rotator out_CamRot, ref float out_FOV)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void VehicleCalcCamera(float DeltaTime, int seatIndex, ref Object.Vector out_CamLoc, ref Object.Rotator out_CamRot, /*optional */Pawn? _P = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*simulated function */Object.Vector GetCameraStart(int seatIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ChangeSeat(Controller ControllerToMove, int RequestedSeat)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int GetFirstAvailableSeat()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool TryToDrive(Pawn P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool CanEnterVehicle(Pawn P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool DriverEnter(Pawn P)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool PassengerEnter(Pawn P, int seatIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool DriverLeave(bool bForceLeave)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void PassengerLeave(Pawn P, int seatIndex)
 	{
-	
+		// stub
 	}
 	
 	public TdVehicle()

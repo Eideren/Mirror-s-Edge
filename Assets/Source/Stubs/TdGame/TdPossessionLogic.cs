@@ -9,43 +9,43 @@ public partial class TdPossessionLogic : Object,
 	
 	public virtual /*function */Actor GetBagActor()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void Initialize(TdGameInfo InGameInfo)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnStartMatchInProgress()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnEndMatchInProgress()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnCarried(TdCarriable Carriable)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnDropped(TdCarriable Carriable)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnResurrected(TdCarriable Carriable)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnTouchedGround(TdCarriable Carriable)
 	{
-	
+		// stub
 	}
 	
 }

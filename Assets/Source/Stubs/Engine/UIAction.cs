@@ -12,6 +12,7 @@ public partial class UIAction : SequenceAction/*
 	public virtual /*native final function */UIScreenObject GetOwner()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -19,18 +20,19 @@ public partial class UIAction : SequenceAction/*
 	public virtual /*native final function */UIScene GetOwnerScene()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool IsValidLevelSequenceObject()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
 	{
-	
+		// stub
 		return default;
 	}
 	

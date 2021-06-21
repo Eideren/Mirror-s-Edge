@@ -7,7 +7,7 @@ public partial class CurveEdPreset_Nothing : CurveEdPresetBase/*
 		hidecategories(Object)*/{
 	public override /*function */String GetDisplayName()
 	{
-	
+		// stub
 		return default;
 	}
 	

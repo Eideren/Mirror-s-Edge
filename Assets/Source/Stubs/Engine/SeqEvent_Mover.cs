@@ -8,27 +8,27 @@ public partial class SeqEvent_Mover : SequenceEvent/*
 	
 	public override /*event */void RegisterEvent()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyEncroachingOn(Actor Hit)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyAttached(Actor Other)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyDetached(Actor Other)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void NotifyFinishedOpen()
 	{
-	
+		// stub
 	}
 	
 	public SeqEvent_Mover()

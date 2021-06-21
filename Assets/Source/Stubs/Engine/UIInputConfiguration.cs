@@ -12,6 +12,7 @@ public partial class UIInputConfiguration : UIRoot/*
 	public virtual /*native final function */void LoadInputAliasClasses()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public UIInputConfiguration()

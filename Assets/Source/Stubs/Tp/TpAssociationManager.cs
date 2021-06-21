@@ -14,12 +14,14 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	public virtual /*native simulated function */void AddFriendAsync(OnlineSubsystem.UniqueNetId NewFriend)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTpAssociationManager::execRemoveFriendAsync(FFrame&, void* const)
 	public virtual /*native simulated function */bool RemoveFriendAsync(OnlineSubsystem.UniqueNetId FormerFriend)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -27,6 +29,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	public virtual /*native simulated function */array<String> GetMyFriendsList()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -34,6 +37,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	public virtual /*native simulated function */bool GetMyFriendsListEx(byte LocalUserNum, ref array<OnlineSubsystem.OnlineFriend> Friends, /*optional */int? _Count = default, /*optional */int? _StartingAt = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -41,6 +45,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	public virtual /*native simulated function */bool GetPlayersList(ref array<OnlineSubsystem.OnlinePlayer> Players, /*optional */int? _Count = default, /*optional */int? _StartingAt = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -48,6 +53,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	public virtual /*native simulated function */bool IsFriend(OnlineSubsystem.UniqueNetId PlayerId)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -55,6 +61,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	public virtual /*native simulated function */bool BlockUserAsync(OnlineSubsystem.UniqueNetId UserRef)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -62,6 +69,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	public virtual /*native simulated function */bool UnBlockUserAsync(OnlineSubsystem.UniqueNetId UserRef)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -69,6 +77,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	public virtual /*native simulated function */array<String> ListBlockedUsers()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -84,6 +93,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	public virtual /*native simulated function */bool IsFriendsListLoaded()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	

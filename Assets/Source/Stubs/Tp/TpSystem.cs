@@ -26,26 +26,26 @@ public partial class TpSystem : TpSystemBase/*
 	
 	public override /*simulated event */bool Init()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	
 	protected /*simulated event */TpConnection TpSystem___SharedBase_GetConnection()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated event */TpAchievementManager TpSystem___SharedBase_GetAchievementManager()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated event */TpProtoHTTP TpSystem___SharedBase_GetProtoHTTP()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -57,58 +57,58 @@ public partial class TpSystem : TpSystemBase/*
 	
 	protected /*simulated event */void TpSystem___Disconnected_BeginState(name InPrevious)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*protected simulated event */void TpSystem___Disconnected_ImpelConnected()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated event */TpAssociationManager TpSystem___Disconnected_GetAssociationManager()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated event */TpMessageService TpSystem___Disconnected_GetMessageService()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated event */TpPresenceManager TpSystem___Disconnected_GetPresenceManager()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated event */TpUserManager TpSystem___Disconnected_GetUserManager()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated event */TpPlayGroupManager TpSystem___Disconnected_GetPlayGroupManager()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated event */TpRankingService TpSystem___Disconnected_GetRankingService()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*protected simulated event */void TpSystem___Disconnected_ProcessTick(float DeltaSeconds)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated event */TpFileLockerService TpSystem___Disconnected_GetFileLockerService()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -120,53 +120,53 @@ public partial class TpSystem : TpSystemBase/*
 	
 	protected /*protected simulated event */void TpSystem___ConnectedShared_ImpelDisconnected()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated event */TpPresenceManager TpSystem___ConnectedShared_GetPresenceManager()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated event */TpUserManager TpSystem___ConnectedShared_GetUserManager()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*protected simulated event */void TpSystem___ConnectedShared_ProcessTick(float DeltaSeconds)// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated event */TpPlayGroupManager TpSystem___ConnectedShared_GetPlayGroupManager()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated event */TpRankingService TpSystem___ConnectedShared_GetRankingService()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated event */TpAssociationManager TpSystem___ConnectedShared_GetAssociationManager()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated event */TpMessageService TpSystem___ConnectedShared_GetMessageService()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated event */TpFileLockerService TpSystem___ConnectedShared_GetFileLockerService()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -178,34 +178,34 @@ public partial class TpSystem : TpSystemBase/*
 	
 	protected /*simulated event */void TpSystem___Connected_PushedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated event */void TpSystem___Connected_PoppedState()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*simulated event */TpGameBrowser TpSystem___Connected_GetGameBrowser()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*simulated event */TpGameManager TpSystem___Connected_GetGameManager()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*protected simulated event */void TpSystem___Connected_ImpelGameCreated()// state function
 	{
-	
+		// stub
 	}
 	
 	protected /*protected simulated event */void TpSystem___Connected_ImpelGameJoined()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) __Connected()/*simulated state __Connected extends __ConnectedShared*/
@@ -216,13 +216,13 @@ public partial class TpSystem : TpSystemBase/*
 	
 	protected /*simulated event */TpGameManager TpSystem___HostingGameShared_GetGameManager()// state function
 	{
-	
+		// stub
 		return default;
 	}
 	
 	protected /*protected simulated event */void TpSystem___HostingGameShared_ImpelGameDestroyed()// state function
 	{
-	
+		// stub
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) __HostingGameShared()/*simulated state __HostingGameShared extends __ConnectedShared*/

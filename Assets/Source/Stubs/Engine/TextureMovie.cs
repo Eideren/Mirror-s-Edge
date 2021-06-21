@@ -30,18 +30,21 @@ public partial class TextureMovie : Texture/*
 	public virtual /*native function */void Play()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTextureMovie::execPause(FFrame&, void* const)
 	public virtual /*native function */void Pause()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTextureMovie::execStop(FFrame&, void* const)
 	public virtual /*native function */void Stop()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	public TextureMovie()

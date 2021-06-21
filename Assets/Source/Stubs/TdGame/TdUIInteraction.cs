@@ -12,19 +12,20 @@ public partial class TdUIInteraction : UIInteraction/* within TdGameViewportClie
 	
 	public virtual /*event */void ClearUIInputBlocks()
 	{
-	
+		// stub
 	}
 	
 	// Export UTdUIInteraction::execShouldProcessUIInput(FFrame&, void* const)
 	public virtual /*native final function */bool ShouldProcessUIInput()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void BlockUIInput(bool bBlock)
 	{
-	
+		// stub
 	}
 	
 	public TdUIInteraction()

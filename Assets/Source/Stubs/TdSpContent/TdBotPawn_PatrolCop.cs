@@ -7,7 +7,7 @@ public partial class TdBotPawn_PatrolCop : TdBotPawn/*
 		hidecategories(Navigation)*/{
 	public override /*function */SoundCue GetSpecificFootStepSound(TdPhysicalMaterialFootSteps FootStepSounds, int FootDown)
 	{
-	
+		// stub
 		return default;
 	}
 	

@@ -23,30 +23,34 @@ public partial class CoverGroup : Info/*
 	public virtual /*native function */void EnableGroup()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UCoverGroup::execDisableGroup(FFrame&, void* const)
 	public virtual /*native function */void DisableGroup()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UCoverGroup::execToggleGroup(FFrame&, void* const)
 	public virtual /*native function */void ToggleGroup()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UCoverGroup::execContains(FFrame&, void* const)
 	public virtual /*native function */bool Contains(CoverLink Link)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public virtual /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{
-	
+		// stub
 	}
 	
 	public CoverGroup()

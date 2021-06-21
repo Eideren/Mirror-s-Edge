@@ -69,6 +69,7 @@ public partial class TdUIScene : UIScene/*
 	public virtual /*native function */bool IsGame()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -76,12 +77,14 @@ public partial class TdUIScene : UIScene/*
 	public virtual /*native function */void ConvertUnicodeCharsToReadable(ref String Str)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdUIScene::execActivateLevelEvent(FFrame&, void* const)
 	public virtual /*native function */bool ActivateLevelEvent(name EventName)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -89,6 +92,7 @@ public partial class TdUIScene : UIScene/*
 	public virtual /*native function */TdPlayerController GetTdPlayerController(/*optional */int? _PlayerIndex = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -96,24 +100,28 @@ public partial class TdUIScene : UIScene/*
 	public virtual /*native function */void SetScreenResolution(int ResX, int ResY, bool bFullscreen)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdUIScene::execGetPossibleScreenResolutions(FFrame&, void* const)
 	public virtual /*native function */void GetPossibleScreenResolutions(ref array<String> OutResults)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdUIScene::execGetPossibleAudioDevices(FFrame&, void* const)
 	public virtual /*native function */void GetPossibleAudioDevices(ref array<String> OutResults)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdUIScene::execGetCurrentAudioDevice(FFrame&, void* const)
 	public virtual /*native function */String GetCurrentAudioDevice()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -121,24 +129,28 @@ public partial class TdUIScene : UIScene/*
 	public virtual /*native function */void SetAudioDeviceToUse(String InAudioDevice)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdUIScene::execSetVideoSettingValue(FFrame&, void* const)
 	public virtual /*native function */void SetVideoSettingValue(TdUIScene.EPossibleVideoSettings Setting, int Value)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdUIScene::execSetVideoSettingValueArray(FFrame&, void* const)
 	public virtual /*native function */void SetVideoSettingValueArray(array<TdUIScene.EPossibleVideoSettings> Settings, array<int> Values)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdUIScene::execGetVideoSettingValue(FFrame&, void* const)
 	public virtual /*native function */int GetVideoSettingValue(TdUIScene.EPossibleVideoSettings Setting)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -146,24 +158,28 @@ public partial class TdUIScene : UIScene/*
 	public virtual /*native function */void StartMovie(String MovieName, /*optional */bool? _bForceSkippable = default, /*optional */bool? _bBlockInput = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdUIScene::execStopMovie(FFrame&, void* const)
 	public virtual /*native function */void StopMovie()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdUIScene::execUpdateMovieStatus(FFrame&, void* const)
 	public virtual /*native function */void UpdateMovieStatus()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UTdUIScene::execIsPlayingMovie(FFrame&, void* const)
 	public virtual /*native function */bool IsPlayingMovie()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -171,6 +187,7 @@ public partial class TdUIScene : UIScene/*
 	public virtual /*native function */bool IsStreamingLevels()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -178,340 +195,341 @@ public partial class TdUIScene : UIScene/*
 	public virtual /*native function */bool TextureFullyStreamed(Texture2D Image)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */void PostInitialize()
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void SceneActivated(bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void SceneDeactivated()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnControllerChange(int ControllerId, bool Connected)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void TopSceneChanged(UIScene NewTopScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*protected final function */int GetPlayerIndex()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*protected final function */TdUIInteraction GetTdInteraction()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*protected final function */TdHUD GetTdHUD()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */void PreventClose()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnPreTick(float DeltaTime, bool bTopmostScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*event */void OnPostTick(float DeltaTime, bool bTopmostScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ConsoleCommand(String Cmd)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetupButtonBar()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */String TrimWhitespace(String InString)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */String FormatTime(float Seconds)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OpenSceneByName(String SceneToOpen, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */UIScene OpenScene(UIScene SceneToOpen, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnCurrentScene_HideAnimationEnded()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */UIScene FinishOpenScene(UIScene SceneToOpen)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool CloseScene(UIScene SceneToClose, /*optional */bool? _bSkipKismetNotify = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OnPendingCloseScene_HideAnimationEnded()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void FinishCloseScene(UIScene SceneToClose)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */bool BeginShowAnimation(/*optional */bool? _bInitialActivation = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */bool BeginHideAnimation(/*optional */bool? _bClosingScene = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void AnimEnd(UIObject AnimTarget, int AnimIndex, UIAnimationSeq AnimSeq)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SceneAnimEnded()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void UpdateSceneAnimVis()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SetAnimatingScene(bool bShowing)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */bool IsAnimatingScene()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */String ParseOption(String Options, String InKey)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void OpenMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OpenTinyMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OpenImageMessageBox(/*delegate*/UIScene.OnSceneActivated MsgBoxInit, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OpenMiniMenu(/*delegate*/UIScene.OnSceneActivated MiniMenuInit)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OpenAddFriend(/*delegate*/UIScene.OnSceneActivated AddFriendInit)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void DisplaySimpleMessageBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene.OnMessageBoxClosedCallback? _OnMessageBoxClosed = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SimpleMessageBox_Init(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void SimpleMessageBox_Callback(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ShowFriendsScene(/*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnInitMessageBox_ShowFriendsScene(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OpenFriendsScene(/*delegate*/UIScene.OnSceneActivated FriendsInit, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ViewGamerCard(OnlineSubsystem.UniqueNetId TargetPlayerId)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnViewGamerCardMessageBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnViewGamerCardMessageBoxFullyOpened(UIScene OpenedScene)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnViewGamerCard(bool bWasSuccessful)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void OnViewGamerCardMessageBoxPressed(TdUIScene_MessageBox MessageBox, int SelectedOption, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ShowGamerCardFailedMessage()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final function */void ShowGamerCardFailedMessage_Init(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void ViewXBoxAchievements()
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnViewXBoxAchievements_MsgBoxInit(UIScene OpenedScene, bool bInitialActivation)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */UIDataStore FindDataStore(name DataStoreTag, /*optional */LocalPlayer? _InPlayerOwner = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */UIDataStore_TdGameData GetGameDataStore()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */OnlineSubsystem GetOnlineSubsystem()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */OnlinePlayerInterface GetPlayerInterface()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */OnlinePlayerInterfaceEx GetPlayerInterfaceEx()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */OnlineStatsInterface GetStatsInterface()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */TdProfileSettings GetProfileSettings(/*optional */int? _PlayerIndex = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*event */bool IsControllerInput(name KeyName)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int GetPlayerControllerId(int PlayerIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool HandleInputKey(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*event */bool PlayInputKeyNotification(/*const */ref UIRoot.InputEventParameters EventParms)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void NotifyOnlineServiceStatusChanged(OnlineSubsystem.EOnlineServerConnectionStatus NewConnectionStatus)
 	{
-	
+		// stub
 	}
 	
 	public TdUIScene()

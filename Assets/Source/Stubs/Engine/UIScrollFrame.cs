@@ -18,18 +18,21 @@ public partial class UIScrollFrame : UIContainer/*
 	public virtual /*native final function */void RefreshScrollbars(/*optional */bool? _bImmediately = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIScrollFrame::execReapplyFormatting(FFrame&, void* const)
 	public virtual /*native final function */void ReapplyFormatting(/*optional */bool? _bImmediately = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIScrollFrame::execScrollRegion(FFrame&, void* const)
 	public virtual /*native final function */bool ScrollRegion(UIScrollbar Sender, float PositionChange, /*optional */bool? _bPositionMaxed = default)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -37,6 +40,7 @@ public partial class UIScrollFrame : UIContainer/*
 	public virtual /*native final function */bool SetClientRegionPosition(UIRoot.EUIOrientation Orientation, float NewPosition)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -44,6 +48,7 @@ public partial class UIScrollFrame : UIContainer/*
 	public virtual /*native final function */bool SetClientRegionPositionVector(Object.Vector2D NewPosition)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -51,6 +56,7 @@ public partial class UIScrollFrame : UIContainer/*
 	public virtual /*native final function */float GetClientRegionPosition(UIRoot.EUIOrientation Orientation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -58,6 +64,7 @@ public partial class UIScrollFrame : UIContainer/*
 	public virtual /*native final function */float GetClientRegionSize(UIRoot.EUIOrientation Orientation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -65,6 +72,7 @@ public partial class UIScrollFrame : UIContainer/*
 	public virtual /*native final function */Object.Vector2D GetClientRegionPositionVector()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -72,6 +80,7 @@ public partial class UIScrollFrame : UIContainer/*
 	public virtual /*native final function */Object.Vector2D GetClientRegionSizeVector()
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
@@ -79,38 +88,40 @@ public partial class UIScrollFrame : UIContainer/*
 	public virtual /*native function */void GetClipRegion(ref float MinX, ref float MinY, ref float MaxX, ref float MaxY)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 	}
 	
 	// Export UUIScrollFrame::execGetVisibleRegionPercentage(FFrame&, void* const)
 	public virtual /*native final function */float GetVisibleRegionPercentage(UIRoot.EUIOrientation Orientation)
 	{
 		#warning NATIVE FUNCTION !
+		// stub
 		return default;
 	}
 	
 	public override /*event */void AddedChild(UIScreenObject WidgetOwner, UIObject NewChild)
 	{
-	
+		// stub
 	}
 	
 	public override /*event */void RemovedChild(UIScreenObject WidgetOwner, UIObject OldChild, /*optional */array<UIObject>? _ExclusionSet = default)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*final function */void OnChildRepositioned(UIScreenObject Sender)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*private final event */void ScrollZoneClicked(UIScrollbar Sender, float PositionPerc, int PlayerIndex)
 	{
-	
+		// stub
 	}
 	
 	public virtual /*function */void OnApplyScrolling(UIAction_ApplyScrolling Action)
 	{
-	
+		// stub
 	}
 	
 	public UIScrollFrame()
