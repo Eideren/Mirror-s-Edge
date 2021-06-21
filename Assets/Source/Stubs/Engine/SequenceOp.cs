@@ -160,7 +160,7 @@ public partial class SequenceOp : SequenceObject/*
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<SequenceVariable/* OutVariable*/> LinkedVariables(Core.ClassT<SequenceVariable> VarClass, /*optional */String? _inDesc = default)
 	{
 		#warning NATIVE FUNCTION !
-		yield return default;
+		yield break;
 	}
 	
 	public virtual /*event */void Activated()

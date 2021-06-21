@@ -174,7 +174,7 @@ public partial class TdPlayerController : GamePlayerController,
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<TdPawn/* enemyIt*/> LocalEnemyActors()
 	{
 		#warning NATIVE FUNCTION !
-		yield return default;
+		yield break;
 	}
 	
 	// Export UTdPlayerController::execSetSoundModeNative(FFrame&, void* const)

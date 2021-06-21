@@ -401,14 +401,14 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<NavigationPoint/* N*/> AllNavigationPoints(Core.ClassT<NavigationPoint> BaseClass)
 	{
 		#warning NATIVE FUNCTION !
-		yield return default;
+		yield break;
 	}
 	
 	// Export UWorldInfo::execRadiusNavigationPoints(FFrame&, void* const)
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<NavigationPoint/* N*/> RadiusNavigationPoints(Core.ClassT<NavigationPoint> BaseClass, Object.Vector Point, float Radius)
 	{
 		#warning NATIVE FUNCTION !
-		yield return default;
+		yield break;
 	}
 	
 	// Export UWorldInfo::execNavigationPointCheck(FFrame&, void* const)
@@ -421,14 +421,14 @@ public partial class WorldInfo : ZoneInfo/*
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Controller/* C*/> AllControllers(Core.ClassT<Controller> BaseClass)
 	{
 		#warning NATIVE FUNCTION !
-		yield return default;
+		yield break;
 	}
 	
 	// Export UWorldInfo::execAllPawns(FFrame&, void* const)
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Pawn/* P*/> AllPawns(Core.ClassT<Pawn> BaseClass, /*optional */Object.Vector? _TestLocation = default, /*optional */float? _TestRadius = default)
 	{
 		#warning NATIVE FUNCTION !
-		yield return default;
+		yield break;
 	}
 	
 	// Export UWorldInfo::execNotifyMatchStarted(FFrame&, void* const)

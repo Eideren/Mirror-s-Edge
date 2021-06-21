@@ -26,7 +26,7 @@ public partial class InventoryManager : Actor/*
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Inventory/* Inv*/> InventoryActors(Core.ClassT<Inventory> BaseClass)
 	{
 		#warning NATIVE FUNCTION !
-		yield return default;
+		yield break;
 	}
 	
 	public virtual /*simulated exec function */void DumpWeaponStats()

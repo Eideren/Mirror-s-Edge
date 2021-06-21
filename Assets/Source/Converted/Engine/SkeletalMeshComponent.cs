@@ -256,7 +256,7 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<ActorComponent/* OutComponent*/> AttachedComponents(Core.ClassT<ActorComponent> BaseClass)
 	{
 		#warning NATIVE FUNCTION !
-		yield return default;
+		yield break;
 	}
 	
 	// Export USkeletalMeshComponent::execSetSkeletalMesh(FFrame&, void* const)
@@ -585,7 +585,7 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<AnimNode/* Node*/> AllAnimNodes(Core.ClassT<AnimNode> BaseClass)
 	//{
 	//	#warning NATIVE FUNCTION !
-	//	yield return default;
+	//	yield break;
 	//}
 	//
 	//// Export USkeletalMeshComponent::execFindSkelControl(FFrame&, void* const)
