@@ -7,7 +7,6 @@
 	using Source;
 	using UnityEngine;
 	using Object = Core.Object;
-	using static UnityEngine.Debug;
 
 
 
@@ -15,6 +14,8 @@
 	{
 		IEnumerable<AnimNode> EnumerateAllNodes( AnimNode n )
 		{
+			if( n == null )
+				yield break; 
 			yield return n;
 			if( n is AnimNodeBlendBase anbb )
 			{
@@ -43,8 +44,7 @@
 		// Export USkeletalMeshComponent::execUpdateAnimations(FFrame&, void* const)
 		public virtual /*native final function */void UpdateAnimations()
 		{
-			Animations = AnimTreeTemplate;
-			LogWarning( $"Need to implement clone for {nameof(AnimTreeTemplate)} instead of straight assign" );
+			// Not implemented yet
 		}
 		
 		// Export USkeletalMeshComponent::execFindAnimNode(FFrame&, void* const)
@@ -74,8 +74,14 @@
 			var tree = EnumerateAllNodes( Animations ).First( x => x is AnimTree ) as AnimTree;
 			foreach( var skelControl in tree.SkelControlLists )
 			{
-				if( skelControl.ControlHead.ControlName == InControlName )
-					return skelControl.ControlHead;
+				if( skelControl.ControlHead == null )
+					continue;
+
+				for( var c = skelControl.ControlHead; c != null; c = c.NextControl )
+				{
+					if( c.ControlName == InControlName )
+						return c;
+				}
 			}
 			
 			return default;
@@ -98,11 +104,14 @@
 		// Export USkeletalMeshComponent::execGetBoneLocation(FFrame&, void* const)
 		public virtual /*native final function */Object.Vector GetBoneLocation(name BoneName, /*optional */int? _Space = default)
 		{
-			_associatedRenderer ??= Asset.UScriptToUnity.TryGetValue( this, out var smr ) ? (SkinnedMeshRenderer) smr : throw new System.NullReferenceException();
-			foreach( var bone in _associatedRenderer.bones )
+			if( _Space != default )
+				throw new System.InvalidOperationException( "Non-default space is not implemented yet" );
+			
+			var renderer = _associatedRenderer ??= Asset.UScriptToUnity.TryGetValue( this, out var smr ) ? (SkinnedMeshRenderer) smr : throw new System.NullReferenceException();
+			foreach( var bone in renderer.bones )
 			{
 				if( bone.name == BoneName )
-					return (Object.Vector)bone.position;
+					return bone.position.ToUnrealPos();
 			}
 			
 			return default;

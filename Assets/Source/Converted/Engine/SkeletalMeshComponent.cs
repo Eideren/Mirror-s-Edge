@@ -899,6 +899,9 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 		PreviousRMM = SkeletalMeshComponent.ERootMotionMode.RMM_Ignore;
 		FaceFXBlendMode = SkeletalMeshComponent.EFaceFXBlendMode.FXBM_Additive;
 		TickGroup = Object.ETickingGroup.TG_PreAsyncWork;
+		
+		// Not sure where this is supposed to be assigned but I need this to not be null for now
+		PhysicsAssetInstance = new PhysicsAssetInstance();
 	}
 }
 }

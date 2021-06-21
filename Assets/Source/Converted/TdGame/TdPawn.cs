@@ -887,11 +887,11 @@ public partial class TdPawn : GamePawn/*
 		}
 	}
 	
-	// Export UTdPawn::execInitMoveObjects(FFrame&, void* const)
-	public virtual /*native function */void InitMoveObjects()
-	{
-		#warning NATIVE FUNCTION !
-	}
+	//// Export UTdPawn::execInitMoveObjects(FFrame&, void* const)
+	//public virtual /*native function */void InitMoveObjects()
+	//{
+	//	#warning NATIVE FUNCTION !
+	//}
 	
 	public virtual /*function */void OnTutorialEvent(int TutorialEvent)
 	{

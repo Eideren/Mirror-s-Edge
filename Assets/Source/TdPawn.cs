@@ -1,7 +1,27 @@
 ﻿namespace MEdge.TdGame
 {
+    using static UnityEngine.Debug;
 	public partial class TdPawn
 	{
+	
+        // Export UTdPawn::execInitMoveObjects(FFrame&, void* const)
+        public virtual /*native function */void InitMoveObjects()
+        {
+            // Not verified
+            for( int i = 0; i < this.MoveClasses.Length; i++ )
+            {
+                var c = this.MoveClasses[ i ];
+                if( c == null )
+                    continue;
+                this.Moves[ i ] = this.MoveClasses[ i ].New( this );
+                this.Moves[ i ].PawnOwner = this;
+            }
+
+            this.Mesh3p.Animations = this.Mesh3p.AnimTreeTemplate;
+            this.Mesh1p.Animations = this.Mesh1p.AnimTreeTemplate;
+            LogWarning( $"Need to implement clone for {nameof(this.Mesh3p.AnimTreeTemplate)} instead of straight assign" );
+        }
+        
         public virtual /*native function */float GetAverageSpeed(float Time)
         {
             #warning need to populate those arrays before this works, have a dummy return for now

@@ -177,16 +177,8 @@
 			var fieldType = field.Info.FieldType;
 			if( field.IsReferenceType )
 			{
-				if( fieldType.IsGenericType && fieldType.GetGenericTypeDefinition() == typeof(array<>) )
-				{
-					// This is so slow and ugly but whatever
-					object v = field.GetValueSlowAndBox( cache ); // this might be null, ArrayFacilitator takes care of initializing it
-					var itemType = fieldType.GenericTypeArguments[ 0 ];
-					var a = (ArrayFacilitator) Activator.CreateInstance( typeof(ArrayFacilitator<>).MakeGenericType( itemType ) );
-					a.AssignToArrayIndex( ref v, arrayIndex, value, utility );
-				}
 				// Reference to object
-				else if( utility.NameToObject.TryGetValue( value, out var nodeRef ) )
+				if( utility.NameToObject.TryGetValue( value, out var nodeRef ) )
 				{
 					field.SetValueSlow( cache, nodeRef.obj );
 				} 
@@ -264,6 +256,15 @@
 				                    ?? throw new InvalidOperationException( $"Could not find field '{fieldName}' within type '{array.GetType()}'" );
 				AssignToField( arrayFieldRef, value, null, arrayInCache, utility );
 				field.SetValueSlow( cache, arrayInCache.ContainerAsObj );
+			}
+			else if( fieldType.IsGenericType && fieldType.GetGenericTypeDefinition() == typeof(array<>) )
+			{
+				// This is so slow and ugly but whatever
+				object v = field.GetValueSlowAndBox( cache ); // this might be null, ArrayFacilitator takes care of initializing it
+				var itemType = fieldType.GenericTypeArguments[ 0 ];
+				var a = (ArrayFacilitator) Activator.CreateInstance( typeof(ArrayFacilitator<>).MakeGenericType( itemType ) );
+				a.AssignToArrayIndex( ref v, arrayIndex, value, utility );
+				field.SetValueSlow(cache, v);
 			}
 			else // struct
 			{

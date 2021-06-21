@@ -37,6 +37,12 @@
 				return new TClass();
 			}
 
+			if( Class.InSpawningDefault == 0 )
+			{
+				if( resourceAsset is UnityEngine.Object go )
+					resourceAsset = UnityEngine.Object.Instantiate( go );
+			}
+			
 			if( resourceAsset is IAsset iAsset )
 				return (TClass) iAsset.GetRuntimeAsset();
 			else if( resourceAsset is TClass == false )

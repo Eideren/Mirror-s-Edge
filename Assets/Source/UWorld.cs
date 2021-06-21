@@ -1,15 +1,18 @@
 ﻿namespace MEdge.Engine
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Core;
     using TdGame;
+    using Tp;
     using UnityEngine.Events;
     using UnityEngine.SceneManagement;
     using V3 = UnityEngine.Vector3;
     using Collider = UnityEngine.Collider;
     using Object = Core.Object;
     using static UnityEngine.Debug;
+    using String = Core.String;
 
 
 
@@ -19,11 +22,32 @@
         public bool HasBegunPlay{ get; private set; }
         Actor _defaultOuter;
         WorldInfo _worldInfo;
-
+        
+        Engine _engine = new TdGameEngine();
         UnityEngine.BoxCollider _cacheCollider = new UnityEngine.BoxCollider();
 
         static UWorld _instance;
         static UnityAction<UnityEngine.SceneManagement.Scene, LoadSceneMode> _onSceneLoadedCached;
+
+
+
+        void Update()
+        {
+            var actors = _worldInfo._allActors;
+            var deltaTime = UnityEngine.Time.deltaTime;
+            foreach( var actor in actors )
+                if( actor.TickGroup == Object.ETickingGroup.TG_PreAsyncWork )
+                    actor.Tick(deltaTime);
+            foreach( var actor in actors )
+                if( actor.TickGroup == Object.ETickingGroup.TG_DuringAsyncWork )
+                    actor.Tick(deltaTime);
+            foreach( var actor in actors )
+                if( actor.TickGroup == Object.ETickingGroup.TG_PostAsyncWork )
+                    actor.Tick(deltaTime);
+            foreach( var actor in actors )
+                if( actor.TickGroup == Object.ETickingGroup.TG_PostUpdateWork )
+                    actor.Tick(deltaTime);
+        }
 
 
 
@@ -82,7 +106,7 @@
         {
             // https://wiki.beyondunreal.com/Legacy:Chain_Of_Events_At_Level_Startup
 			
-            var gameInfo = new TdSPStoryGame();
+            var gameInfo = new TdSPGame();
             gameInfo.WorldInfo = _worldInfo;
             _worldInfo.Game = gameInfo;
             String errorString = "";
@@ -117,7 +141,7 @@
 
                 actor.CreationTime = UnityEngine.Time.time;
                 actor.WorldInfo = _worldInfo;
-                actor.Location = (Object.Vector)go.transform.position;
+                actor.Location = go.transform.position.ToUnrealPos();
                 actor.Rotation = (Object.Rotator)go.transform.rotation;
                 actor.PhysicsVolume = _worldInfo.PhysicsVolume ?? throw new System.NullReferenceException();
             }
@@ -143,6 +167,17 @@
             String err = default;
             _worldInfo.Game.PreLogin( default, default, ref err );
             var controller = _worldInfo.Game.Login( default, default, ref err );
+            var player = _classImp<LocalPlayer>.Singleton.New( _engine );
+            // Controller SetPlayer()
+            {
+                controller.Player = player;
+                controller.InitInputSystem();
+                controller.ReceivedPlayer();
+                // Hacks for now
+                controller.OnlinePlayerData ??= new UIDataStore_OnlinePlayerData{ ProfileProvider = new UIDataProvider_OnlineProfileSettings{ Profile = new TdProfileSettings() } };
+                ( controller as TdPlayerController ).StatsManager ??= new TdStatsManager();
+                controller.OnlineSub = new OnlineSubsystem{ PlayerInterface = new TpUoPlayer() };
+            }
             _worldInfo.Game.PostLogin( controller );
         }
 
@@ -150,18 +185,18 @@
         {
             Collider[] colliders = new Collider[ 1 ];
             int iterations = 0;
-            _cacheCollider.size = (V3) extent;
-            while(UnityEngine.Physics.OverlapBoxNonAlloc( (V3) position, ((V3) extent) / 2f, colliders ) > 0)
+            _cacheCollider.size = extent.ToUnityPos();
+            while(UnityEngine.Physics.OverlapBoxNonAlloc( position.ToUnityPos(), extent.ToUnityPos() / 2f, colliders ) > 0)
             {
                 var otherCollider = colliders[ 0 ];
-                if( false == UnityEngine.Physics.ComputePenetration( _cacheCollider, (V3) position, default,
+                if( false == UnityEngine.Physics.ComputePenetration( _cacheCollider, position.ToUnityPos(), default,
                     otherCollider, otherCollider.transform.position, otherCollider.transform.rotation,
                     out var direction, out var distance ) )
                 {
                     return true;
                 }
 
-                position += (Object.Vector) direction * distance;
+                position += (direction * distance).ToUnrealPos();
                 
                 if( iterations++ > 8 )
                     return false;

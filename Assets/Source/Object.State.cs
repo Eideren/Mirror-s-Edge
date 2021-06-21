@@ -99,7 +99,7 @@ because it makes the most sense given that BeginState and EndState requires prev
                     // It is possible for an actor to be in "no state" by using GotoState(). When an actor is in "no state", only its global (non-state) functions are called.
                     if (string.IsNullOrWhiteSpace(newStateName))
                         _currentControlFlow = Flow.Stop;
-                    _currentState = (newStateName, newState.flow(label ?? default)?.GetEnumerator(), newState.begin, newState.end);
+                    _currentState = (newStateName, newState.flow?.Invoke(label ?? default)?.GetEnumerator(), newState.begin, newState.end);
                 
                     newState.begin?.Invoke(_currentState.name);
                 }

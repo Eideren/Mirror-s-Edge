@@ -30,6 +30,8 @@ namespace MEdge.Core
 {
     public partial class Class : Object
     {
+        public static int InSpawningDefault;
+        
         public Class() => throw new InvalidOperationException();
         protected Class(bool b) { }
         public virtual String Name => throw new InvalidOperationException();
@@ -58,12 +60,32 @@ namespace MEdge.Core
     public class _classImp<CType> : Class, ClassT<CType> where CType : Object, new()
     {
         public static readonly _classImp<CType> Singleton = new _classImp<CType>();
+        CType _defaultCached;
         
         public override String Name => typeof(CType).Name;
         _classImp() : base(true) { }
         
         public CType New(Object outer = null) => new CType(){ Outer = outer };
-        public override T2 DefaultAs<T2>() where T2 : class => new CType() as T2;
+
+
+
+        public override T2 DefaultAs<T2>() where T2 : class
+        {
+            if( _defaultCached == null )
+            {
+                try
+                {
+                    InSpawningDefault++;
+                    _defaultCached = new CType();
+                }
+                finally
+                {
+                    InSpawningDefault--;
+                }
+            }
+
+            return _defaultCached as T2;
+        }
         public override Type CSharpType => typeof(CType);
         public virtual bool IsA(Class type) => type.IsBaseOf( this );
         public override bool IsBaseOf( Class c ) => c is ClassT<CType>;
