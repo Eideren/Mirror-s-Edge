@@ -9,7 +9,7 @@ public partial class TdAnimCleanUpCommandlet : Commandlet/*
 	// Export UTdAnimCleanUpCommandlet::execMain(FFrame&, void* const)
 	public override /*native event */int Main(String Params)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

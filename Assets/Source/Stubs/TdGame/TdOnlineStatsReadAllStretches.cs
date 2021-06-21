@@ -6,7 +6,7 @@ public partial class TdOnlineStatsReadAllStretches : TdOnlineStatsRead/*
 	// Export UTdOnlineStatsReadAllStretches::execSetStatId(FFrame&, void* const)
 	public virtual /*native function */void SetStatId(int InStatId, Settings.ESettingsDataType InDataType)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

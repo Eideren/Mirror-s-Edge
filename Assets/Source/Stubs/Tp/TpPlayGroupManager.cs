@@ -21,7 +21,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	// Export UTpPlayGroupManager::execIsInPlayGroup(FFrame&, void* const)
 	public virtual /*native simulated function */bool IsInPlayGroup()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -29,7 +29,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	// Export UTpPlayGroupManager::execIsPlayGroupOwner(FFrame&, void* const)
 	public virtual /*native simulated function */bool IsPlayGroupOwner()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -37,7 +37,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	// Export UTpPlayGroupManager::execGetMyPlayGroupList(FFrame&, void* const)
 	public virtual /*native simulated function */array<OnlineSubsystem.PlayGroupListEntry> GetMyPlayGroupList()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -45,7 +45,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	// Export UTpPlayGroupManager::execCreatePlayGroupAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void CreatePlayGroupAsync(OnlineSubsystem.PlayGroupCreateParams Params)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -54,7 +54,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	// Export UTpPlayGroupManager::execJoinPlayGroupAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void JoinPlayGroupAsync(OnlineSubsystem.UniqueNetId UserId)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -65,7 +65,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	// Export UTpPlayGroupManager::execBroadCastChatMessageAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void BroadCastChatMessageAsync(String Message)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -74,7 +74,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	// Export UTpPlayGroupManager::execDestroyPlayGroupAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void DestroyPlayGroupAsync()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -83,7 +83,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	// Export UTpPlayGroupManager::execKickMemberAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void KickMemberAsync(OnlineSubsystem.UniqueNetId UserId)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -92,7 +92,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	// Export UTpPlayGroupManager::execLeavePlayGroupAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void LeavePlayGroupAsync()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -103,7 +103,7 @@ public partial class TpPlayGroupManager : TpSystemHandler/*
 	// Export UTpPlayGroupManager::execTransferOwnerShipAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void TransferOwnerShipAsync(OnlineSubsystem.UniqueNetId NewOwnerId)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

@@ -50,7 +50,7 @@ public partial class Projectile : Actor/*
 	// Export UProjectile::execGetTeamNum(FFrame&, void* const)
 	public override /*native simulated function */byte GetTeamNum()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

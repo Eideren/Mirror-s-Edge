@@ -10,7 +10,7 @@ public partial class MeshComponent : PrimitiveComponent/*
 	// Export UMeshComponent::execGetMaterial(FFrame&, void* const)
 	public virtual /*native function */MaterialInterface GetMaterial(int ElementIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -18,14 +18,14 @@ public partial class MeshComponent : PrimitiveComponent/*
 	// Export UMeshComponent::execSetMaterial(FFrame&, void* const)
 	public virtual /*native function */void SetMaterial(int ElementIndex, MaterialInterface Material)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UMeshComponent::execGetNumElements(FFrame&, void* const)
 	public virtual /*native function */int GetNumElements()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

@@ -19,7 +19,7 @@ public partial class UIComp_DrawImage : UIComp_DrawComponents,
 	// Export UUIComp_DrawImage::execGetAppliedImageStyle(FFrame&, void* const)
 	public virtual /*native final function */UIStyle_Image GetAppliedImageStyle(/*optional */UIState? _DesiredMenuState = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -27,84 +27,84 @@ public partial class UIComp_DrawImage : UIComp_DrawComponents,
 	// Export UUIComp_DrawImage::execSetImage(FFrame&, void* const)
 	public virtual /*native final function */void SetImage(Surface NewImage)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawImage::execSetCoordinates(FFrame&, void* const)
 	public virtual /*native final function */void SetCoordinates(UIRoot.TextureCoordinates NewCoordinates)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawImage::execSetColor(FFrame&, void* const)
 	public virtual /*native final function */void SetColor(Object.LinearColor NewColor)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawImage::execSetOpacity(FFrame&, void* const)
 	public virtual /*native final function */void SetOpacity(float NewOpacity)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawImage::execSetPadding(FFrame&, void* const)
 	public virtual /*native final function */void SetPadding(float HorizontalPadding, float VerticalPadding)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawImage::execSetFormatting(FFrame&, void* const)
 	public virtual /*native final function */void SetFormatting(UIRoot.EUIOrientation Orientation, UIRoot.UIImageAdjustmentData NewFormattingData)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawImage::execDisableCustomCoordinates(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomCoordinates()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawImage::execDisableCustomColor(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomColor()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawImage::execDisableCustomOpacity(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomOpacity()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawImage::execDisableCustomPadding(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomPadding()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawImage::execDisableCustomFormatting(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomFormatting()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawImage::execGetImage(FFrame&, void* const)
 	public virtual /*native final function */Surface GetImage()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -112,7 +112,7 @@ public partial class UIComp_DrawImage : UIComp_DrawComponents,
 	// Export UUIComp_DrawImage::execGetStyleResolverTag(FFrame&, void* const)
 	public virtual /*native final function */name GetStyleResolverTag()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -120,7 +120,7 @@ public partial class UIComp_DrawImage : UIComp_DrawComponents,
 	// Export UUIComp_DrawImage::execSetStyleResolverTag(FFrame&, void* const)
 	public virtual /*native final function */bool SetStyleResolverTag(name NewResolverTag)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -128,7 +128,7 @@ public partial class UIComp_DrawImage : UIComp_DrawComponents,
 	// Export UUIComp_DrawImage::execNotifyResolveStyle(FFrame&, void* const)
 	public virtual /*native final function */bool NotifyResolveStyle(UISkin ActiveSkin, bool bClearExistingValue, /*optional */UIState? _CurrentMenuState = default, /*const optional */name? _StylePropertyName = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

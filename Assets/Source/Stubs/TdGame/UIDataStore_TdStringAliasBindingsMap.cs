@@ -46,7 +46,7 @@ public partial class UIDataStore_TdStringAliasBindingsMap : UIDataStore_StringAl
 	// Export UUIDataStore_TdStringAliasBindingsMap::execGetStringWithFieldName(FFrame&, void* const)
 	public override /*native function */int GetStringWithFieldName(String FieldName, ref String MappedString)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -54,7 +54,7 @@ public partial class UIDataStore_TdStringAliasBindingsMap : UIDataStore_StringAl
 	// Export UUIDataStore_TdStringAliasBindingsMap::execGetBoundStringWithFieldName(FFrame&, void* const)
 	public virtual /*native function */int GetBoundStringWithFieldName(String FieldName, ref String MappedString, /*optional */ref int StartIndex/* = default*/, /*optional */ref String BindString/* = default*/)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -62,7 +62,7 @@ public partial class UIDataStore_TdStringAliasBindingsMap : UIDataStore_StringAl
 	// Export UUIDataStore_TdStringAliasBindingsMap::execFindMappingInBoundKeyCache(FFrame&, void* const)
 	public virtual /*protected native final function */bool FindMappingInBoundKeyCache(String Command, ref String MappingStr, ref int FieldIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -70,14 +70,14 @@ public partial class UIDataStore_TdStringAliasBindingsMap : UIDataStore_StringAl
 	// Export UUIDataStore_TdStringAliasBindingsMap::execAddMappingToBoundKeyCache(FFrame&, void* const)
 	public virtual /*protected native final function */void AddMappingToBoundKeyCache(String Command, String MappingStr, int FieldIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIDataStore_TdStringAliasBindingsMap::execClearBoundKeyCache(FFrame&, void* const)
 	public virtual /*native final function */void ClearBoundKeyCache()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

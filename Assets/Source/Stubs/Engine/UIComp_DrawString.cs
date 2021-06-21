@@ -26,14 +26,14 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	// Export UUIComp_DrawString::execSetValue(FFrame&, void* const)
 	public virtual /*native final function */void SetValue(String NewText)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execGetValue(FFrame&, void* const)
 	public virtual /*native final function */String GetValue(/*optional */bool? _bReturnProcessedText = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -41,14 +41,14 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	// Export UUIComp_DrawString::execRefreshValue(FFrame&, void* const)
 	public virtual /*native final function */void RefreshValue()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execIsSubregionEnabled(FFrame&, void* const)
 	public virtual /*native final function */bool IsSubregionEnabled(UIRoot.EUIOrientation Orientation)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -56,7 +56,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	// Export UUIComp_DrawString::execGetSubregionSize(FFrame&, void* const)
 	public virtual /*native final function */float GetSubregionSize(UIRoot.EUIOrientation Orientation, /*optional */UIRoot.EUIExtentEvalType? _OutputType = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -64,7 +64,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	// Export UUIComp_DrawString::execGetSubregionOffset(FFrame&, void* const)
 	public virtual /*native final function */float GetSubregionOffset(UIRoot.EUIOrientation Orientation, /*optional */UIRoot.EUIExtentEvalType? _OutputType = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -72,7 +72,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	// Export UUIComp_DrawString::execGetSubregionAlignment(FFrame&, void* const)
 	public virtual /*native final function */UIRoot.EUIAlignment GetSubregionAlignment(UIRoot.EUIOrientation Orientation)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -80,189 +80,189 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	// Export UUIComp_DrawString::execEnableSubregion(FFrame&, void* const)
 	public virtual /*native final function */void EnableSubregion(UIRoot.EUIOrientation Orientation, /*optional */bool? _bShouldEnable = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execSetSubregionSize(FFrame&, void* const)
 	public virtual /*native final function */void SetSubregionSize(UIRoot.EUIOrientation Orientation, float NewValue, UIRoot.EUIExtentEvalType EvalType)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execSetSubregionOffset(FFrame&, void* const)
 	public virtual /*native final function */void SetSubregionOffset(UIRoot.EUIOrientation Orientation, float NewValue, UIRoot.EUIExtentEvalType EvalType)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execSetSubregionAlignment(FFrame&, void* const)
 	public virtual /*native final function */void SetSubregionAlignment(UIRoot.EUIOrientation Orientation, UIRoot.EUIAlignment NewValue)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execSetColor(FFrame&, void* const)
 	public virtual /*native final function */void SetColor(Object.LinearColor NewColor)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execSetOpacity(FFrame&, void* const)
 	public virtual /*native final function */void SetOpacity(float NewOpacity)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execSetPadding(FFrame&, void* const)
 	public virtual /*native final function */void SetPadding(float HorizontalPadding, float VerticalPadding)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execSetFont(FFrame&, void* const)
 	public virtual /*native final function */void SetFont(Font NewFont)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execSetAttributes(FFrame&, void* const)
 	public virtual /*native final function */void SetAttributes(UIRoot.UITextAttributes NewAttributes)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execSetAlignment(FFrame&, void* const)
 	public virtual /*native final function */void SetAlignment(UIRoot.EUIOrientation Orientation, UIRoot.EUIAlignment NewAlignment)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execSetWrapMode(FFrame&, void* const)
 	public virtual /*native final function */void SetWrapMode(UIRoot.ETextClipMode NewClipMode)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execSetClipAlignment(FFrame&, void* const)
 	public virtual /*native final function */void SetClipAlignment(UIRoot.EUIAlignment NewClipAlignment)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execSetAutoScaling(FFrame&, void* const)
 	public virtual /*native final function */void SetAutoScaling(UIRoot.ETextAutoScaleMode NewAutoScaleMode, /*optional */float? _NewMinScaleValue = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execSetScale(FFrame&, void* const)
 	public virtual /*native final function */void SetScale(UIRoot.EUIOrientation Orientation, float NewScale)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execSetSpacingAdjust(FFrame&, void* const)
 	public virtual /*native final function */void SetSpacingAdjust(UIRoot.EUIOrientation Orientation, float NewSpacingAdjust)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execDisableCustomColor(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomColor()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execDisableCustomOpacity(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomOpacity()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execDisableCustomPadding(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomPadding()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execDisableCustomFont(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomFont()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execDisableCustomAttributes(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomAttributes()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execDisableCustomAlignment(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomAlignment()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execDisableCustomClipMode(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomClipMode()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execDisableCustomClipAlignment(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomClipAlignment()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execDisableCustomAutoScaling(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomAutoScaling()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execDisableCustomScale(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomScale()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execDisableCustomSpacingAdjust(FFrame&, void* const)
 	public virtual /*native final function */void DisableCustomSpacingAdjust()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawString::execGetWrapMode(FFrame&, void* const)
 	public virtual /*native final function */UIRoot.ETextClipMode GetWrapMode()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -270,7 +270,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	// Export UUIComp_DrawString::execGetAppliedStringStyle(FFrame&, void* const)
 	public virtual /*native final function */UIStyle_Combo GetAppliedStringStyle(/*optional */UIState? _DesiredMenuState = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -278,7 +278,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	// Export UUIComp_DrawString::execGetFinalStringStyle(FFrame&, void* const)
 	public virtual /*native final function */bool GetFinalStringStyle(ref UIRoot.UICombinedStyleData FinalStyleData)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -286,7 +286,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	// Export UUIComp_DrawString::execGetStyleResolverTag(FFrame&, void* const)
 	public virtual /*native final function */name GetStyleResolverTag()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -294,7 +294,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	// Export UUIComp_DrawString::execSetStyleResolverTag(FFrame&, void* const)
 	public virtual /*native final function */bool SetStyleResolverTag(name NewResolverTag)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -302,7 +302,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	// Export UUIComp_DrawString::execNotifyResolveStyle(FFrame&, void* const)
 	public virtual /*native final function */bool NotifyResolveStyle(UISkin ActiveSkin, bool bClearExistingValue, /*optional */UIState? _CurrentMenuState = default, /*const optional */name? _StylePropertyName = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -310,7 +310,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	// Export UUIComp_DrawString::execSetAutoSizeExtent(FFrame&, void* const)
 	public virtual /*native final function */void SetAutoSizeExtent(UIRoot.EUIOrientation Orientation, float MinValue, float MaxValue, UIRoot.EUIExtentEvalType MinScaleType, UIRoot.EUIExtentEvalType MaxScaleType)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

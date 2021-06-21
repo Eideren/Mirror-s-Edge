@@ -10,14 +10,14 @@ public partial class SeqAct_TdIntoCutscene : SeqAct_Latent/*
 	// Export USeqAct_TdIntoCutscene::execAbortScriptedMove(FFrame&, void* const)
 	public virtual /*native function */void AbortScriptedMove()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export USeqAct_TdIntoCutscene::execFinishScriptedMove(FFrame&, void* const)
 	public virtual /*native function */void FinishScriptedMove()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

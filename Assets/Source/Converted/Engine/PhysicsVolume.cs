@@ -33,7 +33,7 @@ public partial class PhysicsVolume : Volume/*
 	// Export UPhysicsVolume::execGetGravityZ(FFrame&, void* const)
 	public override /*native function */float GetGravityZ()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

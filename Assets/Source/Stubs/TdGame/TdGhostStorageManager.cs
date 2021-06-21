@@ -48,14 +48,14 @@ public partial class TdGhostStorageManager : Object/*
 	// Export UTdGhostStorageManager::execSerializeGhost(FFrame&, void* const)
 	public virtual /*protected native function */void SerializeGhost(ref TdGhost Ghost, ref array<byte> Bytes)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdGhostStorageManager::execDeSerializeGhost(FFrame&, void* const)
 	public virtual /*protected native function */TdGhostStorageManager.EGhostStorageResult DeSerializeGhost(ref TdGhost Ghost, ref array<byte> Bytes)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

@@ -24,7 +24,7 @@ public partial class TpConnectParams : Object/*
 	// Export UTpConnectParams::execGetOpaqueFeslPointer(FFrame&, void* const)
 	public virtual /*native simulated function */Object.Pointer GetOpaqueFeslPointer()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -32,14 +32,14 @@ public partial class TpConnectParams : Object/*
 	// Export UTpConnectParams::execSetConnectMode(FFrame&, void* const)
 	public virtual /*native simulated function */void SetConnectMode(TpConnectParams.TpConnectMode InMode)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTpConnectParams::execGetConnectMode(FFrame&, void* const)
 	public virtual /*native simulated function */TpConnectParams.TpConnectMode GetConnectMode()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -47,14 +47,14 @@ public partial class TpConnectParams : Object/*
 	// Export UTpConnectParams::execSetUnauthenticatedPlayerName(FFrame&, void* const)
 	public virtual /*native simulated function */void SetUnauthenticatedPlayerName(String InName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTpConnectParams::execGetUnauthenticatedPlayerName(FFrame&, void* const)
 	public virtual /*native simulated function */String GetUnauthenticatedPlayerName()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -62,7 +62,7 @@ public partial class TpConnectParams : Object/*
 	// Export UTpConnectParams::execInitializeAuthentication(FFrame&, void* const)
 	public virtual /*native simulated function */void InitializeAuthentication(TpConnectParams.TpLoginMode InLoginMode)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

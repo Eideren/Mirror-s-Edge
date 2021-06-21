@@ -19,7 +19,7 @@ public partial class TdMove_Landing : TdMove/*
 	// Export UTdMove_Landing::execIsLandingOnSoftObject(FFrame&, void* const)
 	public virtual /*native function */bool IsLandingOnSoftObject()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

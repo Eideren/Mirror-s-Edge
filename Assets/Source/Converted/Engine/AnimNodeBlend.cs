@@ -11,7 +11,7 @@ public partial class AnimNodeBlend : AnimNodeBlendBase/*
 	// Export UAnimNodeBlend::execSetBlendTarget(FFrame&, void* const)
 	public virtual /*native final function */void SetBlendTarget(float BlendTarget, float BlendTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public AnimNodeBlend()

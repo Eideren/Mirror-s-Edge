@@ -39,7 +39,7 @@ public partial class UIContextMenu : UIList/*
 	// Export UUIContextMenu::execIsActiveContextMenu(FFrame&, void* const)
 	public virtual /*native final function */bool IsActiveContextMenu()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -47,7 +47,7 @@ public partial class UIContextMenu : UIList/*
 	// Export UUIContextMenu::execOpen(FFrame&, void* const)
 	public virtual /*native final function */bool Open(/*optional */int? _PlayerIndex = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -55,7 +55,7 @@ public partial class UIContextMenu : UIList/*
 	// Export UUIContextMenu::execClose(FFrame&, void* const)
 	public virtual /*native final function */bool Close(/*optional */int? _PlayerIndex = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

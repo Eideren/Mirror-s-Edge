@@ -9,7 +9,7 @@ public partial class TdAnimNotifyCopyCommandlet : Commandlet/*
 	// Export UTdAnimNotifyCopyCommandlet::execMain(FFrame&, void* const)
 	public override /*native event */int Main(String Params)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

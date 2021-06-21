@@ -103,7 +103,7 @@ public partial class TdCover : Object/*
 	// Export UTdCover::execAttemptReclaimCover(FFrame&, void* const)
 	public virtual /*native final function */bool AttemptReclaimCover(CoverLink ActiveCoverLink, int ActiveSlotId)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -111,7 +111,7 @@ public partial class TdCover : Object/*
 	// Export UTdCover::execGetCoverQuality(FFrame&, void* const)
 	public virtual /*native final function */TdCover.ECoverQuality GetCoverQuality(CoverLink ActiveCoverLink, int ActiveSlotId)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -125,7 +125,7 @@ public partial class TdCover : Object/*
 	// Export UTdCover::execIsCoverValid(FFrame&, void* const)
 	public virtual /*native final function */bool IsCoverValid(Object.Vector EnemyPosition, CoverLink ActiveCoverLink, int ActiveSlotId, bool bFireCover)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -133,7 +133,7 @@ public partial class TdCover : Object/*
 	// Export UTdCover::execIsWithinRestraints(FFrame&, void* const)
 	public virtual /*native final function */bool IsWithinRestraints(CoverLink TestLink)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -141,7 +141,7 @@ public partial class TdCover : Object/*
 	// Export UTdCover::execGetMinimumEnemyCoverDistance(FFrame&, void* const)
 	public virtual /*native final function */float GetMinimumEnemyCoverDistance()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -149,7 +149,7 @@ public partial class TdCover : Object/*
 	// Export UTdCover::execHasValidCoverDirection(FFrame&, void* const)
 	public virtual /*private native final function */bool HasValidCoverDirection(CoverLink ActiveCoverLink, int ActiveSlotId)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -163,7 +163,7 @@ public partial class TdCover : Object/*
 	// Export UTdCover::execSelectCoverDirectionInternal(FFrame&, void* const)
 	public virtual /*private native final function */TdAIAnimationController.ECoverDirectionState SelectCoverDirectionInternal(CoverLink ActiveCoverLink, int ActiveSlotId)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -171,7 +171,7 @@ public partial class TdCover : Object/*
 	// Export UTdCover::execFindClosestUsableCover(FFrame&, void* const)
 	public virtual /*private native final function */void FindClosestUsableCover(ref CoverLink out_Link, ref int out_SlotId)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -211,7 +211,7 @@ public partial class TdCover : Object/*
 	// Export UTdCover::execShouldIgnore(FFrame&, void* const)
 	public virtual /*native function */bool ShouldIgnore(CoverLink L, int S)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

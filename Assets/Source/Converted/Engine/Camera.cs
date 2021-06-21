@@ -258,7 +258,7 @@ public partial class Camera : Actor/*
 	// Export UCamera::execCheckViewTarget(FFrame&, void* const)
 	public virtual /*native function */void CheckViewTarget(ref Camera.TViewTarget VT)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*function */void UpdateViewTarget(ref Camera.TViewTarget OutVT, float DeltaTime)
@@ -322,7 +322,7 @@ public partial class Camera : Actor/*
 	// Export UCamera::execSetViewTarget(FFrame&, void* const)
 	public virtual /*native final function */void SetViewTarget(Actor NewViewTarget, /*optional */Camera.ViewTargetTransitionParams? _TransitionParams = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*function */void ProcessViewRotation(float DeltaTime, ref Object.Rotator OutViewRotation, ref Object.Rotator OutDeltaRot)

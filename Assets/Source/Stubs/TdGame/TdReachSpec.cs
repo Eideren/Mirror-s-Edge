@@ -22,7 +22,7 @@ public partial class TdReachSpec : ReachSpec/*
 	// Export UTdReachSpec::execGetCostFor(FFrame&, void* const)
 	public virtual /*native function */int GetCostFor(Pawn P)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -30,7 +30,7 @@ public partial class TdReachSpec : ReachSpec/*
 	// Export UTdReachSpec::execGetDefaultCostFor(FFrame&, void* const)
 	public virtual /*native function */int GetDefaultCostFor(TdBotPawn P)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -38,7 +38,7 @@ public partial class TdReachSpec : ReachSpec/*
 	// Export UTdReachSpec::execAdjustedCostFor(FFrame&, void* const)
 	public virtual /*native function */int AdjustedCostFor(Pawn P, NavigationPoint Anchor, NavigationPoint Goal, int Cost)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

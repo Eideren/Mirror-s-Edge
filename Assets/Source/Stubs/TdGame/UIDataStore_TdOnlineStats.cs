@@ -91,7 +91,7 @@ public partial class UIDataStore_TdOnlineStats : UIDataStore_OnlineStats/*
 	// Export UUIDataStore_TdOnlineStats::execGetPlayerRank(FFrame&, void* const)
 	public virtual /*native function */int GetPlayerRank(int PlayerIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

@@ -47,14 +47,14 @@ public partial class TdMove_WallRun : TdPhysicsMove/*
 	// Export UTdMove_WallRun::execFindWallForward(FFrame&, void* const)
 	public virtual /*native function */TdPawn.EMovement FindWallForward(ref TdPawn.LedgeHitInfo out_LedgeHit)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdMove_WallRun::execFindWallSide(FFrame&, void* const)
 	public virtual /*native function */bool FindWallSide(TdPawn.EMovement WallRunSide, ref TdPawn.LedgeHitInfo out_LedgeHit)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

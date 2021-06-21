@@ -33,7 +33,7 @@ public partial class TdUIScene_VideoSettingsPC : TdUIScene_VideoSettings/*
 	// Export UTdUIScene_VideoSettingsPC::execGetSupportedAAModes(FFrame&, void* const)
 	public virtual /*native function */bool GetSupportedAAModes(ref array<String> AAModes)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -41,7 +41,7 @@ public partial class TdUIScene_VideoSettingsPC : TdUIScene_VideoSettings/*
 	// Export UTdUIScene_VideoSettingsPC::execGetPhysXSupported(FFrame&, void* const)
 	public virtual /*native function */bool GetPhysXSupported()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -115,7 +115,7 @@ public partial class TdUIScene_VideoSettingsPC : TdUIScene_VideoSettings/*
 	// Export UTdUIScene_VideoSettingsPC::execGetAntiAliasingString(FFrame&, void* const)
 	public virtual /*private native final function */String GetAntiAliasingString(int MaxMultiSamples)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -129,7 +129,7 @@ public partial class TdUIScene_VideoSettingsPC : TdUIScene_VideoSettings/*
 	// Export UTdUIScene_VideoSettingsPC::execApplyDetectedSettings(FFrame&, void* const)
 	public virtual /*native final function */void ApplyDetectedSettings()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

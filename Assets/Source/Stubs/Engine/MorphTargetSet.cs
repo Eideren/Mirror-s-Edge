@@ -9,7 +9,7 @@ public partial class MorphTargetSet : Object/*
 	// Export UMorphTargetSet::execFindMorphTarget(FFrame&, void* const)
 	public virtual /*native final function */MorphTarget FindMorphTarget(name MorphTargetName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

@@ -9,7 +9,7 @@ public partial class MultiFont : Font/*
 	// Export UMultiFont::execGetResolutionTestTableIndex(FFrame&, void* const)
 	public virtual /*native function */int GetResolutionTestTableIndex(float HeightTest)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

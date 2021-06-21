@@ -27,7 +27,7 @@ public partial class TdUIScene_Start : TdUIScene/*
 	// Export UTdUIScene_Start::execStopMovie(FFrame&, void* const)
 	public override /*native function */void StopMovie()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

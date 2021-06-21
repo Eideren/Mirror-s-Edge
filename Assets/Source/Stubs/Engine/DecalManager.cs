@@ -30,7 +30,7 @@ public partial class DecalManager : Actor/*
 	// Export UDecalManager::execAreDynamicDecalsEnabled(FFrame&, void* const)
 	public /*native final function */static bool AreDynamicDecalsEnabled()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

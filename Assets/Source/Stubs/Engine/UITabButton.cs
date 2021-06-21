@@ -27,7 +27,7 @@ public partial class UITabButton : UILabelButton/*
 	// Export UUITabButton::execCanActivateButton(FFrame&, void* const)
 	public virtual /*native final function */bool CanActivateButton(int PlayerIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -35,7 +35,7 @@ public partial class UITabButton : UILabelButton/*
 	// Export UUITabButton::execIsTargeted(FFrame&, void* const)
 	public virtual /*native final function */bool IsTargeted(/*optional */int? _PlayerIndex/* = default*/, /*optional */ref int StateIndex/* = default*/)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

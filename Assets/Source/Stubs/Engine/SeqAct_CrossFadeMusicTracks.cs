@@ -15,21 +15,21 @@ public partial class SeqAct_CrossFadeMusicTracks : SeqAct_Latent/*
 	// Export USeqAct_CrossFadeMusicTracks::execCrossFadeTrack(FFrame&, void* const)
 	public virtual /*native final function */void CrossFadeTrack(/*const */ref MusicTrackDataStructures.MusicTrackStruct TrackToPlay)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export USeqAct_CrossFadeMusicTracks::execClientSideCrossFadeTrackImmediately(FFrame&, void* const)
 	public virtual /*native final function */void ClientSideCrossFadeTrackImmediately(/*const */ref MusicTrackDataStructures.MusicTrackStruct TrackToPlay)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export USeqAct_CrossFadeMusicTracks::execStopAllMusicManagerSounds(FFrame&, void* const)
 	public /*native function */static void StopAllMusicManagerSounds()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

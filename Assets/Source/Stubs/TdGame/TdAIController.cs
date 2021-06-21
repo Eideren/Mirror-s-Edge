@@ -357,7 +357,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execCurrentRouteDist(FFrame&, void* const)
 	public virtual /*private native final function */float CurrentRouteDist()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -365,7 +365,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execCheckRemainingPathLength(FFrame&, void* const)
 	public virtual /*native final function */float CheckRemainingPathLength(float AngularLimit)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -373,7 +373,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execFindGoodFiringPosition(FFrame&, void* const)
 	public virtual /*native final function */NavigationPoint FindGoodFiringPosition(int NetworkID, /*optional */Class? _RequiredClass = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -381,7 +381,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execFindSuppressionSpot(FFrame&, void* const)
 	public virtual /*native final function */TdSuppressionSpot FindSuppressionSpot()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -389,7 +389,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execIsFiringPositionUsed(FFrame&, void* const)
 	public virtual /*native final function */bool IsFiringPositionUsed(NavigationPoint Nav)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -397,7 +397,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execSetCoverAction(FFrame&, void* const)
 	public virtual /*native final latent function */Flow SetCoverAction(byte CoverAction)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -405,7 +405,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execNextNodeIsJumpNode(FFrame&, void* const)
 	public virtual /*native final function */bool NextNodeIsJumpNode()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -413,7 +413,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execShouldForceSpeed(FFrame&, void* const)
 	public virtual /*native final function */bool ShouldForceSpeed()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -421,7 +421,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execGetForcedSpeed(FFrame&, void* const)
 	public virtual /*native final function */float GetForcedSpeed(ref Object.Vector EndLocation)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -429,28 +429,28 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execTdDrawDebugLine(FFrame&, void* const)
 	public /*native final function */static void TdDrawDebugLine(Object.Vector LineStart, Object.Vector LineEnd, byte R, byte G, byte B)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdAIController::execTdDrawDebugSphere(FFrame&, void* const)
 	public /*native final function */static void TdDrawDebugSphere(Object.Vector Center, float Radius, int Segments, byte R, byte G, byte B)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdAIController::execTdFlushLines(FFrame&, void* const)
 	public /*native final function */static void TdFlushLines()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdAIController::execThrowGrenade(FFrame&, void* const)
 	public virtual /*native final latent function */Flow ThrowGrenade()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -458,7 +458,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execTdMoveTo(FFrame&, void* const)
 	public virtual /*native final latent function */Flow TdMoveTo(Object.Vector NewDestination, /*optional */Actor? _ViewFocus = default, /*optional */bool? _bShouldWalk = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -466,7 +466,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execPointReachableFrom(FFrame&, void* const)
 	public virtual /*native final function */bool PointReachableFrom(Object.Vector Start, Object.Vector End)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -474,7 +474,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execIsForcedToWalkToNextNode(FFrame&, void* const)
 	public virtual /*native final function */bool IsForcedToWalkToNextNode(/*optional */int? _NodeOffset = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -482,7 +482,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execEnoughSpaceForStartMove(FFrame&, void* const)
 	public virtual /*native function */bool EnoughSpaceForStartMove(float SpaceNeeded)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -490,7 +490,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execWillShotHitPlayer(FFrame&, void* const)
 	public virtual /*native final function */bool WillShotHitPlayer(TdPlayerPawn PlayerPawn, Object.Vector StartLocation, Object.Vector AimRotation)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -498,7 +498,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execHaveAValidCoverPath(FFrame&, void* const)
 	public virtual /*native function */bool HaveAValidCoverPath()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -575,7 +575,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execDrawPath(FFrame&, void* const)
 	public virtual /*native final function */void DrawPath()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -705,7 +705,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execIsMoving(FFrame&, void* const)
 	public virtual /*native function */bool IsMoving()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -810,7 +810,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execGetCombatDistance(FFrame&, void* const)
 	public virtual /*native function */float GetCombatDistance()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -824,7 +824,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execAllowFocusRotation(FFrame&, void* const)
 	public virtual /*native final function */bool AllowFocusRotation()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -859,21 +859,21 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execDrawTimeline(FFrame&, void* const)
 	public virtual /*native final function */void DrawTimeline(Canvas aCanvas)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdAIController::execRemoveFromTimeline(FFrame&, void* const)
 	public virtual /*native final function */void RemoveFromTimeline()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdAIController::execDrawNavigation(FFrame&, void* const)
 	public virtual /*native final function */void DrawNavigation()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -921,7 +921,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execClosestFriend(FFrame&, void* const)
 	public virtual /*native final function */TdAIController ClosestFriend()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1049,7 +1049,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execUpdateCurrentRouteDist(FFrame&, void* const)
 	public virtual /*native final function */void UpdateCurrentRouteDist()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -1072,14 +1072,14 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execPreSuperTick(FFrame&, void* const)
 	public virtual /*native final function */void PreSuperTick(float DeltaTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdAIController::execPostSuperTick(FFrame&, void* const)
 	public virtual /*native final function */void PostSuperTick(float DeltaTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -1093,14 +1093,14 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execUpdateAnchor(FFrame&, void* const)
 	public virtual /*native function */void UpdateAnchor()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdAIController::execSetBestAnchor(FFrame&, void* const)
 	public virtual /*native function */void SetBestAnchor()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -1128,14 +1128,14 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execUpdateAggressionLevel(FFrame&, void* const)
 	public virtual /*native final function */void UpdateAggressionLevel()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdAIController::execUpdateCombatDistances(FFrame&, void* const)
 	public virtual /*native function */void UpdateCombatDistances()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -1308,7 +1308,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execWeAreSuppressed(FFrame&, void* const)
 	public virtual /*native final function */bool WeAreSuppressed()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1366,7 +1366,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execOkToLaySuppressionFire(FFrame&, void* const)
 	public virtual /*native final function */bool OkToLaySuppressionFire()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1420,7 +1420,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execShouldKeepFiring(FFrame&, void* const)
 	public virtual /*native function */bool ShouldKeepFiring()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1428,7 +1428,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execCheckFireCondition(FFrame&, void* const)
 	public virtual /*native function */void CheckFireCondition()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -1462,7 +1462,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execIsAIBlockingPath(FFrame&, void* const)
 	public virtual /*native final function */TdBotPawn IsAIBlockingPath(Object.Vector pos, /*optional */float? _minTimeToCollision = default, /*optional */float? _minDistFromLine = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1470,7 +1470,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execCanSeePlayerFromPoint(FFrame&, void* const)
 	public virtual /*native final function */bool CanSeePlayerFromPoint(NavigationPoint np)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1483,7 +1483,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execSelectAdvancePoint(FFrame&, void* const)
 	public virtual /*native final function */NavigationPoint SelectAdvancePoint(int NetworkID, /*optional */float? _MaxDist = default, /*optional */float? _MinDist = default, /*optional */Class? _RequiredClass = default, /*optional */bool? _bTestVisibility = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1491,7 +1491,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execGetNavpointClosestToPoint(FFrame&, void* const)
 	public virtual /*native final function */NavigationPoint GetNavpointClosestToPoint(Object.Vector Point, int NetworkID, /*optional */float? _MaxDist = default, /*optional */float? _MinDist = default, /*optional */float? _MaxDistZ = default, /*optional */float? _MinDistZ = default, /*optional */Class? _RequiredClass = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1499,7 +1499,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execCanBeAnchor(FFrame&, void* const)
 	public virtual /*native final function */bool CanBeAnchor(NavigationPoint P)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1507,7 +1507,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execCanBeDestination(FFrame&, void* const)
 	public virtual /*native final function */bool CanBeDestination(NavigationPoint P)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1515,7 +1515,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execGetNearestAnchor(FFrame&, void* const)
 	public virtual /*native final function */NavigationPoint GetNearestAnchor()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1669,14 +1669,14 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execSetWalkingToNode(FFrame&, void* const)
 	public virtual /*native final function */void SetWalkingToNode(bool flag)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdAIController::execIsWalkingToNode(FFrame&, void* const)
 	public virtual /*native final function */bool IsWalkingToNode()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -2407,7 +2407,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execPointsLeftInPath(FFrame&, void* const)
 	public virtual /*native final function */int PointsLeftInPath()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -2415,7 +2415,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execGetStartPoint(FFrame&, void* const)
 	public virtual /*native final function */Object.Vector GetStartPoint()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -2423,7 +2423,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execCanSkipPathNode(FFrame&, void* const)
 	public virtual /*native final function */bool CanSkipPathNode(bool testIsSkippable)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -2436,21 +2436,21 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execSkipPathNode(FFrame&, void* const)
 	public virtual /*native final simulated function */void SkipPathNode()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdAIController::execAfterMovePathCleanup(FFrame&, void* const)
 	public virtual /*native final simulated function */void AfterMovePathCleanup()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdAIController::execSetMoveTarget(FFrame&, void* const)
 	public virtual /*native final simulated function */void SetMoveTarget(Actor A)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -2524,7 +2524,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execOkToEvade(FFrame&, void* const)
 	public virtual /*native final function */bool OkToEvade()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -2532,7 +2532,7 @@ public partial class TdAIController : AIController,
 	// Export UTdAIController::execOkToBeEvaded(FFrame&, void* const)
 	public virtual /*native final function */bool OkToBeEvaded()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

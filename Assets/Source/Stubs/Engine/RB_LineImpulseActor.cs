@@ -21,7 +21,7 @@ public partial class RB_LineImpulseActor : Actor/*
 	// Export URB_LineImpulseActor::execFireLineImpulse(FFrame&, void* const)
 	public virtual /*native final function */void FireLineImpulse()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

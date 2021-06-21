@@ -24,21 +24,21 @@ public partial class UIComp_DrawComponents : UIComponent/* within UIObject*//*
 	// Export UUIComp_DrawComponents::execFade(FFrame&, void* const)
 	public virtual /*native final function */void Fade(float FromAlpha, float ToAlpha, float TargetFadeTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawComponents::execPulse(FFrame&, void* const)
 	public virtual /*native final function */void Pulse(/*optional */float? _MaxAlpha = default, /*optional */float? _MinAlpha = default, /*optional */float? _PulseRate = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIComp_DrawComponents::execResetFade(FFrame&, void* const)
 	public virtual /*native final function */void ResetFade()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

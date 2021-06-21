@@ -46,7 +46,7 @@ public partial class OnlineStats : Object/*
 	// Export UOnlineStats::execGetViewId(FFrame&, void* const)
 	public virtual /*native function */bool GetViewId(name ViewName, ref int ViewId)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -54,7 +54,7 @@ public partial class OnlineStats : Object/*
 	// Export UOnlineStats::execGetViewName(FFrame&, void* const)
 	public virtual /*native function */name GetViewName(int ViewId)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

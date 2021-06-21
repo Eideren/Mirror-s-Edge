@@ -12,7 +12,7 @@ public partial class TdAttackPathNode : TdConfinedVolumePathNode/*
 	// Export UTdAttackPathNode::execPointInside(FFrame&, void* const)
 	public virtual /*native function */bool PointInside(Object.Vector Point)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

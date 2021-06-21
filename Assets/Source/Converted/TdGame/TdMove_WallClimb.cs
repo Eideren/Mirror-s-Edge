@@ -29,14 +29,14 @@ public partial class TdMove_WallClimb : TdPhysicsMove/*
 	// Export UTdMove_WallClimb::execDetectPossibleHandPlant(FFrame&, void* const)
 	public virtual /*native function */bool DetectPossibleHandPlant()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdMove_WallClimb::execCheckDoubleJump(FFrame&, void* const)
 	public virtual /*native function */void CheckDoubleJump()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public override /*simulated function */int HandleDeath(int Damage)

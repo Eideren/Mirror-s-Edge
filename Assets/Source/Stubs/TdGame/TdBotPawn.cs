@@ -298,21 +298,21 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execUpdateLeaning(FFrame&, void* const)
 	public virtual /*native simulated function */void UpdateLeaning(float DeltaTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdBotPawn::execInitMoveObjects(FFrame&, void* const)
 	public override /*native function */void InitMoveObjects()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdBotPawn::execValidAnchor(FFrame&, void* const)
 	public override /*native function */bool ValidAnchor()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -395,7 +395,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execTdSetRotation(FFrame&, void* const)
 	public virtual /*native function */bool TdSetRotation(Object.Rotator NewRotation)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -698,7 +698,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execGetFiringRange(FFrame&, void* const)
 	public virtual /*native function */TdBotPawn.AIFiringRange GetFiringRange()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -706,7 +706,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execClassifyAIFiringRange(FFrame&, void* const)
 	public virtual /*native final function */TdBotPawn.AIFiringRange ClassifyAIFiringRange(float DistanceSquared)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -714,14 +714,14 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execSetAIFiringState(FFrame&, void* const)
 	public virtual /*native final function */void SetAIFiringState(TdBotPawn.AIFiringMood M, float DistanceSquared)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdBotPawn::execIsCrouching(FFrame&, void* const)
 	public virtual /*native function */bool IsCrouching()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -729,7 +729,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execIsBusyCrouching(FFrame&, void* const)
 	public virtual /*native function */bool IsBusyCrouching()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -742,7 +742,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execGetCurrentPose(FFrame&, void* const)
 	public virtual /*native final simulated function */TdBotPawn.EPose GetCurrentPose()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -977,7 +977,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execGetIgnoreMoveInput(FFrame&, void* const)
 	public virtual /*native function */bool GetIgnoreMoveInput()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -985,7 +985,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execInterpolateSlope(FFrame&, void* const)
 	public virtual /*native final function */void InterpolateSlope(float DeltaSeconds)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -1009,7 +1009,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execUpdateHitReaction(FFrame&, void* const)
 	public virtual /*native function */void UpdateHitReaction(float DeltaTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -1027,7 +1027,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execGetMinCombatDistance(FFrame&, void* const)
 	public virtual /*native function */float GetMinCombatDistance()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1035,7 +1035,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execGetMaxCombatDistance(FFrame&, void* const)
 	public virtual /*native final function */float GetMaxCombatDistance()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1043,7 +1043,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execGetMaxCombatDistance_Internal(FFrame&, void* const)
 	public virtual /*protected native final function */float GetMaxCombatDistance_Internal()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1051,7 +1051,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execGetPreferredCombatDistance(FFrame&, void* const)
 	public virtual /*native final function */float GetPreferredCombatDistance()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1059,7 +1059,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execGetPreferredCombatDistance_Internal(FFrame&, void* const)
 	public virtual /*protected native final function */float GetPreferredCombatDistance_Internal()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1153,7 +1153,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execSetAnchor(FFrame&, void* const)
 	public override /*native function */void SetAnchor(NavigationPoint NewAnchor)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -1227,7 +1227,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execUpdateWalkingState(FFrame&, void* const)
 	public override /*native simulated function */void UpdateWalkingState()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -1290,7 +1290,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execOnContentLoaded(FFrame&, void* const)
 	public virtual /*private native final function */void OnContentLoaded()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -1303,7 +1303,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execSetArmorDifficultyLevel(FFrame&, void* const)
 	public override /*protected native function */void SetArmorDifficultyLevel(int Difficulty)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -1315,7 +1315,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execSetMainWeaponAmmoDrop(FFrame&, void* const)
 	public virtual /*private native final function */void SetMainWeaponAmmoDrop(int Drop_Easy, int Drop_Medium, int Drop_Hard, int Disarm_Easy, int Disarm_Medium, int Disarm_Hard)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -1350,14 +1350,14 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execCheckForProximityShots(FFrame&, void* const)
 	public override /*native function */void CheckForProximityShots(Object.Vector Start, Object.Vector End)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdBotPawn::execGetViewpointLocation(FFrame&, void* const)
 	public override /*native function */Object.Vector GetViewpointLocation(/*optional */bool? _ForceCrouch = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -1488,7 +1488,7 @@ public partial class TdBotPawn : TdPawn/*
 	// Export UTdBotPawn::execShouldIgnoreAIPawnBlockingVolumes(FFrame&, void* const)
 	public virtual /*native function */bool ShouldIgnoreAIPawnBlockingVolumes()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

@@ -40,34 +40,34 @@ public partial class UITabControl : UIObject/*
 	// Export UUITabControl::execRequestLayoutUpdate(FFrame&, void* const)
 	public virtual /*native final function */void RequestLayoutUpdate()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UUITabControl::execGetPageCount(FFrame&, void* const)
 	public virtual /*native final function */int GetPageCount()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUITabControl::execGetPageAtIndex(FFrame&, void* const)
 	public virtual /*native final function */UITabPage GetPageAtIndex(int PageIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUITabControl::execFindTargetedTab(FFrame&, void* const)
 	public virtual /*native final function */UITabButton FindTargetedTab(int PlayerIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UUITabControl::execCreateTabPage(FFrame&, void* const)
 	public virtual /*native function */UITabPage CreateTabPage(Core.ClassT<UITabPage> TabPageClass, /*optional */UITabPage? _PagePrefab = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

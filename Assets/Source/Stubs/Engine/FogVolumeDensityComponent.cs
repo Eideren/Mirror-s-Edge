@@ -15,7 +15,7 @@ public partial class FogVolumeDensityComponent : ActorComponent/*
 	// Export UFogVolumeDensityComponent::execSetEnabled(FFrame&, void* const)
 	public virtual /*native final function */void SetEnabled(bool bSetEnabled)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

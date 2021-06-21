@@ -560,170 +560,170 @@ public partial class Actor : Object/*
 	// Export UActor::execForceUpdateComponents(FFrame&, void* const)
 	public virtual /*native function */void ForceUpdateComponents(/*optional */bool? _bCollisionUpdate = default, /*optional */bool? _bTransformOnly = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execConsoleCommand(FFrame&, void* const)
 	public virtual /*native function */String ConsoleCommand(String Command, /*optional */bool? _bWriteToLog = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execSleep(FFrame&, void* const)
 	public virtual /*native(256) final latent function */Flow Sleep(float Seconds)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execFinishAnim(FFrame&, void* const)
 	public virtual /*native(261) final latent function */Flow FinishAnim(AnimNodeSequence SeqNode)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execSetCollision(FFrame&, void* const)
 	public virtual /*native(262) final function */void SetCollision(/*optional */bool? _bNewColActors = default, /*optional */bool? _bNewBlockActors = default, /*optional */bool? _bNewIgnoreEncroachers = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execSetCollisionSize(FFrame&, void* const)
 	public virtual /*native(283) final function */void SetCollisionSize(float NewRadius, float NewHeight)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execSetCollisionType(FFrame&, void* const)
 	public virtual /*native final function */void SetCollisionType(Actor.ECollisionType NewCollisionType)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execSetDrawScale(FFrame&, void* const)
 	public virtual /*native final function */void SetDrawScale(float NewScale)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execSetDrawScale3D(FFrame&, void* const)
 	public virtual /*native final function */void SetDrawScale3D(Object.Vector NewScale3D)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execMove(FFrame&, void* const)
 	public virtual /*native(266) final function */bool Move(Object.Vector Delta)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execSetLocation(FFrame&, void* const)
 	public virtual /*native(267) final function */bool SetLocation(Object.Vector NewLocation)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execSetRotation(FFrame&, void* const)
 	public virtual /*native(299) final function */bool SetRotation(Object.Rotator NewRotation)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execMovingWhichWay(FFrame&, void* const)
 	public virtual /*native function */Actor.EMoveDir MovingWhichWay(ref float Amount)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execSetZone(FFrame&, void* const)
 	public virtual /*native final function */void SetZone(bool bForceRefresh)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execSetRelativeRotation(FFrame&, void* const)
 	public virtual /*native final function */bool SetRelativeRotation(Object.Rotator NewRotation)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execSetRelativeLocation(FFrame&, void* const)
 	public virtual /*native final function */bool SetRelativeLocation(Object.Vector NewLocation)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execSetHardAttach(FFrame&, void* const)
 	public virtual /*native final function */void SetHardAttach(/*optional */bool? _bNewHardAttach = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execMoveSmooth(FFrame&, void* const)
 	public virtual /*native(3969) final function */bool MoveSmooth(Object.Vector Delta)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execAutonomousPhysics(FFrame&, void* const)
 	public virtual /*native(3971) final function */void AutonomousPhysics(float DeltaSeconds)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execGetTerminalVelocity(FFrame&, void* const)
 	public virtual /*native function */float GetTerminalVelocity()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execSetBase(FFrame&, void* const)
 	public virtual /*native(298) final function */void SetBase(Actor NewBase, /*optional */Object.Vector? _NewFloor = default, /*optional */SkeletalMeshComponent? _SkelComp = default, /*optional */name? _AttachName = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execSetOwner(FFrame&, void* const)
 	public virtual /*native(272) final function */void SetOwner(Actor NewOwner)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execFindBase(FFrame&, void* const)
 	public virtual /*native function */void FindBase()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execIsBasedOn(FFrame&, void* const)
 	public virtual /*native final function */bool IsBasedOn(Actor TestActor)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execGetBaseMost(FFrame&, void* const)
 	public virtual /*native function */Actor GetBaseMost()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execIsOwnedBy(FFrame&, void* const)
 	public virtual /*native final function */bool IsOwnedBy(Actor TestActor)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -735,127 +735,127 @@ public partial class Actor : Object/*
 	// Export UActor::execSetForcedInitialReplicatedProperty(FFrame&, void* const)
 	public virtual /*native final function */void SetForcedInitialReplicatedProperty(Property PropToReplicate, bool bAdd)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execFlushPersistentDebugLines(FFrame&, void* const)
 	public /*native final function */static void FlushPersistentDebugLines()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugLine(FFrame&, void* const)
 	public /*native final function */static void DrawDebugLine(Object.Vector LineStart, Object.Vector LineEnd, byte R, byte G, byte B, /*optional */bool? _bPersistentLines = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugLineTime(FFrame&, void* const)
 	public /*native final function */static void DrawDebugLineTime(Object.Vector LineStart, Object.Vector LineEnd, byte R, byte G, byte B, /*optional */float? _timeToLive = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugBoxTime(FFrame&, void* const)
 	public /*native final function */static void DrawDebugBoxTime(Object.Vector Center, Object.Vector Extent, byte R, byte G, byte B, /*optional */float? _timeToLive = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugBox(FFrame&, void* const)
 	public /*native final function */static void DrawDebugBox(Object.Vector Center, Object.Vector Extent, byte R, byte G, byte B, /*optional */bool? _bPersistentLines = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugCoordinateSystem(FFrame&, void* const)
 	public /*native final function */static void DrawDebugCoordinateSystem(Object.Vector AxisLoc, Object.Rotator AxisRot, float Scale, /*optional */bool? _bPersistentLines = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugSphere(FFrame&, void* const)
 	public /*native final function */static void DrawDebugSphere(Object.Vector Center, float Radius, int Segments, byte R, byte G, byte B, /*optional */bool? _bPersistentLines = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugSphereTime(FFrame&, void* const)
 	public /*native final function */static void DrawDebugSphereTime(Object.Vector Center, float Radius, int Segments, byte R, byte G, byte B, /*optional */float? _timeToLive = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugCylinder(FFrame&, void* const)
 	public /*native final function */static void DrawDebugCylinder(Object.Vector Start, Object.Vector End, float Radius, int Segments, byte R, byte G, byte B, /*optional */bool? _bPersistentLines = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugCone(FFrame&, void* const)
 	public /*native final function */static void DrawDebugCone(Object.Vector Origin, Object.Vector Direction, float Length, float AngleWidth, float AngleHeight, int NumSides, Object.Color DrawColor, /*optional */bool? _bPersistentLines = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDrawDebugArc(FFrame&, void* const)
 	public /*native final function */static void DrawDebugArc(Object.Vector Origin, Object.Vector Up, Object.Vector Forward, float Size, int Degrees, int ArcDegreesResolution, byte R, byte G, byte B, /*optional */bool? _bUseDistanceMarker = default, /*optional */bool? _bPersistentLines = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execChartData(FFrame&, void* const)
 	public virtual /*native final function */void ChartData(String DataName, float DataValue)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execSetHidden(FFrame&, void* const)
 	public virtual /*native final function */void SetHidden(bool bNewHidden)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execSetOnlyOwnerSee(FFrame&, void* const)
 	public virtual /*native final function */void SetOnlyOwnerSee(bool bNewOnlyOwnerSee)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execSetPhysics(FFrame&, void* const)
 	public virtual /*native(3970) final function */void SetPhysics(Actor.EPhysics newPhysics)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execClock(FFrame&, void* const)
 	public virtual /*native final function */void Clock(ref float Time)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execUnClock(FFrame&, void* const)
 	public virtual /*native final function */void UnClock(ref float Time)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execAttachComponent(FFrame&, void* const)
 	public virtual /*native final function */void AttachComponent(ActorComponent NewComponent)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execDetachComponent(FFrame&, void* const)
 	public virtual /*native final function */void DetachComponent(ActorComponent ExComponent)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execSetTickGroup(FFrame&, void* const)
 	public virtual /*native final function */void SetTickGroup(Object.ETickingGroup NewTickGroup)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*event */void Destroyed()
@@ -982,7 +982,7 @@ public partial class Actor : Object/*
 	// Export UActor::execClampRotation(FFrame&, void* const)
 	public virtual /*native final simulated function */bool ClampRotation(ref Object.Rotator out_Rot, Object.Rotator rBase, Object.Rotator rUpperLimits, Object.Rotator rLowerLimits)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -1024,62 +1024,62 @@ public partial class Actor : Object/*
 	// Export UActor::execTrace(FFrame&, void* const)
 	public virtual /*native(277) final function */Actor Trace(ref Object.Vector HitLocation, ref Object.Vector HitNormal, Object.Vector TraceEnd, /*optional */Object.Vector? _TraceStart/* = default*/, /*optional */bool? _bTraceActors/* = default*/, /*optional */Object.Vector? _Extent/* = default*/, /*optional */ref Actor.TraceHitInfo HitInfo/* = default*/, /*optional */int? _ExtraTraceFlags = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execTraceComponent(FFrame&, void* const)
 	public virtual /*native final function */bool TraceComponent(ref Object.Vector HitLocation, ref Object.Vector HitNormal, PrimitiveComponent InComponent, Object.Vector TraceEnd, /*optional */Object.Vector? _TraceStart/* = default*/, /*optional */Object.Vector? _Extent/* = default*/, /*optional */ref Actor.TraceHitInfo HitInfo/* = default*/)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execPointCheckComponent(FFrame&, void* const)
 	public virtual /*native final function */bool PointCheckComponent(PrimitiveComponent InComponent, Object.Vector PointLocation, Object.Vector PointExtent)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execFastTrace(FFrame&, void* const)
 	public virtual /*native(548) final function */bool FastTrace(Object.Vector TraceEnd, /*optional */Object.Vector? _TraceStart = default, /*optional */Object.Vector? _BoxExtent = default, /*optional */bool? _bTraceBullet = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execFindSpot(FFrame&, void* const)
 	public virtual /*native final function */bool FindSpot(Object.Vector BoxExtent, ref Object.Vector SpotLocation)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execContainsPoint(FFrame&, void* const)
 	public virtual /*native final function */bool ContainsPoint(Object.Vector Spot)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execIsOverlapping(FFrame&, void* const)
 	public virtual /*native final function */bool IsOverlapping(Actor A)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execGetComponentsBoundingBox(FFrame&, void* const)
 	public virtual /*native final function */void GetComponentsBoundingBox(ref Object.Box ActorBox)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execGetBoundingCylinder(FFrame&, void* const)
 	public virtual /*native function */void GetBoundingCylinder(ref float CollisionRadius, ref float CollisionHeight)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*event */void TornOff()
@@ -1090,73 +1090,73 @@ public partial class Actor : Object/*
 	// Export UActor::execSetTimer(FFrame&, void* const)
 	public virtual /*native(280) final function */void SetTimer(float InRate, /*optional */bool? _inbLoop = default, /*optional */name? _inTimerFunc = default, /*optional */Object? _inObj = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execClearTimer(FFrame&, void* const)
 	public virtual /*native final function */void ClearTimer(/*optional */name? _inTimerFunc = default, /*optional */Object? _inObj = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execIsTimerActive(FFrame&, void* const)
 	public virtual /*native final function */bool IsTimerActive(/*optional */name? _inTimerFunc = default, /*optional */Object? _inObj = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execGetTimerCount(FFrame&, void* const)
 	public virtual /*native final function */float GetTimerCount(/*optional */name? _inTimerFunc = default, /*optional */Object? _inObj = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execGetTimerRate(FFrame&, void* const)
 	public virtual /*native final function */float GetTimerRate(/*optional */name? _TimerFuncName = default, /*optional */Object? _inObj = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execCreateAudioComponent(FFrame&, void* const)
 	public virtual /*native final function */AudioComponent CreateAudioComponent(SoundCue InSoundCue, /*optional */bool? _bPlay = default, /*optional */bool? _bStopWhenOwnerDestroyed = default, /*optional */bool? _bUseLocation = default, /*optional */Object.Vector? _SourceLocation = default, /*optional */bool? _bAttachToSelf = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execPlaySound(FFrame&, void* const)
 	public virtual /*native final function */void PlaySound(SoundCue InSoundCue, /*optional */bool? _bNotReplicated = default, /*optional */bool? _bNoRepToOwner = default, /*optional */bool? _bStopWhenOwnerDestroyed = default, /*optional */Object.Vector? _SoundLocation = default, /*optional */bool? _bNoRepToRelevant = default, /*optional */bool? _bPlayOnSelf = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execMakeNoise(FFrame&, void* const)
 	public virtual /*native(512) final function */void MakeNoise(float Loudness, /*optional */name? _NoiseType = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execPlayerCanSeeMe(FFrame&, void* const)
 	public virtual /*native(532) final function */bool PlayerCanSeeMe()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execSuggestTossVelocity(FFrame&, void* const)
 	public virtual /*native final function */bool SuggestTossVelocity(ref Object.Vector TossVelocity, Object.Vector Destination, Object.Vector Start, float TossSpeed, /*optional */float? _BaseTossZ = default, /*optional */float? _DesiredZPct = default, /*optional */Object.Vector? _CollisionSize = default, /*optional */float? _TerminalVelocity = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UActor::execGetDestination(FFrame&, void* const)
 	public virtual /*native final function */Object.Vector GetDestination(Controller C)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -1174,98 +1174,98 @@ public partial class Actor : Object/*
 	// Export UActor::execGetURLMap(FFrame&, void* const)
 	public virtual /*native(547) final function */String GetURLMap()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	//// Export UActor::execAllActors(FFrame&, void* const)
 	//public virtual /*native(304) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> AllActors(Core.ClassT<Actor> BaseClass)
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execDynamicActors(FFrame&, void* const)
 	//public virtual /*native(313) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> DynamicActors(Core.ClassT<Actor> BaseClass)
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execChildActors(FFrame&, void* const)
 	//public virtual /*native(305) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> ChildActors(Core.ClassT<Actor> BaseClass)
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execBasedActors(FFrame&, void* const)
 	//public virtual /*native(306) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> BasedActors(Core.ClassT<Actor> BaseClass)
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execTouchingActors(FFrame&, void* const)
 	//public virtual /*native(307) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> TouchingActors(Core.ClassT<Actor> BaseClass)
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execTraceActors(FFrame&, void* const)
 	//public virtual /*native(309) final iterator function */System.Collections.Generic.IEnumerable<(Actor/* Actor*/,Object.Vector/* HitLoc*/,Object.Vector/* HitNorm*/,Actor.TraceHitInfo/* HitInfo*/)> TraceActors(Core.ClassT<Actor> BaseClass, Object.Vector End, /*optional */Object.Vector? _Start/* = default*/, /*optional */Object.Vector? _Extent/* = default*/, /*optional */int? _ExtraTraceFlags = default)
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execVisibleActors(FFrame&, void* const)
 	//public virtual /*native(311) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> VisibleActors(Core.ClassT<Actor> BaseClass, /*optional */float? _Radius = default, /*optional */Object.Vector? _Loc = default)
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execVisibleCollidingActors(FFrame&, void* const)
 	//public virtual /*native(312) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> VisibleCollidingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector? _Loc = default, /*optional */bool? _bIgnoreHidden = default)
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execCollidingActors(FFrame&, void* const)
 	//public virtual /*native(321) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> CollidingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector? _Loc = default, /*optional */bool? _bUseOverlapCheck = default)
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execOverlappingActors(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Actor/* out_Actor*/> OverlappingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector? _Loc = default, /*optional */bool? _bIgnoreHidden = default)
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execComponentList(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<ActorComponent/* out_Component*/> ComponentList(Class BaseClass)
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execAllOwnedComponents(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<ActorComponent/* OutComponent*/> AllOwnedComponents(Core.ClassT<Component> BaseClass)
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execLocalPlayerControllers(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<PlayerController/* PC*/> LocalPlayerControllers(Core.ClassT<PlayerController> BaseClass)
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	yield break;
 	//}
 	
@@ -2010,7 +2010,7 @@ public partial class Actor : Object/*
 	// Export UActor::execSetNetUpdateTime(FFrame&, void* const)
 	public virtual /*native final function */void SetNetUpdateTime(float NewUpdateTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*simulated event */void ShutDown()
@@ -2320,7 +2320,7 @@ public partial class Actor : Object/*
 	// Export UActor::execIsPlayerOwned(FFrame&, void* const)
 	public virtual /*native simulated function */bool IsPlayerOwned()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -2332,7 +2332,7 @@ public partial class Actor : Object/*
 	// Export UActor::execGetTeamNum(FFrame&, void* const)
 	public virtual /*native simulated function */byte GetTeamNum()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -2359,7 +2359,7 @@ public partial class Actor : Object/*
 	// Export UActor::execGetTargetLocation(FFrame&, void* const)
 	public virtual /*native simulated function */Object.Vector GetTargetLocation(/*optional */Actor? _RequestedBy = default, /*optional */bool? _bRequestAlternateLoc = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -2404,13 +2404,13 @@ public partial class Actor : Object/*
 	// Export UActor::execSetHUDLocation(FFrame&, void* const)
 	public virtual /*native simulated function */void SetHUDLocation(Object.Vector NewHUDLocation)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UActor::execNativePostRenderFor(FFrame&, void* const)
 	public virtual /*native simulated function */void NativePostRenderFor(PlayerController PC, Canvas Canvas, Object.Vector CameraPosition, Object.Vector CameraDir)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*simulated event */void PostRenderFor(PlayerController PC, Canvas Canvas, Object.Vector CameraPosition, Object.Vector CameraDir)
@@ -2436,7 +2436,7 @@ public partial class Actor : Object/*
 	// Export UActor::execGetPackageGuid(FFrame&, void* const)
 	public /*native final function */static Object.Guid GetPackageGuid(name PackageName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

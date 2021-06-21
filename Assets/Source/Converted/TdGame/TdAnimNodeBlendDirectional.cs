@@ -13,7 +13,7 @@ public partial class TdAnimNodeBlendDirectional : AnimNodeBlendBase/*
 	// Export UTdAnimNodeBlendDirectional::execUpdateDirection(FFrame&, void* const)
 	public virtual /*native function */void UpdateDirection(float DeltaSeconds)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public override /*event */void OnBecomeRelevant()

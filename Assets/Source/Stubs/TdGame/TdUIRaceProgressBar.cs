@@ -29,7 +29,7 @@ public partial class TdUIRaceProgressBar : TdUIObject/*
 	// Export UTdUIRaceProgressBar::execUpdateSectionData(FFrame&, void* const)
 	public virtual /*private native final function */void UpdateSectionData()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

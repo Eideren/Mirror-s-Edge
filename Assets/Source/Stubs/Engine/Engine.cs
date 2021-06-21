@@ -196,7 +196,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetCurrentWorldInfo(FFrame&, void* const)
 	public /*native final function */static WorldInfo GetCurrentWorldInfo()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -204,7 +204,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetTinyFont(FFrame&, void* const)
 	public /*native final function */static Font GetTinyFont()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -212,7 +212,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetSmallFont(FFrame&, void* const)
 	public /*native final function */static Font GetSmallFont()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -220,7 +220,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetMediumFont(FFrame&, void* const)
 	public /*native final function */static Font GetMediumFont()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -228,7 +228,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetLargeFont(FFrame&, void* const)
 	public /*native final function */static Font GetLargeFont()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -236,7 +236,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetAdditionalFont(FFrame&, void* const)
 	public /*native final function */static Font GetAdditionalFont(int AdditionalFontIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -244,7 +244,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execIsSplitScreen(FFrame&, void* const)
 	public /*native final function */static bool IsSplitScreen()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -252,7 +252,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetAudioDevice(FFrame&, void* const)
 	public /*native final function */static AudioDevice GetAudioDevice()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -260,7 +260,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetLastMovieName(FFrame&, void* const)
 	public /*native final function */static String GetLastMovieName()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -268,7 +268,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execPlayLoadMapMovie(FFrame&, void* const)
 	public /*native final function */static bool PlayLoadMapMovie()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -276,28 +276,28 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execStopMovie(FFrame&, void* const)
 	public /*native final function */static void StopMovie(bool bDelayStopUntilGameHasRendered)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UEngine::execRemoveAllOverlays(FFrame&, void* const)
 	public /*native final function */static void RemoveAllOverlays()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UEngine::execAddOverlay(FFrame&, void* const)
 	public /*native final function */static void AddOverlay(Font Font, String Text, float X, float Y, float ScaleX, float ScaleY, bool bIsCentered, /*optional */ref Object.LinearColor TextColor/* = default*/)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UEngine::execAddOverlayWrapped(FFrame&, void* const)
 	public /*native final function */static void AddOverlayWrapped(Font Font, String Text, float X, float Y, float ScaleX, float ScaleY, float WrapWidth, /*optional */ref Object.LinearColor TextColor/* = default*/)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

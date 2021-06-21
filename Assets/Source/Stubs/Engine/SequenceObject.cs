@@ -25,14 +25,14 @@ public partial class SequenceObject : Object/*
 	// Export USequenceObject::execScriptLog(FFrame&, void* const)
 	public virtual /*native final function */void ScriptLog(String LogText, /*optional */bool? _bWarning = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export USequenceObject::execGetWorldInfo(FFrame&, void* const)
 	public virtual /*native final function */WorldInfo GetWorldInfo()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

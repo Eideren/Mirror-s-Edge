@@ -45,7 +45,7 @@ public partial class Interaction : UIRoot/*
 	// Export UInteraction::execInit(FFrame&, void* const)
 	public virtual /*native final function */void Init()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public delegate void OnInitialize();

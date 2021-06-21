@@ -57,13 +57,13 @@ public partial class Input : Interaction/*
 	// Export UInput::execResetInput(FFrame&, void* const)
 	public virtual /*native function */void ResetInput()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UInput::execGetBind(FFrame&, void* const)
 	public virtual /*native function */String GetBind(name Key)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

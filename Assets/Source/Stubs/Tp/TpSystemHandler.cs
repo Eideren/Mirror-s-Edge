@@ -10,14 +10,14 @@ public partial class TpSystemHandler : Object/*
 	// Export UTpSystemHandler::execInitializeNative(FFrame&, void* const)
 	public virtual /*private native final simulated function */void InitializeNative()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTpSystemHandler::execFinalizeNative(FFrame&, void* const)
 	public virtual /*private native final simulated function */void FinalizeNative()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

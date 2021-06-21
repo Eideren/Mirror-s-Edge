@@ -85,7 +85,7 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 	// Export UTdMove_Barge::execFindAdditionalTargets(FFrame&, void* const)
 	public virtual /*native function */void FindAdditionalTargets(Object.Vector StartTrace, Object.Vector EndTrace, Actor IgnoreActor, ref array<TdMove_Barge.BargeHitInfo> ImpactList)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*simulated function */void CalcBargeDamage(Object.Vector StartTrace, Object.Vector EndTrace, ref array<TdMove_Barge.BargeHitInfo> ImpactList)

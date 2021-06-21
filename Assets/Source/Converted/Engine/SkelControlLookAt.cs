@@ -51,13 +51,13 @@ public partial class SkelControlLookAt : SkelControlBase/*
 	// Export USkelControlLookAt::execSetLookAtAlpha(FFrame&, void* const)
 	public virtual /*native final function */void SetLookAtAlpha(float DesiredAlpha, float DesiredBlendTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export USkelControlLookAt::execCanLookAtPoint(FFrame&, void* const)
 	public virtual /*native final function */bool CanLookAtPoint(Object.Vector PointLoc, /*optional */bool? _bDrawDebugInfo = default, /*optional */bool? _bDebugUsePersistentLines = default, /*optional */bool? _bDebugFlushLinesFirst = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

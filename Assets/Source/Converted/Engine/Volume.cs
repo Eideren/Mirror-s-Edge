@@ -15,7 +15,7 @@ public partial class Volume : Brush/*
 	// Export UVolume::execEncompasses(FFrame&, void* const)
 	public virtual /*native function */bool Encompasses(Actor Other)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

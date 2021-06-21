@@ -112,14 +112,14 @@ public partial class HUD : Actor/*
 	// Export UHUD::execDraw3DLine(FFrame&, void* const)
 	public virtual /*native final function */void Draw3DLine(Object.Vector Start, Object.Vector End, Object.Color LineColor)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UHUD::execDraw2DLine(FFrame&, void* const)
 	public virtual /*native final function */void Draw2DLine(int X1, int Y1, int X2, int Y2, Object.Color LineColor)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

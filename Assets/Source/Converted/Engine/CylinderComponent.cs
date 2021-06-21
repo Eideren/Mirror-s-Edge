@@ -15,7 +15,7 @@ public partial class CylinderComponent : PrimitiveComponent/*
 	// Export UCylinderComponent::execSetCylinderSize(FFrame&, void* const)
 	public virtual /*native final function */void SetCylinderSize(float NewRadius, float NewHeight)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public CylinderComponent()

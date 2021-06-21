@@ -34,7 +34,7 @@ public partial class UIScrollbar : UIObject/*
 	// Export UUIScrollbar::execGetMarkerButtonPosition(FFrame&, void* const)
 	public virtual /*native final function */float GetMarkerButtonPosition()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -42,7 +42,7 @@ public partial class UIScrollbar : UIObject/*
 	// Export UUIScrollbar::execGetScrollZoneExtent(FFrame&, void* const)
 	public virtual /*native final function */float GetScrollZoneExtent(/*optional */ref float ScrollZoneStart/* = default*/)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -50,7 +50,7 @@ public partial class UIScrollbar : UIObject/*
 	// Export UUIScrollbar::execGetScrollZoneWidth(FFrame&, void* const)
 	public virtual /*native final function */float GetScrollZoneWidth()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -58,70 +58,70 @@ public partial class UIScrollbar : UIObject/*
 	// Export UUIScrollbar::execSetMarkerSize(FFrame&, void* const)
 	public virtual /*native final function */void SetMarkerSize(float SizePercentage)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScrollbar::execSetMarkerPosition(FFrame&, void* const)
 	public virtual /*native final function */void SetMarkerPosition(float PositionPercentage)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScrollbar::execSetNudgeSizePercent(FFrame&, void* const)
 	public virtual /*native final function */void SetNudgeSizePercent(float NudgePercentage)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScrollbar::execSetNudgeSizePixels(FFrame&, void* const)
 	public virtual /*native final function */void SetNudgeSizePixels(float NudgePixels)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScrollbar::execEnableCornerPadding(FFrame&, void* const)
 	public virtual /*native final function */void EnableCornerPadding(bool FlagValue)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScrollbar::execScrollIncrement(FFrame&, void* const)
 	public virtual /*native final function */void ScrollIncrement(UIScreenObject Sender, int PlayerIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScrollbar::execScrollDecrement(FFrame&, void* const)
 	public virtual /*native final function */void ScrollDecrement(UIScreenObject Sender, int PlayerIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScrollbar::execDragScrollBegin(FFrame&, void* const)
 	public virtual /*native final function */void DragScrollBegin(UIScreenObject Sender, int PlayerIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScrollbar::execDragScrollEnd(FFrame&, void* const)
 	public virtual /*native final function */void DragScrollEnd(UIScreenObject Sender, int PlayerIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScrollbar::execDragScroll(FFrame&, void* const)
 	public virtual /*native final function */void DragScroll(UIScrollbarMarkerButton Sender, int PlayerIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

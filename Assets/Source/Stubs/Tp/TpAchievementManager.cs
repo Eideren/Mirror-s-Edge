@@ -29,7 +29,7 @@ public partial class TpAchievementManager : TpSystemHandler/*
 	// Export UTpAchievementManager::execGrantAward(FFrame&, void* const)
 	public virtual /*native simulated function */void GrantAward(ref TpAchievementManager.AchBind Award)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -38,7 +38,7 @@ public partial class TpAchievementManager : TpSystemHandler/*
 	// Export UTpAchievementManager::execShowXBOXAchievementsUI(FFrame&, void* const)
 	public virtual /*native simulated function */bool ShowXBOXAchievementsUI(byte LocalUserNum)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

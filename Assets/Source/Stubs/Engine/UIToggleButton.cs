@@ -12,7 +12,7 @@ public partial class UIToggleButton : UILabelButton/*
 	// Export UUIToggleButton::execSetCaption(FFrame&, void* const)
 	public override /*native function */void SetCaption(String NewText)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -25,7 +25,7 @@ public partial class UIToggleButton : UILabelButton/*
 	// Export UUIToggleButton::execSetValue(FFrame&, void* const)
 	public virtual /*native final function */void SetValue(bool bShouldBeChecked, /*optional */int? _PlayerIndex = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

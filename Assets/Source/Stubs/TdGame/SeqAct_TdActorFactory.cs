@@ -39,7 +39,7 @@ public partial class SeqAct_TdActorFactory : SeqAct_ActorFactoryEx/*
 	// Export USeqAct_TdActorFactory::execEveryoneDied(FFrame&, void* const)
 	public virtual /*native function */void EveryoneDied()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

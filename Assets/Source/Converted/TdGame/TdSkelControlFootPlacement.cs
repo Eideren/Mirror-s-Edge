@@ -27,7 +27,7 @@ public partial class TdSkelControlFootPlacement : SkelControlLimb/*
 	// Export UTdSkelControlFootPlacement::execOnSkelControlActive(FFrame&, void* const)
 	public virtual /*native final function */void OnSkelControlActive()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public TdSkelControlFootPlacement()

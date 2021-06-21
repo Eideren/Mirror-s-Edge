@@ -52,13 +52,13 @@ public partial class AnimNodeBlendBase : AnimNode/*
 	// Export UAnimNodeBlendBase::execPlayAnim(FFrame&, void* const)
 	public override /*native function */void PlayAnim(/*optional */bool? _bLoop = default, /*optional */float? _Rate = default, /*optional */float? _StartTime = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UAnimNodeBlendBase::execStopAnim(FFrame&, void* const)
 	public override /*native function */void StopAnim()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 }

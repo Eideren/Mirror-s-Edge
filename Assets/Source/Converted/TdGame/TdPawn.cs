@@ -676,52 +676,52 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execGetWalkAcceleration(FFrame&, void* const)
 	public virtual /*native function */Object.Vector GetWalkAcceleration(float aForward, float aStrafe, int DeltaRotation, float DeltaTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdPawn::execGetSprintAcceleration(FFrame&, void* const)
 	public virtual /*native function */Object.Vector GetSprintAcceleration(float aForward, float aStrafe, int DeltaRotation, float DeltaTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdPawn::execSyncLegMovement(FFrame&, void* const)
 	public virtual /*native function */void SyncLegMovement()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UTdPawn::execGetMobilityMultiplier(FFrame&, void* const)
 	public virtual /*native function */float GetMobilityMultiplier()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdPawn::execOffsetMeshXY(FFrame&, void* const)
 	public virtual /*native function */void OffsetMeshXY(Object.Vector Offset, /*optional */bool? _bWorldSpace = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UTdPawn::execOffsetMeshZ(FFrame&, void* const)
 	public virtual /*native function */void OffsetMeshZ(float OffsetZ)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UTdPawn::execSetTargetMeshZ(FFrame&, void* const)
 	public virtual /*native function */void SetTargetMeshZ(float OffsetZ, bool bForceSet)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UTdPawn::execUpdateLegToWorldMatrix(FFrame&, void* const)
 	public virtual /*native function */void UpdateLegToWorldMatrix(int Yaw)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*function */void SetDifficultyLevel(int Difficulty)
@@ -732,7 +732,7 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execSetArmorDifficultyLevel(FFrame&, void* const)
 	public virtual /*protected native function */void SetArmorDifficultyLevel(int Difficulty)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public override /*simulated event */void PreBeginPlay()
@@ -890,7 +890,7 @@ public partial class TdPawn : GamePawn/*
 	//// Export UTdPawn::execInitMoveObjects(FFrame&, void* const)
 	//public virtual /*native function */void InitMoveObjects()
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//}
 	
 	public virtual /*function */void OnTutorialEvent(int TutorialEvent)
@@ -985,14 +985,14 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execIsInMove(FFrame&, void* const)
 	public virtual /*native function */bool IsInMove(TdPawn.EMovement Move)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdPawn::execGetMove(FFrame&, void* const)
 	public virtual /*native function */TdPawn.EMovement GetMove()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -1045,7 +1045,7 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execUpdateWalkingState(FFrame&, void* const)
 	public virtual /*native simulated function */void UpdateWalkingState()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*simulated function */void SetOverrideWalkingState(TdPawn.WalkingState NewState, /*optional */float? _delay = default)
@@ -1480,7 +1480,7 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execCanDropWeapon(FFrame&, void* const)
 	public virtual /*native function */bool CanDropWeapon()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -1619,7 +1619,7 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execGetCameraAnimation(FFrame&, void* const)
 	public virtual /*native final function */void GetCameraAnimation(ref Object.Vector out_Location, ref Object.Rotator out_Rotation)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*event */bool AddCameraDeltaAnimations()
@@ -2610,13 +2610,13 @@ public partial class TdPawn : GamePawn/*
 	public virtual RegenerateHealth_del global_RegenerateHealth => TdPawn_RegenerateHealth;
 	public /*native function */void TdPawn_RegenerateHealth(float DeltaTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UTdPawn::execUpdateVelocityVariables(FFrame&, void* const)
 	public virtual /*native simulated function */void UpdateVelocityVariables()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public override Tick_del Tick { get => bfield_Tick ?? TdPawn_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
@@ -3363,21 +3363,21 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execGetAIAimingPenalty(FFrame&, void* const)
 	public virtual /*native function */float GetAIAimingPenalty()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdPawn::execGetAIAimingOneShotPenalty(FFrame&, void* const)
 	public virtual /*native function */float GetAIAimingOneShotPenalty()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdPawn::execGetAIAimingOneShotPenaltySniper(FFrame&, void* const)
 	public virtual /*native function */float GetAIAimingOneShotPenaltySniper()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -3429,7 +3429,7 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execGetWeaponType(FFrame&, void* const)
 	public virtual /*native final simulated function */TdPawn.EWeaponType GetWeaponType()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -3598,7 +3598,7 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execSetRootOffset(FFrame&, void* const)
 	public virtual /*native simulated function */void SetRootOffset(Object.Vector Offset, float BlendTime, /*optional */SkelControlBase.EBoneControlSpace? _TranslationSpace = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*simulated function */void SetHipsOffset(Object.Vector Offset, /*optional */float? _BlendTime = default, /*optional */bool? _bFirstPersonMeshOnly = default)
@@ -3610,7 +3610,7 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execStopAllCustomAnimations(FFrame&, void* const)
 	public virtual /*native simulated function */void StopAllCustomAnimations(float BlendOutTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UTdPawn::execStopCustomAnim(FFrame&, void* const)
@@ -3619,7 +3619,7 @@ public partial class TdPawn : GamePawn/*
 	public virtual StopCustomAnim_del global_StopCustomAnim => TdPawn_StopCustomAnim;
 	public /*native simulated function */void TdPawn_StopCustomAnim(TdPawn.CustomNodeType Type, float BlendOutTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*simulated function */void PlayReplicatedCustomAnim()
@@ -3630,33 +3630,33 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execReplicateCustomAnim(FFrame&, void* const)
 	public virtual /*native function */void ReplicateCustomAnim(TdPawn.CustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool? _bRootRotation = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UTdPawn::execGetCustomAnimation(FFrame&, void* const)
 	public virtual /*native simulated function */AnimNodeSequence GetCustomAnimation(TdPawn.CustomNodeType Type)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdPawn::execPlayCustomAnim(FFrame&, void* const)
 	public virtual /*native simulated function */void PlayCustomAnim(TdPawn.CustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool? _bRootRotation = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UTdPawn::execPlayCustomAnimInternal(FFrame&, void* const)
 	public virtual /*native simulated function */bool PlayCustomAnimInternal(TdAnimNodeSlot Node, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool? _bRootRotation = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdPawn::execSetCustomAnimsBlendOutTime(FFrame&, void* const)
 	public virtual /*native simulated function */void SetCustomAnimsBlendOutTime(TdPawn.CustomNodeType Type, float BlendOutTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*simulated function */void OnPlayFaceFXAnim(SeqAct_PlayFaceFXAnim Action)
@@ -3751,7 +3751,7 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execGetAimMode(FFrame&, void* const)
 	public virtual /*native final function */TdPawn.MoveAimMode GetAimMode(bool bAimingOnly)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -3874,7 +3874,7 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execGetAverageSpeed(FFrame&, void* const)
 	/*public virtual native function float GetAverageSpeed(float Time)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}*/
 	
@@ -3946,7 +3946,7 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execOkToInteract(FFrame&, void* const)
 	public virtual /*native final function */bool OkToInteract()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

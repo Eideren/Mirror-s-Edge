@@ -28,7 +28,7 @@ public partial class TdAnimNodeRandom : TdAnimNodeBlendList/*
 	// Export UTdAnimNodeRandom::execChooseNextAnimation(FFrame&, void* const)
 	public virtual /*native function */void ChooseNextAnimation()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public override /*event */void OnBecomeRelevant()

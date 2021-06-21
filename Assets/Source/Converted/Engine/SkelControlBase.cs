@@ -41,13 +41,13 @@ public partial class SkelControlBase : Object/*
 	// Export USkelControlBase::execSetSkelControlActive(FFrame&, void* const)
 	public virtual /*native final function */void SetSkelControlActive(bool bInActive)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export USkelControlBase::execSetSkelControlStrength(FFrame&, void* const)
 	public virtual /*native final function */void SetSkelControlStrength(float NewStrength, float InBlendTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public SkelControlBase()

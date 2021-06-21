@@ -22,7 +22,7 @@ public partial class TdMove_BotJump : TdPhysicsMove/*
 	// Export UTdMove_BotJump::execGetPreciseLandingLocation(FFrame&, void* const)
 	public virtual /*native function */Object.Vector GetPreciseLandingLocation()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

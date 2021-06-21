@@ -15,27 +15,27 @@ public partial class TdAnimNodeState : TdAnimNodeBlendList/*
 	// Export UTdAnimNodeState::execSetActiveMove(FFrame&, void* const)
 	public override /*native function */bool SetActiveMove(int ChildIndex, /*optional */bool? _ForceActive = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdAnimNodeState::execUpdateChildNames(FFrame&, void* const)
 	public virtual /*native function */void UpdateChildNames()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UTdAnimNodeState::execGetActiveState(FFrame&, void* const)
 	public virtual /*native function */int GetActiveState()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdAnimNodeState::execGetBlendValue(FFrame&, void* const)
 	public virtual /*native function */float GetBlendValue(int PreviousState, int NewState)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -53,7 +53,7 @@ public partial class TdAnimNodeState : TdAnimNodeBlendList/*
 	// Export UTdAnimNodeState::execGetState(FFrame&, void* const)
 	public virtual /*native simulated function */int GetState()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

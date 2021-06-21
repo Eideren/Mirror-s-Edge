@@ -17,14 +17,14 @@ public partial class TdConsole : Console/* within GameViewportClient*//*
 	// Export UTdConsole::execInitKeyStrings(FFrame&, void* const)
 	public virtual /*native function */void InitKeyStrings()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdConsole::execFindKeyWord(FFrame&, void* const)
 	public virtual /*native function */bool FindKeyWord(String Str, ref String KeyWord, ref int Index)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

@@ -81,7 +81,7 @@ public partial class UIDataProvider : UIRoot/*
 	// Export UUIDataProvider::execGetFieldValueFromScript(FFrame&, void* const)
 	public virtual /*native function */bool GetFieldValueFromScript(String FieldName, ref UIRoot.UIProviderFieldValue FieldValue, /*optional */int? _ArrayIndex = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

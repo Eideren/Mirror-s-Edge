@@ -89,7 +89,7 @@ public partial class UIDataStore_TdTimeTrialData : UIDataStore_TdGameResource/*
 	// Export UUIDataStore_TdTimeTrialData::execGetStretchMapFilename(FFrame&, void* const)
 	public virtual /*native function */String GetStretchMapFilename(int ProviderIndex, name FieldName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -97,7 +97,7 @@ public partial class UIDataStore_TdTimeTrialData : UIDataStore_TdGameResource/*
 	// Export UUIDataStore_TdTimeTrialData::execGetStretchId(FFrame&, void* const)
 	public virtual /*native function */int GetStretchId(int ProviderIndex, name FieldName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -105,7 +105,7 @@ public partial class UIDataStore_TdTimeTrialData : UIDataStore_TdGameResource/*
 	// Export UUIDataStore_TdTimeTrialData::execGetStretchIdFromName(FFrame&, void* const)
 	public virtual /*native function */int GetStretchIdFromName(name StretchName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -113,7 +113,7 @@ public partial class UIDataStore_TdTimeTrialData : UIDataStore_TdGameResource/*
 	// Export UUIDataStore_TdTimeTrialData::execGetStretchProviderIndexFromId(FFrame&, void* const)
 	public virtual /*native function */int GetStretchProviderIndexFromId(int StretchId, name FieldName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

@@ -13,7 +13,7 @@ public partial class TdPathLimits : Info/*
 	// Export UTdPathLimits::execContains(FFrame&, void* const)
 	public virtual /*native function */bool Contains(Object.Vector TestLocation)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

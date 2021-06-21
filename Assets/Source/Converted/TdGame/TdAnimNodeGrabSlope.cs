@@ -7,7 +7,7 @@ public partial class TdAnimNodeGrabSlope : TdAnimNodeBlendList/*
 	// Export UTdAnimNodeGrabSlope::execUpdateWeights(FFrame&, void* const)
 	public virtual /*native function */void UpdateWeights()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public override /*event */void OnBecomeRelevant()

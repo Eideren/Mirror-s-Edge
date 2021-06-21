@@ -17,14 +17,14 @@ public partial class TpMessageService : TpSystemHandler/*
 	// Export UTpMessageService::execUpdate(FFrame&, void* const)
 	public virtual /*native simulated function */void Update(float DeltaSeconds)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTpMessageService::execCheckInboxAsync(FFrame&, void* const)
 	public virtual /*native simulated function */bool CheckInboxAsync()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -34,7 +34,7 @@ public partial class TpMessageService : TpSystemHandler/*
 	// Export UTpMessageService::execFriendRequestAsync(FFrame&, void* const)
 	public virtual /*native simulated function */bool FriendRequestAsync(OnlineSubsystem.UniqueNetId NewFriend, /*optional */String? _Message = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -42,7 +42,7 @@ public partial class TpMessageService : TpSystemHandler/*
 	// Export UTpMessageService::execFriendResponse(FFrame&, void* const)
 	public virtual /*native simulated function */bool FriendResponse(OnlineSubsystem.UniqueNetId NewFriend)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -56,7 +56,7 @@ public partial class TpMessageService : TpSystemHandler/*
 	// Export UTpMessageService::execSendMessageAsync(FFrame&, void* const)
 	public virtual /*native simulated function */bool SendMessageAsync(OnlineSubsystem.UniqueNetId PlayerId, String Message)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -66,14 +66,14 @@ public partial class TpMessageService : TpSystemHandler/*
 	// Export UTpMessageService::execGetFriendMessages(FFrame&, void* const)
 	public virtual /*native simulated function */void GetFriendMessages(ref array<OnlineSubsystem.OnlineFriendMessage> FriendMessages)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTpMessageService::execRemoveMessage(FFrame&, void* const)
 	public virtual /*native simulated function */bool RemoveMessage(int MessageIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -83,7 +83,7 @@ public partial class TpMessageService : TpSystemHandler/*
 	// Export UTpMessageService::execPlayGroupInviteAsync(FFrame&, void* const)
 	public virtual /*native simulated function */bool PlayGroupInviteAsync(OnlineSubsystem.UniqueNetId User)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -95,7 +95,7 @@ public partial class TpMessageService : TpSystemHandler/*
 	// Export UTpMessageService::execInviteToPlayGroupResponse(FFrame&, void* const)
 	public virtual /*native simulated function */bool InviteToPlayGroupResponse(OnlineSubsystem.UniqueNetId RequestingPlayer)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

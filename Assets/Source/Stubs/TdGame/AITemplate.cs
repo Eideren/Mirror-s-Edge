@@ -151,7 +151,7 @@ public partial class AITemplate : Object/*
 	// Export UAITemplate::execGetClassFromName(FFrame&, void* const)
 	public virtual /*native final function */Class GetClassFromName(String TheClassName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

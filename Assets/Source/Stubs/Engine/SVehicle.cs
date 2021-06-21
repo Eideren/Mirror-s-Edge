@@ -125,7 +125,7 @@ public partial class SVehicle : Vehicle/*
 	// Export USVehicle::execSetWheelCollision(FFrame&, void* const)
 	public virtual /*native final function */void SetWheelCollision(int WheelNum, bool bCollision)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -162,7 +162,7 @@ public partial class SVehicle : Vehicle/*
 	// Export USVehicle::execInitVehicleRagdoll(FFrame&, void* const)
 	public virtual /*native function */void InitVehicleRagdoll(SkeletalMesh RagdollMesh, PhysicsAsset RagdollPhysAsset, Object.Vector ActorMove)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -200,7 +200,7 @@ public partial class SVehicle : Vehicle/*
 	// Export USVehicle::execHasWheelsOnGround(FFrame&, void* const)
 	public virtual /*native simulated function */bool HasWheelsOnGround()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

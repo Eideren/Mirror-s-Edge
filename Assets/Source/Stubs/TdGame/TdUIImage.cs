@@ -14,14 +14,14 @@ public partial class TdUIImage : TdUIObject/*
 	// Export UTdUIImage::execSetImage(FFrame&, void* const)
 	public virtual /*native function */void SetImage(Surface _newImage, /*optional */UIRoot.TextureCoordinates? __newCoordinates = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdUIImage::execSetScale(FFrame&, void* const)
 	public virtual /*native function */void SetScale(float _newScale)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

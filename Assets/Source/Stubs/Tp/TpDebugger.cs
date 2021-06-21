@@ -9,28 +9,28 @@ public partial class TpDebugger : Object/*
 	// Export UTpDebugger::execRegister(FFrame&, void* const)
 	public /*native simulated function */static void Register(Object InObject)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTpDebugger::execStateChanged(FFrame&, void* const)
 	public /*native simulated function */static void StateChanged(Object InObject)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTpDebugger::execStateFaulted(FFrame&, void* const)
 	public /*native simulated function */static void StateFaulted(Object InObject, String InWhere)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTpDebugger::execLog(FFrame&, void* const)
 	public /*native simulated function */static void Log(String Str)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

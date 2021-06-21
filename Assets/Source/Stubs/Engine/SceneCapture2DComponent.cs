@@ -15,14 +15,14 @@ public partial class SceneCapture2DComponent : SceneCaptureComponent/*
 	// Export USceneCapture2DComponent::execSetCaptureParameters(FFrame&, void* const)
 	public virtual /*native final function */void SetCaptureParameters(/*optional */TextureRenderTarget2D? _NewTextureTarget = default, /*optional */float? _NewFOV = default, /*optional */float? _NewNearPlane = default, /*optional */float? _NewFarPlane = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export USceneCapture2DComponent::execSetView(FFrame&, void* const)
 	public virtual /*native final function */void SetView(Object.Vector NewLocation, Object.Rotator NewRotation)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

@@ -6,14 +6,14 @@ public partial class TdDebugOutput : Object/*
 	// Export UTdDebugOutput::execDrawGraph(FFrame&, void* const)
 	public /*native final function */static void DrawGraph(Canvas C)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdDebugOutput::execAddGraphValue(FFrame&, void* const)
 	public /*native final function */static void AddGraphValue(name graph, float Val, /*optional */float? _DisplayValue = default, /*optional */bool? _bDisplayValue = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

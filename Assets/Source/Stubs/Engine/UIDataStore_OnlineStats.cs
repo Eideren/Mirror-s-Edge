@@ -85,7 +85,7 @@ public partial class UIDataStore_OnlineStats : UIDataStore_Remote,
 	// Export UUIDataStore_OnlineStats::execSortResultsByRank(FFrame&, void* const)
 	public virtual /*native function */void SortResultsByRank()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

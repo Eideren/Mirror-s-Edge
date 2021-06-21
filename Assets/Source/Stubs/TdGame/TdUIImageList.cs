@@ -7,7 +7,7 @@ public partial class TdUIImageList : TdUIListBase/*
 	// Export UTdUIImageList::execGetRowHeight(FFrame&, void* const)
 	public override /*native function */float GetRowHeight(/*optional */int? _RowIndex = default, /*optional */bool? _bColHeader = default, /*optional */bool? _bReturnUnformattedValue = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

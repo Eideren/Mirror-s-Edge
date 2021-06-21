@@ -10,7 +10,7 @@ public partial class UIDataProvider_TdStringArray : UIDataProvider_TdSimpleEleme
 	// Export UUIDataProvider_TdStringArray::execGetElementCount(FFrame&, void* const)
 	public override /*native function */int GetElementCount()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

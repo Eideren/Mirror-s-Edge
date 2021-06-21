@@ -17,14 +17,14 @@ public partial class SessionSettingsProvider : UISettingsProvider/* within UIDat
 	// Export USessionSettingsProvider::execBindProviderClient(FFrame&, void* const)
 	public virtual /*native final function */bool BindProviderClient(Class DataSourceClass)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export USessionSettingsProvider::execUnbindProviderClient(FFrame&, void* const)
 	public virtual /*native final function */bool UnbindProviderClient()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

@@ -70,7 +70,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 	// Export UTdMove_Grab::execCheckWallLegPlacement(FFrame&, void* const)
 	public virtual /*native function */TdMove_Grab.EGrabType CheckWallLegPlacement()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -201,7 +201,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 	// Export UTdMove_Grab::execIsHangingFree(FFrame&, void* const)
 	public virtual /*native simulated function */bool IsHangingFree()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

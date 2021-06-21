@@ -33,7 +33,7 @@ public partial class TdFocusHandler : Object/* within TdAIController*//*
 	// Export UTdFocusHandler::execGetFocus(FFrame&, void* const)
 	public virtual /*native function */bool GetFocus(ref Object.Vector out_Focus)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -41,7 +41,7 @@ public partial class TdFocusHandler : Object/* within TdAIController*//*
 	// Export UTdFocusHandler::execGetFocusLocation(FFrame&, void* const)
 	public virtual /*native function */Object.Vector GetFocusLocation()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -49,7 +49,7 @@ public partial class TdFocusHandler : Object/* within TdAIController*//*
 	// Export UTdFocusHandler::execHasFocus(FFrame&, void* const)
 	public virtual /*native function */bool HasFocus()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

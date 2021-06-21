@@ -14,28 +14,28 @@ public partial class UILabel : UIObject,
 	// Export UUILabel::execSetValue(FFrame&, void* const)
 	public virtual /*native final function */void SetValue(String NewText)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUILabel::execSetTextAlignment(FFrame&, void* const)
 	public virtual /*native final function */void SetTextAlignment(UIRoot.EUIAlignment Horizontal, UIRoot.EUIAlignment Vertical)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUILabel::execSetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUILabel::execGetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -43,7 +43,7 @@ public partial class UILabel : UIObject,
 	// Export UUILabel::execRefreshSubscriberValue(FFrame&, void* const)
 	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -51,21 +51,21 @@ public partial class UILabel : UIObject,
 	// Export UUILabel::execNotifyDataStoreValueUpdated(FFrame&, void* const)
 	public virtual /*native final function */void NotifyDataStoreValueUpdated(UIDataStore SourceDataStore, bool bValuesInvalidated, name PropertyTag, UIDataProvider SourceProvider, int ArrayIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUILabel::execGetBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void GetBoundDataStores(ref array<UIDataStore> out_BoundDataStores)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUILabel::execClearBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void ClearBoundDataStores()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

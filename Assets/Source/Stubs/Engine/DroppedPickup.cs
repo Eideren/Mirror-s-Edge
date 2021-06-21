@@ -19,14 +19,14 @@ public partial class DroppedPickup : Actor/*
 	// Export UDroppedPickup::execAddToNavigation(FFrame&, void* const)
 	public virtual /*native final function */void AddToNavigation()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UDroppedPickup::execRemoveFromNavigation(FFrame&, void* const)
 	public virtual /*native final function */void RemoveFromNavigation()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

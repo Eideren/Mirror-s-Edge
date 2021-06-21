@@ -25,35 +25,35 @@ public partial class TdLadderVolume : TdMovementVolume/*
 	// Export UTdLadderVolume::execGetLadderLocation(FFrame&, void* const)
 	public virtual /*native simulated function */Object.Vector GetLadderLocation(int Index)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdLadderVolume::execGetClosestStep(FFrame&, void* const)
 	public virtual /*native simulated function */int GetClosestStep(float LocationZ)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdLadderVolume::execGetClosestStepUp(FFrame&, void* const)
 	public virtual /*native simulated function */int GetClosestStepUp(float LocationZ)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdLadderVolume::execGetClosestStepDown(FFrame&, void* const)
 	public virtual /*native simulated function */int GetClosestStepDown(float LocationZ)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UTdLadderVolume::execGetLastStep(FFrame&, void* const)
 	public virtual /*native simulated function */int GetLastStep()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

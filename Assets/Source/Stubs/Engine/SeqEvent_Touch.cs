@@ -14,7 +14,7 @@ public partial class SeqEvent_Touch : SequenceEvent/*
 	// Export USeqEvent_Touch::execCheckTouchActivate(FFrame&, void* const)
 	public virtual /*native final function */bool CheckTouchActivate(Actor InOriginator, Actor InInstigator, /*optional */bool? _bTest = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -22,7 +22,7 @@ public partial class SeqEvent_Touch : SequenceEvent/*
 	// Export USeqEvent_Touch::execCheckUnTouchActivate(FFrame&, void* const)
 	public virtual /*native final function */bool CheckUnTouchActivate(Actor InOriginator, Actor InInstigator, /*optional */bool? _bTest = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

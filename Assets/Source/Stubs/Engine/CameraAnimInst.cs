@@ -24,21 +24,21 @@ public partial class CameraAnimInst : Object/*
 	// Export UCameraAnimInst::execPlay(FFrame&, void* const)
 	public virtual /*native final function */void Play(CameraAnim Anim, Actor CamActor, float InRate, float InScale, float InBlendInTime, float InBlendOutTime, bool bInLoop, bool bRandomStartTime, /*optional */float? _Duration = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UCameraAnimInst::execAdvanceAnim(FFrame&, void* const)
 	public virtual /*native function */void AdvanceAnim(float DeltaTime, bool bJump)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UCameraAnimInst::execStop(FFrame&, void* const)
 	public virtual /*native final function */void Stop(/*optional */bool? _bImmediate = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

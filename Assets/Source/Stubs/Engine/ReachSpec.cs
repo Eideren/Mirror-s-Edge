@@ -27,7 +27,7 @@ public partial class ReachSpec : Object/*
 	// Export UReachSpec::execCostFor(FFrame&, void* const)
 	public virtual /*native final function */int CostFor(Pawn P)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

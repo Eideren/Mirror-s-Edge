@@ -16,7 +16,7 @@ public partial class TpGameManager : TpSystemHandler/*
 	// Export UTpGameManager::execNewCreateGameParams(FFrame&, void* const)
 	public virtual /*native simulated function */TpCreateGameParams NewCreateGameParams()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -24,14 +24,14 @@ public partial class TpGameManager : TpSystemHandler/*
 	// Export UTpGameManager::execCreateGameAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void CreateGameAsync(TpCreateGameParams InParams)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTpGameManager::execCreatePlayNowGameAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void CreatePlayNowGameAsync(TpGameBrowser.TpPlayNowCreateGameInfo Info)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -40,7 +40,7 @@ public partial class TpGameManager : TpSystemHandler/*
 	// Export UTpGameManager::execDestroyGameAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void DestroyGameAsync()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -49,7 +49,7 @@ public partial class TpGameManager : TpSystemHandler/*
 	// Export UTpGameManager::execStartGameAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void StartGameAsync()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -58,7 +58,7 @@ public partial class TpGameManager : TpSystemHandler/*
 	// Export UTpGameManager::execEndGameAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void EndGameAsync()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -67,14 +67,14 @@ public partial class TpGameManager : TpSystemHandler/*
 	// Export UTpGameManager::execJoinGameAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void JoinGameAsync(TpGameBrowser.TpLobbyRef InLobby, TpGameBrowser.TpGameRef InGame)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTpGameManager::execJoinPlayNowGameAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void JoinPlayNowGameAsync(TpGameBrowser.TpPlayNowJoinGameInfo Info)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -83,7 +83,7 @@ public partial class TpGameManager : TpSystemHandler/*
 	// Export UTpGameManager::execLeaveGameAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void LeaveGameAsync()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -92,7 +92,7 @@ public partial class TpGameManager : TpSystemHandler/*
 	// Export UTpGameManager::execGetGameHostIp(FFrame&, void* const)
 	public virtual /*native simulated function */String GetGameHostIp()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -100,7 +100,7 @@ public partial class TpGameManager : TpSystemHandler/*
 	// Export UTpGameManager::execDisarmConnectionPlayerControllers(FFrame&, void* const)
 	public virtual /*native simulated function */void DisarmConnectionPlayerControllers()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

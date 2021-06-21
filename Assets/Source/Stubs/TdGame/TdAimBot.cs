@@ -16,7 +16,7 @@ public partial class TdAimBot : TdAimBotBase/* within TdAIController*//*
 	// Export UTdAimBot::execGetImprovementRate(FFrame&, void* const)
 	public override /*native function */float GetImprovementRate()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -36,14 +36,14 @@ public partial class TdAimBot : TdAimBotBase/* within TdAIController*//*
 	// Export UTdAimBot::execTick(FFrame&, void* const)
 	public override /*native function */void Tick(float DeltaTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdAimBot::execUpdateDispersion(FFrame&, void* const)
 	public virtual /*native function */void UpdateDispersion(float DeltaTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

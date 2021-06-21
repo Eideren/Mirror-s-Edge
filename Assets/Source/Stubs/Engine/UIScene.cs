@@ -76,28 +76,28 @@ public partial class UIScene : UIScreenObject/*
 	// Export UUIScene::execForceImmediateSceneUpdate(FFrame&, void* const)
 	public virtual /*native final function */void ForceImmediateSceneUpdate()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScene::execRebuildDockingStack(FFrame&, void* const)
 	public virtual /*native final function */void RebuildDockingStack()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScene::execResolveScenePositions(FFrame&, void* const)
 	public virtual /*native final function */void ResolveScenePositions()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScene::execGetSceneDataStore(FFrame&, void* const)
 	public virtual /*native final function */SceneDataStore GetSceneDataStore()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -105,28 +105,28 @@ public partial class UIScene : UIScreenObject/*
 	// Export UUIScene::execLoadSceneDataValues(FFrame&, void* const)
 	public virtual /*native final function */void LoadSceneDataValues()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScene::execSaveSceneDataValues(FFrame&, void* const)
 	public virtual /*native final function */void SaveSceneDataValues(/*optional */bool? _bUnbindSubscribers = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScene::execUnbindSubscribers(FFrame&, void* const)
 	public virtual /*native final function */void UnbindSubscribers()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScene::execResolveDataStore(FFrame&, void* const)
 	public virtual /*native final function */UIDataStore ResolveDataStore(name DataStoreTag, /*optional */LocalPlayer? _InPlayerOwner = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -134,7 +134,7 @@ public partial class UIScene : UIScreenObject/*
 	// Export UUIScene::execGetPreviousScene(FFrame&, void* const)
 	public virtual /*native final function */UIScene GetPreviousScene(/*optional */bool? _bRequireMatchingPlayerOwner = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -142,14 +142,14 @@ public partial class UIScene : UIScreenObject/*
 	// Export UUIScene::execSetSceneInputMode(FFrame&, void* const)
 	public virtual /*native final function */void SetSceneInputMode(UIRoot.EScreenInputMode NewInputMode)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScene::execGetWorldInfo(FFrame&, void* const)
 	public virtual /*native function */WorldInfo GetWorldInfo()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -157,7 +157,7 @@ public partial class UIScene : UIScreenObject/*
 	// Export UUIScene::execIsSceneActive(FFrame&, void* const)
 	public virtual /*native final function */bool IsSceneActive(/*optional */bool? _bTopmostScene = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -165,7 +165,7 @@ public partial class UIScene : UIScreenObject/*
 	// Export UUIScene::execGetDefaultToolTip(FFrame&, void* const)
 	public virtual /*native final function */UIToolTip GetDefaultToolTip()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -173,7 +173,7 @@ public partial class UIScene : UIScreenObject/*
 	// Export UUIScene::execGetDefaultContextMenu(FFrame&, void* const)
 	public virtual /*native final function */UIContextMenu GetDefaultContextMenu()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -181,7 +181,7 @@ public partial class UIScene : UIScreenObject/*
 	// Export UUIScene::execGetActiveToolTip(FFrame&, void* const)
 	public virtual /*native final function */UIToolTip GetActiveToolTip()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -189,7 +189,7 @@ public partial class UIScene : UIScreenObject/*
 	// Export UUIScene::execSetActiveToolTip(FFrame&, void* const)
 	public virtual /*native final function */bool SetActiveToolTip(UIToolTip NewToolTip)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -197,7 +197,7 @@ public partial class UIScene : UIScreenObject/*
 	// Export UUIScene::execGetActiveContextMenu(FFrame&, void* const)
 	public virtual /*native final function */UIContextMenu GetActiveContextMenu()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -205,7 +205,7 @@ public partial class UIScene : UIScreenObject/*
 	// Export UUIScene::execSetActiveContextMenu(FFrame&, void* const)
 	public virtual /*native final function */bool SetActiveContextMenu(UIContextMenu NewContextMenu, int PlayerIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

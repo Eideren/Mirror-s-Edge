@@ -7,7 +7,7 @@ public partial class TdAnimSetCommandlet : Commandlet/*
 	// Export UTdAnimSetCommandlet::execMain(FFrame&, void* const)
 	public override /*native event */int Main(String Params)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

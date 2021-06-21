@@ -135,14 +135,14 @@ public partial class TdHudEffectManager : Object/* within TdHUD*//*
 	// Export UTdHudEffectManager::execDisplayHit(FFrame&, void* const)
 	public virtual /*native final function */void DisplayHit(Object.Vector HitDir, int Damage, TdHUD.EDamageType DamageType)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdHudEffectManager::execGetRelativeHitPos(FFrame&, void* const)
 	public virtual /*native final function */Object.Vector GetRelativeHitPos(Object.Vector Offset, Object.Rotator CameraRotation, float Direction)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

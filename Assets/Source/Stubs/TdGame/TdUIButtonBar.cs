@@ -16,7 +16,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 	// Export UTdUIButtonBar::execCanAcceptFocus(FFrame&, void* const)
 	public override /*native function */bool CanAcceptFocus(/*optional */int? _PlayerIndex = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -24,7 +24,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 	// Export UTdUIButtonBar::execBuildFakeInputEvent(FFrame&, void* const)
 	public virtual /*native function */UIRoot.InputEventParameters BuildFakeInputEvent(/*const */ref UIRoot.InputEventParameters SourceEvent, name FakeKey)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

@@ -64,14 +64,14 @@ public partial class TdHUD : HUD/*
 	// Export UTdHUD::execSetPostProcessVars(FFrame&, void* const)
 	public virtual /*native final function */void SetPostProcessVars(float DeltaTime, float RealTimeDelta)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdHUD::execLinkToHudScene(FFrame&, void* const)
 	public virtual /*native function */void LinkToHudScene(UIScene SceneToLink)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

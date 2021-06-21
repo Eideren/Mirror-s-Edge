@@ -260,87 +260,87 @@ public partial class Pawn : Actor/*
 	// Export UPawn::execValidAnchor(FFrame&, void* const)
 	public virtual /*native function */bool ValidAnchor()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPawn::execSuggestJumpVelocity(FFrame&, void* const)
 	public virtual /*native function */bool SuggestJumpVelocity(ref Object.Vector JumpVelocity, Object.Vector Destination, Object.Vector Start)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPawn::execIsValidTargetFor(FFrame&, void* const)
 	public virtual /*native function */bool IsValidTargetFor(/*const */Controller C)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPawn::execIsValidEnemyTargetFor(FFrame&, void* const)
 	public virtual /*native function */bool IsValidEnemyTargetFor(/*const */PlayerReplicationInfo PRI, bool bNoPRIisEnemy)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPawn::execIsInvisible(FFrame&, void* const)
 	public virtual /*native function */bool IsInvisible()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPawn::execSetRemoteViewPitch(FFrame&, void* const)
 	public virtual /*native final function */void SetRemoteViewPitch(int NewRemoteViewPitch)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPawn::execSetAnchor(FFrame&, void* const)
 	public virtual /*native function */void SetAnchor(NavigationPoint NewAnchor)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPawn::execGetBestAnchor(FFrame&, void* const)
 	public virtual /*native function */NavigationPoint GetBestAnchor(Actor TestActor, Object.Vector TestLocation, bool bStartPoint, bool bOnlyCheckVisible, ref float out_Dist)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPawn::execReachedDestination(FFrame&, void* const)
 	public virtual /*native function */bool ReachedDestination(Actor Goal)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPawn::execReachedPoint(FFrame&, void* const)
 	public virtual /*native function */bool ReachedPoint(Object.Vector Point, Actor NewAnchor)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPawn::execForceCrouch(FFrame&, void* const)
 	public virtual /*native function */void ForceCrouch()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPawn::execSetPushesRigidBodies(FFrame&, void* const)
 	public virtual /*native function */void SetPushesRigidBodies(bool NewPush)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPawn::execGetBoundingCylinder(FFrame&, void* const)
 	public override /*native function */void GetBoundingCylinder(ref float CollisionRadius, ref float CollisionHeight)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*function */int SpecialCostForPath(ReachSpec Path)
@@ -356,14 +356,14 @@ public partial class Pawn : Actor/*
 	// Export UPawn::execInitRagdoll(FFrame&, void* const)
 	public virtual /*native function */bool InitRagdoll()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPawn::execTermRagdoll(FFrame&, void* const)
 	public virtual /*native function */bool TermRagdoll()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -417,7 +417,7 @@ public partial class Pawn : Actor/*
 	// Export UPawn::execCreateHemiTexture(FFrame&, void* const)
 	public virtual /*native final function */TextureRenderTarget2D CreateHemiTexture()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -880,21 +880,21 @@ public partial class Pawn : Actor/*
 	//// Export UPawn::execIsHumanControlled(FFrame&, void* const)
 	//public virtual /*native final simulated function */bool IsHumanControlled()
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	return default;
 	//}
 	//
 	//// Export UPawn::execIsLocallyControlled(FFrame&, void* const)
 	//public virtual /*native final simulated function */bool IsLocallyControlled()
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	return default;
 	//}
 	//
 	//// Export UPawn::execIsPlayerPawn(FFrame&, void* const)
 	//public virtual /*native simulated function */bool IsPlayerPawn()
 	//{
-	//	#warning NATIVE FUNCTION !
+	//	 // #warning NATIVE FUNCTION !
 	//	return default;
 	//}
 	
@@ -1713,7 +1713,7 @@ public partial class Pawn : Actor/*
 	// Export UPawn::execGetTeamNum(FFrame&, void* const)
 	public override /*native simulated function */byte GetTeamNum()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -2086,7 +2086,7 @@ public partial class Pawn : Actor/*
 	// Export UPawn::execGetVehicleBase(FFrame&, void* const)
 	public virtual /*native function */Vehicle GetVehicleBase()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -2479,43 +2479,43 @@ public partial class Pawn : Actor/*
 	// Export UPawn::execClearConstraints(FFrame&, void* const)
 	public virtual /*native function */void ClearConstraints()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPawn::execAddPathConstraint(FFrame&, void* const)
 	public virtual /*native function */void AddPathConstraint(PathConstraint Constraint)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPawn::execAddGoalEvaluator(FFrame&, void* const)
 	public virtual /*native function */void AddGoalEvaluator(PathGoalEvaluator Evaluator)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPawn::execIncrementPathStep(FFrame&, void* const)
 	public virtual /*native function */void IncrementPathStep(int Cnt, Canvas C)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPawn::execIncrementPathChild(FFrame&, void* const)
 	public virtual /*native function */void IncrementPathChild(int Cnt, Canvas C)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPawn::execDrawPathStep(FFrame&, void* const)
 	public virtual /*native function */void DrawPathStep(Canvas C)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPawn::execClearPathStep(FFrame&, void* const)
 	public virtual /*native function */void ClearPathStep()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*event */float GetRunSpeed()

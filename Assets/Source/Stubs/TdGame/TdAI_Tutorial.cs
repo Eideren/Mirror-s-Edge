@@ -15,7 +15,7 @@ public partial class TdAI_Tutorial : TdAIController/*
 	// Export UTdAI_Tutorial::execUpdateAnchor(FFrame&, void* const)
 	public override /*native function */void UpdateAnchor()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -141,7 +141,7 @@ public partial class TdAI_Tutorial : TdAIController/*
 	// Export UTdAI_Tutorial::execSetBestAnchor(FFrame&, void* const)
 	public override /*native function */void SetBestAnchor()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

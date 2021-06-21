@@ -12,7 +12,7 @@ public partial class TdUIObject : UIObject/*
 	// Export UTdUIObject::execGetTdPlayerController(FFrame&, void* const)
 	public virtual /*native function */TdPlayerController GetTdPlayerController(/*optional */int? _Index = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -20,7 +20,7 @@ public partial class TdUIObject : UIObject/*
 	// Export UTdUIObject::execGetTdPawn(FFrame&, void* const)
 	public virtual /*native function */TdPawn GetTdPawn()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -28,7 +28,7 @@ public partial class TdUIObject : UIObject/*
 	// Export UTdUIObject::execGetPRI(FFrame&, void* const)
 	public virtual /*native function */TdPlayerReplicationInfo GetPRI()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -36,7 +36,7 @@ public partial class TdUIObject : UIObject/*
 	// Export UTdUIObject::execGetWorldInfo(FFrame&, void* const)
 	public virtual /*native function */WorldInfo GetWorldInfo()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

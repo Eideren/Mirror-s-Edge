@@ -10,7 +10,7 @@ public partial class PortalMarker : NavigationPoint/*
 	// Export UPortalMarker::execCanTeleport(FFrame&, void* const)
 	public override /*native function */bool CanTeleport(Actor A)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

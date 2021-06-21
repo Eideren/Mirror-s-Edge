@@ -282,104 +282,104 @@ public partial class PlayerController : Controller/*
 	// Export UPlayerController::execSetNetSpeed(FFrame&, void* const)
 	public virtual /*native final function */void SetNetSpeed(int NewSpeed)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execGetPlayerNetworkAddress(FFrame&, void* const)
 	public virtual /*native final function */String GetPlayerNetworkAddress()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPlayerController::execGetServerNetworkAddress(FFrame&, void* const)
 	public virtual /*native final function */String GetServerNetworkAddress()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPlayerController::execConsoleCommand(FFrame&, void* const)
 	public override /*native function */String ConsoleCommand(String Command, /*optional */bool? _bWriteToLog = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPlayerController::execClientTravel(FFrame&, void* const)
 	public virtual /*reliable client native simulated event */void ClientTravel(String URL, Actor.ETravelType TravelType, /*optional */bool? _bSeamless = default, /*init optional */Object.Guid? _MapPackageGuid = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execUpdateURL(FFrame&, void* const)
 	public virtual /*native(546) final function */void UpdateURL(String NewOption, String NewValue, bool bSave1Default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execGetDefaultURL(FFrame&, void* const)
 	public virtual /*native final function */String GetDefaultURL(String Option)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPlayerController::execCopyToClipboard(FFrame&, void* const)
 	public virtual /*native function */void CopyToClipboard(String Text)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execPasteFromClipboard(FFrame&, void* const)
 	public virtual /*native function */String PasteFromClipboard()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPlayerController::execSetAllowMatureLanguage(FFrame&, void* const)
 	public virtual /*native function */void SetAllowMatureLanguage(bool bAllowMatureLanguge)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execSetAudioGroupVolume(FFrame&, void* const)
 	public virtual /*native function */void SetAudioGroupVolume(name GroupName, float Volume)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execClientConvolve(FFrame&, void* const)
 	public virtual /*private reliable client native final simulated event */void ClientConvolve(String C, int H)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execServerProcessConvolve(FFrame&, void* const)
 	public virtual /*private reliable server native final event */void ServerProcessConvolve(String C, int H)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execCheckSpeedHack(FFrame&, void* const)
 	public virtual /*native final function */bool CheckSpeedHack(float DeltaTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPlayerController::execFindStairRotation(FFrame&, void* const)
 	public virtual /*native(524) final function */int FindStairRotation(float DeltaTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPlayerController::execCleanUpAudioComponents(FFrame&, void* const)
 	public virtual /*native function */void CleanUpAudioComponents()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*event */void OnLoadLevels(/*optional */bool? _bUnload = default)
@@ -872,45 +872,45 @@ public partial class PlayerController : Controller/*
 	// Export UPlayerController::execIsControllerTiltActive(FFrame&, void* const)
 	public virtual /*native simulated function */bool IsControllerTiltActive()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPlayerController::execSetControllerTiltDesiredIfAvailable(FFrame&, void* const)
 	public virtual /*native simulated function */void SetControllerTiltDesiredIfAvailable(bool bActive)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execSetControllerTiltActive(FFrame&, void* const)
 	public virtual /*native simulated function */void SetControllerTiltActive(bool bActive)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execSetOnlyUseControllerTiltInput(FFrame&, void* const)
 	public virtual /*native simulated function */void SetOnlyUseControllerTiltInput(bool bActive)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execSetUseTiltForwardAndBack(FFrame&, void* const)
 	public virtual /*native simulated function */void SetUseTiltForwardAndBack(bool bActive)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execIsKeyboardAvailable(FFrame&, void* const)
 	public virtual /*native simulated function */bool IsKeyboardAvailable()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPlayerController::execIsMouseAvailable(FFrame&, void* const)
 	public virtual /*native simulated function */bool IsMouseAvailable()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -1105,13 +1105,13 @@ public partial class PlayerController : Controller/*
 	// Export UPlayerController::execHearSoundFinished(FFrame&, void* const)
 	public virtual /*native final simulated function */void HearSoundFinished(AudioComponent AC)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execGetPooledAudioComponent(FFrame&, void* const)
 	public virtual /*native function */AudioComponent GetPooledAudioComponent(SoundCue ASound, Actor SourceActor, bool bStopWhenOwnerDestroyed, /*optional */bool? _bUseLocation = default, /*optional */Object.Vector? _SourceLocation = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -3034,7 +3034,7 @@ public partial class PlayerController : Controller/*
 	// Export UPlayerController::execServerNotifyLoadedWorld(FFrame&, void* const)
 	public virtual /*reliable server native final event */void ServerNotifyLoadedWorld(name WorldPackageName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*event */void NotifyLoadedWorld(name WorldPackageName, bool bFinalDest)
@@ -3058,7 +3058,7 @@ public partial class PlayerController : Controller/*
 	// Export UPlayerController::execHasClientLoadedCurrentWorld(FFrame&, void* const)
 	public virtual /*native final function */bool HasClientLoadedCurrentWorld()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -3321,14 +3321,14 @@ public partial class PlayerController : Controller/*
 	// Export UPlayerController::execIsLocalPlayerController(FFrame&, void* const)
 	public override /*native function */bool IsLocalPlayerController()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UPlayerController::execSetViewTarget(FFrame&, void* const)
 	public virtual /*native function */void SetViewTarget(Actor NewViewTarget, /*optional */Camera.ViewTargetTransitionParams? _TransitionParams = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public delegate void ClientSetViewTarget_del(Actor A, /*optional */Camera.ViewTargetTransitionParams? _TransitionParams = default);
@@ -3347,7 +3347,7 @@ public partial class PlayerController : Controller/*
 	// Export UPlayerController::execGetViewTarget(FFrame&, void* const)
 	public virtual /*native function */Actor GetViewTarget()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -3982,13 +3982,13 @@ public partial class PlayerController : Controller/*
 	// Export UPlayerController::execClientUpdateLevelStreamingStatus(FFrame&, void* const)
 	public virtual /*reliable client native final simulated function */void ClientUpdateLevelStreamingStatus(name PackageName, bool bNewShouldBeLoaded, bool bNewShouldBeVisible, bool bNewShouldBlockOnLoad)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execServerUpdateLevelVisibility(FFrame&, void* const)
 	public virtual /*reliable server native final event */void ServerUpdateLevelVisibility(name PackageName, bool bIsVisible)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*reliable client simulated event */void ClientPrepareMapChange(name LevelName, bool bFirst, bool bLast)
@@ -4049,7 +4049,7 @@ public partial class PlayerController : Controller/*
 	// Export UPlayerController::execClientFlushLevelStreaming(FFrame&, void* const)
 	public virtual /*reliable client native final simulated event */void ClientFlushLevelStreaming()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*reliable client simulated event */void ClientSetBlockOnAsyncLoading()
@@ -4100,7 +4100,7 @@ public partial class PlayerController : Controller/*
 	// Export UPlayerController::execIsPlayerMuted(FFrame&, void* const)
 	public virtual /*native final function */bool IsPlayerMuted(/*const */ref OnlineSubsystem.UniqueNetId Sender)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -4140,7 +4140,7 @@ public partial class PlayerController : Controller/*
 	// Export UPlayerController::execGetPlayerControllerFromNetId(FFrame&, void* const)
 	public /*native function */static PlayerController GetPlayerControllerFromNetId(OnlineSubsystem.UniqueNetId PlayerNetId)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
@@ -4276,13 +4276,13 @@ public partial class PlayerController : Controller/*
 	// Export UPlayerController::execSetShowSubtitles(FFrame&, void* const)
 	public virtual /*native simulated function */void SetShowSubtitles(bool bValue)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UPlayerController::execIsShowingSubtitles(FFrame&, void* const)
 	public virtual /*native simulated function */bool IsShowingSubtitles()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

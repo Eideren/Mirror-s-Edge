@@ -35,7 +35,7 @@ public partial class Sequence : SequenceOp/*
 	// Export USequence::execFindSeqObjectsByClass(FFrame&, void* const)
 	public virtual /*native final function */void FindSeqObjectsByClass(Core.ClassT<SequenceObject> DesiredClass, bool bRecursive, ref array<SequenceObject> OutputObjects)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -47,7 +47,7 @@ public partial class Sequence : SequenceOp/*
 	// Export USequence::execSetEnabled(FFrame&, void* const)
 	public virtual /*native final function */void SetEnabled(bool bInEnabled)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

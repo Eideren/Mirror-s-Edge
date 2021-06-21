@@ -21,7 +21,7 @@ public partial class TdMove_GrabTransfer : TdPhysicsMove/*
 	// Export UTdMove_GrabTransfer::execCheckContextMove(FFrame&, void* const)
 	public virtual /*native function */bool CheckContextMove(ref Object.Vector out_MoveLocation, ref Object.Vector out_MoveNormal, /*optional */ref Object.Vector out_LedgeLocation/* = default*/, /*optional */ref Object.Vector out_LedgeNormal/* = default*/)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

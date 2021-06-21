@@ -28,14 +28,14 @@ public partial class TdAimBotBase : Object/* within TdAIController*//*
 	// Export UTdAimBotBase::execTick(FFrame&, void* const)
 	public virtual /*native function */void Tick(float DeltaTime)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTdAimBotBase::execGetImprovementRate(FFrame&, void* const)
 	public virtual /*native function */float GetImprovementRate()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -83,7 +83,7 @@ public partial class TdAimBotBase : Object/* within TdAIController*//*
 	// Export UTdAimBotBase::execGetMaxOffset(FFrame&, void* const)
 	public virtual /*native final function */float GetMaxOffset()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

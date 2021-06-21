@@ -17,7 +17,7 @@ public partial class UIEvent : SequenceEvent/*
 	// Export UUIEvent::execGetOwner(FFrame&, void* const)
 	public virtual /*native final function */UIScreenObject GetOwner()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -25,7 +25,7 @@ public partial class UIEvent : SequenceEvent/*
 	// Export UUIEvent::execGetOwnerScene(FFrame&, void* const)
 	public virtual /*native final function */UIScene GetOwnerScene()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -33,7 +33,7 @@ public partial class UIEvent : SequenceEvent/*
 	// Export UUIEvent::execCanBeActivated(FFrame&, void* const)
 	public virtual /*native final function */bool CanBeActivated(int ControllerIndex, UIScreenObject InEventOwner, /*optional */Object? _InEventActivator/* = default*/, /*optional */bool? _bActivateImmediately/* = default*/, /*const optional */ref array<int> IndicesToActivate/* = default*/)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -41,7 +41,7 @@ public partial class UIEvent : SequenceEvent/*
 	// Export UUIEvent::execConditionalActivateUIEvent(FFrame&, void* const)
 	public virtual /*native final function */bool ConditionalActivateUIEvent(int ControllerIndex, UIScreenObject InEventOwner, /*optional */Object? _InEventActivator/* = default*/, /*optional */bool? _bActivateImmediately/* = default*/, /*const optional */ref array<int> IndicesToActivate/* = default*/)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -49,7 +49,7 @@ public partial class UIEvent : SequenceEvent/*
 	// Export UUIEvent::execActivateUIEvent(FFrame&, void* const)
 	public virtual /*native final function */bool ActivateUIEvent(int ControllerIndex, UIScreenObject InEventOwner, /*optional */Object? _InEventActivator/* = default*/, /*optional */bool? _bActivateImmediately/* = default*/, /*const optional */ref array<int> IndicesToActivate/* = default*/)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

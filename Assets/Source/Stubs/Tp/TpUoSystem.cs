@@ -25,14 +25,14 @@ public partial class TpUoSystem : TpSystemHandler,
 	// Export UTpUoSystem::execInitializeNative(FFrame&, void* const)
 	public virtual /*native function */void InitializeNative()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTpUoSystem::execHasLinkConnection(FFrame&, void* const)
 	public virtual /*native function */bool HasLinkConnection()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -198,7 +198,7 @@ public partial class TpUoSystem : TpSystemHandler,
 	// Export UTpUoSystem::execProcessTick(FFrame&, void* const)
 	public virtual /*native function */void ProcessTick(float DeltaSeconds)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

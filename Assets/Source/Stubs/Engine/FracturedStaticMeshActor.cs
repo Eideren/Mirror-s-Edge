@@ -11,7 +11,7 @@ public partial class FracturedStaticMeshActor : Actor/*
 	// Export UFracturedStaticMeshActor::execSpawnPart(FFrame&, void* const)
 	public virtual /*native function */FracturedStaticMeshPart SpawnPart(int ChunkIndex, Object.Vector InitialVel, Object.Vector InitialAngVel)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -19,7 +19,7 @@ public partial class FracturedStaticMeshActor : Actor/*
 	// Export UFracturedStaticMeshActor::execSpawnPartMulti(FFrame&, void* const)
 	public virtual /*native function */FracturedStaticMeshPart SpawnPartMulti(array<int> ChunkIndices, Object.Vector InitialVel, Object.Vector InitialAngVel)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -27,7 +27,7 @@ public partial class FracturedStaticMeshActor : Actor/*
 	// Export UFracturedStaticMeshActor::execRecreatePhysState(FFrame&, void* const)
 	public virtual /*native function */void RecreatePhysState()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

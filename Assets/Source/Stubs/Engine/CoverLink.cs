@@ -395,7 +395,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execGetSlotLocation(FFrame&, void* const)
 	public virtual /*native final simulated function */Object.Vector GetSlotLocation(int SlotIdx, /*optional */bool? _bForceUseOffset = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -403,7 +403,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execGetSlotRotation(FFrame&, void* const)
 	public virtual /*native final simulated function */Object.Rotator GetSlotRotation(int SlotIdx, /*optional */bool? _bForceUseOffset = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -411,7 +411,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execGetSlotViewPoint(FFrame&, void* const)
 	public virtual /*native final simulated function */Object.Vector GetSlotViewPoint(int SlotIdx, /*optional */CoverLink.ECoverType? _Type = default, /*optional */CoverLink.ECoverAction? _Action = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -419,7 +419,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execGetSlotMarker(FFrame&, void* const)
 	public virtual /*native final simulated function */CoverSlotMarker GetSlotMarker(int SlotIdx)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -427,7 +427,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execGetSlotFireLocation(FFrame&, void* const)
 	public virtual /*native final simulated function */Object.Vector GetSlotFireLocation(int SlotIdx, CoverLink.ECoverAction Action)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -435,7 +435,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execIsExposedTo(FFrame&, void* const)
 	public virtual /*native final simulated function */bool IsExposedTo(int SlotIdx, CoverLink.CoverInfo ChkSlot, ref float out_ExposedScale)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -455,7 +455,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execIsValidClaim(FFrame&, void* const)
 	public virtual /*native final function */bool IsValidClaim(Controller ChkClaim, int SlotIdx, /*optional */bool? _bSkipTeamCheck = default, /*optional */bool? _bSkipOverlapCheck = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -469,7 +469,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execFindSlots(FFrame&, void* const)
 	public virtual /*native final simulated function */bool FindSlots(Object.Vector CheckLocation, float MaxDistance, ref int LeftSlotIdx, ref int RightSlotIdx)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -477,7 +477,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execIsEdgeSlot(FFrame&, void* const)
 	public virtual /*native final simulated function */bool IsEdgeSlot(int SlotIdx, /*optional */bool? _bIgnoreLeans = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -485,7 +485,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execIsLeftEdgeSlot(FFrame&, void* const)
 	public virtual /*native final simulated function */bool IsLeftEdgeSlot(int SlotIdx, bool bIgnoreLeans)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -493,7 +493,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execIsRightEdgeSlot(FFrame&, void* const)
 	public virtual /*native final simulated function */bool IsRightEdgeSlot(int SlotIdx, bool bIgnoreLeans)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -513,7 +513,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execGetFireLinkTo(FFrame&, void* const)
 	public virtual /*native function */bool GetFireLinkTo(int SlotIdx, CoverLink.CoverInfo ChkCover, CoverLink.ECoverAction ChkAction, CoverLink.ECoverType ChkType, ref int out_FireLinkIdx, ref array<int> out_Items)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -521,7 +521,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execHasFireLinkTo(FFrame&, void* const)
 	public virtual /*native function */bool HasFireLinkTo(int SlotIdx, CoverLink.CoverInfo ChkCover, /*optional */bool? _bAllowFallbackLinks = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -529,7 +529,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execGetSlotActions(FFrame&, void* const)
 	public virtual /*native final function */void GetSlotActions(int SlotIdx, ref array<CoverLink.ECoverAction> Actions)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -551,7 +551,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execAutoAdjustSlot(FFrame&, void* const)
 	public virtual /*native final function */bool AutoAdjustSlot(int SlotIdx, bool bOnlyCheckLeans)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -559,7 +559,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execIsEnabled(FFrame&, void* const)
 	public virtual /*native final function */bool IsEnabled()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -578,7 +578,7 @@ public partial class CoverLink : NavigationPoint/*
 	// Export UCoverLink::execAddCoverSlot(FFrame&, void* const)
 	public virtual /*native final function */int AddCoverSlot(Object.Vector SlotLocation, Object.Rotator SlotRotation, /*optional */int? _SlotIdx = default, /*optional */bool? _bForceSlotUpdate = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

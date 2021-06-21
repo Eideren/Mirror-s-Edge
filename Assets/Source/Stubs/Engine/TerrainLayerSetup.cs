@@ -78,7 +78,7 @@ public partial class TerrainLayerSetup : Object/*
 	// Export UTerrainLayerSetup::execSetMaterials(FFrame&, void* const)
 	public virtual /*native final function */void SetMaterials(array<TerrainLayerSetup.TerrainFilteredMaterial> NewMaterials)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

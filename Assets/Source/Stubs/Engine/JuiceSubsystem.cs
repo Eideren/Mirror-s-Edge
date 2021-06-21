@@ -16,7 +16,7 @@ public partial class JuiceSubsystem : Subsystem/*
 	// Export UJuiceSubsystem::execGetSubsystem(FFrame&, void* const)
 	public /*native event */static JuiceSubsystem GetSubsystem()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -24,7 +24,7 @@ public partial class JuiceSubsystem : Subsystem/*
 	// Export UJuiceSubsystem::execJuiceGameEvent(FFrame&, void* const)
 	public /*native event */static void JuiceGameEvent(String Category, String EventName, String Outcome, int IValue, float FValue, String StrResult, String MapName, Object.Vector MapLoc)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -36,63 +36,63 @@ public partial class JuiceSubsystem : Subsystem/*
 	// Export UJuiceSubsystem::execLevelEventD(FFrame&, void* const)
 	public /*native event */static void LevelEventD(int Group, int Channel, int Level, String Category, String EventName, String Outcome, int IValue, float FValue, String StrResult, Object.Vector MapLoc)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UJuiceSubsystem::execLevelStatI(FFrame&, void* const)
 	public /*native event */static void LevelStatI(String Category, String StatName, int StatValue)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UJuiceSubsystem::execTriggerEvent(FFrame&, void* const)
 	public /*native event */static void TriggerEvent(String EventName, String EventParam)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UJuiceSubsystem::execGameEventD(FFrame&, void* const)
 	public /*native event */static void GameEventD(int Group, int Channel, int Level, String Category, String EventName, String Outcome, int IValue, float FValue, String StrResult, String MapName, Object.Vector MapLoc)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UJuiceSubsystem::execGameStatF(FFrame&, void* const)
 	public /*native event */static void GameStatF(String Category, String StatName, float StatValue)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UJuiceSubsystem::execGameStatI(FFrame&, void* const)
 	public /*native event */static void GameStatI(String Category, String StatName, int StatValue)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UJuiceSubsystem::execAssetCoverage(FFrame&, void* const)
 	public /*native event */static void AssetCoverage(String Category, String assetName, int numHits)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UJuiceSubsystem::execSetChannelLevel(FFrame&, void* const)
 	public /*native event */static void SetChannelLevel(int Group, int Category, int Level)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UJuiceSubsystem::execGetMapName(FFrame&, void* const)
 	public /*native event */static String GetMapName()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -100,7 +100,7 @@ public partial class JuiceSubsystem : Subsystem/*
 	// Export UJuiceSubsystem::execGetBuildInfo(FFrame&, void* const)
 	public /*native event */static String GetBuildInfo()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -108,14 +108,14 @@ public partial class JuiceSubsystem : Subsystem/*
 	// Export UJuiceSubsystem::execLevelStart(FFrame&, void* const)
 	public /*native event */static void LevelStart()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UJuiceSubsystem::execOpenFile(FFrame&, void* const)
 	public /*native function */static int OpenFile(String Filename, /*optional */bool? _bOpenForWrite = default, /*optional */bool? _bText = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -123,21 +123,21 @@ public partial class JuiceSubsystem : Subsystem/*
 	// Export UJuiceSubsystem::execCloseFile(FFrame&, void* const)
 	public /*native function */static void CloseFile(int FileHandle)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UJuiceSubsystem::execWriteToFile(FFrame&, void* const)
 	public /*native function */static void WriteToFile(int FileHandle, String TextToWrite)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UJuiceSubsystem::execFlushFile(FFrame&, void* const)
 	public /*native function */static void FlushFile(int FileHandle)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

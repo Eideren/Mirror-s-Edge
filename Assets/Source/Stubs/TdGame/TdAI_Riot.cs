@@ -48,7 +48,7 @@ public partial class TdAI_Riot : TdAIController/*
 	// Export UTdAI_Riot::execSetBestAnchor(FFrame&, void* const)
 	public override /*native function */void SetBestAnchor()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
@@ -124,7 +124,7 @@ public partial class TdAI_Riot : TdAIController/*
 	// Export UTdAI_Riot::execIsWide(FFrame&, void* const)
 	public virtual /*native function */bool IsWide()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

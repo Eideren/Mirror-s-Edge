@@ -140,7 +140,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	// Export UTpSystemBase::execGet(FFrame&, void* const)
 	public /*native simulated function */static TpSystemBase Get()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -148,21 +148,21 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	// Export UTpSystemBase::execInitialize(FFrame&, void* const)
 	public virtual /*protected native simulated function */void Initialize(TpSystemBase.TpInitializeParams InParams)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTpSystemBase::execEnd(FFrame&, void* const)
 	public virtual /*protected native simulated function */void End()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UTpSystemBase::execNpEventLoopControl(FFrame&, void* const)
 	public virtual /*protected native simulated function */void NpEventLoopControl(int Op)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

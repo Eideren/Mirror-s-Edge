@@ -55,7 +55,7 @@ public partial class TdAnimNodeSequence : AnimNodeSequence/*
 	// Export UTdAnimNodeSequence::execUpdateBaseSpeed(FFrame&, void* const)
 	public virtual /*native function */void UpdateBaseSpeed()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public override /*event */void OnBecomeRelevant()

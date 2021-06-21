@@ -72,7 +72,7 @@ public partial class TdAIAnimationController : Actor/*
 	// Export UTdAIAnimationController::execGetAnimationState(FFrame&, void* const)
 	public virtual /*native function */TdAIAnimationController.EAiAnimationState GetAnimationState()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -80,7 +80,7 @@ public partial class TdAIAnimationController : Actor/*
 	// Export UTdAIAnimationController::execGetAimState(FFrame&, void* const)
 	public virtual /*native function */TdAIAnimationController.EAimState GetAimState()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -88,7 +88,7 @@ public partial class TdAIAnimationController : Actor/*
 	// Export UTdAIAnimationController::execGetAimStateBlendValue(FFrame&, void* const)
 	public virtual /*native function */float GetAimStateBlendValue()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -96,7 +96,7 @@ public partial class TdAIAnimationController : Actor/*
 	// Export UTdAIAnimationController::execIsBusyMelee(FFrame&, void* const)
 	public virtual /*native function */bool IsBusyMelee()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -104,7 +104,7 @@ public partial class TdAIAnimationController : Actor/*
 	// Export UTdAIAnimationController::execIsBusyCrouching(FFrame&, void* const)
 	public virtual /*native function */bool IsBusyCrouching()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -112,7 +112,7 @@ public partial class TdAIAnimationController : Actor/*
 	// Export UTdAIAnimationController::execIsInMeleeState(FFrame&, void* const)
 	public virtual /*native function */bool IsInMeleeState()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -120,7 +120,7 @@ public partial class TdAIAnimationController : Actor/*
 	// Export UTdAIAnimationController::execIsInCrouchState(FFrame&, void* const)
 	public virtual /*native function */bool IsInCrouchState()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -128,7 +128,7 @@ public partial class TdAIAnimationController : Actor/*
 	// Export UTdAIAnimationController::execUseLazySpring(FFrame&, void* const)
 	public virtual /*native function */bool UseLazySpring()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -136,7 +136,7 @@ public partial class TdAIAnimationController : Actor/*
 	// Export UTdAIAnimationController::execIsInCover(FFrame&, void* const)
 	public virtual /*native function */bool IsInCover()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -144,7 +144,7 @@ public partial class TdAIAnimationController : Actor/*
 	// Export UTdAIAnimationController::execGetCoverStateNative(FFrame&, void* const)
 	public virtual /*native function */TdAIAnimationController.ECoverState GetCoverStateNative()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -152,7 +152,7 @@ public partial class TdAIAnimationController : Actor/*
 	// Export UTdAIAnimationController::execGetCoverDirectionNative(FFrame&, void* const)
 	public virtual /*native function */CoverLink.ECoverDirection GetCoverDirectionNative()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

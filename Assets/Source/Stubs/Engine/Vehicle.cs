@@ -70,7 +70,7 @@ public partial class Vehicle : Pawn/*
 	// Export UVehicle::execGetTargetLocation(FFrame&, void* const)
 	public override /*native simulated function */Object.Vector GetTargetLocation(/*optional */Actor? _RequestedBy = default, /*optional */bool? _bRequestAlternateLoc = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

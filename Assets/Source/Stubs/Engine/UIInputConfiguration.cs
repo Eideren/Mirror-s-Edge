@@ -11,7 +11,7 @@ public partial class UIInputConfiguration : UIRoot/*
 	// Export UUIInputConfiguration::execLoadInputAliasClasses(FFrame&, void* const)
 	public virtual /*native final function */void LoadInputAliasClasses()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

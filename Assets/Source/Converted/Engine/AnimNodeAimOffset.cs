@@ -264,13 +264,13 @@ public partial class AnimNodeAimOffset : AnimNodeBlendBase/*
 	// Export UAnimNodeAimOffset::execSetActiveProfileByName(FFrame&, void* const)
 	public virtual /*native function */void SetActiveProfileByName(name ProfileName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UAnimNodeAimOffset::execSetActiveProfileByIndex(FFrame&, void* const)
 	public virtual /*native function */void SetActiveProfileByIndex(int ProfileIndex)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public AnimNodeAimOffset()

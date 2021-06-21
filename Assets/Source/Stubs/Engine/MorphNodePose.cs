@@ -11,7 +11,7 @@ public partial class MorphNodePose : MorphNodeBase/*
 	// Export UMorphNodePose::execSetMorphTarget(FFrame&, void* const)
 	public virtual /*native final function */void SetMorphTarget(name MorphTargetName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

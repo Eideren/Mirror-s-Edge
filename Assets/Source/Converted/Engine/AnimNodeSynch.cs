@@ -34,39 +34,39 @@ public partial class AnimNodeSynch : AnimNodeBlendBase/*
 	// Export UAnimNodeSynch::execAddNodeToGroup(FFrame&, void* const)
 	public virtual /*native final function */void AddNodeToGroup(AnimNodeSequence SeqNode, name GroupName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UAnimNodeSynch::execRemoveNodeFromGroup(FFrame&, void* const)
 	public virtual /*native final function */void RemoveNodeFromGroup(AnimNodeSequence SeqNode, name GroupName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UAnimNodeSynch::execGetMasterNodeOfGroup(FFrame&, void* const)
 	public virtual /*native final function */AnimNodeSequence GetMasterNodeOfGroup(name GroupName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UAnimNodeSynch::execForceRelativePosition(FFrame&, void* const)
 	public virtual /*native final function */void ForceRelativePosition(name GroupName, float RelativePosition)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UAnimNodeSynch::execGetRelativePosition(FFrame&, void* const)
 	public virtual /*native final function */float GetRelativePosition(name GroupName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UAnimNodeSynch::execSetGroupRateScale(FFrame&, void* const)
 	public virtual /*native final function */void SetGroupRateScale(name GroupName, float NewRateScale)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public AnimNodeSynch()

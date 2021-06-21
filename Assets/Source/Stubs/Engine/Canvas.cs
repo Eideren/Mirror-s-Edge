@@ -47,43 +47,43 @@ public partial class Canvas : Object/*
 	// Export UCanvas::execDrawTile(FFrame&, void* const)
 	public virtual /*native final function */void DrawTile(Texture2D Tex, float XL, float YL, float U, float V, float UL, float VL)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawMaterialTile(FFrame&, void* const)
 	public virtual /*native final function */void DrawMaterialTile(MaterialInterface Mat, float XL, float YL, /*optional */float? _U = default, /*optional */float? _V = default, /*optional */float? _UL = default, /*optional */float? _VL = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawMaterialTileClipped(FFrame&, void* const)
 	public virtual /*native final function */void DrawMaterialTileClipped(MaterialInterface Mat, float XL, float YL, /*optional */float? _U = default, /*optional */float? _V = default, /*optional */float? _UL = default, /*optional */float? _VL = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execStrLen(FFrame&, void* const)
 	public virtual /*native final function */void StrLen(/*coerce */String String, ref float XL, ref float YL)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execTextSize(FFrame&, void* const)
 	public virtual /*native final function */void TextSize(/*coerce */String String, ref float XL, ref float YL)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawText(FFrame&, void* const)
 	public virtual /*native final function */void DrawText(/*coerce */String Text, /*optional */bool? _CR = default, /*optional */float? _XScale = default, /*optional */float? _YScale = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawTextClipped(FFrame&, void* const)
 	public virtual /*native final function */void DrawTextClipped(/*coerce */String Text, /*optional */bool? _bCheckHotKey = default, /*optional */float? _XScale = default, /*optional */float? _YScale = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*final function */void DrawTextRA(/*coerce */String Text, /*optional */bool? _CR = default)
@@ -94,38 +94,38 @@ public partial class Canvas : Object/*
 	// Export UCanvas::execDrawTileClipped(FFrame&, void* const)
 	public virtual /*native(468) final function */void DrawTileClipped(Texture2D Tex, float XL, float YL, float U, float V, float UL, float VL)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execProject(FFrame&, void* const)
 	public virtual /*native final function */Object.Vector Project(Object.Vector Location)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UCanvas::execPushTranslationMatrix(FFrame&, void* const)
 	public virtual /*native final function */void PushTranslationMatrix(Object.Vector TranslationVector)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execPopTransform(FFrame&, void* const)
 	public virtual /*native final function */void PopTransform()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawTileStretched(FFrame&, void* const)
 	public virtual /*native final function */void DrawTileStretched(Texture2D Tex, float XL, float YL, float U, float V, float UL, float VL, Object.LinearColor LColor, /*optional */bool? _bStretchHorizontally = default, /*optional */bool? _bStretchVertically = default, /*optional */float? _ScalingFactor = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawColorizedTile(FFrame&, void* const)
 	public virtual /*native final function */void DrawColorizedTile(Texture2D Tex, float XL, float YL, float U, float V, float UL, float VL, Object.LinearColor LColor)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*event */void Reset(/*optional */bool? _bKeepOrigin = default)
@@ -136,7 +136,7 @@ public partial class Canvas : Object/*
 	// Export UCanvas::execSetPos(FFrame&, void* const)
 	public virtual /*native final function */void SetPos(float PosX, float PosY)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*final function */void SetOrigin(float X, float Y)
@@ -183,37 +183,37 @@ public partial class Canvas : Object/*
 	// Export UCanvas::execSetDrawColor(FFrame&, void* const)
 	public virtual /*native final function */void SetDrawColor(byte R, byte G, byte B, /*optional */byte? _A = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawRotatedTile(FFrame&, void* const)
 	public virtual /*native final function */void DrawRotatedTile(Texture2D Tex, Object.Rotator Rotation, float XL, float YL, float U, float V, float UL, float VL, /*optional */float? _AnchorX = default, /*optional */float? _AnchorY = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawRotatedMaterialTile(FFrame&, void* const)
 	public virtual /*native final function */void DrawRotatedMaterialTile(MaterialInterface Mat, Object.Rotator Rotation, float XL, float YL, /*optional */float? _U = default, /*optional */float? _V = default, /*optional */float? _UL = default, /*optional */float? _VL = default, /*optional */float? _AnchorX = default, /*optional */float? _AnchorY = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDraw2DLine(FFrame&, void* const)
 	public virtual /*native final function */void Draw2DLine(float X1, float Y1, float X2, float Y2, Object.Color LineColor)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawTextureLine(FFrame&, void* const)
 	public virtual /*native final function */void DrawTextureLine(Object.Vector StartPoint, Object.Vector EndPoint, float Perc, float Width, Object.Color LineColor, Texture2D LineTexture, float U, float V, float UL, float VL)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UCanvas::execDrawTextureDoubleLine(FFrame&, void* const)
 	public virtual /*native final function */void DrawTextureDoubleLine(Object.Vector StartPoint, Object.Vector EndPoint, float Perc, float Spacing, float Width, Object.Color LineColor, Object.Color AltLineColor, Texture2D Tex, float U, float V, float UL, float VL)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public Canvas()

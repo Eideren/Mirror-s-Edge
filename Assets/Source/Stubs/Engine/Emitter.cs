@@ -18,7 +18,7 @@ public partial class Emitter : Actor/*
 	// Export UEmitter::execSetTemplate(FFrame&, void* const)
 	public virtual /*native event */void SetTemplate(ParticleSystem NewTemplate, /*optional */bool? _bDestroyOnFinish = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

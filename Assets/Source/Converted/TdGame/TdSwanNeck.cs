@@ -28,7 +28,7 @@ public partial class TdSwanNeck : Object/*
 	// Export UTdSwanNeck::execGetSwanNeckPos(FFrame&, void* const)
 	public virtual /*native function */Object.Vector GetSwanNeckPos(/*const */Object.Rotator FrameOfRefRotation)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

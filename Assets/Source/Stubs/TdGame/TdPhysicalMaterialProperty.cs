@@ -19,7 +19,7 @@ public partial class TdPhysicalMaterialProperty : PhysicalMaterialPropertyBase/*
 	// Export UTdPhysicalMaterialProperty::execGetParticleImpactSound(FFrame&, void* const)
 	public virtual /*native final simulated function */SoundCue GetParticleImpactSound(TdParticleModuleCollision.ECollisionParticleType Type)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

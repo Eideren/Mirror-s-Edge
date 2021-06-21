@@ -8,7 +8,7 @@ public partial class TdHUDObject : TdUIObject/*
 	// Export UTdHUDObject::execGetHud(FFrame&, void* const)
 	public virtual /*native function */HUD GetHud()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

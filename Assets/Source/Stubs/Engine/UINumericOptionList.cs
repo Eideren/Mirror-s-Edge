@@ -9,7 +9,7 @@ public partial class UINumericOptionList : UIOptionListBase/*
 	// Export UUINumericOptionList::execSetValue(FFrame&, void* const)
 	public virtual /*native final function */bool SetValue(/*coerce */float NewValue, /*optional */bool? _bPercentageValue = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -17,7 +17,7 @@ public partial class UINumericOptionList : UIOptionListBase/*
 	// Export UUINumericOptionList::execGetValue(FFrame&, void* const)
 	public virtual /*native final function */float GetValue(/*optional */bool? _bPercentageValue = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

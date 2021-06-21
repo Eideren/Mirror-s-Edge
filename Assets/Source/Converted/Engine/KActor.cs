@@ -44,14 +44,14 @@ public partial class KActor : DynamicSMActor/*
 	// Export UKActor::execGetKActorPhysMaterial(FFrame&, void* const)
 	public virtual /*native final function */PhysicalMaterial GetKActorPhysMaterial()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UKActor::execResolveRBState(FFrame&, void* const)
 	public virtual /*native final function */void ResolveRBState()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public override /*simulated event */void PostBeginPlay()

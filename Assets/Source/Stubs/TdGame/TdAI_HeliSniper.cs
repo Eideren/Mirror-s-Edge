@@ -9,7 +9,7 @@ public partial class TdAI_HeliSniper : TdAIController/*
 	// Export UTdAI_HeliSniper::execUpdateAnchor(FFrame&, void* const)
 	public override /*native function */void UpdateAnchor()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

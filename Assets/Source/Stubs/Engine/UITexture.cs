@@ -11,14 +11,14 @@ public partial class UITexture : UIRoot/*
 	// Export UUITexture::execSetImageStyle(FFrame&, void* const)
 	public virtual /*native final function */void SetImageStyle(UIStyle_Image NewImageStyle)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUITexture::execHasValidStyleData(FFrame&, void* const)
 	public virtual /*native final function */bool HasValidStyleData()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

@@ -9,7 +9,7 @@ public partial class UIDataStore_TdMenuItems : UIDataStore_TdGameResource/*
 	// Export UUIDataStore_TdMenuItems::execGetAllResourceDataProviders(FFrame&, void* const)
 	public /*native final function */static void GetAllResourceDataProviders(Core.ClassT<UIResourceDataProvider> ProviderClass, ref array<UIResourceDataProvider> Providers)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

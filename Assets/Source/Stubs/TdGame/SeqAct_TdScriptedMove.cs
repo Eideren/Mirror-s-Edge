@@ -12,14 +12,14 @@ public partial class SeqAct_TdScriptedMove : SeqAct_Latent/*
 	// Export USeqAct_TdScriptedMove::execAbortScriptedMove(FFrame&, void* const)
 	public virtual /*native function */void AbortScriptedMove()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export USeqAct_TdScriptedMove::execFinishScriptedMove(FFrame&, void* const)
 	public virtual /*native function */void FinishScriptedMove()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

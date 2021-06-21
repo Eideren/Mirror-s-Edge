@@ -10,7 +10,7 @@ public partial class GamePlayerController : PlayerController/*
 	// Export UGamePlayerController::execGetChapterStrings(FFrame&, void* const)
 	public virtual /*native function */void GetChapterStrings(int eChapter, ref String ChapterName, ref String ActName)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*simulated function */void DisplayChapterTitle(int DisplayChapter, float TotalDisplayTime, float TotalFadeTime)

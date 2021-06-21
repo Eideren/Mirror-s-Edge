@@ -33,14 +33,14 @@ public partial class RB_BodyInstance : Object/*
 	// Export URB_BodyInstance::execSetFixed(FFrame&, void* const)
 	public virtual /*native final function */void SetFixed(bool bNewFixed)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export URB_BodyInstance::execIsFixed(FFrame&, void* const)
 	public virtual /*native final function */bool IsFixed()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -48,7 +48,7 @@ public partial class RB_BodyInstance : Object/*
 	// Export URB_BodyInstance::execIsValidBodyInstance(FFrame&, void* const)
 	public virtual /*native final function */bool IsValidBodyInstance()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -56,7 +56,7 @@ public partial class RB_BodyInstance : Object/*
 	// Export URB_BodyInstance::execGetUnrealWorldTM(FFrame&, void* const)
 	public virtual /*native final function */Object.Matrix GetUnrealWorldTM()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -64,7 +64,7 @@ public partial class RB_BodyInstance : Object/*
 	// Export URB_BodyInstance::execGetUnrealWorldVelocity(FFrame&, void* const)
 	public virtual /*native final function */Object.Vector GetUnrealWorldVelocity()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -72,7 +72,7 @@ public partial class RB_BodyInstance : Object/*
 	// Export URB_BodyInstance::execGetUnrealWorldAngularVelocity(FFrame&, void* const)
 	public virtual /*native final function */Object.Vector GetUnrealWorldAngularVelocity()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -80,42 +80,42 @@ public partial class RB_BodyInstance : Object/*
 	// Export URB_BodyInstance::execEnableBoneSpring(FFrame&, void* const)
 	public virtual /*native final function */void EnableBoneSpring(bool bInEnableLinear, bool bInEnableAngular, /*const */ref Object.Matrix InBoneTarget)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export URB_BodyInstance::execSetBoneSpringParams(FFrame&, void* const)
 	public virtual /*native final function */void SetBoneSpringParams(float InLinearSpring, float InLinearDamping, float InAngularSpring, float InAngularDamping)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export URB_BodyInstance::execSetBoneSpringTarget(FFrame&, void* const)
 	public virtual /*native final function */void SetBoneSpringTarget(/*const */ref Object.Matrix InBoneTarget, bool bTeleport)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export URB_BodyInstance::execSetBlockRigidBody(FFrame&, void* const)
 	public virtual /*native final function */void SetBlockRigidBody(bool bNewBlockRigidBody)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export URB_BodyInstance::execSetPhysMaterialOverride(FFrame&, void* const)
 	public virtual /*native final function */void SetPhysMaterialOverride(PhysicalMaterial NewPhysMaterial)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export URB_BodyInstance::execEnableCollisionResponse(FFrame&, void* const)
 	public virtual /*native final function */void EnableCollisionResponse(bool bEnableResponse)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

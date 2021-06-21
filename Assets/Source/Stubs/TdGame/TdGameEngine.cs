@@ -27,7 +27,7 @@ public partial class TdGameEngine : GameEngine/*
 	// Export UTdGameEngine::execGetLanguage(FFrame&, void* const)
 	public /*native final function */static name GetLanguage()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

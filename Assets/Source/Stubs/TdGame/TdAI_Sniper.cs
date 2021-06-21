@@ -113,7 +113,7 @@ public partial class TdAI_Sniper : TdAIController/*
 	// Export UTdAI_Sniper::execCheckFireCondition(FFrame&, void* const)
 	public override /*native function */void CheckFireCondition()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

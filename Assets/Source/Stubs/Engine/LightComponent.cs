@@ -136,21 +136,21 @@ public partial class LightComponent : ActorComponent/*
 	// Export ULightComponent::execSetEnabled(FFrame&, void* const)
 	public virtual /*native final function */void SetEnabled(bool bSetEnabled)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export ULightComponent::execSetLightProperties(FFrame&, void* const)
 	public virtual /*native final function */void SetLightProperties(/*optional */float? _NewBrightness = default, /*optional */Object.Color? _NewLightColor = default, /*optional */LightFunction? _NewLightFunction = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export ULightComponent::execGetOrigin(FFrame&, void* const)
 	public virtual /*native final function */Object.Vector GetOrigin()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -158,7 +158,7 @@ public partial class LightComponent : ActorComponent/*
 	// Export ULightComponent::execGetDirection(FFrame&, void* const)
 	public virtual /*native final function */Object.Vector GetDirection()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
@@ -166,7 +166,7 @@ public partial class LightComponent : ActorComponent/*
 	// Export ULightComponent::execUpdateColorAndBrightness(FFrame&, void* const)
 	public virtual /*native final function */void UpdateColorAndBrightness()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

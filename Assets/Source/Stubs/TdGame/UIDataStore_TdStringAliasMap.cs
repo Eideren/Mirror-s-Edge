@@ -12,7 +12,7 @@ public partial class UIDataStore_TdStringAliasMap : UIDataStore_StringAliasMap/*
 	// Export UUIDataStore_TdStringAliasMap::execGetStringWithFieldName(FFrame&, void* const)
 	public override /*native function */int GetStringWithFieldName(String FieldName, ref String MappedString)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

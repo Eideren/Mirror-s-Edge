@@ -7,7 +7,7 @@ public partial class HelpCommandlet : Commandlet/*
 	// Export UHelpCommandlet::execMain(FFrame&, void* const)
 	public override /*native event */int Main(String Params)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}

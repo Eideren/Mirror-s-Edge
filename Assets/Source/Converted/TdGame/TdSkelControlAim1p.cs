@@ -25,7 +25,7 @@ public partial class TdSkelControlAim1p : SkelControlSingleBone/*
 	// Export UTdSkelControlAim1p::execUpdateTransformation(FFrame&, void* const)
 	public virtual /*native function */void UpdateTransformation(TdPawn PawnOwner)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	public virtual /*event */void OnInit()

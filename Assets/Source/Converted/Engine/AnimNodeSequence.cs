@@ -54,59 +54,59 @@ public partial class AnimNodeSequence : AnimNode/*
 	// Export UAnimNodeSequence::execSetAnim(FFrame&, void* const)
 	public virtual /*native function */void SetAnim(name Sequence)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UAnimNodeSequence::execPlayAnim(FFrame&, void* const)
 	public override /*native function */void PlayAnim(/*optional */bool? _bLoop = default, /*optional */float? _InRate = default, /*optional */float? _StartTime = default)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UAnimNodeSequence::execStopAnim(FFrame&, void* const)
 	public override /*native function */void StopAnim()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UAnimNodeSequence::execSetPosition(FFrame&, void* const)
 	public virtual /*native function */void SetPosition(float NewTime, bool bFireNotifies)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 	}
 	
 	// Export UAnimNodeSequence::execGetNormalizedPosition(FFrame&, void* const)
 	public virtual /*native function */float GetNormalizedPosition()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UAnimNodeSequence::execFindNormalizedPositionFromGroupRelativePosition(FFrame&, void* const)
 	public virtual /*native function */float FindNormalizedPositionFromGroupRelativePosition(float GroupRelativePosition)
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UAnimNodeSequence::execGetGlobalPlayRate(FFrame&, void* const)
 	public virtual /*native function */float GetGlobalPlayRate()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UAnimNodeSequence::execGetAnimPlaybackLength(FFrame&, void* const)
 	public virtual /*native function */float GetAnimPlaybackLength()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UAnimNodeSequence::execGetTimeLeft(FFrame&, void* const)
 	public virtual /*native function */float GetTimeLeft()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	

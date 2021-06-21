@@ -17,7 +17,7 @@ public partial class KActorSpawnable : KActor/*
 	// Export UKActorSpawnable::execResetComponents(FFrame&, void* const)
 	public virtual /*native function */void ResetComponents()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	

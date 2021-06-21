@@ -198,7 +198,7 @@ public partial class Terrain : Info/*
 	// Export UTerrain::execCalcLayerBounds(FFrame&, void* const)
 	public virtual /*native final function */void CalcLayerBounds()
 	{
-		#warning NATIVE FUNCTION !
+		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
