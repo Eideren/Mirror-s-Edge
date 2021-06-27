@@ -8,6 +8,8 @@
 
     public partial class Actor
     {
+	    
+	    
         // Export UActor::execSpawn(FFrame&, void* const)
         public virtual /*native final function */ T Spawn<T>(Core.ClassT<T> SpawnClass, /*optional */
             Actor SpawnOwner = default, /*optional */Core.name? SpawnTag = default, /*optional */
@@ -15,7 +17,7 @@
             Actor ActorTemplate = default, /*optional */bool? bNoCollisionFail = default) where T : Actor
         {
             // Decompiled from _E_UActor_execSpawn
-            var result = UWorld.Instance.E_UWorld_SpawnActor( SpawnClass, 0, 0, SpawnLocation ?? Location, SpawnRotation ?? Rotation, ActorTemplate, bNoCollisionFail ?? false /* probably */, 0, SpawnOwner, this.Instigator, false );
+            var result = UWorldBridge.GetUWorld().E_UWorld_SpawnActor( SpawnClass, 0, 0, SpawnLocation ?? Location, SpawnRotation ?? Rotation, ActorTemplate, bNoCollisionFail ?? false /* probably */, 0, SpawnOwner, this.Instigator, false );
             if( result != null && SpawnTag != null )
             {
                 result.Tag = SpawnTag.Value;

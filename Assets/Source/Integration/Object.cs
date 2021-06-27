@@ -3,7 +3,6 @@
 	using System;
 	using System.Reflection;
 	using Engine;
-	using Source;
 	using static UnityEngine.Debug;
 
 
@@ -14,7 +13,7 @@
 		/// IN UE3:
 		/// TCLASS'Package.Group(s)+.Name'
 		/// </summary>
-		public static TClass LoadAsset<TClass>( String assetPath ) where TClass : new() => Asset.LoadAsset<TClass>( assetPath );
+		public static TClass LoadAsset<TClass>( String assetPath ) where TClass : new() => UWorldBridge.GetUWorld().LoadAsset<TClass>( assetPath );
 
         // Export UObject::execDynamicLoadObject(FFrame&, void* const)
         public /*native final function */static Object DynamicLoadObject(String ObjectName, Core.Class ObjectClass, /*optional */bool? MayFail = default)

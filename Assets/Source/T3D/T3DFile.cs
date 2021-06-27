@@ -1,6 +1,5 @@
 ﻿namespace MEdge.T3D
 {
-	using AnimNodeEditor;
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -104,13 +103,6 @@
 		{
 			var prevState = GUI.enabled;
 			GUI.enabled = true;
-			if( GUILayout.Button( "Open in Anim Node Editor" ) )
-			{
-				var window = EditorWindow.CreateInstance<AnimNodeEditorWindow>();
-				window.LoadFile( target as T3DFile );
-				window.Show();
-			}
-
 			var newSearch = EditorGUILayout.TextField( "Filter properties", SearchContent );
 			if( newSearch != SearchContent )
 			{

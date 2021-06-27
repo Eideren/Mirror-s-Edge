@@ -4,7 +4,6 @@
 	using System.Linq;
 	using Core;
 	using JetBrains.Annotations;
-	using Source;
 	using UnityEngine;
 	using Object = Core.Object;
 
@@ -107,7 +106,7 @@
 			if( _Space != default )
 				throw new System.InvalidOperationException( "Non-default space is not implemented yet" );
 			
-			var renderer = _associatedRenderer ??= Asset.UScriptToUnity.TryGetValue( this, out var smr ) ? (SkinnedMeshRenderer) smr : throw new System.NullReferenceException();
+			var renderer = _associatedRenderer ??= UWorldBridge.GetUWorld().UScriptToUnity.TryGetValue( this, out var smr ) ? (SkinnedMeshRenderer) smr : throw new System.NullReferenceException();
 			foreach( var bone in renderer.bones )
 			{
 				if( bone.name == BoneName )

@@ -7,7 +7,7 @@
 
 	public partial class WorldInfo
 	{
-		internal HashSet<Actor> _allActors = new HashSet<Actor>();
+		public HashSet<Actor> _allActors = new HashSet<Actor>();
 
 		bool _gravitySet = false;
 		

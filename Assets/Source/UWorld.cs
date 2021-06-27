@@ -17,7 +17,7 @@
 
 
 
-    public class UWorld : UnityEngine.MonoBehaviour
+    public class UWorld : UnityEngine.MonoBehaviour, IUWorld
     {
         public static UWorld Instance => GetInstance();
         public bool HasBegunPlay{ get; private set; }
@@ -30,6 +30,14 @@
         static UWorld _instance;
         static UnityAction<UnityEngine.SceneManagement.Scene, LoadSceneMode> _onSceneLoadedCached;
         static ConditionalWeakTable<TdPawn, PawnLink> Links = new ConditionalWeakTable<TdPawn, PawnLink>();
+
+
+
+        static UWorld()
+        {
+            UWorldBridge.GetUWorld = () => Instance;
+        }
+
 
 
         class PawnLink
@@ -374,7 +382,11 @@
 
 
 
-        //, _E_struct_FVector *SpawnLocation, _E_struct_FRotator *SpawnRotation, _E_struct_AActor *ActorTemplate, int bNoCollisionFail, int networkRelatedParam, _E_struct_AActor *SpawnOwner, _E_struct_APawn *Instigator, int bProbablyNoFail
+        public ConditionalWeakTable<object, object> UScriptToUnity => Asset.UScriptToUnity;
+        public TClass LoadAsset<TClass>( Core.String assetPath ) where TClass : new() => Asset.LoadAsset<TClass>( assetPath );
+
+
+
         public T E_UWorld_SpawnActor<T>(Core.ClassT<T> SpawnClass, int a3, float a4, Object.Vector SpawnLocation, Object.Rotator SpawnRotation, Actor ActorTemplate, bool bNoCollisionFail, int networkRelatedParam, Actor SpawnOwner, Pawn Instigator, bool bProbablyNoFail) where T : Actor
 		{
             #warning implement this maybe
