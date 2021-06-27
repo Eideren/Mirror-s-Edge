@@ -3,10 +3,11 @@
 	using _E_struct_FRotator = Object.Rotator;
 	using _E_struct_Quat = Object.Quat;
 	using _E_struct_FVector = Object.Vector;
+	using _E_struct_Matrix = Object.Matrix;
 	
 	public partial class Object
 	{
-		static unsafe class Decompiled
+		public static unsafe class Decompiled
 		{
 			public static readonly float[] E_RotTable_dword_2028088 = new float[16384];
 	        
@@ -30,12 +31,7 @@
 				//return result;
 			}
 			
-			struct _E_struct_Matrix
-			{
-				public fixed float M[ 16 ];
-			}
-			
-			static _E_struct_Matrix* E_RotatorToMatrix(_E_struct_Matrix *thisMatrix, _E_struct_FRotator *a2)
+			public static _E_struct_Matrix* E_RotatorToMatrix(_E_struct_Matrix *thisMatrix, _E_struct_FRotator *a2)
 			{
 				_E_struct_Matrix *someMatrix; // eax
 				/*signed */int v3; // edx

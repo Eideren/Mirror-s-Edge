@@ -673,19 +673,19 @@ public partial class TdPawn : GamePawn/*
 	//		PatchTwo;
 	//}
 	
-	// Export UTdPawn::execGetWalkAcceleration(FFrame&, void* const)
-	public virtual /*native function */Object.Vector GetWalkAcceleration(float aForward, float aStrafe, int DeltaRotation, float DeltaTime)
-	{
-		 // #warning NATIVE FUNCTION !
-		return default;
-	}
+	//// Export UTdPawn::execGetWalkAcceleration(FFrame&, void* const)
+	//public virtual /*native function */Object.Vector GetWalkAcceleration(float aForward, float aStrafe, int DeltaRotation, float DeltaTime)
+	//{
+	//	 // #warning NATIVE FUNCTION !
+	//	return default;
+	//}
 	
-	// Export UTdPawn::execGetSprintAcceleration(FFrame&, void* const)
-	public virtual /*native function */Object.Vector GetSprintAcceleration(float aForward, float aStrafe, int DeltaRotation, float DeltaTime)
-	{
-		 // #warning NATIVE FUNCTION !
-		return default;
-	}
+	//// Export UTdPawn::execGetSprintAcceleration(FFrame&, void* const)
+	//public virtual /*native function */Object.Vector GetSprintAcceleration(float aForward, float aStrafe, int DeltaRotation, float DeltaTime)
+	//{
+	//	 // #warning NATIVE FUNCTION !
+	//	return default;
+	//}
 	
 	// Export UTdPawn::execSyncLegMovement(FFrame&, void* const)
 	public virtual /*native function */void SyncLegMovement()
@@ -693,12 +693,12 @@ public partial class TdPawn : GamePawn/*
 		 // #warning NATIVE FUNCTION !
 	}
 	
-	// Export UTdPawn::execGetMobilityMultiplier(FFrame&, void* const)
-	public virtual /*native function */float GetMobilityMultiplier()
-	{
-		 // #warning NATIVE FUNCTION !
-		return default;
-	}
+	//// Export UTdPawn::execGetMobilityMultiplier(FFrame&, void* const)
+	//public virtual /*native function */float GetMobilityMultiplier()
+	//{
+	//	 // #warning NATIVE FUNCTION !
+	//	return default;
+	//}
 	
 	// Export UTdPawn::execOffsetMeshXY(FFrame&, void* const)
 	public virtual /*native function */void OffsetMeshXY(Object.Vector Offset, /*optional */bool? _bWorldSpace = default)
@@ -1042,11 +1042,11 @@ public partial class TdPawn : GamePawn/*
 		PendingAnimationMovementState = TdPawn.EMovement.MOVE_None/*0*/;
 	}
 	
-	// Export UTdPawn::execUpdateWalkingState(FFrame&, void* const)
-	public virtual /*native simulated function */void UpdateWalkingState()
-	{
-		 // #warning NATIVE FUNCTION !
-	}
+	//// Export UTdPawn::execUpdateWalkingState(FFrame&, void* const)
+	//public virtual /*native simulated function */void UpdateWalkingState()
+	//{
+	//	 // #warning NATIVE FUNCTION !
+	//}
 	
 	public virtual /*simulated function */void SetOverrideWalkingState(TdPawn.WalkingState NewState, /*optional */float? _delay = default)
 	{
@@ -2613,11 +2613,11 @@ public partial class TdPawn : GamePawn/*
 		 // #warning NATIVE FUNCTION !
 	}
 	
-	// Export UTdPawn::execUpdateVelocityVariables(FFrame&, void* const)
-	public virtual /*native simulated function */void UpdateVelocityVariables()
-	{
-		 // #warning NATIVE FUNCTION !
-	}
+	//// Export UTdPawn::execUpdateVelocityVariables(FFrame&, void* const)
+	//public virtual /*native simulated function */void UpdateVelocityVariables()
+	//{
+	//	 // #warning NATIVE FUNCTION !
+	//}
 	
 	public override Tick_del Tick { get => bfield_Tick ?? TdPawn_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdPawn_Tick;

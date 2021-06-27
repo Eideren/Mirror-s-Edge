@@ -39,30 +39,37 @@
 
 			if( Class.InSpawningDefault == 0 )
 			{
-				if( resourceAsset is UnityEngine.Object go )
-					resourceAsset = UnityEngine.Object.Instantiate( go );
+				if( resourceAsset is UnityEngine.Object o )
+					resourceAsset = UnityEngine.Object.Instantiate( o );
 			}
-			
+
 			if( resourceAsset is IAsset iAsset )
 				return (TClass) iAsset.GetRuntimeAsset();
 			else if( resourceAsset is TClass == false )
 			{
+				UnityEngine.Object associatedUnityObject = null;
 				if( typeof(TClass) == typeof(SkeletalMesh) 
 				    && resourceAsset is UnityEngine.GameObject go 
-				    && go.GetComponent<UnityEngine.SkinnedMeshRenderer>() is UnityEngine.SkinnedMeshRenderer smr )
+				    && go.GetComponentInChildren<UnityEngine.SkinnedMeshRenderer>() is UnityEngine.SkinnedMeshRenderer smr )
 				{
+					associatedUnityObject = smr;
+				}
+
+				if( associatedUnityObject != null )
+				{
+					var obj = new TClass();
 					lock( UScriptToUnity )
+						UScriptToUnity.Add( obj, associatedUnityObject );
+					if( obj is Actor a && resourceAsset is UnityEngine.GameObject go2 )
 					{
-						var obj = new TClass();
-						UScriptToUnity.Add( obj, smr );
-						return obj;
+						var c = go2.AddComponent<ActorDrivenTransform>();
+						c.Actor = a;
 					}
+					return obj;
 				}
 			}
 
-			#warning LoadAsset not implemented yet
-			LogError($"{nameof(LoadAsset)} not implemented yet, requesting '{assetPath}'");
-
+			LogWarning($"{nameof(LoadAsset)} not implemented yet, requesting '{assetPath}'");
 			return new TClass();
 		}
 	}

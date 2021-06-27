@@ -123,13 +123,14 @@ public partial class TdPlayerPawn : TdPawn/*
 		 // #warning NATIVE FUNCTION !
 	}
 	
-	// Export UTdPlayerPawn::execGetMobilityMultiplier(FFrame&, void* const)
-	public override /*native function */float GetMobilityMultiplier()
-	{
-		 // #warning NATIVE FUNCTION !
-		return default;
-	}
-	
+	// THIS ONE MAPS TO THE SAME ADDRESS ?!
+	//// Export UTdPlayerPawn::execGetMobilityMultiplier(FFrame&, void* const)
+	//public override /*native function */float GetMobilityMultiplier()
+	//{
+	//	 // #warning NATIVE FUNCTION !
+	//	return default;
+	//}
+
 	public virtual /*function */Scene.ESceneDepthPriorityGroup GetFirstPersonDPG()
 	{
 		return ((Scene.ESceneDepthPriorityGroup)FirstPersonDPG);

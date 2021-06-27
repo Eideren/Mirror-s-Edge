@@ -822,11 +822,11 @@ public partial class Actor : Object/*
 		 // #warning NATIVE FUNCTION !
 	}
 	
-	// Export UActor::execSetPhysics(FFrame&, void* const)
-	public virtual /*native(3970) final function */void SetPhysics(Actor.EPhysics newPhysics)
-	{
-		 // #warning NATIVE FUNCTION !
-	}
+	//// Export UActor::execSetPhysics(FFrame&, void* const)
+	//public virtual /*native(3970) final function */void SetPhysics(Actor.EPhysics newPhysics)
+	//{
+	//	 // #warning NATIVE FUNCTION !
+	//}
 	
 	// Export UActor::execClock(FFrame&, void* const)
 	public virtual /*native final function */void Clock(ref float Time)

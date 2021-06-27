@@ -2,9 +2,9 @@
 {
     public partial class Object
     {
-        public partial struct Matrix
+        public unsafe partial struct Matrix
         {
-            //System.Numerics.Matrix4x4 _internal;
+            public fixed float M[ 16 ];
         }
     }
 }

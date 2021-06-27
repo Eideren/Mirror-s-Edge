@@ -7,7 +7,7 @@
 	using static UnityEngine.Debug;
 
 
-
+	[Serializable]
 	public partial class Object
 	{
 		/// <summary>
@@ -19,26 +19,29 @@
         // Export UObject::execDynamicLoadObject(FFrame&, void* const)
         public /*native final function */static Object DynamicLoadObject(String ObjectName, Core.Class ObjectClass, /*optional */bool? MayFail = default)
         {
+	        if( ObjectClass != ClassT<Class>() )
+		        throw new InvalidOperationException( $"{ObjectClass} not implemented yet" );
+	        
 	        var namespaces = new String[]
 	        {
-		        "Engine",
-		        "TdGame",
-		        "Core",
-		        "GameFramework",
-		        "TdMenuContent",
-		        "TdMpContent",
-		        "TdSharedContent",
-		        "TdSpBossContent",
-		        "TdSpContent",
-		        "TdTTContent",
-		        "TdTuContent",
-		        "Fp",
-		        "Tp",
-		        "Ts",
-		        "IpDrv",
-		        "TdEditor",
-		        "Editor",
-		        "UnrealEd",
+		        "MEdge.Engine",
+		        "MEdge.TdGame",
+		        "MEdge.Core",
+		        "MEdge.GameFramework",
+		        "MEdge.TdMenuContent",
+		        "MEdge.TdMpContent",
+		        "MEdge.TdSharedContent",
+		        "MEdge.TdSpBossContent",
+		        "MEdge.TdSpContent",
+		        "MEdge.TdTTContent",
+		        "MEdge.TdTuContent",
+		        "MEdge.Fp",
+		        "MEdge.Tp",
+		        "MEdge.Ts",
+		        "MEdge.IpDrv",
+		        "MEdge.TdEditor",
+		        "MEdge.Editor",
+		        "MEdge.UnrealEd",
 	        };
 
 	        Type type = Type.GetType( ObjectName );
@@ -50,15 +53,14 @@
 	        if( type == null )
 	        {
 		        LogError( $"Could not {nameof(DynamicLoadObject)}({ObjectName}, {ObjectClass}), type '{ObjectName}' not found" );
-		        Break();
 		        return null;
 	        }
 
 	        // This should never throw, if it does the logic below is not setup properly or the type does not derive from Object
-	        return typeof(_classImp<>)!
-		        .MakeGenericType( type )!
-		        .GetProperty( nameof(_classImp<Object>.Singleton), BindingFlags.Static | BindingFlags.Public )!
-		        .GetValue( null ) as Object;
+	        var genType = typeof(_classImp<>)!.MakeGenericType( type )!;
+	        var prop = genType.GetField( nameof( _classImp<Object>.Singleton ), BindingFlags.Static | BindingFlags.Public )!;
+	        var val = prop.GetValue( genType );
+	        return val as Object;
         }
 
         /// <summary>
@@ -76,13 +78,14 @@
 			        }
 		        }
 		        LogWarning($"Could not find enum {name}");
-		        Break();
+		        System.Diagnostics.Debugger.Break();
 		        return default;
 	        }
 	        else if( typeof(Property).IsAssignableFrom( typeof(TClass) ) )
 	        {
 		        #warning not too sure what to do here right now, will investigate later
-		        Break();
+		        System.Diagnostics.Debugger.Break();
+		        LogWarning( "not too sure what to do here right now, will investigate later" );
 		        return new TClass();
 	        }
 	        else
@@ -159,13 +162,13 @@
         /// <summary>
         /// Returns the i left-most characters of S. If S has less than or equal to i characters, the entire value is returned.
         /// </summary>
-        public /*native(128) final function */static String Left( /*coerce */ String S, int I ) => S.ToString().Substring( 0, Min(I, S.ToString().Length) );
+        public /*native(128) final function */static String Left( /*coerce */ String S, int I ) => I > 0 && I <= S.ToString().Length ? (String)S.ToString().Substring(0, I) : S;
 	
         // Export UObject::execRight(FFrame&, void* const)
         /// <summary>
         /// Returns the num rightmost characters of S or all of them if S contains less than num characters.
         /// </summary>
-        public /*native(234) final function */static String Right( /*coerce */ String S, int I ) => S.ToString().Remove( 0, Max(S.ToString().Length - I, 0) );
+        public /*native(234) final function */static String Right( /*coerce */ String S, int I ) => I > 0 && I <= S.ToString().Length ? (String)S.ToString().Remove(0, S.ToString().Length - I) : S;
 
         // Export UObject::execMid(FFrame&, void* const)
         /// <summary>
@@ -174,7 +177,7 @@
         public /*native(127) final function */static String Mid( /*coerce */ String S, int I, /*optional */int? J = default )
         {
 	        var s = S.ToString().Remove( 0, I );
-	        return J == 0 ? s : s.Substring( 0, Min(J??0, s.Length) );
+	        return J == default ? s : s.Substring( 0, Min(J.Value, s.Length) );
         }
 
 

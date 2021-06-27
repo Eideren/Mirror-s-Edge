@@ -14,8 +14,12 @@
         public static float Sqrt(float f) => (float)System.Math.Sqrt(f);
         public static float Square( float f ) => f * f;
         
-        static float atan2( double x, double y ) => (float)System.Math.Atan2( x, y );
-        static float sqrt( double x ) => (float)System.Math.Sqrt( x );
+        protected static float atan2( double x, double y ) => (float)System.Math.Atan2( x, y );
+        protected static double sqrt( double x ) => System.Math.Sqrt( x );
+        protected static float fsqrt( float x ) => (float)System.Math.Sqrt( x );
+        protected static float fabs( float f ) => Abs( f );
+        protected static float pow( float x, float y ) => (float)System.Math.Pow( x, y );
+        protected static float floor( float f ) => (float)System.Math.Floor( f );
 
         // Export UObject::execRand(FFrame&, void* const)
         /// <summary> Returns a number between and including 0 to <paramref name="max"/> excluding </summary>

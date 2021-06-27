@@ -11,7 +11,7 @@
 
         public override bool Equals( object? obj ) => Value.Equals( obj );
         public override int GetHashCode() => Value.GetHashCode();
-        public static bool operator ==(name a, name b) => a.Value == b.Value;
+        public static bool operator ==(name a, name b) => (a.Value == "None" && b.Value == "") || (a.Value == "" && b.Value == "None") || a.Value == b.Value;
         public static bool operator !=(name a, name b) => (a == b) == false;
         public override string ToString() => Value.ToString();
     }
