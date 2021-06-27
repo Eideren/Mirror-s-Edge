@@ -4,6 +4,15 @@
     {
         public partial struct Rotator
         {
+            public Rotator(int pitch, int yaw, int roll)
+            {
+                Pitch = pitch;
+                Yaw = yaw;
+                Roll = roll;
+            }
+
+
+
             // Returns a unit length vector facing the given rotator
             public static explicit operator Vector( Rotator v )
             {
