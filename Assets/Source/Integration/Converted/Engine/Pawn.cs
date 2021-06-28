@@ -877,26 +877,26 @@ public partial class Pawn : Actor/*
 		}
 	}
 	
-	//// Export UPawn::execIsHumanControlled(FFrame&, void* const)
-	//public virtual /*native final simulated function */bool IsHumanControlled()
-	//{
-	//	 // #warning NATIVE FUNCTION !
-	//	return default;
-	//}
-	//
-	//// Export UPawn::execIsLocallyControlled(FFrame&, void* const)
-	//public virtual /*native final simulated function */bool IsLocallyControlled()
-	//{
-	//	 // #warning NATIVE FUNCTION !
-	//	return default;
-	//}
-	//
-	//// Export UPawn::execIsPlayerPawn(FFrame&, void* const)
-	//public virtual /*native simulated function */bool IsPlayerPawn()
-	//{
-	//	 // #warning NATIVE FUNCTION !
-	//	return default;
-	//}
+	// Export UPawn::execIsHumanControlled(FFrame&, void* const)
+	public virtual /*native final simulated function */bool IsHumanControlled()
+	{
+		 // #warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UPawn::execIsLocallyControlled(FFrame&, void* const)
+	public virtual /*native final simulated function */bool IsLocallyControlled()
+	{
+		 // #warning NATIVE FUNCTION !
+		return default;
+	}
+	
+	// Export UPawn::execIsPlayerPawn(FFrame&, void* const)
+	public virtual /*native simulated function */bool IsPlayerPawn()
+	{
+		 // #warning NATIVE FUNCTION !
+		return default;
+	}
 	
 	public virtual /*simulated function */bool WasPlayerPawn()
 	{
