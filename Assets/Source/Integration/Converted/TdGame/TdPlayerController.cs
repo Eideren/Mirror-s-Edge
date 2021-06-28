@@ -2547,9 +2547,6 @@ public partial class TdPlayerController : GamePlayerController,
 		{
 			return 1;
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	
 	public virtual /*function */int GetFaithOVisionFromProfile()
@@ -2566,9 +2563,6 @@ public partial class TdPlayerController : GamePlayerController,
 		{
 			return 2;
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	
 	public virtual /*function */void UpdateFaithOVisionFlag(int DifficultyLevel)

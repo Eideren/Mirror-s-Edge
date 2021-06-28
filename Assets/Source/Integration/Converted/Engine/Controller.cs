@@ -911,9 +911,6 @@ public partial class Controller : Actor/*
 		{
 			return GetItemName(((this)).ToString());
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	
 	public delegate bool IsDead_del();

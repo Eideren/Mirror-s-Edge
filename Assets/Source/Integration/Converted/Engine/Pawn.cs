@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -877,26 +879,26 @@ public partial class Pawn : Actor/*
 		}
 	}
 	
-	// Export UPawn::execIsHumanControlled(FFrame&, void* const)
-	public virtual /*native final simulated function */bool IsHumanControlled()
-	{
-		 // #warning NATIVE FUNCTION !
-		return default;
-	}
-	
-	// Export UPawn::execIsLocallyControlled(FFrame&, void* const)
-	public virtual /*native final simulated function */bool IsLocallyControlled()
-	{
-		 // #warning NATIVE FUNCTION !
-		return default;
-	}
-	
-	// Export UPawn::execIsPlayerPawn(FFrame&, void* const)
-	public virtual /*native simulated function */bool IsPlayerPawn()
-	{
-		 // #warning NATIVE FUNCTION !
-		return default;
-	}
+	//// Export UPawn::execIsHumanControlled(FFrame&, void* const)
+	//public virtual /*native final simulated function */bool IsHumanControlled()
+	//{
+	//	 // #warning NATIVE FUNCTION !
+	//	return default;
+	//}
+	//
+	//// Export UPawn::execIsLocallyControlled(FFrame&, void* const)
+	//public virtual /*native final simulated function */bool IsLocallyControlled()
+	//{
+	//	 // #warning NATIVE FUNCTION !
+	//	return default;
+	//}
+	//
+	//// Export UPawn::execIsPlayerPawn(FFrame&, void* const)
+	//public virtual /*native simulated function */bool IsPlayerPawn()
+	//{
+	//	 // #warning NATIVE FUNCTION !
+	//	return default;
+	//}
 	
 	public virtual /*simulated function */bool WasPlayerPawn()
 	{
@@ -1569,9 +1571,6 @@ public partial class Pawn : Actor/*
 		{
 			return false;
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	
 	public virtual /*function */void PruneDamagedBoneList(ref array<name> Bones)
@@ -1741,9 +1740,6 @@ public partial class Pawn : Actor/*
 				}
 			}
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	
 	public virtual /*simulated event */bool IsSameTeam(Pawn Other)

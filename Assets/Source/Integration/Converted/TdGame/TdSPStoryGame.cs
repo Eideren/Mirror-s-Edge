@@ -66,9 +66,6 @@ public partial class TdSPStoryGame : TdSPGame/*
 		{
 			return false;
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	
 	public override /*function */void ResetLevel()

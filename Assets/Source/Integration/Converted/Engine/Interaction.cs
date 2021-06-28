@@ -19,8 +19,6 @@ public partial class Interaction : UIRoot/*
 	{
 		var AmountDepressed = _AmountDepressed ?? 1.0f;
 		var bGamepad = _bGamepad ?? default;
-		#warning decompiling process did not include a return on the last line, added default return
-	
 		return default;
 	}
 
@@ -30,8 +28,6 @@ public partial class Interaction : UIRoot/*
 	public bool OnReceivedNativeInputAxis_Default(int ControllerId, name Key, float Delta, float DeltaTime, /*optional */bool? _bGamepad = default)
 	{
 		var bGamepad = _bGamepad ?? default;
-		#warning decompiling process did not include a return on the last line, added default return
-	
 		return default;
 	}
 	

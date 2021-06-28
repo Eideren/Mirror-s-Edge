@@ -439,9 +439,6 @@ public partial class GameInfo : Info/*
 		{
 			return false;
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	
 	public /*function */static void GetKeyValue(String Pair, ref String Key, ref String Value)
@@ -860,9 +857,6 @@ public partial class GameInfo : Info/*
 		{
 			return (MaxPlayers > 0) && (GetNumPlayers()) >= MaxPlayers;
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	
 	public virtual /*event */PlayerController Login(String Portal, String Options, ref String ErrorMessage)
@@ -1521,9 +1515,6 @@ public partial class GameInfo : Info/*
 		{
 			return Other.InvManager.HandlePickupQuery(ItemClass, Pickup);
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	
 	public virtual /*function */void DiscardInventory(Pawn Other, /*optional */Controller? _Killer = default)

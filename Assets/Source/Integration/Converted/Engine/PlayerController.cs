@@ -2247,9 +2247,6 @@ public partial class PlayerController : Controller/*
 			S.NextMove = default;
 			return S;
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	
 	public virtual /*function */int CompressAccel(int C)

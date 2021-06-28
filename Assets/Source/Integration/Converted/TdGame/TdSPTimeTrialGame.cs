@@ -1050,9 +1050,6 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 			}
 			return PlayerStartPoint;
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	
 	protected /*function */void TdSPTimeTrialGame_RaceInProgress_OnCheckpointCompleted(TdPlaceableCheckpoint Checkpoint, TdPlayerPawn Pawn, TdPlayerController Controller)// state function

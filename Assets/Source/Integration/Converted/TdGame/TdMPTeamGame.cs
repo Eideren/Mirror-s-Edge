@@ -183,9 +183,6 @@ public partial class TdMPTeamGame : TdMPGame/*
 				return -9.0f;
 			}
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	protected override void RestoreDefaultFunction()
 	{

@@ -2008,9 +2008,6 @@ public partial class TdPawn : GamePawn/*
 				return 0.0f;
 			}
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	
 	public override /*function */bool CanAttack(Actor Other)
@@ -2544,9 +2541,6 @@ public partial class TdPawn : GamePawn/*
 		{
 			return base.GetWeaponStartTraceLocation(CurrentWeapon);
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	
 	public virtual /*function */void SetRemoteViewYaw(int NewRemoteViewYaw)

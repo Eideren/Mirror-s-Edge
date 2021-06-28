@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -107,9 +109,6 @@ public partial class TdSavedMove : SavedMove{
 		{
 			return ((((((((((((((((inPawn != default) && (NewMove.Delta + Delta) < MaxDelta) && ((int)SavedPhysics) == ((int)inPawn.Physics)) && !bPressedJump) && !NewMove.bPressedJump) && !bReleasedJump) && !NewTdMove.bReleasedJump) && bRun == NewMove.bRun) && bDuck == NewMove.bDuck) && bDoubleJump == NewMove.bDoubleJump) && bPreciseDestination == NewMove.bPreciseDestination) && ((((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_None/*0*/)) || ((int)DoubleClickMove) == ((int)Actor.EDoubleClickDir.DCLICK_Active/*5*/))) && ((int)NewMove.DoubleClickMove) == ((int)DoubleClickMove)) && (Dot(Normal(Acceleration), Normal(NewMove.Acceleration))) > 0.990f) && !bForceRMVelocity) && !NewMove.bForceRMVelocity) && ((int)MoveActionHint) == ((int)NewTdMove.MoveActionHint);
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	
 	public /*function */static Actor.EDoubleClickDir SetFlags(byte Flags, PlayerController PC)

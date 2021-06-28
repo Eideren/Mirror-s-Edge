@@ -609,9 +609,6 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		{
 			return false;
 		}
-		#warning decompiling process did not include a return on the last line, added default return
-	
-		return default;
 	}
 	
 	public virtual /*simulated event */void StartShimmy(TdPawn.EMovementAction ShimmyAction)
