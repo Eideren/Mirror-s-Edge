@@ -13,7 +13,7 @@
 	/// Stores a container (boxed struct or class object) in a way which avoids boxing and unboxing when getting and setting it's fields values
 	/// Retrieve its content once you have finished modifying the object, this is really important for value types as otherwise your object won't be modified.
 	/// </summary>
-	public interface CachedContainer
+	public interface CachedContainer : IDisposable
 	{
 		public object ContainerAsObj{ get; set; }
 	}
@@ -72,13 +72,43 @@
 
 
 
+		/// <summary> Calls <paramref name="inspect"/> on all fields contained inside <see cref="container"/>  </summary>
+		public static void ForeachField<TContainer, T>( ref TContainer container, T param, Action<IField, T, CachedContainer> inspect )
+		{
+			// Value type cannot inherit, don't need to include inherited fields
+			if( typeof(TContainer).IsValueType )
+			{
+				ReflectionDataImpl<TContainer>.Instance.ForeachField( ref container, param, inspect );
+				return;
+			}
+
+			// The generic type provided is the exact type of the object
+			var asObj = (object) container;
+			var actualObjType = asObj.GetType();
+			if( actualObjType == typeof(TContainer) )
+			{
+				ReflectionDataImpl<TContainer>.Instance.ForeachField( ref container, param, inspect );
+				return;
+			}
+
+			// Fallback to slower version
+			GetDataFor( actualObjType ).ForeachField( ref asObj, param, inspect );
+			container = (TContainer)asObj;
+		}
+
+
+
 		public abstract IField[] Fields{ get; }
 
-		public abstract CachedContainer NewCache(object o);
+		public abstract CachedContainer NewCache( object o, bool fromPool = false );
 
 
 		/// <summary> Calls <see cref="inspect"/> on all fields contained inside <see cref="container"/> </summary>
 		public abstract void ForeachField( ref object container, Action<IField, CachedContainer> inspect );
+
+
+		/// <summary> Calls <see cref="inspect"/> on all fields contained inside <see cref="container"/> </summary>
+		public abstract void ForeachField<T>( ref object container, T param, Action<IField, T, CachedContainer> inspect );
 
 
 		/// <summary> Name must match exactly </summary>
@@ -87,17 +117,45 @@
 
 
 
-		class ReflectionDataImpl<TContainer> : ReflectionData
+		public abstract void ArrayForeach<T>( Array a, T param, Action<IField, int, T, CachedContainer> func );
+
+
+
+		public static void ArrayStaticForeach<T>( Array a, T param, Action<IField, int, T, CachedContainer> func )
+		{
+			// Could potentially be faster if we setup a dictionary which takes array type and returns ReflectionDataImpl
+			GetDataFor( a.GetType().GetElementType() ).ArrayForeach( a, param, func );
+		}
+
+
+
+		public class ReflectionDataImpl<TContainer> : ReflectionData
 		{
 			public static readonly ReflectionDataImpl<TContainer> Instance = new ReflectionDataImpl<TContainer>();
 			[ThreadStatic]
 			static Stack<CachedContainerImpl> _cache;
 			readonly IField[] fields;
 			Dictionary<string, IField> nameToField;
+			
+			
+			
+			public override CachedContainer NewCache( object o, bool fromPool = false ) => NewCache( (TContainer) o, fromPool );
 
 
 
-			public override CachedContainer NewCache( object o ) => new CachedContainerImpl{ Container = (TContainer)o };
+			CachedContainerImpl NewCache( TContainer o, bool fromPool = false )
+			{
+				if( fromPool && _cache?.Count > 0 )
+				{
+					var r = _cache.Pop();
+					r.Container = o;
+					return r;
+				}
+				else
+				{
+					return new CachedContainerImpl{ Container = o };
+				}
+			}
 			
 			
 			
@@ -126,19 +184,18 @@
 
 			public override void ForeachField( ref object container, Action<IField, CachedContainer> Setter )
 			{
-				_cache ??= new Stack<CachedContainerImpl>();
-				if(_cache.Count == 0)
-					_cache.Push(new CachedContainerImpl());
-				
-				var cache = _cache.Pop();
-				cache.Container = (TContainer) container;
-				for( int i = 0; i < fields.Length; i++ )
-				{
-					Setter( fields[ i ], cache );
-				}
-				container = cache.Container;
-				
-				_cache.Push(cache);
+				TContainer c = (TContainer) container;
+				ForeachField(ref c, Setter);
+				container = c;
+			}
+
+
+
+			public override void ForeachField<T>( ref object container, T param, Action<IField, T, CachedContainer> Setter )
+			{
+				TContainer c = (TContainer) container;
+				ForeachField(ref c, param, Setter);
+				container = c;
 			}
 
 
@@ -156,6 +213,44 @@
 				container = cache.Container;
 				
 				_cache.Push(cache);
+			}
+
+
+
+			public void ForeachField<T>( ref TContainer container, T param, Action<IField, T, CachedContainer> Setter )
+			{
+				_cache ??= new Stack<CachedContainerImpl>();
+				if(_cache.Count == 0)
+					_cache.Push(new CachedContainerImpl());
+				
+				var cache = _cache.Pop();
+				cache.Container = container;
+				for( int i = 0; i < fields.Length; i++ )
+					Setter( fields[ i ], param, cache );
+				container = cache.Container;
+				
+				_cache.Push(cache);
+			}
+
+
+
+			public override void ArrayForeach<T>( Array a, T param, Action<IField, int, T, CachedContainer> func )
+			{
+				var reflectionData = ReflectionData.ReflectionDataImpl<ArrayItemDummy>.Instance;
+				using( var cache = reflectionData.NewCache( new ArrayItemDummy(), true ) )
+				{
+					var field = reflectionData.FindField( nameof( ArrayItemDummy.ArrayItem ) );
+					TContainer[] tArray = (TContainer[])a;
+
+					ref var inContainerSlot = ref cache.Container.ArrayItem;
+					for( int i = 0; i < tArray.Length; i++ )
+					{
+						ref var itemSlot = ref tArray[ i ];
+						inContainerSlot = itemSlot;
+						func( field, i, param, cache );
+						itemSlot = inContainerSlot;
+					}
+				}
 			}
 			
 			
@@ -206,6 +301,13 @@
 				lock( TYPE_TO_FIELDS )
 					TYPE_TO_FIELDS.Add( typeof(TContainer), this );
 			}
+			
+			
+
+			struct ArrayItemDummy
+			{
+				public TContainer ArrayItem;
+			}
 
 
 
@@ -216,6 +318,18 @@
 				{
 					get => Container;
 					set => Container = (TContainer)value;
+				}
+
+
+
+				public void Dispose()
+				{
+					Container = default;
+					if( _cache == null || _cache.Count < 24 )
+					{
+						_cache ??= new Stack<CachedContainerImpl>();
+						_cache.Push( this );
+					}
 				}
 			}
 
