@@ -12,7 +12,7 @@
 	{
 		[ ThreadStatic, CanBeNull ] static Stack<TempBuffer<T>> _buffers;
 
-		List<T> _internals;
+		List<T> _internals = new List<T>();
 		bool _stored;
 
 
