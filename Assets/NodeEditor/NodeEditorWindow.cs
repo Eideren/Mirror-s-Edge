@@ -19,7 +19,7 @@ namespace MEdge.NodeEditor
 
 		public readonly List<(Vector2 a, Vector2 b, Color color)> Lines = new List<(Vector2, Vector2, Color)>();
 		public readonly WeakCache<INode, NodeDrawer> Drawers = new WeakCache<INode, NodeDrawer>();
-		public readonly WeakCache<object, RectRef> LinkTargets = new WeakCache<object, RectRef>();
+		public readonly WeakCacheEnum<object, RectRef> LinkTargets = new WeakCacheEnum<object, RectRef>();
 		public readonly DraggingData Drag = new DraggingData();
 		public GUIStyle GUIStyle => _cachedStyle ??= new GUIStyle( EditorStyles.whiteLabel ) { fontSize = FontSize };
 		public GUIStyle GUIStyleFields => _cachedStyleFields ??= new GUIStyle( EditorStyles.numberField ) { fontSize = FontSize };
@@ -168,71 +168,95 @@ namespace MEdge.NodeEditor
 
 			var viewportCenter = ViewportCenter;
 
-			(INode node, Vector2 offset, int mouseButton)? dragCandidate = null;
-			foreach( INode node in Nodes() )
+			foreach( var (_, rRef) in LinkTargets )
 			{
-				var drawer = Drawers[ node ];
-				var fieldRect = new Rect( (node.Pos * _separation + viewportCenter) * _zoomLevel, FieldSize * _zoomLevel );
-
-				var nodeBG = fieldRect;
-				nodeBG.height = drawer.SurfaceCovered.height + fieldRect.height * 0.1f;
-
-				var bgColor = BackgroundColor;
-				if( node.BackgroundColor is Color c )
+				rRef.upToDate = false;
+			}
+			
+			(INode node, Vector2 offset, int mouseButton)? dragCandidate = null;
+			using( TempBuffer<INode> nodeBuffer = TempBuffer<INode>.Borrow() )
+			{
+				foreach( INode node in Nodes() )
+					nodeBuffer.Add(node);
+				
+				foreach( INode node in nodeBuffer )
 				{
-					var cNoAlphaCopy = c;
-					cNoAlphaCopy.a = 1f;
-					bgColor = Color.Lerp( bgColor, cNoAlphaCopy, c.a );
+					var drawer = Drawers[ node ];
+					var fieldRect = new Rect( (node.Pos * _separation + viewportCenter) * _zoomLevel, FieldSize * _zoomLevel );
+
+					var nodeBG = fieldRect;
+					nodeBG.height = drawer.SurfaceCovered.height + fieldRect.height * 0.1f;
+
+					var bgColor = BackgroundColor;
+					if( node.BackgroundColor is Color c )
+					{
+						var cNoAlphaCopy = c;
+						cNoAlphaCopy.a = 1f;
+						bgColor = Color.Lerp( bgColor, cNoAlphaCopy, c.a );
+					}
+					EditorGUI.DrawRect( nodeBG, bgColor );
+
+					var nodeTitle = fieldRect;
+					nodeTitle.height /= 2;
+					EditorGUI.DrawRect( nodeTitle, Drag.IsNode( out var draggingNode, out _ ) && draggingNode == node ? HighlightColor : TitleColor );
+
+					var titleHighlight = nodeTitle;
+					titleHighlight.height /= 10;
+					EditorGUI.DrawRect( titleHighlight, HighlightColor );
+
+					if( Drag.IsDragging == false && ( e.type == EventType.MouseDown || e.type == EventType.MouseDrag ) && e.button == 0 && nodeBG.Contains( e.mousePosition ) )
+						dragCandidate = ( node, nodeBG.position - e.mousePosition, e.button );
+
+					fieldRect.position += new Vector2(0, nodeTitle.height * 1.3f);
+					var preWidth = fieldRect.width;
+					fieldRect.width *= 0.975f;
+					fieldRect.x -= ( fieldRect.width - preWidth ) * 0.5f;
+					drawer.Reset( fieldRect, this );
+					node.OnDraw( drawer );
 				}
-				EditorGUI.DrawRect( nodeBG, bgColor );
-
-				var nodeTitle = fieldRect;
-				nodeTitle.height /= 2;
-				EditorGUI.DrawRect( nodeTitle, Drag.IsNode( out var draggingNode, out _ ) && draggingNode == node ? HighlightColor : TitleColor );
-
-				var titleHighlight = nodeTitle;
-				titleHighlight.height /= 10;
-				EditorGUI.DrawRect( titleHighlight, HighlightColor );
-
-				if( Drag.IsDragging == false && ( e.type == EventType.MouseDown || e.type == EventType.MouseDrag ) && e.button == 0 && nodeBG.Contains( e.mousePosition ) )
-					dragCandidate = ( node, nodeBG.position - e.mousePosition, e.button );
-
-				fieldRect.position += new Vector2(0, nodeTitle.height * 1.3f);
-				var preWidth = fieldRect.width;
-				fieldRect.width *= 0.975f;
-				fieldRect.x -= ( fieldRect.width - preWidth ) * 0.5f;
-				drawer.Reset( fieldRect, this );
-				node.OnDraw( drawer );
 			}
 
 			// Select the topmost (i.e.: last) node candidate to drag when multiple of them are on top of another 
-			if( dragCandidate != null && Drag.IsDragging == false )
+			if( dragCandidate != null 
+			    && Drag.IsDragging == false
+			    // verify that event has not been used by something else
+			    && ( e.type == EventType.MouseDown || e.type == EventType.MouseDrag ) && e.button == 0 )
 			{
 				var v = dragCandidate.Value;
 				Drag.NewNodeDrag( v.node, v.mouseButton, v.offset );
+				e.Use();
+			}
+
+			using( var buff = TempBuffer<object>.Borrow() )
+			{
+				foreach( var (obj, rRef) in LinkTargets )
+					if(rRef.upToDate == false)
+						buff.Add( obj );
+
+				foreach( object o in buff )
+					LinkTargets.Remove( o );
 			}
 
 			if( e.type == EventType.MouseDown && Drag.IsDragging == false && e.button == 1 )
 			{
 				Drag.NewNodeDrag( _viewportNode, e.button, e.mousePosition );
+				e.Use();
 			}
 
 			// Release dragging
 			if( e.type == EventType.MouseUp && Drag.IsMouseButton( e.button ) )
 			{
-				if( Drag.IsNode( out _, out _ ) )
+				if( Drag.IsNode( out _, out _ ) || Drag.IsFromKeyConnection( out _ ) || Drag.IsFromTargetConnection( out _ ) )
 				{
 					Drag.Clear();
 					ScheduleRepaint = true;
-				}
-				else if( Drag.IsConnection( out var v ) && v.scheduledConnection == false )
-				{
-					Drag.MarkBreakConnection();
+					e.Use();
 				}
 			}
 
 			if( e.type == EventType.MouseLeaveWindow )
 			{
+				e.Use();
 				Drag.Clear();
 			}
 
@@ -378,8 +402,8 @@ namespace MEdge.NodeEditor
 				}
 
 				drawer.DrawProperty( nameof( someFloat ), ref someFloat, out _ );
-				drawer.MarkNextAsLinkStart( this, ref link );
-				drawer.MarkNextAsTarget( this );
+				drawer.MarkNextAsReceiver( this, ref link );
+				drawer.MarkNextAsInput( this );
 				drawer.DrawLabel( "Link" );
 				drawer.DrawProperty( nameof( someFloat ), ref someFloat, out _ );
 				drawer.DrawProperty( nameof( someFloat ), ref someFloat, out _ );
@@ -391,6 +415,7 @@ namespace MEdge.NodeEditor
 		public class RectRef
 		{
 			public Rect rect;
+			public bool upToDate;
 		}
 
 
@@ -400,7 +425,7 @@ namespace MEdge.NodeEditor
 			INode _nodeOrNull;
 			public Vector2 DraggingOffset;
 			int? _mouseButton;
-			(object key, Func<object, object, bool> filter, object scheduledTarget, bool scheduledConnection, bool fromTarget)? _connection;
+			(bool fromKey, object obj)? _connection;
 
 
 
@@ -414,10 +439,10 @@ namespace MEdge.NodeEditor
 
 
 
-			public void NewConnectionDrag( object target, Func<object, object, bool> filter, bool fromTarget, int mouseButton )
+			public void NewConnectionDrag( bool fromKey, object obj, int mouseButton )
 			{
 				Clear();
-				_connection = ( target, filter, null, false, fromTarget );
+				_connection = ( fromKey, obj );
 				_mouseButton = mouseButton;
 			}
 
@@ -435,57 +460,34 @@ namespace MEdge.NodeEditor
 			public bool IsDragging => _mouseButton != null;
 
 
-			public bool MarkedForCompletion => _connection?.scheduledConnection ?? false;
-
-
 
 			public bool IsMouseButton( int mouseButton ) => _mouseButton == mouseButton;
 
 
 
-			public void ScheduleConnectionBetween( object key, object target )
+			public bool IsFromTargetConnection(out object obj)
 			{
-				if( _connection == null )
-					throw new InvalidOperationException( "Not set as connection" );
-				var cpy = _connection.Value;
-				cpy.key = key;
-				cpy.scheduledTarget = target;
-				cpy.scheduledConnection = true;
-				_connection = cpy;
-			}
-
-
-
-			/// <summary>
-			/// Will set target of this connection to null
-			/// </summary>
-			public void MarkBreakConnection()
-			{
-				if( _connection == null )
-					throw new InvalidOperationException( "Not set as connection" );
-				var cpy = _connection.Value;
-				if( cpy.fromTarget )
+				if( _connection?.fromKey == false )
 				{
-					Clear();
-					return;
-				}
-
-				cpy.scheduledTarget = null;
-				cpy.scheduledConnection = true;
-				_connection = cpy;
-			}
-
-
-
-			public bool IsConnection(out (object key, Func<object, object, bool> filter, object scheduledTarget, bool scheduledConnection, bool fromTarget) connection)
-			{
-				if( _connection.HasValue )
-				{
-					connection = _connection.Value;
+					obj = _connection.Value.obj;
 					return true;
 				}
 
-				connection = default;
+				obj = default;
+				return false;
+			}
+
+
+
+			public bool IsFromKeyConnection(out object obj)
+			{
+				if( _connection?.fromKey == true )
+				{
+					obj = _connection.Value.obj;
+					return true;
+				}
+
+				obj = default;
 				return false;
 			}
 

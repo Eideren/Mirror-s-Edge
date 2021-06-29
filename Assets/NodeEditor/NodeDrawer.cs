@@ -36,65 +36,136 @@
 
 
 
-		public void MarkNextAsTarget( object key, bool pointOnRightSide = false, Color? color = default )
+		public void MarkNextAsInput<T>( T target, bool pointOnRightSide = false, Color? color = default ) where T : class
 		{
-			var e = Event.current;
+			bool isDragSource = Editor.Drag.IsFromTargetConnection(out var connData) && target.Equals( connData );
 			var rect = ConnectionRect( pointOnRightSide );
-			var drag = Editor.Drag;
-
-			SetColorByDragFilter( rect, key, null, ref color );
+			var rRef = Editor.LinkTargets[ target ];
+			rRef.rect = rect;
+			rRef.upToDate = true;
 			
-			if( NewConnection( key, null, rect, color, out bool mouseHover ) )
+			if( NewConnection( isDragSource, null, rect, color, out _ ) )
 			{
-				drag.NewConnectionDrag( key, null, true, DragAndDropButton );
-			}
-
-			// Connection released on this target
-			if( drag.IsConnection( out var connection )
-				&& ReferenceEquals( connection.key, key ) == false
-				&& mouseHover
-				&& e.type == EventType.MouseUp
-				&& drag.IsMouseButton( e.button )
-				&& (connection.filter == null || connection.filter( key, connection.key )) )
-			{
-				drag.ScheduleConnectionBetween( connection.key, key );
+				Editor.Drag.NewConnectionDrag( false, target, DragAndDropButton );
+				Event.current.Use();
 			}
 		}
+		
+		
 
-
-
-		public void MarkNextAsLinkStart<T>( object key, [ CanBeNull ] ref T target, bool pointOnRightSide = true, Color? color = default, Func<object, object, bool> acceptableTarget = null ) where T : class
+		/// <summary>
+		/// Setup a receiver for a connection, this is an item which draws and receives connection changes.
+		/// Draws a connection to a <paramref name="target"/> which is used in a <see cref="MarkNextAsInput{T}"/>.
+		/// If this connection is changed by the user, <paramref name="target"/> will be changed to the item this is now connected to.
+		/// </summary>
+		/// <param name="key">
+		/// Can be any kind of object as long as it uniquely identifies this specific call and is stable.
+		/// For example, for a field you could use a tuple of (name of the field, object containing that field)
+		/// As long as no other <see cref="MarkNextAsReceiver{TKey,TTarget}"/> of this editor are using those two values they won't be problematic
+		/// </param>
+		/// <param name="target">
+		/// The current value that this field contains,
+		/// 'will create a line automatically to it if something called <see cref="MarkNextAsInput{T}"/> with this value as parameter
+		/// </param>
+		/// <param name="pointOnRightSide">Whether to put the link anchor on the right or left side</param>
+		/// <param name="color">The color of the link anchor</param>
+		/// <param name="acceptableTarget">
+		/// Tests whether a new connection is valid,
+		/// return true if the potential new target is valid for the given key,
+		/// if it was valid and the user finished the connection this method will return true and <paramref name="target"/> will be assigned to the linked value.
+		/// Note that the target might be null if user cut the connection, you should return true if you allow null values.
+		/// Note also that if this delegate is null this method allows null and all values of type <see cref="TTarget"/>.
+		/// </param>
+		/// <returns>True when connection has changed - <paramref name="target"/> has been assigned to a new value</returns>
+		public bool MarkNextAsReceiver<TKey, TTarget>( TKey key, [ CanBeNull ] ref TTarget target, bool pointOnRightSide = true, Color? color = default, Func<TKey, TTarget, bool> acceptableTarget = null ) where TTarget : class
 		{
 			var e = Event.current;
+			bool isDragSource = Editor.Drag.IsFromKeyConnection(out var connData) && key.Equals( connData );
 			var rect = ConnectionRect( pointOnRightSide );
-			var drag = Editor.Drag;
-
-			SetColorByDragFilter( rect, key, acceptableTarget, ref color );
 			
-			if( NewConnection( key, target, rect, color, out bool mouseHover ) )
+			if( NewConnection( isDragSource, target, rect, color, out bool mouseHover ) )
 			{
-				drag.NewConnectionDrag( key, acceptableTarget, false, DragAndDropButton );
+				Editor.Drag.NewConnectionDrag( true, key, DragAndDropButton );
+				Event.current.Use();
 			}
-			
-			// Currently dragging
-			if( drag.IsConnection( out var connection ) )
-			{
-				var fromTargetToThis =
-					ReferenceEquals( connection.key, key ) == false
-					&& mouseHover
-					&& e.type == EventType.MouseUp
-					&& drag.IsMouseButton( e.button )
-					&& (acceptableTarget == null || acceptableTarget( key, connection.key ));
 
-				var fromThisToTarget = ReferenceEquals( connection.key, key ) && connection.scheduledConnection;
-				
-				if( fromThisToTarget || fromTargetToThis )
+			{
+				if( Editor.Drag.IsFromKeyConnection( out var otherKey ) && key.Equals( otherKey ) )
 				{
-					target = fromTargetToThis ? (T) connection.key : (T) connection.scheduledTarget;
-					drag.Clear();
-					Editor.ScheduleRepaint = true;
+					foreach( var (k, v) in Editor.LinkTargets )
+					{
+						if( k is TTarget asTTarget
+						    && ( acceptableTarget == null || acceptableTarget( key, asTTarget ) ) )
+						{
+							var cpyRect = v.rect;
+							cpyRect.min -= v.rect.size * 0.2f;
+							cpyRect.max += v.rect.size * 0.2f;
+							EditorGUI.DrawRect( cpyRect, Color.green );
+						}
+					}
 				}
 			}
+
+			{
+				if( Editor.Drag.IsFromTargetConnection( out var newTarget ) 
+				    && newTarget is TTarget asTTarget
+				    && (acceptableTarget == null || acceptableTarget(key, asTTarget))  )
+				{
+					var cpyRect = rect;
+					cpyRect.min -= rect.size * 0.2f;
+					cpyRect.max += rect.size * 0.2f;
+					EditorGUI.DrawRect( cpyRect, Color.green );
+				}
+			}
+
+
+			if( e.type == EventType.MouseUp && Editor.Drag.IsMouseButton( e.button ) )
+			{
+				bool changedTarget = false;
+				// Linking target to this
+				{
+					if( mouseHover 
+					    && Editor.Drag.IsFromTargetConnection( out var newTarget ) 
+					    && newTarget is TTarget asTTarget
+					    && (acceptableTarget == null || acceptableTarget(key, asTTarget))  )
+					{
+						target = asTTarget;
+						changedTarget = true;
+					}
+				}
+
+				if( Editor.Drag.IsFromKeyConnection( out var otherKey ) && key.Equals( otherKey ) )
+				{
+					// Linking this to target under cursor ?
+					foreach( var (k, v) in Editor.LinkTargets )
+					{
+						if( v.rect.Contains( e.mousePosition )
+						    && k is TTarget asTTarget
+						    && ( acceptableTarget == null || acceptableTarget( key, asTTarget ) ) )
+						{
+							target = asTTarget;
+							changedTarget = true;
+						}
+					}
+
+					// Released over nothing
+					if( changedTarget == false && ( acceptableTarget == null || acceptableTarget( key, null ) ) )
+					{
+						target = null;
+						changedTarget = true;
+					}
+				}
+				
+				if( changedTarget )
+				{
+					Editor.Drag.Clear();
+					Editor.ScheduleRepaint = true;
+					Event.current.Use();
+					return true;
+				}
+			}
+
+			return false;
 		}
 
 
@@ -111,20 +182,7 @@
 
 
 
-		void SetColorByDragFilter( Rect rect, object key, [ CanBeNull ]Func<object, object, bool> acceptableTarget, ref Color? color )
-		{
-			if( Editor.Drag.IsConnection( out var c ) && ReferenceEquals( c.key, key ) == false && (c.filter != null || acceptableTarget != null) && IsInView( rect ) )
-			{
-				var filter = acceptableTarget ?? c.filter;
-				color = filter.Invoke( c.fromTarget ? key : c.key, c.fromTarget ? c.key : key ) 
-					? Color.Lerp(color ?? DefaultLine, Color.green, 0.2f) 
-					: Color.Lerp(color ?? DefaultLine, Color.red, 0.2f);
-			}
-		}
-
-
-
-		bool NewConnection( object key, [ CanBeNull ] object target, Rect rect, Color? color, out bool hover )
+		bool NewConnection( bool isDraggingSource, [ CanBeNull ] object lineTarget, Rect rect, Color? color, out bool hover )
 		{
 			var e = Event.current;
 			hover = false;
@@ -132,14 +190,12 @@
 			var baseColor = ( color ?? DefaultLine );
 			var activeColor = baseColor + Color.white * 0.4f;
 
-			Editor.LinkTargets[ key ].rect = rect;
-
-			if( Editor.Drag.IsConnection( out var connexion ) && ReferenceEquals( connexion.key, key ) )
+			if( isDraggingSource )
 			{
 				Editor.Lines.Add( ( rect.center, e.mousePosition, activeColor ) );
 				hover = true;
 			}
-			else if( target != null && Editor.LinkTargets.TryGetValue( target, out var targetRect ) )
+			else if( lineTarget != null && Editor.LinkTargets.TryGetValue( lineTarget, out var targetRect ) )
 			{
 				var origin = rect.center;
 
@@ -235,7 +291,7 @@
 
 
 
-		public void DrawProperty( IField field, CachedContainer cache )
+		public void DrawProperty( IField field, CachedContainer cache, string customLabel = null )
 		{
 			if( IsNextInView() == false || Editor.GUIStyle.fontSize < ClippedFontSize )
 			{
@@ -245,7 +301,7 @@
 
 			EditorGUI.BeginChangeCheck();
 			Split( UseRect(), out var labelRect, out var valueRect );
-			GUI.Label( labelRect, field.Info.Name, Editor.GUIStyle );
+			GUI.Label( labelRect, customLabel ?? field.Info.Name, Editor.GUIStyle );
 			switch( field )
 			{
 				case IField<Boolean> f:
@@ -265,7 +321,31 @@
 				case IField<System.String> f: f.Ref( cache ) = EditorGUI.TextField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
 				case IField<Core.String> f: f.Ref( cache ) = EditorGUI.TextField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
 				case IField<Core.name> f: f.Ref( cache ) = EditorGUI.TextField(valueRect, f.Ref( cache ), Editor.GUIStyleFields ); break;
-				default: GUI.Label(valueRect, field.IsReferenceType && field.GetValueSlowAndBox( cache ) == null ? "null" : "obj", Editor.GUIStyle ); break;
+				default: GUI.Label(valueRect, field.IsReferenceType && field.GetValueSlowAndBox( cache ) == null ? "null" : field.IsReferenceType ? "obj" : "struct", Editor.GUIStyle ); break;
+			}
+		}
+
+
+
+		public bool Handles( IField field )
+		{
+			switch( field )
+			{
+				case IField<Boolean> _:
+				case IField<Byte> _:
+				case IField<SByte> _:
+				case IField<Int16> _:
+				case IField<UInt16> _:
+				case IField<Int32> _:
+				case IField<UInt32> _:
+				case IField<Int64> _:
+				case IField<UInt64> _:
+				case IField<Single> _:
+				case IField<Double> _:
+				case IField<System.String> _:
+				case IField<Core.String> _:
+				case IField<Core.name> _: return true;
+				default: return false;
 			}
 		}
 
