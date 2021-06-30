@@ -1,5 +1,5 @@
 {
-    "name": "Integration",
+    "name": "MEdge.Source.Integration",
     "rootNamespace": "MEdge.Source",
     "references": [],
     "includePlatforms": [],
