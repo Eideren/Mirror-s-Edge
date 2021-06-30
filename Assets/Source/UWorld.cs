@@ -7,6 +7,7 @@
     using Source;
     using TdGame;
     using Tp;
+    using UnityEngine;
     using UnityEngine.Events;
     using UnityEngine.SceneManagement;
     using V3 = UnityEngine.Vector3;
@@ -29,7 +30,7 @@
 
         static UWorld _instance;
         static UnityAction<UnityEngine.SceneManagement.Scene, LoadSceneMode> _onSceneLoadedCached;
-        static ConditionalWeakTable<TdPawn, PawnLink> Links = new ConditionalWeakTable<TdPawn, PawnLink>();
+        static ConditionalWeakTable<Actor, IProcessor> Processors = new ConditionalWeakTable<Actor, IProcessor>();
 
 
 
@@ -40,10 +41,11 @@
 
 
 
-        class PawnLink
+        class PawnLink : IProcessor
         {
             public TdPawn Pawn;
-            //AnimationPlayer _player;
+            AnimationPlayer _1pPlayer;
+            AnimNodeEditor.AnimNodeEditorWindow _window;
 
 
 
@@ -52,10 +54,27 @@
                 ComputeVelocity_Stub(Pawn, deltaTime, Pawn.GroundSpeed, Pawn.PhysicsVolume.GroundFriction, 0, true );
                 // Not exactly like this, depends on more stuff, but good approximation
                 Pawn.Location += (Pawn.Velocity + Pawn.PhysicsVolume.ZoneVelocity * 25f) * deltaTime;
+
+                if( _1pPlayer == null )
+                {
+                    var clips = Resources.LoadAll<AnimationClip>( "AS_C1P_Unarmed" );
+                    Asset.UScriptToUnity.TryGetValue( Pawn.Mesh1p.SkeletalMesh, out var unityObject );
+                    _1pPlayer = new AnimationPlayer( clips, Asset.Get_AS_C1P_Unarmed,  Pawn.Mesh1p.Animations, ((SkinnedMeshRenderer)unityObject).transform.parent.gameObject, Pawn );
+                    _window = AnimNodeEditor.AnimNodeEditorWindow.CreateInstance<AnimNodeEditor.AnimNodeEditorWindow>();
+                    _window.LoadFromNode( Pawn.Mesh1p.Animations );
+                    _window.Show();
+                }
                 
-                /*_player ??= new AnimationPlayer( Clips, Asset.Get_AS_C1P_Unarmed,  (AnimNode) _window.LoadFile( File ) );
-                _player.Sample( Pawn, Time.deltaTime, gameObject );
-                Pawn.Mesh1p.Animations.*/
+                _1pPlayer.Sample( deltaTime );
+                //Pawn.Mesh1p.Animations.
+            }
+
+
+
+            public void OnDestroy()
+            {
+                _window?.Close();
+                _window = null;
             }
 
 
@@ -137,6 +156,14 @@
 
 
 
+        interface IProcessor
+        {
+            void Update( float deltaTime );
+            void OnDestroy();
+        }
+
+
+
         void Update()
         {
             if(ReferenceEquals( this, _instance ) == false)
@@ -157,10 +184,10 @@
             {
                 if( actor is PlayerController pc )
                 {
-                    pc.PlayerInput.Tick( deltaTime );
-                    pc.PlayerTick( deltaTime );
                     #warning debug only
                     pc.PlayerInput.aBaseY = 1.0f;
+                    pc.PlayerInput.Tick( deltaTime );
+                    pc.PlayerTick( deltaTime );
                 }
             }
 
@@ -183,22 +210,35 @@
             
             foreach( var actor in actors )
             {
-                if( actor is TdPawn pawn )
+                IProcessor p;
+                if( Processors.TryGetValue( actor, out p ) == false )
                 {
-                    if(Links.TryGetValue( pawn, out var link ) == false)
-                        Links.Add( pawn, link = new PawnLink(){ Pawn = pawn } );
-                    link.Update( deltaTime );
+                    p = actor switch
+                    {
+                        TdPawn pawn => new PawnLink(){ Pawn = pawn },
+                        _ => null
+                    };
+                    
+                    if( p != null )
+                        Processors.Add( actor, p );
                 }
+                p?.Update(deltaTime);
             }
         }
 
 
 
-
-
-
-
-
+        void OnDestroy()
+        {
+            var actors = _worldInfo._allActors;
+            foreach( var actor in actors )
+            {
+                if( Processors.TryGetValue( actor, out IProcessor p ) )
+                {
+                    p?.OnDestroy();
+                }
+            }
+        }
 
 
 

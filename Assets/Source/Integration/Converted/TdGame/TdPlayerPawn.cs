@@ -126,8 +126,8 @@ public partial class TdPlayerPawn : TdPawn/*
 	// Export UTdPlayerPawn::execGetMobilityMultiplier(FFrame&, void* const)
 	public override /*native function */float GetMobilityMultiplier()
 	{
-		 // #warning NATIVE FUNCTION !
-		return default;
+		// Seems to map to the same native function ?
+		return base.GetMobilityMultiplier();
 	}
 	
 	public virtual /*function */Scene.ESceneDepthPriorityGroup GetFirstPersonDPG()

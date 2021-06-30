@@ -15,6 +15,8 @@
 		WeakCache<AnimNode, Cache> _caches = new WeakCache<AnimNode, Cache>();
 		AnimationClip[] _clips;
 		AnimSet _set;
+		GameObject _go;
+		Actor _actor;
 
 
 		class Cache
@@ -24,26 +26,28 @@
 		}
 		
 		
-		public AnimationPlayer(AnimationClip[] clips, AnimSet animSet, AnimNode tree)
+		public AnimationPlayer(AnimationClip[] clips, AnimSet animSet, AnimNode tree, GameObject go, Actor actor)
 		{
 			_tree = tree;
 			_clips = clips;
 			_set = animSet;
+			_go = go;
+			_actor = actor;
 		}
 
 
 
-		public void Sample( Actor actor, float dt, GameObject go )
+		public void Sample( float dt )
 		{
 			Deactivate( _tree );
-			SampleInner( _tree, actor, dt, go );
+			SampleInner( _tree, dt );
 		}
 
 
 
-		void SampleInner( AnimNode node, Actor actor, float dt, GameObject go )
+		void SampleInner( AnimNode node, float dt )
 		{
-			TdPawn pawnActor = actor as TdPawn;
+			TdPawn pawnActor = _actor as TdPawn;
 			node.bRelevant = true;
 			
 			if( node is TdAnimNodeMovementState nodeMovement && pawnActor != null )
@@ -80,7 +84,7 @@
 			{
 				case AnimNodeBlendList anbl:
 					//BlendWeight?
-					SampleInner( anbl.Children[ anbl.ActiveChildIndex ].Anim, actor, dt, go );
+					SampleInner( anbl.Children[ anbl.ActiveChildIndex ].Anim, dt );
 					break;
 				case TdAnimNodeWeaponPoseOffset _:
 				case TdAnimNodeIKEffectorController _:
@@ -91,7 +95,7 @@
 				{
 					var bb = (AnimNodeBlendBase)node;
 					if( bb.Children.Length > 0 )
-						SampleInner( bb.Children[ 0 ].Anim, actor, dt, go );
+						SampleInner( bb.Children[ 0 ].Anim, dt );
 					break;
 				}
 				case AnimNodeBlendPerBone perBone:
@@ -101,25 +105,25 @@
 					float blend = perBone.Child2Weight;
 					if( blend < 0.01f )
 					{
-						SampleInner( perBone.Children[ 0 ].Anim, actor, dt, go );
+						SampleInner( perBone.Children[ 0 ].Anim, dt );
 					}
 					else if( blend > 0.99f )
 					{
-						SampleInner( perBone.Children[ 1 ].Anim, actor, dt, go );
+						SampleInner( perBone.Children[ 1 ].Anim, dt );
 					} 
 					else
 					{
 						using( var buff = TempBuffer<Transform>.Borrow() )
 						{
-							GetHierarchy( go.transform, buff );
+							GetHierarchy( _go.transform, buff );
 
-							SampleInner( perBone.Children[ 0 ].Anim, actor, dt, go );
+							SampleInner( perBone.Children[ 0 ].Anim, dt );
 						
 							var boneState = new List<(Vector3 t, Quaternion r, Vector3 s)>();
 							foreach( var transform in buff )
 								boneState.Add( (transform.localPosition, transform.localRotation, transform.localScale) );
 						
-							SampleInner( perBone.Children[ 1 ].Anim, actor, dt, go );
+							SampleInner( perBone.Children[ 1 ].Anim, dt );
 						
 							for( int i = 0; i < buff.Count; i++ )
 							{
@@ -139,7 +143,7 @@
 					//animTree.RootMorphNodes
 					//animTree.SkelControlLists
 					if( animTree.Children.Length > 0 )
-						SampleInner( animTree.Children[ 0 ].Anim, actor, dt, go );
+						SampleInner( animTree.Children[ 0 ].Anim, dt );
 					break;
 				}
 				case AnimNodeBlendBase blender:
@@ -147,7 +151,7 @@
 					UnityEngine.Debug.LogWarning( $"Unhandled type: {node.GetType()}" );
 					// Depending on the node type we should handle this differently, this branch is just a fallback
 					if( blender.Children.Length > 0 )
-						SampleInner( blender.Children[ 0 ].Anim, actor, dt, go );
+						SampleInner( blender.Children[ 0 ].Anim, dt );
 					break;
 				}
 				case AnimNodeSequence nodeSequence:
@@ -186,17 +190,17 @@
 							// Not confirmed
 							switch( td.ScalePlayRateType )
 							{
-								case TdAnimNodeSequence.EScalePlayRateType.SPRT_ActorSpeed: speed = actor.Velocity.Size(); break;
+								case TdAnimNodeSequence.EScalePlayRateType.SPRT_ActorSpeed: speed = _actor.Velocity.Size(); break;
 								case TdAnimNodeSequence.EScalePlayRateType.SPRT_GroundSpeed: // Could be based on just the forward value
 								case TdAnimNodeSequence.EScalePlayRateType.SPRT_GroundSpeedSize:
 								{
-									var vel = actor.Velocity;
+									var vel = _actor.Velocity;
 									vel.Z = 0;
 									speed = vel.Size();
 									break;
 								}
-								case TdAnimNodeSequence.EScalePlayRateType.SPRT_ZSpeed: speed = actor.Velocity.Z; break;
-								case TdAnimNodeSequence.EScalePlayRateType.SPRT_AverageActorSpeed: speed = ((TdPawn)actor).GetAverageSpeed( 1f ); break;
+								case TdAnimNodeSequence.EScalePlayRateType.SPRT_ZSpeed: speed = _actor.Velocity.Z; break;
+								case TdAnimNodeSequence.EScalePlayRateType.SPRT_AverageActorSpeed: speed = pawnActor.GetAverageSpeed( 1f ); break;
 								default: throw new ArgumentOutOfRangeException();
 							}
 
@@ -226,7 +230,7 @@
 								nodeSequence.CurrentTime = cache.Clip.length + nodeSequence.CurrentTime;
 						}
 					}
-					cache.Clip.SampleAnimation( go, nodeSequence.CurrentTime );
+					cache.Clip.SampleAnimation( _go, nodeSequence.CurrentTime );
 					break;
 				}
 				default: 
