@@ -1,6 +1,5 @@
 ﻿namespace MEdge.AnimNodeEditor
 {
-	using System;
 	using System.Collections.Generic;
 	using Engine;
 	using NodeEditor;
@@ -11,26 +10,106 @@
 
 
 
-	public class AnimNodeEditorWindow : NodeEditorWindow
+	public class AnimNodeEditorWindow : ObjectGraphWindow
 	{
 		T3DFile _file;
-		List<AnimNodeDrawer> _nodes;
+
+
+
+		public AnimNodeEditorWindow()
+		{
+			Separation = 8.0f;
+		}
 
 
 
 		public object LoadFile(T3DFile file)
 		{
 			_file = file;
-			_nodes = new List<AnimNodeDrawer>();
 			return T3DSerialization.Deserialize( file.Root, null, delegate( object deserializedObject )
 			{
 				if( deserializedObject is AnimNode a )
-					_nodes.Add( new AnimNodeDrawer( a ) );
+					AddObject( a );
 				else if( deserializedObject is SkelControlBase scb )
-					_nodes.Add( new AnimNodeDrawer( scb ) );
+					AddObject( scb );
 				else if( deserializedObject is MorphNodeBase mnb )
-					_nodes.Add( new AnimNodeDrawer( mnb ) );
+					AddObject( mnb );
 			} );
+		}
+
+
+
+		public void LoadFromNode( AnimNode node )
+		{
+			AddObject( node );
+		}
+		
+		
+
+		public override ObjectNodeDrawer AddObject( object obj )
+		{
+			if( _openedObject.TryGetValue( obj, out var d ) )
+				return d;
+			
+			var outObj = new AnimNodeDrawer( obj );
+			_openedObject.Add( obj, outObj );
+			_nodes.Add( outObj );
+			this.ScheduleNextRepaint = true;
+
+			if( obj is AnimNodeBlendBase a )
+			{
+				var uArrayHash = ObjectNodeDrawer.NewHash( ObjectNodeDrawer.HashInitValue, 
+					ReflectionData.GetDataFor(obj.GetType()).FindField( nameof( AnimNodeBlendBase.Children ) ) );
+				var arrayHash = ObjectNodeDrawer.NewHash(uArrayHash, 
+					ReflectionData.GetDataFor(a.Children.GetType()).FindField( "__items" ));
+				outObj.ShownInlineHash.Add( uArrayHash );
+				outObj.ShownInlineHash.Add( arrayHash );
+				for( int i = 0; i < a.Children.Length; i++ )
+				{
+					var aChild = a.Children[ i ];
+					if( aChild.Anim != null )
+					{
+						AddObject( aChild.Anim );
+						outObj.ShownInlineHash.Add( arrayHash + i );
+					}
+				}
+			}
+
+			if( obj is AnimTree tree )
+			{
+				var uArrayHash = ObjectNodeDrawer.NewHash( ObjectNodeDrawer.HashInitValue, 
+					ReflectionData.GetDataFor(obj.GetType()).FindField( nameof( AnimTree.SkelControlLists ) ) );
+				var arrayHash = ObjectNodeDrawer.NewHash(uArrayHash, 
+					ReflectionData.GetDataFor(tree.SkelControlLists.GetType()).FindField( "__items" ));
+				outObj.ShownInlineHash.Add( uArrayHash );
+				outObj.ShownInlineHash.Add( arrayHash );
+				for( int i = 0; i < tree.SkelControlLists.Length; i++ )
+				{
+					var head = tree.SkelControlLists[ i ];
+					if( head.ControlHead != null )
+					{
+						AddObject( head.ControlHead );
+						outObj.ShownInlineHash.Add( arrayHash + i );
+					}
+				}
+			}
+			
+			return outObj;
+		}
+		
+		
+
+		public override bool RemoveObj( object obj )
+		{
+			if( _openedObject.TryGetValue( obj, out var drawer ) )
+			{
+				_openedObject.Remove( obj );
+				_nodes.Remove( drawer );
+				this.ScheduleNextRepaint = true;
+				return true;
+			}
+
+			return false;
 		}
 
 
@@ -49,152 +128,64 @@
 
 
 
-		class AnimNodeDrawer : INode
+		class AnimNodeDrawer : ObjectGraphWindow.ObjectNodeDrawer
 		{
-			Dictionary<IField, List<BlendChildSlot>> blendChildKeys = new Dictionary<IField, List<BlendChildSlot>>();
-
-
-
-			class BlendChildSlot
-			{
-			}
-
-
-
-			object _rootNode;
-			NodeDrawer _drawer;
-			readonly Dictionary<IField, Key> _linkKeys = new Dictionary<IField, Key>();
-			Action<IField, CachedContainer> _cachedInspect;
-			Func<object, object, bool> _assignTestCached;
-
-
-
-			class Key
-			{
-				public IField Field;
-			}
-
-
-
-			public Vector2 Pos
+			protected override string Title => _observedObject is AnimNode n && n.NodeName.Value.ToString() != "" ? n.NodeName.Value.ToString() : base.Title;
+			
+			public override Vector2 Pos
 			{
 				get
 				{
-					if( _rootNode is AnimNode an )
+					if( _observedObject is AnimNode an )
 						return new Vector2( an.NodePosX, an.NodePosY );
-					else if( _rootNode is SkelControlBase scb )
+					else if( _observedObject is SkelControlBase scb )
 						return new Vector2( scb.ControlPosX, scb.ControlPosY );
-					else if( _rootNode is MorphNodeBase mnb )
+					else if( _observedObject is MorphNodeBase mnb )
 						return new Vector2( mnb.NodePosX, mnb.NodePosY );
-					throw new InvalidOperationException();
+					return base.Pos;
 				}
 				set
 				{
-					if( _rootNode is AnimNode an )
+					if( _observedObject is AnimNode an )
 					{
 						an.NodePosX = (int) value.x;
 						an.NodePosY = (int) value.y;
 					}
-					else if( _rootNode is SkelControlBase scb )
+					else if( _observedObject is SkelControlBase scb )
 					{
 						scb.ControlPosX = (int) value.x;
 						scb.ControlPosY = (int) value.y;
 					}
-					else if( _rootNode is MorphNodeBase mnb )
+					else if( _observedObject is MorphNodeBase mnb )
 					{
 						mnb.NodePosX = (int) value.x;
 						mnb.NodePosY = (int) value.y;
 					}
 					else
 					{
-						throw new InvalidOperationException();
+						base.Pos = value;
 					}
 				}
 			}
 
 
 
-			public AnimNodeDrawer( AnimNode node ) => _rootNode = node;
-			public AnimNodeDrawer( SkelControlBase node ) => _rootNode = node;
-			public AnimNodeDrawer( MorphNodeBase node ) => _rootNode = node;
+			public override Color? BackgroundColor => (_observedObject as AnimNode)?.bRelevant == true ? new Color(0f, 1f, 0f, 0.1f) : default(Color?);
 
 
 
-			public Color? BackgroundColor => _rootNode is AnimNode an && an.bRelevant ? new Color(0f, 1f, 0f, 0.1f) : default(Color?);
-			
-			
-			public void OnDraw( NodeDrawer drawer )
+			public AnimNodeDrawer( object content ) : base( content )
 			{
-				_drawer = drawer;
-
-				drawer.MarkNextAsTarget( _rootNode );
 				
-				if( _rootNode is AnimNode n && n.NodeName.Value != "" && drawer.IsInView( out var titleRect, 2f ) )
-				{
-					GUI.Label( titleRect, n.NodeName.ToString(), drawer.Editor.GUIStyleCentered );
-				}
-				if( drawer.IsInView( out var typeRect, 2f ) )
-				{
-					GUI.Label( typeRect, _rootNode.GetType().Name, drawer.Editor.GUIStyleCentered );
-				}
-
-				drawer.UseRect();
-				ReflectionData.ForeachField( ref _rootNode, _cachedInspect ??= DrawField );
 			}
-			
-			
 
-			void DrawField( IField field, CachedContainer cache )
+
+
+			protected override void DrawField( IField field, (ObjectGraphWindow.ObjectNodeDrawer thisNode, int hash, int? arrayItemIndex) data, CachedContainer cache )
 			{
 				if( field.Info.ReflectedType == typeof(Core.Object) ) 
 					return;
-
-				switch( field )
-				{
-					case IField<array<AnimNodeBlendBase.AnimBlendChild>> fChildren:
-					{
-						_drawer.DrawLabel( field.Info.Name );
-						var blendChildSlots = blendChildKeys[ fChildren ];
-						var children = fChildren.Ref( cache );
-						while( blendChildSlots.Count < children.Length ) 
-							blendChildSlots.Add( new BlendChildSlot() );
-
-						for( int i = 0; i < children.Length; i++ )
-						{
-							var thisTarget = blendChildSlots[ i ];
-							ref var child = ref children[ i ];
-							_drawer.MarkNextAsLinkStart( thisTarget, ref child.Anim );
-							_drawer.DrawLabel( " -" );
-						}
-
-						fChildren.Ref( cache ) = children;
-
-						break;
-					}
-					default:
-					{
-						if( field.IsReferenceType )
-						{
-							if( _linkKeys.TryGetValue( field, out var key ) == false )
-								_linkKeys.Add( field, key = new Key{ Field = field } );
-							
-							var target = field.GetValueSlowAndBox( cache );
-							_drawer.MarkNextAsLinkStart( key, ref target, acceptableTarget: _assignTestCached ??= AssignTest );
-						}
-
-						_drawer.DrawProperty( field, cache );
-						break;
-					}
-				}
-			}
-			
-			
-			
-			bool AssignTest( object key, object target )
-			{
-				if( key is Key k )
-					return k.Field.CanAssign( target );
-				return key is BlendChildSlot && target is AnimNode;
+				base.DrawField( field, data, cache );
 			}
 		}
 	}
