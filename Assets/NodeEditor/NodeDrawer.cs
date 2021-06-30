@@ -1,7 +1,6 @@
 ﻿namespace MEdge.NodeEditor
 {
 	using System;
-	using System.Collections.Generic;
 	using JetBrains.Annotations;
 	using Reflection;
 	using UnityEditor;
@@ -13,11 +12,11 @@
 	{
 		public const int ClippedFontSize = 4;
 		public Rect NextRect;
-		public Rect SurfaceCovered{ get; private set; }
+		public Rect SurfaceCovered;
 		public NodeEditorWindow Editor{ get; private set; }
 		public bool PreviouslyOutOfView{ get; private set; }
 		public Color DefaultLine = new Color( 33 / 255f, 33 / 255f, 33 / 255f );
-		List<Rect> _propertiesRects = new List<Rect>();
+		int _rectIndex;
 		Rect _screenRect;
 
 		const int DragAndDropButton = 0;
@@ -28,7 +27,7 @@
 		{
 			Editor = newEditor;
 			_screenRect = new Rect( Vector2.zero, Editor.ViewportSize );
-			_propertiesRects.Clear();
+			_rectIndex = 0;
 			PreviouslyOutOfView = IsInView( SurfaceCovered ) == false;
 			NextRect = newRect;
 			SurfaceCovered = newRect;
@@ -95,7 +94,8 @@
 					foreach( var (k, v) in Editor.LinkTargets )
 					{
 						if( k is TTarget asTTarget
-						    && ( acceptableTarget == null || acceptableTarget( key, asTTarget ) ) )
+						    && ( acceptableTarget == null || acceptableTarget( key, asTTarget ) ) 
+						    && IsInView( v.rect ) )
 						{
 							var cpyRect = v.rect;
 							cpyRect.min -= v.rect.size * 0.2f;
@@ -107,7 +107,8 @@
 			}
 
 			{
-				if( Editor.Drag.IsFromTargetConnection( out var newTarget ) 
+				if( Editor.Drag.IsFromTargetConnection( out var newTarget )
+				    && IsInView( rect )
 				    && newTarget is TTarget asTTarget
 				    && (acceptableTarget == null || acceptableTarget(key, asTTarget))  )
 				{
@@ -231,17 +232,14 @@
 		public Rect UseRect(float heightMult = 1f)
 		{
 			var outRect = NextRect;
-			outRect.height *= heightMult;
-			var delta = outRect.height * 1.1f;
+			var height = outRect.height * heightMult;
+			outRect.height = height;
 			
+			var delta = height * 1.1f;
 			NextRect.position += new Vector2(0, delta);
-			
-			var s = SurfaceCovered;
-			s.height += delta;
-			SurfaceCovered = s;
+			SurfaceCovered.height += delta;
 
-			_propertiesRects.Add( outRect );
-			if( _propertiesRects.Count % 2 == 0 && IsInView( outRect ) )
+			if( ++_rectIndex % 2 == 0 && IsInView( outRect ) )
 			{
 				EditorGUI.DrawRect( outRect, new Color( 1f, 1f, 1f, 0.02f ) );
 			}

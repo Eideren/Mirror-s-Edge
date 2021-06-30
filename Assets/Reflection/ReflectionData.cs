@@ -342,6 +342,7 @@
 				public FieldInfo Info{ get; }
 				public object RawFunction => Func;
 				public bool IsReferenceType{ get; }
+				public int Hash{ get; }
 
 
 
@@ -349,6 +350,7 @@
 				{
 					Func = func;
 					Info = fi;
+					Hash = 1009 * 9176 + fi.GetHashCode();
 					IsReferenceType = typeof(TField).IsValueType == false;
 				}
 

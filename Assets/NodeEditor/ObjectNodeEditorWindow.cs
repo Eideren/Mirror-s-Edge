@@ -8,32 +8,51 @@
 
 
 
-	public class ObjectNodeEditorWindow : NodeEditorWindow
+	public class ObjectGraphWindow : NodeEditorWindow
 	{
-		readonly List<ObjectNodeDrawer> _nodes = new List<ObjectNodeDrawer>();
-		readonly ConditionalWeakTable<object, ObjectNodeDrawer> _openedObject = new ConditionalWeakTable<object, ObjectNodeDrawer>();
-
-
-
-
-		[ MenuItem( "Window/Dummy Object Node Editor" ) ]
-		static void Init()
+		protected readonly List<ObjectNodeDrawer> _nodes = new List<ObjectNodeDrawer>();
+		protected readonly ConditionalWeakTable<object, ObjectNodeDrawer> _openedObject = new ConditionalWeakTable<object, ObjectNodeDrawer>();
+		protected string _searchTerm;
+		
+		
+		
+		[ MenuItem( "CONTEXT/Component/Inspect with node graph" ) ]
+		static void InspectComponentWithNodeEditor(MenuCommand command)
 		{
-			var window = EditorWindow.CreateInstance<ObjectNodeEditorWindow>();
-			window.AddObject( window );
+			Component comp = (Component)command.context;
+			var window = EditorWindow.CreateInstance<ObjectGraphWindow>();
+			window.AddObject( comp );
 			window.Show();
 		}
-
-		public ObjectNodeDrawer AddObject( object obj )
+		
+		
+		
+		[ MenuItem( "CONTEXT/Component/Add to current node graph" ) ]
+		static void AddComponentToInspectionWithNodeEditor(MenuCommand command)
 		{
+			Component comp = (Component)command.context;
+			var window = (ObjectGraphWindow)EditorWindow.GetWindow(typeof(ObjectGraphWindow));
+			window.AddObject( comp );
+			window.Show();
+		}
+		
+		
+
+		public virtual ObjectNodeDrawer AddObject( object obj )
+		{
+			if( _openedObject.TryGetValue( obj, out var d ) )
+				return d;
+			
 			ObjectNodeDrawer outObj = new ObjectNodeDrawer( obj );
 			_openedObject.Add( obj, outObj );
 			_nodes.Add( outObj );
 			this.ScheduleNextRepaint = true;
 			return outObj;
 		}
+		
+		
 
-		public bool RemoveObj( object obj )
+		public virtual bool RemoveObj( object obj )
 		{
 			if( _openedObject.TryGetValue( obj, out var drawer ) )
 			{
@@ -48,57 +67,87 @@
 
 
 
+		protected override void OnGUIDraw()
+		{
+			// Have to draw textfield before otherwise focus will be modified when amount of text field on screen changes
+			if( string.IsNullOrEmpty( _searchTerm ) )
+			{
+				var temp = EditorGUI.TextField(new Rect( 232, 0, 100, 16 ), "Search..." );
+				if( temp != "Search..." )
+					_searchTerm = temp;
+			}
+			else
+			{
+				_searchTerm = EditorGUI.TextField(new Rect( 232, 0, 100, 16 ), _searchTerm );
+			}
+			base.OnGUIDraw();
+		}
+
+
+
 		protected override IEnumerable<INode> Nodes() => _nodes;
 
 
 
 		public class ObjectNodeDrawer : INode
 		{
-			readonly HashSet<int> _shownInlineHash = new HashSet<int>();
-			object _rootContent;
-			NodeDrawer _drawer;
+			public readonly HashSet<int> ShownInlineHash = new HashSet<int>();
+			protected object _observedObject;
+			protected NodeDrawer _drawer;
+			string _name;
 
 
 
 
-			public Vector2 Pos{ get; set; }
+			public virtual Vector2 Pos{ get; set; }
 
 
+			public virtual Color? BackgroundColor{ get; } = null;
 
-			public ObjectNodeDrawer( object content ) => _rootContent = content;
-
-
-			public Color? BackgroundColor{ get; } = null;
-
+			protected virtual string Title => _name ??= _observedObject.GetType().Name;
 
 
 			ConditionalWeakTable<object, ObjectNodeDrawer> _openedObject => _editor._openedObject;
-			ObjectNodeEditorWindow _editor => ( this._drawer.Editor as ObjectNodeEditorWindow );
+			ObjectGraphWindow _editor => ( this._drawer.Editor as ObjectGraphWindow );
 
-
-			public void OnDraw( NodeDrawer drawer )
+			
+			public ObjectNodeDrawer( object content ) => _observedObject = content;
+			
+			public virtual void OnDraw( NodeDrawer drawer )
 			{
 				_drawer = drawer;
-				drawer.MarkNextAsInput( _rootContent );
+				drawer.MarkNextAsInput( _observedObject );
 
 				if( drawer.IsInView( out var rect, 2f ) )
-					GUI.Label( rect, _rootContent.GetType().Name, drawer.Editor.GUIStyleCentered );
+					GUI.Label( rect, Title, drawer.Editor.GUIStyleCentered );
 				if( drawer.IsInView( out var rectButton ) && GUI.Button( rectButton, "x" ) )
-					_editor.RemoveObj( _rootContent );
+					_editor.RemoveObj( _observedObject );
 
 				drawer.UseRect();
-				ReflectionData.ForeachField( ref _rootContent, (this, 0, (int?)null), DrawField );
+				ReflectionData.ForeachField( ref _observedObject, (this, HashInitValue, (int?)null), StaticDrawField );
+
+				static void StaticDrawField( IField field, (ObjectNodeDrawer thisNode, int hash, int? arrayItemIndex) data, CachedContainer cache )
+				{
+					data.thisNode.DrawField( field, data, cache );
+				}
 			}
 
 
 
-			static void DrawField( IField field, (ObjectNodeDrawer thisNode, int hash, int? arrayItemIndex) data, CachedContainer cache )
+			protected virtual void DrawField( IField field, (ObjectNodeDrawer thisNode, int hash, int? arrayItemIndex) data, CachedContainer cache )
 			{
 				var drawer = data.thisNode._drawer;
 				var editor = data.thisNode._editor;
 				var customLabel = data.arrayItemIndex != null ? " -" : null;
 				
-				data.hash = NewHash( data.hash, field );
+				if( data.hash == 0 
+					&& string.IsNullOrWhiteSpace( editor._searchTerm ) == false 
+					&& (field.Info.Name.Contains( editor._searchTerm ) || editor._searchTerm.Contains( field.Info.Name )) == false )
+				{
+					return;
+				}
+
+				data.hash = data.arrayItemIndex != null ? data.hash + data.arrayItemIndex.Value : NewHash( data.hash, field );
 				
 				if( drawer.Handles( field ) == false && field.IsReferenceType )
 				{
@@ -108,7 +157,7 @@
 
 					if( target is System.Array array )
 					{
-						if( VisibilityToggle( drawer, data.hash, data.thisNode._shownInlineHash ) )
+						if( VisibilityToggle( drawer, data.hash, data.thisNode.ShownInlineHash ) )
 						{
 							drawer.DrawProperty( field, cache, customLabel );
 							ReflectionData.ArrayStaticForeach( array, data, DrawArrayItem );
@@ -120,6 +169,7 @@
 						drawer.Split( drawer.NextRect, out _, out var valueRect );
 						if( target != null 
 						    && data.thisNode._openedObject.TryGetValue( target, out _ ) == false 
+						    && drawer.IsInView( valueRect ) 
 						    && GUI.Button( valueRect, "" ) )
 						{
 							var rect = drawer.NextRect;
@@ -129,12 +179,16 @@
 						}
 					}
 				}
-				else if( drawer.Handles( field ) == false && VisibilityToggle( drawer, data.hash, data.thisNode._shownInlineHash ) )
+				else if( drawer.Handles( field ) == false && VisibilityToggle( drawer, data.hash, data.thisNode.ShownInlineHash ) )
 				{
 					drawer.DrawProperty( field, cache, customLabel );
 					var newRect = drawer.NextRect;
 					var originalRectX = newRect.x;
-					newRect.x += newRect.width * 0.05f;
+					var originalRectWidth = newRect.width;
+					
+					var delta = newRect.width * 0.05f;
+					newRect.x += delta;
+					newRect.width -= delta;
 					drawer.NextRect = newRect;
 					
 					var f = field.GetValueSlowAndBox( cache );
@@ -146,12 +200,13 @@
 					else
 					{
 						var t = Event.current.type;
-						ReflectionData.ForeachField( ref f, (data.thisNode, NewHash( data.hash, field ), (int?)null), DrawField );
+						ReflectionData.ForeachField( ref f, (data.thisNode, data.hash, (int?)null), DrawField );
 						if( t != EventType.Used && Event.current.type == EventType.Used )
 							field.SetValueSlow( cache, f );
 					}
 					
 					drawer.NextRect.x = originalRectX;
+					drawer.NextRect.width = originalRectWidth;
 					return;
 				}
 				
@@ -164,21 +219,20 @@
 			}
 			
 			
-				
-			static void DrawArrayItem( IField field, int index, (ObjectNodeDrawer thisNode, int hash, int? arrayItemIndex) data, CachedContainer container )
+			
+			protected static void DrawArrayItem( IField field, int index, (ObjectNodeDrawer thisNode, int hash, int? arrayItemIndex) data, CachedContainer container )
 			{
-				data.hash += index;
 				data.arrayItemIndex = index;
-				DrawField( field, data, container );
+				data.thisNode.DrawField( field, data, container );
 			}
 
 
 
-			static bool VisibilityToggle( NodeDrawer drawer, int thisStructHash, HashSet<int> shownStructs )
+			protected static bool VisibilityToggle( NodeDrawer drawer, int thisStructHash, HashSet<int> shownStructs )
 			{
 				drawer.Split( drawer.NextRect, out _, out var valueRect );
 				var isShown = shownStructs.Contains( thisStructHash );
-				if( GUI.Button( valueRect, "" ) )
+				if( drawer.IsInView( valueRect ) && GUI.Button( valueRect, "" ) )
 				{
 					if( isShown )
 						shownStructs.Remove( thisStructHash );
@@ -191,10 +245,8 @@
 
 
 
-			static int NewHash(int prevHash, IField field)
-			{
-				return ( prevHash, field.GetHashCode() ).GetHashCode();
-			}
+			public const int HashInitValue = 1009;
+			public static int NewHash(int prevHash, IField field) => prevHash * 9176 + field.Hash;
 		}
 	}
 }

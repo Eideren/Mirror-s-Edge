@@ -40,11 +40,11 @@
 		{
 			get
 			{
-				CleanupList();
 				if( _b.TryGetValue( key, out var o ) == false )
 				{
 					_b.Add( key, o = new T2() );
 					_list.Add( new WeakReference<T1>( key ) );
+					CleanupList();
 				}
 
 				return o;
@@ -54,10 +54,10 @@
 				if( _b.Remove( key ) == false )
 				{
 					_list.Add( new WeakReference<T1>( key ) );
+					CleanupList();
 				}
 
 				_b.Add( key, value );
-				CleanupList();
 			}
 		}
 
@@ -70,7 +70,8 @@
 		public bool Remove( T1 key )
 		{
 			var result = _b.Remove( key );
-			CleanupList();
+			if(result)
+				CleanupList();
 			return result;
 		}
 

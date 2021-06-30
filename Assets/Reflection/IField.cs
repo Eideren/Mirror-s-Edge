@@ -13,6 +13,7 @@
 	/// </summary>
 	public interface IField
 	{
+		public int Hash{ get; }
 		public FieldInfo Info{ get; }
 
 		/// <summary> This object is of type <see cref="ReturnRef{T, T2}"/> </summary>
