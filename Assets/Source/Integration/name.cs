@@ -1,5 +1,9 @@
 ﻿namespace MEdge.Core
 {
+    using System;
+
+
+
     public readonly struct name
     {
         public readonly String Value;
@@ -11,7 +15,7 @@
 
         public override bool Equals( object? obj ) => Value.Equals( obj );
         public override int GetHashCode() => Value.GetHashCode();
-        public static bool operator ==(name a, name b) => (a.Value == "None" && b.Value == "") || (a.Value == "" && b.Value == "None") || a.Value == b.Value;
+        public static bool operator ==(name a, name b) => (a.Value == "None" && b.Value == "") || (a.Value == "" && b.Value == "None") || string.Equals( a.Value, b.Value, StringComparison.InvariantCultureIgnoreCase );
         public static bool operator !=(name a, name b) => (a == b) == false;
         public override string ToString() => Value.ToString();
     }
