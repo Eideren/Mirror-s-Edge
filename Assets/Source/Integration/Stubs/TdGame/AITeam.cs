@@ -326,37 +326,37 @@ public partial class AITeam : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) DEBUGSTATE()/*state DEBUGSTATE*/
+	(System.Action<name>, StateFlow, System.Action<name>) DEBUGSTATE()/*state DEBUGSTATE*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Error()/*state Error extends DEBUGSTATE*/
+	(System.Action<name>, StateFlow, System.Action<name>) Error()/*state Error extends DEBUGSTATE*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TeamState()/*state TeamState extends DEBUGSTATE*/
+	(System.Action<name>, StateFlow, System.Action<name>) TeamState()/*state TeamState extends DEBUGSTATE*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Idle()/*auto state Idle extends TeamState*/
+	(System.Action<name>, StateFlow, System.Action<name>) Idle()/*auto state Idle extends TeamState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Investigate()/*state Investigate extends TeamState*/
+	(System.Action<name>, StateFlow, System.Action<name>) Investigate()/*state Investigate extends TeamState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Search()/*state Search extends TeamState*/
+	(System.Action<name>, StateFlow, System.Action<name>) Search()/*state Search extends TeamState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

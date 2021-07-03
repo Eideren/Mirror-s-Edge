@@ -1602,7 +1602,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		}
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Dying()/*simulated state Dying*/
+	(System.Action<name>, StateFlow, System.Action<name>) Dying()/*simulated state Dying*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -1669,7 +1669,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		return false;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) UncontrolledFall()/*simulated state UncontrolledFall*/
+	(System.Action<name>, StateFlow, System.Action<name>) UncontrolledFall()/*simulated state UncontrolledFall*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)

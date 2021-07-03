@@ -109,7 +109,7 @@ public partial class TdPickup : DroppedPickup/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) CoolDown()/*auto state CoolDown*/
+	(System.Action<name>, StateFlow, System.Action<name>) CoolDown()/*auto state CoolDown*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -137,7 +137,7 @@ public partial class TdPickup : DroppedPickup/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Pickup()/*state Pickup*/
+	(System.Action<name>, StateFlow, System.Action<name>) Pickup()/*state Pickup*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -153,7 +153,7 @@ public partial class TdPickup : DroppedPickup/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) FadeOut()/*state FadeOut*/
+	(System.Action<name>, StateFlow, System.Action<name>) FadeOut()/*state FadeOut*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

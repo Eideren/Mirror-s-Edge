@@ -40,7 +40,7 @@ public partial class TdAI_Support : TdAIController/*
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) HoldAndSuppress()/*state HoldAndSuppress extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) HoldAndSuppress()/*state HoldAndSuppress extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

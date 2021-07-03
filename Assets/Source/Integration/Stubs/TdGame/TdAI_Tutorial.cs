@@ -218,13 +218,13 @@ public partial class TdAI_Tutorial : TdAIController/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Idle()/*auto state Idle*/
+	(System.Action<name>, StateFlow, System.Action<name>) Idle()/*auto state Idle*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WhatToDo()/*state WhatToDo*/
+	(System.Action<name>, StateFlow, System.Action<name>) WhatToDo()/*state WhatToDo*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -241,7 +241,7 @@ public partial class TdAI_Tutorial : TdAIController/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) AnimationPlayback()/*state AnimationPlayback*/
+	(System.Action<name>, StateFlow, System.Action<name>) AnimationPlayback()/*state AnimationPlayback*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -252,7 +252,7 @@ public partial class TdAI_Tutorial : TdAIController/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Stumble()/*state Stumble*/
+	(System.Action<name>, StateFlow, System.Action<name>) Stumble()/*state Stumble*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -285,7 +285,7 @@ public partial class TdAI_Tutorial : TdAIController/*
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) CombatTutorialMelee()/*state CombatTutorialMelee extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) CombatTutorialMelee()/*state CombatTutorialMelee extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

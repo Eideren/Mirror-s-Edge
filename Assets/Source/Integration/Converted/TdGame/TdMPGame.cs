@@ -463,7 +463,7 @@ public partial class TdMPGame : TdGameInfo/*
 		HandleLateWarmupJoin(C);
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) PendingMatch()/*auto state PendingMatch*/
+	(System.Action<name>, StateFlow, System.Action<name>) PendingMatch()/*auto state PendingMatch*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -596,7 +596,7 @@ public partial class TdMPGame : TdGameInfo/*
 		J0xD4:{}
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) MatchInProgress()/*state MatchInProgress*/
+	(System.Action<name>, StateFlow, System.Action<name>) MatchInProgress()/*state MatchInProgress*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -636,7 +636,7 @@ public partial class TdMPGame : TdGameInfo/*
 		}
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) MatchOver()/*state MatchOver*/
+	(System.Action<name>, StateFlow, System.Action<name>) MatchOver()/*state MatchOver*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)

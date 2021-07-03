@@ -48,13 +48,13 @@ public partial class TdAI_MeleeDummy : TdAI_Dummy/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WaitToMelee()/*auto state WaitToMelee extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) WaitToMelee()/*auto state WaitToMelee extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Melee1()/*state Melee1 extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) Melee1()/*state Melee1 extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

@@ -59,7 +59,7 @@ public partial class TdAI_Gunner : TdAIController/*
 	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) SuppressFromVehicle()/*state SuppressFromVehicle extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) SuppressFromVehicle()/*state SuppressFromVehicle extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

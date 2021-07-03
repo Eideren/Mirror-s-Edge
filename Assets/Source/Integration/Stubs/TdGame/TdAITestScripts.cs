@@ -204,7 +204,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStartRun_AnimationAngles()/*state TestStartRun_AnimationAngles*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStartRun_AnimationAngles()/*state TestStartRun_AnimationAngles*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -220,7 +220,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStartRun_AllAngles()/*state TestStartRun_AllAngles*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStartRun_AllAngles()/*state TestStartRun_AllAngles*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -236,7 +236,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStartRun_LegRotation()/*state TestStartRun_LegRotation*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStartRun_LegRotation()/*state TestStartRun_LegRotation*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -252,7 +252,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStartRun_DynamicAngle()/*state TestStartRun_DynamicAngle*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStartRun_DynamicAngle()/*state TestStartRun_DynamicAngle*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -268,7 +268,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStartWalk_AnimationAngles()/*state TestStartWalk_AnimationAngles*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStartWalk_AnimationAngles()/*state TestStartWalk_AnimationAngles*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -284,7 +284,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStartWalk_AllAngles()/*state TestStartWalk_AllAngles*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStartWalk_AllAngles()/*state TestStartWalk_AllAngles*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -300,7 +300,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStartWalk_LegRotation()/*state TestStartWalk_LegRotation*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStartWalk_LegRotation()/*state TestStartWalk_LegRotation*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -311,7 +311,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStopRun_AnimationAngles()/*state TestStopRun_AnimationAngles*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStopRun_AnimationAngles()/*state TestStopRun_AnimationAngles*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -327,7 +327,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStopRun_AllAngles()/*state TestStopRun_AllAngles*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStopRun_AllAngles()/*state TestStopRun_AllAngles*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -343,7 +343,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStopRun_DynamicTarget()/*state TestStopRun_DynamicTarget*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStopRun_DynamicTarget()/*state TestStopRun_DynamicTarget*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -359,7 +359,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStopWalk_AnimationAngles()/*state TestStopWalk_AnimationAngles*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStopWalk_AnimationAngles()/*state TestStopWalk_AnimationAngles*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -375,7 +375,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStopWalk_AllAngels()/*state TestStopWalk_AllAngels*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStopWalk_AllAngels()/*state TestStopWalk_AllAngels*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -391,7 +391,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStopWalk_DynamicTarget()/*state TestStopWalk_DynamicTarget*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStopWalk_DynamicTarget()/*state TestStopWalk_DynamicTarget*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -407,7 +407,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStandingTurning_AnimationAngles()/*state TestStandingTurning_AnimationAngles*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStandingTurning_AnimationAngles()/*state TestStandingTurning_AnimationAngles*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -423,7 +423,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStandingTurning_AllAngles()/*state TestStandingTurning_AllAngles*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStandingTurning_AllAngles()/*state TestStandingTurning_AllAngles*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -439,7 +439,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStandingTurning_AllAnglesLegOffset()/*state TestStandingTurning_AllAnglesLegOffset*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStandingTurning_AllAnglesLegOffset()/*state TestStandingTurning_AllAnglesLegOffset*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -450,7 +450,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestStandingTurning_OrdinaryTurningSystem()/*state TestStandingTurning_OrdinaryTurningSystem*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestStandingTurning_OrdinaryTurningSystem()/*state TestStandingTurning_OrdinaryTurningSystem*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -466,7 +466,7 @@ public partial class TdAITestScripts : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestAimPoses()/*state TestAimPoses*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestAimPoses()/*state TestAimPoses*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

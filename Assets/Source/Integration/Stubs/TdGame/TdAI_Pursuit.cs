@@ -505,7 +505,7 @@ public partial class TdAI_Pursuit : TdAIController/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Pursuit()/*state Pursuit extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) Pursuit()/*state Pursuit extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -521,13 +521,13 @@ public partial class TdAI_Pursuit : TdAIController/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Taser()/*state Taser extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) Taser()/*state Taser extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Advance()/*state Advance*/
+	(System.Action<name>, StateFlow, System.Action<name>) Advance()/*state Advance*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -543,7 +543,7 @@ public partial class TdAI_Pursuit : TdAIController/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Hold()/*state Hold*/
+	(System.Action<name>, StateFlow, System.Action<name>) Hold()/*state Hold*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -575,7 +575,7 @@ public partial class TdAI_Pursuit : TdAIController/*
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) PursuitMelee()/*state PursuitMelee*/
+	(System.Action<name>, StateFlow, System.Action<name>) PursuitMelee()/*state PursuitMelee*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -591,7 +591,7 @@ public partial class TdAI_Pursuit : TdAIController/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) MeleeInterrupted()/*state MeleeInterrupted extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) MeleeInterrupted()/*state MeleeInterrupted extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

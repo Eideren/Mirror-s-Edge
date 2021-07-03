@@ -330,7 +330,7 @@ public partial class TdMPTeamPursuitGame : TdMPTeamGame/*
 		/*Transformed 'base.' to specific call*/TdMPGame_MatchInProgress_EndState(NextStateName);
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) MatchInProgress()/*state MatchInProgress*/
+	(System.Action<name>, StateFlow, System.Action<name>) MatchInProgress()/*state MatchInProgress*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)

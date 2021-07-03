@@ -167,7 +167,7 @@ public partial class TdMPPossessionGame : TdMPGame/*
 		PossessionLogic.OnEndMatchInProgress();
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) MatchInProgress()/*state MatchInProgress*/
+	(System.Action<name>, StateFlow, System.Action<name>) MatchInProgress()/*state MatchInProgress*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)

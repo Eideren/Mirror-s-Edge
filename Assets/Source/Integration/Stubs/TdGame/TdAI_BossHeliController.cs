@@ -54,7 +54,7 @@ public partial class TdAI_BossHeliController : TdAI_HeliController/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) SearchAndDestroy()/*auto state SearchAndDestroy*/
+	(System.Action<name>, StateFlow, System.Action<name>) SearchAndDestroy()/*auto state SearchAndDestroy*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

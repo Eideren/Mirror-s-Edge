@@ -59,7 +59,7 @@ public partial class TdInterrogationSubject : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Idle()/*auto state Idle*/
+	(System.Action<name>, StateFlow, System.Action<name>) Idle()/*auto state Idle*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -75,7 +75,7 @@ public partial class TdInterrogationSubject : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Interrogating()/*state Interrogating*/
+	(System.Action<name>, StateFlow, System.Action<name>) Interrogating()/*state Interrogating*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

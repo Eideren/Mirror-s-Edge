@@ -46,7 +46,7 @@ public partial class TdMPDMGame : TdMPGame/*
 	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) MatchInProgress()/*state MatchInProgress*/
+	(System.Action<name>, StateFlow, System.Action<name>) MatchInProgress()/*state MatchInProgress*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -63,7 +63,7 @@ public partial class TdMPDMGame : TdMPGame/*
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) MatchOver()/*state MatchOver*/
+	(System.Action<name>, StateFlow, System.Action<name>) MatchOver()/*state MatchOver*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)

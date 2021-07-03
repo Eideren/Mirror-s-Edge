@@ -1094,7 +1094,7 @@ public partial class Controller : Actor/*
 		WorldInfo.Game.RestartPlayer(this);
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Dead()/*state Dead*/
+	(System.Action<name>, StateFlow, System.Action<name>) Dead()/*state Dead*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -1138,7 +1138,7 @@ public partial class Controller : Actor/*
 		}
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) RoundEnded()/*state RoundEnded*/
+	(System.Action<name>, StateFlow, System.Action<name>) RoundEnded()/*state RoundEnded*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)

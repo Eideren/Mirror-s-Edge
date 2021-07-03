@@ -49,7 +49,7 @@ public partial class TpSystem : TpSystemBase/*
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) __SharedBase()/*simulated state __SharedBase*/
+	(System.Action<name>, StateFlow, System.Action<name>) __SharedBase()/*simulated state __SharedBase*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -112,7 +112,7 @@ public partial class TpSystem : TpSystemBase/*
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) __Disconnected()/*simulated state __Disconnected extends __SharedBase*/
+	(System.Action<name>, StateFlow, System.Action<name>) __Disconnected()/*simulated state __Disconnected extends __SharedBase*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -170,7 +170,7 @@ public partial class TpSystem : TpSystemBase/*
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) __ConnectedShared()/*simulated state __ConnectedShared extends __SharedBase*/
+	(System.Action<name>, StateFlow, System.Action<name>) __ConnectedShared()/*simulated state __ConnectedShared extends __SharedBase*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -208,7 +208,7 @@ public partial class TpSystem : TpSystemBase/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) __Connected()/*simulated state __Connected extends __ConnectedShared*/
+	(System.Action<name>, StateFlow, System.Action<name>) __Connected()/*simulated state __Connected extends __ConnectedShared*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -225,19 +225,19 @@ public partial class TpSystem : TpSystemBase/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) __HostingGameShared()/*simulated state __HostingGameShared extends __ConnectedShared*/
+	(System.Action<name>, StateFlow, System.Action<name>) __HostingGameShared()/*simulated state __HostingGameShared extends __ConnectedShared*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) __WaitForPlayers()/*simulated state __WaitForPlayers extends __HostingGameShared*/
+	(System.Action<name>, StateFlow, System.Action<name>) __WaitForPlayers()/*simulated state __WaitForPlayers extends __HostingGameShared*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) __WaitGameStart()/*simulated state __WaitGameStart extends __ConnectedShared*/
+	(System.Action<name>, StateFlow, System.Action<name>) __WaitGameStart()/*simulated state __WaitGameStart extends __ConnectedShared*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

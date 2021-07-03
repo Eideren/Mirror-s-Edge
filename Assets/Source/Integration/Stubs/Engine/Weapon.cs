@@ -613,7 +613,7 @@ public partial class Weapon : Inventory/*
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Inactive()/*auto state Inactive*/
+	(System.Action<name>, StateFlow, System.Action<name>) Inactive()/*auto state Inactive*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -641,7 +641,7 @@ public partial class Weapon : Inventory/*
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Active()/*simulated state Active*/
+	(System.Action<name>, StateFlow, System.Action<name>) Active()/*simulated state Active*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -668,7 +668,7 @@ public partial class Weapon : Inventory/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WeaponFiring()/*simulated state WeaponFiring*/
+	(System.Action<name>, StateFlow, System.Action<name>) WeaponFiring()/*simulated state WeaponFiring*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -689,7 +689,7 @@ public partial class Weapon : Inventory/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WeaponEquipping()/*simulated state WeaponEquipping*/
+	(System.Action<name>, StateFlow, System.Action<name>) WeaponEquipping()/*simulated state WeaponEquipping*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -716,7 +716,7 @@ public partial class Weapon : Inventory/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WeaponPuttingDown()/*simulated state WeaponPuttingDown*/
+	(System.Action<name>, StateFlow, System.Action<name>) WeaponPuttingDown()/*simulated state WeaponPuttingDown*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -737,7 +737,7 @@ public partial class Weapon : Inventory/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) PendingClientWeaponSet()/*state PendingClientWeaponSet*/
+	(System.Action<name>, StateFlow, System.Action<name>) PendingClientWeaponSet()/*state PendingClientWeaponSet*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

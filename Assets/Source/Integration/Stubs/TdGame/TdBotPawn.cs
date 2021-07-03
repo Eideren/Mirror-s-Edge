@@ -1586,7 +1586,7 @@ public partial class TdBotPawn : TdPawn/*
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) LookbackState()/*state LookbackState*/
+	(System.Action<name>, StateFlow, System.Action<name>) LookbackState()/*state LookbackState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -1602,7 +1602,7 @@ public partial class TdBotPawn : TdPawn/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Dying()/*state Dying*/
+	(System.Action<name>, StateFlow, System.Action<name>) Dying()/*state Dying*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

@@ -207,7 +207,7 @@ public partial class TdAI_Sniper : TdAIController/*
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) HoldAndSnipe()/*state HoldAndSnipe extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) HoldAndSnipe()/*state HoldAndSnipe extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

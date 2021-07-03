@@ -47,7 +47,7 @@ public partial class TdConsole : Console/* within GameViewportClient*//*
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Typing()/*state Typing*/
+	(System.Action<name>, StateFlow, System.Action<name>) Typing()/*state Typing*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

@@ -2629,19 +2629,19 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TdState()/*state TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) TdState()/*state TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WhatToDo()/*state WhatToDo extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) WhatToDo()/*state WhatToDo extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) NoAnchor()/*state NoAnchor extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) NoAnchor()/*state NoAnchor extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2658,7 +2658,7 @@ public partial class TdAIController : AIController,
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TdDead()/*state TdDead extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) TdDead()/*state TdDead extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2669,7 +2669,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) EnemyDead()/*state EnemyDead extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) EnemyDead()/*state EnemyDead extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2685,7 +2685,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) ForceThrowGrenadeState()/*state ForceThrowGrenadeState*/
+	(System.Action<name>, StateFlow, System.Action<name>) ForceThrowGrenadeState()/*state ForceThrowGrenadeState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2701,7 +2701,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) ThrowGrenadeState()/*state ThrowGrenadeState*/
+	(System.Action<name>, StateFlow, System.Action<name>) ThrowGrenadeState()/*state ThrowGrenadeState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2723,7 +2723,7 @@ public partial class TdAIController : AIController,
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) KismetThrowGrenadeState()/*state KismetThrowGrenadeState extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) KismetThrowGrenadeState()/*state KismetThrowGrenadeState extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2734,7 +2734,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Idle()/*auto state Idle extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) Idle()/*auto state Idle extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2750,7 +2750,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WaitingForKismetCommand()/*state WaitingForKismetCommand extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) WaitingForKismetCommand()/*state WaitingForKismetCommand extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2772,7 +2772,7 @@ public partial class TdAIController : AIController,
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) ScriptedFire()/*state ScriptedFire extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) ScriptedFire()/*state ScriptedFire extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2788,7 +2788,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TdTestingState()/*state TdTestingState extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) TdTestingState()/*state TdTestingState extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2799,7 +2799,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestingState_Test()/*state TestingState_Test extends TdTestingState*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestingState_Test()/*state TestingState_Test extends TdTestingState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2811,7 +2811,7 @@ public partial class TdAIController : AIController,
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestingState_TestCovers()/*state TestingState_TestCovers extends TdTestingState*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestingState_TestCovers()/*state TestingState_TestCovers extends TdTestingState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2822,7 +2822,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestingState_Run()/*state TestingState_Run extends TdTestingState*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestingState_Run()/*state TestingState_Run extends TdTestingState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2853,19 +2853,19 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) DebugCoverState()/*state DebugCoverState*/
+	(System.Action<name>, StateFlow, System.Action<name>) DebugCoverState()/*state DebugCoverState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) DebugCoverChangePositionState()/*state DebugCoverChangePositionState*/
+	(System.Action<name>, StateFlow, System.Action<name>) DebugCoverChangePositionState()/*state DebugCoverChangePositionState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) DebugCoverChangeCoverState()/*state DebugCoverChangeCoverState*/
+	(System.Action<name>, StateFlow, System.Action<name>) DebugCoverChangeCoverState()/*state DebugCoverChangeCoverState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2881,7 +2881,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestingState_MoveToPos()/*state TestingState_MoveToPos extends TdTestingState*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestingState_MoveToPos()/*state TestingState_MoveToPos extends TdTestingState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2897,7 +2897,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestingState_RunToPos()/*state TestingState_RunToPos extends TdTestingState*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestingState_RunToPos()/*state TestingState_RunToPos extends TdTestingState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2913,7 +2913,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestingState_MoveStraightToPos()/*state TestingState_MoveStraightToPos extends TdTestingState*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestingState_MoveStraightToPos()/*state TestingState_MoveStraightToPos extends TdTestingState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2934,7 +2934,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) TestingState_MoveStraightToActor()/*state TestingState_MoveStraightToActor extends TdTestingState*/
+	(System.Action<name>, StateFlow, System.Action<name>) TestingState_MoveStraightToActor()/*state TestingState_MoveStraightToActor extends TdTestingState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2960,7 +2960,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Immobile()/*state Immobile extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) Immobile()/*state Immobile extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2976,7 +2976,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Stasis()/*state Stasis extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) Stasis()/*state Stasis extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -2987,7 +2987,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Error()/*state Error extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) Error()/*state Error extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -3008,7 +3008,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Advance()/*state Advance extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) Advance()/*state Advance extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -3024,7 +3024,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) GetWithinPathLimits()/*state GetWithinPathLimits extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) GetWithinPathLimits()/*state GetWithinPathLimits extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -3066,7 +3066,7 @@ public partial class TdAIController : AIController,
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Cover()/*state Cover extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) Cover()/*state Cover extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -3082,7 +3082,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Melee()/*state Melee extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) Melee()/*state Melee extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -3098,7 +3098,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) ShieldWall()/*state ShieldWall extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) ShieldWall()/*state ShieldWall extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -3141,7 +3141,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) AnimationPlayback()/*state AnimationPlayback extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) AnimationPlayback()/*state AnimationPlayback extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -3183,7 +3183,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) CannedMove()/*state CannedMove extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) CannedMove()/*state CannedMove extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -3224,7 +3224,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Stumble()/*state Stumble extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) Stumble()/*state Stumble extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -3250,7 +3250,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Blocking()/*state Blocking extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) Blocking()/*state Blocking extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -3314,7 +3314,7 @@ public partial class TdAIController : AIController,
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) SubAction_FireFromCover()/*state SubAction_FireFromCover extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) SubAction_FireFromCover()/*state SubAction_FireFromCover extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -3335,7 +3335,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) SubAction_MoveToCover()/*state SubAction_MoveToCover extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) SubAction_MoveToCover()/*state SubAction_MoveToCover extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -3356,7 +3356,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) SubAction_ExitingCover()/*state SubAction_ExitingCover extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) SubAction_ExitingCover()/*state SubAction_ExitingCover extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -3398,7 +3398,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) SubAction_MoveToGoal()/*state SubAction_MoveToGoal extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) SubAction_MoveToGoal()/*state SubAction_MoveToGoal extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -3414,7 +3414,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) ScriptedMoveTo()/*state ScriptedMoveTo extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) ScriptedMoveTo()/*state ScriptedMoveTo extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

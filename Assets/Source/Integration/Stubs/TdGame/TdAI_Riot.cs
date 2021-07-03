@@ -312,7 +312,7 @@ public partial class TdAI_Riot : TdAIController/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) RiotMelee()/*state RiotMelee extends TdState*/
+	(System.Action<name>, StateFlow, System.Action<name>) RiotMelee()/*state RiotMelee extends TdState*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

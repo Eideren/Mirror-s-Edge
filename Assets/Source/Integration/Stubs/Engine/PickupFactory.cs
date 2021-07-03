@@ -218,7 +218,7 @@ public partial class PickupFactory : NavigationPoint/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Pickup()/*auto state Pickup*/
+	(System.Action<name>, StateFlow, System.Action<name>) Pickup()/*auto state Pickup*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -234,7 +234,7 @@ public partial class PickupFactory : NavigationPoint/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WaitingForMatch()/*state WaitingForMatch*/
+	(System.Action<name>, StateFlow, System.Action<name>) WaitingForMatch()/*state WaitingForMatch*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -256,7 +256,7 @@ public partial class PickupFactory : NavigationPoint/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Sleeping()/*state Sleeping*/
+	(System.Action<name>, StateFlow, System.Action<name>) Sleeping()/*state Sleeping*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -278,7 +278,7 @@ public partial class PickupFactory : NavigationPoint/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Disabled()/*state Disabled*/
+	(System.Action<name>, StateFlow, System.Action<name>) Disabled()/*state Disabled*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

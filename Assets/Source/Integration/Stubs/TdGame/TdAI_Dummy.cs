@@ -50,7 +50,7 @@ public partial class TdAI_Dummy : TdAIController/*
 	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) DoNothing()/*auto state DoNothing*/
+	(System.Action<name>, StateFlow, System.Action<name>) DoNothing()/*auto state DoNothing*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

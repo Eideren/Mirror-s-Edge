@@ -216,7 +216,7 @@ public partial class TdAI_HeliController : AIController/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) ScriptedMove()/*state ScriptedMove*/
+	(System.Action<name>, StateFlow, System.Action<name>) ScriptedMove()/*state ScriptedMove*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -232,7 +232,7 @@ public partial class TdAI_HeliController : AIController/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) SearchAndDestroy()/*auto state SearchAndDestroy*/
+	(System.Action<name>, StateFlow, System.Action<name>) SearchAndDestroy()/*auto state SearchAndDestroy*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

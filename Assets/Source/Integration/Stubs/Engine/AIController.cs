@@ -112,7 +112,7 @@ public partial class AIController : Controller/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) ScriptedMove()/*state ScriptedMove*/
+	(System.Action<name>, StateFlow, System.Action<name>) ScriptedMove()/*state ScriptedMove*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -123,7 +123,7 @@ public partial class AIController : Controller/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) ScriptedRouteMove()/*state ScriptedRouteMove*/
+	(System.Action<name>, StateFlow, System.Action<name>) ScriptedRouteMove()/*state ScriptedRouteMove*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

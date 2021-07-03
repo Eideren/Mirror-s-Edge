@@ -6,13 +6,13 @@ public partial class TdRobberStashpoint : TdStashpoint/*
 		placeable
 		hidecategories(Navigation)*/{
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Idle()/*auto state Idle*/
+	(System.Action<name>, StateFlow, System.Action<name>) Idle()/*auto state Idle*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Stashing()/*state Stashing*/
+	(System.Action<name>, StateFlow, System.Action<name>) Stashing()/*state Stashing*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

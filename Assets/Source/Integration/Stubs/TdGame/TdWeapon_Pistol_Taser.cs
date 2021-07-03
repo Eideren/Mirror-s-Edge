@@ -65,7 +65,7 @@ public partial class TdWeapon_Pistol_Taser : TdWeapon_Light/*
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WeaponFiring()/*simulated state WeaponFiring*/
+	(System.Action<name>, StateFlow, System.Action<name>) WeaponFiring()/*simulated state WeaponFiring*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -76,7 +76,7 @@ public partial class TdWeapon_Pistol_Taser : TdWeapon_Light/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WeaponPuttingDown()/*simulated state WeaponPuttingDown*/
+	(System.Action<name>, StateFlow, System.Action<name>) WeaponPuttingDown()/*simulated state WeaponPuttingDown*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

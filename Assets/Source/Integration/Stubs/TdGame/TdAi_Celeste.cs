@@ -166,7 +166,7 @@ public partial class TdAi_Celeste : TdAI_Pursuit/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Taser()/*state Taser*/
+	(System.Action<name>, StateFlow, System.Action<name>) Taser()/*state Taser*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

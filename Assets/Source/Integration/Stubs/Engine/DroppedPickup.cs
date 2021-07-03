@@ -144,7 +144,7 @@ public partial class DroppedPickup : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Pickup()/*auto state Pickup*/
+	(System.Action<name>, StateFlow, System.Action<name>) Pickup()/*auto state Pickup*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -155,7 +155,7 @@ public partial class DroppedPickup : Actor/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) FadeOut()/*state FadeOut extends Pickup*/
+	(System.Action<name>, StateFlow, System.Action<name>) FadeOut()/*state FadeOut extends Pickup*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

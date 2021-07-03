@@ -156,7 +156,7 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Typing()/*state Typing*/
+	(System.Action<name>, StateFlow, System.Action<name>) Typing()/*state Typing*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -189,7 +189,7 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Open()/*state Open*/
+	(System.Action<name>, StateFlow, System.Action<name>) Open()/*state Open*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

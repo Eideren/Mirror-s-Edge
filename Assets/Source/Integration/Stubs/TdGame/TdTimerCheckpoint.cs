@@ -116,7 +116,7 @@ public partial class TdTimerCheckpoint : TdPlaceableCheckpoint/*
 		// stub
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Fading()/*state Fading*/
+	(System.Action<name>, StateFlow, System.Action<name>) Fading()/*state Fading*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

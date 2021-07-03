@@ -109,7 +109,7 @@ public partial class Volume : Brush/*
 		}	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) AssociatedTouch()/*state AssociatedTouch*/
+	(System.Action<name>, StateFlow, System.Action<name>) AssociatedTouch()/*state AssociatedTouch*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)

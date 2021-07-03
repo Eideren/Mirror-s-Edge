@@ -18,7 +18,7 @@ public partial class TdCoverGroupVolume : Volume/*
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) AssociatedTouch()/*state AssociatedTouch*/
+	(System.Action<name>, StateFlow, System.Action<name>) AssociatedTouch()/*state AssociatedTouch*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
