@@ -119,7 +119,7 @@ public partial class TdKillZoneVolume : Volume/*
 	{
 		/*local */TdEmitter TheEmitter = default;
 	
-		TheEmitter = Spawn(ClassT<TdEmitter>(), default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+		TheEmitter = Spawn(ClassT<TdEmitter>(), default(Actor), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 		TheEmitter.SetTemplate(Template, false);
 		TheEmitter.bDestroyOnSystemFinish = false;
 		TheEmitter.LifeSpan = 0.0f;
@@ -152,7 +152,7 @@ public partial class TdKillZoneVolume : Volume/*
 		PlayFireSound(LI);
 		if(Player != default)
 		{
-			Player.TakeDamage(((int)(DamagePerShot)), default, LI.HitLocation, (LI.HitLocation - LI.Location) * 700.0f, ClassT<TdDmgType_Sniper_Bullet>(), default(Actor.TraceHitInfo?), default(Actor?));
+			Player.TakeDamage(((int)(DamagePerShot)), default, LI.HitLocation, (LI.HitLocation - LI.Location) * 700.0f, ClassT<TdDmgType_Sniper_Bullet>(), default(Actor.TraceHitInfo?), default(Actor));
 		}
 	}
 	
@@ -208,7 +208,7 @@ public partial class TdKillZoneVolume : Volume/*
 		Fire(LaserInfos[CurrentFire]);
 		++ CurrentFire;
 		CurrentFire = CurrentFire % LaserInfos.Length;
-		SetTimer(0.30f + (0.30f * FRand()), false, "TimedFire", default(Object?));
+		SetTimer(0.30f + (0.30f * FRand()), false, "TimedFire", default(Object));
 	}
 	
 	public virtual /*private final function */void StartLasers()
@@ -226,7 +226,7 @@ public partial class TdKillZoneVolume : Volume/*
 			goto J0x07;
 		}
 		bActive = true;
-		SetTimer(1.0f, false, "TimedFire", default(Object?));
+		SetTimer(1.0f, false, "TimedFire", default(Object));
 	}
 	
 	public virtual /*private final function */void StopLasers()
@@ -241,7 +241,7 @@ public partial class TdKillZoneVolume : Volume/*
 			++ I;
 			goto J0x07;
 		}
-		ClearTimer("TimedFire", default(Object?));
+		ClearTimer("TimedFire", default(Object));
 		bActive = false;
 	}
 	

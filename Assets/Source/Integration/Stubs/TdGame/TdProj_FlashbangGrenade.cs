@@ -11,7 +11,7 @@ public partial class TdProj_FlashbangGrenade : TdProj_Grenade/*
 	public/*(WeaponEffects)*/ float DynamicLightFlashBrightness;
 	public/*(WeaponEffects)*/ /*export editinline */PointLightComponent DynamicLightFlashLight;
 	
-	public override /*simulated function */bool HurtRadius(float BaseDamage, float InDamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, /*optional */Actor? _IgnoredActor = default, /*optional */Controller? _InstigatedByController = default, /*optional */bool? _bDoFullDamage = default)
+	public override /*simulated function */bool HurtRadius(float BaseDamage, float InDamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, /*optional */Actor _IgnoredActor = default, /*optional */Controller _InstigatedByController = default, /*optional */bool? _bDoFullDamage = default)
 	{
 		// stub
 		return default;

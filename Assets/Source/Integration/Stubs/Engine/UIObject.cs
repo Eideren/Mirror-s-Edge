@@ -442,17 +442,17 @@ public partial class UIObject : UIScreenObject/*
 		// stub
 	}
 	
-	public virtual /*event */void PlayUIAnimation(name AnimName, /*optional */UIAnimationSeq? _AnimSeqTemplate = default, /*optional */float? _PlaybackRate = default, /*optional */bool? _bLoop = default, /*optional */float? _InitialPosition = default)
+	public virtual /*event */void PlayUIAnimation(name AnimName, /*optional */UIAnimationSeq _AnimSeqTemplate = default, /*optional */float? _PlaybackRate = default, /*optional */bool? _bLoop = default, /*optional */float? _InitialPosition = default)
 	{
 		// stub
 	}
 	
-	public virtual /*event */void StopUIAnimation(name AnimName, /*optional */UIAnimationSeq? _AnimSeq = default, /*optional */bool? _bFinalize = default)
+	public virtual /*event */void StopUIAnimation(name AnimName, /*optional */UIAnimationSeq _AnimSeq = default, /*optional */bool? _bFinalize = default)
 	{
 		// stub
 	}
 	
-	public virtual /*event */void ClearUIAnimation(name AnimName, /*optional */UIAnimationSeq? _AnimSeq = default)
+	public virtual /*event */void ClearUIAnimation(name AnimName, /*optional */UIAnimationSeq _AnimSeq = default)
 	{
 		// stub
 	}

@@ -10,7 +10,7 @@ public partial class SeqAct_Delay : SeqAct_Latent/*
 	public /*const */float LastUpdateTime;
 	public /*const */float RemainingTime;
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{
 		// stub
 		return default;

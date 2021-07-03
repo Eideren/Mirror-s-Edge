@@ -268,7 +268,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	}
 	
 	// Export UUIComp_DrawString::execGetAppliedStringStyle(FFrame&, void* const)
-	public virtual /*native final function */UIStyle_Combo GetAppliedStringStyle(/*optional */UIState? _DesiredMenuState = default)
+	public virtual /*native final function */UIStyle_Combo GetAppliedStringStyle(/*optional */UIState _DesiredMenuState = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -300,7 +300,7 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 	}
 	
 	// Export UUIComp_DrawString::execNotifyResolveStyle(FFrame&, void* const)
-	public virtual /*native final function */bool NotifyResolveStyle(UISkin ActiveSkin, bool bClearExistingValue, /*optional */UIState? _CurrentMenuState = default, /*const optional */name? _StylePropertyName = default)
+	public virtual /*native final function */bool NotifyResolveStyle(UISkin ActiveSkin, bool bClearExistingValue, /*optional */UIState _CurrentMenuState = default, /*const optional */name? _StylePropertyName = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub

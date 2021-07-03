@@ -92,7 +92,7 @@ public partial class TdMove_WallClimb : TdPhysicsMove/*
 		IntoWallClimbSpeed = VSize2D(PawnOwner.Velocity) - ClassT<TdMove_Jump>().DefaultAs<TdMove_Jump>().JumpAddXY;
 		LookAtEdgeAngle = PawnOwner.Rotation;
 		WallClimbingGravity = Abs(PawnOwner.GetGravityZ());
-		PawnOwner.SetBase(PawnOwner.MovementActor, PawnOwner.MoveNormal, default(SkeletalMeshComponent?), default(name?));
+		PawnOwner.SetBase(PawnOwner.MovementActor, PawnOwner.MoveNormal, default(SkeletalMeshComponent), default(name?));
 		if(DetectPossibleHandPlant())
 		{
 			FoundPossibleHandPlant();

@@ -58,7 +58,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	}
 	
 	// Export UGameUISceneClient::execCreateScene(FFrame&, void* const)
-	public virtual /*native final function */UIScene CreateScene(Core.ClassT<UIScene> SceneClass, /*optional */name? _SceneTag = default, /*optional */UIScene? _SceneTemplate = default)
+	public virtual /*native final function */UIScene CreateScene(Core.ClassT<UIScene> SceneClass, /*optional */name? _SceneTag = default, /*optional */UIScene _SceneTemplate = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -66,7 +66,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	}
 	
 	// Export UGameUISceneClient::execCreateTransientWidget(FFrame&, void* const)
-	public virtual /*native final function */UIObject CreateTransientWidget(Core.ClassT<UIObject> WidgetClass, name WidgetTag, /*optional */UIObject? _Owner = default)
+	public virtual /*native final function */UIObject CreateTransientWidget(Core.ClassT<UIObject> WidgetClass, name WidgetTag, /*optional */UIObject _Owner = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -74,7 +74,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	}
 	
 	// Export UGameUISceneClient::execFindSceneByTag(FFrame&, void* const)
-	public virtual /*native final function */UIScene FindSceneByTag(name SceneTag, /*optional */LocalPlayer? _SceneOwner = default)
+	public virtual /*native final function */UIScene FindSceneByTag(name SceneTag, /*optional */LocalPlayer _SceneOwner = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -175,7 +175,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 		// stub
 	}
 	
-	public virtual /*function */void RestoreMenuProgression(/*optional */UIScene? _BaseScene = default)
+	public virtual /*function */void RestoreMenuProgression(/*optional */UIScene _BaseScene = default)
 	{
 		// stub
 	}

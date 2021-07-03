@@ -6,7 +6,7 @@ public partial class SeqAct_TdPhysXGate : SequenceAction/*
 		hidecategories(Object)*/{
 	public/*()*/ bool bPhysXNotGate;
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{
 		// stub
 		return default;

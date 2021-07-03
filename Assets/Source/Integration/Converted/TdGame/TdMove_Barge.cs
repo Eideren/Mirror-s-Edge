@@ -282,7 +282,7 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 	{
 		/*local */KActor RBActor = default;
 	
-		Victim.TakeDamage(100, PawnOwner.Controller, HitLocation, -HitNormal, inDamageType, default(Actor.TraceHitInfo?), default(Actor?));
+		Victim.TakeDamage(100, PawnOwner.Controller, HitLocation, -HitNormal, inDamageType, default(Actor.TraceHitInfo?), default(Actor));
 		RBActor = ((Victim) as KActor);
 		if(RBActor != default)
 		{

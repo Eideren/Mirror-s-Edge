@@ -18,7 +18,7 @@ public partial class SceneCaptureCharacterComponent : SceneCaptureComponent/*
 	public /*const transient */Object.Matrix ProjMatrix;
 	
 	// Export USceneCaptureCharacterComponent::execSetCaptureParameters(FFrame&, void* const)
-	public virtual /*native final function */void SetCaptureParameters(/*optional */TextureRenderTarget2D? _NewTextureTarget = default, /*optional */float? _NewFOV = default, /*optional */float? _NewNearPlane = default, /*optional */float? _NewFarPlane = default)
+	public virtual /*native final function */void SetCaptureParameters(/*optional */TextureRenderTarget2D _NewTextureTarget = default, /*optional */float? _NewFOV = default, /*optional */float? _NewNearPlane = default, /*optional */float? _NewFarPlane = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub

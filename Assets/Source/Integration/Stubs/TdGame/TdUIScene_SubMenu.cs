@@ -15,7 +15,7 @@ public partial class TdUIScene_SubMenu : TdUIScene/*
 		// stub
 	}
 	
-	public virtual /*function */void UpdateFocusLabelState(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
+	public virtual /*function */void UpdateFocusLabelState(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState _PreviouslyActiveState = default)
 	{
 		// stub
 	}

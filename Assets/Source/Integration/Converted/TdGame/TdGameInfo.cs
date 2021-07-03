@@ -77,7 +77,7 @@ public partial class TdGameInfo : GameInfo/*
 		DataStoreManager = UIInteraction.GetDataStoreClient();
 		if(DataStoreManager != default)
 		{
-			TdGameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer?))) as UIDataStore_TdGameData);
+			TdGameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer))) as UIDataStore_TdGameData);
 		}
 	}
 	
@@ -415,7 +415,7 @@ public partial class TdGameInfo : GameInfo/*
 		DataStoreClient = UIInteraction.GetDataStoreClient();
 		if(DataStoreClient != default)
 		{
-			ObjectiveData = ((DataStoreClient.FindDataStore("TdGameObjectivesData", default(LocalPlayer?))) as UIDataStore_TdGameObjectivesData);
+			ObjectiveData = ((DataStoreClient.FindDataStore("TdGameObjectivesData", default(LocalPlayer))) as UIDataStore_TdGameObjectivesData);
 			if(ObjectiveData != default)
 			{
 				ObjectiveData.ResolveAndSetCheckpointObjective("Objectives", CheckpointName, default(bool?));

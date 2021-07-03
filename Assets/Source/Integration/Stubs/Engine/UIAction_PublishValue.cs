@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIAction_PublishValue : UIAction_DataStore/*
 		native
 		hidecategories(Object)*/{
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{
 		// stub
 		return default;

@@ -24,7 +24,7 @@ public partial class TdDummyPawn : GamePawn/*
 		return default;
 	}
 	
-	public override /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon? _CurrentWeapon = default)
+	public override /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon _CurrentWeapon = default)
 	{
 		// stub
 		return default;

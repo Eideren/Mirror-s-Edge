@@ -243,7 +243,7 @@ public partial class TdMove_WallRun : TdPhysicsMove/*
 		{
 			PawnOwner.Velocity.Z = Speed;
 		}
-		PawnOwner.SetBase(PawnOwner.MovementActor, WallNormal, default(SkeletalMeshComponent?), default(name?));
+		PawnOwner.SetBase(PawnOwner.MovementActor, WallNormal, default(SkeletalMeshComponent), default(name?));
 		SetTimer(WallRunningDelayPawnRotationTime);
 		Extent.X = PawnOwner.CylinderComponent.CollisionRadius;
 		Extent.Y = PawnOwner.CylinderComponent.CollisionRadius;

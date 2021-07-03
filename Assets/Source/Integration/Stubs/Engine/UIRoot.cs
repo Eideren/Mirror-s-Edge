@@ -2275,7 +2275,7 @@ public partial class UIRoot : Object/*
 	}
 	
 	// Export UUIRoot::execGetCursorPosition(FFrame&, void* const)
-	public /*native final function */static bool GetCursorPosition(ref int CursorX, ref int CursorY, /*const optional */UIScene? _Scene = default)
+	public /*native final function */static bool GetCursorPosition(ref int CursorX, ref int CursorY, /*const optional */UIScene _Scene = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -2306,28 +2306,28 @@ public partial class UIRoot : Object/*
 	}
 	
 	// Export UUIRoot::execSetDataStoreFieldValue(FFrame&, void* const)
-	public /*native final function */static bool SetDataStoreFieldValue(String InDataStoreMarkup, /*const */ref UIRoot.UIProviderFieldValue InFieldValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
+	public /*native final function */static bool SetDataStoreFieldValue(String InDataStoreMarkup, /*const */ref UIRoot.UIProviderFieldValue InFieldValue, /*optional */UIScene _OwnerScene = default, /*optional */LocalPlayer _OwnerPlayer = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
 	
-	public /*function */static bool SetDataStoreStringValue(String InDataStoreMarkup, String InStringValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
+	public /*function */static bool SetDataStoreStringValue(String InDataStoreMarkup, String InStringValue, /*optional */UIScene _OwnerScene = default, /*optional */LocalPlayer _OwnerPlayer = default)
 	{
 		// stub
 		return default;
 	}
 	
 	// Export UUIRoot::execGetDataStoreFieldValue(FFrame&, void* const)
-	public /*native final function */static bool GetDataStoreFieldValue(String InDataStoreMarkup, ref UIRoot.UIProviderFieldValue OutFieldValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
+	public /*native final function */static bool GetDataStoreFieldValue(String InDataStoreMarkup, ref UIRoot.UIProviderFieldValue OutFieldValue, /*optional */UIScene _OwnerScene = default, /*optional */LocalPlayer _OwnerPlayer = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
 	
-	public /*function */static bool GetDataStoreStringValue(String InDataStoreMarkup, ref String OutStringValue, /*optional */UIScene? _OwnerScene = default, /*optional */LocalPlayer? _OwnerPlayer = default)
+	public /*function */static bool GetDataStoreStringValue(String InDataStoreMarkup, ref String OutStringValue, /*optional */UIScene _OwnerScene = default, /*optional */LocalPlayer _OwnerPlayer = default)
 	{
 		// stub
 		return default;

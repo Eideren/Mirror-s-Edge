@@ -111,7 +111,7 @@ public partial class TdVehicle : SVehicle/*
 		return default;
 	}
 	
-	public virtual /*simulated function */void VehicleCalcCamera(float DeltaTime, int seatIndex, ref Object.Vector out_CamLoc, ref Object.Rotator out_CamRot, /*optional */Pawn? _P = default)
+	public virtual /*simulated function */void VehicleCalcCamera(float DeltaTime, int seatIndex, ref Object.Vector out_CamLoc, ref Object.Rotator out_CamRot, /*optional */Pawn _P = default)
 	{
 		// stub
 	}

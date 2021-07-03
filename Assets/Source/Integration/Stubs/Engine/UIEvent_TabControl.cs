@@ -7,7 +7,7 @@ public partial class UIEvent_TabControl : UIEvent/*
 		hidecategories(Object)*/{
 	public UITabControl OwnerTabControl;
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{
 		// stub
 		return default;

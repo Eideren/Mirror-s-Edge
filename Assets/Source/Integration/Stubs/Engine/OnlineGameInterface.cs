@@ -53,7 +53,7 @@ public interface OnlineGameInterface : Interface/*
 	
 	public /*function */OnlineGameSearch GetGameSearch();
 	
-	public /*function */bool FreeSearchResults(/*optional */OnlineGameSearch? _Search = default);
+	public /*function */bool FreeSearchResults(/*optional */OnlineGameSearch _Search = default);
 	
 	public /*function */bool JoinOnlineGame(byte PlayerNum, /*const */ref OnlineGameSearch.OnlineGameSearchResult DesiredGame);
 	

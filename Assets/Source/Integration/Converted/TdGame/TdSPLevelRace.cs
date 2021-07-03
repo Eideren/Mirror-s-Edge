@@ -40,7 +40,7 @@ public partial class TdSPLevelRace : TdSPStoryGame/*
 		DataStoreManager = UIInteraction.GetDataStoreClient();
 		if((TimeTrialData == default) && DataStoreManager != default)
 		{
-			TimeTrialData = ((DataStoreManager.FindDataStore("TdTimeTrialData", default(LocalPlayer?))) as UIDataStore_TdTimeTrialData);
+			TimeTrialData = ((DataStoreManager.FindDataStore("TdTimeTrialData", default(LocalPlayer))) as UIDataStore_TdTimeTrialData);
 			TargetTime = TimeTrialData.GetTargetRaceData().TotalTime;
 			if(TargetTime == 3599.990f)
 			{
@@ -69,7 +69,7 @@ public partial class TdSPLevelRace : TdSPStoryGame/*
 	
 	public override /*function */void OnPlayerDead()
 	{
-		SetTimer(PlayerRespawnTime, false, "ResetLevel", default(Object?));
+		SetTimer(PlayerRespawnTime, false, "ResetLevel", default(Object));
 	}
 	
 	public virtual /*function */void RestartRace()

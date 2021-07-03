@@ -52,7 +52,7 @@ public partial class UIScreenObject : UIRoot/*
 	
 	public delegate void NotifyResolutionChanged(/*const */ref Object.Vector2D OldViewportsize, /*const */ref Object.Vector2D NewViewportSize);
 	
-	public delegate void NotifyActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default);
+	public delegate void NotifyActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState _PreviouslyActiveState = default);
 	
 	public delegate void NotifyVisibilityChanged(UIScreenObject SourceWidget, bool bIsVisible);
 	
@@ -104,7 +104,7 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execCreateWidget(FFrame&, void* const)
-	public virtual /*native final function */UIObject CreateWidget(UIScreenObject Owner, Core.ClassT<UIObject> WidgetClass, /*optional */Object? _WidgetArchetype = default, /*optional */name? _WidgetName = default)
+	public virtual /*native final function */UIObject CreateWidget(UIScreenObject Owner, Core.ClassT<UIObject> WidgetClass, /*optional */Object _WidgetArchetype = default, /*optional */name? _WidgetName = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -112,7 +112,7 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execInitialize(FFrame&, void* const)
-	public virtual /*native final function */void Initialize(UIScene inOwnerScene, /*optional */UIObject? _inOwner = default)
+	public virtual /*native final function */void Initialize(UIScene inOwnerScene, /*optional */UIObject _inOwner = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -283,14 +283,14 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execActivateEventByClass(FFrame&, void* const)
-	public virtual /*native final function */void ActivateEventByClass(int PlayerIndex, Core.ClassT<UIEvent> EventClassToActivate, /*optional */Object? _InEventActivator/* = default*/, /*optional */bool? _bActivateImmediately/* = default*/, /*optional */array<int>? _IndicesToActivate/* = default*/, /*optional */ref array<UIEvent> out_ActivatedEvents/* = default*/)
+	public virtual /*native final function */void ActivateEventByClass(int PlayerIndex, Core.ClassT<UIEvent> EventClassToActivate, /*optional */Object _InEventActivator/* = default*/, /*optional */bool? _bActivateImmediately/* = default*/, /*optional */array<int>? _IndicesToActivate/* = default*/, /*optional */ref array<UIEvent> out_ActivatedEvents/* = default*/)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
 	}
 	
 	// Export UUIScreenObject::execFindEventsOfClass(FFrame&, void* const)
-	public virtual /*native final function */void FindEventsOfClass(Core.ClassT<UIEvent> EventClassToFind, ref array<UIEvent> out_EventInstances, /*optional */UIState? _LimitScope = default, /*optional */bool? _bExactClass = default)
+	public virtual /*native final function */void FindEventsOfClass(Core.ClassT<UIEvent> EventClassToFind, ref array<UIEvent> out_EventInstances, /*optional */UIState _LimitScope = default, /*optional */bool? _bExactClass = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -457,7 +457,7 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execSetFocusToChild(FFrame&, void* const)
-	public virtual /*native function */bool SetFocusToChild(/*optional */UIObject? _ChildToFocus = default, /*optional */int? _PlayerIndex = default)
+	public virtual /*native function */bool SetFocusToChild(/*optional */UIObject _ChildToFocus = default, /*optional */int? _PlayerIndex = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -670,7 +670,7 @@ public partial class UIScreenObject : UIRoot/*
 	}
 	
 	// Export UUIScreenObject::execGetAspectRatioAutoScaleFactor(FFrame&, void* const)
-	public virtual /*native final function */float GetAspectRatioAutoScaleFactor(/*optional */Font? _BaseFont = default)
+	public virtual /*native final function */float GetAspectRatioAutoScaleFactor(/*optional */Font _BaseFont = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub

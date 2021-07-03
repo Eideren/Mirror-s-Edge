@@ -47,7 +47,7 @@ public partial class UITabPage : UIContainer,
 		return default;
 	}
 	
-	public virtual /*function */UITabButton GetTabButton(/*optional */UITabControl? _TabControl = default)
+	public virtual /*function */UITabButton GetTabButton(/*optional */UITabControl _TabControl = default)
 	{
 		// stub
 		return default;
@@ -108,7 +108,7 @@ public partial class UITabPage : UIContainer,
 		return default;
 	}
 	
-	public virtual /*function */void OnActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
+	public virtual /*function */void OnActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState _PreviouslyActiveState = default)
 	{
 		// stub
 	}

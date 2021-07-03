@@ -44,12 +44,12 @@ public partial class TdSPGame : TdGameInfo/*
 	
 	public virtual /*function */void InitAI()
 	{
-		AIManager = Spawn(ClassT<TdAIManager>(), default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+		AIManager = Spawn(ClassT<TdAIManager>(), default(Actor), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 	}
 	
 	public virtual /*function */void OnPlayerDead()
 	{
-		SetTimer(PlayerRespawnTime, false, "ResetLevel", default(Object?));
+		SetTimer(PlayerRespawnTime, false, "ResetLevel", default(Object));
 	}
 	
 	public virtual /*function */void RestartFromLastCheckpoint()
@@ -63,7 +63,7 @@ public partial class TdSPGame : TdGameInfo/*
 		{
 			((C.myHUD) as TdHUD).TriggerCustomColorFadeOut(0.50f, MakeLinearColor(1.0f, 1.0f, 1.0f, 1.0f), default(bool?), default(/*delegate*/TdHUD.OnMaxFade?));		
 		}	
-		SetTimer(0.50f, false, "RestartFromLastCheckpointDead", default(Object?));
+		SetTimer(0.50f, false, "RestartFromLastCheckpointDead", default(Object));
 	}
 	
 	public virtual /*function */void RestartFromLastCheckpointDead()
@@ -96,7 +96,7 @@ public partial class TdSPGame : TdGameInfo/*
 				DataStoreManager = UIInteraction.GetDataStoreClient();
 				if(DataStoreManager != default)
 				{
-					GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer?))) as UIDataStore_TdGameData);
+					GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer))) as UIDataStore_TdGameData);
 					if(GameData != default)
 					{
 						GameData.RestartFromLastCheckpoint(default(bool?), default(bool?));					
@@ -177,7 +177,7 @@ public partial class TdSPGame : TdGameInfo/*
 		DataStoreManager = UIInteraction.GetDataStoreClient();
 		if(DataStoreManager != default)
 		{
-			GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer?))) as UIDataStore_TdGameData);
+			GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer))) as UIDataStore_TdGameData);
 			if(GameData != default)
 			{
 				LevelIndex = GameData.GetMapIndexFromFileName(CurrentLevelName);
@@ -224,7 +224,7 @@ public partial class TdSPGame : TdGameInfo/*
 			DataStoreManager = UIInteraction.GetDataStoreClient();
 			if(DataStoreManager != default)
 			{
-				GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer?))) as UIDataStore_TdGameData);
+				GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer))) as UIDataStore_TdGameData);
 				if(GameData != default)
 				{
 					bIsGameComplete = GameData.GetMapIndexFromFileName(WorldInfo.GetMapName(default(bool?))) == 10;
@@ -297,7 +297,7 @@ public partial class TdSPGame : TdGameInfo/*
 		DataStoreManager = UIInteraction.GetDataStoreClient();
 		if(DataStoreManager != default)
 		{
-			GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer?))) as UIDataStore_TdGameData);
+			GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer))) as UIDataStore_TdGameData);
 			if(GameData != default)
 			{
 				GameData.CheckpointManager.SetActiveCheckpoint(StartLocation);
@@ -318,7 +318,7 @@ public partial class TdSPGame : TdGameInfo/*
 				if(DataStoreManager != default)
 				{
 					OnLCAsyncHelper.PC = default;
-					GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer?))) as UIDataStore_TdGameData);
+					GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer))) as UIDataStore_TdGameData);
 					if(GameData != default)
 					{
 						GameData.StartGame(OnLCAsyncHelper.NextLevelName, OnLCAsyncHelper.NextCheckpointName, default(String?), "?PlayCutSceneMovie", bShouldSaveCheckpointProgress, true);
@@ -330,7 +330,7 @@ public partial class TdSPGame : TdGameInfo/*
 		{
 			DataStoreManager = UIInteraction.GetDataStoreClient();
 			OnLCAsyncHelper.PC = default;
-			GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer?))) as UIDataStore_TdGameData);
+			GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer))) as UIDataStore_TdGameData);
 			GameData.QuitToMainMenu();
 		}
 	}

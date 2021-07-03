@@ -275,7 +275,7 @@ public partial class TdAIManager : Actor/*
 	}
 	
 	// Export UTdAIManager::execSetLastSeenLocation(FFrame&, void* const)
-	public virtual /*native final function */void SetLastSeenLocation(/*optional */TdPawn? _aPawn = default, /*optional */Object.Vector? _L = default)
+	public virtual /*native final function */void SetLastSeenLocation(/*optional */TdPawn _aPawn = default, /*optional */Object.Vector? _L = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -370,7 +370,7 @@ public partial class TdAIManager : Actor/*
 		return default;
 	}
 	
-	public virtual /*function */bool IsAnyoneDoingAFinishingAttack(/*optional */TdAIController? _exclude = default)
+	public virtual /*function */bool IsAnyoneDoingAFinishingAttack(/*optional */TdAIController _exclude = default)
 	{
 		// stub
 		return default;
@@ -409,7 +409,7 @@ public partial class TdAIManager : Actor/*
 	}
 	
 	// Export UTdAIManager::execIsGoalForAnyBot(FFrame&, void* const)
-	public virtual /*native final function */bool IsGoalForAnyBot(NavigationPoint np, /*optional */TdAIController? _exclude = default)
+	public virtual /*native final function */bool IsGoalForAnyBot(NavigationPoint np, /*optional */TdAIController _exclude = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub

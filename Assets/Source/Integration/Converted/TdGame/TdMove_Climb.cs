@@ -254,7 +254,7 @@ public partial class TdMove_Climb : TdPhysicsMove/*
 		bIsPlayingAnimation = true;
 		ResetCameraLook(0.10f);
 		PawnOwner.SetIgnoreLookInput(-1.0f);
-		PawnOwner.SetTimer(0.90f, false, "StopIgnoreLookInput", default(Object?));
+		PawnOwner.SetTimer(0.90f, false, "StopIgnoreLookInput", default(Object));
 		PawnOwner.UseRootMotion(true);
 		ClimbState = TdMove_Climb.EClimbState.CS_ExitAtTop/*1*/;
 		PawnOwner.SetCollision(PawnOwner.bCollideActors, false, default(bool?));

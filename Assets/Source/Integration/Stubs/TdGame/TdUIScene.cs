@@ -461,7 +461,7 @@ public partial class TdUIScene : UIScene/*
 		// stub
 	}
 	
-	public virtual /*function */UIDataStore FindDataStore(name DataStoreTag, /*optional */LocalPlayer? _InPlayerOwner = default)
+	public virtual /*function */UIDataStore FindDataStore(name DataStoreTag, /*optional */LocalPlayer _InPlayerOwner = default)
 	{
 		// stub
 		return default;

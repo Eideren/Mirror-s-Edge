@@ -371,7 +371,7 @@ public partial class TdAIController : AIController,
 	}
 	
 	// Export UTdAIController::execFindGoodFiringPosition(FFrame&, void* const)
-	public virtual /*native final function */NavigationPoint FindGoodFiringPosition(int NetworkID, /*optional */Class? _RequiredClass = default)
+	public virtual /*native final function */NavigationPoint FindGoodFiringPosition(int NetworkID, /*optional */Class _RequiredClass = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -456,7 +456,7 @@ public partial class TdAIController : AIController,
 	}
 	
 	// Export UTdAIController::execTdMoveTo(FFrame&, void* const)
-	public virtual /*native final latent function */Flow TdMoveTo(Object.Vector NewDestination, /*optional */Actor? _ViewFocus = default, /*optional */bool? _bShouldWalk = default)
+	public virtual /*native final latent function */Flow TdMoveTo(Object.Vector NewDestination, /*optional */Actor _ViewFocus = default, /*optional */bool? _bShouldWalk = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -1481,7 +1481,7 @@ public partial class TdAIController : AIController,
 	}
 	
 	// Export UTdAIController::execSelectAdvancePoint(FFrame&, void* const)
-	public virtual /*native final function */NavigationPoint SelectAdvancePoint(int NetworkID, /*optional */float? _MaxDist = default, /*optional */float? _MinDist = default, /*optional */Class? _RequiredClass = default, /*optional */bool? _bTestVisibility = default)
+	public virtual /*native final function */NavigationPoint SelectAdvancePoint(int NetworkID, /*optional */float? _MaxDist = default, /*optional */float? _MinDist = default, /*optional */Class _RequiredClass = default, /*optional */bool? _bTestVisibility = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -1489,7 +1489,7 @@ public partial class TdAIController : AIController,
 	}
 	
 	// Export UTdAIController::execGetNavpointClosestToPoint(FFrame&, void* const)
-	public virtual /*native final function */NavigationPoint GetNavpointClosestToPoint(Object.Vector Point, int NetworkID, /*optional */float? _MaxDist = default, /*optional */float? _MinDist = default, /*optional */float? _MaxDistZ = default, /*optional */float? _MinDistZ = default, /*optional */Class? _RequiredClass = default)
+	public virtual /*native final function */NavigationPoint GetNavpointClosestToPoint(Object.Vector Point, int NetworkID, /*optional */float? _MaxDist = default, /*optional */float? _MinDist = default, /*optional */float? _MaxDistZ = default, /*optional */float? _MinDistZ = default, /*optional */Class _RequiredClass = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -2301,19 +2301,19 @@ public partial class TdAIController : AIController,
 		return default;
 	}
 	
-	public virtual /*final function */bool SetMoveLocationEnemy(/*optional */Actor? _NewMoveFocus = default, /*optional */float? _OffsetDist = default, /*optional */bool? _HaltAfterMove = default)
+	public virtual /*final function */bool SetMoveLocationEnemy(/*optional */Actor _NewMoveFocus = default, /*optional */float? _OffsetDist = default, /*optional */bool? _HaltAfterMove = default)
 	{
 		// stub
 		return default;
 	}
 	
-	public virtual /*final event */bool SetMoveGoal(Actor NewMoveGoal, /*optional */Actor? _NewMoveFocus = default, /*optional */float? _OffsetDist = default, /*optional */bool? _HaltAfterMove = default)
+	public virtual /*final event */bool SetMoveGoal(Actor NewMoveGoal, /*optional */Actor _NewMoveFocus = default, /*optional */float? _OffsetDist = default, /*optional */bool? _HaltAfterMove = default)
 	{
 		// stub
 		return default;
 	}
 	
-	public virtual /*final event */bool SetMovePoint(Object.Vector NewMovePoint, /*optional */Actor? _NewMoveFocus = default, /*optional */float? _OffsetDist = default, /*optional */bool? _HaltAfterMove = default, /*optional */bool? _CanMoveDirectly = default)
+	public virtual /*final event */bool SetMovePoint(Object.Vector NewMovePoint, /*optional */Actor _NewMoveFocus = default, /*optional */float? _OffsetDist = default, /*optional */bool? _HaltAfterMove = default, /*optional */bool? _CanMoveDirectly = default)
 	{
 		// stub
 		return default;

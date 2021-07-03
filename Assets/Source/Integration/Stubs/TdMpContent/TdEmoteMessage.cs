@@ -6,7 +6,7 @@ public partial class TdEmoteMessage : TdLocalMessage{
 	public StaticArray<SoundCue, SoundCue>/*[2]*/ VONeedAssistance;
 	public StaticArray<SoundCue, SoundCue>/*[2]*/ VOPraise;
 	
-	public /*simulated function */static SoundCue Get3DAnnouncementSound(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _AnnouncerPRI = default, /*optional */PlayerReplicationInfo? _OtherPRI = default)
+	public /*simulated function */static SoundCue Get3DAnnouncementSound(/*optional */int? _Switch = default, /*optional */PlayerReplicationInfo _AnnouncerPRI = default, /*optional */PlayerReplicationInfo _OtherPRI = default)
 	{
 		// stub
 		return default;

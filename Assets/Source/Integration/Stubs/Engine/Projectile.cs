@@ -68,7 +68,7 @@ public partial class Projectile : Actor/*
 		// stub
 	}
 	
-	public override /*simulated function */bool HurtRadius(float DamageAmount, float InDamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, /*optional */Actor? _IgnoredActor = default, /*optional */Controller? _InstigatedByController = default, /*optional */bool? _bDoFullDamage = default)
+	public override /*simulated function */bool HurtRadius(float DamageAmount, float InDamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, /*optional */Actor _IgnoredActor = default, /*optional */Controller _InstigatedByController = default, /*optional */bool? _bDoFullDamage = default)
 	{
 		// stub
 		return default;

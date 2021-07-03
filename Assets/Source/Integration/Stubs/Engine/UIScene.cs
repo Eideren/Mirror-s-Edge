@@ -124,7 +124,7 @@ public partial class UIScene : UIScreenObject/*
 	}
 	
 	// Export UUIScene::execResolveDataStore(FFrame&, void* const)
-	public virtual /*native final function */UIDataStore ResolveDataStore(name DataStoreTag, /*optional */LocalPlayer? _InPlayerOwner = default)
+	public virtual /*native final function */UIDataStore ResolveDataStore(name DataStoreTag, /*optional */LocalPlayer _InPlayerOwner = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub

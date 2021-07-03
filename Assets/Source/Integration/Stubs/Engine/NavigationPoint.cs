@@ -227,13 +227,13 @@ public partial class NavigationPoint : Actor/*
 		return default;
 	}
 	
-	public /*final function */static NavigationPoint GetNearestNavToActor(Actor chkActor, /*optional */Core.ClassT<NavigationPoint>? _RequiredClass = default, /*optional */array<NavigationPoint>? _ExcludeList = default, /*optional */float? _MinDist = default)
+	public /*final function */static NavigationPoint GetNearestNavToActor(Actor chkActor, /*optional */Core.ClassT<NavigationPoint> _RequiredClass = default, /*optional */array<NavigationPoint>? _ExcludeList = default, /*optional */float? _MinDist = default)
 	{
 		// stub
 		return default;
 	}
 	
-	public /*final function */static NavigationPoint GetNearestNavToPoint(Actor chkActor, Object.Vector ChkPoint, /*optional */Core.ClassT<NavigationPoint>? _RequiredClass = default, /*optional */array<NavigationPoint>? _ExcludeList = default)
+	public /*final function */static NavigationPoint GetNearestNavToPoint(Actor chkActor, Object.Vector ChkPoint, /*optional */Core.ClassT<NavigationPoint> _RequiredClass = default, /*optional */array<NavigationPoint>? _ExcludeList = default)
 	{
 		// stub
 		return default;

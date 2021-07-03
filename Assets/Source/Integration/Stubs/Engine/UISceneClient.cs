@@ -45,7 +45,7 @@ public partial class UISceneClient : UIRoot/*
 	}
 	
 	// Export UUISceneClient::execInitializeScene(FFrame&, void* const)
-	public virtual /*native final function */bool InitializeScene(UIScene Scene, /*optional */LocalPlayer? _SceneOwner/* = default*/, /*optional */ref UIScene InitializedScene/* = default*/)
+	public virtual /*native final function */bool InitializeScene(UIScene Scene, /*optional */LocalPlayer _SceneOwner/* = default*/, /*optional */ref UIScene InitializedScene/* = default*/)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -53,7 +53,7 @@ public partial class UISceneClient : UIRoot/*
 	}
 	
 	// Export UUISceneClient::execOpenScene(FFrame&, void* const)
-	public virtual /*native final function */bool OpenScene(UIScene Scene, /*optional */LocalPlayer? _SceneOwner/* = default*/, /*optional */ref UIScene OpenedScene/* = default*/)
+	public virtual /*native final function */bool OpenScene(UIScene Scene, /*optional */LocalPlayer _SceneOwner/* = default*/, /*optional */ref UIScene OpenedScene/* = default*/)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -91,7 +91,7 @@ public partial class UISceneClient : UIRoot/*
 	}
 	
 	// Export UUISceneClient::execGetCanvasToScreen(FFrame&, void* const)
-	public virtual /*native final function */Object.Matrix GetCanvasToScreen(/*const optional */UIObject? _Widget = default)
+	public virtual /*native final function */Object.Matrix GetCanvasToScreen(/*const optional */UIObject _Widget = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -99,7 +99,7 @@ public partial class UISceneClient : UIRoot/*
 	}
 	
 	// Export UUISceneClient::execGetInverseCanvasToScreen(FFrame&, void* const)
-	public virtual /*native final function */Object.Matrix GetInverseCanvasToScreen(/*const optional */UIObject? _Widget = default)
+	public virtual /*native final function */Object.Matrix GetInverseCanvasToScreen(/*const optional */UIObject _Widget = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub

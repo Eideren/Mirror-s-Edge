@@ -7,7 +7,7 @@ public partial class UIEvent_MetaObject : UIEvent/*
 		hidecategories(Object)*/{
 	public /*private native const noexport */Object.Pointer VfTable_FCallbackEventDevice;
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{
 		// stub
 		return default;

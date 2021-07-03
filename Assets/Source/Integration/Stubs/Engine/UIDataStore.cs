@@ -38,7 +38,7 @@ public partial class UIDataStore : UIDataProvider/*
 		return default;
 	}
 	
-	public virtual /*event */void RefreshSubscribers(/*optional */name? _PropertyTag = default, /*optional */bool? _bInvalidateValues = default, /*optional */UIDataProvider? _SourceProvider = default, /*optional */int? _ArrayIndex = default)
+	public virtual /*event */void RefreshSubscribers(/*optional */name? _PropertyTag = default, /*optional */bool? _bInvalidateValues = default, /*optional */UIDataProvider _SourceProvider = default, /*optional */int? _ArrayIndex = default)
 	{
 		// stub
 	}

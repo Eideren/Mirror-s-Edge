@@ -97,7 +97,7 @@ public partial class EmitterPool : Actor/*
 		return default;
 	}
 	
-	public virtual /*function */ParticleSystemComponent SpawnEmitter(ParticleSystem EmitterTemplate, Object.Vector SpawnLocation, /*optional */Object.Rotator? _SpawnRotation = default, /*optional */Actor? _AttachToActor = default)
+	public virtual /*function */ParticleSystemComponent SpawnEmitter(ParticleSystem EmitterTemplate, Object.Vector SpawnLocation, /*optional */Object.Rotator? _SpawnRotation = default, /*optional */Actor _AttachToActor = default)
 	{
 		// stub
 		return default;

@@ -6,7 +6,7 @@ public partial class SeqAct_ToggleInput : SeqAct_Toggle/*
 	public/*()*/ bool bToggleMovement;
 	public/*()*/ bool bToggleTurning;
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{
 		// stub
 		return default;

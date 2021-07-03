@@ -9,7 +9,7 @@ public partial class SeqAct_TdTriggerSubtitle : SequenceAction/*
 	public/*()*/ bool bManualWordWrap;
 	public/*()*/ float Duration;
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{
 		// stub
 		return default;

@@ -239,12 +239,12 @@ public partial class HUD : Actor/*
 		// stub
 	}
 	
-	public virtual /*function */void LocalizedMessage(Core.ClassT<LocalMessage> InMessageClass, PlayerReplicationInfo RelatedPRI_1, String CriticalString, int Switch, float Position, float Lifetime, int FontSize, Object.Color DrawColor, /*optional */Object? _OptionalObject = default)
+	public virtual /*function */void LocalizedMessage(Core.ClassT<LocalMessage> InMessageClass, PlayerReplicationInfo RelatedPRI_1, String CriticalString, int Switch, float Position, float Lifetime, int FontSize, Object.Color DrawColor, /*optional */Object _OptionalObject = default)
 	{
 		// stub
 	}
 	
-	public virtual /*function */void AddLocalizedMessage(int Index, Core.ClassT<LocalMessage> InMessageClass, String CriticalString, int Switch, float Position, float Lifetime, int FontSize, Object.Color DrawColor, /*optional */int? _MessageCount = default, /*optional */Object? _OptionalObject = default)
+	public virtual /*function */void AddLocalizedMessage(int Index, Core.ClassT<LocalMessage> InMessageClass, String CriticalString, int Switch, float Position, float Lifetime, int FontSize, Object.Color DrawColor, /*optional */int? _MessageCount = default, /*optional */Object _OptionalObject = default)
 	{
 		// stub
 	}

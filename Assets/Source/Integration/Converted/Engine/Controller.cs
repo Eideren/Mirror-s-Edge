@@ -385,7 +385,7 @@ public partial class Controller : Actor/*
 	
 	public virtual /*function */void InitPlayerReplicationInfo()
 	{
-		PlayerReplicationInfo = Spawn(WorldInfo.Game.PlayerReplicationInfoClass, this, default(name?), vect(0.0f, 0.0f, 0.0f), rot(0, 0, 0), default(Actor?), default(bool?));
+		PlayerReplicationInfo = Spawn(WorldInfo.Game.PlayerReplicationInfoClass, this, default(name?), vect(0.0f, 0.0f, 0.0f), rot(0, 0, 0), default(Actor), default(bool?));
 		if(PlayerReplicationInfo.PlayerName == "")
 		{
 			PlayerReplicationInfo.SetPlayerName(ClassT<GameInfo>().DefaultAs<GameInfo>().DefaultPlayerName);
@@ -420,7 +420,7 @@ public partial class Controller : Actor/*
 	
 	}
 	
-	public virtual /*function */void GameHasEnded(/*optional */Actor? _EndGameFocus = default, /*optional */bool? _bIsWinner = default)
+	public virtual /*function */void GameHasEnded(/*optional */Actor _EndGameFocus = default, /*optional */bool? _bIsWinner = default)
 	{
 		var EndGameFocus = _EndGameFocus ?? default;
 		var bIsWinner = _bIsWinner ?? default;
@@ -476,7 +476,7 @@ public partial class Controller : Actor/*
 		}
 	}
 	
-	public virtual /*function */void RoundHasEnded(/*optional */Actor? _EndRoundFocus = default)
+	public virtual /*function */void RoundHasEnded(/*optional */Actor _EndRoundFocus = default)
 	{
 		var EndRoundFocus = _EndRoundFocus ?? default;
 		GotoState("RoundEnded", default(name?), default(bool?), default(bool?));
@@ -619,14 +619,14 @@ public partial class Controller : Actor/*
 	}
 	
 	// Export UController::execMoveTo(FFrame&, void* const)
-	public virtual /*native(500) final latent function */Flow MoveTo(Object.Vector NewDestination, /*optional */Actor? _ViewFocus = default, /*optional */bool? _bShouldWalk = default)
+	public virtual /*native(500) final latent function */Flow MoveTo(Object.Vector NewDestination, /*optional */Actor _ViewFocus = default, /*optional */bool? _bShouldWalk = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		return default;
 	}
 	
 	// Export UController::execMoveToward(FFrame&, void* const)
-	public virtual /*native(502) final latent function */Flow MoveToward(Actor NewTarget, /*optional */Actor? _ViewFocus = default, /*optional */float? _DestinationOffset = default, /*optional */bool? _bUseStrafing = default, /*optional */bool? _bShouldWalk = default)
+	public virtual /*native(502) final latent function */Flow MoveToward(Actor NewTarget, /*optional */Actor _ViewFocus = default, /*optional */float? _DestinationOffset = default, /*optional */bool? _bUseStrafing = default, /*optional */bool? _bShouldWalk = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		return default;
@@ -1053,7 +1053,7 @@ public partial class Controller : Actor/*
 	
 	}
 	
-	public virtual /*function */void SendMessage(PlayerReplicationInfo Recipient, name MessageType, float Wait, /*optional */Core.ClassT<DamageType>? _DamageType = default)
+	public virtual /*function */void SendMessage(PlayerReplicationInfo Recipient, name MessageType, float Wait, /*optional */Core.ClassT<DamageType> _DamageType = default)
 	{
 		var DamageType = _DamageType ?? default;
 	}

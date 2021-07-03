@@ -30,7 +30,7 @@ public partial class TdMove_Crouch : TdPhysicsMove/*
 			((PawnOwner) as TdPlayerPawn).EnableFootPlacement(0.10f);
 			PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 15.0f), 0.10f, default(SkelControlBase.EBoneControlSpace?));
 			SetMoveTimer(0.150f, false, "DisableRootOffset");
-			PawnOwner.SetTimer(0.20f, false, "DisableFootPlacement", default(Object?));
+			PawnOwner.SetTimer(0.20f, false, "DisableFootPlacement", default(Object));
 		}
 		PawnOwner.OnTutorialEvent(12);
 	}
@@ -46,7 +46,7 @@ public partial class TdMove_Crouch : TdPhysicsMove/*
 		if(((int)PawnOwner.PendingMovementState) == ((int)TdPawn.EMovement.MOVE_Walking/*1*/))
 		{
 			((PawnOwner) as TdPlayerPawn).EnableFootPlacement(0.0f);
-			PawnOwner.SetTimer(0.20f, false, "DisableFootPlacement", default(Object?));
+			PawnOwner.SetTimer(0.20f, false, "DisableFootPlacement", default(Object));
 			PlayMoveAnim(TdPawn.CustomNodeType.CNT_Camera/*6*/, "CrouchIntoStand", 1.0f, 0.20f, 0.20f, false, default(bool?));
 		}
 		PawnOwner.bAvoidLedges = true;

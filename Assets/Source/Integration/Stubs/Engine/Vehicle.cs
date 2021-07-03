@@ -68,7 +68,7 @@ public partial class Vehicle : Pawn/*
 	}
 	
 	// Export UVehicle::execGetTargetLocation(FFrame&, void* const)
-	public override /*native simulated function */Object.Vector GetTargetLocation(/*optional */Actor? _RequestedBy = default, /*optional */bool? _bRequestAlternateLoc = default)
+	public override /*native simulated function */Object.Vector GetTargetLocation(/*optional */Actor _RequestedBy = default, /*optional */bool? _bRequestAlternateLoc = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -194,7 +194,7 @@ public partial class Vehicle : Pawn/*
 		// stub
 	}
 	
-	public virtual /*function */bool PlaceExitingDriver(/*optional */Pawn? _ExitingDriver = default)
+	public virtual /*function */bool PlaceExitingDriver(/*optional */Pawn _ExitingDriver = default)
 	{
 		// stub
 		return default;
@@ -225,7 +225,7 @@ public partial class Vehicle : Pawn/*
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? Vehicle_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => Vehicle_TakeDamage;
-	public /*event */void Vehicle_TakeDamage(int Damage, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
+	public /*event */void Vehicle_TakeDamage(int Damage, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor _DamageCauser = default)
 	{
 		// stub
 	}
@@ -235,7 +235,7 @@ public partial class Vehicle : Pawn/*
 		// stub
 	}
 	
-	public override /*function */void ThrowActiveWeapon(/*optional */Core.ClassT<DamageType>? _DamageType = default)
+	public override /*function */void ThrowActiveWeapon(/*optional */Core.ClassT<DamageType> _DamageType = default)
 	{
 		// stub
 	}

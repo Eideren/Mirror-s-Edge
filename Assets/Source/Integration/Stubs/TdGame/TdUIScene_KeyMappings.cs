@@ -44,7 +44,7 @@ public partial class TdUIScene_KeyMappings : TdUIScene_OptionMenu/*
 		return default;
 	}
 	
-	public virtual /*function */void SetBindLabelState(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
+	public virtual /*function */void SetBindLabelState(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState _PreviouslyActiveState = default)
 	{
 		// stub
 	}

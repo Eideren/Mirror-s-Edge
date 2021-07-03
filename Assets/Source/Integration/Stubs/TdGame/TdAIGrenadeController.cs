@@ -60,7 +60,7 @@ public partial class TdAIGrenadeController : Actor/*
 		// stub
 	}
 	
-	public virtual /*function */void InitGrenadeThrow(TdBotPawn BotPawn, Actor inTargetActor, /*optional */TdAIGrenadeController.EGrenadeThrowType? _Drop = default, /*optional */Core.ClassT<TdProj_Grenade>? _inGrenadeClass = default)
+	public virtual /*function */void InitGrenadeThrow(TdBotPawn BotPawn, Actor inTargetActor, /*optional */TdAIGrenadeController.EGrenadeThrowType? _Drop = default, /*optional */Core.ClassT<TdProj_Grenade> _inGrenadeClass = default)
 	{
 		// stub
 	}

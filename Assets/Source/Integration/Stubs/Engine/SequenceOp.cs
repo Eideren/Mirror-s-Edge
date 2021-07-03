@@ -140,7 +140,7 @@ public partial class SequenceOp : SequenceObject/*
 	}
 	
 	// Export USequenceOp::execGetLinkedObjects(FFrame&, void* const)
-	public virtual /*native final function */void GetLinkedObjects(ref array<SequenceObject> out_Objects, /*optional */Core.ClassT<SequenceObject>? _ObjectType = default, /*optional */bool? _bRecurse = default)
+	public virtual /*native final function */void GetLinkedObjects(ref array<SequenceObject> out_Objects, /*optional */Core.ClassT<SequenceObject> _ObjectType = default, /*optional */bool? _bRecurse = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub

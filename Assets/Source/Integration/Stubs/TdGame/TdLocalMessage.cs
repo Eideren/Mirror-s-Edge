@@ -52,7 +52,7 @@ public partial class TdLocalMessage : LocalMessage{
 	public float RadioAnnouncementVolume;
 	public TdLocalMessage.EMessageArea MessageArea;
 	
-	public /*simulated function */static SoundNodeWave GetAnnouncementSound(PlayerController P, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _PitcherPRI = default, /*optional */PlayerReplicationInfo? _RecieverPRI = default, /*optional */Object? _OptionalObject = default)
+	public /*simulated function */static SoundNodeWave GetAnnouncementSound(PlayerController P, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo _PitcherPRI = default, /*optional */PlayerReplicationInfo _RecieverPRI = default, /*optional */Object _OptionalObject = default)
 	{
 		// stub
 		return default;

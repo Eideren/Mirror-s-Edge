@@ -41,7 +41,7 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 		return default;
 	}
 	
-	public virtual /*function */void OpenSceneEx(UIScene SceneToOpen, /*optional */LocalPlayer? _Player = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
+	public virtual /*function */void OpenSceneEx(UIScene SceneToOpen, /*optional */LocalPlayer _Player = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
 	{
 		// stub
 	}
@@ -87,7 +87,7 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 		// stub
 	}
 	
-	public virtual /*function */UIDataStore FindDataStore(name DataStoreTag, /*optional */LocalPlayer? _InPlayerOwner = default)
+	public virtual /*function */UIDataStore FindDataStore(name DataStoreTag, /*optional */LocalPlayer _InPlayerOwner = default)
 	{
 		// stub
 		return default;

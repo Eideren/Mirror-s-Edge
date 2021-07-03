@@ -5,7 +5,7 @@ public partial class SeqAct_DeactivateLOI : SequenceAction/*
 		hidecategories(Object)*/{
 	public/*()*/ float FadeOutSpeed;
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{
 		// stub
 		return default;

@@ -126,8 +126,8 @@ public partial class TdPlayerPawn : TdPawn/*
 	// Export UTdPlayerPawn::execGetMobilityMultiplier(FFrame&, void* const)
 	public override /*native function */float GetMobilityMultiplier()
 	{
-		// Seems to map to the same native function ?
-		return base.GetMobilityMultiplier();
+		 // #warning NATIVE FUNCTION !
+		return default;
 	}
 	
 	public virtual /*function */Scene.ESceneDepthPriorityGroup GetFirstPersonDPG()
@@ -352,7 +352,7 @@ public partial class TdPlayerPawn : TdPawn/*
 				return;
 			}
 			SetMove(TdPawn.EMovement.MOVE_Walking/*1*/, default(bool?), default(bool?));
-			SetBase(((ObjectVariables[0]) as Actor), default(Object.Vector?), default(SkeletalMeshComponent?), default(name?));
+			SetBase(((ObjectVariables[0]) as Actor), default(Object.Vector?), default(SkeletalMeshComponent), default(name?));
 			bLockBase = true;
 			bAllowMoveChange = false;		
 		}
@@ -387,7 +387,7 @@ public partial class TdPlayerPawn : TdPawn/*
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? TdPlayerPawn_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => TdPlayerPawn_TakeDamage;
-	public /*event */void TdPlayerPawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
+	public /*event */void TdPlayerPawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor _DamageCauser = default)
 	{
 		var HitInfo = _HitInfo ?? default;
 		var DamageCauser = _DamageCauser ?? default;
@@ -413,7 +413,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		}
 	}
 	
-	public override /*function */void PlayMeleeImpact(PhysicalMaterial PhysMat, TdPawn.EMeleeImpactType Type, Object.Vector TargetHitLocation, Object.Vector TargetHitNormal, Object.Vector TargetHitMomentum, name TargetHitBone, /*optional */Core.ClassT<DamageType>? _DamageType = default)
+	public override /*function */void PlayMeleeImpact(PhysicalMaterial PhysMat, TdPawn.EMeleeImpactType Type, Object.Vector TargetHitLocation, Object.Vector TargetHitNormal, Object.Vector TargetHitMomentum, name TargetHitBone, /*optional */Core.ClassT<DamageType> _DamageType = default)
 	{
 		var DamageType = _DamageType ?? default;
 		PlaySound(ObjectConst<SoundCue>("Fist_Head"), false, true, false, TargetHitLocation, default(bool?), default(bool?));
@@ -481,7 +481,7 @@ public partial class TdPlayerPawn : TdPawn/*
 			{
 				Damage = ((Moves[20]) as TdMove_Landing).HardLandingDamage;
 			}
-			TakeDamage(((int)(Damage)), default, Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Fell>(), default(Actor.TraceHitInfo?), default(Actor?));
+			TakeDamage(((int)(Damage)), default, Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Fell>(), default(Actor.TraceHitInfo?), default(Actor));
 		}
 	}
 	
@@ -606,7 +606,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		}
 		else
 		{
-			SetTimer(0.150f, false, "StopAgainstWall", default(Object?));
+			SetTimer(0.150f, false, "StopAgainstWall", default(Object));
 		}
 	}
 	
@@ -1300,12 +1300,12 @@ public partial class TdPlayerPawn : TdPawn/*
 		if(((((int)MovementState) == ((int)TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/)) || ((int)MovementState) == ((int)TdPawn.EMovement.MOVE_180TurnInAir/*25*/)))
 		{
 			((Controller) as TdPlayerController).SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_DEATH_BY_FALLING/*8*/, default(float?), default(bool?), 1.50f);
-			SetTimer(0.010f, false, "PlayDeathAnim", default(Object?));		
+			SetTimer(0.010f, false, "PlayDeathAnim", default(Object));		
 		}
 		else
 		{
 			((Controller) as TdPlayerController).SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_GENERIC_DEATH/*9*/, default(float?), default(bool?), 1.0f);
-			SetTimer(0.50f, false, "PlayDeathAnim", default(Object?));
+			SetTimer(0.50f, false, "PlayDeathAnim", default(Object));
 		}
 		bCollideWorld = true;
 		SetCollision(bCollideActors, true, default(bool?));
@@ -1365,7 +1365,7 @@ public partial class TdPlayerPawn : TdPawn/*
 			Velocity = vect(0.0f, 0.0f, 0.0f);
 			SetPhysics(Actor.EPhysics.PHYS_Flying/*4*/);
 			UseRootMotion(true);
-			SetTimer(2.0f, false, "TurnOffRootMotion", default(Object?));
+			SetTimer(2.0f, false, "TurnOffRootMotion", default(Object));
 		}
 	}
 	
@@ -1418,7 +1418,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		}
 		SetFirstPersonDPG(Scene.ESceneDepthPriorityGroup.SDPG_Intermediate/*2*/);
 		MAT_BeginAnimControl(InAnimSets.NewCopy());
-		SetTimer(0.50f, false, "CheckForSkippableCutscene", default(Object?));
+		SetTimer(0.50f, false, "CheckForSkippableCutscene", default(Object));
 	}
 	
 	public virtual /*simulated function */void CheckForSkippableCutscene()
@@ -1548,12 +1548,12 @@ public partial class TdPlayerPawn : TdPawn/*
 	{
 		if(PreviousStateName == "UncontrolledFall")
 		{
-			SetTimer(0.40f, false, "DestroyPawn", default(Object?));		
+			SetTimer(0.40f, false, "DestroyPawn", default(Object));		
 		}
 		else
 		{
 			PlayDeathEffect();
-			SetTimer(2.50f, false, "DestroyPawn", default(Object?));
+			SetTimer(2.50f, false, "DestroyPawn", default(Object));
 		}
 	}
 	
@@ -1577,7 +1577,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		SetPhysics(Actor.EPhysics.PHYS_Flying/*4*/);
 		UseRootMotion(true);
 		Velocity = vect(0.0f, 0.0f, 0.0f);
-		SetTimer(2.0f, false, "TurnOffRootMotion", default(Object?));
+		SetTimer(2.0f, false, "TurnOffRootMotion", default(Object));
 		if(((((int)OldMovementState) == ((int)TdPawn.EMovement.MOVE_Grabbing/*3*/)) || ((int)OldMovementState) == ((int)TdPawn.EMovement.MOVE_Climb/*21*/)))
 		{
 			PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "die", 1.0f, 0.30f, -1.0f, false, true, true, default(bool?));		

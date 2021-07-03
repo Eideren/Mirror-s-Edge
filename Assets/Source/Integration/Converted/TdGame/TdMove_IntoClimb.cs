@@ -139,7 +139,7 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 					if(PawnOwner.Velocity.Z < -800.0f)
 					{
 						PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((((int)Ladder.LadderType) == ((int)TdLadderVolume.ELadderType.LT_Pipe/*1*/)) ? "PipeClimbHangStartHard" : "LadderClimbHangStartHard"), 1.0f, 0.10f, 0.250f, default(bool?), default(bool?));
-						PawnOwner.TakeDamage(1, default, PawnOwner.Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Fell>(), default(Actor.TraceHitInfo?), default(Actor?));
+						PawnOwner.TakeDamage(1, default, PawnOwner.Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Fell>(), default(Actor.TraceHitInfo?), default(Actor));
 						((PawnOwner.Controller) as TdPlayerController).ClientPlayForceFeedbackWaveform(ImpactHardWaveform);
 						bPlayingImpact = true;					
 					}

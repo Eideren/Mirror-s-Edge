@@ -126,7 +126,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	}
 	
 	// Export UUIInteraction::execCreateTransientWidget(FFrame&, void* const)
-	public virtual /*native final function */UIObject CreateTransientWidget(Core.ClassT<UIObject> WidgetClass, name WidgetTag, /*optional */UIObject? _Owner = default)
+	public virtual /*native final function */UIObject CreateTransientWidget(Core.ClassT<UIObject> WidgetClass, name WidgetTag, /*optional */UIObject _Owner = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -145,20 +145,20 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	}
 	
 	// Export UUIInteraction::execCreateScene(FFrame&, void* const)
-	public virtual /*native final function */UIScene CreateScene(Core.ClassT<UIScene> SceneClass, /*optional */name? _SceneTag = default, /*optional */UIScene? _SceneTemplate = default)
+	public virtual /*native final function */UIScene CreateScene(Core.ClassT<UIScene> SceneClass, /*optional */name? _SceneTag = default, /*optional */UIScene _SceneTemplate = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
 		return default;
 	}
 	
-	public virtual /*final function */bool OpenScene(UIScene Scene, /*optional */LocalPlayer? _SceneOwner/* = default*/, /*optional */ref UIScene OpenedScene/* = default*/)
+	public virtual /*final function */bool OpenScene(UIScene Scene, /*optional */LocalPlayer _SceneOwner/* = default*/, /*optional */ref UIScene OpenedScene/* = default*/)
 	{
 		// stub
 		return default;
 	}
 	
-	public virtual /*function */bool MergeScene(UIScene SourceScene, /*optional */UIScene? _SceneTarget = default)
+	public virtual /*function */bool MergeScene(UIScene SourceScene, /*optional */UIScene _SceneTarget = default)
 	{
 		// stub
 		return default;
@@ -170,7 +170,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 		return default;
 	}
 	
-	public virtual /*final function */UIScene FindSceneByTag(name SceneTag, /*optional */LocalPlayer? _SceneOwner = default)
+	public virtual /*final function */UIScene FindSceneByTag(name SceneTag, /*optional */LocalPlayer _SceneOwner = default)
 	{
 		// stub
 		return default;

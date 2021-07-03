@@ -661,7 +661,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	}
 	
 	// Export UTdProfileSettings::execResetKeysToDefault(FFrame&, void* const)
-	public /*native function */static void ResetKeysToDefault(/*optional */LocalPlayer? _InPlayerOwner = default)
+	public /*native function */static void ResetKeysToDefault(/*optional */LocalPlayer _InPlayerOwner = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub
@@ -679,7 +679,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 		// stub
 	}
 	
-	public virtual /*function */void StoreKeys(/*optional */PlayerInput? _PInput = default)
+	public virtual /*function */void StoreKeys(/*optional */PlayerInput _PInput = default)
 	{
 		// stub
 	}

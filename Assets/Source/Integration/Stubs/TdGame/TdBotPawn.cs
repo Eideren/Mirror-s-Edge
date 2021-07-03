@@ -548,7 +548,7 @@ public partial class TdBotPawn : TdPawn/*
 		// stub
 	}
 	
-	public override /*simulated function */void UpdateAnimSets(/*optional */TdWeapon? _NewWeapon = default)
+	public override /*simulated function */void UpdateAnimSets(/*optional */TdWeapon _NewWeapon = default)
 	{
 		// stub
 	}
@@ -801,7 +801,7 @@ public partial class TdBotPawn : TdPawn/*
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? TdBotPawn_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => TdBotPawn_TakeDamage;
-	public /*function */void TdBotPawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
+	public /*function */void TdBotPawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor _DamageCauser = default)
 	{
 		// stub
 	}
@@ -1018,7 +1018,7 @@ public partial class TdBotPawn : TdPawn/*
 		// stub
 	}
 	
-	public override /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon? _CurrentWeapon = default)
+	public override /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon _CurrentWeapon = default)
 	{
 		// stub
 		return default;
@@ -1307,7 +1307,7 @@ public partial class TdBotPawn : TdPawn/*
 		// stub
 	}
 	
-	public override /*function */void TossInventory(Inventory Inv, /*optional */Object.Vector? _ForceVelocity = default, /*optional */Core.ClassT<DamageType>? _DamageType = default)
+	public override /*function */void TossInventory(Inventory Inv, /*optional */Object.Vector? _ForceVelocity = default, /*optional */Core.ClassT<DamageType> _DamageType = default)
 	{
 		// stub
 	}

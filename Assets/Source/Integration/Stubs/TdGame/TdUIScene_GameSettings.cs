@@ -47,7 +47,7 @@ public partial class TdUIScene_GameSettings : TdUIScene_OptionMenu/*
 		// stub
 	}
 	
-	public override /*function */void UpdateFocusLabelState(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
+	public override /*function */void UpdateFocusLabelState(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState _PreviouslyActiveState = default)
 	{
 		// stub
 	}

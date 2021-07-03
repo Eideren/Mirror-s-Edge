@@ -33,7 +33,7 @@ public partial class TdTutorialPawn : TdPlayerPawn/*
 		// stub
 	}
 	
-	public override /*simulated function */void UpdateAnimSets(/*optional */TdWeapon? _iWeapon = default)
+	public override /*simulated function */void UpdateAnimSets(/*optional */TdWeapon _iWeapon = default)
 	{
 		// stub
 	}

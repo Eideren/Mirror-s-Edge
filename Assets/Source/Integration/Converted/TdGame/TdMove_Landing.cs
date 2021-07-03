@@ -116,7 +116,7 @@ public partial class TdMove_Landing : TdMove/*
 	
 		SpawnLocation = PawnOwner.Location;
 		SpawnLocation.Z -= 90.0f;
-		PSC = PawnOwner.WorldInfo.MyEmitterPool.SpawnEmitter(SoftLandingEffect, SpawnLocation, PawnOwner.Rotation, default(Actor?));
+		PSC = PawnOwner.WorldInfo.MyEmitterPool.SpawnEmitter(SoftLandingEffect, SpawnLocation, PawnOwner.Rotation, default(Actor));
 		PSC.ActivateSystem(default(bool?));
 	}
 	

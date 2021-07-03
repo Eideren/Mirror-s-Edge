@@ -73,7 +73,7 @@ public partial class TdUIScene_MainMenu : TdUIScene/*
 		// stub
 	}
 	
-	public virtual /*function */void ButtonStateChange(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
+	public virtual /*function */void ButtonStateChange(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState _PreviouslyActiveState = default)
 	{
 		// stub
 	}

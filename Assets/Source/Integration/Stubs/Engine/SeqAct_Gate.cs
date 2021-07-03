@@ -7,7 +7,7 @@ public partial class SeqAct_Gate : SequenceAction/*
 	public/*()*/ bool bOpen;
 	public/*()*/ int AutoCloseCount;
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{
 		// stub
 		return default;

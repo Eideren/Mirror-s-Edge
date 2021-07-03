@@ -266,7 +266,7 @@ public partial class Weapon : Inventory/*
 		// stub
 	}
 	
-	public virtual /*simulated function */void PlayWeaponAnimation(name Sequence, float fDesiredDuration, /*optional */bool? _bLoop = default, /*optional */SkeletalMeshComponent? _SkelMesh = default)
+	public virtual /*simulated function */void PlayWeaponAnimation(name Sequence, float fDesiredDuration, /*optional */bool? _bLoop = default, /*optional */SkeletalMeshComponent _SkelMesh = default)
 	{
 		// stub
 	}

@@ -7,7 +7,7 @@ public partial class UIEvent_TdOptionChanged : UIEvent_ValueChanged/*
 	public /*transient */int CurrentIndex;
 	public /*transient */int PreviousIndex;
 	
-	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
+	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{
 		// stub
 		return default;

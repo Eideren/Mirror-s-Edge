@@ -43,7 +43,7 @@ public partial class SequenceObject : Object/*
 		return default;
 	}
 	
-	public virtual /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject? _TargetObject = default)
+	public virtual /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{
 		// stub
 		return default;

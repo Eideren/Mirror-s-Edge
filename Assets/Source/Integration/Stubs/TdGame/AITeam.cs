@@ -64,7 +64,7 @@ public partial class AITeam : Actor/*
 	}
 	
 	// Export UAITeam::execGetNearestNavToPoint(FFrame&, void* const)
-	public virtual /*native function */NavigationPoint GetNearestNavToPoint(Object.Vector ChkPoint, /*optional */Class? _RequiredClass = default, /*optional */array<NavigationPoint>? _ExcludeList = default)
+	public virtual /*native function */NavigationPoint GetNearestNavToPoint(Object.Vector ChkPoint, /*optional */Class _RequiredClass = default, /*optional */array<NavigationPoint>? _ExcludeList = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		// stub

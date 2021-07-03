@@ -182,7 +182,7 @@ public partial class TdMPGame : TdGameInfo/*
 		J0x32:{}
 		if(Attempts < 5)
 		{
-			ResultPawn = Spawn(GetDefaultPlayerClass(NewPlayer), default(Actor?), default(name?), StartSpot.Location + SpawnOffset, StartRotation, default(Actor?), false);
+			ResultPawn = Spawn(GetDefaultPlayerClass(NewPlayer), default(Actor), default(name?), StartSpot.Location + SpawnOffset, StartRotation, default(Actor), false);
 			if(ResultPawn == default)
 			{
 				if(((StartSpot) as TdPlayerStart) != default)
@@ -493,13 +493,13 @@ public partial class TdMPGame : TdGameInfo/*
 		bInitialSpawn = true;
 		InitialSpawn();
 		bInitialSpawn = false;
-		SetTimer(GlobalPlayerRespawnTime, true, "RespawnTimer", default(Object?));
+		SetTimer(GlobalPlayerRespawnTime, true, "RespawnTimer", default(Object));
 	}
 	
 	protected /*simulated function */void TdMPGame_MatchInProgress_EndState(name NextStateName)// state function
 	{
 		DeadControllers.Remove(0, DeadControllers.Length);
-		ClearTimer("RespawnTimer", default(Object?));
+		ClearTimer("RespawnTimer", default(Object));
 	}
 	
 	protected /*event */void TdMPGame_MatchInProgress_PostLogin(PlayerController NewPlayer)// state function
