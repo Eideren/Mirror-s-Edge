@@ -87,17 +87,17 @@ public partial class TdUIScene_MessageBox : TdUIScene_Overlay/*
 		// stub
 	}
 	
-	public virtual /*function */void DisplayAcceptBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default)
+	public virtual /*function */void DisplayAcceptBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection _InSelectionDelegate = default)
 	{
 		// stub
 	}
 	
-	public virtual /*function */void DisplayCancelBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default)
+	public virtual /*function */void DisplayCancelBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection _InSelectionDelegate = default)
 	{
 		// stub
 	}
 	
-	public virtual /*function */void DisplayAcceptCancelBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default, /*optional */bool? _RenderParents = default)
+	public virtual /*function */void DisplayAcceptCancelBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection _InSelectionDelegate = default, /*optional */bool? _RenderParents = default)
 	{
 		// stub
 	}
@@ -108,12 +108,12 @@ public partial class TdUIScene_MessageBox : TdUIScene_Overlay/*
 		return default;
 	}
 	
-	public virtual /*function */void DisplayAcceptCancelRetryBoxOnline(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default, /*optional */bool? _RenderParents = default)
+	public virtual /*function */void DisplayAcceptCancelRetryBoxOnline(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection _InSelectionDelegate = default, /*optional */bool? _RenderParents = default)
 	{
 		// stub
 	}
 	
-	public virtual /*function */void DisplayAcceptCancelRetryBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default, /*optional */bool? _RenderParents = default)
+	public virtual /*function */void DisplayAcceptCancelRetryBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection _InSelectionDelegate = default, /*optional */bool? _RenderParents = default)
 	{
 		// stub
 	}
@@ -128,7 +128,7 @@ public partial class TdUIScene_MessageBox : TdUIScene_Overlay/*
 		// stub
 	}
 	
-	public virtual /*function */void Display(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection? _InSelectionDelegate = default, /*optional */bool? _RenderParents = default, /*optional */int? _InDefaultOptionIdx = default)
+	public virtual /*function */void Display(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene_MessageBox.OnSelection _InSelectionDelegate = default, /*optional */bool? _RenderParents = default, /*optional */int? _InDefaultOptionIdx = default)
 	{
 		// stub
 	}
@@ -150,7 +150,7 @@ public partial class TdUIScene_MessageBox : TdUIScene_Overlay/*
 		// stub
 	}
 	
-	public virtual /*function */void OnCloseScene(/*optional *//*delegate*/UIScene.OnSceneDeactivated? _SceneClosedDelegate = default)
+	public virtual /*function */void OnCloseScene(/*optional *//*delegate*/UIScene.OnSceneDeactivated _SceneClosedDelegate = default)
 	{
 		// stub
 	}

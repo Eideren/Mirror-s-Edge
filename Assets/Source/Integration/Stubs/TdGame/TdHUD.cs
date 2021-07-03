@@ -122,32 +122,32 @@ public partial class TdHUD : HUD/*
 		// stub
 	}
 	
-	public virtual /*exec function */void TriggerCustomColorBlink(float InFadeOutTime, float InFadeInTime, float R, float G, float B, /*optional */bool? _bRealTime = default, /*optional *//*delegate*/TdHUD.OnMaxFade? _InOnMaxFade = default)
+	public virtual /*exec function */void TriggerCustomColorBlink(float InFadeOutTime, float InFadeInTime, float R, float G, float B, /*optional */bool? _bRealTime = default, /*optional *//*delegate*/TdHUD.OnMaxFade _InOnMaxFade = default)
 	{
 		// stub
 	}
 	
-	public virtual /*exec function */void TriggerCustomBlink(float InFadeOutTime, float InFadeInTime, /*optional */bool? _bRealTime = default, /*optional *//*delegate*/TdHUD.OnMaxFade? _InOnMaxFade = default)
+	public virtual /*exec function */void TriggerCustomBlink(float InFadeOutTime, float InFadeInTime, /*optional */bool? _bRealTime = default, /*optional *//*delegate*/TdHUD.OnMaxFade _InOnMaxFade = default)
 	{
 		// stub
 	}
 	
-	public virtual /*exec function */void TriggerCustomColorFadeIn(float Time, Object.LinearColor FadeColor, /*optional */bool? _bRealTime = default, /*optional *//*delegate*/TdHUD.OnMaxFade? _InOnDone = default, /*optional */bool? _bForceFullFadeAmount = default)
+	public virtual /*exec function */void TriggerCustomColorFadeIn(float Time, Object.LinearColor FadeColor, /*optional */bool? _bRealTime = default, /*optional *//*delegate*/TdHUD.OnMaxFade _InOnDone = default, /*optional */bool? _bForceFullFadeAmount = default)
 	{
 		// stub
 	}
 	
-	public virtual /*exec function */void TriggerCustomColorFadeOut(float Time, Object.LinearColor FadeColor, /*optional */bool? _bRealTime = default, /*optional *//*delegate*/TdHUD.OnMaxFade? _InOnDone = default)
+	public virtual /*exec function */void TriggerCustomColorFadeOut(float Time, Object.LinearColor FadeColor, /*optional */bool? _bRealTime = default, /*optional *//*delegate*/TdHUD.OnMaxFade _InOnDone = default)
 	{
 		// stub
 	}
 	
-	public virtual /*private final function */void TriggerCustomFadeIn(float Time, /*optional */bool? _bRealTime = default, /*optional *//*delegate*/TdHUD.OnMaxFade? _InOnDone = default, /*optional */bool? _bForceFullFadeAmount = default)
+	public virtual /*private final function */void TriggerCustomFadeIn(float Time, /*optional */bool? _bRealTime = default, /*optional *//*delegate*/TdHUD.OnMaxFade _InOnDone = default, /*optional */bool? _bForceFullFadeAmount = default)
 	{
 		// stub
 	}
 	
-	public virtual /*private final function */void TriggerCustomFadeOut(float Time, /*optional */bool? _bRealTime = default, /*optional *//*delegate*/TdHUD.OnMaxFade? _InOnDone = default)
+	public virtual /*private final function */void TriggerCustomFadeOut(float Time, /*optional */bool? _bRealTime = default, /*optional *//*delegate*/TdHUD.OnMaxFade _InOnDone = default)
 	{
 		// stub
 	}

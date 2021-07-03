@@ -271,7 +271,7 @@ public partial class UIScene : UIScreenObject/*
 		// stub
 	}
 	
-	public virtual /*function */UIScene OpenScene(UIScene SceneToOpen, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
+	public virtual /*function */UIScene OpenScene(UIScene SceneToOpen, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated _SceneDelegate = default)
 	{
 		// stub
 		return default;

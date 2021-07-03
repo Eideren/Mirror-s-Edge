@@ -89,7 +89,7 @@ public partial class TdKeyBindingHandler : Object/*
 	
 	public delegate bool IsAllowedBindingKey(name Key);
 	
-	public virtual /*function */void Initialize(TdUIScene inOwnerScene, array<TdKeyBindingHandler.KeyBindWidgetData> InKeyBindWidgets, /*optional *//*delegate*/TdKeyBindingHandler.OnSettingsChangedDelegate? _OnChangedDelegate = default)
+	public virtual /*function */void Initialize(TdUIScene inOwnerScene, array<TdKeyBindingHandler.KeyBindWidgetData> InKeyBindWidgets, /*optional *//*delegate*/TdKeyBindingHandler.OnSettingsChangedDelegate _OnChangedDelegate = default)
 	{
 		// stub
 	}

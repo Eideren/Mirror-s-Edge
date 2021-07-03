@@ -134,7 +134,7 @@ public partial class TdSPLevelRace : TdSPStoryGame/*
 		SC = ((UIRoot.GetSceneClient()) as TdGameUISceneClient);
 		if(SC != default)
 		{
-			SC.OpenSceneEx(TdHUDContent.GetUISceneByName("TdEndOfLevelRace", "TdSpContent.TdHUDContentSP"), SC.Outer.Outer.Outer.GamePlayers[0], default(UIScene.ESceneTransitionAnim?), default(/*delegate*/UIScene.OnSceneActivated?));
+			SC.OpenSceneEx(TdHUDContent.GetUISceneByName("TdEndOfLevelRace", "TdSpContent.TdHUDContentSP"), SC.Outer.Outer.Outer.GamePlayers[0], default(UIScene.ESceneTransitionAnim?), default(/*delegate*/UIScene.OnSceneActivated));
 		}
 	}
 	

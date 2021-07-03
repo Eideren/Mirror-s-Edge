@@ -279,12 +279,12 @@ public partial class TdUIScene : UIScene/*
 		return default;
 	}
 	
-	public virtual /*function */void OpenSceneByName(String SceneToOpen, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
+	public virtual /*function */void OpenSceneByName(String SceneToOpen, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated _SceneDelegate = default)
 	{
 		// stub
 	}
 	
-	public override /*function */UIScene OpenScene(UIScene SceneToOpen, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
+	public override /*function */UIScene OpenScene(UIScene SceneToOpen, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated _SceneDelegate = default)
 	{
 		// stub
 		return default;
@@ -386,7 +386,7 @@ public partial class TdUIScene : UIScene/*
 		// stub
 	}
 	
-	public virtual /*function */void DisplaySimpleMessageBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene.OnMessageBoxClosedCallback? _OnMessageBoxClosed = default)
+	public virtual /*function */void DisplaySimpleMessageBox(String Message, /*optional */String? _Title = default, /*optional *//*delegate*/TdUIScene.OnMessageBoxClosedCallback _OnMessageBoxClosed = default)
 	{
 		// stub
 	}

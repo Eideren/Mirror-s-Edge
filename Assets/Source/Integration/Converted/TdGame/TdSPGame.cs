@@ -61,7 +61,7 @@ public partial class TdSPGame : TdGameInfo/*
 		using var e0 = WorldInfo.AllControllers(ClassT<TdPlayerController>()).GetEnumerator();
 		while(e0.MoveNext() && (C = (TdPlayerController)e0.Current) == C)
 		{
-			((C.myHUD) as TdHUD).TriggerCustomColorFadeOut(0.50f, MakeLinearColor(1.0f, 1.0f, 1.0f, 1.0f), default(bool?), default(/*delegate*/TdHUD.OnMaxFade?));		
+			((C.myHUD) as TdHUD).TriggerCustomColorFadeOut(0.50f, MakeLinearColor(1.0f, 1.0f, 1.0f, 1.0f), default(bool?), default(/*delegate*/TdHUD.OnMaxFade));		
 		}	
 		SetTimer(0.50f, false, "RestartFromLastCheckpointDead", default(Object));
 	}

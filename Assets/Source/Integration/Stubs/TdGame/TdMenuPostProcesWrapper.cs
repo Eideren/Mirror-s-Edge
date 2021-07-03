@@ -30,7 +30,7 @@ public partial class TdMenuPostProcesWrapper : Object{
 	
 	public delegate void OnPanelAnimFinished(int FinishedPanelIndex, bool bPanelActive);
 	
-	public virtual /*function */void Initialize(array<UIImage> PanelImages, /*optional *//*delegate*/TdMenuPostProcesWrapper.OnPanelAnimFinished? _PanelAnimFinished = default, /*optional */float? _UnfocusedMinWidth = default)
+	public virtual /*function */void Initialize(array<UIImage> PanelImages, /*optional *//*delegate*/TdMenuPostProcesWrapper.OnPanelAnimFinished _PanelAnimFinished = default, /*optional */float? _UnfocusedMinWidth = default)
 	{
 		// stub
 	}

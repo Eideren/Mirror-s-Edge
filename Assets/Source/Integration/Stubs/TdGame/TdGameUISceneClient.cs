@@ -41,12 +41,12 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 		return default;
 	}
 	
-	public virtual /*function */void OpenSceneEx(UIScene SceneToOpen, /*optional */LocalPlayer _Player = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default)
+	public virtual /*function */void OpenSceneEx(UIScene SceneToOpen, /*optional */LocalPlayer _Player = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default, /*optional *//*delegate*/UIScene.OnSceneActivated _SceneDelegate = default)
 	{
 		// stub
 	}
 	
-	public virtual /*function */UIScene InstantOpenScene(UIScene SceneToOpen, LocalPlayer Player, /*optional *//*delegate*/UIScene.OnSceneActivated? _SceneDelegate = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
+	public virtual /*function */UIScene InstantOpenScene(UIScene SceneToOpen, LocalPlayer Player, /*optional *//*delegate*/UIScene.OnSceneActivated _SceneDelegate = default, /*optional */UIScene.ESceneTransitionAnim? _SceneAnim = default)
 	{
 		// stub
 		return default;
@@ -72,7 +72,7 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 		// stub
 	}
 	
-	public virtual /*function */void OpenLoadingScene(String Text, LocalPlayer Player, /*optional *//*delegate*/TdGameUISceneClient.LoadingSceneOpened? _SceneOpened = default, /*optional *//*delegate*/TdUIScene.OnSceneFullyOpened? _SceneFullyOpened = default)
+	public virtual /*function */void OpenLoadingScene(String Text, LocalPlayer Player, /*optional *//*delegate*/TdGameUISceneClient.LoadingSceneOpened _SceneOpened = default, /*optional *//*delegate*/TdUIScene.OnSceneFullyOpened _SceneFullyOpened = default)
 	{
 		// stub
 	}
