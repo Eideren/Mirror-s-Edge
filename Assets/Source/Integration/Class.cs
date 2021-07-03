@@ -1,13 +1,11 @@
-﻿
-using System;
+﻿using System;
 using System.Reflection;
-using MEdge.Engine;
 
 namespace MEdge.Core
 {
     public partial class Object
     {
-        public T DefaultAs<T>() where T : class => Class.DefaultAs<T>();
+        public virtual T DefaultAs<T>() where T : class => Class.DefaultAs<T>();
         
         public MEdge.Core.Class Class
         {
@@ -35,12 +33,12 @@ namespace MEdge.Core
         public Class() => throw new InvalidOperationException();
         protected Class(bool b) { }
         public virtual String Name => throw new InvalidOperationException();
-        public virtual T DefaultAs<T>() where T : class => throw new InvalidOperationException();
+        public override T DefaultAs<T>() where T : class => throw new InvalidOperationException();
         public virtual Type CSharpType => throw new InvalidOperationException();
         public virtual bool IsBaseOf( Class c ) => throw new InvalidOperationException();
         public override bool IsA( name typeName ) => throw new InvalidOperationException();
-
-        public override bool Equals(object obj) => obj is Class c && this == c;
+        public override bool Equals(object obj) => obj is Class c && this.CSharpType == c.CSharpType;
+        public override int GetHashCode() => System.Runtime.CompilerServices.RuntimeHelpers.GetHashCode(this)/*silences the warning*/;
         public static bool operator ==(Class a, Class b) => a?.GetType() == b?.GetType();
         public static bool operator !=(Class a, Class b) => !(a == b);
     }
