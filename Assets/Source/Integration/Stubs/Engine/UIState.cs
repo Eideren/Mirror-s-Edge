@@ -59,7 +59,7 @@ public partial class UIState : UIRoot,
 	}
 	
 	// Export UUIState::execGetUIEvents(FFrame&, void* const)
-	public virtual /*native final function */void GetUIEvents(ref array<UIEvent> out_Events, /*optional */Core.ClassT<UIEvent>? _LimitClass = default)
+	public virtual /*native final function */void GetUIEvents(ref array<UIEvent> out_Events, /*optional */Core.ClassT<UIEvent> _LimitClass = default)
 	{
 		 // #warning NATIVE FUNCTION !
 	}

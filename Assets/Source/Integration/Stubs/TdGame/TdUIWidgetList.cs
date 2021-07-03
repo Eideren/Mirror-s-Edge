@@ -113,7 +113,7 @@ public partial class TdUIWidgetList : TdUIDrawPanel,
 	
 	}
 	
-	public virtual /*function */void OnOption_NotifyActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState? _PreviouslyActiveState = default)
+	public virtual /*function */void OnOption_NotifyActiveStateChanged(UIScreenObject Sender, int PlayerIndex, UIState NewlyActiveState, /*optional */UIState _PreviouslyActiveState = default)
 	{
 	
 	}

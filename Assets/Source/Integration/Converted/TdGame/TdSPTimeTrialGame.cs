@@ -180,14 +180,14 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	
 		base.PreBeginPlay();
 		AccuireSpectatorPoints();
-		CheckpointManager = Spawn(ClassT<TdPlaceableCheckpointManager>(), this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+		CheckpointManager = Spawn(ClassT<TdPlaceableCheckpointManager>(), this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 		CheckpointManager.Initialize(ClassT<TdTimerCheckpoint>(), this);
 		if(((((int)ActiveTTStretch) > ((int)TdSPTimeTrialGame.ETTStretch.ETTS_None/*0*/)) && ((int)ActiveTTStretch) < ((int)TdSPTimeTrialGame.ETTStretch.ETTS_Max/*25*/)) && CheckpointManager.CanFindTrack(((int)ActiveTTStretch)))
 		{
 			CheckpointManager.ShowTrack(((int)ActiveTTStretch), true);
 		}
-		CheckpointLookAtHelper = Spawn(ClassT<TdLookAtPointSpawnable>(), this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
-		GhostManager = Spawn(ClassT<TdGhostManager>(), default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+		CheckpointLookAtHelper = Spawn(ClassT<TdLookAtPointSpawnable>(), this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
+		GhostManager = Spawn(ClassT<TdGhostManager>(), default(Actor), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 		TdTTMessageClass = ((DynamicLoadObject("TdTTContent.TdTimeTrialMessage", ClassT<Class>(), default(bool?))) as ClassT<TdLocalMessage>);
 		VictoryMessageClass = ((DynamicLoadObject("TdTTContent.TdTTVictoryMessage", ClassT<Class>(), default(bool?))) as ClassT<TdVictoryMessage>);
 		TimeMessageClass = ((DynamicLoadObject("TdTTContent.TdTimeMessage", ClassT<Class>(), default(bool?))) as ClassT<TdLocalMessage>);
@@ -195,7 +195,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		DataStoreManager = UIInteraction.GetDataStoreClient();
 		if((TimeTrialData == default) && DataStoreManager != default)
 		{
-			TimeTrialData = ((DataStoreManager.FindDataStore("TdTimeTrialData", default(LocalPlayer?))) as UIDataStore_TdTimeTrialData);
+			TimeTrialData = ((DataStoreManager.FindDataStore("TdTimeTrialData", default(LocalPlayer))) as UIDataStore_TdTimeTrialData);
 		}
 	}
 	
@@ -263,7 +263,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		return CurrentStart;
 	}
 	
-	public virtual /*function */void ResetPlayer(TdPlayerPawn PawnToReset, /*optional */NavigationPoint? _StartSpot = default)
+	public virtual /*function */void ResetPlayer(TdPlayerPawn PawnToReset, /*optional */NavigationPoint _StartSpot = default)
 	{
 		/*local */NavigationPoint PlayerStartPoint = default;
 		/*local */Object.Rotator ControllerRotation = default;
@@ -322,7 +322,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		/*local */TdPlayerPawn KilledPlayerPawn = default;
 	
 		KilledPlayerPawn = ((KilledPawn) as TdPlayerPawn);
-		ResetPlayer(KilledPlayerPawn, default(NavigationPoint?));
+		ResetPlayer(KilledPlayerPawn, default(NavigationPoint));
 		((RacingPlayer.myHUD) as TdHUD).Reset();
 		((RacingPlayer.myHUD) as TdHUD).TriggerCustomColorFadeIn(1.50f, MakeLinearColor(0.0f, 0.0f, 0.0f, 1.0f), default(bool?), default, true);
 		return true;
@@ -831,7 +831,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		}
 		CurrentTackData = CheckpointManager.GetTrackData(((int)ActiveTTStretch), StartSpot);
 		bInitailRaceSpawn = false;
-		SetTimer(1.0f, true, "CountDownTimer", default(Object?));
+		SetTimer(1.0f, true, "CountDownTimer", default(Object));
 		RaceCountDownTimer = RaceCountDownTime + 1;
 		SendKismetEvent(ClassT<SeqEvt_TTRaceCountDownStarted>());
 		RacingPawn.UnCrouch();
@@ -846,7 +846,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	protected /*exec function */void TdSPTimeTrialGame_RaceCountDown_PrepareRace()// state function
 	{
 		GotoState("PreRace", default(name?), default(bool?), default(bool?));
-		ClearTimer("CountDownTimer", default(Object?));
+		ClearTimer("CountDownTimer", default(Object));
 		global_PrepareRace();
 	}
 	
@@ -868,14 +868,14 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		{
 			if(RaceCountDownTimer == 2)
 			{
-				BroadcastLocalizedMessage(TdTTMessageClass, 26, default(PlayerReplicationInfo?), default(PlayerReplicationInfo?), default(Object?));			
+				BroadcastLocalizedMessage(TdTTMessageClass, 26, default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));			
 			}
 			else
 			{
 				if(RaceCountDownTimer == 1)
 				{
 					bDelayPauseUntilRaceStarted = (byte)1;
-					BroadcastLocalizedMessage(TdTTMessageClass, 25, default(PlayerReplicationInfo?), default(PlayerReplicationInfo?), default(Object?));
+					BroadcastLocalizedMessage(TdTTMessageClass, 25, default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));
 				}
 			}
 		}
@@ -883,8 +883,8 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	
 	protected /*function */void TdSPTimeTrialGame_RaceCountDown_StartRace()// state function
 	{
-		ClearTimer("CountDownTimer", default(Object?));
-		BroadcastLocalizedMessage(TdTTMessageClass, 24, default(PlayerReplicationInfo?), default(PlayerReplicationInfo?), default(Object?));
+		ClearTimer("CountDownTimer", default(Object));
+		BroadcastLocalizedMessage(TdTTMessageClass, 24, default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));
 		SendKismetEvent(ClassT<SeqEvt_TTRaceStarted>());
 		if(!IsSpectatingGhost())
 		{
@@ -952,9 +952,9 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 			WorldInfo.MyEmitterPool.ResetPool();
 			RacingPawn.ResetMoves();
 			RacingPlayer.bDuck = (byte)0;
-			ResetPlayer(RacingPawn, default(NavigationPoint?));
+			ResetPlayer(RacingPawn, default(NavigationPoint));
 			SetIgnoreInput(true);
-			SetTimer(0.80f, false, "DisableIgnoreInputTimer", default(Object?));
+			SetTimer(0.80f, false, "DisableIgnoreInputTimer", default(Object));
 			((RacingPlayer.myHUD) as TdHUD).Reset();
 			((RacingPlayer.myHUD) as TdHUD).TriggerCustomColorFadeIn(1.50f, MakeLinearColor(0.0f, 0.0f, 0.0f, 1.0f), default(bool?), default, true);
 		}
@@ -1069,7 +1069,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 			{
 				if(CheckpointManager.GetFinalCheckpoint() != NextCheckPoint)
 				{
-					BroadcastLocalizedMessage(TimeMessageClass, 2147483647, default(PlayerReplicationInfo?), default(PlayerReplicationInfo?), default(Object?));
+					BroadcastLocalizedMessage(TimeMessageClass, 2147483647, default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));
 				}
 			}
 			++ NumPassedCheckPoints;
@@ -1101,7 +1101,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		LastCheckpointTimeStamp = WorldInfo.TimeSeconds;
 		if(CheckpointManager.GetFinalCheckpoint() != NextCheckPoint)
 		{
-			BroadcastLocalizedMessage(TimeMessageClass, Round(ImtermediateDiffTime * ((float)(100))), default(PlayerReplicationInfo?), default(PlayerReplicationInfo?), default(Object?));
+			BroadcastLocalizedMessage(TimeMessageClass, Round(ImtermediateDiffTime * ((float)(100))), default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));
 		}
 	}
 	
@@ -1137,15 +1137,15 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		}
 		if(TimeDifference < 0.0f)
 		{
-			BroadcastLocalizedMessage(VictoryMessageClass, 28, default(PlayerReplicationInfo?), default(PlayerReplicationInfo?), default(Object?));
+			BroadcastLocalizedMessage(VictoryMessageClass, 28, default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));
 			SendFinishlineKismet(true);		
 		}
 		else
 		{
-			BroadcastLocalizedMessage(VictoryMessageClass, 31, default(PlayerReplicationInfo?), default(PlayerReplicationInfo?), default(Object?));
+			BroadcastLocalizedMessage(VictoryMessageClass, 31, default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));
 			SendFinishlineKismet(false);
 		}
-		BroadcastLocalizedMessage(TimeFinishMessageClass, Round(TimeDifference * ((float)(100))), default(PlayerReplicationInfo?), default(PlayerReplicationInfo?), default(Object?));
+		BroadcastLocalizedMessage(TimeFinishMessageClass, Round(TimeDifference * ((float)(100))), default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));
 	}
 	
 	protected /*function */void TdSPTimeTrialGame_RaceInProgress_SendFinishlineKismet(bool bNewRecord)// state function

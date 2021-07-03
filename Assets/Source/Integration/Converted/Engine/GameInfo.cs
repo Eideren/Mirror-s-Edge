@@ -118,13 +118,13 @@ public partial class GameInfo : Info/*
 			}
 		}
 		SetGameSpeed(GameSpeed);
-		GameReplicationInfo = Spawn(GameReplicationInfoClass, default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+		GameReplicationInfo = Spawn(GameReplicationInfoClass, default(Actor), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 		WorldInfo.GRI = GameReplicationInfo;
 		GameReplicationInfo.bIsArbitrated = bUsingArbitration;
 		InitGameReplicationInfo();
 		if(DialogueManagerClass != "")
 		{
-			DialogueManager = Spawn(((DynamicLoadObject(DialogueManagerClass, ClassT<Class>(), default(bool?))) as ClassT<DialogueManager>), default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+			DialogueManager = Spawn(((DynamicLoadObject(DialogueManagerClass, ClassT<Class>(), default(bool?))) as ClassT<DialogueManager>), default(Actor), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 		}
 	}
 	
@@ -155,7 +155,7 @@ public partial class GameInfo : Info/*
 	{
 		if((CoverReplicatorBase == default) && ((int)WorldInfo.NetMode) != ((int)WorldInfo.ENetMode.NM_Standalone/*0*/))
 		{
-			CoverReplicatorBase = Spawn(ClassT<CoverReplicator>(), default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+			CoverReplicatorBase = Spawn(ClassT<CoverReplicator>(), default(Actor), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 		}
 		return CoverReplicatorBase;
 	}
@@ -318,7 +318,7 @@ public partial class GameInfo : Info/*
 		return true;
 	}
 	
-	public virtual /*function */bool SetPause(PlayerController PC, /*optional *//*delegate*/GameInfo.CanUnpause? _CanUnpauseDelegate = default)
+	public virtual /*function */bool SetPause(PlayerController PC, /*optional *//*delegate*/GameInfo.CanUnpause _CanUnpauseDelegate = default)
 	{
 		/*local */int FoundIndex = default;
 	
@@ -412,7 +412,7 @@ public partial class GameInfo : Info/*
 	{
 		GameSpeed = FMax(T, 0.10f);
 		WorldInfo.TimeDilation = GameSpeed;
-		SetTimer(WorldInfo.TimeDilation, true, default(name?), default(Object?));
+		SetTimer(WorldInfo.TimeDilation, true, default(name?), default(Object));
 	}
 	
 	public /*function */static bool GrabOption(ref String Options, ref String Result)
@@ -528,7 +528,7 @@ public partial class GameInfo : Info/*
 		}
 		TimeLimit = Max(0, GetIntOption(Options, "TimeLimit", TimeLimit));
 		AutomatedPerfRemainingTime = 60 * TimeLimit;
-		BroadcastHandler = Spawn(BroadcastHandlerClass, default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+		BroadcastHandler = Spawn(BroadcastHandlerClass, default(Actor), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 		InOpt = ParseOption(Options, "AccessControl");
 		if(InOpt != "")
 		{
@@ -542,7 +542,7 @@ public partial class GameInfo : Info/*
 		InOpt = ParseOption(Options, "AdminPassword");
 		if(((((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_ListenServer/*2*/)) || ((int)WorldInfo.NetMode) == ((int)WorldInfo.ENetMode.NM_DedicatedServer/*1*/)))
 		{
-			AccessControl = Spawn(ACClass, default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+			AccessControl = Spawn(ACClass, default(Actor), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 			if((AccessControl != default) && InOpt != "")
 			{
 				AccessControl.SetAdminPassword(InOpt);
@@ -696,7 +696,7 @@ public partial class GameInfo : Info/*
 			mut = mut.NextMutator;
 			goto J0xFA;
 		}
-		mut = Spawn(mutClass, default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+		mut = Spawn(mutClass, default(Actor), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 		if(mut == default)
 		{
 			return;
@@ -718,11 +718,11 @@ public partial class GameInfo : Info/*
 		{
 			if(GameRulesModifiers == default)
 			{
-				GameRulesModifiers = Spawn(GRClass, default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));			
+				GameRulesModifiers = Spawn(GRClass, default(Actor), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));			
 			}
 			else
 			{
-				GameRulesModifiers.AddGameRules(Spawn(GRClass, default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?)));
+				GameRulesModifiers.AddGameRules(Spawn(GRClass, default(Actor), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?)));
 			}
 		}
 	}
@@ -904,7 +904,7 @@ public partial class GameInfo : Info/*
 			return default;
 		}
 		SpawnRotation.Yaw = StartSpot.Rotation.Yaw;
-		NewPlayer = Spawn(PlayerControllerClass, default(Actor?), default(name?), StartSpot.Location, SpawnRotation, default(Actor?), default(bool?));
+		NewPlayer = Spawn(PlayerControllerClass, default(Actor), default(name?), StartSpot.Location, SpawnRotation, default(Actor), default(bool?));
 		if(NewPlayer == default)
 		{
 			ErrorMessage = GameMessageClass.DefaultAs<GameMessage>().FailedSpawnMessage;
@@ -1126,7 +1126,7 @@ public partial class GameInfo : Info/*
 	
 		DefaultPlayerClass = GetDefaultPlayerClass(NewPlayer);
 		StartRotation.Yaw = StartSpot.Rotation.Yaw;
-		ResultPawn = Spawn(DefaultPlayerClass, default(Actor?), default(name?), StartSpot.Location, StartRotation, default(Actor?), default(bool?));
+		ResultPawn = Spawn(DefaultPlayerClass, default(Actor), default(name?), StartSpot.Location, StartRotation, default(Actor), default(bool?));
 		if(ResultPawn == default)
 		{
 		}
@@ -1517,7 +1517,7 @@ public partial class GameInfo : Info/*
 		}
 	}
 	
-	public virtual /*function */void DiscardInventory(Pawn Other, /*optional */Controller? _Killer = default)
+	public virtual /*function */void DiscardInventory(Pawn Other, /*optional */Controller _Killer = default)
 	{
 		var Killer = _Killer ?? default;
 		if(Other.InvManager != default)
@@ -1703,7 +1703,7 @@ public partial class GameInfo : Info/*
 		BroadcastHandler.BroadcastTeam(Sender, msg, Type);
 	}
 	
-	public virtual /*event */void BroadcastLocalized(Actor Sender, Core.ClassT<LocalMessage> Message, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
+	public virtual /*event */void BroadcastLocalized(Actor Sender, Core.ClassT<LocalMessage> Message, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo _RelatedPRI_2 = default, /*optional */Object _OptionalObject = default)
 	{
 		var Switch = _Switch ?? default;
 		var RelatedPRI_1 = _RelatedPRI_1 ?? default;
@@ -1712,7 +1712,7 @@ public partial class GameInfo : Info/*
 		BroadcastHandler.AllowBroadcastLocalized(Sender, Message, Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject);
 	}
 	
-	public virtual /*event */void BroadcastLocalizedTeam(int TeamIndex, Actor Sender, Core.ClassT<LocalMessage> Message, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
+	public virtual /*event */void BroadcastLocalizedTeam(int TeamIndex, Actor Sender, Core.ClassT<LocalMessage> Message, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo _RelatedPRI_2 = default, /*optional */Object _OptionalObject = default)
 	{
 		var Switch = _Switch ?? default;
 		var RelatedPRI_1 = _RelatedPRI_1 ?? default;
@@ -1739,7 +1739,7 @@ public partial class GameInfo : Info/*
 		using var e25 = WorldInfo.AllControllers(ClassT<Controller>()).GetEnumerator();
 		while(e25.MoveNext() && (P = (Controller)e25.Current) == P)
 		{
-			P.GameHasEnded(default(Actor?), default(bool?));		
+			P.GameHasEnded(default(Actor), default(bool?));		
 		}	
 		return true;
 	}
@@ -1808,7 +1808,7 @@ public partial class GameInfo : Info/*
 					++ Index;
 					goto J0x90;
 				}
-				SetTimer(2.0f, false, "ProcessEndGameHandshake", default(Object?));
+				SetTimer(2.0f, false, "ProcessEndGameHandshake", default(Object));
 				bNeedsEndGameHandshake = false;
 				bIsEndGameHandshakeComplete = false;
 			}
@@ -2212,7 +2212,7 @@ public partial class GameInfo : Info/*
 		{
 			if(PC.Player != default)
 			{
-				NewPC = Spawn(PlayerControllerClass, default(Actor?), default(name?), PC.Location, PC.Rotation, default(Actor?), default(bool?));
+				NewPC = Spawn(PlayerControllerClass, default(Actor), default(name?), PC.Location, PC.Rotation, default(Actor), default(bool?));
 				if(NewPC == default)
 				{
 					PC.Destroy();
@@ -2379,7 +2379,7 @@ public partial class GameInfo : Info/*
 		}
 		else
 		{
-			SetTimer(5.0f, false, "ServerWriteArbitrationEndGameData", default(Object?));
+			SetTimer(5.0f, false, "ServerWriteArbitrationEndGameData", default(Object));
 		}
 	}
 	
@@ -2400,7 +2400,7 @@ public partial class GameInfo : Info/*
 	
 	public virtual /*function */void ServerWriteArbitrationEndGameData()
 	{
-		SetTimer(0.0f, false, "ServerWriteArbitrationEndGameData", default(Object?));
+		SetTimer(0.0f, false, "ServerWriteArbitrationEndGameData", default(Object));
 		WriteOnlineStats();
 		WriteOnlinePlayerScores();
 		if(NotEqual_InterfaceInterface(GameInterface, (default(OnlineGameInterface))))
@@ -2552,7 +2552,7 @@ public partial class GameInfo : Info/*
 		{
 			WorldInfo.DoMemoryTracking();
 		}
-		SetTimer(15.0f, false, "CloseAutomatedMapTestTimer", default(Object?));
+		SetTimer(15.0f, false, "CloseAutomatedMapTestTimer", default(Object));
 	}
 	
 	public virtual /*function */void CloseAutomatedMapTestTimer()
@@ -2669,7 +2669,7 @@ public partial class GameInfo : Info/*
 				}
 				ArbitrationPCs[ArbitrationPCs.Length] = PC;			
 			}		
-			SetTimer(ArbitrationHandshakeTimeout, false, "ArbitrationTimeout", default(Object?));
+			SetTimer(ArbitrationHandshakeTimeout, false, "ArbitrationTimeout", default(Object));
 		}
 	}
 	
@@ -2740,14 +2740,14 @@ public partial class GameInfo : Info/*
 		}
 		if(PendingArbitrationPCs.Length == 0)
 		{
-			SetTimer(0.0f, false, "ArbitrationTimeout", default(Object?));
+			SetTimer(0.0f, false, "ArbitrationTimeout", default(Object));
 			RegisterServerForArbitration();
 		}
 	}
 	
 	protected /*event */void GameInfo_PendingMatch_EndState(name NextStateName)// state function
 	{
-		SetTimer(0.0f, false, "ArbitrationTimeout", default(Object?));
+		SetTimer(0.0f, false, "ArbitrationTimeout", default(Object));
 		if(NotEqual_InterfaceInterface(GameInterface, (default(OnlineGameInterface))))
 		{
 			GameInterface.ClearArbitrationRegistrationCompleteDelegate(b => ArbitrationRegistrationComplete(b));

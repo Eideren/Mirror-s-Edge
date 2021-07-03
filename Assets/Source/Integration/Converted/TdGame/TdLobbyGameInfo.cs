@@ -98,7 +98,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 		J0x07:{}
 		if(I < TeamData.Length)
 		{
-			Teams[I] = Spawn(ClassT<TdTeamInfo>(), this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+			Teams[I] = Spawn(ClassT<TdTeamInfo>(), this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 			Teams[I].TeamIndex = I;
 			Teams[I].MaxTeamMembers = TeamData[I].MaxPlayers;
 			GameReplicationInfo.SetTeam(I, Teams[I]);

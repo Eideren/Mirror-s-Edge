@@ -260,7 +260,7 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 		}
 		if(((WeaponClass) as ClassT<TdWeapon_Pistol_Taser>) != default)
 		{
-			PawnOwner.UpdateAnimSets(default(TdWeapon?));
+			PawnOwner.UpdateAnimSets(default(TdWeapon));
 			PawnOwner.SetWeaponAnimState(TdPawn.EWeaponAnimState.WS_Unarmed/*0*/);
 		}
 		PawnOwner.WeaponPoseOffset1p.bDisable = false;

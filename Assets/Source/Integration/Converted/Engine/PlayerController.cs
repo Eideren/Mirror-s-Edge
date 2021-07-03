@@ -429,7 +429,7 @@ public partial class PlayerController : Controller/*
 	{
 		if(((MyCoverReplicator == default) && ((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && ((Player) as LocalPlayer) == default)
 		{
-			MyCoverReplicator = Spawn(ClassT<CoverReplicator>(), this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+			MyCoverReplicator = Spawn(ClassT<CoverReplicator>(), this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 			MyCoverReplicator.ReplicateInitialCoverInfo();
 		}
 		return MyCoverReplicator;
@@ -530,7 +530,7 @@ public partial class PlayerController : Controller/*
 	
 	public virtual /*event */void KickWarning()
 	{
-		ReceiveLocalizedMessage(ClassT<GameMessage>(), 15, default(PlayerReplicationInfo?), default(PlayerReplicationInfo?), default(Object?));
+		ReceiveLocalizedMessage(ClassT<GameMessage>(), 15, default(PlayerReplicationInfo), default(PlayerReplicationInfo), default(Object));
 	}
 	
 	public virtual /*function */void AddCheats()
@@ -552,7 +552,7 @@ public partial class PlayerController : Controller/*
 		{
 			return;
 		}
-		myHUD = Spawn(ClassT<HUD>(), this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+		myHUD = Spawn(ClassT<HUD>(), this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 	}
 	
 	public override Reset_del Reset { get => bfield_Reset ?? PlayerController_Reset; set => bfield_Reset = value; } Reset_del bfield_Reset;
@@ -1065,7 +1065,7 @@ public partial class PlayerController : Controller/*
 		}
 		else
 		{
-			myHUD = Spawn(newHUDType, this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+			myHUD = Spawn(newHUDType, this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 			if(myHUD != default)
 			{
 				myHUD.SpawnScoreBoard(newScoringType);
@@ -1075,7 +1075,7 @@ public partial class PlayerController : Controller/*
 	
 	public override /*function */void HandlePickup(Inventory Inv)
 	{
-		ReceiveLocalizedMessage(Inv.MessageClass, default(int?), default(PlayerReplicationInfo?), default(PlayerReplicationInfo?), Inv.Class);
+		ReceiveLocalizedMessage(Inv.MessageClass, default(int?), default(PlayerReplicationInfo), default(PlayerReplicationInfo), Inv.Class);
 	}
 	
 	public override /*function */void CleanupPRI()
@@ -1084,7 +1084,7 @@ public partial class PlayerController : Controller/*
 		PlayerReplicationInfo = default;
 	}
 	
-	public virtual /*reliable client simulated event */void ReceiveLocalizedMessage(Core.ClassT<LocalMessage> Message, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
+	public virtual /*reliable client simulated event */void ReceiveLocalizedMessage(Core.ClassT<LocalMessage> Message, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo _RelatedPRI_2 = default, /*optional */Object _OptionalObject = default)
 	{
 		var Switch = _Switch ?? default;
 		var RelatedPRI_1 = _RelatedPRI_1 ?? default;
@@ -2045,7 +2045,7 @@ public partial class PlayerController : Controller/*
 			{
 				if(NewBase != default)
 				{
-					MoveActor.SetBase(NewBase, default(Object.Vector?), default(SkeletalMeshComponent?), default(name?));
+					MoveActor.SetBase(NewBase, default(Object.Vector?), default(SkeletalMeshComponent), default(name?));
 				}
 				if(MoveActor.Base == default)
 				{
@@ -2104,7 +2104,7 @@ public partial class PlayerController : Controller/*
 		}
 		if(MoveActor != this)
 		{
-			MoveActor.SetBase(NewBase, NewFloor, default(SkeletalMeshComponent?), default(name?));
+			MoveActor.SetBase(NewBase, NewFloor, default(SkeletalMeshComponent), default(name?));
 		}
 		MoveActor.Velocity = NewVelocity;
 		UpdateStateFromAdjustment(NewState);
@@ -2308,7 +2308,7 @@ public partial class PlayerController : Controller/*
 			Pawn.Velocity = PendingMove.StartVelocity;
 			if(PendingMove.StartBase != Pawn.Base)
 			{
-				Pawn.SetBase(PendingMove.StartBase, default(Object.Vector?), default(SkeletalMeshComponent?), default(name?));
+				Pawn.SetBase(PendingMove.StartBase, default(Object.Vector?), default(SkeletalMeshComponent), default(name?));
 			}
 			Pawn.Floor = PendingMove.StartFloor;
 			NewMove.Delta += PendingMove.Delta;
@@ -2468,7 +2468,7 @@ public partial class PlayerController : Controller/*
 		return WorldInfo.Pauser == this.PlayerReplicationInfo;
 	}
 	
-	public virtual /*function */bool SetPause(bool bPause, /*optional *//*delegate*/PlayerController.CanUnpause? _CanUnpauseDelegate = default)
+	public virtual /*function */bool SetPause(bool bPause, /*optional *//*delegate*/PlayerController.CanUnpause _CanUnpauseDelegate = default)
 	{
 		/*local */bool bResult = default;
 	
@@ -2519,11 +2519,11 @@ public partial class PlayerController : Controller/*
 	{
 		if(!IsPaused())
 		{
-			SetPause(true, default(/*delegate*/PlayerController.CanUnpause?));		
+			SetPause(true, default(/*delegate*/PlayerController.CanUnpause));		
 		}
 		else
 		{
-			SetPause(false, default(/*delegate*/PlayerController.CanUnpause?));
+			SetPause(false, default(/*delegate*/PlayerController.CanUnpause));
 		}
 	}
 	
@@ -2531,7 +2531,7 @@ public partial class PlayerController : Controller/*
 	{
 		if(!IsPaused())
 		{
-			SetPause(true, default(/*delegate*/PlayerController.CanUnpause?));
+			SetPause(true, default(/*delegate*/PlayerController.CanUnpause));
 		}
 	}
 	
@@ -2539,7 +2539,7 @@ public partial class PlayerController : Controller/*
 	{
 		if(bDesiredPauseState != IsPaused())
 		{
-			SetPause(bDesiredPauseState, default(/*delegate*/PlayerController.CanUnpause?));
+			SetPause(bDesiredPauseState, default(/*delegate*/PlayerController.CanUnpause));
 		}
 	}
 	
@@ -2578,7 +2578,7 @@ public partial class PlayerController : Controller/*
 	{
 		if(Pawn.CanThrowWeapon())
 		{
-			Pawn.ThrowActiveWeapon(default(Core.ClassT<DamageType>?));
+			Pawn.ThrowActiveWeapon(default(Core.ClassT<DamageType>));
 		}
 	}
 	
@@ -2630,7 +2630,7 @@ public partial class PlayerController : Controller/*
 		var FireModeNum = _FireModeNum ?? default;
 		if(WorldInfo.Pauser == PlayerReplicationInfo)
 		{
-			SetPause(false, default(/*delegate*/PlayerController.CanUnpause?));
+			SetPause(false, default(/*delegate*/PlayerController.CanUnpause));
 			return;
 		}
 		if((Pawn != default) && !bCinematicMode)
@@ -2722,7 +2722,7 @@ public partial class PlayerController : Controller/*
 		{
 			if(((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/))
 			{
-				SetPause(false, default(/*delegate*/PlayerController.CanUnpause?));
+				SetPause(false, default(/*delegate*/PlayerController.CanUnpause));
 			}
 			return true;
 		}
@@ -3114,7 +3114,7 @@ public partial class PlayerController : Controller/*
 		CleanOutSavedMoves();
 	}
 	
-	public override /*function */void GameHasEnded(/*optional */Actor? _EndGameFocus = default, /*optional */bool? _bIsWinner = default)
+	public override /*function */void GameHasEnded(/*optional */Actor _EndGameFocus = default, /*optional */bool? _bIsWinner = default)
 	{
 		var EndGameFocus = _EndGameFocus ?? default;
 		var bIsWinner = _bIsWinner ?? default;
@@ -3364,7 +3364,7 @@ public partial class PlayerController : Controller/*
 	{
 		if((CameraClass != default) && IsLocalPlayerController())
 		{
-			PlayerCamera = Spawn(CameraClass, this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+			PlayerCamera = Spawn(CameraClass, this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 			if(PlayerCamera != default)
 			{
 				PlayerCamera.InitializeFor(this);			
@@ -3380,7 +3380,7 @@ public partial class PlayerController : Controller/*
 		{
 			if(CameraClass != default)
 			{
-				PlayerCamera = Spawn(CameraClass, this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+				PlayerCamera = Spawn(CameraClass, this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 				if(PlayerCamera != default)
 				{
 					PlayerCamera.InitializeFor(this);				
@@ -3841,7 +3841,7 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*reliable client final simulated function */void ClientStopForceFeedbackWaveform(/*optional */ForceFeedbackWaveform? _FFWaveform = default)
+	public virtual /*reliable client final simulated function */void ClientStopForceFeedbackWaveform(/*optional */ForceFeedbackWaveform _FFWaveform = default)
 	{
 		var FFWaveform = _FFWaveform ?? default;
 		if(ForceFeedbackManager != default)
@@ -4007,7 +4007,7 @@ public partial class PlayerController : Controller/*
 		if(bFirst)
 		{
 			PendingMapChangeLevelNames.Length = 0;
-			ClearTimer("DelayedPrepareMapChange", default(Object?));
+			ClearTimer("DelayedPrepareMapChange", default(Object));
 		}
 		PendingMapChangeLevelNames[PendingMapChangeLevelNames.Length] = LevelName;
 		if(bLast)
@@ -4020,7 +4020,7 @@ public partial class PlayerController : Controller/*
 	{
 		if(WorldInfo.IsPreparingMapChange())
 		{
-			SetTimer(0.010f, false, "DelayedPrepareMapChange", default(Object?));		
+			SetTimer(0.010f, false, "DelayedPrepareMapChange", default(Object));		
 		}
 		else
 		{
@@ -4461,7 +4461,7 @@ public partial class PlayerController : Controller/*
 			{
 				if(OnlineSub.GameInterface.GetResolvedConnectString(ref/*probably?*/ URL))
 				{
-					if(UIRoot.GetDataStoreStringValue("<Registry:ConnectPassword>", ref/*probably?*/ ConnectPassword, default(UIScene?), default(LocalPlayer?)) && ConnectPassword != "")
+					if(UIRoot.GetDataStoreStringValue("<Registry:ConnectPassword>", ref/*probably?*/ ConnectPassword, default(UIScene), default(LocalPlayer)) && ConnectPassword != "")
 					{
 						URL += ("?Password=" + ConnectPassword);
 					}
@@ -4474,7 +4474,7 @@ public partial class PlayerController : Controller/*
 			NotifyInviteFailed();
 		}
 		ClearInviteDelegates();
-		UIRoot.SetDataStoreStringValue("<Registry:ConnectPassword>", "", default(UIScene?), default(LocalPlayer?));
+		UIRoot.SetDataStoreStringValue("<Registry:ConnectPassword>", "", default(UIScene), default(LocalPlayer));
 	}
 	
 	public virtual /*function */void NotifyInviteFailed()
@@ -4664,7 +4664,7 @@ public partial class PlayerController : Controller/*
 		}
 	}
 	
-	public virtual /*reliable client final simulated event */void AddDebugText(String DebugText, /*optional */Actor? _SrcActor = default, /*optional */float? _Duration = default, /*optional */Object.Vector? _Offset = default, /*optional */Object.Vector? _DesiredOffset = default, /*optional */Object.Color? _TextColor = default, /*optional */bool? _bSkipOverwriteCheck = default)
+	public virtual /*reliable client final simulated event */void AddDebugText(String DebugText, /*optional */Actor _SrcActor = default, /*optional */float? _Duration = default, /*optional */Object.Vector? _Offset = default, /*optional */Object.Vector? _DesiredOffset = default, /*optional */Object.Color? _TextColor = default, /*optional */bool? _bSkipOverwriteCheck = default)
 	{
 		/*local */int Idx = default;
 	
@@ -4740,7 +4740,7 @@ public partial class PlayerController : Controller/*
 		{
 			if(DebugCameraControllerRef == default)
 			{
-				DebugCameraControllerRef = Spawn(DebugCameraControllerClass, default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+				DebugCameraControllerRef = Spawn(DebugCameraControllerClass, default(Actor), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 			}
 			DebugCameraControllerRef.OryginalPlayer = P;
 			DebugCameraControllerRef.OryginalControllerRef = this;
@@ -4806,7 +4806,7 @@ public partial class PlayerController : Controller/*
 	public virtual /*event */void SoakPause(Pawn P)
 	{
 		SetViewTarget(P, default(Camera.ViewTargetTransitionParams?));
-		SetPause(true, default(/*delegate*/PlayerController.CanUnpause?));
+		SetPause(true, default(/*delegate*/PlayerController.CanUnpause));
 		myHUD.bShowDebugInfo = true;
 	}
 	
@@ -5206,7 +5206,7 @@ public partial class PlayerController : Controller/*
 							}
 							else
 							{
-								SetTimer(0.70f, false, default(name?), default(Object?));
+								SetTimer(0.70f, false, default(name?), default(Object));
 							}
 						}
 					}
@@ -5214,7 +5214,7 @@ public partial class PlayerController : Controller/*
 			}
 			else
 			{
-				ClearTimer(default(name?), default(Object?));
+				ClearTimer(default(name?), default(Object));
 				Pawn.SetPhysics(Actor.EPhysics.PHYS_Swimming/*3*/);
 			}		
 		}
@@ -5266,12 +5266,12 @@ public partial class PlayerController : Controller/*
 		{
 			GotoState(Pawn.LandMovementState, default(name?), default(bool?), default(bool?));
 		}
-		ClearTimer(default(name?), default(Object?));
+		ClearTimer(default(name?), default(Object));
 	}
 	
 	protected /*event */void PlayerController_PlayerSwimming_BeginState(name PreviousStateName)// state function
 	{
-		ClearTimer(default(name?), default(Object?));
+		ClearTimer(default(name?), default(Object));
 		if(((int)Pawn.Physics) != ((int)Actor.EPhysics.PHYS_RigidBody/*10*/))
 		{
 			Pawn.SetPhysics(Actor.EPhysics.PHYS_Swimming/*3*/);
@@ -5655,9 +5655,9 @@ public partial class PlayerController : Controller/*
 		}
 		else
 		{
-			if((!IsTimerActive(default(name?), default(Object?)) || GetTimerCount(default(name?), default(Object?)) > 1.0f))
+			if((!IsTimerActive(default(name?), default(Object)) || GetTimerCount(default(name?), default(Object)) > 1.0f))
 			{
-				SetTimer(0.20f, true, default(name?), default(Object?));
+				SetTimer(0.20f, true, default(name?), default(Object));
 				AskForPawn();
 			}
 		}
@@ -5675,14 +5675,14 @@ public partial class PlayerController : Controller/*
 	
 	protected /*event */void PlayerController_WaitingForPawn_BeginState(name PreviousStateName)// state function
 	{
-		SetTimer(0.20f, true, default(name?), default(Object?));
+		SetTimer(0.20f, true, default(name?), default(Object));
 		AskForPawn();
 	}
 	
 	protected /*event */void PlayerController_WaitingForPawn_EndState(name NextStateName)// state function
 	{
 		ResetCameraMode();
-		SetTimer(0.0f, false, default(name?), default(Object?));
+		SetTimer(0.0f, false, default(name?), default(Object));
 	}
 	
 	protected (System.Action<name>, StateFlow, System.Action<name>) WaitingForPawn()/*state WaitingForPawn extends BaseSpectating*/
@@ -5766,9 +5766,9 @@ public partial class PlayerController : Controller/*
 		}
 		else
 		{
-			if(!IsTimerActive(default(name?), default(Object?)))
+			if(!IsTimerActive(default(name?), default(Object)))
 			{
-				SetTimer(1.50f, false, default(name?), default(Object?));
+				SetTimer(1.50f, false, default(name?), default(Object));
 			}
 		}
 	}
@@ -5833,7 +5833,7 @@ public partial class PlayerController : Controller/*
 		}
 		bFrozen = true;
 		FindGoodView();
-		SetTimer(5.0f, false, default(name?), default(Object?));
+		SetTimer(5.0f, false, default(name?), default(Object));
 		
 		// foreach DynamicActors(ClassT<Pawn>(), ref/*probably?*/ P)
 		using var e139 = DynamicActors(ClassT<Pawn>()).GetEnumerator();
@@ -5897,7 +5897,7 @@ public partial class PlayerController : Controller/*
 		var FireModeNum = _FireModeNum ?? default;
 		if(bFrozen)
 		{
-			if((!IsTimerActive(default(name?), default(Object?)) || GetTimerCount(default(name?), default(Object?)) > MinRespawnDelay))
+			if((!IsTimerActive(default(name?), default(Object)) || GetTimerCount(default(name?), default(Object)) > MinRespawnDelay))
 			{
 				bFrozen = false;
 			}
@@ -5946,7 +5946,7 @@ public partial class PlayerController : Controller/*
 		}
 		else
 		{
-			if((!IsTimerActive(default(name?), default(Object?)) || GetTimerCount(default(name?), default(Object?)) > MinRespawnDelay))
+			if((!IsTimerActive(default(name?), default(Object)) || GetTimerCount(default(name?), default(Object)) > MinRespawnDelay))
 			{
 				bFrozen = false;
 			}
@@ -6013,7 +6013,7 @@ public partial class PlayerController : Controller/*
 		bFrozen = true;
 		bPressedJump = false;
 		FindGoodView();
-		SetTimer(MinRespawnDelay, false, default(name?), default(Object?));
+		SetTimer(MinRespawnDelay, false, default(name?), default(Object));
 		CleanOutSavedMoves();
 	}
 	

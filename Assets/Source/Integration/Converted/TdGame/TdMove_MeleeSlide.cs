@@ -67,7 +67,7 @@ public partial class TdMove_MeleeSlide : TdMove_MeleeBase/*
 	{
 		/*local */KActor RBActor = default;
 	
-		HitInfo.BargeActor.TakeDamage(100, PawnOwner.Controller, HitInfo.HitLocation, -HitInfo.HitNormal, ClassT<TdDmgType_Barge>(), default(Actor.TraceHitInfo?), default(Actor?));
+		HitInfo.BargeActor.TakeDamage(100, PawnOwner.Controller, HitInfo.HitLocation, -HitInfo.HitNormal, ClassT<TdDmgType_Barge>(), default(Actor.TraceHitInfo?), default(Actor));
 		RBActor = ((HitInfo.BargeActor) as KActor);
 		if(RBActor != default)
 		{
@@ -79,7 +79,7 @@ public partial class TdMove_MeleeSlide : TdMove_MeleeBase/*
 	{
 		/*local */KActor RBActor = default;
 	
-		Victim.TakeDamage(100, PawnOwner.Controller, HitLocation, -HitNormal, inDamageType, default(Actor.TraceHitInfo?), default(Actor?));
+		Victim.TakeDamage(100, PawnOwner.Controller, HitLocation, -HitNormal, inDamageType, default(Actor.TraceHitInfo?), default(Actor));
 		RBActor = ((Victim) as KActor);
 		if(RBActor != default)
 		{

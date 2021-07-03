@@ -49,7 +49,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 	public override /*function */void InitAI()
 	{
 		base.InitAI();
-		VoiceOverManager = Spawn(ClassT<TdAIVoiceOverManager>(), default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+		VoiceOverManager = Spawn(ClassT<TdAIVoiceOverManager>(), default(Actor), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 		
 		#warning weird ass add commented out
 		//BossFights.Add(0);
@@ -99,7 +99,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 		DataStoreManager = UIInteraction.GetDataStoreClient();
 		if(DataStoreManager != default)
 		{
-			GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer?))) as UIDataStore_TdGameData);
+			GameData = ((DataStoreManager.FindDataStore("TdGameData", default(LocalPlayer))) as UIDataStore_TdGameData);
 			if(GameData != default)
 			{
 				CurrentCheckpoint = GameData.CheckpointManager.FindCurrentCheckpoint();

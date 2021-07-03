@@ -961,7 +961,7 @@ public partial class Pawn : Actor/*
 		return Location + (vect(0.0f, 0.0f, 1.0f) * BaseEyeHeight);
 	}
 	
-	public virtual /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon? _CurrentWeapon = default)
+	public virtual /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon _CurrentWeapon = default)
 	{
 		/*local */Object.Vector POVLoc = default;
 		/*local */Object.Rotator POVRot = default;
@@ -1082,7 +1082,7 @@ public partial class Pawn : Actor/*
 		}
 	}
 	
-	public virtual /*function */void ReceiveLocalizedMessage(Core.ClassT<LocalMessage> Message, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo? _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo? _RelatedPRI_2 = default, /*optional */Object? _OptionalObject = default)
+	public virtual /*function */void ReceiveLocalizedMessage(Core.ClassT<LocalMessage> Message, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo _RelatedPRI_1 = default, /*optional */PlayerReplicationInfo _RelatedPRI_2 = default, /*optional */Object _OptionalObject = default)
 	{
 		var Switch = _Switch ?? default;
 		var RelatedPRI_1 = _RelatedPRI_1 ?? default;
@@ -1235,7 +1235,7 @@ public partial class Pawn : Actor/*
 					}
 					if(EffectiveSpeed < (((float)(-1)) * MaxFallSpeed))
 					{
-						TakeDamage(((int)((((float)(-100)) * (EffectiveSpeed + MaxFallSpeed)) / MaxFallSpeed)), default, Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Fell>(), default(Actor.TraceHitInfo?), default(Actor?));
+						TakeDamage(((int)((((float)(-100)) * (EffectiveSpeed + MaxFallSpeed)) / MaxFallSpeed)), default, Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Fell>(), default(Actor.TraceHitInfo?), default(Actor));
 					}
 				}
 			}		
@@ -1384,7 +1384,7 @@ public partial class Pawn : Actor/*
 	
 	public virtual /*function */void CrushedBy(Pawn OtherPawn)
 	{
-		TakeDamage(((int)(((((float)(1)) - (OtherPawn.Velocity.Z / ((float)(400)))) * OtherPawn.Mass) / Mass)), OtherPawn.Controller, Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Crushed>(), default(Actor.TraceHitInfo?), default(Actor?));
+		TakeDamage(((int)(((((float)(1)) - (OtherPawn.Velocity.Z / ((float)(400)))) * OtherPawn.Mass) / Mass)), OtherPawn.Controller, Location, vect(0.0f, 0.0f, 0.0f), ClassT<DmgType_Crushed>(), default(Actor.TraceHitInfo?), default(Actor));
 	}
 	
 	public virtual /*function */void DetachFromController(/*optional */bool? _bDestroyController = default)
@@ -1454,7 +1454,7 @@ public partial class Pawn : Actor/*
 		}
 		if(((((int)Role) == ((int)Actor.ENetRole.ROLE_Authority/*3*/)) && InvManager == default) && InventoryManagerClass != default)
 		{
-			InvManager = Spawn(InventoryManagerClass, this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+			InvManager = Spawn(InventoryManagerClass, this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 			if(InvManager == default)
 			{			
 			}
@@ -1474,7 +1474,7 @@ public partial class Pawn : Actor/*
 		}
 		if(ControllerClass != default)
 		{
-			Controller = Spawn(ControllerClass, default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+			Controller = Spawn(ControllerClass, default(Actor), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 		}
 		if(Controller != default)
 		{
@@ -1490,7 +1490,7 @@ public partial class Pawn : Actor/*
 			{
 				DetachFromController(true);
 			}
-			Controller = Spawn(inAction.ControllerClass, default(Actor?), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor?), default(bool?));
+			Controller = Spawn(inAction.ControllerClass, default(Actor), default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
 			Controller.Possess(this, false);
 			if(Controller.IsA("AIController"))
 			{
@@ -1642,7 +1642,7 @@ public partial class Pawn : Actor/*
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? Pawn_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => Pawn_TakeDamage;
-	public /*event */void Pawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)
+	public /*event */void Pawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor _DamageCauser = default)
 	{
 		/*local */int actualDamage = default;
 		/*local */PlayerController PC = default;
@@ -2148,7 +2148,7 @@ public partial class Pawn : Actor/*
 			{
 				SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
 			}
-			SetBase(default, default(Object.Vector?), default(SkeletalMeshComponent?), default(name?));
+			SetBase(default, default(Object.Vector?), default(SkeletalMeshComponent), default(name?));
 			SetHidden(false);
 		}
 	}
@@ -2182,7 +2182,7 @@ public partial class Pawn : Actor/*
 		}
 	}
 	
-	public virtual /*function */void ThrowActiveWeapon(/*optional */Core.ClassT<DamageType>? _DamageType = default)
+	public virtual /*function */void ThrowActiveWeapon(/*optional */Core.ClassT<DamageType> _DamageType = default)
 	{
 		var DamageType = _DamageType ?? default;
 		if(Weapon != default)
@@ -2191,7 +2191,7 @@ public partial class Pawn : Actor/*
 		}
 	}
 	
-	public virtual /*function */void TossInventory(Inventory Inv, /*optional */Object.Vector? _ForceVelocity = default, /*optional */Core.ClassT<DamageType>? _DamageType = default)
+	public virtual /*function */void TossInventory(Inventory Inv, /*optional */Object.Vector? _ForceVelocity = default, /*optional */Core.ClassT<DamageType> _DamageType = default)
 	{
 		/*local */Object.Vector POVLoc = default, TossVel = default;
 		/*local */Object.Rotator POVRot = default;
@@ -2557,11 +2557,11 @@ public partial class Pawn : Actor/*
 		}
 		else
 		{
-			SetTimer(2.0f, false, default(name?), default(Object?));
+			SetTimer(2.0f, false, default(name?), default(Object));
 		}
 	}
 	
-	protected /*event */void Pawn_Dying_TakeDamage(int Damage, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor? _DamageCauser = default)// state function
+	protected /*event */void Pawn_Dying_TakeDamage(int Damage, Controller EventInstigator, Object.Vector HitLocation, Object.Vector Momentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor _DamageCauser = default)// state function
 	{
 		var HitInfo = _HitInfo ?? default;
 		var DamageCauser = _DamageCauser ?? default;
@@ -2591,7 +2591,7 @@ public partial class Pawn : Actor/*
 		}
 		else
 		{
-			SetTimer(5.0f, false, default(name?), default(Object?));
+			SetTimer(5.0f, false, default(name?), default(Object));
 		}
 		if(((int)Physics) != ((int)Actor.EPhysics.PHYS_RigidBody/*10*/))
 		{

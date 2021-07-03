@@ -65,7 +65,7 @@ public partial class UITabControl : UIObject/*
 	}
 	
 	// Export UUITabControl::execCreateTabPage(FFrame&, void* const)
-	public virtual /*native function */UITabPage CreateTabPage(Core.ClassT<UITabPage> TabPageClass, /*optional */UITabPage? _PagePrefab = default)
+	public virtual /*native function */UITabPage CreateTabPage(Core.ClassT<UITabPage> TabPageClass, /*optional */UITabPage _PagePrefab = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		return default;

@@ -2497,7 +2497,7 @@ public partial class Object/*
 	}
 	
 	// Export UObject::execGetPerObjectConfigSections(FFrame&, void* const)
-	public /*native final function */static bool GetPerObjectConfigSections(Class SearchClass, ref array<String> out_SectionNames, /*optional */Object? _ObjectOuter = default, /*optional */int? _MaxResults = default)
+	public /*native final function */static bool GetPerObjectConfigSections(Class SearchClass, ref array<String> out_SectionNames, /*optional */Object _ObjectOuter = default, /*optional */int? _MaxResults = default)
 	{
 		 // #warning NATIVE FUNCTION !
 		return default;

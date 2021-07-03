@@ -170,7 +170,7 @@ public partial class Canvas : Object/*
 	
 	}
 	
-	public virtual /*final function */void DrawRect(float RectX, float RectY, /*optional */Texture2D? _Tex = default)
+	public virtual /*final function */void DrawRect(float RectX, float RectY, /*optional */Texture2D _Tex = default)
 	{
 	
 	}
