@@ -120,12 +120,15 @@ namespace MEdge.Core
 
 
 
-        public static bool operator ==(Vector a, Vector b)
-        {
-            return a.X == b.X && a.Y == b.Y && a.Z == b.Z;
-        }
-
+        public static bool operator ==(Vector a, Vector b) => a.X == b.X && a.Y == b.Y && a.Z == b.Z;
         public static bool operator !=(Vector a, Vector b) => (a == b) == false;
+        public override bool Equals( object obj ) => obj is Vector v && this == v;
+        public override int GetHashCode()
+        {
+            var previousHash = unchecked( ( 1009 * 9176 ) + X.GetHashCode() );
+            previousHash = unchecked( ( previousHash * 9176 ) + Y.GetHashCode() );
+            return unchecked( ( previousHash * 9176 ) + Z.GetHashCode() );
+        }
     }
     }
 }
