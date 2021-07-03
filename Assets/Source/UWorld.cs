@@ -46,6 +46,7 @@
             public TdPawn Pawn;
             AnimationPlayer _1pPlayer;
             AnimNodeEditor.AnimNodeEditorWindow _window;
+            UnityEngine.Camera _unityCam;
 
 
 
@@ -57,16 +58,36 @@
 
                 if( _1pPlayer == null )
                 {
-                    var clips = Resources.LoadAll<AnimationClip>( "AS_C1P_Unarmed" );
+                    var clips = Resources.LoadAll<AnimationClip>( "Animations/AS_C1P_Unarmed/" );
                     Asset.UScriptToUnity.TryGetValue( Pawn.Mesh1p.SkeletalMesh, out var unityObject );
-                    _1pPlayer = new AnimationPlayer( clips, Asset.Get_AS_C1P_Unarmed,  Pawn.Mesh1p.Animations, ((SkinnedMeshRenderer)unityObject).transform.parent.gameObject, Pawn );
+                    _1pPlayer = new AnimationPlayer( clips, Asset.Get_AS_C1P_Unarmed, Pawn.Mesh1p.Animations, ((SkinnedMeshRenderer)unityObject).transform.parent.gameObject, Pawn );
                     _window = AnimNodeEditor.AnimNodeEditorWindow.CreateInstance<AnimNodeEditor.AnimNodeEditorWindow>();
                     _window.LoadFromNode( Pawn.Mesh1p.Animations );
                     _window.Show();
                 }
-                
                 _1pPlayer.Sample( deltaTime );
-                //Pawn.Mesh1p.Animations.
+                if( _unityCam == null )
+                {
+                    _unityCam = UnityEngine.Camera.main;
+                    if( _unityCam == null )
+                    {
+                        GameObject camGo = new GameObject();
+                        _unityCam = camGo.AddComponent<UnityEngine.Camera>();
+                    }
+
+                    ( Pawn.Controller as PlayerController ).SpawnPlayerCamera();
+
+                    //_unityCam.transform.parent = _1pPlayer.GameObject.transform.GetComponentsInChildren<Transform>().First( x => x.name == "CameraJoint" );
+                }
+
+                if( ( Pawn.Controller as PlayerController ).PlayerCamera is Camera cam )
+                {
+                    var camPov = cam.CameraCache.POV;
+                    _unityCam.transform.position = camPov.Location.ToUnityPos();
+                    _unityCam.transform.rotation = (Quaternion)camPov.Rotation;
+                    #warning probably switch things around to ensure camera doesn't lag one frame behind animation
+                }
+
             }
 
 

@@ -3315,12 +3315,12 @@ public partial class PlayerController : Controller/*
 		return ((PlayerCamera != default) ? PlayerCamera.GetFOVAngle() : FOVAngle);
 	}
 	
-	// Export UPlayerController::execIsLocalPlayerController(FFrame&, void* const)
-	public override /*native function */bool IsLocalPlayerController()
-	{
-		 // #warning NATIVE FUNCTION !
-		return default;
-	}
+	//// Export UPlayerController::execIsLocalPlayerController(FFrame&, void* const)
+	//public override /*native function */bool IsLocalPlayerController()
+	//{
+	//	 // #warning NATIVE FUNCTION !
+	//	return default;
+	//}
 	
 	// Export UPlayerController::execSetViewTarget(FFrame&, void* const)
 	public virtual /*native function */void SetViewTarget(Actor NewViewTarget, /*optional */Camera.ViewTargetTransitionParams? _TransitionParams = default)

@@ -1,5 +1,7 @@
 ﻿namespace MEdge.TdGame
 {
+    using Core;
+    using Engine;
     using _E_struct_FRotator = Core.Object.Rotator;
     using _E_struct_Quat = Core.Object.Quat;
     using _E_struct_FVector = Core.Object.Vector;
@@ -10,6 +12,24 @@
     using static Core.Object.Decompiled;
 	public partial class TdPawn
 	{
+        // Export UTdPawn::execGetCustomAnimation(FFrame&, void* const)
+        public virtual /*native simulated function */AnimNodeSequence GetCustomAnimation(TdPawn.CustomNodeType Type)
+        {
+            #warning NATIVE FUNCTION !
+            return default;
+        }
+
+        // Export UTdPawn::execPlayCustomAnim(FFrame&, void* const)
+        public virtual /*native simulated function */void PlayCustomAnim(TdPawn.CustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool? _bRootRotation = default)
+        {
+            #warning NATIVE FUNCTION !
+        }
+        
+        // Export UTdPawn::execSetCustomAnimsBlendOutTime(FFrame&, void* const)
+        public virtual /*native simulated function */void SetCustomAnimsBlendOutTime(TdPawn.CustomNodeType Type, float BlendOutTime)
+        {
+            #warning NATIVE FUNCTION !
+        }
 	
         // Export UTdPawn::execInitMoveObjects(FFrame&, void* const)
         public virtual /*native function */void InitMoveObjects()
