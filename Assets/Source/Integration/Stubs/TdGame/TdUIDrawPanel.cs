@@ -16,7 +16,7 @@ public partial class TdUIDrawPanel : TdUIObject/*
 	// Export UTdUIDrawPanel::execDraw2DLine(FFrame&, void* const)
 	public virtual /*native final function */void Draw2DLine(int X1, int Y1, int X2, int Y2, Object.Color LineColor)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

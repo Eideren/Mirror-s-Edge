@@ -44,7 +44,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	// Export UGameUISceneClient::execGetCurrentNetMode(FFrame&, void* const)
 	public /*native final function */static WorldInfo.ENetMode GetCurrentNetMode()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -52,7 +52,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	// Export UGameUISceneClient::execGetTransientScene(FFrame&, void* const)
 	public virtual /*native final function */UIScene GetTransientScene()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -60,7 +60,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	// Export UGameUISceneClient::execCreateScene(FFrame&, void* const)
 	public virtual /*native final function */UIScene CreateScene(Core.ClassT<UIScene> SceneClass, /*optional */name? _SceneTag = default, /*optional */UIScene _SceneTemplate = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -68,7 +68,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	// Export UGameUISceneClient::execCreateTransientWidget(FFrame&, void* const)
 	public virtual /*native final function */UIObject CreateTransientWidget(Core.ClassT<UIObject> WidgetClass, name WidgetTag, /*optional */UIObject _Owner = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -76,7 +76,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	// Export UGameUISceneClient::execFindSceneByTag(FFrame&, void* const)
 	public virtual /*native final function */UIScene FindSceneByTag(name SceneTag, /*optional */LocalPlayer _SceneOwner = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -84,28 +84,28 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	// Export UGameUISceneClient::execRequestInputProcessingUpdate(FFrame&, void* const)
 	public virtual /*native final function */void RequestInputProcessingUpdate()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UGameUISceneClient::execRequestCursorRenderUpdate(FFrame&, void* const)
 	public virtual /*native final function */void RequestCursorRenderUpdate()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UGameUISceneClient::execRequestPausedUpdate(FFrame&, void* const)
 	public virtual /*native final function */void RequestPausedUpdate()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UGameUISceneClient::execCanUnpauseInternalUI(FFrame&, void* const)
 	public virtual /*native final function */bool CanUnpauseInternalUI()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -113,7 +113,7 @@ public partial class GameUISceneClient : UISceneClient/* within UIInteraction*//
 	// Export UGameUISceneClient::execSetActiveControl(FFrame&, void* const)
 	public virtual /*native function */bool SetActiveControl(UIObject NewActiveControl)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

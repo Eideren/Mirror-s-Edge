@@ -20,7 +20,7 @@ public partial class TdMove_Jump : TdPhysicsMove/*
 	// Export UTdMove_Jump::execIsOkToJump(FFrame&, void* const)
 	public virtual /*native final function */bool IsOkToJump()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

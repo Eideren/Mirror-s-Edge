@@ -196,7 +196,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetCurrentWorldInfo(FFrame&, void* const)
 	public /*native final function */static WorldInfo GetCurrentWorldInfo()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -204,7 +204,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetTinyFont(FFrame&, void* const)
 	public /*native final function */static Font GetTinyFont()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -212,7 +212,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetSmallFont(FFrame&, void* const)
 	public /*native final function */static Font GetSmallFont()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -220,7 +220,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetMediumFont(FFrame&, void* const)
 	public /*native final function */static Font GetMediumFont()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -228,7 +228,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetLargeFont(FFrame&, void* const)
 	public /*native final function */static Font GetLargeFont()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -236,7 +236,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetAdditionalFont(FFrame&, void* const)
 	public /*native final function */static Font GetAdditionalFont(int AdditionalFontIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -244,7 +244,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execIsSplitScreen(FFrame&, void* const)
 	public /*native final function */static bool IsSplitScreen()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -252,7 +252,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetAudioDevice(FFrame&, void* const)
 	public /*native final function */static AudioDevice GetAudioDevice()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -260,7 +260,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execGetLastMovieName(FFrame&, void* const)
 	public /*native final function */static String GetLastMovieName()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -268,7 +268,7 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execPlayLoadMapMovie(FFrame&, void* const)
 	public /*native final function */static bool PlayLoadMapMovie()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -276,28 +276,28 @@ public partial class Engine : Subsystem/*
 	// Export UEngine::execStopMovie(FFrame&, void* const)
 	public /*native final function */static void StopMovie(bool bDelayStopUntilGameHasRendered)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UEngine::execRemoveAllOverlays(FFrame&, void* const)
 	public /*native final function */static void RemoveAllOverlays()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UEngine::execAddOverlay(FFrame&, void* const)
 	public /*native final function */static void AddOverlay(Font Font, String Text, float X, float Y, float ScaleX, float ScaleY, bool bIsCentered, /*optional */ref Object.LinearColor TextColor/* = default*/)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UEngine::execAddOverlayWrapped(FFrame&, void* const)
 	public /*native final function */static void AddOverlayWrapped(Font Font, String Text, float X, float Y, float ScaleX, float ScaleY, float WrapWidth, /*optional */ref Object.LinearColor TextColor/* = default*/)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
@@ -334,24 +334,24 @@ public partial class Engine : Subsystem/*
 		#warning Exception thrown while deserializing LightComplexityColors
 		/*System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
 		   at System.Collections.Generic.List`1.get_Item(Int32 index)
-		   at UELib.UName.Deserialize(IUnrealStream stream)
-		   at UELib.UName..ctor(IUnrealStream stream)
-		   at UELib.UObjectStream.ReadNameReference()
-		   at UELib.Core.UDefaultProperty.Deserialize()
-		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags)
-		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) */;
+		   at UELib.UName.Deserialize(IUnrealStream stream) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Types\UName.cs:line 65
+		   at UELib.UName..ctor(IUnrealStream stream) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Types\UName.cs:line 46
+		   at UELib.UObjectStream.ReadNameReference() in D:\MirrorsEdge\Sources\Unreal-Library\src\UnrealStream.cs:line 961
+		   at UELib.Core.UDefaultProperty.Deserialize() in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 151
+		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 646
+		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 762 */;
 		ShaderComplexityColors = new array</*config */Object.Color>
 		{
 		}
 		#warning Exception thrown while deserializing ShaderComplexityColors
 		/*System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
 		   at System.Collections.Generic.List`1.get_Item(Int32 index)
-		   at UELib.UName.Deserialize(IUnrealStream stream)
-		   at UELib.UName..ctor(IUnrealStream stream)
-		   at UELib.UObjectStream.ReadNameReference()
-		   at UELib.Core.UDefaultProperty.Deserialize()
-		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags)
-		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) */;
+		   at UELib.UName.Deserialize(IUnrealStream stream) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Types\UName.cs:line 65
+		   at UELib.UName..ctor(IUnrealStream stream) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Types\UName.cs:line 46
+		   at UELib.UObjectStream.ReadNameReference() in D:\MirrorsEdge\Sources\Unreal-Library\src\UnrealStream.cs:line 961
+		   at UELib.Core.UDefaultProperty.Deserialize() in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 151
+		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 646
+		   at UELib.Core.UDefaultProperty.DeserializeDefaultPropertyValue(PropertyType type, DeserializeFlags& deserializeFlags) in D:\MirrorsEdge\Sources\Unreal-Library\src\Core\Classes\UDefaultProperty.cs:line 762 */;
 		bUsePixelShaderComplexity = true;
 		bUseAdditiveComplexity = true;
 		bCaptureCharacterLighting = true;

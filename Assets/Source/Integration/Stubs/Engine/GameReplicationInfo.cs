@@ -81,7 +81,7 @@ public partial class GameReplicationInfo : ReplicationInfo/*
 	// Export UGameReplicationInfo::execOnSameTeam(FFrame&, void* const)
 	public virtual /*native simulated function */bool OnSameTeam(Actor A, Actor B)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

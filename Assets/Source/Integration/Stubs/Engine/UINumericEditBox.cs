@@ -16,14 +16,14 @@ public partial class UINumericEditBox : UIEditBox/*
 	// Export UUINumericEditBox::execIncrementValue(FFrame&, void* const)
 	public virtual /*native final function */void IncrementValue(UIScreenObject Sender, int PlayerIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUINumericEditBox::execDecrementValue(FFrame&, void* const)
 	public virtual /*native final function */void DecrementValue(UIScreenObject Sender, int PlayerIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
@@ -40,7 +40,7 @@ public partial class UINumericEditBox : UIEditBox/*
 	// Export UUINumericEditBox::execSetNumericValue(FFrame&, void* const)
 	public virtual /*native final function */bool SetNumericValue(float NewValue, /*optional */bool? _bForceRefreshString = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -48,7 +48,7 @@ public partial class UINumericEditBox : UIEditBox/*
 	// Export UUINumericEditBox::execGetNumericValue(FFrame&, void* const)
 	public virtual /*native final function */float GetNumericValue()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

@@ -11,7 +11,7 @@ public partial class TdAnimInfoCommandlet : Commandlet/*
 	// Export UTdAnimInfoCommandlet::execMain(FFrame&, void* const)
 	public override /*native event */int Main(String Params)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

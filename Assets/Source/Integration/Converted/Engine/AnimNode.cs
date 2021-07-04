@@ -84,20 +84,20 @@ public partial class AnimNode : Object/*
 	// Export UAnimNode::execFindAnimNode(FFrame&, void* const)
 	public virtual /*native final function */AnimNode FindAnimNode(name InNodeName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UAnimNode::execPlayAnim(FFrame&, void* const)
 	public virtual /*native function */void PlayAnim(/*optional */bool? _bLoop = default, /*optional */float? _Rate = default, /*optional */float? _StartTime = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UAnimNode::execStopAnim(FFrame&, void* const)
 	public virtual /*native function */void StopAnim()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 }

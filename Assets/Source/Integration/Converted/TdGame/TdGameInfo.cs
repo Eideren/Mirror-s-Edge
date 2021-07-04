@@ -344,7 +344,7 @@ public partial class TdGameInfo : GameInfo/*
 	// Export UTdGameInfo::execSaveTextureResourceInfo(FFrame&, void* const)
 	public virtual /*native final function */bool SaveTextureResourceInfo(RequestedTextureResources RequestedTextureResources)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

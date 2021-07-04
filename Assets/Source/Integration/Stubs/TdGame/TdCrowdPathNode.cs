@@ -8,7 +8,7 @@ public partial class TdCrowdPathNode : PathNode/*
 	// Export UTdCrowdPathNode::execHasVisibilityTo(FFrame&, void* const)
 	public override /*native function */bool HasVisibilityTo(Object.Vector Offset, NavigationPoint Other, Object.Vector otherOffset)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -16,7 +16,7 @@ public partial class TdCrowdPathNode : PathNode/*
 	// Export UTdCrowdPathNode::execCanBeSeenFrom(FFrame&, void* const)
 	public override /*native function */bool CanBeSeenFrom(Object.Vector Offset, NavigationPoint Other, Object.Vector otherOffset)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

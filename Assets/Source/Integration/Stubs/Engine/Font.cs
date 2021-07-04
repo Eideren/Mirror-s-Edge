@@ -55,7 +55,7 @@ public partial class Font : Object/*
 	// Export UFont::execGetResolutionPageIndex(FFrame&, void* const)
 	public virtual /*native function */int GetResolutionPageIndex(float HeightTest)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -63,7 +63,7 @@ public partial class Font : Object/*
 	// Export UFont::execGetScalingFactor(FFrame&, void* const)
 	public virtual /*native function */float GetScalingFactor(float HeightTest)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -71,7 +71,7 @@ public partial class Font : Object/*
 	// Export UFont::execGetAuthoredViewportHeight(FFrame&, void* const)
 	public virtual /*native final function */float GetAuthoredViewportHeight(float ViewportHeight)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -79,7 +79,7 @@ public partial class Font : Object/*
 	// Export UFont::execGetMaxCharHeight(FFrame&, void* const)
 	public virtual /*native function */float GetMaxCharHeight()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

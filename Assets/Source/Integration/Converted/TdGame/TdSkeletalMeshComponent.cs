@@ -10,38 +10,38 @@ public partial class TdSkeletalMeshComponent : SkeletalMeshComponent/*
 	// Export UTdSkeletalMeshComponent::execDrawAnims(FFrame&, void* const)
 	public virtual /*native final function */void DrawAnims(Canvas Canvas, name StartingPoint)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdSkeletalMeshComponent::execDrawAnimsWeight(FFrame&, void* const)
 	public virtual /*native final function */void DrawAnimsWeight(Canvas Canvas, name StartingPoint)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdSkeletalMeshComponent::execFlushAnimSequenceTimeLine(FFrame&, void* const)
 	public virtual /*native final function */void FlushAnimSequenceTimeLine()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdSkeletalMeshComponent::execFlushAnimSequenceWeightBoxes(FFrame&, void* const)
 	public virtual /*native final function */void FlushAnimSequenceWeightBoxes()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdSkeletalMeshComponent::execIsChildBoneOf(FFrame&, void* const)
 	public virtual /*native final function */bool IsChildBoneOf(name BoneName, name ParentBoneName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdSkeletalMeshComponent::execGetPhysicalMaterialFromBone(FFrame&, void* const)
 	public virtual /*native final function */PhysicalMaterial GetPhysicalMaterialFromBone(name BoneName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

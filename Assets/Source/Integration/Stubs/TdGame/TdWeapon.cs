@@ -283,7 +283,7 @@ public partial class TdWeapon : Weapon/*
 	// Export UTdWeapon::execLOINotify(FFrame&, void* const)
 	public virtual /*native final function */void LOINotify(bool toggle)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	public virtual /*final event */void InitLOIMtrlInstances()
@@ -294,14 +294,14 @@ public partial class TdWeapon : Weapon/*
 	// Export UTdWeapon::execGetMinKeepFiringTime(FFrame&, void* const)
 	public virtual /*native final function */float GetMinKeepFiringTime()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdWeapon::execGetMaxKeepFiringTime(FFrame&, void* const)
 	public virtual /*native final function */float GetMaxKeepFiringTime()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

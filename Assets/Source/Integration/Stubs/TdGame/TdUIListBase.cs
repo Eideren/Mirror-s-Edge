@@ -13,7 +13,7 @@ public partial class TdUIListBase : UIList/*
 	// Export UTdUIListBase::execGetCellFieldValue(FFrame&, void* const)
 	public virtual /*native function */bool GetCellFieldValue(UIList InList, name InCellTag, int InListIndex, ref UIRoot.UIProviderFieldValue OutValue)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -21,7 +21,7 @@ public partial class TdUIListBase : UIList/*
 	// Export UTdUIListBase::execGetRowHeight(FFrame&, void* const)
 	public override /*native function */float GetRowHeight(/*optional */int? _RowIndex = default, /*optional */bool? _bColHeader = default, /*optional */bool? _bReturnUnformattedValue = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

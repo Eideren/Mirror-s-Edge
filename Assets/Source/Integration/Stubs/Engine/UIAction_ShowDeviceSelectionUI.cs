@@ -14,7 +14,7 @@ public partial class UIAction_ShowDeviceSelectionUI : UIAction/*
 	// Export UUIAction_ShowDeviceSelectionUI::execWriteToVariables(FFrame&, void* const)
 	public virtual /*native function */void WriteToVariables()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -258,7 +260,7 @@ public partial class Camera : Actor/*
 	// Export UCamera::execCheckViewTarget(FFrame&, void* const)
 	public virtual /*native function */void CheckViewTarget(ref Camera.TViewTarget VT)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	public virtual /*function */void UpdateViewTarget(ref Camera.TViewTarget OutVT, float DeltaTime)
@@ -319,11 +321,11 @@ public partial class Camera : Actor/*
 		}
 	}
 	
-	// Export UCamera::execSetViewTarget(FFrame&, void* const)
-	public virtual /*native final function */void SetViewTarget(Actor NewViewTarget, /*optional */Camera.ViewTargetTransitionParams? _TransitionParams = default)
-	{
-		 // #warning NATIVE FUNCTION !
-	}
+	//// Export UCamera::execSetViewTarget(FFrame&, void* const)
+	//public virtual /*native final function */void SetViewTarget(Actor NewViewTarget, /*optional */Camera.ViewTargetTransitionParams? _TransitionParams = default)
+	//{
+	//	 NativeMarkers.MarkUnimplemented();
+	//}
 	
 	public virtual /*function */void ProcessViewRotation(float DeltaTime, ref Object.Rotator OutViewRotation, ref Object.Rotator OutDeltaRot)
 	{

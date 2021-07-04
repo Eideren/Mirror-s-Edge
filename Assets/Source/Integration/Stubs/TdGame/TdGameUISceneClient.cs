@@ -112,7 +112,7 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 	// Export UTdGameUISceneClient::execOpenDiskAccessScene(FFrame&, void* const)
 	public virtual /*native final function */bool OpenDiskAccessScene(UIScene Scene, /*optional */ref UIScene OpenedScene/* = default*/)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -120,7 +120,7 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 	// Export UTdGameUISceneClient::execCloseDiskAccessScene(FFrame&, void* const)
 	public virtual /*native final function */bool CloseDiskAccessScene()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -128,7 +128,7 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 	// Export UTdGameUISceneClient::execForceStopMovie(FFrame&, void* const)
 	public virtual /*native function */void ForceStopMovie()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

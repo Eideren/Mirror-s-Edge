@@ -9,7 +9,7 @@ public partial class TdAnimNodeAimNodeState : TdAnimNodeState/*
 	// Export UTdAnimNodeAimNodeState::execGetActiveState(FFrame&, void* const)
 	public override /*native function */int GetActiveState()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -17,7 +17,7 @@ public partial class TdAnimNodeAimNodeState : TdAnimNodeState/*
 	// Export UTdAnimNodeAimNodeState::execGetBlendValue(FFrame&, void* const)
 	public override /*native function */float GetBlendValue(int PreviousState, int PendingState)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

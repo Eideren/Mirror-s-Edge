@@ -34,7 +34,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	// Export UUIComp_DrawStringEditbox::execSetUserText(FFrame&, void* const)
 	public virtual /*native final function */bool SetUserText(String NewValue)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -42,7 +42,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	// Export UUIComp_DrawStringEditbox::execGetUserTextLength(FFrame&, void* const)
 	public virtual /*native final function */int GetUserTextLength()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -50,7 +50,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	// Export UUIComp_DrawStringEditbox::execSetSelectionRange(FFrame&, void* const)
 	public virtual /*native final function */bool SetSelectionRange(int StartIndex, int EndIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -58,7 +58,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	// Export UUIComp_DrawStringEditbox::execSetSelectionStart(FFrame&, void* const)
 	public virtual /*native final function */bool SetSelectionStart(int StartIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -66,7 +66,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	// Export UUIComp_DrawStringEditbox::execSetSelectionEnd(FFrame&, void* const)
 	public virtual /*native final function */bool SetSelectionEnd(int EndIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -74,7 +74,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	// Export UUIComp_DrawStringEditbox::execClearSelection(FFrame&, void* const)
 	public virtual /*native final function */bool ClearSelection()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -82,7 +82,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	// Export UUIComp_DrawStringEditbox::execGetSelectionRange(FFrame&, void* const)
 	public virtual /*native final function */bool GetSelectionRange(ref int out_StartIndex, ref int out_EndIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -90,7 +90,7 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	// Export UUIComp_DrawStringEditbox::execGetSelectedText(FFrame&, void* const)
 	public virtual /*native final function */String GetSelectedText()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

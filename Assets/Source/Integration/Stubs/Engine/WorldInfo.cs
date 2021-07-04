@@ -278,7 +278,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execGetModifiedPostProcessSettings(FFrame&, void* const)
 	public virtual /*native function */PostProcessVolume.PostProcessSettings GetModifiedPostProcessSettings()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -297,7 +297,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execGetGravityZ(FFrame&, void* const)
 	//public override /*native function */float GetGravityZ()
 	//{
-	//	 // #warning NATIVE FUNCTION !
+	//	 NativeMarkers.MarkUnimplemented();
 	//	// stub
 	//	return default;
 	//}
@@ -305,7 +305,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execGetGameSequence(FFrame&, void* const)
 	public virtual /*native final function */Sequence GetGameSequence()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -313,14 +313,14 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execSetLevelRBGravity(FFrame&, void* const)
 	public virtual /*native final function */void SetLevelRBGravity(Object.Vector NewGrav)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UWorldInfo::execGetLocalURL(FFrame&, void* const)
 	public virtual /*native simulated function */String GetLocalURL()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -328,7 +328,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execIsDemoBuild(FFrame&, void* const)
 	public /*native final simulated function */static bool IsDemoBuild()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -336,7 +336,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execIsConsoleBuild(FFrame&, void* const)
 	public /*native final simulated function */static bool IsConsoleBuild(/*optional */WorldInfo.EConsoleType? _ConsoleType = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -344,7 +344,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execIsPlayInEditor(FFrame&, void* const)
 	public /*native final simulated function */static bool IsPlayInEditor()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -352,21 +352,21 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execForceGarbageCollection(FFrame&, void* const)
 	public virtual /*native final simulated function */void ForceGarbageCollection(/*optional */bool? _bFullPurge = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UWorldInfo::execVerifyNavList(FFrame&, void* const)
 	public virtual /*native final simulated function */void VerifyNavList()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UWorldInfo::execGetAddressURL(FFrame&, void* const)
 	public virtual /*native simulated function */String GetAddressURL()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -413,7 +413,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execAllNavigationPoints(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<NavigationPoint/* N*/> AllNavigationPoints(Core.ClassT<NavigationPoint> BaseClass)
 	//{
-	//	 // #warning NATIVE FUNCTION !
+	//	 NativeMarkers.MarkUnimplemented();
 	//	// stub
 	//	yield break;
 	//}
@@ -421,7 +421,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execRadiusNavigationPoints(FFrame&, void* const)
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<NavigationPoint/* N*/> RadiusNavigationPoints(Core.ClassT<NavigationPoint> BaseClass, Object.Vector Point, float Radius)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		yield break;
 	}
@@ -429,14 +429,14 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execNavigationPointCheck(FFrame&, void* const)
 	public virtual /*native final function */void NavigationPointCheck(Object.Vector Point, Object.Vector Extent, /*optional */ref array<NavigationPoint> Navs/* = default*/, /*optional */ref array<ReachSpec> Specs/* = default*/)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UWorldInfo::execAllControllers(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Controller/* C*/> AllControllers(Core.ClassT<Controller> BaseClass)
 	//{
-	//	 // #warning NATIVE FUNCTION !
+	//	 NativeMarkers.MarkUnimplemented();
 	//	// stub
 	//	yield break;
 	//}
@@ -444,7 +444,7 @@ public partial class WorldInfo : ZoneInfo/*
 	//// Export UWorldInfo::execAllPawns(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Pawn/* P*/> AllPawns(Core.ClassT<Pawn> BaseClass, /*optional */Object.Vector? _TestLocation = default, /*optional */float? _TestRadius = default)
 	//{
-	//	 // #warning NATIVE FUNCTION !
+	//	 NativeMarkers.MarkUnimplemented();
 	//	// stub
 	//	yield break;
 	//}
@@ -452,21 +452,21 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execNotifyMatchStarted(FFrame&, void* const)
 	public virtual /*native final function */void NotifyMatchStarted(/*optional */bool? _bShouldActivateLevelStartupEvents = default, /*optional */bool? _bShouldActivateLevelBeginningEvents = default, /*optional */bool? _bShouldActivateLevelLoadedEvents = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UWorldInfo::execPrepareMapChange(FFrame&, void* const)
 	public virtual /*native final function */void PrepareMapChange(/*const */ref array<name> LevelNames)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UWorldInfo::execIsPreparingMapChange(FFrame&, void* const)
 	public virtual /*native final function */bool IsPreparingMapChange()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -474,7 +474,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execIsMapChangeReady(FFrame&, void* const)
 	public virtual /*native final function */bool IsMapChangeReady()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -482,21 +482,21 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execCommitMapChange(FFrame&, void* const)
 	public virtual /*native final function */void CommitMapChange(/*optional */bool? _bShouldSkipLevelStartupEvent = default, /*optional */bool? _bShouldSkipLevelBeginningEvent = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UWorldInfo::execSeamlessTravel(FFrame&, void* const)
 	public virtual /*native final function */void SeamlessTravel(String URL, /*optional */bool? _bAbsolute = default, /*init optional */Object.Guid? _MapPackageGuid = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UWorldInfo::execIsInSeamlessTravel(FFrame&, void* const)
 	public virtual /*native final function */bool IsInSeamlessTravel()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -504,14 +504,14 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execSetSeamlessTravelMidpointPause(FFrame&, void* const)
 	public virtual /*native final function */void SetSeamlessTravelMidpointPause(bool bNowPaused)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UWorldInfo::execGetMapInfo(FFrame&, void* const)
 	public virtual /*native final function */MapInfo GetMapInfo()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -519,14 +519,14 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execSetMapInfo(FFrame&, void* const)
 	public virtual /*native final function */void SetMapInfo(MapInfo NewMapInfo)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UWorldInfo::execGetMapName(FFrame&, void* const)
 	public virtual /*native final function */String GetMapName(/*optional */bool? _bIncludePrefix = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -534,7 +534,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execGetDetailMode(FFrame&, void* const)
 	public virtual /*native final function */Scene.EDetailMode GetDetailMode()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -542,7 +542,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execIsRecordingDemo(FFrame&, void* const)
 	public virtual /*native final function */bool IsRecordingDemo()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -550,7 +550,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execIsPlayingDemo(FFrame&, void* const)
 	public virtual /*native final function */bool IsPlayingDemo()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -558,7 +558,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execDoMemoryTracking(FFrame&, void* const)
 	public virtual /*native function */void DoMemoryTracking()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	protected override void RestoreDefaultFunction()

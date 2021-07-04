@@ -115,35 +115,35 @@
 		// Export UActor::execTraceActors(FFrame&, void* const)
 		public virtual /*native(309) final iterator function */System.Collections.Generic.IEnumerable<(Actor/* Actor*/,Object.Vector/* HitLoc*/,Object.Vector/* HitNorm*/,Actor.TraceHitInfo/* HitInfo*/)> TraceActors(Core.ClassT<Actor> BaseClass, Object.Vector End, /*optional */Object.Vector? _Start/* = default*/, /*optional */Object.Vector? _Extent/* = default*/, /*optional */int? _ExtraTraceFlags = default)
 		{
-			 // #warning NATIVE FUNCTION !
+			 NativeMarkers.MarkUnimplemented();
 			yield break;
 		}
 
 		// Export UActor::execVisibleActors(FFrame&, void* const)
 		public virtual /*native(311) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> VisibleActors(Core.ClassT<Actor> BaseClass, /*optional */float? _Radius = default, /*optional */Object.Vector? _Loc = default)
 		{
-			 // #warning NATIVE FUNCTION !
+			 NativeMarkers.MarkUnimplemented();
 			yield break;
 		}
 
 		// Export UActor::execVisibleCollidingActors(FFrame&, void* const)
 		public virtual /*native(312) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> VisibleCollidingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector? _Loc = default, /*optional */bool? _bIgnoreHidden = default)
 		{
-			 // #warning NATIVE FUNCTION !
+			 NativeMarkers.MarkUnimplemented();
 			yield break;
 		}
 
 		// Export UActor::execCollidingActors(FFrame&, void* const)
 		public virtual /*native(321) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> CollidingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector? _Loc = default, /*optional */bool? _bUseOverlapCheck = default)
 		{
-			 // #warning NATIVE FUNCTION !
+			 NativeMarkers.MarkUnimplemented();
 			yield break;
 		}
 
 		// Export UActor::execOverlappingActors(FFrame&, void* const)
 		public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Actor/* out_Actor*/> OverlappingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector? _Loc = default, /*optional */bool? _bIgnoreHidden = default)
 		{
-			 // #warning NATIVE FUNCTION !
+			 NativeMarkers.MarkUnimplemented();
 			yield break;
 		}
 	
@@ -159,7 +159,38 @@
 			if(this.Physics != newPhysics)
 				UnityEngine.Debug.LogWarning( $"{nameof(SetPhysics)} not fully implemented" );
 			this.Physics = newPhysics;
-			// #warning NATIVE FUNCTION !
+			NativeMarkers.MarkUnimplemented();
+		}
+		
+		// Export UActor::execAttachComponent(FFrame&, void* const)
+		public virtual /*native final function */void AttachComponent(ActorComponent NewComponent)
+		{
+			if(this.Components.Find( NewComponent ) == -1)
+				this.Components.Add( NewComponent );
+		}
+
+		// Export UActor::execDetachComponent(FFrame&, void* const)
+		public virtual /*native final function */void DetachComponent(ActorComponent ExComponent)
+		{
+			this.Components.RemoveItem(ExComponent);
+		}
+		
+		// Export UActor::execSetLocation(FFrame&, void* const)
+		public virtual /*native(267) final function */bool SetLocation(Object.Vector NewLocation)
+		{
+			this.Location = NewLocation;
+			// This method might need to check for encroachment ?
+			NativeMarkers.MarkUnimplemented();
+			return true;
+		}
+
+		// Export UActor::execSetRotation(FFrame&, void* const)
+		public virtual /*native(299) final function */bool SetRotation(Object.Rotator NewRotation)
+		{
+			this.Rotation = NewRotation;
+			// This method might need to check for encroachment ?
+			NativeMarkers.MarkUnimplemented();
+			return true;
 		}
     }
 }

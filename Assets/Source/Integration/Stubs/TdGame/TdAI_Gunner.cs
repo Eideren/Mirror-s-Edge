@@ -41,7 +41,7 @@ public partial class TdAI_Gunner : TdAIController/*
 	// Export UTdAI_Gunner::execUpdateAnchor(FFrame&, void* const)
 	public override /*native function */void UpdateAnchor()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

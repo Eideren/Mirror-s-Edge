@@ -152,41 +152,41 @@ public partial class TdPlayerController : GamePlayerController,
 	// Export UTdPlayerController::execGetTeam(FFrame&, void* const)
 	public virtual /*native function */int GetTeam()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdPlayerController::execGetAATarget(FFrame&, void* const)
 	public virtual /*native function */TdPawn GetAATarget(float MaxDistance)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdPlayerController::execGetMeleeTarget(FFrame&, void* const)
 	public virtual /*native function */TdPawn GetMeleeTarget(float MaxDistance)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdPlayerController::execLocalEnemyActors(FFrame&, void* const)
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<TdPawn/* enemyIt*/> LocalEnemyActors()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		yield break;
 	}
 	
 	// Export UTdPlayerController::execSetSoundModeNative(FFrame&, void* const)
 	public virtual /*native final function */void SetSoundModeNative(AudioDevice.ESoundMode SoundMode, float FadeTime)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdPlayerController::execCheckCutsceneSkippable(FFrame&, void* const)
 	public virtual /*native function */bool CheckCutsceneSkippable()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -262,7 +262,7 @@ public partial class TdPlayerController : GamePlayerController,
 	// Export UTdPlayerController::execEnableHighPrioLoading(FFrame&, void* const)
 	public virtual /*native function */void EnableHighPrioLoading(/*optional */bool? _bEnable = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	public delegate void NextViewTarget_del();
@@ -870,7 +870,7 @@ public partial class TdPlayerController : GamePlayerController,
 	// Export UTdPlayerController::execStopSounds(FFrame&, void* const)
 	public virtual /*native final function */void StopSounds(float FadeOutTime, /*optional */name? _SoundGroup = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	public virtual /*exec function */void ToggleServerDebugger()
@@ -881,7 +881,7 @@ public partial class TdPlayerController : GamePlayerController,
 	// Export UTdPlayerController::execToggleDebugger(FFrame&, void* const)
 	public virtual /*reliable server native final function */void ToggleDebugger()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	public override StartAltFire_del StartAltFire { get => bfield_StartAltFire ?? TdPlayerController_StartAltFire; set => bfield_StartAltFire = value; } StartAltFire_del bfield_StartAltFire;
@@ -1142,7 +1142,7 @@ public partial class TdPlayerController : GamePlayerController,
 	// Export UTdPlayerController::execMaintainEnemyList(FFrame&, void* const)
 	public virtual /*native final function */void MaintainEnemyList()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	public override PlayerTick_del PlayerTick { get => bfield_PlayerTick ?? TdPlayerController_PlayerTick; set => bfield_PlayerTick = value; } PlayerTick_del bfield_PlayerTick;
@@ -1773,7 +1773,7 @@ public partial class TdPlayerController : GamePlayerController,
 	// Export UTdPlayerController::execIsLoadingLevel(FFrame&, void* const)
 	public virtual /*native function */bool IsLoadingLevel()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -2637,13 +2637,13 @@ public partial class TdPlayerController : GamePlayerController,
 	// Export UTdPlayerController::execSetGamma(FFrame&, void* const)
 	public virtual /*native function */void SetGamma(float GammaValue)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdPlayerController::execSetContrast(FFrame&, void* const)
 	public virtual /*native function */void SetContrast(float ContrastValue)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	public virtual /*function */void TdRegisterPlayerDataStores()
@@ -3237,7 +3237,7 @@ public partial class TdPlayerController : GamePlayerController,
 	// Export UTdPlayerController::execSetNearClippingPlane(FFrame&, void* const)
 	public virtual /*native simulated function */void SetNearClippingPlane(float Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	public virtual /*simulated function */void EndZoom()
@@ -3365,7 +3365,7 @@ public partial class TdPlayerController : GamePlayerController,
 	// Export UTdPlayerController::execSkipCutscene(FFrame&, void* const)
 	public virtual /*native exec function */bool SkipCutscene()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -3382,39 +3382,39 @@ public partial class TdPlayerController : GamePlayerController,
 	// Export UTdPlayerController::execGetInvViewProjection(FFrame&, void* const)
 	public virtual /*native function */Object.Matrix GetInvViewProjection()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdPlayerController::execIsControllerTiltActive(FFrame&, void* const)
 	public override /*native simulated function */bool IsControllerTiltActive()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdPlayerController::execSetControllerTiltDesiredIfAvailable(FFrame&, void* const)
 	public override /*native simulated function */void SetControllerTiltDesiredIfAvailable(bool bActive)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdPlayerController::execSetControllerTiltActive(FFrame&, void* const)
 	public override /*native simulated function */void SetControllerTiltActive(bool bActive)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdPlayerController::execSetOnlyUseControllerTiltInput(FFrame&, void* const)
 	public override /*native simulated function */void SetOnlyUseControllerTiltInput(bool bActive)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdPlayerController::execSetUseTiltForwardAndBack(FFrame&, void* const)
 	public override /*native simulated function */void SetUseTiltForwardAndBack(bool bActive)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	public delegate void CheckTriggerStopAnim_del();

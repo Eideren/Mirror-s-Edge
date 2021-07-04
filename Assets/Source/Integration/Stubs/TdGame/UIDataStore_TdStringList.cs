@@ -42,7 +42,7 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 	// Export UUIDataStore_TdStringList::execGetFieldIndex(FFrame&, void* const)
 	public virtual /*native function */int GetFieldIndex(name FieldName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -50,42 +50,42 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 	// Export UUIDataStore_TdStringList::execAddStr(FFrame&, void* const)
 	public virtual /*native function */void AddStr(name FieldName, String NewString, /*optional */bool? _bBatchOp = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIDataStore_TdStringList::execInsertStr(FFrame&, void* const)
 	public virtual /*native function */void InsertStr(name FieldName, String NewString, int InsertIndex, /*optional */bool? _bBatchOp = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIDataStore_TdStringList::execRemoveStr(FFrame&, void* const)
 	public virtual /*native function */void RemoveStr(name FieldName, String StringToRemove, /*optional */bool? _bBatchOp = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIDataStore_TdStringList::execRemoveStrByIndex(FFrame&, void* const)
 	public virtual /*native function */void RemoveStrByIndex(name FieldName, int Index, /*optional */int? _Count = default, /*optional */bool? _bBatchOp = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIDataStore_TdStringList::execEmpty(FFrame&, void* const)
 	public virtual /*native function */void Empty(name FieldName, /*optional */bool? _bBatchOp = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIDataStore_TdStringList::execFindStr(FFrame&, void* const)
 	public virtual /*native function */int FindStr(name FieldName, String SearchString)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -93,7 +93,7 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 	// Export UUIDataStore_TdStringList::execGetStr(FFrame&, void* const)
 	public virtual /*native function */String GetStr(name FieldName, int StrIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -101,7 +101,7 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 	// Export UUIDataStore_TdStringList::execGetList(FFrame&, void* const)
 	public virtual /*native function */array<String> GetList(name FieldName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

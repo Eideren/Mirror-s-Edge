@@ -8,8 +8,14 @@
 		// Export UPlayerController::execIsLocalPlayerController(FFrame&, void* const)
 		public override /*native function */bool IsLocalPlayerController()
 		{
-			// #warning NATIVE FUNCTION !
 			return this.Player is LocalPlayer;
+		}
+		
+		// Export UPlayerController::execSetViewTarget(FFrame&, void* const)
+		public virtual /*native function */void SetViewTarget(Actor NewViewTarget, /*optional */Camera.ViewTargetTransitionParams? _TransitionParams = default)
+		{
+			this.ViewTarget = NewViewTarget;
+			this.PlayerCamera?.SetViewTarget( NewViewTarget ); // Maybe ?
 		}
 	}
 }

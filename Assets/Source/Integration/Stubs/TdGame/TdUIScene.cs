@@ -68,7 +68,7 @@ public partial class TdUIScene : UIScene/*
 	// Export UTdUIScene::execIsGame(FFrame&, void* const)
 	public virtual /*native function */bool IsGame()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -76,14 +76,14 @@ public partial class TdUIScene : UIScene/*
 	// Export UTdUIScene::execConvertUnicodeCharsToReadable(FFrame&, void* const)
 	public virtual /*native function */void ConvertUnicodeCharsToReadable(ref String Str)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdUIScene::execActivateLevelEvent(FFrame&, void* const)
 	public virtual /*native function */bool ActivateLevelEvent(name EventName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -91,7 +91,7 @@ public partial class TdUIScene : UIScene/*
 	// Export UTdUIScene::execGetTdPlayerController(FFrame&, void* const)
 	public virtual /*native function */TdPlayerController GetTdPlayerController(/*optional */int? _PlayerIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -99,28 +99,28 @@ public partial class TdUIScene : UIScene/*
 	// Export UTdUIScene::execSetScreenResolution(FFrame&, void* const)
 	public virtual /*native function */void SetScreenResolution(int ResX, int ResY, bool bFullscreen)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdUIScene::execGetPossibleScreenResolutions(FFrame&, void* const)
 	public virtual /*native function */void GetPossibleScreenResolutions(ref array<String> OutResults)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdUIScene::execGetPossibleAudioDevices(FFrame&, void* const)
 	public virtual /*native function */void GetPossibleAudioDevices(ref array<String> OutResults)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdUIScene::execGetCurrentAudioDevice(FFrame&, void* const)
 	public virtual /*native function */String GetCurrentAudioDevice()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -128,28 +128,28 @@ public partial class TdUIScene : UIScene/*
 	// Export UTdUIScene::execSetAudioDeviceToUse(FFrame&, void* const)
 	public virtual /*native function */void SetAudioDeviceToUse(String InAudioDevice)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdUIScene::execSetVideoSettingValue(FFrame&, void* const)
 	public virtual /*native function */void SetVideoSettingValue(TdUIScene.EPossibleVideoSettings Setting, int Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdUIScene::execSetVideoSettingValueArray(FFrame&, void* const)
 	public virtual /*native function */void SetVideoSettingValueArray(array<TdUIScene.EPossibleVideoSettings> Settings, array<int> Values)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdUIScene::execGetVideoSettingValue(FFrame&, void* const)
 	public virtual /*native function */int GetVideoSettingValue(TdUIScene.EPossibleVideoSettings Setting)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -157,28 +157,28 @@ public partial class TdUIScene : UIScene/*
 	// Export UTdUIScene::execStartMovie(FFrame&, void* const)
 	public virtual /*native function */void StartMovie(String MovieName, /*optional */bool? _bForceSkippable = default, /*optional */bool? _bBlockInput = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdUIScene::execStopMovie(FFrame&, void* const)
 	public virtual /*native function */void StopMovie()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdUIScene::execUpdateMovieStatus(FFrame&, void* const)
 	public virtual /*native function */void UpdateMovieStatus()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdUIScene::execIsPlayingMovie(FFrame&, void* const)
 	public virtual /*native function */bool IsPlayingMovie()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -186,7 +186,7 @@ public partial class TdUIScene : UIScene/*
 	// Export UTdUIScene::execIsStreamingLevels(FFrame&, void* const)
 	public virtual /*native function */bool IsStreamingLevels()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -194,7 +194,7 @@ public partial class TdUIScene : UIScene/*
 	// Export UTdUIScene::execTextureFullyStreamed(FFrame&, void* const)
 	public virtual /*native function */bool TextureFullyStreamed(Texture2D Image)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

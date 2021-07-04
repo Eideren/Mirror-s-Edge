@@ -19,7 +19,7 @@ public partial class Commandlet : Object/*
 	// Export UCommandlet::execMain(FFrame&, void* const)
 	public virtual /*native event */int Main(String Params)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

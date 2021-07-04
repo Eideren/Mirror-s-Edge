@@ -29,7 +29,7 @@ public partial class MaterialInterface : Surface/*
 	// Export UMaterialInterface::execGetMaterial(FFrame&, void* const)
 	public virtual /*native final function */Material GetMaterial()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -37,7 +37,7 @@ public partial class MaterialInterface : Surface/*
 	// Export UMaterialInterface::execGetPhysicalMaterial(FFrame&, void* const)
 	public virtual /*native final function */PhysicalMaterial GetPhysicalMaterial()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -45,7 +45,7 @@ public partial class MaterialInterface : Surface/*
 	// Export UMaterialInterface::execGetFontParameterValue(FFrame&, void* const)
 	public virtual /*native function */bool GetFontParameterValue(name ParameterName, ref Font OutFontValue, ref int OutFontPage)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -53,7 +53,7 @@ public partial class MaterialInterface : Surface/*
 	// Export UMaterialInterface::execGetScalarParameterValue(FFrame&, void* const)
 	public virtual /*native function */bool GetScalarParameterValue(name ParameterName, ref float OutValue)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -61,7 +61,7 @@ public partial class MaterialInterface : Surface/*
 	// Export UMaterialInterface::execGetScalarCurveParameterValue(FFrame&, void* const)
 	public virtual /*native function */bool GetScalarCurveParameterValue(name ParameterName, ref Object.InterpCurveFloat OutValue)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -69,7 +69,7 @@ public partial class MaterialInterface : Surface/*
 	// Export UMaterialInterface::execGetTextureParameterValue(FFrame&, void* const)
 	public virtual /*native function */bool GetTextureParameterValue(name ParameterName, ref Texture OutValue)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -77,7 +77,7 @@ public partial class MaterialInterface : Surface/*
 	// Export UMaterialInterface::execGetVectorParameterValue(FFrame&, void* const)
 	public virtual /*native function */bool GetVectorParameterValue(name ParameterName, ref Object.LinearColor OutValue)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -85,7 +85,7 @@ public partial class MaterialInterface : Surface/*
 	// Export UMaterialInterface::execGetVectorCurveParameterValue(FFrame&, void* const)
 	public virtual /*native function */bool GetVectorCurveParameterValue(name ParameterName, ref Object.InterpCurveVector OutValue)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

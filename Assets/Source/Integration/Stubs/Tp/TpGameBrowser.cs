@@ -200,7 +200,7 @@ public partial class TpGameBrowser : TpSystemHandler/*
 	// Export UTpGameBrowser::execUpdateLobbyListAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void UpdateLobbyListAsync(/*optional */ref TpGameBrowser.TpLobbyListParams InParams/* = default*/, /*optional */ref TpGameBrowser.TpLobbyListFavourites InFavourites/* = default*/)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
@@ -209,14 +209,14 @@ public partial class TpGameBrowser : TpSystemHandler/*
 	// Export UTpGameBrowser::execDropLobbyList(FFrame&, void* const)
 	public virtual /*native simulated function */void DropLobbyList()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTpGameBrowser::execGetLobbyByIndex(FFrame&, void* const)
 	public virtual /*native simulated function */TpGameBrowser.TpLobbyRef GetLobbyByIndex(int InIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -224,7 +224,7 @@ public partial class TpGameBrowser : TpSystemHandler/*
 	// Export UTpGameBrowser::execUpdateGameListAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void UpdateGameListAsync(TpGameBrowser.TpLobbyRef InLobby, /*optional */ref TpGameBrowser.TpGameListParams InParams/* = default*/, /*optional */ref TpGameBrowser.TpGameListFavourites InFavourites/* = default*/)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
@@ -233,7 +233,7 @@ public partial class TpGameBrowser : TpSystemHandler/*
 	// Export UTpGameBrowser::execStartQuickMatchAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void StartQuickMatchAsync(TpGameBrowser.TpPlayNowParams Params)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
@@ -244,21 +244,21 @@ public partial class TpGameBrowser : TpSystemHandler/*
 	// Export UTpGameBrowser::execFindGameAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void FindGameAsync(TpGameBrowser.TpPlayNowParams Params)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTpGameBrowser::execDropGameList(FFrame&, void* const)
 	public virtual /*native simulated function */void DropGameList(TpGameBrowser.TpLobbyRef InLobby)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTpGameBrowser::execGetGameByIndex(FFrame&, void* const)
 	public virtual /*native simulated function */TpGameBrowser.TpGameRef GetGameByIndex(TpGameBrowser.TpLobbyRef InLobby, int InIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

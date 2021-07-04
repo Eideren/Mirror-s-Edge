@@ -112,7 +112,7 @@ public partial class GameViewportClient : Object/* within Engine*//*
 	// Export UGameViewportClient::execConsoleCommand(FFrame&, void* const)
 	public virtual /*native function */String ConsoleCommand(String Command)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -120,14 +120,14 @@ public partial class GameViewportClient : Object/* within Engine*//*
 	// Export UGameViewportClient::execGetViewportSize(FFrame&, void* const)
 	public virtual /*native final function */void GetViewportSize(ref Object.Vector2D out_ViewportSize)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UGameViewportClient::execIsFullScreenViewport(FFrame&, void* const)
 	public virtual /*native final function */bool IsFullScreenViewport()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

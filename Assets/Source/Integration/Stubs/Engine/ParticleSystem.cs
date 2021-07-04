@@ -51,7 +51,7 @@ public partial class ParticleSystem : Object/*
 	// Export UParticleSystem::execGetCurrentLODMethod(FFrame&, void* const)
 	public virtual /*native function */ParticleSystem.ParticleSystemLODMethod GetCurrentLODMethod()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -59,7 +59,7 @@ public partial class ParticleSystem : Object/*
 	// Export UParticleSystem::execGetLODLevelCount(FFrame&, void* const)
 	public virtual /*native function */int GetLODLevelCount()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -67,7 +67,7 @@ public partial class ParticleSystem : Object/*
 	// Export UParticleSystem::execGetLODDistance(FFrame&, void* const)
 	public virtual /*native function */float GetLODDistance(int LODLevelIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -75,14 +75,14 @@ public partial class ParticleSystem : Object/*
 	// Export UParticleSystem::execSetCurrentLODMethod(FFrame&, void* const)
 	public virtual /*native function */void SetCurrentLODMethod(ParticleSystem.ParticleSystemLODMethod InMethod)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UParticleSystem::execSetLODDistance(FFrame&, void* const)
 	public virtual /*native function */bool SetLODDistance(int LODLevelIndex, float InDistance)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

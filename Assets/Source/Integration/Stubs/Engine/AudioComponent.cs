@@ -94,21 +94,21 @@ public partial class AudioComponent : ActorComponent/*
 	// Export UAudioComponent::execPlay(FFrame&, void* const)
 	public virtual /*native final function */void Play()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UAudioComponent::execStop(FFrame&, void* const)
 	public virtual /*native final function */void Stop()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UAudioComponent::execIsPlaying(FFrame&, void* const)
 	public virtual /*native final function */bool IsPlaying()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -116,49 +116,49 @@ public partial class AudioComponent : ActorComponent/*
 	// Export UAudioComponent::execFadeIn(FFrame&, void* const)
 	public virtual /*native final function */void FadeIn(float FadeInDuration, float FadeVolumeLevel)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UAudioComponent::execFadeOut(FFrame&, void* const)
 	public virtual /*native final function */void FadeOut(float FadeOutDuration, float FadeVolumeLevel)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UAudioComponent::execAdjustVolume(FFrame&, void* const)
 	public virtual /*native final function */void AdjustVolume(float AdjustVolumeDuration, float AdjustVolumeLevel)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UAudioComponent::execAdjustLowPassFiltering(FFrame&, void* const)
 	public virtual /*native final function */void AdjustLowPassFiltering(float AdjustLowPassDuration, float AdjustLowPassLevel)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UAudioComponent::execSetFloatParameter(FFrame&, void* const)
 	public virtual /*native final function */void SetFloatParameter(name InName, float InFloat)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UAudioComponent::execSetWaveParameter(FFrame&, void* const)
 	public virtual /*native final function */void SetWaveParameter(name InName, SoundNodeWave InWave)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UAudioComponent::execResetToDefaults(FFrame&, void* const)
 	public virtual /*native final function */void ResetToDefaults()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

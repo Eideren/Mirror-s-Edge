@@ -446,7 +446,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	// Export UTdProfileSettings::execGetTTStretchTotalTimeOnly(FFrame&, void* const)
 	public virtual /*native function */bool GetTTStretchTotalTimeOnly(int ProfileSettingId, ref float TotalTime)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -454,7 +454,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	// Export UTdProfileSettings::execSetTTStretchTime(FFrame&, void* const)
 	public virtual /*private native final function */bool SetTTStretchTime(int ProfileSettingId, float TotalTime, ref array<float> IntermediateTimes, float AverageSpeed, float DistanceRun)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -462,7 +462,7 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	// Export UTdProfileSettings::execGetTTStretchTime(FFrame&, void* const)
 	public virtual /*private native final function */bool GetTTStretchTime(int ProfileSettingId, ref float TotalTime, ref array<float> IntermediateTimes, ref float AverageSpeed, ref float DistanceRun)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -663,14 +663,14 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	// Export UTdProfileSettings::execResetKeysToDefault(FFrame&, void* const)
 	public /*native function */static void ResetKeysToDefault(/*optional */LocalPlayer _InPlayerOwner = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdProfileSettings::execSetToDefaults(FFrame&, void* const)
 	public override /*native event */void SetToDefaults()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

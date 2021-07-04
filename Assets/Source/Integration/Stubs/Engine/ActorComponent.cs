@@ -16,21 +16,21 @@ public partial class ActorComponent : Component/*
 	// Export UActorComponent::execSetTickGroup(FFrame&, void* const)
 	public virtual /*native final function */void SetTickGroup(Object.ETickingGroup NewTickGroup)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UActorComponent::execSetComponentRBFixed(FFrame&, void* const)
 	public virtual /*native final function */void SetComponentRBFixed(bool bFixed)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UActorComponent::execForceUpdate(FFrame&, void* const)
 	public virtual /*native final function */void ForceUpdate(bool bTransformOnly)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

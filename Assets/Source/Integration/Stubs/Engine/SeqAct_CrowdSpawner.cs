@@ -139,14 +139,14 @@ public partial class SeqAct_CrowdSpawner : SeqAct_Latent/*
 	// Export USeqAct_CrowdSpawner::execKillAgents(FFrame&, void* const)
 	public virtual /*native simulated function */void KillAgents()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export USeqAct_CrowdSpawner::execUpdateSpawning(FFrame&, void* const)
 	public virtual /*native simulated function */void UpdateSpawning(float DeltaSeconds)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

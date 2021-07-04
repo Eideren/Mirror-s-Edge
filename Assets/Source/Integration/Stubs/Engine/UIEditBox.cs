@@ -36,14 +36,14 @@ public partial class UIEditBox : UIObject,
 	// Export UUIEditBox::execSetValue(FFrame&, void* const)
 	public virtual /*native final function */void SetValue(String NewText, /*optional */int? _PlayerIndex = default, /*optional */bool? _bSkipNotification = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIEditBox::execGetValue(FFrame&, void* const)
 	public virtual /*native final function */String GetValue(/*optional */bool? _bReturnUserText = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -51,7 +51,7 @@ public partial class UIEditBox : UIObject,
 	// Export UUIEditBox::execCalculateCaretPositionFromCursorLocation(FFrame&, void* const)
 	public virtual /*native function */int CalculateCaretPositionFromCursorLocation(/*optional */int? _PlayerIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -59,14 +59,14 @@ public partial class UIEditBox : UIObject,
 	// Export UUIEditBox::execSetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIEditBox::execGetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -74,7 +74,7 @@ public partial class UIEditBox : UIObject,
 	// Export UUIEditBox::execRefreshSubscriberValue(FFrame&, void* const)
 	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -82,28 +82,28 @@ public partial class UIEditBox : UIObject,
 	// Export UUIEditBox::execNotifyDataStoreValueUpdated(FFrame&, void* const)
 	public virtual /*native final function */void NotifyDataStoreValueUpdated(UIDataStore SourceDataStore, bool bValuesInvalidated, name PropertyTag, UIDataProvider SourceProvider, int ArrayIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIEditBox::execGetBoundDataStores(FFrame&, void* const)
 	public virtual /*native function */void GetBoundDataStores(ref array<UIDataStore> out_BoundDataStores)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIEditBox::execClearBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void ClearBoundDataStores()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIEditBox::execSaveSubscriberValue(FFrame&, void* const)
 	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

@@ -6,7 +6,7 @@ public partial class TdUtils : Object/*
 	// Export UTdUtils::execCosineInterp(FFrame&, void* const)
 	public /*native final function */static float CosineInterp(float A, float B, float T)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -14,7 +14,7 @@ public partial class TdUtils : Object/*
 	// Export UTdUtils::execFormatTime(FFrame&, void* const)
 	public /*native final function */static String FormatTime(String SecondsString)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -22,7 +22,7 @@ public partial class TdUtils : Object/*
 	// Export UTdUtils::execFormatFloatTime(FFrame&, void* const)
 	public /*native final function */static String FormatFloatTime(float Time)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

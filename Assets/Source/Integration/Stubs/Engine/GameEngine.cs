@@ -94,7 +94,7 @@ public partial class GameEngine : Engine/*
 	// Export UGameEngine::execGetOnlineSubsystem(FFrame&, void* const)
 	public /*native final function */static OnlineSubsystem GetOnlineSubsystem()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

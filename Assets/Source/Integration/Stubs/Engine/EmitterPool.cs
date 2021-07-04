@@ -55,21 +55,21 @@ public partial class EmitterPool : Actor/*
 	// Export UEmitterPool::execReturnToPool(FFrame&, void* const)
 	public virtual /*protected native final function */void ReturnToPool(ParticleSystemComponent PSC)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UEmitterPool::execFreeStaticMeshComponents(FFrame&, void* const)
 	public virtual /*protected native final function */void FreeStaticMeshComponents(ParticleSystemComponent PSC)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UEmitterPool::execGetFreeStaticMeshComponent(FFrame&, void* const)
 	public virtual /*protected native final function */StaticMeshComponent GetFreeStaticMeshComponent(/*optional */bool? _bCreateNewObject = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -77,14 +77,14 @@ public partial class EmitterPool : Actor/*
 	// Export UEmitterPool::execFreeMaterialInstanceConstants(FFrame&, void* const)
 	public virtual /*protected native final function */void FreeMaterialInstanceConstants(StaticMeshComponent SMC)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UEmitterPool::execGetFreeMatInstConsts(FFrame&, void* const)
 	public virtual /*protected native final function */MaterialInstanceConstant GetFreeMatInstConsts(/*optional */bool? _bCreateNewObject = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -92,7 +92,7 @@ public partial class EmitterPool : Actor/*
 	// Export UEmitterPool::execGetPooledComponent(FFrame&, void* const)
 	public virtual /*protected native final function */ParticleSystemComponent GetPooledComponent(ParticleSystem EmitterTemplate)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

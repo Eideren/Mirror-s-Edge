@@ -35,7 +35,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetMapIndexFromFileName(FFrame&, void* const)
 	public virtual /*native function */int GetMapIndexFromFileName(String Filename)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -43,7 +43,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetMapIndexFromMapName(FFrame&, void* const)
 	public virtual /*native function */int GetMapIndexFromMapName(String MapName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -51,7 +51,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetFileNameFromMapIndex(FFrame&, void* const)
 	public virtual /*native function */String GetFileNameFromMapIndex(int MapIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -59,7 +59,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetMapNameFromMapIndex(FFrame&, void* const)
 	public virtual /*native function */String GetMapNameFromMapIndex(int MapIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -67,7 +67,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetTutorialMapIndex(FFrame&, void* const)
 	public virtual /*native function */int GetTutorialMapIndex()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -75,7 +75,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetRolesList(FFrame&, void* const)
 	public virtual /*native function */array<int> GetRolesList(/*optional */int? _Team = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -83,7 +83,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetNumRoles(FFrame&, void* const)
 	public virtual /*native function */int GetNumRoles(/*optional */int? _Team = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -91,7 +91,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetRoleIndexFromRoleId(FFrame&, void* const)
 	public virtual /*native function */int GetRoleIndexFromRoleId(int RoleId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -99,7 +99,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetRoleIdFromRoleIndex(FFrame&, void* const)
 	public virtual /*native function */int GetRoleIdFromRoleIndex(int RoleIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -107,7 +107,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetRoleClassNameFromIndex(FFrame&, void* const)
 	public virtual /*native function */String GetRoleClassNameFromIndex(int RoleIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -115,7 +115,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetRoleNameFromIndex(FFrame&, void* const)
 	public virtual /*native function */String GetRoleNameFromIndex(int RoleIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -123,7 +123,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetRoleImageMarkupFromIndex(FFrame&, void* const)
 	public virtual /*native function */String GetRoleImageMarkupFromIndex(int RoleIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -131,7 +131,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetGameModeClassNameFromIndex(FFrame&, void* const)
 	public virtual /*native function */String GetGameModeClassNameFromIndex(int Index)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -139,7 +139,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetMapNumCheckpoints(FFrame&, void* const)
 	public virtual /*native function */int GetMapNumCheckpoints(int Index)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -147,7 +147,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetCheckpointFriendlyNameFromIndex(FFrame&, void* const)
 	public virtual /*native function */String GetCheckpointFriendlyNameFromIndex(int Index)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -155,7 +155,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetCheckpointDescriptionFromIndex(FFrame&, void* const)
 	public virtual /*native function */String GetCheckpointDescriptionFromIndex(int Index)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -163,7 +163,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetCheckpointNameFromIndex(FFrame&, void* const)
 	public virtual /*native function */String GetCheckpointNameFromIndex(int Index)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -171,7 +171,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetCheckpointNameFromIndexAndMap(FFrame&, void* const)
 	public virtual /*native function */String GetCheckpointNameFromIndexAndMap(int MapIndex, int CheckpointIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -179,7 +179,7 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdGameData::execGetCheckpointImageMarkupFromIndex(FFrame&, void* const)
 	public virtual /*native function */String GetCheckpointImageMarkupFromIndex(int Index)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

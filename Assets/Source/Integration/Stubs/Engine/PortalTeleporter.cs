@@ -17,7 +17,7 @@ public partial class PortalTeleporter : SceneCapturePortalActor/*
 	// Export UPortalTeleporter::execTransformActor(FFrame&, void* const)
 	public virtual /*native final function */bool TransformActor(Actor A)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -25,7 +25,7 @@ public partial class PortalTeleporter : SceneCapturePortalActor/*
 	// Export UPortalTeleporter::execTransformVectorDir(FFrame&, void* const)
 	public virtual /*native final function */Object.Vector TransformVectorDir(Object.Vector V)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -33,7 +33,7 @@ public partial class PortalTeleporter : SceneCapturePortalActor/*
 	// Export UPortalTeleporter::execTransformHitLocation(FFrame&, void* const)
 	public virtual /*native final function */Object.Vector TransformHitLocation(Object.Vector HitLocation)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -41,7 +41,7 @@ public partial class PortalTeleporter : SceneCapturePortalActor/*
 	// Export UPortalTeleporter::execCreatePortalTexture(FFrame&, void* const)
 	public virtual /*native final function */TextureRenderTarget2D CreatePortalTexture()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

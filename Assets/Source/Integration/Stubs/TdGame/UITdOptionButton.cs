@@ -38,14 +38,14 @@ public partial class UITdOptionButton : TdUIObject,
 	// Export UUITdOptionButton::execSetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUITdOptionButton::execGetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -53,7 +53,7 @@ public partial class UITdOptionButton : TdUIObject,
 	// Export UUITdOptionButton::execRefreshSubscriberValue(FFrame&, void* const)
 	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -61,28 +61,28 @@ public partial class UITdOptionButton : TdUIObject,
 	// Export UUITdOptionButton::execNotifyDataStoreValueUpdated(FFrame&, void* const)
 	public virtual /*native function */void NotifyDataStoreValueUpdated(UIDataStore SourceDataStore, bool bValuesInvalidated, name PropertyTag, UIDataProvider SourceProvider, int ArrayIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUITdOptionButton::execGetBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void GetBoundDataStores(ref array<UIDataStore> out_BoundDataStores)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUITdOptionButton::execClearBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void ClearBoundDataStores()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUITdOptionButton::execSaveSubscriberValue(FFrame&, void* const)
 	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -90,7 +90,7 @@ public partial class UITdOptionButton : TdUIObject,
 	// Export UUITdOptionButton::execHasPrevValue(FFrame&, void* const)
 	public virtual /*native function */bool HasPrevValue()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -98,7 +98,7 @@ public partial class UITdOptionButton : TdUIObject,
 	// Export UUITdOptionButton::execHasNextValue(FFrame&, void* const)
 	public virtual /*native function */bool HasNextValue()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -106,28 +106,28 @@ public partial class UITdOptionButton : TdUIObject,
 	// Export UUITdOptionButton::execSetPrevValue(FFrame&, void* const)
 	public virtual /*native function */void SetPrevValue()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUITdOptionButton::execSetNextValue(FFrame&, void* const)
 	public virtual /*native function */void SetNextValue()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUITdOptionButton::execUpdateArrowStates(FFrame&, void* const)
 	public virtual /*native function */void UpdateArrowStates()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUITdOptionButton::execGetCurrentIndex(FFrame&, void* const)
 	public virtual /*native function */int GetCurrentIndex()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -135,14 +135,14 @@ public partial class UITdOptionButton : TdUIObject,
 	// Export UUITdOptionButton::execSetCurrentIndex(FFrame&, void* const)
 	public virtual /*native function */void SetCurrentIndex(int NewIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUITdOptionButton::execIsCurrentElementEnabled(FFrame&, void* const)
 	public virtual /*native function */bool IsCurrentElementEnabled()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -150,7 +150,7 @@ public partial class UITdOptionButton : TdUIObject,
 	// Export UUITdOptionButton::execGetCurrentValue(FFrame&, void* const)
 	public virtual /*native function */int GetCurrentValue()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

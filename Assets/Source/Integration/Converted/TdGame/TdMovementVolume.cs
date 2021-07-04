@@ -28,27 +28,27 @@ public partial class TdMovementVolume : PhysicsVolume/*
 	// Export UTdMovementVolume::execGetLocationOnSpline(FFrame&, void* const)
 	public virtual /*native function */Object.Vector GetLocationOnSpline(float ParamT)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdMovementVolume::execGetSlopeOnSpline(FFrame&, void* const)
 	public virtual /*native function */Object.Vector GetSlopeOnSpline(float ParamT)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdMovementVolume::execFindClosestPointOnDSpline(FFrame&, void* const)
 	public virtual /*native function */void FindClosestPointOnDSpline(Object.Vector InLocation, ref Object.Vector ClosestLocation, ref float NParamT, /*optional */int? _LowestIndexHint = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdMovementVolume::execIsSplineMarkerSelected(FFrame&, void* const)
 	public virtual /*native function */bool IsSplineMarkerSelected()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

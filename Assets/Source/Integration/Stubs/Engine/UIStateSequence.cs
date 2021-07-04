@@ -7,7 +7,7 @@ public partial class UIStateSequence : UISequence/*
 	// Export UUIStateSequence::execGetOwnerState(FFrame&, void* const)
 	public virtual /*native final function */UIState GetOwnerState()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

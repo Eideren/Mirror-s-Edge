@@ -7,7 +7,7 @@ public partial class TdSkeletalMeshCommandlet : Commandlet/*
 	// Export UTdSkeletalMeshCommandlet::execMain(FFrame&, void* const)
 	public override /*native event */int Main(String Params)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

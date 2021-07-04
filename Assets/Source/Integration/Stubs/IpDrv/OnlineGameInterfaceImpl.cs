@@ -60,7 +60,7 @@ public partial class OnlineGameInterfaceImpl : Object,
 	// Export UOnlineGameInterfaceImpl::execCreateOnlineGame(FFrame&, void* const)
 	public virtual /*native function */bool CreateOnlineGame(byte HostingPlayerNum, OnlineGameSettings NewGameSettings)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -84,7 +84,7 @@ public partial class OnlineGameInterfaceImpl : Object,
 	// Export UOnlineGameInterfaceImpl::execDestroyOnlineGame(FFrame&, void* const)
 	public virtual /*native function */bool DestroyOnlineGame()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -102,7 +102,7 @@ public partial class OnlineGameInterfaceImpl : Object,
 	// Export UOnlineGameInterfaceImpl::execFindOnlineGames(FFrame&, void* const)
 	public virtual /*native function */bool FindOnlineGames(byte SearchingPlayerNum, OnlineGameSearch SearchSettings)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -120,7 +120,7 @@ public partial class OnlineGameInterfaceImpl : Object,
 	// Export UOnlineGameInterfaceImpl::execCancelFindOnlineGames(FFrame&, void* const)
 	public virtual /*native function */bool CancelFindOnlineGames()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -138,7 +138,7 @@ public partial class OnlineGameInterfaceImpl : Object,
 	// Export UOnlineGameInterfaceImpl::execFreeSearchResults(FFrame&, void* const)
 	public virtual /*native function */bool FreeSearchResults(OnlineGameSearch Search)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -146,7 +146,7 @@ public partial class OnlineGameInterfaceImpl : Object,
 	// Export UOnlineGameInterfaceImpl::execJoinOnlineGame(FFrame&, void* const)
 	public virtual /*native function */bool JoinOnlineGame(byte PlayerNum, /*const */ref OnlineGameSearch.OnlineGameSearchResult DesiredGame)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -164,7 +164,7 @@ public partial class OnlineGameInterfaceImpl : Object,
 	// Export UOnlineGameInterfaceImpl::execGetResolvedConnectString(FFrame&, void* const)
 	public virtual /*native function */bool GetResolvedConnectString(ref String ConnectInfo)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -204,7 +204,7 @@ public partial class OnlineGameInterfaceImpl : Object,
 	// Export UOnlineGameInterfaceImpl::execStartOnlineGame(FFrame&, void* const)
 	public virtual /*native function */bool StartOnlineGame()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -222,7 +222,7 @@ public partial class OnlineGameInterfaceImpl : Object,
 	// Export UOnlineGameInterfaceImpl::execEndOnlineGame(FFrame&, void* const)
 	public virtual /*native function */bool EndOnlineGame()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

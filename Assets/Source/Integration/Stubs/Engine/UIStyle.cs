@@ -17,7 +17,7 @@ public partial class UIStyle : UIRoot/* within UISkin*//*
 	// Export UUIStyle::execGetStyleForState(FFrame&, void* const)
 	public virtual /*native final function */UIStyle_Data GetStyleForState(UIState StateObject)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -25,7 +25,7 @@ public partial class UIStyle : UIRoot/* within UISkin*//*
 	// Export UUIStyle::execGetStyleForStateByClass(FFrame&, void* const)
 	public virtual /*native final function */UIStyle_Data GetStyleForStateByClass(Core.ClassT<UIState> StateClass)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

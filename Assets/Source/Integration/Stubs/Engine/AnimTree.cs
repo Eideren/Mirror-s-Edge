@@ -60,7 +60,7 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	// Export UAnimTree::execFindSkelControl(FFrame&, void* const)
 	public virtual /*native final function */SkelControlBase FindSkelControl(name InControlName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -68,7 +68,7 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	// Export UAnimTree::execFindMorphNode(FFrame&, void* const)
 	public virtual /*native final function */MorphNodeBase FindMorphNode(name InNodeName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -76,7 +76,7 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	// Export UAnimTree::execSetAnimGroupForNode(FFrame&, void* const)
 	public virtual /*native final function */bool SetAnimGroupForNode(AnimNodeSequence SeqNode, name GroupName, /*optional */bool? _bCreateIfNotFound = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -84,7 +84,7 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	// Export UAnimTree::execGetGroupSynchMaster(FFrame&, void* const)
 	public virtual /*native final function */AnimNodeSequence GetGroupSynchMaster(name GroupName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -92,7 +92,7 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	// Export UAnimTree::execGetGroupNotifyMaster(FFrame&, void* const)
 	public virtual /*native final function */AnimNodeSequence GetGroupNotifyMaster(name GroupName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -100,14 +100,14 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	// Export UAnimTree::execForceGroupRelativePosition(FFrame&, void* const)
 	public virtual /*native final function */void ForceGroupRelativePosition(name GroupName, float RelativePosition)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UAnimTree::execGetGroupRelativePosition(FFrame&, void* const)
 	public virtual /*native final function */float GetGroupRelativePosition(name GroupName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -115,14 +115,14 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	// Export UAnimTree::execSetGroupRateScale(FFrame&, void* const)
 	public virtual /*native final function */void SetGroupRateScale(name GroupName, float NewRateScale)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UAnimTree::execGetGroupIndex(FFrame&, void* const)
 	public virtual /*native final function */int GetGroupIndex(name GroupName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

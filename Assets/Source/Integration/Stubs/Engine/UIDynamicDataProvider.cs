@@ -12,7 +12,7 @@ public partial class UIDynamicDataProvider : UIPropertyDataProvider/*
 	// Export UUIDynamicDataProvider::execBindProviderInstance(FFrame&, void* const)
 	public virtual /*native final function */bool BindProviderInstance(Object DataSourceInstance)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -20,7 +20,7 @@ public partial class UIDynamicDataProvider : UIPropertyDataProvider/*
 	// Export UUIDynamicDataProvider::execUnbindProviderInstance(FFrame&, void* const)
 	public virtual /*native final function */bool UnbindProviderInstance()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

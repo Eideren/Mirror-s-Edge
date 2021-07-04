@@ -31,7 +31,7 @@ public partial class SceneCaptureComponent : ActorComponent/*
 	// Export USceneCaptureComponent::execSetFrameRate(FFrame&, void* const)
 	public virtual /*native final function */void SetFrameRate(float NewFrameRate)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

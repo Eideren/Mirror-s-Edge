@@ -13,7 +13,7 @@ public partial class TdAnimNodeBlendList : AnimNodeBlendList/*
 	// Export UTdAnimNodeBlendList::execSetActiveMove(FFrame&, void* const)
 	public virtual /*native function */bool SetActiveMove(int ChildIndex, /*optional */bool? _ForceActive = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

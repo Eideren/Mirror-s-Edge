@@ -32,14 +32,14 @@ public partial class BrushBuilder : Object/*
 	// Export UBrushBuilder::execBeginBrush(FFrame&, void* const)
 	public virtual /*native function */void BeginBrush(bool InMergeCoplanars, name InGroup)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UBrushBuilder::execEndBrush(FFrame&, void* const)
 	public virtual /*native function */bool EndBrush()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -47,7 +47,7 @@ public partial class BrushBuilder : Object/*
 	// Export UBrushBuilder::execGetVertexCount(FFrame&, void* const)
 	public virtual /*native function */int GetVertexCount()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -55,7 +55,7 @@ public partial class BrushBuilder : Object/*
 	// Export UBrushBuilder::execGetVertex(FFrame&, void* const)
 	public virtual /*native function */Object.Vector GetVertex(int I)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -63,7 +63,7 @@ public partial class BrushBuilder : Object/*
 	// Export UBrushBuilder::execGetPolyCount(FFrame&, void* const)
 	public virtual /*native function */int GetPolyCount()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -71,7 +71,7 @@ public partial class BrushBuilder : Object/*
 	// Export UBrushBuilder::execBadParameters(FFrame&, void* const)
 	public virtual /*native function */bool BadParameters(/*optional */String? _msg = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -79,7 +79,7 @@ public partial class BrushBuilder : Object/*
 	// Export UBrushBuilder::execVertexv(FFrame&, void* const)
 	public virtual /*native function */int Vertexv(Object.Vector V)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -87,7 +87,7 @@ public partial class BrushBuilder : Object/*
 	// Export UBrushBuilder::execVertex3f(FFrame&, void* const)
 	public virtual /*native function */int Vertex3f(float X, float Y, float Z)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -95,35 +95,35 @@ public partial class BrushBuilder : Object/*
 	// Export UBrushBuilder::execPoly3i(FFrame&, void* const)
 	public virtual /*native function */void Poly3i(int Direction, int I, int J, int K, /*optional */name? _ItemName = default, /*optional */bool? _bIsTwoSidedNonSolid = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UBrushBuilder::execPoly4i(FFrame&, void* const)
 	public virtual /*native function */void Poly4i(int Direction, int I, int J, int K, int L, /*optional */name? _ItemName = default, /*optional */bool? _bIsTwoSidedNonSolid = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UBrushBuilder::execPolyBegin(FFrame&, void* const)
 	public virtual /*native function */void PolyBegin(int Direction, /*optional */name? _ItemName = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UBrushBuilder::execPolyi(FFrame&, void* const)
 	public virtual /*native function */void Polyi(int I)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UBrushBuilder::execPolyEnd(FFrame&, void* const)
 	public virtual /*native function */void PolyEnd()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

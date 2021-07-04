@@ -11,26 +11,26 @@ public partial class AnimNodeCrossfader : AnimNodeBlend/*
 	// Export UAnimNodeCrossfader::execPlayOneShotAnim(FFrame&, void* const)
 	public virtual /*native final function */void PlayOneShotAnim(name AnimSeqName, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bDontBlendOut = default, /*optional */float? _Rate = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UAnimNodeCrossfader::execBlendToLoopingAnim(FFrame&, void* const)
 	public virtual /*native final function */void BlendToLoopingAnim(name AnimSeqName, /*optional */float? _BlendInTime = default, /*optional */float? _Rate = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UAnimNodeCrossfader::execGetAnimName(FFrame&, void* const)
 	public virtual /*native final function */name GetAnimName()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UAnimNodeCrossfader::execGetActiveChild(FFrame&, void* const)
 	public virtual /*native final function */AnimNodeSequence GetActiveChild()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

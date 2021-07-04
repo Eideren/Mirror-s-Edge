@@ -110,7 +110,7 @@ public partial class TdAI_HeliController : AIController/*
 	// Export UTdAI_HeliController::execDrawPath(FFrame&, void* const)
 	public virtual /*native function */void DrawPath()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

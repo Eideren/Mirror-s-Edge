@@ -22,28 +22,28 @@ public partial class CoverGroup : Info/*
 	// Export UCoverGroup::execEnableGroup(FFrame&, void* const)
 	public virtual /*native function */void EnableGroup()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCoverGroup::execDisableGroup(FFrame&, void* const)
 	public virtual /*native function */void DisableGroup()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCoverGroup::execToggleGroup(FFrame&, void* const)
 	public virtual /*native function */void ToggleGroup()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCoverGroup::execContains(FFrame&, void* const)
 	public virtual /*native function */bool Contains(CoverLink Link)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

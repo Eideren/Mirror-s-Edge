@@ -46,7 +46,7 @@ public partial class UIDataStore : UIDataProvider/*
 	// Export UUIDataStore::execOnCommit(FFrame&, void* const)
 	public virtual /*native function */void OnCommit()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

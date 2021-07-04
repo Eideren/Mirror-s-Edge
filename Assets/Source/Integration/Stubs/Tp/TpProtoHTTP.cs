@@ -10,14 +10,14 @@ public partial class TpProtoHTTP : TpSystemHandler/*
 	// Export UTpProtoHTTP::execUpdate(FFrame&, void* const)
 	public virtual /*native simulated function */void Update(float DeltaSeconds)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTpProtoHTTP::execGetCurrentVersion(FFrame&, void* const)
 	public virtual /*native simulated function */void GetCurrentVersion(/*optional */String? _Param = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

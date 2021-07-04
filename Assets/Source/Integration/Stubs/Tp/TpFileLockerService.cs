@@ -13,14 +13,14 @@ public partial class TpFileLockerService : TpSystemHandler/*
 	// Export UTpFileLockerService::execUpdate(FFrame&, void* const)
 	public virtual /*native simulated function */void Update(float DeltaSeconds)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTpFileLockerService::execFetchLocker(FFrame&, void* const)
 	public virtual /*native function */bool FetchLocker(String UserName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -30,7 +30,7 @@ public partial class TpFileLockerService : TpSystemHandler/*
 	// Export UTpFileLockerService::execReadFileFromLocker(FFrame&, void* const)
 	public virtual /*native function */bool ReadFileFromLocker(ref OnlineSubsystem.OnlineFileLockerFile File)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -40,7 +40,7 @@ public partial class TpFileLockerService : TpSystemHandler/*
 	// Export UTpFileLockerService::execWriteFileToLocker(FFrame&, void* const)
 	public virtual /*native function */bool WriteFileToLocker(ref OnlineSubsystem.OnlineFileLockerFile File)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -50,7 +50,7 @@ public partial class TpFileLockerService : TpSystemHandler/*
 	// Export UTpFileLockerService::execDeleteFileFromLocker(FFrame&, void* const)
 	public virtual /*native function */bool DeleteFileFromLocker(ref OnlineSubsystem.OnlineFileLockerFile FileInfo)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -60,7 +60,7 @@ public partial class TpFileLockerService : TpSystemHandler/*
 	// Export UTpFileLockerService::execListFileLocker(FFrame&, void* const)
 	public virtual /*native function */array<OnlineSubsystem.OnlineFileLockerFileInfo> ListFileLocker()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

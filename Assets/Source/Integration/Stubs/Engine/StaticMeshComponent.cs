@@ -38,7 +38,7 @@ public partial class StaticMeshComponent : MeshComponent/*
 	// Export UStaticMeshComponent::execSetStaticMesh(FFrame&, void* const)
 	public virtual /*native simulated function */bool SetStaticMesh(StaticMesh NewMesh)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -46,7 +46,7 @@ public partial class StaticMeshComponent : MeshComponent/*
 	// Export UStaticMeshComponent::execDisableRBCollisionWithSMC(FFrame&, void* const)
 	public virtual /*native simulated function */void DisableRBCollisionWithSMC(StaticMeshComponent OtherSMC, bool bDisabled)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

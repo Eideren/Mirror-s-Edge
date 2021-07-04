@@ -134,7 +134,7 @@ public partial class SequenceOp : SequenceObject/*
 	// Export USequenceOp::execHasLinkedOps(FFrame&, void* const)
 	public virtual /*native final function */bool HasLinkedOps(/*optional */bool? _bConsiderInputLinks = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -142,28 +142,28 @@ public partial class SequenceOp : SequenceObject/*
 	// Export USequenceOp::execGetLinkedObjects(FFrame&, void* const)
 	public virtual /*native final function */void GetLinkedObjects(ref array<SequenceObject> out_Objects, /*optional */Core.ClassT<SequenceObject> _ObjectType = default, /*optional */bool? _bRecurse = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export USequenceOp::execGetObjectVars(FFrame&, void* const)
 	public virtual /*native final function */void GetObjectVars(ref array<Object> objVars, /*optional */String? _inDesc = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export USequenceOp::execGetBoolVars(FFrame&, void* const)
 	public virtual /*native final function */void GetBoolVars(ref array<byte> boolVars, /*optional */String? _inDesc = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export USequenceOp::execLinkedVariables(FFrame&, void* const)
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<SequenceVariable/* OutVariable*/> LinkedVariables(Core.ClassT<SequenceVariable> VarClass, /*optional */String? _inDesc = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		yield break;
 	}
@@ -186,14 +186,14 @@ public partial class SequenceOp : SequenceObject/*
 	// Export USequenceOp::execPopulateLinkedVariableValues(FFrame&, void* const)
 	public virtual /*native final function */void PopulateLinkedVariableValues()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export USequenceOp::execPublishLinkedVariableValues(FFrame&, void* const)
 	public virtual /*native final function */void PublishLinkedVariableValues()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

@@ -14,7 +14,7 @@ public partial class RB_RadialImpulseComponent : PrimitiveComponent/*
 	// Export URB_RadialImpulseComponent::execFireImpulse(FFrame&, void* const)
 	public virtual /*native function */void FireImpulse(Object.Vector Origin)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

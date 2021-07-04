@@ -11,7 +11,7 @@ public partial class SeqAct_Latent : SequenceAction/*
 	// Export USeqAct_Latent::execAbortFor(FFrame&, void* const)
 	public virtual /*native function */void AbortFor(Actor latentActor)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

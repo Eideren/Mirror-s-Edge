@@ -42,7 +42,7 @@ public partial class UITabPage : UIContainer,
 	// Export UUITabPage::execGetOwnerTabControl(FFrame&, void* const)
 	public virtual /*native final function */UITabControl GetOwnerTabControl()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -56,14 +56,14 @@ public partial class UITabPage : UIContainer,
 	// Export UUITabPage::execSetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUITabPage::execGetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -71,7 +71,7 @@ public partial class UITabPage : UIContainer,
 	// Export UUITabPage::execRefreshSubscriberValue(FFrame&, void* const)
 	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -79,21 +79,21 @@ public partial class UITabPage : UIContainer,
 	// Export UUITabPage::execNotifyDataStoreValueUpdated(FFrame&, void* const)
 	public virtual /*native final function */void NotifyDataStoreValueUpdated(UIDataStore SourceDataStore, bool bValuesInvalidated, name PropertyTag, UIDataProvider SourceProvider, int ArrayIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUITabPage::execGetBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void GetBoundDataStores(ref array<UIDataStore> out_BoundDataStores)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUITabPage::execClearBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void ClearBoundDataStores()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

@@ -9,7 +9,7 @@ public partial class MorphNodeWeight : MorphNodeWeightBase/*
 	// Export UMorphNodeWeight::execSetNodeWeight(FFrame&, void* const)
 	public virtual /*native function */void SetNodeWeight(float NewWeight)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

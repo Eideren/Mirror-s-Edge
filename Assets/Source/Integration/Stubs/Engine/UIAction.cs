@@ -11,7 +11,7 @@ public partial class UIAction : SequenceAction/*
 	// Export UUIAction::execGetOwner(FFrame&, void* const)
 	public virtual /*native final function */UIScreenObject GetOwner()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -19,7 +19,7 @@ public partial class UIAction : SequenceAction/*
 	// Export UUIAction::execGetOwnerScene(FFrame&, void* const)
 	public virtual /*native final function */UIScene GetOwnerScene()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

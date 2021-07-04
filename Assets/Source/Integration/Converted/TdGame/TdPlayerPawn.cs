@@ -100,33 +100,33 @@ public partial class TdPlayerPawn : TdPawn/*
 	// Export UTdPlayerPawn::execCheckValidFloor(FFrame&, void* const)
 	public virtual /*native function */bool CheckValidFloor(Object.Vector CurrentDelta, Object.Vector CheckFloor, bool bSlideOff)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdPlayerPawn::execUpdate1pArms(FFrame&, void* const)
 	public virtual /*native final function */void Update1pArms(float DeltaTime)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdPlayerPawn::execCheckAgainstWall(FFrame&, void* const)
 	public virtual /*native final function */TdPawn.EAgainstWallState CheckAgainstWall()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdPlayerPawn::execUpdateAgainstWall(FFrame&, void* const)
 	public virtual /*native final function */void UpdateAgainstWall()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdPlayerPawn::execGetMobilityMultiplier(FFrame&, void* const)
 	public override /*native function */float GetMobilityMultiplier()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -1379,25 +1379,25 @@ public partial class TdPlayerPawn : TdPawn/*
 	// Export UTdPlayerPawn::execMAT_BeginAnimControl(FFrame&, void* const)
 	public virtual /*native function */void MAT_BeginAnimControl(array<AnimSet> InAnimSets)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdPlayerPawn::execMAT_SetAnimPosition(FFrame&, void* const)
 	public virtual /*native function */void MAT_SetAnimPosition(name SlotName, int ChannelIndex, name InAnimSeqName, float InPosition, bool bFireNotifies, bool bLooping)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdPlayerPawn::execMAT_SetAnimWeights(FFrame&, void* const)
 	public virtual /*native function */void MAT_SetAnimWeights(array<Actor.AnimSlotInfo> SlotInfos)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdPlayerPawn::execMAT_FinishAnimControl(FFrame&, void* const)
 	public virtual /*native function */void MAT_FinishAnimControl()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	public override /*event */void BeginAnimControl(array<AnimSet> InAnimSets)

@@ -73,14 +73,14 @@ public partial class TdKeyBindingHandler : Object/*
 	// Export UTdKeyBindingHandler::execRefreshBindingButtons(FFrame&, void* const)
 	public virtual /*native function */void RefreshBindingButtons()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdKeyBindingHandler::execGetBindKeyFromCommand(FFrame&, void* const)
 	public virtual /*native function */String GetBindKeyFromCommand(String Command, ref int StartIdx)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

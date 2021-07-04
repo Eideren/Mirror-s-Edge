@@ -15,20 +15,20 @@
         // Export UTdPawn::execGetCustomAnimation(FFrame&, void* const)
         public virtual /*native simulated function */AnimNodeSequence GetCustomAnimation(TdPawn.CustomNodeType Type)
         {
-            #warning NATIVE FUNCTION !
+            NativeMarkers.MarkUnimplemented();
             return default;
         }
 
         // Export UTdPawn::execPlayCustomAnim(FFrame&, void* const)
         public virtual /*native simulated function */void PlayCustomAnim(TdPawn.CustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool? _bRootRotation = default)
         {
-            #warning NATIVE FUNCTION !
+            NativeMarkers.MarkUnimplemented();
         }
         
         // Export UTdPawn::execSetCustomAnimsBlendOutTime(FFrame&, void* const)
         public virtual /*native simulated function */void SetCustomAnimsBlendOutTime(TdPawn.CustomNodeType Type, float BlendOutTime)
         {
-            #warning NATIVE FUNCTION !
+            NativeMarkers.MarkUnimplemented();
         }
 	
         // Export UTdPawn::execInitMoveObjects(FFrame&, void* const)

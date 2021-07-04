@@ -250,7 +250,7 @@ public partial class TdAIVoiceOverManager : Actor/*
 	// Export UTdAIVoiceOverManager::execNoiseLevel(FFrame&, void* const)
 	public virtual /*private native final function */float NoiseLevel()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

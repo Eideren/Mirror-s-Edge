@@ -7,14 +7,14 @@ public partial class TdAnimNodeSwitch : TdAnimNodeBlendList/*
 	// Export UTdAnimNodeSwitch::execGetActiveState(FFrame&, void* const)
 	public virtual /*native function */int GetActiveState()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdAnimNodeSwitch::execGetState(FFrame&, void* const)
 	public virtual /*native simulated function */bool GetState()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

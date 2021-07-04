@@ -10,20 +10,20 @@ public partial class AnimNodePlayCustomAnim : AnimNodeBlend/*
 	// Export UAnimNodePlayCustomAnim::execPlayCustomAnim(FFrame&, void* const)
 	public virtual /*native final function */float PlayCustomAnim(name AnimName, float Rate, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bLooping = default, /*optional */bool? _bOverride = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UAnimNodePlayCustomAnim::execPlayCustomAnimByDuration(FFrame&, void* const)
 	public virtual /*native final function */void PlayCustomAnimByDuration(name AnimName, float Duration, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bLooping = default, /*optional */bool? _bOverride = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UAnimNodePlayCustomAnim::execStopCustomAnim(FFrame&, void* const)
 	public virtual /*native final function */void StopCustomAnim(float BlendOutTime)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	public virtual /*final function */void SetCustomAnim(name AnimName)

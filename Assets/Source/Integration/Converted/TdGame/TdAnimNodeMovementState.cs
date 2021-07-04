@@ -10,14 +10,14 @@ public partial class TdAnimNodeMovementState : TdAnimNodeState/*
 	// Export UTdAnimNodeMovementState::execGetActiveState(FFrame&, void* const)
 	public override /*native function */int GetActiveState()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdAnimNodeMovementState::execGetBlendValue(FFrame&, void* const)
 	public override /*native function */float GetBlendValue(int PreviousState, int NewState)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

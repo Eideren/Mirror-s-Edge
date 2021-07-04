@@ -30,14 +30,14 @@ public partial class UISkin : UIDataStore/*
 	// Export UUISkin::execGetAvailableStyles(FFrame&, void* const)
 	public virtual /*native final function */void GetAvailableStyles(ref array<UIStyle> out_Styles, /*optional */bool? _bIncludeInheritedStyles = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUISkin::execGetCursorResource(FFrame&, void* const)
 	public virtual /*native final function */UITexture GetCursorResource(name CursorName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -45,7 +45,7 @@ public partial class UISkin : UIDataStore/*
 	// Export UUISkin::execAddUISoundCue(FFrame&, void* const)
 	public virtual /*native final function */bool AddUISoundCue(name SoundCueName, SoundCue SoundToPlay)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -53,7 +53,7 @@ public partial class UISkin : UIDataStore/*
 	// Export UUISkin::execRemoveUISoundCue(FFrame&, void* const)
 	public virtual /*native final function */bool RemoveUISoundCue(name SoundCueName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -61,7 +61,7 @@ public partial class UISkin : UIDataStore/*
 	// Export UUISkin::execGetUISoundCue(FFrame&, void* const)
 	public virtual /*native final function */bool GetUISoundCue(name SoundCueName, ref SoundCue out_UISoundCue)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -69,14 +69,14 @@ public partial class UISkin : UIDataStore/*
 	// Export UUISkin::execGetSkinSoundCues(FFrame&, void* const)
 	public virtual /*native final function */void GetSkinSoundCues(ref array<UISkin.UISoundCue> out_SoundCues)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUISkin::execIsInheritedGroupName(FFrame&, void* const)
 	public virtual /*native final function */bool IsInheritedGroupName(String StyleGroupName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -84,7 +84,7 @@ public partial class UISkin : UIDataStore/*
 	// Export UUISkin::execAddStyleGroupName(FFrame&, void* const)
 	public virtual /*native final function */bool AddStyleGroupName(String StyleGroupName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -92,7 +92,7 @@ public partial class UISkin : UIDataStore/*
 	// Export UUISkin::execRemoveStyleGroupName(FFrame&, void* const)
 	public virtual /*native final function */bool RemoveStyleGroupName(String StyleGroupName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -100,7 +100,7 @@ public partial class UISkin : UIDataStore/*
 	// Export UUISkin::execRenameStyleGroup(FFrame&, void* const)
 	public virtual /*native final function */bool RenameStyleGroup(String OldStyleGroupName, String NewStyleGroupName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -108,7 +108,7 @@ public partial class UISkin : UIDataStore/*
 	// Export UUISkin::execGetStyleGroupAtIndex(FFrame&, void* const)
 	public virtual /*native final function */String GetStyleGroupAtIndex(int Index)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -116,7 +116,7 @@ public partial class UISkin : UIDataStore/*
 	// Export UUISkin::execFindStyleGroupIndex(FFrame&, void* const)
 	public virtual /*native final function */int FindStyleGroupIndex(String StyleGroupName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -124,7 +124,7 @@ public partial class UISkin : UIDataStore/*
 	// Export UUISkin::execGetStyleGroups(FFrame&, void* const)
 	public virtual /*native final function */void GetStyleGroups(ref array<String> StyleGroupArray, /*optional */bool? _bIncludeInheritedGroups = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

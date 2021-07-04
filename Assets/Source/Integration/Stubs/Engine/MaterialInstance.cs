@@ -22,49 +22,49 @@ public partial class MaterialInstance : MaterialInterface/*
 	// Export UMaterialInstance::execSetParent(FFrame&, void* const)
 	public virtual /*native function */void SetParent(MaterialInterface NewParent)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstance::execSetVectorParameterValue(FFrame&, void* const)
 	public virtual /*native function */void SetVectorParameterValue(name ParameterName, Object.LinearColor Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstance::execSetScalarParameterValue(FFrame&, void* const)
 	public virtual /*native function */void SetScalarParameterValue(name ParameterName, float Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstance::execSetScalarCurveParameterValue(FFrame&, void* const)
 	public virtual /*native function */void SetScalarCurveParameterValue(name ParameterName, Object.InterpCurveFloat Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstance::execSetTextureParameterValue(FFrame&, void* const)
 	public virtual /*native function */void SetTextureParameterValue(name ParameterName, Texture Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstance::execSetFontParameterValue(FFrame&, void* const)
 	public virtual /*native function */void SetFontParameterValue(name ParameterName, Font FontValue, int FontPage)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstance::execClearParameterValues(FFrame&, void* const)
 	public virtual /*native function */void ClearParameterValues()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

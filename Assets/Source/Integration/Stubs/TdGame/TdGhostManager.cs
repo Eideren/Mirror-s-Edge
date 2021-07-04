@@ -14,42 +14,42 @@ public partial class TdGhostManager : Actor/*
 	// Export UTdGhostManager::execRecordGhost(FFrame&, void* const)
 	public virtual /*native function */void RecordGhost(TdPawn P)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdGhostManager::execStopGhostRecording(FFrame&, void* const)
 	public virtual /*native function */void StopGhostRecording(TdPawn P)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdGhostManager::execGetRecordedGhost(FFrame&, void* const)
 	public virtual /*native function */void GetRecordedGhost(ref array<byte> GhostData)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdGhostManager::execSetPlaybackGhost(FFrame&, void* const)
 	public virtual /*native function */void SetPlaybackGhost(ref array<byte> GhostData)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdGhostManager::execPlaybackGhost(FFrame&, void* const)
 	public virtual /*native function */void PlaybackGhost()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdGhostManager::execStopGhostPlayback(FFrame&, void* const)
 	public virtual /*native function */void StopGhostPlayback()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

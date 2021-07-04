@@ -15,58 +15,58 @@ public partial class AnimNodeSlot : AnimNodeBlendBase/*
 	// Export UAnimNodeSlot::execPlayCustomAnim(FFrame&, void* const)
 	public virtual /*native final function */float PlayCustomAnim(name AnimName, float Rate, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bLooping = default, /*optional */bool? _bOverride = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UAnimNodeSlot::execPlayCustomAnimByDuration(FFrame&, void* const)
 	public virtual /*native final function */void PlayCustomAnimByDuration(name AnimName, float Duration, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bLooping = default, /*optional */bool? _bOverride = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UAnimNodeSlot::execGetPlayedAnimation(FFrame&, void* const)
 	public virtual /*native final function */name GetPlayedAnimation()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UAnimNodeSlot::execStopCustomAnim(FFrame&, void* const)
 	public virtual /*native final function */void StopCustomAnim(float BlendOutTime)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UAnimNodeSlot::execSetCustomAnim(FFrame&, void* const)
 	public virtual /*native final function */void SetCustomAnim(name AnimName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UAnimNodeSlot::execSetActorAnimEndNotification(FFrame&, void* const)
 	public virtual /*native final function */void SetActorAnimEndNotification(bool bNewStatus)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UAnimNodeSlot::execGetCustomAnimNodeSeq(FFrame&, void* const)
 	public virtual /*native final function */AnimNodeSequence GetCustomAnimNodeSeq()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UAnimNodeSlot::execSetRootBoneAxisOption(FFrame&, void* const)
 	public virtual /*native final function */void SetRootBoneAxisOption(/*optional */AnimNodeSequence.ERootBoneAxis? _AxisX = default, /*optional */AnimNodeSequence.ERootBoneAxis? _AxisY = default, /*optional */AnimNodeSequence.ERootBoneAxis? _AxisZ = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UAnimNodeSlot::execAddToSynchGroup(FFrame&, void* const)
 	public virtual /*native final function */void AddToSynchGroup(name GroupName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	public AnimNodeSlot()

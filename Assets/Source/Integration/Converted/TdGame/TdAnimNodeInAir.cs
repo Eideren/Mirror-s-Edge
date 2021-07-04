@@ -11,7 +11,7 @@ public partial class TdAnimNodeInAir : TdAnimNodeBlendList/*
 	// Export UTdAnimNodeInAir::execGetInAirState(FFrame&, void* const)
 	public virtual /*native function */int GetInAirState()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

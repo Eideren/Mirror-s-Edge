@@ -19,7 +19,7 @@ public partial class UIPrefabInstance : UIObject/*
 	// Export UUIPrefabInstance::execDetachFromSourcePrefab(FFrame&, void* const)
 	public virtual /*native final function */void DetachFromSourcePrefab()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

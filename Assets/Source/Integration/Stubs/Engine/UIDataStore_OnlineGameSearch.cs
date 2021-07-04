@@ -82,7 +82,7 @@ public partial class UIDataStore_OnlineGameSearch : UIDataStore_Remote,
 	// Export UUIDataStore_OnlineGameSearch::execBuildSearchResults(FFrame&, void* const)
 	public virtual /*native function */void BuildSearchResults()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

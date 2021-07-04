@@ -53,7 +53,7 @@ public partial class CheatManager : Object/* within PlayerController*//*
 	// Export UCheatManager::execGetFVectorFromString(FFrame&, void* const)
 	public virtual /*private native final function */Object.Vector GetFVectorFromString(String InStr)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -61,7 +61,7 @@ public partial class CheatManager : Object/* within PlayerController*//*
 	// Export UCheatManager::execGetFRotatorFromString(FFrame&, void* const)
 	public virtual /*private native final function */Object.Rotator GetFRotatorFromString(String InStr)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

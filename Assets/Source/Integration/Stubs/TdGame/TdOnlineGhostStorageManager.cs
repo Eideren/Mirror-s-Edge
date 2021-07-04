@@ -107,14 +107,14 @@ public partial class TdOnlineGhostStorageManager : TdGhostStorageManager/*
 	// Export UTdOnlineGhostStorageManager::execFindUnusedTags(FFrame&, void* const)
 	public virtual /*private native final function */void FindUnusedTags()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdOnlineGhostStorageManager::execGetCachedGhost(FFrame&, void* const)
 	public virtual /*private native final function */TdGhost GetCachedGhost(TdGhost.TdGhostInfo GhostInfo)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -122,7 +122,7 @@ public partial class TdOnlineGhostStorageManager : TdGhostStorageManager/*
 	// Export UTdOnlineGhostStorageManager::execCacheGhost(FFrame&, void* const)
 	public virtual /*private native final function */void CacheGhost(TdGhost.TdGhostInfo GhostInfo, ref array<byte> GhostBytes)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

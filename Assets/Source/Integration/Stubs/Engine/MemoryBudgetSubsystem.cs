@@ -10,7 +10,7 @@ public partial class MemoryBudgetSubsystem : Subsystem/*
 	// Export UMemoryBudgetSubsystem::execGetSubsystem(FFrame&, void* const)
 	public /*native event */static MemoryBudgetSubsystem GetSubsystem()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -18,21 +18,21 @@ public partial class MemoryBudgetSubsystem : Subsystem/*
 	// Export UMemoryBudgetSubsystem::execRenderAllocations(FFrame&, void* const)
 	public virtual /*native function */void RenderAllocations(Canvas Canvas)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMemoryBudgetSubsystem::execDumpAllocations(FFrame&, void* const)
 	public virtual /*native function */void DumpAllocations()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMemoryBudgetSubsystem::execDumpAudioAllocationsByType(FFrame&, void* const)
 	public virtual /*native function */void DumpAudioAllocationsByType()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

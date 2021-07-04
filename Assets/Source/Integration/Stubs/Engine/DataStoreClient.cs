@@ -27,7 +27,7 @@ public partial class DataStoreClient : UIRoot/*
 	// Export UDataStoreClient::execFindDataStore(FFrame&, void* const)
 	public virtual /*native final function */UIDataStore FindDataStore(name DataStoreTag, /*optional */LocalPlayer _PlayerOwner = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -35,7 +35,7 @@ public partial class DataStoreClient : UIRoot/*
 	// Export UDataStoreClient::execCreateDataStore(FFrame&, void* const)
 	public virtual /*native final function */UIDataStore CreateDataStore(Core.ClassT<UIDataStore> DataStoreClass)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -43,7 +43,7 @@ public partial class DataStoreClient : UIRoot/*
 	// Export UDataStoreClient::execRegisterDataStore(FFrame&, void* const)
 	public virtual /*native final function */bool RegisterDataStore(UIDataStore DataStore, /*optional */LocalPlayer _PlayerOwner = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -51,7 +51,7 @@ public partial class DataStoreClient : UIRoot/*
 	// Export UDataStoreClient::execUnregisterDataStore(FFrame&, void* const)
 	public virtual /*native final function */bool UnregisterDataStore(UIDataStore DataStore)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -59,14 +59,14 @@ public partial class DataStoreClient : UIRoot/*
 	// Export UDataStoreClient::execGetAvailableDataStores(FFrame&, void* const)
 	public virtual /*native final function */void GetAvailableDataStores(UIScene CurrentScene, ref array<UIDataStore> out_DataStores)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UDataStoreClient::execFindPlayerDataStoreIndex(FFrame&, void* const)
 	public virtual /*native final function */int FindPlayerDataStoreIndex(LocalPlayer PlayerOwner)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

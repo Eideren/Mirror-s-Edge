@@ -26,7 +26,7 @@ public partial class UIState : UIRoot,
 	// Export UUIState::execIsActiveForPlayer(FFrame&, void* const)
 	public virtual /*native final function */bool IsActiveForPlayer(int PlayerIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -61,20 +61,20 @@ public partial class UIState : UIRoot,
 	// Export UUIState::execGetUIEvents(FFrame&, void* const)
 	public virtual /*native final function */void GetUIEvents(ref array<UIEvent> out_Events, /*optional */Core.ClassT<UIEvent> _LimitClass = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UUIState::execAddSequenceObject(FFrame&, void* const)
 	public virtual /*native final function */bool AddSequenceObject(SequenceObject NewObj, /*optional */bool? _bRecurse = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UUIState::execRemoveSequenceObject(FFrame&, void* const)
 	public virtual /*native final function */void RemoveSequenceObject(SequenceObject ObjectToRemove)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 
 
@@ -89,7 +89,7 @@ public partial class UIState : UIRoot,
 	// Export UUIState::execRemoveSequenceObjects(FFrame&, void* const)
 	public virtual /*native final function */void RemoveSequenceObjects(/*const */ref array<SequenceObject> ObjectsToRemove)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	public UIState()

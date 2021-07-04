@@ -15,7 +15,7 @@ public partial class SampleClass : Actor/*
 	// Export USampleClass::execSampleNativeFunction(FFrame&, void* const)
 	public virtual /*native function */int SampleNativeFunction(int I, String S, Object.Vector V)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

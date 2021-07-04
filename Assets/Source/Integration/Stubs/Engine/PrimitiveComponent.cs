@@ -174,219 +174,219 @@ public partial class PrimitiveComponent : ActorComponent/*
 	// Export UPrimitiveComponent::execAddImpulse(FFrame&, void* const)
 	public virtual /*native final function */void AddImpulse(Object.Vector Impulse, /*optional */Object.Vector? _Position = default, /*optional */name? _BoneName = default, /*optional */bool? _bVelChange = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execAddRadialImpulse(FFrame&, void* const)
 	public virtual /*native final function */void AddRadialImpulse(Object.Vector Origin, float Radius, float Strength, PrimitiveComponent.ERadialImpulseFalloff Falloff, /*optional */bool? _bVelChange = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execAddForce(FFrame&, void* const)
 	public virtual /*native final function */void AddForce(Object.Vector Force, /*optional */Object.Vector? _Position = default, /*optional */name? _BoneName = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execAddRadialForce(FFrame&, void* const)
 	public virtual /*native final function */void AddRadialForce(Object.Vector Origin, float Radius, float Strength, PrimitiveComponent.ERadialImpulseFalloff Falloff)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetRBLinearVelocity(FFrame&, void* const)
 	public virtual /*native final function */void SetRBLinearVelocity(Object.Vector NewVel, /*optional */bool? _bAddToCurrent = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetRBAngularVelocity(FFrame&, void* const)
 	public virtual /*native final function */void SetRBAngularVelocity(Object.Vector NewAngVel, /*optional */bool? _bAddToCurrent = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetRBPosition(FFrame&, void* const)
 	public virtual /*native final function */void SetRBPosition(Object.Vector NewPos, /*optional */name? _BoneName = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetRBRotation(FFrame&, void* const)
 	public virtual /*native final function */void SetRBRotation(Object.Rotator NewRot, /*optional */name? _BoneName = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execWakeRigidBody(FFrame&, void* const)
 	public virtual /*native final function */void WakeRigidBody(/*optional */name? _BoneName = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execPutRigidBodyToSleep(FFrame&, void* const)
 	public virtual /*native final function */void PutRigidBodyToSleep(/*optional */name? _BoneName = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execRigidBodyIsAwake(FFrame&, void* const)
 	public virtual /*native final function */bool RigidBodyIsAwake(/*optional */name? _BoneName = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UPrimitiveComponent::execSetBlockRigidBody(FFrame&, void* const)
 	public virtual /*native final function */void SetBlockRigidBody(bool bNewBlockRigidBody)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetRBCollidesWithChannel(FFrame&, void* const)
 	public virtual /*native final function */void SetRBCollidesWithChannel(PrimitiveComponent.ERBCollisionChannel Channel, bool bNewCollides)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetRBChannel(FFrame&, void* const)
 	public virtual /*native final function */void SetRBChannel(PrimitiveComponent.ERBCollisionChannel Channel)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetNotifyRigidBodyCollision(FFrame&, void* const)
 	public virtual /*native final function */void SetNotifyRigidBodyCollision(bool bNewNotifyRigidBodyCollision)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetPhysMaterialOverride(FFrame&, void* const)
 	public virtual /*native final function */void SetPhysMaterialOverride(PhysicalMaterial NewPhysMaterial)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execGetRootBodyInstance(FFrame&, void* const)
 	public virtual /*native final function */RB_BodyInstance GetRootBodyInstance()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UPrimitiveComponent::execSetRBDominanceGroup(FFrame&, void* const)
 	public virtual /*native final function */void SetRBDominanceGroup(byte InDomGroup)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetHidden(FFrame&, void* const)
 	public virtual /*native final function */void SetHidden(bool NewHidden)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetOwnerNoSee(FFrame&, void* const)
 	public virtual /*native final function */void SetOwnerNoSee(bool bNewOwnerNoSee)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetOnlyOwnerSee(FFrame&, void* const)
 	public virtual /*native final function */void SetOnlyOwnerSee(bool bNewOnlyOwnerSee)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetOwnerNoSeeWithShadow(FFrame&, void* const)
 	public virtual /*native final function */void SetOwnerNoSeeWithShadow(bool bNewOwnerNoSeeWithShadow)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetIgnoreOwnerHidden(FFrame&, void* const)
 	public virtual /*native final function */void SetIgnoreOwnerHidden(bool bNewIgnoreOwnerHidden)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetShadowParent(FFrame&, void* const)
 	public virtual /*native final function */void SetShadowParent(PrimitiveComponent NewShadowParent)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetLightEnvironment(FFrame&, void* const)
 	public virtual /*native final function */void SetLightEnvironment(LightEnvironmentComponent NewLightEnvironment)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetCullDistance(FFrame&, void* const)
 	public virtual /*native final function */void SetCullDistance(float NewCullDistance)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetLightingChannels(FFrame&, void* const)
 	public virtual /*native final function */void SetLightingChannels(LightComponent.LightingChannelContainer NewLightingChannels)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetDepthPriorityGroup(FFrame&, void* const)
 	public virtual /*native final function */void SetDepthPriorityGroup(Scene.ESceneDepthPriorityGroup NewDepthPriorityGroup)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetViewOwnerDepthPriorityGroup(FFrame&, void* const)
 	public virtual /*native final function */void SetViewOwnerDepthPriorityGroup(bool bNewUseViewOwnerDepthPriorityGroup, Scene.ESceneDepthPriorityGroup NewViewOwnerDepthPriorityGroup)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetTraceBlocking(FFrame&, void* const)
 	public virtual /*native final function */void SetTraceBlocking(bool NewBlockZeroExtent, bool NewBlockNonZeroExtent)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetActorCollision(FFrame&, void* const)
 	public virtual /*native final function */void SetActorCollision(bool NewCollideActors, bool NewBlockActors)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetTranslation(FFrame&, void* const)
 	public virtual /*native function */void SetTranslation(Object.Vector NewTranslation)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetRotation(FFrame&, void* const)
 	public virtual /*native function */void SetRotation(Object.Rotator NewRotation)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetScale(FFrame&, void* const)
 	public virtual /*native function */void SetScale(float NewScale)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetScale3D(FFrame&, void* const)
 	public virtual /*native function */void SetScale3D(Object.Vector NewScale3D)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UPrimitiveComponent::execSetAbsolute(FFrame&, void* const)
 	public virtual /*native function */void SetAbsolute(/*optional */bool? _NewAbsoluteTranslation = default, /*optional */bool? _NewAbsoluteRotation = default, /*optional */bool? _NewAbsoluteScale = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	public virtual /*final function */Object.Vector GetPosition()
@@ -398,7 +398,7 @@ public partial class PrimitiveComponent : ActorComponent/*
 	// Export UPrimitiveComponent::execGetRotation(FFrame&, void* const)
 	public virtual /*native final function */Object.Rotator GetRotation()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

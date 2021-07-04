@@ -2253,7 +2253,7 @@ public partial class UIRoot : Object/*
 	// Export UUIRoot::execGetCurrentUIController(FFrame&, void* const)
 	public /*native final function */static UIInteraction GetCurrentUIController()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -2261,7 +2261,7 @@ public partial class UIRoot : Object/*
 	// Export UUIRoot::execGetSceneClient(FFrame&, void* const)
 	public /*native final function */static GameUISceneClient GetSceneClient()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -2269,7 +2269,7 @@ public partial class UIRoot : Object/*
 	// Export UUIRoot::execGetFaceOrientation(FFrame&, void* const)
 	public /*native final function */static UIRoot.EUIOrientation GetFaceOrientation(UIRoot.EUIWidgetFace Face)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -2277,7 +2277,7 @@ public partial class UIRoot : Object/*
 	// Export UUIRoot::execGetCursorPosition(FFrame&, void* const)
 	public /*native final function */static bool GetCursorPosition(ref int CursorX, ref int CursorY, /*const optional */UIScene _Scene = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -2285,7 +2285,7 @@ public partial class UIRoot : Object/*
 	// Export UUIRoot::execGetCursorSize(FFrame&, void* const)
 	public /*native final function */static bool GetCursorSize(ref float CursorXL, ref float CursorYL)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -2293,14 +2293,14 @@ public partial class UIRoot : Object/*
 	// Export UUIRoot::execSetMouseCaptureOverride(FFrame&, void* const)
 	public /*native final function */static void SetMouseCaptureOverride(bool bCaptureMouse)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIRoot::execGetPrimitiveTransform(FFrame&, void* const)
 	public /*native final function */static Object.Matrix GetPrimitiveTransform(UIObject Widget, /*optional */bool? _bIncludeAnchorPosition = default, /*optional */bool? _bIncudeRotation = default, /*optional */bool? _bIncludeScale = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -2308,7 +2308,7 @@ public partial class UIRoot : Object/*
 	// Export UUIRoot::execSetDataStoreFieldValue(FFrame&, void* const)
 	public /*native final function */static bool SetDataStoreFieldValue(String InDataStoreMarkup, /*const */ref UIRoot.UIProviderFieldValue InFieldValue, /*optional */UIScene _OwnerScene = default, /*optional */LocalPlayer _OwnerPlayer = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -2322,7 +2322,7 @@ public partial class UIRoot : Object/*
 	// Export UUIRoot::execGetDataStoreFieldValue(FFrame&, void* const)
 	public /*native final function */static bool GetDataStoreFieldValue(String InDataStoreMarkup, ref UIRoot.UIProviderFieldValue OutFieldValue, /*optional */UIScene _OwnerScene = default, /*optional */LocalPlayer _OwnerPlayer = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

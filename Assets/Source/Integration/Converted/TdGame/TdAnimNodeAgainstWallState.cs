@@ -9,7 +9,7 @@ public partial class TdAnimNodeAgainstWallState : TdAnimNodeState/*
 	// Export UTdAnimNodeAgainstWallState::execGetBlendValue(FFrame&, void* const)
 	public override /*native function */float GetBlendValue(int PreviousState, int NewState)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

@@ -41,7 +41,7 @@ public partial class CrowdAgent : Actor/*
 	// Export UCrowdAgent::execPlayDeath(FFrame&, void* const)
 	public virtual /*native function */void PlayDeath()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

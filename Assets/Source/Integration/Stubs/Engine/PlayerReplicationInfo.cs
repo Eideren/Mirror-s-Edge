@@ -79,7 +79,7 @@ public partial class PlayerReplicationInfo : ReplicationInfo/*
 	// Export UPlayerReplicationInfo::execAreUniqueNetIdsEqual(FFrame&, void* const)
 	public virtual /*native final function */bool AreUniqueNetIdsEqual(PlayerReplicationInfo OtherPRI)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -87,7 +87,7 @@ public partial class PlayerReplicationInfo : ReplicationInfo/*
 	// Export UPlayerReplicationInfo::execGetPlayerAlias(FFrame&, void* const)
 	public virtual /*native function */String GetPlayerAlias()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -110,7 +110,7 @@ public partial class PlayerReplicationInfo : ReplicationInfo/*
 	// Export UPlayerReplicationInfo::execUpdatePing(FFrame&, void* const)
 	public virtual /*native final function */void UpdatePing(float TimeStamp)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
@@ -206,7 +206,7 @@ public partial class PlayerReplicationInfo : ReplicationInfo/*
 	// Export UPlayerReplicationInfo::execGetTeamNum(FFrame&, void* const)
 	public override /*native simulated function */byte GetTeamNum()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

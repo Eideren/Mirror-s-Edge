@@ -13,14 +13,14 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	// Export UTpAssociationManager::execAddFriendAsync(FFrame&, void* const)
 	public virtual /*native simulated function */void AddFriendAsync(OnlineSubsystem.UniqueNetId NewFriend)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTpAssociationManager::execRemoveFriendAsync(FFrame&, void* const)
 	public virtual /*native simulated function */bool RemoveFriendAsync(OnlineSubsystem.UniqueNetId FormerFriend)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -28,7 +28,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	// Export UTpAssociationManager::execGetMyFriendsList(FFrame&, void* const)
 	public virtual /*native simulated function */array<String> GetMyFriendsList()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -36,7 +36,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	// Export UTpAssociationManager::execGetMyFriendsListEx(FFrame&, void* const)
 	public virtual /*native simulated function */bool GetMyFriendsListEx(byte LocalUserNum, ref array<OnlineSubsystem.OnlineFriend> Friends, /*optional */int? _Count = default, /*optional */int? _StartingAt = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -44,7 +44,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	// Export UTpAssociationManager::execGetPlayersList(FFrame&, void* const)
 	public virtual /*native simulated function */bool GetPlayersList(ref array<OnlineSubsystem.OnlinePlayer> Players, /*optional */int? _Count = default, /*optional */int? _StartingAt = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -52,7 +52,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	// Export UTpAssociationManager::execIsFriend(FFrame&, void* const)
 	public virtual /*native simulated function */bool IsFriend(OnlineSubsystem.UniqueNetId PlayerId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -60,7 +60,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	// Export UTpAssociationManager::execBlockUserAsync(FFrame&, void* const)
 	public virtual /*native simulated function */bool BlockUserAsync(OnlineSubsystem.UniqueNetId UserRef)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -68,7 +68,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	// Export UTpAssociationManager::execUnBlockUserAsync(FFrame&, void* const)
 	public virtual /*native simulated function */bool UnBlockUserAsync(OnlineSubsystem.UniqueNetId UserRef)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -76,7 +76,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	// Export UTpAssociationManager::execListBlockedUsers(FFrame&, void* const)
 	public virtual /*native simulated function */array<String> ListBlockedUsers()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -92,7 +92,7 @@ public partial class TpAssociationManager : TpSystemHandler/*
 	// Export UTpAssociationManager::execIsFriendsListLoaded(FFrame&, void* const)
 	public virtual /*native simulated function */bool IsFriendsListLoaded()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

@@ -22,7 +22,7 @@ public partial class PointLightComponent : LightComponent/*
 	// Export UPointLightComponent::execSetTranslation(FFrame&, void* const)
 	public virtual /*native final function */void SetTranslation(Object.Vector NewTranslation)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

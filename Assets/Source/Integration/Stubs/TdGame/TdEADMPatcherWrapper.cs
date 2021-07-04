@@ -6,7 +6,7 @@ public partial class TdEADMPatcherWrapper : Object/*
 	// Export UTdEADMPatcherWrapper::execIsLocalVersionNewerThan(FFrame&, void* const)
 	public /*native function */static bool IsLocalVersionNewerThan(String RequiredVersion)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -14,7 +14,7 @@ public partial class TdEADMPatcherWrapper : Object/*
 	// Export UTdEADMPatcherWrapper::execGetCDKey(FFrame&, void* const)
 	public /*native function */static String GetCDKey()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -22,7 +22,7 @@ public partial class TdEADMPatcherWrapper : Object/*
 	// Export UTdEADMPatcherWrapper::execGetParamSuffix(FFrame&, void* const)
 	public /*native function */static int GetParamSuffix()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -30,7 +30,7 @@ public partial class TdEADMPatcherWrapper : Object/*
 	// Export UTdEADMPatcherWrapper::execIsEADMInstalled(FFrame&, void* const)
 	public /*native function */static bool IsEADMInstalled()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -38,7 +38,7 @@ public partial class TdEADMPatcherWrapper : Object/*
 	// Export UTdEADMPatcherWrapper::execStartPatching(FFrame&, void* const)
 	public /*native function */static void StartPatching()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

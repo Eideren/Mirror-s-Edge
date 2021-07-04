@@ -9,7 +9,7 @@ public partial class LightEnvironmentComponent : ActorComponent/*
 	// Export ULightEnvironmentComponent::execSetEnabled(FFrame&, void* const)
 	public virtual /*native final function */void SetEnabled(bool bNewEnabled)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

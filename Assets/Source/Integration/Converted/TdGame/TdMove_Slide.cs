@@ -15,7 +15,7 @@ public partial class TdMove_Slide : TdMove/*
 	// Export UTdMove_Slide::execFloorDeclineTooSteep(FFrame&, void* const)
 	public virtual /*native function */bool FloorDeclineTooSteep()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

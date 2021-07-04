@@ -551,7 +551,7 @@ public partial class OnlineSubsystem : Object/*
 	// Export UOnlineSubsystem::execUniqueNetIdToString(FFrame&, void* const)
 	public /*native final function */static String UniqueNetIdToString(/*const */ref OnlineSubsystem.UniqueNetId IdToConvert)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -559,7 +559,7 @@ public partial class OnlineSubsystem : Object/*
 	// Export UOnlineSubsystem::execStringToUniqueNetId(FFrame&, void* const)
 	public /*native final function */static bool StringToUniqueNetId(String UniqueNetIdString, ref OnlineSubsystem.UniqueNetId out_UniqueId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

@@ -29,21 +29,21 @@ public partial class LensFlareComponent : PrimitiveComponent/*
 	// Export ULensFlareComponent::execSetTemplate(FFrame&, void* const)
 	public virtual /*native final function */void SetTemplate(LensFlare NewTemplate)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export ULensFlareComponent::execSetSourceColor(FFrame&, void* const)
 	public virtual /*native function */void SetSourceColor(Object.LinearColor InSourceColor)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export ULensFlareComponent::execSetIsActive(FFrame&, void* const)
 	public virtual /*native function */void SetIsActive(bool bInIsActive)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

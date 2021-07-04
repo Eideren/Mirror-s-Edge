@@ -41,7 +41,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	// Export UFracturedStaticMeshComponent::execSetStaticMesh(FFrame&, void* const)
 	public override /*native simulated function */bool SetStaticMesh(StaticMesh NewMesh)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -49,14 +49,14 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	// Export UFracturedStaticMeshComponent::execSetVisibleFragments(FFrame&, void* const)
 	public virtual /*native simulated function */void SetVisibleFragments(array<byte> VisibilityFactors)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UFracturedStaticMeshComponent::execGetVisibleFragments(FFrame&, void* const)
 	public virtual /*native simulated function */array<byte> GetVisibleFragments()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -64,7 +64,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	// Export UFracturedStaticMeshComponent::execIsFragmentVisible(FFrame&, void* const)
 	public virtual /*native simulated function */bool IsFragmentVisible(int FragmentIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -72,7 +72,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	// Export UFracturedStaticMeshComponent::execIsFragmentDestroyable(FFrame&, void* const)
 	public virtual /*native simulated function */bool IsFragmentDestroyable(int FragmentIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -80,7 +80,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	// Export UFracturedStaticMeshComponent::execIsRootFragment(FFrame&, void* const)
 	public virtual /*native simulated function */bool IsRootFragment(int FragmentIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -88,7 +88,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	// Export UFracturedStaticMeshComponent::execGetFragmentBox(FFrame&, void* const)
 	public virtual /*native function */Object.Box GetFragmentBox(int FragmentIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -96,7 +96,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	// Export UFracturedStaticMeshComponent::execGetFragmentAverageExteriorNormal(FFrame&, void* const)
 	public virtual /*native function */Object.Vector GetFragmentAverageExteriorNormal(int FragmentIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -104,7 +104,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	// Export UFracturedStaticMeshComponent::execGetNumFragments(FFrame&, void* const)
 	public virtual /*native function */int GetNumFragments()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -112,7 +112,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	// Export UFracturedStaticMeshComponent::execGetCoreFragmentIndex(FFrame&, void* const)
 	public virtual /*native function */int GetCoreFragmentIndex()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -120,7 +120,7 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	// Export UFracturedStaticMeshComponent::execGetFragmentGroups(FFrame&, void* const)
 	public virtual /*native simulated function */array<FracturedStaticMeshComponent.FragmentGroup> GetFragmentGroups(array<int> IgnoreFragments, float MinConnectionArea)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

@@ -12,7 +12,7 @@ public partial class AnimNodeBlendList : AnimNodeBlendBase/*
 	// Export UAnimNodeBlendList::execSetActiveChild(FFrame&, void* const)
 	public virtual /*native function */void SetActiveChild(int ChildIndex, float BlendTime)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	public AnimNodeBlendList()

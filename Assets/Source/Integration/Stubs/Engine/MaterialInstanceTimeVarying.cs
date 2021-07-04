@@ -208,77 +208,77 @@ public partial class MaterialInstanceTimeVarying : MaterialInstance/*
 	// Export UMaterialInstanceTimeVarying::execSetParent(FFrame&, void* const)
 	public override /*native function */void SetParent(MaterialInterface NewParent)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstanceTimeVarying::execSetScalarParameterValue(FFrame&, void* const)
 	public override /*native function */void SetScalarParameterValue(name ParameterName, float Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstanceTimeVarying::execSetScalarCurveParameterValue(FFrame&, void* const)
 	public override /*native function */void SetScalarCurveParameterValue(name ParameterName, Object.InterpCurveFloat Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstanceTimeVarying::execSetScalarStartTime(FFrame&, void* const)
 	public virtual /*native function */void SetScalarStartTime(name ParameterName, float Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstanceTimeVarying::execSetDuration(FFrame&, void* const)
 	public virtual /*native function */void SetDuration(float Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstanceTimeVarying::execSetTextureParameterValue(FFrame&, void* const)
 	public override /*native function */void SetTextureParameterValue(name ParameterName, Texture Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstanceTimeVarying::execSetVectorParameterValue(FFrame&, void* const)
 	public override /*native function */void SetVectorParameterValue(name ParameterName, Object.LinearColor Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstanceTimeVarying::execSetVectorCurveParameterValue(FFrame&, void* const)
 	public virtual /*native function */void SetVectorCurveParameterValue(name ParameterName, Object.InterpCurveVector Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstanceTimeVarying::execSetVectorStartTime(FFrame&, void* const)
 	public virtual /*native function */void SetVectorStartTime(name ParameterName, float Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstanceTimeVarying::execSetFontParameterValue(FFrame&, void* const)
 	public override /*native function */void SetFontParameterValue(name ParameterName, Font FontValue, int FontPage)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UMaterialInstanceTimeVarying::execClearParameterValues(FFrame&, void* const)
 	public override /*native function */void ClearParameterValues()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

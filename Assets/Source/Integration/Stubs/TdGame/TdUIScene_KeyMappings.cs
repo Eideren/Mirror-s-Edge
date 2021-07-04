@@ -19,7 +19,7 @@ public partial class TdUIScene_KeyMappings : TdUIScene_OptionMenu/*
 	// Export UTdUIScene_KeyMappings::execRebuildNavigationLinks(FFrame&, void* const)
 	public override /*native function */void RebuildNavigationLinks()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

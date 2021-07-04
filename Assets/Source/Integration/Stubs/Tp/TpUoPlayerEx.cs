@@ -84,7 +84,7 @@ public partial class TpUoPlayerEx : TpSystemHandler,
 	// Export UTpUoPlayerEx::execShowContentMarketplaceUI(FFrame&, void* const)
 	public virtual /*native function */bool ShowContentMarketplaceUI(byte LocalUserNum)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

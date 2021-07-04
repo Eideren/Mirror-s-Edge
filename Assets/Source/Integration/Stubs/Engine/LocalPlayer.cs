@@ -362,7 +362,7 @@ public partial class LocalPlayer : Player/* within Engine*//*
 	// Export ULocalPlayer::execSpawnPlayActor(FFrame&, void* const)
 	public virtual /*native final function */bool SpawnPlayActor(String URL, ref String OutError)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -370,14 +370,14 @@ public partial class LocalPlayer : Player/* within Engine*//*
 	// Export ULocalPlayer::execSendSplitJoin(FFrame&, void* const)
 	public virtual /*native final function */void SendSplitJoin()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export ULocalPlayer::execGetActorVisibility(FFrame&, void* const)
 	public virtual /*native final function */bool GetActorVisibility(Actor TestActor)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -405,7 +405,7 @@ public partial class LocalPlayer : Player/* within Engine*//*
 	// Export ULocalPlayer::execInsertPostProcessingChain(FFrame&, void* const)
 	public virtual /*native function */bool InsertPostProcessingChain(PostProcessChain InChain, int InIndex, bool bInClone)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -413,7 +413,7 @@ public partial class LocalPlayer : Player/* within Engine*//*
 	// Export ULocalPlayer::execRemovePostProcessingChain(FFrame&, void* const)
 	public virtual /*native function */bool RemovePostProcessingChain(int InIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -421,7 +421,7 @@ public partial class LocalPlayer : Player/* within Engine*//*
 	// Export ULocalPlayer::execRemoveAllPostProcessingChains(FFrame&, void* const)
 	public virtual /*native function */bool RemoveAllPostProcessingChains()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -429,7 +429,7 @@ public partial class LocalPlayer : Player/* within Engine*//*
 	// Export ULocalPlayer::execGetPostProcessChain(FFrame&, void* const)
 	public virtual /*native function */PostProcessChain GetPostProcessChain(int InIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -437,7 +437,7 @@ public partial class LocalPlayer : Player/* within Engine*//*
 	// Export ULocalPlayer::execTouchPlayerPostProcessChain(FFrame&, void* const)
 	public virtual /*native function */void TouchPlayerPostProcessChain()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

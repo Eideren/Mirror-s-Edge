@@ -31,7 +31,7 @@ public partial class Teleporter : NavigationPoint/*
 	// Export UTeleporter::execCanTeleport(FFrame&, void* const)
 	public override /*native function */bool CanTeleport(Actor A)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

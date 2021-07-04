@@ -28,7 +28,7 @@ public partial class UIDataStore_StringAliasMap : UIDataStore/*
 	// Export UUIDataStore_StringAliasMap::execGetPlayerOwner(FFrame&, void* const)
 	public virtual /*native final function */LocalPlayer GetPlayerOwner()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -36,7 +36,7 @@ public partial class UIDataStore_StringAliasMap : UIDataStore/*
 	// Export UUIDataStore_StringAliasMap::execFindMappingWithFieldName(FFrame&, void* const)
 	public virtual /*native final function */int FindMappingWithFieldName(/*optional */String? _FieldName = default, /*optional */String? _SetName = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -44,7 +44,7 @@ public partial class UIDataStore_StringAliasMap : UIDataStore/*
 	// Export UUIDataStore_StringAliasMap::execGetStringWithFieldName(FFrame&, void* const)
 	public virtual /*native function */int GetStringWithFieldName(String FieldName, ref String MappedString)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

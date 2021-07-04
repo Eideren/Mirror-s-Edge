@@ -18,7 +18,7 @@ public partial class TdUIScene_ControlsSettings : TdUIScene_OptionMenu/*
 	// Export UTdUIScene_ControlsSettings::execGetKeyBindingsData(FFrame&, void* const)
 	public virtual /*native function */bool GetKeyBindingsData(ref array<UIDataProvider_TdKeyBinding> LabelData)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

@@ -17,7 +17,7 @@ public partial class OnlineStatsWrite : OnlineStats/*
 	// Export UOnlineStatsWrite::execGetStatId(FFrame&, void* const)
 	public virtual /*native function */bool GetStatId(name StatName, ref int StatId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -25,7 +25,7 @@ public partial class OnlineStatsWrite : OnlineStats/*
 	// Export UOnlineStatsWrite::execGetStatName(FFrame&, void* const)
 	public virtual /*native function */name GetStatName(int StatId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -33,42 +33,42 @@ public partial class OnlineStatsWrite : OnlineStats/*
 	// Export UOnlineStatsWrite::execSetFloatStat(FFrame&, void* const)
 	public virtual /*native function */void SetFloatStat(int StatId, float Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UOnlineStatsWrite::execSetIntStat(FFrame&, void* const)
 	public virtual /*native function */void SetIntStat(int StatId, int Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UOnlineStatsWrite::execIncrementFloatStat(FFrame&, void* const)
 	public virtual /*native function */void IncrementFloatStat(int StatId, /*optional */float? _IncBy = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UOnlineStatsWrite::execIncrementIntStat(FFrame&, void* const)
 	public virtual /*native function */void IncrementIntStat(int StatId, /*optional */int? _IncBy = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UOnlineStatsWrite::execDecrementFloatStat(FFrame&, void* const)
 	public virtual /*native function */void DecrementFloatStat(int StatId, /*optional */float? _DecBy = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UOnlineStatsWrite::execDecrementIntStat(FFrame&, void* const)
 	public virtual /*native function */void DecrementIntStat(int StatId, /*optional */int? _DecBy = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

@@ -13,7 +13,7 @@ public partial class TdMove_VaultBot : TdMove_AISpecialMove/*
 	// Export UTdMove_VaultBot::execGetPreciseLocation(FFrame&, void* const)
 	public virtual /*native final function */Object.Vector GetPreciseLocation()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -21,7 +21,7 @@ public partial class TdMove_VaultBot : TdMove_AISpecialMove/*
 	// Export UTdMove_VaultBot::execGetPreciseRotation(FFrame&, void* const)
 	public virtual /*native final function */Object.Rotator GetPreciseRotation()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

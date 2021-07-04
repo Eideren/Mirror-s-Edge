@@ -36,7 +36,7 @@ public partial class TdGrenadeTargetArea : TdGrenadeArea/*
 	// Export UTdGrenadeTargetArea::execIsPawnInArea(FFrame&, void* const)
 	public virtual /*native function */bool IsPawnInArea(Pawn inPawn)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

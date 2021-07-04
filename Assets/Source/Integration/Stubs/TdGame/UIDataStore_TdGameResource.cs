@@ -9,7 +9,7 @@ public partial class UIDataStore_TdGameResource : UIDataStore_GameResource/*
 	// Export UUIDataStore_TdGameResource::execGetProviderCount(FFrame&, void* const)
 	public virtual /*native function */int GetProviderCount(name FieldName, /*optional */bool? _bDoNotFilter = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -17,7 +17,7 @@ public partial class UIDataStore_TdGameResource : UIDataStore_GameResource/*
 	// Export UUIDataStore_TdGameResource::execGetValueFromProviderSet(FFrame&, void* const)
 	public virtual /*native function */bool GetValueFromProviderSet(name ProviderFieldName, name SearchTag, int ListIndex, ref UIRoot.UIProviderFieldValue OutValue)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -25,7 +25,7 @@ public partial class UIDataStore_TdGameResource : UIDataStore_GameResource/*
 	// Export UUIDataStore_TdGameResource::execGetStringValueFromProviderSet(FFrame&, void* const)
 	public virtual /*native function */bool GetStringValueFromProviderSet(name ProviderFieldName, name SearchTag, int ListIndex, ref String OutString)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

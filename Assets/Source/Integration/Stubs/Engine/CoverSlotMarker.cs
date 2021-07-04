@@ -15,7 +15,7 @@ public partial class CoverSlotMarker : NavigationPoint/*
 	// Export UCoverSlotMarker::execGetSlotLocation(FFrame&, void* const)
 	public virtual /*native simulated function */Object.Vector GetSlotLocation()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -23,7 +23,7 @@ public partial class CoverSlotMarker : NavigationPoint/*
 	// Export UCoverSlotMarker::execGetSlotRotation(FFrame&, void* const)
 	public virtual /*native simulated function */Object.Rotator GetSlotRotation()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -31,7 +31,7 @@ public partial class CoverSlotMarker : NavigationPoint/*
 	// Export UCoverSlotMarker::execIsValidClaim(FFrame&, void* const)
 	public virtual /*native final function */bool IsValidClaim(Controller ChkClaim, /*optional */bool? _bSkipTeamCheck = default, /*optional */bool? _bSkipOverlapCheck = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

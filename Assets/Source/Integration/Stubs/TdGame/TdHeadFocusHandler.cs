@@ -32,7 +32,7 @@ public partial class TdHeadFocusHandler : Object/*
 	// Export UTdHeadFocusHandler::execTick(FFrame&, void* const)
 	public virtual /*native function */void Tick(float DeltaTime)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

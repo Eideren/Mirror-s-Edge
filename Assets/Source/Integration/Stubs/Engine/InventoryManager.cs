@@ -25,7 +25,7 @@ public partial class InventoryManager : Actor/*
 	// Export UInventoryManager::execInventoryActors(FFrame&, void* const)
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Inventory/* Inv*/> InventoryActors(Core.ClassT<Inventory> BaseClass)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		yield break;
 	}

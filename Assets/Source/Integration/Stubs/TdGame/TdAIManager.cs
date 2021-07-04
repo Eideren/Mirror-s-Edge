@@ -170,7 +170,7 @@ public partial class TdAIManager : Actor/*
 	// Export UTdAIManager::execGetBlockingPawn(FFrame&, void* const)
 	public virtual /*native function */TdBotPawn GetBlockingPawn(TdAIController me, bool bCrouching, /*optional */bool? _UpdateMoveDir = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -183,7 +183,7 @@ public partial class TdAIManager : Actor/*
 	// Export UTdAIManager::execIsOkToUpdateVisibility(FFrame&, void* const)
 	public virtual /*native function */bool IsOkToUpdateVisibility(TdAIController C)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -234,14 +234,14 @@ public partial class TdAIManager : Actor/*
 	// Export UTdAIManager::execUpdatePlayerNavigationPoint(FFrame&, void* const)
 	public virtual /*native function */void UpdatePlayerNavigationPoint()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdAIManager::execUpdatePlayerNavigationPointForShieldWall(FFrame&, void* const)
 	public virtual /*native function */void UpdatePlayerNavigationPointForShieldWall(AITeam Team)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
@@ -269,7 +269,7 @@ public partial class TdAIManager : Actor/*
 	// Export UTdAIManager::execPlayerMoveOkForLastSeenLocationUpdate(FFrame&, void* const)
 	public virtual /*native function */bool PlayerMoveOkForLastSeenLocationUpdate(TdPawn aPawn)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -277,28 +277,28 @@ public partial class TdAIManager : Actor/*
 	// Export UTdAIManager::execSetLastSeenLocation(FFrame&, void* const)
 	public virtual /*native final function */void SetLastSeenLocation(/*optional */TdPawn _aPawn = default, /*optional */Object.Vector? _L = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdAIManager::execFindPredictedLastSeenLocation(FFrame&, void* const)
 	public virtual /*private native final function */void FindPredictedLastSeenLocation()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdAIManager::execSetLastSeenLocationLocal(FFrame&, void* const)
 	public virtual /*private native final function */void SetLastSeenLocationLocal(Object.Vector Loc)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdAIManager::execRestoreOldLastSeenLocation(FFrame&, void* const)
 	public virtual /*private native final function */void RestoreOldLastSeenLocation(Object.Vector L)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
@@ -395,7 +395,7 @@ public partial class TdAIManager : Actor/*
 	// Export UTdAIManager::execGetNumberOfFriendsWithinRadius2D(FFrame&, void* const)
 	public virtual /*native final function */int GetNumberOfFriendsWithinRadius2D(TdAIController me, Object.Vector pos, float Radius)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -403,7 +403,7 @@ public partial class TdAIManager : Actor/*
 	// Export UTdAIManager::execFindBestTaserSpot(FFrame&, void* const)
 	public virtual /*native final function */bool FindBestTaserSpot(TdAIController C, ref NavigationPoint np, Object.Vector Point, int NetworkID, /*optional */float? _MaxDist = default, /*optional */float? _MaxDistZ = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -411,7 +411,7 @@ public partial class TdAIManager : Actor/*
 	// Export UTdAIManager::execIsGoalForAnyBot(FFrame&, void* const)
 	public virtual /*native final function */bool IsGoalForAnyBot(NavigationPoint np, /*optional */TdAIController _exclude = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

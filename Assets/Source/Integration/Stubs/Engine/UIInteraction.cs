@@ -70,7 +70,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	// Export UUIInteraction::execGetPlayerCount(FFrame&, void* const)
 	public /*native final function */static int GetPlayerCount()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -78,7 +78,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	// Export UUIInteraction::execGetPlayerIndex(FFrame&, void* const)
 	public /*native final function */static int GetPlayerIndex(int ControllerId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -86,7 +86,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	// Export UUIInteraction::execGetPlayerControllerId(FFrame&, void* const)
 	public /*native final function */static int GetPlayerControllerId(int PlayerIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -94,7 +94,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	// Export UUIInteraction::execGetDataStoreClient(FFrame&, void* const)
 	public /*native final function */static DataStoreClient GetDataStoreClient()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -102,7 +102,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	// Export UUIInteraction::execIsMenuLevel(FFrame&, void* const)
 	public /*native final function */static bool IsMenuLevel(/*optional */String? _MapName = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -110,7 +110,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	// Export UUIInteraction::execPlayUISound(FFrame&, void* const)
 	public virtual /*native final function */bool PlayUISound(name SoundCueName, /*optional */int? _PlayerIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -128,7 +128,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	// Export UUIInteraction::execCreateTransientWidget(FFrame&, void* const)
 	public virtual /*native final function */UIObject CreateTransientWidget(Core.ClassT<UIObject> WidgetClass, name WidgetTag, /*optional */UIObject _Owner = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -147,7 +147,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	// Export UUIInteraction::execCreateScene(FFrame&, void* const)
 	public virtual /*native final function */UIScene CreateScene(Core.ClassT<UIScene> SceneClass, /*optional */name? _SceneTag = default, /*optional */UIScene _SceneTemplate = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

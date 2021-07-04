@@ -18,7 +18,7 @@ public partial class TdUIInteraction : UIInteraction/* within TdGameViewportClie
 	// Export UTdUIInteraction::execShouldProcessUIInput(FFrame&, void* const)
 	public virtual /*native final function */bool ShouldProcessUIInput()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

@@ -37,13 +37,13 @@
 		// Export USkeletalMeshComponent::execForceSkelUpdate(FFrame&, void* const)
 		public virtual /*native final function */void ForceSkelUpdate()
 		{
-			// Not implemented yet
+			NativeMarkers.MarkUnimplemented();
 		}
 
 		// Export USkeletalMeshComponent::execUpdateAnimations(FFrame&, void* const)
 		public virtual /*native final function */void UpdateAnimations()
 		{
-			// Not implemented yet
+			NativeMarkers.MarkUnimplemented();
 		}
 		
 		// Export USkeletalMeshComponent::execFindAnimNode(FFrame&, void* const)
@@ -89,7 +89,7 @@
 		// Export USkeletalMeshComponent::execFindMorphNode(FFrame&, void* const)
 		public virtual /*native final function */MorphNodeBase FindMorphNode(name InNodeName)
 		{
-			// Not implemented yet
+			NativeMarkers.MarkUnimplemented();
 			return default;
 		}
 	
@@ -119,7 +119,7 @@
 		// Export USkeletalMeshComponent::execMatchRefBone(FFrame&, void* const)
 		public virtual /*native final function */int MatchRefBone(name BoneName)
 		{
-			// Not implemented yet
+			NativeMarkers.MarkUnimplemented();
 			return default;
 		}
 	}

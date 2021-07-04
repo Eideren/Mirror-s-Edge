@@ -10,7 +10,7 @@ public partial class TdMoveReachSpec : TdReachSpec/*
 	// Export UTdMoveReachSpec::execGetDefaultCostFor(FFrame&, void* const)
 	public override /*native function */int GetDefaultCostFor(TdBotPawn P)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

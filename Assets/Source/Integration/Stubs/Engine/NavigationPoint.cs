@@ -114,7 +114,7 @@ public partial class NavigationPoint : Actor/*
 	// Export UNavigationPoint::execUsage(FFrame&, void* const)
 	public virtual /*native final function */int Usage()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -122,21 +122,21 @@ public partial class NavigationPoint : Actor/*
 	// Export UNavigationPoint::execOccupy(FFrame&, void* const)
 	public virtual /*native final function */void Occupy(Controller NewUser)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UNavigationPoint::execUnoccupy(FFrame&, void* const)
 	public virtual /*native final function */void Unoccupy(Controller OldUser)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UNavigationPoint::execHasVisibilityTo(FFrame&, void* const)
 	public virtual /*native function */bool HasVisibilityTo(Object.Vector Offset, NavigationPoint Other, Object.Vector otherOffset)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -144,7 +144,7 @@ public partial class NavigationPoint : Actor/*
 	// Export UNavigationPoint::execCanBeSeenFrom(FFrame&, void* const)
 	public virtual /*native function */bool CanBeSeenFrom(Object.Vector Offset, NavigationPoint Other, Object.Vector otherOffset)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -152,7 +152,7 @@ public partial class NavigationPoint : Actor/*
 	// Export UNavigationPoint::execSeenFrom(FFrame&, void* const)
 	public virtual /*native final function */bool SeenFrom(/*const */NavigationPoint Other)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -160,7 +160,7 @@ public partial class NavigationPoint : Actor/*
 	// Export UNavigationPoint::execCanSee(FFrame&, void* const)
 	public virtual /*native final function */bool CanSee(/*const */NavigationPoint Other)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -168,14 +168,14 @@ public partial class NavigationPoint : Actor/*
 	// Export UNavigationPoint::execGetBoundingCylinder(FFrame&, void* const)
 	public override /*native function */void GetBoundingCylinder(ref float CollisionRadius, ref float CollisionHeight)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UNavigationPoint::execGetReachSpecTo(FFrame&, void* const)
 	public virtual /*native final function */ReachSpec GetReachSpecTo(NavigationPoint Nav)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -183,7 +183,7 @@ public partial class NavigationPoint : Actor/*
 	// Export UNavigationPoint::execCanTeleport(FFrame&, void* const)
 	public virtual /*native function */bool CanTeleport(Actor A)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -242,7 +242,7 @@ public partial class NavigationPoint : Actor/*
 	// Export UNavigationPoint::execGetAllNavInRadius(FFrame&, void* const)
 	public /*native final function */static bool GetAllNavInRadius(Actor chkActor, Object.Vector ChkPoint, float Radius, ref array<NavigationPoint> out_NavList, /*optional */bool? _bSkipBlocked = default, /*optional */int? _inNetworkID = default, /*optional */Object.Cylinder? _MinSize = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

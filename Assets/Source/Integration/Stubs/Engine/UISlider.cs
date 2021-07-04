@@ -23,14 +23,14 @@ public partial class UISlider : UIObject,
 	// Export UUISlider::execSetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUISlider::execGetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -38,7 +38,7 @@ public partial class UISlider : UIObject,
 	// Export UUISlider::execRefreshSubscriberValue(FFrame&, void* const)
 	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -46,28 +46,28 @@ public partial class UISlider : UIObject,
 	// Export UUISlider::execNotifyDataStoreValueUpdated(FFrame&, void* const)
 	public virtual /*native final function */void NotifyDataStoreValueUpdated(UIDataStore SourceDataStore, bool bValuesInvalidated, name PropertyTag, UIDataProvider SourceProvider, int ArrayIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUISlider::execGetBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void GetBoundDataStores(ref array<UIDataStore> out_BoundDataStores)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUISlider::execClearBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void ClearBoundDataStores()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUISlider::execSaveSubscriberValue(FFrame&, void* const)
 	public virtual /*native final function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -75,7 +75,7 @@ public partial class UISlider : UIObject,
 	// Export UUISlider::execSetValue(FFrame&, void* const)
 	public virtual /*native final function */bool SetValue(/*coerce */float NewValue, /*optional */bool? _bPercentageValue = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -83,7 +83,7 @@ public partial class UISlider : UIObject,
 	// Export UUISlider::execGetValue(FFrame&, void* const)
 	public virtual /*native final function */float GetValue(/*optional */bool? _bPercentageValue = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

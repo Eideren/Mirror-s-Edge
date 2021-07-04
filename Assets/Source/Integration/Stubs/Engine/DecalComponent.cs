@@ -72,7 +72,7 @@ public partial class DecalComponent : PrimitiveComponent/*
 	// Export UDecalComponent::execResetToDefaults(FFrame&, void* const)
 	public virtual /*native final function */void ResetToDefaults()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

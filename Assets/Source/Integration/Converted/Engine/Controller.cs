@@ -93,38 +93,38 @@ public partial class Controller : Actor/*
 	// Export UController::execIsLocalPlayerController(FFrame&, void* const)
 	public virtual /*native function */bool IsLocalPlayerController()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UController::execRouteCache_Empty(FFrame&, void* const)
 	public virtual /*native function */void RouteCache_Empty()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UController::execRouteCache_AddItem(FFrame&, void* const)
 	public virtual /*native function */void RouteCache_AddItem(NavigationPoint Nav)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UController::execRouteCache_InsertItem(FFrame&, void* const)
 	public virtual /*native function */void RouteCache_InsertItem(NavigationPoint Nav, /*optional */int? _Idx = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UController::execRouteCache_RemoveItem(FFrame&, void* const)
 	public virtual /*native function */void RouteCache_RemoveItem(NavigationPoint Nav)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UController::execRouteCache_RemoveIndex(FFrame&, void* const)
 	public virtual /*native function */void RouteCache_RemoveIndex(int InIndex, /*optional */int? _Count = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	public override /*event */void PostBeginPlay()
@@ -369,7 +369,7 @@ public partial class Controller : Actor/*
 	// Export UController::execBeyondFogDistance(FFrame&, void* const)
 	public virtual /*native final function */bool BeyondFogDistance(Object.Vector ViewPoint, Object.Vector OtherPoint)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -395,7 +395,7 @@ public partial class Controller : Actor/*
 	// Export UController::execGetTeamNum(FFrame&, void* const)
 	public override /*native simulated function */byte GetTeamNum()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -570,28 +570,28 @@ public partial class Controller : Actor/*
 	// Export UController::execLineOfSightTo(FFrame&, void* const)
 	public virtual /*native(514) final function */bool LineOfSightTo(Actor Other, /*optional */Object.Vector? _chkLocation = default, /*optional */bool? _bTryAlternateTargetLoc = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UController::execCanSee(FFrame&, void* const)
 	public virtual /*native(533) final function */bool CanSee(Pawn Other)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UController::execCanSeeByPoints(FFrame&, void* const)
 	public virtual /*native(537) final function */bool CanSeeByPoints(Object.Vector ViewLocation, Object.Vector TestLocation, Object.Rotator ViewRotation)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UController::execPickTarget(FFrame&, void* const)
 	public virtual /*native(531) final function */Pawn PickTarget(Core.ClassT<Pawn> TargetClass, ref float bestAim, ref float bestDist, Object.Vector FireDir, Object.Vector projStart, float MaxRange)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -621,14 +621,14 @@ public partial class Controller : Actor/*
 	// Export UController::execMoveTo(FFrame&, void* const)
 	public virtual /*native(500) final latent function */Flow MoveTo(Object.Vector NewDestination, /*optional */Actor _ViewFocus = default, /*optional */bool? _bShouldWalk = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UController::execMoveToward(FFrame&, void* const)
 	public virtual /*native(502) final latent function */Flow MoveToward(Actor NewTarget, /*optional */Actor _ViewFocus = default, /*optional */float? _DestinationOffset = default, /*optional */bool? _bUseStrafing = default, /*optional */bool? _bShouldWalk = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -640,56 +640,56 @@ public partial class Controller : Actor/*
 	// Export UController::execFinishRotation(FFrame&, void* const)
 	public virtual /*native(508) final latent function */Flow FinishRotation()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UController::execFindPathTo(FFrame&, void* const)
 	public virtual /*native(518) final function */Actor FindPathTo(Object.Vector aPoint, /*optional */int? _MaxPathLength = default, /*optional */bool? _bReturnPartial = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UController::execFindPathToward(FFrame&, void* const)
 	public virtual /*native(517) final function */Actor FindPathToward(Actor anActor, /*optional */bool? _bWeightDetours = default, /*optional */int? _MaxPathLength = default, /*optional */bool? _bReturnPartial = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UController::execFindPathTowardNearest(FFrame&, void* const)
 	public virtual /*native final function */Actor FindPathTowardNearest(Core.ClassT<NavigationPoint> GoalClass, /*optional */bool? _bWeightDetours = default, /*optional */int? _MaxPathLength = default, /*optional */bool? _bReturnPartial = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UController::execFindRandomDest(FFrame&, void* const)
 	public virtual /*native(525) final function */NavigationPoint FindRandomDest()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UController::execFindPathToIntercept(FFrame&, void* const)
 	public virtual /*native final function */Actor FindPathToIntercept(Pawn P, Actor InRouteGoal, /*optional */bool? _bWeightDetours = default, /*optional */int? _MaxPathLength = default, /*optional */bool? _bReturnPartial = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UController::execPointReachable(FFrame&, void* const)
 	public virtual /*native(521) final function */bool PointReachable(Object.Vector aPoint)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UController::execActorReachable(FFrame&, void* const)
 	public virtual /*native(520) final function */bool ActorReachable(Actor anActor)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -701,14 +701,14 @@ public partial class Controller : Actor/*
 	// Export UController::execPickWallAdjust(FFrame&, void* const)
 	public virtual /*native(526) final function */bool PickWallAdjust(Object.Vector HitNormal)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UController::execWaitForLanding(FFrame&, void* const)
 	public virtual /*native(527) final latent function */Flow WaitForLanding(/*optional */float? _waitDuration = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -720,7 +720,7 @@ public partial class Controller : Actor/*
 	// Export UController::execEndClimbLadder(FFrame&, void* const)
 	public virtual /*native function */void EndClimbLadder()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	public virtual /*event */void MayFall()
@@ -849,14 +849,14 @@ public partial class Controller : Actor/*
 	// Export UController::execInLatentExecution(FFrame&, void* const)
 	public virtual /*native final function */bool InLatentExecution(int LatentActionNumber)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UController::execStopLatentExecution(FFrame&, void* const)
 	public virtual /*native final function */void StopLatentExecution()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	public override /*simulated function */void DisplayDebug(HUD HUD, ref float out_YL, ref float out_YPos)

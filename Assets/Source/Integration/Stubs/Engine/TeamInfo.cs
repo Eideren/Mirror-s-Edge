@@ -63,7 +63,7 @@ public partial class TeamInfo : ReplicationInfo/*
 	// Export UTeamInfo::execGetTeamNum(FFrame&, void* const)
 	public override /*native simulated function */byte GetTeamNum()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

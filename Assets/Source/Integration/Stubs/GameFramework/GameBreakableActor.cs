@@ -54,7 +54,7 @@ public partial class GameBreakableActor : KActor/*
 	// Export UGameBreakableActor::execGetOffsetToWorld(FFrame&, void* const)
 	public virtual /*native function */Object.Vector GetOffsetToWorld(Object.Vector Offset)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -62,7 +62,7 @@ public partial class GameBreakableActor : KActor/*
 	// Export UGameBreakableActor::execSetParticlesLighting(FFrame&, void* const)
 	public virtual /*native function */void SetParticlesLighting(Emitter Emit)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

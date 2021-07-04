@@ -118,7 +118,7 @@ public partial class TdAI_Pursuit : TdAIController/*
 	// Export UTdAI_Pursuit::execHasSpawned(FFrame&, void* const)
 	public virtual /*native final function */bool HasSpawned()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

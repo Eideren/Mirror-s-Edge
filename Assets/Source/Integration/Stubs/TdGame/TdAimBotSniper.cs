@@ -36,21 +36,21 @@ public partial class TdAimBotSniper : TdAimBotBase/* within TdAI_Sniper*//*
 	// Export UTdAimBotSniper::execTick(FFrame&, void* const)
 	public override /*native function */void Tick(float DeltaTime)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdAimBotSniper::execResetAiming(FFrame&, void* const)
 	public virtual /*native function */void ResetAiming()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdAimBotSniper::execGetTargetPos(FFrame&, void* const)
 	public virtual /*native function */Object.Vector GetTargetPos(TdPlayerPawn Target)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -58,7 +58,7 @@ public partial class TdAimBotSniper : TdAimBotBase/* within TdAI_Sniper*//*
 	// Export UTdAimBotSniper::execUpdateBlindPos(FFrame&, void* const)
 	public virtual /*native function */void UpdateBlindPos(float DeltaTime)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

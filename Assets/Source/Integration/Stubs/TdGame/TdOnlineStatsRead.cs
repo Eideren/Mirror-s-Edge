@@ -8,7 +8,7 @@ public partial class TdOnlineStatsRead : OnlineStatsRead/*
 	// Export UTdOnlineStatsRead::execGetFloatStat(FFrame&, void* const)
 	public virtual /*native function */float GetFloatStat(OnlineSubsystem.UniqueNetId UniqId, int StatId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -16,7 +16,7 @@ public partial class TdOnlineStatsRead : OnlineStatsRead/*
 	// Export UTdOnlineStatsRead::execGetIntStat(FFrame&, void* const)
 	public virtual /*native function */int GetIntStat(OnlineSubsystem.UniqueNetId UniqId, int StatId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -24,7 +24,7 @@ public partial class TdOnlineStatsRead : OnlineStatsRead/*
 	// Export UTdOnlineStatsRead::execGetFloatStatFromRow(FFrame&, void* const)
 	public virtual /*native function */float GetFloatStatFromRow(int Row, int StatId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -32,7 +32,7 @@ public partial class TdOnlineStatsRead : OnlineStatsRead/*
 	// Export UTdOnlineStatsRead::execGetIntStatFromRow(FFrame&, void* const)
 	public virtual /*native function */int GetIntStatFromRow(int Row, int StatId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

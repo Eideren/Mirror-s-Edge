@@ -29,14 +29,14 @@ public partial class TdLOIAddOnObject : Object/*
 	// Export UTdLOIAddOnObject::execRegisterLOIGroups(FFrame&, void* const)
 	public virtual /*native function */void RegisterLOIGroups(array<name> LOIGroups)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdLOIAddOnObject::execActivateLOIGroups(FFrame&, void* const)
 	public virtual /*native function */void ActivateLOIGroups(array<name> LOIGroups)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

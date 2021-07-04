@@ -22,7 +22,7 @@ public partial class UIToolTip : UILabel/*
 	// Export UUIToolTip::execBeginTracking(FFrame&, void* const)
 	public virtual /*native final function */UIToolTip BeginTracking()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -30,7 +30,7 @@ public partial class UIToolTip : UILabel/*
 	// Export UUIToolTip::execEndTracking(FFrame&, void* const)
 	public virtual /*native final function */bool EndTracking()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -38,7 +38,7 @@ public partial class UIToolTip : UILabel/*
 	// Export UUIToolTip::execUpdateToolTipPosition(FFrame&, void* const)
 	public virtual /*native final function */void UpdateToolTipPosition()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

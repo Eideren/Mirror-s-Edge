@@ -25,7 +25,7 @@ public partial class TpPresenceManager : TpSystemHandler/*
 	// Export UTpPresenceManager::execGetPresence(FFrame&, void* const)
 	public virtual /*native simulated function */TpSystemBase.TpPresence GetPresence(OnlineSubsystem.UniqueNetId User)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -33,7 +33,7 @@ public partial class TpPresenceManager : TpSystemHandler/*
 	// Export UTpPresenceManager::execGetLocalPresence(FFrame&, void* const)
 	public virtual /*native simulated function */TpSystemBase.TpPresence GetLocalPresence()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -41,7 +41,7 @@ public partial class TpPresenceManager : TpSystemHandler/*
 	// Export UTpPresenceManager::execSetPresence(FFrame&, void* const)
 	public virtual /*native simulated function */void SetPresence(byte LocalUserNum, int StatusId, int ContextId, int ContextValue)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

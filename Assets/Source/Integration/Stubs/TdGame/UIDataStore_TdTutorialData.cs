@@ -14,7 +14,7 @@ public partial class UIDataStore_TdTutorialData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdTutorialData::execGetChallengeIdFromIndex(FFrame&, void* const)
 	public virtual /*native function */int GetChallengeIdFromIndex(int Index)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -22,7 +22,7 @@ public partial class UIDataStore_TdTutorialData : UIDataStore_TdGameResource,
 	// Export UUIDataStore_TdTutorialData::execGetTimeForChallengeGrade(FFrame&, void* const)
 	public virtual /*native function */float GetTimeForChallengeGrade(int ChallengeId, int Grade)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

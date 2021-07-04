@@ -18,7 +18,7 @@ public partial class Player : Object/*
 	// Export UPlayer::execSwitchController(FFrame&, void* const)
 	public virtual /*native function */void SwitchController(PlayerController PC)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

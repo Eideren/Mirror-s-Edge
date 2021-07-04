@@ -172,7 +172,7 @@ public partial class TdHUDDebug : Object/* within TdHUD*//*
 	// Export UTdHUDDebug::execPopulateCheckpointList(FFrame&, void* const)
 	public virtual /*native function */void PopulateCheckpointList()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

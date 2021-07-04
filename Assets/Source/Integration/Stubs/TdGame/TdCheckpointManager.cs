@@ -30,7 +30,7 @@ public partial class TdCheckpointManager : Object/*
 	// Export UTdCheckpointManager::execFindCurrentCheckpoint(FFrame&, void* const)
 	public virtual /*native final function */TdCheckpoint FindCurrentCheckpoint()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

@@ -32,14 +32,14 @@ public partial class UIOptionListBase : UIObject,
 	// Export UUIOptionListBase::execSetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIOptionListBase::execGetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */String GetDataStoreBinding(/*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -47,7 +47,7 @@ public partial class UIOptionListBase : UIObject,
 	// Export UUIOptionListBase::execRefreshSubscriberValue(FFrame&, void* const)
 	public virtual /*native final function */bool RefreshSubscriberValue(/*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -55,28 +55,28 @@ public partial class UIOptionListBase : UIObject,
 	// Export UUIOptionListBase::execNotifyDataStoreValueUpdated(FFrame&, void* const)
 	public virtual /*native final function */void NotifyDataStoreValueUpdated(UIDataStore SourceDataStore, bool bValuesInvalidated, name PropertyTag, UIDataProvider SourceProvider, int ArrayIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIOptionListBase::execGetBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void GetBoundDataStores(ref array<UIDataStore> out_BoundDataStores)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIOptionListBase::execClearBoundDataStores(FFrame&, void* const)
 	public virtual /*native final function */void ClearBoundDataStores()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIOptionListBase::execSaveSubscriberValue(FFrame&, void* const)
 	public virtual /*native function */bool SaveSubscriberValue(ref array<UIDataStore> out_BoundDataStores, /*optional */int? _BindingIndex = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -84,7 +84,7 @@ public partial class UIOptionListBase : UIObject,
 	// Export UUIOptionListBase::execHasPrevValue(FFrame&, void* const)
 	public virtual /*native function */bool HasPrevValue()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -92,7 +92,7 @@ public partial class UIOptionListBase : UIObject,
 	// Export UUIOptionListBase::execHasNextValue(FFrame&, void* const)
 	public virtual /*native function */bool HasNextValue()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -100,14 +100,14 @@ public partial class UIOptionListBase : UIObject,
 	// Export UUIOptionListBase::execOnMoveSelectionLeft(FFrame&, void* const)
 	public virtual /*native function */void OnMoveSelectionLeft(int PlayerIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUIOptionListBase::execOnMoveSelectionRight(FFrame&, void* const)
 	public virtual /*native function */void OnMoveSelectionRight(int PlayerIndex)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

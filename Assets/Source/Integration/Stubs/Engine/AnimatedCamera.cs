@@ -31,14 +31,14 @@ public partial class AnimatedCamera : Camera/*
 	// Export UAnimatedCamera::execApplyCameraModifiersNative(FFrame&, void* const)
 	public virtual /*private native final simulated function */void ApplyCameraModifiersNative(float DeltaTime, ref Object.TPOV OutPOV)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UAnimatedCamera::execPlayCameraAnim(FFrame&, void* const)
 	public virtual /*native simulated function */bool PlayCameraAnim(CameraAnim Anim, /*optional */float? _Rate = default, /*optional */float? _Scale = default, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bLoop = default, /*optional */bool? _bRandomStartTime = default, /*optional */float? _Duration = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -46,7 +46,7 @@ public partial class AnimatedCamera : Camera/*
 	// Export UAnimatedCamera::execStopCameraAnim(FFrame&, void* const)
 	public virtual /*native simulated function */void StopCameraAnim(CameraAnim Anim, /*optional */bool? _bImmediate = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

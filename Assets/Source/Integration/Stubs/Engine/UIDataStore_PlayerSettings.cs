@@ -14,7 +14,7 @@ public partial class UIDataStore_PlayerSettings : UIDataStore_Settings/*
 	// Export UUIDataStore_PlayerSettings::execGetPlayerOwner(FFrame&, void* const)
 	public virtual /*native final function */LocalPlayer GetPlayerOwner()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

@@ -21,7 +21,7 @@ public partial class TdHudEffect_ReactionTime : TdHudEffect/*
 	// Export UTdHudEffect_ReactionTime::execActivateCharged(FFrame&, void* const)
 	public virtual /*native final function */void ActivateCharged()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

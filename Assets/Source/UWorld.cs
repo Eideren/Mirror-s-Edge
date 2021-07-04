@@ -96,6 +96,9 @@
             {
                 _window?.Close();
                 _window = null;
+
+                string appendedMessage = "Native unimplemented calls:\n" + string.Join( "\n", NativeMarkers.Marked.Select( x => $"{x.FilePath} - {x.Member}:{x.Line}" ).OrderBy( x => x ) );
+                LogError(appendedMessage);
             }
 
 

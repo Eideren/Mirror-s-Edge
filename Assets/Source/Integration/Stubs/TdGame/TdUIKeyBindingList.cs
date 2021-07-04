@@ -37,13 +37,13 @@ public partial class TdUIKeyBindingList : TdUIWidgetList/*
 	// Export UTdUIKeyBindingList::execRefreshBindingLabels(FFrame&, void* const)
 	public virtual /*native function */void RefreshBindingLabels()
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdUIKeyBindingList::execGetBindKeyFromCommand(FFrame&, void* const)
 	public virtual /*native function */String GetBindKeyFromCommand(PlayerInput PInput, String Command, ref int StartIdx)
 	{
-		 // #warning NATIVE FUNCTION !
+		 NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

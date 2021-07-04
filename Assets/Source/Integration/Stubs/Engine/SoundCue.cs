@@ -28,7 +28,7 @@ public partial class SoundCue : Object/*
 	// Export USoundCue::execGetCueDuration(FFrame&, void* const)
 	public virtual /*native function */float GetCueDuration()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

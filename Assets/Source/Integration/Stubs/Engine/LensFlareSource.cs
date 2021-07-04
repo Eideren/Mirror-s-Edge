@@ -17,7 +17,7 @@ public partial class LensFlareSource : Actor/*
 	// Export ULensFlareSource::execSetTemplate(FFrame&, void* const)
 	public virtual /*native final function */void SetTemplate(LensFlare NewTemplate)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

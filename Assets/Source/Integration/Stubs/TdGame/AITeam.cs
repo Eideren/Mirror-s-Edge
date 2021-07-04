@@ -52,21 +52,21 @@ public partial class AITeam : Actor/*
 	// Export UAITeam::execAddMember(FFrame&, void* const)
 	public virtual /*native function */void AddMember(TdAIController NewMember)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UAITeam::execRemoveMember(FFrame&, void* const)
 	public virtual /*native function */void RemoveMember(TdAIController Member)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UAITeam::execGetNearestNavToPoint(FFrame&, void* const)
 	public virtual /*native function */NavigationPoint GetNearestNavToPoint(Object.Vector ChkPoint, /*optional */Class _RequiredClass = default, /*optional */array<NavigationPoint>? _ExcludeList = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

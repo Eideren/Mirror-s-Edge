@@ -125,28 +125,28 @@ public partial class TdMove : Object/*
 	// Export UTdMove::execGetMovementExclusionVolume(FFrame&, void* const)
 	public virtual /*native final function */TdMovementExclusionVolume GetMovementExclusionVolume(Object.Vector Loc)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdMove::execFindLedgeInFrontOfPlayer(FFrame&, void* const)
 	public virtual /*native final function */bool FindLedgeInFrontOfPlayer(ref Object.Vector out_LedgeLocation, ref Object.Vector out_LedgeNormal, ref Object.Vector out_MoveNormal)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdMove::execFindLedge(FFrame&, void* const)
 	public virtual /*native final function */bool FindLedge(ref TdPawn.LedgeHitInfo out_LedgeHit, Object.Vector Start, Object.Vector End, Object.Vector Extent)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdMove::execFindLedgeEx(FFrame&, void* const)
 	public virtual /*native final function */int FindLedgeEx(ref TdPawn.LedgeHitInfo out_LedgeHit, Object.Vector Start, Object.Vector End, Object.Vector Extent)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -175,7 +175,7 @@ public partial class TdMove : Object/*
 	// Export UTdMove::execCalculateRelativeExtent(FFrame&, void* const)
 	public virtual /*native final simulated function */float CalculateRelativeExtent(float BaseExtent)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -212,34 +212,34 @@ public partial class TdMove : Object/*
 	// Export UTdMove::execMovementTrace(FFrame&, void* const)
 	public virtual /*native final simulated function */bool MovementTrace(ref Object.Vector HitLocation, ref Object.Vector HitNormal, Object.Vector End, Object.Vector Start, Object.Vector Extent, /*optional */bool? _FindClosest = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdMove::execMovementTraceForBlocking(FFrame&, void* const)
 	public virtual /*native final simulated function */bool MovementTraceForBlocking(Object.Vector End, Object.Vector Start, Object.Vector Extent)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdMove::execMovementTraceForBlockingEx(FFrame&, void* const)
 	public virtual /*native final simulated function */bool MovementTraceForBlockingEx(Object.Vector End, Object.Vector Start, Object.Vector Extent, ref Object.Vector HitLocation, ref Object.Vector HitNormal)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UTdMove::execGetLastMovementTraceInfoStatic(FFrame&, void* const)
 	public virtual /*native final simulated function */void GetLastMovementTraceInfoStatic(ref Actor HitActor, ref int ExcludeHandMoves, ref int ExcludeFootMoves)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UTdMove::execMovementTraceForBlockingBetweenActors(FFrame&, void* const)
 	public virtual /*native final simulated function */bool MovementTraceForBlockingBetweenActors(Object.Vector End, Object.Vector Start)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -913,7 +913,7 @@ public partial class TdMove : Object/*
 	// Export UTdMove::execGetAimMode(FFrame&, void* const)
 	public virtual /*native simulated function */TdPawn.MoveAimMode GetAimMode(bool bAimingOnly)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -1008,7 +1008,7 @@ public partial class TdMove : Object/*
 	// Export UTdMove::execTestCanUnCrouch(FFrame&, void* const)
 	public virtual /*native final simulated function */bool TestCanUnCrouch()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

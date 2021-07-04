@@ -9,7 +9,7 @@ public partial class TdAnimSanityCheckCommandlet : Commandlet/*
 	// Export UTdAnimSanityCheckCommandlet::execMain(FFrame&, void* const)
 	public override /*native event */int Main(String Params)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

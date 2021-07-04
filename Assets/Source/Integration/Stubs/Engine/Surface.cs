@@ -7,7 +7,7 @@ public partial class Surface : Object/*
 	// Export USurface::execGetSurfaceWidth(FFrame&, void* const)
 	public virtual /*native final function */float GetSurfaceWidth()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -15,7 +15,7 @@ public partial class Surface : Object/*
 	// Export USurface::execGetSurfaceHeight(FFrame&, void* const)
 	public virtual /*native final function */float GetSurfaceHeight()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

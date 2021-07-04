@@ -15,7 +15,7 @@ public partial class TdSniperSpot : NavigationPoint/*
 	// Export UTdSniperSpot::execPointInside(FFrame&, void* const)
 	public virtual /*native function */bool PointInside(Object.Vector Point)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

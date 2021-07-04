@@ -46,7 +46,7 @@ public partial class TdMove_BotLanding : TdMove_AISpecialMove/*
 	// Export UTdMove_BotLanding::execCalculateLandingStretch(FFrame&, void* const)
 	public virtual /*native function */float CalculateLandingStretch()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

@@ -11,28 +11,28 @@ public partial class TdCoverGroup : CoverGroup/*
 	// Export UTdCoverGroup::execEnableGroup(FFrame&, void* const)
 	public override /*native function */void EnableGroup()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdCoverGroup::execDisableGroup(FFrame&, void* const)
 	public override /*native function */void DisableGroup()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdCoverGroup::execToggleGroup(FFrame&, void* const)
 	public override /*native function */void ToggleGroup()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UTdCoverGroup::execContains(FFrame&, void* const)
 	public override /*native function */bool Contains(CoverLink Link)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

@@ -23,7 +23,7 @@ public partial class UISceneClient : UIRoot/*
 	// Export UUISceneClient::execChangeActiveSkin(FFrame&, void* const)
 	public virtual /*native final function */bool ChangeActiveSkin(UISkin NewActiveSkin)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -31,7 +31,7 @@ public partial class UISceneClient : UIRoot/*
 	// Export UUISceneClient::execIsUIActive(FFrame&, void* const)
 	public virtual /*native final function */bool IsUIActive(/*optional */int? _Flags = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -39,7 +39,7 @@ public partial class UISceneClient : UIRoot/*
 	// Export UUISceneClient::execIsSceneInitialized(FFrame&, void* const)
 	public virtual /*native final function */bool IsSceneInitialized(UIScene Scene)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -47,7 +47,7 @@ public partial class UISceneClient : UIRoot/*
 	// Export UUISceneClient::execInitializeScene(FFrame&, void* const)
 	public virtual /*native final function */bool InitializeScene(UIScene Scene, /*optional */LocalPlayer _SceneOwner/* = default*/, /*optional */ref UIScene InitializedScene/* = default*/)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -55,7 +55,7 @@ public partial class UISceneClient : UIRoot/*
 	// Export UUISceneClient::execOpenScene(FFrame&, void* const)
 	public virtual /*native final function */bool OpenScene(UIScene Scene, /*optional */LocalPlayer _SceneOwner/* = default*/, /*optional */ref UIScene OpenedScene/* = default*/)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -63,7 +63,7 @@ public partial class UISceneClient : UIRoot/*
 	// Export UUISceneClient::execCloseScene(FFrame&, void* const)
 	public virtual /*native function */bool CloseScene(UIScene Scene)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -71,14 +71,14 @@ public partial class UISceneClient : UIRoot/*
 	// Export UUISceneClient::execSetMousePosition(FFrame&, void* const)
 	public virtual /*native final function */void SetMousePosition(int NewMouseX, int NewMouseY)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUISceneClient::execChangeMouseCursor(FFrame&, void* const)
 	public virtual /*native final function */bool ChangeMouseCursor(name CursorName)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -86,14 +86,14 @@ public partial class UISceneClient : UIRoot/*
 	// Export UUISceneClient::execUpdateCanvasToScreen(FFrame&, void* const)
 	public virtual /*native final function */void UpdateCanvasToScreen()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UUISceneClient::execGetCanvasToScreen(FFrame&, void* const)
 	public virtual /*native final function */Object.Matrix GetCanvasToScreen(/*const optional */UIObject _Widget = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -101,7 +101,7 @@ public partial class UISceneClient : UIRoot/*
 	// Export UUISceneClient::execGetInverseCanvasToScreen(FFrame&, void* const)
 	public virtual /*native final function */Object.Matrix GetInverseCanvasToScreen(/*const optional */UIObject _Widget = default)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

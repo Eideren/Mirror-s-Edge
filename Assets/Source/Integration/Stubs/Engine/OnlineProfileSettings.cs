@@ -199,7 +199,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execGetProfileSettingId(FFrame&, void* const)
 	public virtual /*native function */bool GetProfileSettingId(name ProfileSettingName, ref int ProfileSettingId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -207,7 +207,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execGetProfileSettingName(FFrame&, void* const)
 	public virtual /*native function */name GetProfileSettingName(int ProfileSettingId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -215,7 +215,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execGetProfileSettingColumnHeader(FFrame&, void* const)
 	public virtual /*native function */String GetProfileSettingColumnHeader(int ProfileSettingId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -223,7 +223,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execIsProfileSettingIdMapped(FFrame&, void* const)
 	public virtual /*native function */bool IsProfileSettingIdMapped(int ProfileSettingId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -231,7 +231,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execGetProfileSettingValue(FFrame&, void* const)
 	public virtual /*native function */bool GetProfileSettingValue(int ProfileSettingId, ref String Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -239,7 +239,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execGetProfileSettingValueName(FFrame&, void* const)
 	public virtual /*native function */name GetProfileSettingValueName(int ProfileSettingId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -247,7 +247,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execGetProfileSettingValues(FFrame&, void* const)
 	public virtual /*native function */bool GetProfileSettingValues(int ProfileSettingId, ref array<name> Values)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -255,7 +255,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execGetProfileSettingValueByName(FFrame&, void* const)
 	public virtual /*native function */bool GetProfileSettingValueByName(name ProfileSettingName, ref String Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -263,7 +263,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execSetProfileSettingValueByName(FFrame&, void* const)
 	public virtual /*native function */bool SetProfileSettingValueByName(name ProfileSettingName, /*const */ref String NewValue)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -271,7 +271,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execSetProfileSettingValue(FFrame&, void* const)
 	public virtual /*native function */bool SetProfileSettingValue(int ProfileSettingId, /*const */ref String NewValue)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -279,7 +279,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execGetProfileSettingValueId(FFrame&, void* const)
 	public virtual /*native function */bool GetProfileSettingValueId(int ProfileSettingId, ref int ValueId)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -287,7 +287,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execGetProfileSettingValueInt(FFrame&, void* const)
 	public virtual /*native function */bool GetProfileSettingValueInt(int ProfileSettingId, ref int Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -295,7 +295,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execGetProfileSettingValueFloat(FFrame&, void* const)
 	public virtual /*native function */bool GetProfileSettingValueFloat(int ProfileSettingId, ref float Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -303,7 +303,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execSetProfileSettingValueId(FFrame&, void* const)
 	public virtual /*native function */bool SetProfileSettingValueId(int ProfileSettingId, int Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -311,7 +311,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execSetProfileSettingValueInt(FFrame&, void* const)
 	public virtual /*native function */bool SetProfileSettingValueInt(int ProfileSettingId, int Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -319,7 +319,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execSetProfileSettingValueFloat(FFrame&, void* const)
 	public virtual /*native function */bool SetProfileSettingValueFloat(int ProfileSettingId, float Value)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -327,7 +327,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execSetToDefaults(FFrame&, void* const)
 	public virtual /*native event */void SetToDefaults()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
@@ -339,21 +339,21 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execAppendVersionToReadIds(FFrame&, void* const)
 	public virtual /*native function */void AppendVersionToReadIds()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UOnlineProfileSettings::execAppendVersionToSettings(FFrame&, void* const)
 	public virtual /*native function */void AppendVersionToSettings()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UOnlineProfileSettings::execGetVersionNumber(FFrame&, void* const)
 	public virtual /*native function */int GetVersionNumber()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -361,14 +361,14 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execSetDefaultVersionNumber(FFrame&, void* const)
 	public virtual /*native function */void SetDefaultVersionNumber()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UOnlineProfileSettings::execGetProfileSettingMappingType(FFrame&, void* const)
 	public virtual /*native function */bool GetProfileSettingMappingType(int ProfileId, ref Settings.EPropertyValueMappingType OutType)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -376,7 +376,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execGetProfileSettingRange(FFrame&, void* const)
 	public virtual /*native function */bool GetProfileSettingRange(int ProfileId, ref float OutMinValue, ref float OutMaxValue, ref float RangeIncrement, ref byte bFormatAsInt)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -384,7 +384,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execSetRangedProfileSettingValue(FFrame&, void* const)
 	public virtual /*native function */bool SetRangedProfileSettingValue(int ProfileId, float NewValue)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -392,7 +392,7 @@ public partial class OnlineProfileSettings : Object/*
 	// Export UOnlineProfileSettings::execGetRangedProfileSettingValue(FFrame&, void* const)
 	public virtual /*native function */bool GetRangedProfileSettingValue(int ProfileId, ref float OutValue)
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

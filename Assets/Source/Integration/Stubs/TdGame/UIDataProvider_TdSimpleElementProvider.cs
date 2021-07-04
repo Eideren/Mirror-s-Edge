@@ -11,7 +11,7 @@ public partial class UIDataProvider_TdSimpleElementProvider : UIDataProvider,
 	// Export UUIDataProvider_TdSimpleElementProvider::execGetElementCount(FFrame&, void* const)
 	public virtual /*native function */int GetElementCount()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}

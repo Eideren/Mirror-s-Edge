@@ -37,7 +37,7 @@ public partial class TdMove_BotTurnStanding : TdPhysicsMove/*
 	// Export UTdMove_BotTurnStanding::execCalculateLegTurnAngle(FFrame&, void* const)
 	public virtual /*private native final function */float CalculateLegTurnAngle()
 	{
-		 // #warning NATIVE FUNCTION !
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
