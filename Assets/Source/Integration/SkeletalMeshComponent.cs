@@ -101,16 +101,13 @@
 		}
 	
 		// Export USkeletalMeshComponent::execGetBoneLocation(FFrame&, void* const)
-		public virtual /*native final function */Object.Vector GetBoneLocation(name BoneName, /*optional */int? _Space = default)
+		public virtual /*native final function */Object.Vector GetBoneLocation(name BoneName, /*optional */int? _Space = default) // 0 == World, 1 == Local (Component)
 		{
-			if( _Space != default )
-				throw new System.InvalidOperationException( "Non-default space is not implemented yet" );
-			
-			var renderer = _associatedRenderer ??= UWorldBridge.GetUWorld().UScriptToUnity.TryGetValue( this, out var smr ) ? (SkinnedMeshRenderer) smr : throw new System.NullReferenceException();
+			var renderer = _associatedRenderer ??= UWorldBridge.GetUWorld().UScriptToUnity.TryGetValue( this.SkeletalMesh, out var smr ) ? (SkinnedMeshRenderer) smr : throw new System.NullReferenceException();
 			foreach( var bone in renderer.bones )
 			{
 				if( bone.name == BoneName )
-					return bone.position.ToUnrealPos();
+					return (_Space == 1 ? bone.localPosition : bone.position).ToUnrealPos();
 			}
 			
 			return default;

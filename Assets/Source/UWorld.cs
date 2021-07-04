@@ -27,6 +27,7 @@
         
         Engine _engine = new TdGameEngine();
         UnityEngine.BoxCollider _cacheCollider = new UnityEngine.BoxCollider();
+        List<Actor> _actorsThisFrame = new List<Actor>();
 
         static UWorld _instance;
         static UnityAction<UnityEngine.SceneManagement.Scene, LoadSceneMode> _onSceneLoadedCached;
@@ -76,15 +77,12 @@
                     }
 
                     ( Pawn.Controller as PlayerController ).SpawnPlayerCamera();
-
-                    //_unityCam.transform.parent = _1pPlayer.GameObject.transform.GetComponentsInChildren<Transform>().First( x => x.name == "CameraJoint" );
                 }
 
                 if( ( Pawn.Controller as PlayerController ).PlayerCamera is Camera cam )
                 {
                     var camPov = cam.CameraCache.POV;
-                    _unityCam.transform.position = camPov.Location.ToUnityPos();
-                    _unityCam.transform.rotation = (Quaternion)camPov.Rotation;
+                    _unityCam.transform.SetPositionAndRotation( camPov.Location.ToUnityPos(), (Quaternion)camPov.Rotation );
                     #warning probably switch things around to ensure camera doesn't lag one frame behind animation
                 }
 
@@ -193,7 +191,6 @@
             if(ReferenceEquals( this, _instance ) == false)
                 Destroy(this);
 
-            var actors = _worldInfo._allActors;
             UnityEngine.Time.timeScale = this._worldInfo.TimeDilation;
             var deltaTime = UnityEngine.Time.deltaTime;// * this._worldInfo.TimeDilation;
             deltaTime = deltaTime > 0.4f ? 0.4f : deltaTime < 0.0005f ? 0.0005f : deltaTime;
@@ -204,7 +201,11 @@
             this._worldInfo.AudioTimeSeconds += deltaTime;
             
 
-            foreach( var actor in actors )
+            _actorsThisFrame.Clear();
+            foreach( var actor in _worldInfo._allActors )
+                _actorsThisFrame.Add(actor);
+            
+            foreach( var actor in _actorsThisFrame )
             {
                 if( actor is PlayerController pc )
                 {
@@ -214,25 +215,24 @@
                     pc.PlayerTick( deltaTime );
                 }
             }
-
-
-            foreach( var actor in actors )
+            
+            foreach( var actor in _actorsThisFrame )
                 if( actor.TickGroup == Object.ETickingGroup.TG_PreAsyncWork )
                     actor.Tick(deltaTime*actor.CustomTimeDilation);
-            foreach( var actor in actors )
+            foreach( var actor in _actorsThisFrame )
                 if( actor.TickGroup == Object.ETickingGroup.TG_DuringAsyncWork )
                     actor.Tick(deltaTime*actor.CustomTimeDilation);
-            foreach( var actor in actors )
+            foreach( var actor in _actorsThisFrame )
                 if( actor.TickGroup == Object.ETickingGroup.TG_PostAsyncWork )
                     actor.Tick(deltaTime*actor.CustomTimeDilation);
-            foreach( var actor in actors )
+            foreach( var actor in _actorsThisFrame )
                 if( actor.TickGroup == Object.ETickingGroup.TG_PostUpdateWork )
                     actor.Tick(deltaTime*actor.CustomTimeDilation);
-            foreach( var actor in actors )
+            foreach( var actor in _actorsThisFrame )
                 if( actor is PlayerController pc )
                     pc.PlayerCamera?.UpdateCamera(deltaTime);
             
-            foreach( var actor in actors )
+            foreach( var actor in _actorsThisFrame )
             {
                 IProcessor p;
                 if( Processors.TryGetValue( actor, out p ) == false )
@@ -248,6 +248,8 @@
                 }
                 p?.Update(deltaTime);
             }
+            
+            _actorsThisFrame.Clear();
         }
 
 
