@@ -4032,7 +4032,7 @@ public partial class TdPawn : GamePawn/*
 		}	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Dying()/*simulated state Dying*/
+	(System.Action<name>, StateFlow, System.Action<name>) Dying()/*simulated state Dying*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)

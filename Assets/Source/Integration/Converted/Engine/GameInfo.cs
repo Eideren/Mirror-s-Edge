@@ -2754,7 +2754,7 @@ public partial class GameInfo : Info/*
 		}
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) PendingMatch()/*auto state PendingMatch*/
+	(System.Action<name>, StateFlow, System.Action<name>) PendingMatch()/*auto state PendingMatch*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)

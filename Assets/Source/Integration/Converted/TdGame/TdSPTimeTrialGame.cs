@@ -772,7 +772,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) PreRace()/*auto state PreRace*/
+	(System.Action<name>, StateFlow, System.Action<name>) PreRace()/*auto state PreRace*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -899,7 +899,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		GotoState("RaceInProgress", default(name?), default(bool?), default(bool?));
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) RaceCountDown()/*state RaceCountDown*/
+	(System.Action<name>, StateFlow, System.Action<name>) RaceCountDown()/*state RaceCountDown*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -1184,7 +1184,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		}
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) RaceInProgress()/*state RaceInProgress*/
+	(System.Action<name>, StateFlow, System.Action<name>) RaceInProgress()/*state RaceInProgress*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -1253,7 +1253,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		}
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) RaceFinishLine()/*state RaceFinishLine*/
+	(System.Action<name>, StateFlow, System.Action<name>) RaceFinishLine()/*state RaceFinishLine*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -1300,7 +1300,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		SetIgnoreInput(false);
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) EndAnimation()/*state EndAnimation*/
+	(System.Action<name>, StateFlow, System.Action<name>) EndAnimation()/*state EndAnimation*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -1354,7 +1354,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		RacingPlayer.Reset();
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) RaceOver()/*state RaceOver*/
+	(System.Action<name>, StateFlow, System.Action<name>) RaceOver()/*state RaceOver*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)

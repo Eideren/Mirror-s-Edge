@@ -3536,7 +3536,7 @@ public partial class TdPlayerController : GamePlayerController,
 		return true;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerWaiting()/*auto state PlayerWaiting*/
+	(System.Action<name>, StateFlow, System.Action<name>) PlayerWaiting()/*auto state PlayerWaiting*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -3774,7 +3774,7 @@ public partial class TdPlayerController : GamePlayerController,
 		}
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerWalking()/*state PlayerWalking*/
+	(System.Action<name>, StateFlow, System.Action<name>) PlayerWalking()/*state PlayerWalking*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -3929,7 +3929,7 @@ public partial class TdPlayerController : GamePlayerController,
 		bPressedJump = bDelayJump;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerGrabbing()/*state PlayerGrabbing*/
+	(System.Action<name>, StateFlow, System.Action<name>) PlayerGrabbing()/*state PlayerGrabbing*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -3973,7 +3973,7 @@ public partial class TdPlayerController : GamePlayerController,
 		bPressedJump = false;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerBalanceWalk()/*state PlayerBalanceWalk extends PlayerWalking*/
+	(System.Action<name>, StateFlow, System.Action<name>) PlayerBalanceWalk()/*state PlayerBalanceWalk extends PlayerWalking*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -4055,7 +4055,7 @@ public partial class TdPlayerController : GamePlayerController,
 		CheckJumpReleased();
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerLedgeWalking()/*state PlayerLedgeWalking extends PlayerWalking*/
+	(System.Action<name>, StateFlow, System.Action<name>) PlayerLedgeWalking()/*state PlayerLedgeWalking extends PlayerWalking*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -4207,7 +4207,7 @@ public partial class TdPlayerController : GamePlayerController,
 		GroundPitch = 0;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerWallWalking()/*state PlayerWallWalking*/
+	(System.Action<name>, StateFlow, System.Action<name>) PlayerWallWalking()/*state PlayerWallWalking*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -4305,7 +4305,7 @@ public partial class TdPlayerController : GamePlayerController,
 		/*Transformed 'base(PlayerController).' to specific call*/PlayerController_PlayerTick(DeltaTime);
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Spectating()/*state Spectating*/
+	(System.Action<name>, StateFlow, System.Action<name>) Spectating()/*state Spectating*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -4371,7 +4371,7 @@ public partial class TdPlayerController : GamePlayerController,
 		}
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Ropeburn()/*state Ropeburn*/
+	(System.Action<name>, StateFlow, System.Action<name>) Ropeburn()/*state Ropeburn*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -4432,7 +4432,7 @@ public partial class TdPlayerController : GamePlayerController,
 		/*Transformed 'base.' to specific call*/Object_BeginState(PreviousStateName);
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) PlayerDying()/*state PlayerDying*/
+	(System.Action<name>, StateFlow, System.Action<name>) PlayerDying()/*state PlayerDying*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -4569,7 +4569,7 @@ public partial class TdPlayerController : GamePlayerController,
 		}
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Dead()/*state Dead*/
+	(System.Action<name>, StateFlow, System.Action<name>) Dead()/*state Dead*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)

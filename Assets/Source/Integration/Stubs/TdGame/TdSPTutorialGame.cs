@@ -508,7 +508,7 @@ public partial class TdSPTutorialGame : TdSPGame,
 	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Waiting()/*auto state Waiting*/
+	(System.Action<name>, StateFlow, System.Action<name>) Waiting()/*auto state Waiting*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -610,7 +610,7 @@ public partial class TdSPTutorialGame : TdSPGame,
 	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WalkThrough()/*state WalkThrough*/
+	(System.Action<name>, StateFlow, System.Action<name>) WalkThrough()/*state WalkThrough*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -637,7 +637,7 @@ public partial class TdSPTutorialGame : TdSPGame,
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) ButtonWalkThrough()/*state ButtonWalkThrough extends WalkThrough*/
+	(System.Action<name>, StateFlow, System.Action<name>) ButtonWalkThrough()/*state ButtonWalkThrough extends WalkThrough*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -654,7 +654,7 @@ public partial class TdSPTutorialGame : TdSPGame,
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) PlayGround()/*state PlayGround*/
+	(System.Action<name>, StateFlow, System.Action<name>) PlayGround()/*state PlayGround*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

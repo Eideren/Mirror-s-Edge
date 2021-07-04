@@ -108,7 +108,7 @@ public partial class TdWeapon_Bag : TdWeapon_Light/*
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Active()/*simulated state Active*/
+	(System.Action<name>, StateFlow, System.Action<name>) Active()/*simulated state Active*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -120,7 +120,7 @@ public partial class TdWeapon_Bag : TdWeapon_Light/*
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WeaponEquipping()/*simulated state WeaponEquipping*/
+	(System.Action<name>, StateFlow, System.Action<name>) WeaponEquipping()/*simulated state WeaponEquipping*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -147,7 +147,7 @@ public partial class TdWeapon_Bag : TdWeapon_Light/*
 	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) ThrowBag()/*simulated state ThrowBag*/
+	(System.Action<name>, StateFlow, System.Action<name>) ThrowBag()/*simulated state ThrowBag*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

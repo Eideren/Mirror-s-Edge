@@ -114,7 +114,7 @@ public partial class TdWeapon_Grenade : TdWeapon/*
 	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) PreThrow()/*simulated state PreThrow*/
+	(System.Action<name>, StateFlow, System.Action<name>) PreThrow()/*simulated state PreThrow*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -141,7 +141,7 @@ public partial class TdWeapon_Grenade : TdWeapon/*
 	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Throw()/*simulated state Throw*/
+	(System.Action<name>, StateFlow, System.Action<name>) Throw()/*simulated state Throw*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -157,7 +157,7 @@ public partial class TdWeapon_Grenade : TdWeapon/*
 	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) EquipNextGrenade()/*simulated state EquipNextGrenade*/
+	(System.Action<name>, StateFlow, System.Action<name>) EquipNextGrenade()/*simulated state EquipNextGrenade*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

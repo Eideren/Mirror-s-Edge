@@ -956,7 +956,7 @@ public partial class TdWeapon : Weapon/*
 	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WeaponFiring()/*simulated state WeaponFiring*/
+	(System.Action<name>, StateFlow, System.Action<name>) WeaponFiring()/*simulated state WeaponFiring*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -996,7 +996,7 @@ public partial class TdWeapon : Weapon/*
 		return default;
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WeaponReloading()/*simulated state WeaponReloading*/
+	(System.Action<name>, StateFlow, System.Action<name>) WeaponReloading()/*simulated state WeaponReloading*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -1049,7 +1049,7 @@ public partial class TdWeapon : Weapon/*
 	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WeaponLoopReloading()/*simulated state WeaponLoopReloading extends WeaponReloading*/
+	(System.Action<name>, StateFlow, System.Action<name>) WeaponLoopReloading()/*simulated state WeaponLoopReloading extends WeaponReloading*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -1082,7 +1082,7 @@ public partial class TdWeapon : Weapon/*
 	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WeaponBursting()/*simulated state WeaponBursting extends WeaponFiring*/
+	(System.Action<name>, StateFlow, System.Action<name>) WeaponBursting()/*simulated state WeaponBursting extends WeaponFiring*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -1093,7 +1093,7 @@ public partial class TdWeapon : Weapon/*
 	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) WeaponPuttingDown()/*simulated state WeaponPuttingDown*/
+	(System.Action<name>, StateFlow, System.Action<name>) WeaponPuttingDown()/*simulated state WeaponPuttingDown*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}
@@ -1114,7 +1114,7 @@ public partial class TdWeapon : Weapon/*
 	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) OutOfAmmo()/*simulated state OutOfAmmo*/
+	(System.Action<name>, StateFlow, System.Action<name>) OutOfAmmo()/*simulated state OutOfAmmo*/
 	{
 		throw new System.InvalidOperationException("Stub state");
 	}

@@ -407,7 +407,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 		GotoState("MatchInProgress", default(name?), default(bool?), default(bool?));
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) PendingMatch()/*auto state PendingMatch*/
+	(System.Action<name>, StateFlow, System.Action<name>) PendingMatch()/*auto state PendingMatch*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
@@ -425,7 +425,7 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 	}
 	
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) MatchInProgress()/*auto state MatchInProgress*/
+	(System.Action<name>, StateFlow, System.Action<name>) MatchInProgress()/*auto state MatchInProgress*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)

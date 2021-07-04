@@ -2636,7 +2636,7 @@ public partial class Pawn : Actor/*
 		}	
 	}
 	
-	protected (System.Action<name>, StateFlow, System.Action<name>) Dying()/*state Dying*/
+	(System.Action<name>, StateFlow, System.Action<name>) Dying()/*state Dying*/
 	{
 	
 		System.Collections.Generic.IEnumerable<Flow> StateFlow(name jumpTo = default)
