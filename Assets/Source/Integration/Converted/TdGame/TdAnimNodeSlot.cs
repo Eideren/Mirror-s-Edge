@@ -4,11 +4,11 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNodeSlot : AnimNodeSlot/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	// Export UTdAnimNodeSlot::execSetBlendOutTime(FFrame&, void* const)
-	public virtual /*native function */void SetBlendOutTime(float BlendTime)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//// Export UTdAnimNodeSlot::execSetBlendOutTime(FFrame&, void* const)
+	//public virtual /*native function */void SetBlendOutTime(float BlendTime)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UTdAnimNodeSlot::execSetCauseActorCeaseRelevant(FFrame&, void* const)
 	public virtual /*native function */void SetCauseActorCeaseRelevant(bool bNewStatus)

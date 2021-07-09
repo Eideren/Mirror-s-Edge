@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -50,12 +52,12 @@ public partial class AnimNodeSlot : AnimNodeBlendBase/*
 		NativeMarkers.MarkUnimplemented();
 	}
 	
-	// Export UAnimNodeSlot::execGetCustomAnimNodeSeq(FFrame&, void* const)
-	public virtual /*native final function */AnimNodeSequence GetCustomAnimNodeSeq()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//// Export UAnimNodeSlot::execGetCustomAnimNodeSeq(FFrame&, void* const)
+	//public virtual /*native final function */AnimNodeSequence GetCustomAnimNodeSeq()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UAnimNodeSlot::execSetRootBoneAxisOption(FFrame&, void* const)
 	public virtual /*native final function */void SetRootBoneAxisOption(/*optional */AnimNodeSequence.ERootBoneAxis? _AxisX = default, /*optional */AnimNodeSequence.ERootBoneAxis? _AxisY = default, /*optional */AnimNodeSequence.ERootBoneAxis? _AxisZ = default)

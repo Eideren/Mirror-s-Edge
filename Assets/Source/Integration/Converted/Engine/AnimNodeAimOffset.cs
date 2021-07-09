@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -261,11 +263,11 @@ public partial class AnimNodeAimOffset : AnimNodeBlendBase/*
 	public/*()*/ /*editconst */array</*editconst */AnimNodeAimOffset.AimOffsetProfile> Profiles;
 	public/*()*/ /*const editconst */int CurrentProfileIndex;
 	
-	// Export UAnimNodeAimOffset::execSetActiveProfileByName(FFrame&, void* const)
-	public virtual /*native function */void SetActiveProfileByName(name ProfileName)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//// Export UAnimNodeAimOffset::execSetActiveProfileByName(FFrame&, void* const)
+	//public virtual /*native function */void SetActiveProfileByName(name ProfileName)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UAnimNodeAimOffset::execSetActiveProfileByIndex(FFrame&, void* const)
 	public virtual /*native function */void SetActiveProfileByIndex(int ProfileIndex)

@@ -1,0 +1,19 @@
+﻿namespace MEdge.Engine{
+	using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+
+	public partial class AnimNodeAimOffset
+	{
+		// Export UAnimNodeAimOffset::execSetActiveProfileByName(FFrame&, void* const)
+		public virtual /*native function */void SetActiveProfileByName(name ProfileName)
+		{
+			for( int i = 0; i < Profiles.Length; i++ )
+			{
+				if( Profiles[ i ].ProfileName == ProfileName )
+				{
+					this.CurrentProfileIndex = i;
+					break;
+				}
+			}
+		}
+	}
+}
