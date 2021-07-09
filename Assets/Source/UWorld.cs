@@ -18,7 +18,7 @@
 
 
 
-    public class UWorld : UnityEngine.MonoBehaviour, IUWorld
+    public partial class UWorld : UnityEngine.MonoBehaviour, IUWorld
     {
         public static UWorld Instance => GetInstance();
         public bool HasBegunPlay{ get; private set; }
@@ -85,7 +85,6 @@
                     _unityCam.transform.SetPositionAndRotation( camPov.Location.ToUnityPos(), (Quaternion)camPov.Rotation );
                     #warning probably switch things around to ensure camera doesn't lag one frame behind animation
                 }
-
             }
 
 
@@ -210,7 +209,7 @@
                 if( actor is PlayerController pc )
                 {
                     #warning debug only
-                    pc.PlayerInput.aBaseY = 1.0f;
+                    SampleInput( pc.PlayerInput as TdPlayerInput, pc as TdPlayerController, deltaTime );
                     pc.PlayerInput.Tick( deltaTime );
                     pc.PlayerTick( deltaTime );
                 }
@@ -638,5 +637,5 @@
             _instance._worldInfo._allActors.Add( constructedActor );
             return constructedActor;
 		}
-	}
+    }
 }
