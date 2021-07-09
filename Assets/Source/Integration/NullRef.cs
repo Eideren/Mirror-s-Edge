@@ -31,5 +31,14 @@ namespace MEdge.Core
             }
         }
         static Actor.TraceHitInfo _back_Actor_TraceHitInfo;
+        public static ref Object.Vector Object_Vector
+        {
+            get
+            {
+                _back_Object_Vector = default;
+                return ref _back_Object_Vector;
+            }
+        }
+        static Object.Vector _back_Object_Vector;
     }
 }
