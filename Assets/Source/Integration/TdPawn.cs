@@ -9,7 +9,6 @@
     using _E_struct_FInterpCurveFloat = Core.Object.InterpCurveFloat;
     using _E_struct_FInterpCurvePointFloat = Core.Object.InterpCurvePointFloat;
     using static UnityEngine.Debug;
-    using static Core.Object.Decompiled;
 	public partial class TdPawn
 	{
         // Export UTdPawn::execGetCustomAnimation(FFrame&, void* const)
@@ -234,7 +233,8 @@
                 _E_struct_FMatrix thisMatrix; // [esp+68h] [ebp-40h] BYREF
 
                 var r = this.Rotation;
-                v7 = E_RotatorToMatrix(&thisMatrix, &r);
+                var v = FRotationMatrix( r );
+                v7 = &v;
                 v8 = v7->M[5];
                 v9 = v7->M[6];
                 v10 = v7->M[1];
@@ -415,7 +415,8 @@
                 _E_struct_FMatrix thisMatrix; // [esp+6Ch] [ebp-40h] BYREF
 
                 var r = this.Rotation;
-                v7 = E_RotatorToMatrix(&thisMatrix, &r);
+                var v = FRotationMatrix( r );
+                v7 = &v;
                 v8 = sqrt(this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X);
                 v9 = (float)(v7->M[0] * aForward) + (float)(v7->M[4] * aStrafe);
                 v10 = (float)(v7->M[1] * aForward) + (float)(v7->M[5] * aStrafe);

@@ -134,14 +134,14 @@
         /// <summary>
         /// Returns a Rotator axis within the [-32768,+32767] range in float 
         /// </summary>
-        public static int NormalizeRotAxis(int angle)
+        public static int NormalizeRotAxis(int Angle)
         {
-                #warning this implementation is just an interpretation, official implementation likely differs
-                // +32767 is +179.x degrees
-                // -32768 is -180.x degrees
-                // so a full rotation is 32768*2, which once normalized should be equal to '0'
-                // Therefore we can simplify this by reading the least significant bits as a 'short' 
-                return unchecked((short) angle);
+	        Angle &= 0xFFFF;
+	        if( Angle > 32767 ) 
+	        {
+		        Angle -= 0x10000;
+	        }
+	        return Angle;
         }
 
         public static Vector vect(float x, float y, float z) => new Vector() { X = x, Y = y, Z = z };
@@ -158,7 +158,14 @@
         /// for example to specify the 1st person weapon position.
         /// All engine versions provide two special operators for conversion between world coordinates and a local coordinate system expressed by a rotator. Assume CamRot is a camera rotation describing a local coordinate system, for example a player view. Then V << CamRot converts a global offset into a camera-relative local offset, while V >> CamRot converts a camera-relative offset into a global offset.
         /// </summary>
-        public static Vector ShiftL( Vector A, Rotator B ) => Decompiled.UObject_execLessLess_VectorRotator( A, B );
+        public static Vector ShiftL( Vector A, Rotator B )
+        {
+	        unsafe
+	        {
+		        var v = TransformNormal( Transpose(FRotationMatrix(B)), A );
+		        return *(Vector*)&v;
+	        }
+        }
 
 
 
@@ -168,9 +175,151 @@
         /// for example to specify the 1st person weapon position.
         /// All engine versions provide two special operators for conversion between world coordinates and a local coordinate system expressed by a rotator. Assume CamRot is a camera rotation describing a local coordinate system, for example a player view. Then V << CamRot converts a global offset into a camera-relative local offset, while V >> CamRot converts a camera-relative offset into a global offset.
         /// </summary>
-        public static Vector ShiftR( Vector A, Rotator B ) => Decompiled.UObject_execGreaterGreater_VectorRotator( A, B );
+        public static Vector ShiftR( Vector A, Rotator B )
+        {
+	        unsafe
+	        {
+		        var v = TransformNormal( FRotationMatrix( B ), A );
+		        return *(Vector*)&v;
+	        }
+        }
+
+        
+        static Matrix Transpose(Matrix M)
+        {
+	        Matrix Result = default;
+
+	        Result.M[0, 0] = M.M[0, 0];
+	        Result.M[0, 1] = M.M[1, 0];
+	        Result.M[0, 2] = M.M[2, 0];
+	        Result.M[0, 3] = M.M[3, 0];
+
+	        Result.M[1, 0] = M.M[0, 1];
+	        Result.M[1, 1] = M.M[1, 1];
+	        Result.M[1, 2] = M.M[2, 1];
+	        Result.M[1, 3] = M.M[3, 1];
+
+	        Result.M[2, 0] = M.M[0, 2];
+	        Result.M[2, 1] = M.M[1, 2];
+	        Result.M[2, 2] = M.M[2, 2];
+	        Result.M[2, 3] = M.M[3, 2];
+
+	        Result.M[3, 0] = M.M[0, 3];
+	        Result.M[3, 1] = M.M[1, 3];
+	        Result.M[3, 2] = M.M[2, 3];
+	        Result.M[3, 3] = M.M[3, 3];
+
+	        return Result;
+        }
 
 
+        static Vector4 TransformNormal(Matrix M, Vector V)
+        {
+	        return TransformFVector4(M, new Vector4(){ X=V.X,Y=V.Y,Z=V.Z,W=0.0f });
+        }
+        
+        static Vector4 TransformFVector4(Matrix M, Vector4 P)
+        {
+	        Vector4 Result;
+
+	        Result.X = P.X * M.M[0 , 0] + P.Y * M.M[1 , 0] + P.Z * M.M[2 , 0] + P.W * M.M[3 , 0];
+	        Result.Y = P.X * M.M[0 , 1] + P.Y * M.M[1 , 1] + P.Z * M.M[2 , 1] + P.W * M.M[3 , 1];
+	        Result.Z = P.X * M.M[0 , 2] + P.Y * M.M[1 , 2] + P.Z * M.M[2 , 2] + P.W * M.M[3 , 2];
+	        Result.W = P.X * M.M[0 , 3] + P.Y * M.M[1 , 3] + P.Z * M.M[2 , 3] + P.W * M.M[3 , 3];
+
+	        return Result;
+        }
+        
+        public static Matrix FRotationMatrix(Rotator Rot)
+        {
+	        Matrix M = default;
+	        float SR = GMath.SinTab(Rot.Roll);
+	        float SP = GMath.SinTab(Rot.Pitch);
+	        float SY = GMath.SinTab(Rot.Yaw);
+	        float CR = GMath.CosTab(Rot.Roll);
+	        float CP = GMath.CosTab(Rot.Pitch);
+	        float CY = GMath.CosTab(Rot.Yaw);
+
+	        M.M[0, 0]	= CP * CY;
+	        M.M[0, 1]	= CP * SY;
+	        M.M[0, 2]	= SP;
+	        M.M[0, 3]	= 0f;
+
+	        M.M[1, 0]	= SR * SP * CY - CR * SY;
+	        M.M[1, 1]	= SR * SP * SY + CR * CY;
+	        M.M[1, 2]	= - SR * CP;
+	        M.M[1, 3]	= 0f;
+
+	        M.M[2, 0]	= -( CR * SP * CY + SR * SY );
+	        M.M[2, 1]	= CY * SR - CR * SP * SY;
+	        M.M[2, 2]	= CR * CP;
+	        M.M[2, 3]	= 0f;
+
+	        M.M[3, 0]	= 0f;
+	        M.M[3, 1]	= 0f;
+	        M.M[3, 2]	= 0f;
+	        M.M[3, 3]	= 1f;
+	        return M;
+        }
+
+
+
+        class GMath
+        {
+	        const int ANGLE_SHIFT = 2; // Bits to right-shift to get lookup value.
+	        const int ANGLE_BITS = 14; // Number of valid bits in angles.
+	        const int NUM_ANGLES = 16384; // Number of angles that are in lookup table.
+	        const int ANGLE_MASK = ( ( ( 1 << ANGLE_BITS ) - 1 ) << ( 16 - ANGLE_BITS ) );
+
+
+
+	        // Basic math functions.
+	        public static float SinTab( int i )
+	        {
+		        return TrigFLOAT[ ( ( i >> ANGLE_SHIFT ) & ( NUM_ANGLES - 1 ) ) ];
+	        }
+
+
+
+	        public static float CosTab( int i )
+	        {
+		        return TrigFLOAT[ ( ( ( i + 16384 ) >> ANGLE_SHIFT ) & ( NUM_ANGLES - 1 ) ) ];
+	        }
+
+
+
+	        public static float SinFloat( float F )
+	        {
+		        return SinTab( appTrunc( ( F * 65536f ) / ( 2f * PI ) ) );
+	        }
+
+
+
+	        public static float CosFloat( float F )
+	        {
+		        return CosTab( appTrunc( ( F * 65536f ) / ( 2f * PI ) ) );
+	        }
+
+
+
+	        static int appTrunc( float F )
+	        {
+		        return (int) F;
+		        //	return (INT)truncf(F);
+	        }
+
+
+
+	        static float[] TrigFLOAT = new float[ NUM_ANGLES ];
+
+
+
+	        static GMath()
+	        {
+		        for( var i=0; i<NUM_ANGLES; i++ )
+			        TrigFLOAT[i] = Sin((float)i * 2f * PI / (float)NUM_ANGLES);
+	        }
+        };
 
         public static int ShiftL(int v, int r) => v << r;
         public static int ShiftR(int v, int r) => v >> r;
@@ -208,7 +357,17 @@
 
 
 
-        public static Rotator RLerp( Rotator A, Rotator B, float Alpha, bool bShortestPath = false ) => Decompiled.E_UObject_execRLerp( A, B, Alpha, bShortestPath );
+        public static Rotator RLerp( Rotator A, Rotator B, float Alpha, bool bShortestPath = false )
+        {
+	        Rotator DeltaAngle = B - A;
+
+	        if( bShortestPath )
+	        {
+		        DeltaAngle.Normalize();
+	        }
+
+	        return A + DeltaAngle*Alpha;
+        }
 
 
 
@@ -252,8 +411,10 @@
         // Export UObject::execGetAxes(FFrame&, void* const)
         public /*static*/ /*native(229) final function *//*static*/ void GetAxes(Object.Rotator A, ref Object.Vector X, ref Object.Vector Y, ref Object.Vector Z)
         {
-            // Weird ass usage here, the function is marked as static but the source code uses it like an instanced function
-            Decompiled.E_UObject_execGetAxes(A, ref X, ref Y, ref Z);
+	        var R = FRotationMatrix(A);
+	        X = GetAxis(R, 0);
+	        Y = GetAxis(R, 1);
+	        Z = GetAxis(R, 2);
         }
 
         
@@ -261,7 +422,10 @@
         // Export UObject::execGetUnAxes(FFrame&, void* const)
         public /*native(230) final function */static void GetUnAxes(Object.Rotator A, ref Object.Vector X, ref Object.Vector Y, ref Object.Vector Z)
         {
-	        Decompiled.E_UObject_execGetUnAxes(A, ref X, ref Y, ref Z);
+	        var R = Transpose(FRotationMatrix(A));
+	        X = GetAxis(R, 0);
+	        Y = GetAxis(R, 1);
+	        Z = GetAxis(R, 2);
         }
         
         // Export UObject::execPointDistToLine(FFrame&, void* const)
@@ -279,7 +443,47 @@
         }
         
         // Export UObject::execQuatToRotator(FFrame&, void* const)
-        public /*native final function */static Object.Rotator QuatToRotator( Object.Quat A ) => Decompiled.E_UObject_execQuatToRotator( A );
+        public /*native final function */static Object.Rotator QuatToRotator( Object.Quat A )
+        {
+	        return MatrixRotator( FQuatRotationTranslationMatrix( A, default ) );
+        }
+
+        static Matrix FQuatRotationTranslationMatrix(Quat Q, Vector Origin)
+        {
+	        Matrix M = default;
+	        float x2 = Q.X + Q.X;  float y2 = Q.Y + Q.Y;  float z2 = Q.Z + Q.Z;
+	        float xx = Q.X * x2;   float xy = Q.X * y2;   float xz = Q.X * z2;
+	        float yy = Q.Y * y2;   float yz = Q.Y * z2;   float zz = Q.Z * z2;
+	        float wx = Q.W * x2;   float wy = Q.W * y2;   float wz = Q.W * z2;
+
+	        M.M[0 , 0] = 1.0f - (yy + zz);	M.M[1 , 0] = xy - wz;				M.M[2 , 0] = xz + wy;			M.M[3 , 0] = Origin.X;
+	        M.M[0 , 1] = xy + wz;			M.M[1 , 1] = 1.0f - (xx + zz);		M.M[2 , 1] = yz - wx;			M.M[3 , 1] = Origin.Y;
+	        M.M[0 , 2] = xz - wy;			M.M[1 , 2] = yz + wx;				M.M[2 , 2] = 1.0f - (xx + yy);	M.M[3 , 2] = Origin.Z;
+	        M.M[0 , 3] = 0.0f;				M.M[1 , 3] = 0.0f;					M.M[2 , 3] = 0.0f;				M.M[3 , 3] = 1.0f;
+	        return M;
+        }
+        
+        static Rotator MatrixRotator(Matrix M)
+        {
+	        Vector		XAxis	= GetAxis( M, 0 );
+	        Vector		YAxis	= GetAxis( M, 1 );
+	        Vector		ZAxis	= GetAxis( M, 2 );
+
+	        Rotator	Rotator	= new Rotator( 
+		        Round(atan2( XAxis.Z, sqrt(Square(XAxis.X)+Square(XAxis.Y)) ) * 32768f / PI), 
+		        Round(atan2( XAxis.Y, XAxis.X ) * 32768f / PI), 
+		        0 
+	        );
+	
+	        Vector		SYAxis	= GetAxis(FRotationMatrix( Rotator ), 1);
+	        Rotator.Roll		= Round(atan2( ZAxis | SYAxis, YAxis | SYAxis ) * 32768f / PI);
+	        return Rotator;
+        }
+        
+        static Vector GetAxis(Matrix M, int i)
+        {
+	        return new Vector(M.M[i,0], M.M[i,1], M.M[i,2]);
+        }
 
         /// <summary>
         /// Case-insensitve equality

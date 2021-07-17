@@ -16,10 +16,7 @@
             // Returns a unit length vector facing the given rotator
             public static explicit operator Vector( Rotator v )
             {
-                // This has not been decompiled, could not find the source, just tested as matching when doing the same operation over in UDK
-                Vector X = default, Y = default, Z = default;
-                Decompiled.E_UObject_execGetAxes(v, ref X, ref Y, ref Z);
-                return X;
+                return GetAxis(FRotationMatrix(v), 0);
             }
 
 

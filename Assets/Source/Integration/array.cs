@@ -58,6 +58,11 @@ namespace MEdge
         }
 
 
+        public int Count => Length;
+
+        public int Num() => Length;
+
+
         internal T[] _items
         {
             get => __items ?? Array.Empty<T>();
