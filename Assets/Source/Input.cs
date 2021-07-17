@@ -10,49 +10,66 @@
 		static Vector3 _previousMouse;
 		public static void SampleInput( TdPlayerInput uInput, TdPlayerController controller, float dt )
         {
-	        var mouseDelta = UnityEngine.Input.mousePosition - _previousMouse;
+	        // Variables marked as 'input' are reset every frame afaict
+			uInput.aBaseX = default;
+			uInput.aBaseY = default;
+			uInput.aBaseZ = default;
+			uInput.aMouseX = default;
+			uInput.aMouseY = default;
+			uInput.aForward = default;
+			uInput.aTurn = default;
+			uInput.aStrafe = default;
+			uInput.aUp = default;
+			uInput.aLookUp = default;
+			uInput.aPS3AccelX = default;
+			uInput.aPS3AccelY = default;
+			uInput.aPS3AccelZ = default;
+			uInput.aPS3Gyro = default;
+			uInput.bStrafe = default;
+			uInput.bXAxis = default;
+			uInput.bYAxis = default;
+			
+			controller.bFire = default;
+			controller.bRun = default;
+			controller.bDuck = default;
+
+
+
+
+
+
+
+			var mouseDelta = ( UnityEngine.Input.mousePosition - _previousMouse );// * 0.001f;
 	        _previousMouse = UnityEngine.Input.mousePosition;
 
 	        // (Name:"D",Command:"GBA_StrafeRight",Control:false,Shift:false,Alt:false),
-	        // (Name:"A",Command:"GBA_StrafeLeft",Control:false,Shift:false,Alt:false),
-	        // (Name:"S",Command:"GBA_MoveBackward",Control:false,Shift:false,Alt:false),
-	        // (Name:"W",Command:"GBA_MoveForward",Control:false,Shift:false,Alt:false),
 	        // (Name:"GBA_StrafeRight",Command:"Axis aStrafe Speed=+1.0",Control:false,Shift:false,Alt:false),
+	        // (Name:"A",Command:"GBA_StrafeLeft",Control:false,Shift:false,Alt:false),
 	        // (Name:"GBA_StrafeLeft",Command:"Axis aStrafe Speed=-1.0",Control:false,Shift:false,Alt:false),
+	        UpdateAxisValue(ref uInput.aStrafe, UnityEngine.Input.GetKey( KeyCode.D ) ? 1f : 0f, dt, Speed:1f);
+	        UpdateAxisValue(ref uInput.aStrafe, UnityEngine.Input.GetKey( KeyCode.A ) ? 1f : 0f, dt, Speed:-1f);
+	        // (Name:"S",Command:"GBA_MoveBackward",Control:false,Shift:false,Alt:false),
 	        // (Name:"GBA_MoveBackward",Command:"Axis aBaseY Speed=-1.0",Control:false,Shift:false,Alt:false),
+	        // (Name:"W",Command:"GBA_MoveForward",Control:false,Shift:false,Alt:false),
 	        // (Name:"GBA_MoveForward",Command:"Axis aBaseY Speed=1.0",Control:false,Shift:false,Alt:false),
-            if( UnityEngine.Input.GetKey( KeyCode.D ) ) uInput.aStrafe = MoveTowards( uInput.aStrafe, + 1f, dt ); // GBA_StrafeRight -> Axis aStrafe Speed=+1.0
-            if( UnityEngine.Input.GetKey( KeyCode.A ) ) uInput.aStrafe = MoveTowards( uInput.aStrafe, - 1f, dt ); // GBA_StrafeLeft -> Axis aStrafe Speed=-1.0
-            if( UnityEngine.Input.GetKey( KeyCode.S ) ) uInput.aBaseY = MoveTowards( uInput.aBaseY, - 1f, dt ); // GBA_MoveBackward -> Axis aBaseY Speed=-1.0
-            if( UnityEngine.Input.GetKey( KeyCode.W ) ) uInput.aBaseY = MoveTowards( uInput.aBaseY, + 1f, dt ); // GBA_MoveForward -> Axis aBaseY Speed=+1.0
-            
-            if( UnityEngine.Input.GetKey( KeyCode.D ) == false 
-                && UnityEngine.Input.GetKey( KeyCode.A ) == false )
-	            uInput.aStrafe = 0f;
-            if( UnityEngine.Input.GetKey( KeyCode.S ) == false 
-                && UnityEngine.Input.GetKey( KeyCode.W ) == false )
-	            uInput.aBaseY = 0f;
-            
-            
-            //( Name: "MouseX", Command: "GBA_Look_MouseX", Control: false, Shift: false, Alt: false ),
+	        UpdateAxisValue(ref uInput.aBaseY, UnityEngine.Input.GetKey( KeyCode.S ) ? 1f : 0f, dt, Speed:-1f);
+	        UpdateAxisValue(ref uInput.aBaseY, UnityEngine.Input.GetKey( KeyCode.W ) ? 1f : 0f, dt, Speed:1f);
+
+	        //( Name: "MouseX", Command: "GBA_Look_MouseX", Control: false, Shift: false, Alt: false ),
             //( Name: "GBA_Look_MouseX", Command: "Count bXAxis | Axis aMouseX", Control: false, Shift: false, Alt: false ),
             if(mouseDelta.x != 0f)
 				uInput.bXAxis += 1;
-            uInput.aMouseX = mouseDelta.x;
+            UpdateAxisValue(ref uInput.aMouseX, mouseDelta.x, dt);
             
             //( Name: "MouseY", Command: "GBA_Look_MouseY", Control: false, Shift: false, Alt: false ),
             //( Name: "GBA_Look_MouseY", Command: "Count bYAxis | Axis aMouseY", Control: false, Shift: false, Alt: false ),
             if(mouseDelta.y != 0f)
 				uInput.bYAxis += 1;
-            uInput.aMouseY = mouseDelta.y;
+            UpdateAxisValue(ref uInput.aMouseY, mouseDelta.y, dt);
             
             //( Name: "SpaceBar", Command: "GBA_Jump | SkipCutscene", Control: false, Shift: false, Alt: false ),
             //( Name: "GBA_Jump", Command: "Jump | OnRelease StopJump | Axis aUp Speed=1.0  AbsoluteAxis=100 | PrevStaticViewTarget", Control: false, Shift: false, Alt: false ),
-            
-            if( UnityEngine.Input.GetKey( KeyCode.Space ) )
-	            uInput.aUp = MoveTowards( uInput.aUp, 1f, dt*100f );
-            else
-	            uInput.aUp = 0f; // ???
+            UpdateAxisValue( ref uInput.aUp, UnityEngine.Input.GetKey( KeyCode.Space ) ? 1f : 0f, dt, Speed: 1f, AbsoluteAxis: 100f );
             
             if( UnityEngine.Input.GetKeyDown( KeyCode.Space ) )
             {
@@ -108,7 +125,41 @@
 
 
 
-        static (string Name, string Command, bool Control, bool Shift, bool Alt)[] bindings =
+		static void UpdateAxisValue( ref float axis, float axisDelta, float deltaTime, float Speed = 1f, int InvertMultiplier = 1, float DeadZone = 0f, float AbsoluteAxis = 0f )
+		{
+			if( axisDelta == 0f )
+			{
+				axis = 0f;
+				return;
+			}
+
+			var CurrentDelta = axisDelta;
+			// Axis is expected to be in -1 .. 1 range if dead zone is used.
+			if( DeadZone > 0f && DeadZone < 1f )
+			{
+				// We need to translate and scale the input to the +/- 1 range after removing the dead zone.
+				if( CurrentDelta > 0 )
+				{
+					CurrentDelta = Max( 0f, CurrentDelta - DeadZone ) / (1f - DeadZone);
+				}
+				else
+				{
+					CurrentDelta = -Max( 0f, -CurrentDelta - DeadZone ) / (1f - DeadZone);
+				}
+			}
+				
+			// Absolute axis like joysticks need to be scaled by delta time in order to be framerate independent.
+			if( AbsoluteAxis != 0f )
+			{
+				Speed *= deltaTime * AbsoluteAxis;
+			}
+
+			axis += Speed * InvertMultiplier * CurrentDelta;
+		}
+
+
+
+		static (string Name, string Command, bool Control, bool Shift, bool Alt)[] bindings =
         {
 			(Name:"SIXAXIS_AccelZ",Command:"Axis aPS3AccelZ",Control:false,Shift:false,Alt:false),
 			(Name:"SIXAXIS_AccelY",Command:"Axis aPS3AccelY",Control:false,Shift:false,Alt:false),
