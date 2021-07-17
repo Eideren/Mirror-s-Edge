@@ -31,6 +31,7 @@
 
 
 		[CanBeNull] SkinnedMeshRenderer _associatedRenderer;
+		[CanBeNull] Dictionary<name, Transform> _bones;
 
 
 
@@ -104,15 +105,28 @@
 		public virtual /*native final function */Object.Vector GetBoneLocation(name BoneName, /*optional */int? _Space = default) // 0 == World, 1 == Local (Component)
 		{
 			var renderer = _associatedRenderer ??= UWorldBridge.GetUWorld().UScriptToUnity.TryGetValue( this.SkeletalMesh, out var smr ) ? (SkinnedMeshRenderer) smr : throw new System.NullReferenceException();
-			foreach( var bone in renderer.bones )
-			{
-				if( bone.name == BoneName )
-					return (_Space == 1 ? bone.localPosition : bone.position).ToUnrealPos();
-			}
-			
-			return default;
+			_bones ??= BuildBonesDictionary( renderer.transform.parent );
+			return (_Space == 1 ? _bones![ BoneName ].localPosition : _bones![ BoneName ].position).ToUnrealPos();
 		}
-	
+
+
+
+		static Dictionary<name, Transform> BuildBonesDictionary( Transform parent )
+		{
+			var buff = new Dictionary<name, Transform>();
+			foreach( var children in parent.GetComponentsInChildren<Transform>() )
+			{
+				if( buff.ContainsKey( children.name ) == false )
+					buff[ children.name ] = children;
+				else
+					Debug.LogWarning( $"Non-unique bone name ({children.name}) found in hierarchy of {parent.name}, might mess with internal logic" );
+			}
+
+			return buff;
+		}
+
+
+
 		// Export USkeletalMeshComponent::execMatchRefBone(FFrame&, void* const)
 		public virtual /*native final function */int MatchRefBone(name BoneName)
 		{
