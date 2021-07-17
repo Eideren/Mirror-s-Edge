@@ -1,10 +1,4 @@
-﻿using System.Runtime.InteropServices;
-
-#if CSHARP_7_3_OR_NEWER
-using UnityEngine;
-#endif
-
-namespace MEdge.Core
+﻿namespace MEdge.Core
 {
     public partial class Object
     {
@@ -17,6 +11,11 @@ namespace MEdge.Core
             this.X = x;
             this.Y = y;
             this.Z = z;
+        }
+        
+        public static float operator|( Vector A, Vector V )
+        {
+            return A.X*V.X + A.Y*V.Y + A.Z*V.Z;
         }
 
 
@@ -129,6 +128,10 @@ namespace MEdge.Core
             previousHash = unchecked( ( previousHash * 9176 ) + Y.GetHashCode() );
             return unchecked( ( previousHash * 9176 ) + Z.GetHashCode() );
         }
+
+
+
+        public override string ToString() => $"({X}, {Y}, {Z})";
     }
     }
 }
