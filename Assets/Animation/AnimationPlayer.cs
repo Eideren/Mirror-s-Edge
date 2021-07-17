@@ -13,8 +13,7 @@
 
 	public class AnimationPlayer
 	{
-		const float WEIGHT_MIN_THRESHOLD = 0.01f;
-		const float WEIGHT_MAX_THRESHOLD = 1f-WEIGHT_MIN_THRESHOLD;
+		const float ZERO_ANIMWEIGHT_THRESH = 0.00001f;
 		
 		public GameObject GameObject;
 		AnimNode _tree;
@@ -24,15 +23,58 @@
 		HashSet<AnimNode> _isRelevantThisFrame = new HashSet<AnimNode>();
 		HashSet<AnimNodeSynch> _stackSync = new HashSet<AnimNodeSynch>();
 		int _tick;
+		Transform[] _bones;
+		Dictionary<name, int> _boneNameToIndex;
 		
 		
-		public AnimationPlayer(AnimationClip[] clips, AnimSet animSet, AnimNode tree, GameObject gameObject, Actor actor)
+		
+		public AnimationPlayer(AnimationClip[] clips, AnimSet animSet, AnimNode tree, GameObject gameObject, Actor actor, SkeletalMeshComponent skel)
 		{
 			_tree = tree;
 			_clips = clips.ToDictionary( x => (MEdge.Core.name)x.name );
 			_set = animSet;
 			GameObject = gameObject;
 			_actor = actor;
+			_bones = new Transform[ animSet.TrackBoneNames.Length ];
+			_boneNameToIndex = new Dictionary<name, int>( _bones.Length );
+			var allTransforms = GameObject.GetComponentsInChildren<Transform>().ToDictionary( x => (name)x.name );
+			for( int i = 0; i < animSet.TrackBoneNames.Length; i++ )
+			{
+				var t = allTransforms[ animSet.TrackBoneNames[ i ] ];
+				_bones[ i ] = t;
+				_boneNameToIndex.Add( (name)t.name, i );
+			}
+
+			foreach( var node in Enumerate( tree ) )
+			{
+				if( node is AnimNodeSequence seq )
+				{
+					seq.SkelComponent = skel;
+				}
+
+				if( node is TdAnimNodeBlendList anbl )
+				{
+					anbl.TdPawnOwner = actor as TdPawn;
+				}
+				node.OnInit();
+			}
+		}
+
+
+
+		IEnumerable<AnimNode> Enumerate( AnimNode n )
+		{
+			yield return n;
+			if( n is AnimNodeBlendBase anbb )
+			{
+				foreach( var child in anbb.Children )
+				{
+					foreach( var node in Enumerate( child.Anim ) )
+					{
+						yield return node;
+					}
+				}
+			}
 		}
 
 
@@ -90,13 +132,6 @@
 						node.bJustBecameRelevant = false;
 					}
 				}
-				
-				// Hack
-				if( node.InstanceVersionNumber == 0 )
-				{
-					node.InstanceVersionNumber = 1;
-					node.OnInit();
-				}
 
 				TdPawn pawnActor = _actor as TdPawn;
 
@@ -115,6 +150,23 @@
 
 					if( nodeMovement.ActiveChildIndex != newActive )
 						nodeMovement.SetActiveMove( newActive );
+				}
+
+				if( NodeIs<TdAnimNodeWeaponState>( node, out var weaponState, ref marked ) && pawnActor != null )
+				{
+					var state = pawnActor.WeaponAnimState;
+					var newActive = 0; // 0 is the default branch
+					for( int i = 0; i < weaponState.EnumStates.Length; i++ )
+					{
+						if( weaponState.EnumStates[ i ] == state )
+						{
+							newActive = i + 1; // 0 is default, so 1->Length are each states bound to enums
+							break;
+						}
+					}
+
+					if( weaponState.ActiveChildIndex != newActive )
+						weaponState.SetActiveMove( newActive );
 				}
 
 				if( NodeIs<TdAnimNodeWalkingState>( node, out var nodeWalking, ref marked ) && pawnActor != null )
@@ -149,6 +201,23 @@
 
 					if( againstWall.ActiveChildIndex != newActive )
 						againstWall.SetActiveMove( newActive );
+				}
+
+				if( NodeIs<TdAnimNodeWeaponTypeState>( node, out var wts, ref marked ) )
+				{
+					var state = pawnActor.GetWeaponType();
+					var newActive = 0; // 0 is the default branch
+					for( int i = 0; i < wts.EnumStates.Length; i++ )
+					{
+						if( wts.EnumStates[ i ] == state )
+						{
+							newActive = i + 1; // 0 is default, so 1->Length are each states bound to enums
+							break;
+						}
+					}
+
+					if( wts.ActiveChildIndex != newActive )
+						wts.SetActiveMove( newActive );
 				}
 
 				if( NodeIs<TdAnimNodeGrabbing>( node, out var grabbing, ref marked ) )
@@ -265,8 +334,6 @@
 						LogWarning( $"{nameof(td.bSnapToKeyFrames)} not implemented yet" );
 					if( td.bForceFullPlayback)
 						LogWarning( $"{nameof(td.bForceFullPlayback)} not implemented yet" ); 
-					if( td.bLoopingWithNotify == false )
-						LogWarning( $"'{nameof(td.bLoopingWithNotify)} == false' not implemented yet" );
 					if( td.bDeltaCameraAnimation )
 						LogWarning( $"{nameof(td.bDeltaCameraAnimation)} not implemented yet" );
 					if( td.bForceNoWeaponPose )
@@ -276,7 +343,7 @@
 
 				if( NodeIs<AnimNodeSequence>( node, out var nodeSequence, ref marked ) )
 				{
-					if( _clips.TryGetValue( nodeSequence.AnimSeqName, out var clip ) )
+					if( _clips.TryGetValue( nodeSequence.AnimSeqName, out var clip ) == false )
 					{
 						LogWarning( $"Animation clip '{nodeSequence.AnimSeqName}' not found" );
 						return;
@@ -293,18 +360,17 @@
 
 					clip.wrapMode = nodeSequence.bLooping ? WrapMode.Loop : WrapMode.Clamp;
 
+					//var weightForNotification = node is TdAnimNodeSequence tdSeq && tdSeq.bLooping && tdSeq.bLoopingWithNotify ? 0f : nodeSequence.NodeTotalWeight;
 					if( IsSynchronized( nodeSequence, out var controlSequence ) )
 					{
-						var controlDeltaTime = ComputeDeltaTime( controlSequence, dt );
+						//var controlDeltaTime = ComputeDeltaTime( controlSequence, dt );
 						// Note that the control node might not have been updated yet so this time might be one frame behind ...
-						nodeSequence.CurrentTime = GetSynchTime( nodeSequence, controlSequence );
-						ApplyTimeChange( nodeSequence, controlDeltaTime > 0f, nodeSequence.NodeTotalWeight, _actor );
+						nodeSequence.AdvanceBy( GetSynchTime( nodeSequence, controlSequence ) - nodeSequence.CurrentTime, dt, nodeSequence.SkelComponent.bUseRawData ? false : true );
 					}
 					else if( needToTick )
 					{
 						var deltaTime = ComputeDeltaTime( nodeSequence, dt );
-						nodeSequence.CurrentTime += deltaTime;
-						ApplyTimeChange( nodeSequence, deltaTime > 0f, nodeSequence.NodeTotalWeight, _actor );
+						nodeSequence.AdvanceBy( deltaTime, dt, nodeSequence.SkelComponent.bUseRawData ? false : true );
 					}
 
 					clip.SampleAnimation( GameObject, nodeSequence.CurrentTime );
@@ -316,7 +382,7 @@
 					var source = perBone.Children[ 0 ].Anim;
 					var target = perBone.Children[ 1 ].Anim;
 					float weight = perBone.Child2Weight;
-					if( weight < WEIGHT_MIN_THRESHOLD )
+					if( weight < ZERO_ANIMWEIGHT_THRESH )
 					{
 						SampleInner( source, dt, node.NodeTotalWeight );
 						return;
@@ -329,23 +395,20 @@
 					{
 						var bone = FindInHierarchy( GameObject.transform, branchName );
 						if( bone == null )
-						{
-							LogWarning( $"Could not find bone '{branchName}'" );
 							continue;
-						}
 
 						if( perBone.bOnlyJointsBelowParent )
 						{
 							for( int i = 0; i < bone.childCount; i++ )
-								BuildHierarchy( bone.GetChild(i), bonesTrs, withLocalTRS:true );
+								FetchHierarchyTRS( bone.GetChild(i), bonesTrs, withLocalTRS:true );
 						}
 						else
 						{
-							BuildHierarchy( bone, bonesTrs, withLocalTRS:true );
+							FetchHierarchyTRS( bone, bonesTrs, withLocalTRS:true );
 						}
 					}
 						
-					SampleInner( source, dt, node.NodeTotalWeight * (1f-weight) );
+					SampleInner( source, dt, node.NodeTotalWeight/* Do not modulate this, weight depends on bones not a single value */ );
 						
 					for( int i = 0; i < bonesTrs.Count; i++ )
 					{
@@ -359,7 +422,11 @@
 
 				if( NodeIs<AnimNodeSynch>( node, out var synch, ref marked ) )
 				{
+					for( int i = 0; i < synch.Groups.Length; i++ )
+						synch.Groups[ i ].MasterNode = null;
+
 					_stackSync.Add( synch );
+					synch.Children[ 0 ].Weight = 1f;
 				}
 
 				if( node is AnimNodeAimOffset aimOffsetPre )
@@ -373,14 +440,52 @@
 					aimRef.Y = localDir.y;
 				}
 
+				if( NodeIs<TdAnimNodeLandOffset>( node, out var landOffset, ref marked ) )
+				{
+					if ( landOffset.Landed > 0.0f )
+					{
+						if ( landOffset.IsLanding == false )
+						{
+							landOffset.LandTimer = 0.0f;
+							landOffset.IsLanding = true;
+						}
+					}
+					if ( landOffset.IsLanding )
+					{
+						landOffset.LandTimer += dt;
+						if ( landOffset.LandInto <= landOffset.LandTimer )
+						{
+							var landTimer_Minus_LandInto = landOffset.LandTimer - landOffset.LandInto;
+							if ( landOffset.LandOut <= landTimer_Minus_LandInto )
+							{
+								if ( landOffset.LandOverlap <= (landTimer_Minus_LandInto - landOffset.LandOut) )
+								{
+									landOffset.Aim.Y = 0.0f;
+									landOffset.IsLanding = false;
+									landOffset.Landed = 0.0f;
+								}
+								else
+								{
+									landOffset.Aim.Y = (Sin((landTimer_Minus_LandInto - landOffset.LandOut) / landOffset.LandOverlap * 1.5707964f) - 1.0f) * landOffset.OverlapSize;
+								}
+							}
+							else
+							{
+								landOffset.Aim.Y = 1.0f - (landOffset.OverlapSize + 1.0f) * Sin(landTimer_Minus_LandInto / landOffset.LandOut * 1.5707964f);
+							}
+						}
+						else
+						{
+							landOffset.Aim.Y = Sin(landOffset.LandTimer / landOffset.LandInto * 1.5707964f);
+						}
+						landOffset.Aim.Y = landOffset.Landed * landOffset.Aim.Y;
+					}
+				}
+
 				if( NodeIs<TdAnimNodeAimOffset>( node, out var tdAimOffset, ref marked ) && needToTick )
 				{
 					if( tdAimOffset.bManualAim )
 						LogWarning( $"{nameof(tdAimOffset.bManualAim)} not implemented yet" );
-					if( tdAimOffset.bAimSourceIsLegRotation )
-						LogWarning( $"{nameof(tdAimOffset.bAimSourceIsLegRotation)} not implemented yet" );
-					if( tdAimOffset.WantedAiming.X != default || tdAimOffset.WantedAiming.Y != default )
-						LogWarning( $"{nameof(tdAimOffset.WantedAiming)} not implemented yet" );
 					
 					ref var aimRef = ref tdAimOffset.Aim;
 					var baseURot = _actor.Rotation;
@@ -410,37 +515,36 @@
 						LogWarning( $"{nameof(aimOffset.bForceAimDir)} not implemented yet" );
 					if( aimOffset.AngleOffset.X != default || aimOffset.AngleOffset.Y != default )
 						LogWarning( $"{nameof(aimOffset.AngleOffset)} not implemented yet" );
-					
 
-					var aim = aimOffset.Aim;
 					var profile = aimOffset.Profiles[ aimOffset.CurrentProfileIndex ];
-					#warning what's AimComponents purpose ? Looks like it's some kind of offset for each bone ?
 
-					var constrainedAim = aim;
+					var constrainedAim = aimOffset.Aim;
 					constrainedAim.X = Clamp( constrainedAim.X, profile.HorizontalRange.X, profile.HorizontalRange.Y );
 					constrainedAim.Y = Clamp( constrainedAim.Y, profile.VerticalRange.X, profile.VerticalRange.Y );
 
 					var weightX = constrainedAim.X < 0f ? 1f + constrainedAim.X : constrainedAim.X;
 					var weightY = constrainedAim.Y < 0f ? 1f + constrainedAim.Y : constrainedAim.Y;
 
-					using var buffer0 = TempBuffer<TRS>.Borrow();
-					using var buffer1 = TempBuffer<TRS>.Borrow();
-					// Blend clip00 with clip10 by weights.x -> a
-					BlendClips( ( FloorToInt( aim.X ), FloorToInt( aim.Y ) ), ( FloorToInt( aim.X ), CeilToInt( aim.Y ) ) , buffer0, weightX, ref profile );
-					// Blend clip01 with clip11 by weights.x -> b
-					BlendClips( (CeilToInt( aim.X ), FloorToInt( aim.Y )), (CeilToInt( aim.X ), CeilToInt( aim.Y )), buffer1, weightX, ref profile );
-					
 					SampleInner( aimOffset.Children[0].Anim, dt, node.NodeTotalWeight );
-
-					// Blend a with b by weights.y and add it over the pose
-					var iWeightY = 1f-weightY;
-					for( int i = 0; i < buffer0.Count; i++ )
+					
+					foreach( var component in profile.AimComponents )
 					{
-						var lowData = buffer0[ i ];
-						var highData = buffer1[ i ];
-						var t = lowData.Transform;
-						t.localPosition += lowData.T * iWeightY + highData.T * weightY;
-						t.localRotation *= Quaternion.Lerp( lowData.R, highData.R, weightY );
+						var t = _bones[ _boneNameToIndex[ component.BoneName ] ];
+						var v00 = GetTRSAt( component, FloorToInt( constrainedAim.X ), FloorToInt( constrainedAim.Y ) );
+						var v10 = GetTRSAt( component, CeilToInt( constrainedAim.X ), FloorToInt( constrainedAim.Y ) );
+						var v01 = GetTRSAt( component, FloorToInt( constrainedAim.X ), CeilToInt( constrainedAim.Y ) );
+						var	v11 = GetTRSAt( component, CeilToInt( constrainedAim.X ), CeilToInt( constrainedAim.Y ) );
+						
+						t.localPosition += Vector3.Lerp(
+							Vector3.Lerp( v00.Translation.ToUnityPos(), v10.Translation.ToUnityPos(), weightX ),
+							Vector3.Lerp( v01.Translation.ToUnityPos(), v11.Translation.ToUnityPos(), weightX ),
+							weightY
+						);
+						t.localRotation *= Quaternion.Normalize( Quaternion.Lerp(
+							Quaternion.Lerp( (Quaternion)v00.Quaternion, (Quaternion)v10.Quaternion, weightX ),
+							Quaternion.Lerp( (Quaternion)v01.Quaternion, (Quaternion)v11.Quaternion, weightX ),
+							weightY
+						) );
 					}
 					return;
 				}
@@ -479,8 +583,22 @@
 
 				if( NodeIs<AnimNodeBlendBase>( node, out var blender, ref marked ) )
 				{
-					/*if( blender.Children.Length > 0 )
-						SampleInner( blender.Children[ 0 ].Anim, dt, node.NodeTotalWeight );*/
+					// Hack
+					if( marked == false )
+					{
+						bool emptyWeight = true;
+						foreach( var child in blender.Children )
+						{
+							if( child.Weight != 0f )
+								emptyWeight = false;
+						}
+
+						if( emptyWeight )
+						{
+							SampleInner( blender.Children[ 0 ].Anim, dt, node.NodeTotalWeight );
+							return;
+						}
+					}
 					
 					BlendAll( ref blender.Children, dt, node.NodeTotalWeight );
 					return;
@@ -497,23 +615,24 @@
 				{
 					_stackSync.Remove( synch );
 					// Ensures that irrelevant sequences are still properly synchronized
-					foreach( var grp in synch.Groups )
+					for( int i = 0; i < synch.Groups.Length; i++ )
 					{
-						var controlSequence = GetControlSequence( grp.SeqNodes );
+						ref var grp = ref synch.Groups[ i ];
+						grp.MasterNode = GetControlSequence( grp.SeqNodes );
 						foreach( var nodeSequence in grp.SeqNodes )
 						{
 							if( nodeSequence.bRelevant )
 								continue;
 
-							nodeSequence.PreviousTime = nodeSequence.CurrentTime = GetSynchTime( nodeSequence, controlSequence );
+							nodeSequence.PreviousTime = nodeSequence.CurrentTime = GetSynchTime( nodeSequence, grp.MasterNode );
 						}
 					}
 				}
 			}
 		}
 
-
-
+		
+		
 		void MatchTargetWeight( ref array<AnimNodeBlendBase.AnimBlendChild> children, array<float> targetWeights, ref float blendTimeToGo, float dt )
 		{
 			for( int i = 0; i < children.Length; i++ )
@@ -554,7 +673,7 @@
 			for( int i = 0; i < arrayToBlend.Length; i++ )
 			{
 				ref var item = ref arrayToBlend[ i ];
-				if( callingNodeWeight * item.Weight < WEIGHT_MIN_THRESHOLD )
+				if( callingNodeWeight * item.Weight < ZERO_ANIMWEIGHT_THRESH )
 					continue;
 				
 				if( item.Weight > highestWeightedItem.weight )
@@ -565,40 +684,25 @@
 			if(accumulatedWeight == 0f)
 				return;
 			
-			BuildHierarchy(GameObject.transform, accumulatedData);
+			PushSkeletonTRSInto( accumulatedData );
 			for( int i = 0; i < arrayToBlend.Length; i++ )
 			{
 				ref var item = ref arrayToBlend[ i ];
-				if( callingNodeWeight * item.Weight < WEIGHT_MIN_THRESHOLD )
+				if( callingNodeWeight * item.Weight < ZERO_ANIMWEIGHT_THRESH )
 					continue;
 				
 				SampleInner( item.Anim, dt, callingNodeWeight * item.Weight );
 
+				var realUnitWeight = item.Weight / accumulatedWeight;
 				for( int j = 0; j < accumulatedData.Count; j++ )
 				{
 					var data = accumulatedData[ j ];
 					var t = data.Transform;
-					var scaledWeight = item.Weight / accumulatedWeight;
-					data.T += t.localPosition * scaledWeight;
-					AccumulateQuat(ref data.R, t.localRotation, scaledWeight);
+					data.T += t.localPosition * realUnitWeight;
+					#warning how the heck do I accumulate rotations ?
+					data.R = Quaternion.Lerp( data.R, t.localRotation, realUnitWeight );
 					accumulatedData[ j ] = data;
 				}
-			}
-
-			// Normalize quaternion
-			for( int j = 0; j < accumulatedData.Count; j++ )
-			{
-				var animData = accumulatedData[ j ];
-				ref var qRef = ref animData.R;
-				float inverseLength = 1f / Mathf.Sqrt(qRef.x * qRef.x 
-				                                      + qRef.y * qRef.y 
-				                                      + qRef.z * qRef.z 
-				                                      + qRef.w * qRef.w);
-				qRef.x *= inverseLength;
-				qRef.y *= inverseLength;
-				qRef.z *= inverseLength;
-				qRef.w *= inverseLength;
-				accumulatedData[ j ] = animData;
 			}
 
 			for( int j = 0; j < accumulatedData.Count; j++ )
@@ -609,36 +713,6 @@
 				t.localRotation = animData.R;
 			}
 		}
-
-
-
-
-
-		void AccumulateQuat(ref Quaternion current, Quaternion newQ, float weight)
-		{
-			if (current.x * newQ.x + current.y * newQ.y + current.z * newQ.z + current.w * newQ.w >= 0.0f)
-			{
-				current.x += weight * newQ.x;
-				current.y += weight * newQ.y;
-				current.z += weight * newQ.z;
-				current.w += weight * newQ.w;
-			}
-			else
-			{
-				current.x -= weight * newQ.x;
-				current.y -= weight * newQ.y;
-				current.z -= weight * newQ.z;
-				current.w -= weight * newQ.w;
-			}
-		}
-
-
-
-
-
-
-
-
 
 
 
@@ -660,7 +734,8 @@
 				}
 				else
 				{
-					this = default;
+					T = default;
+					R = Quaternion.identity;
 					Transform = pTransform;
 				}
 			}
@@ -668,7 +743,15 @@
 
 
 
-		void BuildHierarchy( Transform t, TempBuffer<TRS> buffer, bool withLocalTRS = false )
+		void PushSkeletonTRSInto( TempBuffer<TRS> buffer, bool withLocalTRS = false )
+		{
+			for( int i = 0; i < _bones.Length; i++ )
+				buffer.Add( new TRS( _bones[ i ], withLocalTRS ) );
+		}
+
+
+
+		void FetchHierarchyTRS( Transform t, TempBuffer<TRS> buffer, bool withLocalTRS = false )
 		{
 			buffer.Add( new TRS( t, withLocalTRS ) );
 			for( int i = buffer.Count - 1; i < buffer.Count; i++ )
@@ -683,8 +766,10 @@
 
 
 
-		static float GetSynchTime( AnimNodeSequence sequenceToSynchronize, AnimNodeSequence controlSequence )
+		float GetSynchTime( AnimNodeSequence sequenceToSynchronize, AnimNodeSequence controlSequence )
 		{
+			if( controlSequence.AnimSeq == null || sequenceToSynchronize.AnimSeq == null )
+				return 0f;
 			var normalized = controlSequence.CurrentTime / controlSequence.AnimSeq.SequenceLength;
 			normalized -= controlSequence.SynchPosOffset;
 			normalized += sequenceToSynchronize.SynchPosOffset;
@@ -729,7 +814,7 @@
 			var controlSequence = sequences[ 0 ];
 			foreach( var seqNode in sequences )
 			{
-				if( seqNode.NodeTotalWeight > controlSequence.NodeTotalWeight )
+				if( seqNode.bRelevant && seqNode.NodeTotalWeight > controlSequence.NodeTotalWeight )
 				{
 					controlSequence = seqNode;
 				}
@@ -739,31 +824,10 @@
 		}
 
 
-
-		static name GetClipAt( AnimNodeAimOffset.AimOffsetProfile profile, (int x, int y) p )
+		
+		static AnimNodeAimOffset.AimTransform GetTRSAt( AnimNodeAimOffset.AimComponent comp, int x, int y )
 		{
-			return p switch
-			{
-				(1, 1) => profile.AnimName_RU,
-				(0, 1) => profile.AnimName_CU,
-				(-1, 1) => profile.AnimName_LU,
-				
-				(1, 0) => profile.AnimName_RC,
-				(0, 0) => profile.AnimName_CC,
-				(-1, 0) => profile.AnimName_LC,
-				
-				(1, -1) => profile.AnimName_RD,
-				(0, -1) => profile.AnimName_CD,
-				(-1, -1) => profile.AnimName_LD,
-				_ => throw new System.ArgumentOutOfRangeException()
-			};
-		}
-
-
-
-		static AnimNodeAimOffset.AimTransform GetTRSAt( AnimNodeAimOffset.AimComponent comp, (int x, int y) p )
-		{
-			return p switch
+			return (x, y) switch
 			{
 				(1, 1) => comp.RU,
 				(0, 1) => comp.CU,
@@ -777,92 +841,7 @@
 				_ => throw new System.ArgumentOutOfRangeException()
 			};
 		}
-
-
-
-		void BlendClips( (int x, int y) clipASelector, (int x, int y) clipB, TempBuffer<TRS> buffer0, float weightX, ref AnimNodeAimOffset.AimOffsetProfile profile )
-		{
-			var clip00 = GetClipAt( profile, clipASelector );
-			var clip10 = GetClipAt( profile, clipB );
-			float iWeightX = 1f - weightX;
-			if( clip00 != "" )
-			{
-				_clips[ clip00 ].SampleAnimation( GameObject, 0f );
-				BuildHierarchy( GameObject.transform, buffer0, true );
-			}
-			else
-			{
-				BuildHierarchy( GameObject.transform, buffer0, false );
-			}
-
-			for( int i = 0; i < buffer0.Count; i++ )
-			{
-				name tName = buffer0[ i ].Transform.name;
-				foreach( var component in profile.AimComponents )
-				{
-					if( component.BoneName != tName )
-						continue;
-					var trs = GetTRSAt( component, clipASelector );
-					var data = buffer0[ i ];
-					data.T = trs.Translation.ToUnityPos();
-					data.R = (Quaternion)MEdge.Core.Object.QuatToRotator(trs.Quaternion);
-					buffer0[ i ] = data;
-					break;
-				}
-			}
-			
-			if( clip10 != "" )
-			{
-				_clips[clip10].SampleAnimation( GameObject, 0f );
-				for( int i = 0; i < buffer0.Count; i++ )
-				{
-					var clip00Data = buffer0[ i ];
-					var t = clip00Data.Transform;
-
-					var translation = t.localPosition;
-					var rotation = t.localRotation;
-					name tName = buffer0[ i ].Transform.name;
-					foreach( var component in profile.AimComponents )
-					{
-						if( component.BoneName != tName )
-							continue;
-						var trs = GetTRSAt( component, clipASelector );
-						translation = trs.Translation.ToUnityPos();
-						rotation = (Quaternion)MEdge.Core.Object.QuatToRotator(trs.Quaternion);
-						break;
-					}
-					
-					clip00Data.T = clip00Data.T * iWeightX + translation * weightX;
-					clip00Data.R = Quaternion.Lerp( clip00Data.R, rotation, weightX );
-					buffer0[ i ] = clip00Data;
-				}
-			}
-			else
-			{
-				for( int i = 0; i < buffer0.Count; i++ )
-				{
-					var clip00Data = buffer0[ i ];
-
-					name tName = buffer0[ i ].Transform.name;
-					foreach( var component in profile.AimComponents )
-					{
-						if( component.BoneName != tName )
-							continue;
-						var trs = GetTRSAt( component, clipASelector );
-						clip00Data.T = clip00Data.T * iWeightX + trs.Translation.ToUnityPos() * weightX;
-						clip00Data.R = Quaternion.Lerp( clip00Data.R, (Quaternion)MEdge.Core.Object.QuatToRotator(trs.Quaternion), weightX );
-						goto ASSIGN_AND_NEXT;
-					}
-					
-					clip00Data.T *= iWeightX;
-					clip00Data.R = Quaternion.Lerp( clip00Data.R, Quaternion.identity, weightX );
-					
-					ASSIGN_AND_NEXT:
-					buffer0[ i ] = clip00Data;
-				}
-			}
-		}
-
+		
 
 
 		static float ComputeDeltaTime(AnimNodeSequence nodeSequence, float dt)
@@ -875,92 +854,7 @@
 			if( nodeSequence.bPlaying == false )
 				return 0f;
 
-			#warning weird stuff going on with animsequence RateScale and length, they seem to be related in some way, make sure I'm doing the right thing here
-			return dt * nodeSequence.Rate * nodeSequence.AnimSeq.RateScale;
-		}
-
-
-
-		static void ApplyTimeChange( AnimNodeSequence nodeSequence, bool timeGoesForward, float currentWeightForNotification, Actor actor )
-		{
-			try
-			{
-				ref var refCurrentTime = ref nodeSequence.CurrentTime;
-				ref var refPreviousTime = ref nodeSequence.PreviousTime;
-				// ReSharper disable once CompareOfFloatsByEqualityOperator
-				if( refPreviousTime == refCurrentTime )
-					return;
-				
-				var sequenceLength = nodeSequence.AnimSeq.SequenceLength;
-				if( nodeSequence.bLooping )
-				{
-					refCurrentTime %= sequenceLength;
-					if( refCurrentTime < 0f )
-						refCurrentTime = sequenceLength + refCurrentTime;
-				}
-				else if( refCurrentTime > sequenceLength )
-				{
-					refCurrentTime = sequenceLength;
-				}
-
-				if( currentWeightForNotification < nodeSequence.NotifyWeightThreshold )
-					return;
-				
-				Vector4 ranges = Vector4.zero;
-				int timeSlices;
-				if( timeGoesForward && refCurrentTime < refPreviousTime )
-				{
-					// Looped around, execute from 
-					ranges[ 0 ] = refPreviousTime;
-					ranges[ 1 ] = sequenceLength;
-					ranges[ 2 ] = 0f;
-					ranges[ 3 ] = refCurrentTime;
-					timeSlices = 2;
-				}
-				else if( timeGoesForward == false && refCurrentTime > refPreviousTime )
-				{
-					// Looped around backwards, execute from
-					ranges[ 0 ] = 0f;
-					ranges[ 1 ] = refPreviousTime;
-					ranges[ 2 ] = refCurrentTime;
-					ranges[ 3 ] = sequenceLength;
-					timeSlices = 2;
-				}
-				else
-				{
-					ranges[ 0 ] = refPreviousTime;
-					ranges[ 1 ] = refCurrentTime;
-					timeSlices = 1;
-				}
-
-				for( int i = 0; i < timeSlices; i++ )
-				{
-					var from = ranges[i*2+0];
-					var to = ranges[i*2+1];
-
-					var notifies = nodeSequence.AnimSeq.Notifies;
-					var notifiesCount = notifies.Length;
-					for( int j = 0; j < notifiesCount; j++ )
-					{
-						var notifyEvent = timeGoesForward ? notifies[ j ] : notifies[ notifiesCount - 1 - j ];
-						if( (notifyEvent.Time > from && notifyEvent.Time <= to) == false ) 
-							continue;
-						
-						if( notifyEvent.Notify is AnimNotify_Scripted scriptedNotify )
-						{
-							scriptedNotify.Notify( actor, nodeSequence );
-						}
-						else
-						{
-							LogWarning( $"Notify '{notifyEvent.Notify.GetType()}' not implemented" );
-						}
-					}
-				}
-			}
-			finally
-			{
-				nodeSequence.PreviousTime = nodeSequence.CurrentTime;
-			}
+			return nodeSequence.Rate * nodeSequence.AnimSeq.RateScale * nodeSequence.SkelComponent.GlobalAnimRateScale * dt;
 		}
 
 
@@ -998,6 +892,57 @@
 			}
 
 			return null;
+		}
+
+
+
+		public void Test(TdAnimNodeTurn node, float probablyAngleDiff)
+		{
+			float absAngle; // st7
+			double extendedRegionLimit; // st6
+			int mostLikelyAnimationToUse; // eax
+			//AnimNodeSequence selectedSequence; // eax
+			//AnimNodeSequence selectedSequenceCpy; // esi
+			AnimSequence animSeq; // esi
+			float extendedBoostSpeed; // xmm3_4
+			float baseTurnPerSecond; // xmm0_4
+			float absAngleCpy; // [esp+18h] [ebp-4h]
+
+			absAngle = Abs(probablyAngleDiff);
+			absAngleCpy = absAngle;
+			extendedRegionLimit = node.ExtendedRegionLimit;
+			node.PlayingTurnAnimation = true;
+			if ( absAngle <= extendedRegionLimit )
+			{
+				mostLikelyAnimationToUse = 1;
+				if ( probablyAngleDiff >= 0.0 )
+					mostLikelyAnimationToUse = 3;
+			}
+			else
+			{
+				mostLikelyAnimationToUse = 2;
+				if ( probablyAngleDiff >= 0.0 )
+					mostLikelyAnimationToUse = 4;
+			}
+
+			node.SetActiveMove( mostLikelyAnimationToUse, true );
+			if ( node.Children[ node.ActiveChildIndex ].Anim is AnimNodeSequence selectedSequence )
+			{
+				selectedSequence.PlayAnim( selectedSequence.bLooping, selectedSequence.Rate, 0.0f );
+				animSeq = selectedSequence.AnimSeq;
+				if ( animSeq != null )
+				{
+					if ( absAngleCpy <= node.ExtendedRegionLimit )
+						extendedBoostSpeed = 8192.0f;
+					else
+						extendedBoostSpeed = 16384.0f;
+					if ( probablyAngleDiff == 0.0f )
+						baseTurnPerSecond = 0.0f;
+					else
+						baseTurnPerSecond = probablyAngleDiff / absAngleCpy;
+					node.LegTurnPerSecond = (float)(baseTurnPerSecond / animSeq.SequenceLength) * extendedBoostSpeed;
+				}
+			}
 		}
 	}
 }

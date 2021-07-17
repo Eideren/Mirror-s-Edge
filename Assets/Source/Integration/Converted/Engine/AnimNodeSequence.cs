@@ -59,11 +59,11 @@ public partial class AnimNodeSequence : AnimNode/*
 		NativeMarkers.MarkUnimplemented();
 	}
 	
-	// Export UAnimNodeSequence::execPlayAnim(FFrame&, void* const)
-	public override /*native function */void PlayAnim(/*optional */bool? _bLoop = default, /*optional */float? _InRate = default, /*optional */float? _StartTime = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//// Export UAnimNodeSequence::execPlayAnim(FFrame&, void* const)
+	//public override /*native function */void PlayAnim(/*optional */bool? _bLoop = default, /*optional */float? _InRate = default, /*optional */float? _StartTime = default)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UAnimNodeSequence::execStopAnim(FFrame&, void* const)
 	public override /*native function */void StopAnim()
@@ -91,12 +91,12 @@ public partial class AnimNodeSequence : AnimNode/*
 		return default;
 	}
 	
-	// Export UAnimNodeSequence::execGetGlobalPlayRate(FFrame&, void* const)
-	public virtual /*native function */float GetGlobalPlayRate()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//// Export UAnimNodeSequence::execGetGlobalPlayRate(FFrame&, void* const)
+	//public virtual /*native function */float GetGlobalPlayRate()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	//// Export UAnimNodeSequence::execGetAnimPlaybackLength(FFrame&, void* const)
 	//public virtual /*native function */float GetAnimPlaybackLength()

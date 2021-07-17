@@ -9,22 +9,27 @@
 		// Export UTdAnimNodeBlendList::execSetActiveMove(FFrame&, void* const)
         public virtual /*native function */bool SetActiveMove(int ChildIndex, /*optional */bool? _ForceActive = default)
         {
-	        if( _ForceActive != default )
-		        Debug.LogWarning( $"{nameof(_ForceActive)} not implemented" );
-        	
-	        for( int i = 0; i < TargetWeight.Length; i++ )
-	        {
-		        TargetWeight[ i ] = 0f;
-	        }
-
-	        TargetWeight[ ChildIndex ] = 1f;
-	        EditorSliderIndex = ChildIndex;
-	        BlendTimeToGo = BlendOutWeight[ ActiveChildIndex ] > BlendWeight[ ChildIndex ] ? BlendOutWeight[ ActiveChildIndex ] : BlendWeight[ ChildIndex ];
-	        ActiveChildIndex = ChildIndex;
-	        if(bPlayActiveChild)
-		        PlayAnim();
+	        float activeChildBlendOutWeight; // xmm0_4
+	        float newChildBlendWeight; // xmm1_4
+	        int activeChildIndex; // eax
+	        float maxBlendWeight; // [esp+Ch] [ebp+8h]
 	        
-            return default;
+	        if ( _ForceActive != true && this.ActiveChildIndex == ChildIndex || this.TargetWeight.Count == 0 )
+		        return false;
+	        activeChildBlendOutWeight = 0.2f;            // default value if no active
+	        if ( ChildIndex >= this.BlendWeight.Count )
+		        newChildBlendWeight = 0.2f;
+	        else
+		        newChildBlendWeight = this.BlendWeight[ChildIndex];
+	        activeChildIndex = this.ActiveChildIndex;
+	        if ( activeChildIndex < this.BlendOutWeight.Count )
+		        activeChildBlendOutWeight = this.BlendOutWeight[activeChildIndex];
+	        if ( newChildBlendWeight < activeChildBlendOutWeight )
+		        maxBlendWeight = activeChildBlendOutWeight;
+	        else
+		        maxBlendWeight = newChildBlendWeight;
+	        this.SetActiveChild( ChildIndex, maxBlendWeight );
+	        return true;
         }
 	}
 }

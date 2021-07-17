@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -49,11 +51,11 @@ public partial class AnimNodeBlendBase : AnimNode/*
 	public /*editfixedsize export editinline */array</*export editinline */AnimNodeBlendBase.AnimBlendChild> Children;
 	public bool bFixNumChildren;
 	
-	// Export UAnimNodeBlendBase::execPlayAnim(FFrame&, void* const)
-	public override /*native function */void PlayAnim(/*optional */bool? _bLoop = default, /*optional */float? _Rate = default, /*optional */float? _StartTime = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//// Export UAnimNodeBlendBase::execPlayAnim(FFrame&, void* const)
+	//public override /*native function */void PlayAnim(/*optional */bool? _bLoop = default, /*optional */float? _Rate = default, /*optional */float? _StartTime = default)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UAnimNodeBlendBase::execStopAnim(FFrame&, void* const)
 	public override /*native function */void StopAnim()

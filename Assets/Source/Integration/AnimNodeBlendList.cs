@@ -6,16 +6,39 @@
 		// Export UAnimNodeBlendList::execSetActiveChild(FFrame&, void* const)
 		public virtual /*native function */void SetActiveChild(int ChildIndex, float BlendTime)
 		{
-			for( int i = 0; i < TargetWeight.Length; i++ )
+			for(var i = 0; i < Children.Length; i++)
 			{
-				TargetWeight[ i ] = 0f;
+				if(i == ChildIndex)
+				{
+					TargetWeight[i] = 1.0f;
+
+					// If we basically want this straight away - dont wait until a tick to update weights.
+					if(BlendTime == 0.0f)
+					{
+						Children[i].Weight = 1.0f;
+					}
+				}
+				else
+				{
+					TargetWeight[i] = 0.0f;
+
+					if(BlendTime == 0.0f)
+					{
+						Children[i].Weight = 0.0f;
+					}
+				}
 			}
 
-			TargetWeight[ ChildIndex ] = 1f;
 			BlendTimeToGo = BlendTime;
 			ActiveChildIndex = ChildIndex;
-			if(bPlayActiveChild)
-				PlayAnim();
+
+			if( bPlayActiveChild )
+			{
+				if( Children[ActiveChildIndex].Anim is AnimNodeSequence AnimSeq )
+				{
+					AnimSeq.PlayAnim( AnimSeq.bLooping, AnimSeq.Rate );
+				}
+			}
 		}
 	}
 }

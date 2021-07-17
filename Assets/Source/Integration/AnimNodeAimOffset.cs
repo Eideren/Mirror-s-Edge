@@ -6,12 +6,30 @@
 		// Export UAnimNodeAimOffset::execSetActiveProfileByName(FFrame&, void* const)
 		public virtual /*native function */void SetActiveProfileByName(name ProfileName)
 		{
-			for( int i = 0; i < Profiles.Length; i++ )
+			if(TemplateNode != null)
 			{
-				if( Profiles[ i ].ProfileName == ProfileName )
+				// Look through profiles to find a name that matches.
+				for(var i=0; i<TemplateNode.Profiles.Length; i++)
 				{
-					this.CurrentProfileIndex = i;
-					break;
+					// Found it - change to it.
+					if(TemplateNode.Profiles[i].ProfileName == ProfileName)
+					{
+						SetActiveProfileByIndex(i);
+						return;
+					}
+				}
+			}
+			else
+			{
+				// Look through profiles to find a name that matches.
+				for(var i=0; i<Profiles.Length; i++)
+				{
+					// Found it - change to it.
+					if(Profiles[i].ProfileName == ProfileName)
+					{
+						SetActiveProfileByIndex(i);
+						return;
+					}
 				}
 			}
 		}

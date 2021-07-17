@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -25,12 +27,12 @@ public partial class TdSwanNeck : Object/*
 	public /*const */float DegToUnDeg;
 	public/*(SwanNeckSettings)*/ /*config */TdSwanNeck.ESwanNeckType Type;
 	
-	// Export UTdSwanNeck::execGetSwanNeckPos(FFrame&, void* const)
-	public virtual /*native function */Object.Vector GetSwanNeckPos(/*const */Object.Rotator FrameOfRefRotation)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//// Export UTdSwanNeck::execGetSwanNeckPos(FFrame&, void* const)
+	//public virtual /*native function */Object.Vector GetSwanNeckPos(/*const */Object.Rotator FrameOfRefRotation)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public virtual /*function */void UpdateSwanNeck(float DeltaTime, int ControllerPitch)
 	{
