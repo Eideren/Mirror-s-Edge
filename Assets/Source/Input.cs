@@ -9,7 +9,6 @@
 
 	public partial class UWorld
 	{
-		static Vector3 _previousMouse;
 		public static void SampleInput( TdPlayerInput uInput, TdPlayerController controller, float dt )
         {
 	        // Variables marked as 'input' are reset every frame afaict
@@ -28,8 +27,10 @@
 				}
 			} );
 
-			var mouseDelta = ( UnityEngine.Input.mousePosition - _previousMouse );// * 0.001f;
-	        _previousMouse = UnityEngine.Input.mousePosition;
+			var mouseDelta = (
+				x: UnityEngine.Input.GetAxisRaw( "Mouse X" ),
+				y: UnityEngine.Input.GetAxisRaw( "Mouse Y" )
+			);
 
 	        // (Name:"D",Command:"GBA_StrafeRight",Control:false,Shift:false,Alt:false),
 	        // (Name:"GBA_StrafeRight",Command:"Axis aStrafe Speed=+1.0",Control:false,Shift:false,Alt:false),
