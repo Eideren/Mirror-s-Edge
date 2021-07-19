@@ -45,6 +45,11 @@
 
 		/// <summary> One unbox </summary>
 		public void SetValueSlow( CachedContainer container, object fieldValue );
+
+
+
+		/// <summary> No boxing issues </summary>
+		public void SetValueToDefault( CachedContainer container );
 	}
 
 

@@ -134,8 +134,8 @@
 			public static readonly ReflectionDataImpl<TContainer> Instance = new ReflectionDataImpl<TContainer>();
 			[ThreadStatic]
 			static Stack<CachedContainerImpl> _cache;
-			readonly IField[] fields;
-			Dictionary<string, IField> nameToField;
+			readonly IField[] _fields;
+			Dictionary<string, IField> _nameToField;
 			
 			
 			
@@ -159,25 +159,25 @@
 			
 			
 			
-			public override IField[] Fields => fields;
+			public override IField[] Fields => _fields;
 
 
 
 			[ CanBeNull ]
 			public override IField FindField( string name )
 			{
-				if( nameToField == null )
+				if( _nameToField == null )
 				{
-					nameToField = new Dictionary<string, IField>(fields.Length);
-					foreach( var field in fields )
+					_nameToField = new Dictionary<string, IField>(_fields.Length);
+					foreach( var field in _fields )
 					{
-						if( nameToField.ContainsKey( field.Info.Name ) )
+						if( _nameToField.ContainsKey( field.Info.Name ) )
 							continue;
-						nameToField.Add( field.Info.Name, field );
+						_nameToField.Add( field.Info.Name, field );
 					}
 				}
 				
-				return nameToField.TryGetValue( name, out var matchingField ) ? matchingField : null;
+				return _nameToField.TryGetValue( name, out var matchingField ) ? matchingField : null;
 			}
 
 
@@ -208,8 +208,8 @@
 				
 				var cache = _cache.Pop();
 				cache.Container = container;
-				for( int i = 0; i < fields.Length; i++ )
-					Setter( fields[ i ], cache );
+				for( int i = 0; i < _fields.Length; i++ )
+					Setter( _fields[ i ], cache );
 				container = cache.Container;
 				
 				_cache.Push(cache);
@@ -225,8 +225,8 @@
 				
 				var cache = _cache.Pop();
 				cache.Container = container;
-				for( int i = 0; i < fields.Length; i++ )
-					Setter( fields[ i ], param, cache );
+				for( int i = 0; i < _fields.Length; i++ )
+					Setter( _fields[ i ], param, cache );
 				container = cache.Container;
 				
 				_cache.Push(cache);
@@ -266,7 +266,7 @@
 				for( var t = typeof(TContainer); t != null; t = t.BaseType )
 					listOfFieldInfo.AddRange( t.GetFields( declaredFields ) );
 
-				fields = new IField[ listOfFieldInfo.Count ];
+				_fields = new IField[ listOfFieldInfo.Count ];
 				for( int i = 0; i < listOfFieldInfo.Count; i++ )
 				{
 					var fieldInfo = listOfFieldInfo[ i ];
@@ -294,7 +294,7 @@
 
 					var returnMethod = method.CreateDelegate( typeof(ReturnRef<,>).MakeGenericType(typeof(TContainer), fieldInfo.FieldType) );
 					var fieldContainer = Activator.CreateInstance( typeof(FieldImpl<>).MakeGenericType( typeof(TContainer), fieldInfo.FieldType ), returnMethod, fieldInfo ) as IField ?? throw new InvalidOperationException();
-					fields[ i ] = fieldContainer;
+					_fields[ i ] = fieldContainer;
 				}
 		
 				// We are finished processing it, add it to our cache
@@ -392,6 +392,10 @@
 
 
 				public void SetValueSlow( CachedContainer container, object fieldValue ) => Ref( container ) = (TField)fieldValue;
+
+
+
+				public void SetValueToDefault( CachedContainer container ) => Ref( container ) = default;
 
 
 

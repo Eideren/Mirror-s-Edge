@@ -1,5 +1,7 @@
 ﻿namespace MEdge.Engine
 {
+	using System.Linq;
+	using Reflection;
 	using TdGame;
 	using UnityEngine;
 	using static UnityEngine.Mathf;
@@ -11,33 +13,20 @@
 		public static void SampleInput( TdPlayerInput uInput, TdPlayerController controller, float dt )
         {
 	        // Variables marked as 'input' are reset every frame afaict
-			uInput.aBaseX = default;
-			uInput.aBaseY = default;
-			uInput.aBaseZ = default;
-			uInput.aMouseX = default;
-			uInput.aMouseY = default;
-			uInput.aForward = default;
-			uInput.aTurn = default;
-			uInput.aStrafe = default;
-			uInput.aUp = default;
-			uInput.aLookUp = default;
-			uInput.aPS3AccelX = default;
-			uInput.aPS3AccelY = default;
-			uInput.aPS3AccelZ = default;
-			uInput.aPS3Gyro = default;
-			uInput.bStrafe = default;
-			uInput.bXAxis = default;
-			uInput.bYAxis = default;
-			
-			controller.bFire = default;
-			controller.bRun = default;
-			controller.bDuck = default;
-
-
-
-
-
-
+			ReflectionData.ForeachField( ref controller, ( field, container ) =>
+			{
+				if( field.Info.GetCustomAttributes( typeof(inputAttribute), false ).Any() )
+				{
+					field.SetValueToDefault( container );
+				}
+			} );
+			ReflectionData.ForeachField( ref uInput, ( field, container ) =>
+			{
+				if( field.Info.GetCustomAttributes( typeof(inputAttribute), false ).Any() )
+				{
+					field.SetValueToDefault( container );
+				}
+			} );
 
 			var mouseDelta = ( UnityEngine.Input.mousePosition - _previousMouse );// * 0.001f;
 	        _previousMouse = UnityEngine.Input.mousePosition;
