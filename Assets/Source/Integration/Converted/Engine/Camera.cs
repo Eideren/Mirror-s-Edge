@@ -47,11 +47,11 @@ public partial class Camera : Actor/*
 	
 	public partial struct /*native */TViewTarget
 	{
-		public/*()*/ Actor Target;
-		public/*()*/ Controller Controller;
-		public/*()*/ Object.TPOV POV;
-		public/*()*/ float AspectRatio;
-		public/*()*/ PlayerReplicationInfo PRI;
+		[Category] public Actor Target;
+		[Category] public Controller Controller;
+		[Category] public Object.TPOV POV;
+		[Category] public float AspectRatio;
+		[Category] public PlayerReplicationInfo PRI;
 	
 	//	structdefaultproperties
 	//	{
@@ -81,9 +81,9 @@ public partial class Camera : Actor/*
 	
 	public partial struct /*native */ViewTargetTransitionParams
 	{
-		public/*()*/ float BlendTime;
-		public/*()*/ Camera.EViewTargetBlendFunction BlendFunction;
-		public/*()*/ float BlendExp;
+		[Category] public float BlendTime;
+		[Category] public Camera.EViewTargetBlendFunction BlendFunction;
+		[Category] public float BlendExp;
 	
 	//	structdefaultproperties
 	//	{
@@ -324,7 +324,7 @@ public partial class Camera : Actor/*
 	//// Export UCamera::execSetViewTarget(FFrame&, void* const)
 	//public virtual /*native final function */void SetViewTarget(Actor NewViewTarget, /*optional */Camera.ViewTargetTransitionParams? _TransitionParams = default)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//}
 	
 	public virtual /*function */void ProcessViewRotation(float DeltaTime, ref Object.Rotator OutViewRotation, ref Object.Rotator OutDeltaRot)

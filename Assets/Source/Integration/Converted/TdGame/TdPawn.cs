@@ -237,10 +237,10 @@ public partial class TdPawn : GamePawn/*
 	
 	public partial struct /*native */PawnFootPlacementTrace
 	{
-		public /*transient */bool bHitLeftFoot;
-		public /*transient */bool bHitRightFoot;
-		public /*transient */Object.Vector LeftFootLocation;
-		public /*transient */Object.Vector RightFootLocation;
+		[transient] public bool bHitLeftFoot;
+		[transient] public bool bHitRightFoot;
+		[transient] public Object.Vector LeftFootLocation;
+		[transient] public Object.Vector RightFootLocation;
 	
 	//	structdefaultproperties
 	//	{
@@ -393,16 +393,16 @@ public partial class TdPawn : GamePawn/*
 	public TdSkelControlFootPlacement RightLegControl1p;
 	public TdSkelControlFootPlacement RightLegControl3p;
 	public TdSkelControlRecoil RecoilControl1p;
-	public/*(IK)*/ /*editinline */TdSkelControlLimb LeftHandWorldIKController;
-	public/*(IK)*/ /*editinline */TdSkelControlLimb RightHandWorldIKController;
-	public/*(IK)*/ /*editinline */SkelControlLimb LeftHandLocalIKController;
-	public/*(IK)*/ /*editinline */SkelControlLimb RightHandLocalIKController;
-	public/*(IK)*/ /*editinline */SkelControlSingleBone RightHandRotationController;
-	public/*(IK)*/ /*editinline */SkelControlSingleBone LeftHandRotationController;
-	public/*(IK)*/ /*editinline */TdSkelControlSpring HeavyWeaponSpringController;
-	public/*(IK)*/ /*editinline */SkelControlSingleBone RightForeArmRollRotationController;
-	public/*(IK)*/ /*editinline */SkelControlSingleBone LeftForeArmRollRotationController;
-	public /*const */bool bDisableSkelControlSpring;
+	[Category("IK")] [editinline] public TdSkelControlLimb LeftHandWorldIKController;
+	[Category("IK")] [editinline] public TdSkelControlLimb RightHandWorldIKController;
+	[Category("IK")] [editinline] public SkelControlLimb LeftHandLocalIKController;
+	[Category("IK")] [editinline] public SkelControlLimb RightHandLocalIKController;
+	[Category("IK")] [editinline] public SkelControlSingleBone RightHandRotationController;
+	[Category("IK")] [editinline] public SkelControlSingleBone LeftHandRotationController;
+	[Category("IK")] [editinline] public TdSkelControlSpring HeavyWeaponSpringController;
+	[Category("IK")] [editinline] public SkelControlSingleBone RightForeArmRollRotationController;
+	[Category("IK")] [editinline] public SkelControlSingleBone LeftForeArmRollRotationController;
+	[Const] public bool bDisableSkelControlSpring;
 	public bool bCanUnCrouch;
 	public bool bConstrainLook;
 	public bool bGoingForward;
@@ -410,9 +410,9 @@ public partial class TdPawn : GamePawn/*
 	public bool bClimbDownFast;
 	public bool bEnableFootPlacement;
 	public bool bMoveActionMax;
-	public /*transient */bool bFoundLedgeExcludesHandMoves;
-	public /*transient */bool bFoundLedgeExcludesFootMoves;
-	public /*private const */bool bIsWallWalking;
+	[transient] public bool bFoundLedgeExcludesHandMoves;
+	[transient] public bool bFoundLedgeExcludesFootMoves;
+	[Const] public/*private*/ bool bIsWallWalking;
 	public bool bFoundLedge;
 	public bool bAllowMoveChange;
 	public bool bSRPauseTimer;
@@ -420,25 +420,25 @@ public partial class TdPawn : GamePawn/*
 	public bool RollTriggerPressed;
 	public bool bUncontrolledSlide;
 	public bool bIsPlayingSlideEffect;
-	public /*transient */bool bAlternateSound;
+	[transient] public bool bAlternateSound;
 	public bool bCharacterInhaling;
 	public bool bDisableCharacterSounds;
-	public/*(Health)*/ /*config */bool bTakeFallDamage;
+	[Category("Health")] [config] public bool bTakeFallDamage;
 	public bool bIsUsingRootMotion;
 	public bool bIsUsingRootRotation;
 	public bool bDebugDamage;
 	public bool bDebugNetAnim;
 	public bool bNoMoveAnims;
-	public/*(Speed)*/ bool bDebugAcceleration;
-	public/*(Movement)*/ bool bDebugJumping;
-	public/*(Movement)*/ bool bDebugMovement;
+	[Category("Speed")] public bool bDebugAcceleration;
+	[Category("Movement")] public bool bDebugJumping;
+	[Category("Movement")] public bool bDebugMovement;
 	public bool bDebugPlotPath;
-	public/*(Footsteps)*/ /*config */bool bDebugFootsteps;
-	public/*(Sounds)*/ /*config */bool bDebugSlapBack;
-	public/*(Sounds)*/ /*config */bool bDebugCharacterSounds;
-	public/*(Sounds)*/ /*config */bool bDebugBreathingSounds;
-	public/*()*/ /*config */bool bDebugWeapons;
-	public/*()*/ /*config */bool bDebugMaterials;
+	[Category("Footsteps")] [config] public bool bDebugFootsteps;
+	[Category("Sounds")] [config] public bool bDebugSlapBack;
+	[Category("Sounds")] [config] public bool bDebugCharacterSounds;
+	[Category("Sounds")] [config] public bool bDebugBreathingSounds;
+	[Category] [config] public bool bDebugWeapons;
+	[Category] [config] public bool bDebugMaterials;
 	public TdAnimNodeSlot CustomCannedNode1p;
 	public TdAnimNodeSlot CustomCannedNode3p;
 	public TdAnimNodeSlot CustomCannedUpperBodyNode1p;
@@ -463,9 +463,9 @@ public partial class TdPawn : GamePawn/*
 	public TdAnimNodeGrabbing GrabAnimNode3p;
 	public AnimNodeSynch MasterSync1p;
 	public AnimNodeSynch MasterSync3p;
-	public /*transient */array<AnimNodeAimOffset> AimOffsetNodes;
-	public /*transient */array<TdAnimNodePoseOffset> PoseOffsetNodes;
-	public /*transient */array<AnimNodeSlot> SlotNodes;
+	[transient] public array<AnimNodeAimOffset> AimOffsetNodes;
+	[transient] public array<TdAnimNodePoseOffset> PoseOffsetNodes;
+	[transient] public array<AnimNodeSlot> SlotNodes;
 	public AnimSet CommonArmedLight1p;
 	public AnimSet CommonArmedHeavy1p;
 	public AnimSet CommonArmedLight3p;
@@ -477,29 +477,29 @@ public partial class TdPawn : GamePawn/*
 	public float FaceRotationTimeLeft;
 	public float BecameReadyTime;
 	public float AmountTilUnarmed;
-	public /*export editinline */CylinderComponent ActorCylinderComponent;
+	[export, editinline] public CylinderComponent ActorCylinderComponent;
 	public float GravityModifier;
 	public float GravityModifierTimer;
-	public/*(Animation)*/ /*editinline */TdSwanNeck SwanNeck1p;
+	[Category("Animation")] [editinline] public TdSwanNeck SwanNeck1p;
 	public TdPawn.EAgainstWallState AgainstWallState;
-	public/*(Animation)*/ TdPawn.EWeaponAnimState WeaponAnimState;
+	[Category("Animation")] public TdPawn.EWeaponAnimState WeaponAnimState;
 	public byte AnimLockRefCount;
 	public byte RootMotionRefCount;
 	public TdPawn.EGrabTurnType CurrentGrabTurnType;
 	public byte LadderType;
-	public /*repnotify */TdPawn.EMovement AnimationMovementState;
+	[repnotify] public TdPawn.EMovement AnimationMovementState;
 	public TdPawn.EMovement PendingAnimationMovementState;
 	public TdPawn.EMovement OldMovementState;
 	public TdPawn.EMovement PendingMovementState;
 	public TdPawn.EMovement MovementState;
-	public /*repnotify */TdPawn.EMovement ReplicatedMovementState;
+	[repnotify] public TdPawn.EMovement ReplicatedMovementState;
 	public TdPawn.EMovement AIAimOldMovementState;
 	public TdPawn.WalkingState OverrideWalkingState;
 	public TdPawn.WalkingState PendingOverrideWalkingState;
 	public TdPawn.WalkingState CurrentWalkingState;
-	public /*transient */byte ReplicateCustomAnimCount;
+	[transient] public byte ReplicateCustomAnimCount;
 	public TdPawn.EMoveActionHint MoveActionHint;
-	public /*repnotify */byte ReloadCount;
+	[repnotify] public byte ReloadCount;
 	public byte NoOfBreathingSounds;
 	public Object.Vector AgainstWallLeftHand;
 	public Object.Vector AgainstWallRightHand;
@@ -508,39 +508,39 @@ public partial class TdPawn : GamePawn/*
 	public Object.Rotator MaxLookConstraint;
 	public float LegRotationSlowTimer;
 	public int LegRotation;
-	public/*(Animation)*/ /*config */float LegRotationSpeed;
-	public /*config */int GoBackLegAngleLimitMin;
-	public /*config */int GoBackLegAngleLimitMax;
-	public /*config */int LegAngleLimitFudge;
-	public/*(Animation)*/ /*config */float SneakVelocity;
-	public/*(Animation)*/ /*config */float WalkVelocity;
-	public/*(Animation)*/ /*config */float JogVelocity;
-	public/*(Animation)*/ /*config */float RunVelocity;
-	public/*(Animation)*/ /*config */float SprintVelocity;
-	public /*transient */float AverageSpeed;
-	public/*(Animation)*/ /*config */float ASFilterTime;
-	public /*private transient */float ASPollInterval;
-	public /*private transient */float ASPollTimer;
-	public /*private transient */int ASPollSlots;
-	public /*private transient */int ASSlotPointer;
-	public /*private transient */float ASDistanceAccum;
-	public /*private transient */array<float> ASTimeData;
-	public /*private transient */array<float> ASDistanceData;
+	[Category("Animation")] [config] public float LegRotationSpeed;
+	[config] public int GoBackLegAngleLimitMin;
+	[config] public int GoBackLegAngleLimitMax;
+	[config] public int LegAngleLimitFudge;
+	[Category("Animation")] [config] public float SneakVelocity;
+	[Category("Animation")] [config] public float WalkVelocity;
+	[Category("Animation")] [config] public float JogVelocity;
+	[Category("Animation")] [config] public float RunVelocity;
+	[Category("Animation")] [config] public float SprintVelocity;
+	[transient] public float AverageSpeed;
+	[Category("Animation")] [config] public float ASFilterTime;
+	[transient] public/*private*/ float ASPollInterval;
+	[transient] public/*private*/ float ASPollTimer;
+	[transient] public/*private*/ int ASPollSlots;
+	[transient] public/*private*/ int ASSlotPointer;
+	[transient] public/*private*/ float ASDistanceAccum;
+	[transient] public/*private*/ array<float> ASTimeData;
+	[transient] public/*private*/ array<float> ASDistanceData;
 	public float NewFloorSmooth;
-	public /*transient */float SmoothOffset;
-	public /*transient */Object.Rotator FootPlacementStoredRotation;
-	public /*transient */TdPawn.PawnFootPlacementTrace FootPlacementTrace;
+	[transient] public float SmoothOffset;
+	[transient] public Object.Rotator FootPlacementStoredRotation;
+	[transient] public TdPawn.PawnFootPlacementTrace FootPlacementTrace;
 	public float TargetMeshTranslationZ;
-	public /*export editinline */TdSkeletalMeshComponent Mesh1p;
-	public /*export editinline */TdSkeletalMeshComponent Mesh3p;
-	public /*export editinline */TdSkeletalMeshComponent Mesh1pLowerBody;
+	[export, editinline] public TdSkeletalMeshComponent Mesh1p;
+	[export, editinline] public TdSkeletalMeshComponent Mesh3p;
+	[export, editinline] public TdSkeletalMeshComponent Mesh1pLowerBody;
 	public TdMovementVolume ActiveMovementVolume;
 	public Core.ClassT<TdMoveManager> MoveManagerClass;
 	public TdMoveManager MoveManager;
-	public/*(Movement)*/ array< Core.ClassT<TdMove> > MoveClasses;
-	public/*(Movement)*/ /*editinline transient */array</*editinline */TdMove> Moves;
+	[Category("Movement")] public array< Core.ClassT<TdMove> > MoveClasses;
+	[Category("Movement")] [editinline, transient] public array</*editinline */TdMove> Moves;
 	public float SlideStoppedTimeStamp;
-	public /*repnotify */TdPawn.ReplicatedCustomAnimation ReplicatedCustomAnim;
+	[repnotify] public TdPawn.ReplicatedCustomAnimation ReplicatedCustomAnim;
 	public Object.Vector MoveLocation;
 	public Object.Vector MoveNormal;
 	public Actor MovementActor;
@@ -557,35 +557,35 @@ public partial class TdPawn : GamePawn/*
 	public int ActiveMoveTimer;
 	public int RemoteViewYaw;
 	public float EvadeTimer;
-	public/*(Speed)*/ Object.InterpCurveFloat SpeedCurve_LightWeapon;
-	public/*(Speed)*/ Object.InterpCurveFloat SpeedCurve_HeavyWeapon;
-	public/*(Speed)*/ /*config */float SpeedMaxBaseVelocity;
-	public/*(Speed)*/ /*config */float SpeedMinBaseVelocity;
-	public/*(Speed)*/ /*config */float SpeedStrafeVelocityAccelerationFactor;
-	public/*(Speed)*/ /*config */float SpeedWalkVelocityAccelerationFactor;
-	public/*(Speed)*/ /*config */float SpeedSprintVelocityAccelerationFactor;
-	public/*(Speed)*/ /*config */float SpeedEnergyDecelerationTime;
-	public/*(Speed)*/ /*config */float SpeedEnergyDecelerationExponent;
-	public/*(Speed)*/ /*config */float SpeedTurnDecelerationFactor;
-	public /*transient */Object.InterpCurveFloat AccelCurve_LightWeapon;
-	public /*transient */Object.InterpCurveFloat AccelCurve_HeavyWeapon;
+	[Category("Speed")] public Object.InterpCurveFloat SpeedCurve_LightWeapon;
+	[Category("Speed")] public Object.InterpCurveFloat SpeedCurve_HeavyWeapon;
+	[Category("Speed")] [config] public float SpeedMaxBaseVelocity;
+	[Category("Speed")] [config] public float SpeedMinBaseVelocity;
+	[Category("Speed")] [config] public float SpeedStrafeVelocityAccelerationFactor;
+	[Category("Speed")] [config] public float SpeedWalkVelocityAccelerationFactor;
+	[Category("Speed")] [config] public float SpeedSprintVelocityAccelerationFactor;
+	[Category("Speed")] [config] public float SpeedEnergyDecelerationTime;
+	[Category("Speed")] [config] public float SpeedEnergyDecelerationExponent;
+	[Category("Speed")] [config] public float SpeedTurnDecelerationFactor;
+	[transient] public Object.InterpCurveFloat AccelCurve_LightWeapon;
+	[transient] public Object.InterpCurveFloat AccelCurve_HeavyWeapon;
 	public float SpeedSprintEnergy;
-	public/*(Speed)*/ /*config */float UpwardWalkFrictionScale;
-	public/*(Speed)*/ /*config */float DownwardWalkFrictionScale;
-	public/*(Speed)*/ /*config */float MinWalkFrictionModify;
-	public/*(Speed)*/ /*config */float MaxWalkFrictionModify;
-	public/*(Speed)*/ /*config */float UpwardSlideFrictionScale;
-	public/*(Speed)*/ /*config */float DownwardSlideFrictionScale;
-	public/*(Speed)*/ /*config */float BrakingFrictionStrength;
+	[Category("Speed")] [config] public float UpwardWalkFrictionScale;
+	[Category("Speed")] [config] public float DownwardWalkFrictionScale;
+	[Category("Speed")] [config] public float MinWalkFrictionModify;
+	[Category("Speed")] [config] public float MaxWalkFrictionModify;
+	[Category("Speed")] [config] public float UpwardSlideFrictionScale;
+	[Category("Speed")] [config] public float DownwardSlideFrictionScale;
+	[Category("Speed")] [config] public float BrakingFrictionStrength;
 	public float SoftLockStrength;
 	public float RollTriggerTime;
 	public Object.Vector UncontrolledSlideNormal;
-	public/*(Movement)*/ /*config */float FallingUncontrolledHeight;
-	public /*transient */float EnterFallingHeight;
+	[Category("Movement")] [config] public float FallingUncontrolledHeight;
+	[transient] public float EnterFallingHeight;
 	public float SlideEffectUpdateTimer;
-	public /*transient */TdEmitter SlideEffectEmitter;
-	public /*export editinline transient */AudioComponent SlidingSoundComponent0;
-	public /*export editinline transient */AudioComponent SlidingSoundComponent1;
+	[transient] public TdEmitter SlideEffectEmitter;
+	[export, editinline, transient] public AudioComponent SlidingSoundComponent0;
+	[export, editinline, transient] public AudioComponent SlidingSoundComponent1;
 	public SoundCue DefaultSlidingSound;
 	public float CustomSoundInput;
 	public float OverrideSynchPosOffset;
@@ -593,51 +593,51 @@ public partial class TdPawn : GamePawn/*
 	public float StreakEffectDirection;
 	public int PatchOne;
 	public int PatchTwo;
-	public /*repnotify */int PatchThree;
-	public /*repnotify */Core.ClassT<TdWeapon> ReplicatedWeaponClass;
-	public /*repnotify transient */TdPawn.PhysicalHitInfo LastPhysHitInfo;
-	public /*transient */float PhysicsHitReactionBlendTimer;
-	public /*transient */float PhysicsHitReactionBlendOut;
-	public /*config */float PhysicsHitReactionBlendInTime;
-	public /*config */float PhysicsHitReactionBlendOutTime;
+	[repnotify] public int PatchThree;
+	[repnotify] public Core.ClassT<TdWeapon> ReplicatedWeaponClass;
+	[repnotify, transient] public TdPawn.PhysicalHitInfo LastPhysHitInfo;
+	[transient] public float PhysicsHitReactionBlendTimer;
+	[transient] public float PhysicsHitReactionBlendOut;
+	[config] public float PhysicsHitReactionBlendInTime;
+	[config] public float PhysicsHitReactionBlendOutTime;
 	public float PhysicsHitReactionScale;
-	public /*transient */int LastDamageTaken;
-	public /*transient */float ArmorBulletsHead;
-	public /*transient */float ArmorBulletsBody;
-	public /*transient */float ArmorBulletsLegs;
-	public /*transient */float ArmorMeleeHead;
-	public /*transient */float ArmorMeleeBody;
-	public /*transient */float ArmorMeleeLegs;
-	public /*private const config */TdPawn.ArmorSettings ArmorBulletsHeadSettings;
-	public /*private const config */TdPawn.ArmorSettings ArmorBulletsBodySettings;
-	public /*private const config */TdPawn.ArmorSettings ArmorBulletsLegsSettings;
-	public /*private const config */TdPawn.ArmorSettings ArmorMeleeHeadSettings;
-	public /*private const config */TdPawn.ArmorSettings ArmorMeleeBodySettings;
-	public /*private const config */TdPawn.ArmorSettings ArmorMeleeLegsSettings;
-	public /*private const config */TdPawn.ArmorSettings ArmorBulletsHeadSettings_CHASE;
-	public /*private const config */TdPawn.ArmorSettings ArmorBulletsBodySettings_CHASE;
-	public /*private const config */TdPawn.ArmorSettings ArmorBulletsLegsSettings_CHASE;
-	public /*private const config */TdPawn.ArmorSettings ArmorMeleeHeadSettings_CHASE;
-	public /*private const config */TdPawn.ArmorSettings ArmorMeleeBodySettings_CHASE;
-	public /*private const config */TdPawn.ArmorSettings ArmorMeleeLegsSettings_CHASE;
-	public/*(Footsteps)*/ /*config */float FootstepTraceLength;
-	public/*(Footsteps)*/ /*config */float FootstepTraceWidth;
+	[transient] public int LastDamageTaken;
+	[transient] public float ArmorBulletsHead;
+	[transient] public float ArmorBulletsBody;
+	[transient] public float ArmorBulletsLegs;
+	[transient] public float ArmorMeleeHead;
+	[transient] public float ArmorMeleeBody;
+	[transient] public float ArmorMeleeLegs;
+	[Const, config] public/*private*/ TdPawn.ArmorSettings ArmorBulletsHeadSettings;
+	[Const, config] public/*private*/ TdPawn.ArmorSettings ArmorBulletsBodySettings;
+	[Const, config] public/*private*/ TdPawn.ArmorSettings ArmorBulletsLegsSettings;
+	[Const, config] public/*private*/ TdPawn.ArmorSettings ArmorMeleeHeadSettings;
+	[Const, config] public/*private*/ TdPawn.ArmorSettings ArmorMeleeBodySettings;
+	[Const, config] public/*private*/ TdPawn.ArmorSettings ArmorMeleeLegsSettings;
+	[Const, config] public/*private*/ TdPawn.ArmorSettings ArmorBulletsHeadSettings_CHASE;
+	[Const, config] public/*private*/ TdPawn.ArmorSettings ArmorBulletsBodySettings_CHASE;
+	[Const, config] public/*private*/ TdPawn.ArmorSettings ArmorBulletsLegsSettings_CHASE;
+	[Const, config] public/*private*/ TdPawn.ArmorSettings ArmorMeleeHeadSettings_CHASE;
+	[Const, config] public/*private*/ TdPawn.ArmorSettings ArmorMeleeBodySettings_CHASE;
+	[Const, config] public/*private*/ TdPawn.ArmorSettings ArmorMeleeLegsSettings_CHASE;
+	[Category("Footsteps")] [config] public float FootstepTraceLength;
+	[Category("Footsteps")] [config] public float FootstepTraceWidth;
 	public PhysicalMaterial DefaultFootstepMaterial;
-	public /*transient */PhysicalMaterial LastFootstepMaterial;
-	public/*(Sounds)*/ array<SoundCue> CharacterSoundCues;
+	[transient] public PhysicalMaterial LastFootstepMaterial;
+	[Category("Sounds")] public array<SoundCue> CharacterSoundCues;
 	public float LastFlybyStamp;
-	public/*(Health)*/ int MaxHealth;
-	public/*(Health)*/ /*config */float RegenerateDelay;
-	public/*(Health)*/ /*config */float RegenerateHealthPerSecond;
-	public/*(Health)*/ /*config */float UnrealEngineFallDamageScale;
+	[Category("Health")] public int MaxHealth;
+	[Category("Health")] [config] public float RegenerateDelay;
+	[Category("Health")] [config] public float RegenerateHealthPerSecond;
+	[Category("Health")] [config] public float UnrealEngineFallDamageScale;
 	public float TimeSinceLastDamage;
 	public float HealthFrac;
-	public /*transient */float TaserDamageLevel;
-	public/*(Health)*/ /*config */float RegenerateFromTaserPerSecond;
-	public/*(Health)*/ /*config */float TaserRegenerateDelay;
-	public /*transient */float TimeSinceLastTaserDamage;
-	public /*transient */float StunDamageLevel;
-	public/*(Health)*/ /*config */float RegenerateFromStunPerSecond;
+	[transient] public float TaserDamageLevel;
+	[Category("Health")] [config] public float RegenerateFromTaserPerSecond;
+	[Category("Health")] [config] public float TaserRegenerateDelay;
+	[transient] public float TimeSinceLastTaserDamage;
+	[transient] public float StunDamageLevel;
+	[Category("Health")] [config] public float RegenerateFromStunPerSecond;
 	public float MinTimeBeforeRemovingDeadBody;
 	public float MaxTimeBeforeRemovingDeadBody;
 	public Vehicle PassengerDrivenVehicle;
@@ -676,14 +676,14 @@ public partial class TdPawn : GamePawn/*
 	//// Export UTdPawn::execGetWalkAcceleration(FFrame&, void* const)
 	//public virtual /*native function */Object.Vector GetWalkAcceleration(float aForward, float aStrafe, int DeltaRotation, float DeltaTime)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	
 	//// Export UTdPawn::execGetSprintAcceleration(FFrame&, void* const)
 	//public virtual /*native function */Object.Vector GetSprintAcceleration(float aForward, float aStrafe, int DeltaRotation, float DeltaTime)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	
@@ -696,7 +696,7 @@ public partial class TdPawn : GamePawn/*
 	//// Export UTdPawn::execGetMobilityMultiplier(FFrame&, void* const)
 	//public virtual /*native function */float GetMobilityMultiplier()
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	
@@ -890,7 +890,7 @@ public partial class TdPawn : GamePawn/*
 	//// Export UTdPawn::execInitMoveObjects(FFrame&, void* const)
 	//public virtual /*native function */void InitMoveObjects()
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//}
 	
 	public virtual /*function */void OnTutorialEvent(int TutorialEvent)
@@ -1045,7 +1045,7 @@ public partial class TdPawn : GamePawn/*
 	//// Export UTdPawn::execUpdateWalkingState(FFrame&, void* const)
 	//public virtual /*native simulated function */void UpdateWalkingState()
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//}
 	
 	public virtual /*simulated function */void SetOverrideWalkingState(TdPawn.WalkingState NewState, /*optional */float? _delay = default)
@@ -2610,7 +2610,7 @@ public partial class TdPawn : GamePawn/*
 	//// Export UTdPawn::execUpdateVelocityVariables(FFrame&, void* const)
 	//public virtual /*native simulated function */void UpdateVelocityVariables()
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//}
 	
 	public override Tick_del Tick { get => bfield_Tick ?? TdPawn_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
@@ -3630,14 +3630,14 @@ public partial class TdPawn : GamePawn/*
 	//// Export UTdPawn::execGetCustomAnimation(FFrame&, void* const)
 	//public virtual /*native simulated function */AnimNodeSequence GetCustomAnimation(TdPawn.CustomNodeType Type)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	//
 	//// Export UTdPawn::execPlayCustomAnim(FFrame&, void* const)
 	//public virtual /*native simulated function */void PlayCustomAnim(TdPawn.CustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool? _bRootRotation = default)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//}
 	
 	// Export UTdPawn::execPlayCustomAnimInternal(FFrame&, void* const)
@@ -3650,7 +3650,7 @@ public partial class TdPawn : GamePawn/*
 	//// Export UTdPawn::execSetCustomAnimsBlendOutTime(FFrame&, void* const)
 	//public virtual /*native simulated function */void SetCustomAnimsBlendOutTime(TdPawn.CustomNodeType Type, float BlendOutTime)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//}
 	
 	public virtual /*simulated function */void OnPlayFaceFXAnim(SeqAct_PlayFaceFXAnim Action)

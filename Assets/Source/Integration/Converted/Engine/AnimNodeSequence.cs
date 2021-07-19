@@ -22,36 +22,36 @@ public partial class AnimNodeSequence : AnimNode/*
 		RRO_MAX
 	};
 	
-	public/*()*/ /*const */name AnimSeqName;
-	public/*()*/ float Rate;
-	public/*()*/ bool bPlaying;
-	public/*()*/ bool bLooping;
-	public/*()*/ bool bCauseActorAnimEnd;
-	public/*()*/ bool bCauseActorAnimPlay;
+	[Category] [Const] public name AnimSeqName;
+	[Category] public float Rate;
+	[Category] public bool bPlaying;
+	[Category] public bool bLooping;
+	[Category] public bool bCauseActorAnimEnd;
+	[Category] public bool bCauseActorAnimPlay;
 	public bool bUseLegRotationHack2;
-	public/*()*/ bool bZeroRootRotation;
-	public/*()*/ bool bZeroRootTranslation;
-	public/*()*/ bool bDisableWarningWhenAnimNotFound;
-	public/*()*/ bool bNoNotifies;
-	public/*()*/ bool bForceRefposeWhenNotPlaying;
-	public/*()*/ bool bIgnoreRootOffset;
+	[Category] public bool bZeroRootRotation;
+	[Category] public bool bZeroRootTranslation;
+	[Category] public bool bDisableWarningWhenAnimNotFound;
+	[Category] public bool bNoNotifies;
+	[Category] public bool bForceRefposeWhenNotPlaying;
+	[Category] public bool bIgnoreRootOffset;
 	public bool bIsIssuingNotifies;
-	public/*(Group)*/ bool bForceAlwaysSlave;
-	public/*(Group)*/ bool bForceAlwaysMaster;
-	public/*(Group)*/ /*const */bool bSynchronize;
-	public/*(Display)*/ bool bShowTimeLineSlider;
+	[Category("Group")] public bool bForceAlwaysSlave;
+	[Category("Group")] public bool bForceAlwaysMaster;
+	[Category("Group")] [Const] public bool bSynchronize;
+	[Category("Display")] public bool bShowTimeLineSlider;
 	public Object.Matrix AdjustForLegRotationSpaceHack;
-	public/*()*/ /*const */float CurrentTime;
-	public /*const transient */float PreviousTime;
-	public /*const transient */AnimSequence AnimSeq;
-	public /*const transient */int AnimLinkupIndex;
-	public/*()*/ float NotifyWeightThreshold;
-	public/*(Group)*/ /*const */name SynchGroupName;
-	public/*(Group)*/ float SynchPosOffset;
+	[Category] [Const] public float CurrentTime;
+	[Const, transient] public float PreviousTime;
+	[Const, transient] public AnimSequence AnimSeq;
+	[Const, transient] public int AnimLinkupIndex;
+	[Category] public float NotifyWeightThreshold;
+	[Category("Group")] [Const] public name SynchGroupName;
+	[Category("Group")] public float SynchPosOffset;
 	public Texture2D DebugTrack;
 	public Texture2D DebugCarat;
-	public/*()*/ StaticArray<AnimNodeSequence.ERootBoneAxis, AnimNodeSequence.ERootBoneAxis, AnimNodeSequence.ERootBoneAxis>/*[3]*/ RootBoneOption;
-	public/*()*/ StaticArray<AnimNodeSequence.ERootRotationOption, AnimNodeSequence.ERootRotationOption, AnimNodeSequence.ERootRotationOption>/*[3]*/ RootRotationOption;
+	[Category] public StaticArray<AnimNodeSequence.ERootBoneAxis, AnimNodeSequence.ERootBoneAxis, AnimNodeSequence.ERootBoneAxis>/*[3]*/ RootBoneOption;
+	[Category] public StaticArray<AnimNodeSequence.ERootRotationOption, AnimNodeSequence.ERootRotationOption, AnimNodeSequence.ERootRotationOption>/*[3]*/ RootRotationOption;
 	
 	// Export UAnimNodeSequence::execSetAnim(FFrame&, void* const)
 	public virtual /*native function */void SetAnim(name Sequence)

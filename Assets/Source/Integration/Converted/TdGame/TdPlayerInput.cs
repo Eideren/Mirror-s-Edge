@@ -10,14 +10,14 @@ public partial class TdPlayerInput : PlayerInput/* within TdPlayerController*//*
 		hidecategories(Object,UIRoot)*/{
 	public new TdPlayerController Outer => base.Outer as TdPlayerController;
 	
-	public/*()*/ bool bViewAccelEnabled;
+	[Category] public bool bViewAccelEnabled;
 	public bool bWalkButtonPressed;
 	public bool bInvertGamepadYAxis;
-	public/*()*/ float YawAccelThreshold;
-	public /*config */float MaxSensitivityMultiplier;
-	public /*config */float MinSensitivityMultiplier;
+	[Category] public float YawAccelThreshold;
+	[config] public float MaxSensitivityMultiplier;
+	[config] public float MinSensitivityMultiplier;
 	public float SensitivityMultiplier;
-	public /*config */float WalkButtonMultiplier;
+	[config] public float WalkButtonMultiplier;
 	
 	public virtual /*simulated function */void InitInputSystem(Class GameInfoClass)
 	{

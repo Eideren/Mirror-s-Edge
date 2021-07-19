@@ -9,12 +9,12 @@ public partial class AnimNodeBlendBase : AnimNode/*
 		hidecategories(Object,Object)*/{
 	public partial struct /*native */AnimBlendChild
 	{
-		public/*()*/ name Name;
-		public /*export editinline */AnimNode Anim;
+		[Category] public name Name;
+		[export, editinline] public AnimNode Anim;
 		public float Weight;
-		public /*const */float TotalWeight;
-		public /*const transient */int bHasRootMotion;
-		public /*const transient */AnimNode.BoneAtom RootMotion;
+		[Const] public float TotalWeight;
+		[Const, transient] public int bHasRootMotion;
+		[Const, transient] public AnimNode.BoneAtom RootMotion;
 		public bool bMirrorSkeleton;
 		public int DrawY;
 	
@@ -48,7 +48,7 @@ public partial class AnimNodeBlendBase : AnimNode/*
 	//	}
 	};
 	
-	public /*editfixedsize export editinline */array</*export editinline */AnimNodeBlendBase.AnimBlendChild> Children;
+	[editfixedsize, export, editinline] public array</*export editinline */AnimNodeBlendBase.AnimBlendChild> Children;
 	public bool bFixNumChildren;
 	
 	//// Export UAnimNodeBlendBase::execPlayAnim(FFrame&, void* const)

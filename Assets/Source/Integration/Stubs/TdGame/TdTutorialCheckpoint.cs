@@ -8,9 +8,9 @@ public partial class TdTutorialCheckpoint : TdPlaceableCheckpoint/*
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
 	public partial struct TutorialCriteria
 	{
-		public/*()*/ TdPawn.EMovement MovementCriteria;
+		[Category] public TdPawn.EMovement MovementCriteria;
 		#warning renamed, c# naming scheme
-		public/*()*/ TdSPTutorialGame.ETutorialEvents TutorialCriteria_;
+		[Category] public TdSPTutorialGame.ETutorialEvents TutorialCriteria_;
 	
 	//	structdefaultproperties
 	//	{
@@ -22,12 +22,12 @@ public partial class TdTutorialCheckpoint : TdPlaceableCheckpoint/*
 	
 	public partial struct CheckPointTrackIndex
 	{
-		public/*()*/ array<TdTutorialCheckpoint.TutorialCriteria> CompletionCriteria;
-		public/*()*/ TdSPTutorialGame.EMovementChallenge TrackIndex;
-		public/*()*/ int OrderIndex;
-		public/*()*/ bool bIsOptional;
-		public/*()*/ bool bResetPlayerIfFailed;
-		public/*()*/ array<TdTutorialCheckpoint.TutorialCriteria> ResetCriteria;
+		[Category] public array<TdTutorialCheckpoint.TutorialCriteria> CompletionCriteria;
+		[Category] public TdSPTutorialGame.EMovementChallenge TrackIndex;
+		[Category] public int OrderIndex;
+		[Category] public bool bIsOptional;
+		[Category] public bool bResetPlayerIfFailed;
+		[Category] public array<TdTutorialCheckpoint.TutorialCriteria> ResetCriteria;
 	
 	//	structdefaultproperties
 	//	{
@@ -41,82 +41,82 @@ public partial class TdTutorialCheckpoint : TdPlaceableCheckpoint/*
 	//	}
 	};
 	
-	public/*(CheckpointSettings)*/ array<TdTutorialCheckpoint.CheckPointTrackIndex> BelongToTracks;
+	[Category("CheckpointSettings")] public array<TdTutorialCheckpoint.CheckPointTrackIndex> BelongToTracks;
 	
 	public override /*function */int GetNumTracks()
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */int GetArrayIndexForTrack(int TrackIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */bool IsCheckpointInTrack(int TrackIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool ShouldResetPlayer(int TrackIndex, TdPawn.EMovement CurrentMove, TdSPTutorialGame.ETutorialEvents CurrentTutorialEvent)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool IsOptional(int TrackIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool CanCompleteCheckpoint(int TrackIndex, TdPawn.EMovement CurrentMove, TdSPTutorialGame.ETutorialEvents CurrentTutorialEvent)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */void Show(bool bShow, /*optional */int? _Track = default, /*optional */bool? _bNoFade = default)
 	{
-	
+		// stub
 	}
 	
 	public override /*function */int GetTrackIndex(int ArrayIdx)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */int GetOrderIndex(int ArrayIdx)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public override /*function */int GetOrderIndexForTrack(int TrackIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*private final function */bool BelongsToTrack(int TrackIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */bool HasCompletionCriterias(int TrackIndex)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*function */void SendCompletedEvent(int TrackIndex)
 	{
-	
+		// stub
 	}
 	
 	public TdTutorialCheckpoint()

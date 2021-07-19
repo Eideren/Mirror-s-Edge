@@ -6,13 +6,13 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class AnimNodeSlot : AnimNodeBlendBase/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public /*const */bool bIsPlayingCustomAnim;
-	public /*const */float PendingBlendOutTime;
-	public /*const */int CustomChildIndex;
-	public /*const */int TargetChildIndex;
+	[Const] public bool bIsPlayingCustomAnim;
+	[Const] public float PendingBlendOutTime;
+	[Const] public int CustomChildIndex;
+	[Const] public int TargetChildIndex;
 	public array<float> TargetWeight;
-	public /*const */float BlendTimeToGo;
-	public /*const transient */AnimNodeSynch SynchNode;
+	[Const] public float BlendTimeToGo;
+	[Const, transient] public AnimNodeSynch SynchNode;
 	
 	// Export UAnimNodeSlot::execPlayCustomAnim(FFrame&, void* const)
 	public virtual /*native final function */float PlayCustomAnim(name AnimName, float Rate, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bLooping = default, /*optional */bool? _bOverride = default)

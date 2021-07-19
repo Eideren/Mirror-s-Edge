@@ -12,21 +12,21 @@ public partial class TpUoPlayer : TpSystemHandler,
 	public String StoredMessage;
 	public String OSKeyboardResult;
 	public byte OnLoginChangeControllerId;
-	public /*private */array< /*delegate*/OnlinePlayerInterface.OnLoginChange > __OnLoginChange__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayerInterface.OnLoginCancelled > __OnLoginCancelled__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayerInterface.OnMutingChange > __OnMutingChange__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayerInterface.OnFriendsChange > __OnFriendsChange__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayerInterface.OnLoginFailed > __OnLoginFailed__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayerInterface.OnLogoutCompleted > __OnLogoutCompleted__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayerInterface.OnReadProfileSettingsComplete > __OnReadProfileSettingsComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayerInterface.OnWriteProfileSettingsComplete > __OnWriteProfileSettingsComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayerInterface.OnReadFriendsComplete > __OnReadFriendsComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayerInterface.OnAddFriendByNameComplete > __OnAddFriendByNameComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayerInterface.OnFriendInviteReceived > __OnFriendInviteReceived__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayerInterface.OnFriendMessageReceived > __OnFriendMessageReceived__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayerInterface.OnReadPlayersComplete > __OnReadPlayersComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayerInterface.OnKeyboardInputComplete > __OnKeyboardInputComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayerInterface.OnSendMessageByUsername > __OnSendMessageByUsername__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterface.OnLoginChange > __OnLoginChange__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterface.OnLoginCancelled > __OnLoginCancelled__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterface.OnMutingChange > __OnMutingChange__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterface.OnFriendsChange > __OnFriendsChange__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterface.OnLoginFailed > __OnLoginFailed__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterface.OnLogoutCompleted > __OnLogoutCompleted__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterface.OnReadProfileSettingsComplete > __OnReadProfileSettingsComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterface.OnWriteProfileSettingsComplete > __OnWriteProfileSettingsComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterface.OnReadFriendsComplete > __OnReadFriendsComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterface.OnAddFriendByNameComplete > __OnAddFriendByNameComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterface.OnFriendInviteReceived > __OnFriendInviteReceived__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterface.OnFriendMessageReceived > __OnFriendMessageReceived__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterface.OnReadPlayersComplete > __OnReadPlayersComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterface.OnKeyboardInputComplete > __OnKeyboardInputComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterface.OnSendMessageByUsername > __OnSendMessageByUsername__Multicaster;
 	public /*delegate*/OnlinePlayerInterface.OnLoginChange __OnLoginChange__Delegate{ get; set; }
 	public /*delegate*/OnlinePlayerInterface.OnLoginCancelled __OnLoginCancelled__Delegate{ get; set; }
 	public /*delegate*/OnlinePlayerInterface.OnMutingChange __OnMutingChange__Delegate{ get; set; }

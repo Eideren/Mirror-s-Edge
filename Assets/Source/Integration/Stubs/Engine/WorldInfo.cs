@@ -55,10 +55,10 @@ public partial class WorldInfo : ZoneInfo/*
 	
 	public partial struct /*native */CompartmentRunList
 	{
-		public/*()*/ /*editconst */bool RigidBody;
-		public/*()*/ /*editconst */bool Fluid;
-		public/*()*/ /*editconst */bool Cloth;
-		public/*()*/ /*editconst */bool SoftBody;
+		[Category] [editconst] public bool RigidBody;
+		[Category] [editconst] public bool Fluid;
+		[Category] [editconst] public bool Cloth;
+		[Category] [editconst] public bool SoftBody;
 	
 	//	structdefaultproperties
 	//	{
@@ -72,9 +72,9 @@ public partial class WorldInfo : ZoneInfo/*
 	
 	public partial struct /*native */PhysXTiming
 	{
-		public/*()*/ bool bFixedTimeStep;
-		public/*()*/ float TimeStep;
-		public/*()*/ int MaxSubSteps;
+		[Category] public bool bFixedTimeStep;
+		[Category] public float TimeStep;
+		[Category] public int MaxSubSteps;
 	
 	//	structdefaultproperties
 	//	{
@@ -87,11 +87,11 @@ public partial class WorldInfo : ZoneInfo/*
 	
 	public partial struct /*native */PhysXSceneTimings
 	{
-		public/*()*/ /*editinline */WorldInfo.PhysXTiming PrimarySceneTiming;
-		public/*()*/ /*editinline */WorldInfo.PhysXTiming CompartmentTimingRigidBody;
-		public/*()*/ /*editinline */WorldInfo.PhysXTiming CompartmentTimingFluid;
-		public/*()*/ /*editinline */WorldInfo.PhysXTiming CompartmentTimingCloth;
-		public/*()*/ /*editinline */WorldInfo.PhysXTiming CompartmentTimingSoftBody;
+		[Category] [editinline] public WorldInfo.PhysXTiming PrimarySceneTiming;
+		[Category] [editinline] public WorldInfo.PhysXTiming CompartmentTimingRigidBody;
+		[Category] [editinline] public WorldInfo.PhysXTiming CompartmentTimingFluid;
+		[Category] [editinline] public WorldInfo.PhysXTiming CompartmentTimingCloth;
+		[Category] [editinline] public WorldInfo.PhysXTiming CompartmentTimingSoftBody;
 	
 	//	structdefaultproperties
 	//	{
@@ -131,12 +131,12 @@ public partial class WorldInfo : ZoneInfo/*
 	
 	public partial struct /*native */PhysXEmitterVerticalProperties
 	{
-		public/*()*/ bool bDisableLod;
-		public/*()*/ int ParticlesLodMin;
-		public/*()*/ int ParticlesLodMax;
-		public/*()*/ int PacketsPerPhysXParticleSystemMax;
-		public/*()*/ bool bApplyCylindricalPacketCulling;
-		public/*()*/ float SpawnLodVsFifoBias;
+		[Category] public bool bDisableLod;
+		[Category] public int ParticlesLodMin;
+		[Category] public int ParticlesLodMax;
+		[Category] public int PacketsPerPhysXParticleSystemMax;
+		[Category] public bool bApplyCylindricalPacketCulling;
+		[Category] public float SpawnLodVsFifoBias;
 	
 	//	structdefaultproperties
 	//	{
@@ -152,7 +152,7 @@ public partial class WorldInfo : ZoneInfo/*
 	
 	public partial struct /*native */PhysXVerticalProperties
 	{
-		public/*()*/ /*editinline */WorldInfo.PhysXEmitterVerticalProperties Emitters;
+		[Category] [editinline] public WorldInfo.PhysXEmitterVerticalProperties Emitters;
 	
 	//	structdefaultproperties
 	//	{
@@ -169,10 +169,10 @@ public partial class WorldInfo : ZoneInfo/*
 	//	}
 	};
 	
-	public/*(Baker)*/ bool UsePhotonMap;
-	public/*(Baker)*/ bool UseIBL;
-	public /*transient */bool bReloadScriptLevels;
-	public /*transient */bool bReloadScriptLevelsDone;
+	[Category("Baker")] public bool UsePhotonMap;
+	[Category("Baker")] public bool UseIBL;
+	[transient] public bool bReloadScriptLevels;
+	[transient] public bool bReloadScriptLevelsDone;
 	public bool bRemoveRebuildLighting;
 	public bool bEnableUIPostProcessing;
 	public bool bMapNeedsLightingFullyRebuilt;
@@ -180,93 +180,93 @@ public partial class WorldInfo : ZoneInfo/*
 	public bool bRequestedBlockOnAsyncLoading;
 	public bool bBegunPlay;
 	public bool bPlayersOnly;
-	public /*transient */bool bDropDetail;
-	public /*transient */bool bAggressiveLOD;
+	[transient] public bool bDropDetail;
+	[transient] public bool bAggressiveLOD;
 	public bool bStartup;
 	public bool bPathsRebuilt;
 	public bool bHasPathNodes;
-	public /*transient */bool bUseConsoleInput;
-	public/*()*/ bool bNoDefaultInventoryForPlayer;
-	public/*()*/ bool bNoPathWarnings;
+	[transient] public bool bUseConsoleInput;
+	[Category] public bool bNoDefaultInventoryForPlayer;
+	[Category] public bool bNoPathWarnings;
 	public bool bHighPriorityLoading;
 	public bool bHighPriorityLoadingLocal;
-	public/*(Physics)*/ /*editconst */bool bPrimarySceneHW;
-	public/*(Physics)*/ bool bSupportDoubleBufferedPhysics;
-	public/*(Baker)*/ Object.Vector SkyColor;
-	public/*(Baker)*/ String IBLFileName;
-	public/*(Baker)*/ float IBLIntensity;
-	public/*(Baker)*/ Object.Vector2D CameraResolution;
-	public/*()*/ /*private config */PostProcessVolume.PostProcessSettings DefaultPostProcessSettings;
-	public/*()*/ /*private */PostProcessVolume.TdPostProcessModifier DefaultPostProcessSettingsModifierXbox360;
-	public/*()*/ /*private */PostProcessVolume.TdPostProcessModifier DefaultPostProcessSettingsModifierPS3;
-	public/*()*/ /*private */PostProcessVolume.TdPostProcessModifier DefaultPostProcessSettingsModifierPC;
-	public/*()*/ /*config */float SquintModeKernelSize;
-	public /*noimport const transient */PostProcessVolume HighestPriorityPostProcessVolume;
-	public/*()*/ /*config */ReverbVolume.ReverbSettings DefaultReverbSettings;
-	public /*noimport const transient */ReverbVolume HighestPriorityReverbVolume;
-	public /*noimport const transient */array<PortalVolume> PortalVolumes;
-	public/*()*/ /*const editconst editinline */array</*editconst editinline */LevelStreaming> StreamingLevels;
-	public/*(Editor)*/ StaticArray<BookMark, BookMark, BookMark, BookMark, BookMark, BookMark, BookMark, BookMark, BookMark, BookMark>/*[10]*/ BookMarks;
-	public/*(Editor)*/ /*editinline */array</*editinline */ClipPadEntry> ClipPadEntries;
+	[Category("Physics")] [editconst] public bool bPrimarySceneHW;
+	[Category("Physics")] public bool bSupportDoubleBufferedPhysics;
+	[Category("Baker")] public Object.Vector SkyColor;
+	[Category("Baker")] public String IBLFileName;
+	[Category("Baker")] public float IBLIntensity;
+	[Category("Baker")] public Object.Vector2D CameraResolution;
+	[Category] [config] public/*private*/ PostProcessVolume.PostProcessSettings DefaultPostProcessSettings;
+	[Category] public/*private*/ PostProcessVolume.TdPostProcessModifier DefaultPostProcessSettingsModifierXbox360;
+	[Category] public/*private*/ PostProcessVolume.TdPostProcessModifier DefaultPostProcessSettingsModifierPS3;
+	[Category] public/*private*/ PostProcessVolume.TdPostProcessModifier DefaultPostProcessSettingsModifierPC;
+	[Category] [config] public float SquintModeKernelSize;
+	[noimport, Const, transient] public PostProcessVolume HighestPriorityPostProcessVolume;
+	[Category] [config] public ReverbVolume.ReverbSettings DefaultReverbSettings;
+	[noimport, Const, transient] public ReverbVolume HighestPriorityReverbVolume;
+	[noimport, Const, transient] public array<PortalVolume> PortalVolumes;
+	[Category] [Const, editconst, editinline] public array</*editconst editinline */LevelStreaming> StreamingLevels;
+	[Category("Editor")] public StaticArray<BookMark, BookMark, BookMark, BookMark, BookMark, BookMark, BookMark, BookMark, BookMark, BookMark>/*[10]*/ BookMarks;
+	[Category("Editor")] [editinline] public array</*editinline */ClipPadEntry> ClipPadEntries;
 	public float TimeDilation;
 	public float DemoPlayTimeDilation;
 	public float TimeSeconds;
 	public float RealTimeSeconds;
 	public float AudioTimeSeconds;
-	public /*const transient */float DeltaSeconds;
+	[Const, transient] public float DeltaSeconds;
 	public float TdTimeDilation;
-	public /*const transient */float SavedDeltaSeconds;
+	[Const, transient] public float SavedDeltaSeconds;
 	public float PauseDelay;
 	public float RealTimeToUnPause;
 	public PlayerReplicationInfo Pauser;
 	public String VisibleGroups;
-	public /*transient */String SelectedGroups;
+	[transient] public String SelectedGroups;
 	public Texture2D DefaultTexture;
 	public Texture2D WireframeTexture;
 	public Texture2D WhiteSquareTexture;
 	public Texture2D LargeVertex;
 	public Texture2D BSPVertex;
-	public/*()*/ TextureCube CubeMapOverride;
-	public/*()*/ float PointLightRadiusGlobalModifyer;
+	[Category] public TextureCube CubeMapOverride;
+	[Category] public float PointLightRadiusGlobalModifyer;
 	public array<String> DeferredExecs;
-	public /*transient */GameReplicationInfo GRI;
+	[transient] public GameReplicationInfo GRI;
 	public WorldInfo.ENetMode NetMode;
 	public String ComputerName;
 	public String EngineVersion;
 	public String MinNetVersion;
 	public GameInfo Game;
-	public/*()*/ float StallZ;
-	public /*transient */float WorldGravityZ;
-	public /*const globalconfig */float DefaultGravityZ;
-	public/*()*/ float GlobalGravityZ;
-	public /*globalconfig */float RBPhysicsGravityScaling;
-	public /*private const transient */NavigationPoint NavigationPointList;
-	public /*private const */Controller ControllerList;
-	public /*const */Pawn PawnList;
-	public /*const transient */CoverLink CoverList;
+	[Category] public float StallZ;
+	[transient] public float WorldGravityZ;
+	[Const, globalconfig] public float DefaultGravityZ;
+	[Category] public float GlobalGravityZ;
+	[globalconfig] public float RBPhysicsGravityScaling;
+	[Const, transient] public/*private*/ NavigationPoint NavigationPointList;
+	[Const] public/*private*/ Controller ControllerList;
+	[Const] public Pawn PawnList;
+	[Const, transient] public CoverLink CoverList;
 	public float MoveRepSize;
-	public /*const */array<WorldInfo.NetViewer> ReplicationViewers;
+	[Const] public array<WorldInfo.NetViewer> ReplicationViewers;
 	public String NextURL;
 	public float NextSwitchCountdown;
-	public/*()*/ int PackedLightAndShadowMapTextureSize;
-	public/*()*/ Object.Vector DefaultColorScale;
-	public/*()*/ array< Core.ClassT<GameInfo> > GameTypesSupportedOnThisMap;
-	public /*const transient */array<name> PreparingLevelNames;
-	public /*const transient */array<name> CommittedLevelNames;
+	[Category] public int PackedLightAndShadowMapTextureSize;
+	[Category] public Object.Vector DefaultColorScale;
+	[Category] public array< Core.ClassT<GameInfo> > GameTypesSupportedOnThisMap;
+	[Const, transient] public array<name> PreparingLevelNames;
+	[Const, transient] public array<name> CommittedLevelNames;
 	public SeqAct_CrossFadeMusicTracks LastMusicAction;
 	public MusicTrackDataStructures.MusicTrackStruct LastMusicTrack;
-	public/*()*/ /*const localized */String Title;
-	public/*()*/ String Author;
-	public/*()*/ /*protected export editinline */MapInfo MyMapInfo;
-	public /*globalconfig */String EmitterPoolClassPath;
+	[Category] [Const, localized] public String Title;
+	[Category] public String Author;
+	[Category] [export, editinline] public/*protected*/ MapInfo MyMapInfo;
+	[globalconfig] public String EmitterPoolClassPath;
 	public EmitterPool MyEmitterPool;
-	public /*globalconfig */String DecalManagerClassPath;
+	[globalconfig] public String DecalManagerClassPath;
 	public DecalManager MyDecalManager;
-	public/*(Physics)*/ float MaxPhysicsDeltaTime;
-	public/*(Physics)*/ /*editinline */WorldInfo.PhysXSceneTimings PhysicsTimings;
-	public/*(Physics)*/ /*editconst */array</*editconst */WorldInfo.CompartmentRunList> CompartmentRunFrames;
+	[Category("Physics")] public float MaxPhysicsDeltaTime;
+	[Category("Physics")] [editinline] public WorldInfo.PhysXSceneTimings PhysicsTimings;
+	[Category("Physics")] [editconst] public array</*editconst */WorldInfo.CompartmentRunList> CompartmentRunFrames;
 	public PhysicsLODVerticalEmitter EmitterVertical;
-	public/*(Physics)*/ /*editinline */WorldInfo.PhysXVerticalProperties VerticalProperties;
+	[Category("Physics")] [editinline] public WorldInfo.PhysXVerticalProperties VerticalProperties;
 	
 	//replication
 	//{
@@ -297,7 +297,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execGetGravityZ(FFrame&, void* const)
 	//public override /*native function */float GetGravityZ()
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	// stub
 	//	return default;
 	//}
@@ -413,7 +413,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execAllNavigationPoints(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<NavigationPoint/* N*/> AllNavigationPoints(Core.ClassT<NavigationPoint> BaseClass)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	// stub
 	//	yield break;
 	//}
@@ -436,7 +436,7 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execAllControllers(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Controller/* C*/> AllControllers(Core.ClassT<Controller> BaseClass)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	// stub
 	//	yield break;
 	//}
@@ -444,7 +444,7 @@ public partial class WorldInfo : ZoneInfo/*
 	//// Export UWorldInfo::execAllPawns(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Pawn/* P*/> AllPawns(Core.ClassT<Pawn> BaseClass, /*optional */Object.Vector? _TestLocation = default, /*optional */float? _TestRadius = default)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	// stub
 	//	yield break;
 	//}

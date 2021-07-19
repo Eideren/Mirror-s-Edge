@@ -74,10 +74,10 @@ public partial class TdLobbyGameInfo : TdGameInfo/*
 	//	}
 	};
 	
-	public /*transient */UIScene LobbyScene;
-	public /*transient */PlayerController ControllingPlayer;
+	[transient] public UIScene LobbyScene;
+	[transient] public PlayerController ControllingPlayer;
 	public array<TdTeamInfo> Teams;
-	public /*transient */array<TdLobbyGameInfo.LobbyTeamDataStruct> TeamData;
+	[transient] public array<TdLobbyGameInfo.LobbyTeamDataStruct> TeamData;
 	
 	public override /*event */void InitGame(String Options, ref String ErrorMessage)
 	{

@@ -7,7 +7,7 @@ public partial class TdWeapon_Shotgun_Neostead : TdWeapon_Heavy/*
 		config(Weapons)
 		notplaceable
 		hidecategories(Navigation)*/{
-	public/*()*/ int PelletCount;
+	[Category] public int PelletCount;
 	
 	public override /*simulated function */void CustomFire()
 	{

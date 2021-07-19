@@ -6,11 +6,11 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNodeBlendList : AnimNodeBlendList/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ array<float> BlendWeight;
-	public/*()*/ array<float> BlendOutWeight;
-	public/*()*/ bool bScaleBlendTimeBySpeed;
+	[Category] public array<float> BlendWeight;
+	[Category] public array<float> BlendOutWeight;
+	[Category] public bool bScaleBlendTimeBySpeed;
 	public int EditorSliderIndex;
-	public /*transient */TdPawn TdPawnOwner;
+	[transient] public TdPawn TdPawnOwner;
 	
 	//// Export UTdAnimNodeBlendList::execSetActiveMove(FFrame&, void* const)
 	//public virtual /*native function */bool SetActiveMove(int ChildIndex, /*optional */bool? _ForceActive = default)

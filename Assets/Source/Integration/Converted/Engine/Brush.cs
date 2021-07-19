@@ -34,14 +34,14 @@ public partial class Brush : Actor/*
 	//	}
 	};
 	
-	public/*()*/ Brush.ECsgOper CsgOper;
-	public/*()*/ Object.Color BrushColor;
+	[Category] public Brush.ECsgOper CsgOper;
+	[Category] public Object.Color BrushColor;
 	public int PolyFlags;
-	public/*()*/ bool bColored;
+	[Category] public bool bColored;
 	public bool bSolidWhenSelected;
 	#warning renamed Brush to _Brush, c# doesn't allow match name between members and class
-	public /*const export */Model _Brush;
-	public /*const editconst export editinline */BrushComponent BrushComponent;
+	[Const, export] public Model _Brush;
+	[Const, editconst, export, editinline] public BrushComponent BrushComponent;
 	public array<Brush.GeomSelection> SavedSelections;
 	
 	public Brush()

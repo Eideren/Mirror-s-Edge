@@ -22,8 +22,8 @@ public partial class AnimNodeAimOffset : AnimNodeBlendBase/*
 	
 	public partial struct /*native */AimTransform
 	{
-		public/*()*/ Object.Quat Quaternion;
-		public/*()*/ Object.Vector Translation;
+		[Category] public Object.Quat Quaternion;
+		[Category] public Object.Vector Translation;
 	
 	//	structdefaultproperties
 	//	{
@@ -46,16 +46,16 @@ public partial class AnimNodeAimOffset : AnimNodeBlendBase/*
 	
 	public partial struct /*native */AimComponent
 	{
-		public/*()*/ name BoneName;
-		public/*()*/ AnimNodeAimOffset.AimTransform LU;
-		public/*()*/ AnimNodeAimOffset.AimTransform LC;
-		public/*()*/ AnimNodeAimOffset.AimTransform LD;
-		public/*()*/ AnimNodeAimOffset.AimTransform CU;
-		public/*()*/ AnimNodeAimOffset.AimTransform CC;
-		public/*()*/ AnimNodeAimOffset.AimTransform CD;
-		public/*()*/ AnimNodeAimOffset.AimTransform RU;
-		public/*()*/ AnimNodeAimOffset.AimTransform RC;
-		public/*()*/ AnimNodeAimOffset.AimTransform RD;
+		[Category] public name BoneName;
+		[Category] public AnimNodeAimOffset.AimTransform LU;
+		[Category] public AnimNodeAimOffset.AimTransform LC;
+		[Category] public AnimNodeAimOffset.AimTransform LD;
+		[Category] public AnimNodeAimOffset.AimTransform CU;
+		[Category] public AnimNodeAimOffset.AimTransform CC;
+		[Category] public AnimNodeAimOffset.AimTransform CD;
+		[Category] public AnimNodeAimOffset.AimTransform RU;
+		[Category] public AnimNodeAimOffset.AimTransform RC;
+		[Category] public AnimNodeAimOffset.AimTransform RD;
 	
 	//	structdefaultproperties
 	//	{
@@ -210,19 +210,19 @@ public partial class AnimNodeAimOffset : AnimNodeBlendBase/*
 	
 	public partial struct /*native */AimOffsetProfile
 	{
-		public/*()*/ /*const editconst */name ProfileName;
-		public/*()*/ Object.Vector2D HorizontalRange;
-		public/*()*/ Object.Vector2D VerticalRange;
+		[Category] [Const, editconst] public name ProfileName;
+		[Category] public Object.Vector2D HorizontalRange;
+		[Category] public Object.Vector2D VerticalRange;
 		public array<AnimNodeAimOffset.AimComponent> AimComponents;
-		public/*()*/ name AnimName_LU;
-		public/*()*/ name AnimName_LC;
-		public/*()*/ name AnimName_LD;
-		public/*()*/ name AnimName_CU;
-		public/*()*/ name AnimName_CC;
-		public/*()*/ name AnimName_CD;
-		public/*()*/ name AnimName_RU;
-		public/*()*/ name AnimName_RC;
-		public/*()*/ name AnimName_RD;
+		[Category] public name AnimName_LU;
+		[Category] public name AnimName_LC;
+		[Category] public name AnimName_LD;
+		[Category] public name AnimName_CU;
+		[Category] public name AnimName_CC;
+		[Category] public name AnimName_CD;
+		[Category] public name AnimName_RU;
+		[Category] public name AnimName_RC;
+		[Category] public name AnimName_RD;
 	
 	//	structdefaultproperties
 	//	{
@@ -251,17 +251,17 @@ public partial class AnimNodeAimOffset : AnimNodeBlendBase/*
 	//	}
 	};
 	
-	public/*()*/ Object.Vector2D Aim;
-	public/*()*/ Object.Vector2D AngleOffset;
-	public/*()*/ bool bForceAimDir;
-	public/*()*/ bool bBakeFromAnimations;
-	public/*()*/ int PassThroughAtOrAboveLOD;
-	public/*()*/ AnimNodeAimOffset.EAnimAimDir ForcedAimDir;
-	public /*transient */array<byte> RequiredBones;
-	public /*transient */array<int> BoneToAimCpnt;
-	public /*transient */AnimNodeAimOffset TemplateNode;
-	public/*()*/ /*editconst */array</*editconst */AnimNodeAimOffset.AimOffsetProfile> Profiles;
-	public/*()*/ /*const editconst */int CurrentProfileIndex;
+	[Category] public Object.Vector2D Aim;
+	[Category] public Object.Vector2D AngleOffset;
+	[Category] public bool bForceAimDir;
+	[Category] public bool bBakeFromAnimations;
+	[Category] public int PassThroughAtOrAboveLOD;
+	[Category] public AnimNodeAimOffset.EAnimAimDir ForcedAimDir;
+	[transient] public array<byte> RequiredBones;
+	[transient] public array<int> BoneToAimCpnt;
+	[transient] public AnimNodeAimOffset TemplateNode;
+	[Category] [editconst] public array</*editconst */AnimNodeAimOffset.AimOffsetProfile> Profiles;
+	[Category] [Const, editconst] public int CurrentProfileIndex;
 	
 	//// Export UAnimNodeAimOffset::execSetActiveProfileByName(FFrame&, void* const)
 	//public virtual /*native function */void SetActiveProfileByName(name ProfileName)

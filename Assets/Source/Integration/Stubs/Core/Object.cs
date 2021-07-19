@@ -814,19 +814,19 @@ public partial class Object/*
 		public /*private native const */int NumPendingFences;
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTableObject;
-	public /*private native const noexport */int ObjectInternalInteger;
-	public /*private native const */Object.QWord ObjectFlags;
-	public /*private native const */Object.Pointer HashNext;
-	public /*private native const */Object.Pointer HashOuterNext;
-	public /*private native const */Object.Pointer StateFrame;
-	public /*private native const noexport */Object Linker;
-	public /*private native const noexport */Object.Pointer LinkerIndex;
-	public /*private native const noexport */int NetIndex;
-	public /*native const */Object Outer;
-	public/*()*/ /*native const editconst */name Name;
-	//public /*native const */Class Class;
-	public/*()*/ /*native const editconst */Object ObjectArchetype;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTableObject;
+	[native, Const, noexport] public/*private*/ int ObjectInternalInteger;
+	[native, Const] public/*private*/ Object.QWord ObjectFlags;
+	[native, Const] public/*private*/ Object.Pointer HashNext;
+	[native, Const] public/*private*/ Object.Pointer HashOuterNext;
+	[native, Const] public/*private*/ Object.Pointer StateFrame;
+	[native, Const, noexport] public/*private*/ Object Linker;
+	[native, Const, noexport] public/*private*/ Object.Pointer LinkerIndex;
+	[native, Const, noexport] public/*private*/ int NetIndex;
+	[native, Const] public Object Outer;
+	[Category] [native, Const, editconst] public name Name;
+	//[native, Const] public Class Class;
+	[Category] [native, Const, editconst] public Object ObjectArchetype;
 	
 	
 	#if false // DISABLED TO BIND EVERYTHING PROPERLY
@@ -835,6 +835,7 @@ public partial class Object/*
 	public /*native(129) final preoperator */static bool Not_PreBool(bool A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -842,6 +843,7 @@ public partial class Object/*
 	public /*native(242) final operator(24) */static bool EqualEqual_BoolBool(bool A, bool B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -849,6 +851,7 @@ public partial class Object/*
 	public /*native(243) final operator(26) */static bool NotEqual_BoolBool(bool A, bool B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -856,6 +859,7 @@ public partial class Object/*
 	public /*native(130) final operator(30) */static bool AndAnd_BoolBool(bool A, /*skip */bool B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -863,6 +867,7 @@ public partial class Object/*
 	public /*native(131) final operator(30) */static bool XorXor_BoolBool(bool A, bool B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -870,6 +875,7 @@ public partial class Object/*
 	public /*native(132) final operator(32) */static bool OrOr_BoolBool(bool A, /*skip */bool B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -877,6 +883,7 @@ public partial class Object/*
 	public /*native(133) final operator(34) */static byte MultiplyEqual_ByteByte(ref byte A, byte B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -884,6 +891,7 @@ public partial class Object/*
 	public /*native(198) final operator(34) */static byte MultiplyEqual_ByteFloat(ref byte A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -891,6 +899,7 @@ public partial class Object/*
 	public /*native(134) final operator(34) */static byte DivideEqual_ByteByte(ref byte A, byte B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -898,6 +907,7 @@ public partial class Object/*
 	public /*native(135) final operator(34) */static byte AddEqual_ByteByte(ref byte A, byte B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -905,6 +915,7 @@ public partial class Object/*
 	public /*native(136) final operator(34) */static byte SubtractEqual_ByteByte(ref byte A, byte B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -912,6 +923,7 @@ public partial class Object/*
 	public /*native(137) final preoperator */static byte AddAdd_PreByte(ref byte A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -919,6 +931,7 @@ public partial class Object/*
 	public /*native(138) final preoperator */static byte SubtractSubtract_PreByte(ref byte A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -926,6 +939,7 @@ public partial class Object/*
 	public /*native(139) final postoperator */static byte AddAdd_Byte(ref byte A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -933,6 +947,7 @@ public partial class Object/*
 	public /*native(140) final postoperator */static byte SubtractSubtract_Byte(ref byte A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -940,6 +955,7 @@ public partial class Object/*
 	public /*native(141) final preoperator */static int Complement_PreInt(int A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -947,6 +963,7 @@ public partial class Object/*
 	public /*native(143) final preoperator */static int Subtract_PreInt(int A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -954,6 +971,7 @@ public partial class Object/*
 	public /*native(144) final operator(16) */static int Multiply_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -961,6 +979,7 @@ public partial class Object/*
 	public /*native(145) final operator(16) */static int Divide_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -968,6 +987,7 @@ public partial class Object/*
 	public /*native(146) final operator(20) */static int Add_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -975,6 +995,7 @@ public partial class Object/*
 	public /*native(147) final operator(20) */static int Subtract_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -982,6 +1003,7 @@ public partial class Object/*
 	public /*native(148) final operator(22) */static int LessLess_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -989,6 +1011,7 @@ public partial class Object/*
 	public /*native(149) final operator(22) */static int GreaterGreater_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -996,6 +1019,7 @@ public partial class Object/*
 	public /*native(196) final operator(22) */static int GreaterGreaterGreater_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1003,6 +1027,7 @@ public partial class Object/*
 	public /*native(150) final operator(24) */static bool Less_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1010,6 +1035,7 @@ public partial class Object/*
 	public /*native(151) final operator(24) */static bool Greater_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1017,6 +1043,7 @@ public partial class Object/*
 	public /*native(152) final operator(24) */static bool LessEqual_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1024,6 +1051,7 @@ public partial class Object/*
 	public /*native(153) final operator(24) */static bool GreaterEqual_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1031,6 +1059,7 @@ public partial class Object/*
 	public /*native(154) final operator(24) */static bool EqualEqual_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1038,6 +1067,7 @@ public partial class Object/*
 	public /*native(155) final operator(26) */static bool NotEqual_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1045,6 +1075,7 @@ public partial class Object/*
 	public /*native(156) final operator(28) */static int And_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1052,6 +1083,7 @@ public partial class Object/*
 	public /*native(157) final operator(28) */static int Xor_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1059,6 +1091,7 @@ public partial class Object/*
 	public /*native(158) final operator(28) */static int Or_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1066,6 +1099,7 @@ public partial class Object/*
 	public /*native(159) final operator(34) */static int MultiplyEqual_IntFloat(ref int A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1073,6 +1107,7 @@ public partial class Object/*
 	public /*native(160) final operator(34) */static int DivideEqual_IntFloat(ref int A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1080,6 +1115,7 @@ public partial class Object/*
 	public /*native(161) final operator(34) */static int AddEqual_IntInt(ref int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1087,6 +1123,7 @@ public partial class Object/*
 	public /*native(162) final operator(34) */static int SubtractEqual_IntInt(ref int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1094,6 +1131,7 @@ public partial class Object/*
 	public /*native(163) final preoperator */static int AddAdd_PreInt(ref int A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1101,6 +1139,7 @@ public partial class Object/*
 	public /*native(164) final preoperator */static int SubtractSubtract_PreInt(ref int A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1108,6 +1147,7 @@ public partial class Object/*
 	public /*native(165) final postoperator */static int AddAdd_Int(ref int A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1115,6 +1155,7 @@ public partial class Object/*
 	public /*native(166) final postoperator */static int SubtractSubtract_Int(ref int A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1122,6 +1163,7 @@ public partial class Object/*
 	public /*native(167) final function */static int Rand(int Max)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1129,6 +1171,7 @@ public partial class Object/*
 	public /*native(249) final function */static int Min(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1136,6 +1179,7 @@ public partial class Object/*
 	public /*native(250) final function */static int Max(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1143,6 +1187,7 @@ public partial class Object/*
 	public /*native(251) final function */static int Clamp(int V, int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1150,6 +1195,7 @@ public partial class Object/*
 	public /*native final function */static String ToHex(int A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1157,6 +1203,7 @@ public partial class Object/*
 	public /*native(169) final preoperator */static float Subtract_PreFloat(float A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1164,6 +1211,7 @@ public partial class Object/*
 	public /*native(170) final operator(12) */static float MultiplyMultiply_FloatFloat(float Base, float Exp)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1171,6 +1219,7 @@ public partial class Object/*
 	public /*native(171) final operator(16) */static float Multiply_FloatFloat(float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1178,6 +1227,7 @@ public partial class Object/*
 	public /*native(172) final operator(16) */static float Divide_FloatFloat(float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1185,6 +1235,7 @@ public partial class Object/*
 	public /*native(173) final operator(18) */static float Percent_FloatFloat(float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1192,6 +1243,7 @@ public partial class Object/*
 	public /*native(174) final operator(20) */static float Add_FloatFloat(float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1199,6 +1251,7 @@ public partial class Object/*
 	public /*native(175) final operator(20) */static float Subtract_FloatFloat(float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1206,6 +1259,7 @@ public partial class Object/*
 	public /*native(176) final operator(24) */static bool Less_FloatFloat(float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1213,6 +1267,7 @@ public partial class Object/*
 	public /*native(177) final operator(24) */static bool Greater_FloatFloat(float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1220,6 +1275,7 @@ public partial class Object/*
 	public /*native(178) final operator(24) */static bool LessEqual_FloatFloat(float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1227,6 +1283,7 @@ public partial class Object/*
 	public /*native(179) final operator(24) */static bool GreaterEqual_FloatFloat(float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1234,6 +1291,7 @@ public partial class Object/*
 	public /*native(180) final operator(24) */static bool EqualEqual_FloatFloat(float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1241,6 +1299,7 @@ public partial class Object/*
 	public /*native(210) final operator(24) */static bool ComplementEqual_FloatFloat(float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1248,6 +1307,7 @@ public partial class Object/*
 	public /*native(181) final operator(26) */static bool NotEqual_FloatFloat(float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1255,6 +1315,7 @@ public partial class Object/*
 	public /*native(182) final operator(34) */static float MultiplyEqual_FloatFloat(ref float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1262,6 +1323,7 @@ public partial class Object/*
 	public /*native(183) final operator(34) */static float DivideEqual_FloatFloat(ref float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1269,6 +1331,7 @@ public partial class Object/*
 	public /*native(184) final operator(34) */static float AddEqual_FloatFloat(ref float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1276,12 +1339,13 @@ public partial class Object/*
 	public /*native(185) final operator(34) */static float SubtractEqual_FloatFloat(ref float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
 	public /*final operator(18) */static int Percent_IntInt(int A, int B)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -1289,6 +1353,7 @@ public partial class Object/*
 	public /*native(186) final function */static float Abs(float A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1296,6 +1361,7 @@ public partial class Object/*
 	public /*native(187) final function */static float Sin(float A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1303,6 +1369,7 @@ public partial class Object/*
 	public /*native final function */static float Asin(float A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1310,6 +1377,7 @@ public partial class Object/*
 	public /*native(188) final function */static float Cos(float A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1317,6 +1385,7 @@ public partial class Object/*
 	public /*native final function */static float Acos(float A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1324,6 +1393,7 @@ public partial class Object/*
 	public /*native(189) final function */static float Tan(float A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1331,6 +1401,7 @@ public partial class Object/*
 	public /*native(190) final function */static float Atan(float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1338,6 +1409,7 @@ public partial class Object/*
 	public /*native(191) final function */static float Exp(float A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1345,6 +1417,7 @@ public partial class Object/*
 	public /*native(192) final function */static float Loge(float A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1352,6 +1425,7 @@ public partial class Object/*
 	public /*native(193) final function */static float Sqrt(float A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1359,6 +1433,7 @@ public partial class Object/*
 	public /*native(194) final function */static float Square(float A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1366,6 +1441,7 @@ public partial class Object/*
 	public /*native(195) final function */static float FRand()
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1373,6 +1449,7 @@ public partial class Object/*
 	public /*native(244) final function */static float FMin(float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1380,6 +1457,7 @@ public partial class Object/*
 	public /*native(245) final function */static float FMax(float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1387,6 +1465,7 @@ public partial class Object/*
 	public /*native(246) final function */static float FClamp(float V, float A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1394,6 +1473,7 @@ public partial class Object/*
 	public /*native(247) final function */static float Lerp(float A, float B, float Alpha)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1401,6 +1481,7 @@ public partial class Object/*
 	public /*native(199) final function */static int Round(float A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1408,18 +1489,19 @@ public partial class Object/*
 	public /*native final function */static float FCubicInterp(float P0, float T0, float P1, float T1, float A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
 	public /*final function */static float FInterpEaseIn(float A, float B, float Alpha, float Exp)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final function */static float FInterpEaseOut(float A, float B, float Alpha, float Exp)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -1427,18 +1509,19 @@ public partial class Object/*
 	public /*native final function */static float FInterpEaseInOut(float A, float B, float Alpha, float Exp)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
 	public /*final simulated function */static float RandRange(float InMin, float InMax)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final simulated function */static float FPctByRange(float Value, float InMin, float InMax)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -1446,6 +1529,7 @@ public partial class Object/*
 	public /*native final function */static float FInterpTo(float Current, float Target, float DeltaTime, float InterpSpeed)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1453,6 +1537,7 @@ public partial class Object/*
 	public /*native(211) final preoperator */static Object.Vector Subtract_PreVector(Object.Vector A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1460,6 +1545,7 @@ public partial class Object/*
 	public /*native(212) final operator(16) */static Object.Vector Multiply_VectorFloat(Object.Vector A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1467,6 +1553,7 @@ public partial class Object/*
 	public /*native(213) final operator(16) */static Object.Vector Multiply_FloatVector(float A, Object.Vector B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1474,6 +1561,7 @@ public partial class Object/*
 	public /*native(296) final operator(16) */static Object.Vector Multiply_VectorVector(Object.Vector A, Object.Vector B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1481,6 +1569,7 @@ public partial class Object/*
 	public /*native(214) final operator(16) */static Object.Vector Divide_VectorFloat(Object.Vector A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1488,6 +1577,7 @@ public partial class Object/*
 	public /*native(215) final operator(20) */static Object.Vector Add_VectorVector(Object.Vector A, Object.Vector B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1495,6 +1585,7 @@ public partial class Object/*
 	public /*native(216) final operator(20) */static Object.Vector Subtract_VectorVector(Object.Vector A, Object.Vector B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1502,6 +1593,7 @@ public partial class Object/*
 	public /*native(275) final operator(22) */static Object.Vector LessLess_VectorRotator(Object.Vector A, Object.Rotator B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1509,6 +1601,7 @@ public partial class Object/*
 	public /*native(276) final operator(22) */static Object.Vector GreaterGreater_VectorRotator(Object.Vector A, Object.Rotator B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1516,6 +1609,7 @@ public partial class Object/*
 	public /*native(217) final operator(24) */static bool EqualEqual_VectorVector(Object.Vector A, Object.Vector B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1523,6 +1617,7 @@ public partial class Object/*
 	public /*native(218) final operator(26) */static bool NotEqual_VectorVector(Object.Vector A, Object.Vector B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1530,6 +1625,7 @@ public partial class Object/*
 	public /*native(219) final operator(16) */static float Dot_VectorVector(Object.Vector A, Object.Vector B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1537,6 +1633,7 @@ public partial class Object/*
 	public /*native(220) final operator(16) */static Object.Vector Cross_VectorVector(Object.Vector A, Object.Vector B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1544,6 +1641,7 @@ public partial class Object/*
 	public /*native(221) final operator(34) */static Object.Vector MultiplyEqual_VectorFloat(ref Object.Vector A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1551,6 +1649,7 @@ public partial class Object/*
 	public /*native(297) final operator(34) */static Object.Vector MultiplyEqual_VectorVector(ref Object.Vector A, Object.Vector B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1558,6 +1657,7 @@ public partial class Object/*
 	public /*native(222) final operator(34) */static Object.Vector DivideEqual_VectorFloat(ref Object.Vector A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1565,6 +1665,7 @@ public partial class Object/*
 	public /*native(223) final operator(34) */static Object.Vector AddEqual_VectorVector(ref Object.Vector A, Object.Vector B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1572,6 +1673,7 @@ public partial class Object/*
 	public /*native(224) final operator(34) */static Object.Vector SubtractEqual_VectorVector(ref Object.Vector A, Object.Vector B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1579,6 +1681,7 @@ public partial class Object/*
 	public /*native(225) final function */static float VSize(Object.Vector A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1586,6 +1689,7 @@ public partial class Object/*
 	public /*native final function */static float VSize2D(Object.Vector A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1593,6 +1697,7 @@ public partial class Object/*
 	public /*native final function */static float VSizeSq(Object.Vector A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1600,6 +1705,7 @@ public partial class Object/*
 	public /*native final function */static float VSizeSq2D(Object.Vector A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1607,6 +1713,7 @@ public partial class Object/*
 	public /*native(226) final function */static Object.Vector Normal(Object.Vector A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1614,6 +1721,7 @@ public partial class Object/*
 	public /*native final function */static Object.Vector VLerp(Object.Vector A, Object.Vector B, float Alpha)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1621,6 +1729,7 @@ public partial class Object/*
 	public /*native final function */static Object.Vector VSmerp(Object.Vector A, Object.Vector B, float Alpha)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1628,6 +1737,7 @@ public partial class Object/*
 	public /*native(252) final function */static Object.Vector VRand()
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1635,6 +1745,7 @@ public partial class Object/*
 	public /*native(300) final function */static Object.Vector MirrorVectorByNormal(Object.Vector InVect, Object.Vector InNormal)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1642,6 +1753,7 @@ public partial class Object/*
 	public /*native(1500) final function */static Object.Vector ProjectOnTo(Object.Vector X, Object.Vector Y)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1649,6 +1761,7 @@ public partial class Object/*
 	public /*native(1501) final function */static bool IsZero(Object.Vector A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1656,6 +1769,7 @@ public partial class Object/*
 	public /*native final function */static Object.Vector VInterpTo(Object.Vector Current, Object.Vector Target, float DeltaTime, float InterpSpeed)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1663,6 +1777,7 @@ public partial class Object/*
 	public /*native final function */static Object.Vector ClampLength(Object.Vector V, float MaxLength)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1670,6 +1785,7 @@ public partial class Object/*
 	public /*native(142) final operator(24) */static bool EqualEqual_RotatorRotator(Object.Rotator A, Object.Rotator B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1677,6 +1793,7 @@ public partial class Object/*
 	public /*native(203) final operator(26) */static bool NotEqual_RotatorRotator(Object.Rotator A, Object.Rotator B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1684,6 +1801,7 @@ public partial class Object/*
 	public /*native(287) final operator(16) */static Object.Rotator Multiply_RotatorFloat(Object.Rotator A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1691,6 +1809,7 @@ public partial class Object/*
 	public /*native(288) final operator(16) */static Object.Rotator Multiply_FloatRotator(float A, Object.Rotator B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1698,6 +1817,7 @@ public partial class Object/*
 	public /*native(289) final operator(16) */static Object.Rotator Divide_RotatorFloat(Object.Rotator A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1705,6 +1825,7 @@ public partial class Object/*
 	public /*native(290) final operator(34) */static Object.Rotator MultiplyEqual_RotatorFloat(ref Object.Rotator A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1712,6 +1833,7 @@ public partial class Object/*
 	public /*native(291) final operator(34) */static Object.Rotator DivideEqual_RotatorFloat(ref Object.Rotator A, float B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1719,6 +1841,7 @@ public partial class Object/*
 	public /*native(316) final operator(20) */static Object.Rotator Add_RotatorRotator(Object.Rotator A, Object.Rotator B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1726,6 +1849,7 @@ public partial class Object/*
 	public /*native(317) final operator(20) */static Object.Rotator Subtract_RotatorRotator(Object.Rotator A, Object.Rotator B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1733,6 +1857,7 @@ public partial class Object/*
 	public /*native(318) final operator(34) */static Object.Rotator AddEqual_RotatorRotator(ref Object.Rotator A, Object.Rotator B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1740,6 +1865,7 @@ public partial class Object/*
 	public /*native(319) final operator(34) */static Object.Rotator SubtractEqual_RotatorRotator(ref Object.Rotator A, Object.Rotator B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1747,6 +1873,7 @@ public partial class Object/*
 	public /*native final operator(24) */static bool ClockwiseFrom_IntInt(int A, int B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1754,18 +1881,21 @@ public partial class Object/*
 	public /*native(229) final function */static void GetAxes(Object.Rotator A, ref Object.Vector X, ref Object.Vector Y, ref Object.Vector Z)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	// Export UObject::execGetUnAxes(FFrame&, void* const)
 	public /*native(230) final function */static void GetUnAxes(Object.Rotator A, ref Object.Vector X, ref Object.Vector Y, ref Object.Vector Z)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	// Export UObject::execRotRand(FFrame&, void* const)
 	public /*native(320) final function */static Object.Rotator RotRand(/*optional */bool? _bRoll = default)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1773,6 +1903,7 @@ public partial class Object/*
 	public /*native final function */static Object.Rotator OrthoRotation(Object.Vector X, Object.Vector Y, Object.Vector Z)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1780,6 +1911,7 @@ public partial class Object/*
 	public /*native final function */static Object.Rotator Normalize(Object.Rotator Rot)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1787,6 +1919,7 @@ public partial class Object/*
 	public /*native final function */static Object.Rotator RLerp(Object.Rotator A, Object.Rotator B, float Alpha, /*optional */bool? _bShortestPath = default)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1794,6 +1927,7 @@ public partial class Object/*
 	public /*native final function */static Object.Rotator RSmerp(Object.Rotator A, Object.Rotator B, float Alpha, /*optional */bool? _bShortestPath = default)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1801,6 +1935,7 @@ public partial class Object/*
 	public /*native final function */static Object.Rotator RInterpTo(Object.Rotator Current, Object.Rotator Target, float DeltaTime, float InterpSpeed)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1808,6 +1943,7 @@ public partial class Object/*
 	public /*native final function */static int NormalizeRotAxis(int Angle)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1815,35 +1951,36 @@ public partial class Object/*
 	public /*native final function */static float RDiff(Object.Rotator A, Object.Rotator B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
 	public /*final function */static float RSize(Object.Rotator R)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final simulated function */static void ClampRotAxis(int ViewAxis, ref int out_DeltaViewAxis, int MaxLimit, int MinLimit)
 	{
-	
+		// stub
 	}
 	
 	public /*final simulated function */static int ClampRotAxisFromBase(int Current, int Center, int MaxDelta)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final simulated function */static int ClampRotAxisFromRange(int Current, int Min, int Max)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final simulated function */static bool SClampRotAxis(float DeltaTime, int ViewAxis, ref int out_DeltaViewAxis, int MaxLimit, int MinLimit, float InterpolationSpeed)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -1851,6 +1988,7 @@ public partial class Object/*
 	public /*native(112) final operator(40) */static String Concat_StrStr(/*coerce */String A, /*coerce */String B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1858,6 +1996,7 @@ public partial class Object/*
 	public /*native(168) final operator(40) */static String At_StrStr(/*coerce */String A, /*coerce */String B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1865,6 +2004,7 @@ public partial class Object/*
 	public /*native(115) final operator(24) */static bool Less_StrStr(String A, String B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1872,6 +2012,7 @@ public partial class Object/*
 	public /*native(116) final operator(24) */static bool Greater_StrStr(String A, String B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1879,6 +2020,7 @@ public partial class Object/*
 	public /*native(120) final operator(24) */static bool LessEqual_StrStr(String A, String B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1886,6 +2028,7 @@ public partial class Object/*
 	public /*native(121) final operator(24) */static bool GreaterEqual_StrStr(String A, String B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1893,6 +2036,7 @@ public partial class Object/*
 	public /*native(122) final operator(24) */static bool EqualEqual_StrStr(String A, String B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1900,6 +2044,7 @@ public partial class Object/*
 	public /*native(123) final operator(26) */static bool NotEqual_StrStr(String A, String B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1907,6 +2052,7 @@ public partial class Object/*
 	public /*native(124) final operator(24) */static bool ComplementEqual_StrStr(String A, String B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1914,6 +2060,7 @@ public partial class Object/*
 	public /*native(322) final operator(44) */static String ConcatEqual_StrStr(ref String A, /*coerce */String B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1921,6 +2068,7 @@ public partial class Object/*
 	public /*native(323) final operator(44) */static String AtEqual_StrStr(ref String A, /*coerce */String B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1928,6 +2076,7 @@ public partial class Object/*
 	public /*native(324) final operator(45) */static String SubtractEqual_StrStr(ref String A, /*coerce */String B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1935,6 +2084,7 @@ public partial class Object/*
 	public /*native(125) final function */static int Len(/*coerce */String S)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1942,6 +2092,7 @@ public partial class Object/*
 	public /*native(126) final function */static int InStr(/*coerce */String S, /*coerce */String T, /*optional */bool? _bSearchFromRight = default)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1949,6 +2100,7 @@ public partial class Object/*
 	public /*native(127) final function */static String Mid(/*coerce */String S, int I, /*optional */int? _J = default)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1956,6 +2108,7 @@ public partial class Object/*
 	public /*native(128) final function */static String Left(/*coerce */String S, int I)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1963,6 +2116,7 @@ public partial class Object/*
 	public /*native(234) final function */static String Right(/*coerce */String S, int I)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1970,6 +2124,7 @@ public partial class Object/*
 	public /*native(235) final function */static String Caps(/*coerce */String S)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1977,6 +2132,7 @@ public partial class Object/*
 	public /*native(238) final function */static String Locs(/*coerce */String S)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1984,6 +2140,7 @@ public partial class Object/*
 	public /*native(236) final function */static String Chr(int I)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1991,6 +2148,7 @@ public partial class Object/*
 	public /*native(237) final function */static int Asc(String S)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -1998,36 +2156,39 @@ public partial class Object/*
 	public /*native(201) final function */static String Repl(/*coerce */String Src, /*coerce */String Match, /*coerce */String With, /*optional */bool? _bCaseSensitive = default)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
 	public /*final function */static String Split(/*coerce */String Text, /*coerce */String SplitStr, /*optional */bool? _bOmitSplitStr = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final function */static String GetRightMost(/*coerce */String Text)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final function */static void JoinArray(array<String> StringArray, ref String out_Result, /*optional */String? _delim = default, /*optional */bool? _bIgnoreBlanks = default)
 	{
-	
+		// stub
 	}
 	
 	// Export UObject::execParseStringIntoArray(FFrame&, void* const)
 	public /*native final function */static void ParseStringIntoArray(String BaseString, ref array<String> Pieces, String delim, bool bCullEmpty)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	// Export UObject::execPathName(FFrame&, void* const)
 	public /*native final function */static String PathName(Object CheckObject)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2035,6 +2196,7 @@ public partial class Object/*
 	public /*native(114) final operator(24) */static bool EqualEqual_ObjectObject(Object A, Object B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2042,6 +2204,7 @@ public partial class Object/*
 	public /*native(119) final operator(26) */static bool NotEqual_ObjectObject(Object A, Object B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2049,6 +2212,7 @@ public partial class Object/*
 	public /*native final operator(24) */static bool EqualEqual_InterfaceInterface(Interface A, Interface B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2056,6 +2220,7 @@ public partial class Object/*
 	public /*native final operator(26) */static bool NotEqual_InterfaceInterface(Interface A, Interface B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2063,6 +2228,7 @@ public partial class Object/*
 	public /*native(258) final function */static bool ClassIsChildOf(Class TestClass, Class ParentClass)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2070,6 +2236,7 @@ public partial class Object/*
 	public virtual /*native(197) final function */bool IsA(name ClassName)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2077,6 +2244,7 @@ public partial class Object/*
 	public /*native(254) final operator(24) */static bool EqualEqual_NameName(name A, name B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2084,6 +2252,7 @@ public partial class Object/*
 	public /*native(255) final operator(26) */static bool NotEqual_NameName(name A, name B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2091,6 +2260,7 @@ public partial class Object/*
 	public /*native final operator(34) */static Object.Matrix Multiply_MatrixMatrix(Object.Matrix A, Object.Matrix B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2098,6 +2268,7 @@ public partial class Object/*
 	public /*native final function */static Object.Vector TransformVector(Object.Matrix TM, Object.Vector A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2105,6 +2276,7 @@ public partial class Object/*
 	public /*native final function */static Object.Vector InverseTransformVector(Object.Matrix TM, Object.Vector A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2112,6 +2284,7 @@ public partial class Object/*
 	public /*native final function */static Object.Vector TransformNormal(Object.Matrix TM, Object.Vector A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2119,6 +2292,7 @@ public partial class Object/*
 	public /*native final function */static Object.Vector InverseTransformNormal(Object.Matrix TM, Object.Vector A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2126,6 +2300,7 @@ public partial class Object/*
 	public /*native final function */static Object.Matrix MakeRotationTranslationMatrix(Object.Vector Translation, Object.Rotator Rotation)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2133,6 +2308,7 @@ public partial class Object/*
 	public /*native final function */static Object.Rotator MatrixGetRotator(Object.Matrix TM)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2140,6 +2316,7 @@ public partial class Object/*
 	public /*native final function */static Object.Vector MatrixGetOrigin(Object.Matrix TM)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2147,6 +2324,7 @@ public partial class Object/*
 	public /*native final function */static Object.Quat QuatProduct(Object.Quat A, Object.Quat B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2154,6 +2332,7 @@ public partial class Object/*
 	public /*native final function */static float QuatDot(Object.Quat A, Object.Quat B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2161,6 +2340,7 @@ public partial class Object/*
 	public /*native final function */static Object.Quat QuatInvert(Object.Quat A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2168,6 +2348,7 @@ public partial class Object/*
 	public /*native final function */static Object.Vector QuatRotateVector(Object.Quat A, Object.Vector B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2175,6 +2356,7 @@ public partial class Object/*
 	public /*native final function */static Object.Quat QuatFindBetween(Object.Vector A, Object.Vector B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2182,6 +2364,7 @@ public partial class Object/*
 	public /*native final function */static Object.Quat QuatFromAxisAndAngle(Object.Vector Axis, float Angle)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2189,6 +2372,7 @@ public partial class Object/*
 	public /*native final function */static Object.Quat QuatFromRotator(Object.Rotator A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2196,6 +2380,7 @@ public partial class Object/*
 	public /*native final function */static Object.Rotator QuatToRotator(Object.Quat A)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2203,6 +2388,7 @@ public partial class Object/*
 	public /*native final function */static Object.Quat QuatSlerp(Object.Quat A, Object.Quat B, float Alpha, /*optional */bool? _bShortestPath = default)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2210,6 +2396,7 @@ public partial class Object/*
 	public /*native(270) final operator(16) */static Object.Quat Add_QuatQuat(Object.Quat A, Object.Quat B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2217,78 +2404,79 @@ public partial class Object/*
 	public /*native(271) final operator(16) */static Object.Quat Subtract_QuatQuat(Object.Quat A, Object.Quat B)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
 	public /*final simulated function */static float GetRangeValueByPct(Object.Vector2D Range, float Pct)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final simulated function */static float GetRangePctByValue(Object.Vector2D Range, float Value)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final function */static Object.Vector2D vect2d(float InX, float InY)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final operator(20) */static Object.Color Subtract_ColorColor(Object.Color A, Object.Color B)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final operator(16) */static Object.Color Multiply_FloatColor(float A, Object.Color B)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final operator(16) */static Object.Color Multiply_ColorFloat(Object.Color A, float B)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final operator(20) */static Object.Color Add_ColorColor(Object.Color A, Object.Color B)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final function */static Object.Color MakeColor(byte R, byte G, byte B, /*optional */byte? _A = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final function */static Object.LinearColor MakeLinearColor(float R, float G, float B, float A)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final function */static Object.LinearColor ColorToLinearColor(Object.Color OldColor)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final operator(16) */static Object.LinearColor Multiply_LinearColorFloat(Object.LinearColor LC, float Mult)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final operator(20) */static Object.LinearColor Subtract_LinearColorLinearColor(Object.LinearColor A, Object.LinearColor B)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -2296,18 +2484,21 @@ public partial class Object/*
 	public /*private native(231) final function */static void LogInternal(/*coerce */String S, /*optional */name? _Tag = default)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	// Export UObject::execWarnInternal(FFrame&, void* const)
 	public /*private native(232) final function */static void WarnInternal(/*coerce */String S)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	// Export UObject::execLocalize(FFrame&, void* const)
 	public /*native function */static String Localize(String SectionName, String KeyName, String PackageName)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2315,12 +2506,14 @@ public partial class Object/*
 	public /*native final function */static void ScriptTrace()
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	// Export UObject::execScriptTraceString(FFrame&, void* const)
 	public /*native final function */static String ScriptTraceString()
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2328,6 +2521,7 @@ public partial class Object/*
 	public /*native final function */static name GetFuncName()
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2335,12 +2529,14 @@ public partial class Object/*
 	public /*native final function */static void SetUTracing(bool bShouldUTrace)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	// Export UObject::execIsUTracing(FFrame&, void* const)
 	public /*native final function */static bool IsUTracing()
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2348,12 +2544,14 @@ public partial class Object/*
 	public virtual /*native(113) final function */void GotoState(/*optional */name? _NewState = default, /*optional */name? _Label = default, /*optional */bool? _bForceEvents = default, /*optional */bool? _bKeepStack = default)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	// Export UObject::execIsInState(FFrame&, void* const)
 	public virtual /*native(281) final function */bool IsInState(name TestState, /*optional */bool? _bTestStateStack = default)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2361,6 +2559,7 @@ public partial class Object/*
 	public virtual /*native final function */String GetStateStack()
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2368,6 +2567,7 @@ public partial class Object/*
 	public virtual /*native final function */int GetStateStackSize()
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2375,6 +2575,7 @@ public partial class Object/*
 	public virtual /*native final function */bool IsChildState(name TestState, name TestParentState)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2382,6 +2583,7 @@ public partial class Object/*
 	public virtual /*native(284) final function */name GetStateName()
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2389,18 +2591,21 @@ public partial class Object/*
 	public virtual /*native final function */void PushState(name NewState, /*optional */name? _NewLabel = default)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	// Export UObject::execPopState(FFrame&, void* const)
 	public virtual /*native final function */void PopState(/*optional */bool? _bPopAll = default)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	// Export UObject::execDumpStateStack(FFrame&, void* const)
 	public virtual /*native final function */void DumpStateStack()
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	public delegate void BeginState_del(name PreviousStateName);
@@ -2408,7 +2613,7 @@ public partial class Object/*
 	public virtual BeginState_del global_BeginState => Object_BeginState;
 	public /*event */void Object_BeginState(name PreviousStateName)
 	{
-	
+		// stub
 	}
 	
 	public delegate void EndState_del(name NextStateName);
@@ -2416,7 +2621,7 @@ public partial class Object/*
 	public virtual EndState_del global_EndState => Object_EndState;
 	public /*event */void Object_EndState(name NextStateName)
 	{
-	
+		// stub
 	}
 	
 	public delegate void PushedState_del();
@@ -2424,7 +2629,7 @@ public partial class Object/*
 	public virtual PushedState_del global_PushedState => Object_PushedState;
 	public /*event */void Object_PushedState()
 	{
-	
+		// stub
 	}
 	
 	public delegate void PoppedState_del();
@@ -2432,7 +2637,7 @@ public partial class Object/*
 	public virtual PoppedState_del global_PoppedState => Object_PoppedState;
 	public /*event */void Object_PoppedState()
 	{
-	
+		// stub
 	}
 	
 	public delegate void PausedState_del();
@@ -2440,7 +2645,7 @@ public partial class Object/*
 	public virtual PausedState_del global_PausedState => Object_PausedState;
 	public /*event */void Object_PausedState()
 	{
-	
+		// stub
 	}
 	
 	public delegate void ContinuedState_del();
@@ -2448,25 +2653,28 @@ public partial class Object/*
 	public virtual ContinuedState_del global_ContinuedState => Object_ContinuedState;
 	public /*event */void Object_ContinuedState()
 	{
-	
+		// stub
 	}
 	
 	// Export UObject::execEnable(FFrame&, void* const)
 	public virtual /*native(117) final function */void Enable(name ProbeFunc)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	// Export UObject::execDisable(FFrame&, void* const)
 	public virtual /*native(118) final function */void Disable(name ProbeFunc)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	// Export UObject::execGetEnum(FFrame&, void* const)
 	public /*native final function */static name GetEnum(Object E, /*coerce */int I)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2474,6 +2682,7 @@ public partial class Object/*
 	public /*native final function */static Object DynamicLoadObject(String ObjectName, Class ObjectClass, /*optional */bool? _MayFail = default)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2481,6 +2690,7 @@ public partial class Object/*
 	public /*native final function */static Object FindObject(String ObjectName, Class ObjectClass)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2488,18 +2698,21 @@ public partial class Object/*
 	public virtual /*native(536) final function */void SaveConfig()
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	// Export UObject::execStaticSaveConfig(FFrame&, void* const)
 	public /*native final function */static void StaticSaveConfig()
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	// Export UObject::execGetPerObjectConfigSections(FFrame&, void* const)
 	public /*native final function */static bool GetPerObjectConfigSections(Class SearchClass, ref array<String> out_SectionNames, /*optional */Object _ObjectOuter = default, /*optional */int? _MaxResults = default)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2507,18 +2720,19 @@ public partial class Object/*
 	public virtual /*native final function */float PointDistToLine(Object.Vector Point, Object.Vector Line, Object.Vector Origin, /*optional */ref Object.Vector OutClosestPoint/* = default*/)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
 	public virtual /*final simulated function */float PointDistToPlane(Object.Vector Point, Object.Rotator Orientation, Object.Vector Origin, /*optional */ref Object.Vector out_ClosestPoint/* = default*/)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final function */static bool PointInBox(Object.Vector Point, Object.Vector Location, Object.Vector Extent)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -2526,6 +2740,7 @@ public partial class Object/*
 	public /*native final function */static bool GetDotDistance(ref Object.Vector2D OutDotDist, Object.Vector Direction, Object.Vector AxisX, Object.Vector AxisY, Object.Vector AxisZ)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2533,6 +2748,7 @@ public partial class Object/*
 	public /*native final function */static bool GetAngularDistance(ref Object.Vector2D OutAngularDist, Object.Vector Direction, Object.Vector AxisX, Object.Vector AxisY, Object.Vector AxisZ)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
@@ -2540,40 +2756,41 @@ public partial class Object/*
 	public /*native final function */static void GetAngularFromDotDist(ref Object.Vector2D OutAngDist, Object.Vector2D DotDist)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 	}
 	
 	public /*final simulated function */static void GetAngularDegreesFromRadians(ref Object.Vector2D OutFOV)
 	{
-	
+		// stub
 	}
 	
 	public /*final simulated function */static float GetHeadingAngle(Object.Vector Dir)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final simulated function */static float FindDeltaAngle(float A1, float A2)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public /*final simulated function */static float UnwindHeading(float A)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final simulated function */byte FloatToByte(float inputFloat, /*optional */bool? _bSigned = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
 	public virtual /*final simulated function */float ByteToFloat(byte inputByte, /*optional */bool? _bSigned = default)
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -2581,12 +2798,13 @@ public partial class Object/*
 	public virtual /*native final function */bool IsPendingKill()
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	
 	public virtual /*final function */name GetPackageName()
 	{
-	
+		// stub
 		return default;
 	}
 	
@@ -2594,6 +2812,7 @@ public partial class Object/*
 	public virtual /*native final function */Object.Vector TransformVectorByRotation(Object.Rotator SourceRotation, Object.Vector SourceVector, /*optional */bool? _bInverse = default)
 	{
 		 NativeMarkers.MarkUnimplemented();
+		// stub
 		return default;
 	}
 	protected override void RestoreDefaultFunction()

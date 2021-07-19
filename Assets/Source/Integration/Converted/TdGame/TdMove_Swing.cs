@@ -9,22 +9,22 @@ public partial class TdMove_Swing : TdPhysicsMove/*
 	public TdSwingVolume Volume;
 	public float SwingVelocity;
 	public float MaxSwingVelocity;
-	public /*config */float ExitVelocityModifier;
+	[config] public float ExitVelocityModifier;
 	public float SwingAngle;
 	public Object.Vector SwingDirection;
 	public Object.Vector BarDirection;
 	public Object.Vector SwingLocation;
-	public /*config */float SwingPendulumLength;
+	[config] public float SwingPendulumLength;
 	public bool bIsInterpolatingInto;
 	public bool bIsShimmying;
 	public bool bIsTurning;
 	public TdAnimNodeSequence CustomAnimNode;
 	public float ShimmyVelocity;
 	public float ShimmyTime;
-	public /*config */float SwingAngleTimingOffset;
-	public /*config */float SwingExitGravityModifier;
-	public /*config */float SwingExitGravityModifierTime;
-	public /*export editinline */AudioComponent SwingSoundComponent;
+	[config] public float SwingAngleTimingOffset;
+	[config] public float SwingExitGravityModifier;
+	[config] public float SwingExitGravityModifierTime;
+	[export, editinline] public AudioComponent SwingSoundComponent;
 	public SoundCue SwingSound;
 	
 	// Export UTdMove_Swing::execGetPawnLocation(FFrame&, void* const)

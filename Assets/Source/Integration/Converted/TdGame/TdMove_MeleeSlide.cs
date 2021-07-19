@@ -6,7 +6,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_MeleeSlide : TdMove_MeleeBase/*
 		config(PawnMovement)*/{
 	public bool bInMove;
-	public /*protected const */float BargeTraceDistance;
+	[Const] public/*protected*/ float BargeTraceDistance;
 	
 	public override /*simulated function */void StartMove()
 	{

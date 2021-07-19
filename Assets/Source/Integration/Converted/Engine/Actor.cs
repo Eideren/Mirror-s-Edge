@@ -117,12 +117,12 @@ public partial class Actor : Object/*
 	
 	public partial struct /*native transient */TraceHitInfo
 	{
-		public /*init */Material Material;
-		public /*init */PhysicalMaterial PhysMaterial;
-		public /*init */int Item;
-		public /*init */int LevelIndex;
-		public /*init */name BoneName;
-		public /*init export editinline */PrimitiveComponent HitComponent;
+		[init] public Material Material;
+		[init] public PhysicalMaterial PhysMaterial;
+		[init] public int Item;
+		[init] public int LevelIndex;
+		[init] public name BoneName;
+		[init, export, editinline] public PrimitiveComponent HitComponent;
 	
 	//	structdefaultproperties
 	//	{
@@ -138,12 +138,12 @@ public partial class Actor : Object/*
 	
 	public partial struct /*native transient */ImpactInfo
 	{
-		public /*init */Actor HitActor;
-		public /*init */Object.Vector HitLocation;
-		public /*init */Object.Vector HitNormal;
-		public /*init */Object.Vector RayDir;
-		public /*init */Actor.TraceHitInfo HitInfo;
-		public /*init */float TracedDistance;
+		[init] public Actor HitActor;
+		[init] public Object.Vector HitLocation;
+		[init] public Object.Vector HitNormal;
+		[init] public Object.Vector RayDir;
+		[init] public Actor.TraceHitInfo HitInfo;
+		[init] public float TracedDistance;
 	
 	//	structdefaultproperties
 	//	{
@@ -182,8 +182,8 @@ public partial class Actor : Object/*
 	
 	public partial struct /*native transient */AnimSlotInfo
 	{
-		public /*init */name SlotName;
-		public /*init */array<float> ChannelWeights;
+		[init] public name SlotName;
+		[init] public array<float> ChannelWeights;
 	
 	//	structdefaultproperties
 	//	{
@@ -195,8 +195,8 @@ public partial class Actor : Object/*
 	
 	public partial struct /*native transient */AnimSlotDesc
 	{
-		public /*init */name SlotName;
-		public /*init */int NumChannels;
+		[init] public name SlotName;
+		[init] public int NumChannels;
 	
 	//	structdefaultproperties
 	//	{
@@ -364,8 +364,8 @@ public partial class Actor : Object/*
 	
 	public partial struct /*native */NavReference
 	{
-		public/*()*/ NavigationPoint Nav;
-		public/*()*/ /*const editconst */Object.Guid Guid;
+		[Category] public NavigationPoint Nav;
+		[Category] [Const, editconst] public Object.Guid Guid;
 	
 	//	structdefaultproperties
 	//	{
@@ -381,29 +381,29 @@ public partial class Actor : Object/*
 	//	}
 	};
 	
-	public/*()*/ bool bExludeHandMoves;
-	public/*()*/ bool bExludeFootMoves;
-	public/*()*/ bool bPhysXMutatable;
-	public /*const */bool bStatic;
-	public/*(Display)*/ /*const */bool bHidden;
-	public /*const */bool bNoDelete;
-	public /*const */bool bDeleteMe;
-	public /*const transient */bool bTicked;
-	public /*const */bool bOnlyOwnerSee;
+	[Category] public bool bExludeHandMoves;
+	[Category] public bool bExludeFootMoves;
+	[Category] public bool bPhysXMutatable;
+	[Const] public bool bStatic;
+	[Category("Display")] [Const] public bool bHidden;
+	[Const] public bool bNoDelete;
+	[Const] public bool bDeleteMe;
+	[Const, transient] public bool bTicked;
+	[Const] public bool bOnlyOwnerSee;
 	public bool bStasis;
 	public bool bWorldGeometry;
 	public bool bIgnoreRigidBodyPawns;
 	public bool bOrientOnSlope;
-	public /*const */bool bIgnoreEncroachers;
+	[Const] public bool bIgnoreEncroachers;
 	public bool bPushedByEncroachers;
 	public bool bDestroyedByInterpActor;
-	public /*const */bool bRouteBeginPlayEvenIfStatic;
-	public /*const */bool bIsMoving;
+	[Const] public bool bRouteBeginPlayEvenIfStatic;
+	[Const] public bool bIsMoving;
 	public bool bAlwaysEncroachCheck;
 	public bool bHasAlternateTargetLocation;
-	public /*const */bool bNetTemporary;
-	public /*const */bool bOnlyRelevantToOwner;
-	public /*transient */bool bNetDirty;
+	[Const] public bool bNetTemporary;
+	[Const] public bool bOnlyRelevantToOwner;
+	[transient] public bool bNetDirty;
 	public bool bAlwaysRelevant;
 	public bool bReplicateInstigator;
 	public bool bReplicateMovement;
@@ -411,112 +411,112 @@ public partial class Actor : Object/*
 	public bool bUpdateSimulatedPosition;
 	public bool bTearOff;
 	public bool bOnlyDirtyReplication;
-	public /*transient */bool bDemoRecording;
+	[transient] public bool bDemoRecording;
 	public bool bDemoOwner;
 	public bool bForceDemoRelevant;
-	public /*const */bool bNetInitialRotation;
+	[Const] public bool bNetInitialRotation;
 	public bool bReplicateRigidBodyLocation;
 	public bool bKillDuringLevelTransition;
-	public /*const */bool bExchangedRoles;
-	public/*(Advanced)*/ bool bConsiderAllStaticMeshComponentsForStreaming;
-	public/*(AI)*/ bool bIgnoreForAITraces;
-	public/*(Interaction)*/ bool bInteractable;
-	public/*(Interaction)*/ /*const */bool bLOIObject;
-	public/*(Debug)*/ bool bDebug;
+	[Const] public bool bExchangedRoles;
+	[Category("Advanced")] public bool bConsiderAllStaticMeshComponentsForStreaming;
+	[Category("AI")] public bool bIgnoreForAITraces;
+	[Category("Interaction")] public bool bInteractable;
+	[Category("Interaction")] [Const] public bool bLOIObject;
+	[Category("Debug")] public bool bDebug;
 	public bool bPostRenderIfNotVisible;
-	public /*transient */bool bForceNetUpdate;
-	public /*const transient */bool bPendingNetUpdate;
-	public/*(Attachment)*/ /*const */bool bHardAttach;
-	public/*(Attachment)*/ bool bIgnoreBaseRotation;
-	public/*(Attachment)*/ bool bShadowParented;
+	[transient] public bool bForceNetUpdate;
+	[Const, transient] public bool bPendingNetUpdate;
+	[Category("Attachment")] [Const] public bool bHardAttach;
+	[Category("Attachment")] public bool bIgnoreBaseRotation;
+	[Category("Attachment")] public bool bShadowParented;
 	public bool bCanBeAdheredTo;
 	public bool bCanBeFrictionedTo;
 	public bool bHurtEntry;
 	public bool bGameRelevant;
-	public /*const */bool bMovable;
+	[Const] public bool bMovable;
 	public bool bDestroyInPainVolume;
 	public bool bCanBeDamaged;
 	public bool bShouldBaseAtStartup;
 	public bool bPendingDelete;
 	public bool bCanTeleport;
-	public /*const */bool bAlwaysTick;
-	public/*(Navigation)*/ bool bBlocksNavigation;
-	public/*(Collision)*/ /*const transient */bool BlockRigidBody;
+	[Const] public bool bAlwaysTick;
+	[Category("Navigation")] public bool bBlocksNavigation;
+	[Category("Collision")] [Const, transient] public bool BlockRigidBody;
 	public bool bCollideWhenPlacing;
-	public /*const */bool bCollideActors;
+	[Const] public bool bCollideActors;
 	public bool bCollideWorld;
-	public/*(Collision)*/ bool bCollideComplex;
+	[Category("Collision")] public bool bCollideComplex;
 	public bool bBlockActors;
 	public bool bProjTarget;
 	public bool bBlocksTeleport;
-	public/*(Collision)*/ bool bNoEncroachCheck;
-	public/*(Collision)*/ bool bPhysRigidBodyOutOfWorldCheck;
-	public /*const */bool bComponentOutsideWorld;
+	[Category("Collision")] public bool bNoEncroachCheck;
+	[Category("Collision")] public bool bPhysRigidBodyOutOfWorldCheck;
+	[Const] public bool bComponentOutsideWorld;
 	public bool bBounce;
-	public /*const */bool bJustTeleported;
-	public /*const */bool bNetInitial;
-	public /*const */bool bNetOwner;
-	public/*(Advanced)*/ /*const */bool bHiddenEd;
-	public/*(Advanced)*/ /*const */bool bHiddenEdGroup;
-	public /*const */bool bHiddenEdCustom;
-	public/*(Advanced)*/ bool bEdShouldSnap;
-	public /*const transient */bool bTempEditor;
-	public/*(Collision)*/ bool bPathColliding;
-	public /*transient */bool bPathTemp;
+	[Const] public bool bJustTeleported;
+	[Const] public bool bNetInitial;
+	[Const] public bool bNetOwner;
+	[Category("Advanced")] [Const] public bool bHiddenEd;
+	[Category("Advanced")] [Const] public bool bHiddenEdGroup;
+	[Const] public bool bHiddenEdCustom;
+	[Category("Advanced")] public bool bEdShouldSnap;
+	[Const, transient] public bool bTempEditor;
+	[Category("Collision")] public bool bPathColliding;
+	[transient] public bool bPathTemp;
 	public bool bScriptInitialized;
-	public/*(Advanced)*/ bool bLockLocation;
-	public /*private const export editinline */array</*export editinline */ActorComponent> Components;
-	public /*private const export editinline transient */array</*export editinline */ActorComponent> AllComponents;
-	public /*private native const */Object.RenderCommandFence DetachFence;
+	[Category("Advanced")] public bool bLockLocation;
+	[Const, export, editinline] public/*private*/ array</*export editinline */ActorComponent> Components;
+	[Const, export, editinline, transient] public/*private*/ array</*export editinline */ActorComponent> AllComponents;
+	[native, Const] public/*private*/ Object.RenderCommandFence DetachFence;
 	public float CustomTimeDilation;
-	public/*(Movement)*/ /*const */Actor.EPhysics Physics;
+	[Category("Movement")] [Const] public Actor.EPhysics Physics;
 	public Actor.ENetRole RemoteRole;
 	public Actor.ENetRole Role;
-	public/*(Collision)*/ /*const transient */Actor.ECollisionType CollisionType;
-	public /*const */Object.ETickingGroup TickGroup;
-	public /*const */Actor Owner;
-	public/*(Attachment)*/ /*const */Actor Base;
-	public /*const */array<Actor.TimerData> Timers;
-	public /*const transient */int NetTag;
-	public /*const */float NetUpdateTime;
+	[Category("Collision")] [Const, transient] public Actor.ECollisionType CollisionType;
+	[Const] public Object.ETickingGroup TickGroup;
+	[Const] public Actor Owner;
+	[Category("Attachment")] [Const] public Actor Base;
+	[Const] public array<Actor.TimerData> Timers;
+	[Const, transient] public int NetTag;
+	[Const] public float NetUpdateTime;
 	public float NetUpdateFrequency;
 	public float NetPriority;
-	public /*const transient */float LastNetUpdateTime;
+	[Const, transient] public float LastNetUpdateTime;
 	public Pawn Instigator;
-	public /*const transient */WorldInfo WorldInfo;
+	[Const, transient] public WorldInfo WorldInfo;
 	public float LifeSpan;
-	public /*const */float CreationTime;
-	public /*transient */float LastRenderTime;
-	public/*(Object)*/ name Tag;
+	[Const] public float CreationTime;
+	[transient] public float LastRenderTime;
+	[Category("Object")] public name Tag;
 	public name InitialState;
-	public/*(Object)*/ name Group;
-	public /*const transient */array<Actor> Touching;
-	public /*const transient */array<Actor> Children;
-	public /*const */float LatentFloat;
-	public /*const */AnimNodeSequence LatentSeqNode;
-	public /*const transient */PhysicsVolume PhysicsVolume;
-	public/*(Movement)*/ /*const */Object.Vector Location;
-	public/*(Movement)*/ /*const */Object.Rotator Rotation;
+	[Category("Object")] public name Group;
+	[Const, transient] public array<Actor> Touching;
+	[Const, transient] public array<Actor> Children;
+	[Const] public float LatentFloat;
+	[Const] public AnimNodeSequence LatentSeqNode;
+	[Const, transient] public PhysicsVolume PhysicsVolume;
+	[Category("Movement")] [Const] public Object.Vector Location;
+	[Category("Movement")] [Const] public Object.Rotator Rotation;
 	public Object.Vector Velocity;
 	public Object.Vector Acceleration;
-	public /*const transient */Object.Vector AngularVelocity;
-	public/*(Attachment)*/ /*export editinline */SkeletalMeshComponent BaseSkelComponent;
-	public/*(Attachment)*/ name BaseBoneName;
-	public /*const */array<Actor> Attached;
-	public /*const */Object.Vector RelativeLocation;
-	public /*const */Object.Rotator RelativeRotation;
-	public/*(Display)*/ /*interp const */float DrawScale;
-	public/*(Display)*/ /*interp const */Object.Vector DrawScale3D;
-	public/*(Display)*/ /*const */Object.Vector PrePivot;
-	public/*(Collision)*/ /*export editinline */PrimitiveComponent CollisionComponent;
-	public /*native */int OverlapTag;
-	public/*(Movement)*/ Object.Rotator RotationRate;
-	public/*(Movement)*/ Object.Rotator DesiredRotation;
+	[Const, transient] public Object.Vector AngularVelocity;
+	[Category("Attachment")] [export, editinline] public SkeletalMeshComponent BaseSkelComponent;
+	[Category("Attachment")] public name BaseBoneName;
+	[Const] public array<Actor> Attached;
+	[Const] public Object.Vector RelativeLocation;
+	[Const] public Object.Rotator RelativeRotation;
+	[Category("Display")] [interp, Const] public float DrawScale;
+	[Category("Display")] [interp, Const] public Object.Vector DrawScale3D;
+	[Category("Display")] [Const] public Object.Vector PrePivot;
+	[Category("Collision")] [export, editinline] public PrimitiveComponent CollisionComponent;
+	[native] public int OverlapTag;
+	[Category("Movement")] public Object.Rotator RotationRate;
+	[Category("Movement")] public Object.Rotator DesiredRotation;
 	public Actor PendingTouch;
-	public/*(Physics)*/ float MinDistForNetRBCorrection;
+	[Category("Physics")] public float MinDistForNetRBCorrection;
 	public Core.ClassT<LocalMessage> MessageClass;
-	public /*const */array< Core.ClassT<SequenceEvent> > SupportedEvents;
-	public /*const */array<SequenceEvent> GeneratedEvents;
+	[Const] public array< Core.ClassT<SequenceEvent> > SupportedEvents;
+	[Const] public array<SequenceEvent> GeneratedEvents;
 	public array<SeqAct_Latent> LatentActions;
 	
 	//replication
@@ -624,14 +624,14 @@ public partial class Actor : Object/*
 	//// Export UActor::execSetLocation(FFrame&, void* const)
 	//public virtual /*native(267) final function */bool SetLocation(Object.Vector NewLocation)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	//
 	//// Export UActor::execSetRotation(FFrame&, void* const)
 	//public virtual /*native(299) final function */bool SetRotation(Object.Rotator NewRotation)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	
@@ -825,7 +825,7 @@ public partial class Actor : Object/*
 	//// Export UActor::execSetPhysics(FFrame&, void* const)
 	//public virtual /*native(3970) final function */void SetPhysics(Actor.EPhysics newPhysics)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//}
 	
 	// Export UActor::execClock(FFrame&, void* const)
@@ -843,13 +843,13 @@ public partial class Actor : Object/*
 	//// Export UActor::execAttachComponent(FFrame&, void* const)
 	//public virtual /*native final function */void AttachComponent(ActorComponent NewComponent)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//}
 	//
 	//// Export UActor::execDetachComponent(FFrame&, void* const)
 	//public virtual /*native final function */void DetachComponent(ActorComponent ExComponent)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//}
 	
 	// Export UActor::execSetTickGroup(FFrame&, void* const)
@@ -1089,14 +1089,14 @@ public partial class Actor : Object/*
 	//// Export UActor::execSpawn(FFrame&, void* const)
 	//public virtual /*native final function */Actor Spawn(Core.ClassT<Actor> SpawnClass, /*optional */Actor? _SpawnOwner = default, /*optional */name? _SpawnTag = default, /*optional */Object.Vector? _SpawnLocation = default, /*optional */Object.Rotator? _SpawnRotation = default, /*optional */Actor? _ActorTemplate = default, /*optional */bool? _bNoCollisionFail = default)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	//
 	//// Export UActor::execDestroy(FFrame&, void* const)
 	//public virtual /*native(279) final function */bool Destroy()
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	
@@ -1199,91 +1199,91 @@ public partial class Actor : Object/*
 	//// Export UActor::execAllActors(FFrame&, void* const)
 	//public virtual /*native(304) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> AllActors(Core.ClassT<Actor> BaseClass)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execDynamicActors(FFrame&, void* const)
 	//public virtual /*native(313) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> DynamicActors(Core.ClassT<Actor> BaseClass)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execChildActors(FFrame&, void* const)
 	//public virtual /*native(305) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> ChildActors(Core.ClassT<Actor> BaseClass)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execBasedActors(FFrame&, void* const)
 	//public virtual /*native(306) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> BasedActors(Core.ClassT<Actor> BaseClass)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execTouchingActors(FFrame&, void* const)
 	//public virtual /*native(307) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> TouchingActors(Core.ClassT<Actor> BaseClass)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execTraceActors(FFrame&, void* const)
 	//public virtual /*native(309) final iterator function */System.Collections.Generic.IEnumerable<(Actor/* Actor*/,Object.Vector/* HitLoc*/,Object.Vector/* HitNorm*/,Actor.TraceHitInfo/* HitInfo*/)> TraceActors(Core.ClassT<Actor> BaseClass, Object.Vector End, /*optional */Object.Vector? _Start/* = default*/, /*optional */Object.Vector? _Extent/* = default*/, /*optional */int? _ExtraTraceFlags = default)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execVisibleActors(FFrame&, void* const)
 	//public virtual /*native(311) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> VisibleActors(Core.ClassT<Actor> BaseClass, /*optional */float? _Radius = default, /*optional */Object.Vector? _Loc = default)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execVisibleCollidingActors(FFrame&, void* const)
 	//public virtual /*native(312) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> VisibleCollidingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector? _Loc = default, /*optional */bool? _bIgnoreHidden = default)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execCollidingActors(FFrame&, void* const)
 	//public virtual /*native(321) final iterator function */System.Collections.Generic.IEnumerable<Actor/* Actor*/> CollidingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector? _Loc = default, /*optional */bool? _bUseOverlapCheck = default)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execOverlappingActors(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<Actor/* out_Actor*/> OverlappingActors(Core.ClassT<Actor> BaseClass, float Radius, /*optional */Object.Vector? _Loc = default, /*optional */bool? _bIgnoreHidden = default)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execComponentList(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<ActorComponent/* out_Component*/> ComponentList(Class BaseClass)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execAllOwnedComponents(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<ActorComponent/* OutComponent*/> AllOwnedComponents(Core.ClassT<Component> BaseClass)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	yield break;
 	//}
 	//
 	//// Export UActor::execLocalPlayerControllers(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<PlayerController/* PC*/> LocalPlayerControllers(Core.ClassT<PlayerController> BaseClass)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	yield break;
 	//}
 	
@@ -1510,7 +1510,7 @@ public partial class Actor : Object/*
 	//// Export UActor::execGetGravityZ(FFrame&, void* const)
 	//public virtual /*native function */float GetGravityZ()
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	

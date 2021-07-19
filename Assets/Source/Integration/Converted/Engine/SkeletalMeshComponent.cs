@@ -54,11 +54,11 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	
 	public partial struct Attachment
 	{
-		public/*()*/ /*export editinline */ActorComponent Component;
-		public/*()*/ name BoneName;
-		public/*()*/ Object.Vector RelativeLocation;
-		public/*()*/ Object.Rotator RelativeRotation;
-		public/*()*/ Object.Vector RelativeScale;
+		[Category] [export, editinline] public ActorComponent Component;
+		[Category] public name BoneName;
+		[Category] public Object.Vector RelativeLocation;
+		[Category] public Object.Rotator RelativeRotation;
+		[Category] public Object.Vector RelativeScale;
 	
 	//	structdefaultproperties
 	//	{
@@ -86,34 +86,34 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	//	}
 	};
 	
-	public/*()*/ SkeletalMesh SkeletalMesh;
-	public /*export editinline */SkeletalMeshComponent AttachedToSkelComponent;
+	[Category] public SkeletalMesh SkeletalMesh;
+	[export, editinline] public SkeletalMeshComponent AttachedToSkelComponent;
 	public Object.Matrix LocalToLegRotatedWorld;
 	public bool bUseLegRotationHack1;
-	public/*()*/ /*const */AnimTree AnimTreeTemplate;
-	public/*()*/ /*const export editinline */AnimNode Animations;
-	public /*const transient */array<AnimNode> AnimTickArray;
-	public/*()*/ /*const */PhysicsAsset PhysicsAsset;
-	public /*const export editinline transient */PhysicsAssetInstance PhysicsAssetInstance;
-	public/*()*/ float PhysicsWeight;
-	public/*()*/ float GlobalAnimRateScale;
-	public /*native const transient */Object.Pointer MeshObject;
-	public/*()*/ Object.Color WireframeColor;
-	public /*native const transient */array<Object.Matrix> SpaceBases;
-	public /*native const transient */array<AnimNode.BoneAtom> LocalAtoms;
-	public /*native const transient */array<byte> RequiredBones;
-	public/*()*/ /*const export editinline */SkeletalMeshComponent ParentAnimComponent;
-	public /*native const transient */array<int> ParentBoneMap;
-	public/*()*/ array<AnimSet> AnimSets;
-	public /*native const transient */array<AnimSet> TemporarySavedAnimSets;
-	public/*()*/ array<MorphTargetSet> MorphSets;
+	[Category] [Const] public AnimTree AnimTreeTemplate;
+	[Category] [Const, export, editinline] public AnimNode Animations;
+	[Const, transient] public array<AnimNode> AnimTickArray;
+	[Category] [Const] public PhysicsAsset PhysicsAsset;
+	[Const, export, editinline, transient] public PhysicsAssetInstance PhysicsAssetInstance;
+	[Category] public float PhysicsWeight;
+	[Category] public float GlobalAnimRateScale;
+	[native, Const, transient] public Object.Pointer MeshObject;
+	[Category] public Object.Color WireframeColor;
+	[native, Const, transient] public array<Object.Matrix> SpaceBases;
+	[native, Const, transient] public array<AnimNode.BoneAtom> LocalAtoms;
+	[native, Const, transient] public array<byte> RequiredBones;
+	[Category] [Const, export, editinline] public SkeletalMeshComponent ParentAnimComponent;
+	[native, Const, transient] public array<int> ParentBoneMap;
+	[Category] public array<AnimSet> AnimSets;
+	[native, Const, transient] public array<AnimSet> TemporarySavedAnimSets;
+	[Category] public array<MorphTargetSet> MorphSets;
 	public array<SkeletalMeshComponent.ActiveMorph> ActiveMorphs;
-	public /*duplicatetransient const */array<SkeletalMeshComponent.Attachment> Attachments;
-	public /*const transient */array<byte> SkelControlIndex;
-	public/*()*/ int ForcedLodModel;
+	[duplicatetransient, Const] public array<SkeletalMeshComponent.Attachment> Attachments;
+	[Const, transient] public array<byte> SkelControlIndex;
+	[Category] public int ForcedLodModel;
 	public int PredictedLODLevel;
 	public int OldPredictedLODLevel;
-	public /*const */float MaxDistanceFactor;
+	[Const] public float MaxDistanceFactor;
 	public int bForceWireframe;
 	public int bForceRefpose;
 	public int bOldForceRefPose;
@@ -124,87 +124,87 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	public int bForceRawOffset;
 	public int bIgnoreControllers;
 	public int bTransformFromAnimParent;
-	public /*const transient */int TickTag;
-	public /*const transient */int CachedAtomsTag;
-	public /*const */int bUseSingleBodyPhysics;
-	public /*transient */int bRequiredBonesUpToDate;
+	[Const, transient] public int TickTag;
+	[Const, transient] public int CachedAtomsTag;
+	[Const] public int bUseSingleBodyPhysics;
+	[transient] public int bRequiredBonesUpToDate;
 	public float MinDistFactorForKinematicUpdate;
 	public name PhysicsBlendZeroDriftBoneName;
-	public /*transient */int FramesPhysicsAsleep;
+	[transient] public int FramesPhysicsAsleep;
 	public bool bSkipAllUpdateWhenPhysicsAsleep;
 	public bool bUpdateSkelWhenNotRendered;
 	public bool bIgnoreControllersWhenNotRendered;
-	public /*const */bool bNotUpdatingKinematicDueToDistance;
-	public/*()*/ bool bForceDiscardRootMotion;
+	[Const] public bool bNotUpdatingKinematicDueToDistance;
+	[Category] public bool bForceDiscardRootMotion;
 	public bool bRootMotionModeChangeNotify;
 	public bool bRootMotionExtractedNotify;
-	public/*()*/ bool bDisableFaceFXMaterialInstanceCreation;
-	public /*const transient */bool bAnimTreeInitialised;
-	public/*()*/ /*const */bool bHasPhysicsAssetInstance;
-	public/*()*/ bool bUpdateKinematicBonesFromAnimation;
-	public/*()*/ bool bUpdateJointsFromAnimation;
-	public /*const */bool bSkelCompFixed;
-	public /*const */bool bHasHadPhysicsBlendedIn;
-	public/*()*/ bool bForceUpdateAttachmentsInTick;
-	public/*()*/ bool bEnableFullAnimWeightBodies;
-	public/*()*/ bool bPerBoneVolumeEffects;
-	public/*()*/ bool bSyncActorLocationToRootRigidBody;
-	public /*const */bool bUseRawData;
+	[Category] public bool bDisableFaceFXMaterialInstanceCreation;
+	[Const, transient] public bool bAnimTreeInitialised;
+	[Category] [Const] public bool bHasPhysicsAssetInstance;
+	[Category] public bool bUpdateKinematicBonesFromAnimation;
+	[Category] public bool bUpdateJointsFromAnimation;
+	[Const] public bool bSkelCompFixed;
+	[Const] public bool bHasHadPhysicsBlendedIn;
+	[Category] public bool bForceUpdateAttachmentsInTick;
+	[Category] public bool bEnableFullAnimWeightBodies;
+	[Category] public bool bPerBoneVolumeEffects;
+	[Category] public bool bSyncActorLocationToRootRigidBody;
+	[Const] public bool bUseRawData;
 	public bool bDisableWarningWhenAnimNotFound;
 	public bool bOverrideAttachmentOwnerVisibility;
 	public bool bPauseAnims;
 	public bool bChartDistanceFactor;
 	public bool bEnableLineCheckWithBounds;
 	public Object.Vector LineCheckBoundsScale;
-	public/*(Cloth)*/ /*const */bool bEnableClothSimulation;
-	public/*(Cloth)*/ /*const */bool bDisableClothCollision;
-	public/*(Cloth)*/ /*const */bool bClothFrozen;
-	public/*(Cloth)*/ bool bAutoFreezeClothWhenNotRendered;
-	public/*(Cloth)*/ bool bClothBaseVelClamp;
-	public/*(Cloth)*/ bool bAttachClothVertsToBaseBody;
+	[Category("Cloth")] [Const] public bool bEnableClothSimulation;
+	[Category("Cloth")] [Const] public bool bDisableClothCollision;
+	[Category("Cloth")] [Const] public bool bClothFrozen;
+	[Category("Cloth")] public bool bAutoFreezeClothWhenNotRendered;
+	[Category("Cloth")] public bool bClothBaseVelClamp;
+	[Category("Cloth")] public bool bAttachClothVertsToBaseBody;
 	public bool bCacheAnimSequenceNodes;
 	public bool bForceMeshObjectUpdates;
-	public/*(Cloth)*/ /*const */Object.Vector ClothExternalForce;
-	public/*(Cloth)*/ Object.Vector ClothWind;
-	public/*(Cloth)*/ Object.Vector ClothBaseVelClampRange;
-	public/*(Cloth)*/ float ClothBlendWeight;
+	[Category("Cloth")] [Const] public Object.Vector ClothExternalForce;
+	[Category("Cloth")] public Object.Vector ClothWind;
+	[Category("Cloth")] public Object.Vector ClothBaseVelClampRange;
+	[Category("Cloth")] public float ClothBlendWeight;
 	public float ClothDynamicBlendWeight;
-	public/*(Cloth)*/ float ClothMinBlendDistance;
-	public/*(Cloth)*/ float ClothMaxBlendDistance;
-	public /*native const transient */Object.Pointer ClothSim;
-	public /*native const transient */int SceneIndex;
-	public /*const */array<Object.Vector> ClothMeshPosData;
-	public /*const */array<Object.Vector> ClothMeshNormalData;
-	public /*const */array<int> ClothMeshIndexData;
+	[Category("Cloth")] public float ClothMinBlendDistance;
+	[Category("Cloth")] public float ClothMaxBlendDistance;
+	[native, Const, transient] public Object.Pointer ClothSim;
+	[native, Const, transient] public int SceneIndex;
+	[Const] public array<Object.Vector> ClothMeshPosData;
+	[Const] public array<Object.Vector> ClothMeshNormalData;
+	[Const] public array<int> ClothMeshIndexData;
 	public int NumClothMeshVerts;
 	public int NumClothMeshIndices;
-	public /*const */array<int> ClothMeshParentData;
+	[Const] public array<int> ClothMeshParentData;
 	public int NumClothMeshParentIndices;
-	public /*native const transient */array<Object.Vector> ClothMeshWeldedPosData;
-	public /*native const transient */array<Object.Vector> ClothMeshWeldedNormalData;
-	public /*native const transient */array<int> ClothMeshWeldedIndexData;
+	[native, Const, transient] public array<Object.Vector> ClothMeshWeldedPosData;
+	[native, Const, transient] public array<Object.Vector> ClothMeshWeldedNormalData;
+	[native, Const, transient] public array<int> ClothMeshWeldedIndexData;
 	public int ClothDirtyBufferFlag;
-	public/*(Cloth)*/ /*const */PrimitiveComponent.ERBCollisionChannel ClothRBChannel;
-	public/*(Cloth)*/ /*const */PrimitiveComponent.RBCollisionChannelContainer ClothRBCollideWithChannels;
-	public/*(Cloth)*/ /*const */float ClothForceScale;
-	public/*(Cloth)*/ bool bEnableValidBounds;
-	public/*(Cloth)*/ Object.Vector ValidBoundsMin;
-	public/*(Cloth)*/ Object.Vector ValidBoundsMax;
-	public/*(Cloth)*/ /*const */float ClothAttachmentTearFactor;
+	[Category("Cloth")] [Const] public PrimitiveComponent.ERBCollisionChannel ClothRBChannel;
+	[Category("Cloth")] [Const] public PrimitiveComponent.RBCollisionChannelContainer ClothRBCollideWithChannels;
+	[Category("Cloth")] [Const] public float ClothForceScale;
+	[Category("Cloth")] public bool bEnableValidBounds;
+	[Category("Cloth")] public Object.Vector ValidBoundsMin;
+	[Category("Cloth")] public Object.Vector ValidBoundsMax;
+	[Category("Cloth")] [Const] public float ClothAttachmentTearFactor;
 	public Material LimitMaterial;
-	public /*const transient */AnimNode.BoneAtom RootMotionDelta;
-	public /*transient */Object.Vector RootMotionVelocity;
-	public /*const transient */Object.Vector RootBoneTranslation;
+	[Const, transient] public AnimNode.BoneAtom RootMotionDelta;
+	[transient] public Object.Vector RootMotionVelocity;
+	[Const, transient] public Object.Vector RootBoneTranslation;
 	public Object.Vector RootMotionAccelScale;
-	public/*()*/ SkeletalMeshComponent.ERootMotionMode RootMotionMode;
-	public /*const */SkeletalMeshComponent.ERootMotionMode PreviousRMM;
+	[Category] public SkeletalMeshComponent.ERootMotionMode RootMotionMode;
+	[Const] public SkeletalMeshComponent.ERootMotionMode PreviousRMM;
 	public SkeletalMeshComponent.ERootMotionMode PendingRMM;
 	public SkeletalMeshComponent.ERootMotionMode OldPendingRMM;
-	public /*const */int bRMMOneFrameDelay;
-	public/*()*/ SkeletalMeshComponent.ERootMotionRotationMode RootMotionRotationMode;
-	public/*()*/ SkeletalMeshComponent.EFaceFXBlendMode FaceFXBlendMode;
-	public /*native transient */Object.Pointer FaceFXActorInstance;
-	public /*export editinline */AudioComponent CachedFaceFXAudioComp;
+	[Const] public int bRMMOneFrameDelay;
+	[Category] public SkeletalMeshComponent.ERootMotionRotationMode RootMotionRotationMode;
+	[Category] public SkeletalMeshComponent.EFaceFXBlendMode FaceFXBlendMode;
+	[native, transient] public Object.Pointer FaceFXActorInstance;
+	[export, editinline] public AudioComponent CachedFaceFXAudioComp;
 	
 	// Export USkeletalMeshComponent::execAttachComponent(FFrame&, void* const)
 	public virtual /*native final function */void AttachComponent(ActorComponent Component, name BoneName, /*optional */Object.Vector? _RelativeLocation = default, /*optional */Object.Rotator? _RelativeRotation = default, /*optional */Object.Vector? _RelativeScale = default)
@@ -577,49 +577,49 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	//// Export USkeletalMeshComponent::execFindAnimNode(FFrame&, void* const)
 	//public virtual /*native final function */AnimNode FindAnimNode(name InNodeName)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	//
 	//// Export USkeletalMeshComponent::execAllAnimNodes(FFrame&, void* const)
 	//public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<AnimNode/* Node*/> AllAnimNodes(Core.ClassT<AnimNode> BaseClass)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	yield break;
 	//}
 	//
 	//// Export USkeletalMeshComponent::execFindSkelControl(FFrame&, void* const)
 	//public virtual /*native final function */SkelControlBase FindSkelControl(name InControlName)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	//
 	//// Export USkeletalMeshComponent::execFindMorphNode(FFrame&, void* const)
 	//public virtual /*native final function */MorphNodeBase FindMorphNode(name InNodeName)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	//
 	//// Export USkeletalMeshComponent::execGetBoneQuaternion(FFrame&, void* const)
 	//public virtual /*native final function */Object.Quat GetBoneQuaternion(name BoneName, /*optional */int? _Space = default)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	//
 	//// Export USkeletalMeshComponent::execGetBoneLocation(FFrame&, void* const)
 	//public virtual /*native final function */Object.Vector GetBoneLocation(name BoneName, /*optional */int? _Space = default)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	//
 	//// Export USkeletalMeshComponent::execMatchRefBone(FFrame&, void* const)
 	//public virtual /*native final function */int MatchRefBone(name BoneName)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	
@@ -729,13 +729,13 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	//// Export USkeletalMeshComponent::execForceSkelUpdate(FFrame&, void* const)
 	//public virtual /*native final function */void ForceSkelUpdate()
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//}
 	//
 	//// Export USkeletalMeshComponent::execUpdateAnimations(FFrame&, void* const)
 	//public virtual /*native final function */void UpdateAnimations()
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//}
 	
 	// Export USkeletalMeshComponent::execGetBonesWithinRadius(FFrame&, void* const)

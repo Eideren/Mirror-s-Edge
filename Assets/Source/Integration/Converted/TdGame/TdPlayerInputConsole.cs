@@ -12,8 +12,8 @@ public partial class TdPlayerInputConsole : TdPlayerInput/* within TdPlayerContr
 	public TdPawn AATarget;
 	public TdPawn AAStrafeTarget;
 	public int AAStrafeOrigin;
-	public/*(AimAssist)*/ bool bAAEnabled;
-	public/*(AimAssist)*/ int AAStrafeAssistRelease;
+	[Category("AimAssist")] public bool bAAEnabled;
+	[Category("AimAssist")] public int AAStrafeAssistRelease;
 	public Object.Vector DeltaAim;
 	public float DeltaAimDistZ;
 	public float DeltaAimDistY;

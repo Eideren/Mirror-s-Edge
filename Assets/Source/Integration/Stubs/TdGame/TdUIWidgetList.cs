@@ -33,15 +33,15 @@ public partial class TdUIWidgetList : TdUIDrawPanel,
 	//	}
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTable_IUIDataStoreSubscriber;
-	public /*transient */UIScrollbar VerticalScrollbar;
-	public /*transient */int CurrentIndex;
-	public /*transient */int PreviousIndex;
-	public /*transient */array<TdUIWidgetList.GeneratedObjectInfo> GeneratedObjects;
-	public/*(Data)*/ UIRoot.UIDataStoreBinding DataSource;
-	public /*const transient */UIListElementProvider DataProvider;
-	public /*transient */int MaxVisibleItems;
-	public /*transient */bool bRegenOptions;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIDataStoreSubscriber;
+	[transient] public UIScrollbar VerticalScrollbar;
+	[transient] public int CurrentIndex;
+	[transient] public int PreviousIndex;
+	[transient] public array<TdUIWidgetList.GeneratedObjectInfo> GeneratedObjects;
+	[Category("Data")] public UIRoot.UIDataStoreBinding DataSource;
+	[Const, transient] public UIListElementProvider DataProvider;
+	[transient] public int MaxVisibleItems;
+	[transient] public bool bRegenOptions;
 	public /*delegate*/TdUIWidgetList.OnOptionFocused __OnOptionFocused__Delegate;
 	public /*delegate*/TdUIWidgetList.OnOptionChanged __OnOptionChanged__Delegate;
 	public /*delegate*/TdUIWidgetList.OnAcceptOptions __OnAcceptOptions__Delegate;

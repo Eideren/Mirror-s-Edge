@@ -25,14 +25,14 @@ public partial class TdUIKeyBindingList : TdUIWidgetList/*
 	//	}
 	};
 	
-	public /*transient */TdUIKeyBindingList.BindKeyData CurrKeyBindData;
-	public /*transient */int NumButtons;
-	public /*transient */bool bCurrentlyBindingKey;
-	public /*transient */UIObject CurrentlyBindingObject;
-	public /*transient */TdUIScene_MessageBox BindKeyMessageBox;
-	public /*transient */array<String> CurrentBindings;
-	public /*transient */array<String> StoredBindings;
-	public /*transient */array<String> LocalizedFriendlyNames;
+	[transient] public TdUIKeyBindingList.BindKeyData CurrKeyBindData;
+	[transient] public int NumButtons;
+	[transient] public bool bCurrentlyBindingKey;
+	[transient] public UIObject CurrentlyBindingObject;
+	[transient] public TdUIScene_MessageBox BindKeyMessageBox;
+	[transient] public array<String> CurrentBindings;
+	[transient] public array<String> StoredBindings;
+	[transient] public array<String> LocalizedFriendlyNames;
 	
 	// Export UTdUIKeyBindingList::execRefreshBindingLabels(FFrame&, void* const)
 	public virtual /*native function */void RefreshBindingLabels()

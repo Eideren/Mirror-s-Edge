@@ -7,7 +7,7 @@ public partial class TdWeapon_Shotgun_Remington870 : TdWeapon_Heavy/*
 		config(Weapons)
 		notplaceable
 		hidecategories(Navigation)*/{
-	public/*()*/ int PelletCount;
+	[Category] public int PelletCount;
 	
 	public override /*simulated function */void CustomFire()
 	{

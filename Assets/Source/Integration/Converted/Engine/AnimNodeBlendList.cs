@@ -9,7 +9,7 @@ public partial class AnimNodeBlendList : AnimNodeBlendBase/*
 	public array<float> TargetWeight;
 	public float BlendTimeToGo;
 	public int ActiveChildIndex;
-	public/*()*/ bool bPlayActiveChild;
+	[Category] public bool bPlayActiveChild;
 	
 	//// Export UAnimNodeBlendList::execSetActiveChild(FFrame&, void* const)
 	//public virtual /*native function */void SetActiveChild(int ChildIndex, float BlendTime)

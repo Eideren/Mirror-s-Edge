@@ -15,7 +15,7 @@ public partial class TdMOVE_Disarm : TdPhysicsMove/*
 	public Object.Rotator TargetRotation;
 	public bool bMoveEnemy;
 	public bool bForceMiss;
-	public /*protected */ForceFeedbackWaveform DisarmWaveform;
+	public/*protected*/ ForceFeedbackWaveform DisarmWaveform;
 	
 	public override /*function */bool CanDoMove()
 	{

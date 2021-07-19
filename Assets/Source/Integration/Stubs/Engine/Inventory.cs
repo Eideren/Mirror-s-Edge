@@ -19,23 +19,23 @@ public partial class Inventory : Actor/*
 	
 	public Inventory Inventory_; // Renamed C# naming scheme
 	public InventoryManager InvManager;
-	public /*databinding const localized */String ItemName;
+	[databinding, Const, localized] public String ItemName;
 	public bool bRenderOverlays;
 	public bool bReceiveOwnerEvents;
 	public bool bDropOnDeath;
 	public bool bDelayedSpawn;
 	public bool bPredictRespawns;
-	public /*transient */Inventory.EInventorySlot InventorySlot;
-	public /*const */Inventory.EInventorySlot DefaultInventorySlot;
-	public/*()*/ float RespawnTime;
+	[transient] public Inventory.EInventorySlot InventorySlot;
+	[Const] public Inventory.EInventorySlot DefaultInventorySlot;
+	[Category] public float RespawnTime;
 	public float MaxDesireability;
-	public/*()*/ /*databinding const localized */String PickupMessage;
-	public/*()*/ SoundCue PickupSound;
-	public/*()*/ String PickupForce;
+	[Category] [databinding, Const, localized] public String PickupMessage;
+	[Category] public SoundCue PickupSound;
+	[Category] public String PickupForce;
 	public Core.ClassT<DroppedPickup> DroppedPickupClass;
-	public /*export editinline */PrimitiveComponent DroppedPickupMesh;
-	public /*export editinline */PrimitiveComponent PickupFactoryMesh;
-	public /*export editinline */ParticleSystemComponent DroppedPickupParticles;
+	[export, editinline] public PrimitiveComponent DroppedPickupMesh;
+	[export, editinline] public PrimitiveComponent PickupFactoryMesh;
+	[export, editinline] public ParticleSystemComponent DroppedPickupParticles;
 	
 	//replication
 	//{

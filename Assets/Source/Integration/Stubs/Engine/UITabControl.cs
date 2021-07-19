@@ -15,18 +15,18 @@ public partial class UITabControl : UIObject/*
 		TAST_MAX
 	};
 	
-	public/*()*/ /*protected editfixedsize editconst editinline */array</*editconst editinline */UITabPage> Pages;
-	public/*()*/ /*editconst editinline transient */UITabPage ActivePage;
-	public/*()*/ /*editconst editinline transient */UITabPage PendingPage;
-	public/*(Presentation)*/ UIRoot.EUIWidgetFace TabDockFace;
-	public/*(Presentation)*/ UITabControl.EUITabAutosizeType TabSizeMode;
-	public/*(Presentation)*/ UIRoot.UIScreenValue_Extent TabButtonSize;
-	public/*(Presentation)*/ StaticArray<UIRoot.UIScreenValue_Extent, UIRoot.UIScreenValue_Extent>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ TabButtonPadding;
-	public /*private */UIRoot.UIStyleReference TabButtonBackgroundStyle;
-	public /*private */UIRoot.UIStyleReference TabButtonCaptionStyle;
-	public/*(Presentation)*/ /*config */bool bAllowPagePreviews;
-	public /*transient */bool bUpdateLayout;
-	public/*(Sound)*/ name ActivateTabCue;
+	[Category] [editfixedsize, editconst, editinline] public/*protected*/ array</*editconst editinline */UITabPage> Pages;
+	[Category] [editconst, editinline, transient] public UITabPage ActivePage;
+	[Category] [editconst, editinline, transient] public UITabPage PendingPage;
+	[Category("Presentation")] public UIRoot.EUIWidgetFace TabDockFace;
+	[Category("Presentation")] public UITabControl.EUITabAutosizeType TabSizeMode;
+	[Category("Presentation")] public UIRoot.UIScreenValue_Extent TabButtonSize;
+	[Category("Presentation")] public StaticArray<UIRoot.UIScreenValue_Extent, UIRoot.UIScreenValue_Extent>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ TabButtonPadding;
+	public/*private*/ UIRoot.UIStyleReference TabButtonBackgroundStyle;
+	public/*private*/ UIRoot.UIStyleReference TabButtonCaptionStyle;
+	[Category("Presentation")] [config] public bool bAllowPagePreviews;
+	[transient] public bool bUpdateLayout;
+	[Category("Sound")] public name ActivateTabCue;
 	public /*delegate*/UITabControl.OnPageActivated __OnPageActivated__Delegate;
 	public /*delegate*/UITabControl.OnPageInserted __OnPageInserted__Delegate;
 	public /*delegate*/UITabControl.OnPageRemoved __OnPageRemoved__Delegate;

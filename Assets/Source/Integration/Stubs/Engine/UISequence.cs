@@ -7,8 +7,8 @@ public partial class UISequence : Sequence,
 		UIEventContainer/*
 		native
 		hidecategories(Object)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIEventContainer;
-	public /*init private noimport const transient */array</*init */UIEvent> UIEvents;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIEventContainer;
+	[init, noimport, Const, transient] public/*private*/ array</*init */UIEvent> UIEvents;
 	
 	// Export UUISequence::execGetOwner(FFrame&, void* const)
 	public virtual /*native final function */UIScreenObject GetOwner()

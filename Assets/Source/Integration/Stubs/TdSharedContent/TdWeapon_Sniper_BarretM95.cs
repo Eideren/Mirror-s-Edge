@@ -8,26 +8,26 @@ public partial class TdWeapon_Sniper_BarretM95 : TdWeapon_Heavy/*
 		notplaceable
 		hidecategories(Navigation)*/{
 	public MaterialEffect ScopeEffect;
-	public /*transient */MaterialInstanceConstant ScopeEffectMaterialInstance;
+	[transient] public MaterialInstanceConstant ScopeEffectMaterialInstance;
 	public bool LasersAttached;
-	public /*transient */bool bZoomed;
-	public /*transient */bool bIsZooming;
-	public /*private transient */bool bWasZoomed;
-	public/*(WeaponEffects)*/ ParticleSystem LaserBeamTemplate;
-	public/*(WeaponEffects)*/ ParticleSystem LaserHitTemplate;
-	public/*(WeaponEffects)*/ LensFlare LaserSourceLensFlareTemplate;
+	[transient] public bool bZoomed;
+	[transient] public bool bIsZooming;
+	[transient] public/*private*/ bool bWasZoomed;
+	[Category("WeaponEffects")] public ParticleSystem LaserBeamTemplate;
+	[Category("WeaponEffects")] public ParticleSystem LaserHitTemplate;
+	[Category("WeaponEffects")] public LensFlare LaserSourceLensFlareTemplate;
 	public name LaserSightSocket;
 	public TdEmitter LaserBeamEmitter;
 	public TdLensFlareSource LaserSourceLensFlare;
 	public TdEmitter LaserHitEmitter;
-	public /*transient */float LaserBeamFadeParameter;
-	public/*()*/ float ZoomFOV;
-	public/*()*/ float ZoomRate;
-	public/*()*/ float ZoomDelay;
-	public/*()*/ float AdditionalUnzoomedSpread;
-	public /*private transient */float ScopeDelayX;
-	public /*private transient */float ScopeDelayY;
-	public /*private transient */Object.Rotator ScopeRotationCache;
+	[transient] public float LaserBeamFadeParameter;
+	[Category] public float ZoomFOV;
+	[Category] public float ZoomRate;
+	[Category] public float ZoomDelay;
+	[Category] public float AdditionalUnzoomedSpread;
+	[transient] public/*private*/ float ScopeDelayX;
+	[transient] public/*private*/ float ScopeDelayY;
+	[transient] public/*private*/ Object.Rotator ScopeRotationCache;
 	
 	public override /*simulated function */void AttachWeaponEffects(TdSkeletalMeshComponent SKMesh)
 	{

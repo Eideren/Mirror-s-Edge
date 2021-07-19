@@ -9,19 +9,19 @@ public partial class TdWeapon_Bag : TdWeapon_Light/*
 		hidecategories(Navigation)*/{
 	public const int FireModeThrowBag = 0;
 	
-	public /*const config */float MaxThrowVelocity;
-	public /*const config */float MinThrowVelocity;
-	public /*const config */float PlayerVelocityAddPct;
-	public /*const config */Object.Rotator MaxPitchAssist;
-	public /*const config */Object.Rotator MinPitchAssist;
-	public /*const config */float StickyAimMaxVelocity;
-	public /*const config */float StickyAimDefaultVelocity;
-	public /*const config */float StickyAimMinVelocity;
-	public /*const config */float AirResistanceBoost;
-	public /*const config */float TargetVelocityMultiplier2D;
-	public /*const config */float TargetVelocityMultiplierZ;
-	public /*const config */float TargetHeightBooster;
-	public /*const config */float BagRequestDuration;
+	[Const, config] public float MaxThrowVelocity;
+	[Const, config] public float MinThrowVelocity;
+	[Const, config] public float PlayerVelocityAddPct;
+	[Const, config] public Object.Rotator MaxPitchAssist;
+	[Const, config] public Object.Rotator MinPitchAssist;
+	[Const, config] public float StickyAimMaxVelocity;
+	[Const, config] public float StickyAimDefaultVelocity;
+	[Const, config] public float StickyAimMinVelocity;
+	[Const, config] public float AirResistanceBoost;
+	[Const, config] public float TargetVelocityMultiplier2D;
+	[Const, config] public float TargetVelocityMultiplierZ;
+	[Const, config] public float TargetHeightBooster;
+	[Const, config] public float BagRequestDuration;
 	public bool bBagIsRequiested;
 	
 	public override ReloadWeapon_del ReloadWeapon { get => bfield_ReloadWeapon ?? TdWeapon_Bag_ReloadWeapon; set => bfield_ReloadWeapon = value; } ReloadWeapon_del bfield_ReloadWeapon;

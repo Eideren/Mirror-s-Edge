@@ -102,8 +102,8 @@ public partial class PlayerController : Controller/*
 		public name MatchFuncName;
 		public name FailedFuncName;
 		public name RequestName;
-		public /*transient */int MatchIdx;
-		public /*transient */float LastMatchTime;
+		[transient] public int MatchIdx;
+		[transient] public float LastMatchTime;
 	
 	//	structdefaultproperties
 	//	{
@@ -124,7 +124,7 @@ public partial class PlayerController : Controller/*
 		public Object.Vector SrcActorOffset;
 		public Object.Vector SrcActorDesiredOffset;
 		public String DebugText;
-		public /*transient */float TimeRemaining;
+		[transient] public float TimeRemaining;
 		public float Duration;
 		public Object.Color TextColor;
 	
@@ -157,28 +157,28 @@ public partial class PlayerController : Controller/*
 	//	}
 	};
 	
-	public /*const */Player Player;
+	[Const] public Player Player;
 	public Camera PlayerCamera;
-	public /*const */Core.ClassT<Camera> CameraClass;
+	[Const] public Core.ClassT<Camera> CameraClass;
 	public DebugCameraController DebugCameraControllerRef;
 	public Core.ClassT<DebugCameraController> DebugCameraControllerClass;
-	public /*const */Core.ClassT<PlayerOwnerDataStore> PlayerOwnerDataStoreClass;
-	public /*protected */PlayerOwnerDataStore CurrentPlayerData;
-	public /*protected */UIDataStore_PlayerSettings CurrentPlayerSettings;
+	[Const] public Core.ClassT<PlayerOwnerDataStore> PlayerOwnerDataStoreClass;
+	public/*protected*/ PlayerOwnerDataStore CurrentPlayerData;
+	public/*protected*/ UIDataStore_PlayerSettings CurrentPlayerSettings;
 	public bool bFrozen;
 	public bool bPressedJump;
 	public bool bDoubleJump;
 	public bool bUpdatePosition;
 	public bool bUpdating;
-	public /*globalconfig */bool bNeverSwitchOnPickup;
+	[globalconfig] public bool bNeverSwitchOnPickup;
 	public bool bCheatFlying;
 	public bool bCameraPositionLocked;
 	public bool bShortConnectTimeOut;
-	public /*const */bool bPendingDestroy;
+	[Const] public bool bPendingDestroy;
 	public bool bWasSpeedHack;
-	public /*const */bool bWasSaturated;
-	public /*globalconfig */bool bDynamicNetSpeed;
-	public /*globalconfig */bool bAimingHelp;
+	[Const] public bool bWasSaturated;
+	[globalconfig] public bool bDynamicNetSpeed;
+	[globalconfig] public bool bAimingHelp;
 	public bool bCinematicMode;
 	public bool bCinemaDisableInputMove;
 	public bool bCinemaDisableInputLook;
@@ -187,25 +187,25 @@ public partial class PlayerController : Controller/*
 	public bool bIsExternalUIOpen;
 	public bool bIsControllerConnected;
 	public bool bCheckSoundOcclusion;
-	public /*globalconfig */bool bLogHearSoundOverflow;
-	public /*globalconfig */bool bCheckRelevancyThroughPortals;
+	[globalconfig] public bool bLogHearSoundOverflow;
+	[globalconfig] public bool bCheckRelevancyThroughPortals;
 	public bool bReceivedUniqueId;
-	public /*transient */bool bCanSeeLOI;
+	[transient] public bool bCanSeeLOI;
 	public float MaxResponseTime;
 	public float WaitDelay;
 	public Pawn AcknowledgedPawn;
 	public Actor.EDoubleClickDir DoubleClickDir;
 	public byte bIgnoreMoveInput;
 	public byte bIgnoreLookInput;
-	public /*input */byte bRun;
-	public /*input */byte bDuck;
-	public /*duplicatetransient const */byte NetPlayerIndex;
-	public /*const */Actor ViewTarget;
+	[input] public byte bRun;
+	[input] public byte bDuck;
+	[duplicatetransient, Const] public byte NetPlayerIndex;
+	[Const] public Actor ViewTarget;
 	public PlayerReplicationInfo RealViewTarget;
 	public float FOVAngle;
 	public float DesiredFOV;
 	public float DefaultFOV;
-	public /*const */float LODDistanceFactor;
+	[Const] public float LODDistanceFactor;
 	public Object.Rotator TargetViewRotation;
 	public float TargetEyeHeight;
 	public Object.Rotator BlendedTargetViewRotation;
@@ -223,47 +223,47 @@ public partial class PlayerController : Controller/*
 	public float MaxTimeMargin;
 	public float LastActiveTime;
 	public int ClientCap;
-	public /*globalconfig */float DynamicPingThreshold;
+	[globalconfig] public float DynamicPingThreshold;
 	public float LastPingUpdate;
 	public float OldPing;
 	public float LastSpeedHackLog;
 	public PlayerController.ClientAdjustment PendingAdjustment;
 	public StaticArray<String, String>/*[2]*/ ProgressMessage;
 	public float ProgressTimeOut;
-	public /*const localized */String QuickSaveString;
-	public /*const localized */String NoPauseMessage;
-	public /*const localized */String ViewingFrom;
-	public /*const localized */String OwnCamera;
+	[Const, localized] public String QuickSaveString;
+	[Const, localized] public String NoPauseMessage;
+	[Const, localized] public String ViewingFrom;
+	[Const, localized] public String OwnCamera;
 	public int GroundPitch;
 	public Object.Vector OldFloor;
-	public /*transient */CheatManager CheatManager;
+	[transient] public CheatManager CheatManager;
 	public Core.ClassT<CheatManager> CheatClass;
-	public/*()*/ /*editinline transient */PlayerInput PlayerInput;
+	[Category] [editinline, transient] public PlayerInput PlayerInput;
 	public Core.ClassT<PlayerInput> InputClass;
-	public /*const */Object.Vector FailedPathStart;
-	public /*export editinline */CylinderComponent CylinderComponent;
-	public /*config */String ForceFeedbackManagerClassName;
-	public /*transient */ForceFeedbackManager ForceFeedbackManager;
-	public /*transient */array<Interaction> Interactions;
+	[Const] public Object.Vector FailedPathStart;
+	[export, editinline] public CylinderComponent CylinderComponent;
+	[config] public String ForceFeedbackManagerClassName;
+	[transient] public ForceFeedbackManager ForceFeedbackManager;
+	[transient] public array<Interaction> Interactions;
 	public array<OnlineSubsystem.UniqueNetId> VoiceMuteList;
 	public array<OnlineSubsystem.UniqueNetId> GameplayVoiceMuteList;
 	public array<OnlineSubsystem.UniqueNetId> VoicePacketFilter;
 	public OnlineSubsystem OnlineSub;
 	public OnlineVoiceInterface VoiceInterface;
 	public UIDataStore_OnlinePlayerData OnlinePlayerData;
-	public /*config */float InteractDistance;
+	[config] public float InteractDistance;
 	public array<PlayerController.InputMatchRequest> InputRequests;
 	public float LastBroadcastTime;
 	public StaticArray<String, String, String, String>/*[4]*/ LastBroadcastString;
 	public array<name> PendingMapChangeLevelNames;
 	public CoverReplicator MyCoverReplicator;
-	public /*private */array<PlayerController.DebugTextInfo> DebugTextList;
+	public/*private*/ array<PlayerController.DebugTextInfo> DebugTextList;
 	public float SpectatorCameraSpeed;
-	public /*duplicatetransient const */NetConnection PendingSwapConnection;
+	[duplicatetransient, Const] public NetConnection PendingSwapConnection;
 	public float MinRespawnDelay;
-	public /*globalconfig */int MaxConcurrentHearSounds;
-	public /*export editinline */array</*export editinline */AudioComponent> HearSoundActiveComponents;
-	public /*export editinline */array</*export editinline */AudioComponent> HearSoundPoolComponents;
+	[globalconfig] public int MaxConcurrentHearSounds;
+	[export, editinline] public array</*export editinline */AudioComponent> HearSoundActiveComponents;
+	[export, editinline] public array</*export editinline */AudioComponent> HearSoundPoolComponents;
 	public array<Actor> HiddenActors;
 	public /*delegate*/PlayerController.CanUnpause __CanUnpause__Delegate;
 	
@@ -3318,14 +3318,14 @@ public partial class PlayerController : Controller/*
 	//// Export UPlayerController::execIsLocalPlayerController(FFrame&, void* const)
 	//public override /*native function */bool IsLocalPlayerController()
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	
 	//// Export UPlayerController::execSetViewTarget(FFrame&, void* const)
 	//public virtual /*native function */void SetViewTarget(Actor NewViewTarget, /*optional */Camera.ViewTargetTransitionParams? _TransitionParams = default)
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//}
 	
 	public delegate void ClientSetViewTarget_del(Actor A, /*optional */Camera.ViewTargetTransitionParams? _TransitionParams = default);

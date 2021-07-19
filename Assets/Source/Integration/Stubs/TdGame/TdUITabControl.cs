@@ -6,7 +6,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUITabControl : UITabControl/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public/*()*/ name DefaultTabWidgetTag;
+	[Category] public name DefaultTabWidgetTag;
 	
 	public override /*event */void PostInitialize()
 	{

@@ -96,18 +96,18 @@ public partial class TdSPTutorialGame : TdSPGame,
 	//	}
 	};
 	
-	public /*private transient */array<TdSPTutorialGame.InitialTutorialState> InitialTutorialStates;
-	public /*private transient */TdPlaceableCheckpointManager CheckpointManager;
-	public /*private transient */Object.Vector LastValidPlayerLocation;
-	public /*private transient */TdSPTutorialGame.EMovementChallenge ActiveMovementChallenge;
-	public /*private transient */TdTutorialPawn TutorialPawn;
-	public /*private transient */TdPlayerController TutorialPlayer;
-	public /*private transient */Core.ClassT<TdLocalMessage> TutorialMessageClass;
-	public /*private transient */Core.ClassT<TdLocalMessage> FeedbackMessageClass;
-	public /*transient */array<TdPlaceableCheckpoint> NextCheckPoints;
-	public /*transient */TdPlaceableCheckpoint LastCheckPoint;
-	public /*private transient */bool bTutorialReactionTimeHelper;
-	public /*transient */TdAI_Tutorial AiTutorialController;
+	[transient] public/*private*/ array<TdSPTutorialGame.InitialTutorialState> InitialTutorialStates;
+	[transient] public/*private*/ TdPlaceableCheckpointManager CheckpointManager;
+	[transient] public/*private*/ Object.Vector LastValidPlayerLocation;
+	[transient] public/*private*/ TdSPTutorialGame.EMovementChallenge ActiveMovementChallenge;
+	[transient] public/*private*/ TdTutorialPawn TutorialPawn;
+	[transient] public/*private*/ TdPlayerController TutorialPlayer;
+	[transient] public/*private*/ Core.ClassT<TdLocalMessage> TutorialMessageClass;
+	[transient] public/*private*/ Core.ClassT<TdLocalMessage> FeedbackMessageClass;
+	[transient] public array<TdPlaceableCheckpoint> NextCheckPoints;
+	[transient] public TdPlaceableCheckpoint LastCheckPoint;
+	[transient] public/*private*/ bool bTutorialReactionTimeHelper;
+	[transient] public TdAI_Tutorial AiTutorialController;
 	public /*delegate*/TdSPTutorialGame.OnStayInTutorial __OnStayInTutorial__Delegate;
 	
 	public delegate void OnStayInTutorial(bool bStayInTutorial);

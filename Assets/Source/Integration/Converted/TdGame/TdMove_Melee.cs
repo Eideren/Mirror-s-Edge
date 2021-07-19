@@ -14,16 +14,16 @@ public partial class TdMove_Melee : TdMove_MeleeBase/*
 		MT_MAX
 	};
 	
-	public /*private */bool bLeft;
-	public /*private */bool bWindowOpen;
-	public /*private */int ComboCounter;
-	public /*private */float ComboTimer;
-	public /*private */int ComboQueuedActions;
-	public /*private */TdMove_Melee.EMoveMeleeType MeleeType;
-	public /*config */float SoccerKickDamage;
+	public/*private*/ bool bLeft;
+	public/*private*/ bool bWindowOpen;
+	public/*private*/ int ComboCounter;
+	public/*private*/ float ComboTimer;
+	public/*private*/ int ComboQueuedActions;
+	public/*private*/ TdMove_Melee.EMoveMeleeType MeleeType;
+	[config] public float SoccerKickDamage;
 	public float PreventTime;
-	public /*config */float BlendInMissed;
-	public /*config */float BlendOutMissed;
+	[config] public float BlendInMissed;
+	[config] public float BlendOutMissed;
 	
 	public override /*function */bool CanDoMove()
 	{

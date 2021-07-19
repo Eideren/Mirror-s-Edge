@@ -6,18 +6,18 @@ using Core; using Engine; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class EditorComponent : PrimitiveComponent/*
 		native
 		noexport*/{
-	public /*const */bool bDrawGrid;
-	public /*const */bool bDrawPivot;
-	public /*const */bool bDrawBaseInfo;
-	public /*const */bool bDrawWorldBox;
-	public /*const */bool bDrawColoredOrigin;
-	public /*const */bool bDrawKillZ;
-	public /*const */Object.Color GridColorHi;
-	public /*const */Object.Color GridColorLo;
-	public /*const */float PerspectiveGridSize;
-	public /*const */Object.Color PivotColor;
-	public /*const */float PivotSize;
-	public /*const */Object.Color BaseBoxColor;
+	[Const] public bool bDrawGrid;
+	[Const] public bool bDrawPivot;
+	[Const] public bool bDrawBaseInfo;
+	[Const] public bool bDrawWorldBox;
+	[Const] public bool bDrawColoredOrigin;
+	[Const] public bool bDrawKillZ;
+	[Const] public Object.Color GridColorHi;
+	[Const] public Object.Color GridColorLo;
+	[Const] public float PerspectiveGridSize;
+	[Const] public Object.Color PivotColor;
+	[Const] public float PivotSize;
+	[Const] public Object.Color BaseBoxColor;
 	
 	public EditorComponent()
 	{

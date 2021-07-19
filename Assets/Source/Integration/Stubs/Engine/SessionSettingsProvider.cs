@@ -10,9 +10,9 @@ public partial class SessionSettingsProvider : UISettingsProvider/* within UIDat
 		hidecategories(Object,UIRoot)*/{
 	public new UIDataStore_SessionSettings Outer => base.Outer as UIDataStore_SessionSettings;
 	
-	public /*private const */Core.ClassT<UISettingsClient> ProviderClientClass;
-	public /*const */Class ProviderClientMetaClass;
-	public /*const transient */Class ProviderClient;
+	[Const] public/*private*/ Core.ClassT<UISettingsClient> ProviderClientClass;
+	[Const] public Class ProviderClientMetaClass;
+	[Const, transient] public Class ProviderClient;
 	
 	// Export USessionSettingsProvider::execBindProviderClient(FFrame&, void* const)
 	public virtual /*native final function */bool BindProviderClient(Class DataSourceClass)

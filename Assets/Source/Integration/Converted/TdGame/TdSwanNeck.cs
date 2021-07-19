@@ -17,15 +17,15 @@ public partial class TdSwanNeck : Object/*
 	public Object.Vector WantedTranslation;
 	public Object.Vector Translation;
 	public Object.Vector PreviousTranslation;
-	public/*(SwanNeckSettings)*/ /*config */float LinearForwardTranslation;
-	public/*(SwanNeckSettings)*/ /*config */float LinearDownwardTranslation;
-	public/*(SwanNeckSettings)*/ /*config */float QuadraticForwardTranslation;
-	public/*(SwanNeckSettings)*/ /*config */float QuadraticDownwardTranslation;
-	public/*(SwanNeckSettings)*/ /*config */float StartTranslateAtDegree;
-	public /*const */int ForwardPitchWorld;
-	public /*const */int DownwardPitchWorld;
-	public /*const */float DegToUnDeg;
-	public/*(SwanNeckSettings)*/ /*config */TdSwanNeck.ESwanNeckType Type;
+	[Category("SwanNeckSettings")] [config] public float LinearForwardTranslation;
+	[Category("SwanNeckSettings")] [config] public float LinearDownwardTranslation;
+	[Category("SwanNeckSettings")] [config] public float QuadraticForwardTranslation;
+	[Category("SwanNeckSettings")] [config] public float QuadraticDownwardTranslation;
+	[Category("SwanNeckSettings")] [config] public float StartTranslateAtDegree;
+	[Const] public int ForwardPitchWorld;
+	[Const] public int DownwardPitchWorld;
+	[Const] public float DegToUnDeg;
+	[Category("SwanNeckSettings")] [config] public TdSwanNeck.ESwanNeckType Type;
 	
 	//// Export UTdSwanNeck::execGetSwanNeckPos(FFrame&, void* const)
 	//public virtual /*native function */Object.Vector GetSwanNeckPos(/*const */Object.Rotator FrameOfRefRotation)

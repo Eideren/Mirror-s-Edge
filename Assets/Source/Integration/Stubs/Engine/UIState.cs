@@ -9,13 +9,13 @@ public partial class UIState : UIRoot,
 		native
 		editinlinenew
 		hidecategories(Object,UIRoot)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIEventContainer;
-	public /*noimport export editinline */UIStateSequence StateSequence;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIEventContainer;
+	[noimport, export, editinline] public UIStateSequence StateSequence;
 	public array<UIRoot.InputKeyAction> StateInputActions;
 	public array<UIRoot.InputKeyAction> DisabledInputActions;
-	public/*()*/ name MouseCursorName;
-	public /*transient */byte PlayerIndexMask;
-	public /*const transient */byte StackPriority;
+	[Category] public name MouseCursorName;
+	[transient] public byte PlayerIndexMask;
+	[Const, transient] public byte StackPriority;
 	
 	public virtual /*event */bool IsWidgetClassSupported(Core.ClassT<UIScreenObject> WidgetClass)
 	{

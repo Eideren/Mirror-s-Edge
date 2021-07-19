@@ -19,22 +19,22 @@ public partial class Pawn : Actor/*
 		PST_MAX
 	};
 	
-	public /*const */float MaxStepHeight;
-	public /*const */float MaxJumpHeight;
+	[Const] public float MaxStepHeight;
+	[Const] public float MaxJumpHeight;
 	public float WalkableFloorZ;
-	public /*repnotify */Controller Controller;
-	public /*const */Pawn NextPawn;
+	[repnotify] public Controller Controller;
+	[Const] public Pawn NextPawn;
 	public float NetRelevancyTime;
 	public PlayerController LastRealViewer;
 	public Actor LastViewer;
 	public bool bUpAndOut;
-	public /*protected */bool bIsWalking;
+	public/*protected*/ bool bIsWalking;
 	public bool bWantsToCrouch;
-	public /*const */bool bIsCrouched;
-	public /*const */bool bTryToUncrouch;
-	public/*()*/ bool bCanCrouch;
+	[Const] public bool bIsCrouched;
+	[Const] public bool bTryToUncrouch;
+	[Category] public bool bCanCrouch;
 	public bool bCrawler;
-	public /*const */bool bReducedSpeed;
+	[Const] public bool bReducedSpeed;
 	public bool bJumpCapable;
 	public bool bCanJump;
 	public bool bCanWalk;
@@ -44,27 +44,27 @@ public partial class Pawn : Actor/*
 	public bool bCanStrafe;
 	public bool bAvoidLedges;
 	public bool bStopAtLedges;
-	public /*const */bool bSimulateGravity;
+	[Const] public bool bSimulateGravity;
 	public bool bIgnoreForces;
 	public bool bCanWalkOffLedges;
 	public bool bCanBeBaseForPawns;
-	public /*const */bool bSimGravityDisabled;
+	[Const] public bool bSimGravityDisabled;
 	public bool bDirectHitWall;
-	public /*const */bool bPushesRigidBodies;
+	[Const] public bool bPushesRigidBodies;
 	public bool bForceFloorCheck;
 	public bool bForceKeepAnchor;
-	public /*config */bool bCanMantle;
+	[config] public bool bCanMantle;
 	public bool bCanClimbCeilings;
-	public /*config */bool bCanSwatTurn;
-	public /*config */bool bCanLeap;
-	public /*config */bool bCanCoverSlip;
-	public /*globalconfig */bool bDisplayPathErrors;
+	[config] public bool bCanSwatTurn;
+	[config] public bool bCanLeap;
+	[config] public bool bCanCoverSlip;
+	[globalconfig] public bool bDisplayPathErrors;
 	public bool bIsFemale;
 	public bool bCanPickupInventory;
 	public bool bAmbientCreature;
-	public/*(AI)*/ bool bLOSHearing;
-	public/*(AI)*/ bool bMuffledHearing;
-	public/*(AI)*/ bool bDontPossess;
+	[Category("AI")] public bool bLOSHearing;
+	[Category("AI")] public bool bMuffledHearing;
+	[Category("AI")] public bool bDontPossess;
 	public bool bAutoFire;
 	public bool bRollToDesired;
 	public bool bStationary;
@@ -79,29 +79,29 @@ public partial class Pawn : Actor/*
 	public bool bForceRMVelocity;
 	public bool bForceRegularVelocity;
 	public bool bPlayedDeath;
-	public /*const */float UncrouchTime;
+	[Const] public float UncrouchTime;
 	public float CrouchHeight;
 	public float CrouchRadius;
-	public /*const */int FullHeight;
+	[Const] public int FullHeight;
 	public float NonPreferredVehiclePathMultiplier;
 	public Pawn.EPathSearchType PathSearchType;
-	public /*const */byte RemoteViewPitch;
-	public /*repnotify */byte FlashCount;
-	public /*repnotify */byte FiringMode;
+	[Const] public byte RemoteViewPitch;
+	[repnotify] public byte FlashCount;
+	[repnotify] public byte FiringMode;
 	public PathConstraint PathConstraintList;
 	public PathGoalEvaluator PathGoalList;
 	public float DesiredSpeed;
 	public float MaxDesiredSpeed;
-	public/*(AI)*/ float HearingThreshold;
-	public/*(AI)*/ float Alertness;
-	public/*(AI)*/ float SightRadius;
-	public/*(AI)*/ float PeripheralVision;
-	public /*const */float AvgPhysicsTime;
+	[Category("AI")] public float HearingThreshold;
+	[Category("AI")] public float Alertness;
+	[Category("AI")] public float SightRadius;
+	[Category("AI")] public float PeripheralVision;
+	[Const] public float AvgPhysicsTime;
 	public float Mass;
 	public float Buoyancy;
 	public float MeleeRange;
-	public /*const */NavigationPoint Anchor;
-	public /*const */NavigationPoint LastAnchor;
+	[Const] public NavigationPoint Anchor;
+	[Const] public NavigationPoint LastAnchor;
 	public float FindAnchorFailedTime;
 	public float LastValidAnchorTime;
 	public float DestinationOffset;
@@ -124,33 +124,33 @@ public partial class Pawn : Actor/*
 	public float CrouchedPct;
 	public float MaxFallSpeed;
 	public float AIMaxFallSpeedFactor;
-	public/*(Camera)*/ float BaseEyeHeight;
-	public/*(Camera)*/ float EyeHeight;
+	[Category("Camera")] public float BaseEyeHeight;
+	[Category("Camera")] public float EyeHeight;
 	public Object.Vector Floor;
 	public float SplashTime;
 	public float OldZ;
-	public /*transient */PhysicsVolume HeadVolume;
-	public/*()*/ int Health;
-	public/*()*/ int HealthMax;
+	[transient] public PhysicsVolume HeadVolume;
+	[Category] public int Health;
+	[Category] public int HealthMax;
 	public float BreathTime;
 	public float UnderWaterTime;
 	public float LastPainTime;
 	public Object.Vector RMVelocity;
-	public /*export editinline */SceneCaptureCharacterComponent SceneCapture;
-	public /*const export editinline */DrawFrustumComponent DrawFrustum;
-	public /*const */Object.Vector noise1spot;
-	public /*const */float noise1time;
-	public /*const */Pawn noise1other;
-	public /*const */float noise1loudness;
-	public /*const */Object.Vector noise2spot;
-	public /*const */float noise2time;
-	public /*const */Pawn noise2other;
-	public /*const */float noise2loudness;
+	[export, editinline] public SceneCaptureCharacterComponent SceneCapture;
+	[Const, export, editinline] public DrawFrustumComponent DrawFrustum;
+	[Const] public Object.Vector noise1spot;
+	[Const] public float noise1time;
+	[Const] public Pawn noise1other;
+	[Const] public float noise1loudness;
+	[Const] public Object.Vector noise2spot;
+	[Const] public float noise2time;
+	[Const] public Pawn noise2other;
+	[Const] public float noise2loudness;
 	public float SoundDampening;
 	public float DamageScaling;
-	public /*const localized */String MenuName;
+	[Const, localized] public String MenuName;
 	public Core.ClassT<AIController> ControllerClass;
-	public /*repnotify */PlayerReplicationInfo PlayerReplicationInfo;
+	[repnotify] public PlayerReplicationInfo PlayerReplicationInfo;
 	public LadderVolume OnLadder;
 	public name LandMovementState;
 	public name WaterMovementState;
@@ -159,25 +159,25 @@ public partial class Pawn : Actor/*
 	public Object.Vector TakeHitLocation;
 	public Core.ClassT<DamageType> HitDamageType;
 	public Object.Vector TearOffMomentum;
-	public/*()*/ /*export editinline */SkeletalMeshComponent Mesh;
-	public /*export editinline */CylinderComponent CylinderComponent;
-	public/*()*/ float RBPushRadius;
-	public/*()*/ float RBPushStrength;
-	public /*repnotify */Vehicle DrivenVehicle;
+	[Category] [export, editinline] public SkeletalMeshComponent Mesh;
+	[export, editinline] public CylinderComponent CylinderComponent;
+	[Category] public float RBPushRadius;
+	[Category] public float RBPushStrength;
+	[repnotify] public Vehicle DrivenVehicle;
 	public float AlwaysRelevantDistanceSquared;
-	public/*()*/ float VehicleCheckRadius;
+	[Category] public float VehicleCheckRadius;
 	public Controller LastHitBy;
-	public/*()*/ float ViewPitchMin;
-	public/*()*/ float ViewPitchMax;
+	[Category] public float ViewPitchMin;
+	[Category] public float ViewPitchMax;
 	public int AllowedYawError;
 	public Core.ClassT<InventoryManager> InventoryManagerClass;
-	public /*repnotify */InventoryManager InvManager;
-	public/*()*/ Weapon Weapon;
-	public /*repnotify */Object.Vector FlashLocation;
+	[repnotify] public InventoryManager InvManager;
+	[Category] public Weapon Weapon;
+	[repnotify] public Object.Vector FlashLocation;
 	public Object.Vector LastFiringFlashLocation;
 	public int ShotCount;
-	public /*export editinline */PrimitiveComponent PreRagdollCollisionComponent;
-	public /*native const */Object.Pointer PhysicsPushBody;
+	[export, editinline] public PrimitiveComponent PreRagdollCollisionComponent;
+	[native, Const] public Object.Pointer PhysicsPushBody;
 	public int FailedLandingCount;
 	
 	//replication
@@ -882,21 +882,21 @@ public partial class Pawn : Actor/*
 	//// Export UPawn::execIsHumanControlled(FFrame&, void* const)
 	//public virtual /*native final simulated function */bool IsHumanControlled()
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	//
 	//// Export UPawn::execIsLocallyControlled(FFrame&, void* const)
 	//public virtual /*native final simulated function */bool IsLocallyControlled()
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	//
 	//// Export UPawn::execIsPlayerPawn(FFrame&, void* const)
 	//public virtual /*native simulated function */bool IsPlayerPawn()
 	//{
-	//	 NativeMarkers.MarkUnimplemented();
+	//	NativeMarkers.MarkUnimplemented();
 	//	return default;
 	//}
 	
