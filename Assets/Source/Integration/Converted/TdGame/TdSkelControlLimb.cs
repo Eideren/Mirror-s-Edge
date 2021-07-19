@@ -4,12 +4,12 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdSkelControlLimb : SkelControlLimb/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bDisableRotationAdjustment;
-	public/*()*/ bool bInterpolateLocation;
-	public/*()*/ bool bClampLocation;
-	public/*()*/ Object.Vector MinLocation;
-	public/*()*/ Object.Vector MaxLocation;
-	public/*()*/ Object.Vector TargetLocation;
+	[Category] public bool bDisableRotationAdjustment;
+	[Category] public bool bInterpolateLocation;
+	[Category] public bool bClampLocation;
+	[Category] public Object.Vector MinLocation;
+	[Category] public Object.Vector MaxLocation;
+	[Category] public Object.Vector TargetLocation;
 	
 	public TdSkelControlLimb()
 	{

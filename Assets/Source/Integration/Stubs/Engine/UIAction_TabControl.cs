@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIAction_TabControl : UIAction/*
 		abstract
 		hidecategories(Object)*/{
-	public/*()*/ UITabControl TabControl;
+	[Category] public UITabControl TabControl;
 	
 	public UIAction_TabControl()
 	{

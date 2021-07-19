@@ -4,14 +4,14 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdPlaySound : SeqAct_PlaySound/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float LowPassMultiplier;
-	public/*()*/ float OcclusionCheckInterval;
-	public/*()*/ float OcclusionVolumeDuckLevel;
-	public/*()*/ float OcclusionFilterDuckLevel;
-	public/*()*/ float OcclusionFadeTime;
-	public/*()*/ bool MuteVoiceOvers;
-	public/*()*/ bool bDebugDraw;
-	public/*()*/ array<Object.Vector> Offset;
+	[Category] public float LowPassMultiplier;
+	[Category] public float OcclusionCheckInterval;
+	[Category] public float OcclusionVolumeDuckLevel;
+	[Category] public float OcclusionFilterDuckLevel;
+	[Category] public float OcclusionFadeTime;
+	[Category] public bool MuteVoiceOvers;
+	[Category] public bool bDebugDraw;
+	[Category] public array<Object.Vector> Offset;
 	
 	public SeqAct_TdPlaySound()
 	{

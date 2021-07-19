@@ -94,7 +94,7 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	
 	public partial struct /*native */TpSystemInitializer
 	{
-		public /*private native transient */bool bInitialized;
+		[native, transient] public/*private*/ bool bInitialized;
 	};
 	
 	public partial struct /*native */TpErrorInfo
@@ -127,15 +127,15 @@ public partial class TpSystemBase : OnlineSubsystem/*
 	//	}
 	};
 	
-	public /*protected transient */TpDebugger __Debugger;
-	public /*private */TpSystemBase.TpSystemInitializer Initializer;
-	public /*protected const transient */bool UseMultiplayer;
-	public /*transient */bool TdSROM6;
-	public /*private */TpSystemBase.TpErrorInfo LatestOnlineError;
-	public /*private */TpOnScreenErrorHandler ErrorHandler;
-	public /*private */array<TpSystemBase.TpNpEvent> EventQueue;
-	public /*native transient */int TrophyContext;
-	public /*native transient */int TrophyHandle;
+	[transient] public/*protected*/ TpDebugger __Debugger;
+	public/*private*/ TpSystemBase.TpSystemInitializer Initializer;
+	[Const, transient] public/*protected*/ bool UseMultiplayer;
+	[transient] public bool TdSROM6;
+	public/*private*/ TpSystemBase.TpErrorInfo LatestOnlineError;
+	public/*private*/ TpOnScreenErrorHandler ErrorHandler;
+	public/*private*/ array<TpSystemBase.TpNpEvent> EventQueue;
+	[native, transient] public int TrophyContext;
+	[native, transient] public int TrophyHandle;
 	
 	// Export UTpSystemBase::execGet(FFrame&, void* const)
 	public /*native simulated function */static TpSystemBase Get()

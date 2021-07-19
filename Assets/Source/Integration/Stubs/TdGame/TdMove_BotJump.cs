@@ -13,9 +13,9 @@ public partial class TdMove_BotJump : TdPhysicsMove/*
 		BJL_MAX
 	};
 	
-	public /*transient */bool bAnticipating;
-	public /*transient */bool bDoAnticipation;
-	public /*transient */float ForcedSpeed;
+	[transient] public bool bAnticipating;
+	[transient] public bool bDoAnticipation;
+	[transient] public float ForcedSpeed;
 	public TdMove_BotJump.EBotJumpLength JumpLength;
 	public float AnticipationTime;
 	

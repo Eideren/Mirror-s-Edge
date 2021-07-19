@@ -5,11 +5,11 @@ public partial class MusicTrackDataStructures : Object/*
 		native*/{
 	public partial struct /*native */MusicTrackParamStruct
 	{
-		public/*()*/ float FadeInTime;
-		public/*()*/ float FadeInVolumeLevel;
-		public/*()*/ float DelayBetweenOldAndNewTrack;
-		public/*()*/ float FadeOutTime;
-		public/*()*/ float FadeOutVolumeLevel;
+		[Category] public float FadeInTime;
+		[Category] public float FadeInVolumeLevel;
+		[Category] public float DelayBetweenOldAndNewTrack;
+		[Category] public float FadeOutTime;
+		[Category] public float FadeOutVolumeLevel;
 	
 	//	structdefaultproperties
 	//	{
@@ -24,10 +24,10 @@ public partial class MusicTrackDataStructures : Object/*
 	
 	public partial struct /*native */MusicTrackStruct
 	{
-		public/*()*/ MusicTrackDataStructures.MusicTrackParamStruct Params;
-		public/*()*/ name TrackType;
-		public/*()*/ SoundCue TheSoundCue;
-		public/*()*/ bool bAutoPlay;
+		[Category] public MusicTrackDataStructures.MusicTrackParamStruct Params;
+		[Category] public name TrackType;
+		[Category] public SoundCue TheSoundCue;
+		[Category] public bool bAutoPlay;
 	
 	//	structdefaultproperties
 	//	{

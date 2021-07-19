@@ -6,7 +6,7 @@ public partial class UIPropertyDataProvider : UIDataProvider/*
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*const */array< Core.ClassT<Property> > ComplexPropertyTypes;
+	[Const] public array< Core.ClassT<Property> > ComplexPropertyTypes;
 	
 	public virtual /*event */bool GetCustomPropertyValue(ref UIRoot.UIProviderScriptFieldValue PropertyValue, /*optional */int? _ArrayIndex = default)
 	{

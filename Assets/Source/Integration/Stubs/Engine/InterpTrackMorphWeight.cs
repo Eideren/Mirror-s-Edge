@@ -5,7 +5,7 @@ public partial class InterpTrackMorphWeight : InterpTrackFloatBase/*
 		native
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ name MorphNodeName;
+	[Category] public name MorphNodeName;
 	
 	public InterpTrackMorphWeight()
 	{

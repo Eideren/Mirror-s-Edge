@@ -5,8 +5,8 @@ public partial class ParticleModuleColorByParameter : ParticleModuleColorBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Color)*/ name ColorParam;
-	public/*(Color)*/ Object.Color DefaultColor;
+	[Category("Color")] public name ColorParam;
+	[Category("Color")] public Object.Color DefaultColor;
 	
 	public ParticleModuleColorByParameter()
 	{

@@ -4,20 +4,20 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class MaterialInstance : MaterialInterface/*
 		abstract
 		native*/{
-	public/*()*/ PhysicalMaterial PhysMaterial;
-	public/*()*/ /*const */MaterialInterface Parent;
+	[Category] public PhysicalMaterial PhysMaterial;
+	[Category] [Const] public MaterialInterface Parent;
 	public bool bHasStaticPermutationResource;
-	public /*native transient */bool bStaticPermutationDirty;
+	[native, transient] public bool bStaticPermutationDirty;
 	public bool BakerColorOverride;
 	public bool BakerBleedBounceAmountOverride;
 	public bool BakerBleedEmissiveAmountOverride;
 	public bool BakerAlphaOverride;
 	public bool BakerAlphaTextureOverride;
-	public /*private native const */bool ReentrantFlag;
-	public /*duplicatetransient native const */StaticArray<Object.Pointer, Object.Pointer>/*[2]*/ StaticParameters;
-	public /*duplicatetransient native const */StaticArray<Object.Pointer, Object.Pointer>/*[2]*/ StaticPermutationResources;
-	public /*duplicatetransient native const */StaticArray<Object.Pointer, Object.Pointer>/*[2]*/ Resources;
-	public /*private const */array<Texture> ReferencedTextures;
+	[native, Const] public/*private*/ bool ReentrantFlag;
+	[duplicatetransient, native, Const] public StaticArray<Object.Pointer, Object.Pointer>/*[2]*/ StaticParameters;
+	[duplicatetransient, native, Const] public StaticArray<Object.Pointer, Object.Pointer>/*[2]*/ StaticPermutationResources;
+	[duplicatetransient, native, Const] public StaticArray<Object.Pointer, Object.Pointer>/*[2]*/ Resources;
+	[Const] public/*private*/ array<Texture> ReferencedTextures;
 	
 	// Export UMaterialInstance::execSetParent(FFrame&, void* const)
 	public virtual /*native function */void SetParent(MaterialInterface NewParent)

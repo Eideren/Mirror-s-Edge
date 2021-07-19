@@ -32,8 +32,8 @@ public partial class SoundNodeWave : SoundNode/*
 	
 	public partial struct /*native */SubtitleCue
 	{
-		public/*()*/ /*const localized */String Text;
-		public/*()*/ /*const localized */float Time;
+		[Category] [Const, localized] public String Text;
+		[Category] [Const, localized] public float Time;
 	
 	//	structdefaultproperties
 	//	{
@@ -43,39 +43,39 @@ public partial class SoundNodeWave : SoundNode/*
 	//	}
 	};
 	
-	public/*(Compression)*/ int CompressionQuality;
-	public/*(Compression)*/ bool bForceRealtimeDecompression;
-	public /*const transient */bool bDynamicResource;
-	public /*const transient */bool bOneTimeUse;
-	public/*(TTS)*/ bool bUseTTS;
-	public/*(Subtitles)*/ bool bAlwaysLocalise;
-	public/*(Subtitles)*/ bool bSuppressSubtitles;
-	public/*(Subtitles)*/ /*const localized */bool bMature;
-	public/*(Subtitles)*/ /*const localized */bool bManualWordWrap;
-	public/*(Playstation3)*/ bool bUseVolatileMemory;
-	public/*(TTS)*/ SoundNodeWave.ETTSSpeaker TTSSpeaker;
-	public /*const transient */SoundNodeWave.EDecompressionType DecompressionType;
-	public/*(TTS)*/ /*const localized */String SpokenText;
-	public/*(Info)*/ /*const editconst */float Volume;
-	public/*(Info)*/ /*const editconst */float Pitch;
-	public/*(Info)*/ /*const editconst */float Duration;
-	public/*(Info)*/ /*const editconst */int NumChannels;
-	public/*(Info)*/ /*const editconst */int SampleRate;
-	public /*const */int SampleDataSize;
-	public /*const */array<int> ChannelOffsets;
-	public /*const */array<int> ChannelSizes;
-	public /*native const */Object.UntypedBulkData_Mirror RawData;
-	public /*native const */Object.Pointer RawPCMData;
-	public /*native const */Object.Pointer VorbisDecompressor;
-	public /*const transient */array<byte> PCMData;
-	public /*native const */Object.UntypedBulkData_Mirror CompressedPCData;
-	public /*native const */Object.UntypedBulkData_Mirror CompressedXbox360Data;
-	public /*native const */Object.UntypedBulkData_Mirror CompressedPS3Data;
-	public /*const transient */int ResourceID;
-	public /*const transient */int ResourceSize;
-	public /*native const */Object.Pointer ResourceData;
-	public/*(Subtitles)*/ /*const localized */array</*localized */SoundNodeWave.SubtitleCue> Subtitles;
-	public/*(Subtitles)*/ /*const localized */String Comment;
+	[Category("Compression")] public int CompressionQuality;
+	[Category("Compression")] public bool bForceRealtimeDecompression;
+	[Const, transient] public bool bDynamicResource;
+	[Const, transient] public bool bOneTimeUse;
+	[Category("TTS")] public bool bUseTTS;
+	[Category("Subtitles")] public bool bAlwaysLocalise;
+	[Category("Subtitles")] public bool bSuppressSubtitles;
+	[Category("Subtitles")] [Const, localized] public bool bMature;
+	[Category("Subtitles")] [Const, localized] public bool bManualWordWrap;
+	[Category("Playstation3")] public bool bUseVolatileMemory;
+	[Category("TTS")] public SoundNodeWave.ETTSSpeaker TTSSpeaker;
+	[Const, transient] public SoundNodeWave.EDecompressionType DecompressionType;
+	[Category("TTS")] [Const, localized] public String SpokenText;
+	[Category("Info")] [Const, editconst] public float Volume;
+	[Category("Info")] [Const, editconst] public float Pitch;
+	[Category("Info")] [Const, editconst] public float Duration;
+	[Category("Info")] [Const, editconst] public int NumChannels;
+	[Category("Info")] [Const, editconst] public int SampleRate;
+	[Const] public int SampleDataSize;
+	[Const] public array<int> ChannelOffsets;
+	[Const] public array<int> ChannelSizes;
+	[native, Const] public Object.UntypedBulkData_Mirror RawData;
+	[native, Const] public Object.Pointer RawPCMData;
+	[native, Const] public Object.Pointer VorbisDecompressor;
+	[Const, transient] public array<byte> PCMData;
+	[native, Const] public Object.UntypedBulkData_Mirror CompressedPCData;
+	[native, Const] public Object.UntypedBulkData_Mirror CompressedXbox360Data;
+	[native, Const] public Object.UntypedBulkData_Mirror CompressedPS3Data;
+	[Const, transient] public int ResourceID;
+	[Const, transient] public int ResourceSize;
+	[native, Const] public Object.Pointer ResourceData;
+	[Category("Subtitles")] [Const, localized] public array</*localized */SoundNodeWave.SubtitleCue> Subtitles;
+	[Category("Subtitles")] [Const, localized] public String Comment;
 	
 	public SoundNodeWave()
 	{

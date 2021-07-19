@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdStashpointManager : Actor/*
 		notplaceable
 		hidecategories(Navigation)*/{
-	public /*private transient */TdPursuitGRI MyGRI;
+	[transient] public/*private*/ TdPursuitGRI MyGRI;
 	
 	public virtual /*function */void Initialize(TdPursuitGRI InGRI, TdStashpointListener InListener)
 	{

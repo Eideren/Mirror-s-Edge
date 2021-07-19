@@ -5,7 +5,7 @@ public partial class RB_ForceFieldExcludeVolume : Volume/*
 		native
 		placeable
 		hidecategories(Navigation,Object,Movement,Display)*/{
-	public/*()*/ int ForceFieldChannel;
+	[Category] public int ForceFieldChannel;
 	
 	public RB_ForceFieldExcludeVolume()
 	{

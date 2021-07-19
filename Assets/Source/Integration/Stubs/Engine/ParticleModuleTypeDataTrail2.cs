@@ -5,17 +5,17 @@ public partial class ParticleModuleTypeDataTrail2 : ParticleModuleTypeDataBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Trail)*/ int TessellationFactor;
+	[Category("Trail")] public int TessellationFactor;
 	public float TessellationFactorDistance;
-	public/*(Trail)*/ float TessellationStrength;
-	public/*(Trail)*/ int TextureTile;
+	[Category("Trail")] public float TessellationStrength;
+	[Category("Trail")] public int TextureTile;
 	public int Sheets;
-	public/*(Trail)*/ int MaxTrailCount;
-	public/*(Trail)*/ int MaxParticleInTrailCount;
-	public/*(Rendering)*/ bool RenderGeometry;
-	public/*(Rendering)*/ bool RenderDirectLine;
-	public/*(Rendering)*/ bool RenderLines;
-	public/*(Rendering)*/ bool RenderTessellation;
+	[Category("Trail")] public int MaxTrailCount;
+	[Category("Trail")] public int MaxParticleInTrailCount;
+	[Category("Rendering")] public bool RenderGeometry;
+	[Category("Rendering")] public bool RenderDirectLine;
+	[Category("Rendering")] public bool RenderLines;
+	[Category("Rendering")] public bool RenderTessellation;
 	
 	public ParticleModuleTypeDataTrail2()
 	{

@@ -6,9 +6,9 @@ public partial class SeqAct_CrowdSpawner : SeqAct_Latent/*
 		hidecategories(Object)*/{
 	public partial struct /*native */RandomCrowdAgentData
 	{
-		public/*()*/ SkeletalMesh FlockMesh;
-		public/*()*/ AnimTree FlockAnimTree;
-		public/*()*/ array<MaterialInterface> RandomMaterials;
+		[Category] public SkeletalMesh FlockMesh;
+		[Category] public AnimTree FlockAnimTree;
+		[Category] public array<MaterialInterface> RandomMaterials;
 	
 	//	structdefaultproperties
 	//	{
@@ -21,8 +21,8 @@ public partial class SeqAct_CrowdSpawner : SeqAct_Latent/*
 	
 	public partial struct /*native */CrowdTargetActionInfo
 	{
-		public/*()*/ name AnimName;
-		public/*()*/ bool bFireEffects;
+		[Category] public name AnimName;
+		[Category] public bool bFireEffects;
 	
 	//	structdefaultproperties
 	//	{
@@ -34,9 +34,9 @@ public partial class SeqAct_CrowdSpawner : SeqAct_Latent/*
 	
 	public partial struct /*native */CrowdAttachmentInfo
 	{
-		public/*()*/ StaticMesh StaticMesh;
-		public/*()*/ float Chance;
-		public/*()*/ Object.Vector Scale3D;
+		[Category] public StaticMesh StaticMesh;
+		[Category] public float Chance;
+		[Category] public Object.Vector Scale3D;
 	
 	//	structdefaultproperties
 	//	{
@@ -54,8 +54,8 @@ public partial class SeqAct_CrowdSpawner : SeqAct_Latent/*
 	
 	public partial struct /*native */CrowdAttachmentList
 	{
-		public/*()*/ name SocketName;
-		public/*()*/ array<SeqAct_CrowdSpawner.CrowdAttachmentInfo> List;
+		[Category] public name SocketName;
+		[Category] public array<SeqAct_CrowdSpawner.CrowdAttachmentInfo> List;
 	
 	//	structdefaultproperties
 	//	{
@@ -66,74 +66,74 @@ public partial class SeqAct_CrowdSpawner : SeqAct_Latent/*
 	};
 	
 	public bool bSpawningActive;
-	public/*()*/ bool bConformToBSP;
-	public/*()*/ bool bConformToWorld;
-	public/*()*/ bool bLineSpawner;
-	public/*()*/ bool bSpawnAtEdge;
-	public/*()*/ bool bFlockScaleUniform;
-	public/*()*/ bool bDrawDebugInfo;
-	public/*(Lighting)*/ bool bEnableCrowdLightEnvironment;
-	public/*()*/ float ConformTraceDist;
-	public/*()*/ int ConformTraceInterval;
-	public/*()*/ Object.Vector CollisionBoxScaling;
-	public /*transient */array<CrowdAttractor> AssignedMoveTargets;
-	public /*transient */array<Actor> SpawnLocs;
-	public /*transient */array<Actor> SafeSpawnLocs;
-	public/*()*/ array<SeqAct_CrowdSpawner.RandomCrowdAgentData> RandomAgents;
-	public/*()*/ float RespawnHiddenTime;
-	public /*transient */array<float> SpawnLocsHiddenTimes;
-	public /*transient */PlayerController CachedPC;
-	public /*transient */float HalfCameraFOVCosine;
-	public /*transient */int TotalSpawnNum;
-	public/*()*/ float SpawnRate;
-	public/*()*/ int SpawnNum;
-	public/*()*/ float Radius;
+	[Category] public bool bConformToBSP;
+	[Category] public bool bConformToWorld;
+	[Category] public bool bLineSpawner;
+	[Category] public bool bSpawnAtEdge;
+	[Category] public bool bFlockScaleUniform;
+	[Category] public bool bDrawDebugInfo;
+	[Category("Lighting")] public bool bEnableCrowdLightEnvironment;
+	[Category] public float ConformTraceDist;
+	[Category] public int ConformTraceInterval;
+	[Category] public Object.Vector CollisionBoxScaling;
+	[transient] public array<CrowdAttractor> AssignedMoveTargets;
+	[transient] public array<Actor> SpawnLocs;
+	[transient] public array<Actor> SafeSpawnLocs;
+	[Category] public array<SeqAct_CrowdSpawner.RandomCrowdAgentData> RandomAgents;
+	[Category] public float RespawnHiddenTime;
+	[transient] public array<float> SpawnLocsHiddenTimes;
+	[transient] public PlayerController CachedPC;
+	[transient] public float HalfCameraFOVCosine;
+	[transient] public int TotalSpawnNum;
+	[Category] public float SpawnRate;
+	[Category] public int SpawnNum;
+	[Category] public float Radius;
 	public float Remainder;
 	public Core.ClassT<CrowdAgent> AgentClass;
 	public Core.ClassT<NavigationPoint> CrowdNodeClass;
-	public/*()*/ float AwareRadius;
-	public/*()*/ int AwareUpdateInterval;
-	public/*()*/ float AvoidOtherStrength;
-	public/*()*/ float AvoidOtherRadius;
-	public/*()*/ float MatchVelStrength;
-	public/*()*/ float ToPathStrength;
-	public/*()*/ float FollowPathStrength;
-	public/*()*/ float PathDistance;
-	public/*()*/ float ToAttractorStrength;
-	public/*()*/ float MinVelDamping;
-	public/*()*/ float MaxVelDamping;
-	public/*(Action)*/ DistributionFloat.RawDistributionFloat ActionDuration;
-	public/*(Action)*/ DistributionFloat.RawDistributionFloat ActionInterval;
-	public/*(Action)*/ DistributionFloat.RawDistributionFloat TargetActionInterval;
-	public/*(Action)*/ array<name> ActionAnimNames;
+	[Category] public float AwareRadius;
+	[Category] public int AwareUpdateInterval;
+	[Category] public float AvoidOtherStrength;
+	[Category] public float AvoidOtherRadius;
+	[Category] public float MatchVelStrength;
+	[Category] public float ToPathStrength;
+	[Category] public float FollowPathStrength;
+	[Category] public float PathDistance;
+	[Category] public float ToAttractorStrength;
+	[Category] public float MinVelDamping;
+	[Category] public float MaxVelDamping;
+	[Category("Action")] public DistributionFloat.RawDistributionFloat ActionDuration;
+	[Category("Action")] public DistributionFloat.RawDistributionFloat ActionInterval;
+	[Category("Action")] public DistributionFloat.RawDistributionFloat TargetActionInterval;
+	[Category("Action")] public array<name> ActionAnimNames;
 	public array<name> TargetActionAnimNames;
-	public/*(Action)*/ array<SeqAct_CrowdSpawner.CrowdTargetActionInfo> TargetActions;
-	public/*(Action)*/ name SpawnAnimName;
-	public/*(Action)*/ array<name> DeathAnimNames;
-	public/*(Action)*/ float ActionBlendTime;
-	public/*(Action)*/ float ReActionDelay;
-	public/*(Action)*/ float RotateToTargetSpeed;
-	public/*()*/ float SpeedBlendStart;
-	public/*()*/ float SpeedBlendEnd;
-	public/*()*/ float AnimVelRate;
-	public/*()*/ float MaxYawRate;
+	[Category("Action")] public array<SeqAct_CrowdSpawner.CrowdTargetActionInfo> TargetActions;
+	[Category("Action")] public name SpawnAnimName;
+	[Category("Action")] public array<name> DeathAnimNames;
+	[Category("Action")] public float ActionBlendTime;
+	[Category("Action")] public float ReActionDelay;
+	[Category("Action")] public float RotateToTargetSpeed;
+	[Category] public float SpeedBlendStart;
+	[Category] public float SpeedBlendEnd;
+	[Category] public float AnimVelRate;
+	[Category] public float MaxYawRate;
 	public SkeletalMesh FlockMesh;
-	public/*()*/ array<SkeletalMesh> FlockMeshes;
-	public/*()*/ array<MaterialInterface> RandomMaterials;
-	public/*()*/ Object.Vector FlockMeshMinScale3D;
-	public/*()*/ Object.Vector FlockMeshMaxScale3D;
-	public/*()*/ array<AnimSet> FlockAnimSets;
+	[Category] public array<SkeletalMesh> FlockMeshes;
+	[Category] public array<MaterialInterface> RandomMaterials;
+	[Category] public Object.Vector FlockMeshMinScale3D;
+	[Category] public Object.Vector FlockMeshMaxScale3D;
+	[Category] public array<AnimSet> FlockAnimSets;
 	public name WalkAnimName;
-	public/*()*/ array<name> WalkAnimNames;
+	[Category] public array<name> WalkAnimNames;
 	public name RunAnimName;
-	public/*()*/ array<name> RunAnimNames;
-	public/*()*/ AnimTree FlockAnimTree;
-	public/*()*/ int Health;
-	public/*()*/ ParticleSystem ExplosiveDeathEffect;
-	public/*()*/ float ExplosiveDeathEffectScale;
+	[Category] public array<name> RunAnimNames;
+	[Category] public AnimTree FlockAnimTree;
+	[Category] public int Health;
+	[Category] public ParticleSystem ExplosiveDeathEffect;
+	[Category] public float ExplosiveDeathEffectScale;
 	public array<CrowdAgent> SpawnedList;
-	public/*(Lighting)*/ LightComponent.LightingChannelContainer FlockLighting;
-	public/*()*/ array<SeqAct_CrowdSpawner.CrowdAttachmentList> Attachments;
+	[Category("Lighting")] public LightComponent.LightingChannelContainer FlockLighting;
+	[Category] public array<SeqAct_CrowdSpawner.CrowdAttachmentList> Attachments;
 	public CrowdReplicationActor RepActor;
 	
 	// Export USeqAct_CrowdSpawner::execKillAgents(FFrame&, void* const)

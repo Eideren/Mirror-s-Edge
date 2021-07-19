@@ -5,13 +5,13 @@ public partial class TdPickup : DroppedPickup/*
 		native
 		notplaceable
 		hidecategories(Navigation)*/{
-	public /*native const */Actor.RigidBodyState RBState;
-	public /*native const */float AngErrorAccumulator;
-	public /*transient */SoundCue CollisionSnd;
-	public /*private transient */int AmmoCount;
-	public /*private transient */int ClipCount;
-	public /*export editinline */SkeletalMeshComponent PickMesh;
-	public /*private export editinline transient */DynamicLightEnvironmentComponent MeshLightEnvironment;
+	[native, Const] public Actor.RigidBodyState RBState;
+	[native, Const] public float AngErrorAccumulator;
+	[transient] public SoundCue CollisionSnd;
+	[transient] public/*private*/ int AmmoCount;
+	[transient] public/*private*/ int ClipCount;
+	[export, editinline] public SkeletalMeshComponent PickMesh;
+	[export, editinline, transient] public/*private*/ DynamicLightEnvironmentComponent MeshLightEnvironment;
 	
 	//replication
 	//{

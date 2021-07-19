@@ -7,7 +7,7 @@ public partial class UIDataStore_TdMiniMenuData : UIDataStore_TdGameResource,
 		native
 		config(Game)
 		hidecategories(Object,UIRoot)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementCellProvider;
 	public TdUIScene_MiniMenu MenuScene;
 	
 	public virtual /*final function */void Initialize(TdUIScene_MiniMenu InMenuScene)

@@ -2,12 +2,12 @@ namespace MEdge.TdMpContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
 public partial class TdDeathMessage : TdLocalMessage{
-	public /*const localized */String Suicide;
-	public /*const localized */String NoKiller;
-	public /*const localized */String KilledBy;
-	public /*const localized */String MeleeKilledBy;
-	public /*const localized */String TeamKilledBy;
-	public /*const localized */String KilledBagCarrier;
+	[Const, localized] public String Suicide;
+	[Const, localized] public String NoKiller;
+	[Const, localized] public String KilledBy;
+	[Const, localized] public String MeleeKilledBy;
+	[Const, localized] public String TeamKilledBy;
+	[Const, localized] public String KilledBagCarrier;
 	public SoundNodeWave VOCopKilledBagCarrier;
 	public SoundNodeWave VORunnerKilledBagCarrier;
 	public SoundNodeWave VOCopKilledBagThretener;

@@ -3,18 +3,18 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdPursuitScore : Object/*
 		config(Scoring)*/{
-	public /*config */int Kill;
-	public /*config */int Suicide;
-	public /*config */int Intercept;
-	public /*config */int Stash;
-	public /*config */int StashAssist;
-	public /*config */int Search;
-	public /*config */int SearchAssist;
-	public /*config */int TeamStashFirstAttempt;
-	public /*config */int TeamStashSecondAttempt;
-	public /*config */int TeamStashThirdAttempt;
-	public /*config */int TeamHasBagAtEndOfRound;
-	public /*config */int TeamSearch;
+	[config] public int Kill;
+	[config] public int Suicide;
+	[config] public int Intercept;
+	[config] public int Stash;
+	[config] public int StashAssist;
+	[config] public int Search;
+	[config] public int SearchAssist;
+	[config] public int TeamStashFirstAttempt;
+	[config] public int TeamStashSecondAttempt;
+	[config] public int TeamStashThirdAttempt;
+	[config] public int TeamHasBagAtEndOfRound;
+	[config] public int TeamSearch;
 	
 	public TdPursuitScore()
 	{

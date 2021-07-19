@@ -7,13 +7,13 @@ public partial class ActorFactoryRigidBody : ActorFactoryDynamicSM/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ bool bStartAwake;
-	public/*()*/ bool bDamageAppliesImpulse;
-	public/*()*/ bool bLocalSpaceInitialVelocity;
-	public/*()*/ Object.Vector InitialVelocity;
-	public/*()*/ /*export editinline */DistributionVector AdditionalVelocity;
-	public/*()*/ /*export editinline */DistributionVector InitialAngularVelocity;
-	public/*()*/ PrimitiveComponent.ERBCollisionChannel RBChannel;
+	[Category] public bool bStartAwake;
+	[Category] public bool bDamageAppliesImpulse;
+	[Category] public bool bLocalSpaceInitialVelocity;
+	[Category] public Object.Vector InitialVelocity;
+	[Category] [export, editinline] public DistributionVector AdditionalVelocity;
+	[Category] [export, editinline] public DistributionVector InitialAngularVelocity;
+	[Category] public PrimitiveComponent.ERBCollisionChannel RBChannel;
 	
 	public ActorFactoryRigidBody()
 	{

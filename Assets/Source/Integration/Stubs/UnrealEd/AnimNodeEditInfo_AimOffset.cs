@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using Fp; using Tp; using Ts; using IpDr
 
 public partial class AnimNodeEditInfo_AimOffset : AnimNodeEditInfo/*
 		native*/{
-	public /*native const */Object.Pointer EditWindow;
+	[native, Const] public Object.Pointer EditWindow;
 	public AnimNodeAimOffset EditNode;
 	
 	public AnimNodeEditInfo_AimOffset()

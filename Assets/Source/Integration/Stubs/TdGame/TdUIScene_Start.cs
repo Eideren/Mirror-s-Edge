@@ -6,23 +6,23 @@ public partial class TdUIScene_Start : TdUIScene/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
 	public UIScene MainMenuScene;
-	public /*transient */UILabel PressStartLabel;
-	public /*transient */UISafeRegionPanel SafeRegionPanel;
-	public /*transient */byte StoredLocalUserNum;
-	public /*transient */TsSystem.ETsResult SaveInitResult;
-	public /*transient */float TimeElapsed;
-	public /*config transient */String MovieName;
-	public /*config transient */float TimeTillAttractMovie;
-	public /*transient */bool bBlockAttractMode;
-	public /*transient */bool bSkippedfirstTick;
-	public /*config */bool bGoToLoadGame;
-	public /*transient */float TimeElapsedInScene;
-	public /*config transient */float TimeTillStartButton;
-	public /*transient */TdInitSaveSystem InitSaveSystem;
-	public /*transient */TdUIScene_MessageBox ModalInitSavefileMessageBox;
-	public /*private transient */String SaveErrorMessageBody;
-	public /*private transient */String SaveErrorMessageTitle;
-	public /*transient */UIScene LoadLevelScene;
+	[transient] public UILabel PressStartLabel;
+	[transient] public UISafeRegionPanel SafeRegionPanel;
+	[transient] public byte StoredLocalUserNum;
+	[transient] public TsSystem.ETsResult SaveInitResult;
+	[transient] public float TimeElapsed;
+	[config, transient] public String MovieName;
+	[config, transient] public float TimeTillAttractMovie;
+	[transient] public bool bBlockAttractMode;
+	[transient] public bool bSkippedfirstTick;
+	[config] public bool bGoToLoadGame;
+	[transient] public float TimeElapsedInScene;
+	[config, transient] public float TimeTillStartButton;
+	[transient] public TdInitSaveSystem InitSaveSystem;
+	[transient] public TdUIScene_MessageBox ModalInitSavefileMessageBox;
+	[transient] public/*private*/ String SaveErrorMessageBody;
+	[transient] public/*private*/ String SaveErrorMessageTitle;
+	[transient] public UIScene LoadLevelScene;
 	
 	// Export UTdUIScene_Start::execStopMovie(FFrame&, void* const)
 	public override /*native function */void StopMovie()

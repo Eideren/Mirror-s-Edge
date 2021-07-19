@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class HeightFog : Info/*
 		placeable
 		hidecategories(Navigation,Collision)*/{
-	public/*()*/ /*const editconst export editinline */HeightFogComponent Component;
-	public /*repnotify */bool bEnabled;
+	[Category] [Const, editconst, export, editinline] public HeightFogComponent Component;
+	[repnotify] public bool bEnabled;
 	
 	//replication
 	//{

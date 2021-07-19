@@ -3,11 +3,11 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdHUDWidget_OnlineMessageTicker : TdHUDWidget/*
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*export editinline deprecated */UIImage LogoImage;
-	public /*export editinline deprecated */UIImage TickerBGImage;
-	public /*export editinline deprecated */UILabel TickerTextLabel;
-	public /*deprecated */Texture LogoImageTextre;
-	public /*deprecated */Texture TickerBGImageTexture;
+	[export, editinline, deprecated] public UIImage LogoImage;
+	[export, editinline, deprecated] public UIImage TickerBGImage;
+	[export, editinline, deprecated] public UILabel TickerTextLabel;
+	[deprecated] public Texture LogoImageTextre;
+	[deprecated] public Texture TickerBGImageTexture;
 	
 	public TdHUDWidget_OnlineMessageTicker()
 	{

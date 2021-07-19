@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIEvent_SubmitTextData : UIEvent_SubmitData/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ String Value;
-	public/*()*/ bool bClearValue;
+	[Category] public String Value;
+	[Category] public bool bClearValue;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

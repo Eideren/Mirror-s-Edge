@@ -3,9 +3,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdPossessionLogic : Object, 
 		TdCarriableListener{
-	public /*private transient */TdMPPossessionGame MyGameInfo;
-	public /*private transient */TdPossessionGRI MyGameReplicationInfo;
-	public /*private transient */TdCarriable BagHandler;
+	[transient] public/*private*/ TdMPPossessionGame MyGameInfo;
+	[transient] public/*private*/ TdPossessionGRI MyGameReplicationInfo;
+	[transient] public/*private*/ TdCarriable BagHandler;
 	
 	public virtual /*function */Actor GetBagActor()
 	{

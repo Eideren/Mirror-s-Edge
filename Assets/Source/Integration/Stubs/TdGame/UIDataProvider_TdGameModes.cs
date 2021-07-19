@@ -20,10 +20,10 @@ public partial class UIDataProvider_TdGameModes : UIDataProvider_TdResource/*
 	//	}
 	};
 	
-	public /*config */String GameModeClass;
-	public /*const config localized */String FriendlyName;
-	public /*const config localized */String Description;
-	public /*private config */array</*config */UIDataProvider_TdGameModes.TdGameModes_RoleIdStruct> Roles;
+	[config] public String GameModeClass;
+	[Const, config, localized] public String FriendlyName;
+	[Const, config, localized] public String Description;
+	[config] public/*private*/ array</*config */UIDataProvider_TdGameModes.TdGameModes_RoleIdStruct> Roles;
 	
 	public override /*event */bool IsProviderDisabled()
 	{

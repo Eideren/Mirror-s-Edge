@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqVar_Float : SequenceVariable/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float FloatValue;
+	[Category] public float FloatValue;
 	
 	public SeqVar_Float()
 	{

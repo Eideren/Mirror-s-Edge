@@ -7,12 +7,12 @@ public partial class DrawCapsuleComponent : PrimitiveComponent/*
 		collapsecategories
 		noexport
 		hidecategories(Object)*/{
-	public/*()*/ Object.Color CapsuleColor;
-	public/*()*/ Material CapsuleMaterial;
-	public/*()*/ float CapsuleHeight;
-	public/*()*/ float CapsuleRadius;
-	public/*()*/ bool bDrawWireCapsule;
-	public/*()*/ bool bDrawLitCapsule;
+	[Category] public Object.Color CapsuleColor;
+	[Category] public Material CapsuleMaterial;
+	[Category] public float CapsuleHeight;
+	[Category] public float CapsuleRadius;
+	[Category] public bool bDrawWireCapsule;
+	[Category] public bool bDrawLitCapsule;
 	
 	public DrawCapsuleComponent()
 	{

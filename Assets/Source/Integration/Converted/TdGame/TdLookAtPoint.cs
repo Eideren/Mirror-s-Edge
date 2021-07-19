@@ -7,9 +7,9 @@ public partial class TdLookAtPoint : Keypoint/*
 	public float LookAtInterpolationTime;
 	public float LookAtInterpolationTimer;
 	public float LookAtDurationTimer;
-	public /*transient */Object.Vector ActivatedLocation;
-	public/*()*/ bool bDoNotRegisterAsLookAt;
-	public/*()*/ bool bAutoRegisterOnStartup;
+	[transient] public Object.Vector ActivatedLocation;
+	[Category] public bool bDoNotRegisterAsLookAt;
+	[Category] public bool bAutoRegisterOnStartup;
 	
 	public override /*event */void PostBeginPlay()
 	{

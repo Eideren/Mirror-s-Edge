@@ -5,7 +5,7 @@ public partial class ParticleModuleAccelerationOverLifetime : ParticleModuleAcce
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Acceleration)*/ DistributionVector.RawDistributionVector AccelOverLife;
+	[Category("Acceleration")] public DistributionVector.RawDistributionVector AccelOverLife;
 	
 	public ParticleModuleAccelerationOverLifetime()
 	{

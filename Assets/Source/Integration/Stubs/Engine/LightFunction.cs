@@ -6,8 +6,8 @@ public partial class LightFunction : Object/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ /*const */MaterialInterface SourceMaterial;
-	public/*()*/ Object.Vector Scale;
+	[Category] [Const] public MaterialInterface SourceMaterial;
+	[Category] public Object.Vector Scale;
 	
 	public LightFunction()
 	{

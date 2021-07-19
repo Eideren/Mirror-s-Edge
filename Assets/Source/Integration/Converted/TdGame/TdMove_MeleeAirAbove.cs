@@ -3,8 +3,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMove_MeleeAirAbove : TdMove_MeleeBase/*
 		config(PawnMovement)*/{
-	public /*private */Object.Rotator TargetRotation;
-	public /*private */Object.Vector TargetLocation;
+	public/*private*/ Object.Rotator TargetRotation;
+	public/*private*/ Object.Vector TargetLocation;
 	
 	public override /*simulated function */void StartMove()
 	{

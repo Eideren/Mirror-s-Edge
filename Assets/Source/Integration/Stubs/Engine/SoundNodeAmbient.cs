@@ -6,17 +6,17 @@ public partial class SoundNodeAmbient : SoundNode/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ SoundNodeAttenuation.SoundDistanceModel DistanceModel;
-	public/*()*/ DistributionFloat.RawDistributionFloat MinRadius;
-	public/*()*/ DistributionFloat.RawDistributionFloat MaxRadius;
-	public/*()*/ DistributionFloat.RawDistributionFloat LPFMinRadius;
-	public/*()*/ DistributionFloat.RawDistributionFloat LPFMaxRadius;
-	public/*()*/ bool bSpatialize;
-	public/*()*/ bool bAttenuate;
-	public/*()*/ bool bAttenuateWithLowPassFilter;
-	public/*()*/ SoundNodeWave Wave;
-	public/*()*/ DistributionFloat.RawDistributionFloat VolumeModulation;
-	public/*()*/ DistributionFloat.RawDistributionFloat PitchModulation;
+	[Category] public SoundNodeAttenuation.SoundDistanceModel DistanceModel;
+	[Category] public DistributionFloat.RawDistributionFloat MinRadius;
+	[Category] public DistributionFloat.RawDistributionFloat MaxRadius;
+	[Category] public DistributionFloat.RawDistributionFloat LPFMinRadius;
+	[Category] public DistributionFloat.RawDistributionFloat LPFMaxRadius;
+	[Category] public bool bSpatialize;
+	[Category] public bool bAttenuate;
+	[Category] public bool bAttenuateWithLowPassFilter;
+	[Category] public SoundNodeWave Wave;
+	[Category] public DistributionFloat.RawDistributionFloat VolumeModulation;
+	[Category] public DistributionFloat.RawDistributionFloat PitchModulation;
 	
 	public SoundNodeAmbient()
 	{

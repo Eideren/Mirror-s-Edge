@@ -4,24 +4,24 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_CameraLookAt : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bAffectCamera;
-	public/*()*/ bool bAlwaysFocus;
-	public /*deprecated */bool bAdjustCamera;
-	public/*()*/ bool bTurnInPlace;
-	public/*()*/ bool bIgnoreTrace;
-	public/*()*/ bool bAffectHead;
-	public/*()*/ bool bToggleGodMode;
-	public/*()*/ bool bLeaveCameraRotation;
-	public/*()*/ bool bDisableInput;
+	[Category] public bool bAffectCamera;
+	[Category] public bool bAlwaysFocus;
+	[deprecated] public bool bAdjustCamera;
+	[Category] public bool bTurnInPlace;
+	[Category] public bool bIgnoreTrace;
+	[Category] public bool bAffectHead;
+	[Category] public bool bToggleGodMode;
+	[Category] public bool bLeaveCameraRotation;
+	[Category] public bool bDisableInput;
 	public bool bUsedTimer;
-	public/*()*/ bool bCheckLineOfSight;
-	public/*()*/ Object.Vector2D InterpSpeedRange;
-	public/*()*/ Object.Vector2D InFocusFOV;
-	public/*()*/ name FocusBoneName;
-	public/*()*/ String TextDisplay;
-	public/*()*/ float TotalTime;
-	public/*()*/ float CameraFOV;
-	public /*transient */float RemainingTime;
+	[Category] public bool bCheckLineOfSight;
+	[Category] public Object.Vector2D InterpSpeedRange;
+	[Category] public Object.Vector2D InFocusFOV;
+	[Category] public name FocusBoneName;
+	[Category] public String TextDisplay;
+	[Category] public float TotalTime;
+	[Category] public float CameraFOV;
+	[transient] public float RemainingTime;
 	
 	public SeqAct_CameraLookAt()
 	{

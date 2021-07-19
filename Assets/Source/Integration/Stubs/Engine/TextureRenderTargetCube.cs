@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class TextureRenderTargetCube : TextureRenderTarget/*
 		native
 		hidecategories(Object,Texture)*/{
-	public/*()*/ int SizeX;
-	public /*const */Texture.EPixelFormat Format;
+	[Category] public int SizeX;
+	[Const] public Texture.EPixelFormat Format;
 	
 	public TextureRenderTargetCube()
 	{

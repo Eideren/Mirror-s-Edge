@@ -31,20 +31,20 @@ public partial class TdUIScene_TdCredits : TdUIScene/*
 	//	}
 	};
 	
-	public /*private transient */UIPanel CreditsPanel;
-	public /*private transient */UIImage LogoImage;
-	public /*private transient */UIImage StickImage;
-	public /*private transient */TdMenuPostProcesWrapper PanelBGRenderer;
-	public /*private transient */array<TdUIScene_TdCredits.TdCreditsBlock> CreditBlocks;
-	public /*private transient */float StartTime;
-	public /*private transient */float ScrollSpeed;
-	public /*private transient */Object.LinearColor CurrentCreditsTextColor;
-	public /*private transient */int MaxBlocksToRead;
-	public /*private transient */int NumBlocks;
-	public /*private transient */int BlockWindowOffset;
-	public /*private transient */float BlockYOffset;
-	public /*private */StaticArray<MultiFont, MultiFont, MultiFont>/*[3]*/ Fonts;
-	public /*private */bool bIsFinalCredits;
+	[transient] public/*private*/ UIPanel CreditsPanel;
+	[transient] public/*private*/ UIImage LogoImage;
+	[transient] public/*private*/ UIImage StickImage;
+	[transient] public/*private*/ TdMenuPostProcesWrapper PanelBGRenderer;
+	[transient] public/*private*/ array<TdUIScene_TdCredits.TdCreditsBlock> CreditBlocks;
+	[transient] public/*private*/ float StartTime;
+	[transient] public/*private*/ float ScrollSpeed;
+	[transient] public/*private*/ Object.LinearColor CurrentCreditsTextColor;
+	[transient] public/*private*/ int MaxBlocksToRead;
+	[transient] public/*private*/ int NumBlocks;
+	[transient] public/*private*/ int BlockWindowOffset;
+	[transient] public/*private*/ float BlockYOffset;
+	public/*private*/ StaticArray<MultiFont, MultiFont, MultiFont>/*[3]*/ Fonts;
+	public/*private*/ bool bIsFinalCredits;
 	public /*delegate*/TdUIScene_TdCredits.OnCloseCredits __OnCloseCredits__Delegate;
 	
 	public /*private final */delegate void OnCloseCredits();

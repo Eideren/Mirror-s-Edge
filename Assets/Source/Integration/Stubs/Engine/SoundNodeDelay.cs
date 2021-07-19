@@ -6,7 +6,7 @@ public partial class SoundNodeDelay : SoundNode/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ DistributionFloat.RawDistributionFloat DelayDuration;
+	[Category] public DistributionFloat.RawDistributionFloat DelayDuration;
 	
 	public SoundNodeDelay()
 	{

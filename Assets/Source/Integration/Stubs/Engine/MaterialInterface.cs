@@ -19,12 +19,12 @@ public partial class MaterialInterface : Surface/*
 		MATUSAGE_MAX
 	};
 	
-	public/*()*/ Object.Color BakerColor;
-	public/*()*/ float BakerBleedBounceAmount;
-	public/*()*/ float BakerBleedEmissiveAmount;
-	public/*()*/ float BakerAlpha;
-	public/*()*/ Texture BakerAlphaTexture;
-	public/*()*/ /*editoronly */String PreviewMesh;
+	[Category] public Object.Color BakerColor;
+	[Category] public float BakerBleedBounceAmount;
+	[Category] public float BakerBleedEmissiveAmount;
+	[Category] public float BakerAlpha;
+	[Category] public Texture BakerAlphaTexture;
+	[Category] [editoronly] public String PreviewMesh;
 	
 	// Export UMaterialInterface::execGetMaterial(FFrame&, void* const)
 	public virtual /*native final function */Material GetMaterial()

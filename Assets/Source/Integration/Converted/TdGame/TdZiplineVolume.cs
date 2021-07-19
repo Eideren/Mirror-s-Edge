@@ -5,7 +5,7 @@ public partial class TdZiplineVolume : TdMovementVolume/*
 		native
 		placeable
 		hidecategories(Navigation,Object,Movement,Display)*/{
-	public/*()*/ float LandingStrip;
+	[Category] public float LandingStrip;
 	
 	public override /*function */bool InUse(Pawn Ignored)
 	{

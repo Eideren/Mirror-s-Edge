@@ -6,26 +6,26 @@ public partial class PhysicsVolume : Volume/*
 		nativereplication
 		placeable
 		hidecategories(Navigation,Object,Movement,Display)*/{
-	public/*()*/ /*interp */Object.Vector ZoneVelocity;
-	public/*()*/ bool bVelocityAffectsWalking;
-	public/*()*/ bool bPainCausing;
+	[Category] [interp] public Object.Vector ZoneVelocity;
+	[Category] public bool bVelocityAffectsWalking;
+	[Category] public bool bPainCausing;
 	public bool BACKUP_bPainCausing;
-	public/*()*/ bool bDestructive;
-	public/*()*/ bool bNoInventory;
-	public/*()*/ bool bMoveProjectiles;
-	public/*()*/ bool bBounceVelocity;
-	public/*()*/ bool bNeutralZone;
-	public/*()*/ bool bCrowdAgentsPlayDeathAnim;
-	public/*()*/ bool bPhysicsOnContact;
+	[Category] public bool bDestructive;
+	[Category] public bool bNoInventory;
+	[Category] public bool bMoveProjectiles;
+	[Category] public bool bBounceVelocity;
+	[Category] public bool bNeutralZone;
+	[Category] public bool bCrowdAgentsPlayDeathAnim;
+	[Category] public bool bPhysicsOnContact;
 	public bool bWaterVolume;
-	public/*()*/ float GroundFriction;
-	public/*()*/ float TerminalVelocity;
-	public/*()*/ float DamagePerSec;
-	public/*()*/ Core.ClassT<DamageType> DamageType;
-	public/*()*/ int Priority;
-	public/*()*/ float FluidFriction;
-	public/*()*/ float RigidBodyDamping;
-	public/*()*/ float MaxDampingForce;
+	[Category] public float GroundFriction;
+	[Category] public float TerminalVelocity;
+	[Category] public float DamagePerSec;
+	[Category] public Core.ClassT<DamageType> DamageType;
+	[Category] public int Priority;
+	[Category] public float FluidFriction;
+	[Category] public float RigidBodyDamping;
+	[Category] public float MaxDampingForce;
 	public Info PainTimer;
 	public Controller DamageInstigator;
 	public PhysicsVolume NextPhysicsVolume;

@@ -13,12 +13,12 @@ public partial class UIComp_DrawComponents : UIComponent/* within UIObject*//*
 	
 	public new UIObject Outer => base.Outer as UIObject;
 	
-	public/*(Fading)*/ /*transient */UIComp_DrawComponents.EFadeType FadeType;
-	public/*(Fading)*/ /*transient */float FadeAlpha;
-	public/*(Fading)*/ /*transient */float FadeTarget;
-	public/*(Fading)*/ /*transient */float FadeTime;
-	public /*transient */float LastRenderTime;
-	public /*transient */float FadeRate;
+	[Category("Fading")] [transient] public UIComp_DrawComponents.EFadeType FadeType;
+	[Category("Fading")] [transient] public float FadeAlpha;
+	[Category("Fading")] [transient] public float FadeTarget;
+	[Category("Fading")] [transient] public float FadeTime;
+	[transient] public float LastRenderTime;
+	[transient] public float FadeRate;
 	public /*delegate*/UIComp_DrawComponents.OnFadeComplete __OnFadeComplete__Delegate;
 	
 	// Export UUIComp_DrawComponents::execFade(FFrame&, void* const)

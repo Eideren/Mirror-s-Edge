@@ -22,12 +22,12 @@ public partial class BrushBuilder : Object/*
 	//	}
 	};
 	
-	public/*()*/ String BitmapFilename;
-	public/*()*/ String ToolTip;
-	public /*private */array<Object.Vector> Vertices;
-	public /*private */array<BrushBuilder.BuilderPoly> Polys;
-	public /*private */name Group;
-	public /*private */bool MergeCoplanars;
+	[Category] public String BitmapFilename;
+	[Category] public String ToolTip;
+	public/*private*/ array<Object.Vector> Vertices;
+	public/*private*/ array<BrushBuilder.BuilderPoly> Polys;
+	public/*private*/ name Group;
+	public/*private*/ bool MergeCoplanars;
 	
 	// Export UBrushBuilder::execBeginBrush(FFrame&, void* const)
 	public virtual /*native function */void BeginBrush(bool InMergeCoplanars, name InGroup)

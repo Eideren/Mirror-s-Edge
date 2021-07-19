@@ -3,9 +3,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdUITabPage_FinishedObjectives : TdUITabPage/*
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIList FinishedObjectivesList;
-	public /*transient */UILabel DescriptionLabel;
-	public /*transient */UILabel NoFinishedObjectivesLabel;
+	[transient] public UIList FinishedObjectivesList;
+	[transient] public UILabel DescriptionLabel;
+	[transient] public UILabel NoFinishedObjectivesLabel;
 	public UIDataStore_TdGameObjectivesData TdGameObjectivesData;
 	
 	public override /*event */void PostInitialize()

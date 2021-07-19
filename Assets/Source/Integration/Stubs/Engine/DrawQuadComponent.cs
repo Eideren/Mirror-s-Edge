@@ -7,9 +7,9 @@ public partial class DrawQuadComponent : PrimitiveComponent/*
 		collapsecategories
 		noexport
 		hidecategories(Object)*/{
-	public/*()*/ Texture Texture;
-	public/*()*/ float Width;
-	public/*()*/ float Height;
+	[Category] public Texture Texture;
+	[Category] public float Width;
+	[Category] public float Height;
 	
 	public DrawQuadComponent()
 	{

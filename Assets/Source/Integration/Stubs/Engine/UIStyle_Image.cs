@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIStyle_Image : UIStyle_Data/*
 		native
 		hidecategories(Object,UIRoot)*/{
-	public/*()*/ Surface DefaultImage;
-	public/*()*/ UIRoot.TextureCoordinates Coordinates;
-	public/*()*/ StaticArray<UIRoot.UIImageAdjustmentData, UIRoot.UIImageAdjustmentData>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ AdjustmentType;
+	[Category] public Surface DefaultImage;
+	[Category] public UIRoot.TextureCoordinates Coordinates;
+	[Category] public StaticArray<UIRoot.UIImageAdjustmentData, UIRoot.UIImageAdjustmentData>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ AdjustmentType;
 	
 	public UIStyle_Image()
 	{

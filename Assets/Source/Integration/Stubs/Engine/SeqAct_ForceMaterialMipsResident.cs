@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_ForceMaterialMipsResident : SeqAct_Latent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float ForceDuration;
-	public/*()*/ array<MaterialInterface> ForceMaterials;
+	[Category] public float ForceDuration;
+	[Category] public array<MaterialInterface> ForceMaterials;
 	public float RemainingTime;
 	public array<Texture2D> ModifiedTextures;
 	

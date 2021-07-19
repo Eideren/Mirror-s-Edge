@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_LevelStreaming : SeqAct_LevelStreamingBase/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ /*const */LevelStreaming Level;
-	public/*()*/ /*const */name LevelName;
-	public /*transient */bool bStatusIsOk;
+	[Category] [Const] public LevelStreaming Level;
+	[Category] [Const] public name LevelName;
+	[transient] public bool bStatusIsOk;
 	
 	public SeqAct_LevelStreaming()
 	{

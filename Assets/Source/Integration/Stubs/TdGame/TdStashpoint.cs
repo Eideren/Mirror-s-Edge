@@ -7,13 +7,13 @@ public partial class TdStashpoint : Actor/*
 		config(Game)
 		notplaceable
 		hidecategories(Navigation)*/{
-	public /*transient */TdStashpoint Next;
-	public /*protected transient */TdStashpointListener Listener;
-	public /*const */int TerritoryOfTeam;
+	[transient] public TdStashpoint Next;
+	[transient] public/*protected*/ TdStashpointListener Listener;
+	[Const] public int TerritoryOfTeam;
 	public float TimeOfStashingInitiated;
-	public /*const */bool bNotifyKismet;
-	public /*config */float StashDuration;
-	public/*(Stashpoint)*/ int StashPointID;
+	[Const] public bool bNotifyKismet;
+	[config] public float StashDuration;
+	[Category("Stashpoint")] public int StashPointID;
 	public int InitiatedTriggerCount;
 	
 	//replication

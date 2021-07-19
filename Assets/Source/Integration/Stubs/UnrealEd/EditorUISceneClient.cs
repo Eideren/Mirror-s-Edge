@@ -5,11 +5,11 @@ public partial class EditorUISceneClient : UISceneClient/*
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*const transient */UIScene Scene;
-	public /*const transient */UISceneManager SceneManager;
-	public /*native const transient */Object.Pointer SceneWindow;
-	public /*native const transient */Object.Pointer ClientCanvasScene;
-	public /*const transient */bool bIsUIPrimitiveSceneInitialized;
+	[Const, transient] public UIScene Scene;
+	[Const, transient] public UISceneManager SceneManager;
+	[native, Const, transient] public Object.Pointer SceneWindow;
+	[native, Const, transient] public Object.Pointer ClientCanvasScene;
+	[Const, transient] public bool bIsUIPrimitiveSceneInitialized;
 	
 	public virtual /*exec function */void ShowDockingStacks()
 	{

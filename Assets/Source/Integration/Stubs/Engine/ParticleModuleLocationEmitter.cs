@@ -12,12 +12,12 @@ public partial class ParticleModuleLocationEmitter : ParticleModuleLocationBase/
 		ELESM_MAX
 	};
 	
-	public/*(Location)*/ /*noclear export */name EmitterName;
-	public/*(Location)*/ ParticleModuleLocationEmitter.ELocationEmitterSelectionMethod SelectionMethod;
-	public/*(Location)*/ bool InheritSourceVelocity;
-	public/*(Location)*/ bool bInheritSourceRotation;
-	public/*(Location)*/ float InheritSourceVelocityScale;
-	public/*(Location)*/ float InheritSourceRotationScale;
+	[Category("Location")] [noclear, export] public name EmitterName;
+	[Category("Location")] public ParticleModuleLocationEmitter.ELocationEmitterSelectionMethod SelectionMethod;
+	[Category("Location")] public bool InheritSourceVelocity;
+	[Category("Location")] public bool bInheritSourceRotation;
+	[Category("Location")] public float InheritSourceVelocityScale;
+	[Category("Location")] public float InheritSourceRotationScale;
 	
 	public ParticleModuleLocationEmitter()
 	{

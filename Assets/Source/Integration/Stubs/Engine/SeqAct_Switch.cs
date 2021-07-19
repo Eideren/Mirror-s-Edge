@@ -4,11 +4,11 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_Switch : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ int LinkCount;
-	public/*()*/ int IncrementAmount;
-	public/*()*/ bool bLooping;
-	public/*()*/ bool bAutoDisableLinks;
-	public/*()*/ array<int> Indices;
+	[Category] public int LinkCount;
+	[Category] public int IncrementAmount;
+	[Category] public bool bLooping;
+	[Category] public bool bAutoDisableLinks;
+	[Category] public array<int> Indices;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

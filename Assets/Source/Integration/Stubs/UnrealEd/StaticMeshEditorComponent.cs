@@ -6,7 +6,7 @@ public partial class StaticMeshEditorComponent : StaticMeshComponent/*
 		editinlinenew
 		hidecategories(Object)
 		autoexpandcategories(Collision,Rendering,Lighting)*/{
-	public /*native const transient */Object.Pointer StaticMeshEditor;
+	[native, Const, transient] public Object.Pointer StaticMeshEditor;
 	
 }
 }

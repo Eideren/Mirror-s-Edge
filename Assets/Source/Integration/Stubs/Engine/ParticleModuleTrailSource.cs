@@ -13,14 +13,14 @@ public partial class ParticleModuleTrailSource : ParticleModuleTrailBase/*
 		PET2SRCM_MAX
 	};
 	
-	public/*(Source)*/ ParticleModuleTrailSource.ETrail2SourceMethod SourceMethod;
-	public/*(Source)*/ ParticleModule.EParticleSourceSelectionMethod SelectionMethod;
-	public/*(Source)*/ name SourceName;
-	public/*(Source)*/ DistributionFloat.RawDistributionFloat SourceStrength;
-	public/*(Source)*/ bool bLockSourceStength;
-	public/*(Source)*/ bool bInheritRotation;
-	public/*(Source)*/ int SourceOffsetCount;
-	public/*(Source)*/ /*editfixedsize */array<Object.Vector> SourceOffsetDefaults;
+	[Category("Source")] public ParticleModuleTrailSource.ETrail2SourceMethod SourceMethod;
+	[Category("Source")] public ParticleModule.EParticleSourceSelectionMethod SelectionMethod;
+	[Category("Source")] public name SourceName;
+	[Category("Source")] public DistributionFloat.RawDistributionFloat SourceStrength;
+	[Category("Source")] public bool bLockSourceStength;
+	[Category("Source")] public bool bInheritRotation;
+	[Category("Source")] public int SourceOffsetCount;
+	[Category("Source")] [editfixedsize] public array<Object.Vector> SourceOffsetDefaults;
 	
 	public ParticleModuleTrailSource()
 	{

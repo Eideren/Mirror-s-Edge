@@ -3,8 +3,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class UIAction_SetProgressBarValue : UIAction_SetValue/*
 		hidecategories(Object)*/{
-	public/*()*/ float NewValue;
-	public/*()*/ bool bPercentageValue;
+	[Category] public float NewValue;
+	[Category] public bool bPercentageValue;
 	
 	public UIAction_SetProgressBarValue()
 	{

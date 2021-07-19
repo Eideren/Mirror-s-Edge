@@ -2,11 +2,11 @@ namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
 public partial class TdPursuitVictoryMessage : TdVictoryMessage{
-	public /*const localized */String RoundWon;
-	public /*const localized */String MathcWon;
-	public /*const localized */String CopWonRoundReason;
-	public /*const localized */String RunnerWonRoundReason;
-	public /*const localized */String DrawRoundReason;
+	[Const, localized] public String RoundWon;
+	[Const, localized] public String MathcWon;
+	[Const, localized] public String CopWonRoundReason;
+	[Const, localized] public String RunnerWonRoundReason;
+	[Const, localized] public String DrawRoundReason;
 	
 	public /*function */static String GetMacthVictoryMessage(/*optional */PlayerReplicationInfo _Winner = default)
 	{

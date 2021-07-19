@@ -7,10 +7,10 @@ public partial class MaterialExpressionTextureCoordinate : MaterialExpression/* 
 		hidecategories(Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ int CoordinateIndex;
-	public /*deprecated */float Tiling;
-	public/*()*/ float UTiling;
-	public/*()*/ float VTiling;
+	[Category] public int CoordinateIndex;
+	[deprecated] public float Tiling;
+	[Category] public float UTiling;
+	[Category] public float VTiling;
 	
 	public MaterialExpressionTextureCoordinate()
 	{

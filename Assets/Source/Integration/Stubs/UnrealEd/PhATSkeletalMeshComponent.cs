@@ -5,8 +5,8 @@ public partial class PhATSkeletalMeshComponent : SkeletalMeshComponent/*
 		native
 		editinlinenew
 		hidecategories(Object)*/{
-	public /*native const transient */Object.Pointer PhATPtr;
-	public /*native const transient */array<Object.Matrix> AnimationSpaceBases;
+	[native, Const, transient] public Object.Pointer PhATPtr;
+	[native, Const, transient] public array<Object.Matrix> AnimationSpaceBases;
 	
 	public PhATSkeletalMeshComponent()
 	{

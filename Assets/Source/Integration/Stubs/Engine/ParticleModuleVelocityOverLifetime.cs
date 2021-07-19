@@ -5,8 +5,8 @@ public partial class ParticleModuleVelocityOverLifetime : ParticleModuleVelocity
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Velocity)*/ DistributionVector.RawDistributionVector VelOverLife;
-	public/*(Velocity)*/ /*export */bool Absolute;
+	[Category("Velocity")] public DistributionVector.RawDistributionVector VelOverLife;
+	[Category("Velocity")] [export] public bool Absolute;
 	
 	public ParticleModuleVelocityOverLifetime()
 	{

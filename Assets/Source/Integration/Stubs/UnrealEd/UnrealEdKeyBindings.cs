@@ -23,7 +23,7 @@ public partial class UnrealEdKeyBindings : Object/*
 	//	}
 	};
 	
-	public /*config */array</*config */UnrealEdKeyBindings.EditorKeyBinding> KeyBindings;
+	[config] public array</*config */UnrealEdKeyBindings.EditorKeyBinding> KeyBindings;
 	
 }
 }

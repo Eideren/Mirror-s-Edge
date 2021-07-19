@@ -5,7 +5,7 @@ public partial class TdPossessionGRI : TdBagGRI/*
 		config(Game)
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public /*config */float BagPossessionLimit;
+	[config] public float BagPossessionLimit;
 	public TdPlayerReplicationInfo Leader;
 	
 	//replication

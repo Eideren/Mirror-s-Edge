@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_GetDistance : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ /*editconst */float Distance;
+	[Category] [editconst] public float Distance;
 	
 	public SeqAct_GetDistance()
 	{

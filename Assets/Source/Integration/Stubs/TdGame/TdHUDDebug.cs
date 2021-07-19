@@ -7,32 +7,32 @@ public partial class TdHUDDebug : Object/* within TdHUD*//*
 		perobjectconfig*/{
 	public new TdHUD Outer => base.Outer as TdHUD;
 	
-	public /*private native const noexport */Object.Pointer VfTable_FSelfRegisteringExec;
-	public /*config */bool bShowInvisibleMode;
-	public /*config */bool bShowGodMode;
-	public/*(DebugTools)*/ bool bDebugAnimTimeline;
-	public/*(DebugTools)*/ bool bDebugAnimWeights;
-	public/*(DebugTools)*/ bool bDebugSkeletalMeshInfo;
-	public/*(DebugTools)*/ bool bDrawGraph;
-	public/*(DebugTools)*/ bool bDrawMemoryBudget;
-	public/*(DebugTools)*/ bool bDrawLookAtPoints;
-	public/*(DebugTools)*/ bool bDrawAIStates;
-	public/*(DebugTools)*/ bool bDrawSafeRegion;
-	public/*(DebugTools)*/ bool bDrawDebugAnims;
-	public/*(DebugTools)*/ bool bFixedSlomo;
-	public/*(DebugTools)*/ bool bDebugSceneStack;
-	public/*(DebugTools)*/ bool bShowCheckpoints;
-	public/*(DebugTools)*/ bool bShowCheckpointsPath;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FSelfRegisteringExec;
+	[config] public bool bShowInvisibleMode;
+	[config] public bool bShowGodMode;
+	[Category("DebugTools")] public bool bDebugAnimTimeline;
+	[Category("DebugTools")] public bool bDebugAnimWeights;
+	[Category("DebugTools")] public bool bDebugSkeletalMeshInfo;
+	[Category("DebugTools")] public bool bDrawGraph;
+	[Category("DebugTools")] public bool bDrawMemoryBudget;
+	[Category("DebugTools")] public bool bDrawLookAtPoints;
+	[Category("DebugTools")] public bool bDrawAIStates;
+	[Category("DebugTools")] public bool bDrawSafeRegion;
+	[Category("DebugTools")] public bool bDrawDebugAnims;
+	[Category("DebugTools")] public bool bFixedSlomo;
+	[Category("DebugTools")] public bool bDebugSceneStack;
+	[Category("DebugTools")] public bool bShowCheckpoints;
+	[Category("DebugTools")] public bool bShowCheckpointsPath;
 	public float TimedMessageTimestamp;
 	public float TimedMessageTime;
 	public String TimedMessage;
-	public/*(DebugTools)*/ String DebugKismetOutput;
-	public/*(DebugTools)*/ TdPawn ActiveActor;
+	[Category("DebugTools")] public String DebugKismetOutput;
+	[Category("DebugTools")] public TdPawn ActiveActor;
 	public int BufferSize;
 	public array<String> ScreenBuffer;
 	public name AnimationStartingPoint;
-	public /*transient */TdCheatManager CheatManager;
-	public /*transient */array<TdCheckpoint> Checkpoints;
+	[transient] public TdCheatManager CheatManager;
+	[transient] public array<TdCheckpoint> Checkpoints;
 	
 	public virtual /*function */void DrawDebugHUD()
 	{

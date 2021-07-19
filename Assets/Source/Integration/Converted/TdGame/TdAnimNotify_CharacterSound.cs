@@ -33,9 +33,9 @@ public partial class TdAnimNotify_CharacterSound : AnimNotify/*
 		CharacterSoundTriggerType_MAX
 	};
 	
-	public/*()*/ bool bFollowActor;
-	public/*()*/ name BoneName;
-	public/*()*/ TdAnimNotify_CharacterSound.CharacterSoundTriggerType TriggerType;
+	[Category] public bool bFollowActor;
+	[Category] public name BoneName;
+	[Category] public TdAnimNotify_CharacterSound.CharacterSoundTriggerType TriggerType;
 	
 	public TdAnimNotify_CharacterSound()
 	{

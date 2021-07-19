@@ -8,20 +8,20 @@ public partial class UIComp_DrawString : UIComp_DrawComponents,
 		hidecategories(Object)*/{
 	public new UIObject Outer => base.Outer as UIObject;
 	
-	public /*private native const noexport */Object.Pointer VfTable_IUIStyleResolver;
-	public /*transient */UIDataStoreSubscriber SubscriberOwner;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIStyleResolver;
+	[transient] public UIDataStoreSubscriber SubscriberOwner;
 	public name StyleResolverTag;
-	public /*private transient */UIString ValueString;
-	public /*const transient */Core.ClassT<UIString> StringClass;
-	public/*(Presentation)*/ StaticArray<UIRoot.AutoSizeData, UIRoot.AutoSizeData>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ AutoSizeParameters;
-	public/*(Presentation)*/ /*private */StaticArray<UIRoot.UIRenderingSubregion, UIRoot.UIRenderingSubregion>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ ClampRegion;
-	public/*(Presentation)*/ bool bDisablePixelAligning;
-	public/*(Data)*/ bool bIgnoreMarkup;
-	public/*(Debug)*/ /*transient */bool bRefreshString;
-	public /*transient */bool bReapplyFormatting;
-	public/*(StyleOverride)*/ UIRoot.UITextStyleOverride TextStyleCustomization;
-	public /*private */UIRoot.UIStyleReference StringStyle;
-	public/*(Presentation)*/ StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ Padding;
+	[transient] public/*private*/ UIString ValueString;
+	[Const, transient] public Core.ClassT<UIString> StringClass;
+	[Category("Presentation")] public StaticArray<UIRoot.AutoSizeData, UIRoot.AutoSizeData>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ AutoSizeParameters;
+	[Category("Presentation")] public/*private*/ StaticArray<UIRoot.UIRenderingSubregion, UIRoot.UIRenderingSubregion>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ ClampRegion;
+	[Category("Presentation")] public bool bDisablePixelAligning;
+	[Category("Data")] public bool bIgnoreMarkup;
+	[Category("Debug")] [transient] public bool bRefreshString;
+	[transient] public bool bReapplyFormatting;
+	[Category("StyleOverride")] public UIRoot.UITextStyleOverride TextStyleCustomization;
+	public/*private*/ UIRoot.UIStyleReference StringStyle;
+	[Category("Presentation")] public StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ Padding;
 	
 	// Export UUIComp_DrawString::execSetValue(FFrame&, void* const)
 	public virtual /*native final function */void SetValue(String NewText)

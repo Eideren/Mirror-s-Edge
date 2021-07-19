@@ -5,7 +5,7 @@ public partial class SceneCapture2DActor : SceneCaptureActor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public /*const export editinline */DrawFrustumComponent DrawFrustum;
+	[Const, export, editinline] public DrawFrustumComponent DrawFrustum;
 	
 	public SceneCapture2DActor()
 	{

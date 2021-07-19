@@ -14,8 +14,8 @@ public partial class SkeletalMesh : Object/*
 	
 	public partial struct /*native */BoneMirrorInfo
 	{
-		public/*()*/ int SourceIndex;
-		public/*()*/ Object.EAxis BoneFlipAxis;
+		[Category] public int SourceIndex;
+		[Category] public Object.EAxis BoneFlipAxis;
 	
 	//	structdefaultproperties
 	//	{
@@ -27,10 +27,10 @@ public partial class SkeletalMesh : Object/*
 	
 	public partial struct /*native */SkeletalMeshLODInfo
 	{
-		public/*()*/ float DisplayFactor;
-		public/*()*/ float LODHysteresis;
-		public/*()*/ /*editfixedsize */array<int> LODMaterialMap;
-		public/*()*/ /*editfixedsize */array<bool> bEnableShadowCasting;
+		[Category] public float DisplayFactor;
+		[Category] public float LODHysteresis;
+		[Category] [editfixedsize] public array<int> LODMaterialMap;
+		[Category] [editfixedsize] public array<bool> bEnableShadowCasting;
 	
 	//	structdefaultproperties
 	//	{
@@ -44,9 +44,9 @@ public partial class SkeletalMesh : Object/*
 	
 	public partial struct /*native */ClothSpecialBoneInfo
 	{
-		public/*()*/ name BoneName;
-		public/*()*/ SkeletalMesh.ClothBoneType BoneType;
-		public /*const */array<int> AttachedVertexIndices;
+		[Category] public name BoneName;
+		[Category] public SkeletalMesh.ClothBoneType BoneType;
+		[Const] public array<int> AttachedVertexIndices;
 	
 	//	structdefaultproperties
 	//	{
@@ -57,78 +57,78 @@ public partial class SkeletalMesh : Object/*
 	//	}
 	};
 	
-	public /*native const */Object.BoxSphereBounds Bounds;
-	public/*()*/ /*native const */array<MaterialInterface> Materials;
-	public/*()*/ /*native const */Object.Vector Origin;
-	public/*()*/ /*native const */Object.Rotator RotOrigin;
-	public /*native const */array<int> RefSkeleton;
-	public /*native const */int SkeletalDepth;
-	public /*native const *//*map<0,0>*/map<object, object> NameIndexMap;
-	public /*private native const */Object.IndirectArray_Mirror LODModels;
-	public /*native const */array<Object.Matrix> RefBasesInvMatrix;
-	public/*()*/ /*editfixedsize */array<SkeletalMesh.BoneMirrorInfo> SkelMirrorTable;
-	public/*()*/ Object.EAxis SkelMirrorAxis;
-	public/*()*/ Object.EAxis SkelMirrorFlipAxis;
+	[native, Const] public Object.BoxSphereBounds Bounds;
+	[Category] [native, Const] public array<MaterialInterface> Materials;
+	[Category] [native, Const] public Object.Vector Origin;
+	[Category] [native, Const] public Object.Rotator RotOrigin;
+	[native, Const] public array<int> RefSkeleton;
+	[native, Const] public int SkeletalDepth;
+	[native, Const] public /*map<0,0>*/map<object, object> NameIndexMap;
+	[native, Const] public/*private*/ Object.IndirectArray_Mirror LODModels;
+	[native, Const] public array<Object.Matrix> RefBasesInvMatrix;
+	[Category] [editfixedsize] public array<SkeletalMesh.BoneMirrorInfo> SkelMirrorTable;
+	[Category] public Object.EAxis SkelMirrorAxis;
+	[Category] public Object.EAxis SkelMirrorFlipAxis;
 	public array<SkeletalMeshSocket> Sockets;
-	public/*()*/ /*editfixedsize */array<SkeletalMesh.SkeletalMeshLODInfo> LODInfo;
-	public/*()*/ array<name> PerPolyCollisionBones;
-	public/*()*/ array<name> AddToParentPerPolyCollisionBone;
-	public /*private native const */array<int> PerPolyBoneKDOPs;
-	public/*()*/ bool bPerPolyUseSoftWeighting;
-	public/*()*/ bool bUseSimpleLineCollision;
-	public/*()*/ bool bUseSimpleBoxCollision;
-	public/*()*/ /*const */bool bForceCPUSkinning;
-	public/*()*/ /*const */bool bUseFullPrecisionUVs;
-	public/*()*/ FaceFXAsset FaceFXAsset;
-	public/*()*/ /*editoronly */PhysicsAsset BoundsPreviewAsset;
-	public/*()*/ int LODBiasPC;
-	public/*()*/ int LODBiasPS3;
-	public/*()*/ int LODBiasXbox360;
-	public /*native const transient */array<Object.Pointer> ClothMesh;
-	public /*native const transient */array<float> ClothMeshScale;
-	public /*const */array<int> ClothToGraphicsVertMap;
-	public /*const */array<int> ClothWeldingMap;
-	public /*const */int ClothWeldingDomain;
-	public /*const */array<int> ClothWeldedIndices;
-	public/*(Cloth)*/ /*const */bool bForceNoWelding;
-	public /*const */int NumFreeClothVerts;
-	public /*const */array<int> ClothIndexBuffer;
-	public/*(Cloth)*/ /*const */array<name> ClothBones;
-	public/*(Cloth)*/ /*const */bool bEnableClothBendConstraints;
-	public/*(Cloth)*/ /*const */bool bEnableClothDamping;
-	public/*(Cloth)*/ /*const */bool bUseClothCOMDamping;
-	public/*(Cloth)*/ /*const */float ClothStretchStiffness;
-	public/*(Cloth)*/ /*const */float ClothBendStiffness;
-	public/*(Cloth)*/ /*const */float ClothDensity;
-	public/*(Cloth)*/ /*const */float ClothThickness;
-	public/*(Cloth)*/ /*const */float ClothDamping;
-	public/*(Cloth)*/ /*const */int ClothIterations;
-	public/*(Cloth)*/ /*const */float ClothFriction;
-	public/*(Cloth)*/ /*const */float ClothRelativeGridSpacing;
-	public/*(Cloth)*/ /*const */float ClothPressure;
-	public/*(Cloth)*/ /*const */float ClothCollisionResponseCoefficient;
-	public/*(Cloth)*/ /*const */float ClothAttachmentResponseCoefficient;
-	public/*(Cloth)*/ /*const */float ClothAttachmentTearFactor;
-	public/*(Cloth)*/ /*const */float ClothSleepLinearVelocity;
-	public/*(Cloth)*/ /*const */bool bEnableClothOrthoBendConstraints;
-	public/*(Cloth)*/ /*const */bool bEnableClothSelfCollision;
-	public/*(Cloth)*/ /*const */bool bEnableClothPressure;
-	public/*(Cloth)*/ /*const */bool bEnableClothTwoWayCollision;
-	public/*(Cloth)*/ /*const */array<SkeletalMesh.ClothSpecialBoneInfo> ClothSpecialBones;
-	public/*(Cloth)*/ /*const */bool bEnableClothLineChecks;
-	public/*(Cloth)*/ /*const */bool bClothMetal;
-	public/*(Cloth)*/ /*const */float ClothMetalImpulseThreshold;
-	public/*(Cloth)*/ /*const */float ClothMetalPenetrationDepth;
-	public/*(Cloth)*/ /*const */float ClothMetalMaxDeformationDistance;
-	public/*(Cloth)*/ /*const */bool bEnableClothTearing;
-	public/*(Cloth)*/ /*const */float ClothTearFactor;
-	public/*(Cloth)*/ /*const */int ClothTearReserve;
-	public /*native const */Object.Map_Mirror ClothTornTriMap;
-	public /*native const */array<bool> GraphicsIndexIsCloth;
-	public /*native const transient */int ReleaseResourcesFence;
-	public /*const */Object.Guid SkelMeshGUID;
-	public/*()*/ /*editconst */int NumUVSets;
-	public /*transient */bool bDeferredProcessing;
+	[Category] [editfixedsize] public array<SkeletalMesh.SkeletalMeshLODInfo> LODInfo;
+	[Category] public array<name> PerPolyCollisionBones;
+	[Category] public array<name> AddToParentPerPolyCollisionBone;
+	[native, Const] public/*private*/ array<int> PerPolyBoneKDOPs;
+	[Category] public bool bPerPolyUseSoftWeighting;
+	[Category] public bool bUseSimpleLineCollision;
+	[Category] public bool bUseSimpleBoxCollision;
+	[Category] [Const] public bool bForceCPUSkinning;
+	[Category] [Const] public bool bUseFullPrecisionUVs;
+	[Category] public FaceFXAsset FaceFXAsset;
+	[Category] [editoronly] public PhysicsAsset BoundsPreviewAsset;
+	[Category] public int LODBiasPC;
+	[Category] public int LODBiasPS3;
+	[Category] public int LODBiasXbox360;
+	[native, Const, transient] public array<Object.Pointer> ClothMesh;
+	[native, Const, transient] public array<float> ClothMeshScale;
+	[Const] public array<int> ClothToGraphicsVertMap;
+	[Const] public array<int> ClothWeldingMap;
+	[Const] public int ClothWeldingDomain;
+	[Const] public array<int> ClothWeldedIndices;
+	[Category("Cloth")] [Const] public bool bForceNoWelding;
+	[Const] public int NumFreeClothVerts;
+	[Const] public array<int> ClothIndexBuffer;
+	[Category("Cloth")] [Const] public array<name> ClothBones;
+	[Category("Cloth")] [Const] public bool bEnableClothBendConstraints;
+	[Category("Cloth")] [Const] public bool bEnableClothDamping;
+	[Category("Cloth")] [Const] public bool bUseClothCOMDamping;
+	[Category("Cloth")] [Const] public float ClothStretchStiffness;
+	[Category("Cloth")] [Const] public float ClothBendStiffness;
+	[Category("Cloth")] [Const] public float ClothDensity;
+	[Category("Cloth")] [Const] public float ClothThickness;
+	[Category("Cloth")] [Const] public float ClothDamping;
+	[Category("Cloth")] [Const] public int ClothIterations;
+	[Category("Cloth")] [Const] public float ClothFriction;
+	[Category("Cloth")] [Const] public float ClothRelativeGridSpacing;
+	[Category("Cloth")] [Const] public float ClothPressure;
+	[Category("Cloth")] [Const] public float ClothCollisionResponseCoefficient;
+	[Category("Cloth")] [Const] public float ClothAttachmentResponseCoefficient;
+	[Category("Cloth")] [Const] public float ClothAttachmentTearFactor;
+	[Category("Cloth")] [Const] public float ClothSleepLinearVelocity;
+	[Category("Cloth")] [Const] public bool bEnableClothOrthoBendConstraints;
+	[Category("Cloth")] [Const] public bool bEnableClothSelfCollision;
+	[Category("Cloth")] [Const] public bool bEnableClothPressure;
+	[Category("Cloth")] [Const] public bool bEnableClothTwoWayCollision;
+	[Category("Cloth")] [Const] public array<SkeletalMesh.ClothSpecialBoneInfo> ClothSpecialBones;
+	[Category("Cloth")] [Const] public bool bEnableClothLineChecks;
+	[Category("Cloth")] [Const] public bool bClothMetal;
+	[Category("Cloth")] [Const] public float ClothMetalImpulseThreshold;
+	[Category("Cloth")] [Const] public float ClothMetalPenetrationDepth;
+	[Category("Cloth")] [Const] public float ClothMetalMaxDeformationDistance;
+	[Category("Cloth")] [Const] public bool bEnableClothTearing;
+	[Category("Cloth")] [Const] public float ClothTearFactor;
+	[Category("Cloth")] [Const] public int ClothTearReserve;
+	[native, Const] public Object.Map_Mirror ClothTornTriMap;
+	[native, Const] public array<bool> GraphicsIndexIsCloth;
+	[native, Const, transient] public int ReleaseResourcesFence;
+	[Const] public Object.Guid SkelMeshGUID;
+	[Category] [editconst] public int NumUVSets;
+	[transient] public bool bDeferredProcessing;
 	
 	public SkeletalMesh()
 	{

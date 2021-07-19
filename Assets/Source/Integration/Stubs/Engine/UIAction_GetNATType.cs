@@ -5,7 +5,7 @@ public partial class UIAction_GetNATType : UIAction/*
 		native
 		config(UI)
 		hidecategories(Object)*/{
-	public /*config */bool bAlwaysOpen;
+	[config] public bool bAlwaysOpen;
 	
 	public virtual /*event */bool GetNATType(ref OnlineSubsystem.ENATType OutNATType)
 	{

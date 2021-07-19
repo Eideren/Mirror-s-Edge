@@ -6,8 +6,8 @@ public partial class TdUIComp_ListPresenterBase : UIComp_ListPresenter/* within 
 		hidecategories(Object)*/{
 	public new UIList Outer => base.Outer as UIList;
 	
-	public /*init noimport editconst editinline transient */array</*init editconst editinline */TdListElement> ListElements;
-	public/*()*/ int SelectedItemHeight;
+	[init, noimport, editconst, editinline, transient] public array</*init editconst editinline */TdListElement> ListElements;
+	[Category] public int SelectedItemHeight;
 	
 	public virtual /*event */void DrawElement(Canvas Canvas, int ElementIndex, UIRoot.RenderParameters Parameters, bool bElementIsSelected)
 	{

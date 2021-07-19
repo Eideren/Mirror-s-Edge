@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_SubtractInt : SeqAct_SetSequenceVariable/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ int ValueA;
-	public/*()*/ int ValueB;
+	[Category] public int ValueA;
+	[Category] public int ValueB;
 	public float FloatResult;
 	public int IntResult;
 	

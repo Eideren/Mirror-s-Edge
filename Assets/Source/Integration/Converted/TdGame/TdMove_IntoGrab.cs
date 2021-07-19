@@ -4,25 +4,25 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_IntoGrab : TdPhysicsMove/*
 		native
 		config(PawnMovement)*/{
-	public/*(Gameplay)*/ /*config */float IntoGrabMaxAngle;
-	public/*(Gameplay)*/ /*config */float IntoGrabAlignSpeed;
-	public/*(Gameplay)*/ /*config */float IntoGrabMinInitialAlignSpeed;
-	public/*(Gameplay)*/ /*config */float GrabMinGrabableZNormal;
-	public/*(Gameplay)*/ /*config */Object.Vector GrabDesiredLedgeOffset;
-	public/*(Gameplay)*/ /*config */float MinGrabLedgeAdjustDistance;
-	public/*(Gameplay)*/ /*config */float IntoGrabMaxDistance;
-	public/*(Gameplay)*/ /*config */float IntoGrabZVelocityThreshold;
+	[Category("Gameplay")] [config] public float IntoGrabMaxAngle;
+	[Category("Gameplay")] [config] public float IntoGrabAlignSpeed;
+	[Category("Gameplay")] [config] public float IntoGrabMinInitialAlignSpeed;
+	[Category("Gameplay")] [config] public float GrabMinGrabableZNormal;
+	[Category("Gameplay")] [config] public Object.Vector GrabDesiredLedgeOffset;
+	[Category("Gameplay")] [config] public float MinGrabLedgeAdjustDistance;
+	[Category("Gameplay")] [config] public float IntoGrabMaxDistance;
+	[Category("Gameplay")] [config] public float IntoGrabZVelocityThreshold;
 	public float IntoGrabSpeed;
-	public/*(Grab)*/ /*config */float HangFoldedDownwardSpeedLimit;
-	public/*(Grab)*/ /*config */float HangFoldedIntoGrabZSpeedThreshold;
-	public/*(Grab)*/ /*config */float HangFoldedIntoGrabSpeed2DThreshold;
-	public/*(Grab)*/ /*config */float HangFoldedUpperDeltaDistance;
-	public/*(Grab)*/ /*config */float HangFoldedLowerDeltaDistance;
-	public/*(Grab)*/ /*config */float HangFoldedMaxDistance;
-	public/*(Grab)*/ /*config */float HangImpactMinZSpeed;
-	public/*(Grab)*/ /*config */float HangHardImpactMinZSpeed;
+	[Category("Grab")] [config] public float HangFoldedDownwardSpeedLimit;
+	[Category("Grab")] [config] public float HangFoldedIntoGrabZSpeedThreshold;
+	[Category("Grab")] [config] public float HangFoldedIntoGrabSpeed2DThreshold;
+	[Category("Grab")] [config] public float HangFoldedUpperDeltaDistance;
+	[Category("Grab")] [config] public float HangFoldedLowerDeltaDistance;
+	[Category("Grab")] [config] public float HangFoldedMaxDistance;
+	[Category("Grab")] [config] public float HangImpactMinZSpeed;
+	[Category("Grab")] [config] public float HangHardImpactMinZSpeed;
 	public bool bPrepareToGrab;
-	public /*private transient */bool bSlopedLedge;
+	[transient] public/*private*/ bool bSlopedLedge;
 	
 	public override /*simulated event */void FailedToReachPreciseLocation()
 	{

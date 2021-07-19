@@ -4,11 +4,11 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class OnlineStatsWrite : OnlineStats/*
 		abstract
 		native*/{
-	public /*const */array<Settings.StringIdToStringMapping> StatMappings;
-	public /*const */array<Settings.SettingsProperty> Properties;
-	public /*const */array<int> ViewIds;
-	public /*const */array<int> ArbitratedViewIds;
-	public /*const */int RatingId;
+	[Const] public array<Settings.StringIdToStringMapping> StatMappings;
+	[Const] public array<Settings.SettingsProperty> Properties;
+	[Const] public array<int> ViewIds;
+	[Const] public array<int> ArbitratedViewIds;
+	[Const] public int RatingId;
 	public OnlineStats.StatPeriodFlags PeriodFlags;
 	public /*delegate*/OnlineStatsWrite.OnStatsWriteComplete __OnStatsWriteComplete__Delegate;
 	

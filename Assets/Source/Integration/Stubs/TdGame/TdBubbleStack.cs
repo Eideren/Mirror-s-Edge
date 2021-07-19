@@ -15,11 +15,11 @@ public partial class TdBubbleStack : Object{
 	//	}
 	};
 	
-	public /*private */TdAIController myDebugController;
-	public /*private */name myDebugFilter;
-	public /*private */int myMaxDepth;
-	public /*private */bool myStartValue;
-	public /*private */array<TdBubbleStack.BoolItem> BoolStack;
+	public/*private*/ TdAIController myDebugController;
+	public/*private*/ name myDebugFilter;
+	public/*private*/ int myMaxDepth;
+	public/*private*/ bool myStartValue;
+	public/*private*/ array<TdBubbleStack.BoolItem> BoolStack;
 	
 	public virtual /*function */void Initialize(bool StartValue, /*optional */int? _MaxDepth = default, /*optional */TdAIController _DebugController = default, /*optional */name? _DebugFilter = default)
 	{

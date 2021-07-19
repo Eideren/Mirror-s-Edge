@@ -7,8 +7,8 @@ public partial class ActorFactoryEmitter : ActorFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ ParticleSystem ParticleSystem;
-	public/*()*/ /*export editinline */ParticleSystemComponent ParticleSystemPhysX;
+	[Category] public ParticleSystem ParticleSystem;
+	[Category] [export, editinline] public ParticleSystemComponent ParticleSystemPhysX;
 	
 	public ActorFactoryEmitter()
 	{

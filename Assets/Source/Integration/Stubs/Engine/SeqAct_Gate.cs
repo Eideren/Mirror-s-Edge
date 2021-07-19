@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_Gate : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bOpen;
-	public/*()*/ int AutoCloseCount;
+	[Category] public bool bOpen;
+	[Category] public int AutoCloseCount;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

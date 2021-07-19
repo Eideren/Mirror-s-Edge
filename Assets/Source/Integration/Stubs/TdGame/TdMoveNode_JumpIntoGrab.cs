@@ -6,8 +6,8 @@ public partial class TdMoveNode_JumpIntoGrab : TdMoveNode/*
 		config(PathfindingCosts)
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*(Movement)*/ bool bForceSpeed;
-	public/*(Movement)*/ float InitialSpeed;
+	[Category("Movement")] public bool bForceSpeed;
+	[Category("Movement")] public float InitialSpeed;
 	
 	public TdMoveNode_JumpIntoGrab()
 	{

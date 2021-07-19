@@ -188,13 +188,13 @@ public partial class OnlineProfileSettings : Object/*
 	//	}
 	};
 	
-	public /*const */int VersionNumber;
+	[Const] public int VersionNumber;
 	public array<int> ProfileSettingIds;
 	public array<OnlineProfileSettings.OnlineProfileSetting> ProfileSettings;
 	public array<OnlineProfileSettings.OnlineProfileSetting> DefaultSettings;
-	public /*const */array<Settings.IdToStringMapping> OwnerMappings;
+	[Const] public array<Settings.IdToStringMapping> OwnerMappings;
 	public array<Settings.SettingsPropertyPropertyMetaData> ProfileMappings;
-	public /*const */OnlineProfileSettings.EOnlineProfileAsyncState AsyncState;
+	[Const] public OnlineProfileSettings.EOnlineProfileAsyncState AsyncState;
 	
 	// Export UOnlineProfileSettings::execGetProfileSettingId(FFrame&, void* const)
 	public virtual /*native function */bool GetProfileSettingId(name ProfileSettingName, ref int ProfileSettingId)

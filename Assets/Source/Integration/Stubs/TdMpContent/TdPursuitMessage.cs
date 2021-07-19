@@ -2,10 +2,10 @@ namespace MEdge.TdMpContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
 public partial class TdPursuitMessage : TdLocalMessage{
-	public /*const localized */String HelicopterIsApproaching;
-	public /*const localized */String HelicopterIsLeaving;
-	public /*const localized */String PoliceSearchingBag;
-	public /*const localized */String PoliceSearchingIntercepted;
+	[Const, localized] public String HelicopterIsApproaching;
+	[Const, localized] public String HelicopterIsLeaving;
+	[Const, localized] public String PoliceSearchingBag;
+	[Const, localized] public String PoliceSearchingIntercepted;
 	public SoundNodeWave VOHelicopterIsApproaching;
 	public SoundNodeWave VOHelicopterIsLeaving;
 	public SoundNodeWave VOPoliceSearchingBag;

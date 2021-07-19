@@ -6,7 +6,7 @@ public partial class UIDataProvider_TdSimpleElementProvider : UIDataProvider,
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementCellProvider;
 	
 	// Export UUIDataProvider_TdSimpleElementProvider::execGetElementCount(FFrame&, void* const)
 	public virtual /*native function */int GetElementCount()

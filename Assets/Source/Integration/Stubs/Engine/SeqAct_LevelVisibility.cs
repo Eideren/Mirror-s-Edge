@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_LevelVisibility : SeqAct_Latent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ LevelStreaming Level;
-	public/*()*/ name LevelName;
-	public /*transient */bool bStatusIsOk;
+	[Category] public LevelStreaming Level;
+	[Category] public name LevelName;
+	[transient] public bool bStatusIsOk;
 	
 	public SeqAct_LevelVisibility()
 	{

@@ -3,13 +3,13 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SVehicleSimCar : SVehicleSimBase/*
 		native*/{
-	public/*()*/ float ChassisTorqueScale;
-	public/*()*/ Object.InterpCurveFloat MaxSteerAngleCurve;
-	public/*()*/ float SteerSpeed;
-	public/*()*/ float ReverseThrottle;
-	public/*()*/ float EngineBrakeFactor;
-	public/*()*/ float MaxBrakeTorque;
-	public/*()*/ float StopThreshold;
+	[Category] public float ChassisTorqueScale;
+	[Category] public Object.InterpCurveFloat MaxSteerAngleCurve;
+	[Category] public float SteerSpeed;
+	[Category] public float ReverseThrottle;
+	[Category] public float EngineBrakeFactor;
+	[Category] public float MaxBrakeTorque;
+	[Category] public float StopThreshold;
 	public bool bIsDriving;
 	public float ActualSteering;
 	public float TimeSinceThrottle;

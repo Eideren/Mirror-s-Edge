@@ -3,9 +3,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdHUDWidget_StashpointTimer : TdHUDWidget/*
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*export editinline deprecated */UILabel StashpointTimerLabel;
-	public /*private deprecated */String Text;
-	public /*private deprecated */float Completed;
+	[export, editinline, deprecated] public UILabel StashpointTimerLabel;
+	[deprecated] public/*private*/ String Text;
+	[deprecated] public/*private*/ float Completed;
 	
 	public TdHUDWidget_StashpointTimer()
 	{

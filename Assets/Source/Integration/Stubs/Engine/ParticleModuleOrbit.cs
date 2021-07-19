@@ -15,9 +15,9 @@ public partial class ParticleModuleOrbit : ParticleModuleOrbitBase/*
 	
 	public partial struct /*native */OrbitOptions
 	{
-		public/*()*/ bool bProcessDuringSpawn;
-		public/*()*/ bool bProcessDuringUpdate;
-		public/*()*/ bool bUseEmitterTime;
+		[Category] public bool bProcessDuringSpawn;
+		[Category] public bool bProcessDuringUpdate;
+		[Category] public bool bUseEmitterTime;
 	
 	//	structdefaultproperties
 	//	{
@@ -28,13 +28,13 @@ public partial class ParticleModuleOrbit : ParticleModuleOrbitBase/*
 	//	}
 	};
 	
-	public/*(Chaining)*/ ParticleModuleOrbit.EOrbitChainMode ChainMode;
-	public/*(Offset)*/ DistributionVector.RawDistributionVector OffsetAmount;
-	public/*(Offset)*/ ParticleModuleOrbit.OrbitOptions OffsetOptions;
-	public/*(Rotation)*/ DistributionVector.RawDistributionVector RotationAmount;
-	public/*(Rotation)*/ ParticleModuleOrbit.OrbitOptions RotationOptions;
-	public/*(RotationRate)*/ DistributionVector.RawDistributionVector RotationRateAmount;
-	public/*(RotationRate)*/ ParticleModuleOrbit.OrbitOptions RotationRateOptions;
+	[Category("Chaining")] public ParticleModuleOrbit.EOrbitChainMode ChainMode;
+	[Category("Offset")] public DistributionVector.RawDistributionVector OffsetAmount;
+	[Category("Offset")] public ParticleModuleOrbit.OrbitOptions OffsetOptions;
+	[Category("Rotation")] public DistributionVector.RawDistributionVector RotationAmount;
+	[Category("Rotation")] public ParticleModuleOrbit.OrbitOptions RotationOptions;
+	[Category("RotationRate")] public DistributionVector.RawDistributionVector RotationRateAmount;
+	[Category("RotationRate")] public ParticleModuleOrbit.OrbitOptions RotationRateOptions;
 	
 	public ParticleModuleOrbit()
 	{

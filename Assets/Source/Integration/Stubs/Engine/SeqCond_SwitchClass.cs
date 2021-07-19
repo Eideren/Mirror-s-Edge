@@ -6,8 +6,8 @@ public partial class SeqCond_SwitchClass : SeqCond_SwitchBase/*
 		hidecategories(Object)*/{
 	public partial struct /*native */SwitchClassInfo
 	{
-		public/*()*/ name ClassName;
-		public/*()*/ byte bFallThru;
+		[Category] public name ClassName;
+		[Category] public byte bFallThru;
 	
 	//	structdefaultproperties
 	//	{
@@ -17,7 +17,7 @@ public partial class SeqCond_SwitchClass : SeqCond_SwitchBase/*
 	//	}
 	};
 	
-	public/*()*/ array<SeqCond_SwitchClass.SwitchClassInfo> ClassArray;
+	[Category] public array<SeqCond_SwitchClass.SwitchClassInfo> ClassArray;
 	
 	public override /*event */void VerifyDefaultCaseValue()
 	{

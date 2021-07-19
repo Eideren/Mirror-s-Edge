@@ -5,13 +5,13 @@ public partial class TdUIScene_MiniMenu : TdUIScene_Overlay/*
 		native
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIList OptionList;
-	public /*transient */UILabel TitleLabel;
-	public /*transient */UILabel SubtitleLabel;
-	public /*private */UIDataStore_TdMiniMenuData MenuData;
+	[transient] public UIList OptionList;
+	[transient] public UILabel TitleLabel;
+	[transient] public UILabel SubtitleLabel;
+	public/*private*/ UIDataStore_TdMiniMenuData MenuData;
 	public name MenuDataStoreName;
-	public /*private transient */array<String> Options;
-	public /*private transient */array< /*delegate*/TdUIScene_MiniMenu.OnOptionCallback > OptionCallbacks;
+	[transient] public/*private*/ array<String> Options;
+	[transient] public/*private*/ array< /*delegate*/TdUIScene_MiniMenu.OnOptionCallback > OptionCallbacks;
 	public /*delegate*/TdUIScene_MiniMenu.OnOptionCallback __OnOptionCallback__Delegate;
 	
 	public /*private final */delegate void OnOptionCallback();

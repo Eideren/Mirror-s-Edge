@@ -4,22 +4,22 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_EndOfRace : TdUIScene/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UILabel YouName;
-	public /*transient */UILabel TargetName;
-	public /*transient */UILabel TimeYou;
-	public /*transient */UILabel TimeTarget;
-	public /*transient */UILabel DistanceYou;
-	public /*transient */UILabel DistanceTarget;
-	public /*transient */UILabel AverageSpeedYou;
-	public /*transient */UILabel AverageSpeedTarget;
-	public /*transient */UILabel StarRatingYou;
-	public /*transient */UILabel StarRatingTarget;
-	public /*transient */UIImage MapStar1;
-	public /*transient */UIImage MapStar2;
-	public /*transient */UIImage MapStar3;
-	public /*transient */UITdOptionButton CompareTarget;
-	public /*transient */TdUIRaceProgressBar RaceProgressBar;
-	public /*transient */OnlineSubsystem.UniqueNetId GamerCardId;
+	[transient] public UILabel YouName;
+	[transient] public UILabel TargetName;
+	[transient] public UILabel TimeYou;
+	[transient] public UILabel TimeTarget;
+	[transient] public UILabel DistanceYou;
+	[transient] public UILabel DistanceTarget;
+	[transient] public UILabel AverageSpeedYou;
+	[transient] public UILabel AverageSpeedTarget;
+	[transient] public UILabel StarRatingYou;
+	[transient] public UILabel StarRatingTarget;
+	[transient] public UIImage MapStar1;
+	[transient] public UIImage MapStar2;
+	[transient] public UIImage MapStar3;
+	[transient] public UITdOptionButton CompareTarget;
+	[transient] public TdUIRaceProgressBar RaceProgressBar;
+	[transient] public OnlineSubsystem.UniqueNetId GamerCardId;
 	
 	public override /*event */void PostInitialize()
 	{

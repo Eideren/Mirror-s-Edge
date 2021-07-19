@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqEvent_RemoteEvent : SequenceEvent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ name EventName;
-	public /*transient */bool bStatusIsOk;
+	[Category] public name EventName;
+	[transient] public bool bStatusIsOk;
 	
 	public SeqEvent_RemoteEvent()
 	{

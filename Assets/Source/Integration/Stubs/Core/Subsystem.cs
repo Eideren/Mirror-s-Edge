@@ -5,7 +5,7 @@ public partial class Subsystem : Object/*
 		abstract
 		transient
 		native*/{
-	public /*private native const noexport */Object.Pointer VfTable_FExec;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FExec;
 	
 }
 }

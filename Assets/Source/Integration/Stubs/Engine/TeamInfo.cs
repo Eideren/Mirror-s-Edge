@@ -6,11 +6,11 @@ public partial class TeamInfo : ReplicationInfo/*
 		nativereplication
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public /*databinding const localized */String TeamName;
-	public /*databinding */int Size;
-	public /*databinding */float Score;
-	public /*repnotify databinding */int TeamIndex;
-	public /*databinding */Object.Color TeamColor;
+	[databinding, Const, localized] public String TeamName;
+	[databinding] public int Size;
+	[databinding] public float Score;
+	[repnotify, databinding] public int TeamIndex;
+	[databinding] public Object.Color TeamColor;
 	
 	//replication
 	//{

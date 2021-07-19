@@ -7,8 +7,8 @@ public partial class UIDataProvider_TdMainMenuItems_Singleplayer : UIDataProvide
 		config(Game)
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
-	public /*const config localized */String FriendlyName;
-	public /*const config localized */String Description;
+	[Const, config, localized] public String FriendlyName;
+	[Const, config, localized] public String Description;
 	
 }
 }

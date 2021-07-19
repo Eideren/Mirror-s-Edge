@@ -7,8 +7,8 @@ public partial class InterpTrack : Object/*
 		collapsecategories
 		noexport
 		hidecategories(Object)*/{
-	public /*private native const noexport */Object.Pointer VfTable_FInterpEdInputInterface;
-	public /*private native noexport */Object.Pointer CurveEdVTable;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FInterpEdInputInterface;
+	[native, noexport] public/*private*/ Object.Pointer CurveEdVTable;
 	public Core.ClassT<InterpTrackInst> TrackInstClass;
 	public String TrackTitle;
 	public bool bOnePerGroup;

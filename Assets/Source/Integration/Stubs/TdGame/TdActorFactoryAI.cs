@@ -8,7 +8,7 @@ public partial class TdActorFactoryAI : ActorFactoryAI/*
 		collapsecategories
 		hidecategories(Object)*/{
 	public Core.ClassT<AITemplate> Template;
-	public /*transient */AITemplate LastTemplate;
+	[transient] public AITemplate LastTemplate;
 	
 	public TdActorFactoryAI()
 	{

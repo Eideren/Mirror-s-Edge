@@ -4,10 +4,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdTriggerSubtitle : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ array<SoundNodeWave.SubtitleCue> Subtitles;
-	public/*()*/ float Priority;
-	public/*()*/ bool bManualWordWrap;
-	public/*()*/ float Duration;
+	[Category] public array<SoundNodeWave.SubtitleCue> Subtitles;
+	[Category] public float Priority;
+	[Category] public bool bManualWordWrap;
+	[Category] public float Duration;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

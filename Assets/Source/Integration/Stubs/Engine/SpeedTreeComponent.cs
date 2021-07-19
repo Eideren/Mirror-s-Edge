@@ -8,11 +8,11 @@ public partial class SpeedTreeComponent : PrimitiveComponent/*
 		autoexpandcategories(Collision,Rendering,Lighting)*/{
 	public partial struct /*native */SpeedTreeStaticLight
 	{
-		public /*private const */Object.Guid Guid;
-		public /*private const */ShadowMap1D BranchAndFrondShadowMap;
-		public /*private const */ShadowMap1D LeafMeshShadowMap;
-		public /*private const */ShadowMap1D LeafCardShadowMap;
-		public /*private const */ShadowMap1D BillboardShadowMap;
+		[Const] public/*private*/ Object.Guid Guid;
+		[Const] public/*private*/ ShadowMap1D BranchAndFrondShadowMap;
+		[Const] public/*private*/ ShadowMap1D LeafMeshShadowMap;
+		[Const] public/*private*/ ShadowMap1D LeafCardShadowMap;
+		[Const] public/*private*/ ShadowMap1D BillboardShadowMap;
 	
 	//	structdefaultproperties
 	//	{
@@ -33,29 +33,29 @@ public partial class SpeedTreeComponent : PrimitiveComponent/*
 	
 	public partial struct LightMapRef
 	{
-		public /*private native const */Object.Pointer Reference;
+		[native, Const] public/*private*/ Object.Pointer Reference;
 	};
 	
-	public/*(SpeedTree)*/ /*const */SpeedTree SpeedTree;
-	public/*(SpeedTree)*/ bool bUseLeaves;
-	public/*(SpeedTree)*/ bool bUseBranches;
-	public/*(SpeedTree)*/ bool bUseFronds;
-	public/*(SpeedTree)*/ bool bUseBillboards;
-	public/*(SpeedTree)*/ float LodNearDistance;
-	public/*(SpeedTree)*/ float LodFarDistance;
-	public/*(SpeedTree)*/ float LodLevelOverride;
-	public/*(SpeedTree)*/ MaterialInterface BranchMaterial;
-	public/*(SpeedTree)*/ MaterialInterface FrondMaterial;
-	public/*(SpeedTree)*/ MaterialInterface LeafMaterial;
-	public/*(SpeedTree)*/ MaterialInterface BillboardMaterial;
-	public /*private editoronly */Texture2D SpeedTreeIcon;
-	public /*private const */array<SpeedTreeComponent.SpeedTreeStaticLight> StaticLights;
-	public /*private native const */SpeedTreeComponent.LightMapRef BranchAndFrondLightMap;
-	public /*private native const */SpeedTreeComponent.LightMapRef LeafMeshLightMap;
-	public /*private native const */SpeedTreeComponent.LightMapRef LeafCardLightMap;
-	public /*private native const */SpeedTreeComponent.LightMapRef BillboardLightMap;
-	public /*private native const */Object.Matrix RotationOnlyMatrix;
-	public /*private native const */float WindMatrixOffset;
+	[Category("SpeedTree")] [Const] public SpeedTree SpeedTree;
+	[Category("SpeedTree")] public bool bUseLeaves;
+	[Category("SpeedTree")] public bool bUseBranches;
+	[Category("SpeedTree")] public bool bUseFronds;
+	[Category("SpeedTree")] public bool bUseBillboards;
+	[Category("SpeedTree")] public float LodNearDistance;
+	[Category("SpeedTree")] public float LodFarDistance;
+	[Category("SpeedTree")] public float LodLevelOverride;
+	[Category("SpeedTree")] public MaterialInterface BranchMaterial;
+	[Category("SpeedTree")] public MaterialInterface FrondMaterial;
+	[Category("SpeedTree")] public MaterialInterface LeafMaterial;
+	[Category("SpeedTree")] public MaterialInterface BillboardMaterial;
+	[editoronly] public/*private*/ Texture2D SpeedTreeIcon;
+	[Const] public/*private*/ array<SpeedTreeComponent.SpeedTreeStaticLight> StaticLights;
+	[native, Const] public/*private*/ SpeedTreeComponent.LightMapRef BranchAndFrondLightMap;
+	[native, Const] public/*private*/ SpeedTreeComponent.LightMapRef LeafMeshLightMap;
+	[native, Const] public/*private*/ SpeedTreeComponent.LightMapRef LeafCardLightMap;
+	[native, Const] public/*private*/ SpeedTreeComponent.LightMapRef BillboardLightMap;
+	[native, Const] public/*private*/ Object.Matrix RotationOnlyMatrix;
+	[native, Const] public/*private*/ float WindMatrixOffset;
 	
 	public SpeedTreeComponent()
 	{

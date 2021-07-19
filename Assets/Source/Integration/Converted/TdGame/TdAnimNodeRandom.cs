@@ -6,9 +6,9 @@ public partial class TdAnimNodeRandom : TdAnimNodeBlendList/*
 		hidecategories(Object,Object,Object)*/{
 	public partial struct /*native */TdRandomAnimInfo
 	{
-		public/*()*/ float Chance;
-		public/*()*/ byte LoopCountMin;
-		public/*()*/ byte LoopCountMax;
+		[Category] public float Chance;
+		[Category] public byte LoopCountMin;
+		[Category] public byte LoopCountMax;
 		public byte LoopCount;
 	
 	//	structdefaultproperties
@@ -21,9 +21,9 @@ public partial class TdAnimNodeRandom : TdAnimNodeBlendList/*
 	//	}
 	};
 	
-	public/*()*/ /*editinline */array</*editinline */TdAnimNodeRandom.TdRandomAnimInfo> RandomInfo;
-	public/*()*/ bool bRunOnce;
-	public/*()*/ bool bCallPlayOnChild;
+	[Category] [editinline] public array</*editinline */TdAnimNodeRandom.TdRandomAnimInfo> RandomInfo;
+	[Category] public bool bRunOnce;
+	[Category] public bool bCallPlayOnChild;
 	
 	// Export UTdAnimNodeRandom::execChooseNextAnimation(FFrame&, void* const)
 	public virtual /*native function */void ChooseNextAnimation()

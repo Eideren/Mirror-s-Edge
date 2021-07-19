@@ -4,11 +4,11 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqEvent_Touch : SequenceEvent/*
 		native
 		hidecategories(Object)*/{
-	public/*(TouchTypes)*/ array< Core.ClassT<Actor> > ClassProximityTypes;
-	public/*(TouchTypes)*/ array< Core.ClassT<Actor> > IgnoredClassProximityTypes;
-	public/*()*/ bool bForceOverlapping;
-	public/*()*/ bool bUseInstigator;
-	public/*()*/ bool bAllowDeadPawns;
+	[Category("TouchTypes")] public array< Core.ClassT<Actor> > ClassProximityTypes;
+	[Category("TouchTypes")] public array< Core.ClassT<Actor> > IgnoredClassProximityTypes;
+	[Category] public bool bForceOverlapping;
+	[Category] public bool bUseInstigator;
+	[Category] public bool bAllowDeadPawns;
 	public array<Actor> TouchedList;
 	
 	// Export USeqEvent_Touch::execCheckTouchActivate(FFrame&, void* const)

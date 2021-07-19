@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_TimeTrialPause : TdUIScene_Pause/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UILabelButton GhostButton;
+	[transient] public UILabelButton GhostButton;
 	
 	public override /*event */void PostInitialize()
 	{

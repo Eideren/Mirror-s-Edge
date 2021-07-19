@@ -9,19 +9,19 @@ public partial class UIOptionListBase : UIObject,
 	public const string UIKEY_MoveCursorLeft = "UIKEY_MoveCursorLeft";
 	public const string UIKEY_MoveCursorRight = "UIKEY_MoveCursorRight";
 	
-	public /*private native const noexport */Object.Pointer VfTable_IUIDataStorePublisher;
-	public /*private */UIRoot.UIStyleReference DecrementStyle;
-	public /*private */UIRoot.UIStyleReference IncrementStyle;
-	public /*private const */UIOptionListButton DecrementButton;
-	public /*private const */UIOptionListButton IncrementButton;
-	public /*const */Core.ClassT<UIOptionListButton> OptionListButtonClass;
-	public/*(Presentation)*/ UIRoot.UIScreenValue_Extent ButtonSpacing;
-	public/*(Image)*/ /*const export editinline */UIComp_DrawImage BackgroundImageComponent;
-	public/*(Data)*/ /*noclear const export editinline */UIComp_DrawString StringRenderComponent;
-	public/*(Sound)*/ name IncrementCue;
-	public/*(Sound)*/ name DecrementCue;
-	public/*()*/ bool bWrapOptions;
-	public/*(Data)*/ UIRoot.UIDataStoreBinding DataSource;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIDataStorePublisher;
+	public/*private*/ UIRoot.UIStyleReference DecrementStyle;
+	public/*private*/ UIRoot.UIStyleReference IncrementStyle;
+	[Const] public/*private*/ UIOptionListButton DecrementButton;
+	[Const] public/*private*/ UIOptionListButton IncrementButton;
+	[Const] public Core.ClassT<UIOptionListButton> OptionListButtonClass;
+	[Category("Presentation")] public UIRoot.UIScreenValue_Extent ButtonSpacing;
+	[Category("Image")] [Const, export, editinline] public UIComp_DrawImage BackgroundImageComponent;
+	[Category("Data")] [noclear, Const, export, editinline] public UIComp_DrawString StringRenderComponent;
+	[Category("Sound")] public name IncrementCue;
+	[Category("Sound")] public name DecrementCue;
+	[Category] public bool bWrapOptions;
+	[Category("Data")] public UIRoot.UIDataStoreBinding DataSource;
 	public /*delegate*/UIOptionListBase.CreateCustomDecrementButton __CreateCustomDecrementButton__Delegate;
 	public /*delegate*/UIOptionListBase.CreateCustomIncrementButton __CreateCustomIncrementButton__Delegate;
 	

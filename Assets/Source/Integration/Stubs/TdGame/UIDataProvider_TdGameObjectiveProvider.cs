@@ -9,9 +9,9 @@ public partial class UIDataProvider_TdGameObjectiveProvider : UIDataProvider_TdR
 		hidecategories(Object,UIRoot)*/{
 	public partial struct /*native */SubObjectiveStruct
 	{
-		public /*config */name SubObjectiveName;
+		[config] public name SubObjectiveName;
 		public bool bIsFinished;
-		public /*const config localized */String FriendlyName;
+		[Const, config, localized] public String FriendlyName;
 	
 	//	structdefaultproperties
 	//	{
@@ -22,11 +22,11 @@ public partial class UIDataProvider_TdGameObjectiveProvider : UIDataProvider_TdR
 	//	}
 	};
 	
-	public /*const config localized */String FriendlyName;
-	public /*const config localized */String Description;
-	public /*config */String ImagePath;
-	public /*config */array</*config */UIDataProvider_TdGameObjectiveProvider.SubObjectiveStruct> SubObjectives;
-	public /*private transient */int CurrentActiveSubObjectiveIndex;
+	[Const, config, localized] public String FriendlyName;
+	[Const, config, localized] public String Description;
+	[config] public String ImagePath;
+	[config] public array</*config */UIDataProvider_TdGameObjectiveProvider.SubObjectiveStruct> SubObjectives;
+	[transient] public/*private*/ int CurrentActiveSubObjectiveIndex;
 	
 	public UIDataProvider_TdGameObjectiveProvider()
 	{

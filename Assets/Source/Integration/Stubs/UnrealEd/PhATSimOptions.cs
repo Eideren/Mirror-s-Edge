@@ -5,29 +5,29 @@ public partial class PhATSimOptions : Object/*
 		native
 		config(Editor)
 		hidecategories(Object)*/{
-	public/*(Anim)*/ /*transient */AnimSet PreviewAnimSet;
-	public/*(Anim)*/ /*transient */float PhysicsBlend;
-	public/*(Anim)*/ /*transient */bool bBlendOnPoke;
-	public/*(Simulation)*/ /*config */bool bDrawContacts;
-	public/*(Advanced)*/ /*config */bool bPromptOnBoneDelete;
-	public/*(Advanced)*/ /*config */bool bShowConstraintsAsPoints;
-	public/*(Advanced)*/ /*config */bool bShowNamesInHierarchy;
-	public/*(Anim)*/ /*config */float PokePauseTime;
-	public/*(Anim)*/ /*config */float PokeBlendTime;
-	public/*(Anim)*/ /*transient */float AngularSpringScale;
-	public/*(Anim)*/ /*transient */float AngularDampingScale;
-	public/*(Simulation)*/ /*config */float SimSpeed;
-	public/*(Simulation)*/ /*config */float FloorGap;
-	public/*(Simulation)*/ /*config */float GravScale;
-	public/*(MouseSpring)*/ /*config */float HandleLinearDamping;
-	public/*(MouseSpring)*/ /*config */float HandleLinearStiffness;
-	public/*(MouseSpring)*/ /*config */float HandleAngularDamping;
-	public/*(MouseSpring)*/ /*config */float HandleAngularStiffness;
-	public/*(Poking)*/ /*config */float PokeStrength;
-	public/*(Lighting)*/ /*config */float SkyBrightness;
-	public/*(Lighting)*/ /*config */float Brightness;
-	public/*(Snap)*/ /*config */float AngularSnap;
-	public/*(Snap)*/ /*config */float LinearSnap;
+	[Category("Anim")] [transient] public AnimSet PreviewAnimSet;
+	[Category("Anim")] [transient] public float PhysicsBlend;
+	[Category("Anim")] [transient] public bool bBlendOnPoke;
+	[Category("Simulation")] [config] public bool bDrawContacts;
+	[Category("Advanced")] [config] public bool bPromptOnBoneDelete;
+	[Category("Advanced")] [config] public bool bShowConstraintsAsPoints;
+	[Category("Advanced")] [config] public bool bShowNamesInHierarchy;
+	[Category("Anim")] [config] public float PokePauseTime;
+	[Category("Anim")] [config] public float PokeBlendTime;
+	[Category("Anim")] [transient] public float AngularSpringScale;
+	[Category("Anim")] [transient] public float AngularDampingScale;
+	[Category("Simulation")] [config] public float SimSpeed;
+	[Category("Simulation")] [config] public float FloorGap;
+	[Category("Simulation")] [config] public float GravScale;
+	[Category("MouseSpring")] [config] public float HandleLinearDamping;
+	[Category("MouseSpring")] [config] public float HandleLinearStiffness;
+	[Category("MouseSpring")] [config] public float HandleAngularDamping;
+	[Category("MouseSpring")] [config] public float HandleAngularStiffness;
+	[Category("Poking")] [config] public float PokeStrength;
+	[Category("Lighting")] [config] public float SkyBrightness;
+	[Category("Lighting")] [config] public float Brightness;
+	[Category("Snap")] [config] public float AngularSnap;
+	[Category("Snap")] [config] public float LinearSnap;
 	
 	public PhATSimOptions()
 	{

@@ -14,13 +14,13 @@ public partial class TdSkelControlAim1p : SkelControlSingleBone/*
 		TDEAT_MAX
 	};
 	
-	public/*()*/ bool bApplySwanNeckTranslation;
+	[Category] public bool bApplySwanNeckTranslation;
 	public bool bBlendInUnarmedAim;
-	public /*config */float UnarmedAimingMomentumThreshold;
-	public /*config */float UnarmedAimingBlendInTime;
-	public /*config */float UnarmedAimingBlendOutTime;
+	[config] public float UnarmedAimingMomentumThreshold;
+	[config] public float UnarmedAimingBlendInTime;
+	[config] public float UnarmedAimingBlendOutTime;
 	public float CurrentUnarmedAimingMomentumThreshold;
-	public/*(Aiming)*/ TdSkelControlAim1p.EAimingType AimingType;
+	[Category("Aiming")] public TdSkelControlAim1p.EAimingType AimingType;
 	
 	// Export UTdSkelControlAim1p::execUpdateTransformation(FFrame&, void* const)
 	public virtual /*native function */void UpdateTransformation(TdPawn PawnOwner)

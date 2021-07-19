@@ -5,7 +5,7 @@ public partial class JuicePerformancePoint : Keypoint/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*(PerformancePoint)*/ String PointName;
+	[Category("PerformancePoint")] public String PointName;
 	public array<LevelStreaming> StreamingLevels;
 	
 	public JuicePerformancePoint()

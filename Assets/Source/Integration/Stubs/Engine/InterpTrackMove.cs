@@ -46,17 +46,17 @@ public partial class InterpTrackMove : InterpTrack/*
 	public Object.InterpCurveVector PosTrack;
 	public Object.InterpCurveVector EulerTrack;
 	public InterpTrackMove.InterpLookupTrack LookupTrack;
-	public/*()*/ name LookAtGroupName;
-	public/*()*/ float LinCurveTension;
-	public/*()*/ float AngCurveTension;
-	public/*()*/ bool bUseQuatInterpolation;
-	public/*()*/ bool bShowArrowAtKeys;
-	public/*()*/ bool bDisableMovement;
-	public/*()*/ bool bShowTranslationOnCurveEd;
-	public/*()*/ bool bShowRotationOnCurveEd;
-	public/*()*/ bool bHide3DTrack;
-	public/*()*/ /*editconst */InterpTrackMove.EInterpTrackMoveFrame MoveFrame;
-	public/*()*/ InterpTrackMove.EInterpTrackMoveRotMode RotMode;
+	[Category] public name LookAtGroupName;
+	[Category] public float LinCurveTension;
+	[Category] public float AngCurveTension;
+	[Category] public bool bUseQuatInterpolation;
+	[Category] public bool bShowArrowAtKeys;
+	[Category] public bool bDisableMovement;
+	[Category] public bool bShowTranslationOnCurveEd;
+	[Category] public bool bShowRotationOnCurveEd;
+	[Category] public bool bHide3DTrack;
+	[Category] [editconst] public InterpTrackMove.EInterpTrackMoveFrame MoveFrame;
+	[Category] public InterpTrackMove.EInterpTrackMoveRotMode RotMode;
 	
 	public InterpTrackMove()
 	{

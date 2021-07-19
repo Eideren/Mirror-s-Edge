@@ -3,10 +3,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdUITabPage_UnlockedMusic : TdUITabPage/*
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIList MusicList;
-	public /*transient */UILabel MusicDescriptionLabel;
-	public /*transient */TdUITabControl OwnerTabControl;
-	public /*transient */TdUIButtonBar ButtonBar;
+	[transient] public UIList MusicList;
+	[transient] public UILabel MusicDescriptionLabel;
+	[transient] public TdUITabControl OwnerTabControl;
+	[transient] public TdUIButtonBar ButtonBar;
 	public UIDataStore_TdUnlocksData UnlocksData;
 	
 	public override /*event */void PostInitialize()

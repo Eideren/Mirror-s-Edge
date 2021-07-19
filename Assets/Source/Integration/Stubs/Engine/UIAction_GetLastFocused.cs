@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIAction_GetLastFocused : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ UIScreenObject Parent;
-	public/*()*/ UIScreenObject LastFocused;
+	[Category] public UIScreenObject Parent;
+	[Category] public UIScreenObject LastFocused;
 	
 	public UIAction_GetLastFocused()
 	{

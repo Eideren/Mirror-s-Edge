@@ -4,10 +4,10 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SceneCaptureReflectComponent : SceneCaptureComponent/*
 		native
 		hidecategories(Object)*/{
-	public/*(Capture)*/ TextureRenderTarget2D TextureTarget;
-	public/*(Capture)*/ float ScaleFOV;
-	public/*(Capture)*/ float FarCullingDistance;
-	public/*(Capture)*/ bool bLiteReflection;
+	[Category("Capture")] public TextureRenderTarget2D TextureTarget;
+	[Category("Capture")] public float ScaleFOV;
+	[Category("Capture")] public float FarCullingDistance;
+	[Category("Capture")] public bool bLiteReflection;
 	
 	public SceneCaptureReflectComponent()
 	{

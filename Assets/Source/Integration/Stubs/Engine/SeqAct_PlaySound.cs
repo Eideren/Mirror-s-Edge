@@ -4,15 +4,15 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_PlaySound : SeqAct_Latent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ SoundCue PlaySound;
-	public/*()*/ float ExtraDelay;
-	public /*transient */float SoundDuration;
-	public/*()*/ float FadeInTime;
-	public/*()*/ float FadeOutTime;
-	public/*()*/ float VolumeMultiplier;
-	public/*()*/ float PitchMultiplier;
-	public/*()*/ bool bSuppressSubtitles;
-	public /*transient */bool bStopped;
+	[Category] public SoundCue PlaySound;
+	[Category] public float ExtraDelay;
+	[transient] public float SoundDuration;
+	[Category] public float FadeInTime;
+	[Category] public float FadeOutTime;
+	[Category] public float VolumeMultiplier;
+	[Category] public float PitchMultiplier;
+	[Category] public bool bSuppressSubtitles;
+	[transient] public bool bStopped;
 	
 	public SeqAct_PlaySound()
 	{

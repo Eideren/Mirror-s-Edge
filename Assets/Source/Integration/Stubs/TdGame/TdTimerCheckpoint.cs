@@ -7,9 +7,9 @@ public partial class TdTimerCheckpoint : TdPlaceableCheckpoint/*
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
 	public partial struct CheckPointTrackIndex
 	{
-		public/*()*/ TdSPTimeTrialGame.ETTStretch TrackIndex;
-		public/*()*/ int OrderIndex;
-		public/*()*/ bool bNoIntermediateTime;
+		[Category] public TdSPTimeTrialGame.ETTStretch TrackIndex;
+		[Category] public int OrderIndex;
+		[Category] public bool bNoIntermediateTime;
 		public bool bLastCheckpoint;
 	
 	//	structdefaultproperties
@@ -22,21 +22,21 @@ public partial class TdTimerCheckpoint : TdPlaceableCheckpoint/*
 	//	}
 	};
 	
-	public/*(CheckpointSettings)*/ array<TdTimerCheckpoint.CheckPointTrackIndex> BelongToTracks;
-	public/*(CheckpointSettings)*/ float CustomHeight;
-	public/*(CheckpointSettings)*/ float CustomWidthScale;
-	public/*(CheckpointSettings)*/ bool bNoRespawn;
-	public /*transient */float InitialHeight;
-	public /*transient */float InitialRadius;
-	public /*export editinline */ParticleSystemComponent EffectPSComponent;
+	[Category("CheckpointSettings")] public array<TdTimerCheckpoint.CheckPointTrackIndex> BelongToTracks;
+	[Category("CheckpointSettings")] public float CustomHeight;
+	[Category("CheckpointSettings")] public float CustomWidthScale;
+	[Category("CheckpointSettings")] public bool bNoRespawn;
+	[transient] public float InitialHeight;
+	[transient] public float InitialRadius;
+	[export, editinline] public ParticleSystemComponent EffectPSComponent;
 	public ParticleSystem ArrowEffect;
-	public /*transient */StaticArray<MaterialInstanceConstant, MaterialInstanceConstant>/*[2]*/ CheckpointMaterials;
-	public /*transient */float FadeParam;
-	public /*transient */float FadeTarget;
-	public /*config */float FadeTime;
-	public /*const export editinline */StaticMeshComponent CheckpointTimeMesh;
-	public /*const export editinline */StaticMeshComponent CheckpointFinishlineMesh;
-	public /*export editinline transient */StaticMeshComponent CurrentMesh;
+	[transient] public StaticArray<MaterialInstanceConstant, MaterialInstanceConstant>/*[2]*/ CheckpointMaterials;
+	[transient] public float FadeParam;
+	[transient] public float FadeTarget;
+	[config] public float FadeTime;
+	[Const, export, editinline] public StaticMeshComponent CheckpointTimeMesh;
+	[Const, export, editinline] public StaticMeshComponent CheckpointFinishlineMesh;
+	[export, editinline, transient] public StaticMeshComponent CurrentMesh;
 	
 	public virtual /*private final function */void AlignToGround(bool bIsLastCheckpoint)
 	{

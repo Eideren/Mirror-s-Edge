@@ -6,9 +6,9 @@ public partial class CrowdReplicationActor : Actor/*
 		nativereplication
 		notplaceable
 		hidecategories(Navigation)*/{
-	public /*repnotify */SeqAct_CrowdSpawner Spawner;
-	public /*repnotify */bool bSpawningActive;
-	public /*repnotify */int DestroyAllCount;
+	[repnotify] public SeqAct_CrowdSpawner Spawner;
+	[repnotify] public bool bSpawningActive;
+	[repnotify] public int DestroyAllCount;
 	
 	//replication
 	//{

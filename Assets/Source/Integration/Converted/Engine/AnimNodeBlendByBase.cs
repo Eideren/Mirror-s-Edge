@@ -11,11 +11,11 @@ public partial class AnimNodeBlendByBase : AnimNodeBlendList/*
 		BBT_MAX
 	};
 	
-	public/*()*/ AnimNodeBlendByBase.EBaseBlendType Type;
-	public/*()*/ name ActorTag;
-	public/*()*/ Core.ClassT<Actor> ActorClass;
-	public/*()*/ float BlendTime;
-	public /*transient */Actor CachedBase;
+	[Category] public AnimNodeBlendByBase.EBaseBlendType Type;
+	[Category] public name ActorTag;
+	[Category] public Core.ClassT<Actor> ActorClass;
+	[Category] public float BlendTime;
+	[transient] public Actor CachedBase;
 	
 	public AnimNodeBlendByBase()
 	{

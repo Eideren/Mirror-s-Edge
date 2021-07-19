@@ -13,10 +13,10 @@ public partial class ParticleModuleLocationPrimitiveCylinder : ParticleModuleLoc
 		PMLPC_HEIGHTAXIS_MAX
 	};
 	
-	public/*(Location)*/ bool RadialVelocity;
-	public/*(Location)*/ DistributionFloat.RawDistributionFloat StartRadius;
-	public/*(Location)*/ DistributionFloat.RawDistributionFloat StartHeight;
-	public/*(Location)*/ ParticleModuleLocationPrimitiveCylinder.CylinderHeightAxis HeightAxis;
+	[Category("Location")] public bool RadialVelocity;
+	[Category("Location")] public DistributionFloat.RawDistributionFloat StartRadius;
+	[Category("Location")] public DistributionFloat.RawDistributionFloat StartHeight;
+	[Category("Location")] public ParticleModuleLocationPrimitiveCylinder.CylinderHeightAxis HeightAxis;
 	
 	public ParticleModuleLocationPrimitiveCylinder()
 	{

@@ -8,7 +8,7 @@ public partial class MaterialExpressionCosine : MaterialExpression/* within Mate
 	public new Material Outer => base.Outer as Material;
 	
 	public MaterialExpression.ExpressionInput Input;
-	public/*()*/ float Period;
+	[Category] public float Period;
 	
 	public MaterialExpressionCosine()
 	{

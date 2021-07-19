@@ -8,11 +8,11 @@ public partial class MaterialExpressionStaticComponentMaskParameter : MaterialEx
 	public new Material Outer => base.Outer as Material;
 	
 	public MaterialExpression.ExpressionInput Input;
-	public/*()*/ bool DefaultR;
-	public/*()*/ bool DefaultG;
-	public/*()*/ bool DefaultB;
-	public/*()*/ bool DefaultA;
-	public /*native const transient */Object.Pointer InstanceOverride;
+	[Category] public bool DefaultR;
+	[Category] public bool DefaultG;
+	[Category] public bool DefaultB;
+	[Category] public bool DefaultA;
+	[native, Const, transient] public Object.Pointer InstanceOverride;
 	
 }
 }

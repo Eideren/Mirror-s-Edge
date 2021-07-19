@@ -3,11 +3,11 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_TdSlideShow : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ array<Texture2D> Pictures;
-	public/*()*/ array<float> PictureDisplayTimes;
-	public/*()*/ float TransitionSpeed;
-	public/*()*/ bool bBlackStart;
-	public/*()*/ SoundCue SoundCue;
+	[Category] public array<Texture2D> Pictures;
+	[Category] public array<float> PictureDisplayTimes;
+	[Category] public float TransitionSpeed;
+	[Category] public bool bBlackStart;
+	[Category] public SoundCue SoundCue;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

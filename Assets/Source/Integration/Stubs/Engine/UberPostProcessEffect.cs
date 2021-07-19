@@ -4,10 +4,10 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UberPostProcessEffect : DOFAndBloomEffect/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ Object.Vector SceneShadows;
-	public/*()*/ Object.Vector SceneHighLights;
-	public/*()*/ Object.Vector SceneMidTones;
-	public/*()*/ float SceneDesaturation;
+	[Category] public Object.Vector SceneShadows;
+	[Category] public Object.Vector SceneHighLights;
+	[Category] public Object.Vector SceneMidTones;
+	[Category] public float SceneDesaturation;
 	
 	public UberPostProcessEffect()
 	{

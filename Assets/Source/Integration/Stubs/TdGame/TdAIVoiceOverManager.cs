@@ -164,15 +164,15 @@ public partial class TdAIVoiceOverManager : Actor/*
 	public float LastTriggerTime;
 	public float QuietUntil;
 	public float FriendsNearDistance;
-	public/*()*/ float PrioRecoveryTime;
-	public/*()*/ float WindowSize;
-	public/*()*/ float NoiseFactor;
+	[Category] public float PrioRecoveryTime;
+	[Category] public float WindowSize;
+	[Category] public float NoiseFactor;
 	public array<TdAIVoiceOverManager.SoundHistoryItem> DebugHistory;
 	public int VoiceCounter;
 	public array<SoundCue> RadioStart;
 	public array<SoundCue> RadioStop;
 	public array<TdAIVoiceOverManager.PostponedSoundCue> PostponedItems;
-	public /*private transient */bool bMuted;
+	[transient] public/*private*/ bool bMuted;
 	
 	public override /*event */void PostBeginPlay()
 	{

@@ -5,11 +5,11 @@ public partial class RB_RadialImpulseComponent : PrimitiveComponent/*
 		native
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ PrimitiveComponent.ERadialImpulseFalloff ImpulseFalloff;
-	public/*()*/ float ImpulseStrength;
-	public/*()*/ float ImpulseRadius;
-	public/*()*/ bool bVelChange;
-	public /*export editinline */DrawSphereComponent PreviewSphere;
+	[Category] public PrimitiveComponent.ERadialImpulseFalloff ImpulseFalloff;
+	[Category] public float ImpulseStrength;
+	[Category] public float ImpulseRadius;
+	[Category] public bool bVelChange;
+	[export, editinline] public DrawSphereComponent PreviewSphere;
 	
 	// Export URB_RadialImpulseComponent::execFireImpulse(FFrame&, void* const)
 	public virtual /*native function */void FireImpulse(Object.Vector Origin)

@@ -7,8 +7,8 @@ public partial class TdUITabPage_CurrentObjective : TdUITabPage/*
 	
 	public partial struct SubObjectivesWidgetCol
 	{
-		public /*transient */UILabel Label;
-		public /*transient */UIImage Image;
+		[transient] public UILabel Label;
+		[transient] public UIImage Image;
 	
 	//	structdefaultproperties
 	//	{
@@ -18,12 +18,12 @@ public partial class TdUITabPage_CurrentObjective : TdUITabPage/*
 	//	}
 	};
 	
-	public /*transient */UILabel MapNameLabel;
-	public /*transient */UILabel CurrentObjectiveLabel;
-	public /*transient */UIImage CurrentObjectiveImage;
-	public /*transient */UILabel CurrentObjectiveDescriptionLabel;
-	public /*transient */StaticArray<TdUITabPage_CurrentObjective.SubObjectivesWidgetCol, TdUITabPage_CurrentObjective.SubObjectivesWidgetCol, TdUITabPage_CurrentObjective.SubObjectivesWidgetCol, TdUITabPage_CurrentObjective.SubObjectivesWidgetCol>/*[4]*/ SubObjectivesWidgets;
-	public /*transient */TdUITabControl OwnerTabControl;
+	[transient] public UILabel MapNameLabel;
+	[transient] public UILabel CurrentObjectiveLabel;
+	[transient] public UIImage CurrentObjectiveImage;
+	[transient] public UILabel CurrentObjectiveDescriptionLabel;
+	[transient] public StaticArray<TdUITabPage_CurrentObjective.SubObjectivesWidgetCol, TdUITabPage_CurrentObjective.SubObjectivesWidgetCol, TdUITabPage_CurrentObjective.SubObjectivesWidgetCol, TdUITabPage_CurrentObjective.SubObjectivesWidgetCol>/*[4]*/ SubObjectivesWidgets;
+	[transient] public TdUITabControl OwnerTabControl;
 	public UIDataStore_TdGameObjectivesData TdGameObjectivesData;
 	
 	public override /*event */void PostInitialize()

@@ -4,10 +4,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMapInfo : MapInfo/*
 		native
 		editinlinenew*/{
-	public/*()*/ /*const */StaticMesh MapMesh;
-	public/*()*/ /*const */Object.Vector WorldToMiniMapOrigo;
-	public/*()*/ /*const */Object.Vector MapSpecificWidgetTranslation;
-	public/*()*/ /*const */float MapSpecificWidgetScale;
+	[Category] [Const] public StaticMesh MapMesh;
+	[Category] [Const] public Object.Vector WorldToMiniMapOrigo;
+	[Category] [Const] public Object.Vector MapSpecificWidgetTranslation;
+	[Category] [Const] public float MapSpecificWidgetScale;
 	
 	public TdMapInfo()
 	{

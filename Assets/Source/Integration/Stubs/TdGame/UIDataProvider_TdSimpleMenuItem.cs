@@ -7,8 +7,8 @@ public partial class UIDataProvider_TdSimpleMenuItem : UIDataProvider_TdResource
 		config(Game)
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
-	public /*config */name FieldName;
-	public /*config */array</*config */String> Options;
+	[config] public name FieldName;
+	[config] public array</*config */String> Options;
 	
 }
 }

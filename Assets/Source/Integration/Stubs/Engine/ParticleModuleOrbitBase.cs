@@ -6,7 +6,7 @@ public partial class ParticleModuleOrbitBase : ParticleModule/*
 		native
 		editinlinenew
 		hidecategories(Object,Object)*/{
-	public/*(Orbit)*/ bool bUseEmitterTime;
+	[Category("Orbit")] public bool bUseEmitterTime;
 	
 }
 }

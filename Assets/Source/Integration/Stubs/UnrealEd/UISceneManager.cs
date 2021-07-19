@@ -7,8 +7,8 @@ public partial class UISceneManager : Object/*
 		config(Editor)*/{
 	public partial struct /*native transient */UIResourceInfo
 	{
-		public /*init */Object UIResource;
-		public /*init */String FriendlyName;
+		[init] public Object UIResource;
+		[init] public String FriendlyName;
 	
 	//	structdefaultproperties
 	//	{
@@ -20,8 +20,8 @@ public partial class UISceneManager : Object/*
 	
 	public partial struct /*native transient */UIObjectResourceInfo// extends UIResourceInfo
 	{
-		public /*init */Object UIResource;
-		public /*init */String FriendlyName;
+		[init] public Object UIResource;
+		[init] public String FriendlyName;
 			// Object Offset:0x0002DFB1
 	//		UIResource = default;
 	//		FriendlyName = "";
@@ -33,8 +33,8 @@ public partial class UISceneManager : Object/*
 	
 	public partial struct /*native transient */UIStyleResourceInfo// extends UIResourceInfo
 	{
-		public /*init */Object UIResource;
-		public /*init */String FriendlyName;
+		[init] public Object UIResource;
+		[init] public String FriendlyName;
 			// Object Offset:0x0002DFB1
 	//		UIResource = default;
 	//		FriendlyName = "";
@@ -46,8 +46,8 @@ public partial class UISceneManager : Object/*
 	
 	public partial struct /*native transient */UIStateResourceInfo// extends UIResourceInfo
 	{
-		public /*init */Object UIResource;
-		public /*init */String FriendlyName;
+		[init] public Object UIResource;
+		[init] public String FriendlyName;
 			// Object Offset:0x0002DFB1
 	//		UIResource = default;
 	//		FriendlyName = "";
@@ -87,19 +87,19 @@ public partial class UISceneManager : Object/*
 	//	}
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTable_FGlobalDataStoreClientManager;
-	public /*private native const noexport */Object.Pointer VfTable_FExec;
-	public /*private native const noexport */Object.Pointer VfTable_FCallbackEventDevice;
-	public /*transient */UISkin ActiveSkin;
-	public /*const transient */DataStoreClient DataStoreManager;
-	public /*const transient */array<EditorUISceneClient> SceneClients;
-	public /*const transient */array<UISceneManager.UIObjectResourceInfo> UIWidgetResources;
-	public /*const config */array</*config */UISceneManager.UIObjectToolbarMapping> UIWidgetToolbarMaps;
-	public /*const transient */array<UISceneManager.UIStyleResourceInfo> UIStyleResources;
-	public /*private const transient */array<UISceneManager.UIStateResourceInfo> UIStateResources;
-	public /*const transient *//*map<0,0>*/map<object, object> UIStateResourceInfoMap;
-	public /*const config */UISceneManager.UITitleRegions TitleRegions;
-	public /*private native const transient */Object.Pointer DlgUIDataStoreBrowser;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FGlobalDataStoreClientManager;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FExec;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FCallbackEventDevice;
+	[transient] public UISkin ActiveSkin;
+	[Const, transient] public DataStoreClient DataStoreManager;
+	[Const, transient] public array<EditorUISceneClient> SceneClients;
+	[Const, transient] public array<UISceneManager.UIObjectResourceInfo> UIWidgetResources;
+	[Const, config] public array</*config */UISceneManager.UIObjectToolbarMapping> UIWidgetToolbarMaps;
+	[Const, transient] public array<UISceneManager.UIStyleResourceInfo> UIStyleResources;
+	[Const, transient] public/*private*/ array<UISceneManager.UIStateResourceInfo> UIStateResources;
+	[Const, transient] public /*map<0,0>*/map<object, object> UIStateResourceInfoMap;
+	[Const, config] public UISceneManager.UITitleRegions TitleRegions;
+	[native, Const, transient] public/*private*/ Object.Pointer DlgUIDataStoreBrowser;
 	
 	// Export UUISceneManager::execGetSupportedUIStates(FFrame&, void* const)
 	public virtual /*native final function */void GetSupportedUIStates(ref array<UISceneManager.UIStateResourceInfo> out_SupportedStates, /*optional */Core.ClassT<UIScreenObject> _WidgetClass = default)

@@ -18,23 +18,23 @@ public partial class SeqAct_TdActorFactory : SeqAct_ActorFactoryEx/*
 	public AITeam Team;
 	public AIGroup Group;
 	public CoverGroup InitialCoverGroup;
-	public/*()*/ Core.ClassT<AITemplate> BotTemplate;
-	public/*()*/ bool bSeePlayerOnSpawn;
-	public/*()*/ bool SpawnIntoKismetState;
-	public/*()*/ bool bUseRunnerVision;
-	public/*()*/ bool bChaseAI;
-	public/*()*/ AITeam.ESide Side;
-	public/*()*/ int MainWeaponAmmoDrop_Easy;
-	public/*()*/ int MainWeaponAmmoDrop_Medium;
-	public/*()*/ int MainWeaponAmmoDrop_Hard;
-	public/*()*/ int MainWeaponAmmoDisarm_Easy;
-	public/*()*/ int MainWeaponAmmoDisarm_Medium;
-	public/*()*/ int MainWeaponAmmoDisarm_Hard;
+	[Category] public Core.ClassT<AITemplate> BotTemplate;
+	[Category] public bool bSeePlayerOnSpawn;
+	[Category] public bool SpawnIntoKismetState;
+	[Category] public bool bUseRunnerVision;
+	[Category] public bool bChaseAI;
+	[Category] public AITeam.ESide Side;
+	[Category] public int MainWeaponAmmoDrop_Easy;
+	[Category] public int MainWeaponAmmoDrop_Medium;
+	[Category] public int MainWeaponAmmoDrop_Hard;
+	[Category] public int MainWeaponAmmoDisarm_Easy;
+	[Category] public int MainWeaponAmmoDisarm_Medium;
+	[Category] public int MainWeaponAmmoDisarm_Hard;
 	public TdActorFactoryAI TdFactory;
-	public /*private transient */int DeferState;
-	public /*private transient */int DeferIndex;
-	public /*private transient */TdBotPawn DeferPawn;
-	public /*private transient */AITemplate DeferTemplate;
+	[transient] public/*private*/ int DeferState;
+	[transient] public/*private*/ int DeferIndex;
+	[transient] public/*private*/ TdBotPawn DeferPawn;
+	[transient] public/*private*/ AITemplate DeferTemplate;
 	
 	// Export USeqAct_TdActorFactory::execEveryoneDied(FFrame&, void* const)
 	public virtual /*native function */void EveryoneDied()

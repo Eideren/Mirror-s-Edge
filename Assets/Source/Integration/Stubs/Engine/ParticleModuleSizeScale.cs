@@ -5,10 +5,10 @@ public partial class ParticleModuleSizeScale : ParticleModuleSizeBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ DistributionVector.RawDistributionVector SizeScale;
-	public/*()*/ bool EnableX;
-	public/*()*/ bool EnableY;
-	public/*()*/ bool EnableZ;
+	[Category] public DistributionVector.RawDistributionVector SizeScale;
+	[Category] public bool EnableX;
+	[Category] public bool EnableY;
+	[Category] public bool EnableZ;
 	
 	public ParticleModuleSizeScale()
 	{

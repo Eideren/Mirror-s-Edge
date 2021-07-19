@@ -5,7 +5,7 @@ public partial class InterpTrackFade : InterpTrackFloatBase/*
 		native
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ bool bPersistFade;
+	[Category] public bool bPersistFade;
 	
 	public InterpTrackFade()
 	{

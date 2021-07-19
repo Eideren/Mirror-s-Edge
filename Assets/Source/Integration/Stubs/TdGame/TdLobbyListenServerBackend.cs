@@ -3,14 +3,14 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdLobbyListenServerBackend : TdLobbyBackend/*
 		native*/{
-	public /*private native const noexport */Object.Pointer VfTable_FTickableObject;
-	public /*protected transient */TdGameReplicationInfo GRI;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FTickableObject;
+	[transient] public/*protected*/ TdGameReplicationInfo GRI;
 	public UIDataStore_TdGameData TdGameData;
 	public UIDataStore_TdMPData TdMPData;
-	public/*()*/ name ResourceDataStoreName;
-	public/*()*/ name SettingsDataStoreName;
-	public /*protected transient */float TimeAccumulator;
-	public /*protected transient */float TickTrigger;
+	[Category] public name ResourceDataStoreName;
+	[Category] public name SettingsDataStoreName;
+	[transient] public/*protected*/ float TimeAccumulator;
+	[transient] public/*protected*/ float TickTrigger;
 	
 	public virtual /*event */void CheckGRI(WorldInfo InInfo)
 	{

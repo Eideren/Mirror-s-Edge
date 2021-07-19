@@ -9,10 +9,10 @@ public partial class UIDataStore_TdLoginData : UIDataStore_TdGameResource/*
 	public Core.ClassT<TdLoginSettings> LoginSettingsClass;
 	public TdLoginSettings LoginSettings;
 	public UIDataProvider_Settings LoginSettingsProvider;
-	public /*config */String PersonaProviderClassName;
+	[config] public String PersonaProviderClassName;
 	public Core.ClassT<UIDataProvider_TdPersonaProvider> PersonaProviderClass;
 	public UIDataProvider_TdPersonaProvider PersonaProvider;
-	public /*config */String AccountProviderClassName;
+	[config] public String AccountProviderClassName;
 	public Core.ClassT<UIDataProvider_TdAccountProvider> AccountProviderClass;
 	public UIDataProvider_TdAccountProvider AccountProvider;
 	

@@ -6,9 +6,9 @@ public partial class DistributionVectorConstant : DistributionVector/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ Object.Vector Constant;
+	[Category] public Object.Vector Constant;
 	public bool bLockAxes;
-	public/*()*/ DistributionVector.EDistributionVectorLockFlags LockedAxes;
+	[Category] public DistributionVector.EDistributionVectorLockFlags LockedAxes;
 	
 }
 }

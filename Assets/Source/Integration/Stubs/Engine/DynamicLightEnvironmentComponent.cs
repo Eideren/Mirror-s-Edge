@@ -3,26 +3,26 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class DynamicLightEnvironmentComponent : LightEnvironmentComponent/*
 		native*/{
-	public /*private native const transient */Object.Pointer State;
-	public/*()*/ float InvisibleUpdateTime;
-	public/*()*/ float MinTimeBetweenFullUpdates;
-	public/*()*/ int NumVolumeVisibilitySamples;
-	public/*()*/ Object.LinearColor AmbientShadowColor;
-	public/*()*/ Object.Vector AmbientShadowSourceDirection;
-	public/*()*/ Object.LinearColor AmbientGlow;
-	public/*()*/ float LightDesaturation;
-	public/*()*/ float LightDistance;
-	public/*()*/ float ShadowDistance;
-	public/*()*/ bool bCastShadows;
-	public/*()*/ bool bDynamic;
-	public/*()*/ bool bSynthesizePointLight;
-	public/*()*/ bool bSynthesizeSHLight;
-	public/*()*/ float ModShadowFadeoutTime;
-	public/*()*/ float ModShadowFadeoutExponent;
-	public/*()*/ LightComponent.EShadowFilterQuality ShadowFilterQuality;
-	public/*()*/ LightComponent.ELightShadowMode LightShadowMode;
-	public/*()*/ float BouncedLightingIntensity;
-	public/*()*/ float BouncedLightingDesaturation;
+	[native, Const, transient] public/*private*/ Object.Pointer State;
+	[Category] public float InvisibleUpdateTime;
+	[Category] public float MinTimeBetweenFullUpdates;
+	[Category] public int NumVolumeVisibilitySamples;
+	[Category] public Object.LinearColor AmbientShadowColor;
+	[Category] public Object.Vector AmbientShadowSourceDirection;
+	[Category] public Object.LinearColor AmbientGlow;
+	[Category] public float LightDesaturation;
+	[Category] public float LightDistance;
+	[Category] public float ShadowDistance;
+	[Category] public bool bCastShadows;
+	[Category] public bool bDynamic;
+	[Category] public bool bSynthesizePointLight;
+	[Category] public bool bSynthesizeSHLight;
+	[Category] public float ModShadowFadeoutTime;
+	[Category] public float ModShadowFadeoutExponent;
+	[Category] public LightComponent.EShadowFilterQuality ShadowFilterQuality;
+	[Category] public LightComponent.ELightShadowMode LightShadowMode;
+	[Category] public float BouncedLightingIntensity;
+	[Category] public float BouncedLightingDesaturation;
 	
 	public DynamicLightEnvironmentComponent()
 	{

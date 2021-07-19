@@ -5,9 +5,9 @@ public partial class RB_RadialImpulseActor : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public /*export editinline */DrawSphereComponent RenderComponent;
-	public/*()*/ /*const editconst export editinline */RB_RadialImpulseComponent ImpulseComponent;
-	public /*repnotify */byte ImpulseCount;
+	[export, editinline] public DrawSphereComponent RenderComponent;
+	[Category] [Const, editconst, export, editinline] public RB_RadialImpulseComponent ImpulseComponent;
+	[repnotify] public byte ImpulseCount;
 	
 	//replication
 	//{

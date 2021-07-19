@@ -3,12 +3,12 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMove_WallKick : TdPhysicsMove/*
 		config(PawnMovement)*/{
-	public/*(WallKick)*/ /*config */float WallKickMaxDistance;
-	public/*(WallKick)*/ /*config */float WallKickCheckHeight;
-	public/*(WallKick)*/ /*config */float WallKickExtentWidth;
-	public/*(WallKick)*/ /*config */float WallKickExtentHeight;
-	public/*(WallKick)*/ /*config */float WallKickVelocity2D;
-	public/*(WallKick)*/ /*config */float WallKickVelocityZ;
+	[Category("WallKick")] [config] public float WallKickMaxDistance;
+	[Category("WallKick")] [config] public float WallKickCheckHeight;
+	[Category("WallKick")] [config] public float WallKickExtentWidth;
+	[Category("WallKick")] [config] public float WallKickExtentHeight;
+	[Category("WallKick")] [config] public float WallKickVelocity2D;
+	[Category("WallKick")] [config] public float WallKickVelocityZ;
 	
 	public override /*function */bool CanDoMove()
 	{

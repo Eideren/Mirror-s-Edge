@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdSpectatorPoint : CameraActor/*
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ int OrderIndex;
+	[Category] public int OrderIndex;
 	
 	public TdSpectatorPoint()
 	{

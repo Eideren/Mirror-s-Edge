@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class AnimationCompressionAlgorithm_RemoveTrivialKeys : AnimationCompressionAlgorithm/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float MaxPosDiff;
-	public/*()*/ float MaxAngleDiff;
+	[Category] public float MaxPosDiff;
+	[Category] public float MaxAngleDiff;
 	
 	public AnimationCompressionAlgorithm_RemoveTrivialKeys()
 	{

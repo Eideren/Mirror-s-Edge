@@ -5,7 +5,7 @@ public partial class ParticleModuleRotation : ParticleModuleRotationBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Rotation)*/ DistributionFloat.RawDistributionFloat StartRotation;
+	[Category("Rotation")] public DistributionFloat.RawDistributionFloat StartRotation;
 	
 	public ParticleModuleRotation()
 	{

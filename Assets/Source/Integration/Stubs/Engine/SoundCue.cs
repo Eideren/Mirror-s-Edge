@@ -6,24 +6,24 @@ public partial class SoundCue : Object/*
 		hidecategories(Object)*/{
 	public partial struct /*native export */SoundNodeEditorData
 	{
-		public /*native const */int NodePosX;
-		public /*native const */int NodePosY;
+		[native, Const] public int NodePosX;
+		[native, Const] public int NodePosY;
 	};
 	
 	public name SoundGroup;
 	public SoundNode FirstNode;
-	public /*native const *//*map<0,0>*/map<object, object> EditorData;
-	public /*transient */float MaxAudibleDistance;
-	public/*()*/ float VolumeMultiplier;
-	public/*()*/ float PitchMultiplier;
+	[native, Const] public /*map<0,0>*/map<object, object> EditorData;
+	[transient] public float MaxAudibleDistance;
+	[Category] public float VolumeMultiplier;
+	[Category] public float PitchMultiplier;
 	public float Duration;
-	public/*()*/ FaceFXAnimSet FaceFXAnimSetRef;
-	public/*()*/ String FaceFXGroupName;
-	public/*()*/ String FaceFXAnimName;
-	public/*()*/ int MaxConcurrentPlayCount;
-	public/*()*/ float timeToLive;
-	public/*()*/ int AbsoluteMaxConcurrentPlayCount;
-	public /*duplicatetransient native const transient *//*map<0,0>*/map<object, object> CurrentPlayInstances;
+	[Category] public FaceFXAnimSet FaceFXAnimSetRef;
+	[Category] public String FaceFXGroupName;
+	[Category] public String FaceFXAnimName;
+	[Category] public int MaxConcurrentPlayCount;
+	[Category] public float timeToLive;
+	[Category] public int AbsoluteMaxConcurrentPlayCount;
+	[duplicatetransient, native, Const, transient] public /*map<0,0>*/map<object, object> CurrentPlayInstances;
 	
 	// Export USoundCue::execGetCueDuration(FFrame&, void* const)
 	public virtual /*native function */float GetCueDuration()

@@ -28,16 +28,16 @@ public partial class TdMove_Climb : TdPhysicsMove/*
 	public TdMove_GrabTransfer TransferMove;
 	public bool bIsPlayingAnimation;
 	public TdLadderVolume Ladder;
-	public/*(Climb)*/ /*config */float IdleBlendInTime;
-	public/*(Climb)*/ /*config */float ClimbBlendInTime;
-	public/*(Climb)*/ /*config */float ClimbDownBlendInTime;
-	public/*(Climb)*/ /*config */float ClimbDownFastVelocity;
-	public/*(Climb)*/ /*config */float ClimbFastUpPipeAnimRate;
+	[Category("Climb")] [config] public float IdleBlendInTime;
+	[Category("Climb")] [config] public float ClimbBlendInTime;
+	[Category("Climb")] [config] public float ClimbDownBlendInTime;
+	[Category("Climb")] [config] public float ClimbDownFastVelocity;
+	[Category("Climb")] [config] public float ClimbFastUpPipeAnimRate;
 	public array<name> ClimbAnims;
-	public /*export editinline */AudioComponent ClimbSoundComponent;
+	[export, editinline] public AudioComponent ClimbSoundComponent;
 	public SoundCue ClimbDownLadderFastSound;
 	public SoundCue ClimbDownPipeFastSound;
-	public/*(Climb)*/ /*config */int StartTurningAngle;
+	[Category("Climb")] [config] public int StartTurningAngle;
 	
 	public override /*simulated function */void StartMove()
 	{

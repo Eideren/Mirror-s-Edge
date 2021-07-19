@@ -4,11 +4,11 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class WaterVolume : PhysicsVolume/*
 		notplaceable
 		hidecategories(Navigation,Object,Movement,Display)*/{
-	public/*()*/ SoundCue EntrySound;
-	public/*()*/ SoundCue ExitSound;
-	public/*()*/ Core.ClassT<Actor> EntryActor;
-	public/*()*/ Core.ClassT<Actor> ExitActor;
-	public/*()*/ Core.ClassT<Actor> PawnEntryActor;
+	[Category] public SoundCue EntrySound;
+	[Category] public SoundCue ExitSound;
+	[Category] public Core.ClassT<Actor> EntryActor;
+	[Category] public Core.ClassT<Actor> ExitActor;
+	[Category] public Core.ClassT<Actor> PawnEntryActor;
 	
 	public override Touch_del Touch { get => bfield_Touch ?? WaterVolume_Touch; set => bfield_Touch = value; } Touch_del bfield_Touch;
 	public override Touch_del global_Touch => WaterVolume_Touch;

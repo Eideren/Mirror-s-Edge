@@ -7,11 +7,11 @@ public partial class UIDataProvider_TdTutorialChallenge : UIDataProvider_TdResou
 		config(Game)
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
-	public /*config */int ChallengeId;
-	public /*const config localized */String FriendlyName;
-	public /*const config localized */String Description;
-	public /*config */String ImageMarkup;
-	public /*config */array</*config */float> GradeTimeSeconds;
+	[config] public int ChallengeId;
+	[Const, config, localized] public String FriendlyName;
+	[Const, config, localized] public String Description;
+	[config] public String ImageMarkup;
+	[config] public array</*config */float> GradeTimeSeconds;
 	
 }
 }

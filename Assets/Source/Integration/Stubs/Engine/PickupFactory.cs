@@ -8,13 +8,13 @@ public partial class PickupFactory : NavigationPoint/*
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
 	public bool bOnlyReplicateHidden;
-	public /*repnotify */bool bPickupHidden;
+	[repnotify] public bool bPickupHidden;
 	public bool bPredictRespawns;
 	public bool bIsSuperItem;
-	public /*repnotify */Core.ClassT<Inventory> InventoryType;
+	[repnotify] public Core.ClassT<Inventory> InventoryType;
 	public float RespawnEffectTime;
 	public float MaxDesireability;
-	public /*export editinline transient */PrimitiveComponent PickupMesh;
+	[export, editinline, transient] public PrimitiveComponent PickupMesh;
 	public PickupFactory ReplacementFactory;
 	public PickupFactory OriginalFactory;
 	

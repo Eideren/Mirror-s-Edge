@@ -4,11 +4,11 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIAction_SetDatafieldValue : UIAction_DataStoreField/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ String DataFieldStringValue;
-	public/*()*/ Surface DataFieldImageValue;
-	public/*()*/ array<int> DataFieldArrayValue;
-	public/*()*/ UIRoot.UIRangeData DataFieldRangeValue;
-	public/*()*/ bool bCommitValueImmediately;
+	[Category] public String DataFieldStringValue;
+	[Category] public Surface DataFieldImageValue;
+	[Category] public array<int> DataFieldArrayValue;
+	[Category] public UIRoot.UIRangeData DataFieldRangeValue;
+	[Category] public bool bCommitValueImmediately;
 	
 	public UIAction_SetDatafieldValue()
 	{

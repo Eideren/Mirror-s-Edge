@@ -5,8 +5,8 @@ public partial class EdCoordSystem : Object/*
 		native
 		editinlinenew
 		hidecategories(Object)*/{
-	public/*()*/ Object.Matrix M;
-	public/*()*/ String Desc;
+	[Category] public Object.Matrix M;
+	[Category] public String Desc;
 	
 	public EdCoordSystem()
 	{

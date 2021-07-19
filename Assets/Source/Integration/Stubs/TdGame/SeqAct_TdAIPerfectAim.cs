@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_TdAIPerfectAim : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ float AccuracyImprovementRate;
+	[Category] public float AccuracyImprovementRate;
 	
 	public virtual /*function */bool ShouldEnable()
 	{

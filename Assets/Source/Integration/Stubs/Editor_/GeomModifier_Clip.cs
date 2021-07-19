@@ -4,8 +4,8 @@ using Core; using Engine; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class GeomModifier_Clip : GeomModifier_Edit/*
 		native
 		hidecategories(Object,GeomModifier)*/{
-	public/*(Settings)*/ bool bFlipNormal;
-	public/*(Settings)*/ bool bSplit;
+	[Category("Settings")] public bool bFlipNormal;
+	[Category("Settings")] public bool bSplit;
 	
 	public GeomModifier_Clip()
 	{

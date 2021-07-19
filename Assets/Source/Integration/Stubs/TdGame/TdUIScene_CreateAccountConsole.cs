@@ -5,10 +5,10 @@ public partial class TdUIScene_CreateAccountConsole : TdUIScene_SubMenu,
 		TdUIScene_CreateAccountInterface/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIEditBox LoginNameEditbox;
-	public /*transient */UIEditBox PasswordEditbox;
-	public /*transient */UIEditBox CurrentActiveEditbox;
-	public /*private transient */String CreateAccountDone_LocError;
+	[transient] public UIEditBox LoginNameEditbox;
+	[transient] public UIEditBox PasswordEditbox;
+	[transient] public UIEditBox CurrentActiveEditbox;
+	[transient] public/*private*/ String CreateAccountDone_LocError;
 	public /*delegate*/TdUIScene_CreateAccountConsole.ConfirmCreateAccountConsole __ConfirmCreateAccountConsole__Delegate;
 	public /*delegate*/TdUIScene_CreateAccountConsole.UserAbort __UserAbort__Delegate;
 	

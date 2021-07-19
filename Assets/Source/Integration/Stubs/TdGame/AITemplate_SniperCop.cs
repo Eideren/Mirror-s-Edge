@@ -4,16 +4,16 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class AITemplate_SniperCop : AITemplate_Default/*
 		config(AITemplates)
 		editinlinenew*/{
-	public/*(BotControl)*/ /*config */float LoseTargetTime;
-	public/*(BotControl)*/ /*config */float AimOffset;
-	public/*(BotControl)*/ /*config */float RandomWalkSpeed;
-	public/*(BotControl)*/ /*config */float TimeToCalibrateEasy;
-	public/*(BotControl)*/ /*config */float TimeToCalibrateMedium;
-	public/*(BotControl)*/ /*config */float TimeToCalibrateHard;
-	public/*(BotControl)*/ /*config */float TimeToCalibrateOnObjectFactor;
-	public/*(BotControl)*/ /*config */float TriggerBotAccuracy;
-	public/*(BotControl)*/ /*config */float BreakDistance;
-	public/*(BotControl)*/ /*config */float HomingInOnTargetSpeed;
+	[Category("BotControl")] [config] public float LoseTargetTime;
+	[Category("BotControl")] [config] public float AimOffset;
+	[Category("BotControl")] [config] public float RandomWalkSpeed;
+	[Category("BotControl")] [config] public float TimeToCalibrateEasy;
+	[Category("BotControl")] [config] public float TimeToCalibrateMedium;
+	[Category("BotControl")] [config] public float TimeToCalibrateHard;
+	[Category("BotControl")] [config] public float TimeToCalibrateOnObjectFactor;
+	[Category("BotControl")] [config] public float TriggerBotAccuracy;
+	[Category("BotControl")] [config] public float BreakDistance;
+	[Category("BotControl")] [config] public float HomingInOnTargetSpeed;
 	
 	public AITemplate_SniperCop()
 	{

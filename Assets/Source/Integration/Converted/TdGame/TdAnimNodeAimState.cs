@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNodeAimState : TdAnimNodeState/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ /*editoronly transient */array<TdPawn.MoveAimMode> EnumStates;
-	public/*()*/ bool bOnlyMoveMode;
+	[Category] [editoronly, transient] public array<TdPawn.MoveAimMode> EnumStates;
+	[Category] public bool bOnlyMoveMode;
 	
 	public override /*event */void OnInit()
 	{

@@ -23,7 +23,7 @@ public partial class UIDataStore_OnlineGameSettings : UIDataStore_Settings/*
 	//	}
 	};
 	
-	public /*const */array<UIDataStore_OnlineGameSettings.GameSettingsCfg> GameSettingsCfgList;
+	[Const] public array<UIDataStore_OnlineGameSettings.GameSettingsCfg> GameSettingsCfgList;
 	public int SelectedIndex;
 	
 	public virtual /*event */bool CreateGame(byte ControllerIndex)

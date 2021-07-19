@@ -4,12 +4,12 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdCameraShake : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float Duration;
-	public/*()*/ float Amplitude;
-	public/*()*/ float Frequency;
-	public/*()*/ float BlendIn;
-	public/*()*/ float BlendOut;
-	public /*transient */TdPlayerPawn PlayerPawn;
+	[Category] public float Duration;
+	[Category] public float Amplitude;
+	[Category] public float Frequency;
+	[Category] public float BlendIn;
+	[Category] public float BlendOut;
+	[transient] public TdPlayerPawn PlayerPawn;
 	
 	public SeqAct_TdCameraShake()
 	{

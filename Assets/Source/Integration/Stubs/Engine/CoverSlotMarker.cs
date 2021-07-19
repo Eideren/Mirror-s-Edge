@@ -5,7 +5,7 @@ public partial class CoverSlotMarker : NavigationPoint/*
 		native
 		notplaceable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*()*/ /*editconst */CoverLink.CoverInfo OwningSlot;
+	[Category] [editconst] public CoverLink.CoverInfo OwningSlot;
 	
 	public override /*event */void PostBeginPlay()
 	{

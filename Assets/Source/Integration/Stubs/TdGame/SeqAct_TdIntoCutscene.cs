@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdIntoCutscene : SeqAct_Latent/*
 		native
 		hidecategories(Object)*/{
-	public /*transient */TdPlayerPawn PlayerPawn;
-	public /*transient */Actor DestinationActor;
+	[transient] public TdPlayerPawn PlayerPawn;
+	[transient] public Actor DestinationActor;
 	
 	// Export USeqAct_TdIntoCutscene::execAbortScriptedMove(FFrame&, void* const)
 	public virtual /*native function */void AbortScriptedMove()

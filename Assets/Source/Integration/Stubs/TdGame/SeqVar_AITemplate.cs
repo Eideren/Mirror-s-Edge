@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqVar_AITemplate : SeqVar_Object/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ Core.ClassT<AITemplate> Template;
+	[Category] public Core.ClassT<AITemplate> Template;
 	
 	public SeqVar_AITemplate()
 	{

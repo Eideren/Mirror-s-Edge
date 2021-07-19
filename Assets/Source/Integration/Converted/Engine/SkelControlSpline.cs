@@ -12,12 +12,12 @@ public partial class SkelControlSpline : SkelControlBase/*
 		SCR_MAX
 	};
 	
-	public/*(Spline)*/ int SplineLength;
-	public/*(Spline)*/ Object.EAxis SplineBoneAxis;
-	public/*(Spline)*/ SkelControlSpline.ESplineControlRotMode BoneRotMode;
-	public/*(Spline)*/ bool bInvertSplineBoneAxis;
-	public/*(Spline)*/ float EndSplineTension;
-	public/*(Spline)*/ float StartSplineTension;
+	[Category("Spline")] public int SplineLength;
+	[Category("Spline")] public Object.EAxis SplineBoneAxis;
+	[Category("Spline")] public SkelControlSpline.ESplineControlRotMode BoneRotMode;
+	[Category("Spline")] public bool bInvertSplineBoneAxis;
+	[Category("Spline")] public float EndSplineTension;
+	[Category("Spline")] public float StartSplineTension;
 	
 	public SkelControlSpline()
 	{

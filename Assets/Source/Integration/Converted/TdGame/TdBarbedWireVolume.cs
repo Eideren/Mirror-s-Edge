@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdBarbedWireVolume : TdMovementVolume/*
 		placeable
 		hidecategories(Navigation,Object,Movement,Display,AI,Interaction,PhysicsVolume,Volume)*/{
-	public /*private transient */Object.Vector LatestHitLocation;
-	public /*private transient */Object.Vector LatestHitNormal;
+	[transient] public/*private*/ Object.Vector LatestHitLocation;
+	[transient] public/*private*/ Object.Vector LatestHitNormal;
 	
 	public override Touch_del Touch { get => bfield_Touch ?? TdBarbedWireVolume_Touch; set => bfield_Touch = value; } Touch_del bfield_Touch;
 	public override Touch_del global_Touch => TdBarbedWireVolume_Touch;

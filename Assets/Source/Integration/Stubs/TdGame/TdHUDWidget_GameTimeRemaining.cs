@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdHUDWidget_GameTimeRemaining : TdHUDWidget/*
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*export editinline deprecated */UILabel timeLabel;
+	[export, editinline, deprecated] public UILabel timeLabel;
 	
 	public TdHUDWidget_GameTimeRemaining()
 	{

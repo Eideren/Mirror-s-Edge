@@ -17,19 +17,19 @@ public partial class UIDataStore_TdOnlineStats : UIDataStore_OnlineStats/*
 	};
 	
 	public UIDataStore_TdOnlineStats.ETdOnlineStatsReadState CurrentReadState;
-	public /*private */byte CurrentControllerIndex;
+	public/*private*/ byte CurrentControllerIndex;
 	public Core.ClassT<TdLeaderboardSettings> LeaderboardSettingsClass;
 	public TdLeaderboardSettings LeaderboardSettings;
 	public UIDataProvider_Settings SettingsProvider;
-	public /*const */name PlayerStatsReadName;
+	[Const] public name PlayerStatsReadName;
 	public OnlineStatsRead PlayerStatsRead;
-	public /*private */int CurrentStretchId;
-	public /*private */int PlayerStatsReadIndex;
-	public /*private */array<OnlineStatsRead> PlayerStatsReadCache;
-	public /*private */int StatsReadIndex;
-	public /*private */array<OnlineStatsRead> StatsReadCache;
-	public /*const localized */String PlayerNickColumnNameXbox;
-	public /*const localized */String PlayerNickColumnNamePS3;
+	public/*private*/ int CurrentStretchId;
+	public/*private*/ int PlayerStatsReadIndex;
+	public/*private*/ array<OnlineStatsRead> PlayerStatsReadCache;
+	public/*private*/ int StatsReadIndex;
+	public/*private*/ array<OnlineStatsRead> StatsReadCache;
+	[Const, localized] public String PlayerNickColumnNameXbox;
+	[Const, localized] public String PlayerNickColumnNamePS3;
 	public /*delegate*/UIDataStore_TdOnlineStats.StatsReadComplete __StatsReadComplete__Delegate;
 	
 	public delegate void StatsReadComplete(bool bSuccess);

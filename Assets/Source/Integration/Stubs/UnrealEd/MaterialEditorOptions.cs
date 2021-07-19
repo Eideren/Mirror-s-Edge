@@ -5,13 +5,13 @@ public partial class MaterialEditorOptions : Object/*
 		native
 		config(EditorUserSettings)
 		hidecategories(Object)*/{
-	public/*(Options)*/ /*config */bool bShowGrid;
-	public/*(Options)*/ /*config */bool bShowBackground;
-	public/*(Options)*/ /*config */bool bHideUnusedConnectors;
-	public/*(Options)*/ /*config */bool bDrawCurves;
-	public/*(Options)*/ /*config */bool bRealtimeMaterialViewport;
-	public/*(Options)*/ /*config */bool bRealtimeExpressionViewport;
-	public/*(Options)*/ /*config */bool bAlwaysRefreshAllPreviews;
+	[Category("Options")] [config] public bool bShowGrid;
+	[Category("Options")] [config] public bool bShowBackground;
+	[Category("Options")] [config] public bool bHideUnusedConnectors;
+	[Category("Options")] [config] public bool bDrawCurves;
+	[Category("Options")] [config] public bool bRealtimeMaterialViewport;
+	[Category("Options")] [config] public bool bRealtimeExpressionViewport;
+	[Category("Options")] [config] public bool bAlwaysRefreshAllPreviews;
 	
 	public MaterialEditorOptions()
 	{

@@ -7,8 +7,8 @@ public partial class MaterialExpressionDepthBiasedAlpha : MaterialExpression/* w
 		hidecategories(Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ bool bNormalize;
-	public/*()*/ float BiasScale;
+	[Category] public bool bNormalize;
+	[Category] public float BiasScale;
 	public MaterialExpression.ExpressionInput Alpha;
 	public MaterialExpression.ExpressionInput Bias;
 	

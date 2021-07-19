@@ -6,10 +6,10 @@ public partial class FogVolumeSphericalDensityComponent : FogVolumeDensityCompon
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ /*interp */float MaxDensity;
-	public/*()*/ /*interp */Object.Vector SphereCenter;
-	public/*()*/ /*interp */float SphereRadius;
-	public /*const export editinline */DrawLightRadiusComponent PreviewSphereRadius;
+	[Category] [interp] public float MaxDensity;
+	[Category] [interp] public Object.Vector SphereCenter;
+	[Category] [interp] public float SphereRadius;
+	[Const, export, editinline] public DrawLightRadiusComponent PreviewSphereRadius;
 	
 	public FogVolumeSphericalDensityComponent()
 	{

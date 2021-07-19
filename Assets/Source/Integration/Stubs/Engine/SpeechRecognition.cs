@@ -7,9 +7,9 @@ public partial class SpeechRecognition : Object/*
 		hidecategories(Object)*/{
 	public partial struct /*native */RecognisableWord
 	{
-		public/*()*/ int Id;
-		public/*()*/ String ReferenceWord;
-		public/*()*/ String PhoneticWord;
+		[Category] public int Id;
+		[Category] public String ReferenceWord;
+		[Category] public String PhoneticWord;
 	
 	//	structdefaultproperties
 	//	{
@@ -22,9 +22,9 @@ public partial class SpeechRecognition : Object/*
 	
 	public partial struct /*native */RecogVocabulary
 	{
-		public/*()*/ array<SpeechRecognition.RecognisableWord> WhoDictionary;
-		public/*()*/ array<SpeechRecognition.RecognisableWord> WhatDictionary;
-		public/*()*/ array<SpeechRecognition.RecognisableWord> WhereDictionary;
+		[Category] public array<SpeechRecognition.RecognisableWord> WhoDictionary;
+		[Category] public array<SpeechRecognition.RecognisableWord> WhatDictionary;
+		[Category] public array<SpeechRecognition.RecognisableWord> WhereDictionary;
 		public String VocabName;
 		public array<byte> VocabData;
 		public array<byte> WorkingVocabData;
@@ -54,16 +54,16 @@ public partial class SpeechRecognition : Object/*
 	//	}
 	};
 	
-	public/*()*/ String Language;
-	public/*()*/ float ConfidenceThreshhold;
-	public/*()*/ array<SpeechRecognition.RecogVocabulary> Vocabularies;
+	[Category] public String Language;
+	[Category] public float ConfidenceThreshhold;
+	[Category] public array<SpeechRecognition.RecogVocabulary> Vocabularies;
 	public array<byte> VoiceData;
 	public array<byte> WorkingVoiceData;
 	public array<byte> UserData;
 	public StaticArray<SpeechRecognition.RecogUserData, SpeechRecognition.RecogUserData, SpeechRecognition.RecogUserData, SpeechRecognition.RecogUserData>/*[4]*/ InstanceData;
-	public /*duplicatetransient transient */bool bDirty;
-	public /*duplicatetransient transient */bool bInitialised;
-	public /*duplicatetransient native const */Object.Pointer FnxVoiceData;
+	[duplicatetransient, transient] public bool bDirty;
+	[duplicatetransient, transient] public bool bInitialised;
+	[duplicatetransient, native, Const] public Object.Pointer FnxVoiceData;
 	
 	public SpeechRecognition()
 	{

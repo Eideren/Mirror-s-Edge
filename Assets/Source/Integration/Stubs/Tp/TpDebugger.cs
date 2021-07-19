@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Ts; usin
 public partial class TpDebugger : Object/*
 		transient
 		native*/{
-	public /*private native const noexport */Object.Pointer VfTable_FTickableObject;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FTickableObject;
 	
 	// Export UTpDebugger::execRegister(FFrame&, void* const)
 	public /*native simulated function */static void Register(Object InObject)

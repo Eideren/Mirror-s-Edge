@@ -6,8 +6,8 @@ public partial class TdTeamDMHUD : TdMPHUD/*
 		config(Game)
 		notplaceable
 		hidecategories(Navigation)*/{
-	public/*(HUDIcons)*/ Object.Vector2D RunnerScore;
-	public/*(HUDIcons)*/ Object.Vector2D CopScore;
+	[Category("HUDIcons")] public Object.Vector2D RunnerScore;
+	[Category("HUDIcons")] public Object.Vector2D CopScore;
 	
 	public override /*function */void DrawScore()
 	{

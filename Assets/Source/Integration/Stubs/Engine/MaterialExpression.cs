@@ -31,10 +31,10 @@ public partial class MaterialExpression : Object/* within Material*//*
 	
 	public int EditorX;
 	public int EditorY;
-	public/*()*/ bool bRealtimePreview;
+	[Category] public bool bRealtimePreview;
 	public bool bIsParameterExpression;
-	public /*const */MaterialExpressionCompound Compound;
-	public/*()*/ String Desc;
+	[Const] public MaterialExpressionCompound Compound;
+	[Category] public String Desc;
 	
 }
 }

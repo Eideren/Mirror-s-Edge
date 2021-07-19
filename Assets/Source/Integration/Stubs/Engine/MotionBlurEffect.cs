@@ -4,11 +4,11 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class MotionBlurEffect : PostProcessEffect/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float MaxVelocity;
-	public/*()*/ float MotionBlurAmount;
-	public/*()*/ bool FullMotionBlur;
-	public/*()*/ float CameraRotationThreshold;
-	public/*()*/ float CameraTranslationThreshold;
+	[Category] public float MaxVelocity;
+	[Category] public float MotionBlurAmount;
+	[Category] public bool FullMotionBlur;
+	[Category] public float CameraRotationThreshold;
+	[Category] public float CameraTranslationThreshold;
 	
 	public MotionBlurEffect()
 	{

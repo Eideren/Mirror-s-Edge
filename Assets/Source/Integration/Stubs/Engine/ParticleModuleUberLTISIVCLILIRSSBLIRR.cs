@@ -6,19 +6,19 @@ public partial class ParticleModuleUberLTISIVCLILIRSSBLIRR : ParticleModuleUberB
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object,Object)*/{
-	public/*(Lifetime)*/ /*noclear export */DistributionFloat.RawDistributionFloat Lifetime;
-	public/*(Size)*/ /*noclear export */DistributionVector.RawDistributionVector StartSize;
-	public/*(Velocity)*/ /*noclear export */DistributionVector.RawDistributionVector StartVelocity;
-	public/*(Velocity)*/ /*noclear export */DistributionFloat.RawDistributionFloat StartVelocityRadial;
-	public/*(Color)*/ /*noclear export */DistributionVector.RawDistributionVector ColorOverLife;
-	public/*(Color)*/ /*noclear export */DistributionFloat.RawDistributionFloat AlphaOverLife;
-	public/*(Location)*/ /*noclear export */DistributionVector.RawDistributionVector StartLocation;
-	public/*(Rotation)*/ /*noclear export */DistributionFloat.RawDistributionFloat StartRotation;
-	public/*(Size)*/ /*noclear export */DistributionVector.RawDistributionVector SizeLifeMultiplier;
-	public/*(Size)*/ bool SizeMultiplyX;
-	public/*(Size)*/ bool SizeMultiplyY;
-	public/*(Size)*/ bool SizeMultiplyZ;
-	public/*(Rotation)*/ /*noclear export */DistributionFloat.RawDistributionFloat StartRotationRate;
+	[Category("Lifetime")] [noclear, export] public DistributionFloat.RawDistributionFloat Lifetime;
+	[Category("Size")] [noclear, export] public DistributionVector.RawDistributionVector StartSize;
+	[Category("Velocity")] [noclear, export] public DistributionVector.RawDistributionVector StartVelocity;
+	[Category("Velocity")] [noclear, export] public DistributionFloat.RawDistributionFloat StartVelocityRadial;
+	[Category("Color")] [noclear, export] public DistributionVector.RawDistributionVector ColorOverLife;
+	[Category("Color")] [noclear, export] public DistributionFloat.RawDistributionFloat AlphaOverLife;
+	[Category("Location")] [noclear, export] public DistributionVector.RawDistributionVector StartLocation;
+	[Category("Rotation")] [noclear, export] public DistributionFloat.RawDistributionFloat StartRotation;
+	[Category("Size")] [noclear, export] public DistributionVector.RawDistributionVector SizeLifeMultiplier;
+	[Category("Size")] public bool SizeMultiplyX;
+	[Category("Size")] public bool SizeMultiplyY;
+	[Category("Size")] public bool SizeMultiplyZ;
+	[Category("Rotation")] [noclear, export] public DistributionFloat.RawDistributionFloat StartRotationRate;
 	
 	public ParticleModuleUberLTISIVCLILIRSSBLIRR()
 	{

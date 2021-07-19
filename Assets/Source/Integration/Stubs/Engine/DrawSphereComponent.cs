@@ -7,12 +7,12 @@ public partial class DrawSphereComponent : PrimitiveComponent/*
 		collapsecategories
 		noexport
 		hidecategories(Object)*/{
-	public/*()*/ Object.Color SphereColor;
-	public/*()*/ Material SphereMaterial;
-	public/*()*/ float SphereRadius;
-	public/*()*/ int SphereSides;
-	public/*()*/ bool bDrawWireSphere;
-	public/*()*/ bool bDrawLitSphere;
+	[Category] public Object.Color SphereColor;
+	[Category] public Material SphereMaterial;
+	[Category] public float SphereRadius;
+	[Category] public int SphereSides;
+	[Category] public bool bDrawWireSphere;
+	[Category] public bool bDrawLitSphere;
 	
 	public DrawSphereComponent()
 	{

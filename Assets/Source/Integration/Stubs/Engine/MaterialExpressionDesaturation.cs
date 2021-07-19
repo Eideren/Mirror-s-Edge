@@ -9,7 +9,7 @@ public partial class MaterialExpressionDesaturation : MaterialExpression/* withi
 	
 	public MaterialExpression.ExpressionInput Input;
 	public MaterialExpression.ExpressionInput Percent;
-	public/*()*/ Object.LinearColor LuminanceFactors;
+	[Category] public Object.LinearColor LuminanceFactors;
 	
 	public MaterialExpressionDesaturation()
 	{

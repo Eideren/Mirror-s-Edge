@@ -5,13 +5,13 @@ public partial class ActorComponent : Component/*
 		abstract
 		native
 		noexport*/{
-	public /*native const transient */Object.Pointer Scene;
-	public /*const transient */Actor Owner;
-	public /*native const transient */bool bAttached;
-	public /*const */bool bTickInEditor;
-	public /*const transient */bool bNeedsReattach;
-	public /*const transient */bool bNeedsUpdateTransform;
-	public /*const */Object.ETickingGroup TickGroup;
+	[native, Const, transient] public Object.Pointer Scene;
+	[Const, transient] public Actor Owner;
+	[native, Const, transient] public bool bAttached;
+	[Const] public bool bTickInEditor;
+	[Const, transient] public bool bNeedsReattach;
+	[Const, transient] public bool bNeedsUpdateTransform;
+	[Const] public Object.ETickingGroup TickGroup;
 	
 	// Export UActorComponent::execSetTickGroup(FFrame&, void* const)
 	public virtual /*native final function */void SetTickGroup(Object.ETickingGroup NewTickGroup)

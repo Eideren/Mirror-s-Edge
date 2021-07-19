@@ -41,27 +41,27 @@ public partial class TdUIScene_MainMenu : TdUIScene/*
 	//	}
 	};
 	
-	public /*transient */UISafeRegionPanel SafeRegionPanel;
-	public /*transient */UISafeRegionPanel ScreenRegionPanel;
+	[transient] public UISafeRegionPanel SafeRegionPanel;
+	[transient] public UISafeRegionPanel ScreenRegionPanel;
 	public StaticArray<name, name, name, name>/*[4]*/ PanelNames;
 	public StaticArray<name, name, name, name>/*[4]*/ PanelBgNames;
 	public StaticArray<name, name, name, name>/*[4]*/ CaptionNames;
 	public StaticArray<name, name, name, name>/*[4]*/ BigCaptionNames;
-	public /*transient */TdOnlineLoginHandler LoginHandler;
+	[transient] public TdOnlineLoginHandler LoginHandler;
 	public bool bIsAnimatingPanel;
-	public /*private */bool bIsInitialTick;
-	public /*config */bool bShowDownloadsButton;
-	public /*transient */UIObject LastFocusedObject;
+	public/*private*/ bool bIsInitialTick;
+	[config] public bool bShowDownloadsButton;
+	[transient] public UIObject LastFocusedObject;
 	public StaticArray<TdUIScene_MainMenu.TdMainMenuPanelStruct, TdUIScene_MainMenu.TdMainMenuPanelStruct, TdUIScene_MainMenu.TdMainMenuPanelStruct, TdUIScene_MainMenu.TdMainMenuPanelStruct>/*[4]*/ PanelData;
 	public int CurrentPanelIndex;
 	public int LastPanelIndex;
 	public float DefaultStickWidth;
-	public /*transient */UILabel DescriptionLabel;
-	public /*transient */float TimeToFadeStart;
-	public /*transient */float FadeTime;
-	public /*transient */float FadeTimer;
-	public /*transient */TdMenuPostProcesWrapper PanelBGRenderer;
-	public /*transient */UIButton ButtonFromSceneRestored;
+	[transient] public UILabel DescriptionLabel;
+	[transient] public float TimeToFadeStart;
+	[transient] public float FadeTime;
+	[transient] public float FadeTimer;
+	[transient] public TdMenuPostProcesWrapper PanelBGRenderer;
+	[transient] public UIButton ButtonFromSceneRestored;
 	
 	public override /*event */void PostInitialize()
 	{

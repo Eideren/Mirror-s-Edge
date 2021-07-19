@@ -14,9 +14,9 @@ public partial class ParticleModuleBeamModifier : ParticleModuleBeamBase/*
 	
 	public partial struct /*native */BeamModifierOptions
 	{
-		public/*()*/ bool bModify;
-		public/*()*/ bool bScale;
-		public/*()*/ bool bLock;
+		[Category] public bool bModify;
+		[Category] public bool bScale;
+		[Category] public bool bLock;
 	
 	//	structdefaultproperties
 	//	{
@@ -27,14 +27,14 @@ public partial class ParticleModuleBeamModifier : ParticleModuleBeamBase/*
 	//	}
 	};
 	
-	public/*(Modifier)*/ ParticleModuleBeamModifier.BeamModifierType ModifierType;
-	public/*(Position)*/ ParticleModuleBeamModifier.BeamModifierOptions PositionOptions;
-	public/*(Position)*/ DistributionVector.RawDistributionVector Position;
-	public/*(Tangent)*/ ParticleModuleBeamModifier.BeamModifierOptions TangentOptions;
-	public/*(Tangent)*/ DistributionVector.RawDistributionVector Tangent;
-	public/*(Tangent)*/ bool bAbsoluteTangent;
-	public/*(Strength)*/ ParticleModuleBeamModifier.BeamModifierOptions StrengthOptions;
-	public/*(Strength)*/ DistributionFloat.RawDistributionFloat Strength;
+	[Category("Modifier")] public ParticleModuleBeamModifier.BeamModifierType ModifierType;
+	[Category("Position")] public ParticleModuleBeamModifier.BeamModifierOptions PositionOptions;
+	[Category("Position")] public DistributionVector.RawDistributionVector Position;
+	[Category("Tangent")] public ParticleModuleBeamModifier.BeamModifierOptions TangentOptions;
+	[Category("Tangent")] public DistributionVector.RawDistributionVector Tangent;
+	[Category("Tangent")] public bool bAbsoluteTangent;
+	[Category("Strength")] public ParticleModuleBeamModifier.BeamModifierOptions StrengthOptions;
+	[Category("Strength")] public DistributionFloat.RawDistributionFloat Strength;
 	
 	public ParticleModuleBeamModifier()
 	{

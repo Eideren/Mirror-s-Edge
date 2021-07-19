@@ -3,8 +3,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMove_Disarm_Tutorial : TdMOVE_Disarm/*
 		config(PawnMovement)*/{
-	public /*private */bool bIsFrontalDisarm;
-	public /*private */TdAIController DisarmedController;
+	public/*private*/ bool bIsFrontalDisarm;
+	public/*private*/ TdAIController DisarmedController;
 	
 	public override /*simulated function */void StartMove()
 	{

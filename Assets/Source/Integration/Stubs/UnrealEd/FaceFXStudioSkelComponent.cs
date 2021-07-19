@@ -5,7 +5,7 @@ public partial class FaceFXStudioSkelComponent : SkeletalMeshComponent/*
 		native
 		editinlinenew
 		hidecategories(Object)*/{
-	public /*native const transient */Object.Pointer RenderWidgetUE3Ptr;
+	[native, Const, transient] public Object.Pointer RenderWidgetUE3Ptr;
 	
 }
 }

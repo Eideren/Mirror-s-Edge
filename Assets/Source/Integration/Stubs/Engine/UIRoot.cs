@@ -238,11 +238,11 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIRangeData
 	{
-		public/*(Range)*/ float CurrentValue;
-		public/*(Range)*/ float MinValue;
-		public/*(Range)*/ float MaxValue;
-		public/*(Range)*/ float NudgeValue;
-		public/*(Range)*/ bool bIntRange;
+		[Category("Range")] public float CurrentValue;
+		[Category("Range")] public float MinValue;
+		[Category("Range")] public float MaxValue;
+		[Category("Range")] public float NudgeValue;
+		[Category("Range")] public bool bIntRange;
 	
 	//	structdefaultproperties
 	//	{
@@ -257,7 +257,7 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIProviderScriptFieldValue
 	{
-		public /*const */name PropertyTag;
+		[Const] public name PropertyTag;
 		public UIRoot.EUIDataProviderFieldType PropertyType;
 		public String StringValue;
 		public Surface ImageValue;
@@ -285,14 +285,14 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIProviderFieldValue// extends UIProviderScriptFieldValue
 	{
-		public /*const */name PropertyTag;
+		[Const] public name PropertyTag;
 		public UIRoot.EUIDataProviderFieldType PropertyType;
 		public String StringValue;
 		public Surface ImageValue;
 		public array<int> ArrayValue;
 		public UIRoot.UIRangeData RangeValue;
 	
-		public /*native const transient */Object.Pointer CustomStringNode;
+		[native, Const, transient] public Object.Pointer CustomStringNode;
 			// Object Offset:0x002BDB7C
 	//		PropertyTag = (name)"None";
 	//		PropertyType = UIRoot.EUIDataProviderFieldType.DATATYPE_Property;
@@ -316,9 +316,9 @@ public partial class UIRoot : Object/*
 	public partial struct /*native */UIStyleReference
 	{
 		public name DefaultStyleTag;
-		public /*const */Core.ClassT<UIStyle_Data> RequiredStyleClass;
-		public /*const */UIRoot.STYLE_ID AssignedStyleID;
-		public /*const transient */UIStyle ResolvedStyle;
+		[Const] public Core.ClassT<UIStyle_Data> RequiredStyleClass;
+		[Const] public UIRoot.STYLE_ID AssignedStyleID;
+		[Const, transient] public UIStyle ResolvedStyle;
 	
 	//	structdefaultproperties
 	//	{
@@ -338,9 +338,9 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIScreenValue
 	{
-		public/*()*/ float Value;
-		public/*()*/ UIRoot.EPositionEvalType ScaleType;
-		public/*()*/ UIRoot.EUIOrientation Orientation;
+		[Category] public float Value;
+		[Category] public UIRoot.EPositionEvalType ScaleType;
+		[Category] public UIRoot.EUIOrientation Orientation;
 	
 	//	structdefaultproperties
 	//	{
@@ -353,9 +353,9 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIScreenValue_Extent
 	{
-		public/*()*/ float Value;
-		public/*()*/ UIRoot.EUIExtentEvalType ScaleType;
-		public/*()*/ UIRoot.EUIOrientation Orientation;
+		[Category] public float Value;
+		[Category] public UIRoot.EUIExtentEvalType ScaleType;
+		[Category] public UIRoot.EUIOrientation Orientation;
 	
 	//	structdefaultproperties
 	//	{
@@ -368,8 +368,8 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIScreenValue_Position
 	{
-		public/*()*/ StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ Value;
-		public/*()*/ StaticArray<UIRoot.EPositionEvalType, UIRoot.EPositionEvalType>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ ScaleType;
+		[Category] public StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ Value;
+		[Category] public StaticArray<UIRoot.EPositionEvalType, UIRoot.EPositionEvalType>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ ScaleType;
 	
 	//	structdefaultproperties
 	//	{
@@ -389,10 +389,10 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIScreenValue_Bounds
 	{
-		public/*()*/ /*editconst */StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ Value;
-		public/*()*/ /*editconst */StaticArray<UIRoot.EPositionEvalType, UIRoot.EPositionEvalType, UIRoot.EPositionEvalType, UIRoot.EPositionEvalType>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ ScaleType;
-		public /*transient */StaticArray<byte, byte, byte, byte>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ bInvalidated;
-		public/*()*/ UIRoot.EUIAspectRatioConstraint AspectRatioMode;
+		[Category] [editconst] public StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ Value;
+		[Category] [editconst] public StaticArray<UIRoot.EPositionEvalType, UIRoot.EPositionEvalType, UIRoot.EPositionEvalType, UIRoot.EPositionEvalType>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ ScaleType;
+		[transient] public StaticArray<byte, byte, byte, byte>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ bInvalidated;
+		[Category] public UIRoot.EUIAspectRatioConstraint AspectRatioMode;
 	
 	//	structdefaultproperties
 	//	{
@@ -424,10 +424,10 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIAnchorPosition// extends UIScreenValue_Position
 	{
-		public/*()*/ StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ Value;
-		public/*()*/ StaticArray<UIRoot.EPositionEvalType, UIRoot.EPositionEvalType>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ ScaleType;
+		[Category] public StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ Value;
+		[Category] public StaticArray<UIRoot.EPositionEvalType, UIRoot.EPositionEvalType>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ ScaleType;
 	
-		public/*()*/ float ZDepth;
+		[Category] public float ZDepth;
 			// Object Offset:0x002BE25F
 	//		Value = new StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/()
 	//		{ 
@@ -453,8 +453,8 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */ScreenPositionRange// extends UIScreenValue_Position
 	{
-		public/*()*/ StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ Value;
-		public/*()*/ StaticArray<UIRoot.EPositionEvalType, UIRoot.EPositionEvalType>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ ScaleType;
+		[Category] public StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ Value;
+		[Category] public StaticArray<UIRoot.EPositionEvalType, UIRoot.EPositionEvalType>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ ScaleType;
 			// Object Offset:0x002BE25F
 	//		Value = new StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/()
 	//		{ 
@@ -480,8 +480,8 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIScreenValue_DockPadding
 	{
-		public/*()*/ /*editconst */StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ PaddingValue;
-		public/*()*/ /*editconst */StaticArray<UIRoot.EUIDockPaddingEvalType, UIRoot.EUIDockPaddingEvalType, UIRoot.EUIDockPaddingEvalType, UIRoot.EUIDockPaddingEvalType>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ PaddingScaleType;
+		[Category] [editconst] public StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ PaddingValue;
+		[Category] [editconst] public StaticArray<UIRoot.EUIDockPaddingEvalType, UIRoot.EUIDockPaddingEvalType, UIRoot.EUIDockPaddingEvalType, UIRoot.EUIDockPaddingEvalType>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ PaddingScaleType;
 	
 	//	structdefaultproperties
 	//	{
@@ -505,8 +505,8 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIScreenValue_AutoSizeRegion
 	{
-		public/*()*/ StaticArray<float, float>/*[UIRoot.EUIAutoSizeConstraintType.UIAUTOSIZEREGION_MAX]*/ Value;
-		public/*()*/ StaticArray<UIRoot.EUIExtentEvalType, UIRoot.EUIExtentEvalType>/*[UIRoot.EUIAutoSizeConstraintType.UIAUTOSIZEREGION_MAX]*/ EvalType;
+		[Category] public StaticArray<float, float>/*[UIRoot.EUIAutoSizeConstraintType.UIAUTOSIZEREGION_MAX]*/ Value;
+		[Category] public StaticArray<UIRoot.EUIExtentEvalType, UIRoot.EUIExtentEvalType>/*[UIRoot.EUIAutoSizeConstraintType.UIAUTOSIZEREGION_MAX]*/ EvalType;
 	
 	//	structdefaultproperties
 	//	{
@@ -526,8 +526,8 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */AutoSizePadding// extends UIScreenValue_AutoSizeRegion
 	{
-		public/*()*/ StaticArray<float, float>/*[UIRoot.EUIAutoSizeConstraintType.UIAUTOSIZEREGION_MAX]*/ Value;
-		public/*()*/ StaticArray<UIRoot.EUIExtentEvalType, UIRoot.EUIExtentEvalType>/*[UIRoot.EUIAutoSizeConstraintType.UIAUTOSIZEREGION_MAX]*/ EvalType;
+		[Category] public StaticArray<float, float>/*[UIRoot.EUIAutoSizeConstraintType.UIAUTOSIZEREGION_MAX]*/ Value;
+		[Category] public StaticArray<UIRoot.EUIExtentEvalType, UIRoot.EUIExtentEvalType>/*[UIRoot.EUIAutoSizeConstraintType.UIAUTOSIZEREGION_MAX]*/ EvalType;
 			// Object Offset:0x002BE873
 	//		Value = new StaticArray<float, float>/*[UIRoot.EUIAutoSizeConstraintType.UIAUTOSIZEREGION_MAX]*/()
 	//		{ 
@@ -547,9 +547,9 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */AutoSizeData
 	{
-		public/*()*/ UIRoot.UIScreenValue_AutoSizeRegion Extent;
-		public/*()*/ UIRoot.AutoSizePadding Padding;
-		public/*()*/ bool bAutoSizeEnabled;
+		[Category] public UIRoot.UIScreenValue_AutoSizeRegion Extent;
+		[Category] public UIRoot.AutoSizePadding Padding;
+		[Category] public bool bAutoSizeEnabled;
 	
 	//	structdefaultproperties
 	//	{
@@ -586,10 +586,10 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIRenderingSubregion
 	{
-		public/*()*/ UIRoot.UIScreenValue_Extent ClampRegionSize;
-		public/*()*/ UIRoot.UIScreenValue_Extent ClampRegionOffset;
-		public/*()*/ UIRoot.EUIAlignment ClampRegionAlignment;
-		public/*()*/ bool bSubregionEnabled;
+		[Category] public UIRoot.UIScreenValue_Extent ClampRegionSize;
+		[Category] public UIRoot.UIScreenValue_Extent ClampRegionOffset;
+		[Category] public UIRoot.EUIAlignment ClampRegionAlignment;
+		[Category] public bool bSubregionEnabled;
 	
 	//	structdefaultproperties
 	//	{
@@ -613,8 +613,8 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native transient */InputEventSubscription
 	{
-		public /*init */name KeyName;
-		public /*init */array<UIScreenObject> Subscribers;
+		[init] public name KeyName;
+		[init] public array<UIScreenObject> Subscribers;
 	
 	//	structdefaultproperties
 	//	{
@@ -639,9 +639,9 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */InputKeyAction
 	{
-		public/*()*/ name InputKeyName;
-		public/*()*/ Object.EInputEvent InputKeyState;
-		public/*()*/ array<SequenceAction> ActionsToExecute;
+		[Category] public name InputKeyName;
+		[Category] public Object.EInputEvent InputKeyState;
+		[Category] public array<SequenceAction> ActionsToExecute;
 	
 	//	structdefaultproperties
 	//	{
@@ -654,11 +654,11 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */StateInputKeyAction// extends InputKeyAction
 	{
-		public/*()*/ name InputKeyName;
-		public/*()*/ Object.EInputEvent InputKeyState;
-		public/*()*/ array<SequenceAction> ActionsToExecute;
+		[Category] public name InputKeyName;
+		[Category] public Object.EInputEvent InputKeyState;
+		[Category] public array<SequenceAction> ActionsToExecute;
 	
-		public/*()*/ Core.ClassT<UIState> Scope;
+		[Category] public Core.ClassT<UIState> Scope;
 			// Object Offset:0x002BF043
 	//		InputKeyName = (name)"None";
 	//		InputKeyState = Object.EInputEvent.IE_Released;
@@ -674,8 +674,8 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native transient */PlayerInteractionData
 	{
-		public /*init transient */UIObject FocusedControl;
-		public /*init transient */UIObject LastFocusedControl;
+		[init, transient] public UIObject FocusedControl;
+		[init, transient] public UIObject LastFocusedControl;
 	
 	//	structdefaultproperties
 	//	{
@@ -687,11 +687,11 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIFocusPropagationData
 	{
-		public/*()*/ /*const editconst transient */UIObject FirstFocusTarget;
-		public/*()*/ /*const editconst transient */UIObject LastFocusTarget;
-		public/*()*/ /*const editconst transient */UIObject NextFocusTarget;
-		public/*()*/ /*const editconst transient */UIObject PrevFocusTarget;
-		public /*transient */bool bPendingReceiveFocus;
+		[Category] [Const, editconst, transient] public UIObject FirstFocusTarget;
+		[Category] [Const, editconst, transient] public UIObject LastFocusTarget;
+		[Category] [Const, editconst, transient] public UIObject NextFocusTarget;
+		[Category] [Const, editconst, transient] public UIObject PrevFocusTarget;
+		[transient] public bool bPendingReceiveFocus;
 	
 	//	structdefaultproperties
 	//	{
@@ -706,9 +706,9 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UINavigationData
 	{
-		public/*()*/ /*editconst transient */StaticArray<UIObject, UIObject, UIObject, UIObject>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ NavigationTarget;
-		public/*()*/ /*editconst */StaticArray<UIObject, UIObject, UIObject, UIObject>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ ForcedNavigationTarget;
-		public/*()*/ StaticArray<byte, byte, byte, byte>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ bNullOverride;
+		[Category] [editconst, transient] public StaticArray<UIObject, UIObject, UIObject, UIObject>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ NavigationTarget;
+		[Category] [editconst] public StaticArray<UIObject, UIObject, UIObject, UIObject>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ ForcedNavigationTarget;
+		[Category] public StaticArray<byte, byte, byte, byte>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ bNullOverride;
 	
 	//	structdefaultproperties
 	//	{
@@ -739,14 +739,14 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIDockingSet
 	{
-		public /*const */UIObject OwnerWidget;
-		public/*()*/ /*private editconst */StaticArray<UIObject, UIObject, UIObject, UIObject>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ TargetWidget;
-		public/*()*/ /*private editconst */UIRoot.UIScreenValue_DockPadding DockPadding;
-		public/*()*/ bool bLockWidthWhenDocked;
-		public/*()*/ bool bLockHeightWhenDocked;
-		public/*()*/ /*private editconst */StaticArray<UIRoot.EUIWidgetFace, UIRoot.EUIWidgetFace, UIRoot.EUIWidgetFace, UIRoot.EUIWidgetFace>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ TargetFace;
-		public /*transient */StaticArray<byte, byte, byte, byte>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ bResolved;
-		public /*transient */StaticArray<byte, byte, byte, byte>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ bLinking;
+		[Const] public UIObject OwnerWidget;
+		[Category] [editconst] public/*private*/ StaticArray<UIObject, UIObject, UIObject, UIObject>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ TargetWidget;
+		[Category] [editconst] public/*private*/ UIRoot.UIScreenValue_DockPadding DockPadding;
+		[Category] public bool bLockWidthWhenDocked;
+		[Category] public bool bLockHeightWhenDocked;
+		[Category] [editconst] public/*private*/ StaticArray<UIRoot.EUIWidgetFace, UIRoot.EUIWidgetFace, UIRoot.EUIWidgetFace, UIRoot.EUIWidgetFace>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ TargetFace;
+		[transient] public StaticArray<byte, byte, byte, byte>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ bResolved;
+		[transient] public StaticArray<byte, byte, byte, byte>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ bLinking;
 	
 	//	structdefaultproperties
 	//	{
@@ -804,8 +804,8 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIDockingNode
 	{
-		public/*()*/ UIObject Widget;
-		public/*()*/ UIRoot.EUIWidgetFace Face;
+		[Category] public UIObject Widget;
+		[Category] public UIRoot.EUIWidgetFace Face;
 	
 	//	structdefaultproperties
 	//	{
@@ -817,10 +817,10 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIRotation
 	{
-		public/*()*/ Object.Rotator Rotation;
-		public /*transient */Object.Matrix TransformMatrix;
-		public/*()*/ UIRoot.UIAnchorPosition AnchorPosition;
-		public/*()*/ UIRoot.ERotationAnchor AnchorType;
+		[Category] public Object.Rotator Rotation;
+		[transient] public Object.Matrix TransformMatrix;
+		[Category] public UIRoot.UIAnchorPosition AnchorPosition;
+		[Category] public UIRoot.ERotationAnchor AnchorType;
 	
 	//	structdefaultproperties
 	//	{
@@ -870,13 +870,13 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIDataStoreBinding
 	{
-		public /*const transient */UIDataStoreSubscriber Subscriber;
-		public/*()*/ /*const editconst */UIRoot.EUIDataProviderFieldType RequiredFieldType;
-		public/*()*/ /*const */String MarkupString;
-		public /*const transient */int BindingIndex;
-		public /*const transient */name DataStoreName;
-		public /*const transient */name DataStoreField;
-		public /*const transient */UIDataStore ResolvedDataStore;
+		[Const, transient] public UIDataStoreSubscriber Subscriber;
+		[Category] [Const, editconst] public UIRoot.EUIDataProviderFieldType RequiredFieldType;
+		[Category] [Const] public String MarkupString;
+		[Const, transient] public int BindingIndex;
+		[Const, transient] public name DataStoreName;
+		[Const, transient] public name DataStoreField;
+		[Const, transient] public UIDataStore ResolvedDataStore;
 	
 	//	structdefaultproperties
 	//	{
@@ -893,8 +893,8 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native transient */UIStyleSubscriberReference
 	{
-		public /*init */name SubscriberId;
-		public /*init */UIStyleResolver Subscriber;
+		[init] public name SubscriberId;
+		[init] public UIStyleResolver Subscriber;
 	
 	//	structdefaultproperties
 	//	{
@@ -906,8 +906,8 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native transient */StyleReferenceId
 	{
-		public /*init */name StyleReferenceTag;
-		public /*init */Property StyleProperty;
+		[init] public name StyleReferenceTag;
+		[init] public Property StyleProperty;
 	
 	//	structdefaultproperties
 	//	{
@@ -919,11 +919,11 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UITextAttributes
 	{
-		public/*()*/ bool Bold;
-		public/*()*/ bool Italic;
-		public/*()*/ bool Underline;
-		public/*()*/ bool Shadow;
-		public/*()*/ bool Strikethrough;
+		[Category] public bool Bold;
+		[Category] public bool Italic;
+		[Category] public bool Underline;
+		[Category] public bool Shadow;
+		[Category] public bool Strikethrough;
 	
 	//	structdefaultproperties
 	//	{
@@ -938,9 +938,9 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIImageAdjustmentData
 	{
-		public/*()*/ UIRoot.ScreenPositionRange ProtectedRegion;
-		public/*()*/ UIRoot.EMaterialAdjustmentType AdjustmentType;
-		public/*()*/ UIRoot.EUIAlignment Alignment;
+		[Category] public UIRoot.ScreenPositionRange ProtectedRegion;
+		[Category] public UIRoot.EMaterialAdjustmentType AdjustmentType;
+		[Category] public UIRoot.EUIAlignment Alignment;
 	
 	//	structdefaultproperties
 	//	{
@@ -965,10 +965,10 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */TextureCoordinates
 	{
-		public/*()*/ float U;
-		public/*()*/ float V;
-		public/*()*/ float UL;
-		public/*()*/ float VL;
+		[Category] public float U;
+		[Category] public float V;
+		[Category] public float UL;
+		[Category] public float VL;
 	
 	//	structdefaultproperties
 	//	{
@@ -982,12 +982,12 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIStringCaretParameters
 	{
-		public/*()*/ bool bDisplayCaret;
-		public/*()*/ UIRoot.EUIDefaultPenColor CaretType;
-		public/*()*/ float CaretWidth;
-		public/*()*/ name CaretStyle;
-		public /*transient */int CaretPosition;
-		public /*transient */MaterialInterface CaretMaterial;
+		[Category] public bool bDisplayCaret;
+		[Category] public UIRoot.EUIDefaultPenColor CaretType;
+		[Category] public float CaretWidth;
+		[Category] public name CaretStyle;
+		[transient] public int CaretPosition;
+		[transient] public MaterialInterface CaretMaterial;
 	
 	//	structdefaultproperties
 	//	{
@@ -1003,20 +1003,20 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native transient */RenderParameters
 	{
-		public /*init */float DrawX;
-		public /*init */float DrawY;
-		public /*init */float DrawXL;
-		public /*init */float DrawYL;
-		public /*init */Object.Vector2D Scaling;
-		public /*init */Font DrawFont;
-		public /*init */StaticArray<UIRoot.EUIAlignment, UIRoot.EUIAlignment>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ TextAlignment;
-		public /*init */Object.Vector2D ImageExtent;
-		public /*init */UIRoot.TextureCoordinates DrawCoords;
-		public /*init */Object.Vector2D SpacingAdjust;
-		public /*init */float ViewportHeight;
-		public /*init */bool bForcePixelAlignment;
-		public /*init */bool bForceRenderColor;
-		public /*init */Object.LinearColor ForcedColor;
+		[init] public float DrawX;
+		[init] public float DrawY;
+		[init] public float DrawXL;
+		[init] public float DrawYL;
+		[init] public Object.Vector2D Scaling;
+		[init] public Font DrawFont;
+		[init] public StaticArray<UIRoot.EUIAlignment, UIRoot.EUIAlignment>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ TextAlignment;
+		[init] public Object.Vector2D ImageExtent;
+		[init] public UIRoot.TextureCoordinates DrawCoords;
+		[init] public Object.Vector2D SpacingAdjust;
+		[init] public float ViewportHeight;
+		[init] public bool bForcePixelAlignment;
+		[init] public bool bForceRenderColor;
+		[init] public Object.LinearColor ForcedColor;
 	
 	//	structdefaultproperties
 	//	{
@@ -1068,8 +1068,8 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */TextAutoScaleValue
 	{
-		public/*()*/ float MinScale;
-		public/*()*/ UIRoot.ETextAutoScaleMode AutoScaleMode;
+		[Category] public float MinScale;
+		[Category] public UIRoot.ETextAutoScaleMode AutoScaleMode;
 	
 	//	structdefaultproperties
 	//	{
@@ -1081,9 +1081,9 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIStyleOverride
 	{
-		public/*()*/ Object.LinearColor DrawColor;
-		public/*()*/ float Opacity;
-		public/*()*/ StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ Padding;
+		[Category] public Object.LinearColor DrawColor;
+		[Category] public float Opacity;
+		[Category] public StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ Padding;
 		public bool bOverrideDrawColor;
 		public bool bOverrideOpacity;
 		public bool bOverridePadding;
@@ -1112,21 +1112,21 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UITextStyleOverride// extends UIStyleOverride
 	{
-		public/*()*/ Object.LinearColor DrawColor;
-		public/*()*/ float Opacity;
-		public/*()*/ StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ Padding;
+		[Category] public Object.LinearColor DrawColor;
+		[Category] public float Opacity;
+		[Category] public StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ Padding;
 		public bool bOverrideDrawColor;
 		public bool bOverrideOpacity;
 		public bool bOverridePadding;
 	
-		public/*()*/ Font DrawFont;
-		public/*()*/ UIRoot.UITextAttributes TextAttributes;
-		public/*()*/ StaticArray<UIRoot.EUIAlignment, UIRoot.EUIAlignment>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ TextAlignment;
-		public/*()*/ UIRoot.ETextClipMode ClipMode;
-		public/*()*/ UIRoot.EUIAlignment ClipAlignment;
-		public/*()*/ UIRoot.TextAutoScaleValue AutoScaling;
-		public/*()*/ StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ DrawScale;
-		public/*()*/ StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ SpacingAdjust;
+		[Category] public Font DrawFont;
+		[Category] public UIRoot.UITextAttributes TextAttributes;
+		[Category] public StaticArray<UIRoot.EUIAlignment, UIRoot.EUIAlignment>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ TextAlignment;
+		[Category] public UIRoot.ETextClipMode ClipMode;
+		[Category] public UIRoot.EUIAlignment ClipAlignment;
+		[Category] public UIRoot.TextAutoScaleValue AutoScaling;
+		[Category] public StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ DrawScale;
+		[Category] public StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ SpacingAdjust;
 		public bool bOverrideDrawFont;
 		public bool bOverrideAttributes;
 		public bool bOverrideAlignment;
@@ -1179,15 +1179,15 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native */UIImageStyleOverride// extends UIStyleOverride
 	{
-		public/*()*/ Object.LinearColor DrawColor;
-		public/*()*/ float Opacity;
-		public/*()*/ StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ Padding;
+		[Category] public Object.LinearColor DrawColor;
+		[Category] public float Opacity;
+		[Category] public StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ Padding;
 		public bool bOverrideDrawColor;
 		public bool bOverrideOpacity;
 		public bool bOverridePadding;
 	
-		public/*()*/ UIRoot.TextureCoordinates Coordinates;
-		public/*()*/ StaticArray<UIRoot.UIImageAdjustmentData, UIRoot.UIImageAdjustmentData>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ Formatting;
+		[Category] public UIRoot.TextureCoordinates Coordinates;
+		[Category] public StaticArray<UIRoot.UIImageAdjustmentData, UIRoot.UIImageAdjustmentData>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ Formatting;
 		public bool bOverrideCoordinates;
 		public bool bOverrideFormatting;
 			// Object Offset:0x002C0F8B
@@ -1263,22 +1263,22 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native transient */UICombinedStyleData
 	{
-		public /*init */Object.LinearColor TextColor;
-		public /*init */Object.LinearColor ImageColor;
-		public /*init */StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ TextPadding;
-		public /*init */StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ ImagePadding;
-		public /*init */Font DrawFont;
-		public /*init */Surface FallbackImage;
-		public /*init */UIRoot.TextureCoordinates AtlasCoords;
-		public /*init */UIRoot.UITextAttributes TextAttributes;
-		public /*init */StaticArray<UIRoot.EUIAlignment, UIRoot.EUIAlignment>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ TextAlignment;
-		public /*init */UIRoot.ETextClipMode TextClipMode;
-		public /*init */UIRoot.EUIAlignment TextClipAlignment;
-		public /*init */StaticArray<UIRoot.UIImageAdjustmentData, UIRoot.UIImageAdjustmentData>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ AdjustmentType;
-		public /*init */UIRoot.TextAutoScaleValue TextAutoScaling;
-		public /*init */Object.Vector2D TextScale;
-		public /*init */Object.Vector2D TextSpacingAdjust;
-		public /*init private const */bool bInitialized;
+		[init] public Object.LinearColor TextColor;
+		[init] public Object.LinearColor ImageColor;
+		[init] public StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ TextPadding;
+		[init] public StaticArray<float, float>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ ImagePadding;
+		[init] public Font DrawFont;
+		[init] public Surface FallbackImage;
+		[init] public UIRoot.TextureCoordinates AtlasCoords;
+		[init] public UIRoot.UITextAttributes TextAttributes;
+		[init] public StaticArray<UIRoot.EUIAlignment, UIRoot.EUIAlignment>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ TextAlignment;
+		[init] public UIRoot.ETextClipMode TextClipMode;
+		[init] public UIRoot.EUIAlignment TextClipAlignment;
+		[init] public StaticArray<UIRoot.UIImageAdjustmentData, UIRoot.UIImageAdjustmentData>/*[UIRoot.EUIOrientation.UIORIENT_MAX]*/ AdjustmentType;
+		[init] public UIRoot.TextAutoScaleValue TextAutoScaling;
+		[init] public Object.Vector2D TextScale;
+		[init] public Object.Vector2D TextSpacingAdjust;
+		[init, Const] public/*private*/ bool bInitialized;
 	
 	//	structdefaultproperties
 	//	{
@@ -1393,8 +1393,8 @@ public partial class UIRoot : Object/*
 	{
 		public partial struct /*native transient */ModifierData
 		{
-			public /*init const transient */UIStyle_Data Style;
-			public /*init const transient */array<Font> InlineFontStack;
+			[init, Const, transient] public UIStyle_Data Style;
+			[init, Const, transient] public array<Font> InlineFontStack;
 	
 	//		structdefaultproperties
 	//		{
@@ -1404,10 +1404,10 @@ public partial class UIRoot : Object/*
 	//		}
 		};
 	
-		public /*init const transient */UIRoot.UICombinedStyleData CustomStyleData;
-		public /*init const transient */UIRoot.UICombinedStyleData BaseStyleData;
-		public /*init private const transient */array<UIRoot.UIStringNodeModifier.ModifierData> ModifierStack;
-		public /*init private const transient */UIState CurrentMenuState;
+		[init, Const, transient] public UIRoot.UICombinedStyleData CustomStyleData;
+		[init, Const, transient] public UIRoot.UICombinedStyleData BaseStyleData;
+		[init, Const, transient] public/*private*/ array<UIRoot.UIStringNodeModifier.ModifierData> ModifierStack;
+		[init, Const, transient] public/*private*/ UIState CurrentMenuState;
 	
 	//	structdefaultproperties
 	//	{
@@ -1631,13 +1631,13 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native transient */UIStringNode
 	{
-		public /*init native const noexport transient */Object.Pointer VfTable;
-		public /*init const transient */UIDataStore NodeDataStore;
-		public /*init native const transient */Object.Pointer ParentNode;
-		public/*()*/ /*init */String SourceText;
-		public/*()*/ /*init */Object.Vector2D Extent;
-		public/*()*/ /*init */Object.Vector2D Scaling;
-		public /*init */bool bForceWrap;
+		[init, native, Const, noexport, transient] public Object.Pointer VfTable;
+		[init, Const, transient] public UIDataStore NodeDataStore;
+		[init, native, Const, transient] public Object.Pointer ParentNode;
+		[Category] [init] public String SourceText;
+		[Category] [init] public Object.Vector2D Extent;
+		[Category] [init] public Object.Vector2D Scaling;
+		[init] public bool bForceWrap;
 	
 	//	structdefaultproperties
 	//	{
@@ -1660,16 +1660,16 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native transient */UIStringNode_Text// extends UIStringNode
 	{
-		public /*init native const noexport transient */Object.Pointer VfTable;
-		public /*init const transient */UIDataStore NodeDataStore;
-		public /*init native const transient */Object.Pointer ParentNode;
-		public/*()*/ /*init */String SourceText;
-		public/*()*/ /*init */Object.Vector2D Extent;
-		public/*()*/ /*init */Object.Vector2D Scaling;
-		public /*init */bool bForceWrap;
+		[init, native, Const, noexport, transient] public Object.Pointer VfTable;
+		[init, Const, transient] public UIDataStore NodeDataStore;
+		[init, native, Const, transient] public Object.Pointer ParentNode;
+		[Category] [init] public String SourceText;
+		[Category] [init] public Object.Vector2D Extent;
+		[Category] [init] public Object.Vector2D Scaling;
+		[init] public bool bForceWrap;
 	
-		public/*()*/ /*init */String RenderedText;
-		public /*init */UIRoot.UICombinedStyleData NodeStyleParameters;
+		[Category] [init] public String RenderedText;
+		[init] public UIRoot.UICombinedStyleData NodeStyleParameters;
 			// Object Offset:0x002C301F
 	//		NodeDataStore = default;
 	//		SourceText = "";
@@ -1804,17 +1804,17 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native transient */UIStringNode_Image// extends UIStringNode
 	{
-		public /*init native const noexport transient */Object.Pointer VfTable;
-		public /*init const transient */UIDataStore NodeDataStore;
-		public /*init native const transient */Object.Pointer ParentNode;
-		public/*()*/ /*init */String SourceText;
-		public/*()*/ /*init */Object.Vector2D Extent;
-		public/*()*/ /*init */Object.Vector2D Scaling;
-		public /*init */bool bForceWrap;
+		[init, native, Const, noexport, transient] public Object.Pointer VfTable;
+		[init, Const, transient] public UIDataStore NodeDataStore;
+		[init, native, Const, transient] public Object.Pointer ParentNode;
+		[Category] [init] public String SourceText;
+		[Category] [init] public Object.Vector2D Extent;
+		[Category] [init] public Object.Vector2D Scaling;
+		[init] public bool bForceWrap;
 	
-		public/*()*/ /*init */Object.Vector2D ForcedExtent;
-		public/*()*/ /*init */UIRoot.TextureCoordinates TexCoords;
-		public/*()*/ /*init */UITexture RenderedImage;
+		[Category] [init] public Object.Vector2D ForcedExtent;
+		[Category] [init] public UIRoot.TextureCoordinates TexCoords;
+		[Category] [init] public UITexture RenderedImage;
 			// Object Offset:0x002C301F
 	//		NodeDataStore = default;
 	//		SourceText = "";
@@ -1843,13 +1843,13 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native transient */UIStringNode_NestedMarkupParent// extends UIStringNode
 	{
-		public /*init native const noexport transient */Object.Pointer VfTable;
-		public /*init const transient */UIDataStore NodeDataStore;
-		public /*init native const transient */Object.Pointer ParentNode;
-		public/*()*/ /*init */String SourceText;
-		public/*()*/ /*init */Object.Vector2D Extent;
-		public/*()*/ /*init */Object.Vector2D Scaling;
-		public /*init */bool bForceWrap;
+		[init, native, Const, noexport, transient] public Object.Pointer VfTable;
+		[init, Const, transient] public UIDataStore NodeDataStore;
+		[init, native, Const, transient] public Object.Pointer ParentNode;
+		[Category] [init] public String SourceText;
+		[Category] [init] public Object.Vector2D Extent;
+		[Category] [init] public Object.Vector2D Scaling;
+		[init] public bool bForceWrap;
 			// Object Offset:0x002C301F
 	//		NodeDataStore = default;
 	//		SourceText = "";
@@ -1878,16 +1878,16 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native transient */UIStringNode_FormattedNodeParent// extends UIStringNode_Text
 	{
-		public /*init native const noexport transient */Object.Pointer VfTable;
-		public /*init const transient */UIDataStore NodeDataStore;
-		public /*init native const transient */Object.Pointer ParentNode;
-		public/*()*/ /*init */String SourceText;
-		public/*()*/ /*init */Object.Vector2D Extent;
-		public/*()*/ /*init */Object.Vector2D Scaling;
-		public /*init */bool bForceWrap;
+		[init, native, Const, noexport, transient] public Object.Pointer VfTable;
+		[init, Const, transient] public UIDataStore NodeDataStore;
+		[init, native, Const, transient] public Object.Pointer ParentNode;
+		[Category] [init] public String SourceText;
+		[Category] [init] public Object.Vector2D Extent;
+		[Category] [init] public Object.Vector2D Scaling;
+		[init] public bool bForceWrap;
 	
-		public/*()*/ /*init */String RenderedText;
-		public /*init */UIRoot.UICombinedStyleData NodeStyleParameters;
+		[Category] [init] public String RenderedText;
+		[init] public UIRoot.UICombinedStyleData NodeStyleParameters;
 			// Object Offset:0x002C3157
 	//		NodeStyleParameters = new UIRoot.UICombinedStyleData
 	//		{
@@ -2063,8 +2063,8 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native transient */WrappedStringElement
 	{
-		public /*init */String Value;
-		public /*init */Object.Vector2D LineExtent;
+		[init] public String Value;
+		[init] public Object.Vector2D LineExtent;
 	
 	//	structdefaultproperties
 	//	{
@@ -2080,8 +2080,8 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native export */UIMouseCursor
 	{
-		public/*()*/ name CursorStyle;
-		public/*()*/ UITexture Cursor;
+		[Category] public name CursorStyle;
+		[Category] public UITexture Cursor;
 	
 	//	structdefaultproperties
 	//	{
@@ -2093,15 +2093,15 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native transient */InputEventParameters
 	{
-		public /*init const transient */int PlayerIndex;
-		public /*init const transient */int ControllerId;
-		public /*init const transient */name InputKeyName;
-		public /*init const transient */Object.EInputEvent EventType;
-		public /*init const transient */float InputDelta;
-		public /*init const transient */float DeltaTime;
-		public /*init const transient */bool bAltPressed;
-		public /*init const transient */bool bCtrlPressed;
-		public /*init const transient */bool bShiftPressed;
+		[init, Const, transient] public int PlayerIndex;
+		[init, Const, transient] public int ControllerId;
+		[init, Const, transient] public name InputKeyName;
+		[init, Const, transient] public Object.EInputEvent EventType;
+		[init, Const, transient] public float InputDelta;
+		[init, Const, transient] public float DeltaTime;
+		[init, Const, transient] public bool bAltPressed;
+		[init, Const, transient] public bool bCtrlPressed;
+		[init, Const, transient] public bool bShiftPressed;
 	
 	//	structdefaultproperties
 	//	{
@@ -2120,17 +2120,17 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native transient */SubscribedInputEventParameters// extends InputEventParameters
 	{
-		public /*init const transient */int PlayerIndex;
-		public /*init const transient */int ControllerId;
-		public /*init const transient */name InputKeyName;
-		public /*init const transient */Object.EInputEvent EventType;
-		public /*init const transient */float InputDelta;
-		public /*init const transient */float DeltaTime;
-		public /*init const transient */bool bAltPressed;
-		public /*init const transient */bool bCtrlPressed;
-		public /*init const transient */bool bShiftPressed;
+		[init, Const, transient] public int PlayerIndex;
+		[init, Const, transient] public int ControllerId;
+		[init, Const, transient] public name InputKeyName;
+		[init, Const, transient] public Object.EInputEvent EventType;
+		[init, Const, transient] public float InputDelta;
+		[init, Const, transient] public float DeltaTime;
+		[init, Const, transient] public bool bAltPressed;
+		[init, Const, transient] public bool bCtrlPressed;
+		[init, Const, transient] public bool bShiftPressed;
 	
-		public /*init const transient */name InputAliasName;
+		[init, Const, transient] public name InputAliasName;
 			// Object Offset:0x002C3EC7
 	//		PlayerIndex = 0;
 	//		ControllerId = 0;
@@ -2196,8 +2196,8 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native export transient */UIInputAliasValue
 	{
-		public /*init */byte ModifierFlagMask;
-		public /*init */name InputAliasName;
+		[init] public byte ModifierFlagMask;
+		[init] public name InputAliasName;
 	
 	//	structdefaultproperties
 	//	{
@@ -2209,7 +2209,7 @@ public partial class UIRoot : Object/*
 	
 	public partial struct /*native export */UIInputAliasMap
 	{
-		public /*native const transient */Object.MultiMap_Mirror InputAliasLookupTable;
+		[native, Const, transient] public Object.MultiMap_Mirror InputAliasLookupTable;
 	};
 	
 	public partial struct /*native export */UIInputAliasStateMap
@@ -2232,8 +2232,8 @@ public partial class UIRoot : Object/*
 		public String WidgetClassName;
 		public Core.ClassT<UIScreenObject> WidgetClass;
 		public array<UIRoot.UIInputAliasStateMap> WidgetStates;
-		public /*native const transient *//*map<0,0>*/map<object, object> StateLookupTable;
-		public /*native const transient *//*map<0,0>*/map<object, object> StateReverseLookupTable;
+		[native, Const, transient] public /*map<0,0>*/map<object, object> StateLookupTable;
+		[native, Const, transient] public /*map<0,0>*/map<object, object> StateReverseLookupTable;
 	
 	//	structdefaultproperties
 	//	{

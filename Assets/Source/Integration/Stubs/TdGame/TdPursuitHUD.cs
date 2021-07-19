@@ -10,15 +10,15 @@ public partial class TdPursuitHUD : TdMPHUD/*
 	public Texture2D HelicopterTexture;
 	public Texture2D ProjectedBagTexture;
 	public Texture2D ProjectedArrow;
-	public/*(HUDIcons)*/ Object.Vector2D BagHolderIcon;
-	public/*(HUDIcons)*/ Object.Vector2D BagHolderName;
-	public/*(HUDIcons)*/ Object.Vector2D BagSearchCountDown;
-	public/*(HUDIcons)*/ Object.Vector2D BagDistanceOffset;
-	public/*(HUDIcons)*/ Object.Vector2D StashDistanceOffset;
-	public/*(HUDIcons)*/ Object.Vector2D StashTimerOffset;
-	public /*const */float BagFadeDistance;
-	public /*const */float StashpointFadeDistance;
-	public /*private transient */Core.ClassT<TdLocalMessage> TdMessageClass;
+	[Category("HUDIcons")] public Object.Vector2D BagHolderIcon;
+	[Category("HUDIcons")] public Object.Vector2D BagHolderName;
+	[Category("HUDIcons")] public Object.Vector2D BagSearchCountDown;
+	[Category("HUDIcons")] public Object.Vector2D BagDistanceOffset;
+	[Category("HUDIcons")] public Object.Vector2D StashDistanceOffset;
+	[Category("HUDIcons")] public Object.Vector2D StashTimerOffset;
+	[Const] public float BagFadeDistance;
+	[Const] public float StashpointFadeDistance;
+	[transient] public/*private*/ Core.ClassT<TdLocalMessage> TdMessageClass;
 	
 	public override /*simulated event */void PreBeginPlay()
 	{

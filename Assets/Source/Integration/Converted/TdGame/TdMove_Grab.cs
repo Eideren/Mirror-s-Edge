@@ -28,21 +28,21 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		GFT_MAX
 	};
 	
-	public/*(Grab)*/ /*config */Object.Vector GrabDesiredLedgeOffset;
-	public/*(Grab)*/ /*config */float GrabMaxAngle;
-	public/*(Grab)*/ /*config */float GrabMinGrabableZNormal;
-	public/*(Grab)*/ /*config */float HangFreeZDistanceCheck;
+	[Category("Grab")] [config] public Object.Vector GrabDesiredLedgeOffset;
+	[Category("Grab")] [config] public float GrabMaxAngle;
+	[Category("Grab")] [config] public float GrabMinGrabableZNormal;
+	[Category("Grab")] [config] public float HangFreeZDistanceCheck;
 	public float RelativeExtent;
 	public float DistanceToWallFromFeet;
 	public TdMove_GrabTransfer TransferMove;
-	public /*config */float StartTurningAngle;
+	[config] public float StartTurningAngle;
 	public bool bIsWithinForwardView;
 	public bool bIsTurnedRight;
 	public bool bSlopedLedge;
-	public /*private */bool bClimpUpFoldedActionReceived;
-	public /*private */bool bRequestDropDown;
-	public /*private */bool bHangFreeVertigoEffect;
-	public /*private */bool bGrabFromVerticalWallrun;
+	public/*private*/ bool bClimpUpFoldedActionReceived;
+	public/*private*/ bool bRequestDropDown;
+	public/*private*/ bool bHangFreeVertigoEffect;
+	public/*private*/ bool bGrabFromVerticalWallrun;
 	public bool bGrabFromHighZSpeed;
 	public name PendingShimmyCornerAnimation;
 	public TdMove_Grab.EGrabType GrabType;

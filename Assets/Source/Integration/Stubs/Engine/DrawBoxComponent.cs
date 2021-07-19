@@ -7,11 +7,11 @@ public partial class DrawBoxComponent : PrimitiveComponent/*
 		collapsecategories
 		noexport
 		hidecategories(Object)*/{
-	public/*()*/ Object.Color BoxColor;
-	public/*()*/ Material BoxMaterial;
-	public/*()*/ Object.Vector BoxExtent;
-	public/*()*/ bool bDrawWireBox;
-	public/*()*/ bool bDrawLitBox;
+	[Category] public Object.Color BoxColor;
+	[Category] public Material BoxMaterial;
+	[Category] public Object.Vector BoxExtent;
+	[Category] public bool bDrawWireBox;
+	[Category] public bool bDrawLitBox;
 	
 	public DrawBoxComponent()
 	{

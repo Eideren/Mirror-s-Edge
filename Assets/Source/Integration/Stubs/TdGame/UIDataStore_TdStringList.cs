@@ -12,11 +12,11 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 	public partial struct /*native */EStringListData
 	{
 		public name Tag;
-		public /*const localized */String ColumnHeaderText;
+		[Const, localized] public String ColumnHeaderText;
 		public String CurrentValue;
 		public int DefaultValueIndex;
-		public /*const localized */array</*localized */String> Strings;
-		public /*transient */UIDataProvider_TdStringArray DataProvider;
+		[Const, localized] public array</*localized */String> Strings;
+		[transient] public UIDataProvider_TdStringArray DataProvider;
 	
 	//	structdefaultproperties
 	//	{
@@ -30,9 +30,9 @@ public partial class UIDataStore_TdStringList : UIDataStore,
 	//	}
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementProvider;
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
-	public /*config */array</*config */UIDataStore_TdStringList.EStringListData> StringData;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementCellProvider;
+	[config] public array</*config */UIDataStore_TdStringList.EStringListData> StringData;
 	
 	public override /*event */void Registered(LocalPlayer PlayerOwner)
 	{

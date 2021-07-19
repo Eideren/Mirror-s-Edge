@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_TdBlockWhileLoading : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ bool bOnlyInSpeedrun;
+	[Category] public bool bOnlyInSpeedrun;
 	
 	public SeqAct_TdBlockWhileLoading()
 	{

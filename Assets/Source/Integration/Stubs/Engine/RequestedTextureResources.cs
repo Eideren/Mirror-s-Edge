@@ -3,8 +3,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class RequestedTextureResources : Object/*
 		native*/{
-	public /*private transient */String Filename;
-	public /*native const */Object.Map_Mirror TextureResourceInformation;
+	[transient] public/*private*/ String Filename;
+	[native, Const] public Object.Map_Mirror TextureResourceInformation;
 	
 }
 }

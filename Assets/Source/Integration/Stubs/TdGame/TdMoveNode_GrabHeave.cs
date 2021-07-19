@@ -9,8 +9,8 @@ public partial class TdMoveNode_GrabHeave : TdMoveNode/*
 	public float WallDistance;
 	public float MinWallHeight;
 	public float MaxWallHeight;
-	public/*()*/ bool bDoAutoWallAdjustment;
-	public /*const export editinline */SpriteComponent MoveIcon;
+	[Category] public bool bDoAutoWallAdjustment;
+	[Const, export, editinline] public SpriteComponent MoveIcon;
 	
 	public TdMoveNode_GrabHeave()
 	{

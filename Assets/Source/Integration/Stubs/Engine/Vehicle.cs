@@ -8,8 +8,8 @@ public partial class Vehicle : Pawn/*
 		config(Game)
 		placeable
 		hidecategories(Navigation)*/{
-	public /*repnotify */Pawn Driver;
-	public /*repnotify */bool bDriving;
+	[repnotify] public Pawn Driver;
+	[repnotify] public bool bDriving;
 	public bool bDriverIsVisible;
 	public bool bAttachDriver;
 	public bool bTurnInPlace;
@@ -19,17 +19,17 @@ public partial class Vehicle : Pawn/*
 	public bool bScriptedRise;
 	public bool bAvoidReversing;
 	public bool bRetryPathfindingWithDriver;
-	public/*()*/ bool bIgnoreStallZ;
+	[Category] public bool bIgnoreStallZ;
 	public bool bDoExtraNetRelevancyTraces;
-	public/*()*/ array<Object.Vector> ExitPositions;
+	[Category] public array<Object.Vector> ExitPositions;
 	public float ExitRadius;
 	public Object.Vector ExitOffset;
-	public/*()*/ float Steering;
-	public/*()*/ float Throttle;
-	public/*()*/ float Rise;
+	[Category] public float Steering;
+	[Category] public float Throttle;
+	[Category] public float Rise;
 	public Object.Vector TargetLocationAdjustment;
 	public float DriverDamageMult;
-	public/*()*/ float MomentumMult;
+	[Category] public float MomentumMult;
 	public Core.ClassT<DamageType> CrushedDamageType;
 	public float MinCrushSpeed;
 	public float ForceCrushPenetration;
@@ -39,7 +39,7 @@ public partial class Vehicle : Pawn/*
 	public float OldSteering;
 	public float OnlySteeringStartTime;
 	public float OldThrottle;
-	public /*const */float AIMoveCheckTime;
+	[Const] public float AIMoveCheckTime;
 	public float VehicleMovingTime;
 	public float TurnTime;
 	

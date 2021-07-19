@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIAction_FindOnlineGames : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ name DataStoreName;
+	[Category] public name DataStoreName;
 	
 	public UIAction_FindOnlineGames()
 	{

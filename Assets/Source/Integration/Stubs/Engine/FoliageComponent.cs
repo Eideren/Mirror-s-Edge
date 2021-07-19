@@ -79,13 +79,13 @@ public partial class FoliageComponent : PrimitiveComponent/*
 	//	}
 	};
 	
-	public /*const */array<FoliageComponent.GatheredFoliageInstance> Instances;
-	public /*const */array<Object.Guid> StaticallyRelevantLights;
-	public /*const */array<Object.Guid> StaticallyIrrelevantLights;
-	public /*const */StaticArray<float, float, float>/*[3]*/ DirectionalStaticLightingScale;
-	public /*const */StaticArray<float, float, float>/*[3]*/ SimpleStaticLightingScale;
-	public /*const */StaticMesh InstanceStaticMesh;
-	public /*const */MaterialInterface Material;
+	[Const] public array<FoliageComponent.GatheredFoliageInstance> Instances;
+	[Const] public array<Object.Guid> StaticallyRelevantLights;
+	[Const] public array<Object.Guid> StaticallyIrrelevantLights;
+	[Const] public StaticArray<float, float, float>/*[3]*/ DirectionalStaticLightingScale;
+	[Const] public StaticArray<float, float, float>/*[3]*/ SimpleStaticLightingScale;
+	[Const] public StaticMesh InstanceStaticMesh;
+	[Const] public MaterialInterface Material;
 	public float MaxDrawRadius;
 	public float MinTransitionRadius;
 	public Object.Vector MinScale;

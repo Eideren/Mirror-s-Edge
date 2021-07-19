@@ -7,7 +7,7 @@ public partial class ParticleModuleUberBase : ParticleModule/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public /*const */array<name> RequiredModules;
+	[Const] public array<name> RequiredModules;
 	
 }
 }

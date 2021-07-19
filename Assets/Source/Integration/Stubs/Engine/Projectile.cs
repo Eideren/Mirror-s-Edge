@@ -14,7 +14,7 @@ public partial class Projectile : Actor/*
 	public bool bRotationFollowsVelocity;
 	public bool bNotBlockedByShield;
 	public Actor ZeroCollider;
-	public /*export editinline */PrimitiveComponent ZeroColliderComponent;
+	[export, editinline] public PrimitiveComponent ZeroColliderComponent;
 	public float Damage;
 	public float DamageRadius;
 	public float MomentumTransfer;
@@ -24,7 +24,7 @@ public partial class Projectile : Actor/*
 	public Controller InstigatorController;
 	public Actor ImpactedActor;
 	public float NetCullDistanceSquared;
-	public /*export editinline */CylinderComponent CylinderComponent;
+	[export, editinline] public CylinderComponent CylinderComponent;
 	
 	public override /*event */bool EncroachingOn(Actor Other)
 	{

@@ -6,11 +6,11 @@ public partial class UIStyle_Combo : UIStyle_Data/*
 		hidecategories(Object,UIRoot)*/{
 	public partial struct /*native */StyleDataReference
 	{
-		public /*private */UIStyle OwnerStyle;
-		public /*private */UIRoot.STYLE_ID SourceStyleID;
-		public /*private transient */UIStyle SourceStyle;
-		public /*private */UIState SourceState;
-		public /*private */UIStyle_Data CustomStyleData;
+		public/*private*/ UIStyle OwnerStyle;
+		public/*private*/ UIRoot.STYLE_ID SourceStyleID;
+		[transient] public/*private*/ UIStyle SourceStyle;
+		public/*private*/ UIState SourceState;
+		public/*private*/ UIStyle_Data CustomStyleData;
 	
 	//	structdefaultproperties
 	//	{

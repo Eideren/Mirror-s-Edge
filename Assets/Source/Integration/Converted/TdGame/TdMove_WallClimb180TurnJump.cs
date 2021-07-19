@@ -3,9 +3,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMove_WallClimb180TurnJump : TdPhysicsMove/*
 		config(PawnMovement)*/{
-	public/*(Gameplay)*/ /*config */float JumpOffZHeight;
-	public/*(Gameplay)*/ /*config */float JumpPushAwaySpeed;
-	public/*(Gameplay)*/ /*config */float JumpTimeWindow;
+	[Category("Gameplay")] [config] public float JumpOffZHeight;
+	[Category("Gameplay")] [config] public float JumpPushAwaySpeed;
+	[Category("Gameplay")] [config] public float JumpTimeWindow;
 	public bool bJumpingFromWall;
 	public Object.Vector WantedJumpDir;
 	

@@ -4,12 +4,12 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_Tutorial : TdUIScene/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIDataStore_TdTutorialData TutorialData;
-	public /*transient */UIList ChallengeList;
-	public /*transient */UILabel GradeATimeLabel;
-	public /*transient */UILabel GradeBTimeLabel;
-	public /*transient */UILabel GradeCTimeLabel;
-	public /*transient */UILabel PlayerTimeTimeLabel;
+	[transient] public UIDataStore_TdTutorialData TutorialData;
+	[transient] public UIList ChallengeList;
+	[transient] public UILabel GradeATimeLabel;
+	[transient] public UILabel GradeBTimeLabel;
+	[transient] public UILabel GradeCTimeLabel;
+	[transient] public UILabel PlayerTimeTimeLabel;
 	
 	public override /*event */void PostInitialize()
 	{

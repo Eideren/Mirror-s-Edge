@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class AnimNodeMirror : AnimNodeBlendBase/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ bool bEnableMirroring;
+	[Category] public bool bEnableMirroring;
 	
 	public AnimNodeMirror()
 	{

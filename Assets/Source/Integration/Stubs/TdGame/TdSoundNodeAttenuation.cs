@@ -6,8 +6,8 @@ public partial class TdSoundNodeAttenuation : SoundNodeAttenuation/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ DistributionFloat.RawDistributionFloat SpeedOfSound;
-	public/*()*/ bool bDelay;
+	[Category] public DistributionFloat.RawDistributionFloat SpeedOfSound;
+	[Category] public bool bDelay;
 	
 	public TdSoundNodeAttenuation()
 	{

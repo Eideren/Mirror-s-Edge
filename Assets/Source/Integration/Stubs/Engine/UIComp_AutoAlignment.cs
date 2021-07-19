@@ -7,8 +7,8 @@ public partial class UIComp_AutoAlignment : UIComponent/* within UIObject*//*
 		hidecategories(Object)*/{
 	public new UIObject Outer => base.Outer as UIObject;
 	
-	public/*()*/ UIRoot.EUIAlignment HorzAlignment;
-	public/*()*/ UIRoot.EUIAlignment VertAlignment;
+	[Category] public UIRoot.EUIAlignment HorzAlignment;
+	[Category] public UIRoot.EUIAlignment VertAlignment;
 	
 	public UIComp_AutoAlignment()
 	{

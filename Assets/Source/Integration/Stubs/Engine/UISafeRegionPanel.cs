@@ -12,11 +12,11 @@ public partial class UISafeRegionPanel : UIContainer/*
 		ESRT_MAX
 	};
 	
-	public/*(Safe)*/ UISafeRegionPanel.ESafeRegionType RegionType;
-	public/*(Safe)*/ /*editinline config */array</*editinline config */float> RegionPercentages;
-	public/*(Safe)*/ bool bForce4x3AspectRatio;
-	public/*(Safe)*/ bool bUseFullRegionIn4x3;
-	public/*(Safe)*/ bool bForce16x9AspectRatio;
+	[Category("Safe")] public UISafeRegionPanel.ESafeRegionType RegionType;
+	[Category("Safe")] [editinline, config] public array</*editinline config */float> RegionPercentages;
+	[Category("Safe")] public bool bForce4x3AspectRatio;
+	[Category("Safe")] public bool bUseFullRegionIn4x3;
+	[Category("Safe")] public bool bForce16x9AspectRatio;
 	
 	public UISafeRegionPanel()
 	{

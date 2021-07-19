@@ -5,7 +5,7 @@ public partial class SeqVar_External : SequenceVariable/*
 		native
 		hidecategories(Object)*/{
 	public Core.ClassT<SequenceVariable> ExpectedType;
-	public/*()*/ String VariableLabel;
+	[Category] public String VariableLabel;
 	
 	public SeqVar_External()
 	{

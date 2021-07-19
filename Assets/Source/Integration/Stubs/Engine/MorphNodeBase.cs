@@ -5,9 +5,9 @@ public partial class MorphNodeBase : Object/*
 		abstract
 		native
 		hidecategories(Object)*/{
-	public/*()*/ name NodeName;
+	[Category] public name NodeName;
 	public bool bDrawSlider;
-	public /*export editinline */SkeletalMeshComponent SkelComponent;
+	[export, editinline] public SkeletalMeshComponent SkelComponent;
 	public int NodePosX;
 	public int NodePosY;
 	public int DrawWidth;

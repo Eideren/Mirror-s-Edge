@@ -61,7 +61,7 @@ public partial class TdAI_HeliController : AIController/*
 	public float CurrentPrioValue;
 	public array<TdAttackPathNode> AttackNodes;
 	public TdAIVoiceOverManager VoiceOverManager;
-	public /*const */float BigFloat;
+	[Const] public float BigFloat;
 	public bool bMuted;
 	public Object.Vector LastLoc;
 	

@@ -6,10 +6,10 @@ public partial class TdSoundNodeSlowMotion : SoundNode/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ TdSoundNodeADSR.SoundInterpolationMethod PitchInterpolationMethod;
-	public/*()*/ TdSoundNodeADSR.SoundInterpolationMethod VolumeInterpolationMethod;
-	public/*()*/ bool bModulatePitch;
-	public/*()*/ bool bModulateVolume;
+	[Category] public TdSoundNodeADSR.SoundInterpolationMethod PitchInterpolationMethod;
+	[Category] public TdSoundNodeADSR.SoundInterpolationMethod VolumeInterpolationMethod;
+	[Category] public bool bModulatePitch;
+	[Category] public bool bModulateVolume;
 	
 	public TdSoundNodeSlowMotion()
 	{

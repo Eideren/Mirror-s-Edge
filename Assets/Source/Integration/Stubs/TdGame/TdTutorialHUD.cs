@@ -6,9 +6,9 @@ public partial class TdTutorialHUD : TdSPHUD/*
 		config(Game)
 		notplaceable
 		hidecategories(Navigation)*/{
-	public/*(HUDIcons)*/ Object.Vector2D RaceTimerPos;
-	public/*(HUDIcons)*/ Object.Vector2D TutorialInfoPos;
-	public /*transient */UIScene TutorialMessageScene;
+	[Category("HUDIcons")] public Object.Vector2D RaceTimerPos;
+	[Category("HUDIcons")] public Object.Vector2D TutorialInfoPos;
+	[transient] public UIScene TutorialMessageScene;
 	
 	public override /*function */void LoadHUDContent(Core.ClassT<TdHUDContent> ContentClass)
 	{

@@ -4,9 +4,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIBlurEffect : PostProcessEffect/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float FalloffExponent;
-	public/*()*/ float BlurKernelSize;
-	public/*()*/ float BlurAmount;
+	[Category] public float FalloffExponent;
+	[Category] public float BlurKernelSize;
+	[Category] public float BlurAmount;
 	
 	public TdUIBlurEffect()
 	{

@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_Timer : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public /*transient */float ActivationTime;
-	public/*()*/ float Time;
+	[transient] public float ActivationTime;
+	[Category] public float Time;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

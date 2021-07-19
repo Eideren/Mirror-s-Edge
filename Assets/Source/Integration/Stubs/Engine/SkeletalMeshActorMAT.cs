@@ -5,7 +5,7 @@ public partial class SkeletalMeshActorMAT : SkeletalMeshActor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public /*transient */array<AnimNodeSlot> SlotNodes;
+	[transient] public array<AnimNodeSlot> SlotNodes;
 	
 	// Export USkeletalMeshActorMAT::execMAT_BeginAnimControl(FFrame&, void* const)
 	public virtual /*native function */void MAT_BeginAnimControl(array<AnimSet> InAnimSets)

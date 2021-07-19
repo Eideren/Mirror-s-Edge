@@ -5,7 +5,7 @@ public partial class TdBotPawn_PursuitCop : TdBotPawn/*
 		config(AI)
 		notplaceable
 		hidecategories(Navigation)*/{
-	public/*()*/ float FootStepPitchMultiplier;
+	[Category] public float FootStepPitchMultiplier;
 	
 	public override /*function */bool CanBlock()
 	{

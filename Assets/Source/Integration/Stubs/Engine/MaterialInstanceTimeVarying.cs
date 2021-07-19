@@ -6,14 +6,14 @@ public partial class MaterialInstanceTimeVarying : MaterialInstance/*
 	public partial struct /*native */ParameterValueOverTime
 	{
 		public Object.Guid ExpressionGUID;
-		public /*transient */float StartTime;
-		public/*()*/ name ParameterName;
-		public/*()*/ bool bLoop;
-		public/*()*/ bool bAutoActivate;
-		public/*()*/ float CycleTime;
-		public/*()*/ bool bNormalizeTime;
-		public/*()*/ float OffsetTime;
-		public/*()*/ bool bOffsetFromEnd;
+		[transient] public float StartTime;
+		[Category] public name ParameterName;
+		[Category] public bool bLoop;
+		[Category] public bool bAutoActivate;
+		[Category] public float CycleTime;
+		[Category] public bool bNormalizeTime;
+		[Category] public float OffsetTime;
+		[Category] public bool bOffsetFromEnd;
 	
 	//	structdefaultproperties
 	//	{
@@ -39,17 +39,17 @@ public partial class MaterialInstanceTimeVarying : MaterialInstance/*
 	public partial struct /*native */FontParameterValueOverTime// extends ParameterValueOverTime
 	{
 		public Object.Guid ExpressionGUID;
-		public /*transient */float StartTime;
-		public/*()*/ name ParameterName;
-		public/*()*/ bool bLoop;
-		public/*()*/ bool bAutoActivate;
-		public/*()*/ float CycleTime;
-		public/*()*/ bool bNormalizeTime;
-		public/*()*/ float OffsetTime;
-		public/*()*/ bool bOffsetFromEnd;
+		[transient] public float StartTime;
+		[Category] public name ParameterName;
+		[Category] public bool bLoop;
+		[Category] public bool bAutoActivate;
+		[Category] public float CycleTime;
+		[Category] public bool bNormalizeTime;
+		[Category] public float OffsetTime;
+		[Category] public bool bOffsetFromEnd;
 	
-		public/*()*/ Font FontValue;
-		public/*()*/ int FontPage;
+		[Category] public Font FontValue;
+		[Category] public int FontPage;
 			// Object Offset:0x0035B2A8
 	//		ExpressionGUID = new Guid
 	//		{
@@ -78,17 +78,17 @@ public partial class MaterialInstanceTimeVarying : MaterialInstance/*
 	public partial struct /*native */ScalarParameterValueOverTime// extends ParameterValueOverTime
 	{
 		public Object.Guid ExpressionGUID;
-		public /*transient */float StartTime;
-		public/*()*/ name ParameterName;
-		public/*()*/ bool bLoop;
-		public/*()*/ bool bAutoActivate;
-		public/*()*/ float CycleTime;
-		public/*()*/ bool bNormalizeTime;
-		public/*()*/ float OffsetTime;
-		public/*()*/ bool bOffsetFromEnd;
+		[transient] public float StartTime;
+		[Category] public name ParameterName;
+		[Category] public bool bLoop;
+		[Category] public bool bAutoActivate;
+		[Category] public float CycleTime;
+		[Category] public bool bNormalizeTime;
+		[Category] public float OffsetTime;
+		[Category] public bool bOffsetFromEnd;
 	
-		public/*()*/ float ParameterValue;
-		public/*()*/ Object.InterpCurveFloat ParameterValueCurve;
+		[Category] public float ParameterValue;
+		[Category] public Object.InterpCurveFloat ParameterValueCurve;
 			// Object Offset:0x0035B2A8
 	//		ExpressionGUID = new Guid
 	//		{
@@ -117,16 +117,16 @@ public partial class MaterialInstanceTimeVarying : MaterialInstance/*
 	public partial struct /*native */TextureParameterValueOverTime// extends ParameterValueOverTime
 	{
 		public Object.Guid ExpressionGUID;
-		public /*transient */float StartTime;
-		public/*()*/ name ParameterName;
-		public/*()*/ bool bLoop;
-		public/*()*/ bool bAutoActivate;
-		public/*()*/ float CycleTime;
-		public/*()*/ bool bNormalizeTime;
-		public/*()*/ float OffsetTime;
-		public/*()*/ bool bOffsetFromEnd;
+		[transient] public float StartTime;
+		[Category] public name ParameterName;
+		[Category] public bool bLoop;
+		[Category] public bool bAutoActivate;
+		[Category] public float CycleTime;
+		[Category] public bool bNormalizeTime;
+		[Category] public float OffsetTime;
+		[Category] public bool bOffsetFromEnd;
 	
-		public/*()*/ Texture ParameterValue;
+		[Category] public Texture ParameterValue;
 			// Object Offset:0x0035B2A8
 	//		ExpressionGUID = new Guid
 	//		{
@@ -155,17 +155,17 @@ public partial class MaterialInstanceTimeVarying : MaterialInstance/*
 	public partial struct /*native */VectorParameterValueOverTime// extends ParameterValueOverTime
 	{
 		public Object.Guid ExpressionGUID;
-		public /*transient */float StartTime;
-		public/*()*/ name ParameterName;
-		public/*()*/ bool bLoop;
-		public/*()*/ bool bAutoActivate;
-		public/*()*/ float CycleTime;
-		public/*()*/ bool bNormalizeTime;
-		public/*()*/ float OffsetTime;
-		public/*()*/ bool bOffsetFromEnd;
+		[transient] public float StartTime;
+		[Category] public name ParameterName;
+		[Category] public bool bLoop;
+		[Category] public bool bAutoActivate;
+		[Category] public float CycleTime;
+		[Category] public bool bNormalizeTime;
+		[Category] public float OffsetTime;
+		[Category] public bool bOffsetFromEnd;
 	
-		public/*()*/ Object.LinearColor ParameterValue;
-		public/*()*/ Object.InterpCurveVector ParameterValueCurve;
+		[Category] public Object.LinearColor ParameterValue;
+		[Category] public Object.InterpCurveVector ParameterValueCurve;
 			// Object Offset:0x0035B2A8
 	//		ExpressionGUID = new Guid
 	//		{
@@ -198,12 +198,12 @@ public partial class MaterialInstanceTimeVarying : MaterialInstance/*
 	//	}
 	};
 	
-	public/*()*/ bool bAutoActivateAll;
-	public /*transient */float Duration;
-	public/*()*/ /*const */array<MaterialInstanceTimeVarying.FontParameterValueOverTime> FontParameterValues;
-	public/*()*/ /*const */array<MaterialInstanceTimeVarying.ScalarParameterValueOverTime> ScalarParameterValues;
-	public/*()*/ /*const */array<MaterialInstanceTimeVarying.TextureParameterValueOverTime> TextureParameterValues;
-	public/*()*/ /*const */array<MaterialInstanceTimeVarying.VectorParameterValueOverTime> VectorParameterValues;
+	[Category] public bool bAutoActivateAll;
+	[transient] public float Duration;
+	[Category] [Const] public array<MaterialInstanceTimeVarying.FontParameterValueOverTime> FontParameterValues;
+	[Category] [Const] public array<MaterialInstanceTimeVarying.ScalarParameterValueOverTime> ScalarParameterValues;
+	[Category] [Const] public array<MaterialInstanceTimeVarying.TextureParameterValueOverTime> TextureParameterValues;
+	[Category] [Const] public array<MaterialInstanceTimeVarying.VectorParameterValueOverTime> VectorParameterValues;
 	
 	// Export UMaterialInstanceTimeVarying::execSetParent(FFrame&, void* const)
 	public override /*native function */void SetParent(MaterialInterface NewParent)

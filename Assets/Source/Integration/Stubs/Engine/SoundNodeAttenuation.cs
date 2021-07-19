@@ -16,15 +16,15 @@ public partial class SoundNodeAttenuation : SoundNode/*
 		ATTENUATION_MAX
 	};
 	
-	public/*()*/ SoundNodeAttenuation.SoundDistanceModel DistanceModel;
-	public/*()*/ DistributionFloat.RawDistributionFloat MinRadius;
-	public/*()*/ DistributionFloat.RawDistributionFloat MaxRadius;
-	public/*()*/ float dBAttenuationAtMax;
-	public/*()*/ DistributionFloat.RawDistributionFloat LPFMinRadius;
-	public/*()*/ DistributionFloat.RawDistributionFloat LPFMaxRadius;
-	public/*()*/ bool bSpatialize;
-	public/*()*/ bool bAttenuate;
-	public/*()*/ bool bAttenuateWithLowPassFilter;
+	[Category] public SoundNodeAttenuation.SoundDistanceModel DistanceModel;
+	[Category] public DistributionFloat.RawDistributionFloat MinRadius;
+	[Category] public DistributionFloat.RawDistributionFloat MaxRadius;
+	[Category] public float dBAttenuationAtMax;
+	[Category] public DistributionFloat.RawDistributionFloat LPFMinRadius;
+	[Category] public DistributionFloat.RawDistributionFloat LPFMaxRadius;
+	[Category] public bool bSpatialize;
+	[Category] public bool bAttenuate;
+	[Category] public bool bAttenuateWithLowPassFilter;
 	
 	public SoundNodeAttenuation()
 	{

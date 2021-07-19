@@ -5,8 +5,8 @@ public partial class TdKeyBindingHandler : Object/*
 		native*/{
 	public partial struct /*native transient */KeyBindWidgetButtonData
 	{
-		public /*init */UILabelButton KeyBindButton;
-		public /*init */UIDataProvider KeyProvider;
+		[init] public UILabelButton KeyBindButton;
+		[init] public UIDataProvider KeyProvider;
 	
 	//	structdefaultproperties
 	//	{
@@ -18,8 +18,8 @@ public partial class TdKeyBindingHandler : Object/*
 	
 	public partial struct /*native transient */KeyBindWidgetData
 	{
-		public /*init */UILabel ActionNameLabel;
-		public /*init */array<TdKeyBindingHandler.KeyBindWidgetButtonData> KeyBindButtons;
+		[init] public UILabel ActionNameLabel;
+		[init] public array<TdKeyBindingHandler.KeyBindWidgetButtonData> KeyBindButtons;
 	
 	//	structdefaultproperties
 	//	{
@@ -57,16 +57,16 @@ public partial class TdKeyBindingHandler : Object/*
 	//	}
 	};
 	
-	public /*transient */array<TdKeyBindingHandler.KeyBindWidgetData> KeyBindWidgets;
-	public /*transient */TdKeyBindingHandler.KeyBindData CurrKeyBindData;
-	public /*transient */array<TdKeyBindingHandler.CurrentBindKeyStruct> CurrentBindings;
+	[transient] public array<TdKeyBindingHandler.KeyBindWidgetData> KeyBindWidgets;
+	[transient] public TdKeyBindingHandler.KeyBindData CurrKeyBindData;
+	[transient] public array<TdKeyBindingHandler.CurrentBindKeyStruct> CurrentBindings;
 	public bool bSettingsWasChanged;
-	public /*transient */bool bCurrentlyBindingKey;
-	public /*transient */bool bPromptForBindStomp;
-	public /*transient */UILabelButton CurrentBindingObject;
+	[transient] public bool bCurrentlyBindingKey;
+	[transient] public bool bPromptForBindStomp;
+	[transient] public UILabelButton CurrentBindingObject;
 	public TdUIScene OwnerScene;
-	public /*transient */TdUIScene_MessageBox BindKeyMessageBox;
-	public /*transient */array<Input.KeyBind> CurrentBindingsMap;
+	[transient] public TdUIScene_MessageBox BindKeyMessageBox;
+	[transient] public array<Input.KeyBind> CurrentBindingsMap;
 	public /*delegate*/TdKeyBindingHandler.OnSettingsChangedDelegate __OnSettingsChangedDelegate__Delegate;
 	public /*delegate*/TdKeyBindingHandler.IsAllowedBindingKey __IsAllowedBindingKey__Delegate;
 	

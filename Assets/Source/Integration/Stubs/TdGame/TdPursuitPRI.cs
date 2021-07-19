@@ -6,8 +6,8 @@ public partial class TdPursuitPRI : TdBagPRI/*
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
 	public float LastBagRequestTime;
-	public /*config */float MaxRequestDistance;
-	public /*config */float AllowedBagRequestedInterval;
+	[config] public float MaxRequestDistance;
+	[config] public float AllowedBagRequestedInterval;
 	public float LastBagRequestedTime;
 	public Actor RequesterActor;
 	

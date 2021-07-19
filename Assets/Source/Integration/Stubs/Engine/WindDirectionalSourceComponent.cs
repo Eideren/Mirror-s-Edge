@@ -6,11 +6,11 @@ public partial class WindDirectionalSourceComponent : ActorComponent/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public /*private noimport native const transient */Object.Pointer SceneProxy;
-	public/*()*/ float Strength;
-	public/*()*/ float Phase;
-	public/*()*/ float Frequency;
-	public/*()*/ float Speed;
+	[noimport, native, Const, transient] public/*private*/ Object.Pointer SceneProxy;
+	[Category] public float Strength;
+	[Category] public float Phase;
+	[Category] public float Frequency;
+	[Category] public float Speed;
 	
 	public WindDirectionalSourceComponent()
 	{

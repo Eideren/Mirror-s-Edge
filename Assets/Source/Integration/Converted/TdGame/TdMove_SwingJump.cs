@@ -4,9 +4,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_SwingJump : TdPhysicsMove/*
 		config(PawnMovement)*/{
 	public TdSwingVolume TargetVolume;
-	public /*config */float GravityModifier;
-	public /*config */float GravityModifierTimer;
-	public /*config */Object.Vector TargetVolumeOffset;
+	[config] public float GravityModifier;
+	[config] public float GravityModifierTimer;
+	[config] public Object.Vector TargetVolumeOffset;
 	
 	public override /*function */bool CanDoMove()
 	{

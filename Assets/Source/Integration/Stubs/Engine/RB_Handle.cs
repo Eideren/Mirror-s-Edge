@@ -5,18 +5,18 @@ public partial class RB_Handle : ActorComponent/*
 		native
 		collapsecategories
 		hidecategories(Object)*/{
-	public /*export editinline */PrimitiveComponent GrabbedComponent;
+	[export, editinline] public PrimitiveComponent GrabbedComponent;
 	public name GrabbedBoneName;
-	public /*native const transient */int SceneIndex;
-	public /*native const transient */bool bInHardware;
-	public /*native const transient */bool bRotationConstrained;
+	[native, Const, transient] public int SceneIndex;
+	[native, Const, transient] public bool bInHardware;
+	[native, Const, transient] public bool bRotationConstrained;
 	public bool bInterpolating;
-	public /*native const transient */Object.Pointer HandleData;
-	public /*native const transient */Object.Pointer KinActorData;
-	public/*()*/ float LinearDamping;
-	public/*()*/ float LinearStiffness;
-	public/*()*/ float AngularDamping;
-	public/*()*/ float AngularStiffness;
+	[native, Const, transient] public Object.Pointer HandleData;
+	[native, Const, transient] public Object.Pointer KinActorData;
+	[Category] public float LinearDamping;
+	[Category] public float LinearStiffness;
+	[Category] public float AngularDamping;
+	[Category] public float AngularStiffness;
 	public Object.Vector Destination;
 	public Object.Vector StepSize;
 	public Object.Vector Location;

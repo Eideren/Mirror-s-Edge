@@ -16,9 +16,9 @@ public partial class Trigger : Actor/*
 	//	}
 	};
 	
-	public/*()*/ /*const editconst export editinline */CylinderComponent CylinderComponent;
+	[Category] [Const, editconst, export, editinline] public CylinderComponent CylinderComponent;
 	public bool bRecentlyTriggered;
-	public/*()*/ float AITriggerDelay;
+	[Category] public float AITriggerDelay;
 	
 	public override Touch_del Touch { get => bfield_Touch ?? Trigger_Touch; set => bfield_Touch = value; } Touch_del bfield_Touch;
 	public override Touch_del global_Touch => Trigger_Touch;

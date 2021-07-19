@@ -23,9 +23,9 @@ public partial class TdAnimNodePoseOffset : AnimNodeBlendBase/*
 	
 	public array<TdAnimNodePoseOffset.PoseProfile> Profiles;
 	public TdAnimNodePoseOffset.PoseProfile ActivePoseProfile;
-	public/*(GeneralSettings)*/ /*transient */bool bDisable;
-	public/*(EditorSettings)*/ /*transient */bool BuildPoseOffsets;
-	public/*(EditorSettings)*/ /*editoronly */int ActivePoseProfileIndex;
+	[Category("GeneralSettings")] [transient] public bool bDisable;
+	[Category("EditorSettings")] [transient] public bool BuildPoseOffsets;
+	[Category("EditorSettings")] [editoronly] public int ActivePoseProfileIndex;
 	
 	public override /*event */void EditorProfileUpdated(name ProfileName)
 	{

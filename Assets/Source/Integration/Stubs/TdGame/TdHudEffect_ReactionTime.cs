@@ -4,19 +4,19 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdHudEffect_ReactionTime : TdHudEffect/*
 		native
 		config(HudEffects)*/{
-	public /*transient */float UsedTargetingDistance;
-	public /*transient */float NormalizedTargetingDistance;
-	public /*config */float TargetingDistanceFilter;
-	public /*config */float DOFMaxNearBlurAmount;
-	public /*config */float DOFMaxFarBlurAmount;
-	public /*private transient */float PPFadeInTimerCharged;
-	public /*private transient */float PPPeakDurationTimerCharged;
-	public /*private transient */float PPFadeOutTimerCharged;
-	public /*private transient */float PPTargetStrengthCharged;
-	public /*private transient */float PPCurrentStrengthCharged;
-	public/*()*/ /*editinline config */TdHudEffect.PPSettings PPStrengthCharged;
-	public /*transient */float MaxNearBlurAmountBackUp;
-	public /*transient */float MaxFarBlurAmountBackUp;
+	[transient] public float UsedTargetingDistance;
+	[transient] public float NormalizedTargetingDistance;
+	[config] public float TargetingDistanceFilter;
+	[config] public float DOFMaxNearBlurAmount;
+	[config] public float DOFMaxFarBlurAmount;
+	[transient] public/*private*/ float PPFadeInTimerCharged;
+	[transient] public/*private*/ float PPPeakDurationTimerCharged;
+	[transient] public/*private*/ float PPFadeOutTimerCharged;
+	[transient] public/*private*/ float PPTargetStrengthCharged;
+	[transient] public/*private*/ float PPCurrentStrengthCharged;
+	[Category] [editinline, config] public TdHudEffect.PPSettings PPStrengthCharged;
+	[transient] public float MaxNearBlurAmountBackUp;
+	[transient] public float MaxFarBlurAmountBackUp;
 	
 	// Export UTdHudEffect_ReactionTime::execActivateCharged(FFrame&, void* const)
 	public virtual /*native final function */void ActivateCharged()

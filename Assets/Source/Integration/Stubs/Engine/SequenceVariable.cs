@@ -5,7 +5,7 @@ public partial class SequenceVariable : SequenceObject/*
 		abstract
 		native
 		hidecategories(Object)*/{
-	public/*()*/ name VarName;
+	[Category] public name VarName;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

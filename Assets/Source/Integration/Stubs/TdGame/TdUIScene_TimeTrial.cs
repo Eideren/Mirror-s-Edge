@@ -5,22 +5,22 @@ public partial class TdUIScene_TimeTrial : TdUIScene_SubMenu/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
 	public UIDataStore_TdTimeTrialData TimeTrialData;
-	public /*transient */UIList StretchList;
-	public /*transient */UILabel UnlockDesc;
-	public /*transient */UILabel QualifyingTimeLabel1;
-	public /*transient */UILabel QualifyingTimeLabel2;
-	public /*transient */UILabel QualifyingTimeLabel3;
-	public /*transient */UILabel WorldBestLabel;
-	public /*transient */UILabel WorldBestTimeLabel;
-	public /*transient */UILabel FriendsBestLabel;
-	public /*transient */UILabel FriendsBestTimeLabel;
+	[transient] public UIList StretchList;
+	[transient] public UILabel UnlockDesc;
+	[transient] public UILabel QualifyingTimeLabel1;
+	[transient] public UILabel QualifyingTimeLabel2;
+	[transient] public UILabel QualifyingTimeLabel3;
+	[transient] public UILabel WorldBestLabel;
+	[transient] public UILabel WorldBestTimeLabel;
+	[transient] public UILabel FriendsBestLabel;
+	[transient] public UILabel FriendsBestTimeLabel;
 	public UIScene StartStretchScene;
 	public UIScene SPLeaderboardScene;
 	public UIScene SPLeaderboardScenePC;
-	public /*transient */int LevelEventDelay;
-	public /*const */float RequestDelay;
-	public /*transient */float TimeToRequest;
-	public /*transient */int PlayerFilterIndex;
+	[transient] public int LevelEventDelay;
+	[Const] public float RequestDelay;
+	[transient] public float TimeToRequest;
+	[transient] public int PlayerFilterIndex;
 	
 	public override /*event */void PostInitialize()
 	{

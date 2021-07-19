@@ -5,11 +5,11 @@ public partial class TdTeamPlayerStart : TdPlayerStart/*
 		native
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*()*/ bool CopSpawn;
-	public/*()*/ bool RobberSpawn;
+	[Category] public bool CopSpawn;
+	[Category] public bool RobberSpawn;
 	public int TeamNumber;
-	public /*protected export editinline */SpriteComponent CopSprite;
-	public /*protected export editinline */SpriteComponent RunnerSprite;
+	[export, editinline] public/*protected*/ SpriteComponent CopSprite;
+	[export, editinline] public/*protected*/ SpriteComponent RunnerSprite;
 	
 	public override /*function */void PreBeginPlay()
 	{

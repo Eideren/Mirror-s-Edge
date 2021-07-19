@@ -6,20 +6,20 @@ public partial class TdSoundNodeAttack : SoundNode/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ bool bModulatePitch;
-	public/*()*/ bool bModulateVolume;
-	public/*(Attack)*/ TdSoundNodeADSR.SoundInterpolationMethod AttackInterpolationMethod;
-	public/*(Decay)*/ TdSoundNodeADSR.SoundInterpolationMethod DecayInterpolationMethod;
-	public/*(Attack)*/ TdSoundNodeADSR.SoundInterpolationMethod AttackDistanceModel;
-	public/*(Decay)*/ TdSoundNodeADSR.SoundInterpolationMethod DecayDistanceModel;
-	public/*(Attack)*/ float AttackAtMinRadius;
-	public/*(Attack)*/ float AttackAtMaxRadius;
-	public/*(Decay)*/ float DecayAtMinRadius;
-	public/*(Decay)*/ float DecayAtMaxRadius;
-	public/*(Attack)*/ DistributionFloat.RawDistributionFloat AttackMinRadius;
-	public/*(Attack)*/ DistributionFloat.RawDistributionFloat AttackMaxRadius;
-	public/*(Decay)*/ DistributionFloat.RawDistributionFloat DecayMinRadius;
-	public/*(Decay)*/ DistributionFloat.RawDistributionFloat DecayMaxRadius;
+	[Category] public bool bModulatePitch;
+	[Category] public bool bModulateVolume;
+	[Category("Attack")] public TdSoundNodeADSR.SoundInterpolationMethod AttackInterpolationMethod;
+	[Category("Decay")] public TdSoundNodeADSR.SoundInterpolationMethod DecayInterpolationMethod;
+	[Category("Attack")] public TdSoundNodeADSR.SoundInterpolationMethod AttackDistanceModel;
+	[Category("Decay")] public TdSoundNodeADSR.SoundInterpolationMethod DecayDistanceModel;
+	[Category("Attack")] public float AttackAtMinRadius;
+	[Category("Attack")] public float AttackAtMaxRadius;
+	[Category("Decay")] public float DecayAtMinRadius;
+	[Category("Decay")] public float DecayAtMaxRadius;
+	[Category("Attack")] public DistributionFloat.RawDistributionFloat AttackMinRadius;
+	[Category("Attack")] public DistributionFloat.RawDistributionFloat AttackMaxRadius;
+	[Category("Decay")] public DistributionFloat.RawDistributionFloat DecayMinRadius;
+	[Category("Decay")] public DistributionFloat.RawDistributionFloat DecayMaxRadius;
 	
 	public TdSoundNodeAttack()
 	{

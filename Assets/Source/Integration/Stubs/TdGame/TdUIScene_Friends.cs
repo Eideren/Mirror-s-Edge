@@ -4,10 +4,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_Friends : TdUIScene/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIList FriendsList;
-	public /*transient */UILabel NoFriendsLabel;
-	public /*transient */UIDataStore_OnlinePlayerData PlayerData;
-	public /*transient */bool bFriendsListEmpty;
+	[transient] public UIList FriendsList;
+	[transient] public UILabel NoFriendsLabel;
+	[transient] public UIDataStore_OnlinePlayerData PlayerData;
+	[transient] public bool bFriendsListEmpty;
 	
 	public override /*event */void PostInitialize()
 	{

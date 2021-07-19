@@ -5,8 +5,8 @@ public partial class SeqAct_LevelStreamingBase : SeqAct_Latent/*
 		abstract
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bMakeVisibleAfterLoad;
-	public/*()*/ bool bShouldBlockOnLoad;
+	[Category] public bool bMakeVisibleAfterLoad;
+	[Category] public bool bShouldBlockOnLoad;
 	
 	public SeqAct_LevelStreamingBase()
 	{

@@ -12,15 +12,15 @@ public partial class TdSkelControlRandom : SkelControlSingleBone/*
 		RandomAxis_MAX
 	};
 	
-	public/*(Random)*/ TdSkelControlRandom.RandomAxis AffectedAxis;
-	public/*(Random)*/ int MinAngle;
-	public/*(Random)*/ int MaxAngle;
-	public/*(Random)*/ float Frequency;
-	public/*(Random)*/ float TargetInterpolationTime;
-	public/*(Random)*/ bool bAlwaysSwitchSign;
-	public/*(Spring)*/ bool bScaleByVelocity;
-	public/*(Spring)*/ float MaxVelocity;
-	public/*(Spring)*/ float MinVelocity;
+	[Category("Random")] public TdSkelControlRandom.RandomAxis AffectedAxis;
+	[Category("Random")] public int MinAngle;
+	[Category("Random")] public int MaxAngle;
+	[Category("Random")] public float Frequency;
+	[Category("Random")] public float TargetInterpolationTime;
+	[Category("Random")] public bool bAlwaysSwitchSign;
+	[Category("Spring")] public bool bScaleByVelocity;
+	[Category("Spring")] public float MaxVelocity;
+	[Category("Spring")] public float MinVelocity;
 	public float TimeToUpdate;
 	public int CurrentAngle;
 	public int TargetAngle;

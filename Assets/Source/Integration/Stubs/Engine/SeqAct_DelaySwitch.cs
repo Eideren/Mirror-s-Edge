@@ -4,10 +4,10 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_DelaySwitch : SeqAct_Latent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ int LinkCount;
-	public /*transient */int CurrentIdx;
-	public /*transient */float SwitchDelay;
-	public /*transient */float NextLinkTime;
+	[Category] public int LinkCount;
+	[transient] public int CurrentIdx;
+	[transient] public float SwitchDelay;
+	[transient] public float NextLinkTime;
 	
 	public SeqAct_DelaySwitch()
 	{

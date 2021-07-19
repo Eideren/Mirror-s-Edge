@@ -7,7 +7,7 @@ public partial class ActorFactoryVehicle : ActorFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ Core.ClassT<Vehicle> VehicleClass;
+	[Category] public Core.ClassT<Vehicle> VehicleClass;
 	
 	public ActorFactoryVehicle()
 	{

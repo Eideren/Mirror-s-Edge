@@ -4,18 +4,18 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SceneCaptureCharacterComponent : SceneCaptureComponent/*
 		native
 		hidecategories(Object)*/{
-	public/*(Capture)*/ /*const transient */TextureRenderTarget2D TextureTarget;
-	public/*(Capture)*/ /*const transient */TextureRenderTarget2D RenderTarget1;
-	public/*(Capture)*/ /*const transient */TextureRenderTarget2D RenderTarget2;
-	public/*(Capture)*/ /*const */float FieldOfView;
-	public/*(Capture)*/ /*const */float NearPlane;
-	public/*(Capture)*/ /*const */float FarPlane;
+	[Category("Capture")] [Const, transient] public TextureRenderTarget2D TextureTarget;
+	[Category("Capture")] [Const, transient] public TextureRenderTarget2D RenderTarget1;
+	[Category("Capture")] [Const, transient] public TextureRenderTarget2D RenderTarget2;
+	[Category("Capture")] [Const] public float FieldOfView;
+	[Category("Capture")] [Const] public float NearPlane;
+	[Category("Capture")] [Const] public float FarPlane;
 	public bool bUpdateMatrices;
-	public /*transient */bool bHasEverCaptured;
-	public /*transient */float LastRenderTime;
-	public /*transient */Object.Vector LastRenderLocation;
-	public /*const transient */Object.Matrix ViewMatrix;
-	public /*const transient */Object.Matrix ProjMatrix;
+	[transient] public bool bHasEverCaptured;
+	[transient] public float LastRenderTime;
+	[transient] public Object.Vector LastRenderLocation;
+	[Const, transient] public Object.Matrix ViewMatrix;
+	[Const, transient] public Object.Matrix ProjMatrix;
 	
 	// Export USceneCaptureCharacterComponent::execSetCaptureParameters(FFrame&, void* const)
 	public virtual /*native final function */void SetCaptureParameters(/*optional */TextureRenderTarget2D _NewTextureTarget = default, /*optional */float? _NewFOV = default, /*optional */float? _NewNearPlane = default, /*optional */float? _NewFarPlane = default)

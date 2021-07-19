@@ -5,10 +5,10 @@ public partial class ParticleModuleSpawn : ParticleModuleSpawnBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object,ParticleModuleSpawnBase)*/{
-	public/*(Spawn)*/ DistributionFloat.RawDistributionFloat Rate;
-	public/*(Spawn)*/ DistributionFloat.RawDistributionFloat RateScale;
-	public/*(Burst)*/ ParticleEmitter.EParticleBurstMethod ParticleBurstMethod;
-	public/*(Burst)*/ /*noclear export */array</*export */ParticleEmitter.ParticleBurst> BurstList;
+	[Category("Spawn")] public DistributionFloat.RawDistributionFloat Rate;
+	[Category("Spawn")] public DistributionFloat.RawDistributionFloat RateScale;
+	[Category("Burst")] public ParticleEmitter.EParticleBurstMethod ParticleBurstMethod;
+	[Category("Burst")] [noclear, export] public array</*export */ParticleEmitter.ParticleBurst> BurstList;
 	
 	public ParticleModuleSpawn()
 	{

@@ -15,24 +15,24 @@ public partial class UITdOptionButton : TdUIObject,
 		OPTBUT_MAX
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTable_IUIDataStorePublisher;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIDataStorePublisher;
 	public UIButton ArrowLeftButton;
 	public UIButton ArrowRightButton;
-	public /*private */UIRoot.UIStyleReference IncrementStyle;
-	public /*private */UIRoot.UIStyleReference DecrementStyle;
-	public/*(Presentation)*/ UIRoot.UIScreenValue ButtonSize;
-	public/*(Presentation)*/ UIRoot.UIScreenValue ButtonSpacing;
-	public/*(Presentation)*/ bool bIncludeDisabledItems;
-	public/*()*/ bool bWrapOptions;
-	public/*(Image)*/ /*noclear const export editinline */UIComp_DrawImage BackgroundImageComponent;
-	public/*(Data)*/ /*noclear const export editinline */UIComp_DrawString StringRenderComponent;
-	public /*transient */int CurrentIndex;
-	public/*(Sound)*/ name IncrementCue;
-	public/*(Sound)*/ name DecrementCue;
-	public/*(Sound)*/ name ClickedCue;
-	public/*(Data)*/ UIRoot.UIDataStoreBinding DataSource;
-	public /*const transient */UIListElementProvider DataProvider;
-	public/*()*/ name CellTag;
+	public/*private*/ UIRoot.UIStyleReference IncrementStyle;
+	public/*private*/ UIRoot.UIStyleReference DecrementStyle;
+	[Category("Presentation")] public UIRoot.UIScreenValue ButtonSize;
+	[Category("Presentation")] public UIRoot.UIScreenValue ButtonSpacing;
+	[Category("Presentation")] public bool bIncludeDisabledItems;
+	[Category] public bool bWrapOptions;
+	[Category("Image")] [noclear, Const, export, editinline] public UIComp_DrawImage BackgroundImageComponent;
+	[Category("Data")] [noclear, Const, export, editinline] public UIComp_DrawString StringRenderComponent;
+	[transient] public int CurrentIndex;
+	[Category("Sound")] public name IncrementCue;
+	[Category("Sound")] public name DecrementCue;
+	[Category("Sound")] public name ClickedCue;
+	[Category("Data")] public UIRoot.UIDataStoreBinding DataSource;
+	[Const, transient] public UIListElementProvider DataProvider;
+	[Category] public name CellTag;
 	public float PreventChangeSelection;
 	
 	// Export UUITdOptionButton::execSetDataStoreBinding(FFrame&, void* const)

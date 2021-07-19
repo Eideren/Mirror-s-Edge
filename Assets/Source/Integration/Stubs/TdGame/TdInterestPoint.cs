@@ -4,9 +4,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdInterestPoint : NavigationPoint/*
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*()*/ float InvestigationDistance;
-	public/*()*/ float InvestigationInterval;
-	public /*protected */float InvestigationTime;
+	[Category] public float InvestigationDistance;
+	[Category] public float InvestigationInterval;
+	public/*protected*/ float InvestigationTime;
 	
 	public virtual /*function */bool ShouldBeInvestigated(float GameTime)
 	{

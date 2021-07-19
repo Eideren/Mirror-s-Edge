@@ -4,11 +4,11 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_OnlineMessageTicker : TdUIScene_Overlay/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*deprecated transient */UIObject Ticker;
-	public /*deprecated */float AnimDuration;
-	public /*deprecated */float AnimTimeCount;
-	public /*deprecated */bool bSceneInitialized;
-	public /*deprecated */float TickerDefaultY;
+	[deprecated, transient] public UIObject Ticker;
+	[deprecated] public float AnimDuration;
+	[deprecated] public float AnimTimeCount;
+	[deprecated] public bool bSceneInitialized;
+	[deprecated] public float TickerDefaultY;
 	
 	public TdUIScene_OnlineMessageTicker()
 	{

@@ -9,10 +9,10 @@ public partial class TdPossessionHUD : TdMPHUD/*
 	public Texture2D BagIconTexture;
 	public Texture2D ProjectedBagTexture;
 	public Texture2D ProjectedArrow;
-	public/*(HUDIcons)*/ Object.Vector2D BagHolderIcon;
-	public/*(HUDIcons)*/ Object.Vector2D BagHolderName;
-	public /*const */float BagFadeDistance;
-	public /*private transient */Core.ClassT<TdLocalMessage> TdBagMessageClass;
+	[Category("HUDIcons")] public Object.Vector2D BagHolderIcon;
+	[Category("HUDIcons")] public Object.Vector2D BagHolderName;
+	[Const] public float BagFadeDistance;
+	[transient] public/*private*/ Core.ClassT<TdLocalMessage> TdBagMessageClass;
 	
 	public override /*simulated function */void PreBeginPlay()
 	{

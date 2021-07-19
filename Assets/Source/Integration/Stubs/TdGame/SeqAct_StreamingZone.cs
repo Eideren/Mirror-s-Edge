@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_StreamingZone : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ array<String> Levels;
+	[Category] public array<String> Levels;
 	public array<LevelStreaming> StreamingLevels;
 	
 	public SeqAct_StreamingZone()

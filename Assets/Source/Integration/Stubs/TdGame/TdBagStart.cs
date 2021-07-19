@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdBagStart : PlayerStart/*
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force,Collision)*/{
-	public/*()*/ int PursuitSpawnID;
+	[Category] public int PursuitSpawnID;
 	
 	public TdBagStart()
 	{

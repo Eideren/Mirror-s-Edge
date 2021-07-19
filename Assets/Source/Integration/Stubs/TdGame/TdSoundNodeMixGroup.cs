@@ -6,11 +6,11 @@ public partial class TdSoundNodeMixGroup : SoundNode/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ bool bModulateVolume;
-	public/*()*/ bool bModulatePitch;
-	public/*()*/ bool bModulateLowPass;
-	public /*transient */bool bFirstRun;
-	public/*(MixGroups)*/ array<name> MixGroups;
+	[Category] public bool bModulateVolume;
+	[Category] public bool bModulatePitch;
+	[Category] public bool bModulateLowPass;
+	[transient] public bool bFirstRun;
+	[Category("MixGroups")] public array<name> MixGroups;
 	public array<int> MixGroupIDs;
 	
 	public TdSoundNodeMixGroup()

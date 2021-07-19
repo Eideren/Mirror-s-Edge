@@ -5,8 +5,8 @@ public partial class ParticleModuleMeshRotation : ParticleModuleRotationBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Rotation)*/ DistributionVector.RawDistributionVector StartRotation;
-	public/*(Rotation)*/ bool bInheritParent;
+	[Category("Rotation")] public DistributionVector.RawDistributionVector StartRotation;
+	[Category("Rotation")] public bool bInheritParent;
 	
 	public ParticleModuleMeshRotation()
 	{

@@ -6,11 +6,11 @@ public partial class JuiceSubsystem : Subsystem/*
 		native
 		config(Juice)
 		perobjectconfig*/{
-	public /*config */String ServerIP;
-	public /*config */String BackupServerIP;
-	public /*config */float FPSLowerThreshold;
-	public /*config */bool bRecordLevelStats;
-	public /*config */String BuildName;
+	[config] public String ServerIP;
+	[config] public String BackupServerIP;
+	[config] public float FPSLowerThreshold;
+	[config] public bool bRecordLevelStats;
+	[config] public String BuildName;
 	public Object.Double LevelStartTime;
 	
 	// Export UJuiceSubsystem::execGetSubsystem(FFrame&, void* const)

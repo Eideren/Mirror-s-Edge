@@ -7,17 +7,17 @@ public partial class TdUIScene_CreateAccountPC : TdUIScene_SubMenu,
 		hidecategories(Object,UIRoot,Object)*/{
 	public const int MAX_PASSWD_LENGTH = 28;
 	
-	public /*transient */UIEditBox LoginNameEditbox;
-	public /*transient */UIEditBox PasswordEditbox;
-	public /*transient */UIEditBox VerifyPasswordEditbox;
-	public /*transient */UIEditBox YearEditbox;
-	public /*transient */UIEditBox MonthEditbox;
-	public /*transient */UIEditBox DayEditbox;
-	public /*transient */UIComboBox CountryCombo;
-	public /*transient */UIComboBox LanguageCombo;
-	public /*transient */UIImage ComboListBG;
+	[transient] public UIEditBox LoginNameEditbox;
+	[transient] public UIEditBox PasswordEditbox;
+	[transient] public UIEditBox VerifyPasswordEditbox;
+	[transient] public UIEditBox YearEditbox;
+	[transient] public UIEditBox MonthEditbox;
+	[transient] public UIEditBox DayEditbox;
+	[transient] public UIComboBox CountryCombo;
+	[transient] public UIComboBox LanguageCombo;
+	[transient] public UIImage ComboListBG;
 	public UIDataStore_TdLoginData LoginData;
-	public /*transient */String CreateAccountFail_LocError;
+	[transient] public String CreateAccountFail_LocError;
 	public /*delegate*/TdUIScene_CreateAccountPC.UserAbort __UserAbort__Delegate;
 	public /*delegate*/TdUIScene_CreateAccountPC.CreateAccountOnPC __CreateAccountOnPC__Delegate;
 	

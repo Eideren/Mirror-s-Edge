@@ -21,13 +21,13 @@ public partial class Sequence : SequenceOp/*
 	//	}
 	};
 	
-	public /*const */Object.Pointer LogFile;
-	public /*const export */array</*export */SequenceObject> SequenceObjects;
-	public /*const */array<SequenceOp> ActiveSequenceOps;
-	public /*const transient */array<Sequence> NestedSequences;
-	public /*const */array<SequenceEvent> UnregisteredEvents;
-	public /*const */array<Sequence.ActivateOp> DelayedActivatedOps;
-	public/*()*/ /*private */bool bEnabled;
+	[Const] public Object.Pointer LogFile;
+	[Const, export] public array</*export */SequenceObject> SequenceObjects;
+	[Const] public array<SequenceOp> ActiveSequenceOps;
+	[Const, transient] public array<Sequence> NestedSequences;
+	[Const] public array<SequenceEvent> UnregisteredEvents;
+	[Const] public array<Sequence.ActivateOp> DelayedActivatedOps;
+	[Category] public/*private*/ bool bEnabled;
 	public int DefaultViewX;
 	public int DefaultViewY;
 	public float DefaultViewZoom;

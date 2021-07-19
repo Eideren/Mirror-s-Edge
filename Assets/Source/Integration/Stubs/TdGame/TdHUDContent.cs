@@ -2,10 +2,10 @@ namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
 public partial class TdHUDContent : Object{
-	public /*const */array<Texture2D> Textures;
-	public /*const */array<UIScene> Scenes;
-	public /*const */array<SoundCue> SoundCues;
-	public /*const */array<MultiFont> MultiFonts;
+	[Const] public array<Texture2D> Textures;
+	[Const] public array<UIScene> Scenes;
+	[Const] public array<SoundCue> SoundCues;
+	[Const] public array<MultiFont> MultiFonts;
 	
 	public /*function */static Texture2D GetTextureByName(name TextureName, /*optional */String? _InLoaderClass = default)
 	{

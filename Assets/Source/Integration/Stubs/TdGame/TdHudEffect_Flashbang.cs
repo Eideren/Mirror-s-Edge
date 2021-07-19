@@ -11,15 +11,15 @@ public partial class TdHudEffect_Flashbang : TdHudEffect/*
 		EFlash_MAX
 	};
 	
-	public /*private transient */float PPFadeInTimerHeavy;
-	public /*private transient */float PPFadeInStartHeavy;
-	public /*private transient */float PPPeakDurationTimerHeavy;
-	public /*private transient */float PPFadeOutTimerHeavy;
-	public /*private transient */float PPTargetStrengthHeavy;
-	public /*private transient */float PPCurrentStrengthHeavy;
-	public /*private */TdHudEffect_Flashbang.EFlash_Type Type;
-	public/*()*/ /*editinline config */TdHudEffect.BlurSettings BlurHeavy;
-	public/*()*/ /*editinline config */TdHudEffect.PPSettings PPStrengthHeavy;
+	[transient] public/*private*/ float PPFadeInTimerHeavy;
+	[transient] public/*private*/ float PPFadeInStartHeavy;
+	[transient] public/*private*/ float PPPeakDurationTimerHeavy;
+	[transient] public/*private*/ float PPFadeOutTimerHeavy;
+	[transient] public/*private*/ float PPTargetStrengthHeavy;
+	[transient] public/*private*/ float PPCurrentStrengthHeavy;
+	public/*private*/ TdHudEffect_Flashbang.EFlash_Type Type;
+	[Category] [editinline, config] public TdHudEffect.BlurSettings BlurHeavy;
+	[Category] [editinline, config] public TdHudEffect.PPSettings PPStrengthHeavy;
 	
 	public TdHudEffect_Flashbang()
 	{

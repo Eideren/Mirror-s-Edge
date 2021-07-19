@@ -25,11 +25,11 @@ public partial class AnimSet : Object/*
 	//	}
 	};
 	
-	public/*()*/ bool bAnimRotationOnly;
+	[Category] public bool bAnimRotationOnly;
 	public array<name> TrackBoneNames;
 	public array<AnimSequence> Sequences;
-	public /*transient */array<AnimSet.AnimSetMeshLinkup> LinkupCache;
-	public/*()*/ array<name> UseTranslationBoneNames;
+	[transient] public array<AnimSet.AnimSetMeshLinkup> LinkupCache;
+	[Category] public array<name> UseTranslationBoneNames;
 	public name PreviewSkelMeshName;
 	
 	public AnimSet()

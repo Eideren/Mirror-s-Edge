@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using Fp; using Tp; using Ts; using IpDr
 public partial class GenericBrowserType_UIArchetype : GenericBrowserType_Archetype/*
 		native
 		hidecategories(Object,GenericBrowserType)*/{
-	public /*const transient */UISceneManager SceneManager;
+	[Const, transient] public UISceneManager SceneManager;
 	
 	public GenericBrowserType_UIArchetype()
 	{

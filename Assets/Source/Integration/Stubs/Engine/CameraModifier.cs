@@ -3,9 +3,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class CameraModifier : Object/*
 		native*/{
-	public /*protected */bool bDisabled;
+	public/*protected*/ bool bDisabled;
 	public bool bPendingDisable;
-	public/*(Debug)*/ bool bDebug;
+	[Category("Debug")] public bool bDebug;
 	public Camera CameraOwner;
 	
 	public virtual /*function */void Init()

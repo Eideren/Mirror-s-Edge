@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdPlaySoundOnRandomAI : SeqAct_TdPlaySound/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float MaxDistanceToPlayer;
-	public/*()*/ float MinDistanceToPlayer;
+	[Category] public float MaxDistanceToPlayer;
+	[Category] public float MinDistanceToPlayer;
 	
 	public SeqAct_TdPlaySoundOnRandomAI()
 	{

@@ -10,10 +10,10 @@ public partial class UIEditorOptions : UIRoot/*
 	
 	public partial struct ViewportDimension
 	{
-		public /*config */int X;
-		public /*config */int Y;
-		public /*config */int Width;
-		public /*config */int Height;
+		[config] public int X;
+		[config] public int Y;
+		[config] public int Width;
+		[config] public int Height;
 	
 	//	structdefaultproperties
 	//	{
@@ -25,23 +25,23 @@ public partial class UIEditorOptions : UIRoot/*
 	//	}
 	};
 	
-	public /*config */UIEditorOptions.ViewportDimension WindowPosition;
-	public /*config */int DataStoreBrowserSashPosition;
-	public /*config */int ViewportGutterSize;
-	public /*config */int VirtualSizeX;
-	public /*config */int VirtualSizeY;
-	public /*config */bool bRenderViewportOutline;
-	public /*config */bool bRenderContainerOutline;
-	public /*config */bool bRenderSelectionOutline;
-	public /*config */bool bRenderPerWidgetSelectionOutline;
-	public /*config */bool bRenderTitleSafeRegionOutline;
-	public /*config */bool mViewDrawBkgnd;
-	public /*config */bool mViewDrawGrid;
-	public /*config */bool bViewShowWireframe;
-	public /*config */bool bSnapToGrid;
-	public /*config */bool bShowDockHandles;
-	public /*config */int ToolMode;
-	public /*config */int GridSize;
+	[config] public UIEditorOptions.ViewportDimension WindowPosition;
+	[config] public int DataStoreBrowserSashPosition;
+	[config] public int ViewportGutterSize;
+	[config] public int VirtualSizeX;
+	[config] public int VirtualSizeY;
+	[config] public bool bRenderViewportOutline;
+	[config] public bool bRenderContainerOutline;
+	[config] public bool bRenderSelectionOutline;
+	[config] public bool bRenderPerWidgetSelectionOutline;
+	[config] public bool bRenderTitleSafeRegionOutline;
+	[config] public bool mViewDrawBkgnd;
+	[config] public bool mViewDrawGrid;
+	[config] public bool bViewShowWireframe;
+	[config] public bool bSnapToGrid;
+	[config] public bool bShowDockHandles;
+	[config] public int ToolMode;
+	[config] public int GridSize;
 	
 	public UIEditorOptions()
 	{

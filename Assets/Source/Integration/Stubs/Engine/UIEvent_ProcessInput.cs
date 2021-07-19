@@ -5,7 +5,7 @@ public partial class UIEvent_ProcessInput : UIEvent/*
 		transient
 		native
 		hidecategories(Object)*/{
-	public /*native transient */Object.MultiMap_Mirror ActionMap;
+	[native, transient] public Object.MultiMap_Mirror ActionMap;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

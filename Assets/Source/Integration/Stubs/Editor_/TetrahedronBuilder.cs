@@ -3,9 +3,9 @@ using Core; using Engine; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class TetrahedronBuilder : BrushBuilder/*
 		hidecategories(Object,BrushBuilder)*/{
-	public/*()*/ float Radius;
-	public/*()*/ int SphereExtrapolation;
-	public/*()*/ name GroupName;
+	[Category] public float Radius;
+	[Category] public int SphereExtrapolation;
+	[Category] public name GroupName;
 	
 	public virtual /*function */void Extrapolate(int A, int B, int C, int Count, float InRadius)
 	{

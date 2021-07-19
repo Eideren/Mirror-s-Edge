@@ -5,8 +5,8 @@ public partial class TdAnimNodeInAir : TdAnimNodeBlendList/*
 		native
 		config(Animation)
 		hidecategories(Object,Object,Object)*/{
-	public/*(AirSettings)*/ /*config */float FallVelThreshold;
-	public /*transient */TdMove_Falling FallingMove;
+	[Category("AirSettings")] [config] public float FallVelThreshold;
+	[transient] public TdMove_Falling FallingMove;
 	
 	// Export UTdAnimNodeInAir::execGetInAirState(FFrame&, void* const)
 	public virtual /*native function */int GetInAirState()

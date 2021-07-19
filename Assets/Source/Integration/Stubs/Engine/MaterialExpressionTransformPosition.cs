@@ -14,7 +14,7 @@ public partial class MaterialExpressionTransformPosition : MaterialExpression/* 
 	public new Material Outer => base.Outer as Material;
 	
 	public MaterialExpression.ExpressionInput Input;
-	public/*()*/ /*const */MaterialExpressionTransformPosition.EMaterialPositionTransform TransformType;
+	[Category] [Const] public MaterialExpressionTransformPosition.EMaterialPositionTransform TransformType;
 	
 }
 }

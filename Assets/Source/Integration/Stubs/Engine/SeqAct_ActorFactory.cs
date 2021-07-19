@@ -12,14 +12,14 @@ public partial class SeqAct_ActorFactory : SeqAct_Latent/*
 		PS_MAX
 	};
 	
-	public/*()*/ bool bEnabled;
+	[Category] public bool bEnabled;
 	public bool bIsSpawning;
-	public/*()*/ bool bCheckSpawnCollision;
-	public/*()*/ /*export editinline */ActorFactory Factory;
-	public/*()*/ SeqAct_ActorFactory.EPointSelection PointSelection;
-	public/*()*/ array<Actor> SpawnPoints;
-	public/*()*/ int SpawnCount;
-	public/*()*/ float SpawnDelay;
+	[Category] public bool bCheckSpawnCollision;
+	[Category] [export, editinline] public ActorFactory Factory;
+	[Category] public SeqAct_ActorFactory.EPointSelection PointSelection;
+	[Category] public array<Actor> SpawnPoints;
+	[Category] public int SpawnCount;
+	[Category] public float SpawnDelay;
 	public int LastSpawnIdx;
 	public int SpawnedCount;
 	public float RemainingDelay;

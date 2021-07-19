@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdHUDWidget_GameMessageBox : TdHUDWidget/*
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*export editinline deprecated */UILabel MessageLabel;
+	[export, editinline, deprecated] public UILabel MessageLabel;
 	
 	public TdHUDWidget_GameMessageBox()
 	{

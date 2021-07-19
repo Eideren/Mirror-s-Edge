@@ -5,24 +5,24 @@ public partial class TdSPPostProcessingBase : Object/* within TdSPGame*//*
 		abstract*/{
 	public new TdSPGame Outer => base.Outer as TdSPGame;
 	
-	public /*private transient */TdUIScene_LoadIndicator LoadIndicator;
-	public /*private transient */TdUIScene_MessageBox ErrorMessageBox;
-	public /*protected */String PlayerName;
-	public /*protected */OnlineSubsystem.UniqueNetId PlayerId;
-	public /*protected */float TotalTime;
-	public /*protected */array<float> IntermediateTimes;
-	public /*protected */int DistanceRun;
-	public /*protected */float AverageSpeed;
-	public /*protected */int TotalRating;
-	public /*protected */int UnlockedStretch;
-	public /*protected */int StretchId;
-	public /*protected */int ControllerId;
-	public /*private transient */bool bError;
-	public /*private transient */String ErrorTitle;
-	public /*private transient */String ErrorMessage;
-	public /*protected transient */TdTTInput InputToProcess;
-	public /*protected transient */TdTTResult TTResult;
-	public /*protected */UIDataStore_TdTimeTrialData TTDataStore;
+	[transient] public/*private*/ TdUIScene_LoadIndicator LoadIndicator;
+	[transient] public/*private*/ TdUIScene_MessageBox ErrorMessageBox;
+	public/*protected*/ String PlayerName;
+	public/*protected*/ OnlineSubsystem.UniqueNetId PlayerId;
+	public/*protected*/ float TotalTime;
+	public/*protected*/ array<float> IntermediateTimes;
+	public/*protected*/ int DistanceRun;
+	public/*protected*/ float AverageSpeed;
+	public/*protected*/ int TotalRating;
+	public/*protected*/ int UnlockedStretch;
+	public/*protected*/ int StretchId;
+	public/*protected*/ int ControllerId;
+	[transient] public/*private*/ bool bError;
+	[transient] public/*private*/ String ErrorTitle;
+	[transient] public/*private*/ String ErrorMessage;
+	[transient] public/*protected*/ TdTTInput InputToProcess;
+	[transient] public/*protected*/ TdTTResult TTResult;
+	public/*protected*/ UIDataStore_TdTimeTrialData TTDataStore;
 	public /*delegate*/TdSPPostProcessingBase.OnPostProcessDone __OnPostProcessDone__Delegate;
 	public /*delegate*/TdSPPostProcessingBase.OnClosed __OnClosed__Delegate;
 	

@@ -73,41 +73,41 @@ public partial class HUD : Actor/*
 	//	}
 	};
 	
-	public /*const */Object.Color WhiteColor;
-	public /*const */Object.Color GreenColor;
-	public /*const */Object.Color RedColor;
+	[Const] public Object.Color WhiteColor;
+	[Const] public Object.Color GreenColor;
+	[Const] public Object.Color RedColor;
 	public PlayerController PlayerOwner;
 	public HUD HudOwner;
 	public PlayerReplicationInfo ViewedInfo;
 	public float ProgressFadeTime;
 	public Object.Color MOTDColor;
 	public ScoreBoard ScoreBoard;
-	public /*transient */bool LostFocusPaused;
-	public /*config */bool bShowHUD;
+	[transient] public bool LostFocusPaused;
+	[config] public bool bShowHUD;
 	public bool bShowScores;
 	public bool bShowDebugInfo;
-	public/*()*/ bool bShowBadConnectionAlert;
-	public /*globalconfig */bool bMessageBeep;
-	public /*globalconfig */float HudCanvasScale;
+	[Category] public bool bShowBadConnectionAlert;
+	[globalconfig] public bool bMessageBeep;
+	[globalconfig] public float HudCanvasScale;
 	public array<HUD.ConsoleMessage> ConsoleMessages;
-	public /*const */Object.Color ConsoleColor;
-	public /*globalconfig */int ConsoleMessageCount;
-	public /*globalconfig */int ConsoleFontSize;
-	public /*globalconfig */int MessageFontOffset;
+	[Const] public Object.Color ConsoleColor;
+	[globalconfig] public int ConsoleMessageCount;
+	[globalconfig] public int ConsoleFontSize;
+	[globalconfig] public int MessageFontOffset;
 	public int MaxHUDAreaMessageCount;
-	public/*()*/ /*transient */StaticArray<HUD.HudLocalizedMessage, HUD.HudLocalizedMessage, HUD.HudLocalizedMessage, HUD.HudLocalizedMessage, HUD.HudLocalizedMessage, HUD.HudLocalizedMessage, HUD.HudLocalizedMessage, HUD.HudLocalizedMessage>/*[8]*/ LocalMessages;
-	public/*()*/ float ConsoleMessagePosX;
-	public/*()*/ float ConsoleMessagePosY;
+	[Category] [transient] public StaticArray<HUD.HudLocalizedMessage, HUD.HudLocalizedMessage, HUD.HudLocalizedMessage, HUD.HudLocalizedMessage, HUD.HudLocalizedMessage, HUD.HudLocalizedMessage, HUD.HudLocalizedMessage, HUD.HudLocalizedMessage>/*[8]*/ LocalMessages;
+	[Category] public float ConsoleMessagePosX;
+	[Category] public float ConsoleMessagePosY;
 	public Canvas Canvas;
-	public /*transient */float LastHUDRenderTime;
-	public /*transient */float RenderDelta;
-	public /*transient */float SizeX;
-	public /*transient */float SizeY;
-	public /*transient */float CenterX;
-	public /*transient */float CenterY;
-	public /*transient */float RatioX;
-	public /*transient */float RatioY;
-	public /*globalconfig */array</*config */name> DebugDisplay;
+	[transient] public float LastHUDRenderTime;
+	[transient] public float RenderDelta;
+	[transient] public float SizeX;
+	[transient] public float SizeY;
+	[transient] public float CenterX;
+	[transient] public float CenterY;
+	[transient] public float RatioX;
+	[transient] public float RatioY;
+	[globalconfig] public array</*config */name> DebugDisplay;
 	
 	// Export UHUD::execDraw3DLine(FFrame&, void* const)
 	public virtual /*native final function */void Draw3DLine(Object.Vector Start, Object.Vector End, Object.Color LineColor)

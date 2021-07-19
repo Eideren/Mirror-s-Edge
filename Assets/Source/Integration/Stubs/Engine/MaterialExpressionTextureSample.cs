@@ -7,7 +7,7 @@ public partial class MaterialExpressionTextureSample : MaterialExpression/* with
 		hidecategories(Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ Texture Texture;
+	[Category] public Texture Texture;
 	public MaterialExpression.ExpressionInput Coordinates;
 	
 	public MaterialExpressionTextureSample()

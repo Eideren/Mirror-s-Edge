@@ -3,8 +3,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_TdTriggerPopUp : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ TdSPHUD.EPopUpType PopUpType;
-	public/*()*/ float Duration;
+	[Category] public TdSPHUD.EPopUpType PopUpType;
+	[Category] public float Duration;
 	
 	public override /*event */void Activated()
 	{

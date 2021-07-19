@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_SetPhysics : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ Actor.EPhysics newPhysics;
+	[Category] public Actor.EPhysics newPhysics;
 	
 	public SeqAct_SetPhysics()
 	{

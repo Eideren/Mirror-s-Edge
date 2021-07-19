@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_SetCameraTarget : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public /*transient */Actor CameraTarget;
-	public/*()*/ /*const */Camera.ViewTargetTransitionParams TransitionParams;
+	[transient] public Actor CameraTarget;
+	[Category] [Const] public Camera.ViewTargetTransitionParams TransitionParams;
 	
 	public SeqAct_SetCameraTarget()
 	{

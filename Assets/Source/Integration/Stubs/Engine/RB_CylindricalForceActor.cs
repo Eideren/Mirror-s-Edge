@@ -5,23 +5,23 @@ public partial class RB_CylindricalForceActor : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*export editinline */DrawCylinderComponent RenderComponent;
-	public/*()*/ /*interp */float RadialStrength;
-	public/*()*/ /*interp */float RotationalStrength;
-	public/*()*/ /*interp */float LiftStrength;
-	public/*()*/ /*interp */float LiftFalloffHeight;
-	public/*()*/ /*interp */float EscapeVelocity;
-	public/*()*/ /*interp */float ForceRadius;
-	public/*()*/ /*interp */float ForceTopRadius;
-	public/*()*/ /*interp */float ForceHeight;
-	public/*()*/ /*interp */float HeightOffset;
-	public/*()*/ bool bForceActive;
-	public/*()*/ bool bForceApplyToCloth;
-	public/*()*/ bool bForceApplyToFluid;
-	public/*()*/ bool bForceApplyToRigidBodies;
-	public/*()*/ bool bForceApplyToProjectiles;
-	public/*()*/ int ForceFieldChannel;
-	public/*()*/ /*const */PrimitiveComponent.RBCollisionChannelContainer CollideWithChannels;
+	[Category] [export, editinline] public DrawCylinderComponent RenderComponent;
+	[Category] [interp] public float RadialStrength;
+	[Category] [interp] public float RotationalStrength;
+	[Category] [interp] public float LiftStrength;
+	[Category] [interp] public float LiftFalloffHeight;
+	[Category] [interp] public float EscapeVelocity;
+	[Category] [interp] public float ForceRadius;
+	[Category] [interp] public float ForceTopRadius;
+	[Category] [interp] public float ForceHeight;
+	[Category] [interp] public float HeightOffset;
+	[Category] public bool bForceActive;
+	[Category] public bool bForceApplyToCloth;
+	[Category] public bool bForceApplyToFluid;
+	[Category] public bool bForceApplyToRigidBodies;
+	[Category] public bool bForceApplyToProjectiles;
+	[Category] public int ForceFieldChannel;
+	[Category] [Const] public PrimitiveComponent.RBCollisionChannelContainer CollideWithChannels;
 	
 	//replication
 	//{

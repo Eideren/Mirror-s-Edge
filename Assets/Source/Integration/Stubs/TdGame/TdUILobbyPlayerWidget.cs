@@ -3,9 +3,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdUILobbyPlayerWidget : TdUIPlayerSlotBase/*
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*export editinline */TdUIFocusLabel PlayerNameLabel;
-	public /*export editinline */UIImage PlayerIsReadyImage;
-	public /*export editinline */UIImage PlayerRoleImage;
+	[export, editinline] public TdUIFocusLabel PlayerNameLabel;
+	[export, editinline] public UIImage PlayerIsReadyImage;
+	[export, editinline] public UIImage PlayerRoleImage;
 	
 	public TdUILobbyPlayerWidget()
 	{

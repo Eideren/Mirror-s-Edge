@@ -3,10 +3,10 @@ using Core; using Engine; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class VolumetricBuilder : BrushBuilder/*
 		hidecategories(Object,BrushBuilder)*/{
-	public/*()*/ float Z;
-	public/*()*/ float Radius;
-	public/*()*/ int NumSheets;
-	public/*()*/ name GroupName;
+	[Category] public float Z;
+	[Category] public float Radius;
+	[Category] public int NumSheets;
+	[Category] public name GroupName;
 	
 	public virtual /*function */void BuildVolumetric(int Direction, int InNumSheets, float InZ, float InRadius)
 	{

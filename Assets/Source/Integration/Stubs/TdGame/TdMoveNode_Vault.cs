@@ -6,7 +6,7 @@ public partial class TdMoveNode_Vault : TdMoveNode/*
 		config(PathfindingCosts)
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*(Settings)*/ float ForcedSpeed;
+	[Category("Settings")] public float ForcedSpeed;
 	public float VaultOverWallDistance_LowVault;
 	public float VaultOntoWallDistance_LowVault;
 	public float VaultOverWallDistance_HighVault;
@@ -15,10 +15,10 @@ public partial class TdMoveNode_Vault : TdMoveNode/*
 	public float MaxWallHeight_LowVault;
 	public float MinWallHeight_HighVault;
 	public float MaxWallHeight_HighVault;
-	public /*const export editinline */SpriteComponent VaultOntoIcon;
-	public /*const export editinline */SpriteComponent VaultOverIcon;
-	public /*config */int iHighVaultCost;
-	public /*config */int iVaultOntoCost;
+	[Const, export, editinline] public SpriteComponent VaultOntoIcon;
+	[Const, export, editinline] public SpriteComponent VaultOverIcon;
+	[config] public int iHighVaultCost;
+	[config] public int iVaultOntoCost;
 	
 	public TdMoveNode_Vault()
 	{

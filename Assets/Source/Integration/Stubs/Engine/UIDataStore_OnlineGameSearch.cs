@@ -30,12 +30,12 @@ public partial class UIDataStore_OnlineGameSearch : UIDataStore_Remote,
 	//	}
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementProvider;
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
-	public /*const */name SearchResultsName;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementCellProvider;
+	[Const] public name SearchResultsName;
 	public OnlineSubsystem OnlineSub;
 	public OnlineGameInterface GameInterface;
-	public /*const */array<UIDataStore_OnlineGameSearch.GameSearchCfg> GameSearchCfgList;
+	[Const] public array<UIDataStore_OnlineGameSearch.GameSearchCfg> GameSearchCfgList;
 	public int SelectedIndex;
 	public int ActiveSearchIndex;
 	

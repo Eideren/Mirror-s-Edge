@@ -5,11 +5,11 @@ public partial class Commandlet : Object/*
 		abstract
 		transient
 		native*/{
-	public /*const localized */String HelpDescription;
-	public /*const localized */String HelpUsage;
-	public /*const localized */String HelpWebLink;
-	public /*const localized */array</*localized */String> HelpParamNames;
-	public /*const localized */array</*localized */String> HelpParamDescriptions;
+	[Const, localized] public String HelpDescription;
+	[Const, localized] public String HelpUsage;
+	[Const, localized] public String HelpWebLink;
+	[Const, localized] public array</*localized */String> HelpParamNames;
+	[Const, localized] public array</*localized */String> HelpParamDescriptions;
 	public bool IsServer;
 	public bool IsClient;
 	public bool IsEditor;

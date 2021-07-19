@@ -6,8 +6,8 @@ public partial class OnlineStatsRead : OnlineStats/*
 		native*/{
 	public partial struct /*native */OnlineStatsColumn
 	{
-		public /*const */int ColumnNo;
-		public /*const */Settings.SettingsData StatValue;
+		[Const] public int ColumnNo;
+		[Const] public Settings.SettingsData StatValue;
 	
 	//	structdefaultproperties
 	//	{
@@ -23,10 +23,10 @@ public partial class OnlineStatsRead : OnlineStats/*
 	
 	public partial struct /*native */OnlineStatsRow
 	{
-		public /*const */OnlineSubsystem.UniqueNetId PlayerId;
-		public /*const */Settings.SettingsData Rank;
-		public /*const */String NickName;
-		public /*const */array<OnlineStatsRead.OnlineStatsColumn> Columns;
+		[Const] public OnlineSubsystem.UniqueNetId PlayerId;
+		[Const] public Settings.SettingsData Rank;
+		[Const] public String NickName;
+		[Const] public array<OnlineStatsRead.OnlineStatsColumn> Columns;
 	
 	//	structdefaultproperties
 	//	{
@@ -57,9 +57,9 @@ public partial class OnlineStatsRead : OnlineStats/*
 	
 	public partial struct /*native */ColumnMetaData
 	{
-		public /*const */int Id;
-		public /*const */name Name;
-		public /*const localized */String ColumnName;
+		[Const] public int Id;
+		[Const] public name Name;
+		[Const, localized] public String ColumnName;
 	
 	//	structdefaultproperties
 	//	{
@@ -70,13 +70,13 @@ public partial class OnlineStatsRead : OnlineStats/*
 	//	}
 	};
 	
-	public /*const */int ViewId;
-	public /*const */int SortColumnId;
-	public /*const */array<int> ColumnIds;
-	public /*const */int TotalRowsInView;
-	public /*const */array<OnlineStatsRead.OnlineStatsRow> Rows;
-	public /*const */array<OnlineStatsRead.ColumnMetaData> ColumnMappings;
-	public /*const */String ViewName;
+	[Const] public int ViewId;
+	[Const] public int SortColumnId;
+	[Const] public array<int> ColumnIds;
+	[Const] public int TotalRowsInView;
+	[Const] public array<OnlineStatsRead.OnlineStatsRow> Rows;
+	[Const] public array<OnlineStatsRead.ColumnMetaData> ColumnMappings;
+	[Const] public String ViewName;
 	public OnlineStats.StatPeriodFlags PeriodFlags;
 	public int PeriodPast;
 	public array<Settings.ESettingsDataType> ColumnTypes;

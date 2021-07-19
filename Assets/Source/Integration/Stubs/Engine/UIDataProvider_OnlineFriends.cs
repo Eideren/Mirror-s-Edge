@@ -6,15 +6,15 @@ public partial class UIDataProvider_OnlineFriends : UIDataProvider_OnlinePlayerD
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementCellProvider;
 	public array<OnlineSubsystem.OnlineFriend> FriendsList;
-	public /*const localized */String NickNameCol;
-	public /*const localized */String PresenceInfoCol;
-	public /*const localized */String bIsOnlineCol;
-	public /*const localized */String bIsPlayingCol;
-	public /*const localized */String bIsPlayingThisGameCol;
-	public /*const localized */String bIsJoinableCol;
-	public /*const localized */String bHasVoiceSupportCol;
+	[Const, localized] public String NickNameCol;
+	[Const, localized] public String PresenceInfoCol;
+	[Const, localized] public String bIsOnlineCol;
+	[Const, localized] public String bIsPlayingCol;
+	[Const, localized] public String bIsPlayingThisGameCol;
+	[Const, localized] public String bIsJoinableCol;
+	[Const, localized] public String bHasVoiceSupportCol;
 	
 	public override /*event */void OnRegister(LocalPlayer InPlayer)
 	{

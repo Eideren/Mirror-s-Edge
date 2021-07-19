@@ -4,11 +4,11 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_BotTurnRunning : TdPhysicsMove/*
 		native
 		config(PawnMovement)*/{
-	public /*private */Object.Rotator WantedDeltaRotation;
-	public /*private */Object.Rotator InitialPawnRotation;
-	public /*private */float RotationCompensationRate;
-	public /*private */Object.Rotator DirectionOfMovement;
-	public /*private */Object.Rotator PawnRotation;
+	public/*private*/ Object.Rotator WantedDeltaRotation;
+	public/*private*/ Object.Rotator InitialPawnRotation;
+	public/*private*/ float RotationCompensationRate;
+	public/*private*/ Object.Rotator DirectionOfMovement;
+	public/*private*/ Object.Rotator PawnRotation;
 	
 	public override /*function */bool CanDoMove()
 	{

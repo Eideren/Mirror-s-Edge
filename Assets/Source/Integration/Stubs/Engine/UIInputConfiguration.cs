@@ -5,8 +5,8 @@ public partial class UIInputConfiguration : UIRoot/*
 		native
 		config(Input)
 		hidecategories(Object,UIRoot)*/{
-	public /*const config */array</*config */UIRoot.UIInputAliasClassMap> WidgetInputAliases;
-	public /*const config */array</*config */UIRoot.UIAxisEmulationDefinition> AxisEmulationDefinitions;
+	[Const, config] public array</*config */UIRoot.UIInputAliasClassMap> WidgetInputAliases;
+	[Const, config] public array</*config */UIRoot.UIAxisEmulationDefinition> AxisEmulationDefinitions;
 	
 	// Export UUIInputConfiguration::execLoadInputAliasClasses(FFrame&, void* const)
 	public virtual /*native final function */void LoadInputAliasClasses()

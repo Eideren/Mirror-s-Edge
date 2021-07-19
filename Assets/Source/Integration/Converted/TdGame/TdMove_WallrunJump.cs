@@ -3,11 +3,11 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMove_WallrunJump : TdPhysicsMove/*
 		config(PawnMovement)*/{
-	public/*(WallRunJump)*/ /*config */float WallRunningPushAwaySpeedNoob;
-	public/*(WallRunJump)*/ /*config */float WallRunningPushAwaySpeedProAdd;
-	public/*(WallRunJump)*/ /*config */float WallRunningPushForwardSpeedMin;
-	public/*(WallRunJump)*/ /*config */float WallRunningJumpOffZHeightForward;
-	public/*(WallRunJump)*/ /*config */float WallRunningJumpOffZHeightMaxAddTurned;
+	[Category("WallRunJump")] [config] public float WallRunningPushAwaySpeedNoob;
+	[Category("WallRunJump")] [config] public float WallRunningPushAwaySpeedProAdd;
+	[Category("WallRunJump")] [config] public float WallRunningPushForwardSpeedMin;
+	[Category("WallRunJump")] [config] public float WallRunningJumpOffZHeightForward;
+	[Category("WallRunJump")] [config] public float WallRunningJumpOffZHeightMaxAddTurned;
 	public float WallRunningJumpOffZSpeed;
 	public int MinContraintWorld;
 	public int MaxContraintWorld;

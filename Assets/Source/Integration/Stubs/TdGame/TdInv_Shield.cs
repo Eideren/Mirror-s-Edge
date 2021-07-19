@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdInv_Shield : TdEquipment/*
 		notplaceable
 		hidecategories(Navigation)*/{
-	public /*export editinline */TdSkeletalMeshComponent Mesh3p;
+	[export, editinline] public TdSkeletalMeshComponent Mesh3p;
 	public int Health;
 	
 	public override /*function */void Activate()

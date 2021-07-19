@@ -7,7 +7,7 @@ public partial class ActorFactoryAmbientSoundSimple : ActorFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ SoundNodeWave SoundNodeWave;
+	[Category] public SoundNodeWave SoundNodeWave;
 	
 	public ActorFactoryAmbientSoundSimple()
 	{

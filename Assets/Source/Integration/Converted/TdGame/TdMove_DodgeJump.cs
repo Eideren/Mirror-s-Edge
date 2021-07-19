@@ -4,15 +4,15 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_DodgeJump : TdPhysicsMove/*
 		native
 		config(PawnMovement)*/{
-	public/*(DodgeJump)*/ /*config */float BaseJumpZ;
-	public/*(DodgeJump)*/ /*config */float JumpAddXY;
-	public/*(DodgeJump)*/ /*config */float StrafeThreshold;
-	public/*(DodgeJump)*/ /*config */float DodgeJumpInertiaConservation;
-	public/*(DodgeJump)*/ /*config */float JumpBlendInTime;
-	public/*(DodgeJump)*/ /*config */float JumpBlendOutTime;
-	public/*(DodgeJump)*/ /*config */float LookAtAIVelThreshold;
-	public/*(DodgeJump)*/ /*config */float LookAtAITraceDistance;
-	public/*(DodgeJump)*/ /*config */float LookAtAIRadiusThreshold;
+	[Category("DodgeJump")] [config] public float BaseJumpZ;
+	[Category("DodgeJump")] [config] public float JumpAddXY;
+	[Category("DodgeJump")] [config] public float StrafeThreshold;
+	[Category("DodgeJump")] [config] public float DodgeJumpInertiaConservation;
+	[Category("DodgeJump")] [config] public float JumpBlendInTime;
+	[Category("DodgeJump")] [config] public float JumpBlendOutTime;
+	[Category("DodgeJump")] [config] public float LookAtAIVelThreshold;
+	[Category("DodgeJump")] [config] public float LookAtAITraceDistance;
+	[Category("DodgeJump")] [config] public float LookAtAIRadiusThreshold;
 	
 	public override /*function */bool CanDoMove()
 	{

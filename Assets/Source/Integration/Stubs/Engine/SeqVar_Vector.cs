@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqVar_Vector : SequenceVariable/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ Object.Vector VectValue;
+	[Category] public Object.Vector VectValue;
 	
 	public SeqVar_Vector()
 	{

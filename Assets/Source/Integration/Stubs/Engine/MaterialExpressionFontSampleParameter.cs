@@ -7,8 +7,8 @@ public partial class MaterialExpressionFontSampleParameter : MaterialExpressionF
 		hidecategories(Object,Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ name ParameterName;
-	public /*const */Object.Guid ExpressionGUID;
+	[Category] public name ParameterName;
+	[Const] public Object.Guid ExpressionGUID;
 	
 	public MaterialExpressionFontSampleParameter()
 	{

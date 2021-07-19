@@ -12,32 +12,32 @@ public partial class TdHeadControl : Object/*
 		BS_MAX
 	};
 	
-	public /*private */bool bInitialized;
-	public /*private */bool bYawActivated;
-	public /*private */bool bShouldUseEyelidControls;
-	public /*private */bool bHasEyelids;
-	public /*private */TdBotPawn myPawn;
-	public /*private */TdSkelControlHeadAim HeadOffsetYawControl;
-	public /*private */TdSkelControlHeadAim HeadOffsetPitchControl;
-	public /*private */TdSkelControlHeadAim LeftUpEyelidControl;
-	public /*private */TdSkelControlHeadAim LeftLowEyelidControl;
-	public /*private */TdSkelControlHeadAim RightUpEyelidControl;
-	public /*private */TdSkelControlHeadAim RightLowEyelidControl;
-	public /*private */TdSkelControlHeadAim LeftUpEyelidControl2;
-	public /*private */TdSkelControlHeadAim LeftLowEyelidControl2;
-	public /*private */TdSkelControlHeadAim RightUpEyelidControl2;
-	public /*private */TdSkelControlHeadAim RightLowEyelidControl2;
-	public /*private */TdSkelControlLookAt EyeControl;
-	public /*private */TdSkelControlLookAt LeftEyeControl;
-	public /*private */TdSkelControlLookAt RightEyeControl;
-	public /*private */float EyelidOffsetLower;
-	public /*private */float EyelidOffsetUpper;
+	public/*private*/ bool bInitialized;
+	public/*private*/ bool bYawActivated;
+	public/*private*/ bool bShouldUseEyelidControls;
+	public/*private*/ bool bHasEyelids;
+	public/*private*/ TdBotPawn myPawn;
+	public/*private*/ TdSkelControlHeadAim HeadOffsetYawControl;
+	public/*private*/ TdSkelControlHeadAim HeadOffsetPitchControl;
+	public/*private*/ TdSkelControlHeadAim LeftUpEyelidControl;
+	public/*private*/ TdSkelControlHeadAim LeftLowEyelidControl;
+	public/*private*/ TdSkelControlHeadAim RightUpEyelidControl;
+	public/*private*/ TdSkelControlHeadAim RightLowEyelidControl;
+	public/*private*/ TdSkelControlHeadAim LeftUpEyelidControl2;
+	public/*private*/ TdSkelControlHeadAim LeftLowEyelidControl2;
+	public/*private*/ TdSkelControlHeadAim RightUpEyelidControl2;
+	public/*private*/ TdSkelControlHeadAim RightLowEyelidControl2;
+	public/*private*/ TdSkelControlLookAt EyeControl;
+	public/*private*/ TdSkelControlLookAt LeftEyeControl;
+	public/*private*/ TdSkelControlLookAt RightEyeControl;
+	public/*private*/ float EyelidOffsetLower;
+	public/*private*/ float EyelidOffsetUpper;
 	public float BlinkTime;
-	public /*private */float BlinkStartTime;
-	public /*private */float ClosingTimeStamp;
-	public /*private */float OpeningTimeStamp;
-	public /*private */int ClosedFrames;
-	public /*private */TdHeadControl.EBlinkingState BlinkingState;
+	public/*private*/ float BlinkStartTime;
+	public/*private*/ float ClosingTimeStamp;
+	public/*private*/ float OpeningTimeStamp;
+	public/*private*/ int ClosedFrames;
+	public/*private*/ TdHeadControl.EBlinkingState BlinkingState;
 	
 	public virtual /*function */void Initialize(TdBotPawn OwnerPawn)
 	{

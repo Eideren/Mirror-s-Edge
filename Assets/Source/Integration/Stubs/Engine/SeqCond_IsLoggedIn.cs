@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqCond_IsLoggedIn : SequenceCondition/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ int NumNeededLoggedIn;
+	[Category] public int NumNeededLoggedIn;
 	
 	public virtual /*event */bool CheckLogins()
 	{

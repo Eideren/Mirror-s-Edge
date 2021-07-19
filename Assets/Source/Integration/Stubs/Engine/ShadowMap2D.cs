@@ -4,10 +4,10 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class ShadowMap2D : Object/*
 		native
 		noexport*/{
-	public /*private const */ShadowMapTexture2D Texture;
-	public /*private const */Object.Vector2D CoordinateScale;
-	public /*private const */Object.Vector2D CoordinateBias;
-	public /*private const */Object.Guid LightGuid;
+	[Const] public/*private*/ ShadowMapTexture2D Texture;
+	[Const] public/*private*/ Object.Vector2D CoordinateScale;
+	[Const] public/*private*/ Object.Vector2D CoordinateBias;
+	[Const] public/*private*/ Object.Guid LightGuid;
 	
 }
 }

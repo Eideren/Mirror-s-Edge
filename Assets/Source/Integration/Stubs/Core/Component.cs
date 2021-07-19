@@ -4,8 +4,8 @@ using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using 
 public partial class Component : Object/*
 		abstract
 		native*/{
-	public /*native const */Class TemplateOwnerClass;
-	public /*native const */name TemplateName;
+	[native, Const] public Class TemplateOwnerClass;
+	[native, Const] public name TemplateName;
 	
 }
 }

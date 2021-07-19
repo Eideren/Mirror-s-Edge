@@ -8,8 +8,8 @@ public partial class TdGhostManager : Actor/*
 	public Subsystem GhostRecordDriver;
 	public Subsystem GhostPlaybackDriver;
 	public Object GhostNetworkNotify;
-	public /*init */array</*init */byte> RecordData;
-	public /*init */array</*init */byte> PlaybackData;
+	[init] public array</*init */byte> RecordData;
+	[init] public array</*init */byte> PlaybackData;
 	
 	// Export UTdGhostManager::execRecordGhost(FFrame&, void* const)
 	public virtual /*native function */void RecordGhost(TdPawn P)

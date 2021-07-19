@@ -17,11 +17,11 @@ public partial class BrushComponent : PrimitiveComponent/*
 	//	}
 	};
 	
-	public /*const */Model Brush;
+	[Const] public Model Brush;
 	public KMeshProps.KAggregateGeom BrushAggGeom;
-	public /*private noimport native const transient */Object.Pointer BrushPhysDesc;
-	public /*private noimport native const transient */BrushComponent.KCachedConvexData_Mirror CachedPhysBrushData;
-	public /*private const */int CachedPhysBrushDataVersion;
+	[noimport, native, Const, transient] public/*private*/ Object.Pointer BrushPhysDesc;
+	[noimport, native, Const, transient] public/*private*/ BrushComponent.KCachedConvexData_Mirror CachedPhysBrushData;
+	[Const] public/*private*/ int CachedPhysBrushDataVersion;
 	
 	public BrushComponent()
 	{

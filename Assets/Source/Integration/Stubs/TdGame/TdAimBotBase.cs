@@ -5,25 +5,25 @@ public partial class TdAimBotBase : Object/* within TdAIController*//*
 		native*/{
 	public new TdAIController Outer => base.Outer as TdAIController;
 	
-	public/*()*/ float MaxDispersion;
-	public/*()*/ float MinDispersion;
-	public/*()*/ float MinOffset;
-	public/*()*/ float MaxYOffset;
-	public/*()*/ float MinYOffset;
-	public/*()*/ float ImprovementRate_Far;
-	public/*()*/ float ImprovementRate_Medium;
-	public/*()*/ float ImprovementRate_Near;
-	public/*()*/ float MovementRateX;
-	public/*()*/ float MovementRateY;
-	public/*()*/ float MoveSidewaysMultiplier;
-	public/*()*/ float MoveAwayMultiplier;
-	public/*()*/ float MoveTowardMultiplier;
-	public /*protected */float ImprovementRate;
-	public /*protected */float OverriddenImprovementRate;
-	public /*protected */Weapon CurrentWeapon;
-	public /*protected */float BaseDispersion;
-	public /*protected */float BaseOffset;
-	public /*protected */float BaseYOffset;
+	[Category] public float MaxDispersion;
+	[Category] public float MinDispersion;
+	[Category] public float MinOffset;
+	[Category] public float MaxYOffset;
+	[Category] public float MinYOffset;
+	[Category] public float ImprovementRate_Far;
+	[Category] public float ImprovementRate_Medium;
+	[Category] public float ImprovementRate_Near;
+	[Category] public float MovementRateX;
+	[Category] public float MovementRateY;
+	[Category] public float MoveSidewaysMultiplier;
+	[Category] public float MoveAwayMultiplier;
+	[Category] public float MoveTowardMultiplier;
+	public/*protected*/ float ImprovementRate;
+	public/*protected*/ float OverriddenImprovementRate;
+	public/*protected*/ Weapon CurrentWeapon;
+	public/*protected*/ float BaseDispersion;
+	public/*protected*/ float BaseOffset;
+	public/*protected*/ float BaseYOffset;
 	
 	// Export UTdAimBotBase::execTick(FFrame&, void* const)
 	public virtual /*native function */void Tick(float DeltaTime)

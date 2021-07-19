@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_ControlMovieTexture : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ TextureMovie MovieTexture;
+	[Category] public TextureMovie MovieTexture;
 	
 	public override /*event */void Activated()
 	{

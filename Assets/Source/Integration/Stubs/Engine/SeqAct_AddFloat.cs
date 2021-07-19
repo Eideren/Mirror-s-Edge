@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_AddFloat : SeqAct_SetSequenceVariable/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float ValueA;
-	public/*()*/ float ValueB;
+	[Category] public float ValueA;
+	[Category] public float ValueB;
 	public float FloatResult;
 	public int IntResult;
 	

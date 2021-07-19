@@ -5,14 +5,14 @@ public partial class UIProgressBar : UIObject,
 		UIDataStorePublisher/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIDataStorePublisher;
-	public/*(Image)*/ /*noclear const export editinline */UIComp_DrawImage BackgroundImageComponent;
-	public/*(Image)*/ /*noclear const export editinline */UIComp_DrawImage FillImageComponent;
-	public/*(Image)*/ /*noclear const export editinline */UIComp_DrawImage OverlayImageComponent;
-	public/*(Image)*/ bool bDrawOverlay;
-	public/*(Data)*/ /*private editconst */UIRoot.UIDataStoreBinding DataSource;
-	public/*(ProgressBar)*/ UIRoot.UIRangeData ProgressBarValue;
-	public/*(ProgressBar)*/ UIRoot.EUIOrientation ProgressBarOrientation;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIDataStorePublisher;
+	[Category("Image")] [noclear, Const, export, editinline] public UIComp_DrawImage BackgroundImageComponent;
+	[Category("Image")] [noclear, Const, export, editinline] public UIComp_DrawImage FillImageComponent;
+	[Category("Image")] [noclear, Const, export, editinline] public UIComp_DrawImage OverlayImageComponent;
+	[Category("Image")] public bool bDrawOverlay;
+	[Category("Data")] [editconst] public/*private*/ UIRoot.UIDataStoreBinding DataSource;
+	[Category("ProgressBar")] public UIRoot.UIRangeData ProgressBarValue;
+	[Category("ProgressBar")] public UIRoot.EUIOrientation ProgressBarOrientation;
 	
 	public virtual /*protected final function */void OnSetProgressBarValue(UIAction_SetProgressBarValue Action)
 	{

@@ -9,9 +9,9 @@ public partial class AudioComponent : ActorComponent/*
 		hidecategories(Object,ActorComponent)*/{
 	public partial struct /*native */AudioComponentParam
 	{
-		public/*()*/ name ParamName;
-		public/*()*/ float FloatParam;
-		public/*()*/ SoundNodeWave WaveParam;
+		[Category] public name ParamName;
+		[Category] public float FloatParam;
+		[Category] public SoundNodeWave WaveParam;
 	
 	//	structdefaultproperties
 	//	{
@@ -22,38 +22,38 @@ public partial class AudioComponent : ActorComponent/*
 	//	}
 	};
 	
-	public/*()*/ SoundCue SoundCue;
-	public /*native const */SoundNode CueFirstNode;
-	public/*()*/ /*editinline */array</*editinline */AudioComponent.AudioComponentParam> InstanceParameters;
+	[Category] public SoundCue SoundCue;
+	[native, Const] public SoundNode CueFirstNode;
+	[Category] [editinline] public array</*editinline */AudioComponent.AudioComponentParam> InstanceParameters;
 	public bool bUseOwnerLocation;
 	public bool bAutoPlay;
 	public bool bAutoDestroy;
 	public bool bStopWhenOwnerDestroyed;
 	public bool bShouldRemainActiveIfDropped;
-	public /*transient */bool bWasOccluded;
-	public /*transient */bool bSuppressSubtitles;
-	public /*transient */bool bWasPlaying;
-	public /*native const */bool bApplyEffects;
-	public /*native */bool bAlwaysPlay;
-	public /*native */bool bUberAlwaysPlay;
+	[transient] public bool bWasOccluded;
+	[transient] public bool bSuppressSubtitles;
+	[transient] public bool bWasPlaying;
+	[native, Const] public bool bApplyEffects;
+	[native] public bool bAlwaysPlay;
+	[native] public bool bUberAlwaysPlay;
 	public bool bAllowSpatialization;
 	public bool bIsUISound;
-	public /*transient */bool bIsMusic;
-	public /*transient */bool bNoReverb;
-	public /*transient */bool bFinished;
-	public /*transient */bool bIgnoreForFlushing;
-	public /*duplicatetransient native const */array<Object.Pointer> WaveInstances;
-	public /*duplicatetransient native const */array<byte> SoundNodeData;
-	public /*duplicatetransient native const *//*map<0,0>*/map<object, object> SoundNodeOffsetMap;
-	public /*duplicatetransient native const */Object.MultiMap_Mirror SoundNodeResetWaveMap;
-	public /*duplicatetransient native const */Object.Pointer Listener;
-	public /*duplicatetransient native const */float PlaybackTime;
-	public /*duplicatetransient native const */PortalVolume PortalVolume;
-	public /*duplicatetransient native */Object.Vector Location;
-	public /*duplicatetransient native const */Object.Vector ComponentLocation;
-	public /*duplicatetransient native */Object.Vector LocationOffset;
+	[transient] public bool bIsMusic;
+	[transient] public bool bNoReverb;
+	[transient] public bool bFinished;
+	[transient] public bool bIgnoreForFlushing;
+	[duplicatetransient, native, Const] public array<Object.Pointer> WaveInstances;
+	[duplicatetransient, native, Const] public array<byte> SoundNodeData;
+	[duplicatetransient, native, Const] public /*map<0,0>*/map<object, object> SoundNodeOffsetMap;
+	[duplicatetransient, native, Const] public Object.MultiMap_Mirror SoundNodeResetWaveMap;
+	[duplicatetransient, native, Const] public Object.Pointer Listener;
+	[duplicatetransient, native, Const] public float PlaybackTime;
+	[duplicatetransient, native, Const] public PortalVolume PortalVolume;
+	[duplicatetransient, native] public Object.Vector Location;
+	[duplicatetransient, native, Const] public Object.Vector ComponentLocation;
+	[duplicatetransient, native] public Object.Vector LocationOffset;
 	public bool bDebugOffset;
-	public /*native */float SubtitlePriority;
+	[native] public float SubtitlePriority;
 	public float FadeInStartTime;
 	public float FadeInStopTime;
 	public float FadeInTargetVolume;
@@ -64,31 +64,31 @@ public partial class AudioComponent : ActorComponent/*
 	public float AdjustVolumeStopTime;
 	public float AdjustVolumeTargetVolume;
 	public float CurrAdjustVolumeTargetVolume;
-	public /*native const */SoundNode CurrentNotifyBufferFinishedHook;
-	public /*native const */Object.Vector CurrentLocation;
-	public /*native const */float CurrentVolume;
-	public /*native const */float CurrentPitch;
-	public /*native const */float CurrentHighFrequencyGain;
-	public /*native const */int CurrentUseSpatialization;
-	public /*native const */int CurrentUseSeamlessLooping;
-	public /*native const */float CurrentVolumeMultiplier;
-	public /*native const */float CurrentPitchMultiplier;
-	public /*native const */float CurrentVoiceCenterChannelVolume;
-	public /*native const */float CurrentVoiceRadioVolume;
-	public/*()*/ float VolumeMultiplier;
-	public/*()*/ float PitchMultiplier;
-	public /*native const */float CurrentHighFrequencyGainMultiplier;
-	public/*()*/ float LowPassMultiplier;
-	public /*transient */float AdjustLowPassStartTime;
-	public /*transient */float AdjustLowPassStopTime;
-	public /*transient */float AdjustLowPassTargetLevel;
-	public /*transient */float CurrAdjustLowPassLevel;
-	public/*()*/ float OcclusionVolumeDuckLevel;
-	public/*()*/ float OcclusionFilterDuckLevel;
-	public/*()*/ float OcclusionFadeTime;
-	public/*()*/ float OcclusionCheckInterval;
-	public /*transient */float LastOcclusionCheckTime;
-	public /*const export editinline */DrawSoundRadiusComponent PreviewSoundRadius;
+	[native, Const] public SoundNode CurrentNotifyBufferFinishedHook;
+	[native, Const] public Object.Vector CurrentLocation;
+	[native, Const] public float CurrentVolume;
+	[native, Const] public float CurrentPitch;
+	[native, Const] public float CurrentHighFrequencyGain;
+	[native, Const] public int CurrentUseSpatialization;
+	[native, Const] public int CurrentUseSeamlessLooping;
+	[native, Const] public float CurrentVolumeMultiplier;
+	[native, Const] public float CurrentPitchMultiplier;
+	[native, Const] public float CurrentVoiceCenterChannelVolume;
+	[native, Const] public float CurrentVoiceRadioVolume;
+	[Category] public float VolumeMultiplier;
+	[Category] public float PitchMultiplier;
+	[native, Const] public float CurrentHighFrequencyGainMultiplier;
+	[Category] public float LowPassMultiplier;
+	[transient] public float AdjustLowPassStartTime;
+	[transient] public float AdjustLowPassStopTime;
+	[transient] public float AdjustLowPassTargetLevel;
+	[transient] public float CurrAdjustLowPassLevel;
+	[Category] public float OcclusionVolumeDuckLevel;
+	[Category] public float OcclusionFilterDuckLevel;
+	[Category] public float OcclusionFadeTime;
+	[Category] public float OcclusionCheckInterval;
+	[transient] public float LastOcclusionCheckTime;
+	[Const, export, editinline] public DrawSoundRadiusComponent PreviewSoundRadius;
 	public /*delegate*/AudioComponent.OnAudioFinished __OnAudioFinished__Delegate;
 	
 	// Export UAudioComponent::execPlay(FFrame&, void* const)

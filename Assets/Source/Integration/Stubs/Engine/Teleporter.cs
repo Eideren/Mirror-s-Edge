@@ -5,16 +5,16 @@ public partial class Teleporter : NavigationPoint/*
 		native
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*()*/ String URL;
-	public/*()*/ name ProductRequired;
-	public/*()*/ bool bChangesVelocity;
-	public/*()*/ bool bChangesYaw;
-	public/*()*/ bool bReversesX;
-	public/*()*/ bool bReversesY;
-	public/*()*/ bool bReversesZ;
-	public/*()*/ bool bEnabled;
-	public/*()*/ bool bCanTeleportVehicles;
-	public/*()*/ Object.Vector TargetVelocity;
+	[Category] public String URL;
+	[Category] public name ProductRequired;
+	[Category] public bool bChangesVelocity;
+	[Category] public bool bChangesYaw;
+	[Category] public bool bReversesX;
+	[Category] public bool bReversesY;
+	[Category] public bool bReversesZ;
+	[Category] public bool bEnabled;
+	[Category] public bool bCanTeleportVehicles;
+	[Category] public Object.Vector TargetVelocity;
 	public float LastFired;
 	
 	//replication

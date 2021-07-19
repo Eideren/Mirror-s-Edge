@@ -6,12 +6,12 @@ public partial class UIDataProvider_OnlineProfileSettingsArray : UIDataProvider,
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementProvider;
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementCellProvider;
 	public OnlineProfileSettings ProfileSettings;
 	public int ProfileSettingId;
 	public name ProfileSettingsName;
-	public /*const */String ColumnHeaderText;
+	[Const] public String ColumnHeaderText;
 	public array<name> Values;
 	
 	public UIDataProvider_OnlineProfileSettingsArray()

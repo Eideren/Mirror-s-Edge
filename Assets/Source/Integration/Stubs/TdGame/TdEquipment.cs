@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdEquipment : Inventory/*
 		notplaceable
 		hidecategories(Navigation)*/{
-	public /*private */bool bIsActive;
+	public/*private*/ bool bIsActive;
 	
 	public override /*simulated function */void RenderOverlays(HUD H)
 	{

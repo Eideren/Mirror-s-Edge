@@ -8,7 +8,7 @@ public partial class DecalManager : Actor/*
 		hidecategories(Navigation)*/{
 	public partial struct /*native */ActiveDecalInfo
 	{
-		public /*export editinline */DecalComponent Decal;
+		[export, editinline] public DecalComponent Decal;
 		public float LifetimeRemaining;
 	
 	//	structdefaultproperties
@@ -19,12 +19,12 @@ public partial class DecalManager : Actor/*
 	//	}
 	};
 	
-	public /*protected export editinline */DecalComponent DecalTemplate;
-	public /*export editinline */array</*export editinline */DecalComponent> PoolDecals;
-	public /*globalconfig */int MaxActiveDecals;
-	public /*globalconfig */bool bLogPoolOverflow;
-	public /*globalconfig */bool bLogPoolOverflowList;
-	public /*globalconfig */float DecalLifeSpan;
+	[export, editinline] public/*protected*/ DecalComponent DecalTemplate;
+	[export, editinline] public array</*export editinline */DecalComponent> PoolDecals;
+	[globalconfig] public int MaxActiveDecals;
+	[globalconfig] public bool bLogPoolOverflow;
+	[globalconfig] public bool bLogPoolOverflowList;
+	[globalconfig] public float DecalLifeSpan;
 	public array<DecalManager.ActiveDecalInfo> ActiveDecals;
 	
 	// Export UDecalManager::execAreDynamicDecalsEnabled(FFrame&, void* const)

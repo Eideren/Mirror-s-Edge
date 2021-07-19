@@ -6,18 +6,18 @@ public partial class ParticleLODLevel : Object/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public /*const */int Level;
-	public /*const deprecated */int LevelSetting;
+	[Const] public int Level;
+	[Const, deprecated] public int LevelSetting;
 	public bool bEnabled;
 	public bool ConvertedModules;
-	public /*export editinline */ParticleModuleRequired RequiredModule;
-	public /*export editinline */array</*export editinline */ParticleModule> Modules;
-	public /*export */ParticleModule TypeDataModule;
-	public /*export */ParticleModuleSpawn SpawnModule;
-	public /*native */array<ParticleModuleSpawnBase> SpawningModules;
-	public /*native */array<ParticleModule> SpawnModules;
-	public /*native */array<ParticleModule> UpdateModules;
-	public /*native */array<ParticleModuleOrbit> OrbitModules;
+	[export, editinline] public ParticleModuleRequired RequiredModule;
+	[export, editinline] public array</*export editinline */ParticleModule> Modules;
+	[export] public ParticleModule TypeDataModule;
+	[export] public ParticleModuleSpawn SpawnModule;
+	[native] public array<ParticleModuleSpawnBase> SpawningModules;
+	[native] public array<ParticleModule> SpawnModules;
+	[native] public array<ParticleModule> UpdateModules;
+	[native] public array<ParticleModuleOrbit> OrbitModules;
 	public int PeakActiveParticles;
 	
 	public ParticleLODLevel()

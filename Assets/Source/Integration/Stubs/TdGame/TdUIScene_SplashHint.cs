@@ -4,15 +4,15 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_SplashHint : TdUIScene/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UILabel TitleLabel;
-	public /*transient */UILabel SectionLabel;
-	public /*transient */UILabel DescriptionLabel;
-	public /*transient */UIImage HintImage;
+	[transient] public UILabel TitleLabel;
+	[transient] public UILabel SectionLabel;
+	[transient] public UILabel DescriptionLabel;
+	[transient] public UIImage HintImage;
 	public TdProfileSettings Profile;
 	public int HintNumber;
 	public String CurrentMap;
-	public /*private */float ActivateTimer;
-	public /*private */bool bInputActive;
+	public/*private*/ float ActivateTimer;
+	public/*private*/ bool bInputActive;
 	
 	public override /*event */void Initialized()
 	{

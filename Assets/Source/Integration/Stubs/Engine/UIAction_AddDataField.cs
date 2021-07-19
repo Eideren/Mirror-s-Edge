@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIAction_AddDataField : UIAction_DataStoreField/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bPersistentField;
-	public/*()*/ UIRoot.EUIDataProviderFieldType FieldType;
+	[Category] public bool bPersistentField;
+	[Category] public UIRoot.EUIDataProviderFieldType FieldType;
 	
 	public UIAction_AddDataField()
 	{

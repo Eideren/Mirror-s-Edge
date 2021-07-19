@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class UIEvent_TdOptionChanged : UIEvent_ValueChanged/*
 		native
 		hidecategories(Object)*/{
-	public /*transient */int CurrentIndex;
-	public /*transient */int PreviousIndex;
+	[transient] public int CurrentIndex;
+	[transient] public int PreviousIndex;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

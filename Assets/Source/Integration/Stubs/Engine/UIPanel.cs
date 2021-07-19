@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIPanel : UIContainer/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public/*(Image)*/ /*const export editinline */UIComp_DrawImage BackgroundImageComponent;
-	public/*()*/ bool bEnforceClipping;
+	[Category("Image")] [Const, export, editinline] public UIComp_DrawImage BackgroundImageComponent;
+	[Category] public bool bEnforceClipping;
 	
 	public virtual /*final function */void SetBackgroundImage(Surface NewImage)
 	{

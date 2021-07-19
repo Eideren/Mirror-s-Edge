@@ -3,14 +3,14 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMove_SpringBoard : TdPhysicsMove/*
 		config(PawnMovement)*/{
-	public/*(SpringBoard)*/ /*config */float SpringBoardMaxHeight;
-	public/*(SpringBoard)*/ /*config */float SpringBoardMinHeight;
-	public/*(SpringBoard)*/ /*config */float SpringBoardJumpZ;
-	public/*(SpringBoard)*/ /*config */float SpringBoardJumpXYAdd;
-	public/*(SpringBoard)*/ /*config */float SpringBoardJumpXYMin;
-	public/*(SpringBoard)*/ /*config */float IntermediateFootPlantHeight;
-	public/*(SpringBoard)*/ /*config */float IntermediateFootPlantDistance;
-	public/*(SpringBoard)*/ /*config */float CheckDistanceTime;
+	[Category("SpringBoard")] [config] public float SpringBoardMaxHeight;
+	[Category("SpringBoard")] [config] public float SpringBoardMinHeight;
+	[Category("SpringBoard")] [config] public float SpringBoardJumpZ;
+	[Category("SpringBoard")] [config] public float SpringBoardJumpXYAdd;
+	[Category("SpringBoard")] [config] public float SpringBoardJumpXYMin;
+	[Category("SpringBoard")] [config] public float IntermediateFootPlantHeight;
+	[Category("SpringBoard")] [config] public float IntermediateFootPlantDistance;
+	[Category("SpringBoard")] [config] public float CheckDistanceTime;
 	public Object.Vector IntermediateFootPlantLedgeLocation;
 	public Object.Vector SpringBoardFootPlantLedgeLocation;
 	public float StepTime1;

@@ -23,16 +23,16 @@ public partial class SequenceEvent : SequenceOp/*
 	};
 	
 	public Actor Originator;
-	public /*transient */Actor Instigator;
-	public /*transient */float ActivationTime;
-	public /*transient */int TriggerCount;
-	public/*()*/ int MaxTriggerCount;
-	public/*()*/ float ReTriggerDelay;
-	public/*()*/ bool bEnabled;
-	public/*()*/ bool bPlayerOnly;
-	public /*transient */bool bRegistered;
-	public/*()*/ /*const */bool bClientSideOnly;
-	public/*()*/ byte Priority;
+	[transient] public Actor Instigator;
+	[transient] public float ActivationTime;
+	[transient] public int TriggerCount;
+	[Category] public int MaxTriggerCount;
+	[Category] public float ReTriggerDelay;
+	[Category] public bool bEnabled;
+	[Category] public bool bPlayerOnly;
+	[transient] public bool bRegistered;
+	[Category] [Const] public bool bClientSideOnly;
+	[Category] public byte Priority;
 	public int MaxWidth;
 	public array<SequenceEvent.QueuedActivationInfo> QueuedActivations;
 	

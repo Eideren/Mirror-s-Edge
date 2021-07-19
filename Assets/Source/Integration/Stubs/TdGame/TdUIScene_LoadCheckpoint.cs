@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_LoadCheckpoint : TdUIScene_SubMenu/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UITdOptionButton CheckpointOptionButton;
-	public /*transient */UIImage CheckpointImage;
+	[transient] public UITdOptionButton CheckpointOptionButton;
+	[transient] public UIImage CheckpointImage;
 	
 	public override /*event */void PostInitialize()
 	{

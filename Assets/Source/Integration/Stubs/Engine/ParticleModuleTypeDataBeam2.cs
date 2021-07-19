@@ -23,8 +23,8 @@ public partial class ParticleModuleTypeDataBeam2 : ParticleModuleTypeDataBase/*
 	
 	public partial struct BeamTargetData
 	{
-		public/*()*/ name TargetName;
-		public/*()*/ float TargetPercentage;
+		[Category] public name TargetName;
+		[Category] public float TargetPercentage;
 	
 	//	structdefaultproperties
 	//	{
@@ -34,23 +34,23 @@ public partial class ParticleModuleTypeDataBeam2 : ParticleModuleTypeDataBase/*
 	//	}
 	};
 	
-	public/*(Beam)*/ ParticleModuleTypeDataBeam2.EBeam2Method BeamMethod;
-	public/*(Taper)*/ ParticleModuleTypeDataBeam2.EBeamTaperMethod TaperMethod;
-	public/*(Beam)*/ int TextureTile;
-	public/*(Beam)*/ float TextureTileDistance;
-	public/*(Beam)*/ int Sheets;
-	public/*(Beam)*/ int MaxBeamCount;
-	public/*(Beam)*/ float Speed;
-	public/*(Beam)*/ int InterpolationPoints;
-	public/*(Beam)*/ bool bAlwaysOn;
-	public/*(Rendering)*/ bool RenderGeometry;
-	public/*(Rendering)*/ bool RenderDirectLine;
-	public/*(Rendering)*/ bool RenderLines;
-	public/*(Rendering)*/ bool RenderTessellation;
-	public/*(Branching)*/ name BranchParentName;
-	public/*(Distance)*/ DistributionFloat.RawDistributionFloat Distance;
-	public/*(Taper)*/ DistributionFloat.RawDistributionFloat TaperFactor;
-	public/*(Taper)*/ DistributionFloat.RawDistributionFloat TaperScale;
+	[Category("Beam")] public ParticleModuleTypeDataBeam2.EBeam2Method BeamMethod;
+	[Category("Taper")] public ParticleModuleTypeDataBeam2.EBeamTaperMethod TaperMethod;
+	[Category("Beam")] public int TextureTile;
+	[Category("Beam")] public float TextureTileDistance;
+	[Category("Beam")] public int Sheets;
+	[Category("Beam")] public int MaxBeamCount;
+	[Category("Beam")] public float Speed;
+	[Category("Beam")] public int InterpolationPoints;
+	[Category("Beam")] public bool bAlwaysOn;
+	[Category("Rendering")] public bool RenderGeometry;
+	[Category("Rendering")] public bool RenderDirectLine;
+	[Category("Rendering")] public bool RenderLines;
+	[Category("Rendering")] public bool RenderTessellation;
+	[Category("Branching")] public name BranchParentName;
+	[Category("Distance")] public DistributionFloat.RawDistributionFloat Distance;
+	[Category("Taper")] public DistributionFloat.RawDistributionFloat TaperFactor;
+	[Category("Taper")] public DistributionFloat.RawDistributionFloat TaperScale;
 	
 	public ParticleModuleTypeDataBeam2()
 	{

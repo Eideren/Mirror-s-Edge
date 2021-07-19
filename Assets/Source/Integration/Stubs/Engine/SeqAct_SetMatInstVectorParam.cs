@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_SetMatInstVectorParam : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ MaterialInstanceConstant MatInst;
-	public/*()*/ name ParamName;
-	public/*()*/ Object.LinearColor VectorValue;
+	[Category] public MaterialInstanceConstant MatInst;
+	[Category] public name ParamName;
+	[Category] public Object.LinearColor VectorValue;
 	
 	public SeqAct_SetMatInstVectorParam()
 	{

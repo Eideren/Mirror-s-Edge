@@ -5,9 +5,9 @@ public partial class ScriptConsoleEntry : UIPanel/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public const string ConsolePromptText = "(> ";
 	
-	public /*export editinline */UIEditBox InputBox;
-	public /*export editinline */UIImage UpperConsoleBorder;
-	public /*export editinline */UIImage LowerConsoleBorder;
+	[export, editinline] public UIEditBox InputBox;
+	[export, editinline] public UIImage UpperConsoleBorder;
+	[export, editinline] public UIImage LowerConsoleBorder;
 	
 	public override /*event */void Initialized()
 	{

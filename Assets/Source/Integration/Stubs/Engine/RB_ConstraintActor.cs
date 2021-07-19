@@ -6,15 +6,15 @@ public partial class RB_ConstraintActor : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ Actor ConstraintActor1;
-	public/*()*/ Actor ConstraintActor2;
-	public/*()*/ /*noclear export editinline */RB_ConstraintSetup ConstraintSetup;
-	public/*()*/ /*noclear export editinline */RB_ConstraintInstance ConstraintInstance;
-	public/*()*/ /*const */bool bDisableCollision;
-	public/*()*/ bool bUpdateActor1RefFrame;
-	public/*()*/ bool bUpdateActor2RefFrame;
-	public/*(Pulley)*/ Actor PulleyPivotActor1;
-	public/*(Pulley)*/ Actor PulleyPivotActor2;
+	[Category] public Actor ConstraintActor1;
+	[Category] public Actor ConstraintActor2;
+	[Category] [noclear, export, editinline] public RB_ConstraintSetup ConstraintSetup;
+	[Category] [noclear, export, editinline] public RB_ConstraintInstance ConstraintInstance;
+	[Category] [Const] public bool bDisableCollision;
+	[Category] public bool bUpdateActor1RefFrame;
+	[Category] public bool bUpdateActor2RefFrame;
+	[Category("Pulley")] public Actor PulleyPivotActor1;
+	[Category("Pulley")] public Actor PulleyPivotActor2;
 	
 	// Export URB_ConstraintActor::execSetDisableCollision(FFrame&, void* const)
 	public virtual /*native final function */void SetDisableCollision(bool NewDisableCollision)

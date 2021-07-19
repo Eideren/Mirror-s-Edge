@@ -3,16 +3,16 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdUITabPage_UnlockedArtwork : TdUITabPage/*
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIList ArtworkList;
-	public /*transient */UIImage ArtworkImage;
-	public /*transient */UILabel ArtworkDescriptionLabel;
-	public /*transient */UILabel ArtworkImageLoadLabel;
-	public /*transient */TdUITabControl OwnerTabControl;
-	public /*transient */TdUIButtonBar ButtonBar;
+	[transient] public UIList ArtworkList;
+	[transient] public UIImage ArtworkImage;
+	[transient] public UILabel ArtworkDescriptionLabel;
+	[transient] public UILabel ArtworkImageLoadLabel;
+	[transient] public TdUITabControl OwnerTabControl;
+	[transient] public TdUIButtonBar ButtonBar;
 	public UIDataStore_TdUnlocksData UnlocksData;
 	public UIScene ImageOverlayScene;
-	public /*private transient */UIRoot.UIProviderFieldValue ImageFieldValue;
-	public /*private transient */bool bArtworkImageIsDirty;
+	[transient] public/*private*/ UIRoot.UIProviderFieldValue ImageFieldValue;
+	[transient] public/*private*/ bool bArtworkImageIsDirty;
 	
 	public override /*event */void PostInitialize()
 	{

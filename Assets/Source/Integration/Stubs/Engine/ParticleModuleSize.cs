@@ -5,7 +5,7 @@ public partial class ParticleModuleSize : ParticleModuleSizeBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Size)*/ DistributionVector.RawDistributionVector StartSize;
+	[Category("Size")] public DistributionVector.RawDistributionVector StartSize;
 	
 	public ParticleModuleSize()
 	{

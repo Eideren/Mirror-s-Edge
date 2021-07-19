@@ -14,15 +14,15 @@ public partial class TdTrigger : Trigger/*
 	};
 	
 	public bool Enabled;
-	public/*(ValveSettings)*/ bool bValveStartOpen;
-	public/*(ValveSettings)*/ int NumberOfRevs;
-	public /*protected */Texture2D ValveTexture;
-	public /*protected */Texture2D ButtonTexture;
-	public /*protected export editinline */SpriteComponent EditorSprite;
-	public /*private export editinline */TdDrawArcComponent ArcComponent;
-	public/*()*/ TdTrigger.ETriggerInteractType TriggerType;
-	public/*()*/ float AngleLimit;
-	public /*private transient */int CurrentRev;
+	[Category("ValveSettings")] public bool bValveStartOpen;
+	[Category("ValveSettings")] public int NumberOfRevs;
+	public/*protected*/ Texture2D ValveTexture;
+	public/*protected*/ Texture2D ButtonTexture;
+	[export, editinline] public/*protected*/ SpriteComponent EditorSprite;
+	[export, editinline] public/*private*/ TdDrawArcComponent ArcComponent;
+	[Category] public TdTrigger.ETriggerInteractType TriggerType;
+	[Category] public float AngleLimit;
+	[transient] public/*private*/ int CurrentRev;
 	
 	public override /*simulated event */void PostBeginPlay()
 	{

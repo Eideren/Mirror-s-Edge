@@ -10,8 +10,8 @@ public partial class TdGameViewportClient : GameViewportClient/* within Engine*/
 	public TdUIInteraction ViewportUI;
 	public Texture2D TransitionImage;
 	public MaterialEffect FadeInEffect;
-	public /*transient */MaterialInstanceConstant FadeInEffectMaterialInstance;
-	public /*private transient */TdDebugMenu DebugMenu;
+	[transient] public MaterialInstanceConstant FadeInEffectMaterialInstance;
+	[transient] public/*private*/ TdDebugMenu DebugMenu;
 	
 	public override /*event */bool Init(ref String OutError)
 	{

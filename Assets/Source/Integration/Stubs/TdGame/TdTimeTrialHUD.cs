@@ -6,26 +6,26 @@ public partial class TdTimeTrialHUD : TdSPHUD/*
 		config(Game)
 		notplaceable
 		hidecategories(Navigation)*/{
-	public/*(HUDIcons)*/ Object.Vector2D RaceTimerPos;
-	public/*(HUDIcons)*/ Object.Vector2D SpeedPos;
-	public/*(HUDIcons)*/ Object.Vector2D RaceProgressPos;
-	public/*(HUDIcons)*/ Object.Vector2D StarRatingPos;
-	public/*(HUDIcons)*/ float StarFadeTime;
-	public/*(HUDIcons)*/ float StarCompletedAlpha;
-	public/*(HUDIcons)*/ float StarFailedAlpha;
-	public/*(HUDIcons)*/ float RaceProgressBarHeight;
-	public/*(HUDIcons)*/ float ProgressBarAlpha;
-	public/*(HUDIcons)*/ float ProgressBarCompletedAlpha;
-	public/*(HUDIcons)*/ float ProgressBarWidth;
-	public/*(HUDIcons)*/ float ProgressBarFadeTime;
-	public /*transient */StaticArray<Texture2D, Texture2D, Texture2D>/*[3]*/ BottomBar;
-	public /*transient */StaticArray<Texture2D, Texture2D, Texture2D>/*[3]*/ MiddleBar;
-	public /*transient */StaticArray<Texture2D, Texture2D, Texture2D>/*[3]*/ TopBar;
-	public /*transient */Texture2D Star;
-	public /*transient */array<float> HUDProgressFade;
-	public /*transient */StaticArray<float, float, float>/*[3]*/ StarRatingAlpha;
-	public /*transient */String SpeedUnitString;
-	public /*transient */int MeasurementUnits;
+	[Category("HUDIcons")] public Object.Vector2D RaceTimerPos;
+	[Category("HUDIcons")] public Object.Vector2D SpeedPos;
+	[Category("HUDIcons")] public Object.Vector2D RaceProgressPos;
+	[Category("HUDIcons")] public Object.Vector2D StarRatingPos;
+	[Category("HUDIcons")] public float StarFadeTime;
+	[Category("HUDIcons")] public float StarCompletedAlpha;
+	[Category("HUDIcons")] public float StarFailedAlpha;
+	[Category("HUDIcons")] public float RaceProgressBarHeight;
+	[Category("HUDIcons")] public float ProgressBarAlpha;
+	[Category("HUDIcons")] public float ProgressBarCompletedAlpha;
+	[Category("HUDIcons")] public float ProgressBarWidth;
+	[Category("HUDIcons")] public float ProgressBarFadeTime;
+	[transient] public StaticArray<Texture2D, Texture2D, Texture2D>/*[3]*/ BottomBar;
+	[transient] public StaticArray<Texture2D, Texture2D, Texture2D>/*[3]*/ MiddleBar;
+	[transient] public StaticArray<Texture2D, Texture2D, Texture2D>/*[3]*/ TopBar;
+	[transient] public Texture2D Star;
+	[transient] public array<float> HUDProgressFade;
+	[transient] public StaticArray<float, float, float>/*[3]*/ StarRatingAlpha;
+	[transient] public String SpeedUnitString;
+	[transient] public int MeasurementUnits;
 	public ParticleSystem CheckPointEffectParticles;
 	public float CheckPointDistanceInCameraDirection;
 	

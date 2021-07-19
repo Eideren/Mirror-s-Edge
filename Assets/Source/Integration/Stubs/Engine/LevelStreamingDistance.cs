@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class LevelStreamingDistance : LevelStreaming/*
 		native
 		editinlinenew*/{
-	public/*()*/ Object.Vector Origin;
-	public/*()*/ float MaxDistance;
+	[Category] public Object.Vector Origin;
+	[Category] public float MaxDistance;
 	
 }
 }

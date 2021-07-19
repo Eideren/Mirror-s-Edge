@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqEvent_ProjectileLanded : SequenceEvent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float MaxDistance;
+	[Category] public float MaxDistance;
 	
 	public SeqEvent_ProjectileLanded()
 	{

@@ -4,14 +4,14 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_Interact : TdPhysicsMove/*
 		config(PawnMovement)*/{
 	public float AnimationInteractionDelay;
-	public /*private */float EventDelay;
-	public /*private */TdTrigger CurrentTrigger;
-	public /*private */SeqEvent_TdUsed CurrentEvent;
+	public/*private*/ float EventDelay;
+	public/*private*/ TdTrigger CurrentTrigger;
+	public/*private*/ SeqEvent_TdUsed CurrentEvent;
 	public Object.Vector MoveLocation;
 	public Object.Vector NormalFromTrigger2D;
-	public /*config */float DistanceToAButton;
-	public /*config */float DistanceToAValve;
-	public /*private */float DistanceToInteractableObject;
+	[config] public float DistanceToAButton;
+	[config] public float DistanceToAValve;
+	public/*private*/ float DistanceToInteractableObject;
 	public bool bReverseRev;
 	public bool bReachedTrigger;
 	

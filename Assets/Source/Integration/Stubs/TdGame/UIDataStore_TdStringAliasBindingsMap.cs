@@ -38,10 +38,10 @@ public partial class UIDataStore_TdStringAliasBindingsMap : UIDataStore_StringAl
 	//	}
 	};
 	
-	public /*config */int FakePlatform;
-	public /*transient */bool bControllerConnected;
-	public /*native const transient */Object.Map_Mirror CommandToBindNames;
-	public /*config */array</*config */UIDataStore_TdStringAliasBindingsMap.ControllerMap> ControllerMapArray;
+	[config] public int FakePlatform;
+	[transient] public bool bControllerConnected;
+	[native, Const, transient] public Object.Map_Mirror CommandToBindNames;
+	[config] public array</*config */UIDataStore_TdStringAliasBindingsMap.ControllerMap> ControllerMapArray;
 	
 	// Export UUIDataStore_TdStringAliasBindingsMap::execGetStringWithFieldName(FFrame&, void* const)
 	public override /*native function */int GetStringWithFieldName(String FieldName, ref String MappedString)

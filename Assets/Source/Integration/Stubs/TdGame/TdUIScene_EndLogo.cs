@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_EndLogo : TdUIScene/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIImage Logo;
+	[transient] public UIImage Logo;
 	
 	public override /*event */void PostInitialize()
 	{

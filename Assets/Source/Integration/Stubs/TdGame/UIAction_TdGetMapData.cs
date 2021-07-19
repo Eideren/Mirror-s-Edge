@@ -5,7 +5,7 @@ public partial class UIAction_TdGetMapData : UIAction/*
 		native
 		hidecategories(Object)*/{
 	public name ResourceDataStoreName;
-	public/*()*/ int MapIndex;
+	[Category] public int MapIndex;
 	public String Filename;
 	public String FriendlyName;
 	public String Description;

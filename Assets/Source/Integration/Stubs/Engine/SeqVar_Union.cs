@@ -5,11 +5,11 @@ public partial class SeqVar_Union : SequenceVariable/*
 		native
 		hidecategories(Object)*/{
 	public array< Core.ClassT<SequenceVariable> > SupportedVariableClasses;
-	public/*()*/ int IntValue;
-	public/*()*/ int BoolValue;
-	public/*()*/ float FloatValue;
-	public/*()*/ String StringValue;
-	public/*()*/ Object ObjectValue;
+	[Category] public int IntValue;
+	[Category] public int BoolValue;
+	[Category] public float FloatValue;
+	[Category] public String StringValue;
+	[Category] public Object ObjectValue;
 	
 	public SeqVar_Union()
 	{

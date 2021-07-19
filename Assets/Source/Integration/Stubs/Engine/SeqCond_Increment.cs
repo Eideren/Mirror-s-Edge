@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqCond_Increment : SequenceCondition/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ int IncrementAmount;
-	public/*()*/ int ValueA;
-	public/*()*/ int ValueB;
+	[Category] public int IncrementAmount;
+	[Category] public int ValueA;
+	[Category] public int ValueB;
 	
 	public SeqCond_Increment()
 	{

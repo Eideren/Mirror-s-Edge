@@ -6,11 +6,11 @@ public partial class CylinderComponent : PrimitiveComponent/*
 		editinlinenew
 		collapsecategories
 		noexport*/{
-	public/*()*/ /*const export */float CollisionHeight;
-	public/*()*/ /*const export */float CollisionRadius;
-	public/*()*/ /*const */Object.Color CylinderColor;
-	public /*const */bool bDrawBoundingBox;
-	public /*const */bool bDrawNonColliding;
+	[Category] [Const, export] public float CollisionHeight;
+	[Category] [Const, export] public float CollisionRadius;
+	[Category] [Const] public Object.Color CylinderColor;
+	[Const] public bool bDrawBoundingBox;
+	[Const] public bool bDrawNonColliding;
 	
 	// Export UCylinderComponent::execSetCylinderSize(FFrame&, void* const)
 	public virtual /*native final function */void SetCylinderSize(float NewRadius, float NewHeight)

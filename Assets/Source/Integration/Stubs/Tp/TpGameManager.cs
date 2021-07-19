@@ -5,7 +5,7 @@ public partial class TpGameManager : TpSystemHandler/*
 		abstract
 		transient
 		native*/{
-	public /*private */array<NetDriver> DriverArray;
+	public/*private*/ array<NetDriver> DriverArray;
 	public /*delegate*/TpGameManager.OnCreateGame __OnCreateGame__Delegate;
 	public /*delegate*/TpGameManager.OnDestroyGame __OnDestroyGame__Delegate;
 	public /*delegate*/TpGameManager.OnStartGame __OnStartGame__Delegate;

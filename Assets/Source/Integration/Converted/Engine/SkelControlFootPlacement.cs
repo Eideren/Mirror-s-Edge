@@ -4,15 +4,15 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SkelControlFootPlacement : SkelControlLimb/*
 		native
 		hidecategories(Object,Effector)*/{
-	public/*(FootPlacement)*/ float FootOffset;
-	public/*(FootPlacement)*/ Object.EAxis FootUpAxis;
-	public/*(FootPlacement)*/ Object.Rotator FootRotOffset;
-	public/*(FootPlacement)*/ bool bInvertFootUpAxis;
-	public/*(FootPlacement)*/ bool bOrientFootToGround;
-	public/*(FootPlacement)*/ bool bOnlyEnableForUpAdjustment;
-	public/*(FootPlacement)*/ float MaxUpAdjustment;
-	public/*(FootPlacement)*/ float MaxDownAdjustment;
-	public/*(FootPlacement)*/ float MaxFootOrientAdjust;
+	[Category("FootPlacement")] public float FootOffset;
+	[Category("FootPlacement")] public Object.EAxis FootUpAxis;
+	[Category("FootPlacement")] public Object.Rotator FootRotOffset;
+	[Category("FootPlacement")] public bool bInvertFootUpAxis;
+	[Category("FootPlacement")] public bool bOrientFootToGround;
+	[Category("FootPlacement")] public bool bOnlyEnableForUpAdjustment;
+	[Category("FootPlacement")] public float MaxUpAdjustment;
+	[Category("FootPlacement")] public float MaxDownAdjustment;
+	[Category("FootPlacement")] public float MaxFootOrientAdjust;
 	
 	public SkelControlFootPlacement()
 	{

@@ -7,8 +7,8 @@ public partial class DataStoreClient : UIRoot/*
 		hidecategories(Object,UIRoot)*/{
 	public partial struct /*native transient */PlayerDataStoreGroup
 	{
-		public /*init const transient */LocalPlayer PlayerOwner;
-		public /*init const transient */array<UIDataStore> DataStores;
+		[init, Const, transient] public LocalPlayer PlayerOwner;
+		[init, Const, transient] public array<UIDataStore> DataStores;
 	
 	//	structdefaultproperties
 	//	{
@@ -18,11 +18,11 @@ public partial class DataStoreClient : UIRoot/*
 	//	}
 	};
 	
-	public /*config */array</*config */String> GlobalDataStoreClasses;
-	public /*const */array<UIDataStore> GlobalDataStores;
-	public /*config */array</*config */String> PlayerDataStoreClassNames;
-	public /*private const */array< Core.ClassT<UIDataStore> > PlayerDataStoreClasses;
-	public /*const */array<DataStoreClient.PlayerDataStoreGroup> PlayerDataStores;
+	[config] public array</*config */String> GlobalDataStoreClasses;
+	[Const] public array<UIDataStore> GlobalDataStores;
+	[config] public array</*config */String> PlayerDataStoreClassNames;
+	[Const] public/*private*/ array< Core.ClassT<UIDataStore> > PlayerDataStoreClasses;
+	[Const] public array<DataStoreClient.PlayerDataStoreGroup> PlayerDataStores;
 	
 	// Export UDataStoreClient::execFindDataStore(FFrame&, void* const)
 	public virtual /*native final function */UIDataStore FindDataStore(name DataStoreTag, /*optional */LocalPlayer _PlayerOwner = default)

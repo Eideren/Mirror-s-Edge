@@ -7,7 +7,7 @@ public partial class SpeedTreeActorFactory : ActorFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ SpeedTree SpeedTree;
+	[Category] public SpeedTree SpeedTree;
 	
 	public SpeedTreeActorFactory()
 	{

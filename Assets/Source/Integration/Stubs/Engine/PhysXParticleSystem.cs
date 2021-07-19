@@ -23,33 +23,33 @@ public partial class PhysXParticleSystem : Object/*
 		EPSM_MAX
 	};
 	
-	public/*(Buffer)*/ int MaxParticles;
-	public/*(Collision)*/ float CollisionDistance;
-	public/*(Collision)*/ float RestitutionWithStaticShapes;
-	public/*(Collision)*/ float RestitutionWithDynamicShapes;
-	public/*(Collision)*/ float FrictionWithStaticShapes;
-	public/*(Collision)*/ float FrictionWithDynamicShapes;
-	public/*(Collision)*/ bool bDynamicCollision;
-	public/*(Dynamics)*/ bool bDisableGravity;
-	public/*(SdkExpert)*/ bool bStaticCollision;
-	public/*(SdkExpert)*/ bool bTwoWayCollision;
-	public /*transient */bool bDestroy;
-	public /*transient */bool bSyncFailed;
-	public /*transient */bool bIsInGame;
-	public/*(Dynamics)*/ float MaxMotionDistance;
-	public/*(Dynamics)*/ float Damping;
-	public/*(Dynamics)*/ Object.Vector ExternalAcceleration;
-	public/*(SdkExpert)*/ PhysXParticleSystem.ESimulationMethod SimulationMethod;
-	public/*(SdkExpert)*/ PhysXParticleSystem.EPacketSizeMultiplier PacketSizeMultiplier;
-	public/*(SdkExpert)*/ float RestParticleDistance;
-	public/*(SdkExpert)*/ float RestDensity;
-	public/*(SdkExpert)*/ float KernelRadiusMultiplier;
-	public/*(SdkExpert)*/ float Stiffness;
-	public/*(SdkExpert)*/ float Viscosity;
-	public/*(SdkExpert)*/ float CollisionResponseCoefficient;
-	public/*(SdkExpert)*/ int ParticleReserve;
-	public /*native */Object.Pointer CascadeScene;
-	public /*native */Object.Pointer PSys;
+	[Category("Buffer")] public int MaxParticles;
+	[Category("Collision")] public float CollisionDistance;
+	[Category("Collision")] public float RestitutionWithStaticShapes;
+	[Category("Collision")] public float RestitutionWithDynamicShapes;
+	[Category("Collision")] public float FrictionWithStaticShapes;
+	[Category("Collision")] public float FrictionWithDynamicShapes;
+	[Category("Collision")] public bool bDynamicCollision;
+	[Category("Dynamics")] public bool bDisableGravity;
+	[Category("SdkExpert")] public bool bStaticCollision;
+	[Category("SdkExpert")] public bool bTwoWayCollision;
+	[transient] public bool bDestroy;
+	[transient] public bool bSyncFailed;
+	[transient] public bool bIsInGame;
+	[Category("Dynamics")] public float MaxMotionDistance;
+	[Category("Dynamics")] public float Damping;
+	[Category("Dynamics")] public Object.Vector ExternalAcceleration;
+	[Category("SdkExpert")] public PhysXParticleSystem.ESimulationMethod SimulationMethod;
+	[Category("SdkExpert")] public PhysXParticleSystem.EPacketSizeMultiplier PacketSizeMultiplier;
+	[Category("SdkExpert")] public float RestParticleDistance;
+	[Category("SdkExpert")] public float RestDensity;
+	[Category("SdkExpert")] public float KernelRadiusMultiplier;
+	[Category("SdkExpert")] public float Stiffness;
+	[Category("SdkExpert")] public float Viscosity;
+	[Category("SdkExpert")] public float CollisionResponseCoefficient;
+	[Category("SdkExpert")] public int ParticleReserve;
+	[native] public Object.Pointer CascadeScene;
+	[native] public Object.Pointer PSys;
 	
 	public PhysXParticleSystem()
 	{

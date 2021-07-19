@@ -3,14 +3,14 @@ using Core; using Engine; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class ConeBuilder : BrushBuilder/*
 		hidecategories(Object,BrushBuilder)*/{
-	public/*()*/ float Z;
-	public/*()*/ float CapZ;
-	public/*()*/ float OuterRadius;
-	public/*()*/ float InnerRadius;
-	public/*()*/ int Sides;
-	public/*()*/ name GroupName;
-	public/*()*/ bool AlignToSide;
-	public/*()*/ bool Hollow;
+	[Category] public float Z;
+	[Category] public float CapZ;
+	[Category] public float OuterRadius;
+	[Category] public float InnerRadius;
+	[Category] public int Sides;
+	[Category] public name GroupName;
+	[Category] public bool AlignToSide;
+	[Category] public bool Hollow;
 	
 	public virtual /*function */void BuildCone(int Direction, bool InAlignToSide, int InSides, float InZ, float Radius, name Item)
 	{

@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class DOFAndBloomEffect : DOFEffect/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float BloomScale;
+	[Category] public float BloomScale;
 	
 	public DOFAndBloomEffect()
 	{

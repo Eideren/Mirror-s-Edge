@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNodeBlendBySpeed : AnimNodeBlendBySpeed/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ bool bDebugThis;
-	public/*()*/ bool bUseAverageSpeed;
+	[Category] public bool bDebugThis;
+	[Category] public bool bUseAverageSpeed;
 	
 	public TdAnimNodeBlendBySpeed()
 	{

@@ -5,7 +5,7 @@ public partial class UIAction_TdServerTravel : UIAction/*
 		native
 		hidecategories(Object)*/{
 	public String MapName;
-	public/*()*/ String OnlineSettingsDataStore;
+	[Category] public String OnlineSettingsDataStore;
 	
 	public UIAction_TdServerTravel()
 	{

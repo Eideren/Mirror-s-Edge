@@ -5,8 +5,8 @@ public partial class ParticleModuleSubUVDirect : ParticleModuleSubUVBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(SubUV)*/ DistributionVector.RawDistributionVector SubUVPosition;
-	public/*(SubUV)*/ DistributionVector.RawDistributionVector SubUVSize;
+	[Category("SubUV")] public DistributionVector.RawDistributionVector SubUVPosition;
+	[Category("SubUV")] public DistributionVector.RawDistributionVector SubUVSize;
 	
 	public ParticleModuleSubUVDirect()
 	{

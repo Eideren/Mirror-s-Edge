@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Ts; usin
 public partial class TpUoStats : TpSystemHandler, 
 		OnlineStatsInterface/*
 		transient*/{
-	public /*private */array< /*delegate*/OnlineStatsInterface.OnReadOnlineStatsComplete > __OnReadOnlineStatsComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlineStatsInterface.OnFlushOnlineStatsComplete > __OnFlushOnlineStatsComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineStatsInterface.OnReadOnlineStatsComplete > __OnReadOnlineStatsComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineStatsInterface.OnFlushOnlineStatsComplete > __OnFlushOnlineStatsComplete__Multicaster;
 	public /*delegate*/OnlineStatsInterface.OnReadOnlineStatsComplete __OnReadOnlineStatsComplete__Delegate{ get; set; }
 	public /*delegate*/OnlineStatsInterface.OnFlushOnlineStatsComplete __OnFlushOnlineStatsComplete__Delegate{ get; set; }
 	public /*delegate*/OnlineStatsInterface.OnRegisterHostStatGuidComplete __OnRegisterHostStatGuidComplete__Delegate{ get; set; }

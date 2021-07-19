@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class UIAction_ConsoleCommand : UIAction/*
 		hidecategories(Object)*/{
-	public/*()*/ String Command;
+	[Category] public String Command;
 	
 	public UIAction_ConsoleCommand()
 	{

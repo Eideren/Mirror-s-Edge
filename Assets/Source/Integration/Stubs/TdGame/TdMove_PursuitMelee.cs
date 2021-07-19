@@ -3,22 +3,22 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMove_PursuitMelee : TdMove_BotMelee/*
 		config(AIMeleeAttacks)*/{
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties JumpKickAttackPropertiesE;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties RunAttackPropertiesE;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties StandAttackPropertiesE;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties SlideAttackPropertiesE;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties ShoveAttackPropertiesE;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties JumpKickAttackPropertiesN;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties RunAttackPropertiesN;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties StandAttackPropertiesN;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties SlideAttackPropertiesN;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties ShoveAttackPropertiesN;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties JumpKickAttackPropertiesH;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties RunAttackPropertiesH;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties StandAttackPropertiesH;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties SlideAttackPropertiesH;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties ShoveAttackPropertiesH;
-	public /*protected */bool bAttackDidHit;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties JumpKickAttackPropertiesE;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties RunAttackPropertiesE;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties StandAttackPropertiesE;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties SlideAttackPropertiesE;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties ShoveAttackPropertiesE;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties JumpKickAttackPropertiesN;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties RunAttackPropertiesN;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties StandAttackPropertiesN;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties SlideAttackPropertiesN;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties ShoveAttackPropertiesN;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties JumpKickAttackPropertiesH;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties RunAttackPropertiesH;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties StandAttackPropertiesH;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties SlideAttackPropertiesH;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties ShoveAttackPropertiesH;
+	public/*protected*/ bool bAttackDidHit;
 	public TdAI_Pursuit.EPursuitMeleeAttackType AttackType;
 	
 	public override /*function */bool CanDoMove()

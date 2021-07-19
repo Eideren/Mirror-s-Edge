@@ -33,26 +33,26 @@ public partial class InterpActor : DynamicSMActor/*
 	public NavigationPoint MyMarker;
 	public bool bMonitorMover;
 	public bool bMonitorZVelocity;
-	public/*()*/ bool bDestroyProjectilesOnEncroach;
-	public/*()*/ bool bContinueOnEncroachPhysicsObject;
-	public/*()*/ bool bStopOnEncroach;
-	public/*()*/ bool bIsStickyWhenAimedAt;
-	public/*(Interaction)*/ /*const */bool LOIUse2DDistance;
+	[Category] public bool bDestroyProjectilesOnEncroach;
+	[Category] public bool bContinueOnEncroachPhysicsObject;
+	[Category] public bool bStopOnEncroach;
+	[Category] public bool bIsStickyWhenAimedAt;
+	[Category("Interaction")] [Const] public bool LOIUse2DDistance;
 	public float MaxZVelocity;
 	public float StayOpenTime;
-	public/*()*/ SoundCue OpenSound;
-	public/*()*/ SoundCue OpeningAmbientSound;
-	public/*()*/ SoundCue OpenedSound;
-	public/*()*/ SoundCue CloseSound;
-	public/*()*/ SoundCue ClosingAmbientSound;
-	public/*()*/ SoundCue ClosedSound;
-	public /*export editinline */AudioComponent AmbientSoundComponent;
-	public/*(Interaction)*/ /*const */float LOILookAtDelay;
-	public/*(Interaction)*/ /*const */float LOIProximityDelay;
-	public/*(Interaction)*/ /*const */float LOIMinDuration;
-	public/*(Interaction)*/ /*const */float LOIDistance;
-	public/*(Interaction)*/ /*const */array<name> LOIGroups;
-	public /*private */TdLOIAddOnObject TdLOIAddOn;
+	[Category] public SoundCue OpenSound;
+	[Category] public SoundCue OpeningAmbientSound;
+	[Category] public SoundCue OpenedSound;
+	[Category] public SoundCue CloseSound;
+	[Category] public SoundCue ClosingAmbientSound;
+	[Category] public SoundCue ClosedSound;
+	[export, editinline] public AudioComponent AmbientSoundComponent;
+	[Category("Interaction")] [Const] public float LOILookAtDelay;
+	[Category("Interaction")] [Const] public float LOIProximityDelay;
+	[Category("Interaction")] [Const] public float LOIMinDuration;
+	[Category("Interaction")] [Const] public float LOIDistance;
+	[Category("Interaction")] [Const] public array<name> LOIGroups;
+	public/*private*/ TdLOIAddOnObject TdLOIAddOn;
 	
 	public override /*simulated event */void PostBeginPlay()
 	{

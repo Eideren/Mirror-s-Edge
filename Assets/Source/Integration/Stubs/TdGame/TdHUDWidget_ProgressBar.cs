@@ -3,10 +3,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdHUDWidget_ProgressBar : TdHUDWidget/*
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*noclear const export editinline deprecated */UIComp_DrawImage ProgressBarBackgroundImage;
-	public /*noclear const export editinline deprecated */UIComp_DrawImage ProgressBarFillImage;
-	public /*deprecated */UIRoot.UIRangeData ProgressBarValue;
-	public /*deprecated */UIRoot.EUIOrientation ProgressBarOrientation;
+	[noclear, Const, export, editinline, deprecated] public UIComp_DrawImage ProgressBarBackgroundImage;
+	[noclear, Const, export, editinline, deprecated] public UIComp_DrawImage ProgressBarFillImage;
+	[deprecated] public UIRoot.UIRangeData ProgressBarValue;
+	[deprecated] public UIRoot.EUIOrientation ProgressBarOrientation;
 	
 	public TdHUDWidget_ProgressBar()
 	{

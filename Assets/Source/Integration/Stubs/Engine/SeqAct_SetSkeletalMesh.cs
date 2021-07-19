@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_SetSkeletalMesh : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ SkeletalMesh NewSkeletalMesh;
+	[Category] public SkeletalMesh NewSkeletalMesh;
 	
 	public SeqAct_SetSkeletalMesh()
 	{

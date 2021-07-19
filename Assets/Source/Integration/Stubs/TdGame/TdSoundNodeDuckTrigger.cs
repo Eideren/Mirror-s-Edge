@@ -6,14 +6,14 @@ public partial class TdSoundNodeDuckTrigger : SoundNode/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*(MixGroups)*/ array<name> MixGroups;
-	public/*()*/ float DuckDuration;
-	public/*()*/ float DuckLevel;
-	public/*()*/ DistributionFloat.RawDistributionFloat MinRadius;
-	public/*()*/ DistributionFloat.RawDistributionFloat MaxRadius;
-	public/*()*/ SoundNodeAttenuation.SoundDistanceModel DistanceModel;
-	public/*()*/ bool bAttenuate;
-	public/*()*/ bool bInvertMixGroupSelection;
+	[Category("MixGroups")] public array<name> MixGroups;
+	[Category] public float DuckDuration;
+	[Category] public float DuckLevel;
+	[Category] public DistributionFloat.RawDistributionFloat MinRadius;
+	[Category] public DistributionFloat.RawDistributionFloat MaxRadius;
+	[Category] public SoundNodeAttenuation.SoundDistanceModel DistanceModel;
+	[Category] public bool bAttenuate;
+	[Category] public bool bInvertMixGroupSelection;
 	
 	public TdSoundNodeDuckTrigger()
 	{

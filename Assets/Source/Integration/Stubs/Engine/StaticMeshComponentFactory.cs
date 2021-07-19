@@ -6,7 +6,7 @@ public partial class StaticMeshComponentFactory : MeshComponentFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ StaticMesh StaticMesh;
+	[Category] public StaticMesh StaticMesh;
 	
 	public StaticMeshComponentFactory()
 	{

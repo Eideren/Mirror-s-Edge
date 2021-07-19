@@ -13,8 +13,8 @@ public partial class ParticleModuleTrailSpawn : ParticleModuleTrailBase/*
 		PET2SM_MAX
 	};
 	
-	public/*(Spawn)*/ /*noclear export editinline */DistributionFloatParticleParameter SpawnDistanceMap;
-	public/*(Spawn)*/ float MinSpawnVelocity;
+	[Category("Spawn")] [noclear, export, editinline] public DistributionFloatParticleParameter SpawnDistanceMap;
+	[Category("Spawn")] public float MinSpawnVelocity;
 	
 	public ParticleModuleTrailSpawn()
 	{

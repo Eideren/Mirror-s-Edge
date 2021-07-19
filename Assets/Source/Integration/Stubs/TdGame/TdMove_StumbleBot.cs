@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMove_StumbleBot : TdMove_StumbleBase/*
 		config(PawnMovement)*/{
-	public /*private */bool bStandMeleeToStand;
+	public/*private*/ bool bStandMeleeToStand;
 	
 	public override /*function */bool CanDoMove()
 	{

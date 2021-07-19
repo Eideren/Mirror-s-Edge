@@ -5,9 +5,9 @@ public partial class UIImage : UIObject,
 		UIDataStorePublisher/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIDataStorePublisher;
-	public/*(Data)*/ /*private */UIRoot.UIDataStoreBinding ImageDataSource;
-	public/*(Image)*/ /*noclear const export editinline */UIComp_DrawImage ImageComponent;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIDataStorePublisher;
+	[Category("Data")] public/*private*/ UIRoot.UIDataStoreBinding ImageDataSource;
+	[Category("Image")] [noclear, Const, export, editinline] public UIComp_DrawImage ImageComponent;
 	
 	public virtual /*final function */void SetValue(Surface NewImage)
 	{

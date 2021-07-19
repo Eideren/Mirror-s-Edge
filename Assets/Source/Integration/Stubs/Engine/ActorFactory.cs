@@ -10,10 +10,10 @@ public partial class ActorFactory : Object/*
 		hidecategories(Object)*/{
 	public Core.ClassT<Actor> GameplayActorClass;
 	public String MenuName;
-	public /*config */int MenuPriority;
+	[config] public int MenuPriority;
 	public Core.ClassT<Actor> NewActorClass;
 	public bool bPlaceable;
-	public/*(Spawning)*/ bool bSpawnInSameLevel;
+	[Category("Spawning")] public bool bSpawnInSameLevel;
 	public String SpecificGameName;
 	
 	public ActorFactory()

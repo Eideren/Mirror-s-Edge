@@ -5,20 +5,20 @@ public partial class AccessControl : Info/*
 		config(Game)
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public /*globalconfig */array</*config */String> IPPolicies;
-	public /*globalconfig */array</*config */OnlineSubsystem.UniqueNetId> BannedIDs;
-	public /*const localized */String IPBanned;
-	public /*const localized */String WrongPassword;
-	public /*const localized */String NeedPassword;
-	public /*const localized */String SessionBanned;
-	public /*const localized */String KickedMsg;
-	public /*const localized */String DefaultKickReason;
-	public /*const localized */String IdleKickReason;
+	[globalconfig] public array</*config */String> IPPolicies;
+	[globalconfig] public array</*config */OnlineSubsystem.UniqueNetId> BannedIDs;
+	[Const, localized] public String IPBanned;
+	[Const, localized] public String WrongPassword;
+	[Const, localized] public String NeedPassword;
+	[Const, localized] public String SessionBanned;
+	[Const, localized] public String KickedMsg;
+	[Const, localized] public String DefaultKickReason;
+	[Const, localized] public String IdleKickReason;
 	public Core.ClassT<Admin> AdminClass;
-	public /*private globalconfig */String AdminPassword;
-	public /*private globalconfig */String GamePassword;
-	public /*const localized */StaticArray<String, String, String>/*[3]*/ ACDisplayText;
-	public /*const localized */StaticArray<String, String, String>/*[3]*/ ACDescText;
+	[globalconfig] public/*private*/ String AdminPassword;
+	[globalconfig] public/*private*/ String GamePassword;
+	[Const, localized] public StaticArray<String, String, String>/*[3]*/ ACDisplayText;
+	[Const, localized] public StaticArray<String, String, String>/*[3]*/ ACDescText;
 	public bool bDontAddDefaultAdmin;
 	
 	public virtual /*function */bool IsAdmin(PlayerController P)

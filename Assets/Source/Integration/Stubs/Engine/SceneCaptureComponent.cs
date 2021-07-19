@@ -14,19 +14,19 @@ public partial class SceneCaptureComponent : ActorComponent/*
 		SceneCapView_MAX
 	};
 	
-	public/*(Capture)*/ bool bEnablePostProcess;
-	public/*(Capture)*/ bool bEnableFog;
+	[Category("Capture")] public bool bEnablePostProcess;
+	[Category("Capture")] public bool bEnableFog;
 	public bool bSkipUpdateIfOwnerOccluded;
-	public /*private native const transient */bool bNeedsSceneUpdate;
-	public/*(Capture)*/ Object.Color ClearColor;
-	public/*(Capture)*/ SceneCaptureComponent.ESceneCaptureViewMode ViewMode;
-	public/*(Capture)*/ int SceneLOD;
-	public/*(Capture)*/ /*const */float FrameRate;
-	public/*(Capture)*/ PostProcessChain PostProcess;
-	public/*(Capture)*/ float MaxUpdateDist;
-	public/*(Capture)*/ float MaxStreamingUpdateDist;
-	public /*private native const transient */Object.Pointer CaptureInfo;
-	public /*private native const transient */Object.Pointer ViewState;
+	[native, Const, transient] public/*private*/ bool bNeedsSceneUpdate;
+	[Category("Capture")] public Object.Color ClearColor;
+	[Category("Capture")] public SceneCaptureComponent.ESceneCaptureViewMode ViewMode;
+	[Category("Capture")] public int SceneLOD;
+	[Category("Capture")] [Const] public float FrameRate;
+	[Category("Capture")] public PostProcessChain PostProcess;
+	[Category("Capture")] public float MaxUpdateDist;
+	[Category("Capture")] public float MaxStreamingUpdateDist;
+	[native, Const, transient] public/*private*/ Object.Pointer CaptureInfo;
+	[native, Const, transient] public/*private*/ Object.Pointer ViewState;
 	
 	// Export USceneCaptureComponent::execSetFrameRate(FFrame&, void* const)
 	public virtual /*native final function */void SetFrameRate(float NewFrameRate)

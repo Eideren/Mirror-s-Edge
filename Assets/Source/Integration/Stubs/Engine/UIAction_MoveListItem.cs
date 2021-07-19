@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIAction_MoveListItem : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ int ElementIndex;
-	public/*()*/ int MoveCount;
+	[Category] public int ElementIndex;
+	[Category] public int MoveCount;
 	
 	public UIAction_MoveListItem()
 	{

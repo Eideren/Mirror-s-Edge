@@ -4,27 +4,27 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_WallClimb : TdPhysicsMove/*
 		native
 		config(PawnMovement)*/{
-	public/*(Gameplay)*/ /*config */float WallClimbingVelocityStartLimit;
-	public/*(Gameplay)*/ /*config */float WallClimbingVerticalStartAngle;
-	public/*(Gameplay)*/ /*config */float WallClimbingVerticalFriction;
-	public/*(Gameplay)*/ /*config */float WallClimbingMaxDistance2D;
-	public/*(Gameplay)*/ /*config */float AddOnSpeed2DHeight;
-	public/*(Gameplay)*/ /*config */float AddOnSpeed2DMaxLimit;
-	public/*(Gameplay)*/ /*config */float AddOnSpeedZHeight;
-	public/*(Gameplay)*/ /*config */float AddOnSpeedZMaxLimit;
-	public/*(Gameplay)*/ /*config */float WallClimbingGravity;
-	public/*(Gameplay)*/ /*config */float MinLegdeZNormal;
-	public/*(Gameplay)*/ /*config */float MinWallHeight;
-	public/*(Gameplay)*/ /*config */float MinUpwardsVelocityToDoubleJump;
-	public/*(Gameplay)*/ /*config */float MaxIntoWallClimbVelocityToDoubleJump;
+	[Category("Gameplay")] [config] public float WallClimbingVelocityStartLimit;
+	[Category("Gameplay")] [config] public float WallClimbingVerticalStartAngle;
+	[Category("Gameplay")] [config] public float WallClimbingVerticalFriction;
+	[Category("Gameplay")] [config] public float WallClimbingMaxDistance2D;
+	[Category("Gameplay")] [config] public float AddOnSpeed2DHeight;
+	[Category("Gameplay")] [config] public float AddOnSpeed2DMaxLimit;
+	[Category("Gameplay")] [config] public float AddOnSpeedZHeight;
+	[Category("Gameplay")] [config] public float AddOnSpeedZMaxLimit;
+	[Category("Gameplay")] [config] public float WallClimbingGravity;
+	[Category("Gameplay")] [config] public float MinLegdeZNormal;
+	[Category("Gameplay")] [config] public float MinWallHeight;
+	[Category("Gameplay")] [config] public float MinUpwardsVelocityToDoubleJump;
+	[Category("Gameplay")] [config] public float MaxIntoWallClimbVelocityToDoubleJump;
 	public bool bHasReachedWall;
 	public bool bFoundPossibleHandPlant;
-	public /*transient */bool bPerformedDoubleJump;
+	[transient] public bool bPerformedDoubleJump;
 	public Object.Rotator LookAtEdgeAngle;
 	public Object.Vector PossibleEdgeDestination;
 	public float IntoWallClimbSpeed;
-	public /*transient */float GroundZLoc;
-	public /*protected */ForceFeedbackWaveform IntoWallClimbWaveform;
+	[transient] public float GroundZLoc;
+	public/*protected*/ ForceFeedbackWaveform IntoWallClimbWaveform;
 	
 	// Export UTdMove_WallClimb::execDetectPossibleHandPlant(FFrame&, void* const)
 	public virtual /*native function */bool DetectPossibleHandPlant()

@@ -15,14 +15,14 @@ public partial class TdAI_Sniper : TdAIController/*
 	};
 	
 	public TdSniperSpot SniperSpot;
-	public/*(BotControl)*/ /*config */float LoseTargetTime;
-	public/*(BotControl)*/ /*config */float AimOffset;
-	public/*(BotControl)*/ /*config */float RandomWalkSpeed;
-	public/*(BotControl)*/ /*config */float TimeToCalibrate;
-	public/*(BotControl)*/ /*config */float TimeToCalibrateOnObjectFactor;
-	public/*(BotControl)*/ /*config */float TriggerBotAccuracy;
-	public/*(BotControl)*/ /*config */float HomingInOnTargetSpeed;
-	public/*(BotControl)*/ /*config */float BreakDistance;
+	[Category("BotControl")] [config] public float LoseTargetTime;
+	[Category("BotControl")] [config] public float AimOffset;
+	[Category("BotControl")] [config] public float RandomWalkSpeed;
+	[Category("BotControl")] [config] public float TimeToCalibrate;
+	[Category("BotControl")] [config] public float TimeToCalibrateOnObjectFactor;
+	[Category("BotControl")] [config] public float TriggerBotAccuracy;
+	[Category("BotControl")] [config] public float HomingInOnTargetSpeed;
+	[Category("BotControl")] [config] public float BreakDistance;
 	public bool UseLaser;
 	public bool ReadyToFire;
 	public TdAimBot NormalAimBot;

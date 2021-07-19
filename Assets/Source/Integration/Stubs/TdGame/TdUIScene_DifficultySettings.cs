@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_DifficultySettings : TdUIScene_SubMenu/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UITdOptionButton DifficultyOptionButton;
+	[transient] public UITdOptionButton DifficultyOptionButton;
 	public OnlinePlayerInterface PlayerInterface;
 	
 	public override /*event */void PostInitialize()

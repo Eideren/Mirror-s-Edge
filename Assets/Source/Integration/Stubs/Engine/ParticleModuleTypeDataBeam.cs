@@ -24,19 +24,19 @@ public partial class ParticleModuleTypeDataBeam : ParticleModuleTypeDataBase/*
 		PEBEPM_MAX
 	};
 	
-	public/*(Beam)*/ ParticleModuleTypeDataBeam.EBeamMethod BeamMethod;
-	public/*(Beam)*/ ParticleModuleTypeDataBeam.EBeamEndPointMethod EndPointMethod;
-	public/*(Beam)*/ DistributionFloat.RawDistributionFloat Distance;
-	public/*(Beam)*/ DistributionVector.RawDistributionVector EndPoint;
-	public/*(Beam)*/ int TessellationFactor;
-	public/*(Beam)*/ DistributionFloat.RawDistributionFloat EmitterStrength;
-	public/*(Beam)*/ DistributionFloat.RawDistributionFloat TargetStrength;
-	public/*(Beam)*/ DistributionVector.RawDistributionVector EndPointDirection;
-	public/*(Beam)*/ int TextureTile;
-	public/*(Beam)*/ bool RenderGeometry;
-	public/*(Beam)*/ bool RenderDirectLine;
-	public/*(Beam)*/ bool RenderLines;
-	public/*(Beam)*/ bool RenderTessellation;
+	[Category("Beam")] public ParticleModuleTypeDataBeam.EBeamMethod BeamMethod;
+	[Category("Beam")] public ParticleModuleTypeDataBeam.EBeamEndPointMethod EndPointMethod;
+	[Category("Beam")] public DistributionFloat.RawDistributionFloat Distance;
+	[Category("Beam")] public DistributionVector.RawDistributionVector EndPoint;
+	[Category("Beam")] public int TessellationFactor;
+	[Category("Beam")] public DistributionFloat.RawDistributionFloat EmitterStrength;
+	[Category("Beam")] public DistributionFloat.RawDistributionFloat TargetStrength;
+	[Category("Beam")] public DistributionVector.RawDistributionVector EndPointDirection;
+	[Category("Beam")] public int TextureTile;
+	[Category("Beam")] public bool RenderGeometry;
+	[Category("Beam")] public bool RenderDirectLine;
+	[Category("Beam")] public bool RenderLines;
+	[Category("Beam")] public bool RenderTessellation;
 	
 	public ParticleModuleTypeDataBeam()
 	{

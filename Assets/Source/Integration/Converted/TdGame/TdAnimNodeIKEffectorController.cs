@@ -4,10 +4,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNodeIKEffectorController : AnimNodeBlendBase/*
 		native
 		hidecategories(Object,Object)*/{
-	public /*transient */bool bCached;
-	public /*transient */bool bDisable;
-	public /*transient */TdPawn PawnOwner;
-	public /*transient */SkelControlLimb LeftHandLocalIKController;
+	[transient] public bool bCached;
+	[transient] public bool bDisable;
+	[transient] public TdPawn PawnOwner;
+	[transient] public SkelControlLimb LeftHandLocalIKController;
 	
 	public TdAnimNodeIKEffectorController()
 	{

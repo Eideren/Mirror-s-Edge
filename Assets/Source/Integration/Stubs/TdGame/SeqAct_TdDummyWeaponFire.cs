@@ -4,12 +4,12 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdDummyWeaponFire : SeqAct_Latent/*
 		hidecategories(Object)*/{
 	public TdDummyPawn DummyPawn;
-	public/*()*/ int ShotsToFire;
-	public/*()*/ Core.ClassT<TdWeapon> WeaponClass;
-	public/*()*/ byte FireMode;
-	public/*()*/ Actor Origin;
-	public/*()*/ Actor Target;
-	public/*()*/ Object.Rotator MaxSpread;
+	[Category] public int ShotsToFire;
+	[Category] public Core.ClassT<TdWeapon> WeaponClass;
+	[Category] public byte FireMode;
+	[Category] public Actor Origin;
+	[Category] public Actor Target;
+	[Category] public Object.Rotator MaxSpread;
 	public int ShotsFired;
 	
 	public override /*event */void Activated()

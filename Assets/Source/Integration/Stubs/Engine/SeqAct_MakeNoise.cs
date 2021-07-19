@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_MakeNoise : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ float Loudness;
+	[Category] public float Loudness;
 	
 	public SeqAct_MakeNoise()
 	{

@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdBalanceBias : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float Force;
-	public /*transient */TdPlayerPawn PlayerPawn;
+	[Category] public float Force;
+	[transient] public TdPlayerPawn PlayerPawn;
 	
 	public SeqAct_TdBalanceBias()
 	{

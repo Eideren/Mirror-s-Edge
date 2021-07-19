@@ -3,8 +3,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMove_Melee_Riot : TdMove_BotMelee/*
 		config(AIMeleeAttacks)*/{
-	public /*private */bool bHit;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties ShieldPushProperties;
+	public/*private*/ bool bHit;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties ShieldPushProperties;
 	
 	public override /*simulated function */void TriggerMove()
 	{

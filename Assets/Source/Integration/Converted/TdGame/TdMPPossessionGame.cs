@@ -5,8 +5,8 @@ public partial class TdMPPossessionGame : TdMPGame/*
 		config(Game)
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public /*transient */TdPossessionLogic PossessionLogic;
-	public /*config */float MinBagSpawnRaduis;
+	[transient] public TdPossessionLogic PossessionLogic;
+	[config] public float MinBagSpawnRaduis;
 	
 	public override /*function */PlayerStart ChoosePlayerStart(Controller Player, /*optional */byte? _InTeam = default)
 	{

@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class TdLOIGroupManager : Object/*
 		native*/{
-	public /*private native const transient */Object.MultiMap_Mirror GroupMap;
+	[native, Const, transient] public/*private*/ Object.MultiMap_Mirror GroupMap;
 	
 }
 }

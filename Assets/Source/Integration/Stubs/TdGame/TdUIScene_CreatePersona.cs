@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_CreatePersona : TdUIScene_SubMenu/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIList PersonasList;
-	public /*transient */UIEditBox PersonaEditbox;
+	[transient] public UIList PersonasList;
+	[transient] public UIEditBox PersonaEditbox;
 	public UIDataStore_TdLoginData LoginData;
 	public /*delegate*/TdUIScene_CreatePersona.CreatePersona __CreatePersona__Delegate;
 	public /*delegate*/TdUIScene_CreatePersona.LoginPersona __LoginPersona__Delegate;

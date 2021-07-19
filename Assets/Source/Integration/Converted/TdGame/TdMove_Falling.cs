@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_Falling : TdPhysicsMove/*
 		native
 		config(PawnMovement)*/{
-	public/*(StickyAim)*/ /*config */float StickyAimAfterAirTime;
+	[Category("StickyAim")] [config] public float StickyAimAfterAirTime;
 	public float AirTime;
 	public bool bCloseToGround;
 	public TdPawn.EMovement PreviousMove;

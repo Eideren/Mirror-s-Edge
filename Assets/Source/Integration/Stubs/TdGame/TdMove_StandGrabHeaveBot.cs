@@ -4,24 +4,24 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_StandGrabHeaveBot : TdMove_AISpecialMove/*
 		native
 		config(PawnMovement)*/{
-	public /*transient */Object.Vector GrabLocation;
-	public /*transient */Object.Vector StartLocation;
-	public /*transient */Object.Vector EndLocation;
-	public /*transient */float ForcedSpeed;
-	public /*transient */float WallDistance;
-	public /*transient */float GrabZOffset;
-	public /*transient */bool bStopWhenDone;
-	public /*transient */bool bControlPawnMovement;
-	public /*transient */Object.Vector PawnLocation;
-	public /*transient */Object.Vector PawnRotation;
-	public /*transient */float VerticalTranslation;
-	public /*transient */float HorizontalTranslation;
-	public /*transient */Object.Vector StartJumpLocation;
-	public /*transient */float StartTime;
-	public /*transient */float EndTime;
-	public /*transient */float JumpStartTime;
-	public /*transient */float JumpEndTime;
-	public /*transient */float HeaveStartTime;
+	[transient] public Object.Vector GrabLocation;
+	[transient] public Object.Vector StartLocation;
+	[transient] public Object.Vector EndLocation;
+	[transient] public float ForcedSpeed;
+	[transient] public float WallDistance;
+	[transient] public float GrabZOffset;
+	[transient] public bool bStopWhenDone;
+	[transient] public bool bControlPawnMovement;
+	[transient] public Object.Vector PawnLocation;
+	[transient] public Object.Vector PawnRotation;
+	[transient] public float VerticalTranslation;
+	[transient] public float HorizontalTranslation;
+	[transient] public Object.Vector StartJumpLocation;
+	[transient] public float StartTime;
+	[transient] public float EndTime;
+	[transient] public float JumpStartTime;
+	[transient] public float JumpEndTime;
+	[transient] public float HeaveStartTime;
 	
 	public override /*simulated function */bool CanDoMove()
 	{

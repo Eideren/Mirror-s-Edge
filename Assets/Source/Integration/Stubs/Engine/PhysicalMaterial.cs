@@ -5,28 +5,28 @@ public partial class PhysicalMaterial : Object/*
 		native
 		collapsecategories
 		hidecategories(Object)*/{
-	public /*transient */int MaterialIndex;
-	public/*()*/ float Friction;
-	public/*()*/ float Restitution;
-	public/*()*/ bool bForceConeFriction;
-	public/*(Advanced)*/ bool bEnableAnisotropicFriction;
-	public/*(Advanced)*/ Object.Vector AnisoFrictionDir;
-	public/*(Advanced)*/ float FrictionV;
-	public/*()*/ float Density;
-	public/*()*/ float AngularDamping;
-	public/*()*/ float LinearDamping;
-	public/*()*/ float MagneticResponse;
-	public/*()*/ float WindResponse;
-	public/*(Impact)*/ float ImpactThreshold;
-	public/*(Impact)*/ float ImpactReFireDelay;
-	public/*(Impact)*/ ParticleSystem ImpactEffect;
-	public/*(Impact)*/ SoundCue ImpactSound;
-	public/*(Slide)*/ float SlideThreshold;
-	public/*(Slide)*/ float SlideReFireDelay;
-	public/*(Slide)*/ ParticleSystem SlideEffect;
-	public/*(Slide)*/ SoundCue SlideSound;
-	public/*(Parent)*/ PhysicalMaterial Parent;
-	public/*(PhysicalProperties)*/ /*export editinline */PhysicalMaterialPropertyBase PhysicalMaterialProperty;
+	[transient] public int MaterialIndex;
+	[Category] public float Friction;
+	[Category] public float Restitution;
+	[Category] public bool bForceConeFriction;
+	[Category("Advanced")] public bool bEnableAnisotropicFriction;
+	[Category("Advanced")] public Object.Vector AnisoFrictionDir;
+	[Category("Advanced")] public float FrictionV;
+	[Category] public float Density;
+	[Category] public float AngularDamping;
+	[Category] public float LinearDamping;
+	[Category] public float MagneticResponse;
+	[Category] public float WindResponse;
+	[Category("Impact")] public float ImpactThreshold;
+	[Category("Impact")] public float ImpactReFireDelay;
+	[Category("Impact")] public ParticleSystem ImpactEffect;
+	[Category("Impact")] public SoundCue ImpactSound;
+	[Category("Slide")] public float SlideThreshold;
+	[Category("Slide")] public float SlideReFireDelay;
+	[Category("Slide")] public ParticleSystem SlideEffect;
+	[Category("Slide")] public SoundCue SlideSound;
+	[Category("Parent")] public PhysicalMaterial Parent;
+	[Category("PhysicalProperties")] [export, editinline] public PhysicalMaterialPropertyBase PhysicalMaterialProperty;
 	
 	public virtual /*function */PhysicalMaterialPropertyBase GetPhysicalMaterialProperty(Core.ClassT<PhysicalMaterialPropertyBase> DesiredClass)
 	{

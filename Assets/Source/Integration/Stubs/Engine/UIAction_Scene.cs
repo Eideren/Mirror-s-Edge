@@ -5,7 +5,7 @@ public partial class UIAction_Scene : UIAction/*
 		abstract
 		native
 		hidecategories(Object)*/{
-	public/*()*/ UIScene Scene;
+	[Category] public UIScene Scene;
 	
 	public override /*event */bool IsValidLevelSequenceObject()
 	{

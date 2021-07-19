@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimSet : AnimSet/*
 		native
 		hidecategories(Object)*/{
-	public/*(AnimSet)*/ bool bIsCommonAnimSet;
-	public/*(AnimSet)*/ bool bIsWeaponSpecificAnimSet;
+	[Category("AnimSet")] public bool bIsCommonAnimSet;
+	[Category("AnimSet")] public bool bIsWeaponSpecificAnimSet;
 	
 	public TdAnimSet()
 	{

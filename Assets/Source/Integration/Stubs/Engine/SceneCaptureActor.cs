@@ -6,7 +6,7 @@ public partial class SceneCaptureActor : Actor/*
 		native
 		notplaceable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*const export editinline */SceneCaptureComponent SceneCapture;
+	[Category] [Const, export, editinline] public SceneCaptureComponent SceneCapture;
 	
 	public SceneCaptureActor()
 	{

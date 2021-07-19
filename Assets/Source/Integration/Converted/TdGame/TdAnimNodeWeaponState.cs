@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNodeWeaponState : TdAnimNodeState/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ /*editoronly transient */array<TdPawn.EWeaponAnimState> EnumStates;
+	[Category] [editoronly, transient] public array<TdPawn.EWeaponAnimState> EnumStates;
 	
 	public override /*event */void OnInit()
 	{

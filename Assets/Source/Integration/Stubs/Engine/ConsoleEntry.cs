@@ -11,8 +11,8 @@ public partial class ConsoleEntry : UIObject/*
 	public UIEditBox InputBox;
 	public UIImage LowerConsoleBorder;
 	public UIImage UpperConsoleBorder;
-	public /*transient */int CursorPosition;
-	public/*()*/ bool bRenderCursor;
+	[transient] public int CursorPosition;
+	[Category] public bool bRenderCursor;
 	
 	public override /*event */void AddedChild(UIScreenObject WidgetOwner, UIObject NewChild)
 	{

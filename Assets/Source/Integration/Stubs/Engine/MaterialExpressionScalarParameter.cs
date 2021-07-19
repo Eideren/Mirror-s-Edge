@@ -7,7 +7,7 @@ public partial class MaterialExpressionScalarParameter : MaterialExpressionParam
 		hidecategories(Object,Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ float DefaultValue;
+	[Category] public float DefaultValue;
 	
 }
 }

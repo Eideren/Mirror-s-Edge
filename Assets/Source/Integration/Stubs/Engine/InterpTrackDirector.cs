@@ -9,7 +9,7 @@ public partial class InterpTrackDirector : InterpTrack/*
 	{
 		public float Time;
 		public float TransitionTime;
-		public/*()*/ name TargetCamGroup;
+		[Category] public name TargetCamGroup;
 	
 	//	structdefaultproperties
 	//	{

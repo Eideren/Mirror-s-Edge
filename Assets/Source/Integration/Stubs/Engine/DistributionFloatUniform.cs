@@ -6,8 +6,8 @@ public partial class DistributionFloatUniform : DistributionFloat/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ float Min;
-	public/*()*/ float Max;
+	[Category] public float Min;
+	[Category] public float Max;
 	
 }
 }

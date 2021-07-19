@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_SetVector : SeqAct_SetSequenceVariable/*
 		hidecategories(Object)*/{
-	public/*()*/ Object.Vector DefaultValue;
+	[Category] public Object.Vector DefaultValue;
 	
 	public override /*event */void Activated()
 	{

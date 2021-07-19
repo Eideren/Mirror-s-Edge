@@ -6,10 +6,10 @@ public partial class DrawConeComponent : PrimitiveComponent/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ Object.Color ConeColor;
-	public/*()*/ float ConeRadius;
-	public/*()*/ float ConeAngle;
-	public/*()*/ int ConeSides;
+	[Category] public Object.Color ConeColor;
+	[Category] public float ConeRadius;
+	[Category] public float ConeAngle;
+	[Category] public int ConeSides;
 	
 	public DrawConeComponent()
 	{

@@ -3,22 +3,22 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SVehicleSimBase : ActorComponent/*
 		native*/{
-	public/*()*/ float WheelSuspensionStiffness;
-	public/*()*/ float WheelSuspensionDamping;
-	public/*()*/ float WheelSuspensionBias;
-	public/*()*/ float WheelLongExtremumSlip;
-	public/*()*/ float WheelLongExtremumValue;
-	public/*()*/ float WheelLongAsymptoteSlip;
-	public/*()*/ float WheelLongAsymptoteValue;
-	public/*()*/ float WheelLatExtremumSlip;
-	public/*()*/ float WheelLatExtremumValue;
-	public/*()*/ float WheelLatAsymptoteSlip;
-	public/*()*/ float WheelLatAsymptoteValue;
-	public/*()*/ float WheelInertia;
-	public/*()*/ bool bWheelSpeedOverride;
-	public/*()*/ bool bClampedFrictionModel;
-	public/*()*/ bool bAutoDrive;
-	public/*()*/ float AutoDriveSteer;
+	[Category] public float WheelSuspensionStiffness;
+	[Category] public float WheelSuspensionDamping;
+	[Category] public float WheelSuspensionBias;
+	[Category] public float WheelLongExtremumSlip;
+	[Category] public float WheelLongExtremumValue;
+	[Category] public float WheelLongAsymptoteSlip;
+	[Category] public float WheelLongAsymptoteValue;
+	[Category] public float WheelLatExtremumSlip;
+	[Category] public float WheelLatExtremumValue;
+	[Category] public float WheelLatAsymptoteSlip;
+	[Category] public float WheelLatAsymptoteValue;
+	[Category] public float WheelInertia;
+	[Category] public bool bWheelSpeedOverride;
+	[Category] public bool bClampedFrictionModel;
+	[Category] public bool bAutoDrive;
+	[Category] public float AutoDriveSteer;
 	
 	public SVehicleSimBase()
 	{

@@ -5,7 +5,7 @@ public partial class ParticleModuleVelocityInheritParent : ParticleModuleVelocit
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Velocity)*/ DistributionVector.RawDistributionVector Scale;
+	[Category("Velocity")] public DistributionVector.RawDistributionVector Scale;
 	
 	public ParticleModuleVelocityInheritParent()
 	{

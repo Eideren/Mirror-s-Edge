@@ -16,15 +16,15 @@ public partial class TdCheckpointManager : Object/*
 	//	}
 	};
 	
-	public /*private transient */String ActiveCheckpoint;
-	public /*private transient */String ActiveMap;
-	public /*private transient */int ActiveCheckpointWeight;
-	public /*private transient */String LastSavedMap;
-	public /*private transient */String LastSavedCheckpoint;
-	public /*private transient */int NumProfileSaveTries;
-	public /*private transient */TdPlayerController ActivePlayerController;
-	public /*private transient */array<TdCheckpointManager.CheckpointInformation> CachedCheckpointInformation;
-	public /*private transient */UIDataStore_TdGameData GameData;
+	[transient] public/*private*/ String ActiveCheckpoint;
+	[transient] public/*private*/ String ActiveMap;
+	[transient] public/*private*/ int ActiveCheckpointWeight;
+	[transient] public/*private*/ String LastSavedMap;
+	[transient] public/*private*/ String LastSavedCheckpoint;
+	[transient] public/*private*/ int NumProfileSaveTries;
+	[transient] public/*private*/ TdPlayerController ActivePlayerController;
+	[transient] public/*private*/ array<TdCheckpointManager.CheckpointInformation> CachedCheckpointInformation;
+	[transient] public/*private*/ UIDataStore_TdGameData GameData;
 	public bool bDebugCheckpoints;
 	
 	// Export UTdCheckpointManager::execFindCurrentCheckpoint(FFrame&, void* const)

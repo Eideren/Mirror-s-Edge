@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdOnlineStatsWrite : OnlineStatsWrite/*
 		native*/{
-	public /*private */int StretchId;
+	public/*private*/ int StretchId;
 	
 	public virtual /*function */void WriteStats(OnlineSubsystem.UniqueNetId UniqId, Info StatInfo, OnlineStatsInterface StatsInterface)
 	{

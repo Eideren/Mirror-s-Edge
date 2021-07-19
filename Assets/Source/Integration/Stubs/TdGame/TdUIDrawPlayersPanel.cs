@@ -27,18 +27,18 @@ public partial class TdUIDrawPlayersPanel : TdUIDrawPanel/*
 	//	}
 	};
 	
-	public/*(Sound)*/ name ClickedCue;
-	public /*transient */UIDataStore_TdGameData TdGameData;
-	public/*()*/ name ResourceDataStoreName;
-	public /*protected */int MaxTeams;
-	public /*protected */int MaxPlayersInTeam;
+	[Category("Sound")] public name ClickedCue;
+	[transient] public UIDataStore_TdGameData TdGameData;
+	[Category] public name ResourceDataStoreName;
+	public/*protected*/ int MaxTeams;
+	public/*protected*/ int MaxPlayersInTeam;
 	public int SelectedTeam;
 	public int SelectedPlayer;
-	public/*(TdUIDrawPanel)*/ Font SelectedFont;
-	public/*(TdUIDrawPanel)*/ Font UnselectedFont;
-	public/*(TdUIDrawPanel)*/ Object.Color PlayerSlotBGColor;
-	public/*(TdUIDrawPanel)*/ Object.Color PlayerSlotSelectedBgColor;
-	public/*(TdUIDrawPanel)*/ int TeamSpacing;
+	[Category("TdUIDrawPanel")] public Font SelectedFont;
+	[Category("TdUIDrawPanel")] public Font UnselectedFont;
+	[Category("TdUIDrawPanel")] public Object.Color PlayerSlotBGColor;
+	[Category("TdUIDrawPanel")] public Object.Color PlayerSlotSelectedBgColor;
+	[Category("TdUIDrawPanel")] public int TeamSpacing;
 	public array<TdUIDrawPlayersPanel.TdTeamPlayerSlots> TeamSlots;
 	public /*delegate*/TdUIDrawPlayersPanel.OnPlayerSlotClicked __OnPlayerSlotClicked__Delegate;
 	

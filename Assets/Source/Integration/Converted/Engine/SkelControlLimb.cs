@@ -4,18 +4,18 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SkelControlLimb : SkelControlBase/*
 		native
 		hidecategories(Object)*/{
-	public/*(Effector)*/ Object.Vector EffectorLocation;
-	public/*(Effector)*/ SkelControlBase.EBoneControlSpace EffectorLocationSpace;
-	public/*(Joint)*/ SkelControlBase.EBoneControlSpace JointTargetLocationSpace;
-	public/*(Limb)*/ Object.EAxis BoneAxis;
-	public/*(Limb)*/ Object.EAxis JointAxis;
-	public/*(Effector)*/ name EffectorSpaceBoneName;
-	public/*(Joint)*/ Object.Vector JointTargetLocation;
-	public/*(Joint)*/ name JointTargetSpaceBoneName;
-	public/*(Limb)*/ bool bInvertBoneAxis;
-	public/*(Limb)*/ bool bInvertJointAxis;
-	public/*(Limb)*/ bool bMaintainEffectorRelRot;
-	public/*(Limb)*/ bool bTakeRotationFromEffectorSpace;
+	[Category("Effector")] public Object.Vector EffectorLocation;
+	[Category("Effector")] public SkelControlBase.EBoneControlSpace EffectorLocationSpace;
+	[Category("Joint")] public SkelControlBase.EBoneControlSpace JointTargetLocationSpace;
+	[Category("Limb")] public Object.EAxis BoneAxis;
+	[Category("Limb")] public Object.EAxis JointAxis;
+	[Category("Effector")] public name EffectorSpaceBoneName;
+	[Category("Joint")] public Object.Vector JointTargetLocation;
+	[Category("Joint")] public name JointTargetSpaceBoneName;
+	[Category("Limb")] public bool bInvertBoneAxis;
+	[Category("Limb")] public bool bInvertJointAxis;
+	[Category("Limb")] public bool bMaintainEffectorRelRot;
+	[Category("Limb")] public bool bTakeRotationFromEffectorSpace;
 	
 	public SkelControlLimb()
 	{

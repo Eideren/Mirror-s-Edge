@@ -6,11 +6,11 @@ public partial class AnimNodeBlendBySpeed : AnimNodeBlendList/*
 		hidecategories(Object,Object,Object)*/{
 	public float Speed;
 	public int LastChannel;
-	public/*()*/ float BlendUpTime;
-	public/*()*/ float BlendDownTime;
-	public/*()*/ float BlendDownPerc;
-	public/*()*/ array<float> Constraints;
-	public/*()*/ bool bUseAcceleration;
+	[Category] public float BlendUpTime;
+	[Category] public float BlendDownTime;
+	[Category] public float BlendDownPerc;
+	[Category] public array<float> Constraints;
+	[Category] public bool bUseAcceleration;
 	
 	public AnimNodeBlendBySpeed()
 	{

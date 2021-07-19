@@ -7,12 +7,12 @@ public partial class DrawFrustumComponent : PrimitiveComponent/*
 		collapsecategories
 		noexport
 		hidecategories(Object)*/{
-	public/*()*/ Object.Color FrustumColor;
-	public/*()*/ float FrustumAngle;
-	public/*()*/ float FrustumAspectRatio;
-	public/*()*/ float FrustumStartDist;
-	public/*()*/ float FrustumEndDist;
-	public/*()*/ Texture Texture;
+	[Category] public Object.Color FrustumColor;
+	[Category] public float FrustumAngle;
+	[Category] public float FrustumAspectRatio;
+	[Category] public float FrustumStartDist;
+	[Category] public float FrustumEndDist;
+	[Category] public Texture Texture;
 	
 	public DrawFrustumComponent()
 	{

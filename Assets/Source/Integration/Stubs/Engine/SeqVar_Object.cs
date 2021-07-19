@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqVar_Object : SequenceVariable/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ /*protected */Object ObjValue;
-	public /*const */array< Class > SupportedClasses;
+	[Category] public/*protected*/ Object ObjValue;
+	[Const] public array< Class > SupportedClasses;
 	
 	public virtual /*function */Object GetObjectValue()
 	{

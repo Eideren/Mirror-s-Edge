@@ -10,7 +10,7 @@ public partial class TdMove_BotMeleeDodge : TdMove/*
 		EDodgeType_MAX
 	};
 	
-	public /*private */TdMove_BotMeleeDodge.EMeleeDodgeType MeleeDodgeType;
+	public/*private*/ TdMove_BotMeleeDodge.EMeleeDodgeType MeleeDodgeType;
 	
 	public override /*function */bool CanDoMove()
 	{

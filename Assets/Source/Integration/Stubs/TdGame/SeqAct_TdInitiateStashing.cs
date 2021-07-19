@@ -4,9 +4,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdInitiateStashing : SequenceAction/*
 		hidecategories(Object)*/{
 	public TdStashpoint Stashpoint;
-	public/*()*/ int StashDuration;
-	public/*()*/ int FirstStashDuration;
-	public/*()*/ bool bFirstStashpoint;
+	[Category] public int StashDuration;
+	[Category] public int FirstStashDuration;
+	[Category] public bool bFirstStashpoint;
 	
 	public override /*event */void Activated()
 	{

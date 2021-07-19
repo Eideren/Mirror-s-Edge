@@ -6,7 +6,7 @@ public partial class AnimNotify_Footstep : AnimNotify/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ int FootDown;
+	[Category] public int FootDown;
 	
 }
 }

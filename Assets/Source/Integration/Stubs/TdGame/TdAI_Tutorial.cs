@@ -6,11 +6,11 @@ public partial class TdAI_Tutorial : TdAIController/*
 		config(AI)
 		notplaceable
 		hidecategories(Navigation)*/{
-	public /*transient */TdTutorialListener TutorialListener;
-	public /*transient */bool bAttackInitiated;
-	public /*transient */bool bHasEmittedPreAttackEvent;
-	public /*transient */bool bHasEmittedPostAttackEvent;
-	public /*transient */int DisarmEventIdentifier;
+	[transient] public TdTutorialListener TutorialListener;
+	[transient] public bool bAttackInitiated;
+	[transient] public bool bHasEmittedPreAttackEvent;
+	[transient] public bool bHasEmittedPostAttackEvent;
+	[transient] public int DisarmEventIdentifier;
 	
 	// Export UTdAI_Tutorial::execUpdateAnchor(FFrame&, void* const)
 	public override /*native function */void UpdateAnchor()

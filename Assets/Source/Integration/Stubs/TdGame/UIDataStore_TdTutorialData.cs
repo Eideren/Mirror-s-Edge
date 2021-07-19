@@ -7,7 +7,7 @@ public partial class UIDataStore_TdTutorialData : UIDataStore_TdGameResource,
 		native
 		config(Game)
 		hidecategories(Object,UIRoot)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementCellProvider;
 	public int CurrentTutorialChallengeId;
 	public LocalPlayer PlayerOwner;
 	

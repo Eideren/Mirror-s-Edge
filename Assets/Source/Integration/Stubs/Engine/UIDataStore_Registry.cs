@@ -5,7 +5,7 @@ public partial class UIDataStore_Registry : UIDataStore/*
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*protected */UIDynamicFieldProvider RegistryDataProvider;
+	public/*protected*/ UIDynamicFieldProvider RegistryDataProvider;
 	
 	public virtual /*final function */UIDynamicFieldProvider GetDataProvider()
 	{

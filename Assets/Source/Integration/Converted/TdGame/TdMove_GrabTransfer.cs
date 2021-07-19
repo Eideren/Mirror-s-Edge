@@ -4,19 +4,19 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_GrabTransfer : TdPhysicsMove/*
 		native
 		config(PawnMovement)*/{
-	public/*(GrabTransfer)*/ /*config */float Allowed2DTransferDistance;
-	public/*(GrabTransfer)*/ /*config */float AllowedZTransferDistance;
+	[Category("GrabTransfer")] [config] public float Allowed2DTransferDistance;
+	[Category("GrabTransfer")] [config] public float AllowedZTransferDistance;
 	public Object.Vector TransferLocation;
 	public Object.Vector TransferNormal;
 	public Object.Vector TransferLookAtLocation;
 	public Object.Vector TransferLedgeNormal;
-	public /*private */TdPawn.EMoveActionHint TransferHint;
+	public/*private*/ TdPawn.EMoveActionHint TransferHint;
 	public TdPawn.EMovement TransferMove;
 	public TdLadderVolume Ladder;
 	public TdLadderVolume TransferLadder;
 	public float TransferSpeed;
 	public float TransferDistance;
-	public /*transient */bool bFitForGrab;
+	[transient] public bool bFitForGrab;
 	
 	// Export UTdMove_GrabTransfer::execCheckContextMove(FFrame&, void* const)
 	public virtual /*native function */bool CheckContextMove(ref Object.Vector out_MoveLocation, ref Object.Vector out_MoveNormal, /*optional */ref Object.Vector out_LedgeLocation/* = default*/, /*optional */ref Object.Vector out_LedgeNormal/* = default*/)

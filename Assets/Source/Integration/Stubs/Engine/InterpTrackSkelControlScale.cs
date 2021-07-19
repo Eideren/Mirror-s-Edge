@@ -5,7 +5,7 @@ public partial class InterpTrackSkelControlScale : InterpTrackFloatBase/*
 		native
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ name SkelControlName;
+	[Category] public name SkelControlName;
 	
 	public InterpTrackSkelControlScale()
 	{

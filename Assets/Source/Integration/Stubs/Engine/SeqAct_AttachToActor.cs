@@ -3,13 +3,13 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_AttachToActor : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ bool bDetach;
-	public/*()*/ bool bHardAttach;
-	public/*()*/ bool bUseRelativeOffset;
-	public/*()*/ bool bUseRelativeRotation;
-	public/*()*/ name BoneName;
-	public/*()*/ Object.Vector RelativeOffset;
-	public/*()*/ Object.Rotator RelativeRotation;
+	[Category] public bool bDetach;
+	[Category] public bool bHardAttach;
+	[Category] public bool bUseRelativeOffset;
+	[Category] public bool bUseRelativeRotation;
+	[Category] public name BoneName;
+	[Category] public Object.Vector RelativeOffset;
+	[Category] public Object.Rotator RelativeRotation;
 	
 	public SeqAct_AttachToActor()
 	{

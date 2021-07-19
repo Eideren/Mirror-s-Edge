@@ -4,26 +4,26 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIScrollbar : UIObject/*
 		native
 		hidecategories(Object,UIRoot,Object,Object,UIScreenObject,UIObject,Focus,Presentation,Splitscreen,States)*/{
-	public/*(Image)*/ /*noclear const export editinline */UIComp_DrawImage BackgroundImageComponent;
-	public /*private const */UIScrollbarButton IncrementButton;
-	public /*private const */UIScrollbarButton DecrementButton;
-	public /*private const */UIScrollbarMarkerButton MarkerButton;
-	public /*private */UIRoot.UIStyleReference IncrementStyle;
-	public /*private */UIRoot.UIStyleReference DecrementStyle;
-	public /*private */UIRoot.UIStyleReference MarkerStyle;
-	public /*private transient */float NudgeValue;
-	public/*()*/ float NudgeMultiplier;
-	public /*private transient */float NudgePercent;
-	public /*private transient */float MarkerPosPercent;
-	public /*private transient */float MarkerSizePercent;
-	public/*()*/ UIRoot.UIScreenValue_Extent BarWidth;
-	public/*()*/ UIRoot.UIScreenValue_Extent MinimumMarkerSize;
-	public/*()*/ UIRoot.UIScreenValue_Extent ButtonsExtent;
-	public/*()*/ UIRoot.EUIOrientation ScrollbarOrientation;
-	public/*()*/ bool bAddCornerPadding;
-	public /*private transient */bool bInitializeMarker;
-	public /*transient */UIRoot.UIScreenValue_Position MousePosition;
-	public /*private transient */float MousePositionDelta;
+	[Category("Image")] [noclear, Const, export, editinline] public UIComp_DrawImage BackgroundImageComponent;
+	[Const] public/*private*/ UIScrollbarButton IncrementButton;
+	[Const] public/*private*/ UIScrollbarButton DecrementButton;
+	[Const] public/*private*/ UIScrollbarMarkerButton MarkerButton;
+	public/*private*/ UIRoot.UIStyleReference IncrementStyle;
+	public/*private*/ UIRoot.UIStyleReference DecrementStyle;
+	public/*private*/ UIRoot.UIStyleReference MarkerStyle;
+	[transient] public/*private*/ float NudgeValue;
+	[Category] public float NudgeMultiplier;
+	[transient] public/*private*/ float NudgePercent;
+	[transient] public/*private*/ float MarkerPosPercent;
+	[transient] public/*private*/ float MarkerSizePercent;
+	[Category] public UIRoot.UIScreenValue_Extent BarWidth;
+	[Category] public UIRoot.UIScreenValue_Extent MinimumMarkerSize;
+	[Category] public UIRoot.UIScreenValue_Extent ButtonsExtent;
+	[Category] public UIRoot.EUIOrientation ScrollbarOrientation;
+	[Category] public bool bAddCornerPadding;
+	[transient] public/*private*/ bool bInitializeMarker;
+	[transient] public UIRoot.UIScreenValue_Position MousePosition;
+	[transient] public/*private*/ float MousePositionDelta;
 	public /*delegate*/UIScrollbar.OnScrollActivity __OnScrollActivity__Delegate;
 	public /*delegate*/UIScrollbar.OnClickedScrollZone __OnClickedScrollZone__Delegate;
 	

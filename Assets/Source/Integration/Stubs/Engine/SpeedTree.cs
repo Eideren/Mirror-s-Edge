@@ -3,40 +3,40 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SpeedTree : Object/*
 		native*/{
-	public /*duplicatetransient native const */Object.Pointer SRH;
-	public/*()*/ int RandomSeed;
-	public/*()*/ float Sink;
-	public/*(Lighting)*/ float LeafStaticShadowOpacity;
-	public/*(Material)*/ MaterialInterface BranchMaterial;
-	public/*(Material)*/ MaterialInterface FrondMaterial;
-	public/*(Material)*/ MaterialInterface LeafMaterial;
-	public/*(Material)*/ MaterialInterface BillboardMaterial;
-	public/*(Wind)*/ float MaxBendAngle;
-	public/*(Wind)*/ float BranchExponent;
-	public/*(Wind)*/ float LeafExponent;
-	public/*(Wind)*/ float Response;
-	public/*(Wind)*/ float ResponseLimiter;
-	public/*(Wind)*/ float Gusting_MinStrength;
-	public/*(Wind)*/ float Gusting_MaxStrength;
-	public/*(Wind)*/ float Gusting_Frequency;
-	public/*(Wind)*/ float Gusting_MinDuration;
-	public/*(Wind)*/ float Gusting_MaxDuration;
-	public/*(Wind)*/ float BranchHorizontal_LowWindAngle;
-	public/*(Wind)*/ float BranchHorizontal_LowWindSpeed;
-	public/*(Wind)*/ float BranchHorizontal_HighWindAngle;
-	public/*(Wind)*/ float BranchHorizontal_HighWindSpeed;
-	public/*(Wind)*/ float BranchVertical_LowWindAngle;
-	public/*(Wind)*/ float BranchVertical_LowWindSpeed;
-	public/*(Wind)*/ float BranchVertical_HighWindAngle;
-	public/*(Wind)*/ float BranchVertical_HighWindSpeed;
-	public/*(Wind)*/ float LeafRocking_LowWindAngle;
-	public/*(Wind)*/ float LeafRocking_LowWindSpeed;
-	public/*(Wind)*/ float LeafRocking_HighWindAngle;
-	public/*(Wind)*/ float LeafRocking_HighWindSpeed;
-	public/*(Wind)*/ float LeafRustling_LowWindAngle;
-	public/*(Wind)*/ float LeafRustling_LowWindSpeed;
-	public/*(Wind)*/ float LeafRustling_HighWindAngle;
-	public/*(Wind)*/ float LeafRustling_HighWindSpeed;
+	[duplicatetransient, native, Const] public Object.Pointer SRH;
+	[Category] public int RandomSeed;
+	[Category] public float Sink;
+	[Category("Lighting")] public float LeafStaticShadowOpacity;
+	[Category("Material")] public MaterialInterface BranchMaterial;
+	[Category("Material")] public MaterialInterface FrondMaterial;
+	[Category("Material")] public MaterialInterface LeafMaterial;
+	[Category("Material")] public MaterialInterface BillboardMaterial;
+	[Category("Wind")] public float MaxBendAngle;
+	[Category("Wind")] public float BranchExponent;
+	[Category("Wind")] public float LeafExponent;
+	[Category("Wind")] public float Response;
+	[Category("Wind")] public float ResponseLimiter;
+	[Category("Wind")] public float Gusting_MinStrength;
+	[Category("Wind")] public float Gusting_MaxStrength;
+	[Category("Wind")] public float Gusting_Frequency;
+	[Category("Wind")] public float Gusting_MinDuration;
+	[Category("Wind")] public float Gusting_MaxDuration;
+	[Category("Wind")] public float BranchHorizontal_LowWindAngle;
+	[Category("Wind")] public float BranchHorizontal_LowWindSpeed;
+	[Category("Wind")] public float BranchHorizontal_HighWindAngle;
+	[Category("Wind")] public float BranchHorizontal_HighWindSpeed;
+	[Category("Wind")] public float BranchVertical_LowWindAngle;
+	[Category("Wind")] public float BranchVertical_LowWindSpeed;
+	[Category("Wind")] public float BranchVertical_HighWindAngle;
+	[Category("Wind")] public float BranchVertical_HighWindSpeed;
+	[Category("Wind")] public float LeafRocking_LowWindAngle;
+	[Category("Wind")] public float LeafRocking_LowWindSpeed;
+	[Category("Wind")] public float LeafRocking_HighWindAngle;
+	[Category("Wind")] public float LeafRocking_HighWindSpeed;
+	[Category("Wind")] public float LeafRustling_LowWindAngle;
+	[Category("Wind")] public float LeafRustling_LowWindSpeed;
+	[Category("Wind")] public float LeafRustling_HighWindAngle;
+	[Category("Wind")] public float LeafRustling_HighWindSpeed;
 	
 	public SpeedTree()
 	{

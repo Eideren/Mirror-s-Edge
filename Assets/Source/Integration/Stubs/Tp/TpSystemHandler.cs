@@ -5,7 +5,7 @@ public partial class TpSystemHandler : Object/*
 		abstract
 		transient
 		native*/{
-	public /*protected transient */TpSystemBase SystemBase;
+	[transient] public/*protected*/ TpSystemBase SystemBase;
 	
 	// Export UTpSystemHandler::execInitializeNative(FFrame&, void* const)
 	public virtual /*private native final simulated function */void InitializeNative()

@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdSkelControlLookAt : SkelControlLookAt/*
 		native
 		hidecategories(Object)*/{
-	public/*(Limit)*/ float DeadZoneBehindAngle;
-	public/*(Limit)*/ Object.Vector LimitCenterTweak;
+	[Category("Limit")] public float DeadZoneBehindAngle;
+	[Category("Limit")] public Object.Vector LimitCenterTweak;
 	
 }
 }

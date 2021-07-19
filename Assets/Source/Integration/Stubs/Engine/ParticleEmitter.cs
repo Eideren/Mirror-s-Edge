@@ -34,9 +34,9 @@ public partial class ParticleEmitter : Object/*
 	
 	public partial struct /*native */ParticleBurst
 	{
-		public/*()*/ int Count;
-		public/*()*/ int CountLow;
-		public/*()*/ float Time;
+		[Category] public int Count;
+		[Category] public int CountLow;
+		[Category] public float Time;
 	
 	//	structdefaultproperties
 	//	{
@@ -47,34 +47,34 @@ public partial class ParticleEmitter : Object/*
 	//	}
 	};
 	
-	public/*(Particle)*/ name EmitterName;
-	public /*deprecated */bool UseLocalSpace;
-	public /*deprecated */bool KillOnDeactivate;
-	public /*deprecated */bool bKillOnCompleted;
-	public /*deprecated */bool ScaleUV;
-	public /*deprecated */bool DirectUV;
-	public /*deprecated */bool bEnabled;
+	[Category("Particle")] public name EmitterName;
+	[deprecated] public bool UseLocalSpace;
+	[deprecated] public bool KillOnDeactivate;
+	[deprecated] public bool bKillOnCompleted;
+	[deprecated] public bool ScaleUV;
+	[deprecated] public bool DirectUV;
+	[deprecated] public bool bEnabled;
 	public bool ConvertedModules;
-	public /*deprecated */DistributionFloat.RawDistributionFloat SpawnRate;
-	public /*deprecated */float EmitterDuration;
-	public /*deprecated */int EmitterLoops;
-	public /*deprecated */ParticleEmitter.EParticleBurstMethod ParticleBurstMethod;
-	public /*deprecated */ParticleEmitter.EParticleSubUVInterpMethod InterpolationMethod;
-	public /*deprecated */ParticleEmitter.EEmitterRenderMode EmitterRenderMode;
-	public /*noclear export deprecated */array</*export */ParticleEmitter.ParticleBurst> BurstList;
-	public /*deprecated */int SubImages_Horizontal;
-	public /*deprecated */int SubImages_Vertical;
-	public /*deprecated */float RandomImageTime;
-	public /*deprecated */int RandomImageChanges;
-	public /*transient */int SubUVDataOffset;
-	public /*deprecated */Object.Color EmitterEditorColor;
-	public /*export editinline */array</*export editinline */ParticleLODLevel> LODLevels;
-	public /*export editinline */array</*export editinline */ParticleModule> Modules;
-	public /*export */ParticleModule TypeDataModule;
-	public /*native */array<ParticleModule> SpawnModules;
-	public /*native */array<ParticleModule> UpdateModules;
+	[deprecated] public DistributionFloat.RawDistributionFloat SpawnRate;
+	[deprecated] public float EmitterDuration;
+	[deprecated] public int EmitterLoops;
+	[deprecated] public ParticleEmitter.EParticleBurstMethod ParticleBurstMethod;
+	[deprecated] public ParticleEmitter.EParticleSubUVInterpMethod InterpolationMethod;
+	[deprecated] public ParticleEmitter.EEmitterRenderMode EmitterRenderMode;
+	[noclear, export, deprecated] public array</*export */ParticleEmitter.ParticleBurst> BurstList;
+	[deprecated] public int SubImages_Horizontal;
+	[deprecated] public int SubImages_Vertical;
+	[deprecated] public float RandomImageTime;
+	[deprecated] public int RandomImageChanges;
+	[transient] public int SubUVDataOffset;
+	[deprecated] public Object.Color EmitterEditorColor;
+	[export, editinline] public array</*export editinline */ParticleLODLevel> LODLevels;
+	[export, editinline] public array</*export editinline */ParticleModule> Modules;
+	[export] public ParticleModule TypeDataModule;
+	[native] public array<ParticleModule> SpawnModules;
+	[native] public array<ParticleModule> UpdateModules;
 	public int PeakActiveParticles;
-	public/*(Particle)*/ int InitialAllocationCount;
+	[Category("Particle")] public int InitialAllocationCount;
 	
 	public ParticleEmitter()
 	{

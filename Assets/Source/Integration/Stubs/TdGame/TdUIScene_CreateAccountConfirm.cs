@@ -4,10 +4,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_CreateAccountConfirm : TdUIScene_SubMenu/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIEditBox LoginNameEditbox;
-	public /*transient */UIEditBox PasswordEditbox;
-	public /*transient */bool bAllowEaEmailHided;
-	public /*transient */bool bAllowThirdPartyEmailHided;
+	[transient] public UIEditBox LoginNameEditbox;
+	[transient] public UIEditBox PasswordEditbox;
+	[transient] public bool bAllowEaEmailHided;
+	[transient] public bool bAllowThirdPartyEmailHided;
 	public /*delegate*/TdUIScene_CreateAccountConfirm.CreateAccount __CreateAccount__Delegate;
 	
 	public delegate void CreateAccount(String LoginName, String Password, bool bAllowEaEmail, bool bAllowThirdPartyEmail);

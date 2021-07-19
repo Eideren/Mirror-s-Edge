@@ -12,7 +12,7 @@ public partial class TdLedgeWalkVolume : TdMovementVolume/*
 		LWT_MAX
 	};
 	
-	public/*()*/ TdLedgeWalkVolume.ELedgeWalkType LedgeWalkType;
+	[Category] public TdLedgeWalkVolume.ELedgeWalkType LedgeWalkType;
 	
 	public override /*simulated event */void PawnEnteredVolume(Pawn P)
 	{

@@ -11,12 +11,12 @@ public partial class SheetBuilder : BrushBuilder/*
 		AX_MAX
 	};
 	
-	public/*()*/ int X;
-	public/*()*/ int Y;
-	public/*()*/ int XSegments;
-	public/*()*/ int YSegments;
-	public/*()*/ SheetBuilder.ESheetAxis Axis;
-	public/*()*/ name GroupName;
+	[Category] public int X;
+	[Category] public int Y;
+	[Category] public int XSegments;
+	[Category] public int YSegments;
+	[Category] public SheetBuilder.ESheetAxis Axis;
+	[Category] public name GroupName;
 	
 	public override /*event */bool Build()
 	{

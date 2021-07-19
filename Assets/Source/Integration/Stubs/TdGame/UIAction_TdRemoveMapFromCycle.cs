@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class UIAction_TdRemoveMapFromCycle : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bRemoveAll;
+	[Category] public bool bRemoveAll;
 	
 	public UIAction_TdRemoveMapFromCycle()
 	{

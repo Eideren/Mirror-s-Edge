@@ -5,9 +5,9 @@ public partial class TdDirectionalFlareEmitter : TdFlareEmitter/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ Actor Light;
-	public/*()*/ float Cone;
-	public/*()*/ float MaxScale;
+	[Category] public Actor Light;
+	[Category] public float Cone;
+	[Category] public float MaxScale;
 	public float FlareScale;
 	public float ConePlusOne;
 	public float OneMinusConeInv;

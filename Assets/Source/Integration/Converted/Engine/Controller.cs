@@ -23,9 +23,9 @@ public partial class Controller : Actor/*
 	};
 	
 	public Pawn Pawn;
-	public /*repnotify */PlayerReplicationInfo PlayerReplicationInfo;
-	public /*const */int PlayerNum;
-	public /*private const */Controller NextController;
+	[repnotify] public PlayerReplicationInfo PlayerReplicationInfo;
+	[Const] public int PlayerNum;
+	[Const] public/*private*/ Controller NextController;
 	public bool bIsPlayer;
 	public bool bGodMode;
 	public bool bAffectedByHitEffects;
@@ -39,14 +39,14 @@ public partial class Controller : Actor/*
 	public bool bAdjusting;
 	public bool bPreparingMove;
 	public bool bIgnoreMovementFocus;
-	public /*const */bool bLOSflag;
+	[Const] public bool bLOSflag;
 	public bool bUsePlayerHearing;
 	public bool bNotifyFallingHitWall;
 	public bool bForceDesiredRotation;
 	public bool bPreciseDestination;
 	public bool bSeeFriendly;
 	public bool bUsingPathLanes;
-	public /*input */byte bFire;
+	[input] public byte bFire;
 	public float MinHitWall;
 	public float MoveTimer;
 	public Actor MoveTarget;
@@ -69,18 +69,18 @@ public partial class Controller : Actor/*
 	public Object.Vector ViewY;
 	public Object.Vector ViewZ;
 	public Pawn ShotTarget;
-	public /*const */Actor LastFailedReach;
-	public /*const */float FailedReachTime;
-	public /*const */Object.Vector FailedReachLocation;
+	[Const] public Actor LastFailedReach;
+	[Const] public float FailedReachTime;
+	[Const] public Object.Vector FailedReachLocation;
 	public float SightCounter;
 	public float RespawnPredictionTime;
 	public float InUseNodeCostMultiplier;
 	public int HighJumpNodeCostModifier;
 	public Pawn Enemy;
-	public /*deprecated */Actor Target;
+	[deprecated] public Actor Target;
 	public array<Controller.VisiblePortalInfo> VisiblePortals;
 	public float LaneOffset;
-	public /*const */Object.Rotator OldBasedRotation;
+	[Const] public Object.Rotator OldBasedRotation;
 	public int currentLaneSlot;
 	public int pathMatesCount;
 	

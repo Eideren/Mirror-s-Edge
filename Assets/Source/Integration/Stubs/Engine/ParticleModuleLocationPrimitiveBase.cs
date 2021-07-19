@@ -5,16 +5,16 @@ public partial class ParticleModuleLocationPrimitiveBase : ParticleModuleLocatio
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Location)*/ bool Positive_X;
-	public/*(Location)*/ bool Positive_Y;
-	public/*(Location)*/ bool Positive_Z;
-	public/*(Location)*/ bool Negative_X;
-	public/*(Location)*/ bool Negative_Y;
-	public/*(Location)*/ bool Negative_Z;
-	public/*(Location)*/ bool SurfaceOnly;
-	public/*(Location)*/ bool Velocity;
-	public/*(Location)*/ DistributionFloat.RawDistributionFloat VelocityScale;
-	public/*(Location)*/ DistributionVector.RawDistributionVector StartLocation;
+	[Category("Location")] public bool Positive_X;
+	[Category("Location")] public bool Positive_Y;
+	[Category("Location")] public bool Positive_Z;
+	[Category("Location")] public bool Negative_X;
+	[Category("Location")] public bool Negative_Y;
+	[Category("Location")] public bool Negative_Z;
+	[Category("Location")] public bool SurfaceOnly;
+	[Category("Location")] public bool Velocity;
+	[Category("Location")] public DistributionFloat.RawDistributionFloat VelocityScale;
+	[Category("Location")] public DistributionVector.RawDistributionVector StartLocation;
 	
 	public ParticleModuleLocationPrimitiveBase()
 	{

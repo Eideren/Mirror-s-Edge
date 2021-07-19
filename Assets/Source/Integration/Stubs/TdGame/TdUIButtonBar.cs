@@ -8,7 +8,7 @@ public partial class TdUIButtonBar : TdUIObject/*
 	public const int TDBUTTONBAR_BUTTON_SPACING_CONNECTED = -20;
 	public const int TDBUTTONBAR_BUTTON_SPACING = -50;
 	
-	public /*export editinline */StaticArray<TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton>/*[6]*/ Buttons;
+	[export, editinline] public StaticArray<TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton, TdUIButtonBarButton>/*[6]*/ Buttons;
 	public /*delegate*/TdUIButtonBar.OnPlayClickNotification __OnPlayClickNotification__Delegate;
 	
 	public delegate bool OnPlayClickNotification(/*const */ref UIRoot.InputEventParameters EventParms);

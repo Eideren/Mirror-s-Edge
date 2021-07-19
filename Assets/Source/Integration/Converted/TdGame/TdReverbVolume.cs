@@ -16,10 +16,10 @@ public partial class TdReverbVolume : ReverbVolume/*
 	
 	public partial struct /*native */StereoAmbientStruct
 	{
-		public/*()*/ SoundCue AmbientSound;
-		public/*()*/ float Volume;
-		public/*()*/ float FadeInTime;
-		public/*()*/ float FadeOutTime;
+		[Category] public SoundCue AmbientSound;
+		[Category] public float Volume;
+		[Category] public float FadeInTime;
+		[Category] public float FadeOutTime;
 	
 	//	structdefaultproperties
 	//	{
@@ -31,9 +31,9 @@ public partial class TdReverbVolume : ReverbVolume/*
 	//	}
 	};
 	
-	public/*()*/ TdReverbVolume.StereoAmbientStruct StereoAmbient;
-	public/*()*/ TdReverbVolume.VolumeType vType;
-	public /*export editinline */AudioComponent AmbientSoundComponent;
+	[Category] public TdReverbVolume.StereoAmbientStruct StereoAmbient;
+	[Category] public TdReverbVolume.VolumeType vType;
+	[export, editinline] public AudioComponent AmbientSoundComponent;
 	
 	public TdReverbVolume()
 	{

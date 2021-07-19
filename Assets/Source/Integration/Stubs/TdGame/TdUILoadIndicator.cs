@@ -3,9 +3,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdUILoadIndicator : TdUIObject/*
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*export editinline */UILabel IndicatorLabel;
-	public /*export editinline */UIImage IndicatorImage;
-	public /*export editinline */UILabel IndicatorLabelBlack;
+	[export, editinline] public UILabel IndicatorLabel;
+	[export, editinline] public UIImage IndicatorImage;
+	[export, editinline] public UILabel IndicatorLabelBlack;
 	
 	public TdUILoadIndicator()
 	{

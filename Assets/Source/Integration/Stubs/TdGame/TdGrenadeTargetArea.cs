@@ -20,16 +20,16 @@ public partial class TdGrenadeTargetArea : TdGrenadeArea/*
 		EGrenadeType_MAX
 	};
 	
-	public/*()*/ TdGrenadeTargetArea.EGrenadeType GrenadeType;
-	public/*()*/ TdGrenadeTargetArea.EThrowType TypeOfThrow;
-	public/*()*/ array<NavigationPoint> GrenadeNodes;
-	public/*()*/ array<TdGrenadeArea> TriggerAreas;
-	public/*()*/ bool bForceAIThrow;
-	public/*()*/ bool bUsePlayerAsTarget;
-	public/*()*/ bool bOnlyUseOnce;
-	public/*()*/ float ThrowSpeedTweak;
-	public/*()*/ float YawAngleTweak;
-	public/*()*/ float TimeToExplode;
+	[Category] public TdGrenadeTargetArea.EGrenadeType GrenadeType;
+	[Category] public TdGrenadeTargetArea.EThrowType TypeOfThrow;
+	[Category] public array<NavigationPoint> GrenadeNodes;
+	[Category] public array<TdGrenadeArea> TriggerAreas;
+	[Category] public bool bForceAIThrow;
+	[Category] public bool bUsePlayerAsTarget;
+	[Category] public bool bOnlyUseOnce;
+	[Category] public float ThrowSpeedTweak;
+	[Category] public float YawAngleTweak;
+	[Category] public float TimeToExplode;
 	public Object.Color NodeLinkColor;
 	public Object.Color TriggerLinkColor;
 	

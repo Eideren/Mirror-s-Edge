@@ -8,10 +8,10 @@ public partial class UnrealEdEngine : EditorEngine/*
 		noexport*/{
 	public partial struct /*native */ClassMoveInfo
 	{
-		public /*config */String ClassName;
-		public /*config */String PackageName;
-		public /*config */String GroupName;
-		public /*config */bool bActive;
+		[config] public String ClassName;
+		[config] public String PackageName;
+		[config] public String GroupName;
+		[config] public bool bActive;
 	
 	//	structdefaultproperties
 	//	{
@@ -23,22 +23,22 @@ public partial class UnrealEdEngine : EditorEngine/*
 	//	}
 	};
 	
-	public /*const noexport */Object.Pointer NotifyVtbl;
-	public /*const */UnrealEdOptions EditorOptionsInst;
-	public /*const */BrowserManager BrowserManager;
-	public /*const */ThumbnailManager ThumbnailManager;
-	public /*config */String BrowserManagerClassName;
-	public /*config */String ThumbnailManagerClassName;
-	public /*const config */int AutoSaveIndex;
-	public /*const */float AutosaveCount;
-	public/*(Advanced)*/ /*config */bool AutoSave;
-	public/*(Advanced)*/ /*config */int AutosaveTimeMinutes;
-	public /*const */Material MaterialCopyPasteBuffer;
-	public /*const */Object MatineeCopyPasteBuffer;
+	[Const, noexport] public Object.Pointer NotifyVtbl;
+	[Const] public UnrealEdOptions EditorOptionsInst;
+	[Const] public BrowserManager BrowserManager;
+	[Const] public ThumbnailManager ThumbnailManager;
+	[config] public String BrowserManagerClassName;
+	[config] public String ThumbnailManagerClassName;
+	[Const, config] public int AutoSaveIndex;
+	[Const] public float AutosaveCount;
+	[Category("Advanced")] [config] public bool AutoSave;
+	[Category("Advanced")] [config] public int AutosaveTimeMinutes;
+	[Const] public Material MaterialCopyPasteBuffer;
+	[Const] public Object MatineeCopyPasteBuffer;
 	public array<AnimationCompressionAlgorithm> AnimationCompressionAlgorithms;
-	public /*config */array</*config */String> PackagesToBeFullyLoadedAtStartup;
-	public /*config */array</*config */name> HiddenKismetClassNames;
-	public /*config */array</*config */UnrealEdEngine.ClassMoveInfo> ClassRelocationInfo;
+	[config] public array</*config */String> PackagesToBeFullyLoadedAtStartup;
+	[config] public array</*config */name> HiddenKismetClassNames;
+	[config] public array</*config */UnrealEdEngine.ClassMoveInfo> ClassRelocationInfo;
 	
 	public UnrealEdEngine()
 	{

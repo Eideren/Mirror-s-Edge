@@ -6,8 +6,8 @@ public partial class FogVolumeDensityInfo : Info/*
 		native
 		notplaceable
 		hidecategories(Navigation,Collision)*/{
-	public/*()*/ /*const export editinline */FogVolumeDensityComponent DensityComponent;
-	public /*repnotify */bool bEnabled;
+	[Category] [Const, export, editinline] public FogVolumeDensityComponent DensityComponent;
+	[repnotify] public bool bEnabled;
 	
 	//replication
 	//{

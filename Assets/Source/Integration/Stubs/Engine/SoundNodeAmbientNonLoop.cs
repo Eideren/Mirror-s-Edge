@@ -8,10 +8,10 @@ public partial class SoundNodeAmbientNonLoop : SoundNodeAmbient/*
 		hidecategories(Object,Object,Object)*/{
 	public partial struct /*native */AmbientSoundSlot
 	{
-		public/*()*/ SoundNodeWave Wave;
-		public/*()*/ float PitchScale;
-		public/*()*/ float VolumeScale;
-		public/*()*/ float Weight;
+		[Category] public SoundNodeWave Wave;
+		[Category] public float PitchScale;
+		[Category] public float VolumeScale;
+		[Category] public float Weight;
 	
 	//	structdefaultproperties
 	//	{
@@ -23,8 +23,8 @@ public partial class SoundNodeAmbientNonLoop : SoundNodeAmbient/*
 	//	}
 	};
 	
-	public/*()*/ DistributionFloat.RawDistributionFloat DelayTime;
-	public/*()*/ array<SoundNodeAmbientNonLoop.AmbientSoundSlot> SoundSlots;
+	[Category] public DistributionFloat.RawDistributionFloat DelayTime;
+	[Category] public array<SoundNodeAmbientNonLoop.AmbientSoundSlot> SoundSlots;
 	
 	public SoundNodeAmbientNonLoop()
 	{

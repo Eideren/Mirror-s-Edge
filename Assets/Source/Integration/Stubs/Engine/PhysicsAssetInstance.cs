@@ -4,17 +4,17 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class PhysicsAssetInstance : Object/*
 		native
 		hidecategories(Object)*/{
-	public /*const transient */Actor Owner;
-	public /*const transient */int RootBodyIndex;
-	public /*const export editinline */array</*export editinline */RB_BodyInstance> Bodies;
-	public /*const export editinline */array</*export editinline */RB_ConstraintInstance> Constraints;
-	public /*native const */Object.Map_Mirror CollisionDisableTable;
-	public /*const */float LinearSpringScale;
-	public /*const */float LinearDampingScale;
-	public /*const */float LinearForceLimitScale;
-	public /*const */float AngularSpringScale;
-	public /*const */float AngularDampingScale;
-	public /*const */float AngularForceLimitScale;
+	[Const, transient] public Actor Owner;
+	[Const, transient] public int RootBodyIndex;
+	[Const, export, editinline] public array</*export editinline */RB_BodyInstance> Bodies;
+	[Const, export, editinline] public array</*export editinline */RB_ConstraintInstance> Constraints;
+	[native, Const] public Object.Map_Mirror CollisionDisableTable;
+	[Const] public float LinearSpringScale;
+	[Const] public float LinearDampingScale;
+	[Const] public float LinearForceLimitScale;
+	[Const] public float AngularSpringScale;
+	[Const] public float AngularDampingScale;
+	[Const] public float AngularForceLimitScale;
 	
 	// Export UPhysicsAssetInstance::execSetLinearDriveScale(FFrame&, void* const)
 	public virtual /*native final function */void SetLinearDriveScale(float InLinearSpringScale, float InLinearDampingScale, float InLinearForceLimitScale)

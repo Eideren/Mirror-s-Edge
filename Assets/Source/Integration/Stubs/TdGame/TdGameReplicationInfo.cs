@@ -7,7 +7,7 @@ public partial class TdGameReplicationInfo : GameReplicationInfo/*
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
 	public int ServerVersion;
-	public /*private repnotify */byte LobbyUpdate;
+	[repnotify] public/*private*/ byte LobbyUpdate;
 	public TdLobbyBackend LobbyBackend;
 	public bool bLobbyFinalized;
 	public bool bMatchIsInWarmup;

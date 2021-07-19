@@ -3,15 +3,15 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMove_AutoStepUp : TdPhysicsMove/*
 		config(PawnMovement)*/{
-	public/*(StepUp)*/ /*config */float StepUpDistanceLimit;
-	public/*(StepUp)*/ /*config */float StepUpSpeedLimit;
-	public/*(StepUp)*/ /*config */float StepUpLowMinHeight;
-	public/*(StepUp)*/ /*config */float StepUpMediumMinHeight;
-	public/*(StepUp)*/ /*config */float StepUpHighMinHeight;
-	public/*(StepUp)*/ /*config */float StepUpHighMaxHeight;
-	public/*(StepUp)*/ /*config */float StepUpOptimalLowHeight;
-	public/*(StepUp)*/ /*config */float StepUpOptimalMediumHeight;
-	public/*(StepUp)*/ /*config */float StepUpOptimalHighHeight;
+	[Category("StepUp")] [config] public float StepUpDistanceLimit;
+	[Category("StepUp")] [config] public float StepUpSpeedLimit;
+	[Category("StepUp")] [config] public float StepUpLowMinHeight;
+	[Category("StepUp")] [config] public float StepUpMediumMinHeight;
+	[Category("StepUp")] [config] public float StepUpHighMinHeight;
+	[Category("StepUp")] [config] public float StepUpHighMaxHeight;
+	[Category("StepUp")] [config] public float StepUpOptimalLowHeight;
+	[Category("StepUp")] [config] public float StepUpOptimalMediumHeight;
+	[Category("StepUp")] [config] public float StepUpOptimalHighHeight;
 	public Object.Vector EndPosition;
 	public float StartDistance;
 	public Object.Vector SavedVelocity;

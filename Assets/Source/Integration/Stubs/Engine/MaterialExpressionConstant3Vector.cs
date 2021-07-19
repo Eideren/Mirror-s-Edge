@@ -7,9 +7,9 @@ public partial class MaterialExpressionConstant3Vector : MaterialExpression/* wi
 		hidecategories(Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ float R;
-	public/*()*/ float G;
-	public/*()*/ float B;
+	[Category] public float R;
+	[Category] public float G;
+	[Category] public float B;
 	
 }
 }

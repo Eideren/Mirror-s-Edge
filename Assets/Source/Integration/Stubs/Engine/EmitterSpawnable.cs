@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class EmitterSpawnable : Emitter/*
 		notplaceable
 		hidecategories(Navigation)*/{
-	public /*repnotify */ParticleSystem ParticleTemplate;
+	[repnotify] public ParticleSystem ParticleTemplate;
 	
 	//replication
 	//{

@@ -5,11 +5,11 @@ public partial class TdPhysicalMaterialMelee : TdPhysicalMaterialBase/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ SoundCue ImpactSoundGun;
-	public/*()*/ SoundCue ImpactSoundFist;
-	public/*()*/ SoundCue ImpactSoundFoot;
-	public/*()*/ ParticleSystem ImpactEffect;
-	public/*()*/ ParticleSystem ImpactEffectHead;
+	[Category] public SoundCue ImpactSoundGun;
+	[Category] public SoundCue ImpactSoundFist;
+	[Category] public SoundCue ImpactSoundFoot;
+	[Category] public ParticleSystem ImpactEffect;
+	[Category] public ParticleSystem ImpactEffectHead;
 	
 }
 }

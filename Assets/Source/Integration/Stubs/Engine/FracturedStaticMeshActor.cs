@@ -5,7 +5,7 @@ public partial class FracturedStaticMeshActor : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*const editconst export editinline */FracturedStaticMeshComponent FracturedStaticMeshComponent;
+	[Category] [Const, editconst, export, editinline] public FracturedStaticMeshComponent FracturedStaticMeshComponent;
 	public array<int> ChunkHealth;
 	
 	// Export UFracturedStaticMeshActor::execSpawnPart(FFrame&, void* const)

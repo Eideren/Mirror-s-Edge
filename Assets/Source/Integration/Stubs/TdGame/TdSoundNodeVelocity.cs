@@ -15,18 +15,18 @@ public partial class TdSoundNodeVelocity : SoundNode/*
 		SPEEDTYPE_MAX
 	};
 	
-	public/*()*/ bool bModulateVolume;
-	public/*()*/ bool bModulatePitch;
-	public/*()*/ float MinSpeed;
-	public/*()*/ float MaxSpeed;
-	public/*()*/ float VolumeAtMinSpeed;
-	public/*()*/ float VolumeAtMaxSpeed;
-	public/*()*/ float PitchAtMinSpeed;
-	public/*()*/ float PitchAtMaxSpeed;
-	public/*()*/ TdSoundNodeADSR.SoundInterpolationMethod InterpolationMethod;
-	public/*()*/ TdSoundNodeVelocity.SpeedType TypeOfSpeed;
-	public/*()*/ float FadeInTimeFilter;
-	public/*()*/ float FadeOutTimeFilter;
+	[Category] public bool bModulateVolume;
+	[Category] public bool bModulatePitch;
+	[Category] public float MinSpeed;
+	[Category] public float MaxSpeed;
+	[Category] public float VolumeAtMinSpeed;
+	[Category] public float VolumeAtMaxSpeed;
+	[Category] public float PitchAtMinSpeed;
+	[Category] public float PitchAtMaxSpeed;
+	[Category] public TdSoundNodeADSR.SoundInterpolationMethod InterpolationMethod;
+	[Category] public TdSoundNodeVelocity.SpeedType TypeOfSpeed;
+	[Category] public float FadeInTimeFilter;
+	[Category] public float FadeOutTimeFilter;
 	
 	public TdSoundNodeVelocity()
 	{

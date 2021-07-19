@@ -5,9 +5,9 @@ public partial class Emitter : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*const editconst export editinline */ParticleSystemComponent ParticleSystemComponent;
+	[Category] [Const, editconst, export, editinline] public ParticleSystemComponent ParticleSystemComponent;
 	public bool bDestroyOnSystemFinish;
-	public /*repnotify */bool bCurrentlyActive;
+	[repnotify] public bool bCurrentlyActive;
 	
 	//replication
 	//{

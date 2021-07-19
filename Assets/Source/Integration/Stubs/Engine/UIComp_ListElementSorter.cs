@@ -7,15 +7,15 @@ public partial class UIComp_ListElementSorter : UIComp_ListComponentBase/* withi
 		hidecategories(Object)*/{
 	public partial struct /*native transient */UIListSortingParameters
 	{
-		public /*init */int PrimaryIndex;
-		public /*init */int SecondaryIndex;
-		public /*init */bool bReversePrimarySorting;
-		public /*init */bool bReverseSecondarySorting;
-		public /*init */bool bCaseSensitive;
-		public /*init */bool bIntSortPrimary;
-		public /*init */bool bIntSortSecondary;
-		public /*init */bool bFloatSortPrimary;
-		public /*init */bool bFloatSortSecondary;
+		[init] public int PrimaryIndex;
+		[init] public int SecondaryIndex;
+		[init] public bool bReversePrimarySorting;
+		[init] public bool bReverseSecondarySorting;
+		[init] public bool bCaseSensitive;
+		[init] public bool bIntSortPrimary;
+		[init] public bool bIntSortSecondary;
+		[init] public bool bFloatSortPrimary;
+		[init] public bool bFloatSortSecondary;
 	
 	//	structdefaultproperties
 	//	{
@@ -34,13 +34,13 @@ public partial class UIComp_ListElementSorter : UIComp_ListComponentBase/* withi
 	
 	public new UIList Outer => base.Outer as UIList;
 	
-	public/*()*/ bool bAllowCompoundSorting;
-	public/*()*/ bool bReversePrimarySorting;
-	public/*()*/ bool bReverseSecondarySorting;
-	public/*()*/ int InitialSortColumn;
-	public/*()*/ int InitialSecondarySortColumn;
-	public/*()*/ /*const editconst transient */int PrimarySortColumn;
-	public/*()*/ /*const editconst transient */int SecondarySortColumn;
+	[Category] public bool bAllowCompoundSorting;
+	[Category] public bool bReversePrimarySorting;
+	[Category] public bool bReverseSecondarySorting;
+	[Category] public int InitialSortColumn;
+	[Category] public int InitialSecondarySortColumn;
+	[Category] [Const, editconst, transient] public int PrimarySortColumn;
+	[Category] [Const, editconst, transient] public int SecondarySortColumn;
 	
 	// Export UUIComp_ListElementSorter::execResetSortColumns(FFrame&, void* const)
 	public virtual /*native final function */void ResetSortColumns(/*optional */bool? _bResort = default)

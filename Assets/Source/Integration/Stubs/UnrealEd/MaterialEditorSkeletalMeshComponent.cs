@@ -5,7 +5,7 @@ public partial class MaterialEditorSkeletalMeshComponent : SkeletalMeshComponent
 		native
 		editinlinenew
 		hidecategories(Object)*/{
-	public /*native const transient */Object.Pointer MaterialEditor;
+	[native, Const, transient] public Object.Pointer MaterialEditor;
 	
 }
 }

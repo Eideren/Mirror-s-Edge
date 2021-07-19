@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class WindDirectionalSource : Info/*
 		placeable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public/*()*/ /*const editconst export editinline */WindDirectionalSourceComponent Component;
+	[Category] [Const, editconst, export, editinline] public WindDirectionalSourceComponent Component;
 	
 	public WindDirectionalSource()
 	{

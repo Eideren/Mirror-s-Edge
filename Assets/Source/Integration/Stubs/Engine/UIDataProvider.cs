@@ -15,9 +15,9 @@ public partial class UIDataProvider : UIRoot/*
 	
 	public partial struct /*native transient */UIDataProviderField
 	{
-		public /*init */name FieldTag;
-		public /*init */UIRoot.EUIDataProviderFieldType FieldType;
-		public /*init */array<UIDataProvider> FieldProviders;
+		[init] public name FieldTag;
+		[init] public UIRoot.EUIDataProviderFieldType FieldType;
+		[init] public array<UIDataProvider> FieldProviders;
 	
 	//	structdefaultproperties
 	//	{

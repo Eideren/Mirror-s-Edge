@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_ApplySoundNode : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ SoundCue PlaySound;
-	public/*()*/ /*editinline */SoundNode ApplyNode;
+	[Category] public SoundCue PlaySound;
+	[Category] [editinline] public SoundNode ApplyNode;
 	
 	public SeqAct_ApplySoundNode()
 	{

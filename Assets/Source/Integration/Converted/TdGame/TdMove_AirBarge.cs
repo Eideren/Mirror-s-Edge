@@ -4,12 +4,12 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_AirBarge : TdMove_Barge/*
 		native
 		config(PawnMovement)*/{
-	public /*config */float HeightBoostDuration;
-	public /*config */float TotalHeightBoost;
-	public /*protected */float HeightBoostLeft;
-	public /*protected */Object.Vector PreCollisionVelocity;
-	public /*protected */bool bUseAirBargeAnim;
-	public /*protected */bool bIsLanding;
+	[config] public float HeightBoostDuration;
+	[config] public float TotalHeightBoost;
+	public/*protected*/ float HeightBoostLeft;
+	public/*protected*/ Object.Vector PreCollisionVelocity;
+	public/*protected*/ bool bUseAirBargeAnim;
+	public/*protected*/ bool bIsLanding;
 	
 	public override /*simulated function */void StopMove()
 	{

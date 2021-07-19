@@ -3,9 +3,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_SetParticleSysParam : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ /*export editinline */array</*export editinline */ParticleSystemComponent.ParticleSysParam> InstanceParameters;
-	public/*()*/ bool bOverrideScalar;
-	public/*()*/ float ScalarValue;
+	[Category] [export, editinline] public array</*export editinline */ParticleSystemComponent.ParticleSysParam> InstanceParameters;
+	[Category] public bool bOverrideScalar;
+	[Category] public float ScalarValue;
 	
 	public SeqAct_SetParticleSysParam()
 	{

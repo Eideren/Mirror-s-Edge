@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class MorphNodePose : MorphNodeBase/*
 		native
 		hidecategories(Object,Object)*/{
-	public /*transient */MorphTarget Target;
-	public/*()*/ name MorphName;
-	public/*()*/ float Weight;
+	[transient] public MorphTarget Target;
+	[Category] public name MorphName;
+	[Category] public float Weight;
 	
 	// Export UMorphNodePose::execSetMorphTarget(FFrame&, void* const)
 	public virtual /*native final function */void SetMorphTarget(name MorphTargetName)

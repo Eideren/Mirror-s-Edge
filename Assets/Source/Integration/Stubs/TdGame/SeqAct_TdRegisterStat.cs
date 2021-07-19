@@ -50,8 +50,8 @@ public partial class SeqAct_TdRegisterStat : SequenceAction/*
 		EASID_MAX
 	};
 	
-	public/*()*/ SeqAct_TdRegisterStat.EAchievementStatsID StatId;
-	public /*transient */TdPlayerController PlayerController;
+	[Category] public SeqAct_TdRegisterStat.EAchievementStatsID StatId;
+	[transient] public TdPlayerController PlayerController;
 	
 	public override /*event */void Activated()
 	{

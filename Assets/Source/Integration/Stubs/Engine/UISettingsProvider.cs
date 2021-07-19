@@ -6,7 +6,7 @@ public partial class UISettingsProvider : UIPropertyDataProvider/*
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*const */name ProviderTag;
+	[Const] public name ProviderTag;
 	
 	public virtual /*function */void LoadPropertyValue(name PropertyName, UIObject Widget)
 	{

@@ -9,9 +9,9 @@ public partial class StaticMeshComponent : MeshComponent/*
 		autoexpandcategories(Collision,Rendering,Lighting)*/{
 	public partial struct StaticMeshComponentLODInfo
 	{
-		public /*private const */array<ShadowMap2D> ShadowMaps;
-		public /*private const */array<Object> ShadowVertexBuffers;
-		public /*private native const */Object.Pointer LightMap;
+		[Const] public/*private*/ array<ShadowMap2D> ShadowMaps;
+		[Const] public/*private*/ array<Object> ShadowVertexBuffers;
+		[native, Const] public/*private*/ Object.Pointer LightMap;
 	
 	//	structdefaultproperties
 	//	{
@@ -23,17 +23,17 @@ public partial class StaticMeshComponent : MeshComponent/*
 	
 	public int ForcedLodModel;
 	public int PreviousLODLevel;
-	public/*()*/ /*const */StaticMesh StaticMesh;
-	public/*()*/ Object.Color WireframeColor;
-	public/*()*/ bool bIgnoreInstanceForTextureStreaming;
-	public/*()*/ /*const */bool bOverrideLightMapResolution;
-	public/*()*/ /*const */int OverriddenLightMapResolution;
-	public/*(AdvancedLighting)*/ /*const */int SubDivisionStepSize;
-	public/*(AdvancedLighting)*/ /*const */int MinSubDivisions;
-	public/*(AdvancedLighting)*/ /*const */int MaxSubDivisions;
-	public/*(AdvancedLighting)*/ /*const */bool bUseSubDivisions;
-	public /*const */array<Object.Guid> IrrelevantLights;
-	public /*private native const */array<StaticMeshComponent.StaticMeshComponentLODInfo> LODData;
+	[Category] [Const] public StaticMesh StaticMesh;
+	[Category] public Object.Color WireframeColor;
+	[Category] public bool bIgnoreInstanceForTextureStreaming;
+	[Category] [Const] public bool bOverrideLightMapResolution;
+	[Category] [Const] public int OverriddenLightMapResolution;
+	[Category("AdvancedLighting")] [Const] public int SubDivisionStepSize;
+	[Category("AdvancedLighting")] [Const] public int MinSubDivisions;
+	[Category("AdvancedLighting")] [Const] public int MaxSubDivisions;
+	[Category("AdvancedLighting")] [Const] public bool bUseSubDivisions;
+	[Const] public array<Object.Guid> IrrelevantLights;
+	[native, Const] public/*private*/ array<StaticMeshComponent.StaticMeshComponentLODInfo> LODData;
 	
 	// Export UStaticMeshComponent::execSetStaticMesh(FFrame&, void* const)
 	public virtual /*native simulated function */bool SetStaticMesh(StaticMesh NewMesh)

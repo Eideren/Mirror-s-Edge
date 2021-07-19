@@ -4,19 +4,19 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class AnimNodeSequenceBlendByAim : AnimNodeSequenceBlendBase/*
 		native
 		hidecategories(Object,Object,Animations)*/{
-	public/*()*/ Object.Vector2D Aim;
-	public/*()*/ Object.Vector2D HorizontalRange;
-	public/*()*/ Object.Vector2D VerticalRange;
-	public/*()*/ Object.Vector2D AngleOffset;
-	public/*()*/ name AnimName_LU;
-	public/*()*/ name AnimName_LC;
-	public/*()*/ name AnimName_LD;
-	public/*()*/ name AnimName_CU;
-	public/*()*/ name AnimName_CC;
-	public/*()*/ name AnimName_CD;
-	public/*()*/ name AnimName_RU;
-	public/*()*/ name AnimName_RC;
-	public/*()*/ name AnimName_RD;
+	[Category] public Object.Vector2D Aim;
+	[Category] public Object.Vector2D HorizontalRange;
+	[Category] public Object.Vector2D VerticalRange;
+	[Category] public Object.Vector2D AngleOffset;
+	[Category] public name AnimName_LU;
+	[Category] public name AnimName_LC;
+	[Category] public name AnimName_LD;
+	[Category] public name AnimName_CU;
+	[Category] public name AnimName_CC;
+	[Category] public name AnimName_CD;
+	[Category] public name AnimName_RU;
+	[Category] public name AnimName_RC;
+	[Category] public name AnimName_RD;
 	
 	public AnimNodeSequenceBlendByAim()
 	{

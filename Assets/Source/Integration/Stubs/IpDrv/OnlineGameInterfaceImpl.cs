@@ -8,11 +8,11 @@ public partial class OnlineGameInterfaceImpl : Object,
 	public new OnlineSubsystemCommonImpl Outer => base.Outer as OnlineSubsystemCommonImpl;
 	
 	public OnlineSubsystemCommonImpl OwningSubsystem;
-	public /*const */OnlineGameSettings GameSettings;
-	public /*const */OnlineGameSearch GameSearch;
-	public /*const */OnlineSubsystem.EOnlineGameState CurrentGameState;
-	public /*const */OnlineSubsystem.ELanBeaconState LanBeaconState;
-	public /*const */StaticArray<byte, byte, byte, byte, byte, byte, byte, byte>/*[8]*/ LanNonce;
+	[Const] public OnlineGameSettings GameSettings;
+	[Const] public OnlineGameSearch GameSearch;
+	[Const] public OnlineSubsystem.EOnlineGameState CurrentGameState;
+	[Const] public OnlineSubsystem.ELanBeaconState LanBeaconState;
+	[Const] public StaticArray<byte, byte, byte, byte, byte, byte, byte, byte>/*[8]*/ LanNonce;
 	public array< /*delegate*/OnlineGameInterface.OnCreateOnlineGameComplete > CreateOnlineGameCompleteDelegates;
 	public array< /*delegate*/OnlineGameInterface.OnDestroyOnlineGameComplete > DestroyOnlineGameCompleteDelegates;
 	public array< /*delegate*/OnlineGameInterface.OnJoinOnlineGameComplete > JoinOnlineGameCompleteDelegates;
@@ -20,13 +20,13 @@ public partial class OnlineGameInterfaceImpl : Object,
 	public array< /*delegate*/OnlineGameInterface.OnEndOnlineGameComplete > EndOnlineGameCompleteDelegates;
 	public array< /*delegate*/OnlineGameInterface.OnFindOnlineGamesComplete > FindOnlineGamesCompleteDelegates;
 	public array< /*delegate*/OnlineGameInterface.OnCancelFindOnlineGamesComplete > CancelFindOnlineGamesCompleteDelegates;
-	public /*const config */int LanAnnouncePort;
-	public /*const config */int LanGameUniqueId;
-	public /*const config */int LanPacketPlatformMask;
+	[Const, config] public int LanAnnouncePort;
+	[Const, config] public int LanGameUniqueId;
+	[Const, config] public int LanPacketPlatformMask;
 	public float LanQueryTimeLeft;
-	public /*config */float LanQueryTimeout;
-	public /*native const transient */Object.Pointer LanBeacon;
-	public /*private native const transient */Object.Pointer SessionInfo;
+	[config] public float LanQueryTimeout;
+	[native, Const, transient] public Object.Pointer LanBeacon;
+	[native, Const, transient] public/*private*/ Object.Pointer SessionInfo;
 	public /*delegate*/OnlineGameInterface.OnFindOnlineGamesComplete __OnFindOnlineGamesComplete__Delegate{ get; set; }
 	public /*delegate*/OnlineGameInterface.OnCreateOnlineGameComplete __OnCreateOnlineGameComplete__Delegate{ get; set; }
 	public /*delegate*/OnlineGameInterface.OnDestroyOnlineGameComplete __OnDestroyOnlineGameComplete__Delegate{ get; set; }

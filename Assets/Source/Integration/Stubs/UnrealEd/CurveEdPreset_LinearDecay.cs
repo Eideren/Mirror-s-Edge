@@ -5,10 +5,10 @@ public partial class CurveEdPreset_LinearDecay : CurveEdPresetBase/*
 		native
 		editinlinenew
 		hidecategories(Object)*/{
-	public/*()*/ float StartDecay;
-	public/*()*/ float StartValue;
-	public/*()*/ float EndDecay;
-	public/*()*/ float EndValue;
+	[Category] public float StartDecay;
+	[Category] public float StartValue;
+	[Category] public float EndDecay;
+	[Category] public float EndValue;
 	
 	public override /*function */String GetDisplayName()
 	{

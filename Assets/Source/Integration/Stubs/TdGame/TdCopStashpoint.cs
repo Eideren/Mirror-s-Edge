@@ -5,7 +5,7 @@ public partial class TdCopStashpoint : TdStashpoint/*
 		config(Game)
 		placeable
 		hidecategories(Navigation)*/{
-	public /*transient */TdPawn StashingPawn;
+	[transient] public TdPawn StashingPawn;
 	
 	
 	protected /*singular event */void TdCopStashpoint_Idle_Touch(Actor Other, PrimitiveComponent OtherComp, Object.Vector HitLocation, Object.Vector HitNormal)// state function

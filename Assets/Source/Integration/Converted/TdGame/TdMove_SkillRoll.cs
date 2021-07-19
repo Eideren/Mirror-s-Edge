@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMove_SkillRoll : TdPhysicsMove/*
 		config(PawnMovement)*/{
-	public /*private */ForceFeedbackWaveform ImpactSkilledWaveform;
+	public/*private*/ ForceFeedbackWaveform ImpactSkilledWaveform;
 	
 	public override /*function */bool CanDoMove()
 	{

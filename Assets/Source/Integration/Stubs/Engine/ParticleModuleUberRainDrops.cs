@@ -6,33 +6,33 @@ public partial class ParticleModuleUberRainDrops : ParticleModuleUberBase/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object,Object)*/{
-	public/*(Lifetime)*/ float LifetimeMin;
-	public/*(Lifetime)*/ float LifetimeMax;
-	public/*(Size)*/ Object.Vector StartSizeMin;
-	public/*(Size)*/ Object.Vector StartSizeMax;
-	public/*(Velocity)*/ Object.Vector StartVelocityMin;
-	public/*(Velocity)*/ Object.Vector StartVelocityMax;
-	public/*(Velocity)*/ float StartVelocityRadialMin;
-	public/*(Velocity)*/ float StartVelocityRadialMax;
-	public/*(Color)*/ Object.Vector ColorOverLife;
-	public/*(Color)*/ float AlphaOverLife;
-	public/*(Location)*/ bool bIsUsingCylinder;
-	public/*(Location)*/ bool bPositive_X;
-	public/*(Location)*/ bool bPositive_Y;
-	public/*(Location)*/ bool bPositive_Z;
-	public/*(Location)*/ bool bNegative_X;
-	public/*(Location)*/ bool bNegative_Y;
-	public/*(Location)*/ bool bNegative_Z;
-	public/*(Location)*/ bool bSurfaceOnly;
-	public/*(Location)*/ bool bVelocity;
-	public/*(Location)*/ bool bRadialVelocity;
-	public/*(Location)*/ float PC_VelocityScale;
-	public/*(Location)*/ Object.Vector PC_StartLocation;
-	public/*(Location)*/ float PC_StartRadius;
-	public/*(Location)*/ float PC_StartHeight;
-	public/*(Location)*/ ParticleModuleLocationPrimitiveCylinder.CylinderHeightAxis PC_HeightAxis;
-	public/*(Location)*/ Object.Vector StartLocationMin;
-	public/*(Location)*/ Object.Vector StartLocationMax;
+	[Category("Lifetime")] public float LifetimeMin;
+	[Category("Lifetime")] public float LifetimeMax;
+	[Category("Size")] public Object.Vector StartSizeMin;
+	[Category("Size")] public Object.Vector StartSizeMax;
+	[Category("Velocity")] public Object.Vector StartVelocityMin;
+	[Category("Velocity")] public Object.Vector StartVelocityMax;
+	[Category("Velocity")] public float StartVelocityRadialMin;
+	[Category("Velocity")] public float StartVelocityRadialMax;
+	[Category("Color")] public Object.Vector ColorOverLife;
+	[Category("Color")] public float AlphaOverLife;
+	[Category("Location")] public bool bIsUsingCylinder;
+	[Category("Location")] public bool bPositive_X;
+	[Category("Location")] public bool bPositive_Y;
+	[Category("Location")] public bool bPositive_Z;
+	[Category("Location")] public bool bNegative_X;
+	[Category("Location")] public bool bNegative_Y;
+	[Category("Location")] public bool bNegative_Z;
+	[Category("Location")] public bool bSurfaceOnly;
+	[Category("Location")] public bool bVelocity;
+	[Category("Location")] public bool bRadialVelocity;
+	[Category("Location")] public float PC_VelocityScale;
+	[Category("Location")] public Object.Vector PC_StartLocation;
+	[Category("Location")] public float PC_StartRadius;
+	[Category("Location")] public float PC_StartHeight;
+	[Category("Location")] public ParticleModuleLocationPrimitiveCylinder.CylinderHeightAxis PC_HeightAxis;
+	[Category("Location")] public Object.Vector StartLocationMin;
+	[Category("Location")] public Object.Vector StartLocationMax;
 	
 	public ParticleModuleUberRainDrops()
 	{

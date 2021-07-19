@@ -4,31 +4,31 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_SPLeaderboard : TdUIScene_Leaderboard/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIDataStore_TdTimeTrialData TimeTrialData;
-	public /*transient */UIDataStore_TdOnlineStats TdLeaderboardData;
-	public /*transient */UIDataStore_TdOnlineStats StatsDataStore;
-	public /*transient */TdLeaderboardSettings StatsSettings;
-	public /*transient */UIList PlayerRankList;
-	public /*transient */UIList LeaderBoardList;
-	public /*transient */UILabel TitleLabel;
-	public /*transient */UILabel StretchFilterLabel;
-	public /*transient */UILabel StretchLabel;
-	public /*transient */UILabel PlayersFilterLabel;
-	public /*transient */UILabel TimeFrameFilterLabel;
-	public /*transient */UITdOptionButton GameModeOptionButton;
-	public /*transient */UITdOptionButton StretchFilterOptionButton;
-	public /*transient */UITdOptionButton PlayersFilterOptionButton;
-	public /*transient */UITdOptionButton TimeFrameFilterOptionButton;
+	[transient] public UIDataStore_TdTimeTrialData TimeTrialData;
+	[transient] public UIDataStore_TdOnlineStats TdLeaderboardData;
+	[transient] public UIDataStore_TdOnlineStats StatsDataStore;
+	[transient] public TdLeaderboardSettings StatsSettings;
+	[transient] public UIList PlayerRankList;
+	[transient] public UIList LeaderBoardList;
+	[transient] public UILabel TitleLabel;
+	[transient] public UILabel StretchFilterLabel;
+	[transient] public UILabel StretchLabel;
+	[transient] public UILabel PlayersFilterLabel;
+	[transient] public UILabel TimeFrameFilterLabel;
+	[transient] public UITdOptionButton GameModeOptionButton;
+	[transient] public UITdOptionButton StretchFilterOptionButton;
+	[transient] public UITdOptionButton PlayersFilterOptionButton;
+	[transient] public UITdOptionButton TimeFrameFilterOptionButton;
 	public UIScene StartStretchScene;
-	public /*private */int CurrentStretchProviderIndex;
-	public /*private */name CurrentStretchProviderName;
-	public /*private */int CurrentPlayerIndex;
-	public /*private */OnlineSubsystem.UniqueNetId CurrentPlayerNetId;
-	public /*private */String CurrentPlayerNickname;
-	public /*transient */int LevelEventDelay;
-	public /*const */float RequestDelay;
-	public /*transient */float TimeToRequest;
-	public /*private transient */bool bIsFriendRequestParam;
+	public/*private*/ int CurrentStretchProviderIndex;
+	public/*private*/ name CurrentStretchProviderName;
+	public/*private*/ int CurrentPlayerIndex;
+	public/*private*/ OnlineSubsystem.UniqueNetId CurrentPlayerNetId;
+	public/*private*/ String CurrentPlayerNickname;
+	[transient] public int LevelEventDelay;
+	[Const] public float RequestDelay;
+	[transient] public float TimeToRequest;
+	[transient] public/*private*/ bool bIsFriendRequestParam;
 	
 	public override /*event */void PostInitialize()
 	{

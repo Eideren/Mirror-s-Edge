@@ -5,25 +5,25 @@ public partial class LevelStreaming : Object/*
 		abstract
 		native
 		editinlinenew*/{
-	public/*()*/ /*const editconst */name PackageName;
-	public /*const transient */Level LoadedLevel;
-	public/*()*/ /*const */Object.Vector Offset;
-	public /*const */Object.Vector OldOffset;
-	public /*const transient */bool bIsVisible;
-	public /*const transient */bool bHasLoadRequestPending;
-	public /*const transient */bool bHasUnloadRequestPending;
-	public/*()*/ /*const */bool bShouldBeVisibleInEditor;
-	public /*const */bool bBoundingBoxVisible;
-	public/*()*/ /*const */bool bLocked;
-	public/*()*/ /*const */bool bIsFullyStatic;
-	public /*const transient */bool bShouldBeLoaded;
-	public /*const transient */bool bShouldBeVisible;
-	public /*transient */bool bShouldBlockOnLoad;
-	public /*const transient */bool bIsRequestingUnloadAndRemoval;
-	public/*()*/ /*const */Object.Color DrawColor;
-	public/*()*/ /*const editconst */array</*editconst */LevelStreamingVolume> EditorStreamingVolumes;
-	public/*()*/ float MinTimeBetweenVolumeUnloadRequests;
-	public /*const transient */float LastVolumeUnloadRequestTime;
+	[Category] [Const, editconst] public name PackageName;
+	[Const, transient] public Level LoadedLevel;
+	[Category] [Const] public Object.Vector Offset;
+	[Const] public Object.Vector OldOffset;
+	[Const, transient] public bool bIsVisible;
+	[Const, transient] public bool bHasLoadRequestPending;
+	[Const, transient] public bool bHasUnloadRequestPending;
+	[Category] [Const] public bool bShouldBeVisibleInEditor;
+	[Const] public bool bBoundingBoxVisible;
+	[Category] [Const] public bool bLocked;
+	[Category] [Const] public bool bIsFullyStatic;
+	[Const, transient] public bool bShouldBeLoaded;
+	[Const, transient] public bool bShouldBeVisible;
+	[transient] public bool bShouldBlockOnLoad;
+	[Const, transient] public bool bIsRequestingUnloadAndRemoval;
+	[Category] [Const] public Object.Color DrawColor;
+	[Category] [Const, editconst] public array</*editconst */LevelStreamingVolume> EditorStreamingVolumes;
+	[Category] public float MinTimeBetweenVolumeUnloadRequests;
+	[Const, transient] public float LastVolumeUnloadRequestTime;
 	
 	public LevelStreaming()
 	{

@@ -4,10 +4,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_Coil : TdPhysicsMove/*
 		native
 		config(PawnMovement)*/{
-	public /*config */float HeightBoostDuration;
-	public /*config */float TotalHeightBoost;
-	public /*config */float CoilMinTriggerSpeed;
-	public /*config */float CoilTime;
+	[config] public float HeightBoostDuration;
+	[config] public float TotalHeightBoost;
+	[config] public float CoilMinTriggerSpeed;
+	[config] public float CoilTime;
 	public float HeightBoostLeft;
 	
 	public override /*function */bool CanDoMove()

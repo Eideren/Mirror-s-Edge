@@ -6,10 +6,10 @@ public partial class TdDrawArcComponent : PrimitiveComponent/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public /*transient */Object.Color ArcColor;
-	public /*transient */float ArcRadius;
-	public /*transient */int ArcRes;
-	public /*transient */float ArcAngle;
+	[transient] public Object.Color ArcColor;
+	[transient] public float ArcRadius;
+	[transient] public int ArcRes;
+	[transient] public float ArcAngle;
 	
 	public TdDrawArcComponent()
 	{

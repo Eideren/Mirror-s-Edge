@@ -4,12 +4,12 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class FaceFXAsset : Object/*
 		native
 		hidecategories(Object)*/{
-	public /*editoronly const */SkeletalMesh DefaultSkelMesh;
-	public /*native const */Object.Pointer FaceFXActor;
-	public /*native const */array<byte> RawFaceFXActorBytes;
-	public /*native const */array<byte> RawFaceFXSessionBytes;
-	public/*()*/ /*editoronly */array<MorphTargetSet> PreviewMorphSets;
-	public /*transient */array<FaceFXAnimSet> MountedFaceFXAnimSets;
+	[editoronly, Const] public SkeletalMesh DefaultSkelMesh;
+	[native, Const] public Object.Pointer FaceFXActor;
+	[native, Const] public array<byte> RawFaceFXActorBytes;
+	[native, Const] public array<byte> RawFaceFXSessionBytes;
+	[Category] [editoronly] public array<MorphTargetSet> PreviewMorphSets;
+	[transient] public array<FaceFXAnimSet> MountedFaceFXAnimSets;
 	public array<SoundCue> ReferencedSoundCues;
 	public int NumLoadErrors;
 	

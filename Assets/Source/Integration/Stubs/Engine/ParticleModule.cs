@@ -26,8 +26,8 @@ public partial class ParticleModule : Object/*
 	
 	public partial struct /*native transient */ParticleCurvePair
 	{
-		public /*init */String CurveName;
-		public /*init */Object CurveObject;
+		[init] public String CurveName;
+		[init] public Object CurveObject;
 	
 	//	structdefaultproperties
 	//	{
@@ -40,13 +40,13 @@ public partial class ParticleModule : Object/*
 	public bool bSpawnModule;
 	public bool bUpdateModule;
 	public bool bCurvesAsColor;
-	public/*(Cascade)*/ bool b3DDrawMode;
+	[Category("Cascade")] public bool b3DDrawMode;
 	public bool bSupported3DDrawMode;
 	public bool bEnabled;
 	public bool bEditable;
 	public bool LODDuplicate;
-	public/*(Cascade)*/ Object.Color ModuleEditorColor;
-	public /*const */byte LODValidity;
+	[Category("Cascade")] public Object.Color ModuleEditorColor;
+	[Const] public byte LODValidity;
 	public array<name> IdenticalIgnoreProperties;
 	
 	public ParticleModule()

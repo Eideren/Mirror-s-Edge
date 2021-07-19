@@ -6,12 +6,12 @@ public partial class UIDataProvider_SettingsArray : UIDataProvider,
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementProvider;
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementCellProvider;
 	public Settings Settings;
 	public int SettingsId;
 	public name SettingsName;
-	public /*const */String ColumnHeaderText;
+	[Const] public String ColumnHeaderText;
 	public array<Settings.IdToStringMapping> Values;
 	
 	public UIDataProvider_SettingsArray()

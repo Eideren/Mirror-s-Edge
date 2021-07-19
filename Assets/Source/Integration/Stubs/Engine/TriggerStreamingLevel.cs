@@ -6,10 +6,10 @@ public partial class TriggerStreamingLevel : Trigger/*
 		hidecategories(Navigation)*/{
 	public partial struct LevelStreamingData
 	{
-		public/*()*/ bool bShouldBeLoaded;
-		public/*()*/ bool bShouldBeVisible;
-		public/*()*/ bool bShouldBlockOnLoad;
-		public/*()*/ LevelStreaming Level;
+		[Category] public bool bShouldBeLoaded;
+		[Category] public bool bShouldBeVisible;
+		[Category] public bool bShouldBlockOnLoad;
+		[Category] public LevelStreaming Level;
 	
 	//	structdefaultproperties
 	//	{
@@ -21,7 +21,7 @@ public partial class TriggerStreamingLevel : Trigger/*
 	//	}
 	};
 	
-	public/*()*/ /*editinline */array</*editinline */TriggerStreamingLevel.LevelStreamingData> Levels;
+	[Category] [editinline] public array</*editinline */TriggerStreamingLevel.LevelStreamingData> Levels;
 	
 	public override Touch_del Touch { get => bfield_Touch ?? TriggerStreamingLevel_Touch; set => bfield_Touch = value; } Touch_del bfield_Touch;
 	public override Touch_del global_Touch => TriggerStreamingLevel_Touch;

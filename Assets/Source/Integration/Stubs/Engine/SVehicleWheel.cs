@@ -11,31 +11,31 @@ public partial class SVehicleWheel : Component/*
 		SIDE_MAX
 	};
 	
-	public/*()*/ float Steer;
-	public/*()*/ float MotorTorque;
-	public/*()*/ float BrakeTorque;
-	public/*()*/ float ChassisTorque;
-	public/*()*/ bool bPoweredWheel;
-	public/*()*/ bool bHoverWheel;
-	public/*()*/ bool bCollidesVehicles;
-	public/*()*/ bool bCollidesPawns;
+	[Category] public float Steer;
+	[Category] public float MotorTorque;
+	[Category] public float BrakeTorque;
+	[Category] public float ChassisTorque;
+	[Category] public bool bPoweredWheel;
+	[Category] public bool bHoverWheel;
+	[Category] public bool bCollidesVehicles;
+	[Category] public bool bCollidesPawns;
 	public bool bIsSquealing;
 	public bool bWheelOnGround;
-	public/*()*/ float SteerFactor;
-	public/*()*/ name SkelControlName;
+	[Category] public float SteerFactor;
+	[Category] public name SkelControlName;
 	public SkelControlWheel WheelControl;
-	public/*()*/ name BoneName;
-	public/*()*/ Object.Vector BoneOffset;
-	public/*()*/ float WheelRadius;
-	public/*()*/ float SuspensionTravel;
-	public/*()*/ float SuspensionSpeed;
-	public/*()*/ ParticleSystem WheelParticleSystem;
-	public/*()*/ SVehicleWheel.EWheelSide Side;
-	public/*()*/ float LongSlipFactor;
-	public/*()*/ float LatSlipFactor;
-	public/*()*/ float HandbrakeLongSlipFactor;
-	public/*()*/ float HandbrakeLatSlipFactor;
-	public/*()*/ float ParkedSlipFactor;
+	[Category] public name BoneName;
+	[Category] public Object.Vector BoneOffset;
+	[Category] public float WheelRadius;
+	[Category] public float SuspensionTravel;
+	[Category] public float SuspensionSpeed;
+	[Category] public ParticleSystem WheelParticleSystem;
+	[Category] public SVehicleWheel.EWheelSide Side;
+	[Category] public float LongSlipFactor;
+	[Category] public float LatSlipFactor;
+	[Category] public float HandbrakeLongSlipFactor;
+	[Category] public float HandbrakeLatSlipFactor;
+	[Category] public float ParkedSlipFactor;
 	public Object.Vector WheelPosition;
 	public float SpinVel;
 	public float LongSlipRatio;
@@ -49,10 +49,10 @@ public partial class SVehicleWheel : Component/*
 	public float DesiredSuspensionPosition;
 	public float SuspensionPosition;
 	public float CurrentRotation;
-	public /*const transient */Object.Pointer WheelShape;
-	public /*const transient */int WheelMaterialIndex;
+	[Const, transient] public Object.Pointer WheelShape;
+	[Const, transient] public int WheelMaterialIndex;
 	public Core.ClassT<ParticleSystemComponent> WheelPSCClass;
-	public /*export editinline */ParticleSystemComponent WheelParticleComp;
+	[export, editinline] public ParticleSystemComponent WheelParticleComp;
 	public name SlipParticleParamName;
 	
 	public SVehicleWheel()

@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_CauseDamage : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ Core.ClassT<DamageType> DamageType;
-	public/*()*/ float Momentum;
-	public/*()*/ float DamageAmount;
+	[Category] public Core.ClassT<DamageType> DamageType;
+	[Category] public float Momentum;
+	[Category] public float DamageAmount;
 	public Actor Instigator;
 	
 	public SeqAct_CauseDamage()

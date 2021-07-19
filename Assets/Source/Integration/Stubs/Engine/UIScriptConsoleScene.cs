@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIScriptConsoleScene : UIScene/*
 		transient
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*export editinline */UILabel BufferText;
-	public /*export editinline */UIImage BufferBackground;
-	public /*export editinline */ScriptConsoleEntry CommandRegion;
+	[export, editinline] public UILabel BufferText;
+	[export, editinline] public UIImage BufferBackground;
+	[export, editinline] public ScriptConsoleEntry CommandRegion;
 	
 	public override /*event */void Initialized()
 	{

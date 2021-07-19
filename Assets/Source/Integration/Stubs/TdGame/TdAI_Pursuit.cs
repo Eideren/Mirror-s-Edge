@@ -39,10 +39,10 @@ public partial class TdAI_Pursuit : TdAIController/*
 	
 	public partial struct /*native */AttackDistance
 	{
-		public/*()*/ float MaxMeleeAttackRange;
-		public/*()*/ float MinMeleeAttackRange;
-		public/*()*/ float MeleeAttackMoveDist;
-		public/*()*/ float MinVelocity;
+		[Category] public float MaxMeleeAttackRange;
+		[Category] public float MinMeleeAttackRange;
+		[Category] public float MeleeAttackMoveDist;
+		[Category] public float MinVelocity;
 	
 	//	structdefaultproperties
 	//	{
@@ -56,9 +56,9 @@ public partial class TdAI_Pursuit : TdAIController/*
 	
 	public partial struct /*native */SAttackDelays
 	{
-		public/*()*/ float Easy;
-		public/*()*/ float Medium;
-		public/*()*/ float Hard;
+		[Category] public float Easy;
+		[Category] public float Medium;
+		[Category] public float Hard;
 	
 	//	structdefaultproperties
 	//	{
@@ -69,40 +69,40 @@ public partial class TdAI_Pursuit : TdAIController/*
 	//	}
 	};
 	
-	public /*protected */TdAI_Pursuit.EMeleeSubState MeleeSubState;
+	public/*protected*/ TdAI_Pursuit.EMeleeSubState MeleeSubState;
 	public TdAI_Pursuit.EPursuitMeleeAttackType PendingMeleeAttack;
-	public /*protected */TdAI_Pursuit.EPrepMoveType PrepMoveType;
-	public /*protected */TdAI_Pursuit.EPrepMoveType OldPrepMoveType;
-	public/*(Melee)*/ TdAI_Pursuit.EPursuitMeleeAttackType DebugMeleeAttack;
-	public/*(Melee)*/ TdAI_Pursuit.EPrepMoveType DebugPrepMove;
+	public/*protected*/ TdAI_Pursuit.EPrepMoveType PrepMoveType;
+	public/*protected*/ TdAI_Pursuit.EPrepMoveType OldPrepMoveType;
+	[Category("Melee")] public TdAI_Pursuit.EPursuitMeleeAttackType DebugMeleeAttack;
+	[Category("Melee")] public TdAI_Pursuit.EPrepMoveType DebugPrepMove;
 	public Object.Rotator tempRotator;
-	public /*protected */float MinMeleeAttackRange;
-	public /*protected */float MaxMeleeAttackRange;
-	public /*protected */float MeleeAttackMoveDist;
-	public /*protected */float MinVelocity;
-	public /*private */int HealthLastTick;
-	public /*private */int NrOfDodges;
-	public /*private */float TimeOfLastMeleeAttack;
-	public /*private */bool bIsDoingFinishingAttack;
-	public /*private */bool bUpdateMelee;
-	public /*private */float fAdvanceStartedTimeStamp;
-	public /*private */float fPursuitStartedTimeStamp;
-	public /*private */float WantDistanceTimeStamp;
-	public /*private */float PeneltyTimeStamp;
-	public /*protected */float PeneltyTime;
-	public /*private */NavigationPoint TaserSpot;
-	public /*private */float AquireTaserSpotTimeStamp;
-	public /*private */NavigationPoint TempNavigationPoint;
-	public /*private */float FirstTaserDelay;
-	public /*private */float TaserBurstLength;
-	public /*private */float BetweenTaserDelay;
-	public/*(Melee)*/ /*config */TdAI_Pursuit.AttackDistance JumpKickAttackDistance;
-	public/*(Melee)*/ /*config */TdAI_Pursuit.AttackDistance RunAttackDistance;
-	public/*(Melee)*/ /*config */TdAI_Pursuit.AttackDistance StandAttackDistance;
-	public/*(Melee)*/ /*config */TdAI_Pursuit.AttackDistance ShoveAttackDistance;
-	public/*(Melee)*/ /*config */TdAI_Pursuit.AttackDistance SlideAttackDistance;
-	public/*(Melee)*/ /*editinline */TdMove_PursuitMelee PursuitMeleeMove;
-	public/*(Melee)*/ /*config */TdAI_Pursuit.SAttackDelays AttackDelays;
+	public/*protected*/ float MinMeleeAttackRange;
+	public/*protected*/ float MaxMeleeAttackRange;
+	public/*protected*/ float MeleeAttackMoveDist;
+	public/*protected*/ float MinVelocity;
+	public/*private*/ int HealthLastTick;
+	public/*private*/ int NrOfDodges;
+	public/*private*/ float TimeOfLastMeleeAttack;
+	public/*private*/ bool bIsDoingFinishingAttack;
+	public/*private*/ bool bUpdateMelee;
+	public/*private*/ float fAdvanceStartedTimeStamp;
+	public/*private*/ float fPursuitStartedTimeStamp;
+	public/*private*/ float WantDistanceTimeStamp;
+	public/*private*/ float PeneltyTimeStamp;
+	public/*protected*/ float PeneltyTime;
+	public/*private*/ NavigationPoint TaserSpot;
+	public/*private*/ float AquireTaserSpotTimeStamp;
+	public/*private*/ NavigationPoint TempNavigationPoint;
+	public/*private*/ float FirstTaserDelay;
+	public/*private*/ float TaserBurstLength;
+	public/*private*/ float BetweenTaserDelay;
+	[Category("Melee")] [config] public TdAI_Pursuit.AttackDistance JumpKickAttackDistance;
+	[Category("Melee")] [config] public TdAI_Pursuit.AttackDistance RunAttackDistance;
+	[Category("Melee")] [config] public TdAI_Pursuit.AttackDistance StandAttackDistance;
+	[Category("Melee")] [config] public TdAI_Pursuit.AttackDistance ShoveAttackDistance;
+	[Category("Melee")] [config] public TdAI_Pursuit.AttackDistance SlideAttackDistance;
+	[Category("Melee")] [editinline] public TdMove_PursuitMelee PursuitMeleeMove;
+	[Category("Melee")] [config] public TdAI_Pursuit.SAttackDelays AttackDelays;
 	
 	public override /*function */void AddSpecialOutput(ref String Text)
 	{

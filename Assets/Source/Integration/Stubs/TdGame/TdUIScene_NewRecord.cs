@@ -4,15 +4,15 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_NewRecord : TdUIScene/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UILabel OldRecordName;
-	public /*transient */UILabel OldRecordTime;
-	public /*transient */UILabel NewRecordName;
-	public /*transient */UILabel NewRecordTime;
-	public /*transient */UILabel NewRecordDesc;
-	public /*transient */UIImage MapStar1;
-	public /*transient */UIImage MapStar2;
-	public /*transient */UIImage MapStar3;
-	public /*transient */OnlineSubsystem.UniqueNetId GamerCardId;
+	[transient] public UILabel OldRecordName;
+	[transient] public UILabel OldRecordTime;
+	[transient] public UILabel NewRecordName;
+	[transient] public UILabel NewRecordTime;
+	[transient] public UILabel NewRecordDesc;
+	[transient] public UIImage MapStar1;
+	[transient] public UIImage MapStar2;
+	[transient] public UIImage MapStar3;
+	[transient] public OnlineSubsystem.UniqueNetId GamerCardId;
 	
 	public override /*event */void PostInitialize()
 	{

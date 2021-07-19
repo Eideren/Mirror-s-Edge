@@ -18,21 +18,21 @@ public partial class Console : Interaction/* within GameViewportClient*//*
 	public ConsoleEntry LargeConsoleInput;
 	public Texture2D DefaultTexture_Black;
 	public Texture2D DefaultTexture_White;
-	public /*globalconfig */name ConsoleKey;
-	public /*globalconfig */name TypeKey;
-	public /*globalconfig */int MaxScrollbackSize;
+	[globalconfig] public name ConsoleKey;
+	[globalconfig] public name TypeKey;
+	[globalconfig] public int MaxScrollbackSize;
 	public array<String> Scrollback;
 	public int SBHead;
 	public int SBPos;
-	public /*config */int HistoryTop;
-	public /*config */int HistoryBot;
-	public /*config */int HistoryCur;
-	public /*config */StaticArray<String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String>/*[16]*/ History;
+	[config] public int HistoryTop;
+	[config] public int HistoryBot;
+	[config] public int HistoryCur;
+	[config] public StaticArray<String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String>/*[16]*/ History;
 	public String TypedStr;
 	public int TypedStrPos;
-	public /*transient */bool bCaptureKeyInput;
+	[transient] public bool bCaptureKeyInput;
 	public bool bCtrl;
-	public /*config */bool bEnableUI;
+	[config] public bool bEnableUI;
 	
 	public override /*function */void Initialized()
 	{

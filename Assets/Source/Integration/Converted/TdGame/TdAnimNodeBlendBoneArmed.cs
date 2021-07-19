@@ -11,7 +11,7 @@ public partial class TdAnimNodeBlendBoneArmed : AnimNodeBlendPerBone/*
 		ANT_MAX
 	};
 	
-	public/*()*/ TdAnimNodeBlendBoneArmed.ArmedNodeType ArmedType;
+	[Category] public TdAnimNodeBlendBoneArmed.ArmedNodeType ArmedType;
 	
 	public TdAnimNodeBlendBoneArmed()
 	{

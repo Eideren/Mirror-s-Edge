@@ -5,10 +5,10 @@ public partial class ParticleModuleKillBox : ParticleModuleKillBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Kill)*/ DistributionVector.RawDistributionVector LowerLeftCorner;
-	public/*(Kill)*/ DistributionVector.RawDistributionVector UpperRightCorner;
-	public/*(Kill)*/ bool bAbsolute;
-	public/*(Kill)*/ bool bKillInside;
+	[Category("Kill")] public DistributionVector.RawDistributionVector LowerLeftCorner;
+	[Category("Kill")] public DistributionVector.RawDistributionVector UpperRightCorner;
+	[Category("Kill")] public bool bAbsolute;
+	[Category("Kill")] public bool bKillInside;
 	
 	public ParticleModuleKillBox()
 	{

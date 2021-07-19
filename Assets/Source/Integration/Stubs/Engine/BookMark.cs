@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class BookMark : Object/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ Object.Vector Location;
-	public/*()*/ Object.Rotator Rotation;
+	[Category] public Object.Vector Location;
+	[Category] public Object.Rotator Rotation;
 	
 }
 }

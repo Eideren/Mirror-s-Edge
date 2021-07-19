@@ -11,17 +11,17 @@ public partial class TdMovementVolume : PhysicsVolume/*
 	public Object.Vector MoveDirection;
 	public Object.Vector Start;
 	public Object.Vector End;
-	public /*private */Object.Vector Middle;
+	public/*private*/ Object.Vector Middle;
 	public Object.Vector Center;
-	public/*()*/ bool bAutoPath;
-	public/*()*/ /*noimport transient */bool bHideSplineMarkers;
-	public/*()*/ bool bAllowSplineControl;
+	[Category] public bool bAutoPath;
+	[Category] [noimport, transient] public bool bHideSplineMarkers;
+	[Category] public bool bAllowSplineControl;
 	public bool bLatent;
-	public /*private noimport const transient */array<TdMovementSplineMarker> SplineMarkers;
-	public/*()*/ int NumSplineSegments;
-	public /*private editoronly */Object.Vector OldScale;
-	public /*private editoronly */Object.Vector OldLocation;
-	public /*private editoronly */Object.Rotator OldRotation;
+	[noimport, Const, transient] public/*private*/ array<TdMovementSplineMarker> SplineMarkers;
+	[Category] public int NumSplineSegments;
+	[editoronly] public/*private*/ Object.Vector OldScale;
+	[editoronly] public/*private*/ Object.Vector OldLocation;
+	[editoronly] public/*private*/ Object.Rotator OldRotation;
 	public float SplineLength;
 	public array<Object.Vector> SplineLocations;
 	

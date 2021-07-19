@@ -4,12 +4,12 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class TextureRenderTarget2D : TextureRenderTarget/*
 		native
 		hidecategories(Object,Texture)*/{
-	public/*()*/ /*const */int SizeX;
-	public/*()*/ /*const */int SizeY;
-	public /*const */Texture.EPixelFormat Format;
-	public/*()*/ Texture.TextureAddress AddressX;
-	public/*()*/ Texture.TextureAddress AddressY;
-	public /*const */Object.LinearColor ClearColor;
+	[Category] [Const] public int SizeX;
+	[Category] [Const] public int SizeY;
+	[Const] public Texture.EPixelFormat Format;
+	[Category] public Texture.TextureAddress AddressX;
+	[Category] public Texture.TextureAddress AddressY;
+	[Const] public Object.LinearColor ClearColor;
 	
 	// Export UTextureRenderTarget2D::execCreate(FFrame&, void* const)
 	public /*native final function */static TextureRenderTarget2D Create(int InSizeX, int InSizeY, /*optional */Texture.EPixelFormat? _InFormat = default, /*optional */Object.LinearColor? _InClearColor = default, /*optional */bool? _bOnlyRenderOnce = default)

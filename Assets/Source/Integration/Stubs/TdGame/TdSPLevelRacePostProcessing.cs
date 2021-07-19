@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdSPLevelRacePostProcessing : TdSPPostProcessingBase/* within TdSPLevelRace*/{
 	public new TdSPLevelRace Outer => base.Outer as TdSPLevelRace;
 	
-	public /*private */float QualifyingTime;
+	public/*private*/ float QualifyingTime;
 	
 	public override /*function */void ProcessRace(TdTTInput RaceInput, int InStretchId, /*delegate*/TdSPPostProcessingBase.OnPostProcessDone PostProcessDone)
 	{

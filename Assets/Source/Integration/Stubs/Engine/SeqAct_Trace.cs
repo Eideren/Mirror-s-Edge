@@ -4,13 +4,13 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_Trace : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bTraceActors;
-	public/*()*/ bool bTraceWorld;
-	public/*()*/ Object.Vector TraceExtent;
-	public/*()*/ Object.Vector StartOffset;
-	public/*()*/ Object.Vector EndOffset;
-	public/*()*/ /*editconst */Object HitObject;
-	public/*()*/ /*editconst */float Distance;
+	[Category] public bool bTraceActors;
+	[Category] public bool bTraceWorld;
+	[Category] public Object.Vector TraceExtent;
+	[Category] public Object.Vector StartOffset;
+	[Category] public Object.Vector EndOffset;
+	[Category] [editconst] public Object HitObject;
+	[Category] [editconst] public float Distance;
 	
 	public SeqAct_Trace()
 	{

@@ -7,12 +7,12 @@ public partial class DistributionVectorParameterBase : DistributionVectorConstan
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ name ParameterName;
-	public/*()*/ Object.Vector MinInput;
-	public/*()*/ Object.Vector MaxInput;
-	public/*()*/ Object.Vector MinOutput;
-	public/*()*/ Object.Vector MaxOutput;
-	public/*()*/ /*export */StaticArray<DistributionFloatParameterBase.DistributionParamMode, DistributionFloatParameterBase.DistributionParamMode, DistributionFloatParameterBase.DistributionParamMode>/*[3]*/ ParamModes;
+	[Category] public name ParameterName;
+	[Category] public Object.Vector MinInput;
+	[Category] public Object.Vector MaxInput;
+	[Category] public Object.Vector MinOutput;
+	[Category] public Object.Vector MaxOutput;
+	[Category] [export] public StaticArray<DistributionFloatParameterBase.DistributionParamMode, DistributionFloatParameterBase.DistributionParamMode, DistributionFloatParameterBase.DistributionParamMode>/*[3]*/ ParamModes;
 	
 	public DistributionVectorParameterBase()
 	{

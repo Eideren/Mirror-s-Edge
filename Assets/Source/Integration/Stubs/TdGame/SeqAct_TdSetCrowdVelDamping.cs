@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdSetCrowdVelDamping : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float MinDamping;
-	public/*()*/ float MaxDamping;
+	[Category] public float MinDamping;
+	[Category] public float MaxDamping;
 	
 	public SeqAct_TdSetCrowdVelDamping()
 	{

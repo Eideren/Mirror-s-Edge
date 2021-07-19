@@ -6,8 +6,8 @@ public partial class UIComp_Event : UIComponent/* within UIScreenObject*//*
 	public new UIScreenObject Outer => base.Outer as UIScreenObject;
 	
 	public array<UIRoot.DefaultEventSpecification> DefaultEvents;
-	public /*export editinline */UISequence EventContainer;
-	public /*transient */UIEvent_ProcessInput InputProcessor;
+	[export, editinline] public UISequence EventContainer;
+	[transient] public UIEvent_ProcessInput InputProcessor;
 	public array<name> DisabledEventAliases;
 	
 	// Export UUIComp_Event::execRegisterInputEvents(FFrame&, void* const)

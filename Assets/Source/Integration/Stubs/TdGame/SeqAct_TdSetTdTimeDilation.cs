@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdSetTdTimeDilation : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float DesiredTimeDilation;
+	[Category] public float DesiredTimeDilation;
 	
 	public SeqAct_TdSetTdTimeDilation()
 	{

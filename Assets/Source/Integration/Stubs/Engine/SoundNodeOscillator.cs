@@ -6,12 +6,12 @@ public partial class SoundNodeOscillator : SoundNode/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ DistributionFloat.RawDistributionFloat Amplitude;
-	public/*()*/ DistributionFloat.RawDistributionFloat Frequency;
-	public/*()*/ DistributionFloat.RawDistributionFloat Offset;
-	public/*()*/ DistributionFloat.RawDistributionFloat Center;
-	public/*()*/ bool bModulatePitch;
-	public/*()*/ bool bModulateVolume;
+	[Category] public DistributionFloat.RawDistributionFloat Amplitude;
+	[Category] public DistributionFloat.RawDistributionFloat Frequency;
+	[Category] public DistributionFloat.RawDistributionFloat Offset;
+	[Category] public DistributionFloat.RawDistributionFloat Center;
+	[Category] public bool bModulatePitch;
+	[Category] public bool bModulateVolume;
 	
 	public SoundNodeOscillator()
 	{

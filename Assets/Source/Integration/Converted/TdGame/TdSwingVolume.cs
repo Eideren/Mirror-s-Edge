@@ -5,8 +5,8 @@ public partial class TdSwingVolume : TdMovementVolume/*
 		native
 		placeable
 		hidecategories(Navigation,Object,Movement,Display,AI,Interaction,PhysicsVolume,Volume)*/{
-	public/*()*/ bool bSnapToCenter;
-	public/*()*/ bool bThickGrip;
+	[Category] public bool bSnapToCenter;
+	[Category] public bool bThickGrip;
 	
 	public override /*simulated function */void PawnUpdate(TdPawn TdP)
 	{

@@ -7,11 +7,11 @@ public partial class AnimNodeBlendMultiBone : AnimNodeBlendBase/*
 	public partial struct /*native */ChildBoneBlendInfo
 	{
 		public array<float> TargetPerBoneWeight;
-		public/*()*/ name InitTargetStartBone;
-		public/*()*/ float InitPerBoneIncrease;
-		public /*const */name OldStartBone;
-		public /*const */float OldBoneIncrease;
-		public /*transient */array<byte> TargetRequiredBones;
+		[Category] public name InitTargetStartBone;
+		[Category] public float InitPerBoneIncrease;
+		[Const] public name OldStartBone;
+		[Const] public float OldBoneIncrease;
+		[transient] public array<byte> TargetRequiredBones;
 	
 	//	structdefaultproperties
 	//	{
@@ -25,8 +25,8 @@ public partial class AnimNodeBlendMultiBone : AnimNodeBlendBase/*
 	//	}
 	};
 	
-	public/*()*/ array<AnimNodeBlendMultiBone.ChildBoneBlendInfo> BlendTargetList;
-	public /*transient */array<byte> SourceRequiredBones;
+	[Category] public array<AnimNodeBlendMultiBone.ChildBoneBlendInfo> BlendTargetList;
+	[transient] public array<byte> SourceRequiredBones;
 	
 	// Export UAnimNodeBlendMultiBone::execSetTargetStartBone(FFrame&, void* const)
 	public virtual /*native final function */void SetTargetStartBone(int TargetIdx, name StartBoneName, /*optional */float? _PerBoneIncrease = default)

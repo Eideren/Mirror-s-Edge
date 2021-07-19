@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdPlayFullscreenMovie : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ String File;
+	[Category] public String File;
 	
 	public SeqAct_TdPlayFullscreenMovie()
 	{

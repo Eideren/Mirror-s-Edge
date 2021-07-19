@@ -3,12 +3,12 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_ToggleCinematicMode : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ bool bDisableMovement;
-	public/*()*/ bool bDisableTurning;
-	public/*()*/ bool bHidePlayer;
-	public/*()*/ bool bDisableInput;
-	public/*()*/ bool bHideHUD;
-	public/*()*/ bool bSwitchSoundMode;
+	[Category] public bool bDisableMovement;
+	[Category] public bool bDisableTurning;
+	[Category] public bool bHidePlayer;
+	[Category] public bool bDisableInput;
+	[Category] public bool bHideHUD;
+	[Category] public bool bSwitchSoundMode;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

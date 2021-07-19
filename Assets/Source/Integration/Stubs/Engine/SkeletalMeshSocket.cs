@@ -4,14 +4,14 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SkeletalMeshSocket : Object/*
 		native
 		hidecategories(Object,Actor)*/{
-	public/*()*/ /*const editconst */name SocketName;
-	public/*()*/ /*const editconst */name BoneName;
-	public/*()*/ Object.Vector RelativeLocation;
-	public/*()*/ Object.Rotator RelativeRotation;
-	public/*()*/ Object.Vector RelativeScale;
-	public/*()*/ /*editoronly */SkeletalMesh PreviewSkelMesh;
-	public/*()*/ /*const editconst export editinline transient */SkeletalMeshComponent PreviewSkelComp;
-	public/*()*/ /*editoronly */StaticMesh PreviewStaticMesh;
+	[Category] [Const, editconst] public name SocketName;
+	[Category] [Const, editconst] public name BoneName;
+	[Category] public Object.Vector RelativeLocation;
+	[Category] public Object.Rotator RelativeRotation;
+	[Category] public Object.Vector RelativeScale;
+	[Category] [editoronly] public SkeletalMesh PreviewSkelMesh;
+	[Category] [Const, editconst, export, editinline, transient] public SkeletalMeshComponent PreviewSkelComp;
+	[Category] [editoronly] public StaticMesh PreviewStaticMesh;
 	
 	public SkeletalMeshSocket()
 	{

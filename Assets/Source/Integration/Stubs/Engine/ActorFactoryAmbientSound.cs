@@ -7,7 +7,7 @@ public partial class ActorFactoryAmbientSound : ActorFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ SoundCue AmbientSoundCue;
+	[Category] public SoundCue AmbientSoundCue;
 	
 	public ActorFactoryAmbientSound()
 	{

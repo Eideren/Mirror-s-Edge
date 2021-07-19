@@ -5,16 +5,16 @@ public partial class TdUIScene_KeyMappings : TdUIScene_OptionMenu/*
 		native
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */TdUITabControl KeyBindsTabControl;
-	public /*transient */UIImage KeyBindsTab0BgImage;
-	public /*transient */UIImage KeyBindsTab0BgTopImage;
-	public /*transient */UIImage KeyBindsTab1BgImage;
-	public /*transient */UIImage KeyBindsTab1BgTopImage;
-	public /*transient */UIObject KeyBindButton_MoveForward;
-	public /*transient */UIObject KeyBindButton_Fire;
-	public /*transient */TdKeyBindingHandler KeyBindingHandler;
-	public /*transient */array<TdKeyBindingHandler.KeyBindWidgetData> KeyBindWidgets;
-	public /*private transient */bool bMouseSettingsChanged;
+	[transient] public TdUITabControl KeyBindsTabControl;
+	[transient] public UIImage KeyBindsTab0BgImage;
+	[transient] public UIImage KeyBindsTab0BgTopImage;
+	[transient] public UIImage KeyBindsTab1BgImage;
+	[transient] public UIImage KeyBindsTab1BgTopImage;
+	[transient] public UIObject KeyBindButton_MoveForward;
+	[transient] public UIObject KeyBindButton_Fire;
+	[transient] public TdKeyBindingHandler KeyBindingHandler;
+	[transient] public array<TdKeyBindingHandler.KeyBindWidgetData> KeyBindWidgets;
+	[transient] public/*private*/ bool bMouseSettingsChanged;
 	
 	// Export UTdUIScene_KeyMappings::execRebuildNavigationLinks(FFrame&, void* const)
 	public override /*native function */void RebuildNavigationLinks()

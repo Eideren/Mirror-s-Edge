@@ -9,10 +9,10 @@ public partial class UIStyle : UIRoot/* within UISkin*//*
 	
 	public UIRoot.STYLE_ID StyleID;
 	public name StyleTag;
-	public/*()*/ /*const localized */String StyleName;
-	public /*const */String StyleGroupName;
-	public /*const */Core.ClassT<UIStyle_Data> StyleDataClass;
-	public /*native const transient *//*map<0,0>*/map<object, object> StateDataMap;
+	[Category] [Const, localized] public String StyleName;
+	[Const] public String StyleGroupName;
+	[Const] public Core.ClassT<UIStyle_Data> StyleDataClass;
+	[native, Const, transient] public /*map<0,0>*/map<object, object> StateDataMap;
 	
 	// Export UUIStyle::execGetStyleForState(FFrame&, void* const)
 	public virtual /*native final function */UIStyle_Data GetStyleForState(UIState StateObject)

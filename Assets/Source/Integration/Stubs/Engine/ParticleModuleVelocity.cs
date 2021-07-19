@@ -5,8 +5,8 @@ public partial class ParticleModuleVelocity : ParticleModuleVelocityBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Velocity)*/ DistributionVector.RawDistributionVector StartVelocity;
-	public/*(Velocity)*/ DistributionFloat.RawDistributionFloat StartVelocityRadial;
+	[Category("Velocity")] public DistributionVector.RawDistributionVector StartVelocity;
+	[Category("Velocity")] public DistributionFloat.RawDistributionFloat StartVelocityRadial;
 	
 	public ParticleModuleVelocity()
 	{

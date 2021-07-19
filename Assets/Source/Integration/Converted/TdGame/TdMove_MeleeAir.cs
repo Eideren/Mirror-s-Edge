@@ -15,9 +15,9 @@ public partial class TdMove_MeleeAir : TdMove_MeleeBase/*
 	public Object.Vector ImpactMomentum;
 	public Object.Rotator LookAtAngle;
 	public bool bHasRecievedLandedEvent;
-	public /*config */float MeleeAirAboveMinAngle;
-	public /*config */float MeleeAirAboveMinSeparation;
-	public /*config */float MeleeAirAboveMaxSeparation;
+	[config] public float MeleeAirAboveMinAngle;
+	[config] public float MeleeAirAboveMinSeparation;
+	[config] public float MeleeAirAboveMaxSeparation;
 	
 	public override /*function */bool CanDoMove()
 	{

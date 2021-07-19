@@ -26,7 +26,7 @@ public partial class CurveEdPresetCurve : Object/*
 	//	}
 	};
 	
-	public/*()*/ /*const localized */String CurveName;
+	[Category] [Const, localized] public String CurveName;
 	public array<CurveEdPresetCurve.PresetGeneratedPoint> Points;
 	
 }

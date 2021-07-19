@@ -5,13 +5,13 @@ public partial class TdPhysicalMaterialDecals : TdPhysicalMaterialBase/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ /*export editinline */array</*export editinline */DecalComponent> Heavy_Weapon_Impact;
-	public/*()*/ /*export editinline */array</*export editinline */DecalComponent> Heavy_Weapon_Ricochet;
-	public/*()*/ /*export editinline */array</*export editinline */DecalComponent> Light_Weapon_Impact;
-	public/*()*/ /*export editinline */array</*export editinline */DecalComponent> Light_Weapon_Ricochet;
-	public/*()*/ /*export editinline */array</*export editinline */DecalComponent> ShotGun_Impact;
-	public/*()*/ /*export editinline */array</*export editinline */DecalComponent> ShotGun_Ricochet;
-	public/*()*/ float CriticalAngle;
+	[Category] [export, editinline] public array</*export editinline */DecalComponent> Heavy_Weapon_Impact;
+	[Category] [export, editinline] public array</*export editinline */DecalComponent> Heavy_Weapon_Ricochet;
+	[Category] [export, editinline] public array</*export editinline */DecalComponent> Light_Weapon_Impact;
+	[Category] [export, editinline] public array</*export editinline */DecalComponent> Light_Weapon_Ricochet;
+	[Category] [export, editinline] public array</*export editinline */DecalComponent> ShotGun_Impact;
+	[Category] [export, editinline] public array</*export editinline */DecalComponent> ShotGun_Ricochet;
+	[Category] public float CriticalAngle;
 	
 	public TdPhysicalMaterialDecals()
 	{

@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_SetHeliSpeed : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ TdAI_HeliController.HeliSpeed Speed;
+	[Category] public TdAI_HeliController.HeliSpeed Speed;
 	
 	public SeqAct_SetHeliSpeed()
 	{

@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdHUDWidget_Health : TdHUDWidget/*
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*export editinline deprecated */UILabel healthLabel;
+	[export, editinline, deprecated] public UILabel healthLabel;
 	
 	public TdHUDWidget_Health()
 	{

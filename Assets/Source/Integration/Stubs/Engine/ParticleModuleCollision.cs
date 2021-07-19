@@ -5,18 +5,18 @@ public partial class ParticleModuleCollision : ParticleModuleCollisionBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Collision)*/ DistributionVector.RawDistributionVector DampingFactor;
-	public/*(Collision)*/ DistributionVector.RawDistributionVector DampingFactorRotation;
-	public/*(Collision)*/ DistributionFloat.RawDistributionFloat MaxCollisions;
-	public/*(Collision)*/ ParticleModuleCollisionBase.EParticleCollisionComplete CollisionCompletionOption;
-	public/*(Collision)*/ bool bApplyPhysics;
-	public/*(Collision)*/ bool bPawnsDoNotDecrementCount;
-	public/*(Collision)*/ bool bOnlyVerticalNormalsDecrementCount;
-	public/*(Performance)*/ bool bDropDetail;
-	public/*(Collision)*/ DistributionFloat.RawDistributionFloat ParticleMass;
-	public/*(Collision)*/ float DirScalar;
-	public/*(Collision)*/ float VerticalFudgeFactor;
-	public/*(Collision)*/ DistributionFloat.RawDistributionFloat DelayAmount;
+	[Category("Collision")] public DistributionVector.RawDistributionVector DampingFactor;
+	[Category("Collision")] public DistributionVector.RawDistributionVector DampingFactorRotation;
+	[Category("Collision")] public DistributionFloat.RawDistributionFloat MaxCollisions;
+	[Category("Collision")] public ParticleModuleCollisionBase.EParticleCollisionComplete CollisionCompletionOption;
+	[Category("Collision")] public bool bApplyPhysics;
+	[Category("Collision")] public bool bPawnsDoNotDecrementCount;
+	[Category("Collision")] public bool bOnlyVerticalNormalsDecrementCount;
+	[Category("Performance")] public bool bDropDetail;
+	[Category("Collision")] public DistributionFloat.RawDistributionFloat ParticleMass;
+	[Category("Collision")] public float DirScalar;
+	[Category("Collision")] public float VerticalFudgeFactor;
+	[Category("Collision")] public DistributionFloat.RawDistributionFloat DelayAmount;
 	
 	public ParticleModuleCollision()
 	{

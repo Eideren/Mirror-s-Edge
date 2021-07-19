@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqVar_MusicTrack : SeqVar_Object/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ MusicTrackDataStructures.MusicTrackStruct MusicTrack;
+	[Category] public MusicTrackDataStructures.MusicTrackStruct MusicTrack;
 	
 	public SeqVar_MusicTrack()
 	{

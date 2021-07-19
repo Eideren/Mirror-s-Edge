@@ -5,7 +5,7 @@ public partial class ParticleModuleLocation : ParticleModuleLocationBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Location)*/ DistributionVector.RawDistributionVector StartLocation;
+	[Category("Location")] public DistributionVector.RawDistributionVector StartLocation;
 	
 	public ParticleModuleLocation()
 	{

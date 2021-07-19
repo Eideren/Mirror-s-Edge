@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_ActivateRemoteEvent : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ Actor Instigator;
-	public/*()*/ name EventName;
-	public /*transient */bool bStatusIsOk;
+	[Category] public Actor Instigator;
+	[Category] public name EventName;
+	[transient] public bool bStatusIsOk;
 	
 	public SeqAct_ActivateRemoteEvent()
 	{

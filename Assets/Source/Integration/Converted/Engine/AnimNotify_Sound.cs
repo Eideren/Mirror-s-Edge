@@ -6,9 +6,9 @@ public partial class AnimNotify_Sound : AnimNotify/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ SoundCue SoundCue;
-	public/*()*/ bool bFollowActor;
-	public/*()*/ name BoneName;
+	[Category] public SoundCue SoundCue;
+	[Category] public bool bFollowActor;
+	[Category] public name BoneName;
 	
 	public AnimNotify_Sound()
 	{

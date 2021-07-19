@@ -5,17 +5,17 @@ public partial class ParticleModuleBeamTarget : ParticleModuleBeamBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Target)*/ ParticleModuleBeamBase.Beam2SourceTargetMethod TargetMethod;
-	public/*(Target)*/ ParticleModuleBeamBase.Beam2SourceTargetTangentMethod TargetTangentMethod;
-	public/*(Target)*/ name TargetName;
-	public/*(Target)*/ DistributionVector.RawDistributionVector Target;
-	public/*(Target)*/ bool bTargetAbsolute;
-	public/*(Target)*/ bool bLockTarget;
-	public/*(Target)*/ bool bLockTargetTangent;
-	public/*(Target)*/ bool bLockTargetStength;
-	public/*(Target)*/ DistributionVector.RawDistributionVector TargetTangent;
-	public/*(Target)*/ DistributionFloat.RawDistributionFloat TargetStrength;
-	public/*(Target)*/ float LockRadius;
+	[Category("Target")] public ParticleModuleBeamBase.Beam2SourceTargetMethod TargetMethod;
+	[Category("Target")] public ParticleModuleBeamBase.Beam2SourceTargetTangentMethod TargetTangentMethod;
+	[Category("Target")] public name TargetName;
+	[Category("Target")] public DistributionVector.RawDistributionVector Target;
+	[Category("Target")] public bool bTargetAbsolute;
+	[Category("Target")] public bool bLockTarget;
+	[Category("Target")] public bool bLockTargetTangent;
+	[Category("Target")] public bool bLockTargetStength;
+	[Category("Target")] public DistributionVector.RawDistributionVector TargetTangent;
+	[Category("Target")] public DistributionFloat.RawDistributionFloat TargetStrength;
+	[Category("Target")] public float LockRadius;
 	
 	public ParticleModuleBeamTarget()
 	{

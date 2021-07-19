@@ -6,15 +6,15 @@ public partial class ParticleModuleUberRainSplashB : ParticleModuleUberBase/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object,Object)*/{
-	public/*(Lifetime)*/ DistributionFloat.RawDistributionFloat Lifetime;
-	public/*(Size)*/ DistributionVector.RawDistributionVector StartSize;
-	public/*(Color)*/ DistributionVector.RawDistributionVector ColorOverLife;
-	public/*(Color)*/ DistributionFloat.RawDistributionFloat AlphaOverLife;
-	public/*(Size)*/ DistributionVector.RawDistributionVector LifeMultiplier;
-	public/*(Size)*/ bool MultiplyX;
-	public/*(Size)*/ bool MultiplyY;
-	public/*(Size)*/ bool MultiplyZ;
-	public/*(Rotation)*/ DistributionFloat.RawDistributionFloat StartRotationRate;
+	[Category("Lifetime")] public DistributionFloat.RawDistributionFloat Lifetime;
+	[Category("Size")] public DistributionVector.RawDistributionVector StartSize;
+	[Category("Color")] public DistributionVector.RawDistributionVector ColorOverLife;
+	[Category("Color")] public DistributionFloat.RawDistributionFloat AlphaOverLife;
+	[Category("Size")] public DistributionVector.RawDistributionVector LifeMultiplier;
+	[Category("Size")] public bool MultiplyX;
+	[Category("Size")] public bool MultiplyY;
+	[Category("Size")] public bool MultiplyZ;
+	[Category("Rotation")] public DistributionFloat.RawDistributionFloat StartRotationRate;
 	
 	public ParticleModuleUberRainSplashB()
 	{

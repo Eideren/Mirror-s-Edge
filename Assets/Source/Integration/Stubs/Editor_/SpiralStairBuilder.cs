@@ -3,16 +3,16 @@ using Core; using Engine; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SpiralStairBuilder : BrushBuilder/*
 		hidecategories(Object,BrushBuilder)*/{
-	public/*()*/ int InnerRadius;
-	public/*()*/ int StepWidth;
-	public/*()*/ int StepHeight;
-	public/*()*/ int StepThickness;
-	public/*()*/ int NumStepsPer360;
-	public/*()*/ int NumSteps;
-	public/*()*/ name GroupName;
-	public/*()*/ bool SlopedCeiling;
-	public/*()*/ bool SlopedFloor;
-	public/*()*/ bool CounterClockwise;
+	[Category] public int InnerRadius;
+	[Category] public int StepWidth;
+	[Category] public int StepHeight;
+	[Category] public int StepThickness;
+	[Category] public int NumStepsPer360;
+	[Category] public int NumSteps;
+	[Category] public name GroupName;
+	[Category] public bool SlopedCeiling;
+	[Category] public bool SlopedFloor;
+	[Category] public bool CounterClockwise;
 	
 	public virtual /*function */void BuildCurvedStair(int Direction)
 	{

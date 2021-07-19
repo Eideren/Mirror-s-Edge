@@ -6,8 +6,8 @@ public partial class UIDataStore_TdStringAliasMap : UIDataStore_StringAliasMap/*
 		native
 		config(Game)
 		hidecategories(Object,UIRoot)*/{
-	public /*config */int FakePlatform;
-	public /*transient */bool bControllerConnected;
+	[config] public int FakePlatform;
+	[transient] public bool bControllerConnected;
 	
 	// Export UUIDataStore_TdStringAliasMap::execGetStringWithFieldName(FFrame&, void* const)
 	public override /*native function */int GetStringWithFieldName(String FieldName, ref String MappedString)

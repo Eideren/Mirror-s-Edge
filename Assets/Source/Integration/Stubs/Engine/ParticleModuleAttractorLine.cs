@@ -5,10 +5,10 @@ public partial class ParticleModuleAttractorLine : ParticleModuleAttractorBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Attractor)*/ Object.Vector EndPoint0;
-	public/*(Attractor)*/ Object.Vector EndPoint1;
-	public/*(Attractor)*/ DistributionFloat.RawDistributionFloat Range;
-	public/*(Attractor)*/ DistributionFloat.RawDistributionFloat Strength;
+	[Category("Attractor")] public Object.Vector EndPoint0;
+	[Category("Attractor")] public Object.Vector EndPoint1;
+	[Category("Attractor")] public DistributionFloat.RawDistributionFloat Range;
+	[Category("Attractor")] public DistributionFloat.RawDistributionFloat Strength;
 	
 	public ParticleModuleAttractorLine()
 	{

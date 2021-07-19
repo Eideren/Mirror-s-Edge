@@ -27,28 +27,28 @@ public partial class SeqAct_Interp : SeqAct_Latent/*
 	//	}
 	};
 	
-	public /*private noimport editoronly native const transient *//*map<0,0>*/map<object, object> SavedActorTransforms;
-	public/*()*/ float PlayRate;
+	[noimport, editoronly, native, Const, transient] public/*private*/ /*map<0,0>*/map<object, object> SavedActorTransforms;
+	[Category] public float PlayRate;
 	public float Position;
-	public/*()*/ float ForceStartPosition;
+	[Category] public float ForceStartPosition;
 	public bool bIsPlaying;
 	public bool bPaused;
-	public /*transient */bool bIsBeingEdited;
-	public/*()*/ bool bLooping;
-	public/*()*/ bool bRewindOnPlay;
-	public/*()*/ bool bNoResetOnRewind;
-	public/*()*/ bool bRewindIfAlreadyPlaying;
+	[transient] public bool bIsBeingEdited;
+	[Category] public bool bLooping;
+	[Category] public bool bRewindOnPlay;
+	[Category] public bool bNoResetOnRewind;
+	[Category] public bool bRewindIfAlreadyPlaying;
 	public bool bReversePlayback;
-	public/*()*/ bool bInterpForPathBuilding;
-	public/*()*/ bool bForceStartPos;
-	public/*()*/ bool bClientSideOnly;
-	public/*()*/ bool bSkipUpdateIfNotVisible;
-	public/*()*/ bool bIsSkippable;
-	public/*()*/ array<CoverLink> LinkedCover;
-	public /*export */InterpData InterpData;
+	[Category] public bool bInterpForPathBuilding;
+	[Category] public bool bForceStartPos;
+	[Category] public bool bClientSideOnly;
+	[Category] public bool bSkipUpdateIfNotVisible;
+	[Category] public bool bIsSkippable;
+	[Category] public array<CoverLink> LinkedCover;
+	[export] public InterpData InterpData;
 	public array<InterpGroupInst> GroupInst;
-	public /*const */Core.ClassT<MatineeActor> ReplicatedActorClass;
-	public /*const */MatineeActor ReplicatedActor;
+	[Const] public Core.ClassT<MatineeActor> ReplicatedActorClass;
+	[Const] public MatineeActor ReplicatedActor;
 	
 	// Export USeqAct_Interp::execSetPosition(FFrame&, void* const)
 	public virtual /*native final function */void SetPosition(float NewPosition, /*optional */bool? _bJump = default)

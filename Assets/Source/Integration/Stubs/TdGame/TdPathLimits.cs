@@ -5,9 +5,9 @@ public partial class TdPathLimits : Info/*
 		native
 		placeable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public/*(VolumeLimits)*/ Volume VolumeLimit;
-	public/*()*/ float LimitRadius;
-	public/*()*/ float LimitHeight;
+	[Category("VolumeLimits")] public Volume VolumeLimit;
+	[Category] public float LimitRadius;
+	[Category] public float LimitHeight;
 	public bool bEnabled;
 	
 	// Export UTdPathLimits::execContains(FFrame&, void* const)

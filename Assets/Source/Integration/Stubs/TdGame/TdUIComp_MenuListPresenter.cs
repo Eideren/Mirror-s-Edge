@@ -6,7 +6,7 @@ public partial class TdUIComp_MenuListPresenter : TdUIComp_ListPresenterBase/* w
 		hidecategories(Object)*/{
 	public new UIList Outer => base.Outer as UIList;
 	
-	public/*()*/ int CaptionHeight;
+	[Category] public int CaptionHeight;
 	
 	public override /*event */void DrawElement(Canvas Canvas, int ElementIndex, UIRoot.RenderParameters Parameters, bool bElementIsSelected)
 	{

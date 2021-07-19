@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqCond_CompareInt : SequenceCondition/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ int ValueA;
-	public/*()*/ int ValueB;
+	[Category] public int ValueA;
+	[Category] public int ValueB;
 	
 	public SeqCond_CompareInt()
 	{

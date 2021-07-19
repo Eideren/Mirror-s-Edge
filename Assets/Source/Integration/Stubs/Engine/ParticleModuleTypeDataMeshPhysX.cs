@@ -17,11 +17,11 @@ public partial class ParticleModuleTypeDataMeshPhysX : ParticleModuleTypeDataMes
 		PMRM_MAX
 	};
 	
-	public/*(PhysXEmitter)*/ PhysXParticleSystem PhysXParSys;
-	public/*(PhysXEmitter)*/ ParticleModuleTypeDataMeshPhysX.EPhysXMeshRotationMethod PhysXRotationMethod;
-	public/*(PhysXEmitter)*/ float FluidRotationCoefficient;
-	public /*native */Object.Pointer RenderInstance;
-	public/*(PhysXEmitter)*/ ParticleModuleTypeDataPhysX.PhysXEmitterVerticalLodProperties VerticalLod;
+	[Category("PhysXEmitter")] public PhysXParticleSystem PhysXParSys;
+	[Category("PhysXEmitter")] public ParticleModuleTypeDataMeshPhysX.EPhysXMeshRotationMethod PhysXRotationMethod;
+	[Category("PhysXEmitter")] public float FluidRotationCoefficient;
+	[native] public Object.Pointer RenderInstance;
+	[Category("PhysXEmitter")] public ParticleModuleTypeDataPhysX.PhysXEmitterVerticalLodProperties VerticalLod;
 	
 	public ParticleModuleTypeDataMeshPhysX()
 	{

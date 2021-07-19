@@ -5,7 +5,7 @@ public partial class UIDataStore_Strings : UIDataStore/*
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*transient */array<UIConfigFileProvider> LocFileProviders;
+	[transient] public array<UIConfigFileProvider> LocFileProviders;
 	
 	public UIDataStore_Strings()
 	{

@@ -6,8 +6,8 @@ public partial class SeqVar_ObjectVolume : SeqVar_Object/*
 		hidecategories(Object)*/{
 	public float LastUpdateTime;
 	public array<Object> ContainedObjects;
-	public/*()*/ array< Class > ExcludeClassList;
-	public/*()*/ bool bCollidingOnly;
+	[Category] public array< Class > ExcludeClassList;
+	[Category] public bool bCollidingOnly;
 	
 	public SeqVar_ObjectVolume()
 	{

@@ -8,10 +8,10 @@ public partial class MaterialExpressionComponentMask : MaterialExpression/* with
 	public new Material Outer => base.Outer as Material;
 	
 	public MaterialExpression.ExpressionInput Input;
-	public/*()*/ bool R;
-	public/*()*/ bool G;
-	public/*()*/ bool B;
-	public/*()*/ bool A;
+	[Category] public bool R;
+	[Category] public bool G;
+	[Category] public bool B;
+	[Category] public bool A;
 	
 }
 }

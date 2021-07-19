@@ -11,7 +11,7 @@ public partial class UIAction_TdResetToDefault : UIAction/*
 		TDOG_MAX
 	};
 	
-	public/*()*/ UIAction_TdResetToDefault.ETdOptionGroup OptionGroup;
+	[Category] public UIAction_TdResetToDefault.ETdOptionGroup OptionGroup;
 	
 	public UIAction_TdResetToDefault()
 	{

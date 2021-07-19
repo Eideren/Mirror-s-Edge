@@ -4,35 +4,35 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class RB_ConstraintInstance : Object/*
 		native
 		hidecategories(Object)*/{
-	public /*const transient */Actor Owner;
-	public /*const export editinline transient */PrimitiveComponent OwnerComponent;
-	public /*const */int ConstraintIndex;
-	public /*native const */int SceneIndex;
-	public /*native const */bool bInHardware;
-	public/*(Linear)*/ /*const */bool bLinearXPositionDrive;
-	public/*(Linear)*/ /*const */bool bLinearXVelocityDrive;
-	public/*(Linear)*/ /*const */bool bLinearYPositionDrive;
-	public/*(Linear)*/ /*const */bool bLinearYVelocityDrive;
-	public/*(Linear)*/ /*const */bool bLinearZPositionDrive;
-	public/*(Linear)*/ /*const */bool bLinearZVelocityDrive;
-	public/*(Angular)*/ /*const */bool bSwingPositionDrive;
-	public/*(Angular)*/ /*const */bool bSwingVelocityDrive;
-	public/*(Angular)*/ /*const */bool bTwistPositionDrive;
-	public/*(Angular)*/ /*const */bool bTwistVelocityDrive;
-	public/*(Angular)*/ /*const */bool bAngularSlerpDrive;
+	[Const, transient] public Actor Owner;
+	[Const, export, editinline, transient] public PrimitiveComponent OwnerComponent;
+	[Const] public int ConstraintIndex;
+	[native, Const] public int SceneIndex;
+	[native, Const] public bool bInHardware;
+	[Category("Linear")] [Const] public bool bLinearXPositionDrive;
+	[Category("Linear")] [Const] public bool bLinearXVelocityDrive;
+	[Category("Linear")] [Const] public bool bLinearYPositionDrive;
+	[Category("Linear")] [Const] public bool bLinearYVelocityDrive;
+	[Category("Linear")] [Const] public bool bLinearZPositionDrive;
+	[Category("Linear")] [Const] public bool bLinearZVelocityDrive;
+	[Category("Angular")] [Const] public bool bSwingPositionDrive;
+	[Category("Angular")] [Const] public bool bSwingVelocityDrive;
+	[Category("Angular")] [Const] public bool bTwistPositionDrive;
+	[Category("Angular")] [Const] public bool bTwistVelocityDrive;
+	[Category("Angular")] [Const] public bool bAngularSlerpDrive;
 	public bool bTerminated;
-	public /*native const */Object.Pointer ConstraintData;
-	public/*(Linear)*/ /*const */Object.Vector LinearPositionTarget;
-	public/*(Linear)*/ /*const */Object.Vector LinearVelocityTarget;
-	public/*(Linear)*/ /*const */float LinearDriveSpring;
-	public/*(Linear)*/ /*const */float LinearDriveDamping;
-	public/*(Linear)*/ /*const */float LinearDriveForceLimit;
-	public/*(Angular)*/ /*const */Object.Quat AngularPositionTarget;
-	public/*(Angular)*/ /*const */Object.Vector AngularVelocityTarget;
-	public/*(Angular)*/ /*const */float AngularDriveSpring;
-	public/*(Angular)*/ /*const */float AngularDriveDamping;
-	public/*(Angular)*/ /*const */float AngularDriveForceLimit;
-	public /*private native const */Object.Pointer DummyKinActor;
+	[native, Const] public Object.Pointer ConstraintData;
+	[Category("Linear")] [Const] public Object.Vector LinearPositionTarget;
+	[Category("Linear")] [Const] public Object.Vector LinearVelocityTarget;
+	[Category("Linear")] [Const] public float LinearDriveSpring;
+	[Category("Linear")] [Const] public float LinearDriveDamping;
+	[Category("Linear")] [Const] public float LinearDriveForceLimit;
+	[Category("Angular")] [Const] public Object.Quat AngularPositionTarget;
+	[Category("Angular")] [Const] public Object.Vector AngularVelocityTarget;
+	[Category("Angular")] [Const] public float AngularDriveSpring;
+	[Category("Angular")] [Const] public float AngularDriveDamping;
+	[Category("Angular")] [Const] public float AngularDriveForceLimit;
+	[native, Const] public/*private*/ Object.Pointer DummyKinActor;
 	
 	// Export URB_ConstraintInstance::execInitConstraint(FFrame&, void* const)
 	public virtual /*native final function */void InitConstraint(PrimitiveComponent PrimComp1, PrimitiveComponent PrimComp2, RB_ConstraintSetup Setup, float Scale, Actor inOwner, PrimitiveComponent InPrimComp, bool bMakeKinForBody1)

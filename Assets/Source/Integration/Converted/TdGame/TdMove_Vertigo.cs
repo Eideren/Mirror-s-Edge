@@ -6,9 +6,9 @@ public partial class TdMove_Vertigo : TdPhysicsMove/*
 		config(PawnMovement)*/{
 	public Object.Vector LastVertigoEdgePosition;
 	public Object.Vector LastActualVertigoEdgePosition;
-	public /*config */float ZoomFOV;
-	public /*config */float ZoomRate;
-	public /*config */float ZoomOutTime;
+	[config] public float ZoomFOV;
+	[config] public float ZoomRate;
+	[config] public float ZoomOutTime;
 	
 	public override /*function */bool CanDoMove()
 	{

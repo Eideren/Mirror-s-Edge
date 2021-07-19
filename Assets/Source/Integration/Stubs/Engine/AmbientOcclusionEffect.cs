@@ -12,24 +12,24 @@ public partial class AmbientOcclusionEffect : PostProcessEffect/*
 		AO_MAX
 	};
 	
-	public/*(Color)*/ /*interp */Object.LinearColor OcclusionColor;
-	public/*(Color)*/ float OcclusionPower;
-	public/*(Color)*/ float OcclusionScale;
-	public/*(Color)*/ float OcclusionBias;
-	public/*(Color)*/ float MinOcclusion;
-	public/*(Occlusion)*/ float OcclusionRadius;
-	public/*(Occlusion)*/ float OcclusionAttenuation;
-	public/*(Occlusion)*/ float HaloDistanceThreshold;
-	public/*(Occlusion)*/ float HaloOcclusion;
-	public/*(Occlusion)*/ AmbientOcclusionEffect.EAmbientOcclusionQuality OcclusionQuality;
-	public/*(Occlusion)*/ float OcclusionFadeoutMinDistance;
-	public/*(Occlusion)*/ float OcclusionFadeoutMaxDistance;
-	public/*(Filter)*/ float EdgeDistanceThreshold;
-	public/*(Filter)*/ float EdgeDistanceScale;
-	public/*(Filter)*/ float FilterDistanceScale;
-	public/*(Filter)*/ int FilterSize;
-	public/*(History)*/ float HistoryDistanceThreshold;
-	public/*(History)*/ float HistoryConvergenceTime;
+	[Category("Color")] [interp] public Object.LinearColor OcclusionColor;
+	[Category("Color")] public float OcclusionPower;
+	[Category("Color")] public float OcclusionScale;
+	[Category("Color")] public float OcclusionBias;
+	[Category("Color")] public float MinOcclusion;
+	[Category("Occlusion")] public float OcclusionRadius;
+	[Category("Occlusion")] public float OcclusionAttenuation;
+	[Category("Occlusion")] public float HaloDistanceThreshold;
+	[Category("Occlusion")] public float HaloOcclusion;
+	[Category("Occlusion")] public AmbientOcclusionEffect.EAmbientOcclusionQuality OcclusionQuality;
+	[Category("Occlusion")] public float OcclusionFadeoutMinDistance;
+	[Category("Occlusion")] public float OcclusionFadeoutMaxDistance;
+	[Category("Filter")] public float EdgeDistanceThreshold;
+	[Category("Filter")] public float EdgeDistanceScale;
+	[Category("Filter")] public float FilterDistanceScale;
+	[Category("Filter")] public int FilterSize;
+	[Category("History")] public float HistoryDistanceThreshold;
+	[Category("History")] public float HistoryConvergenceTime;
 	
 	public AmbientOcclusionEffect()
 	{

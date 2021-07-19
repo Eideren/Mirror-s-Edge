@@ -6,14 +6,14 @@ public partial class ParticleModuleTypeDataTrail : ParticleModuleTypeDataBase/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object,Object)*/{
-	public/*(Trail)*/ bool RenderGeometry;
-	public/*(Trail)*/ bool RenderLines;
-	public/*(Trail)*/ bool RenderTessellation;
-	public/*(Trail)*/ bool Tapered;
-	public/*(Trail)*/ bool SpawnByDistance;
-	public/*(Trail)*/ int TessellationFactor;
-	public/*(Trail)*/ DistributionFloat.RawDistributionFloat Tension;
-	public/*(Trail)*/ Object.Vector SpawnDistance;
+	[Category("Trail")] public bool RenderGeometry;
+	[Category("Trail")] public bool RenderLines;
+	[Category("Trail")] public bool RenderTessellation;
+	[Category("Trail")] public bool Tapered;
+	[Category("Trail")] public bool SpawnByDistance;
+	[Category("Trail")] public int TessellationFactor;
+	[Category("Trail")] public DistributionFloat.RawDistributionFloat Tension;
+	[Category("Trail")] public Object.Vector SpawnDistance;
 	
 	public ParticleModuleTypeDataTrail()
 	{

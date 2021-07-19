@@ -3,9 +3,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class UIAction_ApplyScrolling : UIAction/*
 		hidecategories(Object)*/{
-	public/*()*/ UIRoot.EUIOrientation ScrollOrientation;
-	public/*()*/ bool bIncreaseScroll;
-	public/*()*/ bool bFullPage;
+	[Category] public UIRoot.EUIOrientation ScrollOrientation;
+	[Category] public bool bIncreaseScroll;
+	[Category] public bool bFullPage;
 	
 	public UIAction_ApplyScrolling()
 	{

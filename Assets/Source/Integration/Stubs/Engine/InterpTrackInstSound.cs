@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class InterpTrackInstSound : InterpTrackInst/*
 		native*/{
 	public float LastUpdatePosition;
-	public /*export editinline transient */AudioComponent PlayAudioComp;
+	[export, editinline, transient] public AudioComponent PlayAudioComp;
 	
 }
 }

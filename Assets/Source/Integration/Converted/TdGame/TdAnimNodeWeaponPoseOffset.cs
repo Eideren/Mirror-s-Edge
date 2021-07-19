@@ -6,14 +6,14 @@ public partial class TdAnimNodeWeaponPoseOffset : TdAnimNodePoseOffset/*
 		hidecategories(Object,Object)*/{
 	public partial struct /*native */WeaponPoseProfile
 	{
-		public/*()*/ name Name;
-		public/*()*/ bool Recursive;
-		public/*()*/ array<name> BoneNames;
-		public/*()*/ array<name> AdditionalBoneNames;
-		public/*()*/ name AnimationPoseName;
-		public/*()*/ AnimSet AnimationSet;
-		public/*()*/ AnimSet WeaponAnimationSet;
-		public/*()*/ SkeletalMesh SkeletalMeshReference;
+		[Category] public name Name;
+		[Category] public bool Recursive;
+		[Category] public array<name> BoneNames;
+		[Category] public array<name> AdditionalBoneNames;
+		[Category] public name AnimationPoseName;
+		[Category] public AnimSet AnimationSet;
+		[Category] public AnimSet WeaponAnimationSet;
+		[Category] public SkeletalMesh SkeletalMeshReference;
 	
 	//	structdefaultproperties
 	//	{
@@ -32,7 +32,7 @@ public partial class TdAnimNodeWeaponPoseOffset : TdAnimNodePoseOffset/*
 	//	}
 	};
 	
-	public/*(AnimationSettings)*/ /*editoronly */array<TdAnimNodeWeaponPoseOffset.WeaponPoseProfile> WeaponPoseProfiles;
+	[Category("AnimationSettings")] [editoronly] public array<TdAnimNodeWeaponPoseOffset.WeaponPoseProfile> WeaponPoseProfiles;
 	
 }
 }

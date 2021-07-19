@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SceneCapturePortalComponent : SceneCaptureComponent/*
 		native
 		hidecategories(Object)*/{
-	public/*(Capture)*/ /*const */TextureRenderTarget2D TextureTarget;
-	public/*(Capture)*/ /*const */float ScaleFOV;
-	public/*(Capture)*/ /*const */Actor ViewDestination;
+	[Category("Capture")] [Const] public TextureRenderTarget2D TextureTarget;
+	[Category("Capture")] [Const] public float ScaleFOV;
+	[Category("Capture")] [Const] public Actor ViewDestination;
 	
 	// Export USceneCapturePortalComponent::execSetCaptureParameters(FFrame&, void* const)
 	public virtual /*native final function */void SetCaptureParameters(/*optional */TextureRenderTarget2D _NewTextureTarget = default, /*optional */float? _NewScaleFOV = default, /*optional */Actor _NewViewDest = default)

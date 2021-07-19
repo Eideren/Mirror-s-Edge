@@ -5,8 +5,8 @@ public partial class TdInventoryManager : InventoryManager/*
 		config(Game)
 		notplaceable
 		hidecategories(Navigation)*/{
-	public/*(Inventory)*/ /*config */float WeaponPickupTime;
-	public /*transient */Inventory.EInventorySlot LastActiveGunSlot;
+	[Category("Inventory")] [config] public float WeaponPickupTime;
+	[transient] public Inventory.EInventorySlot LastActiveGunSlot;
 	
 	public virtual /*simulated function */void SwitchGun()
 	{

@@ -6,7 +6,7 @@ public partial class FogVolumeConstantDensityComponent : FogVolumeDensityCompone
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ /*interp */float Density;
+	[Category] [interp] public float Density;
 	
 	public FogVolumeConstantDensityComponent()
 	{

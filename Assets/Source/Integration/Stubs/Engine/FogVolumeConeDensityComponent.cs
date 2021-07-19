@@ -6,12 +6,12 @@ public partial class FogVolumeConeDensityComponent : FogVolumeDensityComponent/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ /*interp */float MaxDensity;
-	public/*()*/ /*interp */Object.Vector ConeVertex;
-	public/*()*/ /*interp */float ConeRadius;
-	public/*()*/ /*interp */Object.Vector ConeAxis;
-	public/*()*/ /*interp */float ConeMaxAngle;
-	public /*const export editinline */DrawLightConeComponent PreviewCone;
+	[Category] [interp] public float MaxDensity;
+	[Category] [interp] public Object.Vector ConeVertex;
+	[Category] [interp] public float ConeRadius;
+	[Category] [interp] public Object.Vector ConeAxis;
+	[Category] [interp] public float ConeMaxAngle;
+	[Const, export, editinline] public DrawLightConeComponent PreviewCone;
 	
 	public FogVolumeConeDensityComponent()
 	{

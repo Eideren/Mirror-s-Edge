@@ -7,7 +7,7 @@ public partial class UIResourceDataProvider : UIPropertyDataProvider,
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementCellProvider;
 	
 	public virtual /*event */bool IsProviderDisabled()
 	{

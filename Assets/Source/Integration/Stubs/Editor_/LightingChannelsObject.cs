@@ -4,7 +4,7 @@ using Core; using Engine; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class LightingChannelsObject : Object/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ /*const */LightComponent.LightingChannelContainer LightingChannels;
+	[Category] [Const] public LightComponent.LightingChannelContainer LightingChannels;
 	
 	public LightingChannelsObject()
 	{

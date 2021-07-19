@@ -5,8 +5,8 @@ public partial class TdCoverGroup : CoverGroup/*
 		native
 		placeable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public/*(CoverVolume)*/ TdCoverGroupVolume RestraintVolume;
-	public/*()*/ /*editconst */array</*editconst */Actor.NavReference> GeneratedCoverLinkRefs;
+	[Category("CoverVolume")] public TdCoverGroupVolume RestraintVolume;
+	[Category] [editconst] public array</*editconst */Actor.NavReference> GeneratedCoverLinkRefs;
 	
 	// Export UTdCoverGroup::execEnableGroup(FFrame&, void* const)
 	public override /*native function */void EnableGroup()

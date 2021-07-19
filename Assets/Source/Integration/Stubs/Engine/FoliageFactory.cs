@@ -7,19 +7,19 @@ public partial class FoliageFactory : Volume/*
 		hidecategories(Navigation,Object,Movement,Display)*/{
 	public partial struct /*native */FoliageMesh
 	{
-		public/*()*/ StaticMesh InstanceStaticMesh;
-		public/*()*/ MaterialInterface Material;
-		public/*()*/ float MaxDrawRadius;
-		public/*()*/ float MinTransitionRadius;
-		public/*()*/ Object.Vector MinScale;
-		public/*()*/ Object.Vector MaxScale;
-		public/*()*/ float SwayScale;
-		public/*()*/ int Seed;
-		public/*()*/ float SurfaceAreaPerInstance;
-		public/*()*/ bool bCreateInstancesOnBSP;
-		public/*()*/ bool bCreateInstancesOnStaticMeshes;
-		public/*()*/ bool bCreateInstancesOnTerrain;
-		public /*export editinline */FoliageComponent Component;
+		[Category] public StaticMesh InstanceStaticMesh;
+		[Category] public MaterialInterface Material;
+		[Category] public float MaxDrawRadius;
+		[Category] public float MinTransitionRadius;
+		[Category] public Object.Vector MinScale;
+		[Category] public Object.Vector MaxScale;
+		[Category] public float SwayScale;
+		[Category] public int Seed;
+		[Category] public float SurfaceAreaPerInstance;
+		[Category] public bool bCreateInstancesOnBSP;
+		[Category] public bool bCreateInstancesOnStaticMeshes;
+		[Category] public bool bCreateInstancesOnTerrain;
+		[export, editinline] public FoliageComponent Component;
 	
 	//	structdefaultproperties
 	//	{
@@ -50,14 +50,14 @@ public partial class FoliageFactory : Volume/*
 	//	}
 	};
 	
-	public/*(Foliage)*/ /*const */array<FoliageFactory.FoliageMesh> Meshes;
-	public/*(Foliage)*/ /*const */float VolumeFalloffRadius;
-	public/*(Foliage)*/ /*const */float VolumeFalloffExponent;
-	public/*(Foliage)*/ /*const */float SurfaceDensityUpFacing;
-	public/*(Foliage)*/ /*const */float SurfaceDensityDownFacing;
-	public/*(Foliage)*/ /*const */float SurfaceDensitySideFacing;
-	public/*(Foliage)*/ /*const */float FacingFalloffExponent;
-	public/*(Foliage)*/ /*const */int MaxInstanceCount;
+	[Category("Foliage")] [Const] public array<FoliageFactory.FoliageMesh> Meshes;
+	[Category("Foliage")] [Const] public float VolumeFalloffRadius;
+	[Category("Foliage")] [Const] public float VolumeFalloffExponent;
+	[Category("Foliage")] [Const] public float SurfaceDensityUpFacing;
+	[Category("Foliage")] [Const] public float SurfaceDensityDownFacing;
+	[Category("Foliage")] [Const] public float SurfaceDensitySideFacing;
+	[Category("Foliage")] [Const] public float FacingFalloffExponent;
+	[Category("Foliage")] [Const] public int MaxInstanceCount;
 	
 	public FoliageFactory()
 	{

@@ -3,12 +3,12 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdPursuitLogic : Object, 
 		TdStashpointListener,TdCarriableListener{
-	public /*private transient */TdStashpointManager StashpointManager;
-	public /*private transient */TdMPTeamPursuitGame MyGameInfo;
-	public /*private transient */TdPursuitGRI MyGameReplicationInfo;
-	public /*private transient */TdCarriable BagHandler;
-	public /*transient */int ActiveStashpointID;
-	public /*private transient */Core.ClassT<TdLocalMessage> TdPursuitMessageClass;
+	[transient] public/*private*/ TdStashpointManager StashpointManager;
+	[transient] public/*private*/ TdMPTeamPursuitGame MyGameInfo;
+	[transient] public/*private*/ TdPursuitGRI MyGameReplicationInfo;
+	[transient] public/*private*/ TdCarriable BagHandler;
+	[transient] public int ActiveStashpointID;
+	[transient] public/*private*/ Core.ClassT<TdLocalMessage> TdPursuitMessageClass;
 	
 	public virtual /*function */Actor GetBagActor()
 	{

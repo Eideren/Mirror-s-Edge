@@ -7,12 +7,12 @@ public partial class UIDataProvider_TdTimeTrialStretch : UIDataProvider_TdStretc
 		config(Game)
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
-	public /*config */String ImageMarkup;
-	public /*config */float QualifyingTime;
-	public /*config */float Rating1Time;
-	public /*config */float Rating2Time;
-	public /*config */float Rating3Time;
-	public /*const config localized */String UnlockDesc;
+	[config] public String ImageMarkup;
+	[config] public float QualifyingTime;
+	[config] public float Rating1Time;
+	[config] public float Rating2Time;
+	[config] public float Rating3Time;
+	[Const, config, localized] public String UnlockDesc;
 	public String StretchFlags;
 	
 }

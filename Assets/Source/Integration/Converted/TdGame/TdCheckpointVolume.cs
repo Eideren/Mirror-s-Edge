@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdCheckpointVolume : Volume/*
 		placeable
 		hidecategories(Navigation,Object,Movement,Display)*/{
-	public /*transient */array<TdCheckpointVolumeListener> Listeners;
+	[transient] public array<TdCheckpointVolumeListener> Listeners;
 	
 	public virtual /*function */void AddListener(TdCheckpointVolumeListener InListener)
 	{

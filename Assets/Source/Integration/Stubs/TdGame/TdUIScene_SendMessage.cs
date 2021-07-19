@@ -4,9 +4,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_SendMessage : TdUIScene_SubMenu/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIEditBox PlayerNameEditBox;
-	public /*transient */String TargetPlayerName;
-	public /*transient */OnlineSubsystem.UniqueNetId TargetPlayerNetId;
+	[transient] public UIEditBox PlayerNameEditBox;
+	[transient] public String TargetPlayerName;
+	[transient] public OnlineSubsystem.UniqueNetId TargetPlayerNetId;
 	
 	public override /*event */void PostInitialize()
 	{

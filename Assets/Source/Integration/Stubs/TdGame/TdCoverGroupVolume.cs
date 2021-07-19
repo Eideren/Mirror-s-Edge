@@ -5,7 +5,7 @@ public partial class TdCoverGroupVolume : Volume/*
 		native
 		placeable
 		hidecategories(Navigation,Object,Movement,Display)*/{
-	public/*()*/ /*editconst */array</*editconst */TdCoverGroup> Owners;
+	[Category] [editconst] public array</*editconst */TdCoverGroup> Owners;
 	
 	public override /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{

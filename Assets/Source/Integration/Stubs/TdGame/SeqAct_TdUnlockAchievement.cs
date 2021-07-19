@@ -53,8 +53,8 @@ public partial class SeqAct_TdUnlockAchievement : SequenceAction/*
 		ETA_MAX
 	};
 	
-	public/*()*/ SeqAct_TdUnlockAchievement.ETdAchievements AchievementId;
-	public /*transient */TdPlayerController PlayerController;
+	[Category] public SeqAct_TdUnlockAchievement.ETdAchievements AchievementId;
+	[transient] public TdPlayerController PlayerController;
 	
 	public override /*event */void Activated()
 	{

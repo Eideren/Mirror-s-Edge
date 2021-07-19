@@ -3,10 +3,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdVehicleSimCar : SVehicleSimCar/*
 		native*/{
-	public/*()*/ Object.InterpCurveFloat TorqueVSpeedCurve;
-	public/*()*/ Object.InterpCurveFloat EngineRPMCurve;
-	public/*()*/ float LSDFactor;
-	public/*()*/ float ThrottleSpeed;
+	[Category] public Object.InterpCurveFloat TorqueVSpeedCurve;
+	[Category] public Object.InterpCurveFloat EngineRPMCurve;
+	[Category] public float LSDFactor;
+	[Category] public float ThrottleSpeed;
 	public float MinRPM;
 	public float MaxRPM;
 	public float ActualThrottle;

@@ -4,25 +4,25 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAITestScripts : Actor/*
 		notplaceable
 		hidecategories(Navigation)*/{
-	public /*private */TdAIController AIController;
-	public /*private */Object.Vector TargetLocation;
-	public /*private */Object.Vector PlayerLocation;
-	public /*private */int TestAngle;
-	public /*private */int AngleStep;
-	public /*private */int FocusAngle;
-	public /*private */int FocusAngleStep;
-	public /*private */float PauseTime;
-	public /*private */float LongPauseTime;
-	public /*private */int ActiveTestNr;
-	public /*private */int ActiveSubTestNr;
-	public /*private */bool bRunAllTests;
-	public /*private */bool bHasReachedTarget;
+	public/*private*/ TdAIController AIController;
+	public/*private*/ Object.Vector TargetLocation;
+	public/*private*/ Object.Vector PlayerLocation;
+	public/*private*/ int TestAngle;
+	public/*private*/ int AngleStep;
+	public/*private*/ int FocusAngle;
+	public/*private*/ int FocusAngleStep;
+	public/*private*/ float PauseTime;
+	public/*private*/ float LongPauseTime;
+	public/*private*/ int ActiveTestNr;
+	public/*private*/ int ActiveSubTestNr;
+	public/*private*/ bool bRunAllTests;
+	public/*private*/ bool bHasReachedTarget;
 	public bool bDrawDebug;
 	public bool bUsePerfectStop;
-	public /*private */TdCheatManager CheatManager;
-	public /*private */Actor DestinationActor;
-	public /*private */Object.Vector OldDebugPos;
-	public /*private */float Distance;
+	public/*private*/ TdCheatManager CheatManager;
+	public/*private*/ Actor DestinationActor;
+	public/*private*/ Object.Vector OldDebugPos;
+	public/*private*/ float Distance;
 	
 	public virtual /*function */void Init(TdCheatManager InCheatManager, TdAIController Controller)
 	{

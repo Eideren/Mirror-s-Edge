@@ -3,8 +3,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class UIAction_TdStringToName : UIAction/*
 		hidecategories(Object)*/{
-	public/*()*/ String TheString;
-	public/*()*/ name TheName;
+	[Category] public String TheString;
+	[Category] public name TheName;
 	
 	public override /*event */void Activated()
 	{

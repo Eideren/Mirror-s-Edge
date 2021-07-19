@@ -5,9 +5,9 @@ public partial class TdAreaLight : PointLight/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public /*export editinline */DrawBoxComponent BoxComponent;
-	public/*(Baker)*/ bool bIsWindowLight;
-	public/*(Baker)*/ float WindowLightAngle;
+	[export, editinline] public DrawBoxComponent BoxComponent;
+	[Category("Baker")] public bool bIsWindowLight;
+	[Category("Baker")] public float WindowLightAngle;
 	
 	public TdAreaLight()
 	{

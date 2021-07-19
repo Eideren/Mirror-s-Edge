@@ -4,9 +4,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNodeIgnoreTransforms : AnimNodeBlendBase/*
 		native
 		hidecategories(Object,Object)*/{
-	public/*(GeneralSettings)*/ bool bHierarchicalInclusion;
-	public/*(GeneralSettings)*/ array<name> BoneNames;
-	public /*transient */array<int> BoneIndices;
+	[Category("GeneralSettings")] public bool bHierarchicalInclusion;
+	[Category("GeneralSettings")] public array<name> BoneNames;
+	[transient] public array<int> BoneIndices;
 	
 	public TdAnimNodeIgnoreTransforms()
 	{

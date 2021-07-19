@@ -15,8 +15,8 @@ public partial class MaterialExpressionSceneTexture : MaterialExpression/* withi
 	public new Material Outer => base.Outer as Material;
 	
 	public MaterialExpression.ExpressionInput Coordinates;
-	public/*()*/ MaterialExpressionSceneTexture.ESceneTextureType SceneTextureType;
-	public/*()*/ bool ScreenAlign;
+	[Category] public MaterialExpressionSceneTexture.ESceneTextureType SceneTextureType;
+	[Category] public bool ScreenAlign;
 	
 }
 }

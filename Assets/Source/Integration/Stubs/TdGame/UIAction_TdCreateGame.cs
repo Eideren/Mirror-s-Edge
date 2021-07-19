@@ -4,13 +4,13 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class UIAction_TdCreateGame : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ name DataStoreName;
-	public/*()*/ String startLevelName;
-	public/*()*/ String startCheckpointName;
-	public/*()*/ bool attemptLoad;
+	[Category] public name DataStoreName;
+	[Category] public String startLevelName;
+	[Category] public String startCheckpointName;
+	[Category] public bool attemptLoad;
 	public bool done;
 	public bool Success;
-	public /*transient */String ExecCmd;
+	[transient] public String ExecCmd;
 	
 	public UIAction_TdCreateGame()
 	{

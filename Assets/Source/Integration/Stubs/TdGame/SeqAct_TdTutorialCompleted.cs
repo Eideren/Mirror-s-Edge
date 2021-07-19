@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdTutorialCompleted : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public /*transient */bool bFinished;
+	[transient] public bool bFinished;
 	
 	public override /*event */void Activated()
 	{

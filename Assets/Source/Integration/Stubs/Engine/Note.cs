@@ -5,7 +5,7 @@ public partial class Note : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ String Text;
+	[Category] public String Text;
 	
 	public Note()
 	{

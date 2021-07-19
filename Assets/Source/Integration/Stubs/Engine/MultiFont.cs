@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class MultiFont : Font/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ /*editinline */array</*editinline */float> ResolutionTestTable;
+	[Category] [editinline] public array</*editinline */float> ResolutionTestTable;
 	
 	// Export UMultiFont::execGetResolutionTestTableIndex(FFrame&, void* const)
 	public virtual /*native function */int GetResolutionTestTableIndex(float HeightTest)

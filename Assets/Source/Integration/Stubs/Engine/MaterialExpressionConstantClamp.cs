@@ -6,8 +6,8 @@ public partial class MaterialExpressionConstantClamp : MaterialExpression/* with
 	public new Material Outer => base.Outer as Material;
 	
 	public MaterialExpression.ExpressionInput Input;
-	public/*()*/ float Min;
-	public/*()*/ float Max;
+	[Category] public float Min;
+	[Category] public float Max;
 	
 	public MaterialExpressionConstantClamp()
 	{

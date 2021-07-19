@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_EndOfLevelRace : TdUIScene/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */OnlineSubsystem.UniqueNetId GamerCardId;
+	[transient] public OnlineSubsystem.UniqueNetId GamerCardId;
 	
 	public override /*function */void SetupButtonBar()
 	{

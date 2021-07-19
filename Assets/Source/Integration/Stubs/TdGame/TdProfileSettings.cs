@@ -406,10 +406,10 @@ public partial class TdProfileSettings : OnlineProfileSettings/*
 	};
 	
 	public array<String> DigitalButtonActionsToCommandMapping;
-	public /*transient */array<name> KeyMappingArray;
-	public /*transient */array<name> GamepadMappingArray;
-	public /*transient */array<int> TTUnlockLevelCompletedMap;
-	public /*transient */array<TdProfileSettings.TTUnLockCriteria> TTUnlockTTCompletedMap;
+	[transient] public array<name> KeyMappingArray;
+	[transient] public array<name> GamepadMappingArray;
+	[transient] public array<int> TTUnlockLevelCompletedMap;
+	[transient] public array<TdProfileSettings.TTUnLockCriteria> TTUnlockTTCompletedMap;
 	
 	public virtual /*function */void ResetIdsToDefault(array<int> ProfileIds)
 	{

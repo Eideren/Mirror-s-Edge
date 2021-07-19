@@ -6,12 +6,12 @@ public partial class AnimNodeRandom : AnimNodeBlendList/*
 		hidecategories(Object,Object,Object,Object)*/{
 	public partial struct /*native */RandomAnimInfo
 	{
-		public/*()*/ float Chance;
-		public/*()*/ byte LoopCountMin;
-		public/*()*/ byte LoopCountMax;
-		public/*()*/ float BlendInTime;
-		public/*()*/ Object.Vector2D PlayRateRange;
-		public /*transient */byte LoopCount;
+		[Category] public float Chance;
+		[Category] public byte LoopCountMin;
+		[Category] public byte LoopCountMax;
+		[Category] public float BlendInTime;
+		[Category] public Object.Vector2D PlayRateRange;
+		[transient] public byte LoopCount;
 	
 	//	structdefaultproperties
 	//	{
@@ -29,9 +29,9 @@ public partial class AnimNodeRandom : AnimNodeBlendList/*
 	//	}
 	};
 	
-	public/*()*/ /*editfixedsize editinline */array</*editinline */AnimNodeRandom.RandomAnimInfo> RandomInfo;
-	public /*transient */AnimNodeSequence PlayingSeqNode;
-	public /*transient */int PendingChildIndex;
+	[Category] [editfixedsize, editinline] public array</*editinline */AnimNodeRandom.RandomAnimInfo> RandomInfo;
+	[transient] public AnimNodeSequence PlayingSeqNode;
+	[transient] public int PendingChildIndex;
 	
 	public AnimNodeRandom()
 	{

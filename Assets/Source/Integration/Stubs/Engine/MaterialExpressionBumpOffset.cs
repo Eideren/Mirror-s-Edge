@@ -9,8 +9,8 @@ public partial class MaterialExpressionBumpOffset : MaterialExpression/* within 
 	
 	public MaterialExpression.ExpressionInput Coordinate;
 	public MaterialExpression.ExpressionInput Height;
-	public/*()*/ float HeightRatio;
-	public/*()*/ float ReferencePlane;
+	[Category] public float HeightRatio;
+	[Category] public float ReferencePlane;
 	
 	public MaterialExpressionBumpOffset()
 	{

@@ -5,7 +5,7 @@ public partial class InterpTrackFloatMaterialParam : InterpTrackFloatBase/*
 		native
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ name ParamName;
+	[Category] public name ParamName;
 	
 	public InterpTrackFloatMaterialParam()
 	{

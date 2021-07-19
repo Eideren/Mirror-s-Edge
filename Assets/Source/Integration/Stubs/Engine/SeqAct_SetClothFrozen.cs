@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_SetClothFrozen : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool ParamValue;
+	[Category] public bool ParamValue;
 	
 	public SeqAct_SetClothFrozen()
 	{

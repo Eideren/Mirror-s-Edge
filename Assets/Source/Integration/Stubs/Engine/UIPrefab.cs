@@ -6,10 +6,10 @@ public partial class UIPrefab : UIObject/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public partial struct /*native transient */ArchetypeInstancePair
 	{
-		public /*init transient */UIObject WidgetArchetype;
-		public /*init transient */UIObject WidgetInstance;
-		public /*init transient */StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ ArchetypeBounds;
-		public /*init transient */StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ InstanceBounds;
+		[init, transient] public UIObject WidgetArchetype;
+		[init, transient] public UIObject WidgetInstance;
+		[init, transient] public StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ ArchetypeBounds;
+		[init, transient] public StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ InstanceBounds;
 	
 	//	structdefaultproperties
 	//	{
@@ -33,10 +33,10 @@ public partial class UIPrefab : UIObject/*
 	//	}
 	};
 	
-	public /*const */int PrefabVersion;
-	public /*private const */int InternalPrefabVersion;
-	public /*editoronly const */Texture2D PrefabPreview;
-	public /*const transient */int ModificationCounter;
+	[Const] public int PrefabVersion;
+	[Const] public/*private*/ int InternalPrefabVersion;
+	[editoronly, Const] public Texture2D PrefabPreview;
+	[Const, transient] public int ModificationCounter;
 	
 	public UIPrefab()
 	{

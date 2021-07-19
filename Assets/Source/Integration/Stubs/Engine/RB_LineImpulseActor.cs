@@ -5,12 +5,12 @@ public partial class RB_LineImpulseActor : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ float ImpulseStrength;
-	public/*()*/ float ImpulseRange;
-	public/*()*/ bool bVelChange;
-	public/*()*/ bool bStopAtFirstHit;
-	public /*export editinline */ArrowComponent Arrow;
-	public /*repnotify */byte ImpulseCount;
+	[Category] public float ImpulseStrength;
+	[Category] public float ImpulseRange;
+	[Category] public bool bVelChange;
+	[Category] public bool bStopAtFirstHit;
+	[export, editinline] public ArrowComponent Arrow;
+	[repnotify] public byte ImpulseCount;
 	
 	//replication
 	//{

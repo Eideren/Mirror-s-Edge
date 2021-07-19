@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class UIAction_TdMoveMapCycleMap : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ int MoveAmount;
+	[Category] public int MoveAmount;
 	
 	public UIAction_TdMoveMapCycleMap()
 	{

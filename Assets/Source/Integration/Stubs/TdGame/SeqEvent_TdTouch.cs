@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqEvent_TdTouch : SeqEvent_Touch/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float Momentum;
+	[Category] public float Momentum;
 	
 	public virtual /*event */bool ShouldActivate(Actor InOriginator, Actor InInstigator)
 	{

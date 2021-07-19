@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class RB_ConstraintDrawComponent : PrimitiveComponent/*
 		native*/{
-	public/*()*/ MaterialInterface LimitMaterial;
+	[Category] public MaterialInterface LimitMaterial;
 	
 }
 }

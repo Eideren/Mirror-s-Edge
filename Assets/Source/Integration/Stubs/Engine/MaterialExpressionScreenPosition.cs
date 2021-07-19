@@ -7,7 +7,7 @@ public partial class MaterialExpressionScreenPosition : MaterialExpression/* wit
 		hidecategories(Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ bool ScreenAlign;
+	[Category] public bool ScreenAlign;
 	
 }
 }

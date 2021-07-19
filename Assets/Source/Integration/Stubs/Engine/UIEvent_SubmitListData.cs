@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIEvent_SubmitListData : UIEvent_SubmitData/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ /*editconst transient */int SelectedItem;
+	[Category] [editconst, transient] public int SelectedItem;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

@@ -4,9 +4,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdKillVolume : PhysicsVolume/*
 		placeable
 		hidecategories(Navigation,Object,Movement,Display)*/{
-	public/*()*/ Core.ClassT<DamageType> KillDamageType;
-	public/*()*/ bool AffectPlayer;
-	public/*()*/ bool AffectAI;
+	[Category] public Core.ClassT<DamageType> KillDamageType;
+	[Category] public bool AffectPlayer;
+	[Category] public bool AffectAI;
 	
 	public override /*event */void ActorEnteredVolume(Actor Other)
 	{

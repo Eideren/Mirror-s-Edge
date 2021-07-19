@@ -8,10 +8,10 @@ public partial class TpAchievementManager : TpSystemHandler/*
 		config(Achievements)*/{
 	public partial struct /*native */AchBind
 	{
-		public /*config */int Id;
-		public /*config */String AchCode;
-		public /*config */int XboxId;
-		public /*config */int TrophyId;
+		[config] public int Id;
+		[config] public String AchCode;
+		[config] public int XboxId;
+		[config] public int TrophyId;
 	
 	//	structdefaultproperties
 	//	{
@@ -23,7 +23,7 @@ public partial class TpAchievementManager : TpSystemHandler/*
 	//	}
 	};
 	
-	public /*config */array</*config */TpAchievementManager.AchBind> AchievementBindings;
+	[config] public array</*config */TpAchievementManager.AchBind> AchievementBindings;
 	public /*delegate*/TpAchievementManager.OnGrantAward __OnGrantAward__Delegate;
 	
 	// Export UTpAchievementManager::execGrantAward(FFrame&, void* const)

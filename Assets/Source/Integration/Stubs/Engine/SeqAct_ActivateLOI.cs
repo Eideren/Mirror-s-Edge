@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_ActivateLOI : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ float FadeInSpeed;
+	[Category] public float FadeInSpeed;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

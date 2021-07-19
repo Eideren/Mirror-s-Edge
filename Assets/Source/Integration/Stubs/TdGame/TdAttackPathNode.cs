@@ -5,9 +5,9 @@ public partial class TdAttackPathNode : TdConfinedVolumePathNode/*
 		native
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*(NavigationPoint)*/ float AttackVolumeHeight;
-	public/*(NavigationPoint)*/ float AttackVolumeAngle;
-	public/*(NavigationPoint)*/ float AttackVolumeRadius;
+	[Category("NavigationPoint")] public float AttackVolumeHeight;
+	[Category("NavigationPoint")] public float AttackVolumeAngle;
+	[Category("NavigationPoint")] public float AttackVolumeRadius;
 	
 	// Export UTdAttackPathNode::execPointInside(FFrame&, void* const)
 	public virtual /*native function */bool PointInside(Object.Vector Point)

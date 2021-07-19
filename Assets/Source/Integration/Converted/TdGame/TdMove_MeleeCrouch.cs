@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMove_MeleeCrouch : TdMove_MeleeBase/*
 		config(PawnMovement)*/{
-	public /*protected const */float BargeTraceDistance;
+	[Const] public/*protected*/ float BargeTraceDistance;
 	public array<TdMove_Barge.BargeHitInfo> BargeImpactList;
 	
 	public override /*function */bool CanDoMove()

@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdHUDWidget_ReactionTime : TdHUDWidget/*
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*export editinline deprecated */UILabel ReactionTimeLabel;
+	[export, editinline, deprecated] public UILabel ReactionTimeLabel;
 	
 	public TdHUDWidget_ReactionTime()
 	{

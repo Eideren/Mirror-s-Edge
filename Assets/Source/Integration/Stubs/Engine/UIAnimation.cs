@@ -129,7 +129,7 @@ public partial class UIAnimation : UIRoot/*
 		public UIAnimation.EUIAnimType TrackType;
 		public name TrackWidgetTag;
 		public array<UIAnimation.UIAnimationKeyFrame> KeyFrames;
-		public /*transient */UIObject TargetWidget;
+		[transient] public UIObject TargetWidget;
 	
 	//	structdefaultproperties
 	//	{

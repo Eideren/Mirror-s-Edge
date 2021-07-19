@@ -7,7 +7,7 @@ public partial class Mutator : Info/*
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
 	public Mutator NextMutator;
-	public/*()*/ array<String> GroupNames;
+	[Category] public array<String> GroupNames;
 	public bool bUserAdded;
 	
 	public override /*event */void PreBeginPlay()

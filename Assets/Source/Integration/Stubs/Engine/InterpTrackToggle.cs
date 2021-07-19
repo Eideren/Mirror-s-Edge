@@ -16,7 +16,7 @@ public partial class InterpTrackToggle : InterpTrack/*
 	public partial struct /*native */ToggleTrackKey
 	{
 		public float Time;
-		public/*()*/ InterpTrackToggle.ETrackToggleAction ToggleAction;
+		[Category] public InterpTrackToggle.ETrackToggleAction ToggleAction;
 	
 	//	structdefaultproperties
 	//	{
@@ -27,8 +27,8 @@ public partial class InterpTrackToggle : InterpTrack/*
 	};
 	
 	public array<InterpTrackToggle.ToggleTrackKey> ToggleTrack;
-	public/*()*/ bool bFireEventsWhenJumpingForwards;
-	public/*()*/ bool bActivateSystemEachUpdate;
+	[Category] public bool bFireEventsWhenJumpingForwards;
+	[Category] public bool bActivateSystemEachUpdate;
 	
 	public InterpTrackToggle()
 	{

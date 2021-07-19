@@ -8,10 +8,10 @@ public partial class LadderVolume : PhysicsVolume/*
 	public Object.Rotator WallDir;
 	public Object.Vector LookDir;
 	public Object.Vector ClimbDir;
-	public /*const */Ladder LadderList;
-	public/*()*/ bool bNoPhysicalLadder;
-	public/*()*/ bool bAutoPath;
-	public/*()*/ bool bAllowLadderStrafing;
+	[Const] public Ladder LadderList;
+	[Category] public bool bNoPhysicalLadder;
+	[Category] public bool bAutoPath;
+	[Category] public bool bAllowLadderStrafing;
 	public Pawn PendingClimber;
 	
 	public override /*simulated event */void PostBeginPlay()

@@ -7,8 +7,8 @@ public partial class MaterialEditorInstanceConstant : Object/*
 		hidecategories(Object)*/{
 	public partial struct /*native */EditorParameterValue
 	{
-		public/*()*/ bool bOverride;
-		public/*()*/ name ParameterName;
+		[Category] public bool bOverride;
+		[Category] public name ParameterName;
 		public Object.Guid ExpressionId;
 	
 	//	structdefaultproperties
@@ -28,11 +28,11 @@ public partial class MaterialEditorInstanceConstant : Object/*
 	
 	public partial struct /*native */EditorVectorParameterValue// extends EditorParameterValue
 	{
-		public/*()*/ bool bOverride;
-		public/*()*/ name ParameterName;
+		[Category] public bool bOverride;
+		[Category] public name ParameterName;
 		public Object.Guid ExpressionId;
 	
-		public/*()*/ Object.LinearColor ParameterValue;
+		[Category] public Object.LinearColor ParameterValue;
 			// Object Offset:0x00025252
 	//		bOverride = false;
 	//		ParameterName = (name)"None";
@@ -59,11 +59,11 @@ public partial class MaterialEditorInstanceConstant : Object/*
 	
 	public partial struct /*native */EditorScalarParameterValue// extends EditorParameterValue
 	{
-		public/*()*/ bool bOverride;
-		public/*()*/ name ParameterName;
+		[Category] public bool bOverride;
+		[Category] public name ParameterName;
 		public Object.Guid ExpressionId;
 	
-		public/*()*/ float ParameterValue;
+		[Category] public float ParameterValue;
 			// Object Offset:0x00025252
 	//		bOverride = false;
 	//		ParameterName = (name)"None";
@@ -82,11 +82,11 @@ public partial class MaterialEditorInstanceConstant : Object/*
 	
 	public partial struct /*native */EditorTextureParameterValue// extends EditorParameterValue
 	{
-		public/*()*/ bool bOverride;
-		public/*()*/ name ParameterName;
+		[Category] public bool bOverride;
+		[Category] public name ParameterName;
 		public Object.Guid ExpressionId;
 	
-		public/*()*/ Texture ParameterValue;
+		[Category] public Texture ParameterValue;
 			// Object Offset:0x00025252
 	//		bOverride = false;
 	//		ParameterName = (name)"None";
@@ -105,12 +105,12 @@ public partial class MaterialEditorInstanceConstant : Object/*
 	
 	public partial struct /*native */EditorFontParameterValue// extends EditorParameterValue
 	{
-		public/*()*/ bool bOverride;
-		public/*()*/ name ParameterName;
+		[Category] public bool bOverride;
+		[Category] public name ParameterName;
 		public Object.Guid ExpressionId;
 	
-		public/*()*/ Font FontValue;
-		public/*()*/ int FontPage;
+		[Category] public Font FontValue;
+		[Category] public int FontPage;
 			// Object Offset:0x00025252
 	//		bOverride = false;
 	//		ParameterName = (name)"None";
@@ -129,11 +129,11 @@ public partial class MaterialEditorInstanceConstant : Object/*
 	
 	public partial struct /*native */EditorStaticSwitchParameterValue// extends EditorParameterValue
 	{
-		public/*()*/ bool bOverride;
-		public/*()*/ name ParameterName;
+		[Category] public bool bOverride;
+		[Category] public name ParameterName;
 		public Object.Guid ExpressionId;
 	
-		public/*()*/ bool ParameterValue;
+		[Category] public bool ParameterValue;
 			// Object Offset:0x00025252
 	//		bOverride = false;
 	//		ParameterName = (name)"None";
@@ -152,10 +152,10 @@ public partial class MaterialEditorInstanceConstant : Object/*
 	
 	public partial struct /*native */ComponentMaskParameter
 	{
-		public/*()*/ bool R;
-		public/*()*/ bool G;
-		public/*()*/ bool B;
-		public/*()*/ bool A;
+		[Category] public bool R;
+		[Category] public bool G;
+		[Category] public bool B;
+		[Category] public bool A;
 	
 	//	structdefaultproperties
 	//	{
@@ -169,11 +169,11 @@ public partial class MaterialEditorInstanceConstant : Object/*
 	
 	public partial struct /*native */EditorStaticComponentMaskParameterValue// extends EditorParameterValue
 	{
-		public/*()*/ bool bOverride;
-		public/*()*/ name ParameterName;
+		[Category] public bool bOverride;
+		[Category] public name ParameterName;
 		public Object.Guid ExpressionId;
 	
-		public/*()*/ MaterialEditorInstanceConstant.ComponentMaskParameter ParameterValue;
+		[Category] public MaterialEditorInstanceConstant.ComponentMaskParameter ParameterValue;
 			// Object Offset:0x00025252
 	//		bOverride = false;
 	//		ParameterName = (name)"None";
@@ -190,26 +190,26 @@ public partial class MaterialEditorInstanceConstant : Object/*
 	//	}
 	};
 	
-	public/*()*/ PhysicalMaterial PhysMaterial;
-	public/*()*/ bool BakerColorOverride;
-	public/*()*/ bool BakerBleedBounceAmountOverride;
-	public/*()*/ bool BakerBleedEmissiveAmountOverride;
-	public/*()*/ bool BakerAlphaOverride;
-	public/*()*/ bool BakerAlphaTextureOverride;
-	public/*()*/ Object.Color BakerColor;
-	public/*()*/ float BakerBleedBounceAmount;
-	public/*()*/ float BakerBleedEmissiveAmount;
-	public/*()*/ float BakerAlpha;
-	public/*()*/ Texture BakerAlphaTexture;
-	public/*()*/ MaterialInterface Parent;
-	public/*()*/ array<MaterialEditorInstanceConstant.EditorVectorParameterValue> VectorParameterValues;
-	public/*()*/ array<MaterialEditorInstanceConstant.EditorScalarParameterValue> ScalarParameterValues;
-	public/*()*/ array<MaterialEditorInstanceConstant.EditorTextureParameterValue> TextureParameterValues;
-	public/*()*/ array<MaterialEditorInstanceConstant.EditorFontParameterValue> FontParameterValues;
-	public/*()*/ array<MaterialEditorInstanceConstant.EditorStaticSwitchParameterValue> StaticSwitchParameterValues;
-	public/*()*/ array<MaterialEditorInstanceConstant.EditorStaticComponentMaskParameterValue> StaticComponentMaskParameterValues;
+	[Category] public PhysicalMaterial PhysMaterial;
+	[Category] public bool BakerColorOverride;
+	[Category] public bool BakerBleedBounceAmountOverride;
+	[Category] public bool BakerBleedEmissiveAmountOverride;
+	[Category] public bool BakerAlphaOverride;
+	[Category] public bool BakerAlphaTextureOverride;
+	[Category] public Object.Color BakerColor;
+	[Category] public float BakerBleedBounceAmount;
+	[Category] public float BakerBleedEmissiveAmount;
+	[Category] public float BakerAlpha;
+	[Category] public Texture BakerAlphaTexture;
+	[Category] public MaterialInterface Parent;
+	[Category] public array<MaterialEditorInstanceConstant.EditorVectorParameterValue> VectorParameterValues;
+	[Category] public array<MaterialEditorInstanceConstant.EditorScalarParameterValue> ScalarParameterValues;
+	[Category] public array<MaterialEditorInstanceConstant.EditorTextureParameterValue> TextureParameterValues;
+	[Category] public array<MaterialEditorInstanceConstant.EditorFontParameterValue> FontParameterValues;
+	[Category] public array<MaterialEditorInstanceConstant.EditorStaticSwitchParameterValue> StaticSwitchParameterValues;
+	[Category] public array<MaterialEditorInstanceConstant.EditorStaticComponentMaskParameterValue> StaticComponentMaskParameterValues;
 	public MaterialInstanceConstant SourceInstance;
-	public /*duplicatetransient const transient */array<Object.Guid> VisibleExpressions;
+	[duplicatetransient, Const, transient] public array<Object.Guid> VisibleExpressions;
 	
 }
 }

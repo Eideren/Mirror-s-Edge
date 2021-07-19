@@ -7,8 +7,8 @@ public partial class MaterialExpressionDepthBiasBlend : MaterialExpressionTextur
 		hidecategories(Object,Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ bool bNormalize;
-	public/*()*/ float BiasScale;
+	[Category] public bool bNormalize;
+	[Category] public float BiasScale;
 	public MaterialExpression.ExpressionInput Bias;
 	
 	public MaterialExpressionDepthBiasBlend()

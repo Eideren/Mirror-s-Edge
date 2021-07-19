@@ -6,8 +6,8 @@ public partial class TdSoundNodeDelayToDistance : SoundNode/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ DistributionFloat.RawDistributionFloat SpeedOfSound;
-	public/*()*/ float MaxDistance;
+	[Category] public DistributionFloat.RawDistributionFloat SpeedOfSound;
+	[Category] public float MaxDistance;
 	
 	public TdSoundNodeDelayToDistance()
 	{

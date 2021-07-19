@@ -7,7 +7,7 @@ public partial class TdPlayerCamera : Camera/*
 		hidecategories(Navigation)*/{
 	public Object.Vector FreeflightPosition;
 	public Object.Rotator FreeflightRotation;
-	public /*config */float FreeflightScale;
+	[config] public float FreeflightScale;
 	public float FixedPersonDistance;
 	public Object.Rotator FixedPersonVectorRelativeRotator;
 	public int ThirdPerson360Yaw;

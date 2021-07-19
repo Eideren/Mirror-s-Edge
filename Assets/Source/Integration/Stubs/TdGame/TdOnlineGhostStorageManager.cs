@@ -4,22 +4,22 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdOnlineGhostStorageManager : TdGhostStorageManager/*
 		native
 		config(Game)*/{
-	public /*private const */String GhostFilePrefix;
-	public /*private config */int MaxFilesInLocker;
-	public /*private config */int MaxGhostsDeletedPerSweep;
-	public /*private transient */OnlineFileLockerInterface LockerIF;
-	public /*private transient */OnlineSubsystem.OnlineFileLockerFile OnlineGhostFileWrite;
-	public /*private transient */int UsedGhostTag;
-	public /*private transient */array<OnlineSubsystem.OnlineFileLockerFileInfo> FileList;
-	public /*private transient */TdOnlineStatsReadAllStretches StatsRead;
-	public /*private transient */OnlineSubsystem.UniqueNetId PlayerId;
-	public /*private transient */OnlineStatsInterface StatsIF;
-	public /*private transient */int StatReadIndex;
-	public /*private transient */int FileDeletionIndex;
-	public /*private transient */array<int> GhostReferences;
-	public /*private transient */array<int> GhostFiletags;
-	public /*private transient */array<int> UnusedTags;
-	public /*private transient */OnlineSubsystem.OnlineFileLockerFile OnlineGhostFileRead;
+	[Const] public/*private*/ String GhostFilePrefix;
+	[config] public/*private*/ int MaxFilesInLocker;
+	[config] public/*private*/ int MaxGhostsDeletedPerSweep;
+	[transient] public/*private*/ OnlineFileLockerInterface LockerIF;
+	[transient] public/*private*/ OnlineSubsystem.OnlineFileLockerFile OnlineGhostFileWrite;
+	[transient] public/*private*/ int UsedGhostTag;
+	[transient] public/*private*/ array<OnlineSubsystem.OnlineFileLockerFileInfo> FileList;
+	[transient] public/*private*/ TdOnlineStatsReadAllStretches StatsRead;
+	[transient] public/*private*/ OnlineSubsystem.UniqueNetId PlayerId;
+	[transient] public/*private*/ OnlineStatsInterface StatsIF;
+	[transient] public/*private*/ int StatReadIndex;
+	[transient] public/*private*/ int FileDeletionIndex;
+	[transient] public/*private*/ array<int> GhostReferences;
+	[transient] public/*private*/ array<int> GhostFiletags;
+	[transient] public/*private*/ array<int> UnusedTags;
+	[transient] public/*private*/ OnlineSubsystem.OnlineFileLockerFile OnlineGhostFileRead;
 	
 	public override /*function */void OnConnectionLost()
 	{

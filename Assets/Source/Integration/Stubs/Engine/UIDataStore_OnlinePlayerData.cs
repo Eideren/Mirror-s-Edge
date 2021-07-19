@@ -7,7 +7,7 @@ public partial class UIDataStore_OnlinePlayerData : UIDataStore_Remote,
 		native
 		config(Engine)
 		hidecategories(Object,UIRoot)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementProvider;
 	public UIDataProvider_OnlineFriends FriendsProvider;
 	public UIDataProvider_OnlinePlayers PlayersProvider;
 	public UIDataProvider_OnlineClanMates ClanMatesProvider;
@@ -15,17 +15,17 @@ public partial class UIDataStore_OnlinePlayerData : UIDataStore_Remote,
 	public String PlayerNick;
 	public int NumNewDownloads;
 	public int NumTotalDownloads;
-	public /*config */String ProfileSettingsClassName;
+	[config] public String ProfileSettingsClassName;
 	public Core.ClassT<OnlineProfileSettings> ProfileSettingsClass;
 	public UIDataProvider_OnlineProfileSettings ProfileProvider;
 	public UIDataProvider_OnlineFriendMessages FriendMessagesProvider;
-	public /*config */String FriendsProviderClassName;
+	[config] public String FriendsProviderClassName;
 	public Core.ClassT<UIDataProvider_OnlineFriends> FriendsProviderClass;
-	public /*config */String PlayersProviderClassName;
+	[config] public String PlayersProviderClassName;
 	public Core.ClassT<UIDataProvider_OnlinePlayers> PlayersProviderClass;
-	public /*config */String ClanMatesProviderClassName;
+	[config] public String ClanMatesProviderClassName;
 	public Core.ClassT<UIDataProvider_OnlineClanMates> ClanMatesProviderClass;
-	public /*config */String FriendMessagesProviderClassName;
+	[config] public String FriendMessagesProviderClassName;
 	public Core.ClassT<UIDataProvider_OnlineFriendMessages> FriendMessagesProviderClass;
 	
 	public virtual /*event */void OnRegister(LocalPlayer InPlayer)

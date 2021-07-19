@@ -15,12 +15,12 @@ public partial class DistributionFloatParameterBase : DistributionFloatConstant/
 		DPM_MAX
 	};
 	
-	public/*()*/ name ParameterName;
-	public/*()*/ float MinInput;
-	public/*()*/ float MaxInput;
-	public/*()*/ float MinOutput;
-	public/*()*/ float MaxOutput;
-	public/*()*/ DistributionFloatParameterBase.DistributionParamMode ParamMode;
+	[Category] public name ParameterName;
+	[Category] public float MinInput;
+	[Category] public float MaxInput;
+	[Category] public float MinOutput;
+	[Category] public float MaxOutput;
+	[Category] public DistributionFloatParameterBase.DistributionParamMode ParamMode;
 	
 	public DistributionFloatParameterBase()
 	{

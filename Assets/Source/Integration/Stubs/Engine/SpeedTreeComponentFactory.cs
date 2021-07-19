@@ -6,7 +6,7 @@ public partial class SpeedTreeComponentFactory : PrimitiveComponentFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ /*export editinline */SpeedTreeComponent SpeedTreeComponent;
+	[Category] [export, editinline] public SpeedTreeComponent SpeedTreeComponent;
 	
 	public SpeedTreeComponentFactory()
 	{

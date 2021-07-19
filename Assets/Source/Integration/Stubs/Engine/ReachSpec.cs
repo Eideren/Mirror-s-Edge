@@ -5,22 +5,22 @@ public partial class ReachSpec : Object/*
 		native*/{
 	public const int BLOCKEDPATHCOST = 10000000;
 	
-	public /*native const editconst transient */Object.Pointer NavOctreeObject;
+	[native, Const, editconst, transient] public Object.Pointer NavOctreeObject;
 	public int Distance;
 	public Object.Vector Direction;
-	public/*()*/ /*const editconst */NavigationPoint Start;
-	public/*()*/ /*const editconst */Actor.NavReference End;
-	public/*()*/ /*const editconst */int CollisionRadius;
-	public/*()*/ /*const editconst */int CollisionHeight;
+	[Category] [Const, editconst] public NavigationPoint Start;
+	[Category] [Const, editconst] public Actor.NavReference End;
+	[Category] [Const, editconst] public int CollisionRadius;
+	[Category] [Const, editconst] public int CollisionHeight;
 	public int reachFlags;
 	public int MaxLandingVelocity;
 	public byte bPruned;
 	public byte PathColorIndex;
-	public /*const editconst */bool bAddToNavigationOctree;
+	[Const, editconst] public bool bAddToNavigationOctree;
 	public bool bCanCutCorners;
 	public bool bCheckForObstructions;
-	public /*const */bool bSkipPrune;
-	public /*const */array< Core.ClassT<ReachSpec> > PruneSpecList;
+	[Const] public bool bSkipPrune;
+	[Const] public array< Core.ClassT<ReachSpec> > PruneSpecList;
 	public name ForcedPathSizeName;
 	public Actor BlockedBy;
 	

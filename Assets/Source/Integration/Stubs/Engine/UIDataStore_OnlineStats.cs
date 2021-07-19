@@ -18,8 +18,8 @@ public partial class UIDataStore_OnlineStats : UIDataStore_Remote,
 	
 	public partial struct /*native */PlayerNickMetaData
 	{
-		public /*const */name PlayerNickName;
-		public /*const localized */String PlayerNickColumnName;
+		[Const] public name PlayerNickName;
+		[Const, localized] public String PlayerNickColumnName;
 	
 	//	structdefaultproperties
 	//	{
@@ -31,8 +31,8 @@ public partial class UIDataStore_OnlineStats : UIDataStore_Remote,
 	
 	public partial struct /*native */RankMetaData
 	{
-		public /*const */name RankName;
-		public /*const localized */String RankColumnName;
+		[Const] public name RankName;
+		[Const, localized] public String RankColumnName;
 	
 	//	structdefaultproperties
 	//	{
@@ -42,13 +42,13 @@ public partial class UIDataStore_OnlineStats : UIDataStore_Remote,
 	//	}
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementProvider;
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementCellProvider;
 	public array< Core.ClassT<OnlineStatsRead> > StatsReadClasses;
-	public /*const */name StatsReadName;
-	public /*const */UIDataStore_OnlineStats.PlayerNickMetaData PlayerNickData;
-	public /*const */UIDataStore_OnlineStats.RankMetaData RankNameMetaData;
-	public /*const */name TotalRowsName;
+	[Const] public name StatsReadName;
+	[Const] public UIDataStore_OnlineStats.PlayerNickMetaData PlayerNickData;
+	[Const] public UIDataStore_OnlineStats.RankMetaData RankNameMetaData;
+	[Const] public name TotalRowsName;
 	public array<OnlineStatsRead> StatsReadObjects;
 	public OnlineStatsRead StatsRead;
 	public UIDataStore_OnlineStats.EStatsFetchType CurrentReadType;

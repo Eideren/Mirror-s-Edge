@@ -4,10 +4,10 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_PrepareMapChange : SeqAct_Latent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ name MainLevelName;
-	public/*()*/ array<name> InitiallyLoadedSecondaryLevelNames;
-	public/*()*/ bool bIsHighPriority;
-	public /*transient */bool bStatusIsOk;
+	[Category] public name MainLevelName;
+	[Category] public array<name> InitiallyLoadedSecondaryLevelNames;
+	[Category] public bool bIsHighPriority;
+	[transient] public bool bStatusIsOk;
 	
 	public SeqAct_PrepareMapChange()
 	{

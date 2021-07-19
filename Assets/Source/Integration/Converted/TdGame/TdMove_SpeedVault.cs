@@ -77,10 +77,10 @@ public partial class TdMove_SpeedVault : TdPhysicsMove/*
 	//	}
 	};
 	
-	public/*(SpeedVault)*/ /*config */float VaultClearObjectHeight;
-	public/*(SpeedVault)*/ /*config */float MaxTimeToLedge;
+	[Category("SpeedVault")] [config] public float VaultClearObjectHeight;
+	[Category("SpeedVault")] [config] public float MaxTimeToLedge;
 	public int ActiveVaultType;
-	public /*config */array</*config */TdMove_SpeedVault.VaultType> VaultTypes;
+	[config] public array</*config */TdMove_SpeedVault.VaultType> VaultTypes;
 	public Object.Vector VaultEndPosition;
 	public Object.Vector OverEndLocation;
 	public Object.Vector OntoEndLocation;

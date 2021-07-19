@@ -4,11 +4,11 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_WallrunDodgeJump : TdPhysicsMove/*
 		native
 		config(PawnMovement)*/{
-	public/*(WallRunDodgeJump)*/ /*config */float BaseJumpZ;
-	public/*(WallRunDodgeJump)*/ /*config */float JumpAddXY;
-	public/*(WallRunDodgeJump)*/ /*config */float DodgeJumpInertiaConservation;
-	public/*(WallRunDodgeJump)*/ /*config */float JumpBlendInTime;
-	public/*(WallRunDodgeJump)*/ /*config */float JumpBlendOutTime;
+	[Category("WallRunDodgeJump")] [config] public float BaseJumpZ;
+	[Category("WallRunDodgeJump")] [config] public float JumpAddXY;
+	[Category("WallRunDodgeJump")] [config] public float DodgeJumpInertiaConservation;
+	[Category("WallRunDodgeJump")] [config] public float JumpBlendInTime;
+	[Category("WallRunDodgeJump")] [config] public float JumpBlendOutTime;
 	
 	public override /*function */bool CanDoMove()
 	{

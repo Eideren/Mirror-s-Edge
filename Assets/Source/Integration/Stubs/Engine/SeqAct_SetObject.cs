@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_SetObject : SeqAct_SetSequenceVariable/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ Object DefaultValue;
+	[Category] public Object DefaultValue;
 	public Object Value;
 	
 	public SeqAct_SetObject()

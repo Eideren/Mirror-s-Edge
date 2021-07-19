@@ -7,7 +7,7 @@ public partial class UIAction_GetLoggedInPlayerCount : UIAction/*
 	public int TotalLoggedIn;
 	public int NumOnlineEnabled;
 	public int NumLocalOnly;
-	public/*()*/ int MaxPlayers;
+	[Category] public int MaxPlayers;
 	
 	public virtual /*event */void GetLoginStatus()
 	{

@@ -4,14 +4,14 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_GrabPullUpBot : TdMove_AISpecialMove/*
 		native
 		config(PawnMovement)*/{
-	public /*transient */bool bControlPawnMovement;
-	public /*transient */Object.Vector PawnLocation;
-	public /*transient */Object.Vector PawnRotation;
-	public /*transient */float VerticalTranslation;
-	public /*transient */float HorizontalTranslation;
-	public /*transient */Object.Vector MoveStartLocation;
-	public /*transient */Object.Vector MoveIntermediateLocation;
-	public /*transient */Object.Vector MoveEndLocation;
+	[transient] public bool bControlPawnMovement;
+	[transient] public Object.Vector PawnLocation;
+	[transient] public Object.Vector PawnRotation;
+	[transient] public float VerticalTranslation;
+	[transient] public float HorizontalTranslation;
+	[transient] public Object.Vector MoveStartLocation;
+	[transient] public Object.Vector MoveIntermediateLocation;
+	[transient] public Object.Vector MoveEndLocation;
 	
 	public override /*simulated function */void StartMove()
 	{

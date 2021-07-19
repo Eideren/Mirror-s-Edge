@@ -4,11 +4,11 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdBagKActor : KActor, 
 		TdCarriableActorProxy/*
 		placeable*/{
-	public /*protected transient */TdCarriableMediator Mediator;
-	public /*private transient */Pawn LastCarrierPawn;
+	[transient] public/*protected*/ TdCarriableMediator Mediator;
+	[transient] public/*private*/ Pawn LastCarrierPawn;
 	public String InventoryClassName;
 	public bool bTouchedGround;
-	public /*export editinline */CylinderComponent ActorCylinderComponent;
+	[export, editinline] public CylinderComponent ActorCylinderComponent;
 	
 	public virtual /*function */void Initialize(TdCarriableMediator InMediator)
 	{

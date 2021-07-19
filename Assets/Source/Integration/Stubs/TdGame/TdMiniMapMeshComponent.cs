@@ -45,14 +45,14 @@ public partial class TdMiniMapMeshComponent : StaticMeshComponent/*
 	//	}
 	};
 	
-	public /*const */StaticArray<StaticMesh, StaticMesh, StaticMesh, StaticMesh, StaticMesh>/*[TdMiniMapMeshComponent.EMeshIconType.EMIT_MAX]*/ MeshObjects;
+	[Const] public StaticArray<StaticMesh, StaticMesh, StaticMesh, StaticMesh, StaticMesh>/*[TdMiniMapMeshComponent.EMeshIconType.EMIT_MAX]*/ MeshObjects;
 	public array<TdMiniMapMeshComponent.MiniMapObject> MiniMapObjects;
-	public /*transient */StaticMesh MapMesh;
+	[transient] public StaticMesh MapMesh;
 	public Material MiniMapBaseMaterial;
 	public Material InactiveStashPointMaterial;
-	public /*transient */Object.Vector WorldToMiniMapOrigo;
-	public /*const */float DefaultScale;
-	public /*const */Object.Vector DefaultTranslation;
+	[transient] public Object.Vector WorldToMiniMapOrigo;
+	[Const] public float DefaultScale;
+	[Const] public Object.Vector DefaultTranslation;
 	
 	public TdMiniMapMeshComponent()
 	{

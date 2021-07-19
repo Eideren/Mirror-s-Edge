@@ -4,11 +4,11 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIImage : TdUIObject/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public/*(Widget)*/ /*const */Surface Image;
-	public/*(Widget)*/ UIRoot.TextureCoordinates Coordinates;
-	public/*(Widget)*/ /*const */Object.LinearColor ImageColor;
-	public/*(Widget)*/ bool centered;
-	public/*(Widget)*/ bool stretched;
+	[Category("Widget")] [Const] public Surface Image;
+	[Category("Widget")] public UIRoot.TextureCoordinates Coordinates;
+	[Category("Widget")] [Const] public Object.LinearColor ImageColor;
+	[Category("Widget")] public bool centered;
+	[Category("Widget")] public bool stretched;
 	public float Scale;
 	
 	// Export UTdUIImage::execSetImage(FFrame&, void* const)

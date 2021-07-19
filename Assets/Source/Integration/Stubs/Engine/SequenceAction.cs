@@ -7,7 +7,7 @@ public partial class SequenceAction : SequenceOp/*
 		hidecategories(Object)*/{
 	public name HandlerName;
 	public bool bCallHandler;
-	public/*()*/ array<Object> Targets;
+	[Category] public array<Object> Targets;
 	
 	public SequenceAction()
 	{

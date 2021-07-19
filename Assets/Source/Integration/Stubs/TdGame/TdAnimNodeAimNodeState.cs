@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNodeAimNodeState : TdAnimNodeState/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ /*editoronly transient */array<TdAIAnimationController.EAimState> EnumStates;
+	[Category] [editoronly, transient] public array<TdAIAnimationController.EAimState> EnumStates;
 	
 	// Export UTdAnimNodeAimNodeState::execGetActiveState(FFrame&, void* const)
 	public override /*native function */int GetActiveState()

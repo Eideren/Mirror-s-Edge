@@ -5,8 +5,8 @@ public partial class TdExplosiveTargetArea : TdGrenadeTargetArea/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ Actor TargetActor;
-	public/*()*/ Object.Vector OffsetFromTargetActorsPivot;
+	[Category] public Actor TargetActor;
+	[Category] public Object.Vector OffsetFromTargetActorsPivot;
 	public Object.Color ExplosiveLinkColor;
 	
 	public TdExplosiveTargetArea()

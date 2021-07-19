@@ -4,9 +4,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdBagPRI : TdPlayerReplicationInfo/*
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public /*repnotify */bool bHasBag;
-	public /*transient */float LastBagCarrierDamageTime;
-	public /*protected transient */Core.ClassT<TdLocalMessage> TdBagMessageClass;
+	[repnotify] public bool bHasBag;
+	[transient] public float LastBagCarrierDamageTime;
+	[transient] public/*protected*/ Core.ClassT<TdLocalMessage> TdBagMessageClass;
 	
 	//replication
 	//{

@@ -67,8 +67,8 @@ public partial class TpConnection : TpSystemHandler/*
 	
 	public partial struct /*native */TpCreateAccountCountry
 	{
-		public /*init */String Description;
-		public /*init */String ISOCode;
+		[init] public String Description;
+		[init] public String ISOCode;
 		public int ParentalControlAgeLimit;
 		public int RegistrationAgeLimit;
 	
@@ -82,8 +82,8 @@ public partial class TpConnection : TpSystemHandler/*
 	//	}
 	};
 	
-	public /*private transient */bool bLanGame;
-	public /*private transient */byte ActiveControllerId;
+	[transient] public/*private*/ bool bLanGame;
+	[transient] public/*private*/ byte ActiveControllerId;
 	public /*delegate*/TpConnection.OnConnectionFailed __OnConnectionFailed__Delegate;
 	public /*delegate*/TpConnection.OnConnectionReady __OnConnectionReady__Delegate;
 	public /*delegate*/TpConnection.OnLoginReady __OnLoginReady__Delegate;

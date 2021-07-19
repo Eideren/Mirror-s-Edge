@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNodeAgainstWallState : TdAnimNodeState/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ /*editoronly transient */array<TdPawn.EAgainstWallState> EnumStates;
+	[Category] [editoronly, transient] public array<TdPawn.EAgainstWallState> EnumStates;
 	
 	// Export UTdAnimNodeAgainstWallState::execGetBlendValue(FFrame&, void* const)
 	public override /*native function */float GetBlendValue(int PreviousState, int NewState)

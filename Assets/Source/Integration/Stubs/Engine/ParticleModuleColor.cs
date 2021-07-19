@@ -5,9 +5,9 @@ public partial class ParticleModuleColor : ParticleModuleColorBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Color)*/ DistributionVector.RawDistributionVector StartColor;
-	public/*(Color)*/ DistributionFloat.RawDistributionFloat StartAlpha;
-	public/*(Color)*/ bool bClampAlpha;
+	[Category("Color")] public DistributionVector.RawDistributionVector StartColor;
+	[Category("Color")] public DistributionFloat.RawDistributionFloat StartAlpha;
+	[Category("Color")] public bool bClampAlpha;
 	
 	public ParticleModuleColor()
 	{

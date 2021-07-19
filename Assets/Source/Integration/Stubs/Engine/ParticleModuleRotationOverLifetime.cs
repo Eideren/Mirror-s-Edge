@@ -5,8 +5,8 @@ public partial class ParticleModuleRotationOverLifetime : ParticleModuleRotation
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Rotation)*/ DistributionFloat.RawDistributionFloat RotationOverLife;
-	public/*(Rotation)*/ bool Scale;
+	[Category("Rotation")] public DistributionFloat.RawDistributionFloat RotationOverLife;
+	[Category("Rotation")] public bool Scale;
 	
 	public ParticleModuleRotationOverLifetime()
 	{

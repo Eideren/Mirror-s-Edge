@@ -13,11 +13,11 @@ public partial class TdMove_Balance : TdPhysicsMove/*
 	public float CounterTimer;
 	public Object.Rotator CurrentMoveDirection;
 	public float ExternalForce;
-	public /*config */float TimeToCounter;
-	public /*config */float GravityInfluence;
-	public /*config */float ControlInfluence;
-	public /*config */float SpeedInfluence;
-	public /*config */float CameraInfluence;
+	[config] public float TimeToCounter;
+	[config] public float GravityInfluence;
+	[config] public float ControlInfluence;
+	[config] public float SpeedInfluence;
+	[config] public float CameraInfluence;
 	
 	public override /*function */bool CanDoMove()
 	{

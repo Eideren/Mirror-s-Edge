@@ -5,8 +5,8 @@ public partial class DefaultSizedThumbnailRenderer : ThumbnailRenderer/*
 		abstract
 		native
 		config(Editor)*/{
-	public /*config */int DefaultSizeX;
-	public /*config */int DefaultSizeY;
+	[config] public int DefaultSizeX;
+	[config] public int DefaultSizeY;
 	
 	public DefaultSizedThumbnailRenderer()
 	{

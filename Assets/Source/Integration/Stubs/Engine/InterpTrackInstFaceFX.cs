@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class InterpTrackInstFaceFX : InterpTrackInst/*
 		native*/{
-	public /*transient */bool bFirstUpdate;
+	[transient] public bool bFirstUpdate;
 	public float LastUpdatePosition;
 	
 }

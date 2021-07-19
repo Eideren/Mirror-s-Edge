@@ -5,10 +5,10 @@ public partial class TdPlayerStart : PlayerStart/*
 		native
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*()*/ float Radius;
-	public/*()*/ int SpawnPointID;
-	public /*private export editinline */DrawSphereComponent SphereRenderComponent;
-	public /*protected export editinline */SpriteComponent GenericSprite;
+	[Category] public float Radius;
+	[Category] public int SpawnPointID;
+	[export, editinline] public/*private*/ DrawSphereComponent SphereRenderComponent;
+	[export, editinline] public/*protected*/ SpriteComponent GenericSprite;
 	
 	public TdPlayerStart()
 	{

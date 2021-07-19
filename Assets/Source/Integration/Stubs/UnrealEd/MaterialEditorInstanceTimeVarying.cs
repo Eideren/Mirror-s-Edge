@@ -8,14 +8,14 @@ public partial class MaterialEditorInstanceTimeVarying : Object/*
 	public partial struct /*native */EditorParameterValueOverTime
 	{
 		public Object.Guid ExpressionId;
-		public/*()*/ bool bOverride;
-		public/*()*/ name ParameterName;
-		public/*()*/ bool bLoop;
-		public/*()*/ bool bAutoActivate;
-		public/*()*/ float CycleTime;
-		public/*()*/ bool bNormalizeTime;
-		public/*()*/ float OffsetTime;
-		public/*()*/ bool bOffsetFromEnd;
+		[Category] public bool bOverride;
+		[Category] public name ParameterName;
+		[Category] public bool bLoop;
+		[Category] public bool bAutoActivate;
+		[Category] public float CycleTime;
+		[Category] public bool bNormalizeTime;
+		[Category] public float OffsetTime;
+		[Category] public bool bOffsetFromEnd;
 	
 	//	structdefaultproperties
 	//	{
@@ -41,17 +41,17 @@ public partial class MaterialEditorInstanceTimeVarying : Object/*
 	public partial struct /*native */EditorVectorParameterValueOverTime// extends EditorParameterValueOverTime
 	{
 		public Object.Guid ExpressionId;
-		public/*()*/ bool bOverride;
-		public/*()*/ name ParameterName;
-		public/*()*/ bool bLoop;
-		public/*()*/ bool bAutoActivate;
-		public/*()*/ float CycleTime;
-		public/*()*/ bool bNormalizeTime;
-		public/*()*/ float OffsetTime;
-		public/*()*/ bool bOffsetFromEnd;
+		[Category] public bool bOverride;
+		[Category] public name ParameterName;
+		[Category] public bool bLoop;
+		[Category] public bool bAutoActivate;
+		[Category] public float CycleTime;
+		[Category] public bool bNormalizeTime;
+		[Category] public float OffsetTime;
+		[Category] public bool bOffsetFromEnd;
 	
-		public/*()*/ Object.LinearColor ParameterValue;
-		public/*()*/ Object.InterpCurveVector ParameterValueCurve;
+		[Category] public Object.LinearColor ParameterValue;
+		[Category] public Object.InterpCurveVector ParameterValueCurve;
 			// Object Offset:0x00025E09
 	//		ExpressionId = new Guid
 	//		{
@@ -86,17 +86,17 @@ public partial class MaterialEditorInstanceTimeVarying : Object/*
 	public partial struct /*native */EditorScalarParameterValueOverTime// extends EditorParameterValueOverTime
 	{
 		public Object.Guid ExpressionId;
-		public/*()*/ bool bOverride;
-		public/*()*/ name ParameterName;
-		public/*()*/ bool bLoop;
-		public/*()*/ bool bAutoActivate;
-		public/*()*/ float CycleTime;
-		public/*()*/ bool bNormalizeTime;
-		public/*()*/ float OffsetTime;
-		public/*()*/ bool bOffsetFromEnd;
+		[Category] public bool bOverride;
+		[Category] public name ParameterName;
+		[Category] public bool bLoop;
+		[Category] public bool bAutoActivate;
+		[Category] public float CycleTime;
+		[Category] public bool bNormalizeTime;
+		[Category] public float OffsetTime;
+		[Category] public bool bOffsetFromEnd;
 	
-		public/*()*/ float ParameterValue;
-		public/*()*/ Object.InterpCurveFloat ParameterValueCurve;
+		[Category] public float ParameterValue;
+		[Category] public Object.InterpCurveFloat ParameterValueCurve;
 			// Object Offset:0x00025E09
 	//		ExpressionId = new Guid
 	//		{
@@ -124,16 +124,16 @@ public partial class MaterialEditorInstanceTimeVarying : Object/*
 	public partial struct /*native */EditorTextureParameterValueOverTime// extends EditorParameterValueOverTime
 	{
 		public Object.Guid ExpressionId;
-		public/*()*/ bool bOverride;
-		public/*()*/ name ParameterName;
-		public/*()*/ bool bLoop;
-		public/*()*/ bool bAutoActivate;
-		public/*()*/ float CycleTime;
-		public/*()*/ bool bNormalizeTime;
-		public/*()*/ float OffsetTime;
-		public/*()*/ bool bOffsetFromEnd;
+		[Category] public bool bOverride;
+		[Category] public name ParameterName;
+		[Category] public bool bLoop;
+		[Category] public bool bAutoActivate;
+		[Category] public float CycleTime;
+		[Category] public bool bNormalizeTime;
+		[Category] public float OffsetTime;
+		[Category] public bool bOffsetFromEnd;
 	
-		public/*()*/ Texture ParameterValue;
+		[Category] public Texture ParameterValue;
 			// Object Offset:0x00025E09
 	//		ExpressionId = new Guid
 	//		{
@@ -161,17 +161,17 @@ public partial class MaterialEditorInstanceTimeVarying : Object/*
 	public partial struct /*native */EditorFontParameterValueOverTime// extends EditorParameterValueOverTime
 	{
 		public Object.Guid ExpressionId;
-		public/*()*/ bool bOverride;
-		public/*()*/ name ParameterName;
-		public/*()*/ bool bLoop;
-		public/*()*/ bool bAutoActivate;
-		public/*()*/ float CycleTime;
-		public/*()*/ bool bNormalizeTime;
-		public/*()*/ float OffsetTime;
-		public/*()*/ bool bOffsetFromEnd;
+		[Category] public bool bOverride;
+		[Category] public name ParameterName;
+		[Category] public bool bLoop;
+		[Category] public bool bAutoActivate;
+		[Category] public float CycleTime;
+		[Category] public bool bNormalizeTime;
+		[Category] public float OffsetTime;
+		[Category] public bool bOffsetFromEnd;
 	
-		public/*()*/ Font FontValue;
-		public/*()*/ int FontPage;
+		[Category] public Font FontValue;
+		[Category] public int FontPage;
 			// Object Offset:0x00025E09
 	//		ExpressionId = new Guid
 	//		{
@@ -199,16 +199,16 @@ public partial class MaterialEditorInstanceTimeVarying : Object/*
 	public partial struct /*native */EditorStaticSwitchParameterValueOverTime// extends EditorParameterValueOverTime
 	{
 		public Object.Guid ExpressionId;
-		public/*()*/ bool bOverride;
-		public/*()*/ name ParameterName;
-		public/*()*/ bool bLoop;
-		public/*()*/ bool bAutoActivate;
-		public/*()*/ float CycleTime;
-		public/*()*/ bool bNormalizeTime;
-		public/*()*/ float OffsetTime;
-		public/*()*/ bool bOffsetFromEnd;
+		[Category] public bool bOverride;
+		[Category] public name ParameterName;
+		[Category] public bool bLoop;
+		[Category] public bool bAutoActivate;
+		[Category] public float CycleTime;
+		[Category] public bool bNormalizeTime;
+		[Category] public float OffsetTime;
+		[Category] public bool bOffsetFromEnd;
 	
-		public/*()*/ bool ParameterValue;
+		[Category] public bool ParameterValue;
 			// Object Offset:0x00025E09
 	//		ExpressionId = new Guid
 	//		{
@@ -235,10 +235,10 @@ public partial class MaterialEditorInstanceTimeVarying : Object/*
 	
 	public partial struct /*native */ComponentMaskParameterOverTime
 	{
-		public/*()*/ bool R;
-		public/*()*/ bool G;
-		public/*()*/ bool B;
-		public/*()*/ bool A;
+		[Category] public bool R;
+		[Category] public bool G;
+		[Category] public bool B;
+		[Category] public bool A;
 	
 	//	structdefaultproperties
 	//	{
@@ -253,16 +253,16 @@ public partial class MaterialEditorInstanceTimeVarying : Object/*
 	public partial struct /*native */EditorStaticComponentMaskParameterValueOverTime// extends EditorParameterValueOverTime
 	{
 		public Object.Guid ExpressionId;
-		public/*()*/ bool bOverride;
-		public/*()*/ name ParameterName;
-		public/*()*/ bool bLoop;
-		public/*()*/ bool bAutoActivate;
-		public/*()*/ float CycleTime;
-		public/*()*/ bool bNormalizeTime;
-		public/*()*/ float OffsetTime;
-		public/*()*/ bool bOffsetFromEnd;
+		[Category] public bool bOverride;
+		[Category] public name ParameterName;
+		[Category] public bool bLoop;
+		[Category] public bool bAutoActivate;
+		[Category] public float CycleTime;
+		[Category] public bool bNormalizeTime;
+		[Category] public float OffsetTime;
+		[Category] public bool bOffsetFromEnd;
 	
-		public/*()*/ MaterialEditorInstanceTimeVarying.ComponentMaskParameterOverTime ParameterValue;
+		[Category] public MaterialEditorInstanceTimeVarying.ComponentMaskParameterOverTime ParameterValue;
 			// Object Offset:0x00025E09
 	//		ExpressionId = new Guid
 	//		{
@@ -287,27 +287,27 @@ public partial class MaterialEditorInstanceTimeVarying : Object/*
 	//	}
 	};
 	
-	public/*()*/ PhysicalMaterial PhysMaterial;
-	public/*()*/ MaterialInterface Parent;
-	public/*()*/ bool BakerColorOverride;
-	public/*()*/ bool BakerBleedBounceAmountOverride;
-	public/*()*/ bool BakerBleedEmissiveAmountOverride;
-	public/*()*/ bool BakerAlphaOverride;
-	public/*()*/ bool BakerAlphaTextureOverride;
-	public/*()*/ bool bAutoActivateAll;
-	public/*()*/ Object.Color BakerColor;
-	public/*()*/ float BakerBleedBounceAmount;
-	public/*()*/ float BakerBleedEmissiveAmount;
-	public/*()*/ float BakerAlpha;
-	public/*()*/ Texture BakerAlphaTexture;
-	public/*()*/ array<MaterialEditorInstanceTimeVarying.EditorVectorParameterValueOverTime> VectorParameterValues;
-	public/*()*/ array<MaterialEditorInstanceTimeVarying.EditorScalarParameterValueOverTime> ScalarParameterValues;
-	public/*()*/ array<MaterialEditorInstanceTimeVarying.EditorTextureParameterValueOverTime> TextureParameterValues;
-	public/*()*/ array<MaterialEditorInstanceTimeVarying.EditorFontParameterValueOverTime> FontParameterValues;
-	public/*()*/ array<MaterialEditorInstanceTimeVarying.EditorStaticSwitchParameterValueOverTime> StaticSwitchParameterValues;
-	public/*()*/ array<MaterialEditorInstanceTimeVarying.EditorStaticComponentMaskParameterValueOverTime> StaticComponentMaskParameterValues;
+	[Category] public PhysicalMaterial PhysMaterial;
+	[Category] public MaterialInterface Parent;
+	[Category] public bool BakerColorOverride;
+	[Category] public bool BakerBleedBounceAmountOverride;
+	[Category] public bool BakerBleedEmissiveAmountOverride;
+	[Category] public bool BakerAlphaOverride;
+	[Category] public bool BakerAlphaTextureOverride;
+	[Category] public bool bAutoActivateAll;
+	[Category] public Object.Color BakerColor;
+	[Category] public float BakerBleedBounceAmount;
+	[Category] public float BakerBleedEmissiveAmount;
+	[Category] public float BakerAlpha;
+	[Category] public Texture BakerAlphaTexture;
+	[Category] public array<MaterialEditorInstanceTimeVarying.EditorVectorParameterValueOverTime> VectorParameterValues;
+	[Category] public array<MaterialEditorInstanceTimeVarying.EditorScalarParameterValueOverTime> ScalarParameterValues;
+	[Category] public array<MaterialEditorInstanceTimeVarying.EditorTextureParameterValueOverTime> TextureParameterValues;
+	[Category] public array<MaterialEditorInstanceTimeVarying.EditorFontParameterValueOverTime> FontParameterValues;
+	[Category] public array<MaterialEditorInstanceTimeVarying.EditorStaticSwitchParameterValueOverTime> StaticSwitchParameterValues;
+	[Category] public array<MaterialEditorInstanceTimeVarying.EditorStaticComponentMaskParameterValueOverTime> StaticComponentMaskParameterValues;
 	public MaterialInstanceTimeVarying SourceInstance;
-	public /*duplicatetransient const transient */array<Object.Guid> VisibleExpressions;
+	[duplicatetransient, Const, transient] public array<Object.Guid> VisibleExpressions;
 	
 	public MaterialEditorInstanceTimeVarying()
 	{

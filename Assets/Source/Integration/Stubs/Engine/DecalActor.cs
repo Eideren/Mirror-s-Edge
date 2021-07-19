@@ -5,7 +5,7 @@ public partial class DecalActor : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*const editconst export editinline */DecalComponent Decal;
+	[Category] [Const, editconst, export, editinline] public DecalComponent Decal;
 	
 	public DecalActor()
 	{

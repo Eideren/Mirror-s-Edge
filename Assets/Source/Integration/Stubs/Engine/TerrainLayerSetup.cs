@@ -7,10 +7,10 @@ public partial class TerrainLayerSetup : Object/*
 		hidecategories(Object)*/{
 	public partial struct FilterLimit
 	{
-		public/*()*/ bool Enabled;
-		public/*()*/ float Base;
-		public/*()*/ float NoiseScale;
-		public/*()*/ float NoiseAmount;
+		[Category] public bool Enabled;
+		[Category] public float Base;
+		[Category] public float NoiseScale;
+		[Category] public float NoiseAmount;
 	
 	//	structdefaultproperties
 	//	{
@@ -24,15 +24,15 @@ public partial class TerrainLayerSetup : Object/*
 	
 	public partial struct TerrainFilteredMaterial
 	{
-		public/*()*/ bool UseNoise;
-		public/*()*/ float NoiseScale;
-		public/*()*/ float NoisePercent;
-		public/*()*/ TerrainLayerSetup.FilterLimit MinHeight;
-		public/*()*/ TerrainLayerSetup.FilterLimit MaxHeight;
-		public/*()*/ TerrainLayerSetup.FilterLimit MinSlope;
-		public/*()*/ TerrainLayerSetup.FilterLimit MaxSlope;
-		public/*()*/ float Alpha;
-		public/*()*/ TerrainMaterial Material;
+		[Category] public bool UseNoise;
+		[Category] public float NoiseScale;
+		[Category] public float NoisePercent;
+		[Category] public TerrainLayerSetup.FilterLimit MinHeight;
+		[Category] public TerrainLayerSetup.FilterLimit MaxHeight;
+		[Category] public TerrainLayerSetup.FilterLimit MinSlope;
+		[Category] public TerrainLayerSetup.FilterLimit MaxSlope;
+		[Category] public float Alpha;
+		[Category] public TerrainMaterial Material;
 	
 	//	structdefaultproperties
 	//	{
@@ -73,7 +73,7 @@ public partial class TerrainLayerSetup : Object/*
 	//	}
 	};
 	
-	public/*()*/ /*const */array<TerrainLayerSetup.TerrainFilteredMaterial> Materials;
+	[Category] [Const] public array<TerrainLayerSetup.TerrainFilteredMaterial> Materials;
 	
 	// Export UTerrainLayerSetup::execSetMaterials(FFrame&, void* const)
 	public virtual /*native final function */void SetMaterials(array<TerrainLayerSetup.TerrainFilteredMaterial> NewMaterials)

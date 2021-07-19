@@ -5,12 +5,12 @@ public partial class UICheckbox : UIButton,
 		UIDataStorePublisher/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIDataStorePublisher;
-	public/*(Sound)*/ name CheckedCue;
-	public/*(Sound)*/ name UncheckedCue;
-	public/*(Data)*/ /*private */UIRoot.UIDataStoreBinding ValueDataSource;
-	public/*(Image)*/ /*noclear const export editinline */UIComp_DrawImage CheckedImageComponent;
-	public/*(Value)*/ /*private */bool bIsChecked;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIDataStorePublisher;
+	[Category("Sound")] public name CheckedCue;
+	[Category("Sound")] public name UncheckedCue;
+	[Category("Data")] public/*private*/ UIRoot.UIDataStoreBinding ValueDataSource;
+	[Category("Image")] [noclear, Const, export, editinline] public UIComp_DrawImage CheckedImageComponent;
+	[Category("Value")] public/*private*/ bool bIsChecked;
 	
 	public virtual /*final function */void SetCheckImage(Surface NewImage)
 	{

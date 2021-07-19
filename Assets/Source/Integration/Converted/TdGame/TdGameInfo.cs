@@ -27,11 +27,11 @@ public partial class TdGameInfo : GameInfo/*
 	};
 	
 	public bool ShowBulletTraces;
-	public /*const */bool bAllowViewTargetSwitching;
-	public /*const */bool bAllowDifficultyChange;
+	[Const] public bool bAllowViewTargetSwitching;
+	[Const] public bool bAllowDifficultyChange;
 	public bool bOnlineMode;
 	public float BulletTraceLifeTime;
-	public/*()*/ array<TdGameInfo.DefaultInvItem> DefaultInventory;
+	[Category] public array<TdGameInfo.DefaultInvItem> DefaultInventory;
 	public array<PlayerStart> StartPoints;
 	public array<TdSpectatorPoint> SpectatorPoints;
 	public UIDataStore_TdGameData TdGameData;

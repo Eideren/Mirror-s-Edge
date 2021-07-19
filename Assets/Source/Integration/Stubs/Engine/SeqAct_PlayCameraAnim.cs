@@ -4,15 +4,15 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_PlayCameraAnim : SeqAct_Latent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ CameraAnim CameraAnim;
-	public/*()*/ bool bLoop;
-	public/*()*/ bool bRandomStartTime;
-	public /*protected transient */bool bStopped;
-	public/*()*/ float BlendInTime;
-	public/*()*/ float BlendOutTime;
-	public/*()*/ float Rate;
-	public/*()*/ float IntensityScale;
-	public /*protected transient */float AnimTimeRemaining;
+	[Category] public CameraAnim CameraAnim;
+	[Category] public bool bLoop;
+	[Category] public bool bRandomStartTime;
+	[transient] public/*protected*/ bool bStopped;
+	[Category] public float BlendInTime;
+	[Category] public float BlendOutTime;
+	[Category] public float Rate;
+	[Category] public float IntensityScale;
+	[transient] public/*protected*/ float AnimTimeRemaining;
 	
 	public SeqAct_PlayCameraAnim()
 	{

@@ -6,18 +6,18 @@ public partial class PointLightComponent : LightComponent/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ /*interp */float ShadowRadiusMultiplier;
-	public/*()*/ float PointLightRadius;
-	public/*(Baker)*/ bool bUseBakerCutOffRadius;
-	public/*(Baker)*/ float BakerCutOffRadius;
-	public/*()*/ int Photons;
-	public/*()*/ int PhotonIntensity;
-	public/*()*/ /*interp */float Radius;
-	public/*()*/ /*interp */float FalloffExponent;
-	public/*()*/ float ShadowFalloffExponent;
-	public /*const */Object.Matrix CachedParentToWorld;
-	public/*()*/ /*const */Object.Vector Translation;
-	public /*const export editinline */DrawLightRadiusComponent PreviewLightRadius;
+	[Category] [interp] public float ShadowRadiusMultiplier;
+	[Category] public float PointLightRadius;
+	[Category("Baker")] public bool bUseBakerCutOffRadius;
+	[Category("Baker")] public float BakerCutOffRadius;
+	[Category] public int Photons;
+	[Category] public int PhotonIntensity;
+	[Category] [interp] public float Radius;
+	[Category] [interp] public float FalloffExponent;
+	[Category] public float ShadowFalloffExponent;
+	[Const] public Object.Matrix CachedParentToWorld;
+	[Category] [Const] public Object.Vector Translation;
+	[Const, export, editinline] public DrawLightRadiusComponent PreviewLightRadius;
 	
 	// Export UPointLightComponent::execSetTranslation(FFrame&, void* const)
 	public virtual /*native final function */void SetTranslation(Object.Vector NewTranslation)

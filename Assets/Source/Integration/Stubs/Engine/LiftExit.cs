@@ -5,8 +5,8 @@ public partial class LiftExit : NavigationPoint/*
 		native
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*()*/ LiftCenter MyLiftCenter;
-	public/*()*/ bool bExitOnly;
+	[Category] public LiftCenter MyLiftCenter;
+	[Category] public bool bExitOnly;
 	
 	public virtual /*function */bool CanBeReachedFromLiftBy(Pawn Other)
 	{

@@ -5,7 +5,7 @@ public partial class AnimTreeEdSkelComponent : SkeletalMeshComponent/*
 		native
 		editinlinenew
 		hidecategories(Object)*/{
-	public /*native const transient */Object.Pointer AnimTreeEdPtr;
+	[native, Const, transient] public Object.Pointer AnimTreeEdPtr;
 	
 }
 }

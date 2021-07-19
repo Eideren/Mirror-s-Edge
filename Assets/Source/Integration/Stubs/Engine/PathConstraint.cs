@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class PathConstraint : Object/*
 		native*/{
-	public /*const */PathConstraint NextConstraint;
+	[Const] public PathConstraint NextConstraint;
 	
 }
 }

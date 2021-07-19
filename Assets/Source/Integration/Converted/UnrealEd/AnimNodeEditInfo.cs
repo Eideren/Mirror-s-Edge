@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using Fp; using Tp; using Ts; using IpDr
 public partial class AnimNodeEditInfo : Object/*
 		abstract
 		native*/{
-	public /*const */Core.ClassT<AnimNode> AnimNodeClass;
+	[Const] public Core.ClassT<AnimNode> AnimNodeClass;
 	
 }
 }

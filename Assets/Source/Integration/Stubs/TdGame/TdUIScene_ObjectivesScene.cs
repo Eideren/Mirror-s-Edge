@@ -4,16 +4,16 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_ObjectivesScene : TdUIScene/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */TdUITabControl TabControl;
-	public /*transient */UILabel TitleLabel;
-	public /*transient */UIImage CurrentObjectiveBGImage;
-	public /*transient */UIImage CurrentObjectiveBGTopImage;
-	public /*transient */UIImage FinishedObjectivesBGImage;
-	public /*transient */UIImage FinishedObjectivesBGTopImage;
+	[transient] public TdUITabControl TabControl;
+	[transient] public UILabel TitleLabel;
+	[transient] public UIImage CurrentObjectiveBGImage;
+	[transient] public UIImage CurrentObjectiveBGTopImage;
+	[transient] public UIImage FinishedObjectivesBGImage;
+	[transient] public UIImage FinishedObjectivesBGTopImage;
 	public UIDataStore_TdGameObjectivesData TdGameObjectives;
-	public/*()*/ name ObjectivesToReadFieldName;
-	public/*()*/ name FinishedObjectivesToReadFieldName;
-	public /*transient */bool bObjectiveListIsEmpty;
+	[Category] public name ObjectivesToReadFieldName;
+	[Category] public name FinishedObjectivesToReadFieldName;
+	[transient] public bool bObjectiveListIsEmpty;
 	
 	public override /*event */void Initialized()
 	{

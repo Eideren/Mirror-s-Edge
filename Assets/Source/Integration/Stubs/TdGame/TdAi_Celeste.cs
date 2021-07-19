@@ -14,14 +14,14 @@ public partial class TdAi_Celeste : TdAI_Pursuit/*
 	};
 	
 	public int RecentHitsTaken;
-	public /*private */bool bAfterDisarm;
+	public/*private*/ bool bAfterDisarm;
 	public bool bIsVulnerableToDisarm;
-	public /*private */bool bRestrictFire;
-	public /*private */Core.ClassT<DamageType> LastTakenDamageType;
-	public /*private */TdPathLimits OtherPlatformPathLimit;
-	public /*private */TdAi_Celeste.ECelesteStage bStageInFight;
+	public/*private*/ bool bRestrictFire;
+	public/*private*/ Core.ClassT<DamageType> LastTakenDamageType;
+	public/*private*/ TdPathLimits OtherPlatformPathLimit;
+	public/*private*/ TdAi_Celeste.ECelesteStage bStageInFight;
 	public int bMeleeHitCount;
-	public /*private */float RestrictFireTimestamp;
+	public/*private*/ float RestrictFireTimestamp;
 	
 	public override /*function */void AddSpecialOutput(ref String Text)
 	{

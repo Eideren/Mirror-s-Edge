@@ -7,7 +7,7 @@ public partial class UIDataProvider_TdResource : UIResourceDataProvider/*
 		config(Game)
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
-	public /*config */int Filter;
+	[config] public int Filter;
 	
 }
 }

@@ -5,8 +5,8 @@ public partial class UIAction : SequenceAction/*
 		abstract
 		native
 		hidecategories(Object)*/{
-	public /*noimport transient */int GamepadID;
-	public/*()*/ bool bAutoTargetOwner;
+	[noimport, transient] public int GamepadID;
+	[Category] public bool bAutoTargetOwner;
 	
 	// Export UUIAction::execGetOwner(FFrame&, void* const)
 	public virtual /*native final function */UIScreenObject GetOwner()

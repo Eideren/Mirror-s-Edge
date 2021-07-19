@@ -16,13 +16,13 @@ public partial class GameEngine : Engine/*
 	
 	public partial struct /*native transient */URL
 	{
-		public /*init */String Protocol;
-		public /*init */String Host;
-		public /*init */int Port;
-		public /*init */String Map;
-		public /*init */array<String> Op;
-		public /*init */String Portal;
-		public /*init */int Valid;
+		[init] public String Protocol;
+		[init] public String Host;
+		[init] public int Port;
+		[init] public String Map;
+		[init] public array<String> Op;
+		[init] public String Portal;
+		[init] public int Valid;
 	
 	//	structdefaultproperties
 	//	{
@@ -72,23 +72,23 @@ public partial class GameEngine : Engine/*
 	public PendingLevel GPendingLevel;
 	public GameEngine.URL LastURL;
 	public GameEngine.URL LastRemoteURL;
-	public /*config */array</*config */String> ServerActors;
+	[config] public array</*config */String> ServerActors;
 	public String TravelURL;
 	public byte TravelType;
-	public /*transient */bool bWorldWasLoadedThisTick;
-	public /*const */bool bShouldCommitPendingMapChange;
-	public /*const */bool bShouldSkipLevelStartupEventOnMapCommit;
-	public /*const */bool bShouldSkipLevelBeginningEventOnMapCommit;
-	public /*config */bool bSmoothFrameRate;
-	public /*config */bool bClearAnimSetLinkupCachesOnLoadMap;
+	[transient] public bool bWorldWasLoadedThisTick;
+	[Const] public bool bShouldCommitPendingMapChange;
+	[Const] public bool bShouldSkipLevelStartupEventOnMapCommit;
+	[Const] public bool bShouldSkipLevelBeginningEventOnMapCommit;
+	[config] public bool bSmoothFrameRate;
+	[config] public bool bClearAnimSetLinkupCachesOnLoadMap;
 	public OnlineSubsystem OnlineSubsystem;
-	public /*const */array<name> LevelsToLoadForPendingMapChange;
-	public /*const */array<Level> LoadedLevelsForPendingMapChange;
-	public /*const */String PendingMapChangeFailureDescription;
-	public /*config */float MaxSmoothedFrameRate;
-	public /*config */float MinSmoothedFrameRate;
-	public /*const */array<GameEngine.LevelStreamingStatus> PendingLevelStreamingStatusUpdates;
-	public /*const */array<ObjectReferencer> ObjectReferencers;
+	[Const] public array<name> LevelsToLoadForPendingMapChange;
+	[Const] public array<Level> LoadedLevelsForPendingMapChange;
+	[Const] public String PendingMapChangeFailureDescription;
+	[config] public float MaxSmoothedFrameRate;
+	[config] public float MinSmoothedFrameRate;
+	[Const] public array<GameEngine.LevelStreamingStatus> PendingLevelStreamingStatusUpdates;
+	[Const] public array<ObjectReferencer> ObjectReferencers;
 	public array<GameEngine.FullyLoadedPackagesInfo> PackagesToFullyLoad;
 	
 	// Export UGameEngine::execGetOnlineSubsystem(FFrame&, void* const)

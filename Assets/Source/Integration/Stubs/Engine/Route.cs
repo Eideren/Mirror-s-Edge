@@ -29,8 +29,8 @@ public partial class Route : Info/*
 		ERT_MAX
 	};
 	
-	public/*()*/ Route.ERouteType RouteType;
-	public/*()*/ array<Actor.NavReference> NavList;
+	[Category] public Route.ERouteType RouteType;
+	[Category] public array<Actor.NavReference> NavList;
 	
 	public Route()
 	{

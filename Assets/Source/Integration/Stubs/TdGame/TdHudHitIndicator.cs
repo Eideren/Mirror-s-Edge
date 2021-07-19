@@ -21,10 +21,10 @@ public partial class TdHudHitIndicator : TdHUDObject/*
 	
 	public int MaxNoOfIndicators;
 	public array<TdHudHitIndicator.DamageDataInfo> DamageData;
-	public/*(Widget)*/ Material BaseMaterial;
-	public/*(Widget)*/ float FadeTime;
-	public/*(Widget)*/ name PositionalParamName;
-	public/*(Widget)*/ name FadeParamName;
+	[Category("Widget")] public Material BaseMaterial;
+	[Category("Widget")] public float FadeTime;
+	[Category("Widget")] public name PositionalParamName;
+	[Category("Widget")] public name FadeParamName;
 	
 	public override /*event */void Initialized()
 	{

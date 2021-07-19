@@ -35,7 +35,7 @@ public partial class DistributionVector : Component/*
 		public float LookupTableTimeScale;
 		public float LookupTableStartTime;
 	
-		public/*()*/ /*export editinline */DistributionVector Distribution;
+		[Category] [export, editinline] public DistributionVector Distribution;
 			// Object Offset:0x0001FDC8
 	//		Type = 0;
 	//		Op = 0;
@@ -50,8 +50,8 @@ public partial class DistributionVector : Component/*
 	//	}
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTable_FCurveEdInterface;
-	public/*(Baked)*/ bool bCanBeBaked;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FCurveEdInterface;
+	[Category("Baked")] public bool bCanBeBaked;
 	public bool bIsDirty;
 	
 	public DistributionVector()

@@ -4,19 +4,19 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_BotTurnStanding : TdPhysicsMove/*
 		native
 		config(PawnMovement)*/{
-	public /*private */int DeltaRotationYaw;
-	public /*private */int DeltaLegRotationYaw;
-	public /*private */int InitialPawnRotationYaw;
-	public /*private */int InitialLegRotationYaw;
-	public /*private */float BlendInTime;
-	public /*private */float BlendOutTime;
-	public /*private */float TimeIntoRotation;
-	public /*private */float RotationTime;
-	public /*private */bool bRotatePawn;
-	public /*private */bool bIsFocusPointSet;
-	public /*private */Object.Vector FocusPoint;
-	public /*private */float SetFocusPointTimeStamp;
-	public /*private */float LegTurnAngle;
+	public/*private*/ int DeltaRotationYaw;
+	public/*private*/ int DeltaLegRotationYaw;
+	public/*private*/ int InitialPawnRotationYaw;
+	public/*private*/ int InitialLegRotationYaw;
+	public/*private*/ float BlendInTime;
+	public/*private*/ float BlendOutTime;
+	public/*private*/ float TimeIntoRotation;
+	public/*private*/ float RotationTime;
+	public/*private*/ bool bRotatePawn;
+	public/*private*/ bool bIsFocusPointSet;
+	public/*private*/ Object.Vector FocusPoint;
+	public/*private*/ float SetFocusPointTimeStamp;
+	public/*private*/ float LegTurnAngle;
 	
 	public virtual /*event */void SetFocusPoint(Object.Vector P)
 	{

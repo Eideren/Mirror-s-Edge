@@ -3,9 +3,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_TdAddAdditionalAnimSets : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ bool bIsFirstPerson;
-	public/*()*/ bool bRemoveAdditionalAnimSets;
-	public/*()*/ array<AnimSet> AnimationSets;
+	[Category] public bool bIsFirstPerson;
+	[Category] public bool bRemoveAdditionalAnimSets;
+	[Category] public array<AnimSet> AnimationSets;
 	
 	public override /*event */void Activated()
 	{

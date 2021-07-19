@@ -28,12 +28,12 @@ public partial class TdCarriable : Object,
 	//	}
 	};
 	
-	public /*protected transient */TdCarriableActorProxy ActorProxy;
-	public /*private transient */TdCarriableListener Listener;
-	public /*private transient */TdPlayerPawn CarrierPawn;
-	public /*private */TdCarriable.TdCarriableAttachInfo AttachInfo;
-	public /*private */TdBagGRI MyGRI;
-	public /*private */float UnreachableTimeout;
+	[transient] public/*protected*/ TdCarriableActorProxy ActorProxy;
+	[transient] public/*private*/ TdCarriableListener Listener;
+	[transient] public/*private*/ TdPlayerPawn CarrierPawn;
+	public/*private*/ TdCarriable.TdCarriableAttachInfo AttachInfo;
+	public/*private*/ TdBagGRI MyGRI;
+	public/*private*/ float UnreachableTimeout;
 	
 	public virtual /*function */void Initialize(TdCarriableListener InListener, TdBagGRI InGRI)
 	{

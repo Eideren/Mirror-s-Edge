@@ -24,9 +24,9 @@ public partial class AITeam : Actor/*
 		TdSide_MAX
 	};
 	
-	public /*private */AITeam.EForcedAggressionLevel ForcedAggressionLevel;
-	public/*(Logic)*/ AITeam.ESide Side;
-	public/*(Debug)*/ /*config */bool bAILogging;
+	public/*private*/ AITeam.EForcedAggressionLevel ForcedAggressionLevel;
+	[Category("Logic")] public AITeam.ESide Side;
+	[Category("Debug")] [config] public bool bAILogging;
 	public bool TabsOutOfSync;
 	public bool scriptingActivated;
 	public bool bHaveDrawnDebug;
@@ -37,17 +37,17 @@ public partial class AITeam : Actor/*
 	public int logTabs;
 	public float lastLogTime;
 	public name lastLogStateName;
-	public /*config */array</*config */name> AILogFilter;
+	[config] public array</*config */name> AILogFilter;
 	public array<TdAIController> FiringMembers;
 	public array<TdAIController> MovingMembers;
-	public /*transient */array<Route> PatrolRoutes;
+	[transient] public array<Route> PatrolRoutes;
 	public array<bool> PatrolRoutesPicked;
-	public /*transient */array<NavigationPoint> GuardSpots;
+	[transient] public array<NavigationPoint> GuardSpots;
 	public array<bool> GuardSpotsPicked;
 	public TdPawn Enemy;
 	public float EnemyNotSeenTime;
 	public TdAIManager AIManager;
-	public /*private */TdAI_Riot ShieldFormationMaster;
+	public/*private*/ TdAI_Riot ShieldFormationMaster;
 	
 	// Export UAITeam::execAddMember(FFrame&, void* const)
 	public virtual /*native function */void AddMember(TdAIController NewMember)

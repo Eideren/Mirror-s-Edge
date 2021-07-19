@@ -4,17 +4,17 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_StarRating : TdUIScene/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UILabel TotalText;
-	public /*transient */UILabel StarsText;
-	public /*transient */UILabel UnlockText;
-	public /*transient */UIImage LeftStar;
-	public /*transient */UIImage CenterStar;
-	public /*transient */UIImage RightStar;
-	public /*transient */UIImage TotalStar;
-	public /*transient */int NewLevelStarRating;
-	public /*transient */int OldLevelStarRating;
-	public /*transient */int OldTotalStarRating;
-	public/*(Sound)*/ SoundCue StarSound;
+	[transient] public UILabel TotalText;
+	[transient] public UILabel StarsText;
+	[transient] public UILabel UnlockText;
+	[transient] public UIImage LeftStar;
+	[transient] public UIImage CenterStar;
+	[transient] public UIImage RightStar;
+	[transient] public UIImage TotalStar;
+	[transient] public int NewLevelStarRating;
+	[transient] public int OldLevelStarRating;
+	[transient] public int OldTotalStarRating;
+	[Category("Sound")] public SoundCue StarSound;
 	
 	public override /*event */void PostInitialize()
 	{

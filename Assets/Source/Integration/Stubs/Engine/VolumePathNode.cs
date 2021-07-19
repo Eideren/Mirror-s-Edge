@@ -5,8 +5,8 @@ public partial class VolumePathNode : PathNode/*
 		native
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*()*/ float StartingRadius;
-	public/*()*/ float StartingHeight;
+	[Category] public float StartingRadius;
+	[Category] public float StartingHeight;
 	
 	public VolumePathNode()
 	{

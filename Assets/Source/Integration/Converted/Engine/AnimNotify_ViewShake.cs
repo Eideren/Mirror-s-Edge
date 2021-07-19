@@ -5,16 +5,16 @@ public partial class AnimNotify_ViewShake : AnimNotify_Scripted/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ float ShakeRadius;
-	public/*()*/ float Duration;
-	public/*()*/ Object.Vector RotAmplitude;
-	public/*()*/ Object.Vector RotFrequency;
-	public/*()*/ Object.Vector LocAmplitude;
-	public/*()*/ Object.Vector LocFrequency;
-	public/*()*/ float FOVAmplitude;
-	public/*()*/ float FOVFrequency;
-	public/*()*/ bool bUseBoneLocation;
-	public/*()*/ name BoneName;
+	[Category] public float ShakeRadius;
+	[Category] public float Duration;
+	[Category] public Object.Vector RotAmplitude;
+	[Category] public Object.Vector RotFrequency;
+	[Category] public Object.Vector LocAmplitude;
+	[Category] public Object.Vector LocFrequency;
+	[Category] public float FOVAmplitude;
+	[Category] public float FOVFrequency;
+	[Category] public bool bUseBoneLocation;
+	[Category] public name BoneName;
 	
 	public override /*event */void Notify(Actor Owner, AnimNodeSequence AnimSeqInstigator)
 	{

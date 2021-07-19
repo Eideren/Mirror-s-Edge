@@ -4,16 +4,16 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SequenceFrame : SequenceObject/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ int SizeX;
-	public/*()*/ int SizeY;
-	public/*()*/ int BorderWidth;
-	public/*()*/ bool bDrawBox;
-	public/*()*/ bool bFilled;
-	public/*()*/ bool bTileFill;
-	public/*()*/ Object.Color BorderColor;
-	public/*()*/ Object.Color FillColor;
-	public/*()*/ Texture2D FillTexture;
-	public/*()*/ Material FillMaterial;
+	[Category] public int SizeX;
+	[Category] public int SizeY;
+	[Category] public int BorderWidth;
+	[Category] public bool bDrawBox;
+	[Category] public bool bFilled;
+	[Category] public bool bTileFill;
+	[Category] public Object.Color BorderColor;
+	[Category] public Object.Color FillColor;
+	[Category] public Texture2D FillTexture;
+	[Category] public Material FillMaterial;
 	
 	public SequenceFrame()
 	{

@@ -15,9 +15,9 @@ public partial class CoverGroup : Info/*
 		CGFA_MAX
 	};
 	
-	public/*()*/ array<Actor.NavReference> CoverLinkRefs;
-	public/*()*/ float AutoSelectRadius;
-	public/*()*/ float AutoSelectHeight;
+	[Category] public array<Actor.NavReference> CoverLinkRefs;
+	[Category] public float AutoSelectRadius;
+	[Category] public float AutoSelectHeight;
 	
 	// Export UCoverGroup::execEnableGroup(FFrame&, void* const)
 	public virtual /*native function */void EnableGroup()

@@ -20,14 +20,14 @@ public partial class UIFrameBox : UIContainer/*
 	
 	public partial struct /*native */CornerSizes
 	{
-		public/*()*/ StaticArray<float, float>/*[2]*/ TopLeft;
-		public/*()*/ StaticArray<float, float>/*[2]*/ TopRight;
-		public/*()*/ StaticArray<float, float>/*[2]*/ BottomLeft;
-		public/*()*/ StaticArray<float, float>/*[2]*/ BottomRight;
-		public/*()*/ float TopHeight;
-		public/*()*/ float BottomHeight;
-		public/*()*/ float CenterLeftWidth;
-		public/*()*/ float CenterRightWidth;
+		[Category] public StaticArray<float, float>/*[2]*/ TopLeft;
+		[Category] public StaticArray<float, float>/*[2]*/ TopRight;
+		[Category] public StaticArray<float, float>/*[2]*/ BottomLeft;
+		[Category] public StaticArray<float, float>/*[2]*/ BottomRight;
+		[Category] public float TopHeight;
+		[Category] public float BottomHeight;
+		[Category] public float CenterLeftWidth;
+		[Category] public float CenterRightWidth;
 	
 	//	structdefaultproperties
 	//	{
@@ -59,8 +59,8 @@ public partial class UIFrameBox : UIContainer/*
 	//	}
 	};
 	
-	public/*(Image)*/ /*noclear const export editinline */StaticArray<UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage>/*[9]*/ BackgroundImageComponent;
-	public/*(Image)*/ /*editinline */UIFrameBox.CornerSizes BackgroundCornerSizes;
+	[Category("Image")] [noclear, Const, export, editinline] public StaticArray<UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage, UIComp_DrawImage>/*[9]*/ BackgroundImageComponent;
+	[Category("Image")] [editinline] public UIFrameBox.CornerSizes BackgroundCornerSizes;
 	
 	public virtual /*final function */void SetBackgroundImage(UIFrameBox.EFrameBoxImage ImageToSet, Surface NewImage)
 	{

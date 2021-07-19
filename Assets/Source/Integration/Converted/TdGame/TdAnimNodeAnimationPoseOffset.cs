@@ -6,14 +6,14 @@ public partial class TdAnimNodeAnimationPoseOffset : TdAnimNodePoseOffset/*
 		hidecategories(Object,Object)*/{
 	public partial struct /*native */AnimationPoseProfile
 	{
-		public/*()*/ name Name;
-		public/*()*/ bool Recursive;
-		public/*()*/ array<name> BoneNames;
-		public/*()*/ array<name> AdditionalBoneNames;
-		public/*()*/ AnimSet AnimationSet;
-		public/*()*/ name AnimationPoseName;
-		public/*()*/ name OffsetAnimationPoseName;
-		public/*()*/ SkeletalMesh SkeletalMeshReference;
+		[Category] public name Name;
+		[Category] public bool Recursive;
+		[Category] public array<name> BoneNames;
+		[Category] public array<name> AdditionalBoneNames;
+		[Category] public AnimSet AnimationSet;
+		[Category] public name AnimationPoseName;
+		[Category] public name OffsetAnimationPoseName;
+		[Category] public SkeletalMesh SkeletalMeshReference;
 	
 	//	structdefaultproperties
 	//	{
@@ -29,7 +29,7 @@ public partial class TdAnimNodeAnimationPoseOffset : TdAnimNodePoseOffset/*
 	//	}
 	};
 	
-	public/*(AnimationSettings)*/ /*editoronly */array<TdAnimNodeAnimationPoseOffset.AnimationPoseProfile> AnimationPoseProfiles;
+	[Category("AnimationSettings")] [editoronly] public array<TdAnimNodeAnimationPoseOffset.AnimationPoseProfile> AnimationPoseProfiles;
 	
 }
 }

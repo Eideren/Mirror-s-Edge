@@ -5,10 +5,10 @@ public partial class TdUIScene_OptionMenu : TdUIScene_SubMenu/*
 		native
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIPanel SettingsPanel;
-	public /*transient */array<UIObject> OptionObjects;
+	[transient] public UIPanel SettingsPanel;
+	[transient] public array<UIObject> OptionObjects;
 	public array<int> OldOptionValues;
-	public /*protected */bool bChanged;
+	public/*protected*/ bool bChanged;
 	public OnlinePlayerInterface PlayerInterface;
 	
 	public override /*event */void PostInitialize()

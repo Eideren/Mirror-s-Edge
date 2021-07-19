@@ -5,7 +5,7 @@ public partial class SeqAct_SetString : SeqAct_SetSequenceVariable/*
 		native
 		hidecategories(Object)*/{
 	public String Target;
-	public/*()*/ String Value;
+	[Category] public String Value;
 	
 	public SeqAct_SetString()
 	{

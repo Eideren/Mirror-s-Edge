@@ -5,7 +5,7 @@ public partial class InterpTrackVectorProp : InterpTrackVectorBase/*
 		native
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ /*editconst */name PropertyName;
+	[Category] [editconst] public name PropertyName;
 	
 	public InterpTrackVectorProp()
 	{

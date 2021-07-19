@@ -4,11 +4,11 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIToolTip : UILabel/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*const transient */bool bPendingPositionUpdate;
-	public /*const transient */bool bResolveToolTipPosition;
-	public/*()*/ bool bFollowCursor;
-	public/*()*/ bool bAutoHideOnInput;
-	public /*const transient */float SecondsActive;
+	[Const, transient] public bool bPendingPositionUpdate;
+	[Const, transient] public bool bResolveToolTipPosition;
+	[Category] public bool bFollowCursor;
+	[Category] public bool bAutoHideOnInput;
+	[Const, transient] public float SecondsActive;
 	public /*delegate*/UIToolTip.ActivateToolTip __ActivateToolTip__Delegate;
 	public /*delegate*/UIToolTip.DeactivateToolTip __DeactivateToolTip__Delegate;
 	public /*delegate*/UIToolTip.CanShowToolTip __CanShowToolTip__Delegate;

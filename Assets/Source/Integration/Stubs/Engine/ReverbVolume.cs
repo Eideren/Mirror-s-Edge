@@ -35,9 +35,9 @@ public partial class ReverbVolume : Volume/*
 	
 	public partial struct /*native */ReverbSettings
 	{
-		public/*()*/ ReverbVolume.ReverbPreset ReverbType;
-		public/*()*/ float Volume;
-		public/*()*/ float FadeTime;
+		[Category] public ReverbVolume.ReverbPreset ReverbType;
+		[Category] public float Volume;
+		[Category] public float FadeTime;
 	
 	//	structdefaultproperties
 	//	{
@@ -48,9 +48,9 @@ public partial class ReverbVolume : Volume/*
 	//	}
 	};
 	
-	public/*()*/ float Priority;
-	public/*()*/ ReverbVolume.ReverbSettings Settings;
-	public /*noimport const transient */ReverbVolume NextLowerPriorityVolume;
+	[Category] public float Priority;
+	[Category] public ReverbVolume.ReverbSettings Settings;
+	[noimport, Const, transient] public ReverbVolume NextLowerPriorityVolume;
 	
 	public ReverbVolume()
 	{

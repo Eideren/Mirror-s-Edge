@@ -21,7 +21,7 @@ public partial class UIDataProvider_OnlineProfileSettings : UIDataProvider_Onlin
 	};
 	
 	public OnlineProfileSettings Profile;
-	public /*const */name ProviderName;
+	[Const] public name ProviderName;
 	public bool bWasErrorLastRead;
 	public array<UIDataProvider_OnlineProfileSettings.ProfileSettingsArrayProvider> ProfileSettingsArrayProviders;
 	

@@ -16,11 +16,11 @@ public partial class UIContextMenu : UIList/*
 	
 	public partial struct /*native transient */ContextMenuItem
 	{
-		public /*init const transient */UIContextMenu OwnerMenu;
-		public /*init native const transient */Object.Pointer ParentItem;
-		public /*init */UIContextMenu.EContextMenuItemType ItemType;
-		public /*init */String ItemText;
-		public /*init */int ItemId;
+		[init, Const, transient] public UIContextMenu OwnerMenu;
+		[init, native, Const, transient] public Object.Pointer ParentItem;
+		[init] public UIContextMenu.EContextMenuItemType ItemType;
+		[init] public String ItemText;
+		[init] public int ItemId;
 	
 	//	structdefaultproperties
 	//	{
@@ -32,9 +32,9 @@ public partial class UIContextMenu : UIList/*
 	//	}
 	};
 	
-	public /*const transient */UIObject InvokingWidget;
-	public /*const transient */array<UIContextMenu.ContextMenuItem> MenuItems;
-	public /*const transient */bool bResolvePosition;
+	[Const, transient] public UIObject InvokingWidget;
+	[Const, transient] public array<UIContextMenu.ContextMenuItem> MenuItems;
+	[Const, transient] public bool bResolvePosition;
 	
 	// Export UUIContextMenu::execIsActiveContextMenu(FFrame&, void* const)
 	public virtual /*native final function */bool IsActiveContextMenu()

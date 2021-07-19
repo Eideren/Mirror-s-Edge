@@ -13,17 +13,17 @@ public partial class TdMove_ZipLine : TdPhysicsMove/*
 	};
 	
 	public TdZiplineVolume ZipLine;
-	public/*(ZipLine)*/ Object.Vector HangOffset;
-	public/*(ZipLine)*/ /*config */float MinZipVelocity;
-	public/*(ZipLine)*/ /*config */float MinZipAcceleration;
+	[Category("ZipLine")] public Object.Vector HangOffset;
+	[Category("ZipLine")] [config] public float MinZipVelocity;
+	[Category("ZipLine")] [config] public float MinZipAcceleration;
 	public float CurrentParamOnCurve;
-	public /*export editinline */AudioComponent ZippingSoundComponent;
+	[export, editinline] public AudioComponent ZippingSoundComponent;
 	public SoundCue ZippingSound;
-	public/*(ZipLineSound)*/ /*config */float ZipFadeInTime;
-	public/*(ZipLineSound)*/ /*config */float ZipFadeOutTime;
-	public /*private */ForceFeedbackWaveform ZiplineWaveform;
-	public /*private transient */Object.Vector CurrentLookAtPoint;
-	public /*private transient */bool bZipLineLookAssist;
+	[Category("ZipLineSound")] [config] public float ZipFadeInTime;
+	[Category("ZipLineSound")] [config] public float ZipFadeOutTime;
+	public/*private*/ ForceFeedbackWaveform ZiplineWaveform;
+	[transient] public/*private*/ Object.Vector CurrentLookAtPoint;
+	[transient] public/*private*/ bool bZipLineLookAssist;
 	public TdMove_ZipLine.EZipLineStatus ZipLineStatus;
 	
 	public override /*function */bool CanDoMove()

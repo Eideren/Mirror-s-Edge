@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdReachSpec_Jump : TdMoveReachSpec/*
 		native
 		config(PathfindingCosts)*/{
-	public/*()*/ float LandingHeightDifference;
+	[Category] public float LandingHeightDifference;
 	public float SoftLandingHeight;
 	public float HardLandingHeight;
 	public float SlowHardLandingHeight;

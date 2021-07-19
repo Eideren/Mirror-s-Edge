@@ -5,20 +5,20 @@ public partial class SequenceObject : Object/*
 		abstract
 		native
 		hidecategories(Object)*/{
-	public /*const */int ObjClassVersion;
-	public /*const */int ObjInstanceVersion;
-	public /*noimport const */Sequence ParentSequence;
+	[Const] public int ObjClassVersion;
+	[Const] public int ObjInstanceVersion;
+	[noimport, Const] public Sequence ParentSequence;
 	public int ObjPosX;
 	public int ObjPosY;
 	public String ObjName;
 	public String ObjCategory;
 	public Object.Color ObjColor;
-	public/*()*/ String ObjComment;
+	[Category] public String ObjComment;
 	public bool bDeletable;
 	public bool bDrawFirst;
 	public bool bDrawLast;
-	public/*()*/ bool bOutputObjCommentToScreen;
-	public/*()*/ bool bSuppressAutoComment;
+	[Category] public bool bOutputObjCommentToScreen;
+	[Category] public bool bSuppressAutoComment;
 	public int DrawWidth;
 	public int DrawHeight;
 	

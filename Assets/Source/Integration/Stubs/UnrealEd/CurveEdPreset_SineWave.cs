@@ -5,9 +5,9 @@ public partial class CurveEdPreset_SineWave : CurveEdPresetBase/*
 		native
 		editinlinenew
 		hidecategories(Object)*/{
-	public/*()*/ float Frequency;
-	public/*()*/ float Scale;
-	public/*()*/ float Offset;
+	[Category] public float Frequency;
+	[Category] public float Scale;
+	[Category] public float Offset;
 	
 	public override /*function */String GetDisplayName()
 	{

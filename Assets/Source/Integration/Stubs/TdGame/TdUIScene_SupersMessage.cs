@@ -5,8 +5,8 @@ public partial class TdUIScene_SupersMessage : TdUIScene/*
 		native
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UILabel SupersLabel;
-	public /*transient */float Duration;
+	[transient] public UILabel SupersLabel;
+	[transient] public float Duration;
 	
 	public virtual /*function */void SetupSupersMessage(String Text, float TextDuration)
 	{

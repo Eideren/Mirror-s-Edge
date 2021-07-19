@@ -8,8 +8,8 @@ public partial class Info : Actor/*
 		hidecategories(Navigation,Movement,Collision)*/{
 	public partial struct /*native export transient */KeyValuePair
 	{
-		public/*()*/ /*init */String Key;
-		public/*()*/ /*init */String Value;
+		[Category] [init] public String Key;
+		[Category] [init] public String Value;
 	
 	//	structdefaultproperties
 	//	{
@@ -21,13 +21,13 @@ public partial class Info : Actor/*
 	
 	public partial struct /*native export transient */PlayerResponseLine
 	{
-		public/*()*/ /*init */int PlayerNum;
-		public/*()*/ /*init */int PlayerId;
-		public/*()*/ /*init */String PlayerName;
-		public/*()*/ /*init */int Ping;
-		public/*()*/ /*init */int Score;
-		public/*()*/ /*init */int StatsID;
-		public/*()*/ /*init */array<Info.KeyValuePair> PlayerInfo;
+		[Category] [init] public int PlayerNum;
+		[Category] [init] public int PlayerId;
+		[Category] [init] public String PlayerName;
+		[Category] [init] public int Ping;
+		[Category] [init] public int Score;
+		[Category] [init] public int StatsID;
+		[Category] [init] public array<Info.KeyValuePair> PlayerInfo;
 	
 	//	structdefaultproperties
 	//	{
@@ -44,18 +44,18 @@ public partial class Info : Actor/*
 	
 	public partial struct /*native export transient */ServerResponseLine
 	{
-		public/*()*/ /*init */int ServerID;
-		public/*()*/ /*init */String IP;
-		public/*()*/ /*init */int Port;
-		public/*()*/ /*init */int QueryPort;
-		public/*()*/ /*init */String ServerName;
-		public/*()*/ /*init */String MapName;
-		public/*()*/ /*init */String GameType;
-		public/*()*/ /*init */int CurrentPlayers;
-		public/*()*/ /*init */int MaxPlayers;
-		public/*()*/ /*init */int Ping;
-		public/*()*/ /*init */array<Info.KeyValuePair> ServerInfo;
-		public/*()*/ /*init */array<Info.PlayerResponseLine> PlayerInfo;
+		[Category] [init] public int ServerID;
+		[Category] [init] public String IP;
+		[Category] [init] public int Port;
+		[Category] [init] public int QueryPort;
+		[Category] [init] public String ServerName;
+		[Category] [init] public String MapName;
+		[Category] [init] public String GameType;
+		[Category] [init] public int CurrentPlayers;
+		[Category] [init] public int MaxPlayers;
+		[Category] [init] public int Ping;
+		[Category] [init] public array<Info.KeyValuePair> ServerInfo;
+		[Category] [init] public array<Info.PlayerResponseLine> PlayerInfo;
 	
 	//	structdefaultproperties
 	//	{

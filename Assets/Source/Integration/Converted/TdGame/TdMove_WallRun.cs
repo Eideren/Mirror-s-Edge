@@ -4,45 +4,45 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_WallRun : TdPhysicsMove/*
 		native
 		config(PawnMovement)*/{
-	public/*(Gameplay)*/ /*config */float WallRunningForwardCheckDistance;
-	public/*(Gameplay)*/ /*config */float WallRunningStrafeCheckDistance;
-	public/*(Gameplay)*/ /*config */float WallRunningVerticalCheckDistance;
-	public/*(Gameplay)*/ /*config */float WallRunningMinWallHeight;
-	public/*(Gameplay)*/ /*config */float WallRunningMinSpeed;
-	public/*(Gameplay)*/ /*config */float WallRunningVelocityStartLimit;
-	public/*(Gameplay)*/ /*config */float WallRunningVelocityStopLimit;
-	public/*(Gameplay)*/ /*config */float WallRunningForwardMinStartAngle;
-	public/*(Gameplay)*/ /*config */float WallRunningForwardMaxStartAngle;
-	public/*(Gameplay)*/ /*config */float WallRunningStrafeStartAngle;
-	public/*(Gameplay)*/ /*config */float WallRunningHorisontalFriction;
-	public/*(Gameplay)*/ /*config */float WallRunningHorisontalInitialZHeight;
-	public/*(Gameplay)*/ /*config */float WallRunningHorisontalAcceleration;
-	public/*(Gameplay)*/ /*config */float WallRunningHorisontalDeceleration;
-	public/*(Gameplay)*/ /*config */float WallRunningHorisontalAlignSpeed;
-	public/*(Animation)*/ /*config */float WallRunningIntoWallrunBlendInTime;
-	public/*(Animation)*/ /*config */float WallRunningIntoWallrunBlendOutTime;
-	public/*(Animation)*/ /*config */bool PlayCameraHitWallEffect;
+	[Category("Gameplay")] [config] public float WallRunningForwardCheckDistance;
+	[Category("Gameplay")] [config] public float WallRunningStrafeCheckDistance;
+	[Category("Gameplay")] [config] public float WallRunningVerticalCheckDistance;
+	[Category("Gameplay")] [config] public float WallRunningMinWallHeight;
+	[Category("Gameplay")] [config] public float WallRunningMinSpeed;
+	[Category("Gameplay")] [config] public float WallRunningVelocityStartLimit;
+	[Category("Gameplay")] [config] public float WallRunningVelocityStopLimit;
+	[Category("Gameplay")] [config] public float WallRunningForwardMinStartAngle;
+	[Category("Gameplay")] [config] public float WallRunningForwardMaxStartAngle;
+	[Category("Gameplay")] [config] public float WallRunningStrafeStartAngle;
+	[Category("Gameplay")] [config] public float WallRunningHorisontalFriction;
+	[Category("Gameplay")] [config] public float WallRunningHorisontalInitialZHeight;
+	[Category("Gameplay")] [config] public float WallRunningHorisontalAcceleration;
+	[Category("Gameplay")] [config] public float WallRunningHorisontalDeceleration;
+	[Category("Gameplay")] [config] public float WallRunningHorisontalAlignSpeed;
+	[Category("Animation")] [config] public float WallRunningIntoWallrunBlendInTime;
+	[Category("Animation")] [config] public float WallRunningIntoWallrunBlendOutTime;
+	[Category("Animation")] [config] public bool PlayCameraHitWallEffect;
 	public bool bHasReachedWall;
 	public bool bStartMovingIntoWall;
 	public bool bTurned90FromWall;
-	public /*private */bool bChangedConstraints;
-	public/*(Animation)*/ /*config */float WallRunningDelayPawnRotationTime;
-	public/*(Animation)*/ /*config */float WallRunningDistanceForIntoWall;
-	public/*(Animation)*/ /*config */float WallRunningRotatePawnAlongWallTime;
-	public/*(Animation)*/ /*config */float WallRunningMoveToIntoPositionDegreeThreshold;
-	public/*(Animation)*/ /*config */float MinimumVelocityIntoWall;
-	public/*(Animation)*/ /*config */float MaximumVelocityIntoWall;
-	public/*(Animation)*/ /*config */float WallrunStartUpperBodyAnimPlayRate;
-	public/*(Animation)*/ /*config */float LookAlongWallInterpolationTime;
+	public/*private*/ bool bChangedConstraints;
+	[Category("Animation")] [config] public float WallRunningDelayPawnRotationTime;
+	[Category("Animation")] [config] public float WallRunningDistanceForIntoWall;
+	[Category("Animation")] [config] public float WallRunningRotatePawnAlongWallTime;
+	[Category("Animation")] [config] public float WallRunningMoveToIntoPositionDegreeThreshold;
+	[Category("Animation")] [config] public float MinimumVelocityIntoWall;
+	[Category("Animation")] [config] public float MaximumVelocityIntoWall;
+	[Category("Animation")] [config] public float WallrunStartUpperBodyAnimPlayRate;
+	[Category("Animation")] [config] public float LookAlongWallInterpolationTime;
 	public float WallRunningBeginSpeed;
 	public TdPawn.EMovement NextMove;
 	public Object.Vector WallNormal;
 	public Object.Vector PredictedWallHitLocation;
 	public Object.Vector IntoWallrunLocationTarget;
 	public int ConsequtiveWallruns;
-	public /*protected */ForceFeedbackWaveform IntoWallrunWaveform;
-	public /*private */int MinContraintWorld;
-	public /*private */int MaxContraintWorld;
+	public/*protected*/ ForceFeedbackWaveform IntoWallrunWaveform;
+	public/*private*/ int MinContraintWorld;
+	public/*private*/ int MaxContraintWorld;
 	
 	// Export UTdMove_WallRun::execFindWallForward(FFrame&, void* const)
 	public virtual /*native function */TdPawn.EMovement FindWallForward(ref TdPawn.LedgeHitInfo out_LedgeHit)

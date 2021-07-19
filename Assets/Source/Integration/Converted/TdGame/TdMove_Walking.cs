@@ -18,13 +18,13 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 	//	}
 	};
 	
-	public /*private transient */bool bIsPlayingIdleAnim;
-	public/*()*/ /*config */float TriggerIdleAnimMinTime;
-	public/*()*/ /*config */float TriggerIdleAnimMaxTime;
-	public /*config */array</*config */TdMove_Walking.IdleAnimStruct> UnarmedIdleAnims;
-	public /*config */array</*config */TdMove_Walking.IdleAnimStruct> LightIdleAnims;
-	public /*config */array</*config */TdMove_Walking.IdleAnimStruct> HeavyIdleAnims;
-	public /*private transient */TdMove_Walking.IdleAnimStruct CurrentIdleAnim;
+	[transient] public/*private*/ bool bIsPlayingIdleAnim;
+	[Category] [config] public float TriggerIdleAnimMinTime;
+	[Category] [config] public float TriggerIdleAnimMaxTime;
+	[config] public array</*config */TdMove_Walking.IdleAnimStruct> UnarmedIdleAnims;
+	[config] public array</*config */TdMove_Walking.IdleAnimStruct> LightIdleAnims;
+	[config] public array</*config */TdMove_Walking.IdleAnimStruct> HeavyIdleAnims;
+	[transient] public/*private*/ TdMove_Walking.IdleAnimStruct CurrentIdleAnim;
 	
 	public override /*function */bool CanDoMove()
 	{

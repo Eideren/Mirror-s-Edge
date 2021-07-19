@@ -13,8 +13,8 @@ public partial class UIAction_GetPrivilegeLevel : UIAction/*
 		FPM_MAX
 	};
 	
-	public/*()*/ int PlayerId;
-	public/*()*/ UIAction_GetPrivilegeLevel.EFeaturePrivilegeMode PrivMode;
+	[Category] public int PlayerId;
+	[Category] public UIAction_GetPrivilegeLevel.EFeaturePrivilegeMode PrivMode;
 	
 	public virtual /*event */OnlineSubsystem.EFeaturePrivilegeLevel GetPrivilegeLevel(int ControllerId)
 	{

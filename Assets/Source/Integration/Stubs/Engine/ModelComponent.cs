@@ -4,12 +4,12 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class ModelComponent : PrimitiveComponent/*
 		native
 		noexport*/{
-	public /*native const noexport transient */Object Model;
-	public /*native const noexport transient */int ZoneIndex;
-	public /*native const noexport transient */int ComponentIndex;
-	public /*native const noexport transient */array<Object.Pointer> Nodes;
-	public /*native const noexport transient */array<Object.Pointer> Edges;
-	public /*native const noexport transient */array<Object.Pointer> Elements;
+	[native, Const, noexport, transient] public Object Model;
+	[native, Const, noexport, transient] public int ZoneIndex;
+	[native, Const, noexport, transient] public int ComponentIndex;
+	[native, Const, noexport, transient] public array<Object.Pointer> Nodes;
+	[native, Const, noexport, transient] public array<Object.Pointer> Edges;
+	[native, Const, noexport, transient] public array<Object.Pointer> Elements;
 	
 	public ModelComponent()
 	{

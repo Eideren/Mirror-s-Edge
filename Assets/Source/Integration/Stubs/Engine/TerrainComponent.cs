@@ -6,38 +6,38 @@ public partial class TerrainComponent : PrimitiveComponent/*
 		noexport*/{
 	public partial struct TerrainkDOPTree
 	{
-		public /*private native const */array<int> Nodes;
-		public /*private native const */array<int> Triangles;
+		[native, Const] public/*private*/ array<int> Nodes;
+		[native, Const] public/*private*/ array<int> Triangles;
 	};
 	
 	public partial struct TerrainBVTree
 	{
-		public /*private native const */array<int> Nodes;
+		[native, Const] public/*private*/ array<int> Nodes;
 	};
 	
-	public /*private const */array<ShadowMap2D> ShadowMaps;
-	public /*const */array<Object.Guid> IrrelevantLights;
-	public /*native const transient */Object.Pointer TerrainObject;
-	public /*const */int SectionBaseX;
-	public /*const */int SectionBaseY;
-	public /*const */int SectionSizeX;
-	public /*const */int SectionSizeY;
-	public /*const */int TrueSectionSizeX;
-	public /*const */int TrueSectionSizeY;
-	public /*private native const */Object.Pointer LightMap;
-	public /*private native const transient */array<int> PatchBounds;
-	public /*private native const transient */array<int> PatchBatches;
-	public /*private native const transient */array<int> BatchMaterials;
-	public /*private native const transient */int FullBatch;
-	public /*private native const transient */Object.Pointer PatchBatchOffsets;
-	public /*private native const transient */Object.Pointer WorkingOffsets;
-	public /*private native const transient */Object.Pointer PatchBatchTriangles;
-	public /*private native const transient */Object.Pointer PatchCachedTessellationValues;
-	public /*private native const transient */Object.Pointer TesselationLevels;
-	public /*private native const transient */TerrainComponent.TerrainBVTree BVTree;
-	public /*private native const transient */array<Object.Vector> CollisionVertices;
-	public /*native const */Object.Pointer RBHeightfield;
-	public /*private const */bool bDisplayCollisionLevel;
+	[Const] public/*private*/ array<ShadowMap2D> ShadowMaps;
+	[Const] public array<Object.Guid> IrrelevantLights;
+	[native, Const, transient] public Object.Pointer TerrainObject;
+	[Const] public int SectionBaseX;
+	[Const] public int SectionBaseY;
+	[Const] public int SectionSizeX;
+	[Const] public int SectionSizeY;
+	[Const] public int TrueSectionSizeX;
+	[Const] public int TrueSectionSizeY;
+	[native, Const] public/*private*/ Object.Pointer LightMap;
+	[native, Const, transient] public/*private*/ array<int> PatchBounds;
+	[native, Const, transient] public/*private*/ array<int> PatchBatches;
+	[native, Const, transient] public/*private*/ array<int> BatchMaterials;
+	[native, Const, transient] public/*private*/ int FullBatch;
+	[native, Const, transient] public/*private*/ Object.Pointer PatchBatchOffsets;
+	[native, Const, transient] public/*private*/ Object.Pointer WorkingOffsets;
+	[native, Const, transient] public/*private*/ Object.Pointer PatchBatchTriangles;
+	[native, Const, transient] public/*private*/ Object.Pointer PatchCachedTessellationValues;
+	[native, Const, transient] public/*private*/ Object.Pointer TesselationLevels;
+	[native, Const, transient] public/*private*/ TerrainComponent.TerrainBVTree BVTree;
+	[native, Const, transient] public/*private*/ array<Object.Vector> CollisionVertices;
+	[native, Const] public Object.Pointer RBHeightfield;
+	[Const] public/*private*/ bool bDisplayCollisionLevel;
 	
 	public TerrainComponent()
 	{

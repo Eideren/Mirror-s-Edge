@@ -6,7 +6,7 @@ public partial class SoundNodeWaveParam : SoundNode/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ name WaveParameterName;
+	[Category] public name WaveParameterName;
 	
 }
 }

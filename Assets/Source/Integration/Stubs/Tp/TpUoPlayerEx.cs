@@ -5,7 +5,7 @@ public partial class TpUoPlayerEx : TpSystemHandler,
 		OnlinePlayerInterfaceEx/*
 		transient
 		native*/{
-	public /*private */array< /*delegate*/OnlinePlayerInterfaceEx.OnShowGamerCardResult > __OnShowGamerCardResult__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayerInterfaceEx.OnShowGamerCardResult > __OnShowGamerCardResult__Multicaster;
 	public /*delegate*/OnlinePlayerInterfaceEx.OnShowGamerCardResult __OnShowGamerCardResult__Delegate{ get; set; }
 	public /*delegate*/OnlinePlayerInterfaceEx.OnDeviceSelectionComplete __OnDeviceSelectionComplete__Delegate{ get; set; }
 	public /*delegate*/OnlinePlayerInterfaceEx.OnUnlockAchievementComplete __OnUnlockAchievementComplete__Delegate{ get; set; }

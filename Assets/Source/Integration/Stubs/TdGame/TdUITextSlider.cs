@@ -15,8 +15,8 @@ public partial class TdUITextSlider : UISlider/*
 	public UIRoot.UIStyleReference RightArrowStyle;
 	public Core.ClassT<UIState> LeftArrowState;
 	public Core.ClassT<UIState> RightArrowState;
-	public/*(Image)*/ /*export editinlineuse */UITexture LeftArrowTexture;
-	public/*(Image)*/ /*export editinlineuse */UITexture RightArrowTexture;
+	[Category("Image")] [export, editinlineuse] public UITexture LeftArrowTexture;
+	[Category("Image")] [export, editinlineuse] public UITexture RightArrowTexture;
 	
 	public TdUITextSlider()
 	{

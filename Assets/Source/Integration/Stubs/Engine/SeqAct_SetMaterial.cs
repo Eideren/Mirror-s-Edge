@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_SetMaterial : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ MaterialInterface NewMaterial;
-	public/*()*/ int MaterialIndex;
+	[Category] public MaterialInterface NewMaterial;
+	[Category] public int MaterialIndex;
 	
 	public SeqAct_SetMaterial()
 	{

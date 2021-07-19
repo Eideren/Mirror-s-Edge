@@ -5,10 +5,10 @@ public partial class TdCheckpoint : Checkpoint/*
 		native
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*(Checkpoint)*/ bool DefaultCheckpoint;
-	public/*(Checkpoint)*/ String CheckpointName;
-	public/*(Checkpoint)*/ int CheckpointWeight;
-	public/*(Checkpoint)*/ /*editconst */array</*editconst */LevelStreaming> StreamingLevels;
+	[Category("Checkpoint")] public bool DefaultCheckpoint;
+	[Category("Checkpoint")] public String CheckpointName;
+	[Category("Checkpoint")] public int CheckpointWeight;
+	[Category("Checkpoint")] [editconst] public array</*editconst */LevelStreaming> StreamingLevels;
 	
 	public virtual /*function */void OnTdCheckpoint(SeqAct_TdCheckpoint CheckpointAction)
 	{

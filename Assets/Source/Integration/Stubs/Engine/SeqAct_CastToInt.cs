@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_CastToInt : SeqAct_SetSequenceVariable/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bTruncate;
+	[Category] public bool bTruncate;
 	public float Value;
 	public int IntResult;
 	

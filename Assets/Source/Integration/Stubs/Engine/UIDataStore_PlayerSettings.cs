@@ -6,10 +6,10 @@ public partial class UIDataStore_PlayerSettings : UIDataStore_Settings/*
 		native
 		config(Game)
 		hidecategories(Object,UIRoot)*/{
-	public /*const config */array</*config */String> PlayerSettingsProviderClassNames;
-	public /*const transient */array< Core.ClassT<PlayerSettingsProvider> > PlayerSettingsProviderClasses;
-	public /*transient */array<PlayerSettingsProvider> PlayerSettings;
-	public /*const transient */int PlayerIndex;
+	[Const, config] public array</*config */String> PlayerSettingsProviderClassNames;
+	[Const, transient] public array< Core.ClassT<PlayerSettingsProvider> > PlayerSettingsProviderClasses;
+	[transient] public array<PlayerSettingsProvider> PlayerSettings;
+	[Const, transient] public int PlayerIndex;
 	
 	// Export UUIDataStore_PlayerSettings::execGetPlayerOwner(FFrame&, void* const)
 	public virtual /*native final function */LocalPlayer GetPlayerOwner()

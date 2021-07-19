@@ -6,15 +6,15 @@ public partial class DynamicSMActor : Actor/*
 		native
 		notplaceable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*const editconst export editinline */StaticMeshComponent StaticMeshComponent;
-	public/*()*/ /*const editconst export editinline */LightEnvironmentComponent LightEnvironment;
-	public /*repnotify */StaticMesh ReplicatedMesh;
-	public /*repnotify */MaterialInterface ReplicatedMaterial;
-	public /*repnotify */Object.Vector ReplicatedMeshTranslation;
-	public /*repnotify */Object.Rotator ReplicatedMeshRotation;
-	public /*repnotify */Object.Vector ReplicatedMeshScale3D;
-	public/*()*/ bool bPawnCanBaseOn;
-	public/*()*/ bool bSafeBaseIfAsleep;
+	[Category] [Const, editconst, export, editinline] public StaticMeshComponent StaticMeshComponent;
+	[Category] [Const, editconst, export, editinline] public LightEnvironmentComponent LightEnvironment;
+	[repnotify] public StaticMesh ReplicatedMesh;
+	[repnotify] public MaterialInterface ReplicatedMaterial;
+	[repnotify] public Object.Vector ReplicatedMeshTranslation;
+	[repnotify] public Object.Rotator ReplicatedMeshRotation;
+	[repnotify] public Object.Vector ReplicatedMeshScale3D;
+	[Category] public bool bPawnCanBaseOn;
+	[Category] public bool bSafeBaseIfAsleep;
 	
 	//replication
 	//{

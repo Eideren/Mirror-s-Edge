@@ -3,9 +3,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class UIAction_ReplacePage : UIAction_TabControl/*
 		hidecategories(Object)*/{
-	public/*()*/ Core.ClassT<UITabPage> TabPageClass;
+	[Category] public Core.ClassT<UITabPage> TabPageClass;
 	public UITabPage PageToRemove;
-	public/*()*/ bool bFocusPage;
+	[Category] public bool bFocusPage;
 	public UITabPage PageToInsert;
 	public UITabPage PagePrefab;
 	

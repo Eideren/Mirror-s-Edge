@@ -5,7 +5,7 @@ public partial class UIAction_ShowLoginUI : UIAction/*
 		native
 		hidecategories(Object)*/{
 	public bool bIsDone;
-	public/*()*/ bool bShowOnlineOnly;
+	[Category] public bool bShowOnlineOnly;
 	
 	public virtual /*event */void ShowUI()
 	{

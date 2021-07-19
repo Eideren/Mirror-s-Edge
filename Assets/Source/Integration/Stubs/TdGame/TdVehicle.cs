@@ -10,16 +10,16 @@ public partial class TdVehicle : SVehicle/*
 		hidecategories(Navigation)*/{
 	public partial struct /*native */VehicleSeat
 	{
-		public/*()*/ /*editinline */Pawn StoragePawn;
-		public/*()*/ /*editinline */Vehicle SeatPawn;
-		public/*()*/ Core.ClassT<Vehicle> SeatPawnClass;
-		public/*()*/ name CharacterSeatSocket;
-		public/*()*/ name CharacterSeatBone;
-		public/*()*/ name CameraSeatSocket;
-		public/*()*/ float CameraOffset;
-		public/*()*/ float CameraEyeHeight;
-		public/*()*/ float ViewPitchMin;
-		public/*()*/ float ViewPitchMax;
+		[Category] [editinline] public Pawn StoragePawn;
+		[Category] [editinline] public Vehicle SeatPawn;
+		[Category] public Core.ClassT<Vehicle> SeatPawnClass;
+		[Category] public name CharacterSeatSocket;
+		[Category] public name CharacterSeatBone;
+		[Category] public name CameraSeatSocket;
+		[Category] public float CameraOffset;
+		[Category] public float CameraEyeHeight;
+		[Category] public float ViewPitchMin;
+		[Category] public float ViewPitchMax;
 	
 	//	structdefaultproperties
 	//	{
@@ -55,16 +55,16 @@ public partial class TdVehicle : SVehicle/*
 	//	}
 	};
 	
-	public/*(Seats)*/ float SeatCameraScale;
+	[Category("Seats")] public float SeatCameraScale;
 	public array<TdVehicle.TimePosition> OldPositions;
 	public float CameraLag;
 	public Object.Vector CameraOffset;
 	public float LookForwardDist;
 	public float MinCameraDistSq;
 	public float CameraSmoothingFactor;
-	public /*repnotify */bool bDeadVehicle;
+	[repnotify] public bool bDeadVehicle;
 	public PhysicsAsset RagdollAsset;
-	public/*(Seats)*/ array<TdVehicle.VehicleSeat> Seats;
+	[Category("Seats")] public array<TdVehicle.VehicleSeat> Seats;
 	
 	//replication
 	//{

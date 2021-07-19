@@ -152,14 +152,14 @@ public partial class OnlineSubsystem : Object/*
 	
 	public partial struct /*native */OnlineFriend
 	{
-		public /*const */OnlineSubsystem.UniqueNetId UniqueId;
-		public /*const */String NickName;
-		public /*const */String PresenceInfo;
-		public /*const */bool bIsOnline;
-		public /*const */bool bIsPlaying;
-		public /*const */bool bIsPlayingThisGame;
-		public /*const */bool bIsJoinable;
-		public /*const */bool bHasVoiceSupport;
+		[Const] public OnlineSubsystem.UniqueNetId UniqueId;
+		[Const] public String NickName;
+		[Const] public String PresenceInfo;
+		[Const] public bool bIsOnline;
+		[Const] public bool bIsPlaying;
+		[Const] public bool bIsPlayingThisGame;
+		[Const] public bool bIsJoinable;
+		[Const] public bool bHasVoiceSupport;
 	
 	//	structdefaultproperties
 	//	{
@@ -190,14 +190,14 @@ public partial class OnlineSubsystem : Object/*
 	
 	public partial struct /*native */OnlinePlayer
 	{
-		public /*const */OnlineSubsystem.UniqueNetId UniqueId;
-		public /*const */String NickName;
-		public /*const */String PresenceInfo;
-		public /*const */bool bIsOnline;
-		public /*const */bool bIsPlaying;
-		public /*const */bool bIsPlayingThisGame;
-		public /*const */bool bIsJoinable;
-		public /*const */bool bHasVoiceSupport;
+		[Const] public OnlineSubsystem.UniqueNetId UniqueId;
+		[Const] public String NickName;
+		[Const] public String PresenceInfo;
+		[Const] public bool bIsOnline;
+		[Const] public bool bIsPlaying;
+		[Const] public bool bIsPlayingThisGame;
+		[Const] public bool bIsJoinable;
+		[Const] public bool bHasVoiceSupport;
 	
 	//	structdefaultproperties
 	//	{
@@ -327,9 +327,9 @@ public partial class OnlineSubsystem : Object/*
 	
 	public partial struct /*native */OnlineArbitrationRegistrant
 	{
-		public /*const */Object.QWord MachineId;
-		public /*const */OnlineSubsystem.UniqueNetId PlayerId;
-		public /*const */int Trustworthiness;
+		[Const] public Object.QWord MachineId;
+		[Const] public OnlineSubsystem.UniqueNetId PlayerId;
+		[Const] public int Trustworthiness;
 	
 	//	structdefaultproperties
 	//	{
@@ -475,7 +475,7 @@ public partial class OnlineSubsystem : Object/*
 	//	}
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTable_FTickableObject;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FTickableObject;
 	public OnlineAccountInterface AccountInterface;
 	public OnlinePlayerInterface PlayerInterface;
 	public OnlinePlayerInterfaceEx PlayerInterfaceEx;

@@ -9,9 +9,9 @@ public partial class BrowserManager : Object/*
 		public int PaneID;
 		public String WxWindowClassName;
 		public String FriendlyName;
-		public /*const */int CloneOfPaneID;
-		public /*const */int CloneNumber;
-		public /*const transient */Object.Pointer WxBrowserPtr;
+		[Const] public int CloneOfPaneID;
+		[Const] public int CloneNumber;
+		[Const, transient] public Object.Pointer WxBrowserPtr;
 	
 	//	structdefaultproperties
 	//	{
@@ -25,13 +25,13 @@ public partial class BrowserManager : Object/*
 	//	}
 	};
 	
-	public /*config */array</*config */BrowserManager.BrowserPaneInfo> BrowserPanes;
+	[config] public array</*config */BrowserManager.BrowserPaneInfo> BrowserPanes;
 	public bool bHasCreatedPanes;
-	public /*config */int LastSelectedPaneID;
-	public /*const transient */Object.Pointer DockingContainerPtr;
-	public /*const transient */Object.Pointer FloatingWindowsArrayPtr;
-	public /*const transient */Object.Pointer BrowserMenuPtr;
-	public /*const transient */UISceneManager UISceneManager;
+	[config] public int LastSelectedPaneID;
+	[Const, transient] public Object.Pointer DockingContainerPtr;
+	[Const, transient] public Object.Pointer FloatingWindowsArrayPtr;
+	[Const, transient] public Object.Pointer BrowserMenuPtr;
+	[Const, transient] public UISceneManager UISceneManager;
 	
 	public BrowserManager()
 	{

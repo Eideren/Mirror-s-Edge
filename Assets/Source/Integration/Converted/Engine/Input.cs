@@ -8,11 +8,11 @@ public partial class Input : Interaction/*
 		hidecategories(Object,UIRoot)*/{
 	public partial struct /*native */KeyBind
 	{
-		public /*config */name Name;
-		public /*config */String Command;
-		public /*config */bool Control;
-		public /*config */bool Shift;
-		public /*config */bool Alt;
+		[config] public name Name;
+		[config] public String Command;
+		[config] public bool Control;
+		[config] public bool Shift;
+		[config] public bool Alt;
 	
 	//	structdefaultproperties
 	//	{
@@ -27,8 +27,8 @@ public partial class Input : Interaction/*
 	
 	public partial struct /*native */InputOverridePair
 	{
-		public /*config */name Key;
-		public /*config */Input.KeyBind Binding;
+		[config] public name Key;
+		[config] public Input.KeyBind Binding;
 	
 	//	structdefaultproperties
 	//	{
@@ -45,14 +45,14 @@ public partial class Input : Interaction/*
 	//	}
 	};
 	
-	public /*config */array</*config */Input.KeyBind> Bindings;
-	public /*config */array</*config */Input.InputOverridePair> OverrideBindings;
-	public /*const */array<name> PressedKeys;
-	public /*const */Object.EInputEvent CurrentEvent;
-	public /*const */float CurrentDelta;
-	public /*const */float CurrentDeltaTime;
-	public /*native const *//*map<0,0>*/map<object, object> NameToPtr;
-	public /*init native const */array</*init */Object.Pointer> AxisArray;
+	[config] public array</*config */Input.KeyBind> Bindings;
+	[config] public array</*config */Input.InputOverridePair> OverrideBindings;
+	[Const] public array<name> PressedKeys;
+	[Const] public Object.EInputEvent CurrentEvent;
+	[Const] public float CurrentDelta;
+	[Const] public float CurrentDeltaTime;
+	[native, Const] public /*map<0,0>*/map<object, object> NameToPtr;
+	[init, native, Const] public array</*init */Object.Pointer> AxisArray;
 	
 	// Export UInput::execResetInput(FFrame&, void* const)
 	public virtual /*native function */void ResetInput()

@@ -11,20 +11,20 @@ public partial class TextureMovie : Texture/*
 		MovieStream_MAX
 	};
 	
-	public /*const */int SizeX;
-	public /*const */int SizeY;
-	public /*const */Texture.EPixelFormat Format;
-	public/*()*/ Texture.TextureAddress AddressX;
-	public/*()*/ Texture.TextureAddress AddressY;
-	public/*()*/ TextureMovie.EMovieStreamSource MovieStreamSource;
-	public /*const */Core.ClassT<CodecMovie> DecoderClass;
-	public /*const transient */CodecMovie Decoder;
-	public /*const */bool Paused;
-	public /*const */bool Stopped;
-	public/*()*/ bool Looping;
-	public/*()*/ bool AutoPlay;
-	public /*native const */Object.UntypedBulkData_Mirror Data;
-	public /*native const transient */Object.Pointer ReleaseCodecFence;
+	[Const] public int SizeX;
+	[Const] public int SizeY;
+	[Const] public Texture.EPixelFormat Format;
+	[Category] public Texture.TextureAddress AddressX;
+	[Category] public Texture.TextureAddress AddressY;
+	[Category] public TextureMovie.EMovieStreamSource MovieStreamSource;
+	[Const] public Core.ClassT<CodecMovie> DecoderClass;
+	[Const, transient] public CodecMovie Decoder;
+	[Const] public bool Paused;
+	[Const] public bool Stopped;
+	[Category] public bool Looping;
+	[Category] public bool AutoPlay;
+	[native, Const] public Object.UntypedBulkData_Mirror Data;
+	[native, Const, transient] public Object.Pointer ReleaseCodecFence;
 	
 	// Export UTextureMovie::execPlay(FFrame&, void* const)
 	public virtual /*native function */void Play()

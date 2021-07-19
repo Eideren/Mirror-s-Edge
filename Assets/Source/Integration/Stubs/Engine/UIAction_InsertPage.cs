@@ -3,9 +3,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class UIAction_InsertPage : UIAction_TabControl/*
 		hidecategories(Object)*/{
-	public/*()*/ Core.ClassT<UITabPage> TabPageClass;
-	public/*()*/ int InsertIndex;
-	public/*()*/ bool bFocusPage;
+	[Category] public Core.ClassT<UITabPage> TabPageClass;
+	[Category] public int InsertIndex;
+	[Category] public bool bFocusPage;
 	public UITabPage PageToInsert;
 	public UITabPage PagePrefab;
 	

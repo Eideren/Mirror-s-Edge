@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_GameObjectives : TdUIScene_ObjectivesScene/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UILabel BagStatusLabel;
-	public /*transient */UILabel NumGiveBulletDamageLabel;
+	[transient] public UILabel BagStatusLabel;
+	[transient] public UILabel NumGiveBulletDamageLabel;
 	public UIDataStore_TdGameData TdGameData;
 	public TdProfileSettings Profile;
 	public String CurrentMap;

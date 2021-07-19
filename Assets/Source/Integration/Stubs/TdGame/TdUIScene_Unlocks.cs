@@ -4,13 +4,13 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_Unlocks : TdUIScene/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIImage ArtworkBGImage;
-	public /*transient */UIImage ArtworkBGTopImage;
-	public /*transient */UIImage VideosBGImage;
-	public /*transient */UIImage VideosBGTopImage;
-	public /*transient */UIImage MusicBGImage;
-	public /*transient */UIImage MusicBGTopImage;
-	public /*transient */TdUITabControl TabControl;
+	[transient] public UIImage ArtworkBGImage;
+	[transient] public UIImage ArtworkBGTopImage;
+	[transient] public UIImage VideosBGImage;
+	[transient] public UIImage VideosBGTopImage;
+	[transient] public UIImage MusicBGImage;
+	[transient] public UIImage MusicBGTopImage;
+	[transient] public TdUITabControl TabControl;
 	
 	public override /*event */void PostInitialize()
 	{

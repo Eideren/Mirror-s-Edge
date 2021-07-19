@@ -8,13 +8,13 @@ public partial class ActorFactoryDynamicSM : ActorFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ StaticMesh StaticMesh;
-	public/*()*/ Object.Vector DrawScale3D;
-	public/*()*/ bool bNoEncroachCheck;
-	public/*()*/ bool bNotifyRigidBodyCollision;
-	public/*()*/ bool bUseCompartment;
-	public/*()*/ bool bCastDynamicShadow;
-	public/*()*/ Actor.ECollisionType CollisionType;
+	[Category] public StaticMesh StaticMesh;
+	[Category] public Object.Vector DrawScale3D;
+	[Category] public bool bNoEncroachCheck;
+	[Category] public bool bNotifyRigidBodyCollision;
+	[Category] public bool bUseCompartment;
+	[Category] public bool bCastDynamicShadow;
+	[Category] public Actor.ECollisionType CollisionType;
 	
 	public ActorFactoryDynamicSM()
 	{

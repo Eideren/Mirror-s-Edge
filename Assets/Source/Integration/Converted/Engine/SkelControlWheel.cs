@@ -4,14 +4,14 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SkelControlWheel : SkelControlSingleBone/*
 		native
 		hidecategories(Object,Translation,Rotation)*/{
-	public/*(Wheel)*/ /*transient */float WheelDisplacement;
-	public/*(Wheel)*/ float WheelMaxRenderDisplacement;
-	public/*(Wheel)*/ /*transient */float WheelRoll;
-	public/*(Wheel)*/ Object.EAxis WheelRollAxis;
-	public/*(Wheel)*/ Object.EAxis WheelSteeringAxis;
-	public/*(Wheel)*/ /*transient */float WheelSteering;
-	public/*(Wheel)*/ bool bInvertWheelRoll;
-	public/*(Wheel)*/ bool bInvertWheelSteering;
+	[Category("Wheel")] [transient] public float WheelDisplacement;
+	[Category("Wheel")] public float WheelMaxRenderDisplacement;
+	[Category("Wheel")] [transient] public float WheelRoll;
+	[Category("Wheel")] public Object.EAxis WheelRollAxis;
+	[Category("Wheel")] public Object.EAxis WheelSteeringAxis;
+	[Category("Wheel")] [transient] public float WheelSteering;
+	[Category("Wheel")] public bool bInvertWheelRoll;
+	[Category("Wheel")] public bool bInvertWheelSteering;
 	
 	public SkelControlWheel()
 	{

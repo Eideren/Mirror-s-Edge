@@ -4,10 +4,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class OnlineSubsystemCommonImpl : OnlineSubsystem/*
 		native
 		config(Engine)*/{
-	public /*native const transient */Object.Pointer VoiceEngine;
-	public /*config */int MaxLocalTalkers;
-	public /*config */int MaxRemoteTalkers;
-	public /*config */bool bIsUsingSpeechRecognition;
+	[native, Const, transient] public Object.Pointer VoiceEngine;
+	[config] public int MaxLocalTalkers;
+	[config] public int MaxRemoteTalkers;
+	[config] public bool bIsUsingSpeechRecognition;
 	public OnlineGameInterfaceImpl GameInterfaceImpl;
 	
 	public virtual /*event */String GetPlayerNicknameFromIndex(int UserIndex)

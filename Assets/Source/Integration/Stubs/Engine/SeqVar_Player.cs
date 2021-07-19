@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqVar_Player : SeqVar_Object/*
 		native
 		hidecategories(Object)*/{
-	public /*transient */array<Object> Players;
-	public/*()*/ bool bAllPlayers;
-	public/*()*/ int PlayerIdx;
+	[transient] public array<Object> Players;
+	[Category] public bool bAllPlayers;
+	[Category] public int PlayerIdx;
 	
 	public override /*function */Object GetObjectValue()
 	{

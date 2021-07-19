@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_PlayFaceFXAnim : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ FaceFXAnimSet FaceFXAnimSetRef;
-	public/*()*/ String FaceFXGroupName;
-	public/*()*/ String FaceFXAnimName;
+	[Category] public FaceFXAnimSet FaceFXAnimSetRef;
+	[Category] public String FaceFXGroupName;
+	[Category] public String FaceFXAnimName;
 	
 	public SeqAct_PlayFaceFXAnim()
 	{

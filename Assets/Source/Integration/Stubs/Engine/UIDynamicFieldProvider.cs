@@ -7,10 +7,10 @@ public partial class UIDynamicFieldProvider : UIDataProvider/*
 		config(UI)
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
-	public/*()*/ /*protected config */array</*config */UIRoot.UIProviderScriptFieldValue> PersistentDataFields;
-	public/*()*/ /*protected transient */array<UIRoot.UIProviderScriptFieldValue> RuntimeDataFields;
-	public /*protected native const */Object.Map_Mirror PersistentCollectionData;
-	public /*protected native const transient */Object.Map_Mirror RuntimeCollectionData;
+	[Category] [config] public/*protected*/ array</*config */UIRoot.UIProviderScriptFieldValue> PersistentDataFields;
+	[Category] [transient] public/*protected*/ array<UIRoot.UIProviderScriptFieldValue> RuntimeDataFields;
+	[native, Const] public/*protected*/ Object.Map_Mirror PersistentCollectionData;
+	[native, Const, transient] public/*protected*/ Object.Map_Mirror RuntimeCollectionData;
 	
 	// Export UUIDynamicFieldProvider::execInitializeRuntimeFields(FFrame&, void* const)
 	public virtual /*native function */void InitializeRuntimeFields()

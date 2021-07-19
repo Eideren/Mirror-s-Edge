@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class TextureRenderTarget : Texture/*
 		abstract
 		native*/{
-	public /*transient */bool bUpdateImmediate;
-	public/*()*/ bool bNeedsTwoCopies;
-	public/*()*/ bool bRenderOnce;
+	[transient] public bool bUpdateImmediate;
+	[Category] public bool bNeedsTwoCopies;
+	[Category] public bool bRenderOnce;
 	
 	public TextureRenderTarget()
 	{

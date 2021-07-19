@@ -9,8 +9,8 @@ public partial class MaterialExpressionPanner : MaterialExpression/* within Mate
 	
 	public MaterialExpression.ExpressionInput Coordinate;
 	public MaterialExpression.ExpressionInput Time;
-	public/*()*/ float SpeedX;
-	public/*()*/ float SpeedY;
+	[Category] public float SpeedX;
+	[Category] public float SpeedY;
 	
 }
 }

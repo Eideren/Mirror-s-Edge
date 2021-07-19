@@ -15,10 +15,10 @@ public partial class LevelStreamingVolume : Volume/*
 		SVB_MAX
 	};
 	
-	public/*()*/ /*noimport const editconst */array</*editconst */LevelStreaming> StreamingLevels;
-	public/*()*/ bool bEditorPreVisOnly;
-	public/*()*/ bool bDisabled;
-	public/*()*/ LevelStreamingVolume.EStreamingVolumeUsage Usage;
+	[Category] [noimport, Const, editconst] public array</*editconst */LevelStreaming> StreamingLevels;
+	[Category] public bool bEditorPreVisOnly;
+	[Category] public bool bDisabled;
+	[Category] public LevelStreamingVolume.EStreamingVolumeUsage Usage;
 	
 	public override /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{

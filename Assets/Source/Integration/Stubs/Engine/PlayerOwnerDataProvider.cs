@@ -5,7 +5,7 @@ public partial class PlayerOwnerDataProvider : PlayerDataProvider/*
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*transient */PlayerDataProvider PlayerData;
+	[transient] public PlayerDataProvider PlayerData;
 	
 	public virtual /*function */void SetPlayerDataProvider(PlayerDataProvider NewPlayerData)
 	{

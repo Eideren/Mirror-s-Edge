@@ -6,7 +6,7 @@ public partial class TdJumpNode : TdMoveNode/*
 		config(PathfindingCosts)
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*(Settings)*/ float ForcedSpeed;
+	[Category("Settings")] public float ForcedSpeed;
 	public bool bFallOff;
 	public float MaxShortJump;
 	public float MaxMediumJump;

@@ -15,31 +15,31 @@ public partial class FontImportOptions : Object/*
 	
 	public partial struct /*native */FontImportOptionsData
 	{
-		public/*()*/ String FontName;
-		public/*()*/ float Height;
-		public/*()*/ bool bEnableAntialiasing;
-		public/*()*/ bool bEnableBold;
-		public/*()*/ bool bEnableItalic;
-		public/*()*/ bool bEnableUnderline;
-		public/*()*/ FontImportOptions.EFontImportCharacterSet CharacterSet;
-		public/*()*/ String Chars;
-		public/*()*/ String UnicodeRange;
-		public/*()*/ String CharsFilePath;
-		public/*()*/ String CharsFileWildcard;
-		public/*()*/ bool bCreatePrintableOnly;
-		public/*()*/ Object.LinearColor ForegroundColor;
-		public/*()*/ bool bEnableDropShadow;
-		public/*()*/ int TexturePageWidth;
-		public/*()*/ int TexturePageMaxHeight;
-		public/*()*/ int XPadding;
-		public/*()*/ int YPadding;
-		public/*()*/ int ExtendBoxTop;
-		public/*()*/ int ExtendBoxBottom;
-		public/*()*/ int ExtendBoxRight;
-		public/*()*/ int ExtendBoxLeft;
-		public/*()*/ bool bEnableLegacyMode;
-		public/*()*/ int Kerning;
-		public/*()*/ bool bImportKerningPairs;
+		[Category] public String FontName;
+		[Category] public float Height;
+		[Category] public bool bEnableAntialiasing;
+		[Category] public bool bEnableBold;
+		[Category] public bool bEnableItalic;
+		[Category] public bool bEnableUnderline;
+		[Category] public FontImportOptions.EFontImportCharacterSet CharacterSet;
+		[Category] public String Chars;
+		[Category] public String UnicodeRange;
+		[Category] public String CharsFilePath;
+		[Category] public String CharsFileWildcard;
+		[Category] public bool bCreatePrintableOnly;
+		[Category] public Object.LinearColor ForegroundColor;
+		[Category] public bool bEnableDropShadow;
+		[Category] public int TexturePageWidth;
+		[Category] public int TexturePageMaxHeight;
+		[Category] public int XPadding;
+		[Category] public int YPadding;
+		[Category] public int ExtendBoxTop;
+		[Category] public int ExtendBoxBottom;
+		[Category] public int ExtendBoxRight;
+		[Category] public int ExtendBoxLeft;
+		[Category] public bool bEnableLegacyMode;
+		[Category] public int Kerning;
+		[Category] public bool bImportKerningPairs;
 	
 	//	structdefaultproperties
 	//	{
@@ -78,7 +78,7 @@ public partial class FontImportOptions : Object/*
 	//	}
 	};
 	
-	public/*()*/ FontImportOptions.FontImportOptionsData Data;
+	[Category] public FontImportOptions.FontImportOptionsData Data;
 	
 	public FontImportOptions()
 	{

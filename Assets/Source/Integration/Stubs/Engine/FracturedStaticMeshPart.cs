@@ -5,8 +5,8 @@ public partial class FracturedStaticMeshPart : FracturedStaticMeshActor/*
 		native
 		notplaceable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*const editconst export editinline */LightEnvironmentComponent LightEnvironment;
-	public/*()*/ /*const editconst export editinline */ParticleSystemComponent ParticleComponent;
+	[Category] [Const, editconst, export, editinline] public LightEnvironmentComponent LightEnvironment;
+	[Category] [Const, editconst, export, editinline] public ParticleSystemComponent ParticleComponent;
 	
 	public override RigidBodyCollision_del RigidBodyCollision { get => bfield_RigidBodyCollision ?? FracturedStaticMeshPart_RigidBodyCollision; set => bfield_RigidBodyCollision = value; } RigidBodyCollision_del bfield_RigidBodyCollision;
 	public override RigidBodyCollision_del global_RigidBodyCollision => FracturedStaticMeshPart_RigidBodyCollision;

@@ -3,14 +3,14 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMove_AnimationPlayback : TdMove/*
 		config(PawnMovement)*/{
-	public /*private transient */name AnimationName;
-	public /*private transient */float PlayRate;
-	public /*private transient */float BlendInTime;
-	public /*private transient */float BlendOutTime;
-	public /*private transient */bool bUseRootMotion;
-	public /*private transient */bool bUseRootRotation;
-	public /*private transient */bool bLoop;
-	public /*private transient */bool bForceWalkingStateToIdle;
+	[transient] public/*private*/ name AnimationName;
+	[transient] public/*private*/ float PlayRate;
+	[transient] public/*private*/ float BlendInTime;
+	[transient] public/*private*/ float BlendOutTime;
+	[transient] public/*private*/ bool bUseRootMotion;
+	[transient] public/*private*/ bool bUseRootRotation;
+	[transient] public/*private*/ bool bLoop;
+	[transient] public/*private*/ bool bForceWalkingStateToIdle;
 	
 	public override /*simulated function */void StartMove()
 	{

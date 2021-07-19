@@ -5,7 +5,7 @@ public partial class InterpTrackColorProp : InterpTrackVectorBase/*
 		native
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ /*editconst */name PropertyName;
+	[Category] [editconst] public name PropertyName;
 	
 	public InterpTrackColorProp()
 	{

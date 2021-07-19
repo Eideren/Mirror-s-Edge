@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_BigOverlayImage : TdUIScene_Overlay/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIImage BigImage;
+	[transient] public UIImage BigImage;
 	
 	public override /*function */void SetupButtonBar()
 	{

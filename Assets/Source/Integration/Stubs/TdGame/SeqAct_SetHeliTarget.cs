@@ -3,8 +3,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_SetHeliTarget : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ TdAI_HeliController.EHeliAttackSide SideOfHelicopter;
-	public/*()*/ Actor AimTarget;
+	[Category] public TdAI_HeliController.EHeliAttackSide SideOfHelicopter;
+	[Category] public Actor AimTarget;
 	
 	public SeqAct_SetHeliTarget()
 	{

@@ -7,7 +7,7 @@ public partial class MaterialExpressionVectorParameter : MaterialExpressionParam
 		hidecategories(Object,Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ Object.LinearColor DefaultValue;
+	[Category] public Object.LinearColor DefaultValue;
 	
 	public MaterialExpressionVectorParameter()
 	{

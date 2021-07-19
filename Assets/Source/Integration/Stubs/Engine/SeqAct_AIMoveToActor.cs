@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_AIMoveToActor : SeqAct_Latent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bInterruptable;
+	[Category] public bool bInterruptable;
 	
 	public SeqAct_AIMoveToActor()
 	{

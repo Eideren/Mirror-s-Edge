@@ -4,12 +4,12 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_CameraFade : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ Object.Color FadeColor;
-	public/*()*/ Object.Vector2D FadeAlpha;
-	public/*()*/ float FadeTime;
-	public/*()*/ bool bPersistFade;
-	public /*transient */float FadeTimeRemaining;
-	public /*transient */array<Camera> CachedCameras;
+	[Category] public Object.Color FadeColor;
+	[Category] public Object.Vector2D FadeAlpha;
+	[Category] public float FadeTime;
+	[Category] public bool bPersistFade;
+	[transient] public float FadeTimeRemaining;
+	[transient] public array<Camera> CachedCameras;
 	
 	public SeqAct_CameraFade()
 	{

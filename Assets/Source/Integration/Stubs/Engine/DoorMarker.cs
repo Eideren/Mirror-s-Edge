@@ -12,14 +12,14 @@ public partial class DoorMarker : NavigationPoint/*
 		DOOR_MAX
 	};
 	
-	public/*()*/ InterpActor MyDoor;
-	public/*()*/ DoorMarker.EDoorType DoorType;
-	public/*()*/ Actor DoorTrigger;
-	public/*()*/ bool bWaitUntilCompletelyOpened;
-	public/*()*/ bool bInitiallyClosed;
-	public/*()*/ bool bBlockedWhenClosed;
+	[Category] public InterpActor MyDoor;
+	[Category] public DoorMarker.EDoorType DoorType;
+	[Category] public Actor DoorTrigger;
+	[Category] public bool bWaitUntilCompletelyOpened;
+	[Category] public bool bInitiallyClosed;
+	[Category] public bool bBlockedWhenClosed;
 	public bool bDoorOpen;
-	public /*const transient */bool bTempDisabledCollision;
+	[Const, transient] public bool bTempDisabledCollision;
 	
 	public override /*event */void PostBeginPlay()
 	{

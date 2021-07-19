@@ -3,8 +3,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMove_180Turn : TdMove/*
 		config(PawnMovement)*/{
-	public/*(Turn)*/ /*config */float TurnAnimBlendInTime;
-	public/*(Turn)*/ /*config */float TurnAnimBlendOutTime;
+	[Category("Turn")] [config] public float TurnAnimBlendInTime;
+	[Category("Turn")] [config] public float TurnAnimBlendOutTime;
 	
 	public override /*function */bool CanDoMove()
 	{

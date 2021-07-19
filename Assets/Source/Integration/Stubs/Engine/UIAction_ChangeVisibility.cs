@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class UIAction_ChangeVisibility : UIAction/*
 		hidecategories(Object)*/{
-	public/*()*/ bool bVisible;
+	[Category] public bool bVisible;
 	
 	public UIAction_ChangeVisibility()
 	{

@@ -7,8 +7,8 @@ public partial class UIPreviewString : UIString/* within UIScreenObject*//*
 		hidecategories(Object,UIRoot)*/{
 	public new UIScreenObject Outer => base.Outer as UIScreenObject;
 	
-	public /*private */UIState CurrentMenuState;
-	public /*private const */Object.Vector2D PreviewViewportSize;
+	public/*private*/ UIState CurrentMenuState;
+	[Const] public/*private*/ Object.Vector2D PreviewViewportSize;
 	
 }
 }

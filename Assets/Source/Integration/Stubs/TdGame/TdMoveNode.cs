@@ -7,12 +7,12 @@ public partial class TdMoveNode : PathNode/*
 		config(PathfindingCosts)
 		notplaceable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*(MoveSettings)*/ bool bStopAfterMove;
-	public/*(MoveSettings)*/ bool bForceWalkToStartNode;
-	public/*(MoveSettings)*/ bool bForceNewPath;
+	[Category("MoveSettings")] public bool bStopAfterMove;
+	[Category("MoveSettings")] public bool bForceWalkToStartNode;
+	[Category("MoveSettings")] public bool bForceNewPath;
 	public Core.ClassT<TdMoveReachSpec> MoveReachspecClass;
-	public/*(TakedownMoveConnection)*/ NavigationPoint Destination;
-	public /*config */int SpecialMoveCost;
+	[Category("TakedownMoveConnection")] public NavigationPoint Destination;
+	[config] public int SpecialMoveCost;
 	
 	public TdMoveNode()
 	{

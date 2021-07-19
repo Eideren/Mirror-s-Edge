@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class UIAction_TdTransferMapCycle : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bTransferToProfile;
+	[Category] public bool bTransferToProfile;
 	
 	public UIAction_TdTransferMapCycle()
 	{

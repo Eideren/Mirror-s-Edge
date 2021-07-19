@@ -4,13 +4,13 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_GameSettings : TdUIScene_OptionMenu/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UITdOptionButton LOIOptionButton;
-	public /*transient */UITdOptionButton DifficultyOptionButton;
-	public /*transient */UITdOptionButton ReticuleOptionButton;
-	public /*transient */UITdOptionButton SubtitlesOptionButton;
-	public /*transient */TdProfileSettings TdProfile;
-	public /*transient */int CachedDifficulty;
-	public /*transient */bool bAllowDifficultyChange;
+	[transient] public UITdOptionButton LOIOptionButton;
+	[transient] public UITdOptionButton DifficultyOptionButton;
+	[transient] public UITdOptionButton ReticuleOptionButton;
+	[transient] public UITdOptionButton SubtitlesOptionButton;
+	[transient] public TdProfileSettings TdProfile;
+	[transient] public int CachedDifficulty;
+	[transient] public bool bAllowDifficultyChange;
 	
 	public override /*event */void PostInitialize()
 	{

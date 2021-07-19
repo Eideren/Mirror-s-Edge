@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using Fp; using Tp; using Ts; using IpDr
 public partial class UILayerRoot : UILayer/*
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*private const */UIScene Scene;
+	[Const] public/*private*/ UIScene Scene;
 	
 }
 }

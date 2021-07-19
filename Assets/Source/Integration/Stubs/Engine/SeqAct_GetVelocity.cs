@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_GetVelocity : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ /*editconst */float Velocity;
+	[Category] [editconst] public float Velocity;
 	
 	public SeqAct_GetVelocity()
 	{

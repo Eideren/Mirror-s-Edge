@@ -4,31 +4,31 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class RB_BodyInstance : Object/*
 		native
 		hidecategories(Object)*/{
-	public /*const export editinline transient */PrimitiveComponent OwnerComponent;
-	public /*const */int BodyIndex;
+	[Const, export, editinline, transient] public PrimitiveComponent OwnerComponent;
+	[Const] public int BodyIndex;
 	public Object.Vector Velocity;
 	public Object.Vector PreviousVelocity;
-	public /*native const */int SceneIndex;
-	public /*native const */Object.Pointer BodyData;
-	public /*native const */Object.Pointer BoneSpring;
-	public /*native const */Object.Pointer BoneSpringKinActor;
-	public/*(BoneSpring)*/ bool bEnableBoneSpringLinear;
-	public/*(BoneSpring)*/ bool bEnableBoneSpringAngular;
-	public/*(BoneSpring)*/ bool bDisableOnOverextension;
-	public/*(BoneSpring)*/ bool bTeleportOnOverextension;
-	public/*(BoneSpring)*/ bool bUseKinActorForBoneSpring;
-	public/*(BoneSpring)*/ bool bMakeSpringToBaseCollisionComponent;
-	public/*(Physics)*/ /*const */bool bOnlyCollideWithPawns;
-	public/*(Physics)*/ /*const */bool bEnableCollisionResponse;
-	public/*(Physics)*/ /*const */bool bPushBody;
-	public/*(BoneSpring)*/ /*const */float BoneLinearSpring;
-	public/*(BoneSpring)*/ /*const */float BoneLinearDamping;
-	public/*(BoneSpring)*/ /*const */float BoneAngularSpring;
-	public/*(BoneSpring)*/ /*const */float BoneAngularDamping;
-	public/*(BoneSpring)*/ float OverextensionThreshold;
-	public/*()*/ float CustomGravityFactor;
-	public /*transient */float LastEffectPlayedTime;
-	public/*(Physics)*/ /*const */PhysicalMaterial PhysMaterialOverride;
+	[native, Const] public int SceneIndex;
+	[native, Const] public Object.Pointer BodyData;
+	[native, Const] public Object.Pointer BoneSpring;
+	[native, Const] public Object.Pointer BoneSpringKinActor;
+	[Category("BoneSpring")] public bool bEnableBoneSpringLinear;
+	[Category("BoneSpring")] public bool bEnableBoneSpringAngular;
+	[Category("BoneSpring")] public bool bDisableOnOverextension;
+	[Category("BoneSpring")] public bool bTeleportOnOverextension;
+	[Category("BoneSpring")] public bool bUseKinActorForBoneSpring;
+	[Category("BoneSpring")] public bool bMakeSpringToBaseCollisionComponent;
+	[Category("Physics")] [Const] public bool bOnlyCollideWithPawns;
+	[Category("Physics")] [Const] public bool bEnableCollisionResponse;
+	[Category("Physics")] [Const] public bool bPushBody;
+	[Category("BoneSpring")] [Const] public float BoneLinearSpring;
+	[Category("BoneSpring")] [Const] public float BoneLinearDamping;
+	[Category("BoneSpring")] [Const] public float BoneAngularSpring;
+	[Category("BoneSpring")] [Const] public float BoneAngularDamping;
+	[Category("BoneSpring")] public float OverextensionThreshold;
+	[Category] public float CustomGravityFactor;
+	[transient] public float LastEffectPlayedTime;
+	[Category("Physics")] [Const] public PhysicalMaterial PhysMaterialOverride;
 	
 	// Export URB_BodyInstance::execSetFixed(FFrame&, void* const)
 	public virtual /*native final function */void SetFixed(bool bNewFixed)

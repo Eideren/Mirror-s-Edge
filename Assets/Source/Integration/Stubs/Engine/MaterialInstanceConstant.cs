@@ -7,9 +7,9 @@ public partial class MaterialInstanceConstant : MaterialInstance/*
 		hidecategories(Object)*/{
 	public partial struct /*native */FontParameterValue
 	{
-		public/*()*/ name ParameterName;
-		public/*()*/ Font FontValue;
-		public/*()*/ int FontPage;
+		[Category] public name ParameterName;
+		[Category] public Font FontValue;
+		[Category] public int FontPage;
 		public Object.Guid ExpressionGUID;
 	
 	//	structdefaultproperties
@@ -30,8 +30,8 @@ public partial class MaterialInstanceConstant : MaterialInstance/*
 	
 	public partial struct /*native */ScalarParameterValue
 	{
-		public/*()*/ name ParameterName;
-		public/*()*/ float ParameterValue;
+		[Category] public name ParameterName;
+		[Category] public float ParameterValue;
 		public Object.Guid ExpressionGUID;
 	
 	//	structdefaultproperties
@@ -51,8 +51,8 @@ public partial class MaterialInstanceConstant : MaterialInstance/*
 	
 	public partial struct /*native */TextureParameterValue
 	{
-		public/*()*/ name ParameterName;
-		public/*()*/ Texture ParameterValue;
+		[Category] public name ParameterName;
+		[Category] public Texture ParameterValue;
 		public Object.Guid ExpressionGUID;
 	
 	//	structdefaultproperties
@@ -72,8 +72,8 @@ public partial class MaterialInstanceConstant : MaterialInstance/*
 	
 	public partial struct /*native */VectorParameterValue
 	{
-		public/*()*/ name ParameterName;
-		public/*()*/ Object.LinearColor ParameterValue;
+		[Category] public name ParameterName;
+		[Category] public Object.LinearColor ParameterValue;
 		public Object.Guid ExpressionGUID;
 	
 	//	structdefaultproperties
@@ -97,10 +97,10 @@ public partial class MaterialInstanceConstant : MaterialInstance/*
 	//	}
 	};
 	
-	public/*()*/ /*const */array<MaterialInstanceConstant.FontParameterValue> FontParameterValues;
-	public/*()*/ /*const */array<MaterialInstanceConstant.ScalarParameterValue> ScalarParameterValues;
-	public/*()*/ /*const */array<MaterialInstanceConstant.TextureParameterValue> TextureParameterValues;
-	public/*()*/ /*const */array<MaterialInstanceConstant.VectorParameterValue> VectorParameterValues;
+	[Category] [Const] public array<MaterialInstanceConstant.FontParameterValue> FontParameterValues;
+	[Category] [Const] public array<MaterialInstanceConstant.ScalarParameterValue> ScalarParameterValues;
+	[Category] [Const] public array<MaterialInstanceConstant.TextureParameterValue> TextureParameterValues;
+	[Category] [Const] public array<MaterialInstanceConstant.VectorParameterValue> VectorParameterValues;
 	
 	// Export UMaterialInstanceConstant::execSetParent(FFrame&, void* const)
 	public override /*native function */void SetParent(MaterialInterface NewParent)

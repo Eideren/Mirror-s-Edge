@@ -9,22 +9,22 @@ public partial class LensFlareComponent : PrimitiveComponent/*
 	{
 	};
 	
-	public/*()*/ /*const */LensFlare Template;
-	public /*const export editinline */DrawLightConeComponent PreviewInnerCone;
-	public /*const export editinline */DrawLightConeComponent PreviewOuterCone;
-	public /*const export editinline */DrawLightRadiusComponent PreviewRadius;
-	public/*()*/ bool bAutoActivate;
-	public /*transient */bool bIsActive;
-	public /*transient */bool bHasTranslucency;
-	public /*transient */bool bHasUnlitTranslucency;
-	public /*transient */bool bHasUnlitDistortion;
-	public /*transient */bool bUsesSceneColor;
-	public /*transient */float OuterCone;
-	public /*transient */float InnerCone;
-	public /*transient */float ConeFudgeFactor;
-	public /*transient */float Radius;
-	public/*(Rendering)*/ Object.LinearColor SourceColor;
-	public /*native const */Object.Pointer ReleaseResourcesFence;
+	[Category] [Const] public LensFlare Template;
+	[Const, export, editinline] public DrawLightConeComponent PreviewInnerCone;
+	[Const, export, editinline] public DrawLightConeComponent PreviewOuterCone;
+	[Const, export, editinline] public DrawLightRadiusComponent PreviewRadius;
+	[Category] public bool bAutoActivate;
+	[transient] public bool bIsActive;
+	[transient] public bool bHasTranslucency;
+	[transient] public bool bHasUnlitTranslucency;
+	[transient] public bool bHasUnlitDistortion;
+	[transient] public bool bUsesSceneColor;
+	[transient] public float OuterCone;
+	[transient] public float InnerCone;
+	[transient] public float ConeFudgeFactor;
+	[transient] public float Radius;
+	[Category("Rendering")] public Object.LinearColor SourceColor;
+	[native, Const] public Object.Pointer ReleaseResourcesFence;
 	
 	// Export ULensFlareComponent::execSetTemplate(FFrame&, void* const)
 	public virtual /*native final function */void SetTemplate(LensFlare NewTemplate)

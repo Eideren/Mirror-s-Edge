@@ -2,7 +2,7 @@ namespace MEdge.TdTuContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdEditor;
 
 public partial class TdTutorialMessage : TdLocalMessage{
-	public /*const localized */array</*localized */String> MCDesc;
+	[Const, localized] public array</*localized */String> MCDesc;
 	
 	public /*function */static String GetString(/*optional */int? _Switch = default, /*optional */bool? _bPRI1HUD = default, /*optional */PlayerReplicationInfo _Killer = default, /*optional */PlayerReplicationInfo _Victim = default, /*optional */Object _OptionalObject = default)
 	{

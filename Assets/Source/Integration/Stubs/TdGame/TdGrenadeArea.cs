@@ -5,10 +5,10 @@ public partial class TdGrenadeArea : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ float Radius;
-	public/*()*/ float Height;
+	[Category] public float Radius;
+	[Category] public float Height;
 	public Object.Color AreaColor;
-	public/*()*/ bool bUsedAsTrigger;
+	[Category] public bool bUsedAsTrigger;
 	
 	public TdGrenadeArea()
 	{

@@ -6,9 +6,9 @@ public partial class DroppedPickup : Actor/*
 		notplaceable
 		hidecategories(Navigation)*/{
 	public Inventory Inventory;
-	public /*repnotify */Core.ClassT<Inventory> InventoryClass;
+	[repnotify] public Core.ClassT<Inventory> InventoryClass;
 	public NavigationPoint PickupCache;
-	public /*repnotify */bool bFadeOut;
+	[repnotify] public bool bFadeOut;
 	
 	//replication
 	//{

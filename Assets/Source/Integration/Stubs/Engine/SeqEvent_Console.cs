@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqEvent_Console : SequenceEvent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ name ConsoleEventName;
-	public/*()*/ String EventDesc;
+	[Category] public name ConsoleEventName;
+	[Category] public String EventDesc;
 	
 	public SeqEvent_Console()
 	{

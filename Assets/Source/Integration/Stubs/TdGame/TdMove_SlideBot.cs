@@ -4,10 +4,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_SlideBot : TdMove_AISpecialMove/*
 		native
 		config(PawnMovement)*/{
-	public/*(Slide)*/ /*config */float SlideAbortSpeed;
-	public /*private */Object.Vector EndTarget;
-	public /*private */Object.Vector startPos;
-	public /*private */float DistanceToTravel;
+	[Category("Slide")] [config] public float SlideAbortSpeed;
+	public/*private*/ Object.Vector EndTarget;
+	public/*private*/ Object.Vector startPos;
+	public/*private*/ float DistanceToTravel;
 	
 	public virtual /*simulated function */void SetEndTarget(Object.Vector P)
 	{

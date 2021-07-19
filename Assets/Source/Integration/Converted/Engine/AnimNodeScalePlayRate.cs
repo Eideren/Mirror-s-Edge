@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class AnimNodeScalePlayRate : AnimNodeBlendBase/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ float ScaleByValue;
+	[Category] public float ScaleByValue;
 	
 	public AnimNodeScalePlayRate()
 	{

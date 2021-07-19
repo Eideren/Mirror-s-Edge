@@ -20,22 +20,22 @@ public partial class TdMove_BotStart : TdPhysicsMove/*
 		LOT_MAX
 	};
 	
-	public /*private */int DeltaPawnRotationYaw;
-	public /*private */int InitialPawnRotationYaw;
-	public /*private */int InitialLegRotationYaw;
-	public /*private */int DeltaLegRotationYaw;
-	public /*private */Object.Rotator WantedRotation;
-	public /*private */int AnimationTurnAngle;
-	public /*private */float BlendInTime;
-	public /*private */float BlendOutTime;
-	public /*private */float TimeIntoAnimation;
-	public /*private */float AnimationLength;
-	public /*private */bool bUseLegRotation;
-	public /*private */bool bUsePawnRotation;
-	public /*private */bool bGoingStraightForwards;
+	public/*private*/ int DeltaPawnRotationYaw;
+	public/*private*/ int InitialPawnRotationYaw;
+	public/*private*/ int InitialLegRotationYaw;
+	public/*private*/ int DeltaLegRotationYaw;
+	public/*private*/ Object.Rotator WantedRotation;
+	public/*private*/ int AnimationTurnAngle;
+	public/*private*/ float BlendInTime;
+	public/*private*/ float BlendOutTime;
+	public/*private*/ float TimeIntoAnimation;
+	public/*private*/ float AnimationLength;
+	public/*private*/ bool bUseLegRotation;
+	public/*private*/ bool bUsePawnRotation;
+	public/*private*/ bool bGoingStraightForwards;
 	public bool bDrawDebug;
-	public /*private */name AnimationName;
-	public /*protected */float fMoveStartedTimeStamp;
+	public/*private*/ name AnimationName;
+	public/*protected*/ float fMoveStartedTimeStamp;
 	
 	public override /*simulated function */void StartMove()
 	{

@@ -4,14 +4,14 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class PrimitiveComponentFactory : Object/*
 		abstract
 		native*/{
-	public/*(Collision)*/ /*const */bool CollideActors;
-	public/*(Collision)*/ /*const */bool BlockActors;
-	public/*(Collision)*/ /*const */bool BlockZeroExtent;
-	public/*(Collision)*/ /*const */bool BlockNonZeroExtent;
-	public/*(Collision)*/ /*const */bool BlockRigidBody;
-	public/*(Rendering)*/ bool HiddenGame;
-	public/*(Rendering)*/ bool HiddenEditor;
-	public/*(Rendering)*/ bool CastShadow;
+	[Category("Collision")] [Const] public bool CollideActors;
+	[Category("Collision")] [Const] public bool BlockActors;
+	[Category("Collision")] [Const] public bool BlockZeroExtent;
+	[Category("Collision")] [Const] public bool BlockNonZeroExtent;
+	[Category("Collision")] [Const] public bool BlockRigidBody;
+	[Category("Rendering")] public bool HiddenGame;
+	[Category("Rendering")] public bool HiddenEditor;
+	[Category("Rendering")] public bool CastShadow;
 	
 }
 }

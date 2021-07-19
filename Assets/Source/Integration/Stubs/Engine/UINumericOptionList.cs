@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UINumericOptionList : UIOptionListBase/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public/*(Data)*/ UIRoot.UIRangeData RangeValue;
+	[Category("Data")] public UIRoot.UIRangeData RangeValue;
 	
 	// Export UUINumericOptionList::execSetValue(FFrame&, void* const)
 	public virtual /*native final function */bool SetValue(/*coerce */float NewValue, /*optional */bool? _bPercentageValue = default)

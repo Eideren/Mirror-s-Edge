@@ -5,26 +5,26 @@ public partial class TdLOIAddOnObject : Object/*
 		abstract
 		native
 		config(LOI)*/{
-	public /*private native const noexport */Object.Pointer VfTable_FTickableObject;
-	public /*protected transient */PlayerController PlayerRef;
-	public /*protected transient */float LookAtDelay;
-	public /*protected transient */float ProximityDelay;
-	public /*protected transient */float DistanceSquared;
-	public /*protected transient */bool bUse2DDistance;
-	public /*private */bool bIsKismetActivated;
-	public /*private transient */bool bIsActivated;
-	public /*transient */Object.Vector CachedLocation;
-	public /*protected */Object.Vector CachedDirection;
-	public /*protected */float ActivationAngle;
-	public /*transient */array<MaterialInstanceConstant> LOIMaterialInstances;
-	public /*private transient */float LOILevel;
-	public /*private transient */float ActualLOILevel;
-	public /*private transient */float LOILevelTimer;
-	public /*protected transient */float LookAtTimer;
-	public /*protected transient */float ProximityTimer;
-	public /*protected config */float FadeInSpeed;
-	public /*protected config */float FadeOutSpeed;
-	public /*protected */float MinDuration;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FTickableObject;
+	[transient] public/*protected*/ PlayerController PlayerRef;
+	[transient] public/*protected*/ float LookAtDelay;
+	[transient] public/*protected*/ float ProximityDelay;
+	[transient] public/*protected*/ float DistanceSquared;
+	[transient] public/*protected*/ bool bUse2DDistance;
+	public/*private*/ bool bIsKismetActivated;
+	[transient] public/*private*/ bool bIsActivated;
+	[transient] public Object.Vector CachedLocation;
+	public/*protected*/ Object.Vector CachedDirection;
+	public/*protected*/ float ActivationAngle;
+	[transient] public array<MaterialInstanceConstant> LOIMaterialInstances;
+	[transient] public/*private*/ float LOILevel;
+	[transient] public/*private*/ float ActualLOILevel;
+	[transient] public/*private*/ float LOILevelTimer;
+	[transient] public/*protected*/ float LookAtTimer;
+	[transient] public/*protected*/ float ProximityTimer;
+	[config] public/*protected*/ float FadeInSpeed;
+	[config] public/*protected*/ float FadeOutSpeed;
+	public/*protected*/ float MinDuration;
 	
 	// Export UTdLOIAddOnObject::execRegisterLOIGroups(FFrame&, void* const)
 	public virtual /*native function */void RegisterLOIGroups(array<name> LOIGroups)

@@ -5,11 +5,11 @@ public partial class UILabel : UIObject,
 		UIDataStoreSubscriber,UIStringRenderer/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIDataStoreSubscriber;
-	public /*private native const noexport */Object.Pointer VfTable_IUIStringRenderer;
-	public/*(Data)*/ /*private */UIRoot.UIDataStoreBinding DataSource;
-	public/*(Data)*/ /*noclear const export editinline */UIComp_DrawString StringRenderComponent;
-	public/*(Image)*/ /*const export editinline */UIComp_DrawImage LabelBackground;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIDataStoreSubscriber;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIStringRenderer;
+	[Category("Data")] public/*private*/ UIRoot.UIDataStoreBinding DataSource;
+	[Category("Data")] [noclear, Const, export, editinline] public UIComp_DrawString StringRenderComponent;
+	[Category("Image")] [Const, export, editinline] public UIComp_DrawImage LabelBackground;
 	
 	// Export UUILabel::execSetValue(FFrame&, void* const)
 	public virtual /*native final function */void SetValue(String NewText)

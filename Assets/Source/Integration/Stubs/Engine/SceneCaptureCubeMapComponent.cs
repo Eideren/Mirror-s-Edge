@@ -4,11 +4,11 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SceneCaptureCubeMapComponent : SceneCaptureComponent/*
 		native
 		hidecategories(Object)*/{
-	public/*(Capture)*/ TextureRenderTargetCube TextureTarget;
-	public/*(Capture)*/ float NearPlane;
-	public/*(Capture)*/ float FarPlane;
-	public/*(Capture)*/ bool bTdSpecialCubeMapLayout;
-	public /*private native const transient */Object.Vector WorldLocation;
+	[Category("Capture")] public TextureRenderTargetCube TextureTarget;
+	[Category("Capture")] public float NearPlane;
+	[Category("Capture")] public float FarPlane;
+	[Category("Capture")] public bool bTdSpecialCubeMapLayout;
+	[native, Const, transient] public/*private*/ Object.Vector WorldLocation;
 	
 	public SceneCaptureCubeMapComponent()
 	{

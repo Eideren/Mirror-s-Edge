@@ -35,11 +35,11 @@ public partial class CoverMeshComponent : StaticMeshComponent/*
 	//	}
 	};
 	
-	public /*editoronly */array<CoverMeshComponent.CoverMeshes> Meshes;
+	[editoronly] public array<CoverMeshComponent.CoverMeshes> Meshes;
 	public Object.Vector LocationOffset;
-	public /*editoronly */StaticMesh AutoAdjustOn;
-	public /*editoronly */StaticMesh AutoAdjustOff;
-	public /*editoronly */StaticMesh Disabled;
+	[editoronly] public StaticMesh AutoAdjustOn;
+	[editoronly] public StaticMesh AutoAdjustOff;
+	[editoronly] public StaticMesh Disabled;
 	
 	public CoverMeshComponent()
 	{

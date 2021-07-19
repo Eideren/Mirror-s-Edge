@@ -6,11 +6,11 @@ public partial class CustomPropertyItemBindings : Object/*
 		config(Editor)*/{
 	public partial struct /*native */PropertyItemCustomProxy
 	{
-		public/*()*/ /*config */String PropertyPathName;
-		public/*()*/ /*config */String PropertyItemClassName;
-		public/*()*/ /*config */bool bReplaceArrayHeaders;
-		public/*()*/ /*config */bool bIgnoreArrayElements;
-		public /*transient */Class PropertyItemClass;
+		[Category] [config] public String PropertyPathName;
+		[Category] [config] public String PropertyItemClassName;
+		[Category] [config] public bool bReplaceArrayHeaders;
+		[Category] [config] public bool bIgnoreArrayElements;
+		[transient] public Class PropertyItemClass;
 	
 	//	structdefaultproperties
 	//	{
@@ -25,12 +25,12 @@ public partial class CustomPropertyItemBindings : Object/*
 	
 	public partial struct /*native */PropertyTypeCustomProxy
 	{
-		public/*()*/ /*config */name PropertyName;
-		public/*()*/ /*config */String PropertyObjectClassPathName;
-		public/*()*/ /*config */String PropertyItemClassName;
-		public/*()*/ /*config */bool bReplaceArrayHeaders;
-		public/*()*/ /*config */bool bIgnoreArrayElements;
-		public /*transient */Class PropertyItemClass;
+		[Category] [config] public name PropertyName;
+		[Category] [config] public String PropertyObjectClassPathName;
+		[Category] [config] public String PropertyItemClassName;
+		[Category] [config] public bool bReplaceArrayHeaders;
+		[Category] [config] public bool bIgnoreArrayElements;
+		[transient] public Class PropertyItemClass;
 	
 	//	structdefaultproperties
 	//	{
@@ -46,11 +46,11 @@ public partial class CustomPropertyItemBindings : Object/*
 	
 	public partial struct /*native */PropertyItemCustomClass
 	{
-		public/*()*/ /*config */String PropertyPathName;
-		public/*()*/ /*config */String PropertyItemClassName;
-		public/*()*/ /*config */bool bReplaceArrayHeaders;
-		public/*()*/ /*config */bool bIgnoreArrayElements;
-		public /*native transient */Object.Pointer WxPropertyItemClass;
+		[Category] [config] public String PropertyPathName;
+		[Category] [config] public String PropertyItemClassName;
+		[Category] [config] public bool bReplaceArrayHeaders;
+		[Category] [config] public bool bIgnoreArrayElements;
+		[native, transient] public Object.Pointer WxPropertyItemClass;
 	
 	//	structdefaultproperties
 	//	{
@@ -64,12 +64,12 @@ public partial class CustomPropertyItemBindings : Object/*
 	
 	public partial struct /*native */PropertyTypeCustomClass
 	{
-		public/*()*/ /*config */name PropertyName;
-		public/*()*/ /*config */String PropertyObjectClassPathName;
-		public/*()*/ /*config */String PropertyItemClassName;
-		public/*()*/ /*config */bool bReplaceArrayHeaders;
-		public/*()*/ /*config */bool bIgnoreArrayElements;
-		public /*native transient */Object.Pointer WxPropertyItemClass;
+		[Category] [config] public name PropertyName;
+		[Category] [config] public String PropertyObjectClassPathName;
+		[Category] [config] public String PropertyItemClassName;
+		[Category] [config] public bool bReplaceArrayHeaders;
+		[Category] [config] public bool bIgnoreArrayElements;
+		[native, transient] public Object.Pointer WxPropertyItemClass;
 	
 	//	structdefaultproperties
 	//	{
@@ -82,12 +82,12 @@ public partial class CustomPropertyItemBindings : Object/*
 	//	}
 	};
 	
-	public/*()*/ /*config */array</*config */CustomPropertyItemBindings.PropertyItemCustomClass> CustomPropertyClasses;
-	public/*()*/ /*config */array</*config */CustomPropertyItemBindings.PropertyTypeCustomClass> CustomPropertyTypeClasses;
-	public/*()*/ /*config */array</*config */CustomPropertyItemBindings.PropertyItemCustomProxy> CustomPropertyDrawProxies;
-	public/*()*/ /*config */array</*config */CustomPropertyItemBindings.PropertyItemCustomProxy> CustomPropertyInputProxies;
-	public/*()*/ /*config */array</*config */CustomPropertyItemBindings.PropertyTypeCustomProxy> CustomPropertyTypeDrawProxies;
-	public/*()*/ /*config */array</*config */CustomPropertyItemBindings.PropertyTypeCustomProxy> CustomPropertyTypeInputProxies;
+	[Category] [config] public array</*config */CustomPropertyItemBindings.PropertyItemCustomClass> CustomPropertyClasses;
+	[Category] [config] public array</*config */CustomPropertyItemBindings.PropertyTypeCustomClass> CustomPropertyTypeClasses;
+	[Category] [config] public array</*config */CustomPropertyItemBindings.PropertyItemCustomProxy> CustomPropertyDrawProxies;
+	[Category] [config] public array</*config */CustomPropertyItemBindings.PropertyItemCustomProxy> CustomPropertyInputProxies;
+	[Category] [config] public array</*config */CustomPropertyItemBindings.PropertyTypeCustomProxy> CustomPropertyTypeDrawProxies;
+	[Category] [config] public array</*config */CustomPropertyItemBindings.PropertyTypeCustomProxy> CustomPropertyTypeInputProxies;
 	
 	public CustomPropertyItemBindings()
 	{

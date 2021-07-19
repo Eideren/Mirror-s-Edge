@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqVar_Group : SeqVar_Object/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ name GroupName;
-	public /*transient */bool bCachedList;
-	public /*transient */array<Object> Actors;
+	[Category] public name GroupName;
+	[transient] public bool bCachedList;
+	[transient] public array<Object> Actors;
 	
 	public SeqVar_Group()
 	{

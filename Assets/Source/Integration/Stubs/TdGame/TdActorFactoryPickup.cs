@@ -7,9 +7,9 @@ public partial class TdActorFactoryPickup : ActorFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ Core.ClassT<Inventory> InventoryClass;
-	public/*()*/ float LifeSpanInSeconds;
-	public/*()*/ bool bLiveForever;
+	[Category] public Core.ClassT<Inventory> InventoryClass;
+	[Category] public float LifeSpanInSeconds;
+	[Category] public bool bLiveForever;
 	
 	public TdActorFactoryPickup()
 	{

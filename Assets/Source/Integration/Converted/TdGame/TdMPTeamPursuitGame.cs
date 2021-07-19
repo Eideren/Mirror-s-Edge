@@ -8,13 +8,13 @@ public partial class TdMPTeamPursuitGame : TdMPTeamGame/*
 	public const int RUNNER_TEAM_INDEX = 0;
 	public const int POLICE_TEAM_INDEX = 1;
 	
-	public /*transient */TdPursuitLogic PursuitLogic;
-	public /*const config */int RunnerRespawnTime;
-	public /*const config */int CopRespawnTime;
-	public /*const config */int CopOffsetSpawnTime;
-	public /*const config */int MinBagSpawnRaduis;
-	public /*const config */int FriendOrFoeScoringDistance;
-	public /*private transient */Core.ClassT<TdLocalMessage> TdPursuitMessageClass;
+	[transient] public TdPursuitLogic PursuitLogic;
+	[Const, config] public int RunnerRespawnTime;
+	[Const, config] public int CopRespawnTime;
+	[Const, config] public int CopOffsetSpawnTime;
+	[Const, config] public int MinBagSpawnRaduis;
+	[Const, config] public int FriendOrFoeScoringDistance;
+	[transient] public/*private*/ Core.ClassT<TdLocalMessage> TdPursuitMessageClass;
 	
 	public override /*event */void PreBeginPlay()
 	{

@@ -7,7 +7,7 @@ public partial class MaterialExpressionPixelDepth : MaterialExpression/* within 
 		hidecategories(Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ bool bNormalize;
+	[Category] public bool bNormalize;
 	
 }
 }

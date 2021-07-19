@@ -6,7 +6,7 @@ public partial class CascadePreviewComponent : PrimitiveComponent/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public /*native const transient */Object.Pointer CascadePtr;
+	[native, Const, transient] public Object.Pointer CascadePtr;
 	
 }
 }

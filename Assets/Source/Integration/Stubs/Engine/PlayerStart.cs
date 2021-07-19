@@ -5,9 +5,9 @@ public partial class PlayerStart : NavigationPoint/*
 		native
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force,Collision)*/{
-	public /*const export editinline */RequestedTextureResources PlayerStartTextureResources;
-	public/*()*/ bool bEnabled;
-	public/*()*/ bool bPrimaryStart;
+	[Const, export, editinline] public RequestedTextureResources PlayerStartTextureResources;
+	[Category] public bool bEnabled;
+	[Category] public bool bPrimaryStart;
 	
 	public override /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{

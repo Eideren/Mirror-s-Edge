@@ -81,32 +81,32 @@ public partial class Texture : Surface/*
 		TEXTUREGROUP_MAX
 	};
 	
-	public/*()*/ bool SRGB;
+	[Category] public bool SRGB;
 	public bool RGBE;
-	public/*()*/ bool CompressionNoAlpha;
+	[Category] public bool CompressionNoAlpha;
 	public bool CompressionNone;
 	public bool CompressionNoMipmaps;
-	public/*()*/ bool CompressionFullDynamicRange;
-	public/*()*/ bool DeferCompression;
-	public/*()*/ bool NeverStream;
-	public/*()*/ bool bDitherMipMapAlpha;
-	public/*()*/ bool bPreserveBorderR;
-	public/*()*/ bool bPreserveBorderG;
-	public/*()*/ bool bPreserveBorderB;
-	public/*()*/ bool bPreserveBorderA;
-	public /*private const transient */bool bAsyncResourceReleaseHasBeenStarted;
-	public /*private transient */bool bDeferredProcessing;
-	public/*()*/ StaticArray<float, float, float, float>/*[4]*/ UnpackMin;
-	public/*()*/ StaticArray<float, float, float, float>/*[4]*/ UnpackMax;
-	public /*native const */Object.UntypedBulkData_Mirror SourceArt;
-	public/*()*/ Texture.TextureCompressionSettings CompressionSettings;
-	public/*()*/ Texture.TextureFilter Filter;
-	public/*()*/ Texture.TextureGroup LODGroup;
-	public/*()*/ int LODBias;
-	public /*transient */int CachedCombinedLODBias;
-	public/*()*/ String SourceFilePath;
-	public/*()*/ /*editconst */String SourceFileTimestamp;
-	public /*native const */Object.Pointer Resource;
+	[Category] public bool CompressionFullDynamicRange;
+	[Category] public bool DeferCompression;
+	[Category] public bool NeverStream;
+	[Category] public bool bDitherMipMapAlpha;
+	[Category] public bool bPreserveBorderR;
+	[Category] public bool bPreserveBorderG;
+	[Category] public bool bPreserveBorderB;
+	[Category] public bool bPreserveBorderA;
+	[Const, transient] public/*private*/ bool bAsyncResourceReleaseHasBeenStarted;
+	[transient] public/*private*/ bool bDeferredProcessing;
+	[Category] public StaticArray<float, float, float, float>/*[4]*/ UnpackMin;
+	[Category] public StaticArray<float, float, float, float>/*[4]*/ UnpackMax;
+	[native, Const] public Object.UntypedBulkData_Mirror SourceArt;
+	[Category] public Texture.TextureCompressionSettings CompressionSettings;
+	[Category] public Texture.TextureFilter Filter;
+	[Category] public Texture.TextureGroup LODGroup;
+	[Category] public int LODBias;
+	[transient] public int CachedCombinedLODBias;
+	[Category] public String SourceFilePath;
+	[Category] [editconst] public String SourceFileTimestamp;
+	[native, Const] public Object.Pointer Resource;
 	
 	public Texture()
 	{

@@ -5,21 +5,21 @@ public partial class TdPhysicsMove : TdMove/*
 		abstract
 		native
 		config(PawnMovement)*/{
-	public /*const */Actor.EPhysics PawnPhysics;
-	public /*const */name ControllerState;
-	public/*(Gameplay)*/ /*config */float HandPlantExtentCheckHeight;
-	public/*(Gameplay)*/ /*config */float HandPlantExtentCheckWidth;
-	public/*(Gameplay)*/ /*config */float HandPlantCheckDistance;
-	public/*(Gameplay)*/ /*config */float HandPlantCheckHeight;
-	public/*(Gameplay)*/ /*config */float ContextMoveDistanceMultiplier;
-	public /*config */bool bCheckForGrab;
-	public /*config */bool bCheckForVaultOver;
-	public /*config */bool bCheckForWallClimb;
-	public /*config */bool bCheckForEdgeInVelDir;
+	[Const] public Actor.EPhysics PawnPhysics;
+	[Const] public name ControllerState;
+	[Category("Gameplay")] [config] public float HandPlantExtentCheckHeight;
+	[Category("Gameplay")] [config] public float HandPlantExtentCheckWidth;
+	[Category("Gameplay")] [config] public float HandPlantCheckDistance;
+	[Category("Gameplay")] [config] public float HandPlantCheckHeight;
+	[Category("Gameplay")] [config] public float ContextMoveDistanceMultiplier;
+	[config] public bool bCheckForGrab;
+	[config] public bool bCheckForVaultOver;
+	[config] public bool bCheckForWallClimb;
+	[config] public bool bCheckForEdgeInVelDir;
 	public bool bCheckExitToFalling;
 	public bool bCheckExitToUncontrolledFalling;
 	public bool bCheckForSoftLanding;
-	public /*const */float bDelayTimeCheckAutoMoves;
+	[Const] public float bDelayTimeCheckAutoMoves;
 	public float ExitToFallingZSpeed;
 	public float SoftLandingZSpeedThreshold;
 	public float TimeToSoftLandingThreshold;

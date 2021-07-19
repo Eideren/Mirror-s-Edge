@@ -6,10 +6,10 @@ public partial class UILayer : UILayerBase/*
 		hidecategories(Object,UIRoot)*/{
 	public partial struct /*native */UILayerNode
 	{
-		public /*private const */bool bLocked;
-		public /*private const */bool bVisible;
-		public /*private const */Object LayerObject;
-		public /*private const */UILayer ParentLayer;
+		[Const] public/*private*/ bool bLocked;
+		[Const] public/*private*/ bool bVisible;
+		[Const] public/*private*/ Object LayerObject;
+		[Const] public/*private*/ UILayer ParentLayer;
 	
 	//	structdefaultproperties
 	//	{

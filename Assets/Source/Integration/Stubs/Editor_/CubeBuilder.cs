@@ -4,13 +4,13 @@ using Core; using Engine; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class CubeBuilder : BrushBuilder/*
 		native
 		hidecategories(Object,BrushBuilder)*/{
-	public/*()*/ float X;
-	public/*()*/ float Y;
-	public/*()*/ float Z;
-	public/*()*/ float WallThickness;
-	public/*()*/ name GroupName;
-	public/*()*/ bool Hollow;
-	public/*()*/ bool Tessellated;
+	[Category] public float X;
+	[Category] public float Y;
+	[Category] public float Z;
+	[Category] public float WallThickness;
+	[Category] public name GroupName;
+	[Category] public bool Hollow;
+	[Category] public bool Tessellated;
 	
 	public virtual /*function */void BuildCube(int Direction, float DX, float DY, float dz, bool _tessellated)
 	{

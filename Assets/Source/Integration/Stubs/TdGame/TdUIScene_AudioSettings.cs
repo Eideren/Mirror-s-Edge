@@ -5,8 +5,8 @@ public partial class TdUIScene_AudioSettings : TdUIScene_OptionMenu/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
 	public UIDataStore_TdStringList StringList;
-	public /*transient */UITdOptionButton AudioDeviceOptionButton;
-	public /*transient */String OldAudioDevice;
+	[transient] public UITdOptionButton AudioDeviceOptionButton;
+	[transient] public String OldAudioDevice;
 	
 	public override /*event */void PostInitialize()
 	{

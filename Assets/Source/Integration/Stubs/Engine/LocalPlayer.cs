@@ -348,14 +348,14 @@ public partial class LocalPlayer : Player/* within Engine*//*
 	public GameViewportClient ViewportClient;
 	public Object.Vector2D Origin;
 	public Object.Vector2D Size;
-	public /*const */PostProcessChain PlayerPostProcess;
-	public /*const */array<PostProcessChain> PlayerPostProcessChains;
-	public /*private native const */Object.Pointer ViewState;
-	public /*private native const transient */LocalPlayer.SynchronizedActorVisibilityHistory ActorVisibilityHistory;
-	public /*transient */Object.Vector LastViewLocation;
-	public /*noimport const transient */LocalPlayer.CurrentPostProcessVolumeInfo CurrentPPInfo;
+	[Const] public PostProcessChain PlayerPostProcess;
+	[Const] public array<PostProcessChain> PlayerPostProcessChains;
+	[native, Const] public/*private*/ Object.Pointer ViewState;
+	[native, Const, transient] public/*private*/ LocalPlayer.SynchronizedActorVisibilityHistory ActorVisibilityHistory;
+	[transient] public Object.Vector LastViewLocation;
+	[noimport, Const, transient] public LocalPlayer.CurrentPostProcessVolumeInfo CurrentPPInfo;
 	public bool bOverridePostProcessSettings;
-	public /*const editconst transient */bool bSentSplitJoin;
+	[Const, editconst, transient] public bool bSentSplitJoin;
 	public PostProcessVolume.PostProcessSettings PostProcessSettingsOverride;
 	public float PPSettingsOverrideStartBlend;
 	

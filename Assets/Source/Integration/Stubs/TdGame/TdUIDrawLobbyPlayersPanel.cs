@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdUIDrawLobbyPlayersPanel : TdUIDrawPlayersPanel/*
 		hidecategories(Object,UIRoot,Object)*/{
-	public/*()*/ Texture2D IsReadyImage;
+	[Category] public Texture2D IsReadyImage;
 	public array<int> Roles;
 	
 	public override /*protected function */void DrawPlayerSlotBG(Canvas C, int TeamIndex, int PlayerSlotIndex, int X, int Y, int XL, int YL)

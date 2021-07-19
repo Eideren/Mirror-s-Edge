@@ -11,13 +11,13 @@ public partial class SeqAct_TdFadeEffect : SequenceAction/*
 		FadeEffectType_MAX
 	};
 	
-	public /*private transient */bool bFadeCompleted;
-	public/*()*/ bool bFadeSound2;
-	public /*private transient */TdHUD TargetDisplay;
-	public /*private transient */TdPlayerPawn PlayerPawn;
-	public/*()*/ float FadeTime;
-	public/*()*/ Object.Color FadeColor;
-	public/*()*/ SeqAct_TdFadeEffect.FadeEffectType FadeEffect;
+	[transient] public/*private*/ bool bFadeCompleted;
+	[Category] public bool bFadeSound2;
+	[transient] public/*private*/ TdHUD TargetDisplay;
+	[transient] public/*private*/ TdPlayerPawn PlayerPawn;
+	[Category] public float FadeTime;
+	[Category] public Object.Color FadeColor;
+	[Category] public SeqAct_TdFadeEffect.FadeEffectType FadeEffect;
 	
 	public override /*event */void Activated()
 	{

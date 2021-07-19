@@ -8,7 +8,7 @@ public partial class MaterialExpressionSceneDepth : MaterialExpression/* within 
 	public new Material Outer => base.Outer as Material;
 	
 	public MaterialExpression.ExpressionInput Coordinates;
-	public/*()*/ bool bNormalize;
+	[Category] public bool bNormalize;
 	
 }
 }

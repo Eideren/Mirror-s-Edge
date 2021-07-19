@@ -3,11 +3,11 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class Prefab : Object/*
 		native*/{
-	public /*const */int PrefabVersion;
-	public /*const */array<Object> PrefabArchetypes;
-	public /*const */array<Object> RemovedArchetypes;
-	public /*const */Sequence PrefabSequence;
-	public /*editoronly const */Texture2D PrefabPreview;
+	[Const] public int PrefabVersion;
+	[Const] public array<Object> PrefabArchetypes;
+	[Const] public array<Object> RemovedArchetypes;
+	[Const] public Sequence PrefabSequence;
+	[editoronly, Const] public Texture2D PrefabPreview;
 	
 }
 }

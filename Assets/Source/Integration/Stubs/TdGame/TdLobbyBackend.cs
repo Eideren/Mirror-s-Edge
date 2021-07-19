@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdLobbyBackend : Object/*
 		abstract
 		native*/{
-	public /*protected transient */TdLobbyEventListener Listener;
+	[transient] public/*protected*/ TdLobbyEventListener Listener;
 	
 	public virtual /*function */void SetListener(TdLobbyEventListener InListener)
 	{

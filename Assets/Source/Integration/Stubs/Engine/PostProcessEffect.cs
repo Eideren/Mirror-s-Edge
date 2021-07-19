@@ -4,18 +4,18 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class PostProcessEffect : Object/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bShowInEditor;
-	public/*()*/ bool bShowInGame;
-	public/*()*/ bool bUseWorldSettings;
+	[Category] public bool bShowInEditor;
+	[Category] public bool bShowInGame;
+	[Category] public bool bUseWorldSettings;
 	public bool bAffectsLightingOnly;
-	public/*()*/ name EffectName;
+	[Category] public name EffectName;
 	public int NodePosY;
 	public int NodePosX;
 	public int DrawWidth;
 	public int DrawHeight;
 	public int OutDrawY;
 	public int InDrawY;
-	public/*()*/ Scene.ESceneDepthPriorityGroup SceneDPG;
+	[Category] public Scene.ESceneDepthPriorityGroup SceneDPG;
 	
 	public PostProcessEffect()
 	{

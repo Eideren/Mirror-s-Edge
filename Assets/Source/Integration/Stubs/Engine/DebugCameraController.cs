@@ -8,7 +8,7 @@ public partial class DebugCameraController : PlayerController/*
 	public PlayerController OryginalControllerRef;
 	public Player OryginalPlayer;
 	public bool bIsFrozenRendering;
-	public /*export editinline */DrawFrustumComponent DrawFrustum;
+	[export, editinline] public DrawFrustumComponent DrawFrustum;
 	
 	public override /*simulated event */void PostBeginPlay()
 	{

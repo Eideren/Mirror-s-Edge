@@ -6,7 +6,7 @@ public partial class UIDataProvider_OnlineClanMates : UIDataProvider_OnlinePlaye
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementCellProvider;
 	
 	public override /*event */void OnRegister(LocalPlayer InPlayer)
 	{

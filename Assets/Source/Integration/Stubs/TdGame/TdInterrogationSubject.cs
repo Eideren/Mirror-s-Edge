@@ -4,13 +4,13 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdInterrogationSubject : Actor/*
 		notplaceable
 		hidecategories(Navigation)*/{
-	public /*private */float StartTime;
-	public /*private */float Duration;
-	public /*private */float Lifetime;
-	public /*private */TdPursuitPRI VictimPRI;
-	public /*private */Pawn VictimPawn;
-	public /*private */TdPursuitPRI InstigatorPRI;
-	public /*private */Pawn InstigatorPawn;
+	public/*private*/ float StartTime;
+	public/*private*/ float Duration;
+	public/*private*/ float Lifetime;
+	public/*private*/ TdPursuitPRI VictimPRI;
+	public/*private*/ Pawn VictimPawn;
+	public/*private*/ TdPursuitPRI InstigatorPRI;
+	public/*private*/ Pawn InstigatorPawn;
 	
 	public override /*event */void PreBeginPlay()
 	{

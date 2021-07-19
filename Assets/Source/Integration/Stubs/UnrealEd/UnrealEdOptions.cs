@@ -34,10 +34,10 @@ public partial class UnrealEdOptions : Object/*
 	//	}
 	};
 	
-	public /*config */array</*config */UnrealEdOptions.EditorCommandCategory> EditorCategories;
-	public /*config */array</*config */UnrealEdOptions.EditorCommand> EditorCommands;
+	[config] public array</*config */UnrealEdOptions.EditorCommandCategory> EditorCategories;
+	[config] public array</*config */UnrealEdOptions.EditorCommand> EditorCommands;
 	public UnrealEdKeyBindings EditorKeyBindings;
-	public /*native *//*map<0,0>*/map<object, object> CommandMap;
+	[native] public /*map<0,0>*/map<object, object> CommandMap;
 	
 	public UnrealEdOptions()
 	{

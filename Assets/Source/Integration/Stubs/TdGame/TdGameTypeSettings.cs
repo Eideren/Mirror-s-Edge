@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdGameTypeSettings : Object/*
 		abstract
 		config(GameTypeSettings)*/{
-	public /*config */float AimAssistYawBias;
-	public /*config */float AimAssistPitchBias;
+	[config] public float AimAssistYawBias;
+	[config] public float AimAssistPitchBias;
 	
 }
 }

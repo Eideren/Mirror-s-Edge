@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdFallHeightVolume : TdMovementVolume/*
 		placeable
 		hidecategories(Navigation,Object,Movement,Display,AI,Interaction,PhysicsVolume,Volume)*/{
-	public/*()*/ float FallHeightOffset;
+	[Category] public float FallHeightOffset;
 	
 	public override Touch_del Touch { get => bfield_Touch ?? TdFallHeightVolume_Touch; set => bfield_Touch = value; } Touch_del bfield_Touch;
 	public override Touch_del global_Touch => TdFallHeightVolume_Touch;

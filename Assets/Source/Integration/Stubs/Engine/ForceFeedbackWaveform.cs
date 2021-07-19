@@ -19,11 +19,11 @@ public partial class ForceFeedbackWaveform : Object/*
 	
 	public partial struct /*native */WaveformSample
 	{
-		public/*()*/ byte LeftAmplitude;
-		public/*()*/ byte RightAmplitude;
-		public/*()*/ ForceFeedbackWaveform.EWaveformFunction LeftFunction;
-		public/*()*/ ForceFeedbackWaveform.EWaveformFunction RightFunction;
-		public/*()*/ float Duration;
+		[Category] public byte LeftAmplitude;
+		[Category] public byte RightAmplitude;
+		[Category] public ForceFeedbackWaveform.EWaveformFunction LeftFunction;
+		[Category] public ForceFeedbackWaveform.EWaveformFunction RightFunction;
+		[Category] public float Duration;
 	
 	//	structdefaultproperties
 	//	{
@@ -36,8 +36,8 @@ public partial class ForceFeedbackWaveform : Object/*
 	//	}
 	};
 	
-	public/*()*/ bool bIsLooping;
-	public/*()*/ array<ForceFeedbackWaveform.WaveformSample> Samples;
+	[Category] public bool bIsLooping;
+	[Category] public array<ForceFeedbackWaveform.WaveformSample> Samples;
 	
 }
 }

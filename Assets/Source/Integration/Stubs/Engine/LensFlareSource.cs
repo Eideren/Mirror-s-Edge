@@ -5,8 +5,8 @@ public partial class LensFlareSource : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*const editconst export editinline */LensFlareComponent LensFlareComp;
-	public /*repnotify */bool bCurrentlyActive;
+	[Category] [Const, editconst, export, editinline] public LensFlareComponent LensFlareComp;
+	[repnotify] public bool bCurrentlyActive;
 	
 	//replication
 	//{

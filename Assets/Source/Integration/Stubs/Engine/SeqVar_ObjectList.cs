@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqVar_ObjectList : SeqVar_Object/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ array<Object> ObjList;
+	[Category] public array<Object> ObjList;
 	
 	public override /*function */Object GetObjectValue()
 	{

@@ -5,18 +5,18 @@ public partial class StaticMeshActor : StaticMeshActorBase/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*const editconst export editinline */StaticMeshComponent StaticMeshComponent;
-	public/*(Interaction)*/ /*const */float LOIProximityDelay;
-	public/*(Interaction)*/ /*const */float LOILookAtDelay;
-	public/*(Interaction)*/ /*const */float LOIMinDuration;
-	public/*(Interaction)*/ /*const */float LOIDistance;
-	public/*(Interaction)*/ /*const */Object.Vector LOIDirection;
-	public/*(Interaction)*/ /*const */float LOIAngle;
-	public/*(Interaction)*/ /*const */Object.Vector LOIOffset;
-	public/*(Interaction)*/ /*const */bool LOIUse2DDistance;
-	public/*(Baker)*/ /*const */bool bForceSlowGIForAlpha;
-	public/*(Interaction)*/ /*const */array<name> LOIGroups;
-	public /*private */TdLOIAddOnStaticMeshActor TdLOIAddOn;
+	[Category] [Const, editconst, export, editinline] public StaticMeshComponent StaticMeshComponent;
+	[Category("Interaction")] [Const] public float LOIProximityDelay;
+	[Category("Interaction")] [Const] public float LOILookAtDelay;
+	[Category("Interaction")] [Const] public float LOIMinDuration;
+	[Category("Interaction")] [Const] public float LOIDistance;
+	[Category("Interaction")] [Const] public Object.Vector LOIDirection;
+	[Category("Interaction")] [Const] public float LOIAngle;
+	[Category("Interaction")] [Const] public Object.Vector LOIOffset;
+	[Category("Interaction")] [Const] public bool LOIUse2DDistance;
+	[Category("Baker")] [Const] public bool bForceSlowGIForAlpha;
+	[Category("Interaction")] [Const] public array<name> LOIGroups;
+	public/*private*/ TdLOIAddOnStaticMeshActor TdLOIAddOn;
 	
 	public override /*event */void PreBeginPlay()
 	{

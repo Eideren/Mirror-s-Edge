@@ -5,7 +5,7 @@ public partial class InterpTrackFloatProp : InterpTrackFloatBase/*
 		native
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ /*editconst */name PropertyName;
+	[Category] [editconst] public name PropertyName;
 	
 	public InterpTrackFloatProp()
 	{

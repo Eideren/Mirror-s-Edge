@@ -16,23 +16,23 @@ public partial class SkelControlBase : Object/*
 		BCS_MAX
 	};
 	
-	public /*const export editinline transient */SkeletalMeshComponent SkelComponent;
-	public/*(Controller)*/ name ControlName;
-	public/*(Controller)*/ float ControlStrength;
-	public/*(Controller)*/ float BlendInTime;
-	public/*(Controller)*/ float BlendOutTime;
+	[Const, export, editinline, transient] public SkeletalMeshComponent SkelComponent;
+	[Category("Controller")] public name ControlName;
+	[Category("Controller")] public float ControlStrength;
+	[Category("Controller")] public float BlendInTime;
+	[Category("Controller")] public float BlendOutTime;
 	public float StrengthTarget;
 	public float BlendTimeToGo;
-	public/*(Controller)*/ bool bSetStrengthFromAnimNode;
-	public /*transient */bool bInitializedCachedNodeList;
-	public/*(Controller)*/ bool bPropagateSetActive;
-	public/*()*/ bool bIgnoreWhenNotRendered;
-	public/*()*/ bool bEnableEaseInOut;
-	public/*(Controller)*/ array<name> StrengthAnimNodeNameList;
-	public /*transient */array<AnimNode> CachedNodeList;
-	public/*(Controller)*/ float BoneScale;
+	[Category("Controller")] public bool bSetStrengthFromAnimNode;
+	[transient] public bool bInitializedCachedNodeList;
+	[Category("Controller")] public bool bPropagateSetActive;
+	[Category] public bool bIgnoreWhenNotRendered;
+	[Category] public bool bEnableEaseInOut;
+	[Category("Controller")] public array<name> StrengthAnimNodeNameList;
+	[transient] public array<AnimNode> CachedNodeList;
+	[Category("Controller")] public float BoneScale;
 	public int ControlTickTag;
-	public/*(Controller)*/ int IgnoreAtOrAboveLOD;
+	[Category("Controller")] public int IgnoreAtOrAboveLOD;
 	public SkelControlBase NextControl;
 	public int ControlPosX;
 	public int ControlPosY;

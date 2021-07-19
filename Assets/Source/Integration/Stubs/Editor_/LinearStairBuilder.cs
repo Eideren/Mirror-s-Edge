@@ -3,12 +3,12 @@ using Core; using Engine; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class LinearStairBuilder : BrushBuilder/*
 		hidecategories(Object,BrushBuilder)*/{
-	public/*()*/ int StepLength;
-	public/*()*/ int StepHeight;
-	public/*()*/ int StepWidth;
-	public/*()*/ int NumSteps;
-	public/*()*/ int AddToFirstStep;
-	public/*()*/ name GroupName;
+	[Category] public int StepLength;
+	[Category] public int StepHeight;
+	[Category] public int StepWidth;
+	[Category] public int NumSteps;
+	[Category] public int AddToFirstStep;
+	[Category] public name GroupName;
 	
 	public override /*event */bool Build()
 	{

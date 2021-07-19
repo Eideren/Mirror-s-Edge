@@ -8,11 +8,11 @@ public partial class TdVehicle_Helicopter : SVehicle/*
 		hidecategories(Navigation)*/{
 	public partial struct /*native */GunnerSeat
 	{
-		public/*()*/ /*editinline */Pawn StoragePawn;
-		public/*()*/ name CharacterSeatSocket;
-		public/*()*/ name CharacterSeatBone;
-		public/*()*/ Object.Vector LocOffset;
-		public/*()*/ float YawOffset;
+		[Category] [editinline] public Pawn StoragePawn;
+		[Category] public name CharacterSeatSocket;
+		[Category] public name CharacterSeatBone;
+		[Category] public Object.Vector LocOffset;
+		[Category] public float YawOffset;
 	
 	//	structdefaultproperties
 	//	{
@@ -30,9 +30,9 @@ public partial class TdVehicle_Helicopter : SVehicle/*
 	//	}
 	};
 	
-	public/*()*/ float MaxAcceleration;
-	public/*()*/ float Force;
-	public/*()*/ float MaxVelocity;
+	[Category] public float MaxAcceleration;
+	[Category] public float Force;
+	[Category] public float MaxVelocity;
 	public Object.Vector WantedPosition;
 	public Object.Rotator RotationVelocity;
 	public Object.Rotator HoveringNoiceDirection;
@@ -40,11 +40,11 @@ public partial class TdVehicle_Helicopter : SVehicle/*
 	public Object.Vector AimAtPoint;
 	public bool bHovering;
 	public bool bIsHeliDustEffectActive;
-	public /*private */int NumberOfGunners;
-	public /*export editinline */TdSkeletalMeshComponent HelicopterSkeletalMesh;
+	public/*private*/ int NumberOfGunners;
+	[export, editinline] public TdSkeletalMeshComponent HelicopterSkeletalMesh;
 	public TdAI_HeliController myController;
-	public/*(Seats)*/ array<TdVehicle_Helicopter.GunnerSeat> Seats;
-	public /*transient */Emitter HeliDustEffectEmitter;
+	[Category("Seats")] public array<TdVehicle_Helicopter.GunnerSeat> Seats;
+	[transient] public Emitter HeliDustEffectEmitter;
 	
 	public virtual /*function */void Initialize(TdAI_HeliController C)
 	{

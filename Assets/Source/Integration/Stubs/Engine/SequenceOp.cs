@@ -82,7 +82,7 @@ public partial class SequenceOp : SequenceObject/*
 		public int MinVars;
 		public int MaxVars;
 		public int DrawX;
-		public /*const transient */Property CachedProperty;
+		[Const, transient] public Property CachedProperty;
 	
 	//	structdefaultproperties
 	//	{
@@ -121,15 +121,15 @@ public partial class SequenceOp : SequenceObject/*
 	};
 	
 	public bool bActive;
-	public /*const */bool bLatentExecution;
+	[Const] public bool bLatentExecution;
 	public bool bAutoActivateOutputLinks;
 	public array<SequenceOp.SeqOpInputLink> InputLinks;
 	public array<SequenceOp.SeqOpOutputLink> OutputLinks;
 	public array<SequenceOp.SeqVarLink> VariableLinks;
 	public array<SequenceOp.SeqEventLink> EventLinks;
-	public /*noimport transient */int PlayerIndex;
-	public /*transient */int ActivateCount;
-	public /*protected duplicatetransient const transient */int SearchTag;
+	[noimport, transient] public int PlayerIndex;
+	[transient] public int ActivateCount;
+	[duplicatetransient, Const, transient] public/*protected*/ int SearchTag;
 	
 	// Export USequenceOp::execHasLinkedOps(FFrame&, void* const)
 	public virtual /*native final function */bool HasLinkedOps(/*optional */bool? _bConsiderInputLinks = default)

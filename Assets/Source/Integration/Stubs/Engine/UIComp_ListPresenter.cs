@@ -7,9 +7,9 @@ public partial class UIComp_ListPresenter : UIComp_ListComponentBase,
 		hidecategories(Object)*/{
 	public partial struct /*native */UIListElementCell
 	{
-		public /*native const transient */int ContainerElementIndex;
-		public /*const transient */UIList OwnerList;
-		public /*transient */UIListString ValueString;
+		[native, Const, transient] public int ContainerElementIndex;
+		[Const, transient] public UIList OwnerList;
+		[transient] public UIListString ValueString;
 		public StaticArray<UIRoot.UIStyleReference, UIRoot.UIStyleReference, UIRoot.UIStyleReference, UIRoot.UIStyleReference>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/ CellStyle;
 	
 	//	structdefaultproperties
@@ -77,14 +77,14 @@ public partial class UIComp_ListPresenter : UIComp_ListComponentBase,
 	
 	public partial struct /*native */UIListElementCellTemplate// extends UIListElementCell
 	{
-		public /*native const transient */int ContainerElementIndex;
-		public /*const transient */UIList OwnerList;
-		public /*transient */UIListString ValueString;
+		[native, Const, transient] public int ContainerElementIndex;
+		[Const, transient] public UIList OwnerList;
+		[transient] public UIListString ValueString;
 		public StaticArray<UIRoot.UIStyleReference, UIRoot.UIStyleReference, UIRoot.UIStyleReference, UIRoot.UIStyleReference>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/ CellStyle;
 	
-		public/*()*/ /*editconst editinline */name CellDataField;
-		public/*()*/ /*editconst */String ColumnHeaderText;
-		public/*()*/ UIRoot.UIScreenValue_Extent CellSize;
+		[Category] [editconst, editinline] public name CellDataField;
+		[Category] [editconst] public String ColumnHeaderText;
+		[Category] public UIRoot.UIScreenValue_Extent CellSize;
 		public float CellPosition;
 			// Object Offset:0x0041C0DA
 	//		OwnerList = default;
@@ -187,9 +187,9 @@ public partial class UIComp_ListPresenter : UIComp_ListComponentBase,
 	
 	public partial struct /*native */UIListItem
 	{
-		public /*const */UIComp_ListPresenter.UIListItemDataBinding DataSource;
-		public/*()*/ /*editfixedsize editconst editinline */array</*editconst editinline */UIComp_ListPresenter.UIListElementCell> Cells;
-		public/*()*/ /*noimport editconst transient */UIRoot.EUIListElementState ElementState;
+		[Const] public UIComp_ListPresenter.UIListItemDataBinding DataSource;
+		[Category] [editfixedsize, editconst, editinline] public array</*editconst editinline */UIComp_ListPresenter.UIListElementCell> Cells;
+		[Category] [noimport, editconst, transient] public UIRoot.EUIListElementState ElementState;
 	
 	//	structdefaultproperties
 	//	{
@@ -207,7 +207,7 @@ public partial class UIComp_ListPresenter : UIComp_ListComponentBase,
 	
 	public partial struct /*native */UIElementCellSchema
 	{
-		public/*()*/ /*editinline */array</*editinline */UIComp_ListPresenter.UIListElementCellTemplate> Cells;
+		[Category] [editinline] public array</*editinline */UIComp_ListPresenter.UIListElementCellTemplate> Cells;
 	
 	//	structdefaultproperties
 	//	{
@@ -218,17 +218,17 @@ public partial class UIComp_ListPresenter : UIComp_ListComponentBase,
 	
 	public new UIList Outer => base.Outer as UIList;
 	
-	public /*private native const noexport */Object.Pointer VfTable_ICustomPropertyItemHandler;
-	public/*()*/ /*private const */UIComp_ListPresenter.UIElementCellSchema ElementSchema;
-	public/*()*/ /*init noimport editconst editinline transient */array</*init editconst editinline */UIComp_ListPresenter.UIListItem> ListItems;
-	public/*(Presentation)*/ bool bDisablePixelAligning;
-	public/*()*/ /*private */bool bDisplayColumnHeaders;
-	public /*transient */bool bReapplyFormatting;
-	public/*()*/ /*private */bool bOnlyDrawEveryOtherElementOverlay;
-	public/*(Image)*/ /*export editinlineuse */StaticArray<UITexture, UITexture, UITexture>/*[UIRoot.EColumnHeaderState.COLUMNHEADER_MAX]*/ ColumnHeaderBackground;
-	public/*(Image)*/ /*export editinlineuse */StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/ ListItemOverlay;
-	public/*(Image)*/ StaticArray<UIRoot.TextureCoordinates, UIRoot.TextureCoordinates, UIRoot.TextureCoordinates>/*[UIRoot.EColumnHeaderState.COLUMNHEADER_MAX]*/ ColumnHeaderBackgroundCoordinates;
-	public/*(Image)*/ StaticArray<UIRoot.TextureCoordinates, UIRoot.TextureCoordinates, UIRoot.TextureCoordinates, UIRoot.TextureCoordinates>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/ ListItemOverlayCoordinates;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_ICustomPropertyItemHandler;
+	[Category] [Const] public/*private*/ UIComp_ListPresenter.UIElementCellSchema ElementSchema;
+	[Category] [init, noimport, editconst, editinline, transient] public array</*init editconst editinline */UIComp_ListPresenter.UIListItem> ListItems;
+	[Category("Presentation")] public bool bDisablePixelAligning;
+	[Category] public/*private*/ bool bDisplayColumnHeaders;
+	[transient] public bool bReapplyFormatting;
+	[Category] public/*private*/ bool bOnlyDrawEveryOtherElementOverlay;
+	[Category("Image")] [export, editinlineuse] public StaticArray<UITexture, UITexture, UITexture>/*[UIRoot.EColumnHeaderState.COLUMNHEADER_MAX]*/ ColumnHeaderBackground;
+	[Category("Image")] [export, editinlineuse] public StaticArray<UITexture, UITexture, UITexture, UITexture>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/ ListItemOverlay;
+	[Category("Image")] public StaticArray<UIRoot.TextureCoordinates, UIRoot.TextureCoordinates, UIRoot.TextureCoordinates>/*[UIRoot.EColumnHeaderState.COLUMNHEADER_MAX]*/ ColumnHeaderBackgroundCoordinates;
+	[Category("Image")] public StaticArray<UIRoot.TextureCoordinates, UIRoot.TextureCoordinates, UIRoot.TextureCoordinates, UIRoot.TextureCoordinates>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/ ListItemOverlayCoordinates;
 	
 	// Export UUIComp_ListPresenter::execEnableColumnHeaderRendering(FFrame&, void* const)
 	public virtual /*native final function */void EnableColumnHeaderRendering(/*optional */bool? _bShouldRenderColHeaders = default)

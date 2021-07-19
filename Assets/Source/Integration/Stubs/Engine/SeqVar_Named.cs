@@ -5,8 +5,8 @@ public partial class SeqVar_Named : SequenceVariable/*
 		native
 		hidecategories(Object,SequenceVariable)*/{
 	public Core.ClassT<SequenceVariable> ExpectedType;
-	public/*()*/ name FindVarName;
-	public /*transient */bool bStatusIsOk;
+	[Category] public name FindVarName;
+	[transient] public bool bStatusIsOk;
 	
 	public SeqVar_Named()
 	{

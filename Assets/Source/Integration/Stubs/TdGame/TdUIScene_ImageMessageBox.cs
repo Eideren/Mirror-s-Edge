@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_ImageMessageBox : TdUIScene_MessageBox/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIImage Image;
+	[transient] public UIImage Image;
 	
 	public virtual /*function */void SetImage(Surface InImage)
 	{

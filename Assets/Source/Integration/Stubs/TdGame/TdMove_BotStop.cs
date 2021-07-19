@@ -4,30 +4,30 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_BotStop : TdMove/*
 		native
 		config(PawnMovement)*/{
-	public/*()*/ /*private */float MaxRunningStopTriggerDist;
-	public/*()*/ /*private */float MinRunningStopTriggerDist;
-	public/*()*/ /*private */float MaxWalkingStopTriggerDist;
-	public/*()*/ /*private */float MinWalkingStopTriggerDist;
-	public/*()*/ /*private */float StopMoveDistanceRunning;
-	public/*()*/ /*private */float StopMoveDistanceWalking;
-	public /*private */int DeltaPawnRotationYaw;
-	public /*private */int InitialPawnRotationYaw;
-	public /*private */int InitialLegRotationYaw;
-	public /*private */int DeltaLegRotationYaw;
-	public /*private */Object.Rotator WantedRotation;
-	public /*private */float BlendInTime;
-	public /*private */float BlendOutTime;
-	public /*private */float TimeIntoRotation;
-	public /*private */float RotationTime;
-	public /*private */bool bStopAnimationStarted;
-	public /*private */bool bUseLegRotation;
-	public /*private */bool bUsePawnRotation;
-	public /*private */bool bMoveDestinationSet;
-	public /*private */bool bWalkingStop;
-	public /*private */bool bUsePerfectStopDebug;
-	public /*private */bool bShouldCheckFalling;
-	public /*private */Object.Vector MoveDestination;
-	public /*private */float SetMoveDestinationTimeStamp;
+	[Category] public/*private*/ float MaxRunningStopTriggerDist;
+	[Category] public/*private*/ float MinRunningStopTriggerDist;
+	[Category] public/*private*/ float MaxWalkingStopTriggerDist;
+	[Category] public/*private*/ float MinWalkingStopTriggerDist;
+	[Category] public/*private*/ float StopMoveDistanceRunning;
+	[Category] public/*private*/ float StopMoveDistanceWalking;
+	public/*private*/ int DeltaPawnRotationYaw;
+	public/*private*/ int InitialPawnRotationYaw;
+	public/*private*/ int InitialLegRotationYaw;
+	public/*private*/ int DeltaLegRotationYaw;
+	public/*private*/ Object.Rotator WantedRotation;
+	public/*private*/ float BlendInTime;
+	public/*private*/ float BlendOutTime;
+	public/*private*/ float TimeIntoRotation;
+	public/*private*/ float RotationTime;
+	public/*private*/ bool bStopAnimationStarted;
+	public/*private*/ bool bUseLegRotation;
+	public/*private*/ bool bUsePawnRotation;
+	public/*private*/ bool bMoveDestinationSet;
+	public/*private*/ bool bWalkingStop;
+	public/*private*/ bool bUsePerfectStopDebug;
+	public/*private*/ bool bShouldCheckFalling;
+	public/*private*/ Object.Vector MoveDestination;
+	public/*private*/ float SetMoveDestinationTimeStamp;
 	
 	public virtual /*function */bool GetStopAnimationStarted()
 	{

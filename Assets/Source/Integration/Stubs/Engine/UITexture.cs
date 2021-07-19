@@ -5,7 +5,7 @@ public partial class UITexture : UIRoot/*
 		native
 		editinlinenew
 		hidecategories(Object,UIRoot)*/{
-	public /*private transient */UIRoot.UICombinedStyleData ImageStyleData;
+	[transient] public/*private*/ UIRoot.UICombinedStyleData ImageStyleData;
 	public Surface ImageTexture;
 	
 	// Export UUITexture::execSetImageStyle(FFrame&, void* const)

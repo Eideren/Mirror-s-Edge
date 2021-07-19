@@ -6,10 +6,10 @@ public partial class SceneDataStore : UIDataStore,
 		notransient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementProvider;
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
-	public /*const transient */UIScene OwnerScene;
-	public /*protected */UIDynamicFieldProvider SceneDataProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementCellProvider;
+	[Const, transient] public UIScene OwnerScene;
+	public/*protected*/ UIDynamicFieldProvider SceneDataProvider;
 	
 	public virtual /*final function */bool AddField(name FieldName, /*optional */UIRoot.EUIDataProviderFieldType? _FieldType/* = default*/, /*optional */bool? _bPersistent/* = default*/, /*optional */ref int out_InsertPosition/* = default*/)
 	{

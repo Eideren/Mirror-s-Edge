@@ -34,7 +34,7 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 	public partial struct /*native */BargeDebugInfo
 	{
 		public Object.Vector BargeNormal;
-		public /*transient */Object.Vector BargeLocation;
+		[transient] public Object.Vector BargeLocation;
 		public float TimeToTarget;
 		public Object.Vector BargeStartLocation;
 		public Object.Vector BargeEndLocation;
@@ -70,17 +70,17 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 	//	}
 	};
 	
-	public /*protected */bool bHasDealtDamage;
-	public /*protected */bool bBargeWithHands;
-	public /*protected transient */array<TdMove_Barge.BargeHitInfo> BargeActorList;
-	public /*protected const */float BargeAnimTime;
-	public /*protected config */float BargeMinTraceDistance;
-	public /*protected config */float BargeTraceTime;
-	public /*protected config */float BargeAddOnSpeed;
-	public /*protected config */float BargeMaxSpeed;
-	public /*protected config */float BargeKickThresholdSpeed;
-	public /*protected */ForceFeedbackWaveform BargeWaveform;
-	public /*protected transient */TdMove_Barge.BargeDebugInfo AnimDebugInfo;
+	public/*protected*/ bool bHasDealtDamage;
+	public/*protected*/ bool bBargeWithHands;
+	[transient] public/*protected*/ array<TdMove_Barge.BargeHitInfo> BargeActorList;
+	[Const] public/*protected*/ float BargeAnimTime;
+	[config] public/*protected*/ float BargeMinTraceDistance;
+	[config] public/*protected*/ float BargeTraceTime;
+	[config] public/*protected*/ float BargeAddOnSpeed;
+	[config] public/*protected*/ float BargeMaxSpeed;
+	[config] public/*protected*/ float BargeKickThresholdSpeed;
+	public/*protected*/ ForceFeedbackWaveform BargeWaveform;
+	[transient] public/*protected*/ TdMove_Barge.BargeDebugInfo AnimDebugInfo;
 	
 	// Export UTdMove_Barge::execFindAdditionalTargets(FFrame&, void* const)
 	public virtual /*native function */void FindAdditionalTargets(Object.Vector StartTrace, Object.Vector EndTrace, Actor IgnoreActor, ref array<TdMove_Barge.BargeHitInfo> ImpactList)

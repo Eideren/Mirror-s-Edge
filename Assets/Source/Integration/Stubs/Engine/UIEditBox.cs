@@ -15,15 +15,15 @@ public partial class UIEditBox : UIObject,
 		CHARSET_MAX
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTable_IUIDataStorePublisher;
-	public/*(Data)*/ /*private */UIRoot.UIDataStoreBinding DataSource;
-	public/*(Data)*/ /*noclear const export editinline */UIComp_DrawStringEditbox StringRenderComponent;
-	public/*(Image)*/ /*const export editinline */UIComp_DrawImage BackgroundImageComponent;
-	public/*(Text)*/ /*const localized */String InitialValue;
-	public/*(Text)*/ /*private */bool bReadOnly;
-	public/*(Text)*/ bool bPasswordMode;
-	public/*(Text)*/ int MaxCharacters;
-	public/*(Text)*/ UIEditBox.EEditBoxCharacterSet CharacterSet;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIDataStorePublisher;
+	[Category("Data")] public/*private*/ UIRoot.UIDataStoreBinding DataSource;
+	[Category("Data")] [noclear, Const, export, editinline] public UIComp_DrawStringEditbox StringRenderComponent;
+	[Category("Image")] [Const, export, editinline] public UIComp_DrawImage BackgroundImageComponent;
+	[Category("Text")] [Const, localized] public String InitialValue;
+	[Category("Text")] public/*private*/ bool bReadOnly;
+	[Category("Text")] public bool bPasswordMode;
+	[Category("Text")] public int MaxCharacters;
+	[Category("Text")] public UIEditBox.EEditBoxCharacterSet CharacterSet;
 	public /*delegate*/UIEditBox.OnSubmitText __OnSubmitText__Delegate;
 	
 	public delegate bool OnSubmitText(UIEditBox Sender, int PlayerIndex);

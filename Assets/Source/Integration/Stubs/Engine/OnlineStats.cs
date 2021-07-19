@@ -40,7 +40,7 @@ public partial class OnlineStats : Object/*
 	//	}
 	};
 	
-	public /*const */array<Settings.StringIdToStringMapping> ViewIdMappings;
+	[Const] public array<Settings.StringIdToStringMapping> ViewIdMappings;
 	public array<OnlineStats.IdToStatKeyMapping> IdToStatKeyMappings;
 	
 	// Export UOnlineStats::execGetViewId(FFrame&, void* const)

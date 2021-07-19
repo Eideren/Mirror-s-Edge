@@ -3,22 +3,22 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class RB_Spring : ActorComponent/*
 		native*/{
-	public /*const export editinline */PrimitiveComponent Component1;
-	public /*const */name BoneName1;
-	public /*const export editinline */PrimitiveComponent Component2;
-	public /*const */name BoneName2;
-	public /*native const */int SceneIndex;
-	public /*native const */bool bInHardware;
-	public/*()*/ bool bEnableForceMassRatio;
-	public /*native const */Object.Pointer SpringData;
-	public /*native const */float TimeSinceActivation;
-	public /*const */float MinBodyMass;
-	public/*()*/ float SpringSaturateDist;
-	public/*()*/ float SpringMaxForce;
-	public/*()*/ float MaxForceMassRatio;
-	public/*()*/ Object.InterpCurveFloat SpringMaxForceTimeScale;
-	public/*()*/ float DampSaturateVel;
-	public/*()*/ float DampMaxForce;
+	[Const, export, editinline] public PrimitiveComponent Component1;
+	[Const] public name BoneName1;
+	[Const, export, editinline] public PrimitiveComponent Component2;
+	[Const] public name BoneName2;
+	[native, Const] public int SceneIndex;
+	[native, Const] public bool bInHardware;
+	[Category] public bool bEnableForceMassRatio;
+	[native, Const] public Object.Pointer SpringData;
+	[native, Const] public float TimeSinceActivation;
+	[Const] public float MinBodyMass;
+	[Category] public float SpringSaturateDist;
+	[Category] public float SpringMaxForce;
+	[Category] public float MaxForceMassRatio;
+	[Category] public Object.InterpCurveFloat SpringMaxForceTimeScale;
+	[Category] public float DampSaturateVel;
+	[Category] public float DampMaxForce;
 	
 	// Export URB_Spring::execSetComponents(FFrame&, void* const)
 	public virtual /*native function */void SetComponents(PrimitiveComponent InComponent1, name InBoneName1, Object.Vector Position1, PrimitiveComponent InComponent2, name InBoneName2, Object.Vector Position2)

@@ -6,8 +6,8 @@ public partial class ParticleModuleSpawnBase : ParticleModule/*
 		native
 		editinlinenew
 		hidecategories(Object,Object)*/{
-	public/*(Spawn)*/ bool bProcessSpawnRate;
-	public/*(Burst)*/ bool bProcessBurstList;
+	[Category("Spawn")] public bool bProcessSpawnRate;
+	[Category("Burst")] public bool bProcessBurstList;
 	
 	public ParticleModuleSpawnBase()
 	{

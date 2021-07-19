@@ -5,7 +5,7 @@ public partial class ParticleModuleLocationPrimitiveSphere : ParticleModuleLocat
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object,Object)*/{
-	public/*(Location)*/ DistributionFloat.RawDistributionFloat StartRadius;
+	[Category("Location")] public DistributionFloat.RawDistributionFloat StartRadius;
 	
 	public ParticleModuleLocationPrimitiveSphere()
 	{

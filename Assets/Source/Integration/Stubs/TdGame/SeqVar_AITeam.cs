@@ -4,9 +4,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqVar_AITeam : SeqVar_Object/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ /*editinline */String TeamName;
-	public /*transient */AITeam Team;
-	public/*()*/ AITeam.ESide Side;
+	[Category] [editinline] public String TeamName;
+	[transient] public AITeam Team;
+	[Category] public AITeam.ESide Side;
 	
 	public SeqVar_AITeam()
 	{

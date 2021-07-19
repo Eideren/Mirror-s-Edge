@@ -2,14 +2,14 @@ namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
 public partial class TdOnScreenErrorHandler : TpOnScreenErrorHandler{
-	public /*transient */OnlineSubsystem OnlineSub;
-	public /*transient */TsSystem SaveSystem;
-	public /*transient */TdUIScene_MessageBox GeneralErrorMessageBox;
-	public /*transient */bool IgnoreStorageChanges;
-	public /*transient */TdInitSaveSystem InitSaveSystem;
-	public /*private transient */String TitleErrStr;
-	public /*private transient */String MessageErrStr;
-	public /*private transient */int PendingConnectionChangeTicks;
+	[transient] public OnlineSubsystem OnlineSub;
+	[transient] public TsSystem SaveSystem;
+	[transient] public TdUIScene_MessageBox GeneralErrorMessageBox;
+	[transient] public bool IgnoreStorageChanges;
+	[transient] public TdInitSaveSystem InitSaveSystem;
+	[transient] public/*private*/ String TitleErrStr;
+	[transient] public/*private*/ String MessageErrStr;
+	[transient] public/*private*/ int PendingConnectionChangeTicks;
 	
 	public override /*function */void Tick(float DeltaSeconds)
 	{

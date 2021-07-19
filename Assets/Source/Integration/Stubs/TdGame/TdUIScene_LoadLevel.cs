@@ -5,13 +5,13 @@ public partial class TdUIScene_LoadLevel : TdUIScene_SubMenu/*
 		native
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIPanel BgPanel;
-	public /*transient */UIPanel MapPreviewPanel;
-	public /*transient */UIPanel LevelPanel;
-	public /*transient */UIPanel CheckpointPanel;
-	public /*transient */UIImage BgImage;
-	public/*(Private)*/ /*transient */UIPanel LevelStatsPanel;
-	public/*(Private)*/ /*transient */UILabel BagsFoundDataLabel;
+	[transient] public UIPanel BgPanel;
+	[transient] public UIPanel MapPreviewPanel;
+	[transient] public UIPanel LevelPanel;
+	[transient] public UIPanel CheckpointPanel;
+	[transient] public UIImage BgImage;
+	[Category("Private")] [transient] public UIPanel LevelStatsPanel;
+	[Category("Private")] [transient] public UILabel BagsFoundDataLabel;
 	public UIDataStore_TdTimeTrialData TimeTrialData;
 	public float AnimDuration;
 	public float AnimTimeCount;
@@ -25,7 +25,7 @@ public partial class TdUIScene_LoadLevel : TdUIScene_SubMenu/*
 	public float CheckpointPanelDefaultHeight;
 	public float BgImageDefaultY;
 	public float BgImageDefaultHeight;
-	public /*transient */UITdOptionButton LevelOptionButton;
+	[transient] public UITdOptionButton LevelOptionButton;
 	public UIScene LoadCheckpointScene;
 	
 	public override /*event */void PostInitialize()

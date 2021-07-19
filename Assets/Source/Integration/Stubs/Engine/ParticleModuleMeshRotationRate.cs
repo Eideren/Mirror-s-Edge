@@ -5,7 +5,7 @@ public partial class ParticleModuleMeshRotationRate : ParticleModuleRotationRate
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Rotation)*/ DistributionVector.RawDistributionVector StartRotationRate;
+	[Category("Rotation")] public DistributionVector.RawDistributionVector StartRotationRate;
 	
 	public ParticleModuleMeshRotationRate()
 	{

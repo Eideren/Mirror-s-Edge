@@ -5,11 +5,11 @@ public partial class TpUoSystem : TpSystemHandler,
 		OnlineSystemInterface/*
 		transient
 		native*/{
-	public /*private */array< /*delegate*/OnlineSystemInterface.OnControllerChange > __OnControllerChange__Multicaster;
-	public /*private */array< /*delegate*/OnlineSystemInterface.OnStorageDeviceChange > __OnStorageDeviceChange__Multicaster;
-	public /*private */array< /*delegate*/OnlineSystemInterface.OnLinkStatusChange > __OnLinkStatusChange__Multicaster;
-	public /*private */array< /*delegate*/OnlineSystemInterface.OnConnectionStatusChange > __OnConnectionStatusChange__Multicaster;
-	public /*private */array< /*delegate*/OnlineSystemInterface.OnExternalUIChange > __OnExternalUIChange__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineSystemInterface.OnControllerChange > __OnControllerChange__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineSystemInterface.OnStorageDeviceChange > __OnStorageDeviceChange__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineSystemInterface.OnLinkStatusChange > __OnLinkStatusChange__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineSystemInterface.OnConnectionStatusChange > __OnConnectionStatusChange__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineSystemInterface.OnExternalUIChange > __OnExternalUIChange__Multicaster;
 	public int LastInputDeviceConnectedMask;
 	public /*delegate*/OnlineSystemInterface.OnLinkStatusChange __OnLinkStatusChange__Delegate{ get; set; }
 	public /*delegate*/OnlineSystemInterface.OnExternalUIChange __OnExternalUIChange__Delegate{ get; set; }

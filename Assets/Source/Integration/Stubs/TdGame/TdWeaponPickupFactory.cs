@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdWeaponPickupFactory : PickupFactory/*
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*()*/ /*repnotify */Core.ClassT<TdWeapon> WeaponPickupClass;
+	[Category] [repnotify] public Core.ClassT<TdWeapon> WeaponPickupClass;
 	
 	//replication
 	//{

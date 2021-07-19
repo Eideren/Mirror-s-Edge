@@ -7,11 +7,11 @@ public partial class AnimNodeSynch : AnimNodeBlendBase/*
 	public partial struct /*native */SynchGroup
 	{
 		public array<AnimNodeSequence> SeqNodes;
-		public /*transient */AnimNodeSequence MasterNode;
-		public/*()*/ name GroupName;
-		public/*()*/ bool bFireSlaveNotifies;
-		public/*()*/ float RateScale;
-		public/*()*/ bool bUseSharedMasterControlNode;
+		[transient] public AnimNodeSequence MasterNode;
+		[Category] public name GroupName;
+		[Category] public bool bFireSlaveNotifies;
+		[Category] public float RateScale;
+		[Category] public bool bUseSharedMasterControlNode;
 		public float SharedMasterRelativePosition;
 		public float SharedMasterMoveDelta;
 	
@@ -29,7 +29,7 @@ public partial class AnimNodeSynch : AnimNodeBlendBase/*
 	//	}
 	};
 	
-	public/*()*/ array<AnimNodeSynch.SynchGroup> Groups;
+	[Category] public array<AnimNodeSynch.SynchGroup> Groups;
 	
 	// Export UAnimNodeSynch::execAddNodeToGroup(FFrame&, void* const)
 	public virtual /*native final function */void AddNodeToGroup(AnimNodeSequence SeqNode, name GroupName)

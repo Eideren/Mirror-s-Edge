@@ -12,7 +12,7 @@ public partial class TdMove_GrabPullUp : TdPhysicsMove/*
 	
 	public TdMove_GrabPullUp.EGrabPullUpType GrabPullUpType;
 	public Object.Vector FloorOverLedgeLocation;
-	public/*(Gameplay)*/ /*config */int GrabAllowedPullUpAngle;
+	[Category("Gameplay")] [config] public int GrabAllowedPullUpAngle;
 	
 	public override /*function */bool CanDoMove()
 	{

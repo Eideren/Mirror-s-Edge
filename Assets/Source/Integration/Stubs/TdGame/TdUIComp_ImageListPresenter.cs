@@ -6,13 +6,13 @@ public partial class TdUIComp_ImageListPresenter : TdUIComp_ListPresenterBase/* 
 		hidecategories(Object)*/{
 	public new UIList Outer => base.Outer as UIList;
 	
-	public/*(TdImageListProperties)*/ Font SelectedFont;
-	public/*(TdImageListProperties)*/ Font UnselectedFont;
-	public/*(TdImageListProperties)*/ Object.Color SelectedBgColor;
-	public/*(TdImageListProperties)*/ Object.Color UnselectedBgColor;
-	public/*(TdImageListProperties)*/ bool bDrawBackground;
-	public/*(TdImageListProperties)*/ float Padding_X;
-	public/*(TdImageListProperties)*/ float Padding_Y;
+	[Category("TdImageListProperties")] public Font SelectedFont;
+	[Category("TdImageListProperties")] public Font UnselectedFont;
+	[Category("TdImageListProperties")] public Object.Color SelectedBgColor;
+	[Category("TdImageListProperties")] public Object.Color UnselectedBgColor;
+	[Category("TdImageListProperties")] public bool bDrawBackground;
+	[Category("TdImageListProperties")] public float Padding_X;
+	[Category("TdImageListProperties")] public float Padding_Y;
 	
 	public override /*event */void DrawElement(Canvas Canvas, int ElementIndex, UIRoot.RenderParameters Parameters, bool bElementIsSelected)
 	{

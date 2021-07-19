@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_SetStaticMesh : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ StaticMesh NewStaticMesh;
+	[Category] public StaticMesh NewStaticMesh;
 	
 	public SeqAct_SetStaticMesh()
 	{

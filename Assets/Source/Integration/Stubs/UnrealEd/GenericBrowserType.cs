@@ -7,12 +7,12 @@ public partial class GenericBrowserType : Object/*
 		hidecategories(Object,GenericBrowserType)*/{
 	public partial struct /*native */GenericBrowserTypeInfo
 	{
-		public /*const */Class Class;
-		public /*const */Object.Color BorderColor;
-		public /*native const */Object.QWord RequiredFlags;
-		public /*native const */Object.Pointer ContextMenu;
+		[Const] public Class Class;
+		[Const] public Object.Color BorderColor;
+		[native, Const] public Object.QWord RequiredFlags;
+		[native, Const] public Object.Pointer ContextMenu;
 		public GenericBrowserType BrowserType;
-		public /*native */Object.Pointer IsSupportedCallback;
+		[native] public Object.Pointer IsSupportedCallback;
 	
 	//	structdefaultproperties
 	//	{
@@ -30,7 +30,7 @@ public partial class GenericBrowserType : Object/*
 	};
 	
 	public String Description;
-	public /*native */array<GenericBrowserType.GenericBrowserTypeInfo> SupportInfo;
+	[native] public array<GenericBrowserType.GenericBrowserTypeInfo> SupportInfo;
 	public Object.Color BorderColor;
 	
 }

@@ -5,7 +5,7 @@ public partial class SeqAct_TdTeleport : SequenceAction/*
 		native
 		hidecategories(Object)*/{
 	public bool bOnlyTeleportZ;
-	public/*()*/ bool bDrawDebug;
+	[Category] public bool bDrawDebug;
 	
 	public SeqAct_TdTeleport()
 	{

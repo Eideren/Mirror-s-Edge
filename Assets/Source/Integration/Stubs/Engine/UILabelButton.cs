@@ -5,9 +5,9 @@ public partial class UILabelButton : UIButton,
 		UIDataStorePublisher/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIDataStorePublisher;
-	public/*(Data)*/ /*private */UIRoot.UIDataStoreBinding CaptionDataSource;
-	public/*(Data)*/ /*noclear const export editinline */UIComp_DrawString StringRenderComponent;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIDataStorePublisher;
+	[Category("Data")] public/*private*/ UIRoot.UIDataStoreBinding CaptionDataSource;
+	[Category("Data")] [noclear, Const, export, editinline] public UIComp_DrawString StringRenderComponent;
 	
 	// Export UUILabelButton::execSetCaption(FFrame&, void* const)
 	public virtual /*native function */void SetCaption(String NewText)

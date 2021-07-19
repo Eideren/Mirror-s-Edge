@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqVar_Int : SequenceVariable/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ int IntValue;
+	[Category] public int IntValue;
 	
 	public SeqVar_Int()
 	{

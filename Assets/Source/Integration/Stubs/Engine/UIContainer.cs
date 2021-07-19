@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIContainer : UIObject/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public/*(Presentation)*/ /*export editinline */UIComp_AutoAlignment AutoAlignment;
+	[Category("Presentation")] [export, editinline] public UIComp_AutoAlignment AutoAlignment;
 	
 	public UIContainer()
 	{

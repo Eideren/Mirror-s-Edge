@@ -3,8 +3,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqEvt_TdWeaponFired : SequenceEvent/*
 		hidecategories(Object)*/{
-	public/*()*/ Volume ConditionalVolume;
-	public/*()*/ Core.ClassT<TdWeapon> ConditionalWeaponClass;
+	[Category] public Volume ConditionalVolume;
+	[Category] public Core.ClassT<TdWeapon> ConditionalWeaponClass;
 	
 	public SeqEvt_TdWeaponFired()
 	{

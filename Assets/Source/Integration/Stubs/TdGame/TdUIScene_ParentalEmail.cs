@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_ParentalEmail : TdUIScene_SubMenu/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIEditBox ParentalEmailEditbox;
+	[transient] public UIEditBox ParentalEmailEditbox;
 	public /*delegate*/TdUIScene_ParentalEmail.ConfirmParentalEmail __ConfirmParentalEmail__Delegate;
 	public /*delegate*/TdUIScene_ParentalEmail.UserAbort __UserAbort__Delegate;
 	

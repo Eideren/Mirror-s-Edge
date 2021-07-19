@@ -7,7 +7,7 @@ public partial class TdUIScene_TOS : TdUIScene_SubMenu/*
 	public const int MAX_CHARS_IN_STRING_BLOB = 5000;
 	public const int NUM_BLOBS = 10;
 	
-	public /*transient */UIScrollFrame ScrollFrame;
+	[transient] public UIScrollFrame ScrollFrame;
 	public /*delegate*/TdUIScene_TOS.AcceptTOS __AcceptTOS__Delegate;
 	public /*delegate*/TdUIScene_TOS.UserAbort __UserAbort__Delegate;
 	

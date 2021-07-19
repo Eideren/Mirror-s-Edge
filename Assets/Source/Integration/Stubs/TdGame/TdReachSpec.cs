@@ -4,20 +4,20 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdReachSpec : ReachSpec/*
 		native
 		config(PathfindingCosts)*/{
-	public /*config */float ExposureWeight;
-	public /*config */float CanSeeWeight;
-	public /*config */float ExposureDistanceLimit;
-	public /*config */bool bSquaredExposureDistance;
-	public/*()*/ bool bIsSkippable;
-	public /*config */float UsageCost;
-	public /*config */int WalkToNodeCost;
-	public /*config */int CostFor90DegTurn;
-	public /*config */int CostForHeightDiff;
-	public /*config */int CostForJumpSpecs;
-	public /*config */int CostForDirectionSwitch;
-	public/*()*/ int FlagsHack;
-	public/*()*/ /*editconst */float DropOffDistance;
-	public/*()*/ /*editconst */float NeededSpeed;
+	[config] public float ExposureWeight;
+	[config] public float CanSeeWeight;
+	[config] public float ExposureDistanceLimit;
+	[config] public bool bSquaredExposureDistance;
+	[Category] public bool bIsSkippable;
+	[config] public float UsageCost;
+	[config] public int WalkToNodeCost;
+	[config] public int CostFor90DegTurn;
+	[config] public int CostForHeightDiff;
+	[config] public int CostForJumpSpecs;
+	[config] public int CostForDirectionSwitch;
+	[Category] public int FlagsHack;
+	[Category] [editconst] public float DropOffDistance;
+	[Category] [editconst] public float NeededSpeed;
 	
 	// Export UTdReachSpec::execGetCostFor(FFrame&, void* const)
 	public virtual /*native function */int GetCostFor(Pawn P)

@@ -5,10 +5,10 @@ public partial class TdAnnouncerBase : Info/*
 		abstract
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public /*private */Core.ClassT<TdLocalMessage> PlayingAnnouncementClass;
-	public /*private */TdPlayerController PlayerOwner;
-	public /*private */SoundCue RadioSoundCueTemplate;
-	public /*private export editinline */AudioComponent CurrentAnnouncementComponent;
+	public/*private*/ Core.ClassT<TdLocalMessage> PlayingAnnouncementClass;
+	public/*private*/ TdPlayerController PlayerOwner;
+	public/*private*/ SoundCue RadioSoundCueTemplate;
+	[export, editinline] public/*private*/ AudioComponent CurrentAnnouncementComponent;
 	
 	public override /*function */void PostBeginPlay()
 	{

@@ -25,8 +25,8 @@ public partial class TdSPGame : TdGameInfo/*
 	
 	public bool bShouldSaveCheckpointProgress;
 	public bool bAllowSPLevelAchievements;
-	public /*protected config */float PlayerRespawnTime;
-	public /*transient */TdSPGame.OnLevelCompletedAsyncHelper OnLCAsyncHelper;
+	[config] public/*protected*/ float PlayerRespawnTime;
+	[transient] public TdSPGame.OnLevelCompletedAsyncHelper OnLCAsyncHelper;
 	public TdAIManager AIManager;
 	
 	public override /*event */void InitGame(String Options, ref String ErrorMessage)

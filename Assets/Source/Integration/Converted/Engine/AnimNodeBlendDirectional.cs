@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class AnimNodeBlendDirectional : AnimNodeBlendBase/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ float DirDegreesPerSecond;
+	[Category] public float DirDegreesPerSecond;
 	public float DirAngle;
-	public/*()*/ int SingleAnimAtOrAboveLOD;
+	[Category] public int SingleAnimAtOrAboveLOD;
 	
 	public AnimNodeBlendDirectional()
 	{

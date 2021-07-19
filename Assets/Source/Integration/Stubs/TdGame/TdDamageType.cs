@@ -3,8 +3,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdDamageType : DamageType/*
 		abstract*/{
-	public /*editinline */array</*editinline */name> PhysicsImpactSpringList;
-	public /*editinline */array</*editinline */name> PhysicsBodyImpactBoneList;
+	[editinline] public array</*editinline */name> PhysicsImpactSpringList;
+	[editinline] public array</*editinline */name> PhysicsBodyImpactBoneList;
 	public float PhysicsHitReactionBlendOutTime;
 	public float PhysicsHitReactionDuration;
 	public Object.Vector2D PhysHitReactionMotorStrength;

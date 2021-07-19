@@ -6,10 +6,10 @@ public partial class DirectionalLightComponent : LightComponent/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ float SoftShadowAngle;
-	public/*()*/ int Photons;
-	public/*()*/ float PhotonIntensity;
-	public/*(AdvancedLighting)*/ float TraceDistance;
+	[Category] public float SoftShadowAngle;
+	[Category] public int Photons;
+	[Category] public float PhotonIntensity;
+	[Category("AdvancedLighting")] public float TraceDistance;
 	
 	public DirectionalLightComponent()
 	{

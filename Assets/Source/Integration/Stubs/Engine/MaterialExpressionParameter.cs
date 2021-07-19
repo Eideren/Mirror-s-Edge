@@ -7,8 +7,8 @@ public partial class MaterialExpressionParameter : MaterialExpression/* within M
 		hidecategories(Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ name ParameterName;
-	public /*const */Object.Guid ExpressionGUID;
+	[Category] public name ParameterName;
+	[Const] public Object.Guid ExpressionGUID;
 	
 	public MaterialExpressionParameter()
 	{

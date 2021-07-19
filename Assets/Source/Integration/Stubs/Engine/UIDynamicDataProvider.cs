@@ -6,8 +6,8 @@ public partial class UIDynamicDataProvider : UIPropertyDataProvider/*
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*const */Class DataClass;
-	public /*protected const transient */Object DataSource;
+	[Const] public Class DataClass;
+	[Const, transient] public/*protected*/ Object DataSource;
 	
 	// Export UUIDynamicDataProvider::execBindProviderInstance(FFrame&, void* const)
 	public virtual /*native final function */bool BindProviderInstance(Object DataSourceInstance)

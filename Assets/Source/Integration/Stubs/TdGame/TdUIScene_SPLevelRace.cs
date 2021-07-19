@@ -4,18 +4,18 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_SPLevelRace : TdUIScene_SubMenu/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIList StretchList;
+	[transient] public UIList StretchList;
 	public UIScene SPLeaderboardScene;
 	public UIScene SPLeaderboardScenePC;
-	public /*transient */UILabel WorldBestLabel;
-	public /*transient */UILabel WorldBestTimeLabel;
-	public /*transient */UILabel FriendsBestLabel;
-	public /*transient */UILabel FriendsBestTimeLabel;
-	public /*transient */int LevelEventDelay;
-	public /*const */float RequestDelay;
-	public /*transient */float TimeToRequest;
+	[transient] public UILabel WorldBestLabel;
+	[transient] public UILabel WorldBestTimeLabel;
+	[transient] public UILabel FriendsBestLabel;
+	[transient] public UILabel FriendsBestTimeLabel;
+	[transient] public int LevelEventDelay;
+	[Const] public float RequestDelay;
+	[transient] public float TimeToRequest;
 	public UIDataStore_TdTimeTrialData TimeTrialData;
-	public /*private transient */int PlayerFilterIndex;
+	[transient] public/*private*/ int PlayerFilterIndex;
 	
 	public override /*event */void PostInitialize()
 	{

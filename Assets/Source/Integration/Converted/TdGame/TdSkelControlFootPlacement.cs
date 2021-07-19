@@ -4,25 +4,25 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdSkelControlFootPlacement : SkelControlLimb/*
 		native
 		hidecategories(Object,Effector)*/{
-	public/*(FootPlacement)*/ float FootOffset;
-	public/*(FootPlacement)*/ Object.EAxis FootUpAxis;
-	public/*(FootPlacement)*/ Object.Rotator FootRotOffset;
-	public/*(FootPlacement)*/ bool bInvertFootUpAxis;
-	public/*(FootPlacement)*/ bool bAlignFootPlacement;
-	public/*(FootPlacement)*/ bool bOrientFootToGround;
-	public/*(FootPlacement)*/ bool bOnlyEnableForUpAdjustment;
-	public /*transient */bool bAdjustFootPlacement;
-	public /*transient */bool bAdjustFootRotation;
-	public/*(FootPlacement)*/ bool bInterpolateRotation;
-	public/*(FootPlacement)*/ bool bInterpolatePosition;
-	public /*private transient */bool bResetOnActivated;
-	public/*(FootPlacement)*/ float MaxUpAdjustment;
-	public/*(FootPlacement)*/ float MaxDownAdjustment;
-	public/*(FootPlacement)*/ float MaxFootOrientAdjust;
+	[Category("FootPlacement")] public float FootOffset;
+	[Category("FootPlacement")] public Object.EAxis FootUpAxis;
+	[Category("FootPlacement")] public Object.Rotator FootRotOffset;
+	[Category("FootPlacement")] public bool bInvertFootUpAxis;
+	[Category("FootPlacement")] public bool bAlignFootPlacement;
+	[Category("FootPlacement")] public bool bOrientFootToGround;
+	[Category("FootPlacement")] public bool bOnlyEnableForUpAdjustment;
+	[transient] public bool bAdjustFootPlacement;
+	[transient] public bool bAdjustFootRotation;
+	[Category("FootPlacement")] public bool bInterpolateRotation;
+	[Category("FootPlacement")] public bool bInterpolatePosition;
+	[transient] public/*private*/ bool bResetOnActivated;
+	[Category("FootPlacement")] public float MaxUpAdjustment;
+	[Category("FootPlacement")] public float MaxDownAdjustment;
+	[Category("FootPlacement")] public float MaxFootOrientAdjust;
 	public Object.Rotator InterpolatedRotation;
-	public/*(FootPlacement)*/ float RotationInterpolationSpeed;
+	[Category("FootPlacement")] public float RotationInterpolationSpeed;
 	public float InterpolatedPosition;
-	public/*(FootPlacement)*/ float PositionInterpolationSpeed;
+	[Category("FootPlacement")] public float PositionInterpolationSpeed;
 	
 	// Export UTdSkelControlFootPlacement::execOnSkelControlActive(FFrame&, void* const)
 	public virtual /*native final function */void OnSkelControlActive()

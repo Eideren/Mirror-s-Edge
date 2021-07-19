@@ -30,10 +30,10 @@ public partial class TdPlaceableCheckpointManager : Actor/*
 	//	}
 	};
 	
-	public /*transient */TdCheckpointListener Listener;
-	public /*private transient */array<TdPlaceableCheckpointManager.CheckpointTrack> Tracks;
-	public /*private transient */array<TdPlaceableCheckpoint> ActiveTrack;
-	public /*private transient */array<TdPlaceableCheckpoint> AllCheckPoints;
+	[transient] public TdCheckpointListener Listener;
+	[transient] public/*private*/ array<TdPlaceableCheckpointManager.CheckpointTrack> Tracks;
+	[transient] public/*private*/ array<TdPlaceableCheckpoint> ActiveTrack;
+	[transient] public/*private*/ array<TdPlaceableCheckpoint> AllCheckPoints;
 	
 	public virtual /*final function */void Initialize(Core.ClassT<TdPlaceableCheckpoint> CheckpointClass, TdCheckpointListener InListener)
 	{

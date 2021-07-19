@@ -7,7 +7,7 @@ public partial class MaterialExpressionDestDepth : MaterialExpression/* within M
 		hidecategories(Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ bool bNormalize;
+	[Category] public bool bNormalize;
 	
 }
 }

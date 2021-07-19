@@ -4,11 +4,11 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_Log : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bOutputToScreen;
-	public/*()*/ bool bIncludeObjComment;
-	public/*()*/ bool bIncludeTimeStamp;
-	public/*()*/ float TargetDuration;
-	public/*()*/ Object.Vector TargetOffset;
+	[Category] public bool bOutputToScreen;
+	[Category] public bool bIncludeObjComment;
+	[Category] public bool bIncludeTimeStamp;
+	[Category] public float TargetDuration;
+	[Category] public Object.Vector TargetOffset;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

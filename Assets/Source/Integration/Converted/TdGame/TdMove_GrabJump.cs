@@ -4,13 +4,13 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_GrabJump : TdPhysicsMove/*
 		native
 		config(PawnMovement)*/{
-	public/*(GrabJump)*/ /*config */float GrabJumpOffZHeight;
-	public/*(GrabJump)*/ /*config */float GrabJumpPushAwayMaxSpeed;
-	public/*(GrabJump)*/ /*config */float GrabJumpPushAwayMinSpeed;
-	public/*(GrabJump)*/ /*config */float GrabAllowedJumpAngle;
+	[Category("GrabJump")] [config] public float GrabJumpOffZHeight;
+	[Category("GrabJump")] [config] public float GrabJumpPushAwayMaxSpeed;
+	[Category("GrabJump")] [config] public float GrabJumpPushAwayMinSpeed;
+	[Category("GrabJump")] [config] public float GrabAllowedJumpAngle;
 	public Object.Vector JumpVelocity;
 	public bool TurnedLeft;
-	public /*transient */int DeltaJumpYaw;
+	[transient] public int DeltaJumpYaw;
 	
 	public override /*function */bool CanDoMove()
 	{

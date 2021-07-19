@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_CrossFadeMusicTracks : SeqAct_Latent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ name TrackBankName;
+	[Category] public name TrackBankName;
 	public name CurrTrackType;
-	public /*export editinline */AudioComponent CurrPlayingTrack;
+	[export, editinline] public AudioComponent CurrPlayingTrack;
 	public float AdjustVolumeDuration;
 	public float AdjustVolumeLevel;
 	public float NextTrackToPlayAt;

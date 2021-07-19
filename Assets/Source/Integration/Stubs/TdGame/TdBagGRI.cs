@@ -9,8 +9,8 @@ public partial class TdBagGRI : TdGameReplicationInfo/*
 	public TdPlayerReplicationInfo LastBagHolderPRI;
 	public TdPlayerReplicationInfo BagHolderPRI;
 	public Actor Bag;
-	public /*config */float UnreachableBagDetectionTimeout;
-	public /*private transient */Core.ClassT<TdLocalMessage> TdBagMessageClass;
+	[config] public float UnreachableBagDetectionTimeout;
+	[transient] public/*private*/ Core.ClassT<TdLocalMessage> TdBagMessageClass;
 	
 	//replication
 	//{

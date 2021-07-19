@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class UIAction_SetDatastoreBinding : UIAction_DataStore/*
 		hidecategories(Object)*/{
-	public/*()*/ String NewMarkup;
+	[Category] public String NewMarkup;
 	
 	public UIAction_SetDatastoreBinding()
 	{

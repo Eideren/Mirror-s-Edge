@@ -6,10 +6,10 @@ public partial class TdSoundNodeRelativePosition : SoundNode/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ bool bCalculateOnce;
-	public/*()*/ bool bDebugDraw;
-	public/*()*/ bool bRelativeToCamera;
-	public/*()*/ Object.Vector RelativePos;
+	[Category] public bool bCalculateOnce;
+	[Category] public bool bDebugDraw;
+	[Category] public bool bRelativeToCamera;
+	[Category] public Object.Vector RelativePos;
 	
 	public TdSoundNodeRelativePosition()
 	{

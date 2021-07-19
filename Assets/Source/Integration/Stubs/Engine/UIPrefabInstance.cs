@@ -4,17 +4,17 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIPrefabInstance : UIObject/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*archetype const */UIPrefab SourcePrefab;
-	public /*const */int PrefabInstanceVersion;
-	public /*native const *//*map<0,0>*/map<object, object> ArchetypeToInstanceMap;
-	public /*editoronly const */int PI_PackageVersion;
-	public /*editoronly const */int PI_LicenseePackageVersion;
-	public /*editoronly const */int PI_DataOffset;
-	public /*editoronly const */array<byte> PI_Bytes;
-	public /*editoronly const */array<Object> PI_CompleteObjects;
-	public /*editoronly const */array<Object> PI_ReferencedObjects;
-	public /*editoronly const */array<String> PI_SavedNames;
-	public /*native const *//*map<0,0>*/map<object, object> PI_ObjectMap;
+	[archetype, Const] public UIPrefab SourcePrefab;
+	[Const] public int PrefabInstanceVersion;
+	[native, Const] public /*map<0,0>*/map<object, object> ArchetypeToInstanceMap;
+	[editoronly, Const] public int PI_PackageVersion;
+	[editoronly, Const] public int PI_LicenseePackageVersion;
+	[editoronly, Const] public int PI_DataOffset;
+	[editoronly, Const] public array<byte> PI_Bytes;
+	[editoronly, Const] public array<Object> PI_CompleteObjects;
+	[editoronly, Const] public array<Object> PI_ReferencedObjects;
+	[editoronly, Const] public array<String> PI_SavedNames;
+	[native, Const] public /*map<0,0>*/map<object, object> PI_ObjectMap;
 	
 	// Export UUIPrefabInstance::execDetachFromSourcePrefab(FFrame&, void* const)
 	public virtual /*native final function */void DetachFromSourcePrefab()

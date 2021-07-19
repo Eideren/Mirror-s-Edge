@@ -5,10 +5,10 @@ public partial class ParticleModuleLocationDirect : ParticleModuleLocationBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Location)*/ DistributionVector.RawDistributionVector Location;
-	public/*(Location)*/ DistributionVector.RawDistributionVector LocationOffset;
-	public/*(Location)*/ DistributionVector.RawDistributionVector ScaleFactor;
-	public/*(Location)*/ DistributionVector.RawDistributionVector Direction;
+	[Category("Location")] public DistributionVector.RawDistributionVector Location;
+	[Category("Location")] public DistributionVector.RawDistributionVector LocationOffset;
+	[Category("Location")] public DistributionVector.RawDistributionVector ScaleFactor;
+	[Category("Location")] public DistributionVector.RawDistributionVector Direction;
 	
 	public ParticleModuleLocationDirect()
 	{

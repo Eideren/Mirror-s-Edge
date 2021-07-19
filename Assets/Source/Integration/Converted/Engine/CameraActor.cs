@@ -5,13 +5,13 @@ public partial class CameraActor : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ bool bConstrainAspectRatio;
-	public/*()*/ bool bCamOverridePostProcess;
-	public/*()*/ /*interp */float AspectRatio;
-	public/*()*/ /*interp */float FOVAngle;
-	public/*()*/ /*interp */PostProcessVolume.PostProcessSettings CamOverridePostProcess;
-	public /*export editinline */DrawFrustumComponent DrawFrustum;
-	public /*export editinline */StaticMeshComponent MeshComp;
+	[Category] public bool bConstrainAspectRatio;
+	[Category] public bool bCamOverridePostProcess;
+	[Category] [interp] public float AspectRatio;
+	[Category] [interp] public float FOVAngle;
+	[Category] [interp] public PostProcessVolume.PostProcessSettings CamOverridePostProcess;
+	[export, editinline] public DrawFrustumComponent DrawFrustum;
+	[export, editinline] public StaticMeshComponent MeshComp;
 	
 	//replication
 	//{

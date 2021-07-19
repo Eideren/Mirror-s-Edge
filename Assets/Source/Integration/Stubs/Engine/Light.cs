@@ -5,12 +5,12 @@ public partial class Light : Actor/*
 		native
 		notplaceable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*const editconst export editinline */LightComponent LightComponent;
-	public/*(Baker)*/ Object.Color BakerColor;
-	public/*(Baker)*/ float BakerBrightness;
-	public/*(Baker)*/ bool bUseBakerColorAndBrightness;
-	public /*repnotify */bool bEnabled;
-	public/*(Baker)*/ float SampleFactor;
+	[Category] [Const, editconst, export, editinline] public LightComponent LightComponent;
+	[Category("Baker")] public Object.Color BakerColor;
+	[Category("Baker")] public float BakerBrightness;
+	[Category("Baker")] public bool bUseBakerColorAndBrightness;
+	[repnotify] public bool bEnabled;
+	[Category("Baker")] public float SampleFactor;
 	
 	//replication
 	//{

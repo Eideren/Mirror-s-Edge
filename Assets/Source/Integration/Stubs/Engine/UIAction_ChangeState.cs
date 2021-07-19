@@ -5,8 +5,8 @@ public partial class UIAction_ChangeState : UIAction/*
 		abstract
 		native
 		hidecategories(Object)*/{
-	public/*()*/ Core.ClassT<UIState> StateType;
-	public/*()*/ UIState TargetState;
+	[Category] public Core.ClassT<UIState> StateType;
+	[Category] public UIState TargetState;
 	public bool bStateChangeFailed;
 	
 	public UIAction_ChangeState()

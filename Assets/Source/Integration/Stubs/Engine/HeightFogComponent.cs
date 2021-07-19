@@ -6,13 +6,13 @@ public partial class HeightFogComponent : ActorComponent/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ /*const */bool bEnabled;
-	public /*const */float Height;
-	public/*()*/ /*interp const */float Density;
-	public/*()*/ /*interp const */float LightBrightness;
-	public/*()*/ /*interp const */Object.Color LightColor;
-	public/*()*/ /*interp const */float ExtinctionDistance;
-	public/*()*/ /*interp const */float StartDistance;
+	[Category] [Const] public bool bEnabled;
+	[Const] public float Height;
+	[Category] [interp, Const] public float Density;
+	[Category] [interp, Const] public float LightBrightness;
+	[Category] [interp, Const] public Object.Color LightColor;
+	[Category] [interp, Const] public float ExtinctionDistance;
+	[Category] [interp, Const] public float StartDistance;
 	
 	// Export UHeightFogComponent::execSetEnabled(FFrame&, void* const)
 	public virtual /*native final function */void SetEnabled(bool bSetEnabled)

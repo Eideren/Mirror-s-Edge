@@ -10,7 +10,7 @@ public partial class InterpTrackSound : InterpTrackVectorBase/*
 		public float Time;
 		public float Volume;
 		public float Pitch;
-		public/*()*/ SoundCue Sound;
+		[Category] public SoundCue Sound;
 	
 	//	structdefaultproperties
 	//	{
@@ -23,8 +23,8 @@ public partial class InterpTrackSound : InterpTrackVectorBase/*
 	};
 	
 	public array<InterpTrackSound.SoundTrackKey> Sounds;
-	public/*()*/ bool bContinueSoundOnMatineeEnd;
-	public/*()*/ bool bSuppressSubtitles;
+	[Category] public bool bContinueSoundOnMatineeEnd;
+	[Category] public bool bSuppressSubtitles;
 	
 	public InterpTrackSound()
 	{

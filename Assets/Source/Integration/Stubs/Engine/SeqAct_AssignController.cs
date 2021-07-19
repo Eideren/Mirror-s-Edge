@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_AssignController : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ Core.ClassT<Controller> ControllerClass;
+	[Category] public Core.ClassT<Controller> ControllerClass;
 	
 	public SeqAct_AssignController()
 	{

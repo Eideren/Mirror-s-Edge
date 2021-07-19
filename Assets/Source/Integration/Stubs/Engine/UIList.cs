@@ -34,10 +34,10 @@ public partial class UIList : UIObject,
 	
 	public partial struct /*native transient */CellHitDetectionInfo
 	{
-		public /*init */int HitColumn;
-		public /*init */int HitRow;
-		public /*init */int ResizeColumn;
-		public /*init */int ResizeRow;
+		[init] public int HitColumn;
+		[init] public int HitRow;
+		[init] public int ResizeColumn;
+		[init] public int ResizeRow;
 	
 	//	structdefaultproperties
 	//	{
@@ -49,53 +49,53 @@ public partial class UIList : UIObject,
 	//	}
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTable_IUIDataStorePublisher;
-	public/*(Presentation)*/ UIRoot.UIScreenValue_Extent RowHeight;
-	public/*(Presentation)*/ UIRoot.UIScreenValue_Extent MinColumnSize;
-	public/*(Presentation)*/ UIRoot.UIScreenValue_Extent ColumnWidth;
-	public/*(Presentation)*/ UIRoot.UIScreenValue_Extent HeaderCellPadding;
-	public/*(Presentation)*/ UIRoot.UIScreenValue_Extent HeaderElementSpacing;
-	public/*(Presentation)*/ UIRoot.UIScreenValue_Extent CellSpacing;
-	public/*(Presentation)*/ UIRoot.UIScreenValue_Extent CellPadding;
-	public /*transient */int Index;
-	public /*transient */int TopIndex;
-	public/*(Presentation)*/ /*duplicatetransient editconst transient */int MaxVisibleItems;
-	public/*(List)*/ /*protected */int ColumnCount;
-	public/*(List)*/ /*protected */int RowCount;
-	public/*(List)*/ UIList.ECellAutoSizeMode ColumnAutoSizeMode;
-	public/*(List)*/ UIList.ECellAutoSizeMode RowAutoSizeMode;
-	public/*(List)*/ UIList.ECellLinkType CellLinkType;
-	public/*(Presentation)*/ UIList.EListWrapBehavior WrapType;
-	public/*(List)*/ bool bEnableMultiSelect;
-	public/*(List)*/ bool bEnableVerticalScrollbar;
-	public /*transient */bool bInitializeScrollbars;
-	public/*(List)*/ bool bAllowDisabledItemSelection;
-	public/*(List)*/ bool bSingleClickSubmission;
-	public/*(List)*/ /*private */bool bUpdateItemUnderCursor;
-	public/*(List)*/ /*private */bool bHoverStateOverridesSelected;
-	public/*(List)*/ bool bAllowColumnResizing;
-	public/*(Debug)*/ /*transient */bool bDisplayDataBindings;
-	public /*const transient */bool bSortingList;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIDataStorePublisher;
+	[Category("Presentation")] public UIRoot.UIScreenValue_Extent RowHeight;
+	[Category("Presentation")] public UIRoot.UIScreenValue_Extent MinColumnSize;
+	[Category("Presentation")] public UIRoot.UIScreenValue_Extent ColumnWidth;
+	[Category("Presentation")] public UIRoot.UIScreenValue_Extent HeaderCellPadding;
+	[Category("Presentation")] public UIRoot.UIScreenValue_Extent HeaderElementSpacing;
+	[Category("Presentation")] public UIRoot.UIScreenValue_Extent CellSpacing;
+	[Category("Presentation")] public UIRoot.UIScreenValue_Extent CellPadding;
+	[transient] public int Index;
+	[transient] public int TopIndex;
+	[Category("Presentation")] [duplicatetransient, editconst, transient] public int MaxVisibleItems;
+	[Category("List")] public/*protected*/ int ColumnCount;
+	[Category("List")] public/*protected*/ int RowCount;
+	[Category("List")] public UIList.ECellAutoSizeMode ColumnAutoSizeMode;
+	[Category("List")] public UIList.ECellAutoSizeMode RowAutoSizeMode;
+	[Category("List")] public UIList.ECellLinkType CellLinkType;
+	[Category("Presentation")] public UIList.EListWrapBehavior WrapType;
+	[Category("List")] public bool bEnableMultiSelect;
+	[Category("List")] public bool bEnableVerticalScrollbar;
+	[transient] public bool bInitializeScrollbars;
+	[Category("List")] public bool bAllowDisabledItemSelection;
+	[Category("List")] public bool bSingleClickSubmission;
+	[Category("List")] public/*private*/ bool bUpdateItemUnderCursor;
+	[Category("List")] public/*private*/ bool bHoverStateOverridesSelected;
+	[Category("List")] public bool bAllowColumnResizing;
+	[Category("Debug")] [transient] public bool bDisplayDataBindings;
+	[Const, transient] public bool bSortingList;
 	public UIScrollbar VerticalScrollbar;
 	public StaticArray<UIRoot.UIStyleReference, UIRoot.UIStyleReference, UIRoot.UIStyleReference, UIRoot.UIStyleReference>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/ GlobalCellStyle;
 	public UIRoot.UIStyleReference ColumnHeaderStyle;
 	public StaticArray<UIRoot.UIStyleReference, UIRoot.UIStyleReference, UIRoot.UIStyleReference>/*[UIRoot.EColumnHeaderState.COLUMNHEADER_MAX]*/ ColumnHeaderBackgroundStyle;
 	public StaticArray<UIRoot.UIStyleReference, UIRoot.UIStyleReference, UIRoot.UIStyleReference, UIRoot.UIStyleReference>/*[UIRoot.EUIListElementState.ELEMENT_MAX]*/ ItemOverlayStyle;
-	public /*const transient */int ResizeColumn;
-	public /*private transient */int SetIndexMutex;
-	public /*private transient */int ValueChangeNotificationMutex;
-	public/*(Data)*/ UIRoot.UIDataStoreBinding DataSource;
-	public /*const transient */UIListElementProvider DataProvider;
-	public /*const transient */array<int> Items;
-	public /*transient */array<int> SelectedItems;
-	public/*(Presentation)*/ /*export editinline */UIComp_ListElementSorter SortComponent;
-	public/*(Data)*/ /*export editinline */UIComp_ListPresenter CellDataComponent;
-	public/*(Sound)*/ name SubmitDataSuccessCue;
-	public/*(Sound)*/ name SubmitDataFailedCue;
-	public/*(Sound)*/ name DecrementIndexCue;
-	public/*(Sound)*/ name IncrementIndexCue;
-	public/*(Sound)*/ name SortAscendingCue;
-	public/*(Sound)*/ name SortDescendingCue;
+	[Const, transient] public int ResizeColumn;
+	[transient] public/*private*/ int SetIndexMutex;
+	[transient] public/*private*/ int ValueChangeNotificationMutex;
+	[Category("Data")] public UIRoot.UIDataStoreBinding DataSource;
+	[Const, transient] public UIListElementProvider DataProvider;
+	[Const, transient] public array<int> Items;
+	[transient] public array<int> SelectedItems;
+	[Category("Presentation")] [export, editinline] public UIComp_ListElementSorter SortComponent;
+	[Category("Data")] [export, editinline] public UIComp_ListPresenter CellDataComponent;
+	[Category("Sound")] public name SubmitDataSuccessCue;
+	[Category("Sound")] public name SubmitDataFailedCue;
+	[Category("Sound")] public name DecrementIndexCue;
+	[Category("Sound")] public name IncrementIndexCue;
+	[Category("Sound")] public name SortAscendingCue;
+	[Category("Sound")] public name SortDescendingCue;
 	public /*delegate*/UIList.OnSubmitSelection __OnSubmitSelection__Delegate;
 	public /*delegate*/UIList.OnListElementsSorted __OnListElementsSorted__Delegate;
 	

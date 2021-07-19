@@ -40,21 +40,21 @@ public partial class TdHudEffect : Object/*
 	//	}
 	};
 	
-	public/*()*/ /*config */TdHudEffect.BlurSettings Blur;
-	public/*()*/ /*config */TdHudEffect.PPSettings PPStrength;
+	[Category] [config] public TdHudEffect.BlurSettings Blur;
+	[Category] [config] public TdHudEffect.PPSettings PPStrength;
 	public ParticleSystem Particles;
-	public /*config */Object.Vector ParticleOrigin;
-	public /*transient */bool bIsActive;
-	public/*()*/ bool bEnablePPEffect;
-	public/*()*/ /*config */bool bDebugEffect;
-	public /*transient */float PPFadeInTimer;
-	public /*transient */float PPFadeInStart;
-	public /*transient */float PPPeakDurationTimer;
-	public /*transient */float PPFadeOutTimer;
-	public /*transient */float PPTargetStrength;
-	public /*transient */float PPCurrentStrength;
+	[config] public Object.Vector ParticleOrigin;
+	[transient] public bool bIsActive;
+	[Category] public bool bEnablePPEffect;
+	[Category] [config] public bool bDebugEffect;
+	[transient] public float PPFadeInTimer;
+	[transient] public float PPFadeInStart;
+	[transient] public float PPPeakDurationTimer;
+	[transient] public float PPFadeOutTimer;
+	[transient] public float PPTargetStrength;
+	[transient] public float PPCurrentStrength;
 	public MaterialEffect Effect;
-	public /*transient */MaterialInstanceConstant MaterialInstance;
+	[transient] public MaterialInstanceConstant MaterialInstance;
 	
 	public virtual /*function */void InitializePP(PostProcessEffect PPE)
 	{

@@ -4,13 +4,13 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdHudEffect_Taser : TdHudEffect/*
 		native
 		config(HudEffects)*/{
-	public /*config */TdHudEffect.PPSettings PPInstantShock;
-	public /*transient */float PPIFadeInTimer;
-	public /*transient */float PPIFadeInStart;
-	public /*transient */float PPIPeakDurationTimer;
-	public /*transient */float PPIFadeOutTimer;
-	public /*transient */float PPITargetStrength;
-	public /*transient */float PPICurrentStrength;
+	[config] public TdHudEffect.PPSettings PPInstantShock;
+	[transient] public float PPIFadeInTimer;
+	[transient] public float PPIFadeInStart;
+	[transient] public float PPIPeakDurationTimer;
+	[transient] public float PPIFadeOutTimer;
+	[transient] public float PPITargetStrength;
+	[transient] public float PPICurrentStrength;
 	
 	public TdHudEffect_Taser()
 	{

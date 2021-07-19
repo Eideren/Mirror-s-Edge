@@ -8,8 +8,8 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 		hidecategories(Object)*/{
 	public partial struct /*native transient */UIStringSelectionRegion
 	{
-		public /*init */int SelectionStartCharIndex;
-		public /*init */int SelectionEndCharIndex;
+		[init] public int SelectionStartCharIndex;
+		[init] public int SelectionEndCharIndex;
 	
 	//	structdefaultproperties
 	//	{
@@ -21,15 +21,15 @@ public partial class UIComp_DrawStringEditbox : UIComp_DrawString/* within UIEdi
 	
 	public new UIEditBox Outer => base.Outer as UIEditBox;
 	
-	public /*private transient */String UserText;
-	public/*(Presentation)*/ UIRoot.UIStringCaretParameters StringCaret;
-	public /*transient */UIComp_DrawStringEditbox.UIStringSelectionRegion SelectionRegion;
-	public /*config */Object.LinearColor SelectionTextColor;
-	public /*config */Object.LinearColor SelectionBackgroundColor;
-	public /*private native const transient */Object.Pointer CaretNode;
-	public /*private const transient */int FirstCharacterPosition;
-	public /*const transient */bool bRecalculateFirstCharacter;
-	public /*const transient */float CaretOffset;
+	[transient] public/*private*/ String UserText;
+	[Category("Presentation")] public UIRoot.UIStringCaretParameters StringCaret;
+	[transient] public UIComp_DrawStringEditbox.UIStringSelectionRegion SelectionRegion;
+	[config] public Object.LinearColor SelectionTextColor;
+	[config] public Object.LinearColor SelectionBackgroundColor;
+	[native, Const, transient] public/*private*/ Object.Pointer CaretNode;
+	[Const, transient] public/*private*/ int FirstCharacterPosition;
+	[Const, transient] public bool bRecalculateFirstCharacter;
+	[Const, transient] public float CaretOffset;
 	
 	// Export UUIComp_DrawStringEditbox::execSetUserText(FFrame&, void* const)
 	public virtual /*native final function */bool SetUserText(String NewValue)

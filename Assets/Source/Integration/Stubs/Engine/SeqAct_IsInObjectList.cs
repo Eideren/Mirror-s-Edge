@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_IsInObjectList : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bCheckForAllObjects;
-	public /*private transient */bool bObjectFound;
+	[Category] public bool bCheckForAllObjects;
+	[transient] public/*private*/ bool bObjectFound;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

@@ -5,31 +5,31 @@ public partial class KActor : DynamicSMActor/*
 		native
 		nativereplication
 		placeable*/{
-	public/*()*/ bool bDamageAppliesImpulse;
-	public/*()*/ /*repnotify */bool bWakeOnLevelStart;
+	[Category] public bool bDamageAppliesImpulse;
+	[Category] [repnotify] public bool bWakeOnLevelStart;
 	public bool bCurrentSlide;
 	public bool bSlideActive;
-	public/*(Interaction)*/ /*const */bool LOIUse2DDistance;
-	public /*export editinline */ParticleSystemComponent ImpactEffectComponent;
-	public /*export editinline */AudioComponent ImpactSoundComponent;
-	public /*export editinline */AudioComponent ImpactSoundComponent2;
+	[Category("Interaction")] [Const] public bool LOIUse2DDistance;
+	[export, editinline] public ParticleSystemComponent ImpactEffectComponent;
+	[export, editinline] public AudioComponent ImpactSoundComponent;
+	[export, editinline] public AudioComponent ImpactSoundComponent2;
 	public float LastImpactTime;
-	public /*export editinline */ParticleSystemComponent SlideEffectComponent;
-	public /*export editinline */AudioComponent SlideSoundComponent;
+	[export, editinline] public ParticleSystemComponent SlideEffectComponent;
+	[export, editinline] public AudioComponent SlideSoundComponent;
 	public float LastSlideTime;
-	public /*native const */Actor.RigidBodyState RBState;
-	public /*native const */float AngErrorAccumulator;
-	public /*repnotify */float DrawScaleX;
-	public /*repnotify */float DrawScaleY;
-	public /*repnotify */float DrawScaleZ;
+	[native, Const] public Actor.RigidBodyState RBState;
+	[native, Const] public float AngErrorAccumulator;
+	[repnotify] public float DrawScaleX;
+	[repnotify] public float DrawScaleY;
+	[repnotify] public float DrawScaleZ;
 	public Object.Vector InitialLocation;
 	public Object.Rotator InitialRotation;
-	public/*(Interaction)*/ /*const */float LOILookAtDelay;
-	public/*(Interaction)*/ /*const */float LOIProximityDelay;
-	public/*(Interaction)*/ /*const */float LOIMinDuration;
-	public/*(Interaction)*/ /*const */float LOIDistance;
-	public/*(Interaction)*/ /*const */array<name> LOIGroups;
-	public /*private */TdLOIAddOnObject TdLOIAddOn;
+	[Category("Interaction")] [Const] public float LOILookAtDelay;
+	[Category("Interaction")] [Const] public float LOIProximityDelay;
+	[Category("Interaction")] [Const] public float LOIMinDuration;
+	[Category("Interaction")] [Const] public float LOIDistance;
+	[Category("Interaction")] [Const] public array<name> LOIGroups;
+	public/*private*/ TdLOIAddOnObject TdLOIAddOn;
 	
 	//replication
 	//{

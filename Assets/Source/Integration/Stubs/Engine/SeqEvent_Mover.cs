@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqEvent_Mover : SequenceEvent/*
 		native
 		hidecategories(Object,SequenceEvent)*/{
-	public/*()*/ float StayOpenTime;
+	[Category] public float StayOpenTime;
 	
 	public override /*event */void RegisterEvent()
 	{

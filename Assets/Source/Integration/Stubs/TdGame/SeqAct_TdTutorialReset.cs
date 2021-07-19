@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_TdTutorialReset : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ bool bResetPlayerPawn;
+	[Category] public bool bResetPlayerPawn;
 	
 	public override /*event */void Activated()
 	{

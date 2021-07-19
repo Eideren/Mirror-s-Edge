@@ -6,8 +6,8 @@ public partial class StaticMeshCollectionActor : StaticMeshActorBase/*
 		config(Engine)
 		notplaceable
 		hidecategories(Navigation)*/{
-	public /*const export editinline */array</*export editinline */StaticMeshComponent> StaticMeshComponents;
-	public /*config */int MaxStaticMeshComponents;
+	[Const, export, editinline] public array</*export editinline */StaticMeshComponent> StaticMeshComponents;
+	[config] public int MaxStaticMeshComponents;
 	
 	public StaticMeshCollectionActor()
 	{

@@ -12,18 +12,18 @@ public partial class TdSkelControlLazySpring : SkelControlSingleBone/*
 		SpringAxis_MAX
 	};
 	
-	public/*(Spring)*/ TdSkelControlLazySpring.SpringAxis AffectedAxis;
-	public/*(Spring)*/ TdSkelControlLazySpring.SpringAxis SourceAxis;
-	public/*(Spring)*/ int MaxAngle;
-	public/*(Spring)*/ int MinAngle;
-	public/*(Spring)*/ float InterpolateTime;
-	public/*(Spring)*/ float SpringMultiplier;
-	public/*(Spring)*/ bool bScaleByVelocity;
-	public/*(Spring)*/ bool bIgnoreSlomo;
-	public/*(Spring)*/ bool bOnlyPositiveInput;
-	public/*(Spring)*/ float MaxVelocity;
-	public/*(Spring)*/ float MinVelocity;
-	public/*(Spring)*/ float HeavyWeaponModifier;
+	[Category("Spring")] public TdSkelControlLazySpring.SpringAxis AffectedAxis;
+	[Category("Spring")] public TdSkelControlLazySpring.SpringAxis SourceAxis;
+	[Category("Spring")] public int MaxAngle;
+	[Category("Spring")] public int MinAngle;
+	[Category("Spring")] public float InterpolateTime;
+	[Category("Spring")] public float SpringMultiplier;
+	[Category("Spring")] public bool bScaleByVelocity;
+	[Category("Spring")] public bool bIgnoreSlomo;
+	[Category("Spring")] public bool bOnlyPositiveInput;
+	[Category("Spring")] public float MaxVelocity;
+	[Category("Spring")] public float MinVelocity;
+	[Category("Spring")] public float HeavyWeaponModifier;
 	public int LazyRotation;
 	
 	public TdSkelControlLazySpring()

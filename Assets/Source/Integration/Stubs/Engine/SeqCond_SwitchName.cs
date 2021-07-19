@@ -7,8 +7,8 @@ public partial class SeqCond_SwitchName : SeqCond_SwitchBase/*
 		hidecategories(Object)*/{
 	public partial struct /*native */SwitchNameCase
 	{
-		public/*()*/ name NameValue;
-		public/*()*/ bool bFallThru;
+		[Category] public name NameValue;
+		[Category] public bool bFallThru;
 	
 	//	structdefaultproperties
 	//	{
@@ -18,7 +18,7 @@ public partial class SeqCond_SwitchName : SeqCond_SwitchBase/*
 	//	}
 	};
 	
-	public/*()*/ array<SeqCond_SwitchName.SwitchNameCase> SupportedValues;
+	[Category] public array<SeqCond_SwitchName.SwitchNameCase> SupportedValues;
 	
 	public override /*event */void VerifyDefaultCaseValue()
 	{

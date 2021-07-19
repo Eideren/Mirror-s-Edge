@@ -5,7 +5,7 @@ public partial class ParticleModuleMeshMaterial : ParticleModuleMaterialBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(MeshMaterials)*/ array<MaterialInterface> MeshMaterials;
+	[Category("MeshMaterials")] public array<MaterialInterface> MeshMaterials;
 	
 	public ParticleModuleMeshMaterial()
 	{

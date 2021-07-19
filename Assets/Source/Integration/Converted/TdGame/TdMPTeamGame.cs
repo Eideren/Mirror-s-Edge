@@ -24,7 +24,7 @@ public partial class TdMPTeamGame : TdMPGame/*
 	public int NumTeams;
 	public bool bAutoBalanceTeams;
 	public bool bSwitchSides;
-	public /*config */byte FriendlyFireScale;
+	[config] public byte FriendlyFireScale;
 	
 	public override /*function */void InitGame(String Options, ref String ErrorMessage)
 	{

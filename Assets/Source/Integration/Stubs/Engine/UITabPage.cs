@@ -9,12 +9,12 @@ public partial class UITabPage : UIContainer,
 	public const int TOOLTIP_DATABINDING_INDEX = 1;
 	public const int DESCRIPTION_DATABINDING_INDEX = 2;
 	
-	public /*private native const noexport */Object.Pointer VfTable_IUIDataStoreSubscriber;
-	public /*const */Core.ClassT<UITabButton> ButtonClass;
-	public /*protected */UITabButton TabButton;
-	public/*(Data)*/ /*private */UIRoot.UIDataStoreBinding ButtonCaption;
-	public/*(Data)*/ /*private */UIRoot.UIDataStoreBinding ButtonToolTip;
-	public/*(Data)*/ /*private */UIRoot.UIDataStoreBinding PageDescription;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIDataStoreSubscriber;
+	[Const] public Core.ClassT<UITabButton> ButtonClass;
+	public/*protected*/ UITabButton TabButton;
+	[Category("Data")] public/*private*/ UIRoot.UIDataStoreBinding ButtonCaption;
+	[Category("Data")] public/*private*/ UIRoot.UIDataStoreBinding ButtonToolTip;
+	[Category("Data")] public/*private*/ UIRoot.UIDataStoreBinding PageDescription;
 	
 	public virtual /*event */bool ActivatePage(int PlayerIndex, bool bActivate, /*optional */bool? _bTakeFocus = default)
 	{

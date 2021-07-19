@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class CoverSlipReachSpec : ForcedReachSpec/*
 		native*/{
-	public/*()*/ /*editconst */byte SpecDirection;
+	[Category] [editconst] public byte SpecDirection;
 	
 	public CoverSlipReachSpec()
 	{

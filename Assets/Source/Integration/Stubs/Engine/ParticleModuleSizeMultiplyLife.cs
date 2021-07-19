@@ -5,10 +5,10 @@ public partial class ParticleModuleSizeMultiplyLife : ParticleModuleSizeBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Size)*/ DistributionVector.RawDistributionVector LifeMultiplier;
-	public/*(Size)*/ bool MultiplyX;
-	public/*(Size)*/ bool MultiplyY;
-	public/*(Size)*/ bool MultiplyZ;
+	[Category("Size")] public DistributionVector.RawDistributionVector LifeMultiplier;
+	[Category("Size")] public bool MultiplyX;
+	[Category("Size")] public bool MultiplyY;
+	[Category("Size")] public bool MultiplyZ;
 	
 	public ParticleModuleSizeMultiplyLife()
 	{

@@ -6,8 +6,8 @@ public partial class SoundNodeLooping : SoundNode/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ bool bLoopIndefinitely;
-	public/*()*/ DistributionFloat.RawDistributionFloat LoopCount;
+	[Category] public bool bLoopIndefinitely;
+	[Category] public DistributionFloat.RawDistributionFloat LoopCount;
 	
 	public SoundNodeLooping()
 	{

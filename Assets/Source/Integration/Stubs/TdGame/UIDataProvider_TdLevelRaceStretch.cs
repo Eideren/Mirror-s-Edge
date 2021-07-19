@@ -7,7 +7,7 @@ public partial class UIDataProvider_TdLevelRaceStretch : UIDataProvider_TdStretc
 		config(Game)
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
-	public /*config */float QualifyingTime;
+	[config] public float QualifyingTime;
 	
 }
 }

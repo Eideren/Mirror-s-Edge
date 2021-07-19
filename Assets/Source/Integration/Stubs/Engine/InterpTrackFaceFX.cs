@@ -20,9 +20,9 @@ public partial class InterpTrackFaceFX : InterpTrack/*
 	//	}
 	};
 	
-	public/*()*/ array<FaceFXAnimSet> FaceFXAnimSets;
+	[Category] public array<FaceFXAnimSet> FaceFXAnimSets;
 	public array<InterpTrackFaceFX.FaceFXTrackKey> FaceFXSeqs;
-	public /*transient */FaceFXAsset CachedActorFXAsset;
+	[transient] public FaceFXAsset CachedActorFXAsset;
 	
 	public InterpTrackFaceFX()
 	{

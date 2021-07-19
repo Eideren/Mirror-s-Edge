@@ -7,8 +7,8 @@ public partial class MaterialExpressionFontSample : MaterialExpression/* within 
 		hidecategories(Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ Font Font;
-	public/*()*/ int FontTexturePage;
+	[Category] public Font Font;
+	[Category] public int FontTexturePage;
 	
 	public MaterialExpressionFontSample()
 	{

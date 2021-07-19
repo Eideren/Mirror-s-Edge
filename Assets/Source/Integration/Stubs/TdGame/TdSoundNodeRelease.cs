@@ -6,12 +6,12 @@ public partial class TdSoundNodeRelease : SoundNode/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ TdSoundNodeADSR.SoundInterpolationMethod ReleaseInterpolationMethod;
-	public/*()*/ DistributionFloat.RawDistributionFloat Release;
-	public/*()*/ float ReleaseToDistanceFactor;
-	public/*()*/ bool bReleaseToDistance;
-	public/*()*/ bool bModulatePitch;
-	public/*()*/ bool bModulateVolume;
+	[Category] public TdSoundNodeADSR.SoundInterpolationMethod ReleaseInterpolationMethod;
+	[Category] public DistributionFloat.RawDistributionFloat Release;
+	[Category] public float ReleaseToDistanceFactor;
+	[Category] public bool bReleaseToDistance;
+	[Category] public bool bModulatePitch;
+	[Category] public bool bModulateVolume;
 	
 	public TdSoundNodeRelease()
 	{

@@ -5,8 +5,8 @@ public partial class TdMovementExclusionVolume : PhysicsVolume/*
 		native
 		placeable
 		hidecategories(Navigation,Object,Movement,Display,AI,Interaction,PhysicsVolume,Volume)*/{
-	public/*()*/ bool bExcludeFootMoves;
-	public/*()*/ bool bExcludeHandMoves;
+	[Category] public bool bExcludeFootMoves;
+	[Category] public bool bExcludeHandMoves;
 	
 	public TdMovementExclusionVolume()
 	{

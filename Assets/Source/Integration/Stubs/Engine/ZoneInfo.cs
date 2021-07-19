@@ -5,10 +5,10 @@ public partial class ZoneInfo : Info/*
 		native
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public/*()*/ float KillZ;
-	public/*()*/ float SoftKill;
-	public/*()*/ Core.ClassT<KillZDamageType> KillZDamageType;
-	public/*()*/ bool bSoftKillZ;
+	[Category] public float KillZ;
+	[Category] public float SoftKill;
+	[Category] public Core.ClassT<KillZDamageType> KillZDamageType;
+	[Category] public bool bSoftKillZ;
 	
 	public ZoneInfo()
 	{

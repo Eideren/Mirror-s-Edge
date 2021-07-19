@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqEvt_TdMovementChallengeEvent : SequenceEvent/*
 		abstract
 		hidecategories(Object)*/{
-	public/*(MovementChallenge)*/ TdSPTutorialGame.EMovementChallenge MovementChallenge;
+	[Category("MovementChallenge")] public TdSPTutorialGame.EMovementChallenge MovementChallenge;
 	
 	public SeqEvt_TdMovementChallengeEvent()
 	{

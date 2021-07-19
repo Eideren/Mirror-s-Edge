@@ -7,9 +7,9 @@ public partial class SpriteComponent : PrimitiveComponent/*
 		collapsecategories
 		noexport
 		hidecategories(Object)*/{
-	public/*()*/ Texture2D Sprite;
-	public/*()*/ bool bIsScreenSizeScaled;
-	public/*()*/ float ScreenSize;
+	[Category] public Texture2D Sprite;
+	[Category] public bool bIsScreenSizeScaled;
+	[Category] public float ScreenSize;
 	
 	public SpriteComponent()
 	{

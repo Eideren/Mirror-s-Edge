@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_GetProperty : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ name PropertyName;
+	[Category] public name PropertyName;
 	
 	public SeqAct_GetProperty()
 	{

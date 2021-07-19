@@ -5,9 +5,9 @@ public partial class TdPlayerReplicationInfo : PlayerReplicationInfo/*
 		native
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
-	public /*private */int ClientVersion;
-	public /*repnotify */int RoleIndexInTeam;
-	public /*repnotify */bool bPlayerIsReady;
+	public/*private*/ int ClientVersion;
+	[repnotify] public int RoleIndexInTeam;
+	[repnotify] public bool bPlayerIsReady;
 	
 	//replication
 	//{

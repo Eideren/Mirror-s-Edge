@@ -4,13 +4,13 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_RumpSlide : TdPhysicsMove/*
 		native
 		config(PawnMovement)*/{
-	public /*private */ForceFeedbackWaveform SlideWaveform;
+	public/*private*/ ForceFeedbackWaveform SlideWaveform;
 	public float TimeFalling;
-	public /*config */float MaxSlideSpeed;
-	public /*config */float SideControl;
-	public /*config */float GravityModifier;
-	public /*config */float InitialSpeedLoss;
-	public /*config */float MinSlideFloorZ;
+	[config] public float MaxSlideSpeed;
+	[config] public float SideControl;
+	[config] public float GravityModifier;
+	[config] public float InitialSpeedLoss;
+	[config] public float MinSlideFloorZ;
 	public float OldFloorZ;
 	public bool bTouchedFallHeightVolume;
 	

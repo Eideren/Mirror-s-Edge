@@ -5,7 +5,7 @@ public partial class CurveEdPreset_UserSet : CurveEdPresetBase/*
 		native
 		editinlinenew
 		hidecategories(Object)*/{
-	public/*()*/ CurveEdPresetCurve UserCurve;
+	[Category] public CurveEdPresetCurve UserCurve;
 	
 	public override /*function */String GetDisplayName()
 	{

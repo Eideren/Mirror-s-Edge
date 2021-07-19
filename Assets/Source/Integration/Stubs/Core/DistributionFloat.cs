@@ -17,7 +17,7 @@ public partial class DistributionFloat : Component/*
 		public float LookupTableTimeScale;
 		public float LookupTableStartTime;
 	
-		public/*()*/ /*noclear export editinline */DistributionFloat Distribution;
+		[Category] [noclear, export, editinline] public DistributionFloat Distribution;
 			// Object Offset:0x0001FDC8
 	//		Type = 0;
 	//		Op = 0;
@@ -32,8 +32,8 @@ public partial class DistributionFloat : Component/*
 	//	}
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTable_FCurveEdInterface;
-	public/*(Baked)*/ bool bCanBeBaked;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FCurveEdInterface;
+	[Category("Baked")] public bool bCanBeBaked;
 	public bool bIsDirty;
 	
 	public DistributionFloat()

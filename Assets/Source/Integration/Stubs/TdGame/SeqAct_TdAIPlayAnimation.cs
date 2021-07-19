@@ -13,24 +13,24 @@ public partial class SeqAct_TdAIPlayAnimation : SeqAct_Latent/*
 		PAES_MAX
 	};
 	
-	public/*(AnimationProperties)*/ name AnimationName;
-	public/*(AnimationProperties)*/ array<TdAnimSet> AdditionalAnimSets;
-	public/*(AnimationProperties)*/ float PlayRate;
-	public/*(AnimationProperties)*/ float BlendInTime;
-	public/*(AnimationProperties)*/ float BlendOutTime;
-	public/*(AnimationProperties)*/ bool bUseRootMotion;
-	public/*(AnimationProperties)*/ bool bUseRootRotation;
-	public/*(AnimationProperties)*/ bool bLoopAnimation;
-	public/*(PawnPlacement)*/ bool bDisableCollision;
-	public/*(PawnPlacement)*/ bool bOverridePosition;
-	public/*(PawnPlacement)*/ bool bOverrideRotation;
-	public/*(Misc)*/ bool bForcePlay;
-	public /*transient */bool bStartedAnimation;
-	public /*transient */bool bStoppedAnimation;
-	public /*deprecated */bool bScriptActivated;
-	public/*(PawnPlacement)*/ Object.Vector PawnLocation;
-	public/*(PawnPlacement)*/ Object.Rotator PawnRotation;
-	public/*(Misc)*/ SeqAct_TdAIPlayAnimation.EPlayAnimationEndState FinalAnimationState;
+	[Category("AnimationProperties")] public name AnimationName;
+	[Category("AnimationProperties")] public array<TdAnimSet> AdditionalAnimSets;
+	[Category("AnimationProperties")] public float PlayRate;
+	[Category("AnimationProperties")] public float BlendInTime;
+	[Category("AnimationProperties")] public float BlendOutTime;
+	[Category("AnimationProperties")] public bool bUseRootMotion;
+	[Category("AnimationProperties")] public bool bUseRootRotation;
+	[Category("AnimationProperties")] public bool bLoopAnimation;
+	[Category("PawnPlacement")] public bool bDisableCollision;
+	[Category("PawnPlacement")] public bool bOverridePosition;
+	[Category("PawnPlacement")] public bool bOverrideRotation;
+	[Category("Misc")] public bool bForcePlay;
+	[transient] public bool bStartedAnimation;
+	[transient] public bool bStoppedAnimation;
+	[deprecated] public bool bScriptActivated;
+	[Category("PawnPlacement")] public Object.Vector PawnLocation;
+	[Category("PawnPlacement")] public Object.Rotator PawnRotation;
+	[Category("Misc")] public SeqAct_TdAIPlayAnimation.EPlayAnimationEndState FinalAnimationState;
 	
 	public override /*function */void Reset()
 	{

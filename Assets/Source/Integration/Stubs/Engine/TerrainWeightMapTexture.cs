@@ -8,8 +8,8 @@ public partial class TerrainWeightMapTexture : Texture2D/*
 	{
 	};
 	
-	public /*const */Terrain ParentTerrain;
-	public /*private native const */array<Object.Pointer> WeightedMaterials;
+	[Const] public Terrain ParentTerrain;
+	[native, Const] public/*private*/ array<Object.Pointer> WeightedMaterials;
 	
 }
 }

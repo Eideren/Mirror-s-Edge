@@ -4,10 +4,10 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIToggleButton : UILabelButton/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public/*(Data)*/ /*private */UIRoot.UIDataStoreBinding ValueDataSource;
-	public/*(Value)*/ /*private */bool bIsChecked;
-	public/*(Data)*/ /*noclear const export editinline */UIComp_DrawString CheckedStringRenderComponent;
-	public/*(Image)*/ /*noclear const export editinline */UIComp_DrawImage CheckedBackgroundImageComponent;
+	[Category("Data")] public/*private*/ UIRoot.UIDataStoreBinding ValueDataSource;
+	[Category("Value")] public/*private*/ bool bIsChecked;
+	[Category("Data")] [noclear, Const, export, editinline] public UIComp_DrawString CheckedStringRenderComponent;
+	[Category("Image")] [noclear, Const, export, editinline] public UIComp_DrawImage CheckedBackgroundImageComponent;
 	
 	// Export UUIToggleButton::execSetCaption(FFrame&, void* const)
 	public override /*native function */void SetCaption(String NewText)

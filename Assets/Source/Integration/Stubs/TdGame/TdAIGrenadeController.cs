@@ -14,17 +14,17 @@ public partial class TdAIGrenadeController : Actor/*
 		EGTT_MAX
 	};
 	
-	public /*private */name ThrowAnimationName;
-	public /*private */TdBotPawn MyBotPawn;
-	public /*private */bool bAnimationStarted;
-	public /*private */bool bDoFreeGrenadeThrow;
-	public /*private */bool bDone;
-	public /*private */TdGrenadeTargetArea GrenadeTargetArea;
-	public /*private */NavigationPoint GrenadeNode;
-	public /*private */TdProj_Grenade Grenade;
-	public /*private */Actor TargetActor;
-	public /*private */TdAIGrenadeController.EGrenadeThrowType ThrowType;
-	public /*private */Core.ClassT<TdProj_Grenade> GrenadeClass;
+	public/*private*/ name ThrowAnimationName;
+	public/*private*/ TdBotPawn MyBotPawn;
+	public/*private*/ bool bAnimationStarted;
+	public/*private*/ bool bDoFreeGrenadeThrow;
+	public/*private*/ bool bDone;
+	public/*private*/ TdGrenadeTargetArea GrenadeTargetArea;
+	public/*private*/ NavigationPoint GrenadeNode;
+	public/*private*/ TdProj_Grenade Grenade;
+	public/*private*/ Actor TargetActor;
+	public/*private*/ TdAIGrenadeController.EGrenadeThrowType ThrowType;
+	public/*private*/ Core.ClassT<TdProj_Grenade> GrenadeClass;
 	
 	public virtual /*function */TdProj_Grenade GetGrenade()
 	{

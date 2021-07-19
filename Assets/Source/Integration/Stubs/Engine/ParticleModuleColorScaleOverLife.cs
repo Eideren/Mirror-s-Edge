@@ -5,9 +5,9 @@ public partial class ParticleModuleColorScaleOverLife : ParticleModuleColorBase/
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Color)*/ DistributionVector.RawDistributionVector ColorScaleOverLife;
-	public/*(Color)*/ DistributionFloat.RawDistributionFloat AlphaScaleOverLife;
-	public/*(Color)*/ bool bEmitterTime;
+	[Category("Color")] public DistributionVector.RawDistributionVector ColorScaleOverLife;
+	[Category("Color")] public DistributionFloat.RawDistributionFloat AlphaScaleOverLife;
+	[Category("Color")] public bool bEmitterTime;
 	
 	public ParticleModuleColorScaleOverLife()
 	{

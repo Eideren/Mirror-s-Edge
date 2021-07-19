@@ -5,7 +5,7 @@ public partial class CascadeParticleSystemComponent : ParticleSystemComponent/*
 		native
 		editinlinenew
 		hidecategories(Object,Physics,Collision,Object,Physics,Collision)*/{
-	public /*native const */Object.Pointer CascadePreviewViewportPtr;
+	[native, Const] public Object.Pointer CascadePreviewViewportPtr;
 	
 }
 }

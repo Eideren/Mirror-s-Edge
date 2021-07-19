@@ -4,15 +4,15 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SkelControlTrail : SkelControlBase/*
 		native
 		hidecategories(Object)*/{
-	public/*(Trail)*/ int ChainLength;
-	public/*(Trail)*/ Object.EAxis ChainBoneAxis;
-	public/*(Trail)*/ bool bInvertChainBoneAxis;
-	public/*(Trail)*/ bool bLimitStretch;
+	[Category("Trail")] public int ChainLength;
+	[Category("Trail")] public Object.EAxis ChainBoneAxis;
+	[Category("Trail")] public bool bInvertChainBoneAxis;
+	[Category("Trail")] public bool bLimitStretch;
 	public bool bHadValidStrength;
-	public/*(Trail)*/ float TrailRelaxation;
-	public/*(Trail)*/ float StretchLimit;
+	[Category("Trail")] public float TrailRelaxation;
+	[Category("Trail")] public float StretchLimit;
 	public float ThisTimstep;
-	public /*transient */array<Object.Vector> TrailBoneLocations;
+	[transient] public array<Object.Vector> TrailBoneLocations;
 	
 	public SkelControlTrail()
 	{

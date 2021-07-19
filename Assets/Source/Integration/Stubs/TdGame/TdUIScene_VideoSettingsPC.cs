@@ -21,14 +21,14 @@ public partial class TdUIScene_VideoSettingsPC : TdUIScene_VideoSettings/*
 	};
 	
 	public UIDataStore_TdStringList StringList;
-	public /*transient */TdUIScene_VideoSettingsPC.ScreenResSetting OldResolution;
-	public /*transient */TdUIScene_VideoSettingsPC.ScreenResSetting NewResolution;
+	[transient] public TdUIScene_VideoSettingsPC.ScreenResSetting OldResolution;
+	[transient] public TdUIScene_VideoSettingsPC.ScreenResSetting NewResolution;
 	public int OldVSyncVal;
 	public int OldTexDetailVal;
 	public int OldGfxQualVal;
 	public int OldAAVal;
 	public int OldPhysXVal;
-	public /*private transient */bool bSupportsCSAA;
+	[transient] public/*private*/ bool bSupportsCSAA;
 	
 	// Export UTdUIScene_VideoSettingsPC::execGetSupportedAAModes(FFrame&, void* const)
 	public virtual /*native function */bool GetSupportedAAModes(ref array<String> AAModes)

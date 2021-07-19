@@ -7,7 +7,7 @@ public partial class ActorFactoryArchetype : ActorFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ Actor ArchetypeActor;
+	[Category] public Actor ArchetypeActor;
 	
 	public ActorFactoryArchetype()
 	{

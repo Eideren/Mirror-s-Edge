@@ -7,8 +7,8 @@ public partial class TdSPLevelRaceHUD : TdSPHUD/*
 		notplaceable
 		hidecategories(Navigation)*/{
 	public UIDataStore_TdGameData GameData;
-	public/*(HUDIcons)*/ Object.Vector2D RaceTimerPos;
-	public/*(HUDIcons)*/ Object.Vector2D TargetTimePos;
+	[Category("HUDIcons")] public Object.Vector2D RaceTimerPos;
+	[Category("HUDIcons")] public Object.Vector2D TargetTimePos;
 	
 	public override /*function */void LoadHUDContent(Core.ClassT<TdHUDContent> ContentClass)
 	{

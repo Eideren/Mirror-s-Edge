@@ -7,8 +7,8 @@ public partial class PostProcessVolume : Volume/*
 		hidecategories(Navigation,Object,Movement,Display,Advanced,Attachment,Collision,Volume)*/{
 	public partial struct /*native */CurveInfo
 	{
-		public/*()*/ /*editinline */StaticArray<Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector>/*[16]*/ Ms;
-		public/*()*/ /*editinline */StaticArray<Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector>/*[16]*/ Bs;
+		[Category] [editinline] public StaticArray<Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector>/*[16]*/ Ms;
+		[Category] [editinline] public StaticArray<Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector, Object.Vector>/*[16]*/ Bs;
 		public array<Object.Vector2D> ControlPointsR;
 		public array<Object.Vector2D> ControlPointsG;
 		public array<Object.Vector2D> ControlPointsB;
@@ -224,66 +224,66 @@ public partial class PostProcessVolume : Volume/*
 	
 	public partial struct /*native */PostProcessSettings
 	{
-		public/*()*/ bool bEnableBloom;
-		public/*()*/ bool bEnableDOF;
-		public/*()*/ bool bEnableMotionBlur;
-		public/*()*/ bool bEnableSceneEffect;
-		public/*()*/ /*interp */float Bloom_Scale;
-		public/*()*/ float Bloom_InterpolationDuration;
-		public/*()*/ /*interp */float DOF_FalloffExponent;
-		public/*()*/ /*interp */float DOF_BlurKernelSize;
-		public/*()*/ /*interp */float DOF_MaxNearBlurAmount;
-		public/*()*/ /*interp */float DOF_MaxFarBlurAmount;
-		public/*()*/ Object.Color DOF_ModulateBlurColor;
-		public/*()*/ DOFEffect.EFocusType DOF_FocusType;
-		public/*()*/ /*interp */float DOF_FocusInnerRadius;
-		public/*()*/ /*interp */float DOF_FocusDistance;
-		public/*()*/ Object.Vector DOF_FocusPosition;
-		public/*()*/ float DOF_InterpolationDuration;
-		public/*()*/ bool DOF_Autofocus;
-		public/*()*/ float DOF_AutofocusMaxDistance;
-		public/*()*/ float DOF_AutofocusSpeed;
-		public/*()*/ /*interp */float MotionBlur_MaxVelocity;
-		public/*()*/ /*interp */float MotionBlur_Amount;
-		public/*()*/ bool MotionBlur_FullMotionBlur;
-		public/*()*/ /*interp */float MotionBlur_CameraRotationThreshold;
-		public/*()*/ /*interp */float MotionBlur_CameraTranslationThreshold;
-		public/*()*/ float MotionBlur_InterpolationDuration;
-		public/*()*/ /*interp */float Scene_Desaturation;
-		public/*()*/ /*interp */Object.Vector Scene_HighLights;
-		public/*()*/ /*interp */Object.Vector Scene_MidTones;
-		public/*()*/ /*interp */Object.Vector Scene_Shadows;
-		public/*()*/ float Scene_InterpolationDuration;
-		public/*()*/ /*interp */Object.Vector HazeColor;
-		public/*()*/ /*interp */float HazeAngleCurve;
-		public/*()*/ /*interp */float HazeAngleStart;
-		public/*()*/ /*interp */float HazeDistanceCurve;
-		public/*()*/ /*interp */float HazeDistanceDivider;
-		public/*()*/ /*interp */float HazeAngleClampHigh;
-		public/*()*/ /*interp */float HazeTotalClampCloseHigh;
-		public/*()*/ /*interp */float HazeTotalClampFarHigh;
-		public/*()*/ /*interp */float HazeTotalClampFarDistance;
-		public/*()*/ /*interp */float HazeMultiplier;
-		public/*()*/ /*interp */float HazeTotalClampLow;
-		public/*()*/ bool HazeEnabled;
-		public/*()*/ Object.Vector HazeSunLocation;
-		public/*()*/ /*interp */float Scene_ExposureManual;
-		public/*()*/ /*interp */float Scene_ExposureSpeedUp;
-		public/*()*/ /*interp */float Scene_ExposureSpeedDown;
-		public/*()*/ /*interp */float Scene_ExposureHigh;
-		public/*()*/ /*interp */float Scene_ExposureLow;
+		[Category] public bool bEnableBloom;
+		[Category] public bool bEnableDOF;
+		[Category] public bool bEnableMotionBlur;
+		[Category] public bool bEnableSceneEffect;
+		[Category] [interp] public float Bloom_Scale;
+		[Category] public float Bloom_InterpolationDuration;
+		[Category] [interp] public float DOF_FalloffExponent;
+		[Category] [interp] public float DOF_BlurKernelSize;
+		[Category] [interp] public float DOF_MaxNearBlurAmount;
+		[Category] [interp] public float DOF_MaxFarBlurAmount;
+		[Category] public Object.Color DOF_ModulateBlurColor;
+		[Category] public DOFEffect.EFocusType DOF_FocusType;
+		[Category] [interp] public float DOF_FocusInnerRadius;
+		[Category] [interp] public float DOF_FocusDistance;
+		[Category] public Object.Vector DOF_FocusPosition;
+		[Category] public float DOF_InterpolationDuration;
+		[Category] public bool DOF_Autofocus;
+		[Category] public float DOF_AutofocusMaxDistance;
+		[Category] public float DOF_AutofocusSpeed;
+		[Category] [interp] public float MotionBlur_MaxVelocity;
+		[Category] [interp] public float MotionBlur_Amount;
+		[Category] public bool MotionBlur_FullMotionBlur;
+		[Category] [interp] public float MotionBlur_CameraRotationThreshold;
+		[Category] [interp] public float MotionBlur_CameraTranslationThreshold;
+		[Category] public float MotionBlur_InterpolationDuration;
+		[Category] [interp] public float Scene_Desaturation;
+		[Category] [interp] public Object.Vector Scene_HighLights;
+		[Category] [interp] public Object.Vector Scene_MidTones;
+		[Category] [interp] public Object.Vector Scene_Shadows;
+		[Category] public float Scene_InterpolationDuration;
+		[Category] [interp] public Object.Vector HazeColor;
+		[Category] [interp] public float HazeAngleCurve;
+		[Category] [interp] public float HazeAngleStart;
+		[Category] [interp] public float HazeDistanceCurve;
+		[Category] [interp] public float HazeDistanceDivider;
+		[Category] [interp] public float HazeAngleClampHigh;
+		[Category] [interp] public float HazeTotalClampCloseHigh;
+		[Category] [interp] public float HazeTotalClampFarHigh;
+		[Category] [interp] public float HazeTotalClampFarDistance;
+		[Category] [interp] public float HazeMultiplier;
+		[Category] [interp] public float HazeTotalClampLow;
+		[Category] public bool HazeEnabled;
+		[Category] public Object.Vector HazeSunLocation;
+		[Category] [interp] public float Scene_ExposureManual;
+		[Category] [interp] public float Scene_ExposureSpeedUp;
+		[Category] [interp] public float Scene_ExposureSpeedDown;
+		[Category] [interp] public float Scene_ExposureHigh;
+		[Category] [interp] public float Scene_ExposureLow;
 		public bool Scene_ExposureReset;
-		public/*()*/ /*interp */float TdMotionBlurAmount;
-		public/*()*/ /*interp */float TdMotionBlurStartPlayerSpeed;
-		public/*()*/ bool TdMotionBlurEnabled;
-		public/*()*/ bool TdMotionBlurUseDistance;
-		public/*()*/ bool TdMotionBlurUseDirection;
-		public/*()*/ bool TdMotionBlurForce;
-		public/*()*/ Object.Vector TdMotionBlurForcedDirection;
-		public/*()*/ float TdMotionBlurForcedAmount;
-		public/*()*/ Texture2D TdMotionBlurMask;
-		public/*()*/ Texture2D SaturationMask;
-		public/*()*/ /*editinline */PostProcessVolume.CurveInfo Curves;
+		[Category] [interp] public float TdMotionBlurAmount;
+		[Category] [interp] public float TdMotionBlurStartPlayerSpeed;
+		[Category] public bool TdMotionBlurEnabled;
+		[Category] public bool TdMotionBlurUseDistance;
+		[Category] public bool TdMotionBlurUseDirection;
+		[Category] public bool TdMotionBlurForce;
+		[Category] public Object.Vector TdMotionBlurForcedDirection;
+		[Category] public float TdMotionBlurForcedAmount;
+		[Category] public Texture2D TdMotionBlurMask;
+		[Category] public Texture2D SaturationMask;
+		[Category] [editinline] public PostProcessVolume.CurveInfo Curves;
 	
 	//	structdefaultproperties
 	//	{
@@ -598,42 +598,42 @@ public partial class PostProcessVolume : Volume/*
 	
 	public partial struct /*native */TdPostProcessModifier
 	{
-		public/*()*/ float Bloom_Scale;
-		public/*()*/ float DOF_FalloffExponent;
-		public/*()*/ float DOF_BlurKernelSize;
-		public/*()*/ float DOF_MaxNearBlurAmount;
-		public/*()*/ float DOF_MaxFarBlurAmount;
-		public/*()*/ float DOF_FocusInnerRadius;
-		public/*()*/ float DOF_FocusDistance;
-		public/*()*/ float DOF_AutofocusMaxDistance;
-		public/*()*/ float DOF_AutofocusSpeed;
-		public/*()*/ float MotionBlur_MaxVelocity;
-		public/*()*/ float MotionBlur_Amount;
-		public/*()*/ float MotionBlur_CameraRotationThreshold;
-		public/*()*/ float MotionBlur_CameraTranslationThreshold;
-		public/*()*/ float Scene_Desaturation;
-		public/*()*/ Object.Vector Scene_HighLights;
-		public/*()*/ Object.Vector Scene_MidTones;
-		public/*()*/ Object.Vector Scene_Shadows;
-		public/*()*/ Object.Vector HazeColor;
-		public/*()*/ float HazeAngleCurve;
-		public/*()*/ float HazeAngleStart;
-		public/*()*/ float HazeDistanceCurve;
-		public/*()*/ float HazeDistanceDivider;
-		public/*()*/ float HazeAngleClampHigh;
-		public/*()*/ float HazeTotalClampCloseHigh;
-		public/*()*/ float HazeTotalClampFarHigh;
-		public/*()*/ float HazeTotalClampFarDistance;
-		public/*()*/ float HazeMultiplier;
-		public/*()*/ float HazeTotalClampLow;
-		public/*()*/ float Scene_ExposureManual;
-		public/*()*/ float Scene_ExposureSpeedUp;
-		public/*()*/ float Scene_ExposureSpeedDown;
-		public/*()*/ float Scene_ExposureHigh;
-		public/*()*/ float Scene_ExposureLow;
-		public/*()*/ float TdMotionBlurAmount;
-		public/*()*/ float TdMotionBlurStartPlayerSpeed;
-		public/*()*/ /*editinline */PostProcessVolume.CurveInfo Curves;
+		[Category] public float Bloom_Scale;
+		[Category] public float DOF_FalloffExponent;
+		[Category] public float DOF_BlurKernelSize;
+		[Category] public float DOF_MaxNearBlurAmount;
+		[Category] public float DOF_MaxFarBlurAmount;
+		[Category] public float DOF_FocusInnerRadius;
+		[Category] public float DOF_FocusDistance;
+		[Category] public float DOF_AutofocusMaxDistance;
+		[Category] public float DOF_AutofocusSpeed;
+		[Category] public float MotionBlur_MaxVelocity;
+		[Category] public float MotionBlur_Amount;
+		[Category] public float MotionBlur_CameraRotationThreshold;
+		[Category] public float MotionBlur_CameraTranslationThreshold;
+		[Category] public float Scene_Desaturation;
+		[Category] public Object.Vector Scene_HighLights;
+		[Category] public Object.Vector Scene_MidTones;
+		[Category] public Object.Vector Scene_Shadows;
+		[Category] public Object.Vector HazeColor;
+		[Category] public float HazeAngleCurve;
+		[Category] public float HazeAngleStart;
+		[Category] public float HazeDistanceCurve;
+		[Category] public float HazeDistanceDivider;
+		[Category] public float HazeAngleClampHigh;
+		[Category] public float HazeTotalClampCloseHigh;
+		[Category] public float HazeTotalClampFarHigh;
+		[Category] public float HazeTotalClampFarDistance;
+		[Category] public float HazeMultiplier;
+		[Category] public float HazeTotalClampLow;
+		[Category] public float Scene_ExposureManual;
+		[Category] public float Scene_ExposureSpeedUp;
+		[Category] public float Scene_ExposureSpeedDown;
+		[Category] public float Scene_ExposureHigh;
+		[Category] public float Scene_ExposureLow;
+		[Category] public float TdMotionBlurAmount;
+		[Category] public float TdMotionBlurStartPlayerSpeed;
+		[Category] [editinline] public PostProcessVolume.CurveInfo Curves;
 	
 	//	structdefaultproperties
 	//	{
@@ -901,14 +901,14 @@ public partial class PostProcessVolume : Volume/*
 	//	}
 	};
 	
-	public/*()*/ float Priority;
-	public/*()*/ PostProcessVolume.PostProcessSettings Settings;
-	public/*()*/ bool bOverrideSKUSpecificCurveModifier;
-	public/*()*/ bool bEnabled;
-	public/*()*/ PostProcessVolume.TdPostProcessModifier PostProcessSettingsModifierXbox360;
-	public/*()*/ PostProcessVolume.TdPostProcessModifier PostProcessSettingsModifierPS3;
-	public/*()*/ PostProcessVolume.TdPostProcessModifier PostProcessSettingsModifierPC;
-	public /*noimport const transient */PostProcessVolume NextLowerPriorityVolume;
+	[Category] public float Priority;
+	[Category] public PostProcessVolume.PostProcessSettings Settings;
+	[Category] public bool bOverrideSKUSpecificCurveModifier;
+	[Category] public bool bEnabled;
+	[Category] public PostProcessVolume.TdPostProcessModifier PostProcessSettingsModifierXbox360;
+	[Category] public PostProcessVolume.TdPostProcessModifier PostProcessSettingsModifierPS3;
+	[Category] public PostProcessVolume.TdPostProcessModifier PostProcessSettingsModifierPC;
+	[noimport, Const, transient] public PostProcessVolume NextLowerPriorityVolume;
 	
 	//replication
 	//{

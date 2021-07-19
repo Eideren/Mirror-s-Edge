@@ -29,7 +29,7 @@ public partial class InterpTrackAnimControl : InterpTrackFloatBase/*
 	};
 	
 	public array<AnimSet> AnimSets;
-	public/*()*/ /*editconst */name SlotName;
+	[Category] [editconst] public name SlotName;
 	public array<InterpTrackAnimControl.AnimControlTrackKey> AnimSeqs;
 	
 	public InterpTrackAnimControl()

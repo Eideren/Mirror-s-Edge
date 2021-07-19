@@ -4,18 +4,18 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdTutorialMessage : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ String TutorialMessage;
-	public/*()*/ bool bReplaceCurrentMessage;
-	public/*()*/ bool bRequireAccept;
-	public/*()*/ bool bPauseGame;
-	public/*()*/ bool bTriggerSlomo;
-	public/*()*/ bool bCustomButtonFallThrough;
-	public /*transient */bool bFinished;
-	public/*()*/ float Duration;
-	public/*()*/ TdProfileSettings.EDigitalButtonActions CustomButtonKey;
-	public/*()*/ String CustomButtonCallOut;
-	public /*transient */TdUIScene_TutorialHUDMessage Scene;
-	public /*transient */TdGameUISceneClient SceneClient;
+	[Category] public String TutorialMessage;
+	[Category] public bool bReplaceCurrentMessage;
+	[Category] public bool bRequireAccept;
+	[Category] public bool bPauseGame;
+	[Category] public bool bTriggerSlomo;
+	[Category] public bool bCustomButtonFallThrough;
+	[transient] public bool bFinished;
+	[Category] public float Duration;
+	[Category] public TdProfileSettings.EDigitalButtonActions CustomButtonKey;
+	[Category] public String CustomButtonCallOut;
+	[transient] public TdUIScene_TutorialHUDMessage Scene;
+	[transient] public TdGameUISceneClient SceneClient;
 	
 	public virtual /*function */LocalPlayer GetFirstLocalPlayer()
 	{

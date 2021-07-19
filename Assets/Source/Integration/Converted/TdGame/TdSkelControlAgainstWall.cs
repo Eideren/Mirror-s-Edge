@@ -4,11 +4,11 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdSkelControlAgainstWall : SkelControlLimb/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bLeftHand;
-	public/*()*/ Object.Vector MinLocation;
-	public/*()*/ Object.Vector MaxLocation;
-	public/*()*/ Object.Vector TargetLocation;
-	public/*()*/ Object.Vector HandOffset;
+	[Category] public bool bLeftHand;
+	[Category] public Object.Vector MinLocation;
+	[Category] public Object.Vector MaxLocation;
+	[Category] public Object.Vector TargetLocation;
+	[Category] public Object.Vector HandOffset;
 	
 	public TdSkelControlAgainstWall()
 	{

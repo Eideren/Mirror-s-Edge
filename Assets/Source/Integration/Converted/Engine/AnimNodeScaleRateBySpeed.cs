@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class AnimNodeScaleRateBySpeed : AnimNodeScalePlayRate/*
 		native
 		hidecategories(Object,Object,Object,Object)*/{
-	public/*()*/ float BaseSpeed;
+	[Category] public float BaseSpeed;
 	
 	public AnimNodeScaleRateBySpeed()
 	{

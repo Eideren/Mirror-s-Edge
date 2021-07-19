@@ -28,11 +28,11 @@ public partial class TdMove_MeleeBase : TdPhysicsMove/*
 	public name HitDetectionBone;
 	public Object.Vector TraceOffset;
 	public Object.Vector TraceExtent;
-	public/*(MeleeCombat)*/ /*config */float MeleeDamage;
-	public/*(MeleeCombat)*/ /*config */float MaxMeleeDistance;
-	public/*(MeleeCombat)*/ /*config */float MaxMeleeAngle;
+	[Category("MeleeCombat")] [config] public float MeleeDamage;
+	[Category("MeleeCombat")] [config] public float MaxMeleeDistance;
+	[Category("MeleeCombat")] [config] public float MaxMeleeAngle;
 	public float CanDoMoveTaserLimit;
-	public /*protected */ForceFeedbackWaveform MeleeWaveform;
+	public/*protected*/ ForceFeedbackWaveform MeleeWaveform;
 	
 	public override /*function */bool CanDoMove()
 	{

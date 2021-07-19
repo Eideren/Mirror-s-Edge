@@ -5,7 +5,7 @@ public partial class MorphTarget : Object/*
 		native
 		noexport
 		hidecategories(Object)*/{
-	public /*native const */array<int> MorphLODModels;
+	[native, Const] public array<int> MorphLODModels;
 	
 }
 }

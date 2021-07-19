@@ -3,9 +3,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqCond_TdCaseInt : SequenceCondition/*
 		hidecategories(Object)*/{
-	public/*()*/ int Input;
-	public/*()*/ int ValueA;
-	public/*()*/ int ValueB;
+	[Category] public int Input;
+	[Category] public int ValueA;
+	[Category] public int ValueB;
 	
 	public override /*event */void Activated()
 	{

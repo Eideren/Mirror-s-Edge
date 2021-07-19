@@ -53,24 +53,24 @@ public partial class ThumbnailManager : Object/*
 	//	}
 	};
 	
-	public /*const config */array</*config */ThumbnailManager.ThumbnailRenderingInfo> RenderableThumbnailTypes;
-	public /*const config */array</*config */ThumbnailManager.ThumbnailRenderingInfo> ArchetypeRenderableThumbnailTypes;
-	public /*const */bool bIsInitialized;
-	public /*const */bool bMapNeedsUpdate;
+	[Const, config] public array</*config */ThumbnailManager.ThumbnailRenderingInfo> RenderableThumbnailTypes;
+	[Const, config] public array</*config */ThumbnailManager.ThumbnailRenderingInfo> ArchetypeRenderableThumbnailTypes;
+	[Const] public bool bIsInitialized;
+	[Const] public bool bMapNeedsUpdate;
 	public bool bPSysRealTime;
-	public /*private native const transient */Object.Pointer RenderInfoMap;
-	public /*private native const transient */Object.Pointer ArchetypeRenderInfoMap;
-	public /*const */ThumbnailManager.ThumbnailRenderingInfo NotSupported;
-	public /*const export editinline */StaticMeshComponent BackgroundComponent;
-	public /*const export editinline */StaticMeshComponent SMPreviewComponent;
-	public /*const export editinline */SkeletalMeshComponent SKPreviewComponent;
-	public /*const */StaticMesh TexPropCube;
-	public /*const */StaticMesh TexPropSphere;
-	public /*const */StaticMesh TexPropCylinder;
-	public /*const */StaticMesh TexPropPlane;
-	public /*const */Material ThumbnailBackground;
-	public /*const */Material ThumbnailBackgroundSolid;
-	public /*const */MaterialInstanceConstant ThumbnailBackgroundSolidMatInst;
+	[native, Const, transient] public/*private*/ Object.Pointer RenderInfoMap;
+	[native, Const, transient] public/*private*/ Object.Pointer ArchetypeRenderInfoMap;
+	[Const] public ThumbnailManager.ThumbnailRenderingInfo NotSupported;
+	[Const, export, editinline] public StaticMeshComponent BackgroundComponent;
+	[Const, export, editinline] public StaticMeshComponent SMPreviewComponent;
+	[Const, export, editinline] public SkeletalMeshComponent SKPreviewComponent;
+	[Const] public StaticMesh TexPropCube;
+	[Const] public StaticMesh TexPropSphere;
+	[Const] public StaticMesh TexPropCylinder;
+	[Const] public StaticMesh TexPropPlane;
+	[Const] public Material ThumbnailBackground;
+	[Const] public Material ThumbnailBackgroundSolid;
+	[Const] public MaterialInstanceConstant ThumbnailBackgroundSolidMatInst;
 	
 	public ThumbnailManager()
 	{

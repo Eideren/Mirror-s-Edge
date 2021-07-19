@@ -8,7 +8,7 @@ public partial class EmitterPool : Actor/*
 		hidecategories(Navigation)*/{
 	public partial struct /*native */EmitterBaseInfo
 	{
-		public /*export editinline */ParticleSystemComponent PSC;
+		[export, editinline] public ParticleSystemComponent PSC;
 		public Actor Base;
 		public Object.Vector RelativeLocation;
 		public Object.Rotator RelativeRotation;
@@ -33,19 +33,19 @@ public partial class EmitterPool : Actor/*
 	//	}
 	};
 	
-	public /*protected export editinline */ParticleSystemComponent PSCTemplate;
-	public /*const export editinline */array</*export editinline */ParticleSystemComponent> PoolComponents;
-	public /*export editinline */array</*export editinline */ParticleSystemComponent> ActiveComponents;
-	public /*config */int MaxActiveEffects;
-	public /*globalconfig */bool bLogPoolOverflow;
-	public /*globalconfig */bool bLogPoolOverflowList;
+	[export, editinline] public/*protected*/ ParticleSystemComponent PSCTemplate;
+	[Const, export, editinline] public array</*export editinline */ParticleSystemComponent> PoolComponents;
+	[export, editinline] public array</*export editinline */ParticleSystemComponent> ActiveComponents;
+	[config] public int MaxActiveEffects;
+	[globalconfig] public bool bLogPoolOverflow;
+	[globalconfig] public bool bLogPoolOverflowList;
 	public array<EmitterPool.EmitterBaseInfo> RelativePSCs;
 	public float SMC_MIC_ReductionTime;
-	public /*transient */float SMC_MIC_CurrentReductionTime;
+	[transient] public float SMC_MIC_CurrentReductionTime;
 	public int IdealStaticMeshComponents;
 	public int IdealMaterialInstanceConstants;
-	public /*private const export editinline */array</*export editinline */StaticMeshComponent> FreeSMComponents;
-	public /*private const */array<MaterialInstanceConstant> FreeMatInstConsts;
+	[Const, export, editinline] public/*private*/ array</*export editinline */StaticMeshComponent> FreeSMComponents;
+	[Const] public/*private*/ array<MaterialInstanceConstant> FreeMatInstConsts;
 	
 	public virtual /*function */void OnParticleSystemFinished(ParticleSystemComponent PSC)
 	{

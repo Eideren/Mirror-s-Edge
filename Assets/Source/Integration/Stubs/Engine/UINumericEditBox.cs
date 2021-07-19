@@ -4,14 +4,14 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UINumericEditBox : UIEditBox/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public/*(Style)*/ UIRoot.UIStyleReference IncrementStyle;
-	public/*(Style)*/ UIRoot.UIStyleReference DecrementStyle;
-	public /*private */UINumericEditBoxButton IncrementButton;
-	public /*private */UINumericEditBoxButton DecrementButton;
-	public/*(Text)*/ UIRoot.UIRangeData NumericValue;
-	public/*(Text)*/ int DecimalPlaces;
-	public/*(Buttons)*/ UIRoot.UIScreenValue_Bounds IncButton_Position;
-	public/*(Buttons)*/ UIRoot.UIScreenValue_Bounds DecButton_Position;
+	[Category("Style")] public UIRoot.UIStyleReference IncrementStyle;
+	[Category("Style")] public UIRoot.UIStyleReference DecrementStyle;
+	public/*private*/ UINumericEditBoxButton IncrementButton;
+	public/*private*/ UINumericEditBoxButton DecrementButton;
+	[Category("Text")] public UIRoot.UIRangeData NumericValue;
+	[Category("Text")] public int DecimalPlaces;
+	[Category("Buttons")] public UIRoot.UIScreenValue_Bounds IncButton_Position;
+	[Category("Buttons")] public UIRoot.UIScreenValue_Bounds DecButton_Position;
 	
 	// Export UUINumericEditBox::execIncrementValue(FFrame&, void* const)
 	public virtual /*native final function */void IncrementValue(UIScreenObject Sender, int PlayerIndex)

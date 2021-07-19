@@ -6,13 +6,13 @@ public partial class KAsset : Actor/*
 		nativereplication
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*const editconst export editinline */LightEnvironmentComponent LightEnvironment;
-	public/*()*/ /*const editconst export editinline */SkeletalMeshComponent SkeletalMeshComponent;
-	public/*()*/ bool bDamageAppliesImpulse;
-	public/*()*/ bool bWakeOnLevelStart;
-	public/*()*/ bool bBlockPawns;
-	public /*repnotify */SkeletalMesh ReplicatedMesh;
-	public /*repnotify */PhysicsAsset ReplicatedPhysAsset;
+	[Category] [Const, editconst, export, editinline] public LightEnvironmentComponent LightEnvironment;
+	[Category] [Const, editconst, export, editinline] public SkeletalMeshComponent SkeletalMeshComponent;
+	[Category] public bool bDamageAppliesImpulse;
+	[Category] public bool bWakeOnLevelStart;
+	[Category] public bool bBlockPawns;
+	[repnotify] public SkeletalMesh ReplicatedMesh;
+	[repnotify] public PhysicsAsset ReplicatedPhysAsset;
 	
 	//replication
 	//{

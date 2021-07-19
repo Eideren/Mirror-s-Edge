@@ -20,7 +20,7 @@ public partial class ParticleModuleOrientationAxisLock : ParticleModuleOrientati
 		EPAL_MAX
 	};
 	
-	public/*(Orientation)*/ ParticleModuleOrientationAxisLock.EParticleAxisLock LockAxisFlags;
+	[Category("Orientation")] public ParticleModuleOrientationAxisLock.EParticleAxisLock LockAxisFlags;
 	
 	public ParticleModuleOrientationAxisLock()
 	{

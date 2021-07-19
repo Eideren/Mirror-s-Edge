@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UITabButton : UILabelButton/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public/*()*/ /*protected editconst editinline */UITabPage TabPage;
+	[Category] [editconst, editinline] public/*protected*/ UITabPage TabPage;
 	public /*delegate*/UITabButton.IsActivationAllowed __IsActivationAllowed__Delegate;
 	
 	public delegate bool IsActivationAllowed(UITabButton Sender, int PlayerIndex);

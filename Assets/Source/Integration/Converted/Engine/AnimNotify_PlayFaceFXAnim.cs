@@ -5,11 +5,11 @@ public partial class AnimNotify_PlayFaceFXAnim : AnimNotify_Scripted/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ FaceFXAnimSet FaceFXAnimSetRef;
-	public/*()*/ String GroupName;
-	public/*()*/ String AnimName;
-	public/*()*/ bool bOverridePlayingAnim;
-	public/*()*/ float PlayFrequency;
+	[Category] public FaceFXAnimSet FaceFXAnimSetRef;
+	[Category] public String GroupName;
+	[Category] public String AnimName;
+	[Category] public bool bOverridePlayingAnim;
+	[Category] public float PlayFrequency;
 	
 	public override /*event */void Notify(Actor Owner, AnimNodeSequence AnimSeqInstigator)
 	{

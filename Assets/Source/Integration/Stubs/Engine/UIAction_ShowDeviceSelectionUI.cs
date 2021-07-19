@@ -4,12 +4,12 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIAction_ShowDeviceSelectionUI : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ int SizeNeeded;
-	public/*()*/ bool bForceShowUI;
+	[Category] public int SizeNeeded;
+	[Category] public bool bForceShowUI;
 	public bool bIsDone;
 	public bool bResult;
-	public/*()*/ int DeviceID;
-	public/*()*/ String DeviceName;
+	[Category] public int DeviceID;
+	[Category] public String DeviceName;
 	
 	// Export UUIAction_ShowDeviceSelectionUI::execWriteToVariables(FFrame&, void* const)
 	public virtual /*native function */void WriteToVariables()

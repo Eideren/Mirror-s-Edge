@@ -22,13 +22,13 @@ public partial class ParticleSystemComponent : PrimitiveComponent/*
 	
 	public partial struct /*native */ParticleSysParam
 	{
-		public/*()*/ name Name;
-		public/*()*/ ParticleSystemComponent.EParticleSysParamType ParamType;
-		public/*()*/ float Scalar;
-		public/*()*/ Object.Vector Vector;
-		public/*()*/ Object.Color Color;
-		public/*()*/ Actor Actor;
-		public/*()*/ MaterialInterface Material;
+		[Category] public name Name;
+		[Category] public ParticleSystemComponent.EParticleSysParamType ParamType;
+		[Category] public float Scalar;
+		[Category] public Object.Vector Vector;
+		[Category] public Object.Color Color;
+		[Category] public Actor Actor;
+		[Category] public MaterialInterface Material;
 	
 	//	structdefaultproperties
 	//	{
@@ -54,37 +54,37 @@ public partial class ParticleSystemComponent : PrimitiveComponent/*
 	//	}
 	};
 	
-	public/*()*/ /*const */ParticleSystem Template;
-	public /*native const transient */array<Object.Pointer> EmitterInstances;
-	public /*private duplicatetransient const transient */array</*export editinline */StaticMeshComponent> SMComponents;
-	public /*private duplicatetransient const transient */array<MaterialInterface> SMMaterialInterfaces;
-	public/*()*/ bool bAutoActivate;
-	public /*const */bool bWasCompleted;
-	public /*const */bool bSuppressSpawning;
-	public /*const */bool bWasDeactivated;
-	public/*()*/ bool bResetOnDetach;
+	[Category] [Const] public ParticleSystem Template;
+	[native, Const, transient] public array<Object.Pointer> EmitterInstances;
+	[duplicatetransient, Const, transient] public/*private*/ array</*export editinline */StaticMeshComponent> SMComponents;
+	[duplicatetransient, Const, transient] public/*private*/ array<MaterialInterface> SMMaterialInterfaces;
+	[Category] public bool bAutoActivate;
+	[Const] public bool bWasCompleted;
+	[Const] public bool bSuppressSpawning;
+	[Const] public bool bWasDeactivated;
+	[Category] public bool bResetOnDetach;
 	public bool bUpdateOnDedicatedServer;
 	public bool bJustAttached;
-	public /*transient */bool bIsActive;
+	[transient] public bool bIsActive;
 	public bool bWarmingUp;
 	public bool bIsCachedInPool;
-	public/*(LOD)*/ bool bOverrideLODMethod;
+	[Category("LOD")] public bool bOverrideLODMethod;
 	public bool bSkipUpdateDynamicDataDuringTick;
 	public bool bUpdateComponentInTick;
 	public bool bDeferredBeamUpdate;
-	public /*transient */bool bForcedInActive;
-	public /*transient */bool bIsWarmingUp;
-	public /*transient */bool bIsViewRelevanceDirty;
-	public/*()*/ /*editinline */array</*editinline */ParticleSystemComponent.ParticleSysParam> InstanceParameters;
+	[transient] public bool bForcedInActive;
+	[transient] public bool bIsWarmingUp;
+	[transient] public bool bIsViewRelevanceDirty;
+	[Category] [editinline] public array</*editinline */ParticleSystemComponent.ParticleSysParam> InstanceParameters;
 	public Object.Vector OldPosition;
 	public Object.Vector PartSysVelocity;
 	public float WarmupTime;
 	public int LODLevel;
-	public/*()*/ float SecondsBeforeInactive;
+	[Category] public float SecondsBeforeInactive;
 	public int EditorLODLevel;
-	public /*transient */float AccumTickTime;
-	public/*(LOD)*/ ParticleSystem.ParticleSystemLODMethod LODMethod;
-	public /*const transient */array<PrimitiveComponent.MaterialViewRelevance> CachedViewRelevanceFlags;
+	[transient] public float AccumTickTime;
+	[Category("LOD")] public ParticleSystem.ParticleSystemLODMethod LODMethod;
+	[Const, transient] public array<PrimitiveComponent.MaterialViewRelevance> CachedViewRelevanceFlags;
 	public /*delegate*/ParticleSystemComponent.OnSystemFinished __OnSystemFinished__Delegate;
 	
 	public delegate void OnSystemFinished(ParticleSystemComponent PSystem);

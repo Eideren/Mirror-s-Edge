@@ -6,41 +6,41 @@ public partial class Texture2D : Texture/*
 		hidecategories(Object)*/{
 	public partial struct /*native */Texture2DMipMap
 	{
-		public /*native */Object.TextureMipBulkData_Mirror Data;
-		public /*native */int SizeX;
-		public /*native */int SizeY;
+		[native] public Object.TextureMipBulkData_Mirror Data;
+		[native] public int SizeX;
+		[native] public int SizeY;
 	};
 	
 	public partial struct TextureLinkedListMirror
 	{
-		public /*native const */Object.Pointer Element;
-		public /*native const */Object.Pointer Next;
-		public /*native const */Object.Pointer PrevLink;
+		[native, Const] public Object.Pointer Element;
+		[native, Const] public Object.Pointer Next;
+		[native, Const] public Object.Pointer PrevLink;
 	};
 	
-	public /*native const */Object.IndirectArray_Mirror Mips;
-	public /*const */int SizeX;
-	public /*const */int SizeY;
-	public /*const */int TurtleSizeX;
-	public /*const */int TurtleSizeY;
-	public /*const */Texture.EPixelFormat Format;
-	public/*()*/ Texture.TextureAddress AddressX;
-	public/*()*/ Texture.TextureAddress AddressY;
-	public /*transient */int CachedRequestedMips;
-	public /*const transient */bool bIsStreamable;
-	public /*const transient */bool bHasCancelationPending;
-	public /*const transient */bool bHasBeenLoadedFromPersistentArchive;
-	public /*transient */bool bForceMiplevelsToBeResident;
-	public/*()*/ /*const */bool bGlobalForceMipLevelsToBeResident;
-	public /*transient */float TimeToForceMipLevelsToBeResident;
+	[native, Const] public Object.IndirectArray_Mirror Mips;
+	[Const] public int SizeX;
+	[Const] public int SizeY;
+	[Const] public int TurtleSizeX;
+	[Const] public int TurtleSizeY;
+	[Const] public Texture.EPixelFormat Format;
+	[Category] public Texture.TextureAddress AddressX;
+	[Category] public Texture.TextureAddress AddressY;
+	[transient] public int CachedRequestedMips;
+	[Const, transient] public bool bIsStreamable;
+	[Const, transient] public bool bHasCancelationPending;
+	[Const, transient] public bool bHasBeenLoadedFromPersistentArchive;
+	[transient] public bool bForceMiplevelsToBeResident;
+	[Category] [Const] public bool bGlobalForceMipLevelsToBeResident;
+	[transient] public float TimeToForceMipLevelsToBeResident;
 	public name TextureFileCacheName;
-	public /*const transient */int RequestedMips;
-	public /*const transient */int ResidentMips;
-	public /*native const transient */Object.ThreadSafeCounter PendingMipChangeRequestStatus;
-	public /*private noimport duplicatetransient native const */Texture2D.TextureLinkedListMirror StreamableTexturesLink;
-	public /*const */int MipTailBaseIdx;
-	public /*private native const transient */Object.Pointer ResourceMem;
-	public /*private native const transient */int FirstResourceMemMip;
+	[Const, transient] public int RequestedMips;
+	[Const, transient] public int ResidentMips;
+	[native, Const, transient] public Object.ThreadSafeCounter PendingMipChangeRequestStatus;
+	[noimport, duplicatetransient, native, Const] public/*private*/ Texture2D.TextureLinkedListMirror StreamableTexturesLink;
+	[Const] public int MipTailBaseIdx;
+	[native, Const, transient] public/*private*/ Object.Pointer ResourceMem;
+	[native, Const, transient] public/*private*/ int FirstResourceMemMip;
 	
 }
 }

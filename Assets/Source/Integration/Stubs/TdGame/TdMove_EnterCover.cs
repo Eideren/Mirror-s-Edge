@@ -4,9 +4,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_EnterCover : TdMove/*
 		native
 		config(PawnMovement)*/{
-	public /*transient */bool bPerformedPhysics;
-	public /*transient */bool bCheckFailCondition;
-	public /*transient */Object.Vector PreviousLocation;
+	[transient] public bool bPerformedPhysics;
+	[transient] public bool bCheckFailCondition;
+	[transient] public Object.Vector PreviousLocation;
 	
 	public override /*function */bool CanDoMove()
 	{

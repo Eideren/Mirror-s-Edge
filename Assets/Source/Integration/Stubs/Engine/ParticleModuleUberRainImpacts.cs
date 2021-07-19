@@ -6,31 +6,31 @@ public partial class ParticleModuleUberRainImpacts : ParticleModuleUberBase/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object,Object)*/{
-	public/*(Lifetime)*/ DistributionFloat.RawDistributionFloat Lifetime;
-	public/*(Size)*/ DistributionVector.RawDistributionVector StartSize;
-	public/*(Rotation)*/ DistributionVector.RawDistributionVector StartRotation;
-	public/*(Rotation)*/ bool bInheritParent;
-	public/*(Size)*/ bool MultiplyX;
-	public/*(Size)*/ bool MultiplyY;
-	public/*(Size)*/ bool MultiplyZ;
-	public/*(Location)*/ bool bIsUsingCylinder;
-	public/*(Location)*/ bool bPositive_X;
-	public/*(Location)*/ bool bPositive_Y;
-	public/*(Location)*/ bool bPositive_Z;
-	public/*(Location)*/ bool bNegative_X;
-	public/*(Location)*/ bool bNegative_Y;
-	public/*(Location)*/ bool bNegative_Z;
-	public/*(Location)*/ bool bSurfaceOnly;
-	public/*(Location)*/ bool bVelocity;
-	public/*(Location)*/ bool bRadialVelocity;
-	public/*(Size)*/ DistributionVector.RawDistributionVector LifeMultiplier;
-	public/*(Location)*/ DistributionFloat.RawDistributionFloat PC_VelocityScale;
-	public/*(Location)*/ DistributionVector.RawDistributionVector PC_StartLocation;
-	public/*(Location)*/ DistributionFloat.RawDistributionFloat PC_StartRadius;
-	public/*(Location)*/ DistributionFloat.RawDistributionFloat PC_StartHeight;
-	public/*(Location)*/ ParticleModuleLocationPrimitiveCylinder.CylinderHeightAxis PC_HeightAxis;
-	public/*(Color)*/ DistributionVector.RawDistributionVector ColorOverLife;
-	public/*(Color)*/ DistributionFloat.RawDistributionFloat AlphaOverLife;
+	[Category("Lifetime")] public DistributionFloat.RawDistributionFloat Lifetime;
+	[Category("Size")] public DistributionVector.RawDistributionVector StartSize;
+	[Category("Rotation")] public DistributionVector.RawDistributionVector StartRotation;
+	[Category("Rotation")] public bool bInheritParent;
+	[Category("Size")] public bool MultiplyX;
+	[Category("Size")] public bool MultiplyY;
+	[Category("Size")] public bool MultiplyZ;
+	[Category("Location")] public bool bIsUsingCylinder;
+	[Category("Location")] public bool bPositive_X;
+	[Category("Location")] public bool bPositive_Y;
+	[Category("Location")] public bool bPositive_Z;
+	[Category("Location")] public bool bNegative_X;
+	[Category("Location")] public bool bNegative_Y;
+	[Category("Location")] public bool bNegative_Z;
+	[Category("Location")] public bool bSurfaceOnly;
+	[Category("Location")] public bool bVelocity;
+	[Category("Location")] public bool bRadialVelocity;
+	[Category("Size")] public DistributionVector.RawDistributionVector LifeMultiplier;
+	[Category("Location")] public DistributionFloat.RawDistributionFloat PC_VelocityScale;
+	[Category("Location")] public DistributionVector.RawDistributionVector PC_StartLocation;
+	[Category("Location")] public DistributionFloat.RawDistributionFloat PC_StartRadius;
+	[Category("Location")] public DistributionFloat.RawDistributionFloat PC_StartHeight;
+	[Category("Location")] public ParticleModuleLocationPrimitiveCylinder.CylinderHeightAxis PC_HeightAxis;
+	[Category("Color")] public DistributionVector.RawDistributionVector ColorOverLife;
+	[Category("Color")] public DistributionFloat.RawDistributionFloat AlphaOverLife;
 	
 	public ParticleModuleUberRainImpacts()
 	{

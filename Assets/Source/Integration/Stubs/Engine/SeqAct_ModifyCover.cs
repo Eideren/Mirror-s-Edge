@@ -3,8 +3,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_ModifyCover : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ array<int> Slots;
-	public/*()*/ CoverLink.ECoverType ManualCoverType;
+	[Category] public array<int> Slots;
+	[Category] public CoverLink.ECoverType ManualCoverType;
 	
 	public SeqAct_ModifyCover()
 	{

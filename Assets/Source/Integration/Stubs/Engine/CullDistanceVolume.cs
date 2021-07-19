@@ -7,8 +7,8 @@ public partial class CullDistanceVolume : Volume/*
 		hidecategories(Navigation,Object,Movement,Display,Advanced,Attachment,Collision,Volume)*/{
 	public partial struct /*native */CullDistanceSizePair
 	{
-		public/*()*/ float Size;
-		public/*()*/ float CullDistance;
+		[Category] public float Size;
+		[Category] public float CullDistance;
 	
 	//	structdefaultproperties
 	//	{
@@ -18,8 +18,8 @@ public partial class CullDistanceVolume : Volume/*
 	//	}
 	};
 	
-	public/*()*/ array<CullDistanceVolume.CullDistanceSizePair> CullDistances;
-	public/*()*/ bool bEnabled;
+	[Category] public array<CullDistanceVolume.CullDistanceSizePair> CullDistances;
+	[Category] public bool bEnabled;
 	
 	public CullDistanceVolume()
 	{

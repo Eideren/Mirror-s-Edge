@@ -7,7 +7,7 @@ public partial class UIDataProvider_TdChallengeObjectiveProvider : UIDataProvide
 		config(Game)
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
-	public /*config */int ChallengeId;
+	[config] public int ChallengeId;
 	
 }
 }

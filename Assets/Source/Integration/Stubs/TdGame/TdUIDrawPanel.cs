@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIDrawPanel : TdUIObject/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public/*()*/ bool bUseFullViewport;
+	[Category] public bool bUseFullViewport;
 	public Canvas Canvas;
 	public float pLeft;
 	public float pTop;

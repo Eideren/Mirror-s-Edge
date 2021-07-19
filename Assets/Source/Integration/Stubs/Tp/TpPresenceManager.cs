@@ -8,8 +8,8 @@ public partial class TpPresenceManager : TpSystemHandler/*
 		config(Presence)*/{
 	public partial struct /*native */PresBind
 	{
-		public /*config */String LevelName;
-		public /*config */int PresenceId;
+		[config] public String LevelName;
+		[config] public int PresenceId;
 	
 	//	structdefaultproperties
 	//	{
@@ -19,7 +19,7 @@ public partial class TpPresenceManager : TpSystemHandler/*
 	//	}
 	};
 	
-	public /*config */array</*config */TpPresenceManager.PresBind> PresenceBindings;
+	[config] public array</*config */TpPresenceManager.PresBind> PresenceBindings;
 	public /*delegate*/TpPresenceManager.OnPresenceUpdated __OnPresenceUpdated__Delegate;
 	
 	// Export UTpPresenceManager::execGetPresence(FFrame&, void* const)

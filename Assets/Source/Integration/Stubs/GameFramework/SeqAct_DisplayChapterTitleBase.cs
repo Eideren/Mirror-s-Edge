@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_DisplayChapterTitleBase : SequenceAction/*
 		abstract
 		hidecategories(Object)*/{
-	public/*()*/ float TotalDisplayTime;
-	public/*()*/ float TotalFadeTime;
+	[Category] public float TotalDisplayTime;
+	[Category] public float TotalFadeTime;
 	
 	public SeqAct_DisplayChapterTitleBase()
 	{

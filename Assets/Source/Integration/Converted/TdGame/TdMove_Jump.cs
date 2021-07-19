@@ -4,15 +4,15 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_Jump : TdPhysicsMove/*
 		native
 		config(PawnMovement)*/{
-	public/*(Jump)*/ /*config */float BaseJumpZ;
-	public/*(Jump)*/ /*config */float BaseJumpZHeavy;
-	public/*(Jump)*/ /*config */float JumpAddXY;
-	public/*(Jump)*/ /*config */float LongJumpSlowThreshold;
-	public/*(Jump)*/ /*config */float LongJumpNormalThreshold;
-	public/*(Jump)*/ /*config */float LongJumpFastThreshold;
-	public/*(Jump)*/ /*config */float JumpBlendInTime;
-	public/*(Jump)*/ /*config */float JumpBlendOutTime;
-	public/*(Jump)*/ /*config */float JumpStillBlendOutTime;
+	[Category("Jump")] [config] public float BaseJumpZ;
+	[Category("Jump")] [config] public float BaseJumpZHeavy;
+	[Category("Jump")] [config] public float JumpAddXY;
+	[Category("Jump")] [config] public float LongJumpSlowThreshold;
+	[Category("Jump")] [config] public float LongJumpNormalThreshold;
+	[Category("Jump")] [config] public float LongJumpFastThreshold;
+	[Category("Jump")] [config] public float JumpBlendInTime;
+	[Category("Jump")] [config] public float JumpBlendOutTime;
+	[Category("Jump")] [config] public float JumpStillBlendOutTime;
 	public float PreJumpMomentum;
 	public Object.Vector WantedJumpVelocity;
 	public float CanDoMoveTaserLimit;

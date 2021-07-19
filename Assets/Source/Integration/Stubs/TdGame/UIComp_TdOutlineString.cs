@@ -7,8 +7,8 @@ public partial class UIComp_TdOutlineString : UIComp_DrawString/* within UIObjec
 		hidecategories(Object)*/{
 	public new UIObject Outer => base.Outer as UIObject;
 	
-	public/*(Outline)*/ UIRoot.UIStyleReference OutlineStyle;
-	public/*(Outline)*/ float OutlineThickness;
+	[Category("Outline")] public UIRoot.UIStyleReference OutlineStyle;
+	[Category("Outline")] public float OutlineThickness;
 	
 	public UIComp_TdOutlineString()
 	{

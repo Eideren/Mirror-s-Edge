@@ -3,21 +3,21 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdHeadFocusHandler : Object/*
 		native*/{
-	public /*private */Actor FocusActor;
-	public /*private */TdPawn FocusPlayer;
-	public /*private */TdBotPawn AiPawn;
-	public /*private */TdHeadControl HeadControl;
-	public /*private */Object.Vector ActorOffset;
-	public /*private */TdBubbleStack HeadFocusEnabledStack;
-	public /*private */bool bIsActivated;
-	public /*private */bool bHasBeenUpdatedThisFrame;
-	public /*private */bool bAllowStateChanges;
-	public /*private */Object.Vector PointOfInterest;
-	public /*private */Object.Rotator HeadOffset;
-	public /*private */int MinYawLimit;
-	public /*private */int MaxYawLimit;
-	public /*private */int MinPitchLimit;
-	public /*private */int MaxPitchLimit;
+	public/*private*/ Actor FocusActor;
+	public/*private*/ TdPawn FocusPlayer;
+	public/*private*/ TdBotPawn AiPawn;
+	public/*private*/ TdHeadControl HeadControl;
+	public/*private*/ Object.Vector ActorOffset;
+	public/*private*/ TdBubbleStack HeadFocusEnabledStack;
+	public/*private*/ bool bIsActivated;
+	public/*private*/ bool bHasBeenUpdatedThisFrame;
+	public/*private*/ bool bAllowStateChanges;
+	public/*private*/ Object.Vector PointOfInterest;
+	public/*private*/ Object.Rotator HeadOffset;
+	public/*private*/ int MinYawLimit;
+	public/*private*/ int MaxYawLimit;
+	public/*private*/ int MinPitchLimit;
+	public/*private*/ int MaxPitchLimit;
 	
 	public virtual /*function */void Initialize(TdAIController Controller)
 	{

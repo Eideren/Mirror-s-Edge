@@ -6,7 +6,7 @@ public partial class MaterialEditorMeshComponent : StaticMeshComponent/*
 		editinlinenew
 		hidecategories(Object)
 		autoexpandcategories(Collision,Rendering,Lighting)*/{
-	public /*native const transient */Object.Pointer MaterialEditor;
+	[native, Const, transient] public Object.Pointer MaterialEditor;
 	
 }
 }

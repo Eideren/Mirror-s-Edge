@@ -5,10 +5,10 @@ public partial class ParticleModuleSpawnPerUnit : ParticleModuleSpawnBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Spawn)*/ float UnitScalar;
-	public/*(Spawn)*/ DistributionFloat.RawDistributionFloat SpawnPerUnit;
-	public/*(Spawn)*/ bool bIgnoreSpawnRateWhenMoving;
-	public/*(Spawn)*/ float MovementTolerance;
+	[Category("Spawn")] public float UnitScalar;
+	[Category("Spawn")] public DistributionFloat.RawDistributionFloat SpawnPerUnit;
+	[Category("Spawn")] public bool bIgnoreSpawnRateWhenMoving;
+	[Category("Spawn")] public float MovementTolerance;
 	
 	public ParticleModuleSpawnPerUnit()
 	{

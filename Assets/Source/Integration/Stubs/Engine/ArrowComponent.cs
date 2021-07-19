@@ -7,8 +7,8 @@ public partial class ArrowComponent : PrimitiveComponent/*
 		collapsecategories
 		noexport
 		hidecategories(Object)*/{
-	public/*()*/ Object.Color ArrowColor;
-	public/*()*/ float ArrowSize;
+	[Category] public Object.Color ArrowColor;
+	[Category] public float ArrowSize;
 	
 	public ArrowComponent()
 	{

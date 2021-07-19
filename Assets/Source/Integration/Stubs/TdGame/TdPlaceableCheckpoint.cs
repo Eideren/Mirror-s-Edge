@@ -7,13 +7,13 @@ public partial class TdPlaceableCheckpoint : NavigationPoint,
 		native
 		notplaceable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*(CheckpointSettings)*/ bool bEnabled;
+	[Category("CheckpointSettings")] public bool bEnabled;
 	public bool bActive;
-	public/*(CheckpointSettings)*/ bool bShouldBeBased;
-	public /*private transient */TdCheckpointListener Listener;
-	public /*transient */int ActiveIndex;
-	public /*const export editinline */StaticMeshComponent CheckpointMesh;
-	public/*(CheckpointSettings)*/ TdCheckpointVolume TouchVolume;
+	[Category("CheckpointSettings")] public bool bShouldBeBased;
+	[transient] public/*private*/ TdCheckpointListener Listener;
+	[transient] public int ActiveIndex;
+	[Const, export, editinline] public StaticMeshComponent CheckpointMesh;
+	[Category("CheckpointSettings")] public TdCheckpointVolume TouchVolume;
 	
 	public override Reset_del Reset { get => bfield_Reset ?? TdPlaceableCheckpoint_Reset; set => bfield_Reset = value; } Reset_del bfield_Reset;
 	public override Reset_del global_Reset => TdPlaceableCheckpoint_Reset;

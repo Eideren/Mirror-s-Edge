@@ -5,8 +5,8 @@ public partial class RB_Thruster : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ bool bThrustEnabled;
-	public/*()*/ /*interp */float ThrustStrength;
+	[Category] public bool bThrustEnabled;
+	[Category] [interp] public float ThrustStrength;
 	
 	public virtual /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{

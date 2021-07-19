@@ -15,9 +15,9 @@ public partial class FileWriter : Info/*
 		FWFT_MAX
 	};
 	
-	public /*native const */Object.Pointer ArchivePtr;
-	public /*const */String Filename;
-	public /*const */FileWriter.FWFileType FileType;
+	[native, Const] public Object.Pointer ArchivePtr;
+	[Const] public String Filename;
+	[Const] public FileWriter.FWFileType FileType;
 	
 	// Export UFileWriter::execOpenFile(FFrame&, void* const)
 	public virtual /*native final function */bool OpenFile(/*coerce */String InFilename, /*optional */FileWriter.FWFileType? _InFileType = default, /*optional */String? _InExtension = default, /*optional */bool? _bUnique = default, /*optional */bool? _bIncludeTimeStamp = default)

@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIAction_GetCellValue : UIAction_DataStore/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ int CollectionIndex;
-	public/*()*/ name CellFieldName;
+	[Category] public int CollectionIndex;
+	[Category] public name CellFieldName;
 	public String CellFieldMarkup;
 	public String CellFieldStringValue;
 	public Surface CellFieldImageValue;

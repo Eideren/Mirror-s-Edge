@@ -81,25 +81,25 @@ public partial class TdCoverController : Actor/*
 	//	}
 	};
 	
-	public /*private transient */TdAIAnimationController AnimationController;
-	public /*private transient */TdCoverController.ECoverControllerAction CurrentCoverAction;
-	public /*private transient */TdCoverController.ECoverControllerPosition CurrentCoverPosition;
-	public /*private transient */TdCoverController.ECoverControllerAction PendingCoverAction;
-	public /*transient */TdCoverController.ECoverControllerAction DebugCoverAction;
-	public /*private transient */TdAIController AIController;
-	public /*private transient */TdCoverController.CoverInformation Cover;
-	public /*private transient */TdBotPawn AiPawn;
-	public /*private transient */bool bSkipTick;
-	public /*private transient */bool bUpdatePawnLocation;
-	public /*private transient */bool bUpdatePawnRotation;
-	public /*private transient */bool bWait;
-	public /*private transient */bool bCoverExited;
-	public /*private transient */bool bNeverUsed;
-	public/*()*/ /*config */bool bDebugCoverController;
-	public /*private transient */Object.Vector PawnLocation;
-	public /*private transient */Object.Rotator PawnRotation;
-	public/*()*/ /*config */float OnExitCoverTransitionTime;
-	public/*()*/ /*config */float OnCoverExitedTransitionTime;
+	[transient] public/*private*/ TdAIAnimationController AnimationController;
+	[transient] public/*private*/ TdCoverController.ECoverControllerAction CurrentCoverAction;
+	[transient] public/*private*/ TdCoverController.ECoverControllerPosition CurrentCoverPosition;
+	[transient] public/*private*/ TdCoverController.ECoverControllerAction PendingCoverAction;
+	[transient] public TdCoverController.ECoverControllerAction DebugCoverAction;
+	[transient] public/*private*/ TdAIController AIController;
+	[transient] public/*private*/ TdCoverController.CoverInformation Cover;
+	[transient] public/*private*/ TdBotPawn AiPawn;
+	[transient] public/*private*/ bool bSkipTick;
+	[transient] public/*private*/ bool bUpdatePawnLocation;
+	[transient] public/*private*/ bool bUpdatePawnRotation;
+	[transient] public/*private*/ bool bWait;
+	[transient] public/*private*/ bool bCoverExited;
+	[transient] public/*private*/ bool bNeverUsed;
+	[Category] [config] public bool bDebugCoverController;
+	[transient] public/*private*/ Object.Vector PawnLocation;
+	[transient] public/*private*/ Object.Rotator PawnRotation;
+	[Category] [config] public float OnExitCoverTransitionTime;
+	[Category] [config] public float OnCoverExitedTransitionTime;
 	
 	public virtual /*function */void Initialize(TdBotPawn myPawn)
 	{

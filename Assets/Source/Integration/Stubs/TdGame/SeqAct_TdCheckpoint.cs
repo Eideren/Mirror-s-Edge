@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdCheckpoint : SequenceAction/*
 		hidecategories(Object)*/{
 	public bool done;
-	public/*()*/ bool skipSaveToDisk;
-	public/*()*/ bool teleportPawnToCheckpoint;
+	[Category] public bool skipSaveToDisk;
+	[Category] public bool teleportPawnToCheckpoint;
 	
 	public SeqAct_TdCheckpoint()
 	{

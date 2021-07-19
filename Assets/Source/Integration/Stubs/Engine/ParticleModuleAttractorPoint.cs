@@ -5,12 +5,12 @@ public partial class ParticleModuleAttractorPoint : ParticleModuleAttractorBase/
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Attractor)*/ DistributionVector.RawDistributionVector Position;
-	public/*(Attractor)*/ DistributionFloat.RawDistributionFloat Range;
-	public/*(Attractor)*/ DistributionFloat.RawDistributionFloat Strength;
-	public/*(Attractor)*/ bool StrengthByDistance;
-	public/*(Attractor)*/ bool bAffectBaseVelocity;
-	public/*(Attractor)*/ bool bOverrideVelocity;
+	[Category("Attractor")] public DistributionVector.RawDistributionVector Position;
+	[Category("Attractor")] public DistributionFloat.RawDistributionFloat Range;
+	[Category("Attractor")] public DistributionFloat.RawDistributionFloat Strength;
+	[Category("Attractor")] public bool StrengthByDistance;
+	[Category("Attractor")] public bool bAffectBaseVelocity;
+	[Category("Attractor")] public bool bOverrideVelocity;
 	
 	public ParticleModuleAttractorPoint()
 	{

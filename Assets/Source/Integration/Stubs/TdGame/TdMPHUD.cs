@@ -9,15 +9,15 @@ public partial class TdMPHUD : TdHUD/*
 	public StaticArray<Texture2D, Texture2D>/*[2]*/ AmmoCountTexture;
 	public StaticArray<Texture2D, Texture2D>/*[2]*/ ClipCountTexture;
 	public StaticArray<Texture2D, Texture2D>/*[2]*/ PlayerIconTexture;
-	public/*(HUDIcons)*/ Object.Vector2D AmmoCountOffsetPos;
-	public/*(HUDIcons)*/ Object.Vector2D ClipCountPos;
-	public/*(HUDIcons)*/ Object.Vector2D PlayerIconPos;
-	public/*(HUDIcons)*/ Object.Vector2D RoundTimerPos;
-	public/*(HUDIcons)*/ Object.Vector2D ScorePos;
-	public/*(HUDIcons)*/ Object.Vector2D WarmupTimerPos;
-	public /*const localized */String GameTimeLeft;
-	public /*const localized */String WarmupTimeLeft;
-	public /*const localized */String WaitingForPlayers;
+	[Category("HUDIcons")] public Object.Vector2D AmmoCountOffsetPos;
+	[Category("HUDIcons")] public Object.Vector2D ClipCountPos;
+	[Category("HUDIcons")] public Object.Vector2D PlayerIconPos;
+	[Category("HUDIcons")] public Object.Vector2D RoundTimerPos;
+	[Category("HUDIcons")] public Object.Vector2D ScorePos;
+	[Category("HUDIcons")] public Object.Vector2D WarmupTimerPos;
+	[Const, localized] public String GameTimeLeft;
+	[Const, localized] public String WarmupTimeLeft;
+	[Const, localized] public String WaitingForPlayers;
 	
 	public override /*function */void LoadHUDContent(Core.ClassT<TdHUDContent> ContentClass)
 	{

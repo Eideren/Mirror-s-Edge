@@ -7,10 +7,10 @@ public partial class Volume : Brush/*
 		notplaceable
 		hidecategories(Navigation,Object,Movement,Display)*/{
 	public Actor AssociatedActor;
-	public/*(Location)*/ int LocationPriority;
-	public/*(Location)*/ /*const localized */String LocationName;
-	public/*()*/ bool bForcePawnWalk;
-	public/*()*/ bool bProcessAllActors;
+	[Category("Location")] public int LocationPriority;
+	[Category("Location")] [Const, localized] public String LocationName;
+	[Category] public bool bForcePawnWalk;
+	[Category] public bool bProcessAllActors;
 	
 	// Export UVolume::execEncompasses(FFrame&, void* const)
 	public virtual /*native function */bool Encompasses(Actor Other)

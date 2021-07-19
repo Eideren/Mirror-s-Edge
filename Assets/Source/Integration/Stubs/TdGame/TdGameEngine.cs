@@ -5,24 +5,24 @@ public partial class TdGameEngine : GameEngine/*
 		transient
 		native
 		config(Engine)*/{
-	public /*private config transient */String DefaultLoadSPMapMoviePrefix;
-	public /*private config transient */int NumberOfSPMovies;
-	public /*private config transient */String DefaultLoadTTMapMoviePrefix;
-	public /*private config transient */int NumberOfTTMovies;
-	public /*private config transient */String DefaultLoadGameMovie;
-	public /*private config transient */String DefaultCutSceneMoviePrefix;
-	public /*private transient */String LoadMapMovie;
-	public /*private transient */Object.Pointer MovieIni;
-	public /*private transient */bool bShouldWaitForMovieAfterLoad;
-	public /*private transient */bool bShouldContinueLoadingTextures;
-	public /*private transient */bool bEnabledSkipMovie;
-	public /*private transient */bool bHasLoaded;
-	public /*private transient */RequestedTextureResources ActiveRequestedTextureResources;
+	[config, transient] public/*private*/ String DefaultLoadSPMapMoviePrefix;
+	[config, transient] public/*private*/ int NumberOfSPMovies;
+	[config, transient] public/*private*/ String DefaultLoadTTMapMoviePrefix;
+	[config, transient] public/*private*/ int NumberOfTTMovies;
+	[config, transient] public/*private*/ String DefaultLoadGameMovie;
+	[config, transient] public/*private*/ String DefaultCutSceneMoviePrefix;
+	[transient] public/*private*/ String LoadMapMovie;
+	[transient] public/*private*/ Object.Pointer MovieIni;
+	[transient] public/*private*/ bool bShouldWaitForMovieAfterLoad;
+	[transient] public/*private*/ bool bShouldContinueLoadingTextures;
+	[transient] public/*private*/ bool bEnabledSkipMovie;
+	[transient] public/*private*/ bool bHasLoaded;
+	[transient] public/*private*/ RequestedTextureResources ActiveRequestedTextureResources;
 	public Object.Vector2D LoadingPos;
 	public Object.Vector2D HintPos;
 	public String CurrentMapName;
-	public /*config */float LoadMapLoadTime;
-	public /*private transient */int NumStreamingZonesCleared;
+	[config] public float LoadMapLoadTime;
+	[transient] public/*private*/ int NumStreamingZonesCleared;
 	
 	// Export UTdGameEngine::execGetLanguage(FFrame&, void* const)
 	public /*native final function */static name GetLanguage()

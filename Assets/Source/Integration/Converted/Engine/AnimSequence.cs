@@ -17,9 +17,9 @@ public partial class AnimSequence : Object/*
 	
 	public partial struct /*native */AnimNotifyEvent
 	{
-		public/*()*/ float Time;
-		public/*()*/ /*export editinline */AnimNotify Notify;
-		public/*()*/ name Comment;
+		[Category] public float Time;
+		[Category] [export, editinline] public AnimNotify Notify;
+		[Category] public name Comment;
 	
 	//	structdefaultproperties
 	//	{
@@ -99,25 +99,25 @@ public partial class AnimSequence : Object/*
 	};
 	
 	public name SequenceName;
-	public/*()*/ /*editinline */array</*editinline */AnimSequence.AnimNotifyEvent> Notifies;
+	[Category] [editinline] public array</*editinline */AnimSequence.AnimNotifyEvent> Notifies;
 	public float SequenceLength;
 	public int NumFrames;
-	public/*()*/ float RateScale;
-	public/*()*/ bool bNoLoopingInterpolation;
-	public/*()*/ /*transient */bool bIgnoreInitialRootOffset;
-	public /*private native const transient */bool bUsesHiMem;
-	public /*const */array<AnimSequence.RawAnimSequenceTrack> RawAnimData;
-	public /*const transient */array<AnimSequence.TranslationTrack> TranslationData;
-	public /*const transient */array<AnimSequence.RotationTrack> RotationData;
-	public/*()*/ /*editoronly editconst editinline */AnimationCompressionAlgorithm CompressionScheme;
-	public /*const */AnimSequence.AnimationCompressionFormat TranslationCompressionFormat;
-	public /*const */AnimSequence.AnimationCompressionFormat RotationCompressionFormat;
+	[Category] public float RateScale;
+	[Category] public bool bNoLoopingInterpolation;
+	[Category] [transient] public bool bIgnoreInitialRootOffset;
+	[native, Const, transient] public/*private*/ bool bUsesHiMem;
+	[Const] public array<AnimSequence.RawAnimSequenceTrack> RawAnimData;
+	[Const, transient] public array<AnimSequence.TranslationTrack> TranslationData;
+	[Const, transient] public array<AnimSequence.RotationTrack> RotationData;
+	[Category] [editoronly, editconst, editinline] public AnimationCompressionAlgorithm CompressionScheme;
+	[Const] public AnimSequence.AnimationCompressionFormat TranslationCompressionFormat;
+	[Const] public AnimSequence.AnimationCompressionFormat RotationCompressionFormat;
 	public array<int> CompressedTrackOffsets;
-	public /*native */array<byte> CompressedByteStream;
-	public /*private native const transient */Object.Pointer CompressedOffsetPtr;
-	public /*private native const transient */Object.Pointer CompressedStreamPtr;
-	public /*private native const transient */int CompressedStreamSize;
-	public /*private native const transient */int LapsMirror;
+	[native] public array<byte> CompressedByteStream;
+	[native, Const, transient] public/*private*/ Object.Pointer CompressedOffsetPtr;
+	[native, Const, transient] public/*private*/ Object.Pointer CompressedStreamPtr;
+	[native, Const, transient] public/*private*/ int CompressedStreamSize;
+	[native, Const, transient] public/*private*/ int LapsMirror;
 	
 	public AnimSequence()
 	{

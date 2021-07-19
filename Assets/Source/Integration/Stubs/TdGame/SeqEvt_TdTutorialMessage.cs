@@ -18,7 +18,7 @@ public partial class SeqEvt_TdTutorialMessage : SequenceEvent/*
 		ETutoralMsg_MAX
 	};
 	
-	public/*()*/ SeqEvt_TdTutorialMessage.ETutorialMessage Message;
+	[Category] public SeqEvt_TdTutorialMessage.ETutorialMessage Message;
 	
 	public SeqEvt_TdTutorialMessage()
 	{

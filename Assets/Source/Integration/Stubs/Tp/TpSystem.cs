@@ -3,26 +3,26 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Ts; usin
 
 public partial class TpSystem : TpSystemBase/*
 		transient*/{
-	public /*private transient */TpConnection Connection;
-	public /*private transient */TpAssociationManager AssociationManager;
-	public /*private transient */TpPresenceManager PresenceManager;
-	public /*private transient */TpUserManager UserManager;
-	public /*private transient */TpGameBrowser GameBrowser;
-	public /*private transient */TpGameManager GameManager;
-	public /*private transient */TpMessageService MessageService;
-	public /*private transient */TpPlayGroupManager PlayGroupManager;
-	public /*private transient */TpAchievementManager AchievementManager;
-	public /*private transient */TpRankingService RankingService;
-	public /*private transient */TpFileLockerService FileLockerService;
-	public /*private transient */TpProtoHTTP ProtoHTTP;
-	public /*private transient */TpUoSystem UoSystem;
-	public /*private transient */TpUoPlayer UoPlayer;
-	public /*private transient */TpUoGame UoGame;
-	public /*private transient */TpUoPlayGroup UoPlayGroup;
-	public /*private transient */TpUoPlayerEx UoPlayerEx;
-	public /*private transient */TpUoStats UoStats;
-	public /*private transient */TpUoFileLocker UoFileLocker;
-	public /*private transient */TsSystem SaveSystem;
+	[transient] public/*private*/ TpConnection Connection;
+	[transient] public/*private*/ TpAssociationManager AssociationManager;
+	[transient] public/*private*/ TpPresenceManager PresenceManager;
+	[transient] public/*private*/ TpUserManager UserManager;
+	[transient] public/*private*/ TpGameBrowser GameBrowser;
+	[transient] public/*private*/ TpGameManager GameManager;
+	[transient] public/*private*/ TpMessageService MessageService;
+	[transient] public/*private*/ TpPlayGroupManager PlayGroupManager;
+	[transient] public/*private*/ TpAchievementManager AchievementManager;
+	[transient] public/*private*/ TpRankingService RankingService;
+	[transient] public/*private*/ TpFileLockerService FileLockerService;
+	[transient] public/*private*/ TpProtoHTTP ProtoHTTP;
+	[transient] public/*private*/ TpUoSystem UoSystem;
+	[transient] public/*private*/ TpUoPlayer UoPlayer;
+	[transient] public/*private*/ TpUoGame UoGame;
+	[transient] public/*private*/ TpUoPlayGroup UoPlayGroup;
+	[transient] public/*private*/ TpUoPlayerEx UoPlayerEx;
+	[transient] public/*private*/ TpUoStats UoStats;
+	[transient] public/*private*/ TpUoFileLocker UoFileLocker;
+	[transient] public/*private*/ TsSystem SaveSystem;
 	
 	public override /*simulated event */bool Init()
 	{

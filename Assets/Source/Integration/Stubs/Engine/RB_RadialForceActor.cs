@@ -12,20 +12,20 @@ public partial class RB_RadialForceActor : Actor/*
 		RFT_MAX
 	};
 	
-	public /*export editinline */DrawSphereComponent RenderComponent;
-	public/*()*/ /*interp */float ForceStrength;
-	public/*()*/ /*interp */float ForceRadius;
-	public/*()*/ /*interp */float SwirlStrength;
-	public/*()*/ /*interp */float SpinTorque;
-	public/*()*/ /*export */PrimitiveComponent.ERadialImpulseFalloff ForceFalloff;
-	public/*()*/ RB_RadialForceActor.ERadialForceType RadialForceMode;
-	public/*()*/ bool bForceActive;
-	public/*()*/ bool bForceApplyToCloth;
-	public/*()*/ bool bForceApplyToFluid;
-	public/*()*/ bool bForceApplyToRigidBodies;
-	public/*()*/ bool bForceApplyToProjectiles;
-	public/*()*/ int ForceFieldChannel;
-	public/*()*/ /*const */PrimitiveComponent.RBCollisionChannelContainer CollideWithChannels;
+	[export, editinline] public DrawSphereComponent RenderComponent;
+	[Category] [interp] public float ForceStrength;
+	[Category] [interp] public float ForceRadius;
+	[Category] [interp] public float SwirlStrength;
+	[Category] [interp] public float SpinTorque;
+	[Category] [export] public PrimitiveComponent.ERadialImpulseFalloff ForceFalloff;
+	[Category] public RB_RadialForceActor.ERadialForceType RadialForceMode;
+	[Category] public bool bForceActive;
+	[Category] public bool bForceApplyToCloth;
+	[Category] public bool bForceApplyToFluid;
+	[Category] public bool bForceApplyToRigidBodies;
+	[Category] public bool bForceApplyToProjectiles;
+	[Category] public int ForceFieldChannel;
+	[Category] [Const] public PrimitiveComponent.RBCollisionChannelContainer CollideWithChannels;
 	
 	//replication
 	//{

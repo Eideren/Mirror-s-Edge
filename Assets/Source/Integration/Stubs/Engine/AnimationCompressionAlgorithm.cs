@@ -8,7 +8,7 @@ public partial class AnimationCompressionAlgorithm : Object/*
 	public String Description;
 	public bool bNeedsSkeleton;
 	public AnimSequence.AnimationCompressionFormat TranslationCompressionFormat;
-	public/*()*/ AnimSequence.AnimationCompressionFormat RotationCompressionFormat;
+	[Category] public AnimSequence.AnimationCompressionFormat RotationCompressionFormat;
 	
 	public AnimationCompressionAlgorithm()
 	{

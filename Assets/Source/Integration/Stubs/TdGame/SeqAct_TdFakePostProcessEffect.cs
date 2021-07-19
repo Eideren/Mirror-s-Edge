@@ -12,9 +12,9 @@ public partial class SeqAct_TdFakePostProcessEffect : SequenceAction/*
 		FPPE_MAX
 	};
 	
-	public/*()*/ SeqAct_TdFakePostProcessEffect.EFakedPPEffect Effect;
-	public/*()*/ float Amount;
-	public/*()*/ Object.Vector Direction;
+	[Category] public SeqAct_TdFakePostProcessEffect.EFakedPPEffect Effect;
+	[Category] public float Amount;
+	[Category] public Object.Vector Direction;
 	
 	public override /*event */void Activated()
 	{

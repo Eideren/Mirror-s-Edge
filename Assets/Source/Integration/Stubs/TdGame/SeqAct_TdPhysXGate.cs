@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdPhysXGate : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bPhysXNotGate;
+	[Category] public bool bPhysXNotGate;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

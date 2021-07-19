@@ -6,10 +6,10 @@ public partial class KMeshProps : Object/*
 		noexport*/{
 	public partial struct KSphereElem
 	{
-		public/*()*/ /*editconst */Object.Matrix TM;
-		public/*()*/ /*editconst */float Radius;
-		public/*()*/ bool bNoRBCollision;
-		public/*()*/ bool bPerPolyShape;
+		[Category] [editconst] public Object.Matrix TM;
+		[Category] [editconst] public float Radius;
+		[Category] public bool bNoRBCollision;
+		[Category] public bool bPerPolyShape;
 	
 	//	structdefaultproperties
 	//	{
@@ -41,12 +41,12 @@ public partial class KMeshProps : Object/*
 	
 	public partial struct KBoxElem
 	{
-		public/*()*/ /*editconst */Object.Matrix TM;
-		public/*()*/ /*editconst */float X;
-		public/*()*/ /*editconst */float Y;
-		public/*()*/ /*editconst */float Z;
-		public/*()*/ bool bNoRBCollision;
-		public/*()*/ bool bPerPolyShape;
+		[Category] [editconst] public Object.Matrix TM;
+		[Category] [editconst] public float X;
+		[Category] [editconst] public float Y;
+		[Category] [editconst] public float Z;
+		[Category] public bool bNoRBCollision;
+		[Category] public bool bPerPolyShape;
 	
 	//	structdefaultproperties
 	//	{
@@ -80,11 +80,11 @@ public partial class KMeshProps : Object/*
 	
 	public partial struct KSphylElem
 	{
-		public/*()*/ /*editconst */Object.Matrix TM;
-		public/*()*/ /*editconst */float Radius;
-		public/*()*/ /*editconst */float Length;
-		public/*()*/ bool bNoRBCollision;
-		public/*()*/ bool bPerPolyShape;
+		[Category] [editconst] public Object.Matrix TM;
+		[Category] [editconst] public float Radius;
+		[Category] [editconst] public float Length;
+		[Category] public bool bNoRBCollision;
+		[Category] public bool bPerPolyShape;
 	
 	//	structdefaultproperties
 	//	{
@@ -149,11 +149,11 @@ public partial class KMeshProps : Object/*
 	
 	public partial struct KAggregateGeom
 	{
-		public/*()*/ /*editfixedsize */array<KMeshProps.KSphereElem> SphereElems;
-		public/*()*/ /*editfixedsize */array<KMeshProps.KBoxElem> BoxElems;
-		public/*()*/ /*editfixedsize */array<KMeshProps.KSphylElem> SphylElems;
-		public/*()*/ /*editfixedsize */array<KMeshProps.KConvexElem> ConvexElems;
-		public /*noimport nontransactional native */Object.Pointer RenderInfo;
+		[Category] [editfixedsize] public array<KMeshProps.KSphereElem> SphereElems;
+		[Category] [editfixedsize] public array<KMeshProps.KBoxElem> BoxElems;
+		[Category] [editfixedsize] public array<KMeshProps.KSphylElem> SphylElems;
+		[Category] [editfixedsize] public array<KMeshProps.KConvexElem> ConvexElems;
+		[noimport, nontransactional, native] public Object.Pointer RenderInfo;
 	
 	//	structdefaultproperties
 	//	{
@@ -165,8 +165,8 @@ public partial class KMeshProps : Object/*
 	//	}
 	};
 	
-	public/*()*/ Object.Vector COMNudge;
-	public/*()*/ KMeshProps.KAggregateGeom AggGeom;
+	[Category] public Object.Vector COMNudge;
+	[Category] public KMeshProps.KAggregateGeom AggGeom;
 	
 }
 }

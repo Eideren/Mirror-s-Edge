@@ -7,8 +7,8 @@ public partial class ActorFactoryFracturedStaticMesh : ActorFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ FracturedStaticMesh FracturedStaticMesh;
-	public/*()*/ Object.Vector DrawScale3D;
+	[Category] public FracturedStaticMesh FracturedStaticMesh;
+	[Category] public Object.Vector DrawScale3D;
 	
 	public ActorFactoryFracturedStaticMesh()
 	{

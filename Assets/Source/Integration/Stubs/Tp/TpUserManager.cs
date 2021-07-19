@@ -5,7 +5,7 @@ public partial class TpUserManager : TpSystemHandler/*
 		abstract
 		transient
 		native*/{
-	public /*transient */bool bCancelGamerCard;
+	[transient] public bool bCancelGamerCard;
 	public /*delegate*/TpUserManager.OnGetPlayerId __OnGetPlayerId__Delegate;
 	public /*delegate*/TpUserManager.OnShowGamerCardUI __OnShowGamerCardUI__Delegate;
 	

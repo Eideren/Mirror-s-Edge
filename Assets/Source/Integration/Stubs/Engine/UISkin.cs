@@ -18,14 +18,14 @@ public partial class UISkin : UIDataStore/*
 	//	}
 	};
 	
-	public /*protected const export editinline */array</*export editinline */UIStyle> Styles;
-	public /*protected const */array<String> StyleGroups;
-	public /*protected const */array<UISkin.UISoundCue> SoundCues;
-	public /*native const transient *//*map<0,0>*/map<object, object> StyleLookupTable;
-	public /*native const transient *//*map<0,0>*/map<object, object> StyleNameMap;
-	public /*native const transient */Object.LookupMap_Mirror StyleGroupMap;
-	public /*duplicatetransient native const *//*map<0,0>*/map<object, object> CursorMap;
-	public /*native const transient *//*map<0,0>*/map<object, object> SoundCueMap;
+	[Const, export, editinline] public/*protected*/ array</*export editinline */UIStyle> Styles;
+	[Const] public/*protected*/ array<String> StyleGroups;
+	[Const] public/*protected*/ array<UISkin.UISoundCue> SoundCues;
+	[native, Const, transient] public /*map<0,0>*/map<object, object> StyleLookupTable;
+	[native, Const, transient] public /*map<0,0>*/map<object, object> StyleNameMap;
+	[native, Const, transient] public Object.LookupMap_Mirror StyleGroupMap;
+	[duplicatetransient, native, Const] public /*map<0,0>*/map<object, object> CursorMap;
+	[native, Const, transient] public /*map<0,0>*/map<object, object> SoundCueMap;
 	
 	// Export UUISkin::execGetAvailableStyles(FFrame&, void* const)
 	public virtual /*native final function */void GetAvailableStyles(ref array<UIStyle> out_Styles, /*optional */bool? _bIncludeInheritedStyles = default)

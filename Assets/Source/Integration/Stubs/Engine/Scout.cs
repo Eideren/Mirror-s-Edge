@@ -31,7 +31,7 @@ public partial class Scout : Pawn/*
 	public float TestGroundSpeed;
 	public float TestMaxFallSpeed;
 	public float TestFallSpeed;
-	public /*const */float MaxLandingVelocity;
+	[Const] public float MaxLandingVelocity;
 	public int MinNumPlayerStarts;
 	public Core.ClassT<ReachSpec> DefaultReachSpecClass;
 	

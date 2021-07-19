@@ -51,9 +51,9 @@ public partial class Settings : Object/*
 	
 	public partial struct /*native */SettingsData
 	{
-		public /*const */Settings.ESettingsDataType Type;
-		public /*const */int Value1;
-		public /*native const transient */Object.Pointer Value2;
+		[Const] public Settings.ESettingsDataType Type;
+		[Const] public int Value1;
+		[native, Const, transient] public Object.Pointer Value2;
 	
 	//	structdefaultproperties
 	//	{
@@ -84,9 +84,9 @@ public partial class Settings : Object/*
 	
 	public partial struct /*native */StringIdToStringMapping
 	{
-		public /*const */int Id;
-		public /*const localized */name Name;
-		public /*const */bool bIsWildcard;
+		[Const] public int Id;
+		[Const, localized] public name Name;
+		[Const] public bool bIsWildcard;
 	
 	//	structdefaultproperties
 	//	{
@@ -99,10 +99,10 @@ public partial class Settings : Object/*
 	
 	public partial struct /*native */LocalizedStringSettingMetaData
 	{
-		public /*const */int Id;
-		public /*const */name Name;
-		public /*const localized */String ColumnHeaderText;
-		public /*const */array<Settings.StringIdToStringMapping> ValueMappings;
+		[Const] public int Id;
+		[Const] public name Name;
+		[Const, localized] public String ColumnHeaderText;
+		[Const] public array<Settings.StringIdToStringMapping> ValueMappings;
 	
 	//	structdefaultproperties
 	//	{
@@ -116,8 +116,8 @@ public partial class Settings : Object/*
 	
 	public partial struct /*native */IdToStringMapping
 	{
-		public /*const */int Id;
-		public /*const localized */name Name;
+		[Const] public int Id;
+		[Const, localized] public name Name;
 	
 	//	structdefaultproperties
 	//	{
@@ -129,15 +129,15 @@ public partial class Settings : Object/*
 	
 	public partial struct /*native */SettingsPropertyPropertyMetaData
 	{
-		public /*const */int Id;
-		public /*const */name Name;
-		public /*const localized */String ColumnHeaderText;
-		public /*const */Settings.EPropertyValueMappingType MappingType;
-		public /*const */array<Settings.IdToStringMapping> ValueMappings;
-		public /*const */array<Settings.SettingsData> PredefinedValues;
-		public /*const */float MinVal;
-		public /*const */float MaxVal;
-		public /*const */float RangeIncrement;
+		[Const] public int Id;
+		[Const] public name Name;
+		[Const, localized] public String ColumnHeaderText;
+		[Const] public Settings.EPropertyValueMappingType MappingType;
+		[Const] public array<Settings.IdToStringMapping> ValueMappings;
+		[Const] public array<Settings.SettingsData> PredefinedValues;
+		[Const] public float MinVal;
+		[Const] public float MaxVal;
+		[Const] public float RangeIncrement;
 	
 	//	structdefaultproperties
 	//	{

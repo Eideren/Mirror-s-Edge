@@ -4,13 +4,13 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMotionBlurPostProcess : PostProcessEffect/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float TdMotionBlurAmount;
-	public/*()*/ float TdMotionBlurStartPlayerSpeed;
-	public/*()*/ bool TdMotionBlurEnabled;
-	public/*()*/ bool TdMotionBlurUseDirection;
-	public/*()*/ bool TdMotionBlurForce;
-	public/*()*/ Object.Vector TdMotionBlurForcedDirection;
-	public/*()*/ float TdMotionBlurForcedAmount;
+	[Category] public float TdMotionBlurAmount;
+	[Category] public float TdMotionBlurStartPlayerSpeed;
+	[Category] public bool TdMotionBlurEnabled;
+	[Category] public bool TdMotionBlurUseDirection;
+	[Category] public bool TdMotionBlurForce;
+	[Category] public Object.Vector TdMotionBlurForcedDirection;
+	[Category] public float TdMotionBlurForcedAmount;
 	
 	public TdMotionBlurPostProcess()
 	{

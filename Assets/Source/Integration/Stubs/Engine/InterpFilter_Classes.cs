@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class InterpFilter_Classes : InterpFilter/*
 		native*/{
-	public /*editoronly */Class ClassToFilterBy;
+	[editoronly] public Class ClassToFilterBy;
 	
 }
 }

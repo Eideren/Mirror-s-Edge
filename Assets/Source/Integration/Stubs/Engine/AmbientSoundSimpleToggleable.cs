@@ -4,12 +4,12 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class AmbientSoundSimpleToggleable : AmbientSoundSimple/*
 		placeable
 		hidecategories(Navigation,Audio)*/{
-	public /*repnotify */bool bCurrentlyPlaying;
-	public/*()*/ bool bFadeOnToggle;
-	public/*()*/ float FadeInDuration;
-	public/*()*/ float FadeInVolumeLevel;
-	public/*()*/ float FadeOutDuration;
-	public/*()*/ float FadeOutVolumeLevel;
+	[repnotify] public bool bCurrentlyPlaying;
+	[Category] public bool bFadeOnToggle;
+	[Category] public float FadeInDuration;
+	[Category] public float FadeInVolumeLevel;
+	[Category] public float FadeOutDuration;
+	[Category] public float FadeOutVolumeLevel;
 	
 	//replication
 	//{

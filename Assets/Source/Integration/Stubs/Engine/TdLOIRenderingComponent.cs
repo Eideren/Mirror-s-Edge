@@ -3,10 +3,10 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class TdLOIRenderingComponent : PrimitiveComponent/*
 		native*/{
-	public/*()*/ Texture2D Sprite;
-	public/*()*/ bool bIsScreenSizeScaled;
-	public/*()*/ float ScreenSize;
-	public /*transient */StaticMeshActor ActualOwner;
+	[Category] public Texture2D Sprite;
+	[Category] public bool bIsScreenSizeScaled;
+	[Category] public float ScreenSize;
+	[transient] public StaticMeshActor ActualOwner;
 	
 	public TdLOIRenderingComponent()
 	{

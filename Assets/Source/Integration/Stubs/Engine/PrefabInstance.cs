@@ -5,17 +5,17 @@ public partial class PrefabInstance : Actor/*
 		native
 		notplaceable
 		hidecategories(Navigation)*/{
-	public /*const */Prefab TemplatePrefab;
-	public /*const */int TemplateVersion;
-	public /*native const *//*map<0,0>*/map<object, object> ArchetypeToInstanceMap;
-	public /*const */Sequence SequenceInstance;
-	public /*const */int PI_PackageVersion;
-	public /*const */int PI_LicenseePackageVersion;
-	public /*const */array<byte> PI_Bytes;
-	public /*const */array<Object> PI_CompleteObjects;
-	public /*const */array<Object> PI_ReferencedObjects;
-	public /*const */array<String> PI_SavedNames;
-	public /*native const *//*map<0,0>*/map<object, object> PI_ObjectMap;
+	[Const] public Prefab TemplatePrefab;
+	[Const] public int TemplateVersion;
+	[native, Const] public /*map<0,0>*/map<object, object> ArchetypeToInstanceMap;
+	[Const] public Sequence SequenceInstance;
+	[Const] public int PI_PackageVersion;
+	[Const] public int PI_LicenseePackageVersion;
+	[Const] public array<byte> PI_Bytes;
+	[Const] public array<Object> PI_CompleteObjects;
+	[Const] public array<Object> PI_ReferencedObjects;
+	[Const] public array<String> PI_SavedNames;
+	[native, Const] public /*map<0,0>*/map<object, object> PI_ObjectMap;
 	
 	public PrefabInstance()
 	{

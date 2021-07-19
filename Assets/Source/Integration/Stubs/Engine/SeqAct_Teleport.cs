@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_Teleport : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ bool bUpdateRotation;
+	[Category] public bool bUpdateRotation;
 	
 	public SeqAct_Teleport()
 	{

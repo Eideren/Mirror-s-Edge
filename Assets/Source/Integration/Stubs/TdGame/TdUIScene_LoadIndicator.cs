@@ -5,24 +5,24 @@ public partial class TdUIScene_LoadIndicator : TdUIScene/*
 		native
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */bool bIsLoadingLevel;
-	public /*transient */bool bIsDiscAccess;
-	public /*transient */TdPlayerController PlayerController;
-	public /*transient */TdUILoadIndicator IndicatorWidget;
-	public /*const localized */String WriteMessage;
-	public /*const localized */String LongWriteMessage;
-	public /*const localized */String ReadMessage;
-	public /*const localized */String LongReadMessage;
-	public /*const localized */String UploadMessage;
-	public /*const localized */String DownloadMessage;
-	public /*const localized */String CreatingSaveDataMessage;
-	public /*const localized */String LoadingSaveDataMessage;
-	public /*const localized */String CheckingSaveDataMessage;
-	public /*const localized */String LoadingLevelMessage;
-	public /*transient */MaterialInterface SaveMaterial;
-	public /*transient */MaterialInterface SaveMaterialBlack;
-	public /*transient */MaterialInterface LoadMaterial;
-	public /*transient */MaterialInterface LoadMaterialBlack;
+	[transient] public bool bIsLoadingLevel;
+	[transient] public bool bIsDiscAccess;
+	[transient] public TdPlayerController PlayerController;
+	[transient] public TdUILoadIndicator IndicatorWidget;
+	[Const, localized] public String WriteMessage;
+	[Const, localized] public String LongWriteMessage;
+	[Const, localized] public String ReadMessage;
+	[Const, localized] public String LongReadMessage;
+	[Const, localized] public String UploadMessage;
+	[Const, localized] public String DownloadMessage;
+	[Const, localized] public String CreatingSaveDataMessage;
+	[Const, localized] public String LoadingSaveDataMessage;
+	[Const, localized] public String CheckingSaveDataMessage;
+	[Const, localized] public String LoadingLevelMessage;
+	[transient] public MaterialInterface SaveMaterial;
+	[transient] public MaterialInterface SaveMaterialBlack;
+	[transient] public MaterialInterface LoadMaterial;
+	[transient] public MaterialInterface LoadMaterialBlack;
 	
 	public virtual /*function */void Setup(String Message, bool bSaving, /*optional */bool? _bBlack = default)
 	{

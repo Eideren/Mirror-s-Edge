@@ -5,9 +5,9 @@ public partial class SceneCaptureReflectActor : SceneCaptureActor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*const export editinline */StaticMeshComponent StaticMesh;
-	public /*transient */MaterialInstanceConstant ReflectMaterialInst;
-	public/*()*/ /*const */Volume ReflectionVolume;
+	[Category] [Const, export, editinline] public StaticMeshComponent StaticMesh;
+	[transient] public MaterialInstanceConstant ReflectMaterialInst;
+	[Category] [Const] public Volume ReflectionVolume;
 	
 	public override /*function */void PostBeginPlay()
 	{

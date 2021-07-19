@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class ObjectReferencer : Object/*
 		native*/{
-	public/*()*/ array<Object> ReferencedObjects;
+	[Category] public array<Object> ReferencedObjects;
 	
 }
 }

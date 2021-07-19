@@ -6,7 +6,7 @@ public partial class SoundNodeMixer : SoundNode/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ /*editfixedsize export */array</*export */float> InputVolume;
+	[Category] [editfixedsize, export] public array</*export */float> InputVolume;
 	
 }
 }

@@ -4,11 +4,11 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdUIScene_EOR : TdUIScene/*
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UILabel TimeUntilRestartLabel;
-	public /*transient */UILabel WinningTeamLabel;
-	public /*transient */UILabel WinConditionLabel;
-	public /*transient */TdUIDrawPlayersPanel PlayersPanel;
-	public /*transient */UILabel RoundCountLabel;
+	[transient] public UILabel TimeUntilRestartLabel;
+	[transient] public UILabel WinningTeamLabel;
+	[transient] public UILabel WinConditionLabel;
+	[transient] public TdUIDrawPlayersPanel PlayersPanel;
+	[transient] public UILabel RoundCountLabel;
 	
 	public override /*event */void PostInitialize()
 	{

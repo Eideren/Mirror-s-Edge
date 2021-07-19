@@ -6,8 +6,8 @@ public partial class SeqAct_RangeSwitch : SequenceAction/*
 		hidecategories(Object)*/{
 	public partial struct /*native */SwitchRange
 	{
-		public/*()*/ int Min;
-		public/*()*/ int Max;
+		[Category] public int Min;
+		[Category] public int Max;
 	
 	//	structdefaultproperties
 	//	{
@@ -17,7 +17,7 @@ public partial class SeqAct_RangeSwitch : SequenceAction/*
 	//	}
 	};
 	
-	public/*()*/ /*editinline */array</*editinline */SeqAct_RangeSwitch.SwitchRange> Ranges;
+	[Category] [editinline] public array</*editinline */SeqAct_RangeSwitch.SwitchRange> Ranges;
 	
 	public SeqAct_RangeSwitch()
 	{

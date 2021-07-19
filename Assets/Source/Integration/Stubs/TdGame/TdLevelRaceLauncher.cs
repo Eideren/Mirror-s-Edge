@@ -4,14 +4,14 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdLevelRaceLauncher : Object/* within TdUIScene*/{
 	public new TdUIScene Outer => base.Outer as TdUIScene;
 	
-	public /*private */UIDataStore_TdTimeTrialData TimeTrialData;
-	public /*private */TdUIScene_LoadIndicator LoadIndicator;
-	public /*private */bool bDataReadCorrectly;
-	public /*private */bool bStartOnlineMode;
-	public /*private */String ErrorTitle;
-	public /*private */String ErrorMessage;
-	public /*private */int RaceModeId;
-	public /*transient */LocalPlayer PlayerOwner;
+	public/*private*/ UIDataStore_TdTimeTrialData TimeTrialData;
+	public/*private*/ TdUIScene_LoadIndicator LoadIndicator;
+	public/*private*/ bool bDataReadCorrectly;
+	public/*private*/ bool bStartOnlineMode;
+	public/*private*/ String ErrorTitle;
+	public/*private*/ String ErrorMessage;
+	public/*private*/ int RaceModeId;
+	[transient] public LocalPlayer PlayerOwner;
 	public /*delegate*/TdLevelRaceLauncher.OnRaceLauncherFinished __OnRaceLauncherFinished__Delegate;
 	
 	public delegate void OnRaceLauncherFinished(int Result);

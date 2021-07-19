@@ -7,9 +7,9 @@ public partial class CurrentGameDataStore : UIDataStore_GameState/*
 		hidecategories(Object,UIRoot)*/{
 	public partial struct /*native */GameDataProviderTypes
 	{
-		public /*const */Core.ClassT<GameInfoDataProvider> GameDataProviderClass;
-		public /*const */Core.ClassT<PlayerDataProvider> PlayerDataProviderClass;
-		public /*const */Core.ClassT<TeamDataProvider> TeamDataProviderClass;
+		[Const] public Core.ClassT<GameInfoDataProvider> GameDataProviderClass;
+		[Const] public Core.ClassT<PlayerDataProvider> PlayerDataProviderClass;
+		[Const] public Core.ClassT<TeamDataProvider> TeamDataProviderClass;
 	
 	//	structdefaultproperties
 	//	{
@@ -20,10 +20,10 @@ public partial class CurrentGameDataStore : UIDataStore_GameState/*
 	//	}
 	};
 	
-	public /*const */CurrentGameDataStore.GameDataProviderTypes ProviderTypes;
-	public /*protected */GameInfoDataProvider GameData;
-	public /*protected */array<PlayerDataProvider> PlayerData;
-	public /*protected */array<TeamDataProvider> TeamData;
+	[Const] public CurrentGameDataStore.GameDataProviderTypes ProviderTypes;
+	public/*protected*/ GameInfoDataProvider GameData;
+	public/*protected*/ array<PlayerDataProvider> PlayerData;
+	public/*protected*/ array<TeamDataProvider> TeamData;
 	
 	public virtual /*final function */void CreateGameDataProvider(GameReplicationInfo GRI)
 	{

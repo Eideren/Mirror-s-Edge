@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TsTester : Object/*
 		transient
 		native*/{
-	public /*private */TsSystem.TsSaveData WriteData;
-	public /*private */StaticArray<TsSystem.TsSaveData, TsSystem.TsSaveData, TsSystem.TsSaveData>/*[3]*/ MultiWriteData;
+	public/*private*/ TsSystem.TsSaveData WriteData;
+	public/*private*/ StaticArray<TsSystem.TsSaveData, TsSystem.TsSaveData, TsSystem.TsSaveData>/*[3]*/ MultiWriteData;
 	
 	public virtual /*event */void TestWrite(int Id, int Size)
 	{

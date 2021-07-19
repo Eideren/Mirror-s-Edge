@@ -4,15 +4,15 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdToneMappingPostProcess : PostProcessEffect/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ Object.Vector SceneShadows;
-	public/*()*/ Object.Vector SceneHighLights;
-	public/*()*/ Object.Vector SceneMidTones;
-	public/*()*/ float SceneDesaturation;
-	public/*()*/ float ExposureManual;
-	public/*()*/ float ExposureSpeedUp;
-	public/*()*/ float ExposureSpeedDown;
-	public/*()*/ float ExposureHigh;
-	public/*()*/ float ExposureLow;
+	[Category] public Object.Vector SceneShadows;
+	[Category] public Object.Vector SceneHighLights;
+	[Category] public Object.Vector SceneMidTones;
+	[Category] public float SceneDesaturation;
+	[Category] public float ExposureManual;
+	[Category] public float ExposureSpeedUp;
+	[Category] public float ExposureSpeedDown;
+	[Category] public float ExposureHigh;
+	[Category] public float ExposureLow;
 	public float Debug;
 	
 	public TdToneMappingPostProcess()

@@ -6,12 +6,12 @@ public partial class ParticleModuleUberLTISIVCL : ParticleModuleUberBase/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object,Object)*/{
-	public/*(Lifetime)*/ /*noclear export */DistributionFloat.RawDistributionFloat Lifetime;
-	public/*(Size)*/ /*noclear export */DistributionVector.RawDistributionVector StartSize;
-	public/*(Velocity)*/ /*noclear export */DistributionVector.RawDistributionVector StartVelocity;
-	public/*(Velocity)*/ /*noclear export */DistributionFloat.RawDistributionFloat StartVelocityRadial;
-	public/*(Color)*/ /*noclear export */DistributionVector.RawDistributionVector ColorOverLife;
-	public/*(Color)*/ /*noclear export */DistributionFloat.RawDistributionFloat AlphaOverLife;
+	[Category("Lifetime")] [noclear, export] public DistributionFloat.RawDistributionFloat Lifetime;
+	[Category("Size")] [noclear, export] public DistributionVector.RawDistributionVector StartSize;
+	[Category("Velocity")] [noclear, export] public DistributionVector.RawDistributionVector StartVelocity;
+	[Category("Velocity")] [noclear, export] public DistributionFloat.RawDistributionFloat StartVelocityRadial;
+	[Category("Color")] [noclear, export] public DistributionVector.RawDistributionVector ColorOverLife;
+	[Category("Color")] [noclear, export] public DistributionFloat.RawDistributionFloat AlphaOverLife;
 	
 	public ParticleModuleUberLTISIVCL()
 	{

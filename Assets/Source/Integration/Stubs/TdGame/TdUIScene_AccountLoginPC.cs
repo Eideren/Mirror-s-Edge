@@ -6,9 +6,9 @@ public partial class TdUIScene_AccountLoginPC : TdUIScene_SubMenu/*
 		hidecategories(Object,UIRoot,Object)*/{
 	public const int MAX_PASSWD_LENGTH = 28;
 	
-	public /*transient */UIEditBox LoginNameEditbox;
-	public /*transient */UIEditBox PasswordEditbox;
-	public /*transient */UIEditBox CurrentActiveEditbox;
+	[transient] public UIEditBox LoginNameEditbox;
+	[transient] public UIEditBox PasswordEditbox;
+	[transient] public UIEditBox CurrentActiveEditbox;
 	public /*delegate*/TdUIScene_AccountLoginPC.LoginAccount __LoginAccount__Delegate;
 	public /*delegate*/TdUIScene_AccountLoginPC.PrepareCreateAccount __PrepareCreateAccount__Delegate;
 	public /*delegate*/TdUIScene_AccountLoginPC.UserAbort __UserAbort__Delegate;

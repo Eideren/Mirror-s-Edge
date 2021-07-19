@@ -47,11 +47,11 @@ public partial class CoverLink : NavigationPoint/*
 	
 	public partial struct /*native */CoverReference// extends NavReference
 	{
-		public/*()*/ NavigationPoint Nav;
-		public/*()*/ /*const editconst */Object.Guid Guid;
+		[Category] public NavigationPoint Nav;
+		[Category] [Const, editconst] public Object.Guid Guid;
 	
-		public/*()*/ int SlotIdx;
-		public/*()*/ int Direction;
+		[Category] public int SlotIdx;
+		[Category] public int Direction;
 			// Object Offset:0x0024C470
 	//		Nav = default;
 	//		Guid = new Guid
@@ -69,8 +69,8 @@ public partial class CoverLink : NavigationPoint/*
 	
 	public partial struct /*native */CoverInfo
 	{
-		public/*()*/ /*editconst */CoverLink Link;
-		public/*()*/ /*editconst */int SlotIdx;
+		[Category] [editconst] public CoverLink Link;
+		[Category] [editconst] public int SlotIdx;
 	
 	//	structdefaultproperties
 	//	{
@@ -152,7 +152,7 @@ public partial class CoverLink : NavigationPoint/*
 	
 	public partial struct /*native */FireLink
 	{
-		public/*()*/ /*const editconst */Actor.NavReference TargetMarker;
+		[Category] [Const, editconst] public Actor.NavReference TargetMarker;
 		public array<CoverLink.FireLinkItem> Items;
 		public Object.Vector LastMarkerLocation;
 		public bool bFallbackLink;
@@ -184,8 +184,8 @@ public partial class CoverLink : NavigationPoint/*
 	
 	public partial struct /*native */ExposedLink
 	{
-		public/*()*/ /*const editconst */Actor.NavReference TargetMarker;
-		public/*()*/ float ExposedScale;
+		[Category] [Const, editconst] public Actor.NavReference TargetMarker;
+		[Category] public float ExposedScale;
 	
 	//	structdefaultproperties
 	//	{
@@ -207,8 +207,8 @@ public partial class CoverLink : NavigationPoint/*
 	
 	public partial struct /*native */DangerLink
 	{
-		public/*()*/ /*const editconst */Actor.NavReference DangerNav;
-		public/*()*/ int DangerCost;
+		[Category] [Const, editconst] public Actor.NavReference DangerNav;
+		[Category] public int DangerCost;
 	
 	//	structdefaultproperties
 	//	{
@@ -231,42 +231,42 @@ public partial class CoverLink : NavigationPoint/*
 	public partial struct /*native */CoverSlot
 	{
 		public Controller SlotOwner;
-		public/*()*/ CoverLink.ECoverType ForceCoverType;
-		public/*(Auto)*/ /*editconst */CoverLink.ECoverType CoverType;
+		[Category] public CoverLink.ECoverType ForceCoverType;
+		[Category("Auto")] [editconst] public CoverLink.ECoverType CoverType;
 		public Object.Vector LocationOffset;
 		public Object.Vector FireLeftPos;
 		public Object.Vector FireRightPos;
 		public Object.Rotator RotationOffset;
-		public /*duplicatetransient */array<CoverLink.ECoverAction> Actions;
-		public /*duplicatetransient */array<CoverLink.FireLink> FireLinks;
-		public /*duplicatetransient */array<CoverLink.FireLink> ForcedFireLinks;
-		public /*duplicatetransient */array<CoverLink.CoverInfo> RejectedFireLinks;
-		public /*duplicatetransient */array<CoverLink.ExposedLink> ExposedFireLinks;
-		public /*duplicatetransient */array<CoverLink.DangerLink> DangerLinks;
-		public /*duplicatetransient */CoverLink.CoverReference MantleTarget;
-		public /*duplicatetransient */array<CoverLink.CoverReference> TurnTarget;
-		public /*duplicatetransient */array<CoverLink.CoverReference> SlipTarget;
-		public/*(Auto)*/ /*duplicatetransient editconst */array</*editconst */CoverLink.CoverReference> OverlapClaims;
-		public/*(Auto)*/ bool bLeanLeft;
-		public/*(Auto)*/ bool bLeanRight;
-		public/*(Auto)*/ bool bCanPopUp;
-		public/*(Auto)*/ float FireLeftOffset;
-		public/*(Auto)*/ float FireRightOffset;
-		public /*editconst */bool bCanMantle;
-		public /*editconst */bool bCanClimbUp;
-		public /*editconst */bool bCanCoverSlip_Left;
-		public /*editconst */bool bCanCoverSlip_Right;
-		public /*editconst */bool bCanSwatTurn_Left;
-		public /*editconst */bool bCanSwatTurn_Right;
-		public/*()*/ bool bEnabled;
-		public/*()*/ bool bAllowPopup;
+		[duplicatetransient] public array<CoverLink.ECoverAction> Actions;
+		[duplicatetransient] public array<CoverLink.FireLink> FireLinks;
+		[duplicatetransient] public array<CoverLink.FireLink> ForcedFireLinks;
+		[duplicatetransient] public array<CoverLink.CoverInfo> RejectedFireLinks;
+		[duplicatetransient] public array<CoverLink.ExposedLink> ExposedFireLinks;
+		[duplicatetransient] public array<CoverLink.DangerLink> DangerLinks;
+		[duplicatetransient] public CoverLink.CoverReference MantleTarget;
+		[duplicatetransient] public array<CoverLink.CoverReference> TurnTarget;
+		[duplicatetransient] public array<CoverLink.CoverReference> SlipTarget;
+		[Category("Auto")] [duplicatetransient, editconst] public array</*editconst */CoverLink.CoverReference> OverlapClaims;
+		[Category("Auto")] public bool bLeanLeft;
+		[Category("Auto")] public bool bLeanRight;
+		[Category("Auto")] public bool bCanPopUp;
+		[Category("Auto")] public float FireLeftOffset;
+		[Category("Auto")] public float FireRightOffset;
+		[editconst] public bool bCanMantle;
+		[editconst] public bool bCanClimbUp;
+		[editconst] public bool bCanCoverSlip_Left;
+		[editconst] public bool bCanCoverSlip_Right;
+		[editconst] public bool bCanSwatTurn_Left;
+		[editconst] public bool bCanSwatTurn_Right;
+		[Category] public bool bEnabled;
+		[Category] public bool bAllowPopup;
 		public bool bAllowMantle;
 		public bool bAllowCoverSlip;
 		public bool bAllowClimbUp;
 		public bool bAllowSwatTurn;
-		public /*transient */bool bSelected;
+		[transient] public bool bSelected;
 		public float LeanTraceDist;
-		public/*()*/ /*duplicatetransient editconst */CoverSlotMarker SlotMarker;
+		[Category] [duplicatetransient, editconst] public CoverSlotMarker SlotMarker;
 	
 	//	structdefaultproperties
 	//	{
@@ -356,41 +356,41 @@ public partial class CoverLink : NavigationPoint/*
 	//	}
 	};
 	
-	public/*()*/ /*editinline */array</*editinline */CoverLink.CoverSlot> Slots;
+	[Category] [editinline] public array</*editinline */CoverLink.CoverSlot> Slots;
 	public array<Controller> Claims;
-	public/*()*/ bool bDisabled;
-	public/*()*/ bool bClaimAllSlots;
+	[Category] public bool bDisabled;
+	[Category] public bool bClaimAllSlots;
 	public bool bAutoSort;
-	public/*()*/ bool bAutoAdjust;
-	public/*()*/ bool bForceCoverActions;
+	[Category] public bool bAutoAdjust;
+	[Category] public bool bForceCoverActions;
 	public bool bCircular;
 	public bool bLooped;
 	public bool bPlayerOnly;
 	public bool bDynamicCover;
-	public /*transient */bool bInvalidCover;
-	public/*(Debug)*/ bool bDebug_FireLinks;
-	public/*(Debug)*/ bool bDebug_ExposedLinks;
-	public/*(Debug)*/ bool bDebug_DangerLinks;
+	[transient] public bool bInvalidCover;
+	[Category("Debug")] public bool bDebug_FireLinks;
+	[Category("Debug")] public bool bDebug_ExposedLinks;
+	[Category("Debug")] public bool bDebug_DangerLinks;
 	public float MaxFireLinkDist;
-	public /*const */Object.Vector CircularOrigin;
-	public /*const */float CircularRadius;
-	public /*const */float AlignDist;
-	public /*const */float StandHeight;
-	public /*const */float MidHeight;
-	public /*const */float LowHeight;
-	public /*const */CoverLink.CoverRange LowCover;
-	public /*const */CoverLink.CoverRange MediumCover;
-	public /*const */int SideOffsetTraceHeight;
-	public /*transient */float IvalidUntilThisTime;
-	public /*const */float CornerDist;
-	public /*const */float FireFromCornerDist;
-	public /*const */Object.Vector StandingLeanOffset;
-	public /*const */Object.Vector CrouchLeanOffset;
-	public /*const */Object.Vector PopupOffset;
-	public /*const */float SlipDist;
-	public /*const */float TurnDist;
+	[Const] public Object.Vector CircularOrigin;
+	[Const] public float CircularRadius;
+	[Const] public float AlignDist;
+	[Const] public float StandHeight;
+	[Const] public float MidHeight;
+	[Const] public float LowHeight;
+	[Const] public CoverLink.CoverRange LowCover;
+	[Const] public CoverLink.CoverRange MediumCover;
+	[Const] public int SideOffsetTraceHeight;
+	[transient] public float IvalidUntilThisTime;
+	[Const] public float CornerDist;
+	[Const] public float FireFromCornerDist;
+	[Const] public Object.Vector StandingLeanOffset;
+	[Const] public Object.Vector CrouchLeanOffset;
+	[Const] public Object.Vector PopupOffset;
+	[Const] public float SlipDist;
+	[Const] public float TurnDist;
 	public float DangerScale;
-	public /*const */CoverLink NextCoverLink;
+	[Const] public CoverLink NextCoverLink;
 	
 	// Export UCoverLink::execGetSlotLocation(FFrame&, void* const)
 	public virtual /*native final simulated function */Object.Vector GetSlotLocation(int SlotIdx, /*optional */bool? _bForceUseOffset = default)

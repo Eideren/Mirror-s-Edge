@@ -6,7 +6,7 @@ public partial class SphericalHarmonicLightComponent : LightComponent/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ Object.SHVectorRGB WorldSpaceIncidentLighting;
+	[Category] public Object.SHVectorRGB WorldSpaceIncidentLighting;
 	
 	public SphericalHarmonicLightComponent()
 	{

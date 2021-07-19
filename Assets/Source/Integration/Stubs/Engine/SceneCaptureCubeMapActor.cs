@@ -5,8 +5,8 @@ public partial class SceneCaptureCubeMapActor : SceneCaptureActor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public /*const export editinline */StaticMeshComponent StaticMesh;
-	public /*transient */MaterialInstanceConstant CubeMaterialInst;
+	[Const, export, editinline] public StaticMeshComponent StaticMesh;
+	[transient] public MaterialInstanceConstant CubeMaterialInst;
 	
 	public SceneCaptureCubeMapActor()
 	{

@@ -6,11 +6,11 @@ public partial class AnimTree : AnimNodeBlendBase/*
 		hidecategories(Object,Object,Object)*/{
 	public partial struct /*native */AnimGroup
 	{
-		public /*const transient */array<AnimNodeSequence> SeqNodes;
-		public /*const transient */AnimNodeSequence SynchMaster;
-		public /*const transient */AnimNodeSequence NotifyMaster;
-		public/*()*/ /*const */name GroupName;
-		public/*()*/ /*const */float RateScale;
+		[Const, transient] public array<AnimNodeSequence> SeqNodes;
+		[Const, transient] public AnimNodeSequence SynchMaster;
+		[Const, transient] public AnimNodeSequence NotifyMaster;
+		[Category] [Const] public name GroupName;
+		[Category] [Const] public float RateScale;
 	
 	//	structdefaultproperties
 	//	{
@@ -26,7 +26,7 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	public partial struct /*native */SkelControlListHead
 	{
 		public name BoneName;
-		public /*export editinline */SkelControlBase ControlHead;
+		[export, editinline] public SkelControlBase ControlHead;
 		public int DrawY;
 	
 	//	structdefaultproperties
@@ -38,20 +38,20 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	//	}
 	};
 	
-	public/*()*/ array<AnimTree.AnimGroup> AnimGroups;
-	public/*()*/ array<name> PrioritizedSkelBranches;
+	[Category] public array<AnimTree.AnimGroup> AnimGroups;
+	[Category] public array<name> PrioritizedSkelBranches;
 	public array<byte> PriorityList;
-	public /*export editinline */array</*export editinline */MorphNodeBase> RootMorphNodes;
-	public /*export editinline */array</*export editinline */AnimTree.SkelControlListHead> SkelControlLists;
+	[export, editinline] public array</*export editinline */MorphNodeBase> RootMorphNodes;
+	[export, editinline] public array</*export editinline */AnimTree.SkelControlListHead> SkelControlLists;
 	public int MorphConnDrawY;
-	public /*transient */bool bBeingEdited;
-	public/*()*/ float PreviewPlayRate;
-	public/*()*/ /*editoronly */SkeletalMesh PreviewSkelMesh;
-	public/*()*/ /*editoronly */array<SkeletalMesh> SocketSkelMesh;
-	public/*()*/ /*editoronly */array<StaticMesh> SocketStaticMesh;
-	public/*()*/ array<name> SocketName;
-	public/*()*/ /*editoronly */array<AnimSet> PreviewAnimSets;
-	public/*()*/ /*editoronly */array<MorphTargetSet> PreviewMorphSets;
+	[transient] public bool bBeingEdited;
+	[Category] public float PreviewPlayRate;
+	[Category] [editoronly] public SkeletalMesh PreviewSkelMesh;
+	[Category] [editoronly] public array<SkeletalMesh> SocketSkelMesh;
+	[Category] [editoronly] public array<StaticMesh> SocketStaticMesh;
+	[Category] public array<name> SocketName;
+	[Category] [editoronly] public array<AnimSet> PreviewAnimSets;
+	[Category] [editoronly] public array<MorphTargetSet> PreviewMorphSets;
 	public Object.Vector PreviewCamPos;
 	public Object.Rotator PreviewCamRot;
 	public Object.Vector PreviewFloorPos;

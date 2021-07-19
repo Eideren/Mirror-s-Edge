@@ -15,15 +15,15 @@ public partial class TdSoundNodeADSR : SoundNode/*
 		INTERPOLATION_MAX
 	};
 	
-	public/*()*/ TdSoundNodeADSR.SoundInterpolationMethod AttackInterpolationMethod;
-	public/*()*/ TdSoundNodeADSR.SoundInterpolationMethod DecayInterpolationMethod;
-	public/*()*/ TdSoundNodeADSR.SoundInterpolationMethod ReleaseInterpolationMethod;
-	public/*()*/ DistributionFloat.RawDistributionFloat Attack;
-	public/*()*/ DistributionFloat.RawDistributionFloat Decay;
-	public/*()*/ DistributionFloat.RawDistributionFloat Sustain;
-	public/*()*/ DistributionFloat.RawDistributionFloat Release;
-	public/*()*/ bool bModulatePitch;
-	public/*()*/ bool bModulateVolume;
+	[Category] public TdSoundNodeADSR.SoundInterpolationMethod AttackInterpolationMethod;
+	[Category] public TdSoundNodeADSR.SoundInterpolationMethod DecayInterpolationMethod;
+	[Category] public TdSoundNodeADSR.SoundInterpolationMethod ReleaseInterpolationMethod;
+	[Category] public DistributionFloat.RawDistributionFloat Attack;
+	[Category] public DistributionFloat.RawDistributionFloat Decay;
+	[Category] public DistributionFloat.RawDistributionFloat Sustain;
+	[Category] public DistributionFloat.RawDistributionFloat Release;
+	[Category] public bool bModulatePitch;
+	[Category] public bool bModulateVolume;
 	
 	public TdSoundNodeADSR()
 	{

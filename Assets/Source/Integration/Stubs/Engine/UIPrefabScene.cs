@@ -5,7 +5,7 @@ public partial class UIPrefabScene : UIScene/*
 		transient
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*private native const noexport */Object.Pointer VfTable_FCallbackEventDevice;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FCallbackEventDevice;
 	
 	public UIPrefabScene()
 	{

@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class PhysicsLODVerticalEmitter : Object/*
 		native
 		config(Engine)*/{
-	public /*native config */int ParticlePercentage;
+	[native, config] public int ParticlePercentage;
 	
 }
 }

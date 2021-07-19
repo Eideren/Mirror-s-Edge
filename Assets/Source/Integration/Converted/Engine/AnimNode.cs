@@ -38,28 +38,28 @@ public partial class AnimNode : Object/*
 	//	}
 	};
 	
-	public/*(ClassProperties)*/ /*editconst */name ClassName;
-	public /*export editinline transient */SkeletalMeshComponent SkelComponent;
-	public /*transient */array<AnimNodeBlendBase> ParentNodes;
-	public/*()*/ name NodeName;
-	public /*transient */array<AnimNode.BoneAtom> CachedBoneAtoms;
-	public /*transient */AnimNode.BoneAtom CachedRootMotionDelta;
-	public /*transient */int bCachedHasRootMotion;
-	public /*const transient */bool bRelevant;
-	public /*const transient */bool bJustBecameRelevant;
-	public/*()*/ bool bSkipTickWhenZeroWeight;
-	public/*()*/ bool bTickDuringPausedAnims;
-	public /*const transient */int NodeTickTag;
-	public /*const transient */int NodeCachedAtomsTag;
-	public /*const */float NodeTotalWeight;
-	public /*const transient */float TotalWeightAccumulator;
+	[Category("ClassProperties")] [editconst] public name ClassName;
+	[export, editinline, transient] public SkeletalMeshComponent SkelComponent;
+	[transient] public array<AnimNodeBlendBase> ParentNodes;
+	[Category] public name NodeName;
+	[transient] public array<AnimNode.BoneAtom> CachedBoneAtoms;
+	[transient] public AnimNode.BoneAtom CachedRootMotionDelta;
+	[transient] public int bCachedHasRootMotion;
+	[Const, transient] public bool bRelevant;
+	[Const, transient] public bool bJustBecameRelevant;
+	[Category] public bool bSkipTickWhenZeroWeight;
+	[Category] public bool bTickDuringPausedAnims;
+	[Const, transient] public int NodeTickTag;
+	[Const, transient] public int NodeCachedAtomsTag;
+	[Const] public float NodeTotalWeight;
+	[Const, transient] public float TotalWeightAccumulator;
 	public int DrawWidth;
 	public int DrawHeight;
 	public int NodePosX;
 	public int NodePosY;
 	public int OutDrawY;
-	public /*const */int InstanceVersionNumber;
-	public /*protected const transient */int SearchTag;
+	[Const] public int InstanceVersionNumber;
+	[Const, transient] public/*protected*/ int SearchTag;
 	
 	public virtual /*event */void OnInit()
 	{

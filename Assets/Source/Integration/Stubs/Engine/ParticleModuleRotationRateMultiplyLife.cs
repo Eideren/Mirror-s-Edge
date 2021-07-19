@@ -5,7 +5,7 @@ public partial class ParticleModuleRotationRateMultiplyLife : ParticleModuleRota
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Rotation)*/ DistributionFloat.RawDistributionFloat LifeMultiplier;
+	[Category("Rotation")] public DistributionFloat.RawDistributionFloat LifeMultiplier;
 	
 	public ParticleModuleRotationRateMultiplyLife()
 	{

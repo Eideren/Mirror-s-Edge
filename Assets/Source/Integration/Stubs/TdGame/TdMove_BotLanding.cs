@@ -9,7 +9,7 @@ public partial class TdMove_BotLanding : TdMove_AISpecialMove/*
 	public float LongRunningDistance;
 	public float SoftLandingHeight;
 	public float RollDistance;
-	public /*transient */Object.Vector StartLocation;
+	[transient] public Object.Vector StartLocation;
 	public TdMove_BotJump.EBotJumpLength JumpLength;
 	
 	public override /*function */bool CanDoMove()

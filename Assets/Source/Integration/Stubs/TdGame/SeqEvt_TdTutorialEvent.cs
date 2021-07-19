@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqEvt_TdTutorialEvent : SeqEvt_TdMovementChallengeEvent/*
 		hidecategories(Object)*/{
-	public/*()*/ array<TdSPTutorialGame.ETutorialEvents> TutorialEvents;
+	[Category] public array<TdSPTutorialGame.ETutorialEvents> TutorialEvents;
 	
 	public SeqEvt_TdTutorialEvent()
 	{

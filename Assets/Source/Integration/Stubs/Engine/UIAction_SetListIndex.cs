@@ -3,9 +3,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class UIAction_SetListIndex : UIAction_SetValue/*
 		hidecategories(Object)*/{
-	public/*()*/ int NewIndex;
-	public/*()*/ bool bClampInvalidValues;
-	public/*()*/ bool bActivateListChangeEvent;
+	[Category] public int NewIndex;
+	[Category] public bool bClampInvalidValues;
+	[Category] public bool bActivateListChangeEvent;
 	
 	public UIAction_SetListIndex()
 	{

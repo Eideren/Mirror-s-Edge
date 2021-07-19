@@ -5,8 +5,8 @@ public partial class ParticleModuleMaterialByParameter : ParticleModuleMaterialB
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ array<name> MaterialParameters;
-	public/*()*/ /*editfixedsize */array<MaterialInterface> DefaultMaterials;
+	[Category] public array<name> MaterialParameters;
+	[Category] [editfixedsize] public array<MaterialInterface> DefaultMaterials;
 	
 	public ParticleModuleMaterialByParameter()
 	{

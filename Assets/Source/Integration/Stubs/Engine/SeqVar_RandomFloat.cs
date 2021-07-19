@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqVar_RandomFloat : SeqVar_Float/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float Min;
-	public/*()*/ float Max;
+	[Category] public float Min;
+	[Category] public float Max;
 	
 	public SeqVar_RandomFloat()
 	{

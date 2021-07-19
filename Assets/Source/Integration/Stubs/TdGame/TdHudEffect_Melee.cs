@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdHudEffect_Melee : TdHudEffect/*
 		native
 		config(HudEffects)*/{
-	public /*private */name DirectionName;
+	public/*private*/ name DirectionName;
 	
 	public TdHudEffect_Melee()
 	{

@@ -4,9 +4,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_JumpBot_Base : TdMove_AISpecialMove/*
 		native
 		config(PawnMovement)*/{
-	public /*transient */bool bAnticipating;
-	public /*transient */bool bDoAnticipation;
-	public /*transient */float ForcedSpeed;
+	[transient] public bool bAnticipating;
+	[transient] public bool bDoAnticipation;
+	[transient] public float ForcedSpeed;
 	public float AnticipationTime;
 	
 	// Export UTdMove_JumpBot_Base::execGetPreciseLandingLocation(FFrame&, void* const)

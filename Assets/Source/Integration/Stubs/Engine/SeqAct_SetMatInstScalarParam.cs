@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_SetMatInstScalarParam : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ MaterialInstanceConstant MatInst;
-	public/*()*/ name ParamName;
-	public/*()*/ float ScalarValue;
+	[Category] public MaterialInstanceConstant MatInst;
+	[Category] public name ParamName;
+	[Category] public float ScalarValue;
 	
 	public SeqAct_SetMatInstScalarParam()
 	{

@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class FailedConnect : LocalMessage/*
 		abstract*/{
-	public /*const localized */StaticArray<String, String, String, String>/*[4]*/ FailMessage;
+	[Const, localized] public StaticArray<String, String, String, String>/*[4]*/ FailMessage;
 	
 	public /*function */static int GetFailSwitch(String FailString)
 	{

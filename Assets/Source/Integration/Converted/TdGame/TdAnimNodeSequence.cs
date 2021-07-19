@@ -29,28 +29,28 @@ public partial class TdAnimNodeSequence : AnimNodeSequence/*
 		EA_MAX
 	};
 	
-	public /*native */float AccualCurrentTime;
-	public/*()*/ bool bSnapToKeyFrames;
-	public/*()*/ bool bForceFullPlayback;
-	public/*()*/ bool bLoopingWithNotify;
+	[native] public float AccualCurrentTime;
+	[Category] public bool bSnapToKeyFrames;
+	[Category] public bool bForceFullPlayback;
+	[Category] public bool bLoopingWithNotify;
 	public bool bHasLockedAnimation;
 	public bool bCauseActorCeaseRelevant;
-	public/*()*/ bool bResetOnBecomeRelevant;
-	public/*()*/ bool bDeltaCameraAnimation;
-	public/*()*/ bool bForceNoWeaponPose;
-	public/*(ScalePlayRate)*/ bool ScalePlayRateBySpeed;
-	public/*(ScalePlayRate)*/ bool InversePlayRate;
+	[Category] public bool bResetOnBecomeRelevant;
+	[Category] public bool bDeltaCameraAnimation;
+	[Category] public bool bForceNoWeaponPose;
+	[Category("ScalePlayRate")] public bool ScalePlayRateBySpeed;
+	[Category("ScalePlayRate")] public bool InversePlayRate;
 	public bool bUpdateSequenceOnAnimSetsUpdated;
 	public bool bCached;
 	public float NormalizedStartPosition;
-	public/*(ScalePlayRate)*/ TdAnimNodeSequence.EScalePlayRateType ScalePlayRateType;
-	public/*()*/ TdAnimNodeSequence.EAnimType AnimationType;
-	public/*(ScalePlayRate)*/ float BaseSpeed;
-	public/*(ScalePlayRate)*/ float ScaleByValue;
-	public/*(ScalePlayRate)*/ float RateMin;
-	public/*(ScalePlayRate)*/ float RateMax;
+	[Category("ScalePlayRate")] public TdAnimNodeSequence.EScalePlayRateType ScalePlayRateType;
+	[Category] public TdAnimNodeSequence.EAnimType AnimationType;
+	[Category("ScalePlayRate")] public float BaseSpeed;
+	[Category("ScalePlayRate")] public float ScaleByValue;
+	[Category("ScalePlayRate")] public float RateMin;
+	[Category("ScalePlayRate")] public float RateMax;
 	public TdAnimNodeWeaponPoseOffset WeaponPoseOffsetNode;
-	public /*transient */TdPawn TdPawnOwner;
+	[transient] public TdPawn TdPawnOwner;
 	
 	// Export UTdAnimNodeSequence::execUpdateBaseSpeed(FFrame&, void* const)
 	public virtual /*native function */void UpdateBaseSpeed()

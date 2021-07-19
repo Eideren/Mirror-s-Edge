@@ -5,17 +5,17 @@ public partial class TdDirectionalHazePostProcess : PostProcessEffect/*
 		native
 		hidecategories(Object)*/{
 	public Object.Vector SunVector;
-	public/*()*/ Object.Vector HazeColor;
-	public/*()*/ float AngleCurve;
-	public/*()*/ float AngleStart;
-	public/*()*/ float DistanceCurve;
-	public/*()*/ float DistanceDivider;
-	public/*()*/ float HazeAngleClampHigh;
-	public/*()*/ float HazeTotalClampCloseHigh;
-	public/*()*/ float HazeTotalClampFarHigh;
-	public/*()*/ float HazeTotalClampFarDistance;
-	public/*()*/ float HazeMultiplier;
-	public/*()*/ float HazeTotalClampLow;
+	[Category] public Object.Vector HazeColor;
+	[Category] public float AngleCurve;
+	[Category] public float AngleStart;
+	[Category] public float DistanceCurve;
+	[Category] public float DistanceDivider;
+	[Category] public float HazeAngleClampHigh;
+	[Category] public float HazeTotalClampCloseHigh;
+	[Category] public float HazeTotalClampFarHigh;
+	[Category] public float HazeTotalClampFarDistance;
+	[Category] public float HazeMultiplier;
+	[Category] public float HazeTotalClampLow;
 	
 	public TdDirectionalHazePostProcess()
 	{

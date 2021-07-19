@@ -12,19 +12,19 @@ public partial class DOFEffect : PostProcessEffect/*
 		FOCUS_MAX
 	};
 	
-	public/*()*/ float FalloffExponent;
-	public/*()*/ float BlurKernelSize;
-	public/*()*/ float MaxNearBlurAmount;
-	public/*()*/ float MaxFarBlurAmount;
-	public/*()*/ Object.Color ModulateBlurColor;
-	public/*()*/ bool bAutofocus;
-	public/*()*/ float AutofocusSpeedUp;
-	public/*()*/ float AutofocusSpeedDown;
-	public/*()*/ float AutofocusMaxDistance;
-	public/*()*/ DOFEffect.EFocusType FocusType;
-	public/*()*/ float FocusInnerRadius;
-	public/*()*/ float FocusDistance;
-	public/*()*/ Object.Vector FocusPosition;
+	[Category] public float FalloffExponent;
+	[Category] public float BlurKernelSize;
+	[Category] public float MaxNearBlurAmount;
+	[Category] public float MaxFarBlurAmount;
+	[Category] public Object.Color ModulateBlurColor;
+	[Category] public bool bAutofocus;
+	[Category] public float AutofocusSpeedUp;
+	[Category] public float AutofocusSpeedDown;
+	[Category] public float AutofocusMaxDistance;
+	[Category] public DOFEffect.EFocusType FocusType;
+	[Category] public float FocusInnerRadius;
+	[Category] public float FocusDistance;
+	[Category] public Object.Vector FocusPosition;
 	
 	public DOFEffect()
 	{

@@ -7,7 +7,7 @@ public partial class ActorFactoryLensFlare : ActorFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ LensFlare LensFlareObject;
+	[Category] public LensFlare LensFlareObject;
 	
 	public ActorFactoryLensFlare()
 	{

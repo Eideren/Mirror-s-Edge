@@ -6,11 +6,11 @@ public partial class SpotLightComponent : PointLightComponent/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ float InnerConeAngle;
-	public/*()*/ float OuterConeAngle;
-	public /*const export editinline */DrawLightConeComponent PreviewInnerCone;
-	public /*const export editinline */DrawLightConeComponent PreviewOuterCone;
-	public/*()*/ float SpotLightPenumbraAngle;
+	[Category] public float InnerConeAngle;
+	[Category] public float OuterConeAngle;
+	[Const, export, editinline] public DrawLightConeComponent PreviewInnerCone;
+	[Const, export, editinline] public DrawLightConeComponent PreviewOuterCone;
+	[Category] public float SpotLightPenumbraAngle;
 	
 	public SpotLightComponent()
 	{

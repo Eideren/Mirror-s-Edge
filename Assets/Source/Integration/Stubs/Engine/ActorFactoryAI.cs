@@ -7,12 +7,12 @@ public partial class ActorFactoryAI : ActorFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ Core.ClassT<AIController> ControllerClass;
-	public/*()*/ Core.ClassT<Pawn> PawnClass;
-	public/*()*/ String PawnName;
-	public/*()*/ bool bGiveDefaultInventory;
-	public/*()*/ array< Core.ClassT<Inventory> > InventoryList;
-	public/*()*/ int TeamIndex;
+	[Category] public Core.ClassT<AIController> ControllerClass;
+	[Category] public Core.ClassT<Pawn> PawnClass;
+	[Category] public String PawnName;
+	[Category] public bool bGiveDefaultInventory;
+	[Category] public array< Core.ClassT<Inventory> > InventoryList;
+	[Category] public int TeamIndex;
 	
 	public ActorFactoryAI()
 	{

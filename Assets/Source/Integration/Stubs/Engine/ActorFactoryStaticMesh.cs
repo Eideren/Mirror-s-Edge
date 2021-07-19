@@ -7,8 +7,8 @@ public partial class ActorFactoryStaticMesh : ActorFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ StaticMesh StaticMesh;
-	public/*()*/ Object.Vector DrawScale3D;
+	[Category] public StaticMesh StaticMesh;
+	[Category] public Object.Vector DrawScale3D;
 	
 	public ActorFactoryStaticMesh()
 	{

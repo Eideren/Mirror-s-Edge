@@ -6,8 +6,8 @@ public partial class LensFlare : Object/*
 		hidecategories(Object)*/{
 	public partial struct /*native transient */LensFlareElementCurvePair
 	{
-		public /*init */String CurveName;
-		public /*init */Object CurveObject;
+		[init] public String CurveName;
+		[init] public Object CurveObject;
 	
 	//	structdefaultproperties
 	//	{
@@ -19,24 +19,24 @@ public partial class LensFlare : Object/*
 	
 	public partial struct /*native */LensFlareElement
 	{
-		public/*()*/ name ElementName;
-		public/*()*/ float RayDistance;
-		public/*()*/ bool bIsEnabled;
-		public/*()*/ bool bUseSourceDistance;
-		public/*()*/ bool bNormalizeRadialDistance;
-		public/*()*/ bool bModulateColorBySource;
-		public/*()*/ Object.Vector Size;
-		public/*(Material)*/ array<MaterialInterface> LFMaterials;
-		public/*(Material)*/ DistributionFloat.RawDistributionFloat LFMaterialIndex;
-		public/*(Scaling)*/ DistributionFloat.RawDistributionFloat Scaling;
-		public/*(Scaling)*/ DistributionVector.RawDistributionVector AxisScaling;
-		public/*(Rotation)*/ DistributionFloat.RawDistributionFloat Rotation;
-		public/*(Color)*/ DistributionVector.RawDistributionVector Color;
-		public/*(Color)*/ DistributionFloat.RawDistributionFloat Alpha;
-		public/*(Offset)*/ DistributionVector.RawDistributionVector Offset;
-		public/*(Scaling)*/ DistributionVector.RawDistributionVector DistMap_Scale;
-		public/*(Scaling)*/ DistributionVector.RawDistributionVector DistMap_Color;
-		public/*(Scaling)*/ DistributionFloat.RawDistributionFloat DistMap_Alpha;
+		[Category] public name ElementName;
+		[Category] public float RayDistance;
+		[Category] public bool bIsEnabled;
+		[Category] public bool bUseSourceDistance;
+		[Category] public bool bNormalizeRadialDistance;
+		[Category] public bool bModulateColorBySource;
+		[Category] public Object.Vector Size;
+		[Category("Material")] public array<MaterialInterface> LFMaterials;
+		[Category("Material")] public DistributionFloat.RawDistributionFloat LFMaterialIndex;
+		[Category("Scaling")] public DistributionFloat.RawDistributionFloat Scaling;
+		[Category("Scaling")] public DistributionVector.RawDistributionVector AxisScaling;
+		[Category("Rotation")] public DistributionFloat.RawDistributionFloat Rotation;
+		[Category("Color")] public DistributionVector.RawDistributionVector Color;
+		[Category("Color")] public DistributionFloat.RawDistributionFloat Alpha;
+		[Category("Offset")] public DistributionVector.RawDistributionVector Offset;
+		[Category("Scaling")] public DistributionVector.RawDistributionVector DistMap_Scale;
+		[Category("Scaling")] public DistributionVector.RawDistributionVector DistMap_Color;
+		[Category("Scaling")] public DistributionFloat.RawDistributionFloat DistMap_Alpha;
 	
 	//	structdefaultproperties
 	//	{
@@ -167,22 +167,22 @@ public partial class LensFlare : Object/*
 	//	}
 	};
 	
-	public/*(Source)*/ /*export editinline */LensFlare.LensFlareElement SourceElement;
-	public/*(Source)*/ StaticMesh SourceMesh;
-	public/*(Source)*/ /*const */Scene.ESceneDepthPriorityGroup SourceDPG;
-	public/*(Reflections)*/ /*const */Scene.ESceneDepthPriorityGroup ReflectionsDPG;
-	public/*(Reflections)*/ /*export editinline */array</*export editinline */LensFlare.LensFlareElement> Reflections;
-	public/*(Visibility)*/ float OuterCone;
-	public/*(Visibility)*/ float InnerCone;
-	public/*(Visibility)*/ float ConeFudgeFactor;
-	public/*(Visibility)*/ float Radius;
-	public/*(Occlusion)*/ DistributionFloat.RawDistributionFloat ScreenPercentageMap;
-	public/*(Bounds)*/ bool bUseFixedRelativeBoundingBox;
-	public/*(Debug)*/ bool bRenderDebugLines;
+	[Category("Source")] [export, editinline] public LensFlare.LensFlareElement SourceElement;
+	[Category("Source")] public StaticMesh SourceMesh;
+	[Category("Source")] [Const] public Scene.ESceneDepthPriorityGroup SourceDPG;
+	[Category("Reflections")] [Const] public Scene.ESceneDepthPriorityGroup ReflectionsDPG;
+	[Category("Reflections")] [export, editinline] public array</*export editinline */LensFlare.LensFlareElement> Reflections;
+	[Category("Visibility")] public float OuterCone;
+	[Category("Visibility")] public float InnerCone;
+	[Category("Visibility")] public float ConeFudgeFactor;
+	[Category("Visibility")] public float Radius;
+	[Category("Occlusion")] public DistributionFloat.RawDistributionFloat ScreenPercentageMap;
+	[Category("Bounds")] public bool bUseFixedRelativeBoundingBox;
+	[Category("Debug")] public bool bRenderDebugLines;
 	public bool ThumbnailImageOutOfDate;
-	public/*(Bounds)*/ Object.Box FixedRelativeBoundingBox;
-	public /*export */InterpCurveEdSetup CurveEdSetup;
-	public /*transient */int ReflectionCount;
+	[Category("Bounds")] public Object.Box FixedRelativeBoundingBox;
+	[export] public InterpCurveEdSetup CurveEdSetup;
+	[transient] public int ReflectionCount;
 	public Object.Rotator ThumbnailAngle;
 	public float ThumbnailDistance;
 	public Texture2D ThumbnailImage;

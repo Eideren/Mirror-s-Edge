@@ -8,12 +8,12 @@ public partial class TdUIScene_ControlsSettings : TdUIScene_OptionMenu/*
 	public String PCControllerImagePath;
 	public String XBoxControllerImagePath;
 	public String PS3ControllerImagePath;
-	public /*transient */UIPanel ControllerPanel;
-	public /*transient */array<UILabel> ControllerButtonLabels;
-	public /*transient */UILabel TitleLabel;
-	public /*transient */UIImage ControllerImage;
-	public /*transient */array<UIDataProvider_TdKeyBinding> KeyData;
-	public /*transient */array<Input.KeyBind> ControllerBinds;
+	[transient] public UIPanel ControllerPanel;
+	[transient] public array<UILabel> ControllerButtonLabels;
+	[transient] public UILabel TitleLabel;
+	[transient] public UIImage ControllerImage;
+	[transient] public array<UIDataProvider_TdKeyBinding> KeyData;
+	[transient] public array<Input.KeyBind> ControllerBinds;
 	
 	// Export UTdUIScene_ControlsSettings::execGetKeyBindingsData(FFrame&, void* const)
 	public virtual /*native function */bool GetKeyBindingsData(ref array<UIDataProvider_TdKeyBinding> LabelData)

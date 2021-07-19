@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdMove_BotPursuitFinishingAttack : TdMove_BotMelee/*
 		config(AIMeleeAttacks)*/{
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties FinishingAttackProperties;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties FinishingAttackProperties;
 	
 	public override /*simulated function */void TriggerMove()
 	{

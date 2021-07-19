@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdSPTimeTrialPostProcessing : TdSPPostProcessingBase/* within TdSPTimeTrialGame*/{
 	public new TdSPTimeTrialGame Outer => base.Outer as TdSPTimeTrialGame;
 	
-	public /*private */bool bSaveGhost;
+	public/*private*/ bool bSaveGhost;
 	
 	public override /*function */void ProcessRace(TdTTInput RaceInput, int InStretchId, /*delegate*/TdSPPostProcessingBase.OnPostProcessDone PostProcessDone)
 	{

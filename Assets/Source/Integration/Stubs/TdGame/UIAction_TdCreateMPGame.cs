@@ -4,12 +4,12 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class UIAction_TdCreateMPGame : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ name DataStoreName;
-	public/*()*/ String MapName;
+	[Category] public name DataStoreName;
+	[Category] public String MapName;
 	public bool bIsDone;
 	public bool bSuccess;
-	public/*()*/ String Parameters;
-	public /*transient */String ExecCmd;
+	[Category] public String Parameters;
+	[transient] public String ExecCmd;
 	
 	public UIAction_TdCreateMPGame()
 	{

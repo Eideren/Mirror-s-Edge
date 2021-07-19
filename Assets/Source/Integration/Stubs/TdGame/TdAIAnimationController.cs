@@ -53,21 +53,21 @@ public partial class TdAIAnimationController : Actor/*
 		EAimState_MAX
 	};
 	
-	public /*private transient */TdBotPawn AiPawn;
-	public /*private transient */TdAIController AIController;
-	public /*private export editinline transient */TdSkeletalMeshComponent SkeletalComponent;
-	public /*private transient */TdAIAnimationController.EAiAnimationState AnimationState;
-	public /*private transient */TdAIAnimationController.EAimState AimState;
-	public /*private transient */TdAIAnimationController.ECoverState CoverState;
-	public /*private transient */TdAIAnimationController.ECoverState PendingCoverState;
-	public /*private transient */TdAIAnimationController.ECoverDirectionState CoverDirection;
-	public /*private transient */float AimStateBlendValue;
-	public /*private transient */bool bPendingLegRotationState;
-	public /*private transient */bool bIsInCover;
-	public /*private transient */bool bUseLazySpring;
-	public /*private transient */bool bPendingLazySpringState;
-	public /*private transient */float ReloadPlaybackRate;
-	public /*private transient */name CoverAnimationSequenceName;
+	[transient] public/*private*/ TdBotPawn AiPawn;
+	[transient] public/*private*/ TdAIController AIController;
+	[export, editinline, transient] public/*private*/ TdSkeletalMeshComponent SkeletalComponent;
+	[transient] public/*private*/ TdAIAnimationController.EAiAnimationState AnimationState;
+	[transient] public/*private*/ TdAIAnimationController.EAimState AimState;
+	[transient] public/*private*/ TdAIAnimationController.ECoverState CoverState;
+	[transient] public/*private*/ TdAIAnimationController.ECoverState PendingCoverState;
+	[transient] public/*private*/ TdAIAnimationController.ECoverDirectionState CoverDirection;
+	[transient] public/*private*/ float AimStateBlendValue;
+	[transient] public/*private*/ bool bPendingLegRotationState;
+	[transient] public/*private*/ bool bIsInCover;
+	[transient] public/*private*/ bool bUseLazySpring;
+	[transient] public/*private*/ bool bPendingLazySpringState;
+	[transient] public/*private*/ float ReloadPlaybackRate;
+	[transient] public/*private*/ name CoverAnimationSequenceName;
 	
 	// Export UTdAIAnimationController::execGetAnimationState(FFrame&, void* const)
 	public virtual /*native function */TdAIAnimationController.EAiAnimationState GetAnimationState()

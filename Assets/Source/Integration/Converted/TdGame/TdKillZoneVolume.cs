@@ -42,15 +42,15 @@ public partial class TdKillZoneVolume : Volume/*
 	//	}
 	};
 	
-	public/*(KillKillKill)*/ array<TdKillZoneKiller> LaserShooters;
-	public/*(KillKillKill)*/ float DamagePerShot;
+	[Category("KillKillKill")] public array<TdKillZoneKiller> LaserShooters;
+	[Category("KillKillKill")] public float DamagePerShot;
 	public ParticleSystem LaserBeamTemplate;
 	public ParticleSystem LaserHitTemplate;
 	public ParticleSystem LaserSourceTemplate;
 	public array<TdKillZoneVolume.LaserInfo> LaserInfos;
 	public int CurrentFire;
 	public bool bFire;
-	public /*private transient */bool bActive;
+	[transient] public/*private*/ bool bActive;
 	public float TimeToAim;
 	public SoundCue WeaponSound;
 	public SoundCue WeaponReverbSound;
@@ -58,7 +58,7 @@ public partial class TdKillZoneVolume : Volume/*
 	public int MaxNumberOfSlapBackRays;
 	public int NumberOfSlapBacks;
 	public float RangeOfSlapBackRays;
-	public /*private transient */TdPlayerPawn Player;
+	[transient] public/*private*/ TdPlayerPawn Player;
 	
 	public override /*event */void PostBeginPlay()
 	{

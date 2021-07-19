@@ -7,9 +7,9 @@ public partial class ActorFactorySkeletalMesh : ActorFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ SkeletalMesh SkeletalMesh;
-	public/*()*/ AnimSet AnimSet;
-	public/*()*/ name AnimSequenceName;
+	[Category] public SkeletalMesh SkeletalMesh;
+	[Category] public AnimSet AnimSet;
+	[Category] public name AnimSequenceName;
 	
 	public ActorFactorySkeletalMesh()
 	{

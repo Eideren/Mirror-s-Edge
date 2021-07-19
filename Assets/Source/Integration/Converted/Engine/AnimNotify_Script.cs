@@ -6,7 +6,7 @@ public partial class AnimNotify_Script : AnimNotify/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ name NotifyName;
+	[Category] public name NotifyName;
 	
 }
 }

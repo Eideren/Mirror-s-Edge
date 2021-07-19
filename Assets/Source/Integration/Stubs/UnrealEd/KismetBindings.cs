@@ -6,10 +6,10 @@ public partial class KismetBindings : Object/*
 		config(Editor)*/{
 	public partial struct /*native */KismetKeyBind
 	{
-		public /*config */name Key;
-		public /*config */bool bControl;
-		public /*config */bool bShift;
-		public /*config */name SeqObjClassName;
+		[config] public name Key;
+		[config] public bool bControl;
+		[config] public bool bShift;
+		[config] public name SeqObjClassName;
 	
 	//	structdefaultproperties
 	//	{
@@ -23,11 +23,11 @@ public partial class KismetBindings : Object/*
 	
 	public partial struct /*native */KismetCommentPreset
 	{
-		public /*config */name PresetName;
-		public /*config */int BorderWidth;
-		public /*config */Object.Color BorderColor;
-		public /*config */bool bFilled;
-		public /*config */Object.Color FillColor;
+		[config] public name PresetName;
+		[config] public int BorderWidth;
+		[config] public Object.Color BorderColor;
+		[config] public bool bFilled;
+		[config] public Object.Color FillColor;
 	
 	//	structdefaultproperties
 	//	{
@@ -52,8 +52,8 @@ public partial class KismetBindings : Object/*
 	//	}
 	};
 	
-	public /*config */array</*config */KismetBindings.KismetKeyBind> Bindings;
-	public /*config */array</*config */KismetBindings.KismetCommentPreset> CommentPresets;
+	[config] public array</*config */KismetBindings.KismetKeyBind> Bindings;
+	[config] public array</*config */KismetBindings.KismetCommentPreset> CommentPresets;
 	
 	public KismetBindings()
 	{

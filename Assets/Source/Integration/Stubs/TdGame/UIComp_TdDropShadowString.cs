@@ -7,9 +7,9 @@ public partial class UIComp_TdDropShadowString : UIComp_DrawString/* within UIOb
 		hidecategories(Object)*/{
 	public new UIObject Outer => base.Outer as UIObject;
 	
-	public/*(DropShadow)*/ UIRoot.UIStyleReference DropShadowStyle;
-	public/*(DropShadow)*/ float VerticalPctOffset;
-	public/*(DropShadow)*/ float HorizontalPctOffset;
+	[Category("DropShadow")] public UIRoot.UIStyleReference DropShadowStyle;
+	[Category("DropShadow")] public float VerticalPctOffset;
+	[Category("DropShadow")] public float HorizontalPctOffset;
 	
 	public UIComp_TdDropShadowString()
 	{

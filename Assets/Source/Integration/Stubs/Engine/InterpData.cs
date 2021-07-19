@@ -6,11 +6,11 @@ public partial class InterpData : SequenceVariable/*
 		hidecategories(Object)*/{
 	public float InterpLength;
 	public float PathBuildTime;
-	public /*export */array</*export */InterpGroup> InterpGroups;
-	public /*export */InterpCurveEdSetup CurveEdSetup;
-	public /*editoronly */array<InterpFilter> InterpFilters;
-	public /*editoronly */InterpFilter SelectedFilter;
-	public /*editoronly transient */array<InterpFilter> DefaultFilters;
+	[export] public array</*export */InterpGroup> InterpGroups;
+	[export] public InterpCurveEdSetup CurveEdSetup;
+	[editoronly] public array<InterpFilter> InterpFilters;
+	[editoronly] public InterpFilter SelectedFilter;
+	[editoronly, transient] public array<InterpFilter> DefaultFilters;
 	public float EdSectionStart;
 	public float EdSectionEnd;
 	

@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class AnimationCompressionAlgorithm_RemoveEverySecondKey : AnimationCompressionAlgorithm/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ int MinKeys;
-	public/*()*/ bool bStartAtSecondKey;
+	[Category] public int MinKeys;
+	[Category] public bool bStartAtSecondKey;
 	
 	public AnimationCompressionAlgorithm_RemoveEverySecondKey()
 	{

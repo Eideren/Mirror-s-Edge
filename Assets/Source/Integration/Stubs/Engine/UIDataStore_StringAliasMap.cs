@@ -21,9 +21,9 @@ public partial class UIDataStore_StringAliasMap : UIDataStore/*
 	//	}
 	};
 	
-	public /*config */array</*config */UIDataStore_StringAliasMap.UIMenuInputMap> MenuInputMapArray;
-	public /*private native const transient */Object.Map_Mirror MenuInputSets;
-	public /*const transient */int PlayerIndex;
+	[config] public array</*config */UIDataStore_StringAliasMap.UIMenuInputMap> MenuInputMapArray;
+	[native, Const, transient] public/*private*/ Object.Map_Mirror MenuInputSets;
+	[Const, transient] public int PlayerIndex;
 	
 	// Export UUIDataStore_StringAliasMap::execGetPlayerOwner(FFrame&, void* const)
 	public virtual /*native final function */LocalPlayer GetPlayerOwner()

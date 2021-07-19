@@ -4,11 +4,11 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_Delay : SeqAct_Latent/*
 		native
 		hidecategories(Object)*/{
-	public /*const */bool bDelayActive;
-	public /*const */float DefaultDuration;
-	public/*()*/ float Duration;
-	public /*const */float LastUpdateTime;
-	public /*const */float RemainingTime;
+	[Const] public bool bDelayActive;
+	[Const] public float DefaultDuration;
+	[Category] public float Duration;
+	[Const] public float LastUpdateTime;
+	[Const] public float RemainingTime;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

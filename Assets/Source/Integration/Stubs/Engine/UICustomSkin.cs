@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UICustomSkin : UISkin/*
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*native const *//*map<0,0>*/map<object, object> WidgetStyleMap;
+	[native, Const] public /*map<0,0>*/map<object, object> WidgetStyleMap;
 	
 }
 }

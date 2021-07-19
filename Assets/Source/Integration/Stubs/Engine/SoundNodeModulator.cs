@@ -6,8 +6,8 @@ public partial class SoundNodeModulator : SoundNode/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ DistributionFloat.RawDistributionFloat VolumeModulation;
-	public/*()*/ DistributionFloat.RawDistributionFloat PitchModulation;
+	[Category] public DistributionFloat.RawDistributionFloat VolumeModulation;
+	[Category] public DistributionFloat.RawDistributionFloat PitchModulation;
 	
 	public SoundNodeModulator()
 	{

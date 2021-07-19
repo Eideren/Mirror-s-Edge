@@ -7,11 +7,11 @@ public partial class UIDataProvider_UnlocksProvider : UIDataProvider_TdResource/
 		config(Game)
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
-	public /*const config localized */String FriendlyName;
-	public /*const config localized */String Description;
-	public /*config */String ResourcePath;
-	public /*config */int LevelId;
-	public /*config */int UnlockId;
+	[Const, config, localized] public String FriendlyName;
+	[Const, config, localized] public String Description;
+	[config] public String ResourcePath;
+	[config] public int LevelId;
+	[config] public int UnlockId;
 	
 }
 }

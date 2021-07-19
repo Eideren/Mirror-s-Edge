@@ -6,8 +6,8 @@ public partial class TpRankingService : TpSystemHandler/*
 		transient
 		native
 		config(RankingStats)*/{
-	public /*const config transient */int Rank_Unranked;
-	public /*const config transient */int Rank_Max;
+	[Const, config, transient] public int Rank_Unranked;
+	[Const, config, transient] public int Rank_Max;
 	public /*delegate*/TpRankingService.OnReadOnlineStatsComplete __OnReadOnlineStatsComplete__Delegate;
 	public /*delegate*/TpRankingService.OnFlushOnlineStatsComplete __OnFlushOnlineStatsComplete__Delegate;
 	

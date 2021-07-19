@@ -6,19 +6,19 @@ public partial class UISceneClient : UIRoot/*
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*private native const noexport */Object.Pointer VfTable_FExec;
-	public /*private native const noexport */Object.Pointer VfTable_FCallbackEventDevice;
-	public /*native const transient */Object.Pointer RenderViewport;
-	public /*transient */UISkin ActiveSkin;
-	public /*const transient */Object.IntPoint MousePosition;
-	public /*const transient */UIObject ActiveControl;
-	public /*const transient */DataStoreClient DataStoreManager;
-	public /*transient */MaterialInstanceConstant OpacityParameter;
-	public /*const transient */name OpacityParameterName;
-	public /*const transient */Object.Matrix CanvasToScreen;
-	public /*const transient */Object.Matrix InvCanvasToScreen;
-	public /*transient */PostProcessChain UIScenePostProcess;
-	public /*transient */bool bEnablePostProcess;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FExec;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FCallbackEventDevice;
+	[native, Const, transient] public Object.Pointer RenderViewport;
+	[transient] public UISkin ActiveSkin;
+	[Const, transient] public Object.IntPoint MousePosition;
+	[Const, transient] public UIObject ActiveControl;
+	[Const, transient] public DataStoreClient DataStoreManager;
+	[transient] public MaterialInstanceConstant OpacityParameter;
+	[Const, transient] public name OpacityParameterName;
+	[Const, transient] public Object.Matrix CanvasToScreen;
+	[Const, transient] public Object.Matrix InvCanvasToScreen;
+	[transient] public PostProcessChain UIScenePostProcess;
+	[transient] public bool bEnablePostProcess;
 	
 	// Export UUISceneClient::execChangeActiveSkin(FFrame&, void* const)
 	public virtual /*native final function */bool ChangeActiveSkin(UISkin NewActiveSkin)

@@ -16,17 +16,17 @@ public partial class UIDataStore_TdGameData : UIDataStore_TdGameResource,
 		RR_MAX
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
-	public /*transient */UIDataStore_TdGameData.RebootReasonType RebootReason;
-	public /*transient */bool bSkipRestoreScenes;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementCellProvider;
+	[transient] public UIDataStore_TdGameData.RebootReasonType RebootReason;
+	[transient] public bool bSkipRestoreScenes;
 	public bool bViewGhost;
-	public /*transient */String RestoredScenesSerialized;
-	public /*transient */String RestoredMenuSerialized;
-	public /*transient */int CurrentMap;
-	public /*transient */int SkipTitleScreen;
-	public /*transient */array<int> MapCycle;
-	public /*transient */int CurrentGameMode;
-	public /*transient */TdCheckpointManager CheckpointManager;
+	[transient] public String RestoredScenesSerialized;
+	[transient] public String RestoredMenuSerialized;
+	[transient] public int CurrentMap;
+	[transient] public int SkipTitleScreen;
+	[transient] public array<int> MapCycle;
+	[transient] public int CurrentGameMode;
+	[transient] public TdCheckpointManager CheckpointManager;
 	public array<byte> CheckpointDataArray;
 	public int CurrentMapForCheckpoints;
 	public float TimeAttackClock;

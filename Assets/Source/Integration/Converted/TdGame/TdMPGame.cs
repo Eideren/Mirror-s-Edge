@@ -19,21 +19,21 @@ public partial class TdMPGame : TdGameInfo/*
 	//	}
 	};
 	
-	public /*config */String IpServerNumber;
-	public /*const config */float GlobalPlayerRespawnTime;
-	public /*const config */float IndividualPlayerMinRespawnTime;
-	public /*const config */float TimeBetweenRounds;
-	public /*const config */float TimeBetweenMatches;
-	public /*const config */int MaxRounds;
+	[config] public String IpServerNumber;
+	[Const, config] public float GlobalPlayerRespawnTime;
+	[Const, config] public float IndividualPlayerMinRespawnTime;
+	[Const, config] public float TimeBetweenRounds;
+	[Const, config] public float TimeBetweenMatches;
+	[Const, config] public int MaxRounds;
 	public int RoundCount;
-	public /*protected */array<String> CriminalClasses;
-	public /*protected */array<String> PoliceClasses;
+	public/*protected*/ array<String> CriminalClasses;
+	public/*protected*/ array<String> PoliceClasses;
 	public array<TdMPGame.DeadPlayerController> DeadControllers;
 	public bool bInitialSpawn;
-	public /*config */bool bUseWarmup;
+	[config] public bool bUseWarmup;
 	public Core.ClassT<TdVictoryMessage> VictoryMessageClass;
-	public /*config */int MinWarmupPlayersNeeded;
-	public /*config */int WarmupCountDownTime;
+	[config] public int MinWarmupPlayersNeeded;
+	[config] public int WarmupCountDownTime;
 	
 	public override /*event */void InitGame(String Options, ref String ErrorMessage)
 	{

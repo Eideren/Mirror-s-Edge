@@ -6,19 +6,19 @@ public partial class FluidSurfaceComponent : PrimitiveComponent/*
 		editinlinenew
 		hidecategories(Object)
 		autoexpandcategories(Fluid,Test)*/{
-	public/*(Fluid)*/ MaterialInterface FluidMaterial;
-	public/*(Fluid)*/ float FluidSpeed;
-	public/*(Fluid)*/ float FluidDamping;
-	public/*(Fluid)*/ float HeightScale;
-	public/*(Fluid)*/ float GridSpacing;
-	public/*(Fluid)*/ bool bAnimate;
-	public/*(Test)*/ /*transient */bool bDrawNormals;
-	public/*(Test)*/ /*transient */bool bTestRipple;
-	public/*(Test)*/ /*transient */float TestRippleSpeed;
-	public/*(Test)*/ /*transient */float TestRippleStrength;
-	public/*(Test)*/ /*transient */float TestRippleRadius;
-	public /*transient */float TestRippleAngle;
-	public /*private native const transient */Object.Pointer FluidSurfaceInfo;
+	[Category("Fluid")] public MaterialInterface FluidMaterial;
+	[Category("Fluid")] public float FluidSpeed;
+	[Category("Fluid")] public float FluidDamping;
+	[Category("Fluid")] public float HeightScale;
+	[Category("Fluid")] public float GridSpacing;
+	[Category("Fluid")] public bool bAnimate;
+	[Category("Test")] [transient] public bool bDrawNormals;
+	[Category("Test")] [transient] public bool bTestRipple;
+	[Category("Test")] [transient] public float TestRippleSpeed;
+	[Category("Test")] [transient] public float TestRippleStrength;
+	[Category("Test")] [transient] public float TestRippleRadius;
+	[transient] public float TestRippleAngle;
+	[native, Const, transient] public/*private*/ Object.Pointer FluidSurfaceInfo;
 	
 	public FluidSurfaceComponent()
 	{

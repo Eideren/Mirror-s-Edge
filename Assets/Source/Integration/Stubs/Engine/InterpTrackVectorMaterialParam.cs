@@ -5,7 +5,7 @@ public partial class InterpTrackVectorMaterialParam : InterpTrackVectorBase/*
 		native
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ name ParamName;
+	[Category] public name ParamName;
 	
 	public InterpTrackVectorMaterialParam()
 	{

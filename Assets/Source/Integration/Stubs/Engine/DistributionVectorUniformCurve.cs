@@ -6,12 +6,12 @@ public partial class DistributionVectorUniformCurve : DistributionVector/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ Object.InterpCurveTwoVectors ConstantCurve;
+	[Category] public Object.InterpCurveTwoVectors ConstantCurve;
 	public bool bLockAxes1;
 	public bool bLockAxes2;
-	public/*()*/ bool bUseExtremes;
-	public/*()*/ StaticArray<DistributionVector.EDistributionVectorLockFlags, DistributionVector.EDistributionVectorLockFlags>/*[2]*/ LockedAxes;
-	public/*()*/ StaticArray<DistributionVector.EDistributionVectorMirrorFlags, DistributionVector.EDistributionVectorMirrorFlags, DistributionVector.EDistributionVectorMirrorFlags>/*[3]*/ MirrorFlags;
+	[Category] public bool bUseExtremes;
+	[Category] public StaticArray<DistributionVector.EDistributionVectorLockFlags, DistributionVector.EDistributionVectorLockFlags>/*[2]*/ LockedAxes;
+	[Category] public StaticArray<DistributionVector.EDistributionVectorMirrorFlags, DistributionVector.EDistributionVectorMirrorFlags, DistributionVector.EDistributionVectorMirrorFlags>/*[3]*/ MirrorFlags;
 	
 	public DistributionVectorUniformCurve()
 	{

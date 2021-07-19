@@ -7,9 +7,9 @@ public partial class UIString : UIRoot/* within UIScreenObject*//*
 		hidecategories(Object,UIRoot)*/{
 	public new UIScreenObject Outer => base.Outer as UIScreenObject;
 	
-	public /*native transient */array<Object.Pointer> Nodes;
-	public /*transient */UIRoot.UICombinedStyleData StringStyleData;
-	public /*transient */Object.Vector2D StringExtent;
+	[native, transient] public array<Object.Pointer> Nodes;
+	[transient] public UIRoot.UICombinedStyleData StringStyleData;
+	[transient] public Object.Vector2D StringExtent;
 	
 	// Export UUIString::execSetValue(FFrame&, void* const)
 	public virtual /*native final function */bool SetValue(String InputString, bool bIgnoreMarkup)

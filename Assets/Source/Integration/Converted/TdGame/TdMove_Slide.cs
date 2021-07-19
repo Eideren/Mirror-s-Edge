@@ -4,13 +4,13 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_Slide : TdMove/*
 		native
 		config(PawnMovement)*/{
-	public/*(Slide)*/ /*config */float SlideAbortSpeed;
-	public/*(Slide)*/ /*config */float SlideAbortTime;
-	public/*(Slide)*/ /*config */float MaxFloorInclineZ;
+	[Category("Slide")] [config] public float SlideAbortSpeed;
+	[Category("Slide")] [config] public float SlideAbortTime;
+	[Category("Slide")] [config] public float MaxFloorInclineZ;
 	public int SlideAngleTarget;
 	public bool bGoingInto;
 	public bool bRequestUncrouch;
-	public /*private */ForceFeedbackWaveform SlideWaveform;
+	public/*private*/ ForceFeedbackWaveform SlideWaveform;
 	
 	// Export UTdMove_Slide::execFloorDeclineTooSteep(FFrame&, void* const)
 	public virtual /*native function */bool FloorDeclineTooSteep()

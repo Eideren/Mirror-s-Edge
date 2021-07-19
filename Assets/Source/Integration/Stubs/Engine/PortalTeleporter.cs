@@ -6,11 +6,11 @@ public partial class PortalTeleporter : SceneCapturePortalActor/*
 		native
 		notplaceable
 		hidecategories(Navigation)*/{
-	public/*()*/ PortalTeleporter SisterPortal;
-	public/*()*/ int TextureResolutionX;
-	public/*()*/ int TextureResolutionY;
+	[Category] public PortalTeleporter SisterPortal;
+	[Category] public int TextureResolutionX;
+	[Category] public int TextureResolutionY;
 	public PortalMarker MyMarker;
-	public/*()*/ bool bMovablePortal;
+	[Category] public bool bMovablePortal;
 	public bool bAlwaysTeleportNonPawns;
 	public bool bCanTeleportVehicles;
 	

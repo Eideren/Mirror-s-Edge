@@ -5,14 +5,14 @@ public partial class TdProj_Grenade : TdProjectile/*
 		abstract
 		notplaceable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*export editinline */PrimitiveComponent Mesh;
+	[Category] [export, editinline] public PrimitiveComponent Mesh;
 	public float TimeToExplode;
-	public/*(Sounds)*/ SoundCue ExplodingSound;
-	public/*(Sounds)*/ SoundCue BouncingSound;
-	public/*(Effects)*/ ParticleSystem ExplodingEffect;
-	public/*()*/ /*export editinline */ParticleSystemComponent PSC_SmokeTrail;
-	public /*repnotify */bool bHasExploded;
-	public /*export editinline */AudioComponent InFlightSound;
+	[Category("Sounds")] public SoundCue ExplodingSound;
+	[Category("Sounds")] public SoundCue BouncingSound;
+	[Category("Effects")] public ParticleSystem ExplodingEffect;
+	[Category] [export, editinline] public ParticleSystemComponent PSC_SmokeTrail;
+	[repnotify] public bool bHasExploded;
+	[export, editinline] public AudioComponent InFlightSound;
 	public SoundCue InFlightSoundTemplate;
 	
 	//replication

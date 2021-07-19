@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNodeDirBone : AnimNodeAimOffset/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ bool bUsePitch;
-	public/*()*/ bool bInvertXAxis;
+	[Category] public bool bUsePitch;
+	[Category] public bool bInvertXAxis;
 	public array<TdAnimNodeDirBone> FriendNodes;
 	
 	public override /*event */void EditorProfileUpdated(name ProfileName)

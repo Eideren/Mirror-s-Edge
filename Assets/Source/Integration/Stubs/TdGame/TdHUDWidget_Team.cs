@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdHUDWidget_Team : TdHUDWidget/*
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*export editinline deprecated */UILabel teamLabel;
+	[export, editinline, deprecated] public UILabel teamLabel;
 	
 	public TdHUDWidget_Team()
 	{

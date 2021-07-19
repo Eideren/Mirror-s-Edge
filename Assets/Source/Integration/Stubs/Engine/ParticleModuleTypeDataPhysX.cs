@@ -8,10 +8,10 @@ public partial class ParticleModuleTypeDataPhysX : ParticleModuleTypeDataBase/*
 		hidecategories(Object,Object,Object)*/{
 	public partial struct /*native */PhysXEmitterVerticalLodProperties
 	{
-		public/*()*/ float WeightForFifo;
-		public/*()*/ float WeightForSpawnLod;
-		public/*()*/ float SpawnLodRateVsLifeBias;
-		public/*()*/ float RelativeFadeoutTime;
+		[Category] public float WeightForFifo;
+		[Category] public float WeightForSpawnLod;
+		[Category] public float SpawnLodRateVsLifeBias;
+		[Category] public float RelativeFadeoutTime;
 	
 	//	structdefaultproperties
 	//	{
@@ -23,8 +23,8 @@ public partial class ParticleModuleTypeDataPhysX : ParticleModuleTypeDataBase/*
 	//	}
 	};
 	
-	public/*(PhysXEmitter)*/ PhysXParticleSystem PhysXParSys;
-	public/*(PhysXEmitter)*/ ParticleModuleTypeDataPhysX.PhysXEmitterVerticalLodProperties VerticalLod;
+	[Category("PhysXEmitter")] public PhysXParticleSystem PhysXParSys;
+	[Category("PhysXEmitter")] public ParticleModuleTypeDataPhysX.PhysXEmitterVerticalLodProperties VerticalLod;
 	
 	public ParticleModuleTypeDataPhysX()
 	{

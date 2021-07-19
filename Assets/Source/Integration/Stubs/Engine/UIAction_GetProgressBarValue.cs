@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIAction_GetProgressBarValue : UIAction_GetValue/*
 		hidecategories(Object)*/{
 	public float Value;
-	public/*()*/ bool bPercentageValue;
+	[Category] public bool bPercentageValue;
 	
 	public UIAction_GetProgressBarValue()
 	{

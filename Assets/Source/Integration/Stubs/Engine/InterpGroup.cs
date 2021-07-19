@@ -22,13 +22,13 @@ public partial class InterpGroup : Object/*
 	//	}
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTable_FInterpEdInputInterface;
-	public /*export */array</*export */InterpTrack> InterpTracks;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FInterpEdInputInterface;
+	[export] public array</*export */InterpTrack> InterpTracks;
 	public name GroupName;
-	public/*()*/ Object.Color GroupColor;
-	public/*()*/ array<AnimSet> GroupAnimSets;
+	[Category] public Object.Color GroupColor;
+	[Category] public array<AnimSet> GroupAnimSets;
 	public bool bCollapsed;
-	public /*transient */bool bVisible;
+	[transient] public bool bVisible;
 	public bool bIsFolder;
 	public bool bIsParented;
 	

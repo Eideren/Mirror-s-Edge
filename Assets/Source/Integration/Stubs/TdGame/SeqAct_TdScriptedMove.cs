@@ -4,10 +4,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdScriptedMove : SeqAct_Latent/*
 		native
 		hidecategories(Object)*/{
-	public /*transient */TdPlayerPawn PlayerPawn;
-	public /*transient */Actor DestinationActor;
-	public/*(Offset)*/ Object.Vector WorldTranslationOffset;
-	public/*(Offset)*/ Object.Rotator WorldRotationOffset;
+	[transient] public TdPlayerPawn PlayerPawn;
+	[transient] public Actor DestinationActor;
+	[Category("Offset")] public Object.Vector WorldTranslationOffset;
+	[Category("Offset")] public Object.Rotator WorldRotationOffset;
 	
 	// Export USeqAct_TdScriptedMove::execAbortScriptedMove(FFrame&, void* const)
 	public virtual /*native function */void AbortScriptedMove()

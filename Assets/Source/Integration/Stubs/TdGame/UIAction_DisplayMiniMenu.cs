@@ -5,8 +5,8 @@ public partial class UIAction_DisplayMiniMenu : UIAction/*
 		native
 		hidecategories(Object)*/{
 	public bool bIsDone;
-	public /*transient */UIScene OpenedScene;
-	public/*()*/ UIScene MessageBoxScene;
+	[transient] public UIScene OpenedScene;
+	[Category] public UIScene MessageBoxScene;
 	
 	public virtual /*function */void OnMenuClosed(int InPlayerIndex, bool bInAcceptOk)
 	{

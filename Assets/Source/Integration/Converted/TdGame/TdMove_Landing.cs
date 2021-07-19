@@ -4,17 +4,17 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_Landing : TdMove/*
 		native
 		config(PawnMovement)*/{
-	public /*config */float HardLandingDamage;
-	public /*config */float LandingSpeedReduction;
-	public /*config */float HardLandingHeight;
-	public /*config */float SkillRollLandingHeight;
-	public /*config */float SoftLandingHeight;
-	public /*private */ForceFeedbackWaveform ImpactHeavyWaveform;
-	public /*private */ForceFeedbackWaveform ImpactMediumWaveform;
+	[config] public float HardLandingDamage;
+	[config] public float LandingSpeedReduction;
+	[config] public float HardLandingHeight;
+	[config] public float SkillRollLandingHeight;
+	[config] public float SoftLandingHeight;
+	public/*private*/ ForceFeedbackWaveform ImpactHeavyWaveform;
+	public/*private*/ ForceFeedbackWaveform ImpactMediumWaveform;
 	public bool bForceLandBack;
-	public /*private transient */bool bLastLandingWasOnSoftObject;
-	public /*private */MaterialInstance SoftLandingMaterialInstance;
-	public /*private transient */ParticleSystem SoftLandingEffect;
+	[transient] public/*private*/ bool bLastLandingWasOnSoftObject;
+	public/*private*/ MaterialInstance SoftLandingMaterialInstance;
+	[transient] public/*private*/ ParticleSystem SoftLandingEffect;
 	
 	// Export UTdMove_Landing::execIsLandingOnSoftObject(FFrame&, void* const)
 	public virtual /*native function */bool IsLandingOnSoftObject()

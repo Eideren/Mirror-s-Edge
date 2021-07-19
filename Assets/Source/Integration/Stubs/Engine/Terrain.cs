@@ -19,14 +19,14 @@ public partial class Terrain : Info/*
 	
 	public partial struct TerrainLayer
 	{
-		public/*()*/ String Name;
-		public/*()*/ TerrainLayerSetup Setup;
+		[Category] public String Name;
+		[Category] public TerrainLayerSetup Setup;
 		public int AlphaMapIndex;
-		public/*()*/ bool Highlighted;
-		public/*()*/ bool WireframeHighlighted;
-		public/*()*/ bool Hidden;
-		public/*()*/ Object.Color HighlightColor;
-		public/*()*/ Object.Color WireframeColor;
+		[Category] public bool Highlighted;
+		[Category] public bool WireframeHighlighted;
+		[Category] public bool Hidden;
+		[Category] public Object.Color HighlightColor;
+		[Category] public Object.Color WireframeColor;
 		public int MinX;
 		public int MinY;
 		public int MaxX;
@@ -68,7 +68,7 @@ public partial class Terrain : Info/*
 	
 	public partial struct TerrainDecorationInstance
 	{
-		public /*export editinline */PrimitiveComponent Component;
+		[export, editinline] public PrimitiveComponent Component;
 		public float X;
 		public float Y;
 		public float Scale;
@@ -87,12 +87,12 @@ public partial class Terrain : Info/*
 	
 	public partial struct TerrainDecoration
 	{
-		public/*()*/ /*editinline */PrimitiveComponentFactory Factory;
-		public/*()*/ float MinScale;
-		public/*()*/ float MaxScale;
-		public/*()*/ float Density;
-		public/*()*/ float SlopeRotationBlend;
-		public/*()*/ int RandSeed;
+		[Category] [editinline] public PrimitiveComponentFactory Factory;
+		[Category] public float MinScale;
+		[Category] public float MaxScale;
+		[Category] public float Density;
+		[Category] public float SlopeRotationBlend;
+		[Category] public int RandSeed;
 		public array<Terrain.TerrainDecorationInstance> Instances;
 	
 	//	structdefaultproperties
@@ -110,8 +110,8 @@ public partial class Terrain : Info/*
 	
 	public partial struct TerrainDecoLayer
 	{
-		public/*()*/ String Name;
-		public/*()*/ array<Terrain.TerrainDecoration> Decorations;
+		[Category] public String Name;
+		[Category] public array<Terrain.TerrainDecoration> Decorations;
 		public int AlphaMapIndex;
 	
 	//	structdefaultproperties
@@ -129,7 +129,7 @@ public partial class Terrain : Info/*
 	
 	public partial struct /*native */CachedTerrainMaterialArray
 	{
-		public /*duplicatetransient native const */array<Object.Pointer> CachedMaterials;
+		[duplicatetransient, native, Const] public array<Object.Pointer> CachedMaterials;
 	};
 	
 	public partial struct SelectedTerrainVertex
@@ -147,53 +147,53 @@ public partial class Terrain : Info/*
 	//	}
 	};
 	
-	public /*private native const */array<Terrain.TerrainHeight> Heights;
-	public /*private native const */array<Terrain.TerrainInfoData> InfoData;
-	public/*()*/ /*const */array<Terrain.TerrainLayer> Layers;
-	public/*()*/ int NormalMapLayer;
-	public/*()*/ /*const */array<Terrain.TerrainDecoLayer> DecoLayers;
-	public /*native const */array<Terrain.AlphaMap> AlphaMaps;
-	public /*nontransactional const export editinline */array</*export editinline */TerrainComponent> TerrainComponents;
-	public /*const */int NumSectionsX;
-	public /*const */int NumSectionsY;
-	public /*const */int SectionSize;
-	public /*private native const */array<Terrain.TerrainWeightedMaterial> WeightedMaterials;
-	public /*private native const */array<TerrainWeightMapTexture> WeightedTextureMaps;
-	public /*native const */array<byte> CachedDisplacements;
-	public /*native const */float MaxCollisionDisplacement;
-	public/*()*/ int MaxTesselationLevel;
-	public/*()*/ int MinTessellationLevel;
-	public/*()*/ float TesselationDistanceScale;
-	public /*deprecated */int TessellationCheckCount;
-	public/*()*/ float TessellationCheckDistance;
-	public /*deprecated */float TessellationCheckBorder;
-	public/*(Collision)*/ int CollisionTesselationLevel;
-	public /*native const */StaticArray<Terrain.CachedTerrainMaterialArray, Terrain.CachedTerrainMaterialArray>/*[2]*/ CachedTerrainMaterials;
-	public /*const */int NumVerticesX;
-	public /*const */int NumVerticesY;
-	public/*()*/ int NumPatchesX;
-	public/*()*/ int NumPatchesY;
-	public/*()*/ int MaxComponentSize;
-	public/*(Lighting)*/ int StaticLightingResolution;
-	public/*(Lighting)*/ bool bIsOverridingLightResolution;
-	public/*(Lighting)*/ bool bBilinearFilterLightmapGeneration;
-	public/*(Lighting)*/ bool bCastShadow;
-	public/*(Lighting)*/ /*const */bool bForceDirectLightMap;
-	public/*(Lighting)*/ /*const */bool bCastDynamicShadow;
-	public/*(Collision)*/ /*const */bool bBlockRigidBody;
-	public/*(Collision)*/ /*const */bool bAllowRigidBodyUnderneath;
-	public/*(Lighting)*/ /*const */bool bAcceptsDynamicLights;
-	public/*()*/ bool bMorphingEnabled;
-	public/*()*/ bool bMorphingGradientsEnabled;
+	[native, Const] public/*private*/ array<Terrain.TerrainHeight> Heights;
+	[native, Const] public/*private*/ array<Terrain.TerrainInfoData> InfoData;
+	[Category] [Const] public array<Terrain.TerrainLayer> Layers;
+	[Category] public int NormalMapLayer;
+	[Category] [Const] public array<Terrain.TerrainDecoLayer> DecoLayers;
+	[native, Const] public array<Terrain.AlphaMap> AlphaMaps;
+	[nontransactional, Const, export, editinline] public array</*export editinline */TerrainComponent> TerrainComponents;
+	[Const] public int NumSectionsX;
+	[Const] public int NumSectionsY;
+	[Const] public int SectionSize;
+	[native, Const] public/*private*/ array<Terrain.TerrainWeightedMaterial> WeightedMaterials;
+	[native, Const] public/*private*/ array<TerrainWeightMapTexture> WeightedTextureMaps;
+	[native, Const] public array<byte> CachedDisplacements;
+	[native, Const] public float MaxCollisionDisplacement;
+	[Category] public int MaxTesselationLevel;
+	[Category] public int MinTessellationLevel;
+	[Category] public float TesselationDistanceScale;
+	[deprecated] public int TessellationCheckCount;
+	[Category] public float TessellationCheckDistance;
+	[deprecated] public float TessellationCheckBorder;
+	[Category("Collision")] public int CollisionTesselationLevel;
+	[native, Const] public StaticArray<Terrain.CachedTerrainMaterialArray, Terrain.CachedTerrainMaterialArray>/*[2]*/ CachedTerrainMaterials;
+	[Const] public int NumVerticesX;
+	[Const] public int NumVerticesY;
+	[Category] public int NumPatchesX;
+	[Category] public int NumPatchesY;
+	[Category] public int MaxComponentSize;
+	[Category("Lighting")] public int StaticLightingResolution;
+	[Category("Lighting")] public bool bIsOverridingLightResolution;
+	[Category("Lighting")] public bool bBilinearFilterLightmapGeneration;
+	[Category("Lighting")] public bool bCastShadow;
+	[Category("Lighting")] [Const] public bool bForceDirectLightMap;
+	[Category("Lighting")] [Const] public bool bCastDynamicShadow;
+	[Category("Collision")] [Const] public bool bBlockRigidBody;
+	[Category("Collision")] [Const] public bool bAllowRigidBodyUnderneath;
+	[Category("Lighting")] [Const] public bool bAcceptsDynamicLights;
+	[Category] public bool bMorphingEnabled;
+	[Category] public bool bMorphingGradientsEnabled;
 	public bool bLocked;
 	public bool bHeightmapLocked;
 	public bool bShowingCollision;
-	public/*()*/ bool bShowWireframe;
-	public/*(Lighting)*/ /*const */LightComponent.LightingChannelContainer LightingChannels;
-	public /*native const */Object.Pointer ReleaseResourcesFence;
-	public/*()*/ /*transient */int EditorTessellationLevel;
-	public /*transient */array<Terrain.SelectedTerrainVertex> SelectedVertices;
-	public/*()*/ Object.Color WireframeColor;
+	[Category] public bool bShowWireframe;
+	[Category("Lighting")] [Const] public LightComponent.LightingChannelContainer LightingChannels;
+	[native, Const] public Object.Pointer ReleaseResourcesFence;
+	[Category] [transient] public int EditorTessellationLevel;
+	[transient] public array<Terrain.SelectedTerrainVertex> SelectedVertices;
+	[Category] public Object.Color WireframeColor;
 	
 	// Export UTerrain::execCalcLayerBounds(FFrame&, void* const)
 	public virtual /*native final function */void CalcLayerBounds()

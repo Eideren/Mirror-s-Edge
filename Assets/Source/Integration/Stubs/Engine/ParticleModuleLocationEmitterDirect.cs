@@ -5,7 +5,7 @@ public partial class ParticleModuleLocationEmitterDirect : ParticleModuleLocatio
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Location)*/ /*noclear export */name EmitterName;
+	[Category("Location")] [noclear, export] public name EmitterName;
 	
 	public ParticleModuleLocationEmitterDirect()
 	{

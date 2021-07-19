@@ -4,17 +4,17 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Ts; usin
 public partial class TpUoGame : TpSystemHandler, 
 		OnlineGameInterface/*
 		transient*/{
-	public /*private transient */OnlineGameSearch GameSearch;
-	public /*private transient */OnlineSubsystem.EOnlineGameState GameState;
-	public /*private */array< /*delegate*/OnlineGameInterface.OnCreateOnlineGameComplete > __OnCreateOnlineGameComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlineGameInterface.OnDestroyOnlineGameComplete > __OnDestroyOnlineGameComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlineGameInterface.OnFindOnlineGamesComplete > __OnFindOnlineGamesComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlineGameInterface.OnJoinOnlineGameComplete > __OnJoinOnlineGameComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlineGameInterface.OnRegisterPlayerComplete > __OnRegisterPlayerComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlineGameInterface.OnUnregisterPlayerComplete > __OnUnregisterPlayerComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlineGameInterface.OnStartOnlineGameComplete > __OnStartOnlineGameComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlineGameInterface.OnEndOnlineGameComplete > __OnEndOnlineGameComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlineGameInterface.OnGameInviteAccepted > __OnGameInviteAccepted__Multicaster;
+	[transient] public/*private*/ OnlineGameSearch GameSearch;
+	[transient] public/*private*/ OnlineSubsystem.EOnlineGameState GameState;
+	public/*private*/ array< /*delegate*/OnlineGameInterface.OnCreateOnlineGameComplete > __OnCreateOnlineGameComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineGameInterface.OnDestroyOnlineGameComplete > __OnDestroyOnlineGameComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineGameInterface.OnFindOnlineGamesComplete > __OnFindOnlineGamesComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineGameInterface.OnJoinOnlineGameComplete > __OnJoinOnlineGameComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineGameInterface.OnRegisterPlayerComplete > __OnRegisterPlayerComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineGameInterface.OnUnregisterPlayerComplete > __OnUnregisterPlayerComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineGameInterface.OnStartOnlineGameComplete > __OnStartOnlineGameComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineGameInterface.OnEndOnlineGameComplete > __OnEndOnlineGameComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineGameInterface.OnGameInviteAccepted > __OnGameInviteAccepted__Multicaster;
 	public /*delegate*/OnlineGameInterface.OnCreateOnlineGameComplete __OnCreateOnlineGameComplete__Delegate{ get; set; }
 	public /*delegate*/OnlineGameInterface.OnDestroyOnlineGameComplete __OnDestroyOnlineGameComplete__Delegate{ get; set; }
 	public /*delegate*/OnlineGameInterface.OnFindOnlineGamesComplete __OnFindOnlineGamesComplete__Delegate{ get; set; }

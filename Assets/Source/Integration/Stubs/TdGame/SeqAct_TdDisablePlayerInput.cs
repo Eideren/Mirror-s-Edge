@@ -3,10 +3,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_TdDisablePlayerInput : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ bool bSetCinematicMode;
-	public/*()*/ bool bDisableSkipCutscenes;
-	public/*()*/ bool bDisablePlayerMoveInput;
-	public/*()*/ bool bDisablePlayerLookInput;
+	[Category] public bool bSetCinematicMode;
+	[Category] public bool bDisableSkipCutscenes;
+	[Category] public bool bDisablePlayerMoveInput;
+	[Category] public bool bDisablePlayerLookInput;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

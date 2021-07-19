@@ -5,13 +5,13 @@ public partial class TdWeapon_Pistol_Taser : TdWeapon_Light/*
 		config(Weapons)
 		notplaceable
 		hidecategories(Navigation)*/{
-	public/*()*/ ParticleSystem ImpactMissPSCTemplate;
-	public/*()*/ ParticleSystem ImpactHitPSCTemplate;
-	public /*transient */bool bIsFirstFire;
-	public/*(Sounds)*/ SoundCue WeaponFireSndLoop;
-	public /*export editinline transient */AudioComponent LoopingSoundComponent;
-	public/*(Sounds)*/ SoundCue WeaponNotBodyImpactSnd;
-	public/*(Sounds)*/ SoundCue WeaponBodyImpactSnd;
+	[Category] public ParticleSystem ImpactMissPSCTemplate;
+	[Category] public ParticleSystem ImpactHitPSCTemplate;
+	[transient] public bool bIsFirstFire;
+	[Category("Sounds")] public SoundCue WeaponFireSndLoop;
+	[export, editinline, transient] public AudioComponent LoopingSoundComponent;
+	[Category("Sounds")] public SoundCue WeaponNotBodyImpactSnd;
+	[Category("Sounds")] public SoundCue WeaponBodyImpactSnd;
 	
 	public override /*simulated function */void CustomFire()
 	{

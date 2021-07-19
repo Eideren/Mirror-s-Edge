@@ -31,8 +31,8 @@ public partial class OnlineGameSearch : Settings/*
 	
 	public partial struct /*native */OnlineGameSearchResult
 	{
-		public /*const */OnlineGameSettings GameSettings;
-		public /*native const */Object.Pointer PlatformData;
+		[Const] public OnlineGameSettings GameSettings;
+		[native, Const] public Object.Pointer PlatformData;
 	
 	//	structdefaultproperties
 	//	{
@@ -114,18 +114,18 @@ public partial class OnlineGameSearch : Settings/*
 	
 	public int MaxSearchResults;
 	public Settings.LocalizedStringSetting Query;
-	public /*databinding */bool bIsLanQuery;
-	public /*databinding */bool bIsListPlayQuery;
-	public /*databinding */bool bUsesArbitration;
-	public /*const */bool bIsSearchInProgress;
-	public /*const */bool bIsListPlaySearchInProgress;
-	public /*databinding */int NumListPlayServersAvailable;
-	public /*databinding */int NumGoldOnlyListPlayServersAvailable;
-	public /*databinding */int NumJoinableListPlayServersAvailable;
+	[databinding] public bool bIsLanQuery;
+	[databinding] public bool bIsListPlayQuery;
+	[databinding] public bool bUsesArbitration;
+	[Const] public bool bIsSearchInProgress;
+	[Const] public bool bIsListPlaySearchInProgress;
+	[databinding] public int NumListPlayServersAvailable;
+	[databinding] public int NumGoldOnlyListPlayServersAvailable;
+	[databinding] public int NumJoinableListPlayServersAvailable;
 	public Core.ClassT<OnlineGameSettings> GameSettingsClass;
-	public /*const */array<OnlineGameSearch.OnlineGameSearchResult> Results;
+	[Const] public array<OnlineGameSearch.OnlineGameSearchResult> Results;
 	public array<OnlineGameSearch.NamedObjectProperty> NamedProperties;
-	public /*const */OnlineGameSearch.OnlineGameSearchQuery FilterQuery;
+	[Const] public OnlineGameSearch.OnlineGameSearchQuery FilterQuery;
 	public String AdditionalSearchCriteria;
 	
 	public OnlineGameSearch()

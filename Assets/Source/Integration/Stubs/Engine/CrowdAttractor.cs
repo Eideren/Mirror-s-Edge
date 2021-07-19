@@ -12,18 +12,18 @@ public partial class CrowdAttractor : Actor/*
 		ECAM_MAX
 	};
 	
-	public/*()*/ /*interp */float Attraction;
-	public/*()*/ bool bAttractorEnabled;
-	public/*()*/ bool bAttractionFalloff;
-	public/*()*/ bool bActionAtThisAttractor;
-	public/*()*/ bool bKillWhenReached;
-	public/*()*/ float ActionRadiusScale;
-	public/*()*/ /*export editinline */CylinderComponent CylinderComponent;
+	[Category] [interp] public float Attraction;
+	[Category] public bool bAttractorEnabled;
+	[Category] public bool bAttractionFalloff;
+	[Category] public bool bActionAtThisAttractor;
+	[Category] public bool bKillWhenReached;
+	[Category] public float ActionRadiusScale;
+	[Category] [export, editinline] public CylinderComponent CylinderComponent;
 	public float AttractionRadius;
 	public float AttractionHeight;
-	public/*()*/ float KillDist;
-	public/*()*/ Actor ActionTarget;
-	public/*()*/ CrowdAttractor.ECrowdAttractorMode Mode;
+	[Category] public float KillDist;
+	[Category] public Actor ActionTarget;
+	[Category] public CrowdAttractor.ECrowdAttractorMode Mode;
 	
 	public virtual /*simulated function */void OnToggle(SeqAct_Toggle Action)
 	{

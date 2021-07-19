@@ -4,10 +4,10 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqEvent_Used : SequenceEvent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bAimToInteract;
-	public/*()*/ float InteractDistance;
-	public/*()*/ String InteractText;
-	public/*()*/ Texture2D InteractIcon;
+	[Category] public bool bAimToInteract;
+	[Category] public float InteractDistance;
+	[Category] public String InteractText;
+	[Category] public Texture2D InteractIcon;
 	
 	public SeqEvent_Used()
 	{

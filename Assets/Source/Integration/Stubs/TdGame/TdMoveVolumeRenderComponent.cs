@@ -6,12 +6,12 @@ public partial class TdMoveVolumeRenderComponent : StaticMeshComponent/*
 		editinlinenew
 		hidecategories(Object)
 		autoexpandcategories(Collision,Rendering,Lighting)*/{
-	public /*editoronly */StaticMesh LadderStepMesh;
-	public /*editoronly */StaticMesh BalanceWalkMesh;
-	public /*editoronly */StaticMesh PawnLocationMesh;
-	public /*editoronly */StaticMesh MoveDirectionMesh;
-	public /*editoronly */StaticMesh FloorDirectionMesh;
-	public /*editoronly */StaticMesh ZipLineMesh;
+	[editoronly] public StaticMesh LadderStepMesh;
+	[editoronly] public StaticMesh BalanceWalkMesh;
+	[editoronly] public StaticMesh PawnLocationMesh;
+	[editoronly] public StaticMesh MoveDirectionMesh;
+	[editoronly] public StaticMesh FloorDirectionMesh;
+	[editoronly] public StaticMesh ZipLineMesh;
 	
 	public TdMoveVolumeRenderComponent()
 	{

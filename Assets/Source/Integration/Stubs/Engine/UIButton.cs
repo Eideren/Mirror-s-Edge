@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIButton : UIObject/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public/*(Image)*/ /*noclear const export editinline */UIComp_DrawImage BackgroundImageComponent;
-	public/*(Sound)*/ name ClickedCue;
+	[Category("Image")] [noclear, Const, export, editinline] public UIComp_DrawImage BackgroundImageComponent;
+	[Category("Sound")] public name ClickedCue;
 	
 	public virtual /*final function */void SetImage(Surface NewImage)
 	{

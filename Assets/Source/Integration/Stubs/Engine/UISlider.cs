@@ -5,20 +5,20 @@ public partial class UISlider : UIObject,
 		UIDataStorePublisher/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIDataStorePublisher;
-	public/*(Image)*/ /*noclear const export editinline */UIComp_DrawImage BackgroundImageComponent;
-	public/*(Image)*/ /*noclear const export editinline */UIComp_DrawImage SliderBarImageComponent;
-	public/*(Image)*/ /*noclear const export editinline */UIComp_DrawImage MarkerImageComponent;
-	public/*(Data)*/ /*private editconst */UIRoot.UIDataStoreBinding DataSource;
-	public/*(Data)*/ /*const export editinline */UIComp_DrawStringSlider CaptionRenderComponent;
-	public/*(Slider)*/ UIRoot.UIRangeData SliderValue;
-	public/*(Slider)*/ bool bRenderCaption;
-	public/*(Slider)*/ UIRoot.EUIOrientation SliderOrientation;
-	public/*(Slider)*/ UIRoot.UIScreenValue_Extent BarSize;
-	public/*(Slider)*/ UIRoot.UIScreenValue_Extent MarkerHeight;
-	public/*(Slider)*/ UIRoot.UIScreenValue_Extent MarkerWidth;
-	public/*(Sound)*/ name IncrementCue;
-	public/*(Sound)*/ name DecrementCue;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIDataStorePublisher;
+	[Category("Image")] [noclear, Const, export, editinline] public UIComp_DrawImage BackgroundImageComponent;
+	[Category("Image")] [noclear, Const, export, editinline] public UIComp_DrawImage SliderBarImageComponent;
+	[Category("Image")] [noclear, Const, export, editinline] public UIComp_DrawImage MarkerImageComponent;
+	[Category("Data")] [editconst] public/*private*/ UIRoot.UIDataStoreBinding DataSource;
+	[Category("Data")] [Const, export, editinline] public UIComp_DrawStringSlider CaptionRenderComponent;
+	[Category("Slider")] public UIRoot.UIRangeData SliderValue;
+	[Category("Slider")] public bool bRenderCaption;
+	[Category("Slider")] public UIRoot.EUIOrientation SliderOrientation;
+	[Category("Slider")] public UIRoot.UIScreenValue_Extent BarSize;
+	[Category("Slider")] public UIRoot.UIScreenValue_Extent MarkerHeight;
+	[Category("Slider")] public UIRoot.UIScreenValue_Extent MarkerWidth;
+	[Category("Sound")] public name IncrementCue;
+	[Category("Sound")] public name DecrementCue;
 	
 	// Export UUISlider::execSetDataStoreBinding(FFrame&, void* const)
 	public virtual /*native final function */void SetDataStoreBinding(String MarkupText, /*optional */int? _BindingIndex = default)

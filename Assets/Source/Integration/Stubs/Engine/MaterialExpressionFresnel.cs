@@ -7,7 +7,7 @@ public partial class MaterialExpressionFresnel : MaterialExpression/* within Mat
 		hidecategories(Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ float Exponent;
+	[Category] public float Exponent;
 	public MaterialExpression.ExpressionInput Normal;
 	
 	public MaterialExpressionFresnel()

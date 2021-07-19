@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class ColorScaleVolume : Volume/*
 		placeable
 		hidecategories(Navigation,Object,Movement,Display,Collision,Brush,Attachment,Volume)*/{
-	public/*()*/ Object.Vector ColorScale;
-	public/*()*/ float InterpTime;
+	[Category] public Object.Vector ColorScale;
+	[Category] public float InterpTime;
 	
 	public override Touch_del Touch { get => bfield_Touch ?? ColorScaleVolume_Touch; set => bfield_Touch = value; } Touch_del bfield_Touch;
 	public override Touch_del global_Touch => ColorScaleVolume_Touch;

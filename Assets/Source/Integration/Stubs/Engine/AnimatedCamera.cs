@@ -7,11 +7,11 @@ public partial class AnimatedCamera : Camera/*
 		hidecategories(Navigation)*/{
 	public const int MAX_ACTIVE_CAMERA_ANIMS = 8;
 	
-	public /*protected */StaticArray<CameraAnimInst, CameraAnimInst, CameraAnimInst, CameraAnimInst, CameraAnimInst, CameraAnimInst, CameraAnimInst, CameraAnimInst>/*[8]*/ AnimInstPool;
-	public /*protected */array<CameraAnimInst> ActiveAnims;
-	public /*protected */array<CameraAnimInst> FreeAnims;
-	public /*protected transient */DynamicCameraActor AnimCameraActor;
-	public /*protected transient */DynamicCameraActor AccumulatorCameraActor;
+	public/*protected*/ StaticArray<CameraAnimInst, CameraAnimInst, CameraAnimInst, CameraAnimInst, CameraAnimInst, CameraAnimInst, CameraAnimInst, CameraAnimInst>/*[8]*/ AnimInstPool;
+	public/*protected*/ array<CameraAnimInst> ActiveAnims;
+	public/*protected*/ array<CameraAnimInst> FreeAnims;
+	[transient] public/*protected*/ DynamicCameraActor AnimCameraActor;
+	[transient] public/*protected*/ DynamicCameraActor AccumulatorCameraActor;
 	
 	public override /*function */void PostBeginPlay()
 	{

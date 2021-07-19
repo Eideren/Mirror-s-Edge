@@ -6,11 +6,11 @@ public partial class TdSniperSpot : NavigationPoint/*
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
 	public bool Occupied;
-	public/*(NavigationPoint)*/ bool Crouch;
-	public/*(NavigationPoint)*/ float AttackVolumeHeight;
-	public/*(NavigationPoint)*/ float AttackVolumeAngle;
-	public/*(NavigationPoint)*/ float AttackVolumeRadius;
-	public/*(NavigationPoint)*/ float AttackVolumeInnerRadius;
+	[Category("NavigationPoint")] public bool Crouch;
+	[Category("NavigationPoint")] public float AttackVolumeHeight;
+	[Category("NavigationPoint")] public float AttackVolumeAngle;
+	[Category("NavigationPoint")] public float AttackVolumeRadius;
+	[Category("NavigationPoint")] public float AttackVolumeInnerRadius;
 	
 	// Export UTdSniperSpot::execPointInside(FFrame&, void* const)
 	public virtual /*native function */bool PointInside(Object.Vector Point)

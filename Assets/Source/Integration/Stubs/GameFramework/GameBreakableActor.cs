@@ -8,8 +8,8 @@ public partial class GameBreakableActor : KActor/*
 	{
 		public partial struct /*native */BreakableParticleSystem
 		{
-			public/*()*/ ParticleSystem Emitter;
-			public/*()*/ Object.Vector Offset;
+			[Category] public ParticleSystem Emitter;
+			[Category] public Object.Vector Offset;
 	
 	//		structdefaultproperties
 	//		{
@@ -24,11 +24,11 @@ public partial class GameBreakableActor : KActor/*
 	//		}
 		};
 	
-		public/*()*/ float DamageThreshold;
-		public/*()*/ array<GameBreakableActor.BreakableStep.BreakableParticleSystem> ParticleEmitters;
-		public/*()*/ StaticMesh BreakMesh;
-		public/*()*/ Actor.EPhysics Physics;
-		public/*()*/ SoundCue BreakSound;
+		[Category] public float DamageThreshold;
+		[Category] public array<GameBreakableActor.BreakableStep.BreakableParticleSystem> ParticleEmitters;
+		[Category] public StaticMesh BreakMesh;
+		[Category] public Actor.EPhysics Physics;
+		[Category] public SoundCue BreakSound;
 	
 	//	structdefaultproperties
 	//	{
@@ -41,15 +41,15 @@ public partial class GameBreakableActor : KActor/*
 	//	}
 	};
 	
-	public/*()*/ array< Core.ClassT<DamageType> > DamageTypes;
-	public /*transient */Object.Vector ImpactDirection;
-	public /*transient */Object.Vector ImpactLocation;
+	[Category] public array< Core.ClassT<DamageType> > DamageTypes;
+	[transient] public Object.Vector ImpactDirection;
+	[transient] public Object.Vector ImpactLocation;
 	public bool bDestroyed;
-	public/*()*/ bool bParticlesAcceptLights;
-	public/*()*/ bool bParticlesAcceptDynamicLights;
-	public/*()*/ array<GameBreakableActor.BreakableStep> BreakableSteps;
+	[Category] public bool bParticlesAcceptLights;
+	[Category] public bool bParticlesAcceptDynamicLights;
+	[Category] public array<GameBreakableActor.BreakableStep> BreakableSteps;
 	public int CurrentBreakableStep;
-	public/*()*/ LightComponent.LightingChannelContainer ParticleLightingChannels;
+	[Category] public LightComponent.LightingChannelContainer ParticleLightingChannels;
 	
 	// Export UGameBreakableActor::execGetOffsetToWorld(FFrame&, void* const)
 	public virtual /*native function */Object.Vector GetOffsetToWorld(Object.Vector Offset)

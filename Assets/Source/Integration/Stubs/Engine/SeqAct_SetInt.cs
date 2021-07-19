@@ -5,7 +5,7 @@ public partial class SeqAct_SetInt : SeqAct_SetSequenceVariable/*
 		native
 		hidecategories(Object)*/{
 	public int Target;
-	public/*()*/ int Value;
+	[Category] public int Value;
 	
 	public SeqAct_SetInt()
 	{

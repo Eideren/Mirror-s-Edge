@@ -7,9 +7,9 @@ public partial class AnimNodeSequenceBlendBase : AnimNodeSequence/*
 		hidecategories(Object,Object)*/{
 	public partial struct /*native */AnimInfo
 	{
-		public /*const */name AnimSeqName;
-		public /*const transient */AnimSequence AnimSeq;
-		public /*const transient */int AnimLinkupIndex;
+		[Const] public name AnimSeqName;
+		[Const, transient] public AnimSequence AnimSeq;
+		[Const, transient] public int AnimLinkupIndex;
 	
 	//	structdefaultproperties
 	//	{
@@ -22,7 +22,7 @@ public partial class AnimNodeSequenceBlendBase : AnimNodeSequence/*
 	
 	public partial struct /*native */AnimBlendInfo
 	{
-		public/*()*/ name AnimName;
+		[Category] public name AnimName;
 		public AnimNodeSequenceBlendBase.AnimInfo AnimInfo;
 		public float Weight;
 	
@@ -40,7 +40,7 @@ public partial class AnimNodeSequenceBlendBase : AnimNodeSequence/*
 	//	}
 	};
 	
-	public/*(Animations)*/ /*editfixedsize export editinline */array</*export editinline */AnimNodeSequenceBlendBase.AnimBlendInfo> Anims;
+	[Category("Animations")] [editfixedsize, export, editinline] public array</*export editinline */AnimNodeSequenceBlendBase.AnimBlendInfo> Anims;
 	
 	public AnimNodeSequenceBlendBase()
 	{

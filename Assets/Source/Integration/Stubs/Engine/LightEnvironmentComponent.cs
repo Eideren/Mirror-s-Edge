@@ -3,8 +3,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class LightEnvironmentComponent : ActorComponent/*
 		native*/{
-	public/*()*/ /*const */bool bEnabled;
-	public /*const transient */float LastRenderTime;
+	[Category] [Const] public bool bEnabled;
+	[Const, transient] public float LastRenderTime;
 	
 	// Export ULightEnvironmentComponent::execSetEnabled(FFrame&, void* const)
 	public virtual /*native final function */void SetEnabled(bool bNewEnabled)

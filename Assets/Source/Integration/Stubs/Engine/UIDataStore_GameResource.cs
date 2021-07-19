@@ -9,9 +9,9 @@ public partial class UIDataStore_GameResource : UIDataStore,
 		hidecategories(Object,UIRoot)*/{
 	public partial struct /*native */GameResourceDataProvider
 	{
-		public /*config */name ProviderTag;
-		public /*config */String ProviderClassName;
-		public /*transient */Core.ClassT<UIResourceDataProvider> ProviderClass;
+		[config] public name ProviderTag;
+		[config] public String ProviderClassName;
+		[transient] public Core.ClassT<UIResourceDataProvider> ProviderClass;
 	
 	//	structdefaultproperties
 	//	{
@@ -22,9 +22,9 @@ public partial class UIDataStore_GameResource : UIDataStore,
 	//	}
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementProvider;
-	public /*config */array</*config */UIDataStore_GameResource.GameResourceDataProvider> ElementProviderTypes;
-	public /*private native const transient */Object.MultiMap_Mirror ListElementProviders;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementProvider;
+	[config] public array</*config */UIDataStore_GameResource.GameResourceDataProvider> ElementProviderTypes;
+	[native, Const, transient] public/*private*/ Object.MultiMap_Mirror ListElementProviders;
 	
 	public UIDataStore_GameResource()
 	{

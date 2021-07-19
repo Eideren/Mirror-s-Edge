@@ -6,7 +6,7 @@ public partial class SoundNode : Object/*
 		native
 		editinlinenew
 		hidecategories(Object)*/{
-	public /*native const */int NodeUpdateHint;
+	[native, Const] public int NodeUpdateHint;
 	public array<SoundNode> ChildNodes;
 	
 }

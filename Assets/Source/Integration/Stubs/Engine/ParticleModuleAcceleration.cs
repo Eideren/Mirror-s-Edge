@@ -5,7 +5,7 @@ public partial class ParticleModuleAcceleration : ParticleModuleAccelerationBase
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Acceleration)*/ DistributionVector.RawDistributionVector Acceleration;
+	[Category("Acceleration")] public DistributionVector.RawDistributionVector Acceleration;
 	
 	public ParticleModuleAcceleration()
 	{

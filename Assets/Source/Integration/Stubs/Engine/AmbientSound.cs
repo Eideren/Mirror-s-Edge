@@ -5,9 +5,9 @@ public partial class AmbientSound : Keypoint/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ bool bAutoPlay;
-	public /*private */bool bIsPlaying;
-	public/*(Audio)*/ /*const editconst export editinline */AudioComponent AudioComponent;
+	[Category] public bool bAutoPlay;
+	public/*private*/ bool bIsPlaying;
+	[Category("Audio")] [Const, editconst, export, editinline] public AudioComponent AudioComponent;
 	
 	public AmbientSound()
 	{

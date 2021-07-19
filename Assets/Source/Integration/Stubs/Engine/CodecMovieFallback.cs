@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class CodecMovieFallback : CodecMovie/*
 		transient
 		native*/{
-	public /*const transient */float CurrentTime;
+	[Const, transient] public float CurrentTime;
 	
 }
 }

@@ -13,19 +13,19 @@ public partial class TdMove_BotMelee : TdPhysicsMove/*
 	
 	public partial struct /*native */MeleeAttackProperties
 	{
-		public/*()*/ float HitAngle;
-		public/*()*/ float HitRange;
-		public/*()*/ float AttackHeightAdjustment;
-		public/*()*/ float MissedAttackPenelty;
-		public/*()*/ float Damage;
-		public/*()*/ float AttackSpeed;
-		public/*()*/ float RotationSpeed;
-		public/*()*/ float RotationLimitAngle;
-		public/*()*/ float HitDetectionStartTime;
-		public/*()*/ float PredictionTime;
-		public/*()*/ float PredictionWeight;
-		public/*()*/ /*config */array</*config */name> InvulnerableDamageTypes;
-		public/*()*/ bool bIsInterruptableByDodge;
+		[Category] public float HitAngle;
+		[Category] public float HitRange;
+		[Category] public float AttackHeightAdjustment;
+		[Category] public float MissedAttackPenelty;
+		[Category] public float Damage;
+		[Category] public float AttackSpeed;
+		[Category] public float RotationSpeed;
+		[Category] public float RotationLimitAngle;
+		[Category] public float HitDetectionStartTime;
+		[Category] public float PredictionTime;
+		[Category] public float PredictionWeight;
+		[Category] [config] public array</*config */name> InvulnerableDamageTypes;
+		[Category] public bool bIsInterruptableByDodge;
 	
 	//	structdefaultproperties
 	//	{
@@ -46,17 +46,17 @@ public partial class TdMove_BotMelee : TdPhysicsMove/*
 	//	}
 	};
 	
-	public /*protected */float BlendInTime;
-	public /*protected */float BlendOutTime;
-	public /*protected */name AnimationName;
-	public /*private */Object.Vector PredictedEnemyLocation;
-	public /*protected */TdMove_BotMelee.EMeleeStage MeleeStage;
-	public /*protected */TdMove_BotMelee.MeleeAttackProperties AttackProperties;
-	public /*private */float AnimationLength;
-	public /*private */Object.Vector EnemyStartLocation;
-	public /*private */Object.Rotator WantedRotation;
+	public/*protected*/ float BlendInTime;
+	public/*protected*/ float BlendOutTime;
+	public/*protected*/ name AnimationName;
+	public/*private*/ Object.Vector PredictedEnemyLocation;
+	public/*protected*/ TdMove_BotMelee.EMeleeStage MeleeStage;
+	public/*protected*/ TdMove_BotMelee.MeleeAttackProperties AttackProperties;
+	public/*private*/ float AnimationLength;
+	public/*private*/ Object.Vector EnemyStartLocation;
+	public/*private*/ Object.Rotator WantedRotation;
 	public bool DrawDebug;
-	public/*()*/ /*config */TdMove_BotMelee.MeleeAttackProperties GenericAttackProperties;
+	[Category] [config] public TdMove_BotMelee.MeleeAttackProperties GenericAttackProperties;
 	
 	public virtual /*function */bool IsInterruptableByDodge()
 	{

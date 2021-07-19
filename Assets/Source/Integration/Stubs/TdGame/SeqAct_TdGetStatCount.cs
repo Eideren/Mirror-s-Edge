@@ -11,11 +11,11 @@ public partial class SeqAct_TdGetStatCount : SequenceAction/*
 		STT_MAX
 	};
 	
-	public/*()*/ SeqAct_TdRegisterStat.EAchievementStatsID StatId;
-	public/*()*/ SeqAct_TdGetStatCount.EStatCompType ComparisonType;
-	public/*()*/ int ComparisonValue;
+	[Category] public SeqAct_TdRegisterStat.EAchievementStatsID StatId;
+	[Category] public SeqAct_TdGetStatCount.EStatCompType ComparisonType;
+	[Category] public int ComparisonValue;
 	public int StatCount;
-	public /*transient */TdPlayerController PlayerController;
+	[transient] public TdPlayerController PlayerController;
 	
 	public override /*event */void Activated()
 	{

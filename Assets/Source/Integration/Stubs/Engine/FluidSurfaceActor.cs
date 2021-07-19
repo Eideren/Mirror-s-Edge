@@ -5,7 +5,7 @@ public partial class FluidSurfaceActor : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*const editconst export editinline */FluidSurfaceComponent Fluid;
+	[Category] [Const, editconst, export, editinline] public FluidSurfaceComponent Fluid;
 	
 	public FluidSurfaceActor()
 	{

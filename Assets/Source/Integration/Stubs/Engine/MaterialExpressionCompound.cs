@@ -7,9 +7,9 @@ public partial class MaterialExpressionCompound : MaterialExpression/* within Ma
 		hidecategories(Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public /*const */array<MaterialExpression> MaterialExpressions;
-	public/*()*/ String Caption;
-	public/*()*/ bool bExpanded;
+	[Const] public array<MaterialExpression> MaterialExpressions;
+	[Category] public String Caption;
+	[Category] public bool bExpanded;
 	
 }
 }

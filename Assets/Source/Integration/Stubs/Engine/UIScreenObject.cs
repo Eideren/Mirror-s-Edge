@@ -5,28 +5,28 @@ public partial class UIScreenObject : UIRoot/*
 		abstract
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public/*(Presentation)*/ UIRoot.UIScreenValue_Bounds Position;
-	public/*(Presentation)*/ float ZDepth;
-	public/*(Presentation)*/ /*private */bool bHidden;
-	public /*transient */bool bInitialized;
-	public/*(Focus)*/ /*private const */bool bNeverFocus;
-	public /*const */bool bSupports3DPrimitives;
-	public /*protected noimport */array<UIObject> Children;
-	public /*const */array< Core.ClassT<UIState> > DefaultStates;
+	[Category("Presentation")] public UIRoot.UIScreenValue_Bounds Position;
+	[Category("Presentation")] public float ZDepth;
+	[Category("Presentation")] public/*private*/ bool bHidden;
+	[transient] public bool bInitialized;
+	[Category("Focus")] [Const] public/*private*/ bool bNeverFocus;
+	[Const] public bool bSupports3DPrimitives;
+	[noimport] public/*protected*/ array<UIObject> Children;
+	[Const] public array< Core.ClassT<UIState> > DefaultStates;
 	public Core.ClassT<UIState> InitialState;
-	public/*(States)*/ /*const export editinline */array</*export editinline */UIState> InactiveStates;
-	public /*const transient */array<UIState> StateStack;
-	public /*const transient */array<UIRoot.PlayerInteractionData> FocusControls;
-	public/*(Focus)*/ /*transient */array<UIRoot.UIFocusPropagationData> FocusPropagation;
-	public/*(Splitscreen)*/ byte PlayerInputMask;
-	public/*(Presentation)*/ float Opacity;
-	public /*export editinline */UIComp_Event EventProvider;
-	public/*(Sound)*/ name FocusedCue;
-	public/*(Sound)*/ name MouseEnterCue;
-	public/*(Sound)*/ name NavigateUpCue;
-	public/*(Sound)*/ name NavigateDownCue;
-	public/*(Sound)*/ name NavigateLeftCue;
-	public/*(Sound)*/ name NavigateRightCue;
+	[Category("States")] [Const, export, editinline] public array</*export editinline */UIState> InactiveStates;
+	[Const, transient] public array<UIState> StateStack;
+	[Const, transient] public array<UIRoot.PlayerInteractionData> FocusControls;
+	[Category("Focus")] [transient] public array<UIRoot.UIFocusPropagationData> FocusPropagation;
+	[Category("Splitscreen")] public byte PlayerInputMask;
+	[Category("Presentation")] public float Opacity;
+	[export, editinline] public UIComp_Event EventProvider;
+	[Category("Sound")] public name FocusedCue;
+	[Category("Sound")] public name MouseEnterCue;
+	[Category("Sound")] public name NavigateUpCue;
+	[Category("Sound")] public name NavigateDownCue;
+	[Category("Sound")] public name NavigateLeftCue;
+	[Category("Sound")] public name NavigateRightCue;
 	public /*delegate*/UIScreenObject.NotifyActiveSkinChanged __NotifyActiveSkinChanged__Delegate;
 	public /*delegate*/UIScreenObject.OnRawInputKey __OnRawInputKey__Delegate;
 	public /*delegate*/UIScreenObject.OnRawInputAxis __OnRawInputAxis__Delegate;
@@ -34,7 +34,7 @@ public partial class UIScreenObject : UIRoot/*
 	public /*delegate*/UIScreenObject.OnProcessInputAxis __OnProcessInputAxis__Delegate;
 	public /*delegate*/UIScreenObject.NotifyPositionChanged __NotifyPositionChanged__Delegate;
 	public /*delegate*/UIScreenObject.NotifyResolutionChanged __NotifyResolutionChanged__Delegate;
-	public /*transient *//*delegate*/UIScreenObject.NotifyActiveStateChanged __NotifyActiveStateChanged__Delegate;
+	[transient] public /*delegate*/UIScreenObject.NotifyActiveStateChanged __NotifyActiveStateChanged__Delegate;
 	public /*delegate*/UIScreenObject.NotifyVisibilityChanged __NotifyVisibilityChanged__Delegate;
 	public /*delegate*/UIScreenObject.OnPreRenderCallBack __OnPreRenderCallBack__Delegate;
 	

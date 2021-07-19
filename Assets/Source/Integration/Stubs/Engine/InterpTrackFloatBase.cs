@@ -7,7 +7,7 @@ public partial class InterpTrackFloatBase : InterpTrack/*
 		collapsecategories
 		hidecategories(Object)*/{
 	public Object.InterpCurveFloat FloatTrack;
-	public/*()*/ float CurveTension;
+	[Category] public float CurveTension;
 	
 	public InterpTrackFloatBase()
 	{

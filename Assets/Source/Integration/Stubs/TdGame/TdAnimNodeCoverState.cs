@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNodeCoverState : TdAnimNodeState/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ /*editoronly transient */array<TdAIAnimationController.ECoverState> EnumStates;
+	[Category] [editoronly, transient] public array<TdAIAnimationController.ECoverState> EnumStates;
 	
 	public override /*event */void OnInit()
 	{

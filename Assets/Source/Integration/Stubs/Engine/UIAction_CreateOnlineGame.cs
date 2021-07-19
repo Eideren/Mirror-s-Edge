@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIAction_CreateOnlineGame : UIAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ name DataStoreName;
-	public/*()*/ String MapName;
+	[Category] public name DataStoreName;
+	[Category] public String MapName;
 	
 	public UIAction_CreateOnlineGame()
 	{

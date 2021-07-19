@@ -5,7 +5,7 @@ public partial class CodecMovie : Object/*
 		abstract
 		transient
 		native*/{
-	public /*const transient */float PlaybackDuration;
+	[Const, transient] public float PlaybackDuration;
 	
 }
 }

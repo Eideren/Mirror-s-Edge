@@ -18,25 +18,25 @@ public partial class TextureFlipBook : Texture2D/*
 		TFBM_MAX
 	};
 	
-	public /*private native const noexport */Object.Pointer VfTable_FTickableObject;
-	public /*const transient */float TimeIntoMovie;
-	public /*const transient */float TimeSinceLastFrame;
-	public /*const transient */float HorizontalScale;
-	public /*const transient */float VerticalScale;
-	public /*const */bool bPaused;
-	public /*const */bool bStopped;
-	public/*(FlipBook)*/ bool bLooping;
-	public/*(FlipBook)*/ bool bAutoPlay;
-	public/*(FlipBook)*/ int HorizontalImages;
-	public/*(FlipBook)*/ int VerticalImages;
-	public/*(FlipBook)*/ TextureFlipBook.TextureFlipBookMethod FBMethod;
-	public/*(FlipBook)*/ float FrameRate;
-	public /*private */float FrameTime;
-	public /*const transient */int CurrentRow;
-	public /*const transient */int CurrentColumn;
-	public /*const transient */float RenderOffsetU;
-	public /*const transient */float RenderOffsetV;
-	public /*native const */Object.Pointer ReleaseResourcesFence;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FTickableObject;
+	[Const, transient] public float TimeIntoMovie;
+	[Const, transient] public float TimeSinceLastFrame;
+	[Const, transient] public float HorizontalScale;
+	[Const, transient] public float VerticalScale;
+	[Const] public bool bPaused;
+	[Const] public bool bStopped;
+	[Category("FlipBook")] public bool bLooping;
+	[Category("FlipBook")] public bool bAutoPlay;
+	[Category("FlipBook")] public int HorizontalImages;
+	[Category("FlipBook")] public int VerticalImages;
+	[Category("FlipBook")] public TextureFlipBook.TextureFlipBookMethod FBMethod;
+	[Category("FlipBook")] public float FrameRate;
+	public/*private*/ float FrameTime;
+	[Const, transient] public int CurrentRow;
+	[Const, transient] public int CurrentColumn;
+	[Const, transient] public float RenderOffsetU;
+	[Const, transient] public float RenderOffsetV;
+	[native, Const] public Object.Pointer ReleaseResourcesFence;
 	
 	// Export UTextureFlipBook::execPlay(FFrame&, void* const)
 	public virtual /*native function */void Play()

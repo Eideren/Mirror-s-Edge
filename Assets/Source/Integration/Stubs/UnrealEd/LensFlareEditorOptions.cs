@@ -5,20 +5,20 @@ public partial class LensFlareEditorOptions : Object/*
 		native
 		config(Editor)
 		hidecategories(Object)*/{
-	public/*(Options)*/ /*config */Object.LinearColor LFED_BackgroundColor;
-	public/*(Options)*/ /*config */Object.LinearColor LFED_Empty_Background;
-	public/*(Options)*/ /*config */Object.LinearColor LFED_Source_ElementEd_Background;
-	public/*(Options)*/ /*config */Object.LinearColor LFED_Source_Unselected;
-	public/*(Options)*/ /*config */Object.LinearColor LFED_Source_Selected;
-	public/*(Options)*/ /*config */Object.LinearColor LFED_ElementEd_Background;
-	public/*(Options)*/ /*config */Object.LinearColor LFED_Element_Unselected;
-	public/*(Options)*/ /*config */Object.LinearColor LFED_Element_Selected;
-	public/*(Options)*/ /*config */bool bShowGrid;
-	public/*(Options)*/ /*config */Object.Color GridColor_Hi;
-	public/*(Options)*/ /*config */Object.Color GridColor_Low;
-	public/*(Options)*/ /*config */float GridPerspectiveSize;
-	public/*(Options)*/ /*config */String PostProcessChainName;
-	public/*(Options)*/ /*config */int ShowPPFlags;
+	[Category("Options")] [config] public Object.LinearColor LFED_BackgroundColor;
+	[Category("Options")] [config] public Object.LinearColor LFED_Empty_Background;
+	[Category("Options")] [config] public Object.LinearColor LFED_Source_ElementEd_Background;
+	[Category("Options")] [config] public Object.LinearColor LFED_Source_Unselected;
+	[Category("Options")] [config] public Object.LinearColor LFED_Source_Selected;
+	[Category("Options")] [config] public Object.LinearColor LFED_ElementEd_Background;
+	[Category("Options")] [config] public Object.LinearColor LFED_Element_Unselected;
+	[Category("Options")] [config] public Object.LinearColor LFED_Element_Selected;
+	[Category("Options")] [config] public bool bShowGrid;
+	[Category("Options")] [config] public Object.Color GridColor_Hi;
+	[Category("Options")] [config] public Object.Color GridColor_Low;
+	[Category("Options")] [config] public float GridPerspectiveSize;
+	[Category("Options")] [config] public String PostProcessChainName;
+	[Category("Options")] [config] public int ShowPPFlags;
 	
 	public LensFlareEditorOptions()
 	{

@@ -12,14 +12,14 @@ public partial class ParticleModuleAttractorParticle : ParticleModuleAttractorBa
 		EAPSM_MAX
 	};
 	
-	public/*(Attractor)*/ /*noclear export */name EmitterName;
-	public/*(Attractor)*/ DistributionFloat.RawDistributionFloat Range;
-	public/*(Attractor)*/ bool bStrengthByDistance;
-	public/*(Attractor)*/ bool bAffectBaseVelocity;
-	public/*(Attractor)*/ bool bRenewSource;
-	public/*(Attractor)*/ bool bInheritSourceVel;
-	public/*(Attractor)*/ DistributionFloat.RawDistributionFloat Strength;
-	public/*(Location)*/ ParticleModuleAttractorParticle.EAttractorParticleSelectionMethod SelectionMethod;
+	[Category("Attractor")] [noclear, export] public name EmitterName;
+	[Category("Attractor")] public DistributionFloat.RawDistributionFloat Range;
+	[Category("Attractor")] public bool bStrengthByDistance;
+	[Category("Attractor")] public bool bAffectBaseVelocity;
+	[Category("Attractor")] public bool bRenewSource;
+	[Category("Attractor")] public bool bInheritSourceVel;
+	[Category("Attractor")] public DistributionFloat.RawDistributionFloat Strength;
+	[Category("Location")] public ParticleModuleAttractorParticle.EAttractorParticleSelectionMethod SelectionMethod;
 	public int LastSelIndex;
 	
 	public ParticleModuleAttractorParticle()

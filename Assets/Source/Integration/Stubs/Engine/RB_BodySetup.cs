@@ -13,29 +13,29 @@ public partial class RB_BodySetup : KMeshProps/*
 	
 	public partial struct KCachedConvexDataElement
 	{
-		public /*native */array<byte> ConvexElementData;
+		[native] public array<byte> ConvexElementData;
 	};
 	
 	public partial struct KCachedConvexData
 	{
-		public /*native */array<RB_BodySetup.KCachedConvexDataElement> CachedConvexElements;
+		[native] public array<RB_BodySetup.KCachedConvexDataElement> CachedConvexElements;
 	};
 	
-	public/*()*/ RB_BodySetup.ESleepFamily SleepFamily;
-	public/*()*/ /*editconst */name BoneName;
-	public/*()*/ bool bFixed;
-	public/*()*/ bool bNoCollision;
-	public/*()*/ bool bBlockZeroExtent;
-	public/*()*/ bool bBlockNonZeroExtent;
-	public/*()*/ bool bEnableContinuousCollisionDetection;
-	public/*()*/ bool bAlwaysFullAnimWeight;
-	public/*()*/ PhysicalMaterial PhysMaterial;
-	public/*()*/ float MassScale;
-	public /*native const */array<Object.Pointer> CollisionGeom;
-	public /*native const */array<Object.Vector> CollisionGeomScale3D;
-	public/*()*/ /*const */array<Object.Vector> PreCachedPhysScale;
-	public /*native const */array<RB_BodySetup.KCachedConvexData> PreCachedPhysData;
-	public /*const */int PreCachedPhysDataVersion;
+	[Category] public RB_BodySetup.ESleepFamily SleepFamily;
+	[Category] [editconst] public name BoneName;
+	[Category] public bool bFixed;
+	[Category] public bool bNoCollision;
+	[Category] public bool bBlockZeroExtent;
+	[Category] public bool bBlockNonZeroExtent;
+	[Category] public bool bEnableContinuousCollisionDetection;
+	[Category] public bool bAlwaysFullAnimWeight;
+	[Category] public PhysicalMaterial PhysMaterial;
+	[Category] public float MassScale;
+	[native, Const] public array<Object.Pointer> CollisionGeom;
+	[native, Const] public array<Object.Vector> CollisionGeomScale3D;
+	[Category] [Const] public array<Object.Vector> PreCachedPhysScale;
+	[native, Const] public array<RB_BodySetup.KCachedConvexData> PreCachedPhysData;
+	[Const] public int PreCachedPhysDataVersion;
 	
 	public RB_BodySetup()
 	{

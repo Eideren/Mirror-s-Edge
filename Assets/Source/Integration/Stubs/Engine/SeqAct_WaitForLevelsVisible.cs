@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_WaitForLevelsVisible : SeqAct_Latent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ array<name> LevelNames;
-	public/*()*/ bool bShouldBlockOnLoad;
+	[Category] public array<name> LevelNames;
+	[Category] public bool bShouldBlockOnLoad;
 	
 	public SeqAct_WaitForLevelsVisible()
 	{

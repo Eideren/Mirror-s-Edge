@@ -5,7 +5,7 @@ public partial class UIAction_DataStore : UIAction/*
 		abstract
 		native
 		hidecategories(Object)*/{
-	public/*()*/ int BindingIndex;
+	[Category] public int BindingIndex;
 	
 	public UIAction_DataStore()
 	{

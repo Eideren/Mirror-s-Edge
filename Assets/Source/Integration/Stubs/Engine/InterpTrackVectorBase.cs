@@ -7,7 +7,7 @@ public partial class InterpTrackVectorBase : InterpTrack/*
 		collapsecategories
 		hidecategories(Object)*/{
 	public Object.InterpCurveVector VectorTrack;
-	public/*()*/ float CurveTension;
+	[Category] public float CurveTension;
 	
 	public InterpTrackVectorBase()
 	{

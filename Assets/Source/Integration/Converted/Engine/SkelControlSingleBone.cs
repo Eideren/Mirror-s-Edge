@@ -4,16 +4,16 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SkelControlSingleBone : SkelControlBase/*
 		native
 		hidecategories(Object)*/{
-	public/*(Adjustments)*/ bool bApplyTranslation;
-	public/*(Translation)*/ bool bAddTranslation;
-	public/*(Adjustments)*/ bool bApplyRotation;
-	public/*(Rotation)*/ bool bAddRotation;
-	public/*(Translation)*/ Object.Vector BoneTranslation;
-	public/*(Translation)*/ SkelControlBase.EBoneControlSpace BoneTranslationSpace;
-	public/*(Rotation)*/ SkelControlBase.EBoneControlSpace BoneRotationSpace;
-	public/*(Translation)*/ name TranslationSpaceBoneName;
-	public/*(Rotation)*/ Object.Rotator BoneRotation;
-	public/*(Rotation)*/ name RotationSpaceBoneName;
+	[Category("Adjustments")] public bool bApplyTranslation;
+	[Category("Translation")] public bool bAddTranslation;
+	[Category("Adjustments")] public bool bApplyRotation;
+	[Category("Rotation")] public bool bAddRotation;
+	[Category("Translation")] public Object.Vector BoneTranslation;
+	[Category("Translation")] public SkelControlBase.EBoneControlSpace BoneTranslationSpace;
+	[Category("Rotation")] public SkelControlBase.EBoneControlSpace BoneRotationSpace;
+	[Category("Translation")] public name TranslationSpaceBoneName;
+	[Category("Rotation")] public Object.Rotator BoneRotation;
+	[Category("Rotation")] public name RotationSpaceBoneName;
 	
 }
 }

@@ -7,14 +7,14 @@ public partial class SVehicleSimTank : SVehicleSimCar/*
 	public float RightTrackVel;
 	public float LeftTrackTorque;
 	public float RightTrackTorque;
-	public/*()*/ float MaxEngineTorque;
-	public/*()*/ float EngineDamping;
-	public/*()*/ float InsideTrackTorqueFactor;
-	public/*()*/ float SteeringLatStiffnessFactor;
-	public/*()*/ float TurnInPlaceThrottle;
-	public/*()*/ float TurnMaxGripReduction;
-	public/*()*/ float TurnGripScaleRate;
-	public/*()*/ bool bTurnInPlaceOnSteer;
+	[Category] public float MaxEngineTorque;
+	[Category] public float EngineDamping;
+	[Category] public float InsideTrackTorqueFactor;
+	[Category] public float SteeringLatStiffnessFactor;
+	[Category] public float TurnInPlaceThrottle;
+	[Category] public float TurnMaxGripReduction;
+	[Category] public float TurnGripScaleRate;
+	[Category] public bool bTurnInPlaceOnSteer;
 	
 	public SVehicleSimTank()
 	{

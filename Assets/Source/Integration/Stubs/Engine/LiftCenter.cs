@@ -10,7 +10,7 @@ public partial class LiftCenter : NavigationPoint/*
 	public Object.Vector LiftOffset;
 	public bool bJumpLift;
 	public float CollisionHeight;
-	public/*()*/ Trigger LiftTrigger;
+	[Category] public Trigger LiftTrigger;
 	
 	public override /*event */void PostBeginPlay()
 	{

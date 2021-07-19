@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdOnlineStatsRead : OnlineStatsRead/*
 		native*/{
-	public /*private */int StretchId;
+	public/*private*/ int StretchId;
 	
 	// Export UTdOnlineStatsRead::execGetFloatStat(FFrame&, void* const)
 	public virtual /*native function */float GetFloatStat(OnlineSubsystem.UniqueNetId UniqId, int StatId)

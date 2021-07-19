@@ -5,15 +5,15 @@ public partial class CurveEdOptions : Object/*
 		native
 		config(Editor)
 		hidecategories(Object)*/{
-	public/*(Options)*/ /*config */float MinViewRange;
-	public/*(Options)*/ /*config */float MaxViewRange;
-	public/*(Options)*/ /*config */Object.LinearColor BackgroundColor;
-	public/*(Options)*/ /*config */Object.LinearColor LabelColor;
-	public/*(Options)*/ /*config */Object.LinearColor SelectedLabelColor;
-	public/*(Options)*/ /*config */Object.LinearColor GridColor;
-	public/*(Options)*/ /*config */Object.LinearColor GridTextColor;
-	public/*(Options)*/ /*config */Object.LinearColor LabelBlockBkgColor;
-	public/*(Options)*/ /*config */Object.LinearColor SelectedKeyColor;
+	[Category("Options")] [config] public float MinViewRange;
+	[Category("Options")] [config] public float MaxViewRange;
+	[Category("Options")] [config] public Object.LinearColor BackgroundColor;
+	[Category("Options")] [config] public Object.LinearColor LabelColor;
+	[Category("Options")] [config] public Object.LinearColor SelectedLabelColor;
+	[Category("Options")] [config] public Object.LinearColor GridColor;
+	[Category("Options")] [config] public Object.LinearColor GridTextColor;
+	[Category("Options")] [config] public Object.LinearColor LabelBlockBkgColor;
+	[Category("Options")] [config] public Object.LinearColor SelectedKeyColor;
 	
 	public CurveEdOptions()
 	{

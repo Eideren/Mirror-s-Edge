@@ -4,29 +4,29 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class DamageType : Object/*
 		abstract
 		native*/{
-	public/*()*/ /*const localized */String DeathString;
-	public/*()*/ /*const localized */String FemaleSuicide;
-	public/*()*/ /*const localized */String MaleSuicide;
-	public/*()*/ bool bArmorStops;
-	public/*()*/ bool bAlwaysGibs;
-	public/*()*/ bool bNeverGibs;
-	public/*()*/ bool bLocationalHit;
-	public/*()*/ bool bCausesBlood;
-	public/*()*/ bool bCausesBloodSplatterDecals;
-	public/*()*/ bool bKUseOwnDeathVel;
+	[Category] [Const, localized] public String DeathString;
+	[Category] [Const, localized] public String FemaleSuicide;
+	[Category] [Const, localized] public String MaleSuicide;
+	[Category] public bool bArmorStops;
+	[Category] public bool bAlwaysGibs;
+	[Category] public bool bNeverGibs;
+	[Category] public bool bLocationalHit;
+	[Category] public bool bCausesBlood;
+	[Category] public bool bCausesBloodSplatterDecals;
+	[Category] public bool bKUseOwnDeathVel;
 	public bool bCausedByWorld;
 	public bool bExtraMomentumZ;
-	public/*()*/ bool bCausesFracture;
+	[Category] public bool bCausesFracture;
 	public bool bIgnoreDriverDamageMult;
 	public bool bDontHurtInstigator;
-	public/*(RigidBody)*/ bool bKRadialImpulse;
-	public/*(RigidBody)*/ bool bRadialDamageVelChange;
-	public/*()*/ float GibModifier;
-	public/*(RigidBody)*/ float KDamageImpulse;
-	public/*(RigidBody)*/ float KDeathVel;
-	public/*(RigidBody)*/ float KDeathUpKick;
-	public/*(RigidBody)*/ float KImpulseRadius;
-	public/*(RigidBody)*/ float RadialDamageImpulse;
+	[Category("RigidBody")] public bool bKRadialImpulse;
+	[Category("RigidBody")] public bool bRadialDamageVelChange;
+	[Category] public float GibModifier;
+	[Category("RigidBody")] public float KDamageImpulse;
+	[Category("RigidBody")] public float KDeathVel;
+	[Category("RigidBody")] public float KDeathUpKick;
+	[Category("RigidBody")] public float KImpulseRadius;
+	[Category("RigidBody")] public float RadialDamageImpulse;
 	public float VehicleDamageScaling;
 	public float VehicleMomentumScaling;
 	public ForceFeedbackWaveform DamagedFFWaveform;

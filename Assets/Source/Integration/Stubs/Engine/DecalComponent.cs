@@ -15,8 +15,8 @@ public partial class DecalComponent : PrimitiveComponent/*
 	
 	public partial struct /*native */DecalReceiver
 	{
-		public /*const export editinline */PrimitiveComponent Component;
-		public /*native const */Object.Pointer RenderData;
+		[Const, export, editinline] public PrimitiveComponent Component;
+		[native, Const] public Object.Pointer RenderData;
 	
 	//	structdefaultproperties
 	//	{
@@ -25,49 +25,49 @@ public partial class DecalComponent : PrimitiveComponent/*
 	//	}
 	};
 	
-	public/*(Decal)*/ MaterialInterface DecalMaterial;
-	public/*(Decal)*/ float Width;
-	public/*(Decal)*/ float Height;
-	public/*(Decal)*/ float TileX;
-	public/*(Decal)*/ float TileY;
-	public/*(Decal)*/ float OffsetX;
-	public/*(Decal)*/ float OffsetY;
-	public/*(Decal)*/ float DecalRotation;
+	[Category("Decal")] public MaterialInterface DecalMaterial;
+	[Category("Decal")] public float Width;
+	[Category("Decal")] public float Height;
+	[Category("Decal")] public float TileX;
+	[Category("Decal")] public float TileY;
+	[Category("Decal")] public float OffsetX;
+	[Category("Decal")] public float OffsetY;
+	[Category("Decal")] public float DecalRotation;
 	public float FieldOfView;
-	public/*(Decal)*/ float NearPlane;
-	public/*(Decal)*/ float FarPlane;
+	[Category("Decal")] public float NearPlane;
+	[Category("Decal")] public float FarPlane;
 	public Object.Vector Location;
 	public Object.Rotator Orientation;
 	public Object.Vector HitLocation;
 	public Object.Vector HitNormal;
 	public Object.Vector HitTangent;
 	public Object.Vector HitBinormal;
-	public/*(Decal)*/ bool bNoClip;
-	public /*const */bool bStaticDecal;
-	public/*(DecalRender)*/ bool bNeverCull;
-	public/*(DecalFilter)*/ bool bProjectOnBackfaces;
-	public/*(DecalFilter)*/ bool bProjectOnHidden;
-	public/*(DecalFilter)*/ bool bProjectOnBSP;
-	public/*(DecalFilter)*/ bool bProjectOnStaticMeshes;
-	public/*(DecalFilter)*/ bool bProjectOnSkeletalMeshes;
-	public/*(DecalFilter)*/ bool bProjectOnTerrain;
+	[Category("Decal")] public bool bNoClip;
+	[Const] public bool bStaticDecal;
+	[Category("DecalRender")] public bool bNeverCull;
+	[Category("DecalFilter")] public bool bProjectOnBackfaces;
+	[Category("DecalFilter")] public bool bProjectOnHidden;
+	[Category("DecalFilter")] public bool bProjectOnBSP;
+	[Category("DecalFilter")] public bool bProjectOnStaticMeshes;
+	[Category("DecalFilter")] public bool bProjectOnSkeletalMeshes;
+	[Category("DecalFilter")] public bool bProjectOnTerrain;
 	public bool bFlipBackfaceDirection;
-	public /*export editinline transient */PrimitiveComponent HitComponent;
-	public /*transient */name HitBone;
-	public /*transient */int HitNodeIndex;
-	public /*transient */int HitLevelIndex;
-	public /*private const transient */array<int> HitNodeIndices;
-	public /*private noimport duplicatetransient const */array<DecalComponent.DecalReceiver> DecalReceivers;
-	public /*private noimport duplicatetransient native const transient */array<Object.Pointer> StaticReceivers;
-	public /*duplicatetransient native const transient */Object.Pointer ReleaseResourcesFence;
-	public /*private transient */array<Object.Plane> Planes;
-	public/*(DecalRender)*/ float DepthBias;
-	public/*(DecalRender)*/ float SlopeScaleDepthBias;
-	public/*(DecalRender)*/ int SortOrder;
-	public/*(DecalRender)*/ float BackfaceAngle;
-	public/*(DecalFilter)*/ DecalComponent.EFilterMode FilterMode;
-	public/*(DecalFilter)*/ array<Actor> Filter;
-	public/*(DecalFilter)*/ /*export editinline */array</*export editinline */PrimitiveComponent> ReceiverImages;
+	[export, editinline, transient] public PrimitiveComponent HitComponent;
+	[transient] public name HitBone;
+	[transient] public int HitNodeIndex;
+	[transient] public int HitLevelIndex;
+	[Const, transient] public/*private*/ array<int> HitNodeIndices;
+	[noimport, duplicatetransient, Const] public/*private*/ array<DecalComponent.DecalReceiver> DecalReceivers;
+	[noimport, duplicatetransient, native, Const, transient] public/*private*/ array<Object.Pointer> StaticReceivers;
+	[duplicatetransient, native, Const, transient] public Object.Pointer ReleaseResourcesFence;
+	[transient] public/*private*/ array<Object.Plane> Planes;
+	[Category("DecalRender")] public float DepthBias;
+	[Category("DecalRender")] public float SlopeScaleDepthBias;
+	[Category("DecalRender")] public int SortOrder;
+	[Category("DecalRender")] public float BackfaceAngle;
+	[Category("DecalFilter")] public DecalComponent.EFilterMode FilterMode;
+	[Category("DecalFilter")] public array<Actor> Filter;
+	[Category("DecalFilter")] [export, editinline] public array</*export editinline */PrimitiveComponent> ReceiverImages;
 	
 	// Export UDecalComponent::execResetToDefaults(FFrame&, void* const)
 	public virtual /*native final function */void ResetToDefaults()

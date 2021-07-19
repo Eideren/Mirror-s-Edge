@@ -6,7 +6,7 @@ public partial class ASVSkelComponent : SkeletalMeshComponent/*
 		native
 		editinlinenew
 		hidecategories(Object)*/{
-	public /*native const */Object.Pointer AnimSetViewerPtr;
+	[native, Const] public Object.Pointer AnimSetViewerPtr;
 	public bool bRenderRawSkeleton;
 	public bool bDrawMesh;
 	public Object.Color BoneColor;

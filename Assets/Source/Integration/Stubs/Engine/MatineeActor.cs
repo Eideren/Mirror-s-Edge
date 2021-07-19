@@ -6,7 +6,7 @@ public partial class MatineeActor : Actor/*
 		nativereplication
 		notplaceable
 		hidecategories(Navigation)*/{
-	public /*const */SeqAct_Interp InterpAction;
+	[Const] public SeqAct_Interp InterpAction;
 	public bool bIsPlaying;
 	public bool bReversePlayback;
 	public bool bPaused;

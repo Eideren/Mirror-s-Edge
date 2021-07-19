@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_JumpIntoGrabBot : TdMove_AISpecialMove/*
 		native
 		config(PawnMovement)*/{
-	public /*transient */Object.Vector MoveStartLocation;
-	public /*transient */Object.Vector MoveEndLocation;
+	[transient] public Object.Vector MoveStartLocation;
+	[transient] public Object.Vector MoveEndLocation;
 	
 	public override /*simulated function */void StartMove()
 	{

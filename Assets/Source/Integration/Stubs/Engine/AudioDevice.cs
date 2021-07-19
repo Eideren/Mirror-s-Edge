@@ -23,7 +23,7 @@ public partial class AudioDevice : Subsystem/*
 	
 	public partial struct /*native */Listener
 	{
-		public /*const */PortalVolume PortalVolume;
+		[Const] public PortalVolume PortalVolume;
 		public Object.Vector Location;
 		public Object.Vector Up;
 		public Object.Vector Right;
@@ -82,18 +82,18 @@ public partial class AudioDevice : Subsystem/*
 	
 	public partial struct /*native */SoundGroupProperties
 	{
-		public/*()*/ float Volume;
-		public/*()*/ float Pitch;
-		public/*()*/ float LowPass;
-		public/*()*/ float MaxUpdateDistance;
-		public/*()*/ float VoiceCenterChannelVolume;
-		public/*()*/ float VoiceRadioVolume;
-		public/*()*/ bool bApplyEffects;
-		public/*()*/ bool bAlwaysPlay;
-		public/*()*/ bool bUberAlwaysPlay;
-		public/*()*/ bool bIsUISound;
-		public/*()*/ bool bIsMusic;
-		public/*()*/ bool bNoReverb;
+		[Category] public float Volume;
+		[Category] public float Pitch;
+		[Category] public float LowPass;
+		[Category] public float MaxUpdateDistance;
+		[Category] public float VoiceCenterChannelVolume;
+		[Category] public float VoiceRadioVolume;
+		[Category] public bool bApplyEffects;
+		[Category] public bool bAlwaysPlay;
+		[Category] public bool bUberAlwaysPlay;
+		[Category] public bool bIsUISound;
+		[Category] public bool bIsMusic;
+		[Category] public bool bNoReverb;
 	
 	//	structdefaultproperties
 	//	{
@@ -115,9 +115,9 @@ public partial class AudioDevice : Subsystem/*
 	
 	public partial struct /*native */SoundGroup
 	{
-		public/*()*/ AudioDevice.SoundGroupProperties Properties;
-		public/*()*/ name GroupName;
-		public/*()*/ array<name> ChildGroupNames;
+		[Category] public AudioDevice.SoundGroupProperties Properties;
+		[Category] public name GroupName;
+		[Category] public array<name> ChildGroupNames;
 	
 	//	structdefaultproperties
 	//	{
@@ -161,11 +161,11 @@ public partial class AudioDevice : Subsystem/*
 	
 	public partial struct /*native */MixGroupInfo
 	{
-		public/*()*/ name GroupName;
-		public/*()*/ float Volume;
-		public/*()*/ float Pitch;
-		public/*()*/ float LowPass;
-		public/*()*/ bool SloMo;
+		[Category] public name GroupName;
+		[Category] public float Volume;
+		[Category] public float Pitch;
+		[Category] public float LowPass;
+		[Category] public bool SloMo;
 	
 	//	structdefaultproperties
 	//	{
@@ -189,30 +189,30 @@ public partial class AudioDevice : Subsystem/*
 	//	}
 	};
 	
-	public /*const config */int MaxChannels;
-	public /*const config */bool UseEffectsProcessing;
-	public /*native const */bool bGameWasTicking;
-	public /*native const */bool bTestLowPassFilter;
-	public /*native const */bool bTestEQFilter;
-	public /*const export editinline transient */array</*export editinline */AudioComponent> AudioComponents;
-	public /*native const */array<Object.Pointer> Sources;
-	public /*native const */array<Object.Pointer> FreeSources;
-	public /*native const */Object.Map_Mirror WaveInstanceSourceMap;
-	public /*native const */array<AudioDevice.Listener> Listeners;
-	public /*native const */Object.QWord CurrentTick;
-	public /*native const */Object.Map_Mirror NameToSoundGroupIndexMap;
-	public /*native const */array<AudioDevice.SoundGroup> SourceSoundGroups;
-	public /*native const */array<AudioDevice.SoundGroup> CurrentSoundGroups;
-	public /*native const */array<AudioDevice.SoundGroup> DestinationSoundGroups;
-	public/*()*/ /*config */array</*config */AudioDevice.SoundGroup> SoundGroups;
-	public/*()*/ /*config */array</*config */AudioDevice.SoundGroupEffect> SoundGroupEffects;
-	public/*()*/ /*config */array</*config */AudioDevice.MixGroupInfo> MixGroups;
-	public /*native const */Object.Pointer Effects;
-	public /*native const */AudioDevice.ESoundMode CurrentMode;
-	public /*native const */Object.Double SoundModeStartTime;
-	public /*native const */Object.Double SoundModeEndTime;
-	public /*native const */Object.Pointer TextToSpeech;
-	public /*transient */float TransientMasterVolume;
+	[Const, config] public int MaxChannels;
+	[Const, config] public bool UseEffectsProcessing;
+	[native, Const] public bool bGameWasTicking;
+	[native, Const] public bool bTestLowPassFilter;
+	[native, Const] public bool bTestEQFilter;
+	[Const, export, editinline, transient] public array</*export editinline */AudioComponent> AudioComponents;
+	[native, Const] public array<Object.Pointer> Sources;
+	[native, Const] public array<Object.Pointer> FreeSources;
+	[native, Const] public Object.Map_Mirror WaveInstanceSourceMap;
+	[native, Const] public array<AudioDevice.Listener> Listeners;
+	[native, Const] public Object.QWord CurrentTick;
+	[native, Const] public Object.Map_Mirror NameToSoundGroupIndexMap;
+	[native, Const] public array<AudioDevice.SoundGroup> SourceSoundGroups;
+	[native, Const] public array<AudioDevice.SoundGroup> CurrentSoundGroups;
+	[native, Const] public array<AudioDevice.SoundGroup> DestinationSoundGroups;
+	[Category] [config] public array</*config */AudioDevice.SoundGroup> SoundGroups;
+	[Category] [config] public array</*config */AudioDevice.SoundGroupEffect> SoundGroupEffects;
+	[Category] [config] public array</*config */AudioDevice.MixGroupInfo> MixGroups;
+	[native, Const] public Object.Pointer Effects;
+	[native, Const] public AudioDevice.ESoundMode CurrentMode;
+	[native, Const] public Object.Double SoundModeStartTime;
+	[native, Const] public Object.Double SoundModeEndTime;
+	[native, Const] public Object.Pointer TextToSpeech;
+	[transient] public float TransientMasterVolume;
 	
 	public AudioDevice()
 	{

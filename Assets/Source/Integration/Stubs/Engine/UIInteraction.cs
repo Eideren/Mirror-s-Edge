@@ -10,8 +10,8 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	
 	public partial struct /*native transient */UIKeyRepeatData
 	{
-		public /*init */name CurrentRepeatKey;
-		public /*init */Object.Double NextRepeatTime;
+		[init] public name CurrentRepeatKey;
+		[init] public Object.Double NextRepeatTime;
 	
 	//	structdefaultproperties
 	//	{
@@ -23,10 +23,10 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	
 	public partial struct /*native transient */UIAxisEmulationData// extends UIKeyRepeatData
 	{
-		public /*init */name CurrentRepeatKey;
-		public /*init */Object.Double NextRepeatTime;
+		[init] public name CurrentRepeatKey;
+		[init] public Object.Double NextRepeatTime;
 	
-		public /*init */bool bEnabled;
+		[init] public bool bEnabled;
 			// Object Offset:0x00441F7C
 	//		CurrentRepeatKey = (name)"None";
 	//		NextRepeatTime = default;
@@ -38,34 +38,34 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	
 	public new GameViewportClient Outer => base.Outer as GameViewportClient;
 	
-	public /*private native const noexport */Object.Pointer VfTable_FExec;
-	public /*private native const noexport */Object.Pointer VfTable_FGlobalDataStoreClientManager;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FExec;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FGlobalDataStoreClientManager;
 	public Core.ClassT<GameUISceneClient> SceneClientClass;
-	public /*const transient */GameUISceneClient SceneClient;
-	public /*config */String UISkinName;
-	public /*config */array</*config */name> UISoundCueNames;
-	public /*transient */array<name> SupportedDoubleClickKeys;
-	public /*const transient */DataStoreClient DataStoreManager;
-	public /*const transient */UIInputConfiguration UIInputConfig;
-	public /*native const transient *//*map<0,0>*/map<object, object> WidgetInputAliasLookupTable;
-	public /*const transient */bool bProcessInput;
-	public /*const config */bool bDisableToolTips;
-	public /*const config */bool bFocusOnActive;
-	public /*const config */bool bCaptureUnprocessedInput;
-	public /*const config */bool bFocusedStateRules;
-	public /*const transient */bool bIsUIPrimitiveSceneInitialized;
-	public /*const config */float UIJoystickDeadZone;
-	public /*const config */float UIAxisMultiplier;
-	public /*const config */float AxisRepeatDelay;
-	public /*const config */float MouseButtonRepeatDelay;
-	public /*const config */float DoubleClickTriggerSeconds;
-	public /*const config */int DoubleClickPixelTolerance;
-	public /*const config */float ToolTipInitialDelaySeconds;
-	public /*const config */float ToolTipExpirationSeconds;
-	public /*const transient */UIInteraction.UIKeyRepeatData MouseButtonRepeatInfo;
-	public /*native const transient *//*map<0,0>*/map<object, object> AxisEmulationDefinitions;
-	public /*transient */StaticArray<UIInteraction.UIAxisEmulationData, UIInteraction.UIAxisEmulationData, UIInteraction.UIAxisEmulationData, UIInteraction.UIAxisEmulationData>/*[4]*/ AxisInputEmulation;
-	public /*native const transient */Object.Pointer CanvasScene;
+	[Const, transient] public GameUISceneClient SceneClient;
+	[config] public String UISkinName;
+	[config] public array</*config */name> UISoundCueNames;
+	[transient] public array<name> SupportedDoubleClickKeys;
+	[Const, transient] public DataStoreClient DataStoreManager;
+	[Const, transient] public UIInputConfiguration UIInputConfig;
+	[native, Const, transient] public /*map<0,0>*/map<object, object> WidgetInputAliasLookupTable;
+	[Const, transient] public bool bProcessInput;
+	[Const, config] public bool bDisableToolTips;
+	[Const, config] public bool bFocusOnActive;
+	[Const, config] public bool bCaptureUnprocessedInput;
+	[Const, config] public bool bFocusedStateRules;
+	[Const, transient] public bool bIsUIPrimitiveSceneInitialized;
+	[Const, config] public float UIJoystickDeadZone;
+	[Const, config] public float UIAxisMultiplier;
+	[Const, config] public float AxisRepeatDelay;
+	[Const, config] public float MouseButtonRepeatDelay;
+	[Const, config] public float DoubleClickTriggerSeconds;
+	[Const, config] public int DoubleClickPixelTolerance;
+	[Const, config] public float ToolTipInitialDelaySeconds;
+	[Const, config] public float ToolTipExpirationSeconds;
+	[Const, transient] public UIInteraction.UIKeyRepeatData MouseButtonRepeatInfo;
+	[native, Const, transient] public /*map<0,0>*/map<object, object> AxisEmulationDefinitions;
+	[transient] public StaticArray<UIInteraction.UIAxisEmulationData, UIInteraction.UIAxisEmulationData, UIInteraction.UIAxisEmulationData, UIInteraction.UIAxisEmulationData>/*[4]*/ AxisInputEmulation;
+	[native, Const, transient] public Object.Pointer CanvasScene;
 	
 	// Export UUIInteraction::execGetPlayerCount(FFrame&, void* const)
 	public /*native final function */static int GetPlayerCount()

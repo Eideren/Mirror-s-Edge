@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class AITemplate_Support : AITemplate_Default/*
 		config(AITemplates)
 		editinlinenew*/{
-	public /*config */float GrenadeRange;
-	public /*config */float GrenadeDelay;
+	[config] public float GrenadeRange;
+	[config] public float GrenadeDelay;
 	
 	public AITemplate_Support()
 	{

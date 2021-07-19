@@ -2,8 +2,8 @@ namespace MEdge.TdTTContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTuContent; using TdEditor;
 
 public partial class TdTTVictoryMessage : TdVictoryMessage{
-	public /*const localized */StaticArray<String, String, String>/*[3]*/ NewRecord;
-	public /*const localized */StaticArray<String, String, String>/*[3]*/ TryAgain;
+	[Const, localized] public StaticArray<String, String, String>/*[3]*/ NewRecord;
+	[Const, localized] public StaticArray<String, String, String>/*[3]*/ TryAgain;
 	
 	public /*simulated function */static void ClientReceive(PlayerController P, /*optional */int? _Switch = default, /*optional */PlayerReplicationInfo _PitcherPRI = default, /*optional */PlayerReplicationInfo _RecieverPRI = default, /*optional */Object _OptionalObject = default)
 	{

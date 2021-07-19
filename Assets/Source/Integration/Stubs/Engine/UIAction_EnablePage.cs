@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIAction_EnablePage : UIAction_TabControl/*
 		hidecategories(Object)*/{
 	public UITabPage PageToEnable;
-	public/*()*/ bool bEnable;
+	[Category] public bool bEnable;
 	
 	public override /*event */void Activated()
 	{

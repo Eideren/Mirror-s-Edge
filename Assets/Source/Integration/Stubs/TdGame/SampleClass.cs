@@ -7,10 +7,10 @@ public partial class SampleClass : Actor/*
 		placeable
 		hidecategories(Navigation)*/{
 	public int MyInteger;
-	public /*config */String MyString;
+	[config] public String MyString;
 	public bool MyBool;
 	public Object.Vector MyVector;
-	public /*native */Object.Pointer MyPointer;
+	[native] public Object.Pointer MyPointer;
 	
 	// Export USampleClass::execSampleNativeFunction(FFrame&, void* const)
 	public virtual /*native function */int SampleNativeFunction(int I, String S, Object.Vector V)

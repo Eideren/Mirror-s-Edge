@@ -4,11 +4,11 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_CauseDamageRadial : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ Core.ClassT<DamageType> DamageType;
-	public/*()*/ float Momentum;
-	public/*()*/ float DamageAmount;
-	public/*()*/ float DamageRadius;
-	public/*()*/ bool bDamageFalloff;
+	[Category] public Core.ClassT<DamageType> DamageType;
+	[Category] public float Momentum;
+	[Category] public float DamageAmount;
+	[Category] public float DamageRadius;
+	[Category] public bool bDamageFalloff;
 	public Actor Instigator;
 	
 	public SeqAct_CauseDamageRadial()

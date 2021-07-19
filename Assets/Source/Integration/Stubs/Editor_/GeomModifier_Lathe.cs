@@ -4,9 +4,9 @@ using Core; using Engine; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class GeomModifier_Lathe : GeomModifier_Edit/*
 		native
 		hidecategories(Object,GeomModifier)*/{
-	public/*(Settings)*/ int TotalSegments;
-	public/*(Settings)*/ int Segments;
-	public/*(Settings)*/ Object.EAxis Axis;
+	[Category("Settings")] public int TotalSegments;
+	[Category("Settings")] public int Segments;
+	[Category("Settings")] public Object.EAxis Axis;
 	
 	public GeomModifier_Lathe()
 	{

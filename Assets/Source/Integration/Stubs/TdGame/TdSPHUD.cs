@@ -17,21 +17,21 @@ public partial class TdSPHUD : TdHUD/*
 		PUT_MAX
 	};
 	
-	public /*private */TdProfileSettings.EReticuleValues DrawReticuleFlag;
-	public /*private */TdSPHUD.EPopUpType PopUpType;
-	public /*private */bool bIsInZoomState;
-	public/*()*/ /*config */bool bDisableDrawCrossHair;
-	public /*private */Object.Vector2D PopUpPos;
-	public /*private */float PopUpDuration;
-	public /*private */float PopUpStartTime;
-	public /*private */String PopUpMessage;
-	public /*const */Font ButtonFontPS3;
-	public /*const */Font ButtonFontXBOX;
-	public /*const */Texture2D UnarmedCrossHair;
-	public /*const */Texture2D ReactionCrossHair;
-	public /*const */Texture2D WeaponCrossHair;
-	public /*const */Texture2D BagIcon;
-	public /*const */Texture2D CheckIcon;
+	public/*private*/ TdProfileSettings.EReticuleValues DrawReticuleFlag;
+	public/*private*/ TdSPHUD.EPopUpType PopUpType;
+	public/*private*/ bool bIsInZoomState;
+	[Category] [config] public bool bDisableDrawCrossHair;
+	public/*private*/ Object.Vector2D PopUpPos;
+	public/*private*/ float PopUpDuration;
+	public/*private*/ float PopUpStartTime;
+	public/*private*/ String PopUpMessage;
+	[Const] public Font ButtonFontPS3;
+	[Const] public Font ButtonFontXBOX;
+	[Const] public Texture2D UnarmedCrossHair;
+	[Const] public Texture2D ReactionCrossHair;
+	[Const] public Texture2D WeaponCrossHair;
+	[Const] public Texture2D BagIcon;
+	[Const] public Texture2D CheckIcon;
 	
 	public override /*function */void LoadHUDContent(Core.ClassT<TdHUDContent> ContentClass)
 	{

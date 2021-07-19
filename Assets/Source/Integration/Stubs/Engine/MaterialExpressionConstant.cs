@@ -7,7 +7,7 @@ public partial class MaterialExpressionConstant : MaterialExpression/* within Ma
 		hidecategories(Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ float R;
+	[Category] public float R;
 	
 }
 }

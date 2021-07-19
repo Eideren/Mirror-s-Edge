@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_AttachToEvent : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ bool bPreferController;
+	[Category] public bool bPreferController;
 	
 	public SeqAct_AttachToEvent()
 	{

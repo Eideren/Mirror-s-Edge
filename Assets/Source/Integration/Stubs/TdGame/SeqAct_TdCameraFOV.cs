@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqAct_TdCameraFOV : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float NewFOV;
-	public /*transient */TdPlayerPawn PlayerPawn;
+	[Category] public float NewFOV;
+	[transient] public TdPlayerPawn PlayerPawn;
 	
 	public SeqAct_TdCameraFOV()
 	{

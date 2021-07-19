@@ -4,10 +4,10 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_ChangeCollision : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ /*const editconst */bool bCollideActors;
-	public/*()*/ /*const editconst */bool bBlockActors;
-	public/*()*/ /*const editconst */bool bIgnoreEncroachers;
-	public/*()*/ Actor.ECollisionType CollisionType;
+	[Category] [Const, editconst] public bool bCollideActors;
+	[Category] [Const, editconst] public bool bBlockActors;
+	[Category] [Const, editconst] public bool bIgnoreEncroachers;
+	[Category] public Actor.ECollisionType CollisionType;
 	
 	public SeqAct_ChangeCollision()
 	{

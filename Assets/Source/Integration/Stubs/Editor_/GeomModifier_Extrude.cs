@@ -4,8 +4,8 @@ using Core; using Engine; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class GeomModifier_Extrude : GeomModifier_Edit/*
 		native
 		hidecategories(Object,GeomModifier)*/{
-	public/*(Settings)*/ int Length;
-	public/*(Settings)*/ int Segments;
+	[Category("Settings")] public int Length;
+	[Category("Settings")] public int Segments;
 	
 	public GeomModifier_Extrude()
 	{

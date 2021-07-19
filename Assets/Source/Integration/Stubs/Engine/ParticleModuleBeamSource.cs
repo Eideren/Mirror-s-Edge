@@ -5,16 +5,16 @@ public partial class ParticleModuleBeamSource : ParticleModuleBeamBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Source)*/ ParticleModuleBeamBase.Beam2SourceTargetMethod SourceMethod;
-	public/*(Source)*/ ParticleModuleBeamBase.Beam2SourceTargetTangentMethod SourceTangentMethod;
-	public/*(Source)*/ name SourceName;
-	public/*(Source)*/ bool bSourceAbsolute;
-	public/*(Source)*/ bool bLockSource;
-	public/*(Source)*/ bool bLockSourceTangent;
-	public/*(Source)*/ bool bLockSourceStength;
-	public/*(Source)*/ DistributionVector.RawDistributionVector Source;
-	public/*(Source)*/ DistributionVector.RawDistributionVector SourceTangent;
-	public/*(Source)*/ DistributionFloat.RawDistributionFloat SourceStrength;
+	[Category("Source")] public ParticleModuleBeamBase.Beam2SourceTargetMethod SourceMethod;
+	[Category("Source")] public ParticleModuleBeamBase.Beam2SourceTargetTangentMethod SourceTangentMethod;
+	[Category("Source")] public name SourceName;
+	[Category("Source")] public bool bSourceAbsolute;
+	[Category("Source")] public bool bLockSource;
+	[Category("Source")] public bool bLockSourceTangent;
+	[Category("Source")] public bool bLockSourceStength;
+	[Category("Source")] public DistributionVector.RawDistributionVector Source;
+	[Category("Source")] public DistributionVector.RawDistributionVector SourceTangent;
+	[Category("Source")] public DistributionFloat.RawDistributionFloat SourceStrength;
 	
 	public ParticleModuleBeamSource()
 	{

@@ -32,10 +32,10 @@ public partial class FracturedStaticMeshComponent : StaticMeshComponent/*
 	//	}
 	};
 	
-	public /*private native const */Object.IndirectArray_Mirror LODResources;
-	public /*private const */array<byte> VisibleFragments;
-	public /*private const */array<FracturedStaticMeshComponent.FracturedElementRanges> ElementRanges;
-	public /*private native const transient */Object.RenderCommandFence_Mirror ReleaseResourcesFence;
+	[native, Const] public/*private*/ Object.IndirectArray_Mirror LODResources;
+	[Const] public/*private*/ array<byte> VisibleFragments;
+	[Const] public/*private*/ array<FracturedStaticMeshComponent.FracturedElementRanges> ElementRanges;
+	[native, Const, transient] public/*private*/ Object.RenderCommandFence_Mirror ReleaseResourcesFence;
 	public bool bUseVisibleVertsForBounds;
 	
 	// Export UFracturedStaticMeshComponent::execSetStaticMesh(FFrame&, void* const)

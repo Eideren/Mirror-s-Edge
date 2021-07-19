@@ -6,9 +6,9 @@ public partial class SeqCond_SwitchObject : SeqCond_SwitchBase/*
 		hidecategories(Object)*/{
 	public partial struct /*native */SwitchObjectCase
 	{
-		public/*()*/ Object ObjectValue;
-		public/*()*/ bool bFallThru;
-		public/*()*/ bool bDefaultValue;
+		[Category] public Object ObjectValue;
+		[Category] public bool bFallThru;
+		[Category] public bool bDefaultValue;
 	
 	//	structdefaultproperties
 	//	{
@@ -19,8 +19,8 @@ public partial class SeqCond_SwitchObject : SeqCond_SwitchBase/*
 	//	}
 	};
 	
-	public/*()*/ array<SeqCond_SwitchObject.SwitchObjectCase> SupportedValues;
-	public/*()*/ Class MetaClass;
+	[Category] public array<SeqCond_SwitchObject.SwitchObjectCase> SupportedValues;
+	[Category] public Class MetaClass;
 	
 	public override /*event */void VerifyDefaultCaseValue()
 	{

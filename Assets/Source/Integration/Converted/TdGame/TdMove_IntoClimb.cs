@@ -16,8 +16,8 @@ public partial class TdMove_IntoClimb : TdPhysicsMove/*
 	public bool AtBottomStep;
 	public bool bPlayingImpact;
 	public float FirstStepZDistance;
-	public /*private */ForceFeedbackWaveform ImpactHardWaveform;
-	public /*private */ForceFeedbackWaveform ImpactSoftWaveform;
+	public/*private*/ ForceFeedbackWaveform ImpactHardWaveform;
+	public/*private*/ ForceFeedbackWaveform ImpactSoftWaveform;
 	
 	public override /*function */bool CanDoMove()
 	{

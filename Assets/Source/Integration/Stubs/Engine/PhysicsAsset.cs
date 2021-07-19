@@ -4,10 +4,10 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class PhysicsAsset : Object/*
 		native
 		hidecategories(Object)*/{
-	public /*editoronly const */SkeletalMesh DefaultSkelMesh;
-	public /*const export editinline */array</*export editinline */RB_BodySetup> BodySetup;
-	public /*const export editinline */array</*export editinline */RB_ConstraintSetup> ConstraintSetup;
-	public /*const export editinline */PhysicsAssetInstance DefaultInstance;
+	[editoronly, Const] public SkeletalMesh DefaultSkelMesh;
+	[Const, export, editinline] public array</*export editinline */RB_BodySetup> BodySetup;
+	[Const, export, editinline] public array</*export editinline */RB_ConstraintSetup> ConstraintSetup;
+	[Const, export, editinline] public PhysicsAssetInstance DefaultInstance;
 	
 }
 }

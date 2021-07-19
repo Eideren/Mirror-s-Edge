@@ -4,15 +4,15 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_SetDOFParams : SeqAct_Latent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float FalloffExponent;
-	public/*()*/ float BlurKernelSize;
-	public/*()*/ float MaxNearBlurAmount;
-	public/*()*/ float MaxFarBlurAmount;
-	public/*()*/ Object.Color ModulateBlurColor;
-	public/*()*/ float FocusInnerRadius;
-	public/*()*/ float FocusDistance;
-	public/*()*/ Object.Vector FocusPosition;
-	public/*()*/ float InterpolateSeconds;
+	[Category] public float FalloffExponent;
+	[Category] public float BlurKernelSize;
+	[Category] public float MaxNearBlurAmount;
+	[Category] public float MaxFarBlurAmount;
+	[Category] public Object.Color ModulateBlurColor;
+	[Category] public float FocusInnerRadius;
+	[Category] public float FocusDistance;
+	[Category] public Object.Vector FocusPosition;
+	[Category] public float InterpolateSeconds;
 	public float InterpolateElapsed;
 	public float OldFalloffExponent;
 	public float OldBlurKernelSize;

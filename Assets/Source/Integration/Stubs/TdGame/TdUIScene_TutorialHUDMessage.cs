@@ -5,16 +5,16 @@ public partial class TdUIScene_TutorialHUDMessage : TdUIScene/*
 		native
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UILabel MessageText;
-	public /*transient */float PopUpTimeStamp;
-	public /*transient */bool bAutoClose;
-	public /*transient */bool bFallButtonThrough;
-	public /*transient */bool bIgnoreCloseOnContinue;
-	public /*transient */float Duration;
-	public /*transient */array<name> ContinueKeyNames;
-	public /*transient */array<name> PauseKeyNames;
-	public /*transient */array<name> IGMKeyNames;
-	public /*transient */UIPanel ScenePanel;
+	[transient] public UILabel MessageText;
+	[transient] public float PopUpTimeStamp;
+	[transient] public bool bAutoClose;
+	[transient] public bool bFallButtonThrough;
+	[transient] public bool bIgnoreCloseOnContinue;
+	[transient] public float Duration;
+	[transient] public array<name> ContinueKeyNames;
+	[transient] public array<name> PauseKeyNames;
+	[transient] public array<name> IGMKeyNames;
+	[transient] public UIPanel ScenePanel;
 	
 	public override /*event */void PostInitialize()
 	{

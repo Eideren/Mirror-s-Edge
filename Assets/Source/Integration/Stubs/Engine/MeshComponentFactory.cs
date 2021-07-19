@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class MeshComponentFactory : PrimitiveComponentFactory/*
 		abstract
 		native*/{
-	public/*(Rendering)*/ array<MaterialInterface> Materials;
+	[Category("Rendering")] public array<MaterialInterface> Materials;
 	
 	public MeshComponentFactory()
 	{

@@ -4,20 +4,20 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class CameraAnimInst : Object/*
 		native*/{
 	public CameraAnim CamAnim;
-	public /*protected export editinline */InterpGroupInst InterpGroupInst;
-	public /*protected transient */float CurTime;
-	public /*protected transient */bool bLooping;
-	public /*transient */bool bFinished;
-	public /*protected transient */bool bBlendingIn;
-	public /*protected transient */bool bBlendingOut;
-	public /*protected */float BlendInTime;
-	public /*protected */float BlendOutTime;
-	public /*protected transient */float CurBlendInTime;
-	public /*protected transient */float CurBlendOutTime;
-	public /*protected */float PlayRate;
+	[export, editinline] public/*protected*/ InterpGroupInst InterpGroupInst;
+	[transient] public/*protected*/ float CurTime;
+	[transient] public/*protected*/ bool bLooping;
+	[transient] public bool bFinished;
+	[transient] public/*protected*/ bool bBlendingIn;
+	[transient] public/*protected*/ bool bBlendingOut;
+	public/*protected*/ float BlendInTime;
+	public/*protected*/ float BlendOutTime;
+	[transient] public/*protected*/ float CurBlendInTime;
+	[transient] public/*protected*/ float CurBlendOutTime;
+	public/*protected*/ float PlayRate;
 	public float PlayScale;
 	public float CurrentBlendWeight;
-	public /*protected transient */float RemainingTime;
+	[transient] public/*protected*/ float RemainingTime;
 	public InterpTrackMove MoveTrack;
 	public InterpTrackInstMove MoveInst;
 	

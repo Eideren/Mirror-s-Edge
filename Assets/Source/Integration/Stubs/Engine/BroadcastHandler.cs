@@ -6,7 +6,7 @@ public partial class BroadcastHandler : Info/*
 		notplaceable
 		hidecategories(Navigation,Movement,Collision)*/{
 	public int SentText;
-	public /*config */bool bMuteSpectators;
+	[config] public bool bMuteSpectators;
 	
 	public virtual /*function */void UpdateSentText()
 	{

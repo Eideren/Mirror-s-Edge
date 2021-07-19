@@ -3,8 +3,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_HealDamage : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ Core.ClassT<DamageType> DamageType;
-	public/*()*/ int HealAmount;
+	[Category] public Core.ClassT<DamageType> DamageType;
+	[Category] public int HealAmount;
 	public Actor Instigator;
 	
 	public SeqAct_HealDamage()

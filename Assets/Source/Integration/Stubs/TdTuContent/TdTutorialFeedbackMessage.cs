@@ -2,8 +2,8 @@ namespace MEdge.TdTuContent{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdEditor;
 
 public partial class TdTutorialFeedbackMessage : TdLocalMessage{
-	public /*const localized */String GoodWork;
-	public /*const localized */String TryAgain;
+	[Const, localized] public String GoodWork;
+	[Const, localized] public String TryAgain;
 	public SoundNodeWave VOGoodWork;
 	public SoundNodeWave VOTryAgain;
 	

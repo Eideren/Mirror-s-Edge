@@ -6,8 +6,8 @@ public partial class SeqAct_MultiLevelStreaming : SeqAct_LevelStreamingBase/*
 		hidecategories(Object)*/{
 	public partial struct /*native */LevelStreamingNameCombo
 	{
-		public /*const */LevelStreaming Level;
-		public/*()*/ /*const */name LevelName;
+		[Const] public LevelStreaming Level;
+		[Category] [Const] public name LevelName;
 	
 	//	structdefaultproperties
 	//	{
@@ -17,10 +17,10 @@ public partial class SeqAct_MultiLevelStreaming : SeqAct_LevelStreamingBase/*
 	//	}
 	};
 	
-	public/*()*/ array<SeqAct_MultiLevelStreaming.LevelStreamingNameCombo> Levels;
-	public/*()*/ bool bUnloadAllOtherLevels;
-	public /*transient */bool bStatusIsOk;
-	public /*transient */bool bUnloading;
+	[Category] public array<SeqAct_MultiLevelStreaming.LevelStreamingNameCombo> Levels;
+	[Category] public bool bUnloadAllOtherLevels;
+	[transient] public bool bStatusIsOk;
+	[transient] public bool bUnloading;
 	
 	public SeqAct_MultiLevelStreaming()
 	{

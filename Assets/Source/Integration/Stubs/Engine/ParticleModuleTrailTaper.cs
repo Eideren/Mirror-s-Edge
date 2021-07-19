@@ -14,8 +14,8 @@ public partial class ParticleModuleTrailTaper : ParticleModuleTrailBase/*
 		PETTM_MAX
 	};
 	
-	public/*(Taper)*/ ParticleModuleTrailTaper.ETrailTaperMethod TaperMethod;
-	public/*(Taper)*/ DistributionFloat.RawDistributionFloat TaperFactor;
+	[Category("Taper")] public ParticleModuleTrailTaper.ETrailTaperMethod TaperMethod;
+	[Category("Taper")] public DistributionFloat.RawDistributionFloat TaperFactor;
 	
 	public ParticleModuleTrailTaper()
 	{

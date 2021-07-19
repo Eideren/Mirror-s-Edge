@@ -6,15 +6,15 @@ public partial class TdPhysicalMaterialProperty : PhysicalMaterialPropertyBase/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*(Footsteps)*/ /*editinline */TdPhysicalMaterialFootSteps TdPhysicalMaterialFootSteps;
-	public/*(ImpactEffects)*/ /*editinline */TdPhysicalMaterialImpactEffects TdPhysicalMaterialImpactEffects;
-	public/*(ImpactSounds)*/ /*editinline */TdPhysicalMaterialImpactSounds TdPhysicalMaterialImpactSounds;
-	public/*(Decals)*/ /*editinline */TdPhysicalMaterialDecals TdPhysicalMaterialDecals;
-	public/*(MeleeEffects)*/ /*editinline */TdPhysicalMaterialMelee TdPhysicalMaterialMelee;
-	public/*()*/ bool bEnableSoftLanding;
-	public/*()*/ bool bPreventSliding;
-	public/*()*/ bool bEnableUncontrolledSlide;
-	public/*()*/ bool bShouldAirBarge;
+	[Category("Footsteps")] [editinline] public TdPhysicalMaterialFootSteps TdPhysicalMaterialFootSteps;
+	[Category("ImpactEffects")] [editinline] public TdPhysicalMaterialImpactEffects TdPhysicalMaterialImpactEffects;
+	[Category("ImpactSounds")] [editinline] public TdPhysicalMaterialImpactSounds TdPhysicalMaterialImpactSounds;
+	[Category("Decals")] [editinline] public TdPhysicalMaterialDecals TdPhysicalMaterialDecals;
+	[Category("MeleeEffects")] [editinline] public TdPhysicalMaterialMelee TdPhysicalMaterialMelee;
+	[Category] public bool bEnableSoftLanding;
+	[Category] public bool bPreventSliding;
+	[Category] public bool bEnableUncontrolledSlide;
+	[Category] public bool bShouldAirBarge;
 	
 	// Export UTdPhysicalMaterialProperty::execGetParticleImpactSound(FFrame&, void* const)
 	public virtual /*native final simulated function */SoundCue GetParticleImpactSound(TdParticleModuleCollision.ECollisionParticleType Type)

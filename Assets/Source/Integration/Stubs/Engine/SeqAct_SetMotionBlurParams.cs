@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_SetMotionBlurParams : SeqAct_Latent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float MotionBlurAmount;
-	public/*()*/ float InterpolateSeconds;
+	[Category] public float MotionBlurAmount;
+	[Category] public float InterpolateSeconds;
 	public float InterpolateElapsed;
 	public float OldMotionBlurAmount;
 	

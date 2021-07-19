@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_Possess : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public /*transient */Pawn PawnToPossess;
-	public/*()*/ bool bKillOldPawn;
-	public/*()*/ bool bTryToLeaveVehicle;
+	[transient] public Pawn PawnToPossess;
+	[Category] public bool bKillOldPawn;
+	[Category] public bool bTryToLeaveVehicle;
 	
 	public SeqAct_Possess()
 	{

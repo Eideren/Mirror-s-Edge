@@ -19,7 +19,7 @@ public partial class AITemplate_Celeste : AITemplate_PursuitCop/*
 	//	}
 	};
 	
-	public /*config */AITemplate_Celeste.HitsToTakeStruct NrOfHitsToTake;
+	[config] public AITemplate_Celeste.HitsToTakeStruct NrOfHitsToTake;
 	
 	public AITemplate_Celeste()
 	{

@@ -5,26 +5,26 @@ public partial class ParticleModuleBeamNoise : ParticleModuleBeamBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(LowFreq)*/ bool bLowFreq_Enabled;
-	public/*(LowFreq)*/ bool bNRScaleEmitterTime;
-	public/*(LowFreq)*/ bool bSmooth;
-	public /*const */bool bNoiseLock;
-	public/*(LowFreq)*/ bool bOscillate;
-	public/*(LowFreq)*/ bool bUseNoiseTangents;
-	public/*(LowFreq)*/ bool bTargetNoise;
-	public/*(LowFreq)*/ bool bApplyNoiseScale;
-	public/*(LowFreq)*/ int Frequency;
-	public/*(LowFreq)*/ int Frequency_LowRange;
-	public/*(LowFreq)*/ DistributionVector.RawDistributionVector NoiseRange;
-	public/*(LowFreq)*/ DistributionFloat.RawDistributionFloat NoiseRangeScale;
-	public/*(LowFreq)*/ DistributionVector.RawDistributionVector NoiseSpeed;
-	public/*(LowFreq)*/ float NoiseLockRadius;
-	public/*(LowFreq)*/ float NoiseLockTime;
-	public/*(LowFreq)*/ float NoiseTension;
-	public/*(LowFreq)*/ DistributionFloat.RawDistributionFloat NoiseTangentStrength;
-	public/*(LowFreq)*/ int NoiseTessellation;
-	public/*(LowFreq)*/ float FrequencyDistance;
-	public/*(LowFreq)*/ DistributionFloat.RawDistributionFloat NoiseScale;
+	[Category("LowFreq")] public bool bLowFreq_Enabled;
+	[Category("LowFreq")] public bool bNRScaleEmitterTime;
+	[Category("LowFreq")] public bool bSmooth;
+	[Const] public bool bNoiseLock;
+	[Category("LowFreq")] public bool bOscillate;
+	[Category("LowFreq")] public bool bUseNoiseTangents;
+	[Category("LowFreq")] public bool bTargetNoise;
+	[Category("LowFreq")] public bool bApplyNoiseScale;
+	[Category("LowFreq")] public int Frequency;
+	[Category("LowFreq")] public int Frequency_LowRange;
+	[Category("LowFreq")] public DistributionVector.RawDistributionVector NoiseRange;
+	[Category("LowFreq")] public DistributionFloat.RawDistributionFloat NoiseRangeScale;
+	[Category("LowFreq")] public DistributionVector.RawDistributionVector NoiseSpeed;
+	[Category("LowFreq")] public float NoiseLockRadius;
+	[Category("LowFreq")] public float NoiseLockTime;
+	[Category("LowFreq")] public float NoiseTension;
+	[Category("LowFreq")] public DistributionFloat.RawDistributionFloat NoiseTangentStrength;
+	[Category("LowFreq")] public int NoiseTessellation;
+	[Category("LowFreq")] public float FrequencyDistance;
+	[Category("LowFreq")] public DistributionFloat.RawDistributionFloat NoiseScale;
 	
 	public ParticleModuleBeamNoise()
 	{

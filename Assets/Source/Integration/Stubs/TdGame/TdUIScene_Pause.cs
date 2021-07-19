@@ -5,13 +5,13 @@ public partial class TdUIScene_Pause : TdUIScene/*
 		abstract
 		config(UI)
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */TdMenuPostProcesWrapper PanelBGRenderer;
-	public /*transient */UIPanel ContentPanel;
-	public /*transient */UISafeRegionPanel SafeRegionPanel;
-	public /*transient */UISafeRegionPanel ScreenRegionPanel;
-	public /*private transient */UILabel TitleLabel;
-	public /*transient */UIImage PanelBgImage;
-	public /*transient */array<UILabelButton> OptionButtons;
+	[transient] public TdMenuPostProcesWrapper PanelBGRenderer;
+	[transient] public UIPanel ContentPanel;
+	[transient] public UISafeRegionPanel SafeRegionPanel;
+	[transient] public UISafeRegionPanel ScreenRegionPanel;
+	[transient] public/*private*/ UILabel TitleLabel;
+	[transient] public UIImage PanelBgImage;
+	[transient] public array<UILabelButton> OptionButtons;
 	public UIObject LastFocusedObject;
 	
 	public override /*event */void PostInitialize()

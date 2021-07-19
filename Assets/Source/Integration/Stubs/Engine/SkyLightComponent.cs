@@ -6,8 +6,8 @@ public partial class SkyLightComponent : LightComponent/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ /*const */float LowerBrightness;
-	public/*()*/ /*const */Object.Color LowerColor;
+	[Category] [Const] public float LowerBrightness;
+	[Category] [Const] public Object.Color LowerColor;
 	
 	public SkyLightComponent()
 	{

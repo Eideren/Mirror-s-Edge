@@ -5,7 +5,7 @@ public partial class ParticleModuleSubUV : ParticleModuleSubUVBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(SubUV)*/ DistributionFloat.RawDistributionFloat SubImageIndex;
+	[Category("SubUV")] public DistributionFloat.RawDistributionFloat SubImageIndex;
 	
 	public ParticleModuleSubUV()
 	{

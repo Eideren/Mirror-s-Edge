@@ -4,22 +4,22 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Ts; usin
 public partial class TpUoPlayGroup : TpSystemHandler, 
 		OnlinePlayGroupInterface/*
 		transient*/{
-	public /*private */TpGameBrowser.TpLobbyRef GroupLobby;
-	public /*private */TpGameBrowser.TpGameRef GroupGame;
-	public /*private */array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupCreated > __OnPlayGroupCreated__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupJoined > __OnPlayGroupJoined__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayGroupInterface.OnInviteToPlayGroupComplete > __OnInviteToPlayGroupComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayGroupInterface.OnInviteToPlayGroupReceived > __OnInviteToPlayGroupReceived__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupMemberJoin > __OnPlayGroupMemberJoin__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupChatMessageReceived > __OnPlayGroupChatMessageReceived__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupDestroyed > __OnPlayGroupDestroyed__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupKicked > __OnPlayGroupKicked__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayGroupInterface.OnLeavePlayGroupComplete > __OnLeavePlayGroupComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupMemberLeave > __OnPlayGroupMemberLeave__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupOwnerTransitionStart > __OnPlayGroupOwnerTransitionStart__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupOwnerTransitionFinish > __OnPlayGroupOwnerTransitionFinish__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupGameJoined > __OnPlayGroupGameJoined__Multicaster;
-	public /*private */array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupGameLeave > __OnPlayGroupGameLeave__Multicaster;
+	public/*private*/ TpGameBrowser.TpLobbyRef GroupLobby;
+	public/*private*/ TpGameBrowser.TpGameRef GroupGame;
+	public/*private*/ array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupCreated > __OnPlayGroupCreated__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupJoined > __OnPlayGroupJoined__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayGroupInterface.OnInviteToPlayGroupComplete > __OnInviteToPlayGroupComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayGroupInterface.OnInviteToPlayGroupReceived > __OnInviteToPlayGroupReceived__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupMemberJoin > __OnPlayGroupMemberJoin__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupChatMessageReceived > __OnPlayGroupChatMessageReceived__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupDestroyed > __OnPlayGroupDestroyed__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupKicked > __OnPlayGroupKicked__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayGroupInterface.OnLeavePlayGroupComplete > __OnLeavePlayGroupComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupMemberLeave > __OnPlayGroupMemberLeave__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupOwnerTransitionStart > __OnPlayGroupOwnerTransitionStart__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupOwnerTransitionFinish > __OnPlayGroupOwnerTransitionFinish__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupGameJoined > __OnPlayGroupGameJoined__Multicaster;
+	public/*private*/ array< /*delegate*/OnlinePlayGroupInterface.OnPlayGroupGameLeave > __OnPlayGroupGameLeave__Multicaster;
 	public /*delegate*/OnlinePlayGroupInterface.OnPlayGroupCreated __OnPlayGroupCreated__Delegate{ get; set; }
 	public /*delegate*/OnlinePlayGroupInterface.OnPlayGroupJoined __OnPlayGroupJoined__Delegate{ get; set; }
 	public /*delegate*/OnlinePlayGroupInterface.OnInviteToPlayGroupComplete __OnInviteToPlayGroupComplete__Delegate{ get; set; }

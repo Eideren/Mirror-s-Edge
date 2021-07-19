@@ -13,11 +13,11 @@ public partial class ParticleModuleTypeDataMesh : ParticleModuleTypeDataBase/*
 		PSMA_MAX
 	};
 	
-	public/*(Mesh)*/ StaticMesh Mesh;
-	public/*(Mesh)*/ bool CastShadows;
-	public/*(Mesh)*/ bool DoCollisions;
-	public/*(Mesh)*/ bool bOverrideMaterial;
-	public/*(Mesh)*/ ParticleModuleTypeDataMesh.EMeshScreenAlignment MeshAlignment;
+	[Category("Mesh")] public StaticMesh Mesh;
+	[Category("Mesh")] public bool CastShadows;
+	[Category("Mesh")] public bool DoCollisions;
+	[Category("Mesh")] public bool bOverrideMaterial;
+	[Category("Mesh")] public ParticleModuleTypeDataMesh.EMeshScreenAlignment MeshAlignment;
 	
 }
 }

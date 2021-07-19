@@ -3,9 +3,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqEvent_LOS : SequenceEvent/*
 		hidecategories(Object)*/{
-	public/*()*/ float ScreenCenterDistance;
-	public/*()*/ float TriggerDistance;
-	public/*()*/ bool bCheckForObstructions;
+	[Category] public float ScreenCenterDistance;
+	[Category] public float TriggerDistance;
+	[Category] public bool bCheckForObstructions;
 	
 	public SeqEvent_LOS()
 	{

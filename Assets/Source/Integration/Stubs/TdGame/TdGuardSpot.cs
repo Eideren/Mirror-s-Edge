@@ -5,7 +5,7 @@ public partial class TdGuardSpot : NavigationPoint/*
 		native
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*()*/ float ProtectionAngle;
+	[Category] public float ProtectionAngle;
 	
 	public TdGuardSpot()
 	{

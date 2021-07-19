@@ -7,14 +7,14 @@ public partial class TdGhostPawnBase : TdPawn/*
 		hidecategories(Navigation)*/{
 	public ParticleSystem TrailParticleSystem_Normal;
 	public ParticleSystem TrailParticleSystem_Wide;
-	public /*export editinline transient */ParticleSystemComponent TrailHeadPSC;
-	public /*export editinline transient */ParticleSystemComponent TrailNeckPSC;
-	public /*export editinline transient */ParticleSystemComponent TrailSpinePSC;
-	public /*export editinline transient */ParticleSystemComponent TrailSpine2PSC;
-	public /*export editinline transient */ParticleSystemComponent TrailRightHandPSC;
-	public /*export editinline transient */ParticleSystemComponent TrailLeftHandPSC;
-	public /*export editinline transient */ParticleSystemComponent TrailRightFootPSC;
-	public /*export editinline transient */ParticleSystemComponent TrailLeftFootPSC;
+	[export, editinline, transient] public ParticleSystemComponent TrailHeadPSC;
+	[export, editinline, transient] public ParticleSystemComponent TrailNeckPSC;
+	[export, editinline, transient] public ParticleSystemComponent TrailSpinePSC;
+	[export, editinline, transient] public ParticleSystemComponent TrailSpine2PSC;
+	[export, editinline, transient] public ParticleSystemComponent TrailRightHandPSC;
+	[export, editinline, transient] public ParticleSystemComponent TrailLeftHandPSC;
+	[export, editinline, transient] public ParticleSystemComponent TrailRightFootPSC;
+	[export, editinline, transient] public ParticleSystemComponent TrailLeftFootPSC;
 	public name TrailHeadSocket;
 	public name TrailNeckSocket;
 	public name TrailSpineSocket;
@@ -24,7 +24,7 @@ public partial class TdGhostPawnBase : TdPawn/*
 	public name TrailLeftFootSocket;
 	public name TrailRightFootSocket;
 	public DecalMaterial FootDecalMaterial;
-	public /*export editinline */AudioComponent AmbientSound;
+	[export, editinline] public AudioComponent AmbientSound;
 	public SoundCue AmbientSoundSC;
 	public int SmoothYaw;
 	public int TargetYaw;

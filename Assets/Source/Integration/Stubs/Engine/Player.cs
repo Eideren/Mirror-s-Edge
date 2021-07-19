@@ -5,15 +5,15 @@ public partial class Player : Object/*
 		transient
 		native
 		config(Engine)*/{
-	public /*private native const noexport */Object.Pointer VfTable_FExec;
-	public /*const transient */PlayerController Actor;
-	public /*const */int CurrentNetSpeed;
-	public /*globalconfig */int ConfiguredInternetSpeed;
-	public /*globalconfig */int ConfiguredLanSpeed;
-	public /*config */float PP_DesaturationMultiplier;
-	public /*config */float PP_HighlightsMultiplier;
-	public /*config */float PP_MidTonesMultiplier;
-	public /*config */float PP_ShadowsMultiplier;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FExec;
+	[Const, transient] public PlayerController Actor;
+	[Const] public int CurrentNetSpeed;
+	[globalconfig] public int ConfiguredInternetSpeed;
+	[globalconfig] public int ConfiguredLanSpeed;
+	[config] public float PP_DesaturationMultiplier;
+	[config] public float PP_HighlightsMultiplier;
+	[config] public float PP_MidTonesMultiplier;
+	[config] public float PP_ShadowsMultiplier;
 	
 	// Export UPlayer::execSwitchController(FFrame&, void* const)
 	public virtual /*native function */void SwitchController(PlayerController PC)

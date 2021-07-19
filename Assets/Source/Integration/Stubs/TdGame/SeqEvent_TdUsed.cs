@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class SeqEvent_TdUsed : SeqEvent_Used/*
 		native
 		hidecategories(Object)*/{
-	public /*transient */bool bInteract;
-	public/*()*/ TdValveSkeletalMeshActor InteractSkelMeshRef;
+	[transient] public bool bInteract;
+	[Category] public TdValveSkeletalMeshActor InteractSkelMeshRef;
 	
 	public override /*function */void Reset()
 	{

@@ -6,10 +6,10 @@ public partial class SoundNodeRandom : SoundNode/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ /*editfixedsize */array<float> Weights;
-	public/*()*/ bool bRandomizeWithoutReplacement;
-	public /*transient */array<bool> HasBeenUsed;
-	public /*transient */int NumRandomUsed;
+	[Category] [editfixedsize] public array<float> Weights;
+	[Category] public bool bRandomizeWithoutReplacement;
+	[transient] public array<bool> HasBeenUsed;
+	[transient] public int NumRandomUsed;
 	
 	public SoundNodeRandom()
 	{

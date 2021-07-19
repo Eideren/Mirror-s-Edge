@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_SetMusicTrack : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ name TrackBankName;
+	[Category] public name TrackBankName;
 	
 	public SeqAct_SetMusicTrack()
 	{

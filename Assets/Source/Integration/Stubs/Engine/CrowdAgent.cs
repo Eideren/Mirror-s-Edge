@@ -13,7 +13,7 @@ public partial class CrowdAgent : Actor/*
 	};
 	
 	public SeqAct_CrowdSpawner Spawner;
-	public/*()*/ CrowdAgent.EAgentMoveState AgentState;
+	[Category] public CrowdAgent.EAgentMoveState AgentState;
 	public float EndActionTime;
 	public float NextActionTime;
 	public float VelDamping;
@@ -23,7 +23,7 @@ public partial class CrowdAgent : Actor/*
 	public bool bTargetZPosInitialized;
 	public Object.Vector CurrentMoveTargetPos;
 	public float InterpZTranslation;
-	public/*()*/ /*export editinline */SkeletalMeshComponent SkeletalMeshComponent;
+	[Category] [export, editinline] public SkeletalMeshComponent SkeletalMeshComponent;
 	public AnimNodeBlend SpeedBlendNode;
 	public AnimNodeBlend ActionBlendNode;
 	public AnimNodeSequence ActionSeqNode;
@@ -31,12 +31,12 @@ public partial class CrowdAgent : Actor/*
 	public AnimNodeSequence RunSeqNode;
 	public AnimTree AgentTree;
 	public int Health;
-	public/*()*/ /*const editconst export editinline */LightEnvironmentComponent LightEnvironment;
-	public /*transient */int ConformTraceFrameCount;
-	public /*transient */int AwareUpdateFrameCount;
-	public /*transient */array<CrowdAgent> NearbyAgents;
-	public /*transient */array<CrowdAttractor> RelevantAttractors;
-	public /*transient */ReachSpec NearestPath;
+	[Category] [Const, editconst, export, editinline] public LightEnvironmentComponent LightEnvironment;
+	[transient] public int ConformTraceFrameCount;
+	[transient] public int AwareUpdateFrameCount;
+	[transient] public array<CrowdAgent> NearbyAgents;
+	[transient] public array<CrowdAttractor> RelevantAttractors;
+	[transient] public ReachSpec NearestPath;
 	
 	// Export UCrowdAgent::execPlayDeath(FFrame&, void* const)
 	public virtual /*native function */void PlayDeath()

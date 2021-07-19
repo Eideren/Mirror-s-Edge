@@ -7,15 +7,15 @@ public partial class DrawCylinderComponent : PrimitiveComponent/*
 		collapsecategories
 		noexport
 		hidecategories(Object)*/{
-	public/*()*/ Object.Color CylinderColor;
-	public/*()*/ Material CylinderMaterial;
-	public/*()*/ float CylinderRadius;
-	public/*()*/ float CylinderTopRadius;
-	public/*()*/ float CylinderHeight;
-	public/*()*/ float CylinderHeightOffset;
-	public/*()*/ int CylinderSides;
-	public/*()*/ bool bDrawWireCylinder;
-	public/*()*/ bool bDrawLitCylinder;
+	[Category] public Object.Color CylinderColor;
+	[Category] public Material CylinderMaterial;
+	[Category] public float CylinderRadius;
+	[Category] public float CylinderTopRadius;
+	[Category] public float CylinderHeight;
+	[Category] public float CylinderHeightOffset;
+	[Category] public int CylinderSides;
+	[Category] public bool bDrawWireCylinder;
+	[Category] public bool bDrawLitCylinder;
 	
 	public DrawCylinderComponent()
 	{

@@ -9,9 +9,9 @@ public partial class MaterialExpressionRotator : MaterialExpression/* within Mat
 	
 	public MaterialExpression.ExpressionInput Coordinate;
 	public MaterialExpression.ExpressionInput Time;
-	public/*()*/ float CenterX;
-	public/*()*/ float CenterY;
-	public/*()*/ float Speed;
+	[Category] public float CenterX;
+	[Category] public float CenterY;
+	[Category] public float Speed;
 	
 	public MaterialExpressionRotator()
 	{

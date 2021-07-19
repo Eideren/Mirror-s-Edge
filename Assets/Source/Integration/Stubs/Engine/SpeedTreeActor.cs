@@ -5,7 +5,7 @@ public partial class SpeedTreeActor : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*const editconst export editinline */SpeedTreeComponent SpeedTreeComponent;
+	[Category] [Const, editconst, export, editinline] public SpeedTreeComponent SpeedTreeComponent;
 	
 	public SpeedTreeActor()
 	{

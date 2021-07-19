@@ -7,8 +7,8 @@ public partial class TdActorFactoryHelicopter : ActorFactoryVehicle/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ Core.ClassT<TdAI_HeliController> ControllerClass;
-	public/*()*/ SkeletalMesh HelicopterSkeletalMesh;
+	[Category] public Core.ClassT<TdAI_HeliController> ControllerClass;
+	[Category] public SkeletalMesh HelicopterSkeletalMesh;
 	
 	public TdActorFactoryHelicopter()
 	{

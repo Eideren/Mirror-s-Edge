@@ -4,12 +4,12 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNodeTurn : TdAnimNodeBlendList/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public /*transient */bool PlayingTurnAnimation;
-	public /*transient */float LegTurnPerSecond;
-	public /*transient */float TimeStandingStill;
-	public/*(TimerSettings)*/ float IdleTimer;
-	public/*(AngularSettings)*/ float SafeRegionLimit;
-	public/*(AngularSettings)*/ float ExtendedRegionLimit;
+	[transient] public bool PlayingTurnAnimation;
+	[transient] public float LegTurnPerSecond;
+	[transient] public float TimeStandingStill;
+	[Category("TimerSettings")] public float IdleTimer;
+	[Category("AngularSettings")] public float SafeRegionLimit;
+	[Category("AngularSettings")] public float ExtendedRegionLimit;
 	public array<TdAnimNodeDirBone> AimNodes;
 	
 	public override /*event */void OnBecomeRelevant()

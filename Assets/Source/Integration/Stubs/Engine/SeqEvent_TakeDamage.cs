@@ -3,10 +3,10 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqEvent_TakeDamage : SequenceEvent/*
 		hidecategories(Object)*/{
-	public/*()*/ float MinDamageAmount;
-	public/*()*/ float DamageThreshold;
-	public/*()*/ array< Core.ClassT<DamageType> > DamageTypes;
-	public/*()*/ array< Core.ClassT<DamageType> > IgnoreDamageTypes;
+	[Category] public float MinDamageAmount;
+	[Category] public float DamageThreshold;
+	[Category] public array< Core.ClassT<DamageType> > DamageTypes;
+	[Category] public array< Core.ClassT<DamageType> > IgnoreDamageTypes;
 	public float CurrentDamage;
 	
 	public virtual /*final function */bool IsValidDamageType(Core.ClassT<DamageType> inDamageType)

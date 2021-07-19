@@ -4,10 +4,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdReachSpec_Vault : TdMoveReachSpec/*
 		native
 		config(PathfindingCosts)*/{
-	public/*()*/ bool bVaultOnto;
-	public/*()*/ bool bHighVault;
-	public/*()*/ Object.Vector HandPlantLocation;
-	public/*()*/ Object.Vector LandingLocation;
+	[Category] public bool bVaultOnto;
+	[Category] public bool bHighVault;
+	[Category] public Object.Vector HandPlantLocation;
+	[Category] public Object.Vector LandingLocation;
 	
 	// Export UTdReachSpec_Vault::execGetDefaultCostFor(FFrame&, void* const)
 	public override /*native function */int GetDefaultCostFor(TdBotPawn P)

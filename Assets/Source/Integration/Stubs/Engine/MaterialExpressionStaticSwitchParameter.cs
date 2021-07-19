@@ -7,11 +7,11 @@ public partial class MaterialExpressionStaticSwitchParameter : MaterialExpressio
 		hidecategories(Object,Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ bool DefaultValue;
-	public/*()*/ bool ExtendedCaptionDisplay;
+	[Category] public bool DefaultValue;
+	[Category] public bool ExtendedCaptionDisplay;
 	public MaterialExpression.ExpressionInput A;
 	public MaterialExpression.ExpressionInput B;
-	public /*native const transient */Object.Pointer InstanceOverride;
+	[native, Const, transient] public Object.Pointer InstanceOverride;
 	
 }
 }

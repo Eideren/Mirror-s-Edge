@@ -8,9 +8,9 @@ public partial class SoundNodeDistanceCrossFade : SoundNode/*
 		hidecategories(Object,Object)*/{
 	public partial struct /*native */DistanceDatum
 	{
-		public/*()*/ DistributionFloat.RawDistributionFloat FadeInDistance;
-		public/*()*/ DistributionFloat.RawDistributionFloat FadeOutDistance;
-		public/*()*/ float Volume;
+		[Category] public DistributionFloat.RawDistributionFloat FadeInDistance;
+		[Category] public DistributionFloat.RawDistributionFloat FadeOutDistance;
+		[Category] public float Volume;
 	
 	//	structdefaultproperties
 	//	{
@@ -41,7 +41,7 @@ public partial class SoundNodeDistanceCrossFade : SoundNode/*
 	//	}
 	};
 	
-	public/*()*/ /*editfixedsize export */array</*export */SoundNodeDistanceCrossFade.DistanceDatum> CrossFadeInput;
+	[Category] [editfixedsize, export] public array</*export */SoundNodeDistanceCrossFade.DistanceDatum> CrossFadeInput;
 	
 }
 }

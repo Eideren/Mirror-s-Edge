@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_SetMatInstTexParam : SequenceAction/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ MaterialInstanceConstant MatInst;
-	public/*()*/ Texture NewTexture;
-	public/*()*/ name ParamName;
+	[Category] public MaterialInstanceConstant MatInst;
+	[Category] public Texture NewTexture;
+	[Category] public name ParamName;
 	
 	public SeqAct_SetMatInstTexParam()
 	{

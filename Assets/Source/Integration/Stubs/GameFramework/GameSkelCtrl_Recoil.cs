@@ -13,10 +13,10 @@ public partial class GameSkelCtrl_Recoil : SkelControlBase/*
 	
 	public partial struct /*native */RecoilParams
 	{
-		public/*()*/ GameSkelCtrl_Recoil.ERecoilStart X;
-		public/*()*/ GameSkelCtrl_Recoil.ERecoilStart Y;
-		public/*()*/ GameSkelCtrl_Recoil.ERecoilStart Z;
-		public /*const transient */byte Padding;
+		[Category] public GameSkelCtrl_Recoil.ERecoilStart X;
+		[Category] public GameSkelCtrl_Recoil.ERecoilStart Y;
+		[Category] public GameSkelCtrl_Recoil.ERecoilStart Z;
+		[Const, transient] public byte Padding;
 	
 	//	structdefaultproperties
 	//	{
@@ -30,18 +30,18 @@ public partial class GameSkelCtrl_Recoil : SkelControlBase/*
 	
 	public partial struct /*native */RecoilDef
 	{
-		public /*transient */float TimeToGo;
-		public/*()*/ float TimeDuration;
-		public/*()*/ Object.Vector RotAmplitude;
-		public/*()*/ Object.Vector RotFrequency;
+		[transient] public float TimeToGo;
+		[Category] public float TimeDuration;
+		[Category] public Object.Vector RotAmplitude;
+		[Category] public Object.Vector RotFrequency;
 		public Object.Vector RotSinOffset;
-		public/*()*/ GameSkelCtrl_Recoil.RecoilParams RotParams;
-		public /*transient */Object.Rotator RotOffset;
-		public/*()*/ Object.Vector LocAmplitude;
-		public/*()*/ Object.Vector LocFrequency;
+		[Category] public GameSkelCtrl_Recoil.RecoilParams RotParams;
+		[transient] public Object.Rotator RotOffset;
+		[Category] public Object.Vector LocAmplitude;
+		[Category] public Object.Vector LocFrequency;
 		public Object.Vector LocSinOffset;
-		public/*()*/ GameSkelCtrl_Recoil.RecoilParams LocParams;
-		public /*transient */Object.Vector LocOffset;
+		[Category] public GameSkelCtrl_Recoil.RecoilParams LocParams;
+		[transient] public Object.Vector LocOffset;
 	
 	//	structdefaultproperties
 	//	{
@@ -113,12 +113,12 @@ public partial class GameSkelCtrl_Recoil : SkelControlBase/*
 	//	}
 	};
 	
-	public/*()*/ bool bBoneSpaceRecoil;
-	public/*()*/ /*transient */bool bPlayRecoil;
-	public /*transient */bool bOldPlayRecoil;
-	public /*transient */bool bApplyControl;
-	public/*()*/ GameSkelCtrl_Recoil.RecoilDef Recoil;
-	public/*()*/ Object.Vector2D Aim;
+	[Category] public bool bBoneSpaceRecoil;
+	[Category] [transient] public bool bPlayRecoil;
+	[transient] public bool bOldPlayRecoil;
+	[transient] public bool bApplyControl;
+	[Category] public GameSkelCtrl_Recoil.RecoilDef Recoil;
+	[Category] public Object.Vector2D Aim;
 	
 	public GameSkelCtrl_Recoil()
 	{

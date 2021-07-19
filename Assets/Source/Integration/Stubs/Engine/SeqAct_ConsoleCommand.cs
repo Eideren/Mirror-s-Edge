@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_ConsoleCommand : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ String Command;
+	[Category] public String Command;
 	
 	public SeqAct_ConsoleCommand()
 	{

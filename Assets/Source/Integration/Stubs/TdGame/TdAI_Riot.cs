@@ -16,11 +16,11 @@ public partial class TdAI_Riot : TdAIController/*
 	public float MeleeTimer;
 	public bool bUsingWideFormation;
 	public float LeftWideFormationTimeStamp;
-	public /*const */float CFormationWidth;
-	public /*const */float CFormationDepth;
+	[Const] public float CFormationWidth;
+	[Const] public float CFormationDepth;
 	public float FormationCollisionRadius;
 	public int FormationWidthCount;
-	public/*(Melee)*/ /*editinline */TdMove_Melee_Riot RiotMeleeMove;
+	[Category("Melee")] [editinline] public TdMove_Melee_Riot RiotMeleeMove;
 	
 	public override Possess_del Possess { get => bfield_Possess ?? TdAI_Riot_Possess; set => bfield_Possess = value; } Possess_del bfield_Possess;
 	public override Possess_del global_Possess => TdAI_Riot_Possess;

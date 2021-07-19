@@ -6,8 +6,8 @@ public partial class RB_ConstraintSetup : Object/*
 		hidecategories(Object)*/{
 	public partial struct /*native */LinearDOFSetup
 	{
-		public/*()*/ byte bLimited;
-		public/*()*/ float LimitSize;
+		[Category] public byte bLimited;
+		[Category] public float LimitSize;
 	
 	//	structdefaultproperties
 	//	{
@@ -17,9 +17,9 @@ public partial class RB_ConstraintSetup : Object/*
 	//	}
 	};
 	
-	public/*()*/ /*const */name JointName;
-	public/*()*/ name ConstraintBone1;
-	public/*()*/ name ConstraintBone2;
+	[Category] [Const] public name JointName;
+	[Category] public name ConstraintBone1;
+	[Category] public name ConstraintBone2;
 	public Object.Vector Pos1;
 	public Object.Vector PriAxis1;
 	public Object.Vector SecAxis1;
@@ -28,31 +28,31 @@ public partial class RB_ConstraintSetup : Object/*
 	public Object.Vector SecAxis2;
 	public Object.Vector PulleyPivot1;
 	public Object.Vector PulleyPivot2;
-	public/*()*/ bool bEnableProjection;
-	public/*(Linear)*/ bool bLinearLimitSoft;
-	public/*(Linear)*/ bool bLinearBreakable;
-	public/*(Angular)*/ bool bSwingLimited;
-	public/*(Angular)*/ bool bTwistLimited;
-	public/*(Angular)*/ bool bSwingLimitSoft;
-	public/*(Angular)*/ bool bTwistLimitSoft;
-	public/*(Angular)*/ bool bAngularBreakable;
-	public/*(Pulley)*/ bool bIsPulley;
-	public/*(Pulley)*/ bool bMaintainMinDistance;
-	public/*(Linear)*/ RB_ConstraintSetup.LinearDOFSetup LinearXSetup;
-	public/*(Linear)*/ RB_ConstraintSetup.LinearDOFSetup LinearYSetup;
-	public/*(Linear)*/ RB_ConstraintSetup.LinearDOFSetup LinearZSetup;
-	public/*(Linear)*/ float LinearLimitStiffness;
-	public/*(Linear)*/ float LinearLimitDamping;
-	public/*(Linear)*/ float LinearBreakThreshold;
-	public/*(Angular)*/ float Swing1LimitAngle;
-	public/*(Angular)*/ float Swing2LimitAngle;
-	public/*(Angular)*/ float TwistLimitAngle;
-	public/*(Angular)*/ float SwingLimitStiffness;
-	public/*(Angular)*/ float SwingLimitDamping;
-	public/*(Angular)*/ float TwistLimitStiffness;
-	public/*(Angular)*/ float TwistLimitDamping;
-	public/*(Angular)*/ float AngularBreakThreshold;
-	public/*(Pulley)*/ float PulleyRatio;
+	[Category] public bool bEnableProjection;
+	[Category("Linear")] public bool bLinearLimitSoft;
+	[Category("Linear")] public bool bLinearBreakable;
+	[Category("Angular")] public bool bSwingLimited;
+	[Category("Angular")] public bool bTwistLimited;
+	[Category("Angular")] public bool bSwingLimitSoft;
+	[Category("Angular")] public bool bTwistLimitSoft;
+	[Category("Angular")] public bool bAngularBreakable;
+	[Category("Pulley")] public bool bIsPulley;
+	[Category("Pulley")] public bool bMaintainMinDistance;
+	[Category("Linear")] public RB_ConstraintSetup.LinearDOFSetup LinearXSetup;
+	[Category("Linear")] public RB_ConstraintSetup.LinearDOFSetup LinearYSetup;
+	[Category("Linear")] public RB_ConstraintSetup.LinearDOFSetup LinearZSetup;
+	[Category("Linear")] public float LinearLimitStiffness;
+	[Category("Linear")] public float LinearLimitDamping;
+	[Category("Linear")] public float LinearBreakThreshold;
+	[Category("Angular")] public float Swing1LimitAngle;
+	[Category("Angular")] public float Swing2LimitAngle;
+	[Category("Angular")] public float TwistLimitAngle;
+	[Category("Angular")] public float SwingLimitStiffness;
+	[Category("Angular")] public float SwingLimitDamping;
+	[Category("Angular")] public float TwistLimitStiffness;
+	[Category("Angular")] public float TwistLimitDamping;
+	[Category("Angular")] public float AngularBreakThreshold;
+	[Category("Pulley")] public float PulleyRatio;
 	
 	public RB_ConstraintSetup()
 	{

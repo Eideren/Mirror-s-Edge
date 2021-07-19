@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMoveReachSpec : TdReachSpec/*
 		native
 		config(PathfindingCosts)*/{
-	public/*()*/ bool NetworkLinker;
-	public/*()*/ bool MustJump;
+	[Category] public bool NetworkLinker;
+	[Category] public bool MustJump;
 	
 	// Export UTdMoveReachSpec::execGetDefaultCostFor(FFrame&, void* const)
 	public override /*native function */int GetDefaultCostFor(TdBotPawn P)

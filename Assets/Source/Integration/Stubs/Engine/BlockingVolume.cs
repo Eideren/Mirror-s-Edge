@@ -5,7 +5,7 @@ public partial class BlockingVolume : Volume/*
 		native
 		placeable
 		hidecategories(Navigation,Object,Movement,Display)*/{
-	public/*()*/ bool bClampFluid;
+	[Category] public bool bClampFluid;
 	
 	public BlockingVolume()
 	{

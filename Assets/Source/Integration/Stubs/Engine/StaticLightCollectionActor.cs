@@ -6,8 +6,8 @@ public partial class StaticLightCollectionActor : Light/*
 		config(Engine)
 		notplaceable
 		hidecategories(Navigation)*/{
-	public /*const export editinline */array</*export editinline */LightComponent> LightComponents;
-	public /*config */int MaxLightComponents;
+	[Const, export, editinline] public array</*export editinline */LightComponent> LightComponents;
+	[config] public int MaxLightComponents;
 	
 	public StaticLightCollectionActor()
 	{

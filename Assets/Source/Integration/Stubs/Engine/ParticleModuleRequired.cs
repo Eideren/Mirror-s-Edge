@@ -5,33 +5,33 @@ public partial class ParticleModuleRequired : ParticleModule/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Cascade)*/{
-	public/*(Emitter)*/ MaterialInterface Material;
-	public/*(Emitter)*/ ParticleSpriteEmitter.EParticleScreenAlignment ScreenAlignment;
+	[Category("Emitter")] public MaterialInterface Material;
+	[Category("Emitter")] public ParticleSpriteEmitter.EParticleScreenAlignment ScreenAlignment;
 	public ParticleEmitter.EParticleBurstMethod ParticleBurstMethod;
-	public/*(SubUV)*/ ParticleEmitter.EParticleSubUVInterpMethod InterpolationMethod;
-	public/*(Cascade)*/ ParticleEmitter.EEmitterRenderMode EmitterRenderMode;
-	public/*(Emitter)*/ bool bUseLocalSpace;
-	public/*(Emitter)*/ bool bKillOnDeactivate;
-	public/*(Emitter)*/ bool bKillOnCompleted;
-	public/*(Emitter)*/ bool bRequiresSorting;
-	public/*(Duration)*/ bool bEmitterDurationUseRange;
-	public/*(Duration)*/ bool bDurationRecalcEachLoop;
-	public/*(delay)*/ bool bDelayFirstLoopOnly;
-	public/*(SubUV)*/ bool bScaleUV;
+	[Category("SubUV")] public ParticleEmitter.EParticleSubUVInterpMethod InterpolationMethod;
+	[Category("Cascade")] public ParticleEmitter.EEmitterRenderMode EmitterRenderMode;
+	[Category("Emitter")] public bool bUseLocalSpace;
+	[Category("Emitter")] public bool bKillOnDeactivate;
+	[Category("Emitter")] public bool bKillOnCompleted;
+	[Category("Emitter")] public bool bRequiresSorting;
+	[Category("Duration")] public bool bEmitterDurationUseRange;
+	[Category("Duration")] public bool bDurationRecalcEachLoop;
+	[Category("delay")] public bool bDelayFirstLoopOnly;
+	[Category("SubUV")] public bool bScaleUV;
 	public bool bDirectUV;
-	public/*(Rendering)*/ bool bUseMaxDrawCount;
-	public/*(Duration)*/ float EmitterDuration;
-	public/*(Duration)*/ float EmitterDurationLow;
-	public/*(Duration)*/ int EmitterLoops;
+	[Category("Rendering")] public bool bUseMaxDrawCount;
+	[Category("Duration")] public float EmitterDuration;
+	[Category("Duration")] public float EmitterDurationLow;
+	[Category("Duration")] public int EmitterLoops;
 	public DistributionFloat.RawDistributionFloat SpawnRate;
-	public /*noclear export */array</*export */ParticleEmitter.ParticleBurst> BurstList;
-	public/*(delay)*/ float EmitterDelay;
-	public/*(SubUV)*/ int SubImages_Horizontal;
-	public/*(SubUV)*/ int SubImages_Vertical;
+	[noclear, export] public array</*export */ParticleEmitter.ParticleBurst> BurstList;
+	[Category("delay")] public float EmitterDelay;
+	[Category("SubUV")] public int SubImages_Horizontal;
+	[Category("SubUV")] public int SubImages_Vertical;
 	public float RandomImageTime;
-	public/*(SubUV)*/ int RandomImageChanges;
-	public/*(Rendering)*/ int MaxDrawCount;
-	public/*(Cascade)*/ Object.Color EmitterEditorColor;
+	[Category("SubUV")] public int RandomImageChanges;
+	[Category("Rendering")] public int MaxDrawCount;
+	[Category("Cascade")] public Object.Color EmitterEditorColor;
 	
 	public ParticleModuleRequired()
 	{

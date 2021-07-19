@@ -5,7 +5,7 @@ public partial class ParticleModuleMeshRotationRateMultiplyLife : ParticleModule
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Rotation)*/ DistributionVector.RawDistributionVector LifeMultiplier;
+	[Category("Rotation")] public DistributionVector.RawDistributionVector LifeMultiplier;
 	
 	public ParticleModuleMeshRotationRateMultiplyLife()
 	{

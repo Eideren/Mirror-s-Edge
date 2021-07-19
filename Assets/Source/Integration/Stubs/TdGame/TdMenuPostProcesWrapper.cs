@@ -21,11 +21,11 @@ public partial class TdMenuPostProcesWrapper : Object{
 	//	}
 	};
 	
-	public /*private */Material PanelMaterial;
-	public /*private */array<TdMenuPostProcesWrapper.TdEffectPanelStruct> PanelsData;
-	public /*private */float PanelAnimDuration;
-	public /*private */float UnfocusedPanelBGWidth;
-	public /*private */Object.LinearColor SelectionColor;
+	public/*private*/ Material PanelMaterial;
+	public/*private*/ array<TdMenuPostProcesWrapper.TdEffectPanelStruct> PanelsData;
+	public/*private*/ float PanelAnimDuration;
+	public/*private*/ float UnfocusedPanelBGWidth;
+	public/*private*/ Object.LinearColor SelectionColor;
 	public /*delegate*/TdMenuPostProcesWrapper.OnPanelAnimFinished __OnPanelAnimFinished__Delegate;
 	
 	public delegate void OnPanelAnimFinished(int FinishedPanelIndex, bool bPanelActive);

@@ -4,8 +4,8 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNodeLean : AnimNodeAimOffset/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public /*native */bool bCached;
-	public /*native */float InterpolatedCurveSteepness;
+	[native] public bool bCached;
+	[native] public float InterpolatedCurveSteepness;
 	
 }
 }

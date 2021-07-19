@@ -8,7 +8,7 @@ public partial class InterpTrackEvent : InterpTrack/*
 	public partial struct /*native */EventTrackKey
 	{
 		public float Time;
-		public/*()*/ name EventName;
+		[Category] public name EventName;
 	
 	//	structdefaultproperties
 	//	{
@@ -19,9 +19,9 @@ public partial class InterpTrackEvent : InterpTrack/*
 	};
 	
 	public array<InterpTrackEvent.EventTrackKey> EventTrack;
-	public/*()*/ bool bFireEventsWhenForwards;
-	public/*()*/ bool bFireEventsWhenBackwards;
-	public/*()*/ bool bFireEventsWhenJumpingForwards;
+	[Category] public bool bFireEventsWhenForwards;
+	[Category] public bool bFireEventsWhenBackwards;
+	[Category] public bool bFireEventsWhenJumpingForwards;
 	
 	public InterpTrackEvent()
 	{

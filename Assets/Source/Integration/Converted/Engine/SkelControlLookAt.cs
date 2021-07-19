@@ -4,35 +4,35 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SkelControlLookAt : SkelControlBase/*
 		native
 		hidecategories(Object)*/{
-	public/*(LookAt)*/ Object.Vector TargetLocation;
-	public/*(LookAt)*/ SkelControlBase.EBoneControlSpace TargetLocationSpace;
-	public/*(LookAt)*/ Object.EAxis LookAtAxis;
-	public/*(LookAt)*/ Object.EAxis UpAxis;
-	public/*(Limit)*/ SkelControlBase.EBoneControlSpace AllowRotationSpace;
-	public/*(LookAt)*/ name TargetSpaceBoneName;
-	public/*(LookAt)*/ bool bInvertLookAtAxis;
-	public/*(LookAt)*/ bool bDefineUpAxis;
-	public/*(LookAt)*/ bool bInvertUpAxis;
-	public/*(Limit)*/ bool bEnableLimit;
-	public/*(Limit)*/ bool bLimitBasedOnRefPose;
-	public/*(Limit)*/ bool bDisableBeyondLimit;
-	public/*(Limit)*/ bool bNotifyBeyondLimit;
-	public/*(Limit)*/ bool bShowLimit;
-	public/*(Limit)*/ bool bAllowRotationX;
-	public/*(Limit)*/ bool bAllowRotationY;
-	public/*(Limit)*/ bool bAllowRotationZ;
-	public/*(LookAt)*/ float TargetLocationInterpSpeed;
+	[Category("LookAt")] public Object.Vector TargetLocation;
+	[Category("LookAt")] public SkelControlBase.EBoneControlSpace TargetLocationSpace;
+	[Category("LookAt")] public Object.EAxis LookAtAxis;
+	[Category("LookAt")] public Object.EAxis UpAxis;
+	[Category("Limit")] public SkelControlBase.EBoneControlSpace AllowRotationSpace;
+	[Category("LookAt")] public name TargetSpaceBoneName;
+	[Category("LookAt")] public bool bInvertLookAtAxis;
+	[Category("LookAt")] public bool bDefineUpAxis;
+	[Category("LookAt")] public bool bInvertUpAxis;
+	[Category("Limit")] public bool bEnableLimit;
+	[Category("Limit")] public bool bLimitBasedOnRefPose;
+	[Category("Limit")] public bool bDisableBeyondLimit;
+	[Category("Limit")] public bool bNotifyBeyondLimit;
+	[Category("Limit")] public bool bShowLimit;
+	[Category("Limit")] public bool bAllowRotationX;
+	[Category("Limit")] public bool bAllowRotationY;
+	[Category("Limit")] public bool bAllowRotationZ;
+	[Category("LookAt")] public float TargetLocationInterpSpeed;
 	public Object.Vector DesiredTargetLocation;
-	public/*(Limit)*/ float MaxAngle;
-	public/*(Limit)*/ float DeadZoneAngle;
-	public/*(Limit)*/ name AllowRotationOtherBoneName;
-	public /*const transient */float LookAtAlpha;
-	public /*const transient */float LookAtAlphaTarget;
-	public /*const transient */float LookAtAlphaBlendTimeToGo;
-	public /*const transient */Object.Vector LimitLookDir;
-	public /*const transient */Object.Vector BaseLookDir;
-	public /*const transient */Object.Vector BaseBonePos;
-	public /*const transient */float LastCalcTime;
+	[Category("Limit")] public float MaxAngle;
+	[Category("Limit")] public float DeadZoneAngle;
+	[Category("Limit")] public name AllowRotationOtherBoneName;
+	[Const, transient] public float LookAtAlpha;
+	[Const, transient] public float LookAtAlphaTarget;
+	[Const, transient] public float LookAtAlphaBlendTimeToGo;
+	[Const, transient] public Object.Vector LimitLookDir;
+	[Const, transient] public Object.Vector BaseLookDir;
+	[Const, transient] public Object.Vector BaseBonePos;
+	[Const, transient] public float LastCalcTime;
 	
 	public virtual /*function */void SetTargetLocation(Object.Vector NewTargetLocation)
 	{

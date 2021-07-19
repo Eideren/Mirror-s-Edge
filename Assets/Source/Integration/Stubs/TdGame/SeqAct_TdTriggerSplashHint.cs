@@ -3,9 +3,9 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_TdTriggerSplashHint : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ int HintNumber;
-	public /*private */TdGameUISceneClient SceneClient;
-	public /*private */LocalPlayer Player;
+	[Category] public int HintNumber;
+	public/*private*/ TdGameUISceneClient SceneClient;
+	public/*private*/ LocalPlayer Player;
 	
 	public override /*event */void Activated()
 	{

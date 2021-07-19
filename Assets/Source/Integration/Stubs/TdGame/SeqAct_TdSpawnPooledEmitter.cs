@@ -3,10 +3,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_TdSpawnPooledEmitter : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ ParticleSystem ParticleSystem;
-	public/*()*/ array<Actor> SpawnPoints;
-	public/*()*/ bool bRandomizeSpawnPoints;
-	public /*private */int SpawnIndex;
+	[Category] public ParticleSystem ParticleSystem;
+	[Category] public array<Actor> SpawnPoints;
+	[Category] public bool bRandomizeSpawnPoints;
+	public/*private*/ int SpawnIndex;
 	
 	public override /*event */void Activated()
 	{

@@ -11,20 +11,20 @@ public partial class TdUIRaceProgressBar : TdUIObject/*
 		EPB_MAX
 	};
 	
-	public/*()*/ TdUIRaceProgressBar.EPB_Type BarType;
-	public /*transient */array<float> SectionData;
-	public /*transient */array<float> SectionPctLength;
-	public /*transient */array<String> SectionTexts;
-	public /*transient */array<int> SectionTextureId;
-	public /*transient */StaticArray<Texture2D, Texture2D, Texture2D>/*[3]*/ BottomBar;
-	public /*transient */StaticArray<Texture2D, Texture2D, Texture2D>/*[3]*/ MiddleBar;
-	public /*transient */StaticArray<Texture2D, Texture2D, Texture2D>/*[3]*/ TopBar;
-	public/*()*/ bool bHorisontalBar;
-	public/*()*/ bool bDrawDropShadow;
-	public/*()*/ float BarPctPosition;
-	public/*()*/ float TextPctOffset;
-	public/*()*/ float DropShadowHorisontalOffset;
-	public/*()*/ float DropShadowVerticalOffset;
+	[Category] public TdUIRaceProgressBar.EPB_Type BarType;
+	[transient] public array<float> SectionData;
+	[transient] public array<float> SectionPctLength;
+	[transient] public array<String> SectionTexts;
+	[transient] public array<int> SectionTextureId;
+	[transient] public StaticArray<Texture2D, Texture2D, Texture2D>/*[3]*/ BottomBar;
+	[transient] public StaticArray<Texture2D, Texture2D, Texture2D>/*[3]*/ MiddleBar;
+	[transient] public StaticArray<Texture2D, Texture2D, Texture2D>/*[3]*/ TopBar;
+	[Category] public bool bHorisontalBar;
+	[Category] public bool bDrawDropShadow;
+	[Category] public float BarPctPosition;
+	[Category] public float TextPctOffset;
+	[Category] public float DropShadowHorisontalOffset;
+	[Category] public float DropShadowVerticalOffset;
 	
 	// Export UTdUIRaceProgressBar::execUpdateSectionData(FFrame&, void* const)
 	public virtual /*private native final function */void UpdateSectionData()

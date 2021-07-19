@@ -6,7 +6,7 @@ public partial class LensFlarePreviewComponent : PrimitiveComponent/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public /*native const transient */Object.Pointer LensFlareEditorPtr;
+	[native, Const, transient] public Object.Pointer LensFlareEditorPtr;
 	
 }
 }

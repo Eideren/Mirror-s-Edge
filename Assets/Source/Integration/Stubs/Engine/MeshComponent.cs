@@ -5,7 +5,7 @@ public partial class MeshComponent : PrimitiveComponent/*
 		abstract
 		native
 		noexport*/{
-	public/*(Rendering)*/ /*const */array<MaterialInterface> Materials;
+	[Category("Rendering")] [Const] public array<MaterialInterface> Materials;
 	
 	// Export UMeshComponent::execGetMaterial(FFrame&, void* const)
 	public virtual /*native function */MaterialInterface GetMaterial(int ElementIndex)

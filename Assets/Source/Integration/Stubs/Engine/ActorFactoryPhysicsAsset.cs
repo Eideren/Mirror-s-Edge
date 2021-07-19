@@ -7,15 +7,15 @@ public partial class ActorFactoryPhysicsAsset : ActorFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ PhysicsAsset PhysicsAsset;
-	public/*()*/ SkeletalMesh SkeletalMesh;
-	public/*()*/ bool bStartAwake;
-	public/*()*/ bool bDamageAppliesImpulse;
-	public/*()*/ bool bNotifyRigidBodyCollision;
-	public/*()*/ bool bUseCompartment;
-	public/*()*/ bool bCastDynamicShadow;
-	public/*()*/ Object.Vector InitialVelocity;
-	public/*()*/ Object.Vector DrawScale3D;
+	[Category] public PhysicsAsset PhysicsAsset;
+	[Category] public SkeletalMesh SkeletalMesh;
+	[Category] public bool bStartAwake;
+	[Category] public bool bDamageAppliesImpulse;
+	[Category] public bool bNotifyRigidBodyCollision;
+	[Category] public bool bUseCompartment;
+	[Category] public bool bCastDynamicShadow;
+	[Category] public Object.Vector InitialVelocity;
+	[Category] public Object.Vector DrawScale3D;
 	
 	public ActorFactoryPhysicsAsset()
 	{

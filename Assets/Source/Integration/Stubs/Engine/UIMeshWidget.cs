@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIMeshWidget : UIObject/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public/*()*/ /*const editconst export editinline */StaticMeshComponent Mesh;
+	[Category] [Const, editconst, export, editinline] public StaticMeshComponent Mesh;
 	
 	public UIMeshWidget()
 	{

@@ -4,8 +4,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIOptionList : UIOptionListBase/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */int CurrentIndex;
-	public /*const transient */UIListElementProvider DataProvider;
+	[transient] public int CurrentIndex;
+	[Const, transient] public UIListElementProvider DataProvider;
 	
 	// Export UUIOptionList::execGetListValue(FFrame&, void* const)
 	public virtual /*native final function */bool GetListValue(int ListIndex, ref String OutValue)

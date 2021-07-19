@@ -5,7 +5,7 @@ public partial class MaterialInstanceActor : Actor/*
 		native
 		placeable
 		hidecategories(Navigation,Movement,Advanced,Collision,Display,Actor,Attachment)*/{
-	public/*()*/ MaterialInstanceConstant MatInst;
+	[Category] public MaterialInstanceConstant MatInst;
 	
 	public MaterialInstanceActor()
 	{

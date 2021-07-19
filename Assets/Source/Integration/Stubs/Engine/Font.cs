@@ -8,12 +8,12 @@ public partial class Font : Object/*
 	
 	public partial struct /*native atomic immutable */FontCharacter
 	{
-		public/*()*/ int StartU;
-		public/*()*/ int StartV;
-		public/*()*/ int USize;
-		public/*()*/ int VSize;
-		public/*()*/ byte TextureIndex;
-		public/*()*/ int VerticalOffset;
+		[Category] public int StartU;
+		[Category] public int StartV;
+		[Category] public int USize;
+		[Category] public int VSize;
+		[Category] public byte TextureIndex;
+		[Category] public int VerticalOffset;
 	
 	//	structdefaultproperties
 	//	{
@@ -40,17 +40,17 @@ public partial class Font : Object/*
 	//	}
 	};
 	
-	public/*()*/ /*editinline */array</*editinline */Font.FontCharacter> Characters;
+	[Category] [editinline] public array</*editinline */Font.FontCharacter> Characters;
 	public array<Texture2D> Textures;
-	public /*private native const *//*map<0,0>*/map<object, object> CharRemap;
+	[native, Const] public/*private*/ /*map<0,0>*/map<object, object> CharRemap;
 	public int IsRemapped;
-	public/*()*/ int Kerning;
-	public/*()*/ FontImportOptions.FontImportOptionsData ImportOptions;
-	public /*transient */int NumCharacters;
-	public /*transient */array<int> MaxCharHeight;
-	public /*native */array<Font.FontKerningPair> KerningPairs;
-	public /*native */array<int> KerningPairPageStarts;
-	public /*transient */bool bHasKerningPairs;
+	[Category] public int Kerning;
+	[Category] public FontImportOptions.FontImportOptionsData ImportOptions;
+	[transient] public int NumCharacters;
+	[transient] public array<int> MaxCharHeight;
+	[native] public array<Font.FontKerningPair> KerningPairs;
+	[native] public array<int> KerningPairPageStarts;
+	[transient] public bool bHasKerningPairs;
 	
 	// Export UFont::execGetResolutionPageIndex(FFrame&, void* const)
 	public virtual /*native function */int GetResolutionPageIndex(float HeightTest)

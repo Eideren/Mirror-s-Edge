@@ -16,7 +16,7 @@ public partial class MaterialExpressionTransform : MaterialExpression/* within M
 	public new Material Outer => base.Outer as Material;
 	
 	public MaterialExpression.ExpressionInput Input;
-	public/*()*/ /*const */MaterialExpressionTransform.EMaterialVectorCoordTransform TransformType;
+	[Category] [Const] public MaterialExpressionTransform.EMaterialVectorCoordTransform TransformType;
 	
 }
 }

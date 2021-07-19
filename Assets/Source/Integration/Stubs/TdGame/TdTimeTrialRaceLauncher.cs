@@ -4,15 +4,15 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdTimeTrialRaceLauncher : Object/* within TdUIScene*/{
 	public new TdUIScene Outer => base.Outer as TdUIScene;
 	
-	public /*private */UIDataStore_TdTimeTrialData TimeTrialData;
-	public /*private */TdUIScene_LoadIndicator LoadIndicator;
-	public /*private */bool bDataReadCorrectly;
-	public /*private */bool bStartOnlineMode;
-	public /*private */TdGhostStorageManager.EGhostStorageResult GhostReadResult;
-	public /*private */String ErrorTitle;
-	public /*private */String ErrorMessage;
-	public /*private */int RaceModeId;
-	public /*transient */LocalPlayer PlayerOwner;
+	public/*private*/ UIDataStore_TdTimeTrialData TimeTrialData;
+	public/*private*/ TdUIScene_LoadIndicator LoadIndicator;
+	public/*private*/ bool bDataReadCorrectly;
+	public/*private*/ bool bStartOnlineMode;
+	public/*private*/ TdGhostStorageManager.EGhostStorageResult GhostReadResult;
+	public/*private*/ String ErrorTitle;
+	public/*private*/ String ErrorMessage;
+	public/*private*/ int RaceModeId;
+	[transient] public LocalPlayer PlayerOwner;
 	public /*delegate*/TdTimeTrialRaceLauncher.OnLoadMessageDone __OnLoadMessageDone__Delegate;
 	public /*delegate*/TdTimeTrialRaceLauncher.OnRaceLauncherFinished __OnRaceLauncherFinished__Delegate;
 	

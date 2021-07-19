@@ -7,10 +7,10 @@ public partial class PlayerOwnerDataStore : UIDataStore_GameState/*
 		hidecategories(Object,UIRoot)*/{
 	public partial struct /*native */PlayerDataProviderTypes
 	{
-		public /*const */Core.ClassT<PlayerOwnerDataProvider> PlayerOwnerDataProviderClass;
-		public /*const */Core.ClassT<CurrentWeaponDataProvider> CurrentWeaponDataProviderClass;
-		public /*const */Core.ClassT<WeaponDataProvider> WeaponDataProviderClass;
-		public /*const */Core.ClassT<PowerupDataProvider> PowerupDataProviderClass;
+		[Const] public Core.ClassT<PlayerOwnerDataProvider> PlayerOwnerDataProviderClass;
+		[Const] public Core.ClassT<CurrentWeaponDataProvider> CurrentWeaponDataProviderClass;
+		[Const] public Core.ClassT<WeaponDataProvider> WeaponDataProviderClass;
+		[Const] public Core.ClassT<PowerupDataProvider> PowerupDataProviderClass;
 	
 	//	structdefaultproperties
 	//	{
@@ -22,11 +22,11 @@ public partial class PlayerOwnerDataStore : UIDataStore_GameState/*
 	//	}
 	};
 	
-	public /*const */PlayerOwnerDataStore.PlayerDataProviderTypes ProviderTypes;
-	public /*protected */PlayerOwnerDataProvider PlayerData;
-	public /*protected */CurrentWeaponDataProvider CurrentWeapon;
-	public /*protected */array<WeaponDataProvider> WeaponList;
-	public /*protected */array<PowerupDataProvider> PowerupList;
+	[Const] public PlayerOwnerDataStore.PlayerDataProviderTypes ProviderTypes;
+	public/*protected*/ PlayerOwnerDataProvider PlayerData;
+	public/*protected*/ CurrentWeaponDataProvider CurrentWeapon;
+	public/*protected*/ array<WeaponDataProvider> WeaponList;
+	public/*protected*/ array<PowerupDataProvider> PowerupList;
 	
 	public virtual /*function */void SetPlayerDataProvider(PlayerDataProvider NewPlayerData)
 	{

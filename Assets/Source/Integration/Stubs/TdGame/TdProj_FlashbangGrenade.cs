@@ -5,11 +5,11 @@ public partial class TdProj_FlashbangGrenade : TdProj_Grenade/*
 		notplaceable
 		hidecategories(Navigation)*/{
 	public float LookAwayDamageScale;
-	public/*(WeaponEffects)*/ float DynamicLightFlashDuration;
-	public /*transient */float DynamicLightFlashTimer;
-	public/*(WeaponEffects)*/ Object.Color DynamicLightFlashColor;
-	public/*(WeaponEffects)*/ float DynamicLightFlashBrightness;
-	public/*(WeaponEffects)*/ /*export editinline */PointLightComponent DynamicLightFlashLight;
+	[Category("WeaponEffects")] public float DynamicLightFlashDuration;
+	[transient] public float DynamicLightFlashTimer;
+	[Category("WeaponEffects")] public Object.Color DynamicLightFlashColor;
+	[Category("WeaponEffects")] public float DynamicLightFlashBrightness;
+	[Category("WeaponEffects")] [export, editinline] public PointLightComponent DynamicLightFlashLight;
 	
 	public override /*simulated function */bool HurtRadius(float BaseDamage, float InDamageRadius, Core.ClassT<DamageType> DamageType, float Momentum, Object.Vector HurtOrigin, /*optional */Actor _IgnoredActor = default, /*optional */Controller _InstigatedByController = default, /*optional */bool? _bDoFullDamage = default)
 	{

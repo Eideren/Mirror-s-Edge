@@ -6,9 +6,9 @@ public partial class DistributionVectorConstantCurve : DistributionVector/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ Object.InterpCurveVector ConstantCurve;
+	[Category] public Object.InterpCurveVector ConstantCurve;
 	public bool bLockAxes;
-	public/*()*/ DistributionVector.EDistributionVectorLockFlags LockedAxes;
+	[Category] public DistributionVector.EDistributionVectorLockFlags LockedAxes;
 	
 }
 }

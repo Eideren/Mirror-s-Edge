@@ -3,14 +3,14 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdUITabPage_UnlockedVideos : TdUITabPage/*
 		hidecategories(Object,UIRoot,Object)*/{
-	public /*transient */UIList VideosList;
-	public /*transient */UILabel VideosDescriptionLabel;
-	public /*transient */UIImage VideosPreviewImage;
-	public /*transient */UILabel VideosPreviewLoadLabel;
-	public /*transient */TdUITabControl OwnerTabControl;
-	public /*transient */TdUIButtonBar ButtonBar;
+	[transient] public UIList VideosList;
+	[transient] public UILabel VideosDescriptionLabel;
+	[transient] public UIImage VideosPreviewImage;
+	[transient] public UILabel VideosPreviewLoadLabel;
+	[transient] public TdUITabControl OwnerTabControl;
+	[transient] public TdUIButtonBar ButtonBar;
 	public UIDataStore_TdUnlocksData UnlocksData;
-	public /*private transient */bool bPreviewImageIsDirty;
+	[transient] public/*private*/ bool bPreviewImageIsDirty;
 	
 	public override /*event */void PostInitialize()
 	{

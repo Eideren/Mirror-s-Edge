@@ -4,14 +4,14 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdSkelControlSimpleSpring : SkelControlSingleBone/*
 		native
 		hidecategories(Object)*/{
-	public/*(Spring)*/ Object.Rotator MaxAngle;
-	public/*(Spring)*/ Object.Rotator MinAngle;
-	public/*(Spring)*/ float Inertia;
-	public/*(Spring)*/ float Stiffness;
-	public/*(Spring)*/ Object.Vector SpeedModifier;
-	public/*(Spring)*/ bool bScaleByVelocity;
-	public/*(Spring)*/ float MaxVelocity;
-	public /*transient */Object.Rotator PreviousRotation;
+	[Category("Spring")] public Object.Rotator MaxAngle;
+	[Category("Spring")] public Object.Rotator MinAngle;
+	[Category("Spring")] public float Inertia;
+	[Category("Spring")] public float Stiffness;
+	[Category("Spring")] public Object.Vector SpeedModifier;
+	[Category("Spring")] public bool bScaleByVelocity;
+	[Category("Spring")] public float MaxVelocity;
+	[transient] public Object.Rotator PreviousRotation;
 	
 	public TdSkelControlSimpleSpring()
 	{

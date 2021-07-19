@@ -4,13 +4,13 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNodeLandOffset : AnimNodeAimOffset/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ float Landed;
+	[Category] public float Landed;
 	public bool IsLanding;
 	public float LandTimer;
-	public/*()*/ float LandInto;
-	public/*()*/ float LandOut;
-	public/*()*/ float LandOverlap;
-	public/*()*/ float OverlapSize;
+	[Category] public float LandInto;
+	[Category] public float LandOut;
+	[Category] public float LandOverlap;
+	[Category] public float OverlapSize;
 	
 	public TdAnimNodeLandOffset()
 	{

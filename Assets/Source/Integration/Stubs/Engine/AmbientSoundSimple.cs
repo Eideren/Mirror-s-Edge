@@ -5,9 +5,9 @@ public partial class AmbientSoundSimple : AmbientSound/*
 		native
 		placeable
 		hidecategories(Navigation,Audio)*/{
-	public/*()*/ /*editconst editinline */SoundNodeAmbient AmbientProperties;
-	public /*const export editinline */SoundCue SoundCueInstance;
-	public /*const export editinline */SoundNodeAmbient SoundNodeInstance;
+	[Category] [editconst, editinline] public SoundNodeAmbient AmbientProperties;
+	[Const, export, editinline] public SoundCue SoundCueInstance;
+	[Const, export, editinline] public SoundNodeAmbient SoundNodeInstance;
 	
 	public AmbientSoundSimple()
 	{

@@ -9,8 +9,8 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 	public new UIInteraction Outer => base.Outer as UIInteraction;
 	
 	public int LastViewportX;
-	public /*const */name ResourceDataStoreName;
-	public/*(Debug)*/ bool bShowRenderTimes;
+	[Const] public name ResourceDataStoreName;
+	[Category("Debug")] public bool bShowRenderTimes;
 	public float PreRenderTime;
 	public float RenderTime;
 	public float TickTime;
@@ -18,10 +18,10 @@ public partial class TdGameUISceneClient : GameUISceneClient/* within UIInteract
 	public float AvgRenderTime;
 	public float FrameCount;
 	public float StringRenderTime;
-	public /*private */String LoadingSceneText;
+	public/*private*/ String LoadingSceneText;
 	public Object.Color SceneFadeColor;
-	public /*transient */UIScene DiskAccessScene;
-	public /*private transient */int BGSatMask;
+	[transient] public UIScene DiskAccessScene;
+	[transient] public/*private*/ int BGSatMask;
 	public /*delegate*/UIScene.OnSceneActivated StoredMsgBoxInit;
 	public /*delegate*/TdGameUISceneClient.LoadingSceneOpened __LoadingSceneOpened__Delegate;
 	public /*delegate*/TdGameUISceneClient.LoadingSceneFullyOpened __LoadingSceneFullyOpened__Delegate;

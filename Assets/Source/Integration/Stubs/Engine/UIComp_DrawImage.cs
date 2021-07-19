@@ -8,13 +8,13 @@ public partial class UIComp_DrawImage : UIComp_DrawComponents,
 		hidecategories(Object)*/{
 	public new UIObject Outer => base.Outer as UIObject;
 	
-	public /*private native const noexport */Object.Pointer VfTable_IUIStyleResolver;
-	public /*private native const noexport */Object.Pointer VfTable_ICustomPropertyItemHandler;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIStyleResolver;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_ICustomPropertyItemHandler;
 	public name StyleResolverTag;
-	public/*(StyleOverride)*/ /*export editinlineuse */UITexture ImageRef;
-	public/*(StyleOverride)*/ UIRoot.UIImageStyleOverride StyleCustomization;
-	public/*(Presentation)*/ bool bDisablePixelAligning;
-	public /*private */UIRoot.UIStyleReference ImageStyle;
+	[Category("StyleOverride")] [export, editinlineuse] public UITexture ImageRef;
+	[Category("StyleOverride")] public UIRoot.UIImageStyleOverride StyleCustomization;
+	[Category("Presentation")] public bool bDisablePixelAligning;
+	public/*private*/ UIRoot.UIStyleReference ImageStyle;
 	
 	// Export UUIComp_DrawImage::execGetAppliedImageStyle(FFrame&, void* const)
 	public virtual /*native final function */UIStyle_Image GetAppliedImageStyle(/*optional */UIState _DesiredMenuState = default)

@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqVar_UIRange : SequenceVariable/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ UIRoot.UIRangeData RangeValue;
+	[Category] public UIRoot.UIRangeData RangeValue;
 	
 	public override /*event */bool IsValidLevelSequenceObject()
 	{

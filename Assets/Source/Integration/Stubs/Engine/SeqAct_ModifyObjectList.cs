@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqAct_ModifyObjectList : SeqAct_SetSequenceVariable/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ /*editconst */int ListEntriesCount;
+	[Category] [editconst] public int ListEntriesCount;
 	
 	public SeqAct_ModifyObjectList()
 	{

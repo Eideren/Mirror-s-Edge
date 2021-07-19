@@ -4,16 +4,16 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdMove_IntoZipLine : TdPhysicsMove/*
 		config(PawnMovement)*/{
 	public TdZiplineVolume ZipLine;
-	public/*(ZipLine)*/ Object.Vector HangOffset;
-	public/*(ZipLine)*/ /*config */float ZVelocityFallLimit;
-	public/*(ZipLine)*/ /*config */float IntoZiplineBlendInTime;
-	public/*(ZipLine)*/ /*config */float IntoZiplineBlendOutTime;
+	[Category("ZipLine")] public Object.Vector HangOffset;
+	[Category("ZipLine")] [config] public float ZVelocityFallLimit;
+	[Category("ZipLine")] [config] public float IntoZiplineBlendInTime;
+	[Category("ZipLine")] [config] public float IntoZiplineBlendOutTime;
 	public float EnterZipLineParam;
 	public Object.Vector SavedInitial2DVelocity;
-	public /*private */TdAnimNodeSequence ZipLineIdleAnimation1p;
-	public /*private */TdAnimNodeSequence ZipLineIdleAnimation3p;
-	public /*private */name LastZipLineVolumeName;
-	public /*private */float SameZipLineRedoMoveTime;
+	public/*private*/ TdAnimNodeSequence ZipLineIdleAnimation1p;
+	public/*private*/ TdAnimNodeSequence ZipLineIdleAnimation3p;
+	public/*private*/ name LastZipLineVolumeName;
+	public/*private*/ float SameZipLineRedoMoveTime;
 	
 	public override /*function */bool CanDoMove()
 	{

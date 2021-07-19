@@ -5,7 +5,7 @@ public partial class ParticleModuleLifetime : ParticleModuleLifetimeBase/*
 		native
 		editinlinenew
 		hidecategories(Object,Object,Object)*/{
-	public/*(Lifetime)*/ DistributionFloat.RawDistributionFloat Lifetime;
+	[Category("Lifetime")] public DistributionFloat.RawDistributionFloat Lifetime;
 	
 	public ParticleModuleLifetime()
 	{

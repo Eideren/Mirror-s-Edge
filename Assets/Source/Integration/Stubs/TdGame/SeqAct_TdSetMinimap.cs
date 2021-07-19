@@ -6,8 +6,8 @@ public partial class SeqAct_TdSetMinimap : SequenceAction/*
 		hidecategories(Object)*/{
 	public partial struct /*native */MinimapMap
 	{
-		public/*()*/ Surface Image;
-		public/*()*/ float imageHeight;
+		[Category] public Surface Image;
+		[Category] public float imageHeight;
 	
 	//	structdefaultproperties
 	//	{
@@ -17,8 +17,8 @@ public partial class SeqAct_TdSetMinimap : SequenceAction/*
 	//	}
 	};
 	
-	public/*()*/ String minimapWidgetName;
-	public/*()*/ array<SeqAct_TdSetMinimap.MinimapMap> maps;
+	[Category] public String minimapWidgetName;
+	[Category] public array<SeqAct_TdSetMinimap.MinimapMap> maps;
 	
 	public SeqAct_TdSetMinimap()
 	{

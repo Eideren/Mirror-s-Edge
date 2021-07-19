@@ -6,7 +6,7 @@ public partial class TdUIObject : UIObject/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
 	public bool requiresTick;
-	public/*(Widget)*/ /*transient */bool bShowBounds;
+	[Category("Widget")] [transient] public bool bShowBounds;
 	public array<TdUIObject> TickStack;
 	
 	// Export UTdUIObject::execGetTdPlayerController(FFrame&, void* const)

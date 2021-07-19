@@ -6,7 +6,7 @@ public partial class TdInterpTrackInstDOFFocusDistance : InterpTrackInst/*
 	public float OldFocusDistance;
 	public float OldMaxFarBlurAmount;
 	public bool bOldShowInEditor;
-	public /*transient */DOFAndBloomEffect Effect;
+	[transient] public DOFAndBloomEffect Effect;
 	
 }
 }

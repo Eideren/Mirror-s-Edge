@@ -15,17 +15,17 @@ public partial class TerrainMaterial : Object/*
 	
 	public partial struct /*native */TerrainFoliageMesh
 	{
-		public/*()*/ StaticMesh StaticMesh;
-		public/*()*/ MaterialInterface Material;
-		public/*()*/ int Density;
-		public/*()*/ float MaxDrawRadius;
-		public/*()*/ float MinTransitionRadius;
-		public/*()*/ float MinScale;
-		public/*()*/ float MaxScale;
-		public/*()*/ int Seed;
-		public/*()*/ float SwayScale;
-		public/*()*/ float AlphaMapThreshold;
-		public/*()*/ float SlopeRotationBlend;
+		[Category] public StaticMesh StaticMesh;
+		[Category] public MaterialInterface Material;
+		[Category] public int Density;
+		[Category] public float MaxDrawRadius;
+		[Category] public float MinTransitionRadius;
+		[Category] public float MinScale;
+		[Category] public float MaxScale;
+		[Category] public int Seed;
+		[Category] public float SwayScale;
+		[Category] public float AlphaMapThreshold;
+		[Category] public float SlopeRotationBlend;
 	
 	//	structdefaultproperties
 	//	{
@@ -45,15 +45,15 @@ public partial class TerrainMaterial : Object/*
 	};
 	
 	public Object.Matrix LocalToMapping;
-	public/*(Material)*/ TerrainMaterial.ETerrainMappingType MappingType;
-	public/*(Material)*/ float MappingScale;
-	public/*(Material)*/ float MappingRotation;
-	public/*(Material)*/ float MappingPanU;
-	public/*(Material)*/ float MappingPanV;
-	public/*(Material)*/ MaterialInterface Material;
-	public/*(Displacement)*/ Texture2D DisplacementMap;
-	public/*(Displacement)*/ float DisplacementScale;
-	public/*(Foliage)*/ array<TerrainMaterial.TerrainFoliageMesh> FoliageMeshes;
+	[Category("Material")] public TerrainMaterial.ETerrainMappingType MappingType;
+	[Category("Material")] public float MappingScale;
+	[Category("Material")] public float MappingRotation;
+	[Category("Material")] public float MappingPanU;
+	[Category("Material")] public float MappingPanV;
+	[Category("Material")] public MaterialInterface Material;
+	[Category("Displacement")] public Texture2D DisplacementMap;
+	[Category("Displacement")] public float DisplacementScale;
+	[Category("Foliage")] public array<TerrainMaterial.TerrainFoliageMesh> FoliageMeshes;
 	
 	public TerrainMaterial()
 	{

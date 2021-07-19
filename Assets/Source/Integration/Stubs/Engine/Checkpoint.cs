@@ -6,7 +6,7 @@ public partial class Checkpoint : NavigationPoint/*
 		native
 		notplaceable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public /*const export editinline */RequestedTextureResources CheckpointTextureResources;
+	[Const, export, editinline] public RequestedTextureResources CheckpointTextureResources;
 	
 	public Checkpoint()
 	{

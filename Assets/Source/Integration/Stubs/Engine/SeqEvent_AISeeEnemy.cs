@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class SeqEvent_AISeeEnemy : SequenceEvent/*
 		native
 		hidecategories(Object)*/{
-	public/*()*/ float MaxSightDistance;
+	[Category] public float MaxSightDistance;
 	
 	public SeqEvent_AISeeEnemy()
 	{

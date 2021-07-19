@@ -63,10 +63,10 @@ public partial class TpGameBrowser : TpSystemHandler/*
 	
 	public partial struct /*native */TpLobbyListFavourites
 	{
-		public /*init */String Players;
-		public /*init */String Games;
-		public /*init */array</*init */Object.QWord> Uids;
-		public /*init */array</*init */String> PersistentIds;
+		[init] public String Players;
+		[init] public String Games;
+		[init] public array</*init */Object.QWord> Uids;
+		[init] public array</*init */String> PersistentIds;
 	
 	//	structdefaultproperties
 	//	{
@@ -103,10 +103,10 @@ public partial class TpGameBrowser : TpSystemHandler/*
 	
 	public partial struct /*native */TpGameListFavourites
 	{
-		public /*init */String Players;
-		public /*init */String Games;
-		public /*init */array</*init */Object.QWord> Uids;
-		public /*init */array</*init */String> PersistentIds;
+		[init] public String Players;
+		[init] public String Games;
+		[init] public array</*init */Object.QWord> Uids;
+		[init] public array</*init */String> PersistentIds;
 	
 	//	structdefaultproperties
 	//	{
@@ -190,8 +190,8 @@ public partial class TpGameBrowser : TpSystemHandler/*
 	//	}
 	};
 	
-	public /*private transient */TpGameBrowser.TpPlayNowCreateGameInfo PlayNowCreateGameInfo;
-	public /*private transient */TpGameBrowser.TpPlayNowJoinGameInfo PlayNowJoinGameInfo;
+	[transient] public/*private*/ TpGameBrowser.TpPlayNowCreateGameInfo PlayNowCreateGameInfo;
+	[transient] public/*private*/ TpGameBrowser.TpPlayNowJoinGameInfo PlayNowJoinGameInfo;
 	public /*delegate*/TpGameBrowser.OnUpdateLobbyList __OnUpdateLobbyList__Delegate;
 	public /*delegate*/TpGameBrowser.OnUpdateGameList __OnUpdateGameList__Delegate;
 	public /*delegate*/TpGameBrowser.OnPlayNowStarted __OnPlayNowStarted__Delegate;

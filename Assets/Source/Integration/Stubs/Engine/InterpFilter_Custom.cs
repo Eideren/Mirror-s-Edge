@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class InterpFilter_Custom : InterpFilter/*
 		native*/{
-	public /*editoronly */array<InterpGroup> GroupsToInclude;
+	[editoronly] public array<InterpGroup> GroupsToInclude;
 	
 }
 }

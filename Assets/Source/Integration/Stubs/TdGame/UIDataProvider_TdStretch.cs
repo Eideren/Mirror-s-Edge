@@ -7,10 +7,10 @@ public partial class UIDataProvider_TdStretch : UIDataProvider_TdResource/*
 		config(Game)
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
-	public /*const config localized */String FriendlyName;
-	public /*const config localized */String Description;
-	public /*config */String MapFileName;
-	public /*config */name StretchNameId;
+	[Const, config, localized] public String FriendlyName;
+	[Const, config, localized] public String Description;
+	[config] public String MapFileName;
+	[config] public name StretchNameId;
 	
 }
 }

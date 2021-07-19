@@ -4,13 +4,13 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdAnimNodeAimOffset : AnimNodeAimOffset/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ bool bInterpolateHorizontalAiming;
-	public/*()*/ bool bAimSourceIsLegRotation;
-	public/*()*/ bool bManualAim;
-	public/*()*/ float HorizontalInterpolationSpeed;
-	public /*transient */Object.Vector2D WantedAiming;
-	public /*native */float DeltaTime;
-	public /*native */float InterpolationValue;
+	[Category] public bool bInterpolateHorizontalAiming;
+	[Category] public bool bAimSourceIsLegRotation;
+	[Category] public bool bManualAim;
+	[Category] public float HorizontalInterpolationSpeed;
+	[transient] public Object.Vector2D WantedAiming;
+	[native] public float DeltaTime;
+	[native] public float InterpolationValue;
 	
 	public virtual /*event */void OnBecameRelevant()
 	{

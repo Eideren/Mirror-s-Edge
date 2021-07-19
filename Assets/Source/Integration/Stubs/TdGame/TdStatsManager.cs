@@ -3,17 +3,17 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class TdStatsManager : Object/*
 		config(Achievements)*/{
-	public /*private transient */array<int> StatsArray;
-	public /*transient */float CachedWalkingStateTime;
-	public /*transient */float CachedStartWallrunTime;
-	public /*transient */float CachedStartBagPickupTime;
-	public/*()*/ /*config */int MaxMomentumTimeLimit;
-	public/*()*/ /*config */int SPAirMeleeKillsLimit;
-	public/*()*/ /*config */int SPDisarmLimit;
-	public/*()*/ /*config */int SPMeleeLimit;
-	public/*()*/ /*config */int SP180TauntLimit;
-	public/*()*/ /*config */int SPLandOnHeadLimit;
-	public/*()*/ /*config */int NumberOfBagsToFindForFirstAchievement;
+	[transient] public/*private*/ array<int> StatsArray;
+	[transient] public float CachedWalkingStateTime;
+	[transient] public float CachedStartWallrunTime;
+	[transient] public float CachedStartBagPickupTime;
+	[Category] [config] public int MaxMomentumTimeLimit;
+	[Category] [config] public int SPAirMeleeKillsLimit;
+	[Category] [config] public int SPDisarmLimit;
+	[Category] [config] public int SPMeleeLimit;
+	[Category] [config] public int SP180TauntLimit;
+	[Category] [config] public int SPLandOnHeadLimit;
+	[Category] [config] public int NumberOfBagsToFindForFirstAchievement;
 	
 	public virtual /*function */void ResetStatCount(SeqAct_TdRegisterStat.EAchievementStatsID Id, TdProfileSettings P)
 	{

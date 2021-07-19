@@ -5,7 +5,7 @@ public partial class TdParticleSystemComponent : ParticleSystemComponent/*
 		native
 		editinlinenew
 		hidecategories(Object,Physics,Collision)*/{
-	public/*()*/ float BoundingBoxSideLength;
+	[Category] public float BoundingBoxSideLength;
 	
 	public TdParticleSystemComponent()
 	{

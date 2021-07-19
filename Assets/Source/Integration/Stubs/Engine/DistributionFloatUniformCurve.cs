@@ -6,7 +6,7 @@ public partial class DistributionFloatUniformCurve : DistributionFloat/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ Object.InterpCurveVector2D ConstantCurve;
+	[Category] public Object.InterpCurveVector2D ConstantCurve;
 	
 }
 }

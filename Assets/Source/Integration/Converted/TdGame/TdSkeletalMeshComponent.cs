@@ -5,7 +5,7 @@ public partial class TdSkeletalMeshComponent : SkeletalMeshComponent/*
 		native
 		editinlinenew
 		hidecategories(Object)*/{
-	public/*()*/ float FOV;
+	[Category] public float FOV;
 	
 	// Export UTdSkeletalMeshComponent::execDrawAnims(FFrame&, void* const)
 	public virtual /*native final function */void DrawAnims(Canvas Canvas, name StartingPoint)

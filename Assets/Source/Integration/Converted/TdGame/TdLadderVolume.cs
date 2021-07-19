@@ -12,15 +12,15 @@ public partial class TdLadderVolume : TdMovementVolume/*
 		LT_MAX
 	};
 	
-	public/*()*/ float StepHeight;
+	[Category] public float StepHeight;
 	public float ZOffsetLadder;
 	public float ZOffsetPipe;
 	public float XYOffsetLadder;
 	public float XYOffsetPipe;
 	public array<Object.Vector> PawnLadderLocations;
 	public array<Object.Vector> LadderSteps;
-	public/*()*/ TdLadderVolume.ELadderType LadderType;
-	public/*()*/ bool bCanExitAtTop;
+	[Category] public TdLadderVolume.ELadderType LadderType;
+	[Category] public bool bCanExitAtTop;
 	
 	// Export UTdLadderVolume::execGetLadderLocation(FFrame&, void* const)
 	public virtual /*native simulated function */Object.Vector GetLadderLocation(int Index)

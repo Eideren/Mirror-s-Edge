@@ -7,10 +7,10 @@ public partial class FogVolumeDensityComponent : ActorComponent/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ /*const */bool bEnabled;
-	public/*()*/ /*interp */Object.LinearColor ApproxFogLightColor;
-	public/*()*/ /*interp */float StartDistance;
-	public/*()*/ array<Actor> FogVolumeActors;
+	[Category] [Const] public bool bEnabled;
+	[Category] [interp] public Object.LinearColor ApproxFogLightColor;
+	[Category] [interp] public float StartDistance;
+	[Category] public array<Actor> FogVolumeActors;
 	
 	// Export UFogVolumeDensityComponent::execSetEnabled(FFrame&, void* const)
 	public virtual /*native final function */void SetEnabled(bool bSetEnabled)

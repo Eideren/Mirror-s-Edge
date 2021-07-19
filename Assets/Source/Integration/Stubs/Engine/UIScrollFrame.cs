@@ -4,15 +4,15 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class UIScrollFrame : UIContainer/*
 		native
 		hidecategories(Object,UIRoot,Object)*/{
-	public/*(Image)*/ /*const export editinline */UIComp_DrawImage StaticBackgroundImage;
-	public /*private duplicatetransient const */UIScrollbar ScrollbarHorizontal;
-	public /*private duplicatetransient const */UIScrollbar ScrollbarVertical;
-	public/*()*/ /*private editconst editinline transient */UIRoot.UIScreenValue_Extent HorizontalClientRegion;
-	public/*()*/ /*private editconst editinline transient */UIRoot.UIScreenValue_Extent VerticalClientRegion;
-	public /*private transient */Object.Vector2D ClientRegionPosition;
-	public /*private transient */StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ FrameBounds;
-	public /*private const transient */bool bRefreshScrollbars;
-	public /*private const transient */bool bRecalculateClientRegion;
+	[Category("Image")] [Const, export, editinline] public UIComp_DrawImage StaticBackgroundImage;
+	[duplicatetransient, Const] public/*private*/ UIScrollbar ScrollbarHorizontal;
+	[duplicatetransient, Const] public/*private*/ UIScrollbar ScrollbarVertical;
+	[Category] [editconst, editinline, transient] public/*private*/ UIRoot.UIScreenValue_Extent HorizontalClientRegion;
+	[Category] [editconst, editinline, transient] public/*private*/ UIRoot.UIScreenValue_Extent VerticalClientRegion;
+	[transient] public/*private*/ Object.Vector2D ClientRegionPosition;
+	[transient] public/*private*/ StaticArray<float, float, float, float>/*[UIRoot.EUIWidgetFace.UIFACE_MAX]*/ FrameBounds;
+	[Const, transient] public/*private*/ bool bRefreshScrollbars;
+	[Const, transient] public/*private*/ bool bRecalculateClientRegion;
 	
 	// Export UUIScrollFrame::execRefreshScrollbars(FFrame&, void* const)
 	public virtual /*native final function */void RefreshScrollbars(/*optional */bool? _bImmediately = default)

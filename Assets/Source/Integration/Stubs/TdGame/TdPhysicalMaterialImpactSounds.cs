@@ -6,15 +6,15 @@ public partial class TdPhysicalMaterialImpactSounds : TdPhysicalMaterialBase/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ SoundCue LightAmmo;
-	public/*()*/ SoundCue HeavyAmmo;
-	public/*()*/ SoundCue ShotgunPellet;
-	public/*()*/ SoundCue LightShell;
-	public/*()*/ SoundCue HeavyShell;
-	public/*()*/ SoundCue ShotgunShell;
-	public/*()*/ SoundCue SmallGlasShatter;
-	public/*()*/ SoundCue MediumGlasShatter;
-	public/*()*/ SoundCue LargeGlasShatter;
+	[Category] public SoundCue LightAmmo;
+	[Category] public SoundCue HeavyAmmo;
+	[Category] public SoundCue ShotgunPellet;
+	[Category] public SoundCue LightShell;
+	[Category] public SoundCue HeavyShell;
+	[Category] public SoundCue ShotgunShell;
+	[Category] public SoundCue SmallGlasShatter;
+	[Category] public SoundCue MediumGlasShatter;
+	[Category] public SoundCue LargeGlasShatter;
 	
 }
 }

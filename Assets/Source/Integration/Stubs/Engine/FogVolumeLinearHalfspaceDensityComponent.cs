@@ -6,8 +6,8 @@ public partial class FogVolumeLinearHalfspaceDensityComponent : FogVolumeDensity
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ /*interp */float PlaneDistanceFactor;
-	public/*()*/ /*interp */Object.Plane HalfspacePlane;
+	[Category] [interp] public float PlaneDistanceFactor;
+	[Category] [interp] public Object.Plane HalfspacePlane;
 	
 	public FogVolumeLinearHalfspaceDensityComponent()
 	{

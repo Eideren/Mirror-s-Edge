@@ -5,17 +5,17 @@ public partial class SkeletalMeshActor : Actor/*
 		native
 		placeable
 		hidecategories(Navigation)*/{
-	public/*()*/ /*export editinline */SkeletalMeshComponent SkeletalMeshComponent;
-	public/*()*/ /*const editconst export editinline */LightEnvironmentComponent LightEnvironment;
-	public /*export editinline */AudioComponent FacialAudioComp;
-	public /*repnotify */SkeletalMesh ReplicatedMesh;
-	public/*(Interaction)*/ /*const */float LOILookAtDelay;
-	public/*(Interaction)*/ /*const */float LOIProximityDelay;
-	public/*(Interaction)*/ /*const */float LOIMinDuration;
-	public/*(Interaction)*/ /*const */float LOIDistance;
-	public/*(Interaction)*/ /*const */bool LOIUse2DDistance;
-	public/*(Interaction)*/ /*const */array<name> LOIGroups;
-	public /*private */TdLOIAddOnObject TdLOIAddOn;
+	[Category] [export, editinline] public SkeletalMeshComponent SkeletalMeshComponent;
+	[Category] [Const, editconst, export, editinline] public LightEnvironmentComponent LightEnvironment;
+	[export, editinline] public AudioComponent FacialAudioComp;
+	[repnotify] public SkeletalMesh ReplicatedMesh;
+	[Category("Interaction")] [Const] public float LOILookAtDelay;
+	[Category("Interaction")] [Const] public float LOIProximityDelay;
+	[Category("Interaction")] [Const] public float LOIMinDuration;
+	[Category("Interaction")] [Const] public float LOIDistance;
+	[Category("Interaction")] [Const] public bool LOIUse2DDistance;
+	[Category("Interaction")] [Const] public array<name> LOIGroups;
+	public/*private*/ TdLOIAddOnObject TdLOIAddOn;
 	
 	//replication
 	//{

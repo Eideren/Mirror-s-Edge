@@ -6,12 +6,12 @@ public partial class DistributionVectorUniform : DistributionVector/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ Object.Vector Max;
-	public/*()*/ Object.Vector Min;
+	[Category] public Object.Vector Max;
+	[Category] public Object.Vector Min;
 	public bool bLockAxes;
-	public/*()*/ bool bUseExtremes;
-	public/*()*/ DistributionVector.EDistributionVectorLockFlags LockedAxes;
-	public/*()*/ StaticArray<DistributionVector.EDistributionVectorMirrorFlags, DistributionVector.EDistributionVectorMirrorFlags, DistributionVector.EDistributionVectorMirrorFlags>/*[3]*/ MirrorFlags;
+	[Category] public bool bUseExtremes;
+	[Category] public DistributionVector.EDistributionVectorLockFlags LockedAxes;
+	[Category] public StaticArray<DistributionVector.EDistributionVectorMirrorFlags, DistributionVector.EDistributionVectorMirrorFlags, DistributionVector.EDistributionVectorMirrorFlags>/*[3]*/ MirrorFlags;
 	
 	public DistributionVectorUniform()
 	{

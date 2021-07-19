@@ -28,15 +28,15 @@ public partial class TdUIScene_Lobby : TdUIScene,
 	
 	public UIDataStore_TdGameData TdGameData;
 	public UIDataStore_TdMPData TdMPData;
-	public/*()*/ name SettingsDataStoreName;
-	public /*private transient */TdLobbyBackend Backend;
-	public /*transient */StaticArray<TdUIScene_Lobby.LobbyTeamWidgets, TdUIScene_Lobby.LobbyTeamWidgets>/*[2]*/ TeamWidgets;
-	public /*transient */UILabelButton StartGameButton;
-	public /*transient */UIPanel SettingsPanel;
-	public /*transient */UILabel NumPlayersInLobbyLabel;
-	public /*transient */TdUIDrawLobbyPlayersPanel PlayersPanel;
-	public /*transient */UITdOptionButton MapOptionList;
-	public /*transient */UIPanel ButtonsPanel;
+	[Category] public name SettingsDataStoreName;
+	[transient] public/*private*/ TdLobbyBackend Backend;
+	[transient] public StaticArray<TdUIScene_Lobby.LobbyTeamWidgets, TdUIScene_Lobby.LobbyTeamWidgets>/*[2]*/ TeamWidgets;
+	[transient] public UILabelButton StartGameButton;
+	[transient] public UIPanel SettingsPanel;
+	[transient] public UILabel NumPlayersInLobbyLabel;
+	[transient] public TdUIDrawLobbyPlayersPanel PlayersPanel;
+	[transient] public UITdOptionButton MapOptionList;
+	[transient] public UIPanel ButtonsPanel;
 	public bool bIsControllingClient;
 	public /*delegate*/TdUIScene_Lobby.OnSceneClosed __OnSceneClosed__Delegate;
 	

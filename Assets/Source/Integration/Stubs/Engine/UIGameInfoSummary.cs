@@ -6,13 +6,13 @@ public partial class UIGameInfoSummary : UIResourceDataProvider/*
 		config(Game)
 		perobjectconfig
 		hidecategories(Object,UIRoot)*/{
-	public /*config */String ClassName;
-	public /*config */String GameAcronym;
-	public /*config */String MapPrefix;
-	public /*config */bool bIsTeamGame;
-	public /*config */bool bIsDisabled;
-	public /*const config localized */String GameName;
-	public /*const config localized */String Description;
+	[config] public String ClassName;
+	[config] public String GameAcronym;
+	[config] public String MapPrefix;
+	[config] public bool bIsTeamGame;
+	[config] public bool bIsDisabled;
+	[Const, config, localized] public String GameName;
+	[Const, config, localized] public String Description;
 	
 	public override /*event */bool IsProviderDisabled()
 	{

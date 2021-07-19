@@ -2,9 +2,9 @@ namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
 public partial class TdInitSaveSystem : Object{
-	public /*transient */TsSystem.ETsResult SaveInitResult;
-	public /*private transient */String SaveErrorMessageBody;
-	public /*private transient */String SaveErrorMessageTitle;
+	[transient] public TsSystem.ETsResult SaveInitResult;
+	[transient] public/*private*/ String SaveErrorMessageBody;
+	[transient] public/*private*/ String SaveErrorMessageTitle;
 	public /*delegate*/TdInitSaveSystem.OnInitSavefileSystemDone __OnInitSavefileSystemDone__Delegate;
 	public /*delegate*/TdInitSaveSystem.OnContinueWithoutSavingDelegate __OnContinueWithoutSavingDelegate__Delegate;
 	public /*delegate*/TdInitSaveSystem.OnOverwriteDelegate __OnOverwriteDelegate__Delegate;

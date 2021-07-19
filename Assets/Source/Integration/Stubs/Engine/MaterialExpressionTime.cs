@@ -7,7 +7,7 @@ public partial class MaterialExpressionTime : MaterialExpression/* within Materi
 		hidecategories(Object)*/{
 	public new Material Outer => base.Outer as Material;
 	
-	public/*()*/ bool bIgnorePause;
+	[Category] public bool bIgnorePause;
 	
 }
 }

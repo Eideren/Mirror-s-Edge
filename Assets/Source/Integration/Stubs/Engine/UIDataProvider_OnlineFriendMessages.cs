@@ -6,13 +6,13 @@ public partial class UIDataProvider_OnlineFriendMessages : UIDataProvider_Online
 		transient
 		native
 		hidecategories(Object,UIRoot)*/{
-	public /*private native const noexport */Object.Pointer VfTable_IUIListElementCellProvider;
+	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_IUIListElementCellProvider;
 	public array<OnlineSubsystem.OnlineFriendMessage> Messages;
-	public /*const localized */String SendingPlayerNameCol;
-	public /*const localized */String bIsFriendInviteCol;
-	public /*const localized */String bWasAcceptedCol;
-	public /*const localized */String bWasDeniedCol;
-	public /*const localized */String MessageCol;
+	[Const, localized] public String SendingPlayerNameCol;
+	[Const, localized] public String bIsFriendInviteCol;
+	[Const, localized] public String bWasAcceptedCol;
+	[Const, localized] public String bWasDeniedCol;
+	[Const, localized] public String MessageCol;
 	public String LastInviteFrom;
 	
 	public override /*event */void OnRegister(LocalPlayer InPlayer)

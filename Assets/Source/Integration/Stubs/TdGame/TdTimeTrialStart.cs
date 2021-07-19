@@ -4,7 +4,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdTimeTrialStart : TdPlayerStart/*
 		placeable
 		hidecategories(Navigation,Lighting,LightColor,Force)*/{
-	public/*()*/ TdSPTimeTrialGame.ETTStretch TrackIndex;
+	[Category] public TdSPTimeTrialGame.ETTStretch TrackIndex;
 	
 	public TdTimeTrialStart()
 	{

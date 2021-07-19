@@ -3,7 +3,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_ForceFeedback : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ /*editinline */ForceFeedbackWaveform FFWaveform;
+	[Category] [editinline] public ForceFeedbackWaveform FFWaveform;
 	
 	public SeqAct_ForceFeedback()
 	{

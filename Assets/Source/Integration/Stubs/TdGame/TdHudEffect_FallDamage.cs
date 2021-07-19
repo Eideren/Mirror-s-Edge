@@ -4,16 +4,16 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 public partial class TdHudEffect_FallDamage : TdHudEffect/*
 		native
 		config(HudEffects)*/{
-	public /*config */TdHudEffect.PPSettings PPDistortion;
-	public /*config */float DurationWhenDying;
-	public /*config */float FadeInWhenDying;
-	public /*transient */float PPDFadeInTimer;
-	public /*transient */float PPDFadeInStart;
-	public /*transient */float PPDPeakDurationTimer;
-	public /*transient */float PPDFadeOutTimer;
-	public /*transient */float PPDTargetStrength;
-	public /*transient */float PPDCurrentStrength;
-	public /*private */name DirectionName;
+	[config] public TdHudEffect.PPSettings PPDistortion;
+	[config] public float DurationWhenDying;
+	[config] public float FadeInWhenDying;
+	[transient] public float PPDFadeInTimer;
+	[transient] public float PPDFadeInStart;
+	[transient] public float PPDPeakDurationTimer;
+	[transient] public float PPDFadeOutTimer;
+	[transient] public float PPDTargetStrength;
+	[transient] public float PPDCurrentStrength;
+	public/*private*/ name DirectionName;
 	
 	public override /*function */void ResetPP()
 	{

@@ -5,7 +5,7 @@ public partial class GravityVolume : PhysicsVolume/*
 		native
 		placeable
 		hidecategories(Navigation,Object,Movement,Display)*/{
-	public/*()*/ float GravityZ;
+	[Category] public float GravityZ;
 	
 	public GravityVolume()
 	{

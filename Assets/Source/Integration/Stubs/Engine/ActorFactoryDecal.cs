@@ -7,7 +7,7 @@ public partial class ActorFactoryDecal : ActorFactory/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object)*/{
-	public/*()*/ MaterialInterface DecalMaterial;
+	[Category] public MaterialInterface DecalMaterial;
 	
 	public ActorFactoryDecal()
 	{

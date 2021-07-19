@@ -4,9 +4,9 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class AnimNodeBlendPerBone : AnimNodeBlend/*
 		native
 		hidecategories(Object,Object,Object)*/{
-	public/*()*/ /*const */bool bForceLocalSpaceBlend;
-	public/*()*/ bool bOnlyJointsBelowParent;
-	public/*()*/ array<name> BranchStartBoneName;
+	[Category] [Const] public bool bForceLocalSpaceBlend;
+	[Category] public bool bOnlyJointsBelowParent;
+	[Category] public array<name> BranchStartBoneName;
 	public array<float> Child2PerBoneWeight;
 	public array<byte> LocalToCompReqBones;
 	

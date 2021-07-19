@@ -6,7 +6,7 @@ public partial class DistributionFloatConstant : DistributionFloat/*
 		editinlinenew
 		collapsecategories
 		hidecategories(Object,Object)*/{
-	public/*()*/ float Constant;
+	[Category] public float Constant;
 	
 }
 }

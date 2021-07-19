@@ -17,8 +17,8 @@ public partial class TdParticleModuleCollision : ParticleModuleCollision/*
 		ECPT_MAX
 	};
 	
-	public/*(Audio)*/ bool bPlaySoundOnCollision;
-	public/*(Audio)*/ TdParticleModuleCollision.ECollisionParticleType ParticleType;
+	[Category("Audio")] public bool bPlaySoundOnCollision;
+	[Category("Audio")] public TdParticleModuleCollision.ECollisionParticleType ParticleType;
 	public PhysicalMaterial DefaultImpactMaterial;
 	
 	public TdParticleModuleCollision()

@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_TdTriggerBoss : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ int BossFightIndex;
+	[Category] public int BossFightIndex;
 	
 	public override /*event */void Activated()
 	{

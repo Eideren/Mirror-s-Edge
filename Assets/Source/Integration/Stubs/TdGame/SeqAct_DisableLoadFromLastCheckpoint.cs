@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public partial class SeqAct_DisableLoadFromLastCheckpoint : SequenceAction/*
 		hidecategories(Object)*/{
-	public/*()*/ bool bShouldBeDisabled;
+	[Category] public bool bShouldBeDisabled;
 	
 	public SeqAct_DisableLoadFromLastCheckpoint()
 	{

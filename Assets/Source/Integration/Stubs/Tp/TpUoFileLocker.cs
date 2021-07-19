@@ -4,10 +4,10 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Ts; usin
 public partial class TpUoFileLocker : TpSystemHandler, 
 		OnlineFileLockerInterface/*
 		transient*/{
-	public /*private */array< /*delegate*/OnlineFileLockerInterface.OnFetchLockerComplete > __OnFetchLockerComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlineFileLockerInterface.OnReadFileFromLockerComplete > __OnReadFileFromLockerComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlineFileLockerInterface.OnWriteFileToLockerComplete > __OnWriteFileToLockerComplete__Multicaster;
-	public /*private */array< /*delegate*/OnlineFileLockerInterface.OnDeleteFileFromLockerComplete > __OnDeleteFileFromLockerComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineFileLockerInterface.OnFetchLockerComplete > __OnFetchLockerComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineFileLockerInterface.OnReadFileFromLockerComplete > __OnReadFileFromLockerComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineFileLockerInterface.OnWriteFileToLockerComplete > __OnWriteFileToLockerComplete__Multicaster;
+	public/*private*/ array< /*delegate*/OnlineFileLockerInterface.OnDeleteFileFromLockerComplete > __OnDeleteFileFromLockerComplete__Multicaster;
 	public /*delegate*/OnlineFileLockerInterface.OnFetchLockerComplete __OnFetchLockerComplete__Delegate{ get; set; }
 	public /*delegate*/OnlineFileLockerInterface.OnReadFileFromLockerComplete __OnReadFileFromLockerComplete__Delegate{ get; set; }
 	public /*delegate*/OnlineFileLockerInterface.OnWriteFileToLockerComplete __OnWriteFileToLockerComplete__Delegate{ get; set; }

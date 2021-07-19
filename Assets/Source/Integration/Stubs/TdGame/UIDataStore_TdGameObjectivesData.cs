@@ -8,8 +8,8 @@ public partial class UIDataStore_TdGameObjectivesData : UIDataStore_TdGameResour
 		hidecategories(Object,UIRoot)*/{
 	public partial struct /*native */ObjectiveMappingStruct
 	{
-		public /*config */name MappingName;
-		public /*config */name SubObjectiveName;
+		[config] public name MappingName;
+		[config] public name SubObjectiveName;
 	
 	//	structdefaultproperties
 	//	{
@@ -19,9 +19,9 @@ public partial class UIDataStore_TdGameObjectivesData : UIDataStore_TdGameResour
 	//	}
 	};
 	
-	public /*config */array</*config */UIDataStore_TdGameObjectivesData.ObjectiveMappingStruct> ObjectiveMappings;
-	public /*private transient */int CurrentObjectiveIndex;
-	public /*private transient */int LastReachedChallengeIndex;
+	[config] public array</*config */UIDataStore_TdGameObjectivesData.ObjectiveMappingStruct> ObjectiveMappings;
+	[transient] public/*private*/ int CurrentObjectiveIndex;
+	[transient] public/*private*/ int LastReachedChallengeIndex;
 	
 	// Export UUIDataStore_TdGameObjectivesData::execGetNumFinishedObjectives(FFrame&, void* const)
 	public virtual /*native function */int GetNumFinishedObjectives(name FieldName)

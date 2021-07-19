@@ -3,8 +3,8 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 
 public partial class SeqAct_ToggleInput : SeqAct_Toggle/*
 		hidecategories(Object)*/{
-	public/*()*/ bool bToggleMovement;
-	public/*()*/ bool bToggleTurning;
+	[Category] public bool bToggleMovement;
+	[Category] public bool bToggleTurning;
 	
 	public override /*event */bool IsValidUISequenceObject(/*optional */UIScreenObject _TargetObject = default)
 	{

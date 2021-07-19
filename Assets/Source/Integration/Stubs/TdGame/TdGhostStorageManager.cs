@@ -13,8 +13,8 @@ public partial class TdGhostStorageManager : Object/*
 		EGR_MAX
 	};
 	
-	public /*protected const */int StorageFormatVersion;
-	public /*protected */TdGhost.TdGhostInfo ReadInfo;
+	[Const] public/*protected*/ int StorageFormatVersion;
+	public/*protected*/ TdGhost.TdGhostInfo ReadInfo;
 	public /*delegate*/TdGhostStorageManager.OnReadGhostComplete __OnReadGhostComplete__Delegate;
 	public /*delegate*/TdGhostStorageManager.OnWriteGhostComplete __OnWriteGhostComplete__Delegate;
 	
