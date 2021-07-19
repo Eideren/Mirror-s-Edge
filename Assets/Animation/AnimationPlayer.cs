@@ -71,7 +71,8 @@
 				{
 					foreach( var node in Enumerate( child.Anim ) )
 					{
-						yield return node;
+						if( node != null )
+							yield return node;
 					}
 				}
 			}
