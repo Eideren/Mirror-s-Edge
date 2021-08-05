@@ -255,7 +255,7 @@ public partial class GameInfo : Info/*
 	// Export UGameInfo::execDoNavFearCostFallOff(FFrame&, void* const)
 	public virtual /*native final function */void DoNavFearCostFallOff()
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	public virtual /*function */void NotifyNavigationChanged(NavigationPoint N)
@@ -282,7 +282,7 @@ public partial class GameInfo : Info/*
 	// Export UGameInfo::execGetNetworkNumber(FFrame&, void* const)
 	public virtual /*native function */String GetNetworkNumber()
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -404,7 +404,7 @@ public partial class GameInfo : Info/*
 	// Export UGameInfo::execIsTdPaused(FFrame&, void* const)
 	public virtual /*native function */bool IsTdPaused()
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
@@ -2153,7 +2153,7 @@ public partial class GameInfo : Info/*
 	// Export UGameInfo::execSwapPlayerControllers(FFrame&, void* const)
 	public virtual /*native final function */void SwapPlayerControllers(PlayerController OldPC, PlayerController NewPC)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	public virtual /*event */void PostSeamlessTravel()
@@ -2593,7 +2593,7 @@ public partial class GameInfo : Info/*
 	// Export UGameInfo::execIsPhysXEnhanced(FFrame&, void* const)
 	public /*native function */static bool IsPhysXEnhanced()
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

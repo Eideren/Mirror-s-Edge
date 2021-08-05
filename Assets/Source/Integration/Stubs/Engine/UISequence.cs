@@ -13,27 +13,27 @@ public partial class UISequence : Sequence,
 	// Export UUISequence::execGetOwner(FFrame&, void* const)
 	public virtual /*native final function */UIScreenObject GetOwner()
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UUISequence::execGetUIEvents(FFrame&, void* const)
 	public virtual /*native final function */void GetUIEvents(ref array<UIEvent> out_Events, /*optional */Core.ClassT<UIEvent> _LimitClass = default)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UUISequence::execAddSequenceObject(FFrame&, void* const)
 	public virtual /*native final function */bool AddSequenceObject(SequenceObject NewObj, /*optional */bool? _bRecurse = default)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UUISequence::execRemoveSequenceObject(FFrame&, void* const)
 	public virtual /*native final function */void RemoveSequenceObject(SequenceObject ObjectToRemove)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 	}
 
 
@@ -48,7 +48,7 @@ public partial class UISequence : Sequence,
 	// Export UUISequence::execRemoveSequenceObjects(FFrame&, void* const)
 	public virtual /*native final function */void RemoveSequenceObjects(/*const */ref array<SequenceObject> ObjectsToRemove)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	public UISequence()

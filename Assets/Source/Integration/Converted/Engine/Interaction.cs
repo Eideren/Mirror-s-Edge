@@ -41,7 +41,7 @@ public partial class Interaction : UIRoot/*
 	// Export UInteraction::execInit(FFrame&, void* const)
 	public virtual /*native final function */void Init()
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	public delegate void OnInitialize();

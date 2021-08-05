@@ -40,34 +40,34 @@ public partial class UITabControl : UIObject/*
 	// Export UUITabControl::execRequestLayoutUpdate(FFrame&, void* const)
 	public virtual /*native final function */void RequestLayoutUpdate()
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UUITabControl::execGetPageCount(FFrame&, void* const)
 	public virtual /*native final function */int GetPageCount()
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UUITabControl::execGetPageAtIndex(FFrame&, void* const)
 	public virtual /*native final function */UITabPage GetPageAtIndex(int PageIndex)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UUITabControl::execFindTargetedTab(FFrame&, void* const)
 	public virtual /*native final function */UITabButton FindTargetedTab(int PlayerIndex)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	
 	// Export UUITabControl::execCreateTabPage(FFrame&, void* const)
 	public virtual /*native function */UITabPage CreateTabPage(Core.ClassT<UITabPage> TabPageClass, /*optional */UITabPage _PagePrefab = default)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

@@ -47,49 +47,49 @@ public partial class Canvas : Object/*
 	// Export UCanvas::execDrawTile(FFrame&, void* const)
 	public virtual /*native final function */void DrawTile(Texture2D Tex, float XL, float YL, float U, float V, float UL, float VL)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		 // stub
 	}
 	
 	// Export UCanvas::execDrawMaterialTile(FFrame&, void* const)
 	public virtual /*native final function */void DrawMaterialTile(MaterialInterface Mat, float XL, float YL, /*optional */float? _U = default, /*optional */float? _V = default, /*optional */float? _UL = default, /*optional */float? _VL = default)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCanvas::execDrawMaterialTileClipped(FFrame&, void* const)
 	public virtual /*native final function */void DrawMaterialTileClipped(MaterialInterface Mat, float XL, float YL, /*optional */float? _U = default, /*optional */float? _V = default, /*optional */float? _UL = default, /*optional */float? _VL = default)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCanvas::execStrLen(FFrame&, void* const)
 	public virtual /*native final function */void StrLen(/*coerce */String String, ref float XL, ref float YL)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCanvas::execTextSize(FFrame&, void* const)
 	public virtual /*native final function */void TextSize(/*coerce */String String, ref float XL, ref float YL)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCanvas::execDrawText(FFrame&, void* const)
 	public virtual /*native final function */void DrawText(/*coerce */String Text, /*optional */bool? _CR = default, /*optional */float? _XScale = default, /*optional */float? _YScale = default)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCanvas::execDrawTextClipped(FFrame&, void* const)
 	public virtual /*native final function */void DrawTextClipped(/*coerce */String Text, /*optional */bool? _bCheckHotKey = default, /*optional */float? _XScale = default, /*optional */float? _YScale = default)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
@@ -101,14 +101,14 @@ public partial class Canvas : Object/*
 	// Export UCanvas::execDrawTileClipped(FFrame&, void* const)
 	public virtual /*native(468) final function */void DrawTileClipped(Texture2D Tex, float XL, float YL, float U, float V, float UL, float VL)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCanvas::execProject(FFrame&, void* const)
 	public virtual /*native final function */Object.Vector Project(Object.Vector Location)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
 	}
@@ -116,28 +116,28 @@ public partial class Canvas : Object/*
 	// Export UCanvas::execPushTranslationMatrix(FFrame&, void* const)
 	public virtual /*native final function */void PushTranslationMatrix(Object.Vector TranslationVector)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCanvas::execPopTransform(FFrame&, void* const)
 	public virtual /*native final function */void PopTransform()
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCanvas::execDrawTileStretched(FFrame&, void* const)
 	public virtual /*native final function */void DrawTileStretched(Texture2D Tex, float XL, float YL, float U, float V, float UL, float VL, Object.LinearColor LColor, /*optional */bool? _bStretchHorizontally = default, /*optional */bool? _bStretchVertically = default, /*optional */float? _ScalingFactor = default)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCanvas::execDrawColorizedTile(FFrame&, void* const)
 	public virtual /*native final function */void DrawColorizedTile(Texture2D Tex, float XL, float YL, float U, float V, float UL, float VL, Object.LinearColor LColor)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
@@ -149,7 +149,7 @@ public partial class Canvas : Object/*
 	// Export UCanvas::execSetPos(FFrame&, void* const)
 	public virtual /*native final function */void SetPos(float PosX, float PosY)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
@@ -197,42 +197,42 @@ public partial class Canvas : Object/*
 	// Export UCanvas::execSetDrawColor(FFrame&, void* const)
 	public virtual /*native final function */void SetDrawColor(byte R, byte G, byte B, /*optional */byte? _A = default)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCanvas::execDrawRotatedTile(FFrame&, void* const)
 	public virtual /*native final function */void DrawRotatedTile(Texture2D Tex, Object.Rotator Rotation, float XL, float YL, float U, float V, float UL, float VL, /*optional */float? _AnchorX = default, /*optional */float? _AnchorY = default)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCanvas::execDrawRotatedMaterialTile(FFrame&, void* const)
 	public virtual /*native final function */void DrawRotatedMaterialTile(MaterialInterface Mat, Object.Rotator Rotation, float XL, float YL, /*optional */float? _U = default, /*optional */float? _V = default, /*optional */float? _UL = default, /*optional */float? _VL = default, /*optional */float? _AnchorX = default, /*optional */float? _AnchorY = default)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCanvas::execDraw2DLine(FFrame&, void* const)
 	public virtual /*native final function */void Draw2DLine(float X1, float Y1, float X2, float Y2, Object.Color LineColor)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCanvas::execDrawTextureLine(FFrame&, void* const)
 	public virtual /*native final function */void DrawTextureLine(Object.Vector StartPoint, Object.Vector EndPoint, float Perc, float Width, Object.Color LineColor, Texture2D LineTexture, float U, float V, float UL, float VL)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	
 	// Export UCanvas::execDrawTextureDoubleLine(FFrame&, void* const)
 	public virtual /*native final function */void DrawTextureDoubleLine(Object.Vector StartPoint, Object.Vector EndPoint, float Perc, float Spacing, float Width, Object.Color LineColor, Object.Color AltLineColor, Texture2D Tex, float U, float V, float UL, float VL)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		// stub
 	}
 	

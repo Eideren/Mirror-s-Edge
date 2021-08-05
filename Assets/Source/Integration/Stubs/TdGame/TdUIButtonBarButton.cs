@@ -13,7 +13,7 @@ public partial class TdUIButtonBarButton : UILabelButton/*
 	// Export UTdUIButtonBarButton::execCanAcceptFocus(FFrame&, void* const)
 	public override /*native function */bool CanAcceptFocus(/*optional */int? _PlayerIndex = default)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 	

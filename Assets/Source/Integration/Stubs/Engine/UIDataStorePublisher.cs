@@ -18,7 +18,7 @@ public static class UIDataStorePublisherExtension
 	// Export UUIDataStorePublisher::execSaveSubscriberValue(FFrame&, void* const)
 	public static /*native function */bool SaveSubscriberValue(this UIDataStorePublisher thisPub, ref array<UIDataStore> out_BoundDataStores, /*optional */int? BindingIndex = default)
 	{
-		 NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented();
 		return default;
 	}
 }
