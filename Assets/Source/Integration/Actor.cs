@@ -156,8 +156,6 @@
 		// Export UActor::execSetPhysics(FFrame&, void* const)
 		public virtual /*native(3970) final function */void SetPhysics(Actor.EPhysics newPhysics)
 		{
-			if(this.Physics != newPhysics)
-				UnityEngine.Debug.LogWarning( $"{nameof(SetPhysics)} not fully implemented" );
 			this.Physics = newPhysics;
 			NativeMarkers.MarkUnimplemented();
 		}
