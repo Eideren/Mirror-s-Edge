@@ -3,7 +3,7 @@ using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; usin
 
 public static partial class Asset
 {
-	public static TdAnimSet Get_AS_C1P_Unarmed => new TdAnimSet
+	public static TdAnimSet Get_AS_C1P_Unarmed() => new TdAnimSet
 	{
 		// Object Offset:0x00448439
 		TrackBoneNames = new array<name>

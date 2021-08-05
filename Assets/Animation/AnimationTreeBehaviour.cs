@@ -23,7 +23,7 @@
 		{
 			_actor = new Actor();
 			_window = AnimNodeEditor.AnimNodeEditorWindow.CreateInstance<AnimNodeEditor.AnimNodeEditorWindow>();
-			_player = new AnimationPlayer( Clips, Asset.Get_AS_C1P_Unarmed,  (AnimNode) _window.LoadFile( File ), this.gameObject, _actor, new TdSkeletalMeshComponent() );
+			_player = new AnimationPlayer( Clips, Asset.Get_AS_C1P_Unarmed(), (AnimNode) _window.LoadFile( File ), this.gameObject, _actor, new TdSkeletalMeshComponent() );
 			_window.Show();
 		}
 

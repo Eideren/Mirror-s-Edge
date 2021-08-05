@@ -14,7 +14,9 @@
 			switch( assetPath.ToString() )
 			{
 				case "AS_C1P_Unarmed.AS_C1P_Unarmed":
-					return (TClass)(object)Get_AS_C1P_Unarmed;
+					return (TClass)(object)Get_AS_C1P_Unarmed();
+				case "AS_F3P_Unarmed.AS_F3P_Unarmed":
+					return (TClass)(object)Get_AS_F3P_Unarmed();
 			}
 			
 

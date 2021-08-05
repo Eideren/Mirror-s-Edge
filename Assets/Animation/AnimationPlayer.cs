@@ -24,6 +24,7 @@
 		HashSet<AnimNodeSynch> _stackSync = new HashSet<AnimNodeSynch>();
 		int _tick;
 		Transform[] _bones;
+		TRS[] _bindPose;
 		Dictionary<name, int> _boneNameToIndex;
 		
 		
@@ -36,12 +37,14 @@
 			GameObject = gameObject;
 			_actor = actor;
 			_bones = new Transform[ animSet.TrackBoneNames.Length ];
+			_bindPose = new TRS[ animSet.TrackBoneNames.Length ];
 			_boneNameToIndex = new Dictionary<name, int>( _bones.Length );
 			var allTransforms = GameObject.GetComponentsInChildren<Transform>().ToDictionary( x => (name)x.name );
 			for( int i = 0; i < animSet.TrackBoneNames.Length; i++ )
 			{
 				var t = allTransforms[ animSet.TrackBoneNames[ i ] ];
 				_bones[ i ] = t;
+				_bindPose[ i ] = new TRS( t, true );
 				_boneNameToIndex.Add( (name)t.name, i );
 			}
 
@@ -408,8 +411,11 @@
 							FetchHierarchyTRS( bone, bonesTrs, withLocalTRS:true );
 						}
 					}
-						
-					SampleInner( source, dt, node.NodeTotalWeight/* Do not modulate this, weight depends on bones not a single value */ );
+					
+					if( source == null )
+						SetSkeletonToBindPose();
+					else
+						SampleInner( source, dt, node.NodeTotalWeight/* Do not modulate this, weight depends on bones not a single value */ );
 						
 					for( int i = 0; i < bonesTrs.Count; i++ )
 					{
@@ -530,6 +536,9 @@
 					
 					foreach( var component in profile.AimComponents )
 					{
+						if( component.BoneName == "CameraJoint" && _boneNameToIndex.ContainsKey( "CameraJoint" ) == false )
+							continue;
+
 						var t = _bones[ _boneNameToIndex[ component.BoneName ] ];
 						var v00 = GetTRSAt( component, FloorToInt( constrainedAim.X ), FloorToInt( constrainedAim.Y ) );
 						var v10 = GetTRSAt( component, CeilToInt( constrainedAim.X ), FloorToInt( constrainedAim.Y ) );
@@ -632,8 +641,19 @@
 			}
 		}
 
-		
-		
+
+
+		void SetSkeletonToBindPose()
+		{
+			foreach( TRS trs in _bindPose )
+			{
+				trs.Transform.localPosition = trs.T;
+				trs.Transform.localRotation = trs.R;
+			}
+		}
+
+
+
 		void MatchTargetWeight( ref array<AnimNodeBlendBase.AnimBlendChild> children, array<float> targetWeights, ref float blendTimeToGo, float dt )
 		{
 			for( int i = 0; i < children.Length; i++ )
@@ -897,7 +917,155 @@
 
 
 
-		public void Test(TdAnimNodeTurn node, float probablyAngleDiff)
+		/*public void TickAnim( TdAnimNodeTurn nodeTurn, float deltaTimeMaybe, float probablyWeight )
+		{
+    TdPawn skelPawn; // r30
+    int aTdPawnClass; // r11
+    Class pawnClassCheck; // r9
+    TdPawn tdPawnOwner; // r9
+    double velY; // fp12
+    double velMagnitude; // fp10
+    TdPawn skelPawn2; // r28
+    Class skelPawn2Class; // r9
+    uint legAngleDeltaWithFudge; // r9
+    double safeRegionLimit; // fp12
+    double deltaInEuler; // fp1
+    double absDeltaEuler; // fp13
+    double newTimeStandingStill; // fp8
+    double idleTimer; // fp9
+    uint newFudge; // r9
+
+    if ( nodeTurn.SkelComponent == null )
+        goto PASS_PLAYANIM;
+    skelPawn = (TdPawn)nodeTurn.SkelComponent.Owner;
+    if ( skelPawn == null )
+        goto PASS_PLAYANIM;
+    aTdPawnClass = ATdPawn::PrivateStaticClass;
+    if ( !ATdPawn::PrivateStaticClass )
+    {
+        ATdPawn::PrivateStaticClass = (uint)ATdPawn::GetPrivateStaticClassATdPawn((const wchar_t *)&off_18D0160);
+        ATdPawn::InitializePrivateStaticClassATdPawn();
+        aTdPawnClass = ATdPawn::PrivateStaticClass;
+    }
+    pawnClassCheck = skelPawn.Class;
+    if ( pawnClassCheck )
+    {
+        if ( (Class)aTdPawnClass == pawnClassCheck )
+            goto LABEL_17;
+        while ( 1 )
+        {
+            pawnClassCheck = (Class)pawnClassCheck.Next;
+            if ( !pawnClassCheck )
+                break;
+            if ( (Class)aTdPawnClass == pawnClassCheck )
+                goto LABEL_17;
+        }
+    }
+    if ( aTdPawnClass )
+        goto PASS_PLAYANIM;
+LABEL_17:
+    if ( nodeTurn.PlayingTurnAnimation == true && probablyWeight > 0.1 )
+    {
+        if ( nodeTurn.SkelComponent != null )
+        {
+            skelPawn2 = (TdPawn)nodeTurn.SkelComponent.Owner;
+            if ( skelPawn2 != null )
+            {
+                if ( !aTdPawnClass )
+                {
+                    ATdPawn::PrivateStaticClass = (uint)ATdPawn::GetPrivateStaticClassATdPawn((const wchar_t *)&off_18D0160);
+                    ATdPawn::InitializePrivateStaticClassATdPawn();
+                }
+                skelPawn2Class = skelPawn2.Class;
+                if ( skelPawn2Class )
+                {
+                    if ( (Class)ATdPawn::PrivateStaticClass == skelPawn2Class )
+                    {
+TWEAK_LEG_FUDGE:
+                        if ( nodeTurn.SkelComponent == (SkeletalMeshComponent)LODWORD(skelPawn2.TakeHitLocation.Y) )
+                        {
+                            newFudge = (System.UInt16)((int)(float)((float)deltaTimeMaybe * nodeTurn.LegTurnPerSecond)
+                                                        + skelPawn2.LegAngleLimitFudge);
+                            if ( newFudge > 32767 )
+                                newFudge -= 65536;
+                            skelPawn2.LegAngleLimitFudge = (int)newFudge;
+                        }
+                        goto TEST_WHETHER_PLAYANIM;
+                    }
+                    while ( 1 )
+                    {
+                        skelPawn2Class = (Class)skelPawn2Class.Next;
+                        if ( !skelPawn2Class )
+                            break;
+                        if ( (Class)ATdPawn::PrivateStaticClass == skelPawn2Class )
+                            goto TWEAK_LEG_FUDGE;
+                    }
+                }
+                if ( ATdPawn::PrivateStaticClass )
+                    goto TEST_WHETHER_PLAYANIM;
+                goto TWEAK_LEG_FUDGE;
+            }
+        }
+    }
+TEST_WHETHER_PLAYANIM:
+    legAngleDeltaWithFudge = (unsigned __int16)(skelPawn.Rotation.Yaw - skelPawn.LegAngleLimitFudge);
+    if ( legAngleDeltaWithFudge > 32767 )
+        legAngleDeltaWithFudge -= 65536;
+    if ( *(__int64 *)&nodeTurn.bitfield_PlayingTurnAnimation < 0
+      || (safeRegionLimit = nodeTurn.SafeRegionLimit,
+          deltaInEuler = (float)((float)(int)legAngleDeltaWithFudge * (float)0.0054931641),
+          absDeltaEuler = __fabs(deltaInEuler),
+          absDeltaEuler < safeRegionLimit) )
+    {
+        nodeTurn.TimeStandingStill = 0.0;
+    }
+    else
+    {
+        if ( absDeltaEuler > safeRegionLimit && nodeTurn.ExtendedRegionLimit > absDeltaEuler )
+        {
+            newTimeStandingStill = (float)((float)deltaTimeMaybe + nodeTurn.TimeStandingStill);
+            idleTimer = nodeTurn.IdleTimer;
+            nodeTurn.TimeStandingStill = (float)deltaTimeMaybe + nodeTurn.TimeStandingStill;
+            if ( idleTimer >= newTimeStandingStill )
+                goto PASS_PLAYANIM;
+            goto PLAYANIM;
+        }
+        if ( nodeTurn.ExtendedRegionLimit < __fabs(deltaInEuler) )
+        {
+PLAYANIM:
+            UTdAnimNodeTurn::PlayTurnAnimation(nodeTurn, deltaInEuler);
+            goto PASS_PLAYANIM;
+        }
+    }
+PASS_PLAYANIM:
+    tdPawnOwner = nodeTurn.TdPawnOwner;
+    if ( tdPawnOwner )
+    {
+        velY = *(float *)((uint)&tdPawnOwner.Velocity + 4LL);
+        velMagnitude = __fsqrts((float)((float)(*(float *)(uint)&tdPawnOwner.Velocity.X
+                                              * *(float *)(uint)&tdPawnOwner.Velocity.X)
+                                      + (float)((float)velY * (float)velY)));
+        if ( nodeTurn.BlendTimeToGo > 0.0 )
+        {
+            if ( nodeTurn.ActiveChildIndex )
+            {
+                if ( (*(_QWORD *)&nodeTurn.BlendOutWeight.Max & 0x80000000LL) != 0 )
+                {
+                    _FP7 = (float)((float)((float)velMagnitude * (float)0.0099999998) - (float)1.0);// deltaTime = deltaTime * Clamp(velMag * 0.0099999998, 0.1, 1)
+                    __asm { fsel      f13, f7, f9, f8# Floating-Point Select }
+                    _FP5 = (float)((float)_FP13 - (float)0.1);
+                    __asm { fsel      f4, f5, f13, f6# Floating-Point Select }
+                    deltaTimeMaybe = (float)((float)deltaTimeMaybe * (float)_FP4);
+                }
+            }
+        }
+    }
+    UAnimNodeBlendList::TickAnim_Proxy((UAnimNodeBlendList *)nodeTurn, deltaTimeMaybe, probablyWeight);// call to base
+		}*/
+
+
+
+		/*public void Test(TdAnimNodeTurn node, float probablyAngleDiff)
 		{
 			float absAngle; // st7
 			double extendedRegionLimit; // st6
@@ -944,6 +1112,6 @@
 					node.LegTurnPerSecond = (float)(baseTurnPerSecond / animSeq.SequenceLength) * extendedBoostSpeed;
 				}
 			}
-		}
+		}*/
 	}
 }

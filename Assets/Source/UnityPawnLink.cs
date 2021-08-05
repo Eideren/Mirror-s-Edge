@@ -15,7 +15,7 @@
         class PawnLink : IProcessor
         {
             public TdPawn Pawn;
-            AnimationPlayer _1pPlayer;
+            AnimationPlayer _1pPlayer, _3pPlayer;
             AnimNodeEditor.AnimNodeEditorWindow _window;
             UnityEngine.Camera _unityCam;
 
@@ -31,12 +31,25 @@
                 {
                     var clips = Resources.LoadAll<AnimationClip>( "Animations/AS_C1P_Unarmed/" );
                     Asset.UScriptToUnity.TryGetValue( Pawn.Mesh1p.SkeletalMesh, out var unityObject );
-                    _1pPlayer = new AnimationPlayer( clips, Asset.Get_AS_C1P_Unarmed, Pawn.Mesh1p.Animations, ((SkinnedMeshRenderer)unityObject).transform.parent.gameObject, Pawn, Pawn.Mesh1p );
+                    _1pPlayer = new AnimationPlayer( clips, Asset.Get_AS_C1P_Unarmed(), Pawn.Mesh1p.Animations, ((SkinnedMeshRenderer)unityObject).transform.parent.gameObject, Pawn, Pawn.Mesh1p );
                     _window = AnimNodeEditor.AnimNodeEditorWindow.CreateInstance<AnimNodeEditor.AnimNodeEditorWindow>();
                     _window.LoadFromNode( Pawn.Mesh1p.Animations );
                     _window.Show();
                 }
+
+                if( _3pPlayer == null )
+                {
+                    var clips = Resources.LoadAll<AnimationClip>( "Animations/AS_F3P_Unarmed/" );
+                    Asset.UScriptToUnity.TryGetValue( Pawn.Mesh3p.SkeletalMesh, out var unityObject );
+                    _3pPlayer = new AnimationPlayer( clips, Asset.Get_AS_F3P_Unarmed(), Pawn.Mesh3p.Animations, ((SkinnedMeshRenderer)unityObject).transform.parent.gameObject, Pawn, Pawn.Mesh3p );
+                    /*_window = AnimNodeEditor.AnimNodeEditorWindow.CreateInstance<AnimNodeEditor.AnimNodeEditorWindow>();
+                    _window.LoadFromNode( Pawn.Mesh1p.Animations );
+                    _window.Show();*/
+                }
+
+                _3pPlayer.Sample( deltaTime );
                 _1pPlayer.Sample( deltaTime );
+                
                 if( _unityCam == null )
                 {
                     _unityCam = UnityEngine.Camera.main;
