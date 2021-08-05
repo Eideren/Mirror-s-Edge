@@ -546,14 +546,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd5d3205b6ba40aaaef75d04139d6c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rotator:
-    Pitch: 0
-    Yaw: 0
-    Roll: 0
-  ConvResult:
-    Pitch: 0
-    Yaw: 0
-    Roll: 0
 --- !u!4 &1915177692
 Transform:
   m_ObjectHideFlags: 0

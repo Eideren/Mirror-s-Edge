@@ -1,5 +1,6 @@
 ﻿namespace MEdge.Source
 {
+	using System.Collections.Generic;
 	using System.Runtime.CompilerServices;
 	using Core;
 	using Engine;
@@ -8,6 +9,7 @@
 
 	public static partial class Asset
 	{
+		public static HashSet<string> NotImplementedFor = new HashSet<string>();
 		public static ConditionalWeakTable<object, object> UScriptToUnity = new ConditionalWeakTable<object, object>();
 		public static TClass LoadAsset<TClass>( String assetPath ) where TClass : new()
 		{
@@ -71,6 +73,7 @@
 				}
 			}
 
+			NotImplementedFor.Add( assetPath );
 			LogWarning($"{nameof(LoadAsset)} not implemented yet, requesting '{assetPath}'");
 			return new TClass();
 		}

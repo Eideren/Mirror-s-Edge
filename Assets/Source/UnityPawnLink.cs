@@ -76,9 +76,21 @@
             {
                 _window?.Close();
                 _window = null;
+                PrintUnimplementedDebug();
+            }
 
-                string appendedMessage = "Native unimplemented calls:\n" + string.Join( "\n", NativeMarkers.Marked.Select( x => $"{x.FilePath} - {x.Member}:{x.Line}" ).OrderBy( x => x ) );
-                LogError(appendedMessage);
+
+
+            public void PrintUnimplementedDebug()
+            {
+                {
+                    string appendedMessage = "Native unimplemented calls:\n" + string.Join( "\n", NativeMarkers.Marked.Select( x => $"{x.FilePath} - {x.Member}:{x.Line}" ).OrderBy( x => x ) );
+                    LogError(appendedMessage);
+                }
+                {
+                    string appendedMessage = $"{nameof(LoadAsset)} unimplemented for:\n" + string.Join( "\n", Asset.NotImplementedFor.OrderBy( x => x ) );
+                    LogError(appendedMessage);
+                }
             }
 
 
