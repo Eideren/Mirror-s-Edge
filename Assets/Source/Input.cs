@@ -117,12 +117,6 @@
 
 		static void UpdateAxisValue( ref float axis, float axisDelta, float deltaTime, float Speed = 1f, int InvertMultiplier = 1, float DeadZone = 0f, float AbsoluteAxis = 0f )
 		{
-			if( axisDelta == 0f )
-			{
-				axis = 0f;
-				return;
-			}
-
 			var CurrentDelta = axisDelta;
 			// Axis is expected to be in -1 .. 1 range if dead zone is used.
 			if( DeadZone > 0f && DeadZone < 1f )
