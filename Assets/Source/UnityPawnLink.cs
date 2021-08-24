@@ -42,6 +42,8 @@
                     var clips = Resources.LoadAll<AnimationClip>( "Animations/AS_F3P_Unarmed/" );
                     Asset.UScriptToUnity.TryGetValue( Pawn.Mesh3p.SkeletalMesh, out var unityObject );
                     _3pPlayer = new AnimationPlayer( clips, Asset.Get_AS_F3P_Unarmed(), Pawn.Mesh3p.Animations, ((SkinnedMeshRenderer)unityObject).transform.parent.gameObject, Pawn, Pawn.Mesh3p );
+                    // Disable rendering for now, let's focus on 1P first
+                    ( (SkinnedMeshRenderer)unityObject ).enabled = false;
                     /*_window = AnimNodeEditor.AnimNodeEditorWindow.CreateInstance<AnimNodeEditor.AnimNodeEditorWindow>();
                     _window.LoadFromNode( Pawn.Mesh1p.Animations );
                     _window.Show();*/
@@ -59,11 +61,14 @@
                         _unityCam = camGo.AddComponent<UnityEngine.Camera>();
                     }
 
+                    _unityCam.fieldOfView = 59f;// 90 horizontal is around this value vertical for 16/9
+
                     ( Pawn.Controller as PlayerController ).SpawnPlayerCamera();
                 }
 
                 if( ( Pawn.Controller as PlayerController ).PlayerCamera is Camera cam )
                 {
+                    cam.UpdateCamera(deltaTime);
                     var camPov = cam.CameraCache.POV;
                     _unityCam.transform.SetPositionAndRotation( camPov.Location.ToUnityPos(), (Quaternion)camPov.Rotation );
                     #warning probably switch things around to ensure camera doesn't lag one frame behind animation

@@ -91,9 +91,6 @@
             foreach( var actor in _actorsThisFrame )
                 if( actor.TickGroup == Object.ETickingGroup.TG_PostUpdateWork )
                     actor.Tick(deltaTime*actor.CustomTimeDilation);
-            foreach( var actor in _actorsThisFrame )
-                if( actor is PlayerController pc )
-                    pc.PlayerCamera?.UpdateCamera(deltaTime);
             
             foreach( var actor in _actorsThisFrame )
             {
@@ -102,7 +99,7 @@
                 {
                     p = actor switch
                     {
-                        TdPawn pawn => new PawnLink(){ Pawn = pawn },
+                        TdPawn pawn => new PawnLink{ Pawn = pawn },
                         _ => null
                     };
                     
