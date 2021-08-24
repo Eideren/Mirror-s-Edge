@@ -1,5 +1,8 @@
-﻿namespace MEdge
+﻿// STILL HAVE TO HOOK UP PARENT NODES 
+
+namespace MEdge
 {
+	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using Core;
@@ -16,66 +19,80 @@
 		const float ZERO_ANIMWEIGHT_THRESH = 0.00001f;
 		
 		public GameObject GameObject;
+		public SkeletalMeshComponent Skel{ get; private set; }
 		AnimNode _tree;
-		Dictionary<MEdge.Core.name, AnimationClip> _clips;
 		AnimSet _set;
 		Actor _actor;
-		HashSet<AnimNode> _isRelevantThisFrame = new HashSet<AnimNode>();
-		HashSet<AnimNodeSynch> _stackSync = new HashSet<AnimNodeSynch>();
+		
 		int _tick;
-		Transform[] _bones;
+		HashSet<AnimNode> _nodes = new HashSet<AnimNode>();
+		Dictionary<MEdge.Core.name, AnimationClip> _clips;
+		Dictionary<AnimNode, TempBuffer<TRS>> _relevantNodes = new Dictionary<AnimNode,TempBuffer<TRS>>();
+
+		public Transform[] Bones{ get; private set; }
+		public Dictionary<name, int> BoneNameToIndex{ get; private set; }
 		TRS[] _bindPose;
-		Dictionary<name, int> _boneNameToIndex;
-		
-		
-		
+
+
+
 		public AnimationPlayer(AnimationClip[] clips, AnimSet animSet, AnimNode tree, GameObject gameObject, Actor actor, SkeletalMeshComponent skel)
 		{
+			Skel = skel;
 			_tree = tree;
 			_clips = clips.ToDictionary( x => (MEdge.Core.name)x.name );
 			_set = animSet;
 			GameObject = gameObject;
 			_actor = actor;
-			_bones = new Transform[ animSet.TrackBoneNames.Length ];
+			Bones = new Transform[ animSet.TrackBoneNames.Length ];
 			_bindPose = new TRS[ animSet.TrackBoneNames.Length ];
-			_boneNameToIndex = new Dictionary<name, int>( _bones.Length );
+			BoneNameToIndex = new Dictionary<name, int>( Bones.Length );
 			var allTransforms = GameObject.GetComponentsInChildren<Transform>().ToDictionary( x => (name)x.name );
 			for( int i = 0; i < animSet.TrackBoneNames.Length; i++ )
 			{
 				var t = allTransforms[ animSet.TrackBoneNames[ i ] ];
-				_bones[ i ] = t;
+				Bones[ i ] = t;
 				_bindPose[ i ] = new TRS( t, true );
-				_boneNameToIndex.Add( (name)t.name, i );
+				BoneNameToIndex.Add( (name)t.name, i );
 			}
 
-			foreach( var node in Enumerate( tree ) )
+			foreach( var node in EnumerateTree( _tree ) )
 			{
-				if( node is AnimNodeSequence seq )
+				_nodes.Add( node );
+				node.ParentNodes.Remove(0, node.ParentNodes.Count);
+			}
+
+			foreach( var node in _nodes )
+			{
+				if( node is AnimNodeBlendBase anbb )
 				{
-					seq.SkelComponent = skel;
+					foreach( var child in anbb.Children )
+					{
+						child.Anim?.ParentNodes.Add( anbb );
+					}
 				}
 
+				node.SkelComponent = Skel;
 				if( node is TdAnimNodeBlendList anbl )
-				{
-					anbl.TdPawnOwner = actor as TdPawn;
-				}
+					anbl.TdPawnOwner = _actor as TdPawn;
 				node.OnInit();
 			}
-		}
 
 
 
-		IEnumerable<AnimNode> Enumerate( AnimNode n )
-		{
-			yield return n;
-			if( n is AnimNodeBlendBase anbb )
+			static IEnumerable<AnimNode> EnumerateTree( AnimNode n )
 			{
-				foreach( var child in anbb.Children )
+				if( n == null )
+					yield break;
+			
+				yield return n;
+				if( n is AnimNodeBlendBase anbb )
 				{
-					foreach( var node in Enumerate( child.Anim ) )
+					foreach( var child in anbb.Children )
 					{
-						if( node != null )
+						foreach( var node in EnumerateTree( child.Anim ) )
+						{
 							yield return node;
+						}
 					}
 				}
 			}
@@ -92,50 +109,68 @@
 			}
 			finally
 			{
-				_isRelevantThisFrame.Clear();
-			}
-		}
-		
-		
-		
-		bool NodeIs<T>( AnimNode n, out T val, ref bool mark )
-		{
-			if( n is T v )
-			{
-				mark = mark || n.GetType() == typeof(T);
-				val = v;
-				return true;
-			}
+				foreach( var node in _nodes )
+				{
+					node.NodeTotalWeight = Math.Min(node.TotalWeightAccumulator, 1f);
+					node.TotalWeightAccumulator = 0f;
+					node.bJustBecameRelevant = false;
+					
+					if( node.bRelevant && _relevantNodes.ContainsKey( node ) == false )
+					{
+						node.bRelevant = false;
+					}
 
-			val = default;
-			return false;
+					if( node.bRelevant == false )
+					{
+						if( node.NodeTotalWeight > ZERO_ANIMWEIGHT_THRESH )
+						{
+							node.OnBecomeRelevant();
+							node.bRelevant = true;
+							node.bJustBecameRelevant = true;
+						}
+					}
+					else
+					{
+						if( node.NodeTotalWeight <= ZERO_ANIMWEIGHT_THRESH )
+						{
+							node.OnCeaseRelevant();
+							node.bRelevant = false;
+						}
+					}
+				}
+
+				foreach( var kvp in _relevantNodes )
+				{
+					// Can be null when the node is only shared once
+					kvp.Value?.Dispose();
+				}
+				_relevantNodes.Clear();
+			}
 		}
 
 
 		
 		void SampleInner( AnimNode node, float dt, float weightHint )
 		{
-			bool needToTick = node.NodeTickTag != _tick;
-			node.NodeTickTag = _tick;
+			node.TotalWeightAccumulator += weightHint; // Not close to source
+			if( _relevantNodes.TryGetValue( node, out var precomputedPose ) )
+			{
+				// This node has already been computed in this frame,
+				// set hierarchy to that pose already precomputed and exit
+				foreach( TRS trs in precomputedPose )
+				{
+					trs.Transform.localPosition = trs.T;
+					trs.Transform.localRotation = trs.R;
+				}
+				return;
+			}
+			
+			// Now the rest of this is guaranteed to run only once
+
 			bool marked = false;
-			node.NodeTotalWeight = weightHint; // Not too sure that's how it works 
 			try
 			{
-				if( needToTick )
-				{
-					_isRelevantThisFrame.Add( node );
-					if( node.bRelevant == false )
-					{
-						node.bRelevant = true;
-						node.OnBecomeRelevant();
-						node.bJustBecameRelevant = true;
-					}
-					else
-					{
-						node.bRelevant = true;
-						node.bJustBecameRelevant = false;
-					}
-				}
+				node.NodeTickTag = _tick;
 
 				TdPawn pawnActor = _actor as TdPawn;
 
@@ -243,39 +278,36 @@
 
 				if( NodeIs<TdAnimNodeBlendDirectional>( node, out var tdDirectional, ref marked ) )
 				{
-					if( needToTick )
-					{
-						// I think ?
-						var localDir = Quaternion.Inverse( (Quaternion)_actor.Rotation ) * _actor.Velocity.ToUnityDir().normalized;
-						var dir = tdDirectional.Direction;
-						// probably not but I don't know, we need some sort of time left for accuracy
-						dir.X = Mathf.Lerp( dir.X, localDir.x, dt / tdDirectional.DirInterpTime );
-						dir.Y = Mathf.Lerp( dir.Y, localDir.z, dt / tdDirectional.DirInterpTime );
-						// Editor shows this specific 'normalization' method
-						var l = dir.X + dir.Y;
-						l = l == 0f ? 1f : l;
-						dir.X /= l;
-						dir.Y /= l;
-						tdDirectional.Direction = dir;
+					// I think ?
+					var localDir = Quaternion.Inverse( (Quaternion)_actor.Rotation ) * _actor.Velocity.ToUnityDir().normalized;
+					var dir = tdDirectional.Direction;
+					// probably not but I don't know, we need some sort of time left for accuracy
+					dir.X = Lerp( dir.X, localDir.x, dt / tdDirectional.DirInterpTime );
+					dir.Y = Lerp( dir.Y, localDir.z, dt / tdDirectional.DirInterpTime );
+					// Editor shows this specific 'normalization' method
+					var l = dir.X + dir.Y;
+					l = l == 0f ? 1f : l;
+					dir.X /= l;
+					dir.Y /= l;
+					tdDirectional.Direction = dir;
 
-						var isNowForward = tdDirectional.Direction.Y > 0f;
-						tdDirectional.bGoingForward = isNowForward;
-						tdDirectional.ForwardBlend += dt / tdDirectional.ForwardInterpTime * ( tdDirectional.bGoingForward ? 1f : - 1f );
-						tdDirectional.ForwardBlend = tdDirectional.ForwardBlend > 1f ? 1f : tdDirectional.ForwardBlend < 0f ? 0f : tdDirectional.ForwardBlend;
+					var isNowForward = tdDirectional.Direction.Y > 0f;
+					tdDirectional.bGoingForward = isNowForward;
+					tdDirectional.ForwardBlend += dt / tdDirectional.ForwardInterpTime * ( tdDirectional.bGoingForward ? 1f : - 1f );
+					tdDirectional.ForwardBlend = tdDirectional.ForwardBlend > 1f ? 1f : tdDirectional.ForwardBlend < 0f ? 0f : tdDirectional.ForwardBlend;
 						
-						var children = tdDirectional.Children;
+					var children = tdDirectional.Children;
 
-						var absY = dir.Y < 0f ? - dir.Y : dir.Y;
-						var backwardBlend = 1f - tdDirectional.ForwardBlend;
-						// From the weird blending behavior seen in the anime tree editor when clicking on 0.5,-0.5 and clicking on the opposite -0.5,0.5
-						// this (fairly weird) blending method seems most accurate to source
-						children[ 0 ].Weight = absY * tdDirectional.ForwardBlend;
-						children[ 1 ].Weight = dir.X >= 0f ? dir.X * tdDirectional.ForwardBlend : 0f;
-						children[ 2 ].Weight = dir.X < 0f ? -dir.X * tdDirectional.ForwardBlend : 0f;
-						children[ 3 ].Weight = absY * backwardBlend;
-						children[ 4 ].Weight = dir.X >= 0f ? dir.X * backwardBlend : 0f;
-						children[ 5 ].Weight = dir.X < 0f ? -dir.X * backwardBlend : 0f;
-					}
+					var absY = dir.Y < 0f ? - dir.Y : dir.Y;
+					var backwardBlend = 1f - tdDirectional.ForwardBlend;
+					// From the weird blending behavior seen in the anime tree editor when clicking on 0.5,-0.5 and clicking on the opposite -0.5,0.5
+					// this (fairly weird) blending method seems most accurate to source
+					children[ 0 ].Weight = absY * tdDirectional.ForwardBlend;
+					children[ 1 ].Weight = dir.X >= 0f ? dir.X * tdDirectional.ForwardBlend : 0f;
+					children[ 2 ].Weight = dir.X < 0f ? -dir.X * tdDirectional.ForwardBlend : 0f;
+					children[ 3 ].Weight = absY * backwardBlend;
+					children[ 4 ].Weight = dir.X >= 0f ? dir.X * backwardBlend : 0f;
+					children[ 5 ].Weight = dir.X < 0f ? -dir.X * backwardBlend : 0f;
 				}
 
 				if( NodeIs<TdAnimNodeBlendBySpeed>( node, out var tdBySpeed, ref marked ) )
@@ -364,17 +396,19 @@
 
 					clip.wrapMode = nodeSequence.bLooping ? WrapMode.Loop : WrapMode.Clamp;
 
-					//var weightForNotification = node is TdAnimNodeSequence tdSeq && tdSeq.bLooping && tdSeq.bLoopingWithNotify ? 0f : nodeSequence.NodeTotalWeight;
-					if( IsSynchronized( nodeSequence, out var controlSequence ) )
+					// If this node is part of a group, animation is going to be advanced in a second pass, once all weights have been calculated in the tree.
+					if( nodeSequence.SynchGroupName == default )
 					{
-						//var controlDeltaTime = ComputeDeltaTime( controlSequence, dt );
-						// Note that the control node might not have been updated yet so this time might be one frame behind ...
-						nodeSequence.AdvanceBy( GetSynchTime( nodeSequence, controlSequence ) - nodeSequence.CurrentTime, dt, nodeSequence.SkelComponent.bUseRawData ? false : true );
-					}
-					else if( needToTick )
-					{
-						var deltaTime = ComputeDeltaTime( nodeSequence, dt );
-						nodeSequence.AdvanceBy( deltaTime, dt, nodeSequence.SkelComponent.bUseRawData ? false : true );
+						// Keep track of PreviousTime before any update. This is used by Root Motion.
+						nodeSequence.PreviousTime = nodeSequence.CurrentTime;
+
+						// Can only do something if we are currently playing a valid AnimSequence
+						if( nodeSequence.bPlaying && nodeSequence.AnimSeq != null )
+						{
+							// Time to move forwards by - DeltaSeconds scaled by various factors.
+							float MoveDelta = nodeSequence.Rate * nodeSequence.AnimSeq.RateScale * nodeSequence.SkelComponent.GlobalAnimRateScale * dt;
+							nodeSequence.AdvanceBy(MoveDelta, dt, (nodeSequence.SkelComponent.bUseRawData) ? false : true);
+						}
 					}
 
 					clip.SampleAnimation( GameObject, nodeSequence.CurrentTime );
@@ -388,11 +422,11 @@
 					float weight = perBone.Child2Weight;
 					if( weight < ZERO_ANIMWEIGHT_THRESH )
 					{
-						SampleInner( source, dt, node.NodeTotalWeight );
+						SampleInner( source, dt, weightHint );
 						return;
 					}
 
-					SampleInner( target, dt, node.NodeTotalWeight * weight );
+					SampleInner( target, dt, weightHint * weight );
 						
 					using var bonesTrs = TempBuffer<TRS>.Borrow();
 					foreach( var branchName in perBone.BranchStartBoneName )
@@ -415,7 +449,7 @@
 					if( source == null )
 						SetSkeletonToBindPose();
 					else
-						SampleInner( source, dt, node.NodeTotalWeight/* Do not modulate this, weight depends on bones not a single value */ );
+						SampleInner( source, dt, weightHint/* Do not modulate this, weight depends on bones not a single value */ );
 						
 					for( int i = 0; i < bonesTrs.Count; i++ )
 					{
@@ -429,10 +463,90 @@
 
 				if( NodeIs<AnimNodeSynch>( node, out var synch, ref marked ) )
 				{
-					for( int i = 0; i < synch.Groups.Length; i++ )
+					// Update groups
+					for(var GroupIdx=0; GroupIdx<synch.Groups.Num(); GroupIdx++)
+					{
+						ref var SynchGroup = ref synch.Groups[GroupIdx];
+
+						// Update Master Node
+						UpdateMasterNodeForGroup(synch, ref SynchGroup);
+
+						// Now that we have the master node, have it update all the others
+						if( SynchGroup.MasterNode != null && SynchGroup.MasterNode.AnimSeq != null )
+						{
+							ref AnimNodeSequence MasterNode	= ref SynchGroup.MasterNode;
+							float	OldPosition			= MasterNode.CurrentTime;
+							float MasterMoveDelta		= SynchGroup.RateScale * MasterNode.Rate * MasterNode.AnimSeq.RateScale * dt;
+
+							if( MasterNode.bPlaying )
+							{
+								// Keep track of PreviousTime before any update. This is used by Root Motion.
+								MasterNode.PreviousTime = MasterNode.CurrentTime;
+
+								// Update Master Node
+								// Master Node has already been ticked, so now we advance its CurrentTime position...
+								// Time to move forward by - DeltaSeconds scaled by various factors.
+								MasterNode.AdvanceBy(MasterMoveDelta, dt, true);
+							}
+
+							// Master node was changed during the tick?
+							// Skip this round of updates...
+							if( SynchGroup.MasterNode != MasterNode )
+							{
+								continue;
+							}
+
+							// Update slave nodes only if master node has changed.
+							if( MasterNode.CurrentTime != OldPosition &&
+								MasterNode.AnimSeq != null &&
+								MasterNode.AnimSeq.SequenceLength > 0.0f )
+							{
+								// Find it's relative position on its time line.
+								float MasterRelativePosition = GetNodeRelativePosition(ref MasterNode);
+
+								// Update slaves to match relative position of master node.
+								for(var i=0; i<SynchGroup.SeqNodes.Num(); i++)
+								{
+									ref AnimNodeSequence SlaveNode = ref SynchGroup.SeqNodes[i];
+
+									if( SlaveNode != null && 
+										SlaveNode != MasterNode && 
+										SlaveNode.AnimSeq != null &&
+										SlaveNode.AnimSeq.SequenceLength > 0.0f )
+									{
+										// Slave's new time
+										float NewTime		= FindNodePositionFromRelative(ref SlaveNode, MasterRelativePosition);
+										float SlaveMoveDelta	= appFmod(NewTime - SlaveNode.CurrentTime, SlaveNode.AnimSeq.SequenceLength);
+
+										// Make sure SlaveMoveDelta And MasterMoveDelta are the same sign, so they both move in the same direction.
+										if( SlaveMoveDelta * MasterMoveDelta < 0.0f )
+										{
+											if( SlaveMoveDelta >= 0.0f )
+											{
+												SlaveMoveDelta -= SlaveNode.AnimSeq.SequenceLength;
+											}
+											else
+											{
+												SlaveMoveDelta += SlaveNode.AnimSeq.SequenceLength;
+											}
+										}
+
+										// Keep track of PreviousTime before any update. This is used by Root Motion.
+										SlaveNode.PreviousTime = SlaveNode.CurrentTime;
+
+										// Move slave node to correct position
+										SlaveNode.AdvanceBy(SlaveMoveDelta, dt, SynchGroup.bFireSlaveNotifies);
+									}
+								}
+							}
+						}
+					}
+					
+					
+					/*for( int i = 0; i < synch.Groups.Length; i++ )
 						synch.Groups[ i ].MasterNode = null;
 
-					_stackSync.Add( synch );
+					_stackSync.Add( synch );*/
 					synch.Children[ 0 ].Weight = 1f;
 				}
 
@@ -489,7 +603,7 @@
 					}
 				}
 
-				if( NodeIs<TdAnimNodeAimOffset>( node, out var tdAimOffset, ref marked ) && needToTick )
+				if( NodeIs<TdAnimNodeAimOffset>( node, out var tdAimOffset, ref marked ) )
 				{
 					if( tdAimOffset.bManualAim )
 						LogWarning( $"{nameof(tdAimOffset.bManualAim)} not implemented yet" );
@@ -532,14 +646,22 @@
 					var weightX = constrainedAim.X < 0f ? 1f + constrainedAim.X : constrainedAim.X;
 					var weightY = constrainedAim.Y < 0f ? 1f + constrainedAim.Y : constrainedAim.Y;
 
-					SampleInner( aimOffset.Children[0].Anim, dt, node.NodeTotalWeight );
+					SampleInner( aimOffset.Children[0].Anim, dt, weightHint );
 					
 					foreach( var component in profile.AimComponents )
 					{
-						if( component.BoneName == "CameraJoint" && _boneNameToIndex.ContainsKey( "CameraJoint" ) == false )
+						if( BoneNameToIndex.TryGetValue( component.BoneName, out var index ) == false )
+						{
+							// Those bones are unique to 1st/3rd person skeletons while node setups are sometimes shared between skeletons
+							// Safe to ignore when they don't exist
+							if( component.BoneName == "CameraJoint" || component.BoneName == "RightArmRoll" || component.BoneName == "LeftArmRoll" )
+								continue;
+							
+							LogWarning( $"Could not find bone named '{component.BoneName}' for {nameof(AnimNodeAimOffset)}" );
 							continue;
+						}
 
-						var t = _bones[ _boneNameToIndex[ component.BoneName ] ];
+						var t = Bones[ index ];
 						var v00 = GetTRSAt( component, FloorToInt( constrainedAim.X ), FloorToInt( constrainedAim.Y ) );
 						var v10 = GetTRSAt( component, CeilToInt( constrainedAim.X ), FloorToInt( constrainedAim.Y ) );
 						var v01 = GetTRSAt( component, FloorToInt( constrainedAim.X ), CeilToInt( constrainedAim.Y ) );
@@ -565,7 +687,7 @@
 						LogWarning( $"{nameof(tdbl.bScaleBlendTimeBySpeed)} not implemented yet" );
 				}
 
-				if( NodeIs<AnimNodeBlendList>( node, out var anbl, ref marked ) && needToTick )
+				if( NodeIs<AnimNodeBlendList>( node, out var anbl, ref marked ) )
 				{
 					MatchTargetWeight( ref anbl.Children, anbl.TargetWeight, ref anbl.BlendTimeToGo, dt );
 				}
@@ -575,7 +697,7 @@
 					// Nothing to do afaict
 				}
 
-				if( NodeIs<AnimNodeSlot>( node, out var slot, ref marked ) && needToTick )
+				if( NodeIs<AnimNodeSlot>( node, out var slot, ref marked ) )
 				{
 					#warning not fully implemented yet, looks like most of the logic setting up this stuff is in native
 					MatchTargetWeight( ref slot.Children, slot.TargetWeight, ref slot.BlendTimeToGo, dt );
@@ -587,7 +709,7 @@
 					//animTree.RootMorphNodes
 					//animTree.SkelControlLists
 					if( animTree.Children.Length > 0 )
-						SampleInner( animTree.Children[ 0 ].Anim, dt, node.NodeTotalWeight );
+						SampleInner( animTree.Children[ 0 ].Anim, dt, weightHint );
 					return;
 				}
 
@@ -605,40 +727,130 @@
 
 						if( emptyWeight )
 						{
-							SampleInner( blender.Children[ 0 ].Anim, dt, node.NodeTotalWeight );
+							SampleInner( blender.Children[ 0 ].Anim, dt, weightHint );
 							return;
 						}
 					}
 					
-					BlendAll( ref blender.Children, dt, node.NodeTotalWeight );
+					BlendAll( ref blender.Children, dt, weightHint );
 					return;
 				}
 			}
 			finally
 			{
+				if( _relevantNodes.ContainsKey( node ) == false )
+				{
+					// Will be released later in the frame after everything is done sampling
+					TempBuffer<TRS> pose = null;
+					// Only store and compute pose if this node is used by multiple parents
+					if( node.ParentNodes.Length > 1 )
+					{
+						pose = TempBuffer<TRS>.Borrow();
+						PushSkeletonTRSInto( pose, true );
+					}
+					_relevantNodes.Add( node, pose );
+				}
+
 				if( marked == false )
 					LogWarning( $"Unhandled type: {node.GetType()}" );
-				
-				TrySetChildrenIrrelevant( node );
-				
-				if( node is AnimNodeSynch synch )
-				{
-					_stackSync.Remove( synch );
-					// Ensures that irrelevant sequences are still properly synchronized
-					for( int i = 0; i < synch.Groups.Length; i++ )
-					{
-						ref var grp = ref synch.Groups[ i ];
-						grp.MasterNode = GetControlSequence( grp.SeqNodes );
-						foreach( var nodeSequence in grp.SeqNodes )
-						{
-							if( nodeSequence.bRelevant )
-								continue;
+			}
+		}
+		
+		
+		
+		/// <summary>
+		/// Updates the Master Node of a given group
+		/// </summary>
+		static void UpdateMasterNodeForGroup(AnimNodeSynch synch, ref AnimNodeSynch.SynchGroup SynchGroup)
+		{
+			// start with our previous node. see if we can find better!
+			ref AnimNodeSequence MasterNode		= ref SynchGroup.MasterNode;	
+			// Find the node which has the highest weight... that's our master node
+			float				HighestWeight	= MasterNode != null ? MasterNode.NodeTotalWeight : 0.0f;
 
-							nodeSequence.PreviousTime = nodeSequence.CurrentTime = GetSynchTime( nodeSequence, grp.MasterNode );
-						}
+			// if the previous master node has a full weight, then don't bother looking for another one.
+			if( SynchGroup.MasterNode == null || (SynchGroup.MasterNode.NodeTotalWeight < (1.0f - ZERO_ANIMWEIGHT_THRESH)) )
+			{
+				for(var i=0; i < SynchGroup.SeqNodes.Num(); i++)
+				{
+					ref AnimNodeSequence SeqNode = ref SynchGroup.SeqNodes[i];
+					if( SeqNode != null &&									
+					    !SeqNode.bForceAlwaysSlave && 
+					    SeqNode.NodeTotalWeight >= HighestWeight )  // Must be the most relevant to the final blend
+					{
+						MasterNode		= SeqNode;
+						HighestWeight	= SeqNode.NodeTotalWeight;
 					}
 				}
+
+				SynchGroup.MasterNode = MasterNode;
 			}
+		}
+		
+		
+		
+		/// <summary>
+		/// Get relative position of a synchronized node.
+		/// Taking into account node's relative offset.
+		/// </summary>
+		static float GetNodeRelativePosition(ref AnimNodeSequence SeqNode)
+		{
+			if( SeqNode != null && SeqNode.AnimSeq != null && SeqNode.AnimSeq.SequenceLength > 0.0f )
+			{
+				// Find it's relative position on its time line.
+				float RelativePosition = appFmod((SeqNode.CurrentTime / SeqNode.AnimSeq.SequenceLength) - SeqNode.SynchPosOffset, 1.0f);
+				if( RelativePosition < 0.0f )
+				{
+					RelativePosition += 1.0f;
+				}
+
+				return RelativePosition;
+			}
+
+			return 0.0f;
+		}
+		
+		
+		
+		/// <summary>
+		/// Find out position of a synchronized node given a relative position.
+		/// Taking into account node's relative offset.
+		/// </summary>
+		static float FindNodePositionFromRelative(ref AnimNodeSequence SeqNode, float RelativePosition)
+		{
+			if( SeqNode != null && SeqNode.AnimSeq != null )
+			{
+				var SynchedRelPosition = appFmod(RelativePosition + SeqNode.SynchPosOffset, 1.0f);
+				if( SynchedRelPosition < 0.0f )
+				{
+					SynchedRelPosition += 1.0f;
+				}
+
+				return SynchedRelPosition * SeqNode.AnimSeq.SequenceLength;
+			}
+
+			return 0.0f;
+		}
+
+
+
+
+		static float appFmod( float x, float y ) => x % y;
+
+		
+		
+		
+		bool NodeIs<T>( AnimNode n, out T val, ref bool mark )
+		{
+			if( n is T v )
+			{
+				mark = mark || n.GetType() == typeof(T);
+				val = v;
+				return true;
+			}
+
+			val = default;
+			return false;
 		}
 
 
@@ -766,8 +978,8 @@
 
 		void PushSkeletonTRSInto( TempBuffer<TRS> buffer, bool withLocalTRS = false )
 		{
-			for( int i = 0; i < _bones.Length; i++ )
-				buffer.Add( new TRS( _bones[ i ], withLocalTRS ) );
+			for( int i = 0; i < Bones.Length; i++ )
+				buffer.Add( new TRS( Bones[ i ], withLocalTRS ) );
 		}
 
 
@@ -802,49 +1014,6 @@
 		}
 
 
-
-		bool IsSynchronized( AnimNodeSequence thisSequence, out AnimNodeSequence controlSequence )
-		{
-			if( thisSequence.bSynchronize == false || thisSequence.SynchGroupName == "" )
-			{
-				controlSequence = default;
-				return false;
-			}
-			
-			foreach( var synchInStack in _stackSync )
-			{
-				foreach( var synchGroup in synchInStack.Groups )
-				{
-					if( synchGroup.GroupName == thisSequence.SynchGroupName )
-					{
-						controlSequence = GetControlSequence(synchGroup.SeqNodes);
-						return thisSequence != controlSequence;
-					}
-				}
-			}
-			
-			LogError( $"Could not find synch group {thisSequence.SynchGroupName}" );
-			controlSequence = default;
-			return false;
-		}
-
-
-
-		static AnimNodeSequence GetControlSequence( array<AnimNodeSequence> sequences )
-		{
-			var controlSequence = sequences[ 0 ];
-			foreach( var seqNode in sequences )
-			{
-				if( seqNode.bRelevant && seqNode.NodeTotalWeight > controlSequence.NodeTotalWeight )
-				{
-					controlSequence = seqNode;
-				}
-			}
-
-			return controlSequence;
-		}
-
-
 		
 		static AnimNodeAimOffset.AimTransform GetTRSAt( AnimNodeAimOffset.AimComponent comp, int x, int y )
 		{
@@ -861,41 +1030,6 @@
 				(-1, -1) => comp.LD,
 				_ => throw new System.ArgumentOutOfRangeException()
 			};
-		}
-		
-
-
-		static float ComputeDeltaTime(AnimNodeSequence nodeSequence, float dt)
-		{
-			if( nodeSequence.AnimSeq.RateScale != 1f )
-			{
-				LogWarning( $"{nameof(nodeSequence.AnimSeq.RateScale)} is not supported yet, have to investigate further but it might be linked with {nameof(nodeSequence.AnimSeq.SequenceLength)} in some way which would throw off animation logic" );
-			}
-
-			if( nodeSequence.bPlaying == false )
-				return 0f;
-
-			return nodeSequence.Rate * nodeSequence.AnimSeq.RateScale * nodeSequence.SkelComponent.GlobalAnimRateScale * dt;
-		}
-
-
-
-		void TrySetChildrenIrrelevant( AnimNode n )
-		{
-			if( n.bRelevant == false || _isRelevantThisFrame.Contains( n ) )
-				return;
-			
-			n.bRelevant = false;
-			n.NodeTotalWeight = 0f;
-			n.OnCeaseRelevant();
-			if( n is AnimNodeBlendBase anbb )
-			{
-				foreach( var child in anbb.Children )
-				{
-					if( child.Anim != null )
-						TrySetChildrenIrrelevant( child.Anim );
-				}
-			}
 		}
 
 
