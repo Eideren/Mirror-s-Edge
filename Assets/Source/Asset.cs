@@ -64,11 +64,6 @@
 					var obj = new TClass();
 					lock( UScriptToUnity )
 						UScriptToUnity.Add( obj, associatedUnityObject );
-					if( obj is Actor a && resourceAsset is UnityEngine.GameObject go2 )
-					{
-						var c = go2.AddComponent<ActorDrivenTransform>();
-						c.Actor = a;
-					}
 					return obj;
 				}
 			}

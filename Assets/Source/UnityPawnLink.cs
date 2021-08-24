@@ -16,6 +16,7 @@
         {
             public TdPawn Pawn;
             AnimationPlayer _1pPlayer, _3pPlayer;
+            SkinnedMeshRenderer _1pLower;
             AnimNodeEditor.AnimNodeEditorWindow _window;
             UnityEngine.Camera _unityCam;
 
@@ -37,6 +38,12 @@
                     _window.Show();
                 }
 
+                if( _1pLower == null )
+                {
+                    Asset.UScriptToUnity.TryGetValue( Pawn.Mesh1pLowerBody.SkeletalMesh, out var unityObjectLower );
+                    _1pLower = (SkinnedMeshRenderer)unityObjectLower;
+                }
+
                 if( _3pPlayer == null )
                 {
                     var clips = Resources.LoadAll<AnimationClip>( "Animations/AS_F3P_Unarmed/" );
@@ -51,6 +58,16 @@
 
                 _3pPlayer.Sample( deltaTime );
                 _1pPlayer.Sample( deltaTime );
+                _1pPlayer.GameObject.transform.SetPositionAndRotation( Pawn.Location.ToUnityPos(), (Quaternion)Pawn.Rotation );
+                _3pPlayer.GameObject.transform.SetPositionAndRotation( Pawn.Location.ToUnityPos(), (Quaternion)Pawn.Rotation );
+                _1pLower.transform.parent.SetPositionAndRotation( Pawn.Location.ToUnityPos(), (Quaternion)Pawn.Rotation );
+                for( int i = 0; i < _1pLower.bones.Length; i++ )
+                {
+                    var t = _1pLower.bones[ i ];
+                    var c = _1pPlayer.Bones[ _1pPlayer.BoneNameToIndex[ t.name ] ];
+                    t.localPosition = c.localPosition;
+                    t.localRotation = c.localRotation;
+                }
                 
                 if( _unityCam == null )
                 {

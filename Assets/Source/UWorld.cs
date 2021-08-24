@@ -263,23 +263,6 @@
                 controller.OnlineSub = new OnlineSubsystem{ PlayerInterface = new TpUoPlayer() };
             }
             _worldInfo.Game.PostLogin( controller );
-            
-            var playerPawn = ( controller.Pawn as TdPlayerPawn );
-            if( Asset.UScriptToUnity.TryGetValue( playerPawn.Mesh1p.SkeletalMesh, out var _smr ) )
-            {
-                UnityEngine.SkinnedMeshRenderer smr = (UnityEngine.SkinnedMeshRenderer) _smr;
-                smr.transform.parent.gameObject.AddComponent<ActorDrivenTransform>().Actor = controller.Pawn;
-            }
-            if( Asset.UScriptToUnity.TryGetValue( playerPawn.Mesh3p.SkeletalMesh, out var _smr2 ) )
-            {
-                UnityEngine.SkinnedMeshRenderer smr = (UnityEngine.SkinnedMeshRenderer) _smr2;
-                smr.transform.parent.gameObject.AddComponent<ActorDrivenTransform>().Actor = controller.Pawn;
-            }
-            if( Asset.UScriptToUnity.TryGetValue( playerPawn.Mesh1pLowerBody.SkeletalMesh, out var _smr3 ) )
-            {
-                UnityEngine.SkinnedMeshRenderer smr = (UnityEngine.SkinnedMeshRenderer) _smr3;
-                smr.transform.parent.gameObject.AddComponent<ActorDrivenTransform>().Actor = controller.Pawn;
-            }
         }
 
         bool FindSpot(Object.Vector extent, ref Object.Vector position, bool bComplex)
