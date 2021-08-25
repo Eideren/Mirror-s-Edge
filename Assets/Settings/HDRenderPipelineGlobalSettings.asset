@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781cc897cf8675041a751163b51f97dd, type: 3}
+  m_Name: HDRenderPipelineGlobalSettings
+  m_EditorClassIdentifier: 
+  m_DefaultVolumeProfile: {fileID: 11400000, guid: d8db2ea49ffc7564dbaca637deb46d55, type: 2}
+  m_LookDevVolumeProfile: {fileID: 11400000, guid: 8c58c5ad0b6542d499943c9a9e8010ce, type: 2}
+  m_RenderingPathDefaultCameraFrameSettings:
+    bitDatas:
+      data1: 72198260659322716
+      data2: 13763000475202846744
+    lodBias: 1
+    lodBiasMode: 0
+    lodBiasQualityLevel: 0
+    maximumLODLevel: 0
+    maximumLODLevelMode: 0
+    maximumLODLevelQualityLevel: 0
+    sssQualityMode: 0
+    sssQualityLevel: 0
+    sssCustomSampleBudget: 20
+    msaaMode: 8
+    materialQuality: 0
+  m_RenderingPathDefaultBakedOrCustomReflectionFrameSettings:
+    bitDatas:
+      data1: 139742655312669
+      data2: 4539628424389459992
+    lodBias: 1
+    lodBiasMode: 0
+    lodBiasQualityLevel: 0
+    maximumLODLevel: 0
+    maximumLODLevelMode: 0
+    maximumLODLevelQualityLevel: 0
+    sssQualityMode: 0
+    sssQualityLevel: 0
+    sssCustomSampleBudget: 20
+    msaaMode: 1
+    materialQuality: 0
+  m_RenderingPathDefaultRealtimeReflectionFrameSettings:
+    bitDatas:
+      data1: 140167599125260
+      data2: 4539628425463234584
+    lodBias: 1
+    lodBiasMode: 0
+    lodBiasQualityLevel: 0
+    maximumLODLevel: 0
+    maximumLODLevelMode: 0
+    maximumLODLevelQualityLevel: 0
+    sssQualityMode: 0
+    sssQualityLevel: 0
+    sssCustomSampleBudget: 20
+    msaaMode: 1
+    materialQuality: 0
+  m_RenderPipelineResources: {fileID: 11400000, guid: 3ce144cff5783da45aa5d4fdc2da14b7, type: 2}
+  m_RenderPipelineRayTracingResources: {fileID: 0}
+  beforeTransparentCustomPostProcesses: []
+  beforePostProcessCustomPostProcesses: []
+  afterPostProcessCustomPostProcesses: []
+  beforeTAACustomPostProcesses: []
+  lightLayerName0: Light LayerDefault
+  lightLayerName1: InteriorOnly
+  lightLayerName2: ExteriorOnly
+  lightLayerName3: LampsOnly
+  lightLayerName4: ReflectionsOnly
+  lightLayerName5: Light Layer 5
+  lightLayerName6: Light Layer 6
+  lightLayerName7: Light Layer 7
+  decalLayerName0: Decal Layer default
+  decalLayerName1: Decal Layer 1
+  decalLayerName2: Decal Layer 2
+  decalLayerName3: Decal Layer 3
+  decalLayerName4: Decal Layer 4
+  decalLayerName5: Decal Layer 5
+  decalLayerName6: Decal Layer 6
+  decalLayerName7: Decal Layer 7
+  shaderVariantLogLevel: 0
+  lensAttenuationMode: 1
+  diffusionProfileSettingsList:
+  - {fileID: 11400000, guid: 2384dbf2c1c420f45a792fbc315fbfb1, type: 2}
+  - {fileID: 11400000, guid: 404820c4cf36ad944862fa59c56064f0, type: 2}
+  rendererListCulling: 1
+  DLSSProjectId: 000000
+  useDLSSCustomProjectId: 0
+  supportProbeVolumes: 1
+  supportRuntimeDebugDisplay: 0
+  apvScenesBounds:
+    serializedBounds:
+    - scenePath: Assets/Scenes/TestActor.unity
+      bounds:
+        m_Center: {x: NaN, y: NaN, z: NaN}
+        m_Extent: {x: NaN, y: NaN, z: NaN}
+    serializedHasVolumes:
+    - scenePath: Assets/Scenes/TestActor.unity
+      hasProbeVolumes: 1
+  m_Version: 3
