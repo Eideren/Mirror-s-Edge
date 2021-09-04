@@ -66,10 +66,10 @@ public partial class AnimNodeSequence : AnimNode/*
 	//}
 	
 	// Export UAnimNodeSequence::execStopAnim(FFrame&, void* const)
-	public override /*native function */void StopAnim()
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public override /*native function */void StopAnim()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	//// Export UAnimNodeSequence::execSetPosition(FFrame&, void* const)
 	//public virtual /*native function */void SetPosition(float NewTime, bool bFireNotifies)

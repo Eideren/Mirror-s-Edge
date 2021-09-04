@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -95,10 +97,10 @@ public partial class AnimNode : Object/*
 	}
 	
 	// Export UAnimNode::execStopAnim(FFrame&, void* const)
-	public virtual /*native function */void StopAnim()
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native function */void StopAnim()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 }
 }

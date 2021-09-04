@@ -58,10 +58,10 @@ public partial class AnimNodeBlendBase : AnimNode/*
 	//}
 	
 	// Export UAnimNodeBlendBase::execStopAnim(FFrame&, void* const)
-	public override /*native function */void StopAnim()
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public override /*native function */void StopAnim()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 }
 }

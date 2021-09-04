@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -29,10 +31,10 @@ public partial class AnimNodeBlendMultiBone : AnimNodeBlendBase/*
 	[transient] public array<byte> SourceRequiredBones;
 	
 	// Export UAnimNodeBlendMultiBone::execSetTargetStartBone(FFrame&, void* const)
-	public virtual /*native final function */void SetTargetStartBone(int TargetIdx, name StartBoneName, /*optional */float? _PerBoneIncrease = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native final function */void SetTargetStartBone(int TargetIdx, name StartBoneName, /*optional */float? _PerBoneIncrease = default)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	public AnimNodeBlendMultiBone()
 	{

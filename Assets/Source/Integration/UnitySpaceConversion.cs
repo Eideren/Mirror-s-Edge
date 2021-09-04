@@ -14,6 +14,11 @@
 		public static Object.Vector ToUnrealPos(this V3 v) => new Object.Vector( v.z, v.x, v.y ) * 100f;
 		/// <summary> This vector should only be rotated to unreal space, not scaled to fit in the proper metric system </summary>
 		public static Object.Vector ToUnrealDir(this V3 v) => new Object.Vector( v.z, v.x, v.y );
+
+
+		// Arbitrary, not compared against source
+		public static bool IsNearlyZero( this V3 v ) => v.sqrMagnitude <= 0.0001f;
+		public static bool IsNearlyZero( this Object.Vector2D v ) => v.X * v.X + v.Y * v.Y <= 0.0001f;
 	}
 
 
@@ -41,18 +46,42 @@
 
 
 
+		public partial struct Vector
+		{
+			public bool IsZero() => this == default;
+			public bool IsNearlyZero(float Tolerance=KINDA_SMALL_NUMBER)
+			{
+				return Abs(X)<Tolerance
+				       &&	Abs(Y)<Tolerance
+				       &&	Abs(Z)<Tolerance;
+			}
+		}
+
+
+
 		[System.Serializable]
 		public partial struct Rotator
 		{
+			public bool IsZero() => this.Pitch == 0 && this.Yaw == 0 && this.Roll == 0;
+
+
+
+			public static bool operator ==(Rotator a, Rotator b)
+			{
+				return a.Pitch == b.Pitch && a.Yaw == b.Yaw && a.Roll == b.Roll;
+			}
+			
+			public static bool operator !=(Rotator a, Rotator b) => ( a == b ) == false;
+
+
+
 			public static explicit operator UnityQuat( Rotator v )
 			{
 				const double convScaling = 1d / (ushort.MaxValue) * (Math.PI * 2d);
 				RotationYawPitchRoll( -v.Pitch * convScaling, v.Yaw * convScaling, -v.Roll * convScaling, out UnityQuat q );
 				return q;
 			}
-
-
-
+			
 			public static explicit operator Rotator( UnityQuat v )
 			{
 				const double convScaling = 1d / (Math.PI * 2d) * (ushort.MaxValue);
@@ -108,6 +137,10 @@
 				result.z = (float)((cosYawPitch * sinRoll) - (sinYawPitch * cosRoll));
 				result.w = (float)((cosYawPitch * cosRoll) + (sinYawPitch * sinRoll));
 			}
+
+
+
+			public Vector Vector() => GetAxis( FRotationMatrix( this ), 0 );
 		}
 	}
 }

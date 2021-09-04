@@ -3,17 +3,6 @@
 
 	public partial class AnimNodeBlendBase : AnimNode
 	{
-		/**
-		 * Make sure to relay OnChildAnimEnd to Parent AnimNodeBlendBase as long as it exists 
-		 */ 
-		public void OnChildAnimEnd(AnimNodeSequence Child, float PlayedTime, float ExcessTime) 
-		{ 
-			for(var i=0; i<ParentNodes.Length; i++)
-			{
-				ParentNodes[i].OnChildAnimEnd(Child, PlayedTime, ExcessTime); 
-			}
-		}
-		
 		// Export UAnimNodeBlendBase::execPlayAnim(FFrame&, void* const)
 		public override /*native function */void PlayAnim(/*optional */bool? _bLoop = default, /*optional */float? _Rate = default, /*optional */float? _StartTime = default)
 		{

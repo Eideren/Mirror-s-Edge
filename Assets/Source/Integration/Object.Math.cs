@@ -2,11 +2,11 @@
 {
 	public partial class Object
     {
-	    const float PI = (3.1415926535897932f);
-	    const float SMALL_NUMBER = (1e-8f);
-	    const float KINDA_SMALL_NUMBER = (1e-4f);
-	    const float BIG_NUMBER = (3.4e+38f);
-	    const float EULERS_NUMBER = (2.71828182845904523536f);
+	    protected const float PI = (3.1415926535897932f);
+	    protected const float SMALL_NUMBER = (1e-8f);
+	    protected const float KINDA_SMALL_NUMBER = (1e-4f);
+	    protected const float BIG_NUMBER = (3.4e+38f);
+	    protected const float EULERS_NUMBER = (2.71828182845904523536f);
 	    
         public static float Abs(float f) => f < 0 ? -f : f;
         public static float Cos(float f) => (float)System.Math.Cos(f);
@@ -63,11 +63,13 @@
 
 
         public static int Min(int a, int b) => a < b ? a : b;
+        public static float Min(float a, float b) => a < b ? a : b;
         public static int Max(int a, int b) => a > b ? a : b;
         public static float FMin(float a, float b) => a < b ? a : b;
         public static float FMax(float a, float b) => a > b ? a : b;
         public static int Clamp(int x, int min, int max) => x > max ? max : x < min ? min : x;
         public static float FClamp(float x, float min, float max) => x > max ? max : x < min ? min : x;
+        public static float Clamp<T>(float x, float min, float max) => x > max ? max : x < min ? min : x;
 
         /// <summary> Unreal Scripts support 'intX *= floatY' operation, this replaces that for c# </summary>
         public static int IntFloat_Mult(int x, float y)
@@ -448,7 +450,7 @@
 	        return MatrixRotator( FQuatRotationTranslationMatrix( A, default ) );
         }
 
-        static Matrix FQuatRotationTranslationMatrix(Quat Q, Vector Origin)
+        protected static Matrix FQuatRotationTranslationMatrix(Quat Q, Vector Origin)
         {
 	        Matrix M = default;
 	        float x2 = Q.X + Q.X;  float y2 = Q.Y + Q.Y;  float z2 = Q.Z + Q.Z;

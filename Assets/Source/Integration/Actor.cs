@@ -8,6 +8,7 @@
 
     public partial class Actor
     {
+	    public bool IsEncroacher() => bCollideActors && ( Physics == EPhysics.PHYS_RigidBody || Physics == EPhysics.PHYS_Interpolating );
 	    
 	    
         // Export UActor::execSpawn(FFrame&, void* const)

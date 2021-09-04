@@ -17,6 +17,11 @@
         {
             return A.X*V.X + A.Y*V.Y + A.Z*V.Z;
         }
+        
+        public static Vector operator^( Vector A, Vector V )
+        {
+            return A.Cross(V);
+        }
 
 
 

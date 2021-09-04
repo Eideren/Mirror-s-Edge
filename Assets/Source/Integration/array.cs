@@ -159,7 +159,7 @@ namespace MEdge
             }
         }
 
-        public void Insert(int i, int count)
+        public void Insert(int i, int count = 1)
         {
             while (--count >= 0)
             {
@@ -182,6 +182,34 @@ namespace MEdge
             _items[index] = item;
             _size++;
             _version++;
+        }
+
+
+
+        public bool ContainsItem( T item )
+        {
+            return Array.IndexOf( _items, item, Length ) != -1;
+        }
+
+
+
+        public void Reserve( int length )
+        {
+            if( length > Capacity )
+                Capacity = length;
+        }
+        public void Empty()
+        {
+            Reset();
+        }
+        public void Reset()
+        {
+            Remove(0, Count);
+        }
+        public void AddZeroed(int amount)
+        {
+            for( int i = 0; i < amount; i++ )
+                Add(default);
         }
 
 

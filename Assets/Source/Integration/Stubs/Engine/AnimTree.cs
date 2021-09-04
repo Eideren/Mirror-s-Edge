@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.Engine{
 using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -58,12 +60,12 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	public int PreviewFloorYaw;
 	
 	// Export UAnimTree::execFindSkelControl(FFrame&, void* const)
-	public virtual /*native final function */SkelControlBase FindSkelControl(name InControlName)
-	{
-		NativeMarkers.MarkUnimplemented();
-		// stub
-		return default;
-	}
+	//public virtual /*native final function */SkelControlBase FindSkelControl(name InControlName)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	// stub
+	//	return default;
+	//}
 	
 	// Export UAnimTree::execFindMorphNode(FFrame&, void* const)
 	public virtual /*native final function */MorphNodeBase FindMorphNode(name InNodeName)

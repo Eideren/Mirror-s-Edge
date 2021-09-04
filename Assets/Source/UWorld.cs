@@ -14,6 +14,8 @@
     using Object = Core.Object;
     using static UnityEngine.Debug;
     using String = Core.String;
+    using Vector = Core.Object.Vector;
+    using FVector = Core.Object.Vector;
 
 
 
@@ -22,8 +24,8 @@
         public static UWorld Instance => GetInstance();
         public bool HasBegunPlay{ get; private set; }
         Actor _defaultOuter;
-        WorldInfo _worldInfo;
-        
+        public WorldInfo WorldInfo{ get; private set; }
+
         Engine _engine = new TdGameEngine();
         UnityEngine.BoxCollider _cacheCollider = new UnityEngine.BoxCollider();
         List<Actor> _actorsThisFrame = new List<Actor>();
@@ -54,18 +56,18 @@
             if(ReferenceEquals( this, _instance ) == false)
                 Destroy(this);
 
-            UnityEngine.Time.timeScale = this._worldInfo.TimeDilation;
+            UnityEngine.Time.timeScale = this.WorldInfo.TimeDilation;
             var deltaTime = UnityEngine.Time.deltaTime;// * this._worldInfo.TimeDilation;
             deltaTime = deltaTime > 0.4f ? 0.4f : deltaTime < 0.0005f ? 0.0005f : deltaTime;
-            this._worldInfo.RealTimeSeconds = UnityEngine.Time.realtimeSinceStartup;
-            this._worldInfo.DeltaSeconds = deltaTime;
-            this._worldInfo.SavedDeltaSeconds = deltaTime; // no clue for this one
-            this._worldInfo.TimeSeconds += deltaTime;
-            this._worldInfo.AudioTimeSeconds += deltaTime;
+            this.WorldInfo.RealTimeSeconds = UnityEngine.Time.realtimeSinceStartup;
+            this.WorldInfo.DeltaSeconds = deltaTime;
+            this.WorldInfo.SavedDeltaSeconds = deltaTime; // no clue for this one
+            this.WorldInfo.TimeSeconds += deltaTime;
+            this.WorldInfo.AudioTimeSeconds += deltaTime;
             
 
             _actorsThisFrame.Clear();
-            foreach( var actor in _worldInfo._allActors )
+            foreach( var actor in WorldInfo._allActors )
                 _actorsThisFrame.Add(actor);
             
             foreach( var actor in _actorsThisFrame )
@@ -116,7 +118,7 @@
 
         void OnDestroy()
         {
-            var actors = _worldInfo._allActors;
+            var actors = WorldInfo._allActors;
             foreach( var actor in actors )
             {
                 if( Processors.TryGetValue( actor, out IProcessor p ) )
@@ -183,15 +185,15 @@
             // https://wiki.beyondunreal.com/Legacy:Chain_Of_Events_At_Level_Startup
 			
             var gameInfo = new TdSPGame();
-            gameInfo.WorldInfo = _worldInfo = new WorldInfo
+            gameInfo.WorldInfo = WorldInfo = new WorldInfo
             {
                 PhysicsVolume = new DefaultPhysicsVolume(),
                 Game = gameInfo,
             };
 
             HasBegunPlay = true;
-            _worldInfo.bBegunPlay = true;
-            _worldInfo.bStartup = true;
+            WorldInfo.bBegunPlay = true;
+            WorldInfo.bStartup = true;
             
             String errorString = "";
             gameInfo.InitGame("", ref errorString);
@@ -214,7 +216,7 @@
             }
 
             foreach( var (actor, _) in actors )
-                _instance._worldInfo._allActors.Add( actor );
+                _instance.WorldInfo._allActors.Add( actor );
 
             foreach( var (actor, go) in actors )
             {
@@ -222,10 +224,10 @@
                     actor.Tag = actor.Class.Name;
 
                 actor.CreationTime = UnityEngine.Time.time;
-                actor.WorldInfo = _worldInfo;
+                actor.WorldInfo = WorldInfo;
                 actor.Location = go.transform.position.ToUnrealPos();
                 actor.Rotation = (Object.Rotator)go.transform.rotation;
-                actor.PhysicsVolume = _worldInfo.PhysicsVolume ?? throw new System.NullReferenceException();
+                actor.PhysicsVolume = WorldInfo.PhysicsVolume ?? throw new System.NullReferenceException();
             }
             
             foreach( var (actor, _) in actors )
@@ -240,7 +242,7 @@
             foreach( var (actor, _) in actors )
                 actor.SetInitialState();
             
-            _worldInfo.bStartup = false; // MAYBE ?
+            WorldInfo.bStartup = false; // MAYBE ?
         }
 
 
@@ -249,8 +251,8 @@
         {
             // https://wiki.beyondunreal.com/Legacy:Chain_Of_Events_When_A_Player_Logs_In
             String err = default;
-            _worldInfo.Game.PreLogin( default, default, ref err );
-            var controller = _worldInfo.Game.Login( default, "?Character=TdPlayerPawn", ref err );
+            WorldInfo.Game.PreLogin( default, default, ref err );
+            var controller = WorldInfo.Game.Login( default, "?Character=TdPlayerPawn", ref err );
             var player = _classImp<LocalPlayer>.Singleton.New( _engine );
             // Controller SetPlayer()
             {
@@ -262,7 +264,7 @@
                 ( controller as TdPlayerController ).StatsManager ??= new TdStatsManager();
                 controller.OnlineSub = new OnlineSubsystem{ PlayerInterface = new TpUoPlayer() };
             }
-            _worldInfo.Game.PostLogin( controller );
+            WorldInfo.Game.PostLogin( controller );
         }
 
         bool FindSpot(Object.Vector extent, ref Object.Vector position, bool bComplex)
@@ -338,7 +340,7 @@
             spawnLocation2.Z = v22;
             v23 = actorTemplateCopy->bForceDemoRelevant;
             if ( (v23 < 0 || (v23 & bCollideWhenPlacing) != 0 && E_maybe_UWorld_GetNetMode(thisUWorldCopy) != 3) && !bNoCollisionFail )*/
-            if ( (actorTemplateCopy.bCollideWhenPlacing != false && _worldInfo.NetMode != (WorldInfo.ENetMode)3) && !bNoCollisionFail )
+            if ( (actorTemplateCopy.bCollideWhenPlacing != false && WorldInfo.NetMode != (WorldInfo.ENetMode)3) && !bNoCollisionFail )
             {
                 Object.Vector extent;
                 if( actorTemplateCopy.CollisionComponent is CylinderComponent cc )
@@ -396,7 +398,7 @@
             constructedActor.CreationTime = UnityEngine.Time.time;//E_UWorld_GetTimeSeconds(this);
             //ptrToSomeKindOfWorldInfo = E_GetSomeKindOfPtrToWorldInfo(this);
             networkRelatedBool = networkRelatedParam == 0;
-            constructedActor.WorldInfo = _worldInfo;
+            constructedActor.WorldInfo = WorldInfo;
             if ( !networkRelatedBool )
             {
                 var v31 = constructedActor.Role;
@@ -408,7 +410,7 @@
             // .text:00C18C00 ConditionalForceUpdateComponents
             #warning ConditionalForceUpdateComponents
             //(*(void (__thiscall **)(_E_struct_AActor *, _DWORD, _DWORD))(constructedActor->VfTableObject.Dummy + 760))(constructedActor, 0, 0);
-            constructedActor.PhysicsVolume = _worldInfo.PhysicsVolume ?? throw new System.NullReferenceException();
+            constructedActor.PhysicsVolume = WorldInfo.PhysicsVolume ?? throw new System.NullReferenceException();
             constructedActor.SetOwner(SpawnOwner);
             constructedActor.Instigator = Instigator;
 
@@ -485,8 +487,496 @@
                 constructedActor->bExludeHandMoves &= 0xFFFFFFBF;
             }*/
             
-            _instance._worldInfo._allActors.Add( constructedActor );
+            _instance.WorldInfo._allActors.Add( constructedActor );
             return constructedActor;
+		}
+        
+        public struct FCheckResult// : public FIteratorActorList
+        {
+	        public Actor Actor;
+	        // Variables.
+	        public Object.Vector						Location;	// Location of the hit in coordinate system of the returner.
+	        public Object.Vector						Normal;		// Normal vector in coordinate system of the returner. Zero=none.
+	        public float						Time;		// Time until hit, if line check.
+	        public int							Item;		// Primitive data item which was hit, INDEX_NONE=none.
+	        public MaterialInterface			Material;	// Material of the item which was hit.
+	        public PhysicalMaterial	PhysMaterial; // Physical material that was hit
+	        public PrimitiveComponent	Component;	// PrimitiveComponent that the check hit.
+	        public name						BoneName;	// Name of bone we hit (for skeletal meshes).
+	        public Level				Level;		// Level that was hit in case of BSPLineCheck
+			public int							LevelIndex; // Index of the level that was hit in the case of BSP checks.
+
+	        /** This line check started penetrating the primitive. */
+	        public bool						bStartPenetrating;
+
+	        // Functions.
+	        /*FCheckResult()
+		        : Location	(0,0,0)
+		        , Normal	(0,0,0)
+		        , Time		(0.0f)
+		        , Item		(INDEX_NONE)
+		        , Material	(NULL)
+		        , PhysMaterial( NULL)
+		        , Component	(NULL)
+		        , BoneName	(NAME_None)
+		        , Level		(NULL)
+		        , LevelIndex	(INDEX_NONE)
+		        , bStartPenetrating	(FALSE)
+	        {}
+
+
+	        FCheckResult( FLOAT InTime, FCheckResult* InNext=NULL )
+		        :	FIteratorActorList( InNext, NULL )
+		        ,	Location	(0,0,0)
+		        ,	Normal		(0,0,0)
+		        ,	Time		(InTime)
+		        ,	Item		(INDEX_NONE)
+		        ,	Material	(NULL)
+		        ,   PhysMaterial( NULL)
+		        ,	Component	(NULL)
+		        ,	BoneName	(NAME_None)
+		        ,	Level		(NULL)
+		        ,	LevelIndex	(INDEX_NONE)
+		        ,	bStartPenetrating	(FALSE)
+	        {}
+
+
+	        FCheckResult*& GetNext() const
+	        { 
+		        return *(FCheckResult**)&Next; 
+	        }
+
+
+	        static QSORT_RETURN CDECL CompareHits( const FCheckResult* A, const FCheckResult* B )
+	        { 
+		        return A->Time<B->Time ? -1 : A->Time>B->Time ? 1 : 0; 
+	        }*/
+        }
+        
+        const int MOVE_IgnoreBases		= 0x00001; // ignore collisions with things the Actor is based on
+        const int MOVE_NoFail				= 0x00002; // ignore conditions that would normally cause MoveActor() to abort (such as encroachment)
+        const int MOVE_TraceHitMaterial	= 0x00004; // figure out material was hit for any collisions
+        
+	    const int TRACE_Pawns					= 0x00001; // Check collision with pawns.
+		const int TRACE_Movers				= 0x00002; // Check collision with movers.
+		const int TRACE_Level					= 0x00004; // Check collision with BSP level geometry.
+		const int TRACE_Volumes				= 0x00008; // Check collision with soft volume boundaries.
+		const int TRACE_Others				= 0x00010; // Check collision with all other kinds of actors.
+		const int TRACE_OnlyProjActor			= 0x00020; // Check collision with other actors only if they are projectile targets
+		const int TRACE_Blocking				= 0x00040; // Check collision with other actors only if they block the check actor
+		const int TRACE_LevelGeometry			= 0x00080; // Check collision with other actors which are static level geometry
+		const int TRACE_ShadowCast			= 0x00100; // Check collision with shadow casting actors
+		const int TRACE_StopAtAnyHit			= 0x00200; // Stop when find any collision (for visibility checks)
+		const int TRACE_SingleResult			= 0x00400; // Stop when find guaranteed first nearest collision (for SingleLineCheck)
+		const int TRACE_Material				= 0x00800; // Request that Hit.Material return the material the trace hit.
+		const int TRACE_Visible				= 0x01000;
+		const int TRACE_Terrain				= 0x02000; // Check collision with terrain
+		const int TRACE_Tesselation			= 0x04000; // Check collision against highest tessellation level (not valid for box checks)  (no longer used)
+		const int TRACE_PhysicsVolumes		= 0x08000; // Check collision with physics volumes
+		const int TRACE_TerrainIgnoreHoles	= 0x10000; // Ignore terrain holes when checking collision
+		const int TRACE_ComplexCollision		= 0x20000; // Ignore simple collision on static meshes and always do per poly
+		const int TRACE_AllComponents			= 0x40000; // Don't discard collision results of actors that have already been tagged.  Currently adhered to only by ActorOverlapCheck.
+
+		// Combinations.
+		const int TRACE_Hash					= TRACE_Pawns	|	TRACE_Movers |	TRACE_Volumes	|	TRACE_Others			|	TRACE_Terrain	|	TRACE_LevelGeometry;
+		const int TRACE_Actors				= TRACE_Pawns	|	TRACE_Movers |	TRACE_Others	|	TRACE_LevelGeometry		|	TRACE_Terrain;
+		const int TRACE_World					= TRACE_Level	|	TRACE_Movers |	TRACE_Terrain	|	TRACE_LevelGeometry;
+		const int TRACE_AllColliding			= TRACE_Level	|	TRACE_Actors |	TRACE_Volumes;
+		const int TRACE_ProjTargets			= TRACE_AllColliding	| TRACE_OnlyProjActor;
+		const int TRACE_AllBlocking			= TRACE_Blocking		| TRACE_AllColliding;
+        
+        /// <summary>
+		/// Tries to move the actor by a movement vector.  If no collision occurs, this function
+		/// just does a Location+=Move.
+		/// 
+		/// Assumes that the actor's Location is valid and that the actor
+		/// does fit in its current Location. Assumes that the level's
+		/// Dynamics member is locked, which will always be the case during
+		/// a call to UWorld::Tick; if not locked, no actor-actor collision
+		/// checking is performed.
+		/// 
+		/// If bCollideWorld, checks collision with the world.
+		/// 
+		/// For every actor-actor collision pair:
+		/// 
+		/// If both have bCollideActors and bBlocksActors, performs collision
+		///    rebound, and dispatches Touch messages to touched-and-rebounded
+		///    actors.
+		/// 
+		/// If both have bCollideActors but either one doesn't have bBlocksActors,
+		///    checks collision with other actors (but lets this actor
+		///    interpenetrate), and dispatches Touch and UnTouch messages.
+		/// 
+		/// Returns 1 if some movement occured, 0 if no movement occured.
+		/// 
+		/// Updates actor's Zone and PhysicsVolume.
+		/// </summary>
+        /// <param name="Actor"></param>
+        /// <param name="???"></param>
+        /// <returns></returns>
+		public bool MoveActor
+		(
+			Actor			Actor,
+			Object.Vector	Delta,
+			Object.Rotator	NewRotation,
+			int			MoveFlags,
+			out FCheckResult Hit
+		)
+		{
+			NativeMarkers.MarkUnimplemented();
+			Actor.Location += Delta;
+			Actor.Rotation = NewRotation;
+			Hit = default;
+			return true;
+			#if false
+			Hit = default;
+			
+			//SCOPE_CYCLE_COUNTER(STAT_MoveActorTime);
+
+			//check(Actor!=NULL);
+
+		#if false//defined(SHOW_MOVEACTOR_TAKING_LONG_TIME) || LOOKING_FOR_PERF_ISSUES
+			DWORD MoveActorTakingLongTime = 0;
+			CLOCK_CYCLES(MoveActorTakingLongTime);
+		#endif
+			if ( Actor.bDeleteMe )
+			{
+				//debugf(TEXT("%s deleted move physics %d"),*Actor.GetName(),Actor.Physics);
+				return false;
+			}
+			if( (Actor.bStatic || !Actor.bMovable) && HasBegunPlay() )
+				return false;
+
+			// Init CheckResult
+			Hit.Actor = null;
+			Hit.Time = 1f;
+
+		#if false//!FINAL_RELEASE
+			// Check to see if this move is illegal during this tick group
+			if (InTick && TickGroup == TG_DuringAsyncWork && Actor.bBlockActors)
+			{
+				debugf(NAME_Error,TEXT("Can't move collidable actor (%s) during async work!"),*Actor.GetName());
+			}
+		#endif
+
+			// Set up.
+			float DeltaSize;
+			Vector DeltaDir;
+			if( Delta.IsZero() )
+			{
+				// Skip if no vector or rotation.
+				if( NewRotation==Actor.Rotation && !Actor.bAlwaysEncroachCheck )
+				{
+					return true;
+				}
+				DeltaSize = 0f;
+				DeltaDir = Delta;
+			}
+			else
+			{
+				DeltaSize = Delta.Size();
+				DeltaDir = Delta/DeltaSize;
+			}
+
+			UBOOL bNoFail = MoveFlags & MOVE_NoFail;
+			UBOOL bIgnoreBases = MoveFlags & MOVE_IgnoreBases;
+
+			FMemMark Mark(GMem);
+			INT     MaybeTouched = 0;
+			FCheckResult* FirstHit = NULL;
+			FVector FinalDelta = Delta;
+			FRotator OldRotation = Actor.Rotation;
+			UBOOL bMovementOccurred = TRUE;
+
+			if ( Actor.IsEncroacher() )
+			{
+				if( Actor.bNoEncroachCheck || !Actor.bCollideActors || bNoFail )
+				{
+					// Update the location.
+					Actor.Location += FinalDelta;
+					Actor.Rotation = NewRotation;
+
+					// Update any collision components.  If we are in the Tick phase, only upgrade components with collision.
+					// This is done before moving attached actors so they can test for encroachment based on the correct mover position.
+					// It is done before touch so that components are correctly up-to-date when we call Touch events. Things like
+					// Kismet's touch event do an IsOverlapping - which requires the component to be in the right location.
+					// This will not fix all problems with components being out of date though - for example, attachments of an Actor are not 
+					// updated at this point.
+					Actor.ForceUpdateComponents( GWorld.InTick );
+				}
+				else if( CheckEncroachment( Actor, Actor.Location + FinalDelta, NewRotation, 1 ) )
+				{
+					// Abort if encroachment declined.
+					Mark.Pop();
+					return false;
+				}
+				// if checkencroachment() doesn't fail, collision components will have been updated
+			}
+			else
+			{
+				// Perform movement collision checking if needed for this actor.
+				if( (Actor.bCollideActors || Actor.bCollideWorld) &&
+					Actor.CollisionComponent &&
+					(DeltaSize != 0f) )
+				{
+					// Check collision along the line.
+					int TraceFlags = 0;
+					if( MoveFlags & MOVE_TraceHitMaterial )
+					{
+						TraceFlags |= TRACE_Material;
+					}
+					
+					if( Actor.bCollideActors )
+					{
+						TraceFlags |= TRACE_Pawns | TRACE_Others | TRACE_Volumes;
+					}
+
+					if( Actor.bCollideWorld )
+					{
+						TraceFlags |= TRACE_World;
+					}
+
+					if( Actor.bCollideComplex )
+					{
+						TraceFlags |= TRACE_ComplexCollision;
+					}
+
+					FVector ColCenter;
+
+					if( Actor.CollisionComponent.IsValidComponent() )
+					{
+						if( !Actor.CollisionComponent.IsAttached() )
+						{
+							appErrorf(TEXT("%s collisioncomponent %s not initialized deleteme %d"),*Actor.GetName(), *Actor.CollisionComponent.GetName(), Actor.bDeleteMe);
+						}
+						ColCenter = Actor.CollisionComponent.Bounds.Origin;
+					}
+					else
+					{
+						ColCenter = Actor.Location;
+					}
+
+					FirstHit = MultiLineCheck
+					(
+						GMem,
+						ColCenter + Delta,
+						ColCenter,
+						Actor.GetCylinderExtent(),
+						TraceFlags,
+						Actor
+					);
+
+					// Handle first blocking actor.
+					if( Actor.bCollideWorld || Actor.bBlockActors )
+					{
+						Hit = FCheckResult(1.f);
+						for( FCheckResult* Test = FirstHit; Test; Test = Test.GetNext() )
+						{
+							if( (!bIgnoreBases || !Actor.IsBasedOn(Test.Actor)) && !Test.Actor.IsBasedOn(Actor) )
+							{
+								MaybeTouched = 1;
+								if( Actor.IsBlockedBy(Test.Actor,Test.Component) )
+								{
+									Hit = *Test;
+									break;
+								}
+							}
+						}
+						/* logging for stuck in collision
+						if ( Hit.bStartPenetrating && Actor.GetAPawn() )
+						{
+							if ( Hit.Actor )
+								debugf(TEXT("Started penetrating %s time %f dot %f"), *Hit.Actor.GetName(), Hit.Time, (Delta.SafeNormal() | Hit.Normal));
+							else
+								debugf(TEXT("Started penetrating no actor time %f dot %f"), Hit.Time, (Delta.SafeNormal() | Hit.Normal));
+						}
+						*/
+						FinalDelta = Delta * Hit.Time;
+					}
+				}
+
+				if ( bMovementOccurred )
+				{
+					// Update the location.
+					Actor.Location += FinalDelta;
+					Actor.Rotation = NewRotation;
+
+					// Update any collision components.  If we are in the Tick phase (and not in the final component update phase), only upgrade components with collision.
+					// This is done before moving attached actors so they can test for encroachment based on the correct mover position.
+					// It is done before touch so that components are correctly up-to-date when we call Touch events. Things like
+					// Kismet's touch event do an IsOverlapping - which requires the component to be in the right location.
+					// This will not fix all problems with components being out of date though - for example, attachments of an Actor are not 
+					// updated at this point.
+					Actor.ForceUpdateComponents( GWorld.InTick && !GWorld.bPostTickComponentUpdate );
+				}
+			}
+
+			// Move the based actors (after encroachment checking).
+			if( (Actor.Attached.Num() > 0) && bMovementOccurred )
+			{
+				// Move base.
+				FRotator ReducedRotation(0,0,0);
+
+				FMatrix OldMatrix = FRotationMatrix( OldRotation ).Transpose();
+				FMatrix NewMatrix = FRotationMatrix( NewRotation );
+				UBOOL bRotationChanged = (OldRotation != Actor.Rotation);
+				if( bRotationChanged )
+				{
+					ReducedRotation = FRotator( ReduceAngle(Actor.Rotation.Pitch)	- ReduceAngle(OldRotation.Pitch),
+												ReduceAngle(Actor.Rotation.Yaw)	- ReduceAngle(OldRotation.Yaw)	,
+												ReduceAngle(Actor.Rotation.Roll)	- ReduceAngle(OldRotation.Roll) );
+				}
+
+				// Calculate new transform matrix of base actor (ignoring scale).
+				FMatrix BaseTM = FRotationTranslationMatrix(Actor.Rotation, Actor.Location);
+
+				FSavedPosition* SavedPositions = NULL;
+
+				for( INT i = 0; i<Actor.Attached.Num(); i++ )
+				{
+					// For non-skeletal based actors. Skeletal-based actors are handled inside USkeletalMeshComponent::Update
+					AActor* Other = Actor.Attached(i);
+					if ( Other && !Other.BaseSkelComponent )
+					{
+						SavedPositions = new(GMem) FSavedPosition(Other, Other.Location, Other.Rotation, SavedPositions);
+
+						FVector   RotMotion( 0, 0, 0 );
+						FCheckResult OtherHit(1.f);
+						UBOOL bMoveFailed = FALSE;
+						if( Other.Physics == PHYS_Interpolating || (Other.bHardAttach && !Other.bBlockActors) )
+						{
+							FRotationTranslationMatrix HardRelMatrix(Other.RelativeRotation, Other.RelativeLocation);
+							FMatrix NewWorldTM = HardRelMatrix * BaseTM;
+							FVector NewWorldPos = NewWorldTM.GetOrigin();
+							FRotator NewWorldRot = NewWorldTM.Rotator();
+							MoveActor( Other, NewWorldPos - Other.Location, NewWorldRot, MOVE_IgnoreBases, OtherHit );
+							bMoveFailed = (OtherHit.Time < 1.f) || (NewWorldRot != Other.Rotation);
+						}
+						else if ( Other.bIgnoreBaseRotation )
+						{
+							// move attached actor, ignoring effects of any changes in its base's rotation.
+							MoveActor( Other, FinalDelta, Other.Rotation, MOVE_IgnoreBases, OtherHit );
+						}
+						else
+						{
+							FRotator finalRotation = Other.Rotation + ReducedRotation;
+
+							if( bRotationChanged )
+							{
+								Other.UpdateBasedRotation(finalRotation, ReducedRotation);
+
+								// Handle rotation-induced motion.
+								RotMotion = NewMatrix.TransformFVector( OldMatrix.TransformFVector( Other.RelativeLocation ) ) - Other.RelativeLocation;
+							}
+							// move attached actor
+							MoveActor( Other, FinalDelta + RotMotion, finalRotation, MOVE_IgnoreBases, OtherHit );
+						}
+
+						if( !bNoFail && !bMoveFailed &&
+							// If neither actor should check for encroachment, skip overlapping test
+						   ((!Actor.bNoEncroachCheck || !Other.bNoEncroachCheck ) &&
+							 Other.IsBlockedBy( Actor, Actor.CollisionComponent )) )
+						{
+							// check if encroached
+							// IsOverlapping() returns false for based actors, so temporarily clear the base.
+							UBOOL bStillBased = (Other.Base == Actor);
+							if ( bStillBased )
+								Other.Base = NULL;
+							UBOOL bStillEncroaching = Other.IsOverlapping(Actor);
+							if ( bStillBased )
+								Other.Base = Actor;
+							// if encroachment declined, move back to old location
+							if ( bStillEncroaching && Actor.eventEncroachingOn(Other) )
+							{
+								bMoveFailed = TRUE;
+							}
+						}
+						if ( bMoveFailed )
+						{
+							Actor.Location -= FinalDelta;
+							Actor.Rotation = OldRotation;
+							Actor.ForceUpdateComponents( GWorld.InTick );
+							for( FSavedPosition* Pos = SavedPositions; Pos!=NULL; Pos = Pos.GetNext() )
+							{
+								if ( Pos.Actor && !Pos.Actor.bDeleteMe )
+								{
+									MoveActor( Pos.Actor, Pos.OldLocation - Pos.Actor.Location, Pos.OldRotation, MOVE_IgnoreBases, OtherHit );
+									if (bRotationChanged)
+									{
+										Pos.Actor.ReverseBasedRotation();
+									}
+								}
+							}
+							Mark.Pop();
+							return 0;
+						}
+					}
+				}
+			}
+
+			// update relative location of this actor
+			if( Actor.Base && !Actor.bHardAttach && Actor.Physics != PHYS_Interpolating && !Actor.BaseSkelComponent )
+			{
+				Actor.RelativeLocation = Actor.Location - Actor.Base.Location;
+				
+				if( !Actor.Base.bWorldGeometry && (OldRotation != Actor.Rotation) )
+				{
+					Actor.UpdateRelativeRotation();
+				}
+			}
+
+			// Handle bump and touch notifications.
+			if( Hit.Actor )
+			{
+				// Notification that Actor has bumped against the level.
+				if( Hit.Actor.bWorldGeometry )
+				{
+					Actor.NotifyBumpLevel(Hit.Location, Hit.Normal);
+				}
+				// Notify first bumped actor unless it's the level or the actor's base.
+				else if( !Actor.IsBasedOn(Hit.Actor) )
+				{
+					// Notify both actors of the bump.
+					Hit.Actor.NotifyBump(Actor, Actor.CollisionComponent, Hit.Normal);
+					Actor.NotifyBump(Hit.Actor, Hit.Component, Hit.Normal);
+				}
+			}
+
+			// Handle Touch notifications.
+			if( MaybeTouched || (!Actor.bBlockActors && !Actor.bCollideWorld && Actor.bCollideActors) )
+			{
+				for( FCheckResult* Test = FirstHit; Test && Test.Time<Hit.Time; Test = Test.GetNext() )
+				{
+					if ( (!bIgnoreBases || !Actor.IsBasedOn(Test.Actor)) &&
+						(!Actor.IsBlockedBy(Test.Actor,Test.Component)) && Actor != Test.Actor)
+					{
+						Actor.BeginTouch(Test.Actor, Test.Component, Test.Location, Test.Normal);
+					}
+				}
+			}
+
+			// UnTouch notifications.
+			Actor.UnTouchActors();
+
+			// Set actor zone.
+			Actor.SetZone(FALSE,FALSE);
+			Mark.Pop();
+
+			// Update physics 'pushing' body.
+			Actor.UpdatePushBody();
+
+		#if false//defined(SHOW_MOVEACTOR_TAKING_LONG_TIME) || LOOKING_FOR_PERF_ISSUES
+			UNCLOCK_CYCLES(MoveActorTakingLongTime);
+			FLOAT MSec = MoveActorTakingLongTime * GSecondsPerCycle * 1000.f;
+			if( MSec > SHOW_MOVEACTOR_TAKING_LONG_TIME_AMOUNT )
+			{
+				debugf( NAME_PerfWarning, TEXT("%10f executing MoveActor for %s"), MSec, *Actor->GetFullName() );
+			}
+		#endif
+
+			// Return whether we moved at all.
+			return Hit.Time>0f;
+			#endif
 		}
     }
 }

@@ -9,6 +9,20 @@
 	[Serializable]
 	public partial class Object
 	{
+		public const bool TRUE = true;
+		public const bool FALSE = false;
+		public const object NULL = null;
+	
+		public const float ZERO_ANIMWEIGHT_THRESH = (0.00001f);
+		public static void verify(bool b) => UnityEngine.Debug.Assert( b );
+		public static void check(bool b) => UnityEngine.Debug.Assert(b);
+		public static void checkf( bool b, params object[] os ) => UnityEngine.Debug.Assert(b);
+		public static void checkSlow(bool b) => UnityEngine.Debug.Assert(b);
+		public static void debugf( string str, params object[] p ) => UnityEngine.Debug.Log( str );
+		public static string TEXT( string s ) => s;
+		
+		public static implicit operator bool(Object o) => o != null;
+		
 		/// <summary>
 		/// IN UE3:
 		/// TCLASS'Package.Group(s)+.Name'

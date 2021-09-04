@@ -58,13 +58,14 @@
 
                 _3pPlayer.Sample( deltaTime );
                 _1pPlayer.Sample( deltaTime );
-                _1pPlayer.GameObject.transform.SetPositionAndRotation( Pawn.Location.ToUnityPos(), (Quaternion)Pawn.Rotation );
-                _3pPlayer.GameObject.transform.SetPositionAndRotation( Pawn.Location.ToUnityPos(), (Quaternion)Pawn.Rotation );
-                _1pLower.transform.parent.SetPositionAndRotation( Pawn.Location.ToUnityPos(), (Quaternion)Pawn.Rotation );
+                var (pos, rot) = ( Pawn.Location.ToUnityPos(), (Quaternion)Pawn.Rotation );
+                _1pPlayer.GameObject.transform.SetPositionAndRotation( pos, rot );
+                _3pPlayer.GameObject.transform.SetPositionAndRotation( pos, rot );
+                _1pLower.transform.parent.SetPositionAndRotation( pos, rot );
                 for( int i = 0; i < _1pLower.bones.Length; i++ )
                 {
                     var t = _1pLower.bones[ i ];
-                    var c = _1pPlayer.Bones[ _1pPlayer.BoneNameToIndex[ t.name ] ];
+                    var c = _1pPlayer.Bones[ _1pPlayer.NameToIndex[ t.name ] ];
                     t.localPosition = c.localPosition;
                     t.localRotation = c.localRotation;
                 }

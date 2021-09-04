@@ -35,10 +35,10 @@ public partial class AnimNodeSlot : AnimNodeBlendBase/*
 	}
 	
 	// Export UAnimNodeSlot::execStopCustomAnim(FFrame&, void* const)
-	public virtual /*native final function */void StopCustomAnim(float BlendOutTime)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native final function */void StopCustomAnim(float BlendOutTime)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UAnimNodeSlot::execSetCustomAnim(FFrame&, void* const)
 	public virtual /*native final function */void SetCustomAnim(name AnimName)
@@ -47,10 +47,10 @@ public partial class AnimNodeSlot : AnimNodeBlendBase/*
 	}
 	
 	// Export UAnimNodeSlot::execSetActorAnimEndNotification(FFrame&, void* const)
-	public virtual /*native final function */void SetActorAnimEndNotification(bool bNewStatus)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native final function */void SetActorAnimEndNotification(bool bNewStatus)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	//// Export UAnimNodeSlot::execGetCustomAnimNodeSeq(FFrame&, void* const)
 	//public virtual /*native final function */AnimNodeSequence GetCustomAnimNodeSeq()

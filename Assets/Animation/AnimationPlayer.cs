@@ -1,1251 +1,1781 @@
-﻿// STILL HAVE TO HOOK UP PARENT NODES 
-
-namespace MEdge
+﻿namespace MEdge
 {
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using Core;
 	using Engine;
-	using TdGame;
 	using UnityEngine;
-	using static UnityEngine.Mathf;
-	using static UnityEngine.Debug;
+	using ERootMotionMode = MEdge.Engine.SkeletalMeshComponent.ERootMotionMode;
+	using ERootMotionRotationMode = MEdge.Engine.SkeletalMeshComponent.ERootMotionRotationMode;
+	using Object = Core.Object;
+	using BoneAtom = MEdge.Engine.AnimNode.BoneAtom;
+	using AimOffsetProfile = MEdge.Engine.AnimNodeAimOffset.AimOffsetProfile;
+	using EAnimAimDir = MEdge.Engine.AnimNodeAimOffset.EAnimAimDir;
+	using ERootBoneAxis = MEdge.Engine.AnimNodeSequence.ERootBoneAxis;
+	using ERootRotationOption = MEdge.Engine.AnimNodeSequence.ERootRotationOption;
 
 
 
 	public class AnimationPlayer
 	{
+		const float SMALL_NUMBER = 1e-8f;
 		const float ZERO_ANIMWEIGHT_THRESH = 0.00001f;
+		const float DELTA = 0.00001f;
 		
 		public GameObject GameObject;
-		public SkeletalMeshComponent Skel{ get; private set; }
-		AnimNode _tree;
-		AnimSet _set;
-		Actor _actor;
+		SkeletalMeshComponent _skel;
+		AnimNode _root;
+		//int TickTag;
+		Dictionary<AnimNode, (TempBuffer<TR> buff, TR rootMotion)> _cachedNode;
 		
-		int _tick;
-		HashSet<AnimNode> _nodes = new HashSet<AnimNode>();
-		Dictionary<MEdge.Core.name, AnimationClip> _clips;
-		Dictionary<AnimNode, TempBuffer<TRS>> _relevantNodes = new Dictionary<AnimNode,TempBuffer<TRS>>();
-
-		public Transform[] Bones{ get; private set; }
-		public Dictionary<name, int> BoneNameToIndex{ get; private set; }
-		TRS[] _bindPose;
-
+		public Transform[] Bones;
+		TR[] _bindPose;
+		TR[] _currentPose;
+		public Dictionary<name, int> NameToIndex;
+		Dictionary<name, AnimationClip> _clips;
+		GameObject _unityObject;
+		Dictionary<name, (TR start, TR end)> _rootMotion;
 
 
-		public AnimationPlayer(AnimationClip[] clips, AnimSet animSet, AnimNode tree, GameObject gameObject, Actor actor, SkeletalMeshComponent skel)
+
+		public AnimationPlayer(AnimationClip[] clips, AnimSet animSet, AnimNode root, GameObject gameObject, Actor actor, SkeletalMeshComponent skel)
 		{
-			Skel = skel;
-			_tree = tree;
-			_clips = clips.ToDictionary( x => (MEdge.Core.name)x.name );
-			_set = animSet;
-			GameObject = gameObject;
-			_actor = actor;
+			_skel = skel;
+			_skel.InitAnimTree(true);
+			_root = root;
 			Bones = new Transform[ animSet.TrackBoneNames.Length ];
-			_bindPose = new TRS[ animSet.TrackBoneNames.Length ];
-			BoneNameToIndex = new Dictionary<name, int>( Bones.Length );
-			var allTransforms = GameObject.GetComponentsInChildren<Transform>().ToDictionary( x => (name)x.name );
+			_bindPose = new TR[ animSet.TrackBoneNames.Length ];
+			NameToIndex = new Dictionary<name, int>();
+			var allTransforms = gameObject.GetComponentsInChildren<Transform>().ToDictionary( x => (name)x.name );
 			for( int i = 0; i < animSet.TrackBoneNames.Length; i++ )
 			{
 				var t = allTransforms[ animSet.TrackBoneNames[ i ] ];
 				Bones[ i ] = t;
-				_bindPose[ i ] = new TRS( t, true );
-				BoneNameToIndex.Add( (name)t.name, i );
+				_bindPose[ i ] = new TR{ Translation = t.localPosition, Rotation = t.localRotation };
+				NameToIndex.Add( animSet.TrackBoneNames[i], i );
 			}
 
-			foreach( var node in EnumerateTree( _tree ) )
+			_clips = clips.ToDictionary( x => (name)x.name, x => x );
+			_cachedNode = new Dictionary<AnimNode, (TempBuffer<TR> buff, TR rootMotion)>();
+			_unityObject = gameObject;
+			_rootMotion = clips.ToDictionary( x => (name)x.name, x =>
 			{
-				_nodes.Add( node );
-				node.ParentNodes.Remove(0, node.ParentNodes.Count);
-			}
-
-			foreach( var node in _nodes )
+				x.wrapMode = WrapMode.Clamp;
+				var root = Bones[ 0 ];
+				x.SampleAnimation( gameObject, 0f );
+				var start = new TR { Translation = root.localPosition, Rotation = root.localRotation };
+				x.SampleAnimation( gameObject, x.length );
+				var end = new TR { Translation = root.localPosition, Rotation = root.localRotation };
+				return ( start, end );
+			} );
+			_currentPose = new TR[ Bones.Length ];
+		
+			static IEnumerable<AnimNode> Enumerate( AnimNode n )
 			{
-				if( node is AnimNodeBlendBase anbb )
-				{
-					foreach( var child in anbb.Children )
-					{
-						child.Anim?.ParentNodes.Add( anbb );
-					}
-				}
-
-				node.SkelComponent = Skel;
-				if( node is TdAnimNodeBlendList anbl )
-					anbl.TdPawnOwner = _actor as TdPawn;
-				node.OnInit();
-			}
-
-
-
-			static IEnumerable<AnimNode> EnumerateTree( AnimNode n )
-			{
-				if( n == null )
-					yield break;
-			
 				yield return n;
 				if( n is AnimNodeBlendBase anbb )
 				{
 					foreach( var child in anbb.Children )
 					{
-						foreach( var node in EnumerateTree( child.Anim ) )
+						foreach( var node in Enumerate( child.Anim ) )
 						{
-							yield return node;
+							if( node != null )
+								yield return node;
 						}
 					}
 				}
 			}
 		}
-
 
 
 		public void Sample( float dt )
 		{
-			_tick++;
+			// Mix of USkeletalMeshComponent::Tick and USkeletalMeshComponent::UpdateSkelPose
+			_skel.TickAnimNodes( dt );
+			_skel.TickSkelControls( dt );
+			TR ExtractedRootMotionDelta = TR.Identity;
+			int bHasRootMotion	= 0;
 			try
 			{
-				SampleInner( _tree, dt, 1f );
+				var asSpan = _currentPose.AsSpan();
+				GetBoneAtoms(_root, asSpan, ref ExtractedRootMotionDelta, ref bHasRootMotion);
+				// _skel.Animations.GetBoneAtoms(ref _skel.LocalAtoms, ref _skel.RequiredBones, ref ExtractedRootMotionDelta, ref bHasRootMotion);
 			}
 			finally
 			{
-				foreach( var node in _nodes )
+				foreach( var kvp in _cachedNode )
 				{
-					node.NodeTotalWeight = Math.Min(node.TotalWeightAccumulator, 1f);
-					node.TotalWeightAccumulator = 0f;
-					node.bJustBecameRelevant = false;
-					
-					if( node.bRelevant && _relevantNodes.ContainsKey( node ) == false )
-					{
-						node.bRelevant = false;
-					}
-
-					if( node.bRelevant == false )
-					{
-						if( node.NodeTotalWeight > ZERO_ANIMWEIGHT_THRESH )
-						{
-							node.OnBecomeRelevant();
-							node.bRelevant = true;
-							node.bJustBecameRelevant = true;
-						}
-					}
-					else
-					{
-						if( node.NodeTotalWeight <= ZERO_ANIMWEIGHT_THRESH )
-						{
-							node.OnCeaseRelevant();
-							node.bRelevant = false;
-						}
-					}
+					kvp.Value.buff.Dispose();
 				}
-
-				foreach( var kvp in _relevantNodes )
-				{
-					// Can be null when the node is only shared once
-					kvp.Value?.Dispose();
-				}
-				_relevantNodes.Clear();
-			}
-		}
-
-
-		
-		void SampleInner( AnimNode node, float dt, float weightHint )
-		{
-			node.TotalWeightAccumulator += weightHint; // Not close to source
-			if( _relevantNodes.TryGetValue( node, out var precomputedPose ) )
-			{
-				// This node has already been computed in this frame,
-				// set hierarchy to that pose already precomputed and exit
-				foreach( TRS trs in precomputedPose )
-				{
-					trs.Transform.localPosition = trs.T;
-					trs.Transform.localRotation = trs.R;
-				}
-				return;
-			}
-			
-			// Now the rest of this is guaranteed to run only once
-
-			bool marked = false;
-			try
-			{
-				node.NodeTickTag = _tick;
-
-				TdPawn pawnActor = _actor as TdPawn;
-
-				if( NodeIs<TdAnimNodeMovementState>( node, out var nodeMovement, ref marked ) && pawnActor != null )
-				{
-					var state = pawnActor.MovementState;
-					var newActive = 0; // 0 is the default branch
-					for( int i = 0; i < nodeMovement.EnumStates.Length; i++ )
-					{
-						if( nodeMovement.EnumStates[ i ] == state )
-						{
-							newActive = i + 1; // 0 is default, so 1->Length are each states bound to enums
-							break;
-						}
-					}
-
-					if( nodeMovement.ActiveChildIndex != newActive )
-						nodeMovement.SetActiveMove( newActive );
-				}
-
-				if( NodeIs<TdAnimNodeWeaponState>( node, out var weaponState, ref marked ) && pawnActor != null )
-				{
-					var state = pawnActor.WeaponAnimState;
-					var newActive = 0; // 0 is the default branch
-					for( int i = 0; i < weaponState.EnumStates.Length; i++ )
-					{
-						if( weaponState.EnumStates[ i ] == state )
-						{
-							newActive = i + 1; // 0 is default, so 1->Length are each states bound to enums
-							break;
-						}
-					}
-
-					if( weaponState.ActiveChildIndex != newActive )
-						weaponState.SetActiveMove( newActive );
-				}
-
-				if( NodeIs<TdAnimNodeWalkingState>( node, out var nodeWalking, ref marked ) && pawnActor != null )
-				{
-					var state = pawnActor.CurrentWalkingState;
-					var newActive = 0; // 0 is the default branch
-					for( int i = 0; i < nodeWalking.EnumStates.Length; i++ )
-					{
-						if( nodeWalking.EnumStates[ i ] == state )
-						{
-							newActive = i + 1; // 0 is default, so 1->Length are each states bound to enums
-							break;
-						}
-					}
-
-					if( nodeWalking.ActiveChildIndex != newActive )
-						nodeWalking.SetActiveMove( newActive );
-				}
-
-				if( NodeIs<TdAnimNodeAgainstWallState>( node, out var againstWall, ref marked ) )
-				{
-					var state = pawnActor.AgainstWallState;
-					var newActive = 0; // 0 is the default branch
-					for( int i = 0; i < againstWall.EnumStates.Length; i++ )
-					{
-						if( againstWall.EnumStates[ i ] == state )
-						{
-							newActive = i + 1; // 0 is default, so 1->Length are each states bound to enums
-							break;
-						}
-					}
-
-					if( againstWall.ActiveChildIndex != newActive )
-						againstWall.SetActiveMove( newActive );
-				}
-
-				if( NodeIs<TdAnimNodeWeaponTypeState>( node, out var wts, ref marked ) )
-				{
-					var state = pawnActor.GetWeaponType();
-					var newActive = 0; // 0 is the default branch
-					for( int i = 0; i < wts.EnumStates.Length; i++ )
-					{
-						if( wts.EnumStates[ i ] == state )
-						{
-							newActive = i + 1; // 0 is default, so 1->Length are each states bound to enums
-							break;
-						}
-					}
-
-					if( wts.ActiveChildIndex != newActive )
-						wts.SetActiveMove( newActive );
-				}
-
-				if( NodeIs<TdAnimNodeGrabbing>( node, out var grabbing, ref marked ) )
-				{
-					// Nothing to do afaict
-				}
-
-				if( NodeIs<TdAnimNodeGrabSlope>( node, out var grabSlope, ref marked ) )
-				{
-					// Nothing to do afaict
-				}
-
-				if( NodeIs<TdAnimNodeCinematicSwitch>( node, out var cinematicSwitch, ref marked ) )
-				{
-					// I don't care
-					if( cinematicSwitch.ActiveChildIndex != 1 )
-						cinematicSwitch.SetActiveChild( 1, 0f );
-				}
-
-				if( NodeIs<TdAnimNodeBlendDirectional>( node, out var tdDirectional, ref marked ) )
-				{
-					// I think ?
-					var localDir = Quaternion.Inverse( (Quaternion)_actor.Rotation ) * _actor.Velocity.ToUnityDir().normalized;
-					var dir = tdDirectional.Direction;
-					// probably not but I don't know, we need some sort of time left for accuracy
-					dir.X = Lerp( dir.X, localDir.x, dt / tdDirectional.DirInterpTime );
-					dir.Y = Lerp( dir.Y, localDir.z, dt / tdDirectional.DirInterpTime );
-					// Editor shows this specific 'normalization' method
-					var l = dir.X + dir.Y;
-					l = l == 0f ? 1f : l;
-					dir.X /= l;
-					dir.Y /= l;
-					tdDirectional.Direction = dir;
-
-					var isNowForward = tdDirectional.Direction.Y > 0f;
-					tdDirectional.bGoingForward = isNowForward;
-					tdDirectional.ForwardBlend += dt / tdDirectional.ForwardInterpTime * ( tdDirectional.bGoingForward ? 1f : - 1f );
-					tdDirectional.ForwardBlend = tdDirectional.ForwardBlend > 1f ? 1f : tdDirectional.ForwardBlend < 0f ? 0f : tdDirectional.ForwardBlend;
-						
-					var children = tdDirectional.Children;
-
-					var absY = dir.Y < 0f ? - dir.Y : dir.Y;
-					var backwardBlend = 1f - tdDirectional.ForwardBlend;
-					// From the weird blending behavior seen in the anime tree editor when clicking on 0.5,-0.5 and clicking on the opposite -0.5,0.5
-					// this (fairly weird) blending method seems most accurate to source
-					children[ 0 ].Weight = absY * tdDirectional.ForwardBlend;
-					children[ 1 ].Weight = dir.X >= 0f ? dir.X * tdDirectional.ForwardBlend : 0f;
-					children[ 2 ].Weight = dir.X < 0f ? -dir.X * tdDirectional.ForwardBlend : 0f;
-					children[ 3 ].Weight = absY * backwardBlend;
-					children[ 4 ].Weight = dir.X >= 0f ? dir.X * backwardBlend : 0f;
-					children[ 5 ].Weight = dir.X < 0f ? -dir.X * backwardBlend : 0f;
-				}
-
-				if( NodeIs<TdAnimNodeBlendBySpeed>( node, out var tdBySpeed, ref marked ) )
-				{
-					tdBySpeed.Speed = tdBySpeed.bUseAverageSpeed ? 
-						pawnActor.AverageSpeed 
-						: tdBySpeed.bUseAcceleration ? 
-							_actor.Acceleration.Size() 
-							: _actor.Velocity.Size();
-				}
-
-				if( NodeIs<AnimNodeBlendBySpeed>( node, out var bySpeed, ref marked ) )
-				{
-					if( bySpeed.BlendUpTime != 0f || bySpeed.BlendDownTime != 0f )
-						LogWarning( $"{nameof(SampleInner)}: Blend up and down time not implemented" );
-
-					if(node.GetType() == typeof(AnimNodeBlendBySpeed))
-						bySpeed.Speed = bySpeed.bUseAcceleration ? _actor.Acceleration.Size() : _actor.Velocity.Size();
-					bySpeed.ActiveChildIndex = 0;
-					for( int i = 0; i < bySpeed.Constraints.Length; i++ )
-					{
-						if( bySpeed.Speed < bySpeed.Constraints[ i ] )
-							bySpeed.ActiveChildIndex = i-1;
-					}
-				}
-
-				if( NodeIs<TdAnimNodeSequence>( node, out var td, ref marked ) )
-				{
-					if( td.ScalePlayRateBySpeed )
-					{
-						float speed;
-						// Not confirmed
-						switch( td.ScalePlayRateType )
-						{
-							case TdAnimNodeSequence.EScalePlayRateType.SPRT_GroundSpeed: // Could be based on just the forward value ?
-							case TdAnimNodeSequence.EScalePlayRateType.SPRT_GroundSpeedSize:
-							{
-								var vel = _actor.Velocity;
-								vel.Z = 0;
-								speed = vel.Size();
-								break;
-							}
-							case TdAnimNodeSequence.EScalePlayRateType.SPRT_ActorSpeed: speed = _actor.Velocity.Size(); break;
-							case TdAnimNodeSequence.EScalePlayRateType.SPRT_ZSpeed: speed = _actor.Velocity.Z; break;
-							case TdAnimNodeSequence.EScalePlayRateType.SPRT_AverageActorSpeed: speed = (_actor as TdPawn).GetAverageSpeed( 1f ); break;
-							case TdAnimNodeSequence.EScalePlayRateType.SPRT_MAX:
-							default: throw new System.ArgumentOutOfRangeException();
-						}
-
-						speed = (speed - td.BaseSpeed) * td.ScaleByValue;
-						speed = speed < td.RateMin ? td.RateMin : speed;
-						speed = speed > td.RateMax ? td.RateMax : speed;
-						td.Rate = speed;
-						// tooltip: fast rate on low speed
-						//td.InversePlayRate ? (1f / speed) : speed; ??? Probably not
-					}
-					if( td.InversePlayRate )
-						LogWarning( $"{nameof(td.InversePlayRate)} not implemented yet" );
-					if( td.bSnapToKeyFrames )
-						LogWarning( $"{nameof(td.bSnapToKeyFrames)} not implemented yet" );
-					if( td.bForceFullPlayback)
-						LogWarning( $"{nameof(td.bForceFullPlayback)} not implemented yet" ); 
-					if( td.bDeltaCameraAnimation )
-						LogWarning( $"{nameof(td.bDeltaCameraAnimation)} not implemented yet" );
-					if( td.bForceNoWeaponPose )
-						LogWarning( $"{nameof(td.bForceNoWeaponPose)} not supported" );
-				}
-
-
-				if( NodeIs<AnimNodeSequence>( node, out var nodeSequence, ref marked ) )
-				{
-					if( _clips.TryGetValue( nodeSequence.AnimSeqName, out var clip ) == false )
-					{
-						LogWarning( $"Animation clip '{nodeSequence.AnimSeqName}' not found" );
-						return;
-					}
-					if( nodeSequence.AnimSeq == null || nodeSequence.AnimSeq.Name != nodeSequence.AnimSeqName )
-					{
-						nodeSequence.AnimSeq = _set.Sequences.FirstOrDefault( x => x.SequenceName == nodeSequence.AnimSeqName );
-						if( nodeSequence.AnimSeq == null )
-						{
-							LogWarning( $"Animation sequence '{nodeSequence.AnimSeqName}' not found" );
-							return;
-						}
-					}
-
-					clip.wrapMode = nodeSequence.bLooping ? WrapMode.Loop : WrapMode.Clamp;
-
-					// If this node is part of a group, animation is going to be advanced in a second pass, once all weights have been calculated in the tree.
-					if( nodeSequence.SynchGroupName == default )
-					{
-						// Keep track of PreviousTime before any update. This is used by Root Motion.
-						nodeSequence.PreviousTime = nodeSequence.CurrentTime;
-
-						// Can only do something if we are currently playing a valid AnimSequence
-						if( nodeSequence.bPlaying && nodeSequence.AnimSeq != null )
-						{
-							// Time to move forwards by - DeltaSeconds scaled by various factors.
-							float MoveDelta = nodeSequence.Rate * nodeSequence.AnimSeq.RateScale * nodeSequence.SkelComponent.GlobalAnimRateScale * dt;
-							nodeSequence.AdvanceBy(MoveDelta, dt, (nodeSequence.SkelComponent.bUseRawData) ? false : true);
-						}
-					}
-
-					clip.SampleAnimation( GameObject, nodeSequence.CurrentTime );
-					return;
-				}
-				
-				if( NodeIs<AnimNodeBlendPerBone>( node, out var perBone, ref marked ) )
-				{
-					var source = perBone.Children[ 0 ].Anim;
-					var target = perBone.Children[ 1 ].Anim;
-					float weight = perBone.Child2Weight;
-					if( weight < ZERO_ANIMWEIGHT_THRESH )
-					{
-						SampleInner( source, dt, weightHint );
-						return;
-					}
-
-					SampleInner( target, dt, weightHint * weight );
-						
-					using var bonesTrs = TempBuffer<TRS>.Borrow();
-					foreach( var branchName in perBone.BranchStartBoneName )
-					{
-						var bone = FindInHierarchy( GameObject.transform, branchName );
-						if( bone == null )
-							continue;
-
-						if( perBone.bOnlyJointsBelowParent )
-						{
-							for( int i = 0; i < bone.childCount; i++ )
-								FetchHierarchyTRS( bone.GetChild(i), bonesTrs, withLocalTRS:true );
-						}
-						else
-						{
-							FetchHierarchyTRS( bone, bonesTrs, withLocalTRS:true );
-						}
-					}
-					
-					if( source == null )
-						SetSkeletonToBindPose();
-					else
-						SampleInner( source, dt, weightHint/* Do not modulate this, weight depends on bones not a single value */ );
-						
-					for( int i = 0; i < bonesTrs.Count; i++ )
-					{
-						var targetData = bonesTrs[ i ];
-						var t = targetData.Transform;
-						t.localPosition = Vector3.Lerp( t.localPosition, targetData.T, weight );
-						t.localRotation = Quaternion.Lerp( t.localRotation, targetData.R, weight );
-					}
-					return;
-				}
-
-				if( NodeIs<AnimNodeSynch>( node, out var synch, ref marked ) )
-				{
-					// Update groups
-					for(var GroupIdx=0; GroupIdx<synch.Groups.Num(); GroupIdx++)
-					{
-						ref var SynchGroup = ref synch.Groups[GroupIdx];
-
-						// Update Master Node
-						UpdateMasterNodeForGroup(synch, ref SynchGroup);
-
-						// Now that we have the master node, have it update all the others
-						if( SynchGroup.MasterNode != null && SynchGroup.MasterNode.AnimSeq != null )
-						{
-							ref AnimNodeSequence MasterNode	= ref SynchGroup.MasterNode;
-							float	OldPosition			= MasterNode.CurrentTime;
-							float MasterMoveDelta		= SynchGroup.RateScale * MasterNode.Rate * MasterNode.AnimSeq.RateScale * dt;
-
-							if( MasterNode.bPlaying )
-							{
-								// Keep track of PreviousTime before any update. This is used by Root Motion.
-								MasterNode.PreviousTime = MasterNode.CurrentTime;
-
-								// Update Master Node
-								// Master Node has already been ticked, so now we advance its CurrentTime position...
-								// Time to move forward by - DeltaSeconds scaled by various factors.
-								MasterNode.AdvanceBy(MasterMoveDelta, dt, true);
-							}
-
-							// Master node was changed during the tick?
-							// Skip this round of updates...
-							if( SynchGroup.MasterNode != MasterNode )
-							{
-								continue;
-							}
-
-							// Update slave nodes only if master node has changed.
-							if( MasterNode.CurrentTime != OldPosition &&
-								MasterNode.AnimSeq != null &&
-								MasterNode.AnimSeq.SequenceLength > 0.0f )
-							{
-								// Find it's relative position on its time line.
-								float MasterRelativePosition = GetNodeRelativePosition(ref MasterNode);
-
-								// Update slaves to match relative position of master node.
-								for(var i=0; i<SynchGroup.SeqNodes.Num(); i++)
-								{
-									ref AnimNodeSequence SlaveNode = ref SynchGroup.SeqNodes[i];
-
-									if( SlaveNode != null && 
-										SlaveNode != MasterNode && 
-										SlaveNode.AnimSeq != null &&
-										SlaveNode.AnimSeq.SequenceLength > 0.0f )
-									{
-										// Slave's new time
-										float NewTime		= FindNodePositionFromRelative(ref SlaveNode, MasterRelativePosition);
-										float SlaveMoveDelta	= appFmod(NewTime - SlaveNode.CurrentTime, SlaveNode.AnimSeq.SequenceLength);
-
-										// Make sure SlaveMoveDelta And MasterMoveDelta are the same sign, so they both move in the same direction.
-										if( SlaveMoveDelta * MasterMoveDelta < 0.0f )
-										{
-											if( SlaveMoveDelta >= 0.0f )
-											{
-												SlaveMoveDelta -= SlaveNode.AnimSeq.SequenceLength;
-											}
-											else
-											{
-												SlaveMoveDelta += SlaveNode.AnimSeq.SequenceLength;
-											}
-										}
-
-										// Keep track of PreviousTime before any update. This is used by Root Motion.
-										SlaveNode.PreviousTime = SlaveNode.CurrentTime;
-
-										// Move slave node to correct position
-										SlaveNode.AdvanceBy(SlaveMoveDelta, dt, SynchGroup.bFireSlaveNotifies);
-									}
-								}
-							}
-						}
-					}
-					
-					
-					/*for( int i = 0; i < synch.Groups.Length; i++ )
-						synch.Groups[ i ].MasterNode = null;
-
-					_stackSync.Add( synch );*/
-					synch.Children[ 0 ].Weight = 1f;
-				}
-
-				if( node is AnimNodeAimOffset aimOffsetPre )
-				{
-					ref var aimRef = ref aimOffsetPre.Aim;
-					var actorRot = (Quaternion)_actor.Rotation;
-					var viewRot = (Quaternion)(_actor as Pawn).GetBaseAimRotation();
-
-					var localDir = (Quaternion.Inverse( actorRot ) * viewRot) * Vector3.forward; // I think ?
-					aimRef.X = localDir.x;
-					aimRef.Y = localDir.y;
-				}
-
-				if( NodeIs<TdAnimNodeLandOffset>( node, out var landOffset, ref marked ) )
-				{
-					if ( landOffset.Landed > 0.0f )
-					{
-						if ( landOffset.IsLanding == false )
-						{
-							landOffset.LandTimer = 0.0f;
-							landOffset.IsLanding = true;
-						}
-					}
-					if ( landOffset.IsLanding )
-					{
-						landOffset.LandTimer += dt;
-						if ( landOffset.LandInto <= landOffset.LandTimer )
-						{
-							var landTimer_Minus_LandInto = landOffset.LandTimer - landOffset.LandInto;
-							if ( landOffset.LandOut <= landTimer_Minus_LandInto )
-							{
-								if ( landOffset.LandOverlap <= (landTimer_Minus_LandInto - landOffset.LandOut) )
-								{
-									landOffset.Aim.Y = 0.0f;
-									landOffset.IsLanding = false;
-									landOffset.Landed = 0.0f;
-								}
-								else
-								{
-									landOffset.Aim.Y = (Sin((landTimer_Minus_LandInto - landOffset.LandOut) / landOffset.LandOverlap * 1.5707964f) - 1.0f) * landOffset.OverlapSize;
-								}
-							}
-							else
-							{
-								landOffset.Aim.Y = 1.0f - (landOffset.OverlapSize + 1.0f) * Sin(landTimer_Minus_LandInto / landOffset.LandOut * 1.5707964f);
-							}
-						}
-						else
-						{
-							landOffset.Aim.Y = Sin(landOffset.LandTimer / landOffset.LandInto * 1.5707964f);
-						}
-						landOffset.Aim.Y = landOffset.Landed * landOffset.Aim.Y;
-					}
-				}
-
-				if( NodeIs<TdAnimNodeAimOffset>( node, out var tdAimOffset, ref marked ) )
-				{
-					if( tdAimOffset.bManualAim )
-						LogWarning( $"{nameof(tdAimOffset.bManualAim)} not implemented yet" );
-					
-					ref var aimRef = ref tdAimOffset.Aim;
-					var baseURot = _actor.Rotation;
-					if( tdAimOffset.bAimSourceIsLegRotation )
-						baseURot.Yaw = ( _actor as TdPawn ).LegRotation;
-					var actorRot = (Quaternion)baseURot;
-					var viewRot = (Quaternion)(_actor as Pawn).GetBaseAimRotation();
-
-					var localDir = (Quaternion.Inverse( actorRot ) * viewRot) * Vector3.forward; // I think ?
-					tdAimOffset.WantedAiming.X = localDir.x;
-					tdAimOffset.WantedAiming.Y = localDir.y;
-					aimRef.X = tdAimOffset.bInterpolateHorizontalAiming ? MoveTowards( aimRef.X, tdAimOffset.WantedAiming.X, dt * tdAimOffset.HorizontalInterpolationSpeed ) : tdAimOffset.WantedAiming.X;
-					aimRef.Y = tdAimOffset.WantedAiming.Y;
-				}
-
-				if( NodeIs<TdAnimNodeDirBone>( node, out var nodeDirBone, ref marked ) )
-				{
-					ref var aimRef = ref nodeDirBone.Aim;
-					
-					aimRef.X = nodeDirBone.bInvertXAxis ? -aimRef.X : aimRef.X;
-					aimRef.Y = nodeDirBone.bUsePitch ? aimRef.Y : 0f;
-				}
-
-				if( NodeIs<AnimNodeAimOffset>( node, out var aimOffset, ref marked ) )
-				{
-					if( aimOffset.bForceAimDir )
-						LogWarning( $"{nameof(aimOffset.bForceAimDir)} not implemented yet" );
-					if( aimOffset.AngleOffset.X != default || aimOffset.AngleOffset.Y != default )
-						LogWarning( $"{nameof(aimOffset.AngleOffset)} not implemented yet" );
-
-					var profile = aimOffset.Profiles[ aimOffset.CurrentProfileIndex ];
-
-					var constrainedAim = aimOffset.Aim;
-					constrainedAim.X = Clamp( constrainedAim.X, profile.HorizontalRange.X, profile.HorizontalRange.Y );
-					constrainedAim.Y = Clamp( constrainedAim.Y, profile.VerticalRange.X, profile.VerticalRange.Y );
-
-					var weightX = constrainedAim.X < 0f ? 1f + constrainedAim.X : constrainedAim.X;
-					var weightY = constrainedAim.Y < 0f ? 1f + constrainedAim.Y : constrainedAim.Y;
-
-					SampleInner( aimOffset.Children[0].Anim, dt, weightHint );
-					
-					foreach( var component in profile.AimComponents )
-					{
-						if( BoneNameToIndex.TryGetValue( component.BoneName, out var index ) == false )
-						{
-							// Those bones are unique to 1st/3rd person skeletons while node setups are sometimes shared between skeletons
-							// Safe to ignore when they don't exist
-							if( component.BoneName == "CameraJoint" || component.BoneName == "RightArmRoll" || component.BoneName == "LeftArmRoll" )
-								continue;
-							
-							LogWarning( $"Could not find bone named '{component.BoneName}' for {nameof(AnimNodeAimOffset)}" );
-							continue;
-						}
-
-						var t = Bones[ index ];
-						var v00 = GetTRSAt( component, FloorToInt( constrainedAim.X ), FloorToInt( constrainedAim.Y ) );
-						var v10 = GetTRSAt( component, CeilToInt( constrainedAim.X ), FloorToInt( constrainedAim.Y ) );
-						var v01 = GetTRSAt( component, FloorToInt( constrainedAim.X ), CeilToInt( constrainedAim.Y ) );
-						var	v11 = GetTRSAt( component, CeilToInt( constrainedAim.X ), CeilToInt( constrainedAim.Y ) );
-						
-						t.localPosition += Vector3.Lerp(
-							Vector3.Lerp( v00.Translation.ToUnityPos(), v10.Translation.ToUnityPos(), weightX ),
-							Vector3.Lerp( v01.Translation.ToUnityPos(), v11.Translation.ToUnityPos(), weightX ),
-							weightY
-						);
-						t.localRotation *= Quaternion.Normalize( Quaternion.Lerp(
-							Quaternion.Lerp( (Quaternion)v00.Quaternion, (Quaternion)v10.Quaternion, weightX ),
-							Quaternion.Lerp( (Quaternion)v01.Quaternion, (Quaternion)v11.Quaternion, weightX ),
-							weightY
-						) );
-					}
-					return;
-				}
-
-				if( NodeIs<TdAnimNodeBlendList>( node, out var tdbl, ref marked ) )
-				{
-					if( tdbl.bScaleBlendTimeBySpeed )
-						LogWarning( $"{nameof(tdbl.bScaleBlendTimeBySpeed)} not implemented yet" );
-				}
-
-				if( NodeIs<AnimNodeBlendList>( node, out var anbl, ref marked ) )
-				{
-					MatchTargetWeight( ref anbl.Children, anbl.TargetWeight, ref anbl.BlendTimeToGo, dt );
-				}
-
-				if( NodeIs<TdAnimNodeSlot>( node, out var tdSlot, ref marked ) )
-				{
-					// Nothing to do afaict
-				}
-
-				if( NodeIs<AnimNodeSlot>( node, out var slot, ref marked ) )
-				{
-					#warning not fully implemented yet, looks like most of the logic setting up this stuff is in native
-					MatchTargetWeight( ref slot.Children, slot.TargetWeight, ref slot.BlendTimeToGo, dt );
-				}
-
-				if( NodeIs<AnimTree>( node, out var animTree, ref marked ) )
-				{
-					//animTree.PrioritizedSkelBranches
-					//animTree.RootMorphNodes
-					//animTree.SkelControlLists
-					if( animTree.Children.Length > 0 )
-						SampleInner( animTree.Children[ 0 ].Anim, dt, weightHint );
-					return;
-				}
-
-				if( NodeIs<AnimNodeBlendBase>( node, out var blender, ref marked ) )
-				{
-					// Hack
-					if( marked == false )
-					{
-						bool emptyWeight = true;
-						foreach( var child in blender.Children )
-						{
-							if( child.Weight != 0f )
-								emptyWeight = false;
-						}
-
-						if( emptyWeight )
-						{
-							SampleInner( blender.Children[ 0 ].Anim, dt, weightHint );
-							return;
-						}
-					}
-					
-					BlendAll( ref blender.Children, dt, weightHint );
-					return;
-				}
-			}
-			finally
-			{
-				if( _relevantNodes.ContainsKey( node ) == false )
-				{
-					// Will be released later in the frame after everything is done sampling
-					TempBuffer<TRS> pose = null;
-					// Only store and compute pose if this node is used by multiple parents
-					if( node.ParentNodes.Length > 1 )
-					{
-						pose = TempBuffer<TRS>.Borrow();
-						PushSkeletonTRSInto( pose, true );
-					}
-					_relevantNodes.Add( node, pose );
-				}
-
-				if( marked == false )
-					LogWarning( $"Unhandled type: {node.GetType()}" );
-			}
-		}
-		
-		
-		
-		/// <summary>
-		/// Updates the Master Node of a given group
-		/// </summary>
-		static void UpdateMasterNodeForGroup(AnimNodeSynch synch, ref AnimNodeSynch.SynchGroup SynchGroup)
-		{
-			// start with our previous node. see if we can find better!
-			ref AnimNodeSequence MasterNode		= ref SynchGroup.MasterNode;	
-			// Find the node which has the highest weight... that's our master node
-			float				HighestWeight	= MasterNode != null ? MasterNode.NodeTotalWeight : 0.0f;
-
-			// if the previous master node has a full weight, then don't bother looking for another one.
-			if( SynchGroup.MasterNode == null || (SynchGroup.MasterNode.NodeTotalWeight < (1.0f - ZERO_ANIMWEIGHT_THRESH)) )
-			{
-				for(var i=0; i < SynchGroup.SeqNodes.Num(); i++)
-				{
-					ref AnimNodeSequence SeqNode = ref SynchGroup.SeqNodes[i];
-					if( SeqNode != null &&									
-					    !SeqNode.bForceAlwaysSlave && 
-					    SeqNode.NodeTotalWeight >= HighestWeight )  // Must be the most relevant to the final blend
-					{
-						MasterNode		= SeqNode;
-						HighestWeight	= SeqNode.NodeTotalWeight;
-					}
-				}
-
-				SynchGroup.MasterNode = MasterNode;
-			}
-		}
-		
-		
-		
-		/// <summary>
-		/// Get relative position of a synchronized node.
-		/// Taking into account node's relative offset.
-		/// </summary>
-		static float GetNodeRelativePosition(ref AnimNodeSequence SeqNode)
-		{
-			if( SeqNode != null && SeqNode.AnimSeq != null && SeqNode.AnimSeq.SequenceLength > 0.0f )
-			{
-				// Find it's relative position on its time line.
-				float RelativePosition = appFmod((SeqNode.CurrentTime / SeqNode.AnimSeq.SequenceLength) - SeqNode.SynchPosOffset, 1.0f);
-				if( RelativePosition < 0.0f )
-				{
-					RelativePosition += 1.0f;
-				}
-
-				return RelativePosition;
+				_cachedNode.Clear();
 			}
 
-			return 0.0f;
-		}
-		
-		
-		
-		/// <summary>
-		/// Find out position of a synchronized node given a relative position.
-		/// Taking into account node's relative offset.
-		/// </summary>
-		static float FindNodePositionFromRelative(ref AnimNodeSequence SeqNode, float RelativePosition)
-		{
-			if( SeqNode != null && SeqNode.AnimSeq != null )
+			// If PendingRMM has changed, set it
+			if( _skel.PendingRMM != _skel.OldPendingRMM )
 			{
-				var SynchedRelPosition = appFmod(RelativePosition + SeqNode.SynchPosOffset, 1.0f);
-				if( SynchedRelPosition < 0.0f )
+				// Already set, do nothing
+				if( _skel.RootMotionMode == _skel.PendingRMM )
 				{
-					SynchedRelPosition += 1.0f;
+					_skel.OldPendingRMM = _skel.PendingRMM;
 				}
-
-				return SynchedRelPosition * SeqNode.AnimSeq.SequenceLength;
-			}
-
-			return 0.0f;
-		}
-
-
-
-
-		static float appFmod( float x, float y ) => x % y;
-
-		
-		
-		
-		bool NodeIs<T>( AnimNode n, out T val, ref bool mark )
-		{
-			if( n is T v )
-			{
-				mark = mark || n.GetType() == typeof(T);
-				val = v;
-				return true;
-			}
-
-			val = default;
-			return false;
-		}
-
-
-
-		void SetSkeletonToBindPose()
-		{
-			foreach( TRS trs in _bindPose )
-			{
-				trs.Transform.localPosition = trs.T;
-				trs.Transform.localRotation = trs.R;
-			}
-		}
-
-
-
-		void MatchTargetWeight( ref array<AnimNodeBlendBase.AnimBlendChild> children, array<float> targetWeights, ref float blendTimeToGo, float dt )
-		{
-			for( int i = 0; i < children.Length; i++ )
-			{
-				ref var weightRef = ref children[ i ].Weight;
-				var targetWeight = targetWeights[ i ];
-							
-				// ReSharper disable once CompareOfFloatsByEqualityOperator
-				if( blendTimeToGo != 0f && targetWeight != weightRef )
+				// delay by a frame if setting to RMM_Ignore AND animation extracted root motion on this frame.
+				// This is to force physics to process the entire root motion.
+				else if( _skel.PendingRMM != ERootMotionMode.RMM_Ignore || bHasRootMotion == 0 || _skel.bRMMOneFrameDelay == 1 )
 				{
-					var diff = targetWeight - weightRef;
-					var rateOfChangePerSecond = diff / blendTimeToGo;
-					var changeThisFrame = rateOfChangePerSecond * dt;
-					weightRef += changeThisFrame;
-							
-					// Don't overshoot target
-					if( diff > 0 )
-						weightRef = System.Math.Min( weightRef, targetWeight );
-					else if( diff < 0 )
-						weightRef = System.Math.Max( weightRef, targetWeight );
+					_skel.RootMotionMode		= _skel.PendingRMM;
+					_skel.OldPendingRMM		= _skel.PendingRMM;
+					_skel.bRMMOneFrameDelay	= 0;
 				}
 				else
 				{
-					weightRef = targetWeight;
+					_skel.bRMMOneFrameDelay	= 1;
 				}
 			}
-					
-			blendTimeToGo = blendTimeToGo < dt ? 0f : blendTimeToGo - dt;
-		}
 
-
-
-		void BlendAll(ref array<AnimNodeBlendBase.AnimBlendChild> arrayToBlend, float dt, float callingNodeWeight)
-		{
-			using var accumulatedData = TempBuffer<TRS>.Borrow();
-			(int i, float weight) highestWeightedItem = (0, 0f);
-			float accumulatedWeight = 0f;
-			for( int i = 0; i < arrayToBlend.Length; i++ )
+			// if root motion is requested, then transform it from mesh space to world space so it can be used.
+			if( bHasRootMotion != 0 && _skel.RootMotionMode != ERootMotionMode.RMM_Ignore )
 			{
-				ref var item = ref arrayToBlend[ i ];
-				if( callingNodeWeight * item.Weight < ZERO_ANIMWEIGHT_THRESH )
-					continue;
-				
-				if( item.Weight > highestWeightedItem.weight )
-					highestWeightedItem = ( i, item.Weight );
-				accumulatedWeight += item.Weight;
-			}
-			
-			if(accumulatedWeight == 0f)
-				return;
-			
-			PushSkeletonTRSInto( accumulatedData );
-			for( int i = 0; i < arrayToBlend.Length; i++ )
-			{
-				ref var item = ref arrayToBlend[ i ];
-				if( callingNodeWeight * item.Weight < ZERO_ANIMWEIGHT_THRESH )
-					continue;
-				
-				SampleInner( item.Anim, dt, callingNodeWeight * item.Weight );
+	#if false//0 // DEBUG
+				debugf(TEXT("%3.2f [%s] Extracted RM, PreProcessing, Translation: %3.3f, vect: %s, RootMotionAccelScale: %s"), 
+					GWorld.GetTimeSeconds(), *Owner.GetName(), ExtractedRootMotionDelta.Translation.Size(), *ExtractedRootMotionDelta.Translation.ToString(), *RootMotionAccelScale.ToString());
+	#endif
+				// Transform mesh space root delta translation to world space
+				ExtractedRootMotionDelta.Translation = Bones[ 0 ].parent.rotation * ExtractedRootMotionDelta.Translation;//_skel.LocalToWorld.TransformNormal(ExtractedRootMotionDelta.Translation);
 
-				var realUnitWeight = item.Weight / accumulatedWeight;
-				for( int j = 0; j < accumulatedData.Count; j++ )
+				// Scale RootMotion translation in Mesh Space.
+				//if( _skel.RootMotionAccelScale != FVector(1.f) )
 				{
-					var data = accumulatedData[ j ];
-					var t = data.Transform;
-					data.T += t.localPosition * realUnitWeight;
-					#warning how the heck do I accumulate rotations ?
-					data.R = Quaternion.Lerp( data.R, t.localRotation, realUnitWeight );
-					accumulatedData[ j ] = data;
+					ExtractedRootMotionDelta.Translation = Vector3.Scale(ExtractedRootMotionDelta.Translation, _skel.RootMotionAccelScale.ToUnityDir());
 				}
-			}
 
-			for( int j = 0; j < accumulatedData.Count; j++ )
-			{
-				var animData = accumulatedData[ j ];
-				var t = animData.Transform;
-				t.localPosition = animData.T;
-				t.localRotation = animData.R;
-			}
-		}
-
-
-
-		struct TRS
-		{
-			public Transform Transform;
-			public Vector3 T;
-			public Quaternion R;
-
-
-
-			public TRS( Transform pTransform, bool setTRSToLocal )
-			{
-				if( setTRSToLocal )
+				// If Owner required a Script event forwarded when root motion has been extracted, forward it
+				if( _skel.Owner && _skel.bRootMotionExtractedNotify )
 				{
-					Transform = pTransform;
-					T = pTransform.localPosition;
-					R = pTransform.localRotation;
+					throw new Exception($"{nameof(_skel.bRootMotionExtractedNotify)} not supported");
+					// Would need to change rotation and translation to unreal space and back to unity space after calling this function
+					//_skel.Owner.RootMotionExtracted(_skel, ref ExtractedRootMotionDelta);
 				}
-				else
-				{
-					T = default;
-					R = Quaternion.identity;
-					Transform = pTransform;
-				}
-			}
-		}
 
-
-
-		void PushSkeletonTRSInto( TempBuffer<TRS> buffer, bool withLocalTRS = false )
-		{
-			for( int i = 0; i < Bones.Length; i++ )
-				buffer.Add( new TRS( Bones[ i ], withLocalTRS ) );
-		}
-
-
-
-		void FetchHierarchyTRS( Transform t, TempBuffer<TRS> buffer, bool withLocalTRS = false )
-		{
-			buffer.Add( new TRS( t, withLocalTRS ) );
-			for( int i = buffer.Count - 1; i < buffer.Count; i++ )
-			{
-				t = buffer[ i ].Transform;
-				for( int j = 0; j < t.childCount; j++ )
-				{
-					buffer.Add( new TRS( t.GetChild( j ), withLocalTRS ) );
-				}
-			}
-		}
-
-
-
-		float GetSynchTime( AnimNodeSequence sequenceToSynchronize, AnimNodeSequence controlSequence )
-		{
-			if( controlSequence.AnimSeq == null || sequenceToSynchronize.AnimSeq == null )
-				return 0f;
-			var normalized = controlSequence.CurrentTime / controlSequence.AnimSeq.SequenceLength;
-			normalized -= controlSequence.SynchPosOffset;
-			normalized += sequenceToSynchronize.SynchPosOffset;
-			normalized %= 1f;
-			if( normalized < 0f )
-				normalized = 1f + normalized;
-			
-			return normalized * sequenceToSynchronize.AnimSeq.SequenceLength;
-		}
-
-
-		
-		static AnimNodeAimOffset.AimTransform GetTRSAt( AnimNodeAimOffset.AimComponent comp, int x, int y )
-		{
-			return (x, y) switch
-			{
-				(1, 1) => comp.RU,
-				(0, 1) => comp.CU,
-				(-1, 1) => comp.LU,
-				(1, 0) => comp.RC,
-				(0, 0) => comp.CC,
-				(-1, 0) => comp.LC,
-				(1, -1) => comp.RD,
-				(0, -1) => comp.CD,
-				(-1, -1) => comp.LD,
-				_ => throw new System.ArgumentOutOfRangeException()
-			};
-		}
-
-
-
-		static Transform FindInHierarchy( Transform trs, MEdge.Core.name trsName )
-		{
-			if( trs.name == trsName )
-				return trs;
-			for( int i = 0; i < trs.childCount; i++ )
-			{
-				var child = trs.GetChild( i );
-				var t = FindInHierarchy( child, trsName );
-				if( t != null )
-					return t;
-			}
-
-			return null;
-		}
-
-
-
-		/*public void TickAnim( TdAnimNodeTurn nodeTurn, float deltaTimeMaybe, float probablyWeight )
-		{
-    TdPawn skelPawn; // r30
-    int aTdPawnClass; // r11
-    Class pawnClassCheck; // r9
-    TdPawn tdPawnOwner; // r9
-    double velY; // fp12
-    double velMagnitude; // fp10
-    TdPawn skelPawn2; // r28
-    Class skelPawn2Class; // r9
-    uint legAngleDeltaWithFudge; // r9
-    double safeRegionLimit; // fp12
-    double deltaInEuler; // fp1
-    double absDeltaEuler; // fp13
-    double newTimeStandingStill; // fp8
-    double idleTimer; // fp9
-    uint newFudge; // r9
-
-    if ( nodeTurn.SkelComponent == null )
-        goto PASS_PLAYANIM;
-    skelPawn = (TdPawn)nodeTurn.SkelComponent.Owner;
-    if ( skelPawn == null )
-        goto PASS_PLAYANIM;
-    aTdPawnClass = ATdPawn::PrivateStaticClass;
-    if ( !ATdPawn::PrivateStaticClass )
-    {
-        ATdPawn::PrivateStaticClass = (uint)ATdPawn::GetPrivateStaticClassATdPawn((const wchar_t *)&off_18D0160);
-        ATdPawn::InitializePrivateStaticClassATdPawn();
-        aTdPawnClass = ATdPawn::PrivateStaticClass;
-    }
-    pawnClassCheck = skelPawn.Class;
-    if ( pawnClassCheck )
-    {
-        if ( (Class)aTdPawnClass == pawnClassCheck )
-            goto LABEL_17;
-        while ( 1 )
-        {
-            pawnClassCheck = (Class)pawnClassCheck.Next;
-            if ( !pawnClassCheck )
-                break;
-            if ( (Class)aTdPawnClass == pawnClassCheck )
-                goto LABEL_17;
-        }
-    }
-    if ( aTdPawnClass )
-        goto PASS_PLAYANIM;
-LABEL_17:
-    if ( nodeTurn.PlayingTurnAnimation == true && probablyWeight > 0.1 )
-    {
-        if ( nodeTurn.SkelComponent != null )
-        {
-            skelPawn2 = (TdPawn)nodeTurn.SkelComponent.Owner;
-            if ( skelPawn2 != null )
-            {
-                if ( !aTdPawnClass )
-                {
-                    ATdPawn::PrivateStaticClass = (uint)ATdPawn::GetPrivateStaticClassATdPawn((const wchar_t *)&off_18D0160);
-                    ATdPawn::InitializePrivateStaticClassATdPawn();
-                }
-                skelPawn2Class = skelPawn2.Class;
-                if ( skelPawn2Class )
-                {
-                    if ( (Class)ATdPawn::PrivateStaticClass == skelPawn2Class )
-                    {
-TWEAK_LEG_FUDGE:
-                        if ( nodeTurn.SkelComponent == (SkeletalMeshComponent)LODWORD(skelPawn2.TakeHitLocation.Y) )
-                        {
-                            newFudge = (System.UInt16)((int)(float)((float)deltaTimeMaybe * nodeTurn.LegTurnPerSecond)
-                                                        + skelPawn2.LegAngleLimitFudge);
-                            if ( newFudge > 32767 )
-                                newFudge -= 65536;
-                            skelPawn2.LegAngleLimitFudge = (int)newFudge;
-                        }
-                        goto TEST_WHETHER_PLAYANIM;
-                    }
-                    while ( 1 )
-                    {
-                        skelPawn2Class = (Class)skelPawn2Class.Next;
-                        if ( !skelPawn2Class )
-                            break;
-                        if ( (Class)ATdPawn::PrivateStaticClass == skelPawn2Class )
-                            goto TWEAK_LEG_FUDGE;
-                    }
-                }
-                if ( ATdPawn::PrivateStaticClass )
-                    goto TEST_WHETHER_PLAYANIM;
-                goto TWEAK_LEG_FUDGE;
-            }
-        }
-    }
-TEST_WHETHER_PLAYANIM:
-    legAngleDeltaWithFudge = (unsigned __int16)(skelPawn.Rotation.Yaw - skelPawn.LegAngleLimitFudge);
-    if ( legAngleDeltaWithFudge > 32767 )
-        legAngleDeltaWithFudge -= 65536;
-    if ( *(__int64 *)&nodeTurn.bitfield_PlayingTurnAnimation < 0
-      || (safeRegionLimit = nodeTurn.SafeRegionLimit,
-          deltaInEuler = (float)((float)(int)legAngleDeltaWithFudge * (float)0.0054931641),
-          absDeltaEuler = __fabs(deltaInEuler),
-          absDeltaEuler < safeRegionLimit) )
-    {
-        nodeTurn.TimeStandingStill = 0.0;
-    }
-    else
-    {
-        if ( absDeltaEuler > safeRegionLimit && nodeTurn.ExtendedRegionLimit > absDeltaEuler )
-        {
-            newTimeStandingStill = (float)((float)deltaTimeMaybe + nodeTurn.TimeStandingStill);
-            idleTimer = nodeTurn.IdleTimer;
-            nodeTurn.TimeStandingStill = (float)deltaTimeMaybe + nodeTurn.TimeStandingStill;
-            if ( idleTimer >= newTimeStandingStill )
-                goto PASS_PLAYANIM;
-            goto PLAYANIM;
-        }
-        if ( nodeTurn.ExtendedRegionLimit < __fabs(deltaInEuler) )
-        {
-PLAYANIM:
-            UTdAnimNodeTurn::PlayTurnAnimation(nodeTurn, deltaInEuler);
-            goto PASS_PLAYANIM;
-        }
-    }
-PASS_PLAYANIM:
-    tdPawnOwner = nodeTurn.TdPawnOwner;
-    if ( tdPawnOwner )
-    {
-        velY = *(float *)((uint)&tdPawnOwner.Velocity + 4LL);
-        velMagnitude = __fsqrts((float)((float)(*(float *)(uint)&tdPawnOwner.Velocity.X
-                                              * *(float *)(uint)&tdPawnOwner.Velocity.X)
-                                      + (float)((float)velY * (float)velY)));
-        if ( nodeTurn.BlendTimeToGo > 0.0 )
-        {
-            if ( nodeTurn.ActiveChildIndex )
-            {
-                if ( (*(_QWORD *)&nodeTurn.BlendOutWeight.Max & 0x80000000LL) != 0 )
-                {
-                    _FP7 = (float)((float)((float)velMagnitude * (float)0.0099999998) - (float)1.0);// deltaTime = deltaTime * Clamp(velMag * 0.0099999998, 0.1, 1)
-                    __asm { fsel      f13, f7, f9, f8# Floating-Point Select }
-                    _FP5 = (float)((float)_FP13 - (float)0.1);
-                    __asm { fsel      f4, f5, f13, f6# Floating-Point Select }
-                    deltaTimeMaybe = (float)((float)deltaTimeMaybe * (float)_FP4);
-                }
-            }
-        }
-    }
-    UAnimNodeBlendList::TickAnim_Proxy((UAnimNodeBlendList *)nodeTurn, deltaTimeMaybe, probablyWeight);// call to base
-		}*/
-
-
-
-		/*public void Test(TdAnimNodeTurn node, float probablyAngleDiff)
-		{
-			float absAngle; // st7
-			double extendedRegionLimit; // st6
-			int mostLikelyAnimationToUse; // eax
-			//AnimNodeSequence selectedSequence; // eax
-			//AnimNodeSequence selectedSequenceCpy; // esi
-			AnimSequence animSeq; // esi
-			float extendedBoostSpeed; // xmm3_4
-			float baseTurnPerSecond; // xmm0_4
-			float absAngleCpy; // [esp+18h] [ebp-4h]
-
-			absAngle = Abs(probablyAngleDiff);
-			absAngleCpy = absAngle;
-			extendedRegionLimit = node.ExtendedRegionLimit;
-			node.PlayingTurnAnimation = true;
-			if ( absAngle <= extendedRegionLimit )
-			{
-				mostLikelyAnimationToUse = 1;
-				if ( probablyAngleDiff >= 0.0 )
-					mostLikelyAnimationToUse = 3;
+				// Root Motion delta is accumulated every time it is extracted.
+				// This is because on servers using autonomous physics, physics updates and ticking are out of synch.
+				// So 2 physics updates can happen in a row, or 2 animation updates, effectively
+				// making client and server out of synch.
+				// So root motion is accumulated, and reset when used by physics.
+				_skel.RootMotionDelta.Translation	+= ExtractedRootMotionDelta.Translation.ToUnrealPos();
+				_skel.RootMotionVelocity			= ExtractedRootMotionDelta.Translation.ToUnrealPos() / dt;
 			}
 			else
 			{
-				mostLikelyAnimationToUse = 2;
-				if ( probablyAngleDiff >= 0.0 )
-					mostLikelyAnimationToUse = 4;
+				_skel.RootMotionDelta.Translation = default;
+				_skel.RootMotionVelocity = default;
 			}
 
-			node.SetActiveMove( mostLikelyAnimationToUse, true );
-			if ( node.Children[ node.ActiveChildIndex ].Anim is AnimNodeSequence selectedSequence )
+
+
+
+			if( bHasRootMotion != 0 && _skel.RootMotionRotationMode != ERootMotionRotationMode.RMRM_Ignore )
 			{
-				selectedSequence.PlayAnim( selectedSequence.bLooping, selectedSequence.Rate, 0.0f );
-				animSeq = selectedSequence.AnimSeq;
-				if ( animSeq != null )
+				//Object.Quat	MeshToWorldQuat = new Object.Quat(_skel.LocalToWorld);
+
+				// Transform mesh space delta rotation to world space.
+				_skel.RootMotionDelta.Rotation = (Object.Quat)(Bones[ 0 ].parent.rotation * ExtractedRootMotionDelta.Rotation).normalized;//MeshToWorldQuat * ExtractedRootMotionDelta.Rotation * (-MeshToWorldQuat);
+				//_skel.RootMotionDelta.Rotation.Normalize();
+			}
+			else
+			{
+				_skel.RootMotionDelta.Rotation = (Object.Quat)Quaternion.identity; //Object.Quat.Identity;
+			}
+
+
+
+
+
+
+			// Motion applied right away
+			if( bHasRootMotion != 0 && 
+				(_skel.RootMotionMode == ERootMotionMode.RMM_Translate || _skel.RootMotionRotationMode == ERootMotionRotationMode.RMRM_RotateActor || 
+				 (_skel.RootMotionMode == ERootMotionMode.RMM_Ignore && _skel.PreviousRMM == ERootMotionMode.RMM_Translate)) )	// If root motion was just turned off, forward remaining root motion.
+			{
+				/*
+				 * Delay applying instant translation for one frame
+				 * So we check for PreviousRMM to be up to date with the current root motion mode.
+				 * We need to do this because in-game physics have already been applied for this tick.
+				 * So we want root motion to kick in for next frame.
+				 */
+				bool bCanDoTranslation = (_skel.RootMotionMode == ERootMotionMode.RMM_Translate && _skel.PreviousRMM == ERootMotionMode.RMM_Translate);
+				Object.Vector InstantTranslation = bCanDoTranslation ? _skel.RootMotionDelta.Translation : default;
+
+				bool bCanDoRotation = (_skel.RootMotionRotationMode == ERootMotionRotationMode.RMRM_RotateActor);
+				Object.Rotator InstantRotation = bCanDoRotation ? /*FQuatRotationTranslationMatrix(_skel.RootMotionDelta.Rotation, default).Rotator()*/(Object.Rotator)(Quaternion)_skel.RootMotionDelta.Rotation : default;
+
+				if( _skel.Owner && (!InstantRotation.IsZero() || InstantTranslation.SizeSquared() > SMALL_NUMBER) )
 				{
-					if ( absAngleCpy <= node.ExtendedRegionLimit )
-						extendedBoostSpeed = 8192.0f;
-					else
-						extendedBoostSpeed = 16384.0f;
-					if ( probablyAngleDiff == 0.0f )
-						baseTurnPerSecond = 0.0f;
-					else
-						baseTurnPerSecond = probablyAngleDiff / absAngleCpy;
-					node.LegTurnPerSecond = (float)(baseTurnPerSecond / animSeq.SequenceLength) * extendedBoostSpeed;
+	#if false//0 // DEBUG ROOT MOTION
+					debugf(TEXT("%3.2f Root Motion Instant. DeltaRot: %s"), GWorld.GetTimeSeconds(), *InstantRotation.ToString());
+	#endif
+					// Transform mesh directly. Doesn't take in-game physics into account.
+					//FCheckResult Hit(1.f);
+					UWorld.Instance.MoveActor(_skel.Owner, InstantTranslation, _skel.Owner.Rotation + InstantRotation, 0, out _);
+
+					// If we have used translation, reset the accumulator.
+					if( bCanDoTranslation )
+					{
+						_skel.RootMotionDelta.Translation = default;
+					}
+
+					if( bCanDoRotation )
+					{
+						_skel.Owner.DesiredRotation = _skel.Owner.Rotation;
+
+						// Update DesiredRotation for AI Controlled Pawns
+						Pawn PawnOwner = _skel.Owner as Pawn;
+						if( PawnOwner && PawnOwner.Controller && PawnOwner.Controller.bForceDesiredRotation )
+						{
+							PawnOwner.Controller.DesiredRotation = _skel.Owner.Rotation;
+						}
+					}
 				}
 			}
-		}*/
+
+			// Track root motion mode changes
+			if( _skel.RootMotionMode != _skel.PreviousRMM )
+			{
+				// notify owner that root motion mode changed. 
+				// if RootMotionMode != RMM_Ignore, then on next frame root motion will kick in.
+				if( _skel.bRootMotionModeChangeNotify && _skel.Owner )
+				{
+					_skel.Owner.RootMotionModeChanged(_skel);
+				}
+				_skel.PreviousRMM = _skel.RootMotionMode;
+			}
+
+
+
+			if( _skel.bForceDiscardRootMotion )
+			{
+				_currentPose[ 0 ] = TR.Identity;
+			}
+
+			// Remember the root bone's translation so we can move the bounds.
+			//_skel.RootBoneTranslation = LocalAtoms[0].Pos - _skel.SkeletalMesh.RefSkeleton[0].BonePos.Position;
+
+
+			for( int i = 0; i < Bones.Length; i++ )
+			{
+				var t = Bones[ i ];
+				var tr = _currentPose[ i ];
+				t.localPosition = tr.Translation;
+				t.localRotation = tr.Rotation;
+			}
+			
+			_skel.bHasHadPhysicsBlendedIn = false;
+		}
+
+
+
+		void GetBoneAtoms( AnimNode n, Span<TR> Atoms, ref TR RootMotionDelta, ref int bHasRootMotion )
+		{
+			// GetCachedResults
+			if( _cachedNode.TryGetValue( n, out var v ) )
+			{
+				for( int i = 0; i < Atoms.Length; i++ )
+					Atoms[ i ] = v.buff[ i ];
+				bHasRootMotion = (v.rootMotion.Translation == default && v.rootMotion.Rotation == default) ? 0 : 1;
+				RootMotionDelta = v.rootMotion;
+				return;
+			}
+
+			if( n is AnimNodeMirror )
+				throw new NodeNotSupportedException( n );
+			else if( n is AnimNodeBlendMultiBone )
+				throw new NodeNotSupportedException( n );
+			else if( n is AnimNodeSequenceBlendBase )
+				throw new NodeNotSupportedException( n );
+			else if( n is AnimNodeAimOffset anao )
+				AnimNodeAimOffset_GetBoneAtoms( anao, Atoms, ref RootMotionDelta, ref bHasRootMotion );
+			else if( n is AnimNodeBlendPerBone anbpb )
+				AnimNodeBlendPerBone_GetBoneAtoms( anbpb, Atoms, ref RootMotionDelta, ref bHasRootMotion );
+			else if( n is AnimNodeBlendBase anbb )
+				AnimNodeBlendBase_GetBoneAtoms( anbb, Atoms, ref RootMotionDelta, ref bHasRootMotion );
+			else if( n is AnimNodeSequence ans )
+				AnimNodeSequence_GetBoneAtoms( ans, Atoms, ref RootMotionDelta, ref bHasRootMotion );
+			else
+			{
+				_bindPose.CopyTo( Atoms );
+				RootMotionDelta = default;
+				bHasRootMotion = 0;
+			}
+
+			if( n.ParentNodes.Count > 1 )
+			{
+				var tempClearedAtEndOfStack = TempBuffer<TR>.Borrow();
+				for( int i = 0; i < Atoms.Length; i++ )
+					tempClearedAtEndOfStack[ i ] = Atoms[ i ];
+				_cachedNode.Add( n, (tempClearedAtEndOfStack, bHasRootMotion == 0 ? default : RootMotionDelta) );
+			}
+		}
+
+
+
+		void AnimNodeSequence_GetBoneAtoms( AnimNodeSequence n, Span<TR> Atoms, ref TR RootMotionDelta, ref int bHasRootMotion )
+		{
+			// Source: AnimNodeSequence::GetAnimationPose
+			var InAnimSeq = n.AnimSeq;
+			//ref var InAnimLinkupIndex = ref n.AnimLinkupIndex;
+			
+			//SCOPE_CYCLE_COUNTER(STAT_GetAnimationPose);
+
+			//check(SkelComponent);
+			//check(SkelComponent.SkeletalMesh);
+
+			// Set root motion delta to identity, so it's always initialized, even when not extracted.
+			RootMotionDelta = TR.Identity;
+			bHasRootMotion	= 0;
+
+			if( !InAnimSeq /*|| InAnimLinkupIndex == INDEX_NONE*/ )
+			{
+		#if false//0
+				debugf(TEXT("UAnimNodeSequence::GetAnimationPose - %s - No animation data!"), *GetFName());
+		#endif
+				_bindPose.CopyTo( Atoms );
+				//FillWithRefPose(Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
+				return;
+			}
+
+			// Get the reference skeleton
+			//ref array<MeshBone> RefSkel = ref n.SkelComponent.SkeletalMesh.RefSkeleton;
+			//const int NumBones = RefSkel.Num();
+			//check(NumBones == Atoms.Num());
+
+			AnimSet AnimSet = (AnimSet)InAnimSeq.Outer;
+			//check(InAnimLinkupIndex < AnimSet.LinkupCache.Num());
+
+			//ref var AnimLinkup = ref AnimSet.LinkupCache[InAnimLinkupIndex];
+
+			// @remove me, trying to figure out why this is failing
+			/*if( AnimLinkup.BoneToTrackTable.Num() != NumBones )
+			{
+				debugf(TEXT("AnimLinkup.BoneToTrackTable.Num() != NumBones, BoneToTrackTable.Num(): %d, NumBones: %d, AnimName: %s, Owner: %s, Mesh: %s"), AnimLinkup.BoneToTrackTable.Num(), NumBones, *InAnimSeq.SequenceName.ToString(), *SkelComponent.GetOwner().GetName(), *SkelComponent.SkeletalMesh.GetName());
+			}*/
+			//check(AnimLinkup.BoneToTrackTable.Num() == NumBones);
+
+			// Are we doing root motion for this node?
+			bool bDoRootTranslation	= (n.RootBoneOption[0] != ERootBoneAxis.RBA_Default) || (n.RootBoneOption[1] != ERootBoneAxis.RBA_Default) || (n.RootBoneOption[2] != ERootBoneAxis.RBA_Default);
+			bool bDoRootRotation	= (n.RootRotationOption[0] != ERootRotationOption.RRO_Default) || (n.RootRotationOption[1] != ERootRotationOption.RRO_Default) || (n.RootRotationOption[2] != ERootRotationOption.RRO_Default);
+			bool bDoingRootMotion	= bDoRootTranslation || bDoRootRotation;
+
+			// Is the skeletal mesh component requesting that raw animation data be used?
+			bool bUseRawData = n.SkelComponent.bUseRawData;
+
+			// Handle Last Frame to First Frame interpolation when looping.
+			// It is however disabled for the Root Bone.
+			// And the 'bNoLoopingInterpolation' flag on the animation can also disable that behavior.
+			bool bLoopingInterpolation = n.bLooping && !InAnimSeq.bNoLoopingInterpolation;
+
+			var unityClip = _clips[ InAnimSeq.SequenceName ];
+			unityClip.wrapMode = bLoopingInterpolation ? WrapMode.Loop : WrapMode.Default;
+			unityClip.SampleAnimation( _unityObject, n.CurrentTime );
+
+			// For each desired bone...
+			for( int BoneIndex=0; BoneIndex<Atoms.Length; BoneIndex++ )
+			{
+				var t = Bones[ BoneIndex ];
+				// Find which track in the sequence we look in for this bones data
+				//int	TrackIndex = AnimLinkup.BoneToTrackTable[BoneIndex];
+
+				// If there is no track for this bone, we just use the reference pose.
+				/*if( TrackIndex == INDEX_NONE )
+				{
+					Atoms[BoneIndex] = FBoneAtom(RefSkel[BoneIndex].BonePos.Orientation, RefSkel[BoneIndex].BonePos.Position, 1f);					
+				}
+				else*/ 
+				{
+					// Non Root Bone
+					if( BoneIndex > 0 )
+					{
+						// Otherwise read it from the sequence.
+						Atoms[ BoneIndex ] = new TR{ Translation = t.localPosition, Rotation = t.localRotation };
+						//InAnimSeq.GetBoneAtom(Atoms[BoneIndex], TrackIndex, n.CurrentTime, bLoopingInterpolation, bUseRawData);
+
+						// If doing 'rotation only' case, use ref pose for all non-root bones that are not in the BoneUseAnimTranslation array.
+						if(	AnimSet.bAnimRotationOnly /*&& AnimLinkup.BoneUseAnimTranslation[BoneIndex] == 0*/ )
+						{
+							Atoms[BoneIndex].Translation = _bindPose[BoneIndex].Translation;
+						}
+
+						// Apply quaternion fix for ActorX-exported quaternions.
+						//Atoms[BoneIndex].Rotation.w *= -1.0f;
+					}
+					else
+					{
+						// Otherwise read it from the sequence.
+						
+						// RootMotion isn't as straightforward when the root position loops back to the start
+						// Unreal can sample animation on a per bone basis leading to them being capable of skipping looping animation for root but
+						// To do this with unity's AnimationClip would require a big perf hit or a tool which would preprocess AnimationClip
+						// into a better format/API in the editor
+						if(bLoopingInterpolation && bDoingRootMotion)
+							Debug.LogWarning( $"Verify that when doing looping interpolation and needing RootMotion, the RootMotion is properly computed (@{n.NodeName}: {InAnimSeq.Name})" );
+						Atoms[ BoneIndex ] = new TR{ Translation = t.localPosition, Rotation = t.localRotation };
+						//InAnimSeq->GetBoneAtom(Atoms(BoneIndex), TrackIndex, CurrentTime, bLoopingInterpolation && !bDoingRootMotion, bUseRawData);
+
+						// If doing root motion for this animation, extract it!
+						if( bDoingRootMotion )
+						{
+							var rmAsTR = (TR)RootMotionDelta;
+							ExtractRootMotion(n, InAnimSeq/*, TrackIndex*/, ref Atoms[0], ref rmAsTR, ref bHasRootMotion);
+							RootMotionDelta = rmAsTR;
+						}
+
+						// If desired, zero out Root Bone rotation.
+						if( n.bZeroRootRotation )
+						{
+							Atoms[0].Rotation = Quaternion.identity;
+						}
+
+						// If desired, zero out Root Bone translation.
+						if( n.bZeroRootTranslation )
+						{
+							Atoms[0].Translation = default;
+						}
+					}
+				}
+			}
+		}
+		
+		
+		
+		void ExtractRootMotion(AnimNodeSequence thisSeq, AnimSequence InAnimSeq/*, ref int TrackIndex*/, ref TR CurrentFrameAtom, ref TR DeltaMotionAtom, ref int bHasRootMotion)
+		{
+			// SkeletalMesh has a transformation that is applied between the component and the actor, 
+			// instead of being between mesh and component. 
+			// So we have to take that into account when doing operations happening in component space (such as per Axis masking/locking).
+			/*const FMatrix MeshToCompTM = FRotationMatrix(SkelComponent->SkeletalMesh->RotOrigin);
+			// Inverse transform, from component space to mesh space.
+			const FMatrix CompToMeshTM = MeshToCompTM.Inverse();*/
+
+			// Get the exact translation of the root bone on the first frame of the animation
+			var (FirstFrameAtom, LastFrameAtom) = _rootMotion[ InAnimSeq.SequenceName ];
+			/*FBoneAtom FirstFrameAtom;
+			InAnimSeq.GetBoneAtom(FirstFrameAtom, TrackIndex, 0f, false, thisSeq.SkelComponent.bUseRawData);*/
+
+			// Do we need to extract root motion?
+			bool bExtractRootTranslation= (thisSeq.RootBoneOption[0] == ERootBoneAxis.RBA_Translate) || (thisSeq.RootBoneOption[1] == ERootBoneAxis.RBA_Translate) || (thisSeq.RootBoneOption[2] == ERootBoneAxis.RBA_Translate);
+			bool bExtractRootRotation	= (thisSeq.RootRotationOption[0] == ERootRotationOption.RRO_Extract) || (thisSeq.RootRotationOption[1] == ERootRotationOption.RRO_Extract) || (thisSeq.RootRotationOption[2] == ERootRotationOption.RRO_Extract);
+			bool bExtractRootMotion		= bExtractRootTranslation || bExtractRootRotation;
+
+			// Calculate bone motion
+			if( bExtractRootMotion )
+			{
+				// We are extracting root motion, so set the flag to TRUE
+				bHasRootMotion	= 1;
+				float StartTime	= thisSeq.PreviousTime;
+				float EndTime	= thisSeq.CurrentTime;
+
+				/*
+				 * If FromTime == ToTime, then we can't give a root delta for this frame.
+				 * To avoid delaying it to next frame, because physics may need it right away,
+				 * see if we can make up one by simulating forward.
+				 */
+				if( StartTime == EndTime )
+				{
+					// Only try to make up movement if animation is allowed to play
+					if( thisSeq.bPlaying && InAnimSeq )
+					{
+						// See how much time would have passed on this frame
+						float DeltaTime = thisSeq.Rate * InAnimSeq.RateScale * thisSeq.SkelComponent.GlobalAnimRateScale * /*GWorld.GetDeltaSeconds()*/UWorld.Instance.WorldInfo.DeltaSeconds;
+
+						// If we can push back FromTime, then do so.
+						if( StartTime > DeltaTime )
+						{
+							StartTime -= DeltaTime;
+						}
+						else
+						{
+							// otherwise, advance in time, to predict the movement
+							EndTime += DeltaTime;
+
+							// See if we passed the end of the animation.
+							if( EndTime > InAnimSeq.SequenceLength )
+							{
+								// If we are looping, wrap over. If not, snap time to end of sequence.
+								EndTime = thisSeq.bLooping ? EndTime % InAnimSeq.SequenceLength : InAnimSeq.SequenceLength;
+							}
+						}
+					}
+					else
+					{
+						// If animation is done playing we're not extracting root motion anymore.
+						bHasRootMotion = 0;
+					}
+				}
+
+				// If time has passed, compute root delta movement
+				if( StartTime != EndTime )
+				{
+					// Get Root Bone Position of start of movement
+					/*BoneAtom*/TR StartAtom;
+					if( StartTime != thisSeq.CurrentTime )
+					{
+						StartAtom = RootBoneAt( InAnimSeq, StartTime );
+						//InAnimSeq.GetBoneAtom(StartAtom, TrackIndex, StartTime, false, thisSeq.SkelComponent.bUseRawData);
+					}
+					else
+					{
+						StartAtom = CurrentFrameAtom;
+					}
+
+					// Get Root Bone Position of end of movement
+					/*BoneAtom*/TR EndAtom;
+					if( EndTime != thisSeq.CurrentTime )
+					{
+						EndAtom = RootBoneAt( InAnimSeq, EndTime );
+						//InAnimSeq.GetBoneAtom(EndAtom, TrackIndex, EndTime, false, thisSeq.SkelComponent.bUseRawData);
+					}
+					else
+					{
+						EndAtom = CurrentFrameAtom;
+					}
+
+					// Get position on last frame if we extract translation and/or rotation
+					//BoneAtom LastFrameAtom;
+					if( StartTime > EndTime && (bExtractRootTranslation || bExtractRootRotation) )
+					{
+						// Get the exact root position of the root bone on the last frame of the animation
+						//InAnimSeq.GetBoneAtom(LastFrameAtom, TrackIndex, InAnimSeq.SequenceLength, false, thisSeq.SkelComponent.bUseRawData);
+					}
+					else
+					{
+						LastFrameAtom = default;
+					}
+
+					// We don't support scale
+					//DeltaMotionAtom.Scale = 0f;
+
+					// If extracting root translation, filter out any axis
+					if( bExtractRootTranslation )
+					{
+						// Handle case if animation looped
+						if( StartTime > EndTime )
+						{
+							// Handle proper translation wrapping. We don't want the mesh to translate back to origin. So split that in 2 moves.
+							DeltaMotionAtom.Translation = (LastFrameAtom.Translation - StartAtom.Translation) + (EndAtom.Translation - FirstFrameAtom.Translation);
+						}
+						else
+						{
+							// Delta motion of the root bone in mesh space
+							DeltaMotionAtom.Translation = EndAtom.Translation - StartAtom.Translation;
+						}
+
+						// Only do that if an axis needs to be filtered out.
+						if( thisSeq.RootBoneOption[0] != ERootBoneAxis.RBA_Translate || thisSeq.RootBoneOption[1] != ERootBoneAxis.RBA_Translate || thisSeq.RootBoneOption[2] != ERootBoneAxis.RBA_Translate )
+						{
+							throw new Exception($"{nameof(ERootBoneAxis)} not supported");
+							// Convert Delta translation from mesh space to component space
+							// We do this for axis filtering
+							/*Object.Vector CompDeltaTranslation = MeshToCompTM.TransformNormal(DeltaMotionAtom.Translation);
+
+							// Filter out any of the X, Y, Z channels in mesh space
+							if( thisSeq.RootBoneOption[0] != ERootBoneAxis.RBA_Translate )
+							{
+								CompDeltaTranslation.X = 0f;
+							}
+							if( thisSeq.RootBoneOption[1] != ERootBoneAxis.RBA_Translate )
+							{
+								CompDeltaTranslation.Y = 0f;
+							}
+							if( thisSeq.RootBoneOption[2] != ERootBoneAxis.RBA_Translate )
+							{
+								CompDeltaTranslation.Z = 0f;
+							}
+
+							// Convert back to mesh space.
+							DeltaMotionAtom.Translation = MeshToCompTM.InverseTransformNormal(CompDeltaTranslation);*/
+						}
+		#if false//0
+						debugf(TEXT("%3.2f [%s] [%s] Extracted Root Motion Trans: %3.3f, Vect: %s, StartTime: %3.3f, EndTime: %3.3f"), GWorld->GetTimeSeconds(), *SkelComponent->GetOwner()->GetName(), *AnimSeqName.ToString(), DeltaMotionAtom.Translation.Size(), *DeltaMotionAtom.Translation.ToString(), StartTime, EndTime);
+		#endif
+					}
+					else
+					{
+						// Otherwise, don't extract any translation
+						DeltaMotionAtom.Translation = default;
+					}
+
+					// If extracting root translation, filter out any axis
+					if( bExtractRootRotation )
+					{
+						// Delta rotation
+						// Handle case if animation looped
+						if( StartTime > EndTime )
+						{
+							// Handle proper Rotation wrapping. We don't want the mesh to rotate back to origin. So split that in 2 turns.
+							DeltaMotionAtom.Rotation = (LastFrameAtom.Rotation * MinQ(StartAtom.Rotation)) * (EndAtom.Rotation * MinQ(FirstFrameAtom.Rotation));
+						}
+						else
+						{
+							// Delta motion of the root bone in mesh space
+							DeltaMotionAtom.Rotation = EndAtom.Rotation * MinQ(StartAtom.Rotation);
+						}
+						DeltaMotionAtom.Rotation.Normalize();
+
+		#if false//0 // DEBUG ROOT ROTATION
+						debugf(TEXT("%3.2f Root Rotation StartAtom: %s, EndAtom: %s, DeltaMotionAtom: %s"), GWorld->GetTimeSeconds(), 
+							*(FQuatRotationTranslationMatrix(StartAtom.Rotation, FVector(0.f)).Rotator()).ToString(), 
+							*(FQuatRotationTranslationMatrix(EndAtom.Rotation, FVector(0.f)).Rotator()).ToString(), 
+							*(FQuatRotationTranslationMatrix(DeltaMotionAtom.Rotation, FVector(0.f)).Rotator()).ToString());
+		#endif
+
+						// Only do that if an axis needs to be filtered out.
+						if( thisSeq.RootRotationOption[0] != ERootRotationOption.RRO_Extract || thisSeq.RootRotationOption[1] != ERootRotationOption.RRO_Extract || thisSeq.RootRotationOption[2] != ERootRotationOption.RRO_Extract )
+						{
+							throw new Exception($"{nameof(ERootRotationOption)} not supported");
+							/*
+							Quat	MeshToCompQuat(MeshToCompTM);
+
+							// Turn delta rotation from mesh space to component space
+							Quat	CompDeltaQuat = MeshToCompQuat * DeltaMotionAtom.Rotation * (-MeshToCompQuat);
+							CompDeltaQuat.Normalize();
+
+		#if false//0 // DEBUG ROOT ROTATION
+							debugf(TEXT("%3.2f Mesh To Comp Delta: %s"), GWorld->GetTimeSeconds(), *(FQuatRotationTranslationMatrix(CompDeltaQuat, FVector(0.f)).Rotator()).ToString());
+		#endif
+
+							// Turn component space delta rotation to FRotator
+							// @note going through rotators introduces some errors. See if this can be done using quaterions instead.
+							Rotator CompDeltaRot = FQuatRotationTranslationMatrix(CompDeltaQuat, FVector(0.f)).Rotator();
+
+							// Filter out any of the Roll (X), Pitch (Y), Yaw (Z) channels in mesh space
+							if( thisSeq.RootRotationOption[0] != ERootRotationOption.RRO_Extract )
+							{
+								CompDeltaRot.Roll	= 0;
+							}
+							if( thisSeq.RootRotationOption[1] != ERootRotationOption.RRO_Extract )
+							{
+								CompDeltaRot.Pitch	= 0;
+							}
+							if( thisSeq.RootRotationOption[2] != ERootRotationOption.RRO_Extract )
+							{
+								CompDeltaRot.Yaw	= 0;
+							}
+
+							// Turn back filtered component space delta rotator to quaterion
+							Quat CompNewDeltaQuat	= CompDeltaRot.Quaternion();
+
+							// Turn component space delta to mesh space.
+							DeltaMotionAtom.Rotation = (-MeshToCompQuat) * CompNewDeltaQuat * MeshToCompQuat;
+							DeltaMotionAtom.Rotation.Normalize();
+
+		#if false//0 // DEBUG ROOT ROTATION
+							debugf(TEXT("%3.2f Post Comp Filter. CompDelta: %s, MeshDelta: %s"), GWorld->GetTimeSeconds(), 
+								*(FQuatRotationTranslationMatrix(CompNewDeltaQuat, FVector(0.f)).Rotator()).ToString(), 
+								*(FQuatRotationTranslationMatrix(DeltaMotionAtom.Rotation, FVector(0.f)).Rotator()).ToString());
+		#endif
+*/
+						}
+
+		#if false//0 // DEBUG ROOT ROTATION
+						FQuat	MeshToCompQuat(MeshToCompTM);
+
+						// Transform mesh space delta rotation to component space.
+						FQuat	CompDeltaQuat	= MeshToCompQuat * DeltaMotionAtom.Rotation * (-MeshToCompQuat);
+						CompDeltaQuat.Normalize();
+
+						debugf(TEXT("%3.2f Extracted Root Rotation: %s"), GWorld->GetTimeSeconds(), *(FQuatRotationTranslationMatrix(CompDeltaQuat, FVector(0.f)).Rotator()).ToString());
+		#endif
+
+						// Transform delta translation by this delta rotation.
+						// This is to compensate the fact that the rotation will rotate the actor, and affect the translation.
+						// This assumes that root rotation won't be weighted down the tree, and that Actor will actually use it...
+						// Also we don't filter rotation per axis here.. what is done for delta root rotation, should be done here as well.
+						if( DeltaMotionAtom.Translation != default )
+						{
+							// Delta rotation since first frame
+							// Remove delta we just extracted, because translation is going to be applied with current rotation, not new one.
+							var	MeshDeltaRotQuat = (CurrentFrameAtom.Rotation * MinQ(FirstFrameAtom.Rotation)) * MinQ(DeltaMotionAtom.Rotation);
+							MeshDeltaRotQuat.Normalize();
+
+							// Only do that if an axis needs to be filtered out.
+							if( thisSeq.RootRotationOption[0] != ERootRotationOption.RRO_Extract || thisSeq.RootRotationOption[1] != ERootRotationOption.RRO_Extract || thisSeq.RootRotationOption[2] != ERootRotationOption.RRO_Extract )
+							{
+								throw new Exception($"{nameof(ERootRotationOption)} not supported");
+								/*
+								FQuat	MeshToCompQuat(MeshToCompTM);
+
+								// Turn delta rotation from mesh space to component space
+								FQuat	CompDeltaQuat = MeshToCompQuat * MeshDeltaRotQuat * (-MeshToCompQuat);
+								CompDeltaQuat.Normalize();
+
+								// Turn component space delta rotation to FRotator
+								// @note going through rotators introduces some errors. See if this can be done using quaterions instead.
+								FRotator CompDeltaRot = FQuatRotationTranslationMatrix(CompDeltaQuat, FVector(0.f)).Rotator();
+
+								// Filter out any of the Roll (X), Pitch (Y), Yaw (Z) channels in mesh space
+								if( thisSeq.RootRotationOption[0] != ERootRotationOption.RRO_Extract )
+								{
+									CompDeltaRot.Roll	= 0;
+								}
+								if( thisSeq.RootRotationOption[1] != ERootRotationOption.RRO_Extract )
+								{
+									CompDeltaRot.Pitch	= 0;
+								}
+								if( thisSeq.RootRotationOption[2] != ERootRotationOption.RRO_Extract )
+								{
+									CompDeltaRot.Yaw	= 0;
+								}
+
+								// Turn back filtered component space delta rotator to quaterion
+								FQuat CompNewDeltaQuat = CompDeltaRot.Quaternion();
+
+								// Turn component space delta to mesh space.
+								MeshDeltaRotQuat = (-MeshToCompQuat) * CompNewDeltaQuat * MeshToCompQuat;
+								MeshDeltaRotQuat.Normalize();*/
+							}
+
+							/*FMatrix	MeshDeltaRotTM		= FQuatRotationTranslationMatrix(MeshDeltaRotQuat, FVector(0.f));
+							DeltaMotionAtom.Translation = MeshDeltaRotTM.InverseTransformNormal( DeltaMotionAtom.Translation );*/
+							// Something like this I think ?
+							DeltaMotionAtom.Translation = Quaternion.Inverse(MeshDeltaRotQuat) * ( DeltaMotionAtom.Translation );
+						}
+					}
+					else
+					{			
+						// If we're not extracting rotation, then set to identity
+						DeltaMotionAtom.Rotation = Quaternion.identity;
+					}
+				}
+				else // if( StartTime != EndTime )
+				{
+					// Root Motion cannot be extracted.
+					DeltaMotionAtom = TR.Identity;
+				}
+			}
+
+			// Apply bone locking, with axis filtering (in component space)
+			// Bone is locked to its position on the first frame of animation.
+			{
+				// Lock full rotation to first frame.
+				if( thisSeq.RootRotationOption[0] != ERootRotationOption.RRO_Default && thisSeq.RootRotationOption[1] != ERootRotationOption.RRO_Default && thisSeq.RootRotationOption[2] != ERootRotationOption.RRO_Default)
+				{
+					CurrentFrameAtom.Rotation = FirstFrameAtom.Rotation;
+				}
+				// Do we need to lock at least one axis of the bone's rotation to the first frame's value?
+				else if( thisSeq.RootRotationOption[0] != ERootRotationOption.RRO_Default || thisSeq.RootRotationOption[1] != ERootRotationOption.RRO_Default || thisSeq.RootRotationOption[2] != ERootRotationOption.RRO_Default )
+				{
+					throw new Exception($"{nameof(ERootRotationOption)} not supported");/*
+					FQuat	MeshToCompQuat(MeshToCompTM);
+
+					// Find delta between current frame and first frame
+					FQuat	CompFirstQuat	= MeshToCompQuat * FirstFrameAtom.Rotation;
+					FQuat	CompCurrentQuat	= MeshToCompQuat * CurrentFrameAtom.Rotation;
+					FQuat	CompDeltaQuat	= CompCurrentQuat * (-CompFirstQuat);
+					CompDeltaQuat.Normalize();
+
+					FRotator CompDeltaRot = FQuatRotationTranslationMatrix(CompDeltaQuat, FVector(0.f)).Rotator();
+
+					// Filter out any of the Roll (X), Pitch (Y), Yaw (Z) channels in mesh space
+					if( thisSeq.RootRotationOption[0] != ERootRotationOption.RRO_Default )
+					{
+						CompDeltaRot.Roll	= 0;
+					}
+					if( thisSeq.RootRotationOption[1] != ERootRotationOption.RRO_Default )
+					{
+						CompDeltaRot.Pitch	= 0;
+					}
+					if( thisSeq.RootRotationOption[2] != ERootRotationOption.RRO_Default )
+					{
+						CompDeltaRot.Yaw	= 0;
+					}
+
+					// Use new delta and first frame to find out new current rotation.
+					FQuat	CompNewDeltaQuat	= CompDeltaRot.Quaternion();
+					FQuat	CompNewCurrentQuat	= CompNewDeltaQuat * CompFirstQuat;
+					CompNewCurrentQuat.Normalize();
+
+					CurrentFrameAtom.Rotation	= (-MeshToCompQuat) * CompNewCurrentQuat;
+					CurrentFrameAtom.Rotation.Normalize();*/
+				}
+
+				// Lock full bone translation to first frame
+				if( thisSeq.RootBoneOption[0] != ERootBoneAxis.RBA_Default && thisSeq.RootBoneOption[1] != ERootBoneAxis.RBA_Default && thisSeq.RootBoneOption[2] != ERootBoneAxis.RBA_Default )
+				{
+					CurrentFrameAtom.Translation = FirstFrameAtom.Translation;
+
+		#if false//0
+					debugf(TEXT("%3.2f Lock Root Bone to first frame translation: %s"), GWorld->GetTimeSeconds(), *FirstFrameAtom.Translation.ToString());
+		#endif
+				}
+				// Do we need to lock at least one axis of the bone's translation to the first frame's value?
+				else if( thisSeq.RootBoneOption[0] != ERootBoneAxis.RBA_Default || thisSeq.RootBoneOption[1] != ERootBoneAxis.RBA_Default || thisSeq.RootBoneOption[2] != ERootBoneAxis.RBA_Default )
+				{
+					throw new Exception($"{nameof(ERootBoneAxis)} not supported");/*
+					FVector CompCurrentFrameTranslation			= MeshToCompTM.TransformNormal(CurrentFrameAtom.Translation);
+					const	FVector	CompFirstFrameTranslation	= MeshToCompTM.TransformNormal(FirstFrameAtom.Translation);
+
+					// Lock back to first frame position any of the X, Y, Z axis
+					if( thisSeq.RootBoneOption[0] != ERootBoneAxis.RBA_Default  )
+					{
+						CompCurrentFrameTranslation.X = CompFirstFrameTranslation.X;
+					}
+					if( thisSeq.RootBoneOption[1] != ERootBoneAxis.RBA_Default  )
+					{
+						CompCurrentFrameTranslation.Y = CompFirstFrameTranslation.Y;
+					}
+					if( thisSeq.RootBoneOption[2] != ERootBoneAxis.RBA_Default  )
+					{
+						CompCurrentFrameTranslation.Z = CompFirstFrameTranslation.Z;
+					}
+
+					// convert back to mesh space
+					CurrentFrameAtom.Translation = MeshToCompTM.InverseTransformNormal(CompCurrentFrameTranslation);*/
+				}
+			}
+		}
+
+
+
+		void AnimNodeAimOffset_GetBoneAtoms( AnimNodeAimOffset n, Span<TR> Atoms, ref TR RootMotionDelta, ref int bHasRootMotion )
+		{
+			var Children = n.Children;
+			ref var AngleOffset = ref n.AngleOffset;
+			
+			// Get local space atoms from child
+			if( Children[0].Anim )
+			{
+				// EXCLUDE_CHILD_TIME
+				GetBoneAtoms(Children[0].Anim, Atoms, ref RootMotionDelta, ref bHasRootMotion);
+			}
+			else
+			{
+				RootMotionDelta = TR.Identity;
+				bHasRootMotion	= 0;
+				_bindPose.CopyTo(Atoms);
+			}
+
+			// Have the option of doing nothing if at a low LOD.
+			/*if( !SkelComponent || RequiredBones.Num() == 0 || SkelComponent.PredictedLODLevel >= PassThroughAtOrAboveLOD )
+			{
+				return;
+			}*/
+
+			//SkeletalMesh	SkelMesh = SkelComponent.SkeletalMesh;
+			//int				NumBones = SkelMesh.RefSkeleton.Num();
+
+			// Make sure we have a valid setup
+			if( TryGetCurrentProfile(n, out var P) == false /*|| BoneToAimCpnt.Num() != NumBones*/ )
+			{
+				return;
+			}
+
+			Object.Vector2D SafeAim = n.Aim;
+			
+			// Add in rotation offset, but not in the editor
+			//if( !GIsEditor || GIsGame )
+			{
+				if( AngleOffset.X != 0f )
+				{
+					SafeAim.X = UnWindNormalizedAimAngle(SafeAim.X - AngleOffset.X);
+				}
+				if( AngleOffset.Y != 0f )
+				{
+					SafeAim.Y = UnWindNormalizedAimAngle(SafeAim.Y - AngleOffset.Y);
+				}
+			}
+
+			// Scale by range
+			if( P.HorizontalRange.X != 0f && SafeAim.X < 0f )
+			{
+				SafeAim.X = SafeAim.X / Mathf.Abs(P.HorizontalRange.X);
+			}
+			if( P.HorizontalRange.Y != 0f && SafeAim.X > 0f )
+			{
+				SafeAim.X = SafeAim.X / P.HorizontalRange.Y;
+			}
+			if( P.VerticalRange.X != 0f && SafeAim.Y < 0f )
+			{
+				SafeAim.Y = SafeAim.Y / Mathf.Abs(P.VerticalRange.X);
+			}
+			if( P.VerticalRange.Y != 0f && SafeAim.Y > 0f )
+			{
+				SafeAim.Y = SafeAim.Y / P.VerticalRange.Y;
+			}
+
+			// Make sure we're using correct values within legal range.
+			SafeAim.X = Object.Clamp<float>(SafeAim.X, -1f, +1f);
+			SafeAim.Y = Object.Clamp<float>(SafeAim.Y, -1f, +1f);
+
+			// Post process final Aim.
+			n.PostAimProcessing(ref SafeAim);
+
+			// Bypass node if using center center position.
+			if( (!n.bForceAimDir && SafeAim.IsNearlyZero()) || (n.bForceAimDir && n.ForcedAimDir == EAnimAimDir.ANIMAIM_CENTERCENTER) )
+			{
+				return;
+			}
+
+			// We build the mesh-space matrices of the source bones.
+			/*if( AimOffsetBoneTM.Num() < NumBones )
+			{
+				AimOffsetBoneTM.Reset();
+				AimOffsetBoneTM.Add(NumBones);
+			}*/
+
+			/* int NumAimComp = P.AimComponents.Num();
+			 int RequiredNum = RequiredBones.Num();
+			 int DesiredNum = DesiredBones.Num();
+			int DesiredPos = 0;
+			int RequiredPos = 0;
+			int BoneIndex = 0;
+			while( DesiredPos < DesiredNum && RequiredPos < RequiredNum )
+			*/
+			for( int i = 0; i < P.AimComponents.Count; i++ )
+			{
+				var AimCpnt = P.AimComponents[ i ];
+				var BoneIndex = NameToIndex[ AimCpnt.BoneName ];
+				
+				Quaternion QuaternionOffset = default;
+				Vector3 TranslationOffset = default;
+
+				// If bForceAimDir - just use whatever ForcedAimDir is set to - ignore Aim.
+				if( n.bForceAimDir )
+				{
+					switch( n.ForcedAimDir )
+					{
+						case EAnimAimDir.ANIMAIM_LEFTUP			:	QuaternionOffset	= (Quaternion)AimCpnt.LU.Quaternion; 
+														TranslationOffset	= AimCpnt.LU.Translation.ToUnityDir();	
+														break;
+						case EAnimAimDir.ANIMAIM_CENTERUP		:	QuaternionOffset	= (Quaternion)AimCpnt.CU.Quaternion; 
+														TranslationOffset	= AimCpnt.CU.Translation.ToUnityDir();	
+														break;
+						case EAnimAimDir.ANIMAIM_RIGHTUP		:	QuaternionOffset	= (Quaternion)AimCpnt.RU.Quaternion; 
+														TranslationOffset	= AimCpnt.RU.Translation.ToUnityDir(); 
+														break;
+						case EAnimAimDir.ANIMAIM_LEFTCENTER		:	QuaternionOffset	= (Quaternion)AimCpnt.LC.Quaternion; 
+														TranslationOffset	= AimCpnt.LC.Translation.ToUnityDir(); 
+														break;
+						case EAnimAimDir.ANIMAIM_CENTERCENTER	:	QuaternionOffset	= (Quaternion)AimCpnt.CC.Quaternion; 
+														TranslationOffset	= AimCpnt.CC.Translation.ToUnityDir(); 
+														break;
+						case EAnimAimDir.ANIMAIM_RIGHTCENTER	:	QuaternionOffset	= (Quaternion)AimCpnt.RC.Quaternion; 
+														TranslationOffset	= AimCpnt.RC.Translation.ToUnityDir(); 
+														break;
+						case EAnimAimDir.ANIMAIM_LEFTDOWN		:	QuaternionOffset	= (Quaternion)AimCpnt.LD.Quaternion; 
+														TranslationOffset	= AimCpnt.LD.Translation.ToUnityDir(); 
+														break;
+						case EAnimAimDir.ANIMAIM_CENTERDOWN		:	QuaternionOffset	= (Quaternion)AimCpnt.CD.Quaternion; 
+														TranslationOffset	= AimCpnt.CD.Translation.ToUnityDir(); 
+														break;
+						case EAnimAimDir.ANIMAIM_RIGHTDOWN		:	QuaternionOffset	= (Quaternion)AimCpnt.RD.Quaternion; 
+														TranslationOffset	= AimCpnt.RD.Translation.ToUnityDir(); 
+														break;
+					}
+				}
+				else
+				{
+					if( SafeAim.X >= 0f && SafeAim.Y >= 0f ) // Up Right
+					{
+						QuaternionOffset	= BiLerpQuat(AimCpnt.CC.Quaternion, AimCpnt.RC.Quaternion, AimCpnt.CU.Quaternion, AimCpnt.RU.Quaternion, SafeAim.X, SafeAim.Y);
+						TranslationOffset	= BiLerp(AimCpnt.CC.Translation, AimCpnt.RC.Translation, AimCpnt.CU.Translation, AimCpnt.RU.Translation, SafeAim.X, SafeAim.Y);
+					}
+					else if( SafeAim.X >= 0f && SafeAim.Y < 0f ) // Bottom Right
+					{
+						QuaternionOffset	= BiLerpQuat(AimCpnt.CD.Quaternion, AimCpnt.RD.Quaternion, AimCpnt.CC.Quaternion, AimCpnt.RC.Quaternion, SafeAim.X, SafeAim.Y+1f);
+						TranslationOffset	= BiLerp(AimCpnt.CD.Translation, AimCpnt.RD.Translation, AimCpnt.CC.Translation, AimCpnt.RC.Translation, SafeAim.X, SafeAim.Y+1f);
+					}
+					else if( SafeAim.X < 0f && SafeAim.Y >= 0f ) // Up Left
+					{
+						QuaternionOffset	= BiLerpQuat(AimCpnt.LC.Quaternion, AimCpnt.CC.Quaternion, AimCpnt.LU.Quaternion, AimCpnt.CU.Quaternion, SafeAim.X+1f, SafeAim.Y);
+						TranslationOffset	= BiLerp(AimCpnt.LC.Translation, AimCpnt.CC.Translation, AimCpnt.LU.Translation, AimCpnt.CU.Translation, SafeAim.X+1f, SafeAim.Y);
+					}
+					else if( SafeAim.X < 0f && SafeAim.Y < 0f ) // Bottom Left
+					{
+						QuaternionOffset	= BiLerpQuat(AimCpnt.LD.Quaternion, AimCpnt.CD.Quaternion, AimCpnt.LC.Quaternion, AimCpnt.CC.Quaternion, SafeAim.X+1f, SafeAim.Y+1f);
+						TranslationOffset	= BiLerp(AimCpnt.LD.Translation, AimCpnt.CD.Translation, AimCpnt.LC.Translation, AimCpnt.CC.Translation, SafeAim.X+1f, SafeAim.Y+1f);
+					}
+
+					// Normalize Resulting Quaternion
+					QuaternionOffset.Normalize();
+				}
+
+				// only perform a transformation if it is significant
+				// (Since it's something expensive to do)
+				bool	bDoRotation	= QuaternionOffset.w * QuaternionOffset.w < 1f - DELTA * DELTA;
+				if( bDoRotation || !TranslationOffset.IsNearlyZero() )
+				{
+					// Find bone translation
+					 /*Vector BoneOrigin = TranslationOffset + AimOffsetBoneTM[BoneIndex].GetOrigin();
+
+					// Apply bone rotation
+					if( bDoRotation )
+					{
+						AimOffsetBoneTM[BoneIndex] *= FQuatRotationTranslationMatrix(QuaternionOffset, Vector(0f));
+					}
+
+					// Apply bone translation
+					AimOffsetBoneTM[BoneIndex].SetOrigin(BoneOrigin);
+
+					// Transform back to parent bone space
+					MEdge.Core.Object.Matrix RelTM;
+					if( BoneIndex == 0 )
+					{
+						RelTM = AimOffsetBoneTM[BoneIndex];
+					}
+					else
+					{
+						 int ParentIndex = SkelMesh.RefSkeleton[BoneIndex].ParentIndex;
+						RelTM = AimOffsetBoneTM[BoneIndex] * AimOffsetBoneTM[ParentIndex].Inverse();
+					}
+
+					 TR	TransformedAtom = new TR(RelTM);
+					Atoms[BoneIndex].Rotation		= TransformedAtom.Rotation;
+					Atoms[BoneIndex].Translation	= TransformedAtom.Translation;*/
+					 Atoms[ BoneIndex ] = new TR { Rotation = Atoms[ BoneIndex ].Rotation * QuaternionOffset, Translation = Atoms[ BoneIndex ].Translation + TranslationOffset };
+				}
+				
+			}
+			
+			// Lots of unnecessary operations
+			#if UNUSED
+			for( int i = 0; i < n.RequiredBones.Count; i++ )
+			{
+				int BoneIndex = n.RequiredBones[ i ];
+				// Perform intersection of RequiredBones and DesiredBones array.
+				// If they are the same, BoneIndex is relevant and we should process it.
+				/*if( DesiredBones[DesiredPos] == RequiredBones[RequiredPos] )
+				{
+					BoneIndex = DesiredBones[DesiredPos];
+					DesiredPos++;
+					RequiredPos++;
+				}
+				// If value at DesiredPos is lower, increment DesiredPos.
+				else if( DesiredBones[DesiredPos] < RequiredBones[RequiredPos] )
+				{
+					DesiredPos++;
+					continue;
+				}
+				// If value at RequiredPos is lower, increment RequiredPos.
+				else
+				{
+					RequiredPos++;
+					continue;
+				}*/
+
+				// transform required bones into component space
+				Atoms[BoneIndex].ToTransform(AimOffsetBoneTM[BoneIndex]);
+				if( BoneIndex > 0 )
+				{
+					AimOffsetBoneTM[BoneIndex] *= AimOffsetBoneTM[SkelMesh.RefSkeleton[BoneIndex].ParentIndex];
+				}
+
+				// See if this bone should be transformed. ie there is an AimComponent defined for it
+				 int AimCompIndex = BoneToAimCpnt[BoneIndex];
+				if( AimCompIndex != INDEX_NONE )
+				{
+							Quat			QuaternionOffset;
+							Vector			TranslationOffset;
+						AimComponent	AimCpnt = P.AimComponents[AimCompIndex];
+
+					// If bForceAimDir - just use whatever ForcedAimDir is set to - ignore Aim.
+					if( n.bForceAimDir )
+					{
+						switch( n.ForcedAimDir )
+						{
+							case EAnimAimDir.ANIMAIM_LEFTUP			:	QuaternionOffset	= AimCpnt.LU.Quaternion; 
+															TranslationOffset	= AimCpnt.LU.Translation;	
+															break;
+							case EAnimAimDir.ANIMAIM_CENTERUP		:	QuaternionOffset	= AimCpnt.CU.Quaternion; 
+															TranslationOffset	= AimCpnt.CU.Translation;	
+															break;
+							case EAnimAimDir.ANIMAIM_RIGHTUP		:	QuaternionOffset	= AimCpnt.RU.Quaternion; 
+															TranslationOffset	= AimCpnt.RU.Translation; 
+															break;
+							case EAnimAimDir.ANIMAIM_LEFTCENTER		:	QuaternionOffset	= AimCpnt.LC.Quaternion; 
+															TranslationOffset	= AimCpnt.LC.Translation; 
+															break;
+							case EAnimAimDir.ANIMAIM_CENTERCENTER	:	QuaternionOffset	= AimCpnt.CC.Quaternion; 
+															TranslationOffset	= AimCpnt.CC.Translation; 
+															break;
+							case EAnimAimDir.ANIMAIM_RIGHTCENTER	:	QuaternionOffset	= AimCpnt.RC.Quaternion; 
+															TranslationOffset	= AimCpnt.RC.Translation; 
+															break;
+							case EAnimAimDir.ANIMAIM_LEFTDOWN		:	QuaternionOffset	= AimCpnt.LD.Quaternion; 
+															TranslationOffset	= AimCpnt.LD.Translation; 
+															break;
+							case EAnimAimDir.ANIMAIM_CENTERDOWN		:	QuaternionOffset	= AimCpnt.CD.Quaternion; 
+															TranslationOffset	= AimCpnt.CD.Translation; 
+															break;
+							case EAnimAimDir.ANIMAIM_RIGHTDOWN		:	QuaternionOffset	= AimCpnt.RD.Quaternion; 
+															TranslationOffset	= AimCpnt.RD.Translation; 
+															break;
+						}
+					}
+					else
+					{
+						if( SafeAim.X >= 0f && SafeAim.Y >= 0f ) // Up Right
+						{
+							QuaternionOffset	= BiLerpQuat(AimCpnt.CC.Quaternion, AimCpnt.RC.Quaternion, AimCpnt.CU.Quaternion, AimCpnt.RU.Quaternion, SafeAim.X, SafeAim.Y);
+							TranslationOffset	= BiLerp(AimCpnt.CC.Translation, AimCpnt.RC.Translation, AimCpnt.CU.Translation, AimCpnt.RU.Translation, SafeAim.X, SafeAim.Y);
+						}
+						else if( SafeAim.X >= 0f && SafeAim.Y < 0f ) // Bottom Right
+						{
+							QuaternionOffset	= BiLerpQuat(AimCpnt.CD.Quaternion, AimCpnt.RD.Quaternion, AimCpnt.CC.Quaternion, AimCpnt.RC.Quaternion, SafeAim.X, SafeAim.Y+1f);
+							TranslationOffset	= BiLerp(AimCpnt.CD.Translation, AimCpnt.RD.Translation, AimCpnt.CC.Translation, AimCpnt.RC.Translation, SafeAim.X, SafeAim.Y+1f);
+						}
+						else if( SafeAim.X < 0f && SafeAim.Y >= 0f ) // Up Left
+						{
+							QuaternionOffset	= BiLerpQuat(AimCpnt.LC.Quaternion, AimCpnt.CC.Quaternion, AimCpnt.LU.Quaternion, AimCpnt.CU.Quaternion, SafeAim.X+1f, SafeAim.Y);
+							TranslationOffset	= BiLerp(AimCpnt.LC.Translation, AimCpnt.CC.Translation, AimCpnt.LU.Translation, AimCpnt.CU.Translation, SafeAim.X+1f, SafeAim.Y);
+						}
+						else if( SafeAim.X < 0f && SafeAim.Y < 0f ) // Bottom Left
+						{
+							QuaternionOffset	= BiLerpQuat(AimCpnt.LD.Quaternion, AimCpnt.CD.Quaternion, AimCpnt.LC.Quaternion, AimCpnt.CC.Quaternion, SafeAim.X+1f, SafeAim.Y+1f);
+							TranslationOffset	= BiLerp(AimCpnt.LD.Translation, AimCpnt.CD.Translation, AimCpnt.LC.Translation, AimCpnt.CC.Translation, SafeAim.X+1f, SafeAim.Y+1f);
+						}
+
+						// Normalize Resulting Quaternion
+						QuaternionOffset.Normalize();
+					}
+
+					// only perform a transformation if it is significant
+					// (Since it's something expensive to do)
+					 bool	bDoRotation	= Square(QuaternionOffset.W) < 1f - DELTA * DELTA;
+					if( bDoRotation || !TranslationOffset.IsNearlyZero() )
+					{
+						// Find bone translation
+						 Vector BoneOrigin = TranslationOffset + AimOffsetBoneTM[BoneIndex].GetOrigin();
+
+						// Apply bone rotation
+						if( bDoRotation )
+						{
+							AimOffsetBoneTM[BoneIndex] *= FQuatRotationTranslationMatrix(QuaternionOffset, Vector(0f));
+						}
+
+						// Apply bone translation
+						AimOffsetBoneTM[BoneIndex].SetOrigin(BoneOrigin);
+
+						// Transform back to parent bone space
+						MEdge.Core.Object.Matrix RelTM;
+						if( BoneIndex == 0 )
+						{
+							RelTM = AimOffsetBoneTM[BoneIndex];
+						}
+						else
+						{
+							 int ParentIndex = SkelMesh.RefSkeleton[BoneIndex].ParentIndex;
+							RelTM = AimOffsetBoneTM[BoneIndex] * AimOffsetBoneTM[ParentIndex].Inverse();
+						}
+
+						 TR	TransformedAtom = new TR(RelTM);
+						Atoms[BoneIndex].Rotation		= TransformedAtom.Rotation;
+						Atoms[BoneIndex].Translation	= TransformedAtom.Translation;
+					}
+				}
+			}
+			#endif
+		}
+
+
+
+		unsafe void AnimNodeBlendPerBone_GetBoneAtoms( AnimNodeBlendPerBone n, Span<TR> Atoms, ref TR RootMotionDelta, ref int bHasRootMotion )
+		{
+			// START_GETBONEATOM_TIMER
+
+			var Children = n.Children;
+			
+
+			// If drawing all from Children[0], no need to look at Children[1]. Pass Atoms array directly to Children[0].
+			if( Children[0].Weight >= (1f - ZERO_ANIMWEIGHT_THRESH) )
+			{
+				if( Children[0].Anim )
+				{
+					// EXCLUDE_CHILD_TIME
+					GetBoneAtoms(Children[0].Anim, Atoms, ref RootMotionDelta, ref bHasRootMotion);
+				}
+				else
+				{
+					RootMotionDelta = TR.Identity;
+					bHasRootMotion	= 0;
+					_bindPose.CopyTo(Atoms);
+				}
+
+				// Pass-through, no caching needed.
+				return;
+			}
+
+			//ref MEdge.array<FMeshBone> RefSkel = SkelComponent.SkeletalMesh.RefSkeleton;
+			//int NumAtoms = RefSkel.Num();
+
+			Span<TR> Child1Atoms = stackalloc TR[ Bones.Length ];
+			Span<TR> Child2Atoms = stackalloc TR[ Bones.Length ];
+
+			// Get bone atoms from each child (if no child - use ref pose).
+			TR	Child1RMD				= TR.Identity;
+			int  		bChild1HasRootMotion	= 0;
+			if( Children[0].Anim )
+			{
+				// EXCLUDE_CHILD_TIME
+				GetBoneAtoms(Children[0].Anim, Child1Atoms, ref Child1RMD, ref bChild1HasRootMotion);
+			}
+			else
+			{
+				_bindPose.CopyTo(Child1Atoms);
+			}
+
+			// Get only the necessary bones from child2. The ones that have a Child2PerBoneWeight[BoneIndex] > 0
+			TR	Child2RMD				= TR.Identity;
+			int		bChild2HasRootMotion	= 0;
+
+			//debugf(TEXT("child2 went from %d bones to %d bones."), DesiredBones.Num(), Child2DesiredBones.Num() );
+			if( Children[1].Anim )
+			{
+				// EXCLUDE_CHILD_TIME
+				GetBoneAtoms(Children[1].Anim, Child2Atoms, ref Child2RMD, ref bChild2HasRootMotion);
+			}
+			else
+			{
+				_bindPose.CopyTo(Child2Atoms);
+			}
+
+			// If we are doing component-space blend, ensure working buffers are big enough
+			if(!n.bForceLocalSpaceBlend)
+			{
+				throw new Exception( "bDoComponentSpaceBlend not supported" );
+				#if UNUSED
+				Child1CompSpace.Reset();
+				Child1CompSpace.Add(NumAtoms);
+
+				Child2CompSpace.Reset();
+				Child2CompSpace.Add(NumAtoms);
+
+				ResultCompSpace.Reset();
+				ResultCompSpace.Add(NumAtoms);
+				#endif
+			}
+
+			int LocalToCompReqIndex = 0;
+
+			// do blend
+			for(int BoneIndex=0; BoneIndex<Atoms.Length; BoneIndex++)
+			{
+				 float Child2BoneWeight	= Children[1].Weight * n.Child2PerBoneWeight[BoneIndex];
+
+				//debugf(TEXT("  (%2d) %1.1f %s"), BoneIndex, Child2PerBoneWeight[BoneIndex], *RefSkel[BoneIndex].Name);
+				 bool bDoComponentSpaceBlend =	LocalToCompReqIndex < n.LocalToCompReqBones.Num() && 
+														BoneIndex == n.LocalToCompReqBones[LocalToCompReqIndex];
+
+				if( !n.bForceLocalSpaceBlend && bDoComponentSpaceBlend )
+				{
+					throw new Exception( "bDoComponentSpaceBlend not supported" );
+					#if UNUSED
+					//debugf(TEXT("  (%2d) %1.1f %s"), BoneIndex, Child2PerBoneWeight[BoneIndex], *RefSkel[BoneIndex].Name);
+					LocalToCompReqIndex++;
+
+					 int ParentIndex	= RefSkel[BoneIndex].ParentIndex;
+
+					// turn bone atoms to matrices
+					Child1Atoms[BoneIndex].ToTransform(Child1CompSpace[BoneIndex]);
+					Child2Atoms[BoneIndex].ToTransform(Child2CompSpace[BoneIndex]);
+
+					// transform to component space
+					if( BoneIndex > 0 )
+					{
+						Child1CompSpace[BoneIndex] *= Child1CompSpace[ParentIndex];
+						Child2CompSpace[BoneIndex] *= Child2CompSpace[ParentIndex];
+					}
+
+					// everything comes from child1 copy directly
+					if( Child2BoneWeight <= ZERO_ANIMWEIGHT_THRESH )
+					{
+						ResultCompSpace[BoneIndex] = Child1CompSpace[BoneIndex];
+					}
+					// everything comes from child2, copy directly
+					else if( Child2BoneWeight >= (1f - ZERO_ANIMWEIGHT_THRESH) )
+					{
+						ResultCompSpace[BoneIndex] = Child2CompSpace[BoneIndex];
+					}
+					// blend rotation in component space of both childs
+					else
+					{
+						// convert matrices to FBoneAtoms
+						TR Child1CompSpaceAtom = new BoneAtom(Child1CompSpace[BoneIndex]);
+						TR Child2CompSpaceAtom = new BoneAtom(Child2CompSpace[BoneIndex]);
+
+						// blend BoneAtom rotation. We store everything in Child1
+
+						// We use a linear interpolation and a re-normalize for the rotation.
+						// Treating Rotation as an accumulator, initialise to a scaled version of Atom1.
+						Child1CompSpaceAtom.Rotation = Child1CompSpaceAtom.Rotation * (1f - Child2BoneWeight);
+
+						// To ensure the 'shortest route', we make sure the dot product between the accumulator and the incoming rotation is positive.
+						if( (Child1CompSpaceAtom.Rotation | Child2CompSpaceAtom.Rotation) < 0f )
+						{
+							Child1CompSpaceAtom.Rotation = Child1CompSpaceAtom.Rotation * -1f;
+						}
+
+						// Then add on the second rotation..
+						Child1CompSpaceAtom.Rotation = Child1CompSpaceAtom.Rotation + (Child2CompSpaceAtom.Rotation * Child2BoneWeight);
+
+						// ..and renormalize
+						Child1CompSpaceAtom.Rotation.Normalize();
+
+						// convert back BoneAtom to MEdge.Core.Object.Matrix
+						Child1CompSpaceAtom.ToTransform(ResultCompSpace[BoneIndex]);
+					}
+
+					// Blend Translation and Scale in local space
+					if( Child2BoneWeight <= ZERO_ANIMWEIGHT_THRESH )
+					{
+						// if blend is all the way for child1, then just copy its bone atoms
+						Atoms[BoneIndex] = Child1Atoms[BoneIndex];
+					}
+					else if( Child2BoneWeight >= (1f - ZERO_ANIMWEIGHT_THRESH) )
+					{
+						// if blend is all the way for child2, then just copy its bone atoms
+						Atoms[BoneIndex] = Child2Atoms[BoneIndex];
+					}
+					else
+					{
+						// Simple linear interpolation for translation and scale.
+						Atoms[BoneIndex].Translation	= Lerp(Child1Atoms[BoneIndex].Translation, Child2Atoms[BoneIndex].Translation, Child2BoneWeight);
+						Atoms[BoneIndex].Scale			= Lerp(Child1Atoms[BoneIndex].Scale, Child2Atoms[BoneIndex].Scale, Child2BoneWeight);
+					}
+
+					// and rotation was blended in component space...
+					// convert bone atom back to local space
+					MEdge.Core.Object.Matrix ParentTM = MEdge.Core.Object.Matrix.Identity;
+					if( BoneIndex > 0 )
+					{
+						ParentTM = ResultCompSpace[ParentIndex];
+					}
+
+					// Then work out relative transform, and convert to BoneAtom.
+					 MEdge.Core.Object.Matrix RelTM = ResultCompSpace[BoneIndex] * ParentTM.Inverse();				
+					Atoms[BoneIndex].Rotation = BoneAtom(RelTM).Rotation;
+					#endif
+				}	
+				else
+				{
+					// otherwise do faster local space blending.
+					Atoms[BoneIndex].Blend(Child1Atoms[BoneIndex], Child2Atoms[BoneIndex], Child2BoneWeight);
+				}
+
+				// Blend root motion
+				if( BoneIndex == 0 )
+				{
+					bHasRootMotion = bChild1HasRootMotion != 0 || bChild2HasRootMotion != 0 ? 1 : 0;
+
+					if( bChild1HasRootMotion != 0 && bChild2HasRootMotion != 0 )
+					{
+						var asTR = (TR)RootMotionDelta;
+						asTR.Blend( Child1RMD, Child2RMD, Child2BoneWeight );
+						RootMotionDelta = asTR;
+					}
+					else if( bChild1HasRootMotion != 0 )
+					{
+						RootMotionDelta = Child1RMD;
+					}
+					else if( bChild2HasRootMotion != 0 )
+					{
+						RootMotionDelta = Child2RMD;
+					}
+				}
+			}
+
+		}
+
+
+
+		unsafe void AnimNodeBlendBase_GetBoneAtoms( AnimNodeBlendBase n, Span<TR> Atoms, ref TR RootMotionDelta, ref int bHasRootMotion )
+		{
+			if( n.Children.Num() == 0 )
+			{
+				RootMotionDelta = default;
+				bHasRootMotion = 0;
+				_bindPose.CopyTo(Atoms);
+				return;
+			}
+			
+			int LastChildIndex = -1;
+			var Children = n.Children;
+			for(int i=0; i<Children.Num(); i++)
+			{
+				if( Children[i].Weight > ZERO_ANIMWEIGHT_THRESH )
+				{
+					// If this is the only child with any weight, pass Atoms array into it directly.
+					if( Children[i].Weight >= (1f - ZERO_ANIMWEIGHT_THRESH) )
+					{
+						if( Children[i].Anim )
+						{
+							// EXCLUDE_CHILD_TIME
+							if( Children[i].bMirrorSkeleton )
+							{
+								throw new Exception( "bMirrorSkeleton not supported" );
+								//GetMirroredBoneAtoms(ref Atoms, i, ref DesiredBones, ref RootMotionDelta, ref bHasRootMotion);
+							}
+							else
+							{
+								GetBoneAtoms(Children[i].Anim, Atoms, ref RootMotionDelta, ref bHasRootMotion);
+							}
+						}
+						else
+						{
+							RootMotionDelta = TR.Identity;
+							bHasRootMotion	= 0;
+							_bindPose.CopyTo(Atoms);
+						}
+
+						// If we're modifying the input, then cache results.
+						// Otherwise just pass through without caching anything.
+						if( Children[i].bMirrorSkeleton )
+						{
+							throw new Exception( "bMirrorSkeleton not supported" );
+							//SaveCachedResults(Atoms, RootMotionDelta, bHasRootMotion);
+						}
+						return;
+					}
+					LastChildIndex = i;
+				}
+			}
+
+
+
+
+
+
+
+			Span<TR> ChildAtoms = stackalloc TR[Bones.Length];
+			bool bNoChildrenYet = true;
+
+			bHasRootMotion						= 0;
+			int		LastRootMotionChildIndex	= -1;
+			float	AccumulatedRootMotionWeight	= 0f;
+
+			// Iterate over each child getting its atoms, scaling them and adding them to output (Atoms array)
+			for(int i=0; i<=LastChildIndex; i++)
+			{
+				// If this child has non-zero weight, blend it into accumulator.
+				if( Children[i].Weight > ZERO_ANIMWEIGHT_THRESH )
+				{
+					// Do need to request atoms, so allocate array here.
+					if( ChildAtoms.Length == 0 )
+					{
+						var identity = TR.Identity;
+						for( int j = 0; j < ChildAtoms.Length; j++ )
+							ChildAtoms[ j ] = identity;
+					}
+
+					// Get bone atoms from child node (if no child - use ref pose).
+					if( Children[i].Anim )
+					{
+						// EXCLUDE_CHILD_TIME
+						if( Children[i].bMirrorSkeleton )
+						{
+							throw new Exception( "bMirrorSkeleton not supported" );
+							//GetMirroredBoneAtoms(ChildAtoms, i, DesiredBones, Children[i].RootMotion, Children[i].bHasRootMotion);
+						}
+						else
+						{
+							var rmAsTR = (TR)Children[ i ].RootMotion;
+							GetBoneAtoms(Children[i].Anim, ChildAtoms, ref rmAsTR, ref Children[i].bHasRootMotion);
+							Children[ i ].RootMotion = rmAsTR;
+						}
+
+
+						// If this children received root motion information, accumulate its weight
+						if( Children[i].bHasRootMotion != 0 )
+						{
+							bHasRootMotion				= 1;
+							LastRootMotionChildIndex	= i;
+							AccumulatedRootMotionWeight += Children[i].Weight;
+						}
+					}
+					else
+					{	
+						Children[i].RootMotion		= TR.Identity;
+						Children[i].bHasRootMotion	= 0;
+						_bindPose.CopyTo(ChildAtoms);
+					}
+
+					for(int BoneIndex=0; BoneIndex<ChildAtoms.Length; BoneIndex++)
+					{
+						// We just write the first childrens atoms into the output array. Avoids zero-ing it out.
+						if( bNoChildrenYet )
+						{
+							Atoms[BoneIndex] = ChildAtoms[BoneIndex] * Children[i].Weight;
+						}
+						else
+						{
+							var childVal = ChildAtoms[ BoneIndex ];
+							// To ensure the 'shortest route', we make sure the dot product between the accumulator and the incoming child atom is positive.
+							if( Quaternion.Dot( Atoms[BoneIndex].Rotation, childVal.Rotation) < 0f )
+							{
+								childVal.Rotation = QTimesF( childVal.Rotation, - 1f );
+							}
+
+							Atoms[BoneIndex] += childVal * Children[i].Weight;
+						}
+
+						// If last child - normalize the rotation quaternion now.
+						if( i == LastChildIndex )
+						{
+							Atoms[BoneIndex].Rotation.Normalize();
+						}
+					}
+
+					bNoChildrenYet = false;
+				}
+			}
+
+			// 2nd pass, iterate over all childs who received root motion
+			// And blend root motion only between these childs.
+			if( bHasRootMotion != 0 )
+			{
+				bNoChildrenYet = true;
+				for(int i=0; i<=LastRootMotionChildIndex; i++)
+				{
+					if( Children[i].Weight > ZERO_ANIMWEIGHT_THRESH && Children[i].bHasRootMotion != 0 )
+					{
+						 float	Weight				= Children[i].Weight / AccumulatedRootMotionWeight;
+						var	WeightedRootMotion	= (TR)(Children[i].RootMotion) * Weight;
+
+
+		#if false // Debug Root Motion
+						if( !WeightedRootMotion.Translation.IsZero() )
+						{
+							debugf(TEXT("%3.2f [%s]  Adding weighted (%3.2f) root motion trans: %3.2f, vect: %s. ChildWeight: %3.3f"), GWorld.GetTimeSeconds(), *SkelComponent.Owner.Name, Weight, WeightedRootMotion.Translation.Size(), *WeightedRootMotion.Translation.ToString(), Children[i].Weight);
+						}
+		#endif
+
+						// Accumulate Root Motion
+						if( bNoChildrenYet )
+						{
+							RootMotionDelta = WeightedRootMotion;
+							bNoChildrenYet	= false;
+						}
+						else
+						{
+							// To ensure the 'shortest route', we make sure the dot product between the accumulator and the incoming child atom is positive.
+							if( Quaternion.Dot(((TR)RootMotionDelta).Rotation, WeightedRootMotion.Rotation) < 0f )
+							{
+								WeightedRootMotion.Rotation = QTimesF( WeightedRootMotion.Rotation, -1f );
+							}
+
+							RootMotionDelta += WeightedRootMotion;
+						}
+					}
+				}
+
+				// Normalize rotation quaternion at the end.
+				RootMotionDelta = new TR{ Translation = ( (TR)RootMotionDelta ).Translation, Rotation = ( (TR)RootMotionDelta ).Rotation.normalized };
+			}
+
+		#if false // Debug Root Motion
+			if( !RootMotionDelta.Translation.IsZero() )
+			{
+				debugf(TEXT("%3.2f [%s] Root Motion Trans: %3.2f, vect: %s"), GWorld.GetTimeSeconds(), *SkelComponent.Owner.Name, RootMotionDelta.Translation.Size(), *RootMotionDelta.Translation.ToString());
+			}
+		#endif
+		}
+
+
+
+		bool TryGetCurrentProfile(AnimNodeAimOffset n, out AimOffsetProfile P)
+		{
+			// Check profile index is not outside range.
+			if(n.TemplateNode)
+			{
+				if(n.CurrentProfileIndex < n.TemplateNode.Profiles.Num())
+				{
+					P = n.TemplateNode.Profiles[n.CurrentProfileIndex];
+					return true;
+				}
+			}
+			else
+			{
+				if(n.CurrentProfileIndex < n.Profiles.Num())
+				{
+					P = n.Profiles[n.CurrentProfileIndex];
+					return true;
+				}
+			}
+
+			P = default;
+			return false;
+		}
+
+		
+		
+		TR RootBoneAt( AnimSequence seq, float t )
+		{
+			var clip = _clips[ seq.SequenceName ];
+			clip.SampleAnimation( GameObject, t );
+			var root = Bones[0];
+			return new TR { Translation = root.localPosition, Rotation = root.localRotation };
+		}
+
+
+
+		static Quaternion BiLerpQuat(Object.Quat P00, Object.Quat P10, Object.Quat P01, Object.Quat P11, float FracX, float FracY)
+		{
+			return Quaternion.Lerp( Quaternion.Lerp( (Quaternion)P00, (Quaternion)P10, FracX ), Quaternion.Lerp( (Quaternion)P01, (Quaternion)P11, FracX ), FracY );
+		}
+		
+		static Vector3 BiLerp(Object.Vector P00, Object.Vector P10, Object.Vector P01, Object.Vector P11, float FracX, float FracY)
+		{
+			return Vector3.Lerp( Vector3.Lerp( P00.ToUnityDir(), P10.ToUnityDir(), FracX ), Vector3.Lerp( P01.ToUnityDir(), P11.ToUnityDir(), FracX ), FracY );
+		}
+		
+		static float UnWindNormalizedAimAngle(float Angle)
+		{
+			while( Angle >= 2f )
+			{
+				Angle -= 4f;
+			}
+
+			while( Angle < -2f )
+			{
+				Angle += 4f;
+			}
+
+			return Angle;
+		}
+		
+
+
+
+		static Quaternion QTimesF( Quaternion q, float f )
+		{
+			q.x *= f;
+			q.y *= f;
+			q.z *= f;
+			q.w *= f;
+			return q;
+		}
+		
+		static Quaternion QPlusQ( Quaternion q, Quaternion q2 )
+		{
+			q.x += q2.x;
+			q.y += q2.y;
+			q.z += q2.z;
+			q.w += q2.w;
+			return q;
+		}
+		
+		static Quaternion QMinQ( Quaternion q, Quaternion q2 )
+		{
+			q.x -= q2.x;
+			q.y -= q2.y;
+			q.z -= q2.z;
+			q.w -= q2.w;
+			return q;
+		}
+		
+		static Quaternion MinQ( Quaternion q )
+		{
+			q.x = -q.x;
+			q.y = -q.y;
+			q.z = -q.z;
+			return q;
+		}
+
+
+
+		class NodeNotSupportedException : Exception
+		{
+			public NodeNotSupportedException( AnimNode n ) : base( $"{n.GetType()} not supported" )
+			{
+			}
+		}
+
+
+
+		struct TR
+		{
+			public Quaternion Rotation;
+			public Vector3 Translation;
+			public static readonly TR Identity = new TR { Rotation = Quaternion.identity };
+			
+			public void Blend(TR Atom1, TR Atom2, float Alpha)
+			{
+				if( Alpha <= ZERO_ANIMWEIGHT_THRESH )
+				{
+					// if blend is all the way for child1, then just copy its bone atoms
+					this = Atom1;
+				}
+				else if( Alpha >= 1f - ZERO_ANIMWEIGHT_THRESH )
+				{
+					// if blend is all the way for child2, then just copy its bone atoms
+					this = Atom2;
+				}
+				else
+				{
+					// Simple linear interpolation for translation and scale.
+					Translation = Vector3.Lerp(Atom1.Translation, Atom2.Translation, Alpha);
+					//Scale		= Lerp(Atom1.Scale, Atom2.Scale, Alpha);
+
+					// We use a linear interpolation and a re-normalize for the rotation.
+					// Treating Rotation as an accumulator, initialise to a scaled version of Atom1.
+					Rotation = QTimesF(Atom1.Rotation, (1f - Alpha));
+
+					// To ensure the 'shortest route', we make sure the dot product between the accumulator and the incoming rotation is positive.
+					if( Quaternion.Dot(Rotation, Atom2.Rotation) < 0f )
+					{
+						Rotation = QMinQ(QTimesF(Atom2.Rotation, Alpha), Rotation);
+					}
+					else
+					{
+						// Then add on the second rotation..
+						Rotation = QPlusQ(QTimesF(Atom2.Rotation, Alpha), Rotation);
+					}
+
+					// ..and renormalize
+					Rotation.Normalize();
+				}
+			}
+
+
+
+			public static implicit operator BoneAtom( TR v )
+			{
+				return new BoneAtom
+				{
+					Rotation = new Object.Quat{ X = v.Rotation.x, Y = v.Rotation.y, Z = v.Rotation.z, W = v.Rotation.w },
+					Translation = new Object.Vector{ X = v.Translation.x, Y = v.Translation.y, Z = v.Translation.z },
+					Scale = 1f
+				};
+			}
+			
+			public static implicit operator TR( BoneAtom v )
+			{
+				return new TR
+				{
+					Rotation = new Quaternion{ x = v.Rotation.X, y = v.Rotation.Y, z = v.Rotation.Z, w = v.Rotation.W },
+					Translation = new Vector3{ x = v.Translation.X, y = v.Translation.Y, z = v.Translation.Z },
+				};
+			}
+			
+			public static TR operator *( TR v, float f )
+			{
+				var p = v.Translation * f;
+				var r = v.Rotation;
+				r.x *= f;
+				r.y *= f;
+				r.z *= f;
+				r.w *= f;
+				return new TR{ Translation = p, Rotation = r  };
+			}
+			
+			public static TR operator +( TR a, TR b )
+			{
+				var p = a.Translation + b.Translation;
+				var r = a.Rotation;
+				r.x += b.Rotation.x;
+				r.y += b.Rotation.y;
+				r.z += b.Rotation.z;
+				r.w += b.Rotation.w;
+				return new TR{ Translation = p, Rotation = r  };
+			}
+		}
 	}
 }
