@@ -66,7 +66,7 @@ namespace MEdge.NodeEditor
 		GUIStyle _cachedStyle;
 		GUIStyle _cachedStyleFields;
 		GUIStyle _cachedStyleCentered;
-
+		bool _realtime;
 		List<INode> _dummyNodes;
 		
 		(string label, float v) _zoomCache = ("0", 0f);
@@ -282,8 +282,10 @@ namespace MEdge.NodeEditor
 				Separation *= 2f;
 			if( GUI.Button( new Rect( 216, 0, 16, 16 ), "-" ) )
 				Separation *= 0.5f;
-
-			ScheduleRepaint = ScheduleRepaint || (Drag.IsDragging && ( e.type == EventType.MouseMove || e.type == EventType.MouseDrag ));
+			if( GUI.Button( new Rect( 0, 16, 100, 16 ), _realtime ? "Simple" : "Realtime" ) )
+				_realtime = ! _realtime;
+			
+			ScheduleRepaint = ScheduleRepaint || _realtime || (Drag.IsDragging && ( e.type == EventType.MouseMove || e.type == EventType.MouseDrag ));
 		}
 
 

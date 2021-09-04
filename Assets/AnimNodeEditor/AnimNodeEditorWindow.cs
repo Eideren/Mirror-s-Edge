@@ -130,7 +130,18 @@
 
 		class AnimNodeDrawer : ObjectGraphWindow.ObjectNodeDrawer
 		{
-			protected override string Title => _observedObject is AnimNode n && n.NodeName.Value.ToString() != "" ? n.NodeName.Value.ToString() : base.Title;
+			protected override string Title
+			{
+				get
+				{
+					if( _observedObject is AnimNode n && n.NodeName.Value.ToString() != "" )
+						return n.NodeName.Value.ToString();
+					if( _observedObject is AnimNodeSequence seq && seq.AnimSeqName.Value.ToString() != "" )
+						return seq.AnimSeqName.Value.ToString();
+					
+					return base.Title;
+				}
+			}
 			
 			public override Vector2 Pos
 			{
@@ -173,18 +184,37 @@
 			public override Color? BackgroundColor => (_observedObject as AnimNode)?.bRelevant == true ? new Color(0f, 1f, 0f, 0.1f) : default(Color?);
 
 
+			bool _simpleModeToggle;
+			bool _isHovered;
+
+
 
 			public AnimNodeDrawer( object content ) : base( content )
 			{
-				
+				if( content is AnimNodeSequence )
+					_simpleModeToggle = true;
+			}
+
+
+
+			public override void OnDraw( NodeDrawer drawer )
+			{
+				if( _observedObject is AnimNodeSequence && drawer.IsInView( out var rectButton ) && GUI.Button( rectButton, "Simple" ) )
+					_simpleModeToggle = ! _simpleModeToggle;
+				base.OnDraw( drawer );
+				_isHovered = drawer.SurfaceCovered.Contains( Event.current.mousePosition );
 			}
 
 
 
 			protected override void DrawField( IField field, (ObjectGraphWindow.ObjectNodeDrawer thisNode, int hash, int? arrayItemIndex) data, CachedContainer cache )
 			{
+				if( _simpleModeToggle && _isHovered == false )
+					return;
+				
 				if( field.Info.ReflectedType == typeof(Core.Object) ) 
 					return;
+				
 				base.DrawField( field, data, cache );
 			}
 		}
