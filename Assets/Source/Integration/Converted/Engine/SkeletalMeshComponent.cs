@@ -525,11 +525,11 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	}
 	
 	// Export USkeletalMeshComponent::execFindAnimSequence(FFrame&, void* const)
-	public virtual /*native final function */AnimSequence FindAnimSequence(name AnimSeqName)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native final function */AnimSequence FindAnimSequence(name AnimSeqName)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export USkeletalMeshComponent::execSaveAnimSets(FFrame&, void* const)
 	public virtual /*native final function */void SaveAnimSets()

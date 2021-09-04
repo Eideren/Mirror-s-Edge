@@ -34,13 +34,13 @@
 		TR[] _currentPose;
 		public Dictionary<name, int> NameToIndex;
 		Dictionary<name, AnimationClip> _clips;
-		GameObject _unityObject;
 		Dictionary<name, (TR start, TR end)> _rootMotion;
 
 
 
 		public AnimationPlayer(AnimationClip[] clips, AnimSet animSet, AnimNode root, GameObject gameObject, Actor actor, SkeletalMeshComponent skel)
 		{
+			GameObject = gameObject;
 			_skel = skel;
 			_skel.InitAnimTree(true);
 			_root = root;
@@ -58,7 +58,6 @@
 
 			_clips = clips.ToDictionary( x => (name)x.name, x => x );
 			_cachedNode = new Dictionary<AnimNode, (TempBuffer<TR> buff, TR rootMotion)>();
-			_unityObject = gameObject;
 			_rootMotion = clips.ToDictionary( x => (name)x.name, x =>
 			{
 				x.wrapMode = WrapMode.Clamp;
@@ -290,6 +289,8 @@
 				throw new NodeNotSupportedException( n );
 			else if( n is AnimNodeBlendMultiBone )
 				throw new NodeNotSupportedException( n );
+			else if( n is AnimNodeSequenceBlendByAim )
+				throw new NodeNotSupportedException( n );
 			else if( n is AnimNodeSequenceBlendBase )
 				throw new NodeNotSupportedException( n );
 			else if( n is AnimNodeAimOffset anao )
@@ -311,7 +312,7 @@
 			{
 				var tempClearedAtEndOfStack = TempBuffer<TR>.Borrow();
 				for( int i = 0; i < Atoms.Length; i++ )
-					tempClearedAtEndOfStack[ i ] = Atoms[ i ];
+					tempClearedAtEndOfStack.Add(Atoms[ i ]);
 				_cachedNode.Add( n, (tempClearedAtEndOfStack, bHasRootMotion == 0 ? default : RootMotionDelta) );
 			}
 		}
@@ -375,7 +376,7 @@
 
 			var unityClip = _clips[ InAnimSeq.SequenceName ];
 			unityClip.wrapMode = bLoopingInterpolation ? WrapMode.Loop : WrapMode.Default;
-			unityClip.SampleAnimation( _unityObject, n.CurrentTime );
+			unityClip.SampleAnimation( GameObject, n.CurrentTime );
 
 			// For each desired bone...
 			for( int BoneIndex=0; BoneIndex<Atoms.Length; BoneIndex++ )
@@ -1210,8 +1211,8 @@
 			Span<TR> Child2Atoms = stackalloc TR[ Bones.Length ];
 
 			// Get bone atoms from each child (if no child - use ref pose).
-			TR	Child1RMD				= TR.Identity;
-			int  		bChild1HasRootMotion	= 0;
+			TR	Child1RMD = TR.Identity;
+			int bChild1HasRootMotion = 0;
 			if( Children[0].Anim )
 			{
 				// EXCLUDE_CHILD_TIME
@@ -1240,7 +1241,7 @@
 			// If we are doing component-space blend, ensure working buffers are big enough
 			if(!n.bForceLocalSpaceBlend)
 			{
-				throw new Exception( "bDoComponentSpaceBlend not supported" );
+				NativeMarkers.MarkUnimplemented();
 				#if UNUSED
 				Child1CompSpace.Reset();
 				Child1CompSpace.Add(NumAtoms);
@@ -1266,7 +1267,7 @@
 
 				if( !n.bForceLocalSpaceBlend && bDoComponentSpaceBlend )
 				{
-					throw new Exception( "bDoComponentSpaceBlend not supported" );
+					NativeMarkers.MarkUnimplemented();
 					#if UNUSED
 					//debugf(TEXT("  (%2d) %1.1f %s"), BoneIndex, Child2PerBoneWeight[BoneIndex], *RefSkel[BoneIndex].Name);
 					LocalToCompReqIndex++;
@@ -1367,9 +1368,7 @@
 
 					if( bChild1HasRootMotion != 0 && bChild2HasRootMotion != 0 )
 					{
-						var asTR = (TR)RootMotionDelta;
-						asTR.Blend( Child1RMD, Child2RMD, Child2BoneWeight );
-						RootMotionDelta = asTR;
+						RootMotionDelta.Blend( Child1RMD, Child2RMD, Child2BoneWeight );
 					}
 					else if( bChild1HasRootMotion != 0 )
 					{
@@ -1381,7 +1380,6 @@
 					}
 				}
 			}
-
 		}
 
 

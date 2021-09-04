@@ -87,6 +87,25 @@
 			return default;
 		}
 	
+		// Export USkeletalMeshComponent::execFindAnimSequence(FFrame&, void* const)
+		public virtual /*native final function */AnimSequence FindAnimSequence(name AnimSeqName)
+		{
+			for( int i = AnimSets.Length - 1; i >= 0; i-- )
+			{
+				var set = AnimSets[ i ];
+				if( set == null )
+					continue;
+				
+				for( int j = 0; j < set.Sequences.Length; j++ )
+				{
+					var seq = set.Sequences[ j ];
+					if( seq.SequenceName == AnimSeqName )
+						return seq;
+				}
+			}
+			return default;
+		}
+	
 		// Export USkeletalMeshComponent::execFindMorphNode(FFrame&, void* const)
 		public virtual /*native final function */MorphNodeBase FindMorphNode(name InNodeName)
 		{

@@ -54,10 +54,10 @@ public partial class AnimNodeSequence : AnimNode/*
 	[Category] public StaticArray<AnimNodeSequence.ERootRotationOption, AnimNodeSequence.ERootRotationOption, AnimNodeSequence.ERootRotationOption>/*[3]*/ RootRotationOption;
 	
 	// Export UAnimNodeSequence::execSetAnim(FFrame&, void* const)
-	public virtual /*native function */void SetAnim(name Sequence)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native function */void SetAnim(name Sequence)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	//// Export UAnimNodeSequence::execPlayAnim(FFrame&, void* const)
 	//public override /*native function */void PlayAnim(/*optional */bool? _bLoop = default, /*optional */float? _InRate = default, /*optional */float? _StartTime = default)
@@ -85,11 +85,11 @@ public partial class AnimNodeSequence : AnimNode/*
 	//}
 	
 	// Export UAnimNodeSequence::execFindNormalizedPositionFromGroupRelativePosition(FFrame&, void* const)
-	public virtual /*native function */float FindNormalizedPositionFromGroupRelativePosition(float GroupRelativePosition)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */float FindNormalizedPositionFromGroupRelativePosition(float GroupRelativePosition)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	//// Export UAnimNodeSequence::execGetGlobalPlayRate(FFrame&, void* const)
 	//public virtual /*native function */float GetGlobalPlayRate()
@@ -106,11 +106,11 @@ public partial class AnimNodeSequence : AnimNode/*
 	//}
 	
 	// Export UAnimNodeSequence::execGetTimeLeft(FFrame&, void* const)
-	public virtual /*native function */float GetTimeLeft()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */float GetTimeLeft()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public AnimNodeSequence()
 	{

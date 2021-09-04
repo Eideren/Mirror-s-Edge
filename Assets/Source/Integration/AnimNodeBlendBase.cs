@@ -11,7 +11,7 @@
 			{
 				if (Children[i].Anim != null)
 				{
-					Children[i].Anim.PlayAnim(_bLoop, _Rate, _StartTime);
+					Children[i].Anim.PlayAnim(_bLoop ?? false, _Rate ?? 1f, _StartTime ?? 0f);
 				}
 			}
 		}
