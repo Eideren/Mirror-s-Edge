@@ -25,7 +25,7 @@
 		// I don't expect this field to be often accessed by multiple threads at the same time, so just use a lock
 		static readonly ConditionalWeakTable<Type, ReflectionData> TYPE_TO_FIELDS = new ConditionalWeakTable<Type, ReflectionData>();
 		
-		public static ReflectionData GetDataFor<T>() => ReflectionDataImpl<T>.Instance;
+		public static ReflectionDataImpl<T> GetDataFor<T>() => ReflectionDataImpl<T>.Instance;
 		
 		public static ReflectionData GetDataFor( Type t )
 		{
@@ -143,7 +143,7 @@
 
 
 
-			CachedContainerImpl NewCache( TContainer o, bool fromPool = false )
+			public CachedContainerImpl NewCache( TContainer o, bool fromPool = false )
 			{
 				if( fromPool && _cache?.Count > 0 )
 				{
@@ -311,7 +311,7 @@
 
 
 
-			class CachedContainerImpl : CachedContainer
+			public class CachedContainerImpl : CachedContainer
 			{
 				public TContainer Container;
 				public object ContainerAsObj

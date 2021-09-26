@@ -262,8 +262,8 @@
 				// This is so slow and ugly but whatever
 				object v = field.GetValueSlowAndBox( cache ); // this might be null, ArrayFacilitator takes care of initializing it
 				var itemType = fieldType.GenericTypeArguments[ 0 ];
-				var a = (ArrayFacilitator) Activator.CreateInstance( typeof(ArrayFacilitator<>).MakeGenericType( itemType ) );
-				a.AssignToArrayIndex( ref v, arrayIndex, value, utility );
+				// For each values in array, make a proxy single field, retrieve value, set CallAssignToField
+				ArrayFacilitator.GetForType( itemType ).AssignToArrayIndex( ref v, arrayIndex, value, utility );
 				field.SetValueSlow(cache, v);
 			}
 			else // struct
@@ -314,6 +314,19 @@
 
 		abstract class ArrayFacilitator
 		{
+			[ThreadStatic]
+			static Dictionary<Type, ArrayFacilitator> _arrayFacilitators;
+			public static ArrayFacilitator GetForType( Type t )
+			{
+				_arrayFacilitators ??= new Dictionary<Type, ArrayFacilitator>();
+				if( _arrayFacilitators.TryGetValue( t, out var facilitator ) )
+					return facilitator;
+				_arrayFacilitators.Add( t, facilitator = (ArrayFacilitator) Activator.CreateInstance( typeof(ArrayFacilitator<>).MakeGenericType( t ) ) );
+				return facilitator;
+			}
+
+
+
 			public abstract void AssignToArrayIndex( ref object array, int? index, string value, Utility utility );
 		}
 
@@ -321,37 +334,48 @@
 
 		class ArrayFacilitator<T> : ArrayFacilitator
 		{
-			// Accessed through reflection
-			#pragma warning disable 649
-			T _reflectionWillRWToThisField;
-			#pragma warning restore 649
+			public struct FieldContainer
+			{
+				public T LooseField;
+			}
+
+
+
 			public override void AssignToArrayIndex( ref object objArray, int? index, string value, Utility utility )
 			{
-				array<T> arr = (array<T>)(objArray ?? new array<T>());
-				var typeData = ReflectionData.GetDataFor<ArrayFacilitator<T>>();
+				array<T> outputArray = (array<T>)(objArray ?? new array<T>());
+				var typeData = ReflectionData.GetDataFor<FieldContainer>();
+				var cache = typeData.NewCache( new FieldContainer() );
 				var field = typeData.Fields[ 0 ];
-				var cache = typeData.NewCache( this );
 				
+
+				var arrayCopy = outputArray.NewCopy();
 				if( index == null && value.StartsWith( "(" ) && value.EndsWith( ")" ) ) // This is most likely an inline multi-value assignment
 				{
 					value = value.Substring( 1, value.Length - 2 );
-					
-					arr.Remove(0, arr.Length);
+
+					outputArray.Remove(0, outputArray.Length);
 					foreach( var subValue in ExtractValues( value ) )
 					{
+						// Start from the initial constructor values, use serialized data to overwrite those when it has data on it,
+						// it seems like that's how T3D operates, it doesn't print values that are set to default/initial values and expect the engine to fill those in
+						cache.Container.LooseField = outputArray.Length < arrayCopy.Length ? arrayCopy[ outputArray.Length ] : default;
 						AssignToField( field, subValue, null, cache, utility );
-						arr.Add(_reflectionWillRWToThisField);
+						outputArray.Add(cache.Container.LooseField);
 					}
 				}
 				else // This is a specific array index assignment
 				{
+					// Start from the initial constructor values, use serialized data to overwrite those when it has data on it,
+					// it seems like that's how T3D operates, it doesn't print values that are set to default/initial values and expect the engine to fill those in
+					cache.Container.LooseField = index < arrayCopy.Length ? arrayCopy[ index.Value ] : default;
 					AssignToField( field, value, null, cache, utility );
-					while( arr.Length <= index )
-						arr.Add(default);
-					arr[index ?? 0] = _reflectionWillRWToThisField;
+					while( outputArray.Length <= index )
+						outputArray.Add(default);
+					outputArray[index ?? 0] = cache.Container.LooseField;
 				}
 				
-				objArray = arr;
+				objArray = outputArray;
 			}
 		}
 
