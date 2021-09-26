@@ -400,7 +400,7 @@
 						//InAnimSeq.GetBoneAtom(Atoms[BoneIndex], TrackIndex, n.CurrentTime, bLoopingInterpolation, bUseRawData);
 
 						// If doing 'rotation only' case, use ref pose for all non-root bones that are not in the BoneUseAnimTranslation array.
-						if(	AnimSet.bAnimRotationOnly /*&& AnimLinkup.BoneUseAnimTranslation[BoneIndex] == 0*/ )
+						if(	false/*AnimSet.bAnimRotationOnly && AnimLinkup.BoneUseAnimTranslation[BoneIndex] == 0*/ )
 						{
 							Atoms[BoneIndex].Translation = _bindPose[BoneIndex].Translation;
 						}
@@ -933,7 +933,8 @@
 			for( int i = 0; i < P.AimComponents.Count; i++ )
 			{
 				var AimCpnt = P.AimComponents[ i ];
-				var BoneIndex = NameToIndex[ AimCpnt.BoneName ];
+				if( NameToIndex.TryGetValue( AimCpnt.BoneName, out var BoneIndex ) == false )
+					continue;
 				
 				Quaternion QuaternionOffset = default;
 				Vector3 TranslationOffset = default;
