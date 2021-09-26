@@ -14,7 +14,7 @@ public partial class TdAnimNodeState : TdAnimNodeBlendList/*
 	public int PreviousUsedEnum;
 	public bool bUseCustomBlend;
 	
-	//// Export UTdAnimNodeState::execSetActiveMove(FFrame&, void* const)
+	// Export UTdAnimNodeState::execSetActiveMove(FFrame&, void* const)
 	//public override /*native function */bool SetActiveMove(int ChildIndex, /*optional */bool? _ForceActive = default)
 	//{
 	//	NativeMarkers.MarkUnimplemented();
@@ -28,18 +28,18 @@ public partial class TdAnimNodeState : TdAnimNodeBlendList/*
 	}
 	
 	// Export UTdAnimNodeState::execGetActiveState(FFrame&, void* const)
-	public virtual /*native function */int GetActiveState()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */int GetActiveState()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdAnimNodeState::execGetBlendValue(FFrame&, void* const)
-	public virtual /*native function */float GetBlendValue(int PreviousState, int NewState)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */float GetBlendValue(int PreviousState, int NewState)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public override /*event */void OnInit()
 	{
@@ -55,6 +55,8 @@ public partial class TdAnimNodeState : TdAnimNodeBlendList/*
 	// Export UTdAnimNodeState::execGetState(FFrame&, void* const)
 	public virtual /*native simulated function */int GetState()
 	{
+		// This works like an abstract function afaik, never actually called,
+		// just defined for children to override its behavior
 		NativeMarkers.MarkUnimplemented();
 		return default;
 	}

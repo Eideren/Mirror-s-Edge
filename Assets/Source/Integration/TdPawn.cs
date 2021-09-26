@@ -1,5 +1,6 @@
 ﻿namespace MEdge.TdGame
 {
+    using static MEdge.Source.DecFn;
     using Core;
     using Engine;
     using _E_struct_FRotator = Core.Object.Rotator;
@@ -295,7 +296,7 @@
                                 v49 = v15;
                         }
 
-                        v50 = this.SpeedSprintEnergy - (1.0f - pow(v49, this.SpeedEnergyDecelerationExponent)) * (this.GroundSpeed - this.SpeedMaxBaseVelocity) / this.SpeedEnergyDecelerationTime * deltaTime;
+                        v50 = (float)(this.SpeedSprintEnergy - (1.0f - pow(v49, this.SpeedEnergyDecelerationExponent)) * (this.GroundSpeed - this.SpeedMaxBaseVelocity) / this.SpeedEnergyDecelerationTime * deltaTime);
                         v18 = v50;
                         this.SpeedSprintEnergy = v50;
                         if ( v50 < 0.0f )
@@ -334,11 +335,11 @@
                     }
                     v39 = v38 * 10.0f;
                     v43 = 10.0f * v42;
-                    v37 = floor(v36 * 10.0f + 0.5f);
-                    v40 = floor(v39 + 0.5f);
+                    v37 = (float)floor(v36 * 10.0f + 0.5f);
+                    v40 = (float)floor(v39 + 0.5f);
                     v35.X = v37 * 0.1f;
                     v35.Y = v40 * 0.1f;
-                    v35.Z = floor(v43 + 0.5f) * 0.1f;
+                    v35.Z = (float)floor(v43 + 0.5f) * 0.1f;
                 }
                 else
                 {
@@ -582,12 +583,12 @@
                 v47 = this.Velocity.Y;
                 v48 = this.Velocity.Z;
                 v49 = this.Velocity.X * v46;
-                v53 = fabs((float)(double)DeltaRotation);
+                v53 = (float)fabs(DeltaRotation);
                 v55.X = (float)(v43 - (float)((float)(v49 * v53) * 0.000030517578f)) * 10.0f;
                 v55.Y = (float)(v44 - (float)((float)((float)(v47 * v46) * v53) * 0.000030517578f)) * 10.0f;
                 v55.Z = (float)(v45 - (float)((float)((float)(v48 * v46) * v53) * 0.000030517578f)) * 10.0f;
-                v55.X = floor(v55.X + 0.5f);
-                v55.Y = floor(v55.Y + 0.5f);
+                v55.X = (float)floor(v55.X + 0.5f);
+                v55.Y = (float)floor(v55.Y + 0.5f);
                 v50 = floor(v55.Z + 0.5f);
                 result = vecOutput;
                 v55.X = v55.X * 0.1f;

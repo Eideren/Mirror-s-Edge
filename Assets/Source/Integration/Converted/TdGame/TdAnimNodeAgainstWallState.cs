@@ -7,11 +7,11 @@ public partial class TdAnimNodeAgainstWallState : TdAnimNodeState/*
 	[Category] [editoronly, transient] public array<TdPawn.EAgainstWallState> EnumStates;
 	
 	// Export UTdAnimNodeAgainstWallState::execGetBlendValue(FFrame&, void* const)
-	public override /*native function */float GetBlendValue(int PreviousState, int NewState)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public override /*native function */float GetBlendValue(int PreviousState, int NewState)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public override /*event */void OnInit()
 	{

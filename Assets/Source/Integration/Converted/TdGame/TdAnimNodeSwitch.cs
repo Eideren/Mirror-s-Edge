@@ -5,15 +5,17 @@ public partial class TdAnimNodeSwitch : TdAnimNodeBlendList/*
 		native
 		hidecategories(Object,Object,Object)*/{
 	// Export UTdAnimNodeSwitch::execGetActiveState(FFrame&, void* const)
-	public virtual /*native function */int GetActiveState()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */int GetActiveState()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdAnimNodeSwitch::execGetState(FFrame&, void* const)
 	public virtual /*native simulated function */bool GetState()
 	{
+		// This works like an abstract function afaik, never actually called,
+		// just defined for children to override its behavior
 		NativeMarkers.MarkUnimplemented();
 		return default;
 	}

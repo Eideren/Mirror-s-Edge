@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -8,18 +10,19 @@ public partial class TdAnimNodeMovementState : TdAnimNodeState/*
 	[Category] [editoronly, transient] public array<TdPawn.EMovement> EnumStates;
 	
 	// Export UTdAnimNodeMovementState::execGetActiveState(FFrame&, void* const)
-	public override /*native function */int GetActiveState()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public override /*native function */int GetActiveState()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
-	// Export UTdAnimNodeMovementState::execGetBlendValue(FFrame&, void* const)
-	public override /*native function */float GetBlendValue(int PreviousState, int NewState)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	// This one is just UTdAnimNodeState::GetBlendValue
+	//// Export UTdAnimNodeMovementState::execGetBlendValue(FFrame&, void* const)
+	//public override /*native function */float GetBlendValue(int PreviousState, int NewState)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public override /*event */void OnInit()
 	{

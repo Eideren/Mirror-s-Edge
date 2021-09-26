@@ -1,5 +1,7 @@
 ﻿namespace MEdge.Core
 {
+    using static MEdge.Source.DecFn;
+    
     public partial class Object
     {
         public partial struct Rotator

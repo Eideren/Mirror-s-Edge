@@ -904,7 +904,7 @@ public virtual void SetAnim(name InSequenceName)
 	}
 	else if( !bDisableWarningWhenAnimNotFound && !SkelComponent.bDisableWarningWhenAnimNotFound )
 	{
-		debugf( /*NAME_DevAnim,*/ TEXT("%s - Failed to find animsequence '%s' on SkeletalMeshComponent: %s whose owner is: %s using mesh: %s" ),
+		debugf( /*NAME_DevAnim,*/ TEXT($"{Name} - Failed to find animsequence '{InSequenceName.ToString()}' on SkeletalMeshComponent: {SkelComponent.Name} whose owner is: {SkelComponent.Owner.Name} using mesh: {SkelComponent.SkeletalMesh./*GetPathName()*/Name}" ),
 			   Name,
 			   InSequenceName.ToString(),
 			   SkelComponent.Name,
