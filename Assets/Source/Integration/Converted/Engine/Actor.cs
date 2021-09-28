@@ -695,10 +695,10 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execSetOwner(FFrame&, void* const)
-	public virtual /*native(272) final function */void SetOwner(Actor NewOwner)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native(272) final function */void SetOwner(Actor NewOwner)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UActor::execFindBase(FFrame&, void* const)
 	public virtual /*native function */void FindBase()
@@ -721,11 +721,11 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execIsOwnedBy(FFrame&, void* const)
-	public virtual /*native final function */bool IsOwnedBy(Actor TestActor)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native final function */bool IsOwnedBy(Actor TestActor)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public virtual /*simulated event */void ReplicatedEvent(name VarName)
 	{
@@ -1106,16 +1106,16 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execSetTimer(FFrame&, void* const)
-	public virtual /*native(280) final function */void SetTimer(float InRate, /*optional */bool? _inbLoop = default, /*optional */name? _inTimerFunc = default, /*optional */Object _inObj = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native(280) final function */void SetTimer(float InRate, /*optional */bool? _inbLoop = default, /*optional */name? _inTimerFunc = default, /*optional */Object _inObj = default)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UActor::execClearTimer(FFrame&, void* const)
-	public virtual /*native final function */void ClearTimer(/*optional */name? _inTimerFunc = default, /*optional */Object _inObj = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native final function */void ClearTimer(/*optional */name? _inTimerFunc = default, /*optional */Object _inObj = default)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UActor::execIsTimerActive(FFrame&, void* const)
 	public virtual /*native final function */bool IsTimerActive(/*optional */name? _inTimerFunc = default, /*optional */Object _inObj = default)

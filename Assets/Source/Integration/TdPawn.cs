@@ -150,6 +150,10 @@
             }
         }
         
+        public virtual /*native function */bool IsInMove(TdPawn.EMovement Move)
+        {
+            return MovementState == Move;
+        }
         
         
         public virtual float GetMobilityMultiplier()

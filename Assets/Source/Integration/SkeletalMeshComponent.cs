@@ -44,7 +44,12 @@
 		// Export USkeletalMeshComponent::execUpdateAnimations(FFrame&, void* const)
 		public virtual /*native final function */void UpdateAnimations()
 		{
-			NativeMarkers.MarkUnimplemented();
+			if( Animations )
+			{
+				// Force all nodes in the AnimTree to re-look up their animations.
+				TickTag++;
+				Animations.AnimSetsUpdated();
+			}
 		}
 		
 		// Export USkeletalMeshComponent::execFindAnimNode(FFrame&, void* const)

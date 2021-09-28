@@ -258,10 +258,10 @@ public partial class Camera : Actor/*
 	}
 	
 	// Export UCamera::execCheckViewTarget(FFrame&, void* const)
-	public virtual /*native function */void CheckViewTarget(ref Camera.TViewTarget VT)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native function */void CheckViewTarget(ref Camera.TViewTarget VT)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	public virtual /*function */void UpdateViewTarget(ref Camera.TViewTarget OutVT, float DeltaTime)
 	{

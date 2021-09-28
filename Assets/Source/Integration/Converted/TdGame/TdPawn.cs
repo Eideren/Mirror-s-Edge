@@ -983,11 +983,11 @@ public partial class TdPawn : GamePawn/*
 	}
 	
 	// Export UTdPawn::execIsInMove(FFrame&, void* const)
-	public virtual /*native function */bool IsInMove(TdPawn.EMovement Move)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */bool IsInMove(TdPawn.EMovement Move)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdPawn::execGetMove(FFrame&, void* const)
 	public virtual /*native function */TdPawn.EMovement GetMove()

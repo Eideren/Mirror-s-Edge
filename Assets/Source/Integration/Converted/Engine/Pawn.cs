@@ -295,10 +295,10 @@ public partial class Pawn : Actor/*
 	}
 	
 	// Export UPawn::execSetRemoteViewPitch(FFrame&, void* const)
-	public virtual /*native final function */void SetRemoteViewPitch(int NewRemoteViewPitch)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native final function */void SetRemoteViewPitch(int NewRemoteViewPitch)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UPawn::execSetAnchor(FFrame&, void* const)
 	public virtual /*native function */void SetAnchor(NavigationPoint NewAnchor)

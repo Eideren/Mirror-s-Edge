@@ -141,7 +141,82 @@
 		/// <summary>
 		/// Returns whether the object is pending kill and about to have references to it NULLed by the garbage collector.
 		/// </summary>
-		public virtual /*native final function */ bool IsPendingKill() => ( this as Actor )?.bPendingDelete ?? throw new NotImplementedException(); // Probably ?
+		public virtual /*native final function */ bool IsPendingKill() => HasAnyFlags(EObjectFlags.RF_PendingKill);
+		
+		public bool HasAnyFlags( EObjectFlags FlagsToCheck )
+		{
+			return (ObjectFlags & FlagsToCheck) != 0 || FlagsToCheck == EObjectFlags.RF_AllFlags;
+		}
+		
+		[Flags]
+		public enum EObjectFlags : ulong
+		{
+			RF_InSingularFunc = (0x0000000000000002),		// In a singular function.
+			RF_StateChanged = (0x0000000000000004),		// Object did a state change.
+			RF_DebugPostLoad = (0x0000000000000008),		// For debugging PostLoad calls.
+			RF_DebugSerialize = (0x0000000000000010),		// For debugging Serialize calls.
+			RF_DebugFinishDestroyed = (0x0000000000000020),		// For debugging FinishDestroy calls.
+			RF_EdSelected = (0x0000000000000040),		// Object is selected in one of the editors browser windows.
+			RF_ZombieComponent = (0x0000000000000080),		// This component's template was deleted, so should not be used.
+			RF_Protected = (0x0000000000000100),		// Property is protected (may only be accessed from its owner class or subclasses)
+			RF_ClassDefaultObject = (0x0000000000000200),		// this object is its class's default object
+			RF_ArchetypeObject = (0x0000000000000400),		// this object is a template for another object - treat like a class default object
+			RF_ForceTagExp = (0x0000000000000800),		// Forces this object to be put into the export table when saving a package regardless of outer
+			RF_TokenStreamAssembled = (0x0000000000001000),		// Set if reference token stream has already been assembled
+			RF_MisalignedObject = (0x0000000000002000),		// Object's size no longer matches the size of its C++ class (only used during make, for native classes whose properties have changed)
+			RF_RootSet = (0x0000000000004000),		// Object will not be garbage collected, even if unreferenced.
+			RF_BeginDestroyed = (0x0000000000008000),		// BeginDestroy has been called on the object.
+			RF_FinishDestroyed = (0x0000000000010000),		// FinishDestroy has been called on the object.
+			RF_DebugBeginDestroyed = (0x0000000000020000),		// Whether object is rooted as being part of the root set (garbage collection)
+			RF_MarkedByCooker = (0x0000000000040000),		// Marked by content cooker.
+			RF_LocalizedResource = (0x0000000000080000),		// Whether resource object is localized.
+			RF_InitializedProps = (0x0000000000100000),		// whether InitProperties has been called on this object
+			RF_PendingFieldPatches = (0x0000000000200000),		//@script patcher: indicates that this struct will receive additional member properties from the script patcher
+			// unused							DECLARE_UINT64(0x0000000000400000)
+			// unused							DECLARE_UINT64(0x0000000000800000)
+			// unused							DECLARE_UINT64(0x0000000001000000)
+			// unused							DECLARE_UINT64(0x0000000002000000)
+			// unused							DECLARE_UINT64(0x0000000004000000)
+			// unused							DECLARE_UINT64(0x0000000008000000)
+			// unused							DECLARE_UINT64(0x0000000010000000)
+			// unused							DECLARE_UINT64(0x0000000020000000)
+			// unused							DECLARE_UINT64(0x0000000040000000)
+			RF_Saved = (0x0000000080000000),		// Object has been saved via SavePackage. Temporary.
+			RF_Transactional = (0x0000000100000000),		// Object is transactional.
+			RF_Unreachable = (0x0000000200000000),		// Object is not reachable on the object graph.
+			RF_Public = (0x0000000400000000),		// Object is visible outside its package.
+			RF_TagImp = (0x0000000800000000),		// Temporary import tag in load/save.
+			RF_TagExp = (0x0000001000000000),		// Temporary export tag in load/save.
+			RF_Obsolete = (0x0000002000000000),		// Object marked as obsolete and should be replaced.
+			RF_TagGarbage = (0x0000004000000000),		// Check during garbage collection.
+			RF_DisregardForGC = (0x0000008000000000),		// Object is being disregard for GC as its static and itself and all references are always loaded.
+			RF_PerObjectLocalized = (0x0000010000000000),		// Object is localized by instance name, not by class.
+			RF_NeedLoad = (0x0000020000000000),		// During load, indicates object needs loading.
+			RF_AsyncLoading = (0x0000040000000000),		// Object is being asynchronously loaded.
+			RF_NeedPostLoadSubobjects = (0x0000080000000000),		// During load, indicates that the object still needs to instance subobjects and fixup serialized component references
+			RF_Suppress = (0x0000100000000000),		// @warning: Mirrored in UnName.h. Suppressed log name.
+			RF_InEndState = (0x0000200000000000),		// Within an EndState call.
+			RF_Transient = (0x0000400000000000),		// Don't save object.
+			RF_Cooked = (0x0000800000000000),		// Whether the object has already been cooked
+			RF_LoadForClient = (0x0001000000000000),		// In-file load for client.
+			RF_LoadForServer = (0x0002000000000000),		// In-file load for client.
+			RF_LoadForEdit = (0x0004000000000000),		// In-file load for client.
+			RF_Standalone = (0x0008000000000000),		// Keep object around for editing even if unreferenced.
+			RF_NotForClient = (0x0010000000000000),		// Don't load this object for the game client.
+			RF_NotForServer = (0x0020000000000000),		// Don't load this object for the game server.
+			RF_NotForEdit = (0x0040000000000000),		// Don't load this object for the editor.
+			// unused							DECLARE_UINT64(0x0080000000000000)
+			RF_NeedPostLoad = (0x0100000000000000),		// Object needs to be postloaded.
+			RF_HasStack = (0x0200000000000000),		// Has execution stack.
+			RF_Native = (0x0400000000000000),		// Native (UClass only).
+			RF_Marked = (0x0800000000000000),		// Marked (for debugging).
+			RF_ErrorShutdown = (0x1000000000000000),		// ShutdownAfterError called.
+			RF_PendingKill = (0x2000000000000000),		// Objects that are pending destruction (invalid for gameplay but valid objects)
+			// unused							DECLARE_UINT64(0x4000000000000000)
+			// unused							DECLARE_UINT64(0x8000000000000000)
+			RF_AllFlags = 0xFFFFFFFFFFFFFFFF,
+		};
+
 	
         // Export UObject::execSaveConfig(FFrame&, void* const)
         public virtual /*native(536) final function */ void SaveConfig() => LogWarning($"{nameof(SaveConfig)} not implemented");

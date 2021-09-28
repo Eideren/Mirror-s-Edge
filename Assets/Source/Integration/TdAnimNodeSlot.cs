@@ -7,6 +7,7 @@
 		public virtual /*native function */void SetBlendOutTime(float BlendTime)
 		{
 			// maybe ?
+			NativeMarkers.MarkUnimplemented();
 			this.BlendTimeToGo = BlendTime < 0f ? 0f : BlendTime;
 		}
 	}

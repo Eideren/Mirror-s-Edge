@@ -816,7 +816,7 @@ public partial class Object/*
 	
 	[native, Const, noexport] public/*private*/ Object.Pointer VfTableObject;
 	[native, Const, noexport] public/*private*/ int ObjectInternalInteger;
-	[native, Const] public/*private*/ Object.QWord ObjectFlags;
+	[native, Const] public/*private*/ /*Object.QWord*/EObjectFlags ObjectFlags;
 	[native, Const] public/*private*/ Object.Pointer HashNext;
 	[native, Const] public/*private*/ Object.Pointer HashOuterNext;
 	[native, Const] public/*private*/ Object.Pointer StateFrame;

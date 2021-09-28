@@ -772,7 +772,7 @@ public virtual void InitAnim( SkeletalMeshComponent meshComp, AnimNodeBlendBase 
 /// </summary>
 public virtual void AnimSetsUpdated()
 {
-	// pdate bNodeTickStatus flag to avoid updating several times the same nodes.
+	// Update bNodeTickStatus flag to avoid updating several times the same nodes.
 	if( SkelComponent )
 	{
 		NodeTickTag = SkelComponent.TickTag;
@@ -2295,7 +2295,12 @@ public partial class AnimNodeBlendDirectional
 
 static float UnwindHeading( float A )
 {
-	return A % ( PI * 2f );
+	const float PI2 = PI * 2f;
+	float f = A % PI2;
+	return 
+		f > PI ? -PI2 + f : 
+		f < -PI ? PI2 + f :
+		f;
 	// Below is the UE4 body for this function ...
 	// I cannot believe that a professional developer would write something like this ...
 	/*
@@ -4727,8 +4732,6 @@ bool ExtractAnimationData(AnimNodeSequence SeqNode, MEdge.Core.name AnimationNam
 /// </summary>
 public virtual void SetActiveProfileByName( MEdge.Core.name ProfileName )
 {
-	NativeMarkers.MarkUnimplemented();
-	#if UNUSED
 	if(TemplateNode)
 	{
 		// Look through profiles to find a name that matches.
@@ -4755,10 +4758,8 @@ public virtual void SetActiveProfileByName( MEdge.Core.name ProfileName )
 			}
 		}
 	}
-	#endif
 }
 
-#if UNUSED
 /// <summary>
 /// 	Change the currently active profile to the one with the supplied index. 
 /// 	If ProfileIndex is outside range, this does nothing.
@@ -4786,9 +4787,10 @@ public virtual void SetActiveProfileByIndex(int ProfileIndex)
 	CurrentProfileIndex = ProfileIndex;
 
 	// We need to recalculate the bone indices modified by the new profile.
+#if UNUSED
 	UpdateListOfRequiredBones();
-}
 #endif
+}
 }
 
 public partial class AnimNodeSynch
