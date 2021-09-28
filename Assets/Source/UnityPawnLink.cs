@@ -30,24 +30,39 @@
 
                 if( _1pPlayer == null )
                 {
+                    // Shouldn't have to do this here, source has some other system making sure it is set
+                    Pawn.Mesh1pLowerBody.Owner = Pawn.Mesh1p.Owner = Pawn;
                     var clips = Resources.LoadAll<AnimationClip>( "Animations/AS_C1P_Unarmed/" );
-                    Asset.UScriptToUnity.TryGetValue( Pawn.Mesh1p.SkeletalMesh, out var unityObject );
-                    _1pPlayer = new AnimationPlayer( clips, Asset.Get_AS_C1P_Unarmed(), Pawn.Mesh1p.Animations, ((SkinnedMeshRenderer)unityObject).transform.parent.gameObject, Pawn, Pawn.Mesh1p );
+                    
+                    Asset.UScriptToUnity.TryGetValue( Pawn.Mesh1p.SkeletalMesh, out var fpMesh );
+                    var fpUpper = (SkinnedMeshRenderer) fpMesh;
+                    Asset.UScriptToUnity.TryGetValue( Pawn.Mesh1pLowerBody.SkeletalMesh, out var unityObjectLower );
+                    _1pLower = (SkinnedMeshRenderer)unityObjectLower;
+                    
+                    _1pPlayer = new AnimationPlayer( clips, Asset.Get_AS_C1P_Unarmed(), Pawn.Mesh1p.Animations, fpUpper.transform.parent.gameObject, Pawn, Pawn.Mesh1p );
+                    
+                    // Merge lower skinned mesh to the same hierarchy as upper
+                    var oldParent = _1pLower.transform.parent;
+                    _1pLower.transform.parent = fpUpper.transform.parent;
+                    _1pLower.rootBone = _1pPlayer.Bones[ _1pPlayer.NameToIndex[ _1pLower.rootBone.name ] ];
+                    var tempBones = _1pLower.bones;
+                    for( int i = 0; i < tempBones.Length; i++ )
+                    {
+                        tempBones[ i ] = _1pPlayer.Bones[ _1pPlayer.NameToIndex[ tempBones[i].name ] ];
+                    }
+                    _1pLower.bones = tempBones;
+                    Destroy(oldParent.gameObject);
+                    
                     _window = AnimNodeEditor.AnimNodeEditorWindow.CreateInstance<AnimNodeEditor.AnimNodeEditorWindow>();
                     _window.LoadFromNode( Pawn.Mesh1p.Animations );
                     _window.Show();
-                }
-
-                if( _1pLower == null )
-                {
-                    Asset.UScriptToUnity.TryGetValue( Pawn.Mesh1pLowerBody.SkeletalMesh, out var unityObjectLower );
-                    _1pLower = (SkinnedMeshRenderer)unityObjectLower;
                 }
 
                 if( _3pPlayer == null )
                 {
                     var clips = Resources.LoadAll<AnimationClip>( "Animations/AS_F3P_Unarmed/" );
                     Asset.UScriptToUnity.TryGetValue( Pawn.Mesh3p.SkeletalMesh, out var unityObject );
+                    Pawn.Mesh3p.Owner = Pawn; // Shouldn't have to do this here, source has some other system making sure it is set
                     _3pPlayer = new AnimationPlayer( clips, Asset.Get_AS_F3P_Unarmed(), Pawn.Mesh3p.Animations, ((SkinnedMeshRenderer)unityObject).transform.parent.gameObject, Pawn, Pawn.Mesh3p );
                     // Disable rendering for now, let's focus on 1P first
                     ( (SkinnedMeshRenderer)unityObject ).enabled = false;
@@ -61,14 +76,6 @@
                 var (pos, rot) = ( Pawn.Location.ToUnityPos(), (Quaternion)Pawn.Rotation );
                 _1pPlayer.GameObject.transform.SetPositionAndRotation( pos, rot );
                 _3pPlayer.GameObject.transform.SetPositionAndRotation( pos, rot );
-                _1pLower.transform.parent.SetPositionAndRotation( pos, rot );
-                for( int i = 0; i < _1pLower.bones.Length; i++ )
-                {
-                    var t = _1pLower.bones[ i ];
-                    var c = _1pPlayer.Bones[ _1pPlayer.NameToIndex[ t.name ] ];
-                    t.localPosition = c.localPosition;
-                    t.localRotation = c.localRotation;
-                }
                 
                 if( _unityCam == null )
                 {

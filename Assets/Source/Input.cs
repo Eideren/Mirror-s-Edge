@@ -1,6 +1,8 @@
 ﻿namespace MEdge.Engine
 {
+	using System.Collections.Generic;
 	using System.Linq;
+	using System.Reflection;
 	using Reflection;
 	using TdGame;
 	using UnityEngine;
@@ -9,23 +11,46 @@
 
 	public partial class UWorld
 	{
+		static HashSet<FieldInfo> fields;
 		public static void SampleInput( TdPlayerInput uInput, TdPlayerController controller, float dt )
         {
+	        if( fields == null )
+	        {
+		        fields = new HashSet<FieldInfo>();
+
+		        // Variables marked as 'input' are reset every frame afaict
+		        ReflectionData.ForeachField( ref controller, ( field, container ) =>
+		        {
+			        if( field.Info.GetCustomAttributes( typeof(inputAttribute), false ).Any() )
+			        {
+				        fields.Add( field.Info );
+			        }
+		        } );
+		        ReflectionData.ForeachField( ref uInput, ( field, container ) =>
+		        {
+			        if( field.Info.GetCustomAttributes( typeof(inputAttribute), false ).Any() )
+			        {
+				        fields.Add( field.Info );
+			        }
+		        } );
+	        }
+	        
+
 	        // Variables marked as 'input' are reset every frame afaict
-			ReflectionData.ForeachField( ref controller, ( field, container ) =>
-			{
-				if( field.Info.GetCustomAttributes( typeof(inputAttribute), false ).Any() )
-				{
-					field.SetValueToDefault( container );
-				}
-			} );
-			ReflectionData.ForeachField( ref uInput, ( field, container ) =>
-			{
-				if( field.Info.GetCustomAttributes( typeof(inputAttribute), false ).Any() )
-				{
-					field.SetValueToDefault( container );
-				}
-			} );
+	        ReflectionData.ForeachField( ref controller, ( field, container ) =>
+	        {
+		        if( fields.Contains( field.Info ) )
+		        {
+			        field.SetValueToDefault( container );
+		        }
+	        } );
+	        ReflectionData.ForeachField( ref uInput, ( field, container ) =>
+	        {
+		        if( fields.Contains( field.Info ) )
+		        {
+			        field.SetValueToDefault( container );
+		        }
+	        } );
 
 			var mouseDelta = (
 				x: UnityEngine.Input.GetAxisRaw( "Mouse X" ),

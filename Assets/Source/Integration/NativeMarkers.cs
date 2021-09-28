@@ -1,5 +1,6 @@
 ﻿namespace MEdge.Core
 {
+	using System;
 	using System.Collections.Generic;
 	using System.Runtime.CompilerServices;
 
@@ -7,7 +8,7 @@
 
 	public static class NativeMarkers
 	{
-		public readonly struct MarkerData
+		public readonly struct MarkerData : IEquatable<MarkerData>
 		{
 			public readonly int Line;
 			public readonly string Member;
@@ -26,16 +27,21 @@
 
 			public override bool Equals( object obj )
 			{
-				return obj is MarkerData m && m.Line == Line && m.Member == Member && m.FilePath == FilePath;
+				return obj is MarkerData other && Equals( other );
 			}
 
 
 
 			public override int GetHashCode()
 			{
-				var previousHash = unchecked( ( 1009 * 9176 ) + Line.GetHashCode() );
-				previousHash = unchecked( ( previousHash * 9176 ) + Member.GetHashCode() );
-				return unchecked( ( previousHash * 9176 ) + FilePath.GetHashCode() );
+				return HashCode.Combine( Line, Member, FilePath );
+			}
+
+
+
+			public bool Equals( MarkerData other )
+			{
+				return Line == other.Line && Member == other.Member && FilePath == other.FilePath;
 			}
 		}
 
