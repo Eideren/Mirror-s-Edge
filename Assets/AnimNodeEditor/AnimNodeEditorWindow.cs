@@ -5,8 +5,8 @@
 	using NodeEditor;
 	using Reflection;
 	using T3D;
+	using TdGame;
 	using UnityEngine;
-	using static UnityEngine.Debug;
 
 
 
@@ -128,8 +128,52 @@
 
 
 
+		TdPawn _inEditModeFor;
+		
+		protected override void OnGUIDraw()
+		{
+			bool isInEditMode = _inEditModeFor != null;
+			if( GUI.Button( new Rect( 332, 0, 100, 16 ), isInEditMode ? "Edit->Gameplay" : "Gameplay->Edit" ) )
+			{
+				isInEditMode = ! isInEditMode;
+				var setNodesPawnTo = isInEditMode ? null : _inEditModeFor;
+				TdPawn nodesPawn = null;
+				foreach( ObjectNodeDrawer node in _nodes )
+				{
+					switch( ( (AnimNodeDrawer)node ).GetContent )
+					{
+						case TdAnimNodeBlendList n:
+						{
+							nodesPawn = n.TdPawnOwner ?? nodesPawn;
+							n.TdPawnOwner = setNodesPawnTo;
+							break;
+						}
+						case TdAnimNodeSequence n:
+						{
+							nodesPawn = n.TdPawnOwner ?? nodesPawn;
+							n.TdPawnOwner = setNodesPawnTo;
+							break;
+						}
+						case TdAnimNodeIKEffectorController n:
+						{
+							nodesPawn = n.PawnOwner ?? nodesPawn;
+							n.PawnOwner = setNodesPawnTo;
+							break;
+						}
+					}
+				}
+
+				_inEditModeFor = isInEditMode ? nodesPawn : null;
+			}
+			base.OnGUIDraw();
+		}
+
+
+
 		class AnimNodeDrawer : ObjectGraphWindow.ObjectNodeDrawer
 		{
+			public object GetContent => this._observedObject;
+			
 			protected override string Title
 			{
 				get
