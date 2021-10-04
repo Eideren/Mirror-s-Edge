@@ -688,10 +688,10 @@ public partial class TdPawn : GamePawn/*
 	//}
 	
 	// Export UTdPawn::execSyncLegMovement(FFrame&, void* const)
-	public virtual /*native function */void SyncLegMovement()
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native function */void SyncLegMovement()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	//// Export UTdPawn::execGetMobilityMultiplier(FFrame&, void* const)
 	//public virtual /*native function */float GetMobilityMultiplier()
@@ -1617,10 +1617,10 @@ public partial class TdPawn : GamePawn/*
 	}
 	
 	// Export UTdPawn::execGetCameraAnimation(FFrame&, void* const)
-	public virtual /*native final function */void GetCameraAnimation(ref Object.Vector out_Location, ref Object.Rotator out_Rotation)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native final function */void GetCameraAnimation(ref Object.Vector out_Location, ref Object.Rotator out_Rotation)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	public virtual /*event */bool AddCameraDeltaAnimations()
 	{
@@ -3590,10 +3590,10 @@ public partial class TdPawn : GamePawn/*
 	}
 	
 	// Export UTdPawn::execSetRootOffset(FFrame&, void* const)
-	public virtual /*native simulated function */void SetRootOffset(Object.Vector Offset, float BlendTime, /*optional */SkelControlBase.EBoneControlSpace? _TranslationSpace = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native simulated function */void SetRootOffset(Object.Vector Offset, float BlendTime, /*optional */SkelControlBase.EBoneControlSpace? _TranslationSpace = default)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	public virtual /*simulated function */void SetHipsOffset(Object.Vector Offset, /*optional */float? _BlendTime = default, /*optional */bool? _bFirstPersonMeshOnly = default)
 	{

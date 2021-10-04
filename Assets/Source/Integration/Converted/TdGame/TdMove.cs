@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -911,11 +913,11 @@ public partial class TdMove : Object/*
 	}
 	
 	// Export UTdMove::execGetAimMode(FFrame&, void* const)
-	public virtual /*native simulated function */TdPawn.MoveAimMode GetAimMode(bool bAimingOnly)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native simulated function */TdPawn.MoveAimMode GetAimMode(bool bAimingOnly)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public virtual /*simulated function */Object.Vector GetFocusLocation()
 	{

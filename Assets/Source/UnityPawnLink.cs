@@ -7,6 +7,7 @@
     using UnityEngine;
     using Object = MEdge.Core.Object;
     using static UnityEngine.Debug;
+    using Component = UnityEngine.Component;
 
 
 
@@ -30,16 +31,23 @@
 
                 if( _1pPlayer == null )
                 {
+                    // We don't need the preview mesh
+                    Asset.UScriptToUnity.TryGetValue( (Pawn.Mesh1p.Animations as AnimTree)?.PreviewSkelMesh, out var previewMesh );
+                    Destroy(((Component)previewMesh).transform.parent.gameObject);
+                    
+                    
                     // Shouldn't have to do this here, source has some other system making sure it is set
                     Pawn.Mesh1pLowerBody.Owner = Pawn.Mesh1p.Owner = Pawn;
-                    var clips = Resources.LoadAll<AnimationClip>( "Animations/AS_C1P_Unarmed/" );
                     
                     Asset.UScriptToUnity.TryGetValue( Pawn.Mesh1p.SkeletalMesh, out var fpMesh );
                     var fpUpper = (SkinnedMeshRenderer) fpMesh;
                     Asset.UScriptToUnity.TryGetValue( Pawn.Mesh1pLowerBody.SkeletalMesh, out var unityObjectLower );
                     _1pLower = (SkinnedMeshRenderer)unityObjectLower;
                     
-                    _1pPlayer = new AnimationPlayer( clips, Asset.Get_AS_C1P_Unarmed(), Pawn.Mesh1p.Animations, fpUpper.transform.parent.gameObject, Pawn, Pawn.Mesh1p );
+                    _1pPlayer = new AnimationPlayer(Pawn.Mesh1p, 
+                        Resources.LoadAll<AnimationClip>( "Animations/AS_C1P_Unarmed/" ), 
+                        Asset.Get_AS_C1P_Unarmed(),  
+                        fpUpper.transform.parent.gameObject );
                     
                     // Merge lower skinned mesh to the same hierarchy as upper
                     var oldParent = _1pLower.transform.parent;
@@ -60,18 +68,19 @@
 
                 if( _3pPlayer == null )
                 {
+                    // We don't need the preview mesh
+                    Asset.UScriptToUnity.TryGetValue( (Pawn.Mesh3p.Animations as AnimTree)?.PreviewSkelMesh, out var previewMesh );
+                    Destroy(((Component)previewMesh).transform.parent.gameObject);
+                    
                     var clips = Resources.LoadAll<AnimationClip>( "Animations/AS_F3P_Unarmed/" );
-                    Asset.UScriptToUnity.TryGetValue( Pawn.Mesh3p.SkeletalMesh, out var unityObject );
+                    Asset.UScriptToUnity.TryGetValue( Pawn.Mesh3p.SkeletalMesh, out var tracker );
                     Pawn.Mesh3p.Owner = Pawn; // Shouldn't have to do this here, source has some other system making sure it is set
-                    _3pPlayer = new AnimationPlayer( clips, Asset.Get_AS_F3P_Unarmed(), Pawn.Mesh3p.Animations, ((SkinnedMeshRenderer)unityObject).transform.parent.gameObject, Pawn, Pawn.Mesh3p );
+                    _3pPlayer = new AnimationPlayer( Pawn.Mesh3p, clips, Asset.Get_AS_F3P_Unarmed(), ((SkinnedMeshRenderer)tracker).transform.parent.gameObject );
                     // Disable rendering for now, let's focus on 1P first
-                    ( (SkinnedMeshRenderer)unityObject ).enabled = false;
-                    /*_window = AnimNodeEditor.AnimNodeEditorWindow.CreateInstance<AnimNodeEditor.AnimNodeEditorWindow>();
-                    _window.LoadFromNode( Pawn.Mesh1p.Animations );
-                    _window.Show();*/
+                    ( (SkinnedMeshRenderer)tracker ).enabled = false;
                 }
 
-                _3pPlayer.Sample( deltaTime );
+                //_3pPlayer.Sample( deltaTime );
                 _1pPlayer.Sample( deltaTime );
                 var (pos, rot) = ( Pawn.Location.ToUnityPos(), (Quaternion)Pawn.Rotation );
                 _1pPlayer.GameObject.transform.SetPositionAndRotation( pos, rot );

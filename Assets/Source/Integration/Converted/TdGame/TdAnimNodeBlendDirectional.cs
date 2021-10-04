@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -11,10 +13,10 @@ public partial class TdAnimNodeBlendDirectional : AnimNodeBlendBase/*
 	public bool bGoingForward;
 	
 	// Export UTdAnimNodeBlendDirectional::execUpdateDirection(FFrame&, void* const)
-	public virtual /*native function */void UpdateDirection(float DeltaSeconds)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native function */void UpdateDirection(float DeltaSeconds)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	public override /*event */void OnBecomeRelevant()
 	{

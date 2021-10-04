@@ -10,7 +10,10 @@
 	public static partial class Asset
 	{
 		public static HashSet<string> NotImplementedFor = new HashSet<string>();
-		public static ConditionalWeakTable<object, object> UScriptToUnity = new ConditionalWeakTable<object, object>();
+		public static ConditionalWeakTable<object, UnityEngine.Object> UScriptToUnity = new();
+
+
+
 		public static TClass LoadAsset<TClass>( String assetPath ) where TClass : new()
 		{
 			switch( assetPath.ToString() )
@@ -43,8 +46,8 @@
 
 			if( Class.InSpawningDefault == 0 )
 			{
-				if( resourceAsset is UnityEngine.Object o )
-					resourceAsset = UnityEngine.Object.Instantiate( o );
+				if( resourceAsset is UnityEngine.Object asUnityObj )
+					resourceAsset = UnityEngine.Object.Instantiate( asUnityObj );
 			}
 
 			if( resourceAsset is IAsset iAsset )
@@ -53,18 +56,18 @@
 			{
 				UnityEngine.Object associatedUnityObject = null;
 				if( typeof(TClass) == typeof(SkeletalMesh) 
-				    && resourceAsset is UnityEngine.GameObject go 
-				    && go.GetComponentInChildren<UnityEngine.SkinnedMeshRenderer>() is UnityEngine.SkinnedMeshRenderer smr )
+				    && resourceAsset is UnityEngine.GameObject prefabRoot 
+				    && prefabRoot.GetComponentInChildren<UnityEngine.SkinnedMeshRenderer>() is UnityEngine.SkinnedMeshRenderer smr )
 				{
 					associatedUnityObject = smr;
 				}
 
 				if( associatedUnityObject != null )
 				{
-					var obj = new TClass();
+					var unrealObj = new TClass();
 					lock( UScriptToUnity )
-						UScriptToUnity.Add( obj, associatedUnityObject );
-					return obj;
+						UScriptToUnity.Add( unrealObj, associatedUnityObject );
+					return unrealObj;
 				}
 			}
 

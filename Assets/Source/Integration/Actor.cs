@@ -268,8 +268,6 @@
 			var FuncName = _inTimerFunc ?? "Timer";
 			var inObj = _inObj ?? this;
 			
-			NativeMarkers.MarkUnimplemented(); // Need to actually use timers we added here, not implemented yet
-			
 			if (bStatic)
 			{
 				debugf("NAME_Error", TEXT("SetTimer() called on bStatic Actor %s"), Name);

@@ -34,16 +34,16 @@
 		TR[] _currentPose;
 		public Dictionary<name, int> NameToIndex;
 		Dictionary<name, AnimationClip> _clips;
-		Dictionary<name, (TR start, TR end)> _rootMotion;
+		Dictionary<name, (TR[] start, TR[] end)> _poses;
 
 
 
-		public AnimationPlayer(AnimationClip[] clips, AnimSet animSet, AnimNode root, GameObject gameObject, Actor actor, SkeletalMeshComponent skel)
+		public AnimationPlayer(SkeletalMeshComponent skel, AnimationClip[] clips, AnimSet animSet, GameObject gameObject)
 		{
 			GameObject = gameObject;
 			_skel = skel;
 			_skel.InitAnimTree(true);
-			_root = root;
+			_root = _skel.Animations;
 			Bones = new Transform[ animSet.TrackBoneNames.Length ];
 			_bindPose = new TR[ animSet.TrackBoneNames.Length ];
 			NameToIndex = new Dictionary<name, int>();
@@ -58,15 +58,24 @@
 
 			_clips = clips.ToDictionary( x => (name)x.name, x => x );
 			_cachedNode = new Dictionary<AnimNode, (TempBuffer<TR> buff, TR rootMotion)>();
-			_rootMotion = clips.ToDictionary( x => (name)x.name, x =>
+			_poses = clips.ToDictionary( x => (name)x.name, x =>
 			{
+				TR[] starts = new TR[ Bones.Length ];
+				TR[] ends = new TR[ Bones.Length ];
 				x.wrapMode = WrapMode.Clamp;
-				var root = Bones[ 0 ];
 				x.SampleAnimation( gameObject, 0f );
-				var start = new TR { Translation = root.localPosition, Rotation = root.localRotation };
+				for( int i = 0; i < Bones.Length; i++ )
+				{
+					var bone = Bones[ i ];
+					starts[ i ] = new TR { Translation = bone.localPosition, Rotation = bone.localRotation };
+				}
 				x.SampleAnimation( gameObject, x.length );
-				var end = new TR { Translation = root.localPosition, Rotation = root.localRotation };
-				return ( start, end );
+				for( int i = 0; i < Bones.Length; i++ )
+				{
+					var bone = Bones[ i ];
+					ends[ i ] = new TR { Translation = bone.localPosition, Rotation = bone.localRotation };
+				}
+				return ( starts, ends );
 			} );
 			_currentPose = new TR[ Bones.Length ];
 		
@@ -183,7 +192,7 @@
 			}
 			else
 			{
-				_skel.RootMotionDelta.Rotation = (Object.Quat)Quaternion.identity; //Object.Quat.Identity;
+				_skel.RootMotionDelta.Rotation = new Object.Quat{ W = 1f }; //Object.Quat.Identity;
 			}
 
 
@@ -375,8 +384,30 @@
 			bool bLoopingInterpolation = n.bLooping && !InAnimSeq.bNoLoopingInterpolation;
 
 			var unityClip = _clips[ InAnimSeq.SequenceName ];
-			unityClip.wrapMode = bLoopingInterpolation ? WrapMode.Loop : WrapMode.Default;
-			unityClip.SampleAnimation( GameObject, n.CurrentTime );
+			// Unity Port:
+			// The unity animation looks like it has the last (looping?) frame shaved off, not sure where exactly in the exporting/importing
+			// process this was lost ?
+			// On the unity animation clip with 'Loop Time' enabled and with WrapMode.Loop set the animation makes sure that
+			// the pose at 0 and clipLength matches BUT the velocity of the animation is all fucked up;
+			// the rate of change is non-constant to a point were it looks like it's jumping at the last minute into place ...
+			// So we'll manually blend into a loop here
+			unityClip.wrapMode = /*bLoopingInterpolation ? WrapMode.Loop : */WrapMode.Default;
+			if( bLoopingInterpolation && n.CurrentTime > unityClip.length )
+			{
+				float unexpectedDiff = InAnimSeq.SequenceLength - unityClip.length;
+				float currentTimeBetweenKeyframe = ( n.CurrentTime - unityClip.length ) / unexpectedDiff;
+				var(start, end) = _poses[ InAnimSeq.SequenceName ];
+				for( int i = 0; i < Bones.Length; i++ )
+				{
+					TR newTr = TR.Blend( end[ i ], start[ i ], currentTimeBetweenKeyframe );
+					Bones[ i ].localRotation = newTr.Rotation;
+					Bones[ i ].localPosition = newTr.Translation;
+				}
+			}
+			else
+			{
+				unityClip.SampleAnimation( GameObject, n.CurrentTime/* / InAnimSeq.SequenceLength * unityClip.length*/ );
+			}
 
 			// For each desired bone...
 			for( int BoneIndex=0; BoneIndex<Atoms.Length; BoneIndex++ )
@@ -457,7 +488,8 @@
 			const FMatrix CompToMeshTM = MeshToCompTM.Inverse();*/
 
 			// Get the exact translation of the root bone on the first frame of the animation
-			var (FirstFrameAtom, LastFrameAtom) = _rootMotion[ InAnimSeq.SequenceName ];
+			var startsAndEnds = _poses[ InAnimSeq.SequenceName ];
+			var (FirstFrameAtom, LastFrameAtom) = (startsAndEnds.start[0], startsAndEnds.end[0]);
 			/*FBoneAtom FirstFrameAtom;
 			InAnimSeq.GetBoneAtom(FirstFrameAtom, TrackIndex, 0f, false, thisSeq.SkelComponent.bUseRawData);*/
 
@@ -834,6 +866,16 @@
 			}
 		}
 
+		
+		
+		TR RootBoneAt( AnimSequence seq, float t )
+		{
+			var clip = _clips[ seq.SequenceName ];
+			clip.SampleAnimation( GameObject, t );
+			var root = Bones[0];
+			return new TR { Translation = root.localPosition, Rotation = root.localRotation };
+		}
+
 
 
 		void AnimNodeAimOffset_GetBoneAtoms( AnimNodeAimOffset n, Span<TR> Atoms, ref TR RootMotionDelta, ref int bHasRootMotion )
@@ -869,7 +911,7 @@
 				return;
 			}
 
-			Object.Vector2D SafeAim = n.Aim;
+			Object.Vector2D SafeAim = n.GetAim();
 			
 			// Add in rotation offset, but not in the editor
 			//if( !GIsEditor || GIsGame )
@@ -945,31 +987,31 @@
 					switch( n.ForcedAimDir )
 					{
 						case EAnimAimDir.ANIMAIM_LEFTUP			:	QuaternionOffset	= (Quaternion)AimCpnt.LU.Quaternion; 
-														TranslationOffset	= AimCpnt.LU.Translation.ToUnityDir();	
+														TranslationOffset	= AimCpnt.LU.Translation.ToUnityPos();	
 														break;
 						case EAnimAimDir.ANIMAIM_CENTERUP		:	QuaternionOffset	= (Quaternion)AimCpnt.CU.Quaternion; 
-														TranslationOffset	= AimCpnt.CU.Translation.ToUnityDir();	
+														TranslationOffset	= AimCpnt.CU.Translation.ToUnityPos();	
 														break;
 						case EAnimAimDir.ANIMAIM_RIGHTUP		:	QuaternionOffset	= (Quaternion)AimCpnt.RU.Quaternion; 
-														TranslationOffset	= AimCpnt.RU.Translation.ToUnityDir(); 
+														TranslationOffset	= AimCpnt.RU.Translation.ToUnityPos(); 
 														break;
 						case EAnimAimDir.ANIMAIM_LEFTCENTER		:	QuaternionOffset	= (Quaternion)AimCpnt.LC.Quaternion; 
-														TranslationOffset	= AimCpnt.LC.Translation.ToUnityDir(); 
+														TranslationOffset	= AimCpnt.LC.Translation.ToUnityPos(); 
 														break;
 						case EAnimAimDir.ANIMAIM_CENTERCENTER	:	QuaternionOffset	= (Quaternion)AimCpnt.CC.Quaternion; 
-														TranslationOffset	= AimCpnt.CC.Translation.ToUnityDir(); 
+														TranslationOffset	= AimCpnt.CC.Translation.ToUnityPos(); 
 														break;
 						case EAnimAimDir.ANIMAIM_RIGHTCENTER	:	QuaternionOffset	= (Quaternion)AimCpnt.RC.Quaternion; 
-														TranslationOffset	= AimCpnt.RC.Translation.ToUnityDir(); 
+														TranslationOffset	= AimCpnt.RC.Translation.ToUnityPos(); 
 														break;
 						case EAnimAimDir.ANIMAIM_LEFTDOWN		:	QuaternionOffset	= (Quaternion)AimCpnt.LD.Quaternion; 
-														TranslationOffset	= AimCpnt.LD.Translation.ToUnityDir(); 
+														TranslationOffset	= AimCpnt.LD.Translation.ToUnityPos(); 
 														break;
 						case EAnimAimDir.ANIMAIM_CENTERDOWN		:	QuaternionOffset	= (Quaternion)AimCpnt.CD.Quaternion; 
-														TranslationOffset	= AimCpnt.CD.Translation.ToUnityDir(); 
+														TranslationOffset	= AimCpnt.CD.Translation.ToUnityPos(); 
 														break;
 						case EAnimAimDir.ANIMAIM_RIGHTDOWN		:	QuaternionOffset	= (Quaternion)AimCpnt.RD.Quaternion; 
-														TranslationOffset	= AimCpnt.RD.Translation.ToUnityDir(); 
+														TranslationOffset	= AimCpnt.RD.Translation.ToUnityPos(); 
 														break;
 					}
 				}
@@ -1268,6 +1310,7 @@
 
 				if( !n.bForceLocalSpaceBlend && bDoComponentSpaceBlend )
 				{
+					Atoms[BoneIndex] = TR.Blend(Child1Atoms[BoneIndex], Child2Atoms[BoneIndex], Child2BoneWeight);
 					NativeMarkers.MarkUnimplemented();
 					#if UNUSED
 					//debugf(TEXT("  (%2d) %1.1f %s"), BoneIndex, Child2PerBoneWeight[BoneIndex], *RefSkel[BoneIndex].Name);
@@ -1359,7 +1402,7 @@
 				else
 				{
 					// otherwise do faster local space blending.
-					Atoms[BoneIndex].Blend(Child1Atoms[BoneIndex], Child2Atoms[BoneIndex], Child2BoneWeight);
+					Atoms[BoneIndex] = TR.Blend(Child1Atoms[BoneIndex], Child2Atoms[BoneIndex], Child2BoneWeight);
 				}
 
 				// Blend root motion
@@ -1369,7 +1412,7 @@
 
 					if( bChild1HasRootMotion != 0 && bChild2HasRootMotion != 0 )
 					{
-						RootMotionDelta.Blend( Child1RMD, Child2RMD, Child2BoneWeight );
+						RootMotionDelta = TR.Blend( Child1RMD, Child2RMD, Child2BoneWeight );
 					}
 					else if( bChild1HasRootMotion != 0 )
 					{
@@ -1603,16 +1646,6 @@
 			return false;
 		}
 
-		
-		
-		TR RootBoneAt( AnimSequence seq, float t )
-		{
-			var clip = _clips[ seq.SequenceName ];
-			clip.SampleAnimation( GameObject, t );
-			var root = Bones[0];
-			return new TR { Translation = root.localPosition, Rotation = root.localRotation };
-		}
-
 
 
 		static Quaternion BiLerpQuat(Object.Quat P00, Object.Quat P10, Object.Quat P01, Object.Quat P11, float FracX, float FracY)
@@ -1622,7 +1655,7 @@
 		
 		static Vector3 BiLerp(Object.Vector P00, Object.Vector P10, Object.Vector P01, Object.Vector P11, float FracX, float FracY)
 		{
-			return Vector3.Lerp( Vector3.Lerp( P00.ToUnityDir(), P10.ToUnityDir(), FracX ), Vector3.Lerp( P01.ToUnityDir(), P11.ToUnityDir(), FracX ), FracY );
+			return Vector3.Lerp( Vector3.Lerp( P00.ToUnityPos(), P10.ToUnityPos(), FracX ), Vector3.Lerp( P01.ToUnityPos(), P11.ToUnityPos(), FracX ), FracY );
 		}
 		
 		static float UnWindNormalizedAimAngle(float Angle)
@@ -1695,27 +1728,27 @@
 			public Vector3 Translation;
 			public static readonly TR Identity = new TR { Rotation = Quaternion.identity };
 			
-			public void Blend(TR Atom1, TR Atom2, float Alpha)
+			public static TR Blend(TR Atom1, TR Atom2, float Alpha)
 			{
 				if( Alpha <= ZERO_ANIMWEIGHT_THRESH )
 				{
 					// if blend is all the way for child1, then just copy its bone atoms
-					this = Atom1;
+					return Atom1;
 				}
 				else if( Alpha >= 1f - ZERO_ANIMWEIGHT_THRESH )
 				{
 					// if blend is all the way for child2, then just copy its bone atoms
-					this = Atom2;
+					return Atom2;
 				}
 				else
 				{
 					// Simple linear interpolation for translation and scale.
-					Translation = Vector3.Lerp(Atom1.Translation, Atom2.Translation, Alpha);
+					var Translation = Vector3.Lerp(Atom1.Translation, Atom2.Translation, Alpha);
 					//Scale		= Lerp(Atom1.Scale, Atom2.Scale, Alpha);
 
 					// We use a linear interpolation and a re-normalize for the rotation.
 					// Treating Rotation as an accumulator, initialise to a scaled version of Atom1.
-					Rotation = QTimesF(Atom1.Rotation, (1f - Alpha));
+					var Rotation = QTimesF(Atom1.Rotation, (1f - Alpha));
 
 					// To ensure the 'shortest route', we make sure the dot product between the accumulator and the incoming rotation is positive.
 					if( Quaternion.Dot(Rotation, Atom2.Rotation) < 0f )
@@ -1730,6 +1763,11 @@
 
 					// ..and renormalize
 					Rotation.Normalize();
+					return new TR
+					{
+						Translation = Translation,
+						Rotation = Rotation
+					};
 				}
 			}
 

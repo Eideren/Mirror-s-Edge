@@ -17,6 +17,6 @@
 	{
 		public T E_UWorld_SpawnActor<T>( Core.ClassT<T> SpawnClass, int a3, float a4, Object.Vector SpawnLocation, Object.Rotator SpawnRotation, Actor ActorTemplate, bool bNoCollisionFail, int networkRelatedParam, Actor SpawnOwner, Pawn Instigator, bool bProbablyNoFail ) where T : Actor;
 		public TClass LoadAsset<TClass>( Core.String assetPath ) where TClass : new();
-		public ConditionalWeakTable<object, object> UScriptToUnity{ get; }
+		public ConditionalWeakTable<object, UnityEngine.Object> UScriptToUnity{ get; }
 	}
 }

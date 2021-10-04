@@ -260,6 +260,18 @@
 
 
 
+        public static Matrix VectorMatrixInverse( Matrix value )
+        {
+	        unsafe
+	        {
+		        NativeMarkers.MarkUnimplemented(); // Matrix memory mapping might not match, not sure if it matters though
+		        var m = UnityEngine.Matrix4x4.Inverse( * ( (UnityEngine.Matrix4x4*) & value ) );
+		        return * ( (Matrix*) & m );
+	        }
+        }
+
+
+
         class GMath
         {
 	        const int ANGLE_SHIFT = 2; // Bits to right-shift to get lookup value.

@@ -121,16 +121,24 @@
 		// Export USkeletalMeshComponent::execGetBoneQuaternion(FFrame&, void* const)
 		public virtual /*native final function */Object.Quat GetBoneQuaternion(name BoneName, /*optional */int? _Space = default)
 		{
-			#warning not implemented yet
-			return default;
+			var bone = HACK_GetUnityBone( BoneName );
+			return (Quat)(_Space == 1 ? bone.localRotation : bone.rotation);
 		}
 	
 		// Export USkeletalMeshComponent::execGetBoneLocation(FFrame&, void* const)
 		public virtual /*native final function */Object.Vector GetBoneLocation(name BoneName, /*optional */int? _Space = default) // 0 == World, 1 == Local (Component)
 		{
+			var bone = HACK_GetUnityBone( BoneName );
+			return (_Space == 1 ? bone.localPosition : bone.position).ToUnrealPos();
+		}
+
+
+
+		Transform HACK_GetUnityBone( name BoneName )
+		{
 			var renderer = _associatedRenderer ??= UWorldBridge.GetUWorld().UScriptToUnity.TryGetValue( this.SkeletalMesh, out var smr ) ? (SkinnedMeshRenderer) smr : throw new System.NullReferenceException();
 			_bones ??= BuildBonesDictionary( renderer.transform.parent );
-			return (_Space == 1 ? _bones![ BoneName ].localPosition : _bones![ BoneName ].position).ToUnrealPos();
+			return _bones![ BoneName ];
 		}
 
 

@@ -325,8 +325,8 @@
 
         public static bool StringToBool( String s )
         {
-	        LogError( $"Parsing String to bool not verified, input value:'{s}'" );
-	        return s == "TRUE" || s == "true" || s == "True";
+	        // UObject::execStringToBool in UnCorSc
+	        return s == "TRUE" || s == "true" || s == "True" || s == "Yes" || (int.TryParse(s, out var intV) && intV != 0);
         }
 
 

@@ -29,18 +29,24 @@
 		{
 			public static explicit operator UnityQuat( Quat v )
 			{
-				unsafe
+				return new UnityQuat
 				{
-					return * (UnityQuat*)&v;
-				}
+					x = v.Y,
+					y = v.Z,
+					z = v.X,
+					w = v.W,
+				};
 			}
 			
 			public static explicit operator Quat( UnityQuat v )
 			{
-				unsafe
+				return new Quat
 				{
-					return * (Quat*)&v;
-				}
+					X = v.z,
+					Y = v.x,
+					Z = v.y,
+					W = v.w,
+				};
 			}
 		}
 

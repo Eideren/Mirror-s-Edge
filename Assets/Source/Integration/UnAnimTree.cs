@@ -716,16 +716,6 @@ namespace MEdge.Engine
 
 
 		public const string NAME_None = default;
-		public const AnimNodeAimOffset.EAnimAimDir ANIMAIM_LEFTUP = AnimNodeAimOffset.EAnimAimDir.ANIMAIM_LEFTUP;
-		public const AnimNodeAimOffset.EAnimAimDir ANIMAIM_CENTERUP = AnimNodeAimOffset.EAnimAimDir.ANIMAIM_CENTERUP;
-		public const AnimNodeAimOffset.EAnimAimDir ANIMAIM_RIGHTUP = AnimNodeAimOffset.EAnimAimDir.ANIMAIM_RIGHTUP;
-		public const AnimNodeAimOffset.EAnimAimDir ANIMAIM_LEFTCENTER = AnimNodeAimOffset.EAnimAimDir.ANIMAIM_LEFTCENTER;
-		public const AnimNodeAimOffset.EAnimAimDir ANIMAIM_CENTERCENTER = AnimNodeAimOffset.EAnimAimDir.ANIMAIM_CENTERCENTER;
-		public const AnimNodeAimOffset.EAnimAimDir ANIMAIM_RIGHTCENTER = AnimNodeAimOffset.EAnimAimDir.ANIMAIM_RIGHTCENTER;
-		public const AnimNodeAimOffset.EAnimAimDir ANIMAIM_LEFTDOWN = AnimNodeAimOffset.EAnimAimDir.ANIMAIM_LEFTDOWN;
-		public const AnimNodeAimOffset.EAnimAimDir ANIMAIM_CENTERDOWN = AnimNodeAimOffset.EAnimAimDir.ANIMAIM_CENTERDOWN;
-		public const AnimNodeAimOffset.EAnimAimDir ANIMAIM_RIGHTDOWN = AnimNodeAimOffset.EAnimAimDir.ANIMAIM_RIGHTDOWN;
-		public const AnimNodeAimOffset.EAnimAimDir ANIMAIM_MAX = AnimNodeAimOffset.EAnimAimDir.ANIMAIM_MAX;
 
 		#if UNUSED
 	/// <summary>
@@ -3858,11 +3848,15 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 #endif
 }
 
+
+
 /// <summary>
 /// sed to save pointer to AimOffset node in package, to avoid duplicating profile data. 
 /// </summary>
 public partial class AnimNodeAimOffset
 {
+	public virtual Vector2D	GetAim() { return Aim; }
+	
 	#if UNUSED
 public virtual void PostAnimNodeInstance(ref AnimNode SourceNode)
 {

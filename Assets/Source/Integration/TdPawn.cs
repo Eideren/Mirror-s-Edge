@@ -12,11 +12,203 @@
     using static UnityEngine.Debug;
 	public partial class TdPawn
 	{
+        // Export UTdPawn::execGetCameraAnimation(FFrame&, void* const)
+        public virtual /*native final function */void GetCameraAnimation(ref Object.Vector out_Location, ref Object.Rotator out_Rotation)
+        {
+            if ( Mesh )
+            {
+                var eyeRotator = QuatToRotator(Mesh.GetBoneQuaternion( "EyeJoint", 1 ));
+                if ( AddCameraDeltaAnimations() )
+                {
+                    var cameraRotator = QuatToRotator(Mesh.GetBoneQuaternion( "CameraJoint", 1 ));
+                    out_Rotation.Pitch = cameraRotator.Pitch + eyeRotator.Pitch;
+                    out_Rotation.Yaw = cameraRotator.Yaw + eyeRotator.Yaw;
+                    out_Rotation.Roll = eyeRotator.Roll + cameraRotator.Roll;
+                }
+                else
+                {
+                    out_Rotation.Pitch = eyeRotator.Pitch;
+                    out_Rotation.Yaw = eyeRotator.Yaw;
+                    out_Rotation.Roll = eyeRotator.Roll;
+                }
+            }
+        }
+        #region src
+        /*
+void __thiscall ATdPawn::GetCameraAnimation(
+        _E_struct_ATdPawn *this,
+        _E_struct_FVector *out_Location,
+        _E_struct_FRotator *out_Rotation)
+{
+  _E_struct_USkeletalMeshComponent *Mesh; // ecx
+  int eyeSocketIndex; // eax
+  _E_struct_USkeletalMeshComponent *__ptr32 thisMesh; // edx
+  _E_struct_FMatrix *v7; // eax
+  int Dummy; // esi
+  int func_AddCameraDeltaAnimations; // eax
+  unsigned int v10; // edx
+  unsigned int v11; // esi
+  unsigned int Yaw; // edx
+  unsigned int Roll; // ecx
+  int addCameraDeltaAnimations; // [esp+14h] [ebp-11Ch] BYREF
+  _E_struct_FRotator eyeRotator; // [esp+18h] [ebp-118h] BYREF
+  _E_struct_FRotator cameraRotator; // [esp+24h] [ebp-10Ch] BYREF
+  _E_struct_FMatrix cameraSpaceBase; // [esp+30h] [ebp-100h] BYREF
+  _E_struct_FMatrix eyeSpaceBase; // [esp+70h] [ebp-C0h] BYREF
+  _E_struct_FMatrix v19; // [esp+B0h] [ebp-80h] BYREF
+  _E_struct_FMatrix v20; // [esp+F0h] [ebp-40h] BYREF
+
+  Mesh = this->Mesh;
+  if ( Mesh )
+  {
+    eyeSocketIndex = E_FindSocketIndex(Mesh, EyeJoint_dword_20567FC, dword_2056800);
+    thisMesh = this->Mesh;
+    qmemcpy(&eyeSpaceBase, &thisMesh->SpaceBases.Data[eyeSocketIndex], sizeof(eyeSpaceBase));
+    qmemcpy(
+      &cameraSpaceBase,
+      &this->Mesh->SpaceBases.Data[E_FindSocketIndex(thisMesh, CameraJoint_dword_2056804, dword_2056808)],
+      sizeof(cameraSpaceBase));
+    v7 = VectorMatrixInverse(&eyeSpaceBase, &v19);
+    qmemcpy(
+      &cameraSpaceBase,
+      sub_4465B0((__m128 *)&cameraSpaceBase, (__m128 *)&v20, (__m128 *)v7),
+      sizeof(cameraSpaceBase));
+    E_MatrixToRotator(&eyeSpaceBase, &eyeRotator);
+    E_MatrixToRotator(&cameraSpaceBase, &cameraRotator);
+    Dummy = this->VfTableObject.Dummy;
+    addCameraDeltaAnimations = 0;
+    func_AddCameraDeltaAnimations = sub_11090D0(
+                                      this,
+                                      AddCameraDeltaAnimations1_dword_20554B0,
+                                      AddCameraDeltaAnimations2_dword_20554B4,
+                                      0);
+    (*(void (__stdcall **)(int, int *, _DWORD))(Dummy + 244))(
+      func_AddCameraDeltaAnimations,
+      &addCameraDeltaAnimations,
+      0);                                       // Call UScript AddCameraDeltaAnimations
+    if ( addCameraDeltaAnimations )
+    {
+      v10 = cameraRotator.Yaw + eyeRotator.Yaw;
+      v11 = eyeRotator.Roll + cameraRotator.Roll;
+      out_Rotation->Pitch = cameraRotator.Pitch + eyeRotator.Pitch;
+      out_Rotation->Yaw = v10;
+      out_Rotation->Roll = v11;
+    }
+    else
+    {
+      Yaw = eyeRotator.Yaw;
+      out_Rotation->Pitch = eyeRotator.Pitch;
+      Roll = eyeRotator.Roll;
+      out_Rotation->Yaw = Yaw;
+      out_Rotation->Roll = Roll;
+    }
+  }
+}
+         */
+        #endregion
+        
+        // Export UTdPawn::execSyncLegMovement(FFrame&, void* const)
+        public virtual void SyncLegMovement()
+        {
+            //_E_struct_TArray_FSynchGroup *p_Groups; // edx
+            //int32_t v2; // ebp
+            //_E_struct_TArray_FSynchGroup *v3; // edi
+            //int v4; // esi
+            //_E_struct_FSynchGroup *v5; // eax
+            //_E_struct_FSynchGroup *v6; // ecx
+
+            var p_Groups = this.MasterSync3p.Groups;
+            var v2 = 0;
+            var v3 = this.MasterSync1p.Groups;
+            if ( this.MasterSync3p.Groups.Count > 0 )
+            {
+                var v4 = 0;
+                do
+                {
+                    ref var v5 = ref p_Groups[v4];
+                    ref var v6 = ref v3[v4];
+                    if ( (v5.bUseSharedMasterControlNode) != false )
+                    {
+                        v5.SharedMasterRelativePosition = v6.SharedMasterRelativePosition;
+                        v5.SharedMasterMoveDelta = v6.SharedMasterMoveDelta;
+                    }
+                    ++v2;
+                    ++v4;
+                }
+                while ( v2 < p_Groups.Count );
+            }
+        }
+        #region src
+        /*
+void __thiscall ATdPawn::SyncLegMovement(_E_struct_ATdPawn *this)
+{
+  _E_struct_TArray_FSynchGroup *p_Groups; // edx
+  int32_t v2; // ebp
+  _E_struct_TArray_FSynchGroup *v3; // edi
+  int v4; // esi
+  _E_struct_FSynchGroup *v5; // eax
+  _E_struct_FSynchGroup *v6; // ecx
+
+  p_Groups = &this->MasterSync3p->Groups;
+  v2 = 0;
+  v3 = &this->MasterSync1p->Groups;
+  if ( this->MasterSync3p->Groups.Count > 0 )
+  {
+    v4 = 0;
+    do
+    {
+      v5 = &p_Groups->Data[v4];
+      v6 = &v3->Data[v4];
+      if ( (v5->bitfield_bUseSharedMasterControlNode & 1) != 0 )
+      {
+        v5->SharedMasterRelativePosition = v6->SharedMasterRelativePosition;
+        v5->SharedMasterMoveDelta = v6->SharedMasterMoveDelta;
+      }
+      ++v2;
+      ++v4;
+    }
+    while ( v2 < p_Groups->Count );
+  }
+}
+         */
+        #endregion
+
+
+
         // Export UTdPawn::execGetCustomAnimation(FFrame&, void* const)
         public virtual /*native simulated function */AnimNodeSequence GetCustomAnimation(TdPawn.CustomNodeType Type)
         {
             NativeMarkers.MarkUnimplemented();
             return default;
+        }
+        
+        // Export UTdPawn::execSetRootOffset(FFrame&, void* const)
+        public virtual /*native simulated function */void SetRootOffset(Object.Vector Offset, float BlendTime, /*optional */SkelControlBase.EBoneControlSpace? _TranslationSpace = default)
+        {
+            NativeMarkers.MarkUnimplemented(); // Controls aren't implemented at all
+            var TranslationSpace = _TranslationSpace ?? SkelControlBase.EBoneControlSpace.BCS_ActorSpace;
+            if ( sqrt(Offset.Y * Offset.Y + Offset.X * Offset.X + Offset.Z * Offset.Z) <= 0.1 )
+            {
+                if ( this.RootControl1p )
+                    RootControl1p.SetSkelControlStrength(0.0f, BlendTime);
+                if ( this.RootControl3p )
+                    RootControl3p.SetSkelControlStrength(0.0f, BlendTime);
+            }
+            else
+            {
+                if ( this.RootControl1p )
+                {
+                    this.RootControl1p.BoneTranslation = Offset;
+                    this.RootControl1p.SetSkelControlStrength(1.0f, BlendTime);
+                    this.RootControl1p.BoneTranslationSpace = TranslationSpace;
+                }
+                if ( this.RootControl3p )
+                {
+                    this.RootControl3p.BoneTranslation = Offset;
+                    this.RootControl3p.SetSkelControlStrength(1.0f, BlendTime);
+                    this.RootControl3p.BoneTranslationSpace = TranslationSpace;
+                }
+            }
         }
 
         // Export UTdPawn::execPlayCustomAnim(FFrame&, void* const)

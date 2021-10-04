@@ -1,6 +1,8 @@
 ﻿namespace MEdge.Engine
 {
-    using System.Collections.Generic;
+	using System;
+	using System.Collections.Concurrent;
+	using System.Collections.Generic;
     using System.Linq;
     using System.Runtime.CompilerServices;
     using Core;
@@ -25,6 +27,7 @@
         public bool HasBegunPlay{ get; private set; }
         Actor _defaultOuter;
         public WorldInfo WorldInfo{ get; private set; }
+        public ConcurrentQueue<Action> ScheduleInMainLoop = new ConcurrentQueue<Action>();
 
         Engine _engine = new TdGameEngine();
         UnityEngine.BoxCollider _cacheCollider = new UnityEngine.BoxCollider();
@@ -53,7 +56,12 @@
 
         void Update()
         {
-            if(ReferenceEquals( this, _instance ) == false)
+	        while( ScheduleInMainLoop.TryDequeue( out var a ) )
+	        {
+		        a();
+	        }
+
+	        if(ReferenceEquals( this, _instance ) == false)
                 Destroy(this);
 
             UnityEngine.Time.timeScale = this.WorldInfo.TimeDilation;
@@ -112,6 +120,10 @@
             }
             
             _actorsThisFrame.Clear();
+            while( ScheduleInMainLoop.TryDequeue( out var a ) )
+            {
+	            a();
+            }
         }
 
 
@@ -293,7 +305,7 @@
 
 
 
-        public ConditionalWeakTable<object, object> UScriptToUnity => Asset.UScriptToUnity;
+        public ConditionalWeakTable<object, UnityEngine.Object> UScriptToUnity => Asset.UScriptToUnity;
         public TClass LoadAsset<TClass>( Core.String assetPath ) where TClass : new() => Asset.LoadAsset<TClass>( assetPath );
 
 

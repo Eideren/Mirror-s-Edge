@@ -23,15 +23,4 @@
             PawnOwner = meshComp.Owner as TdPawn;
         }
     }
-
-
-
-    public partial class TdAnimNodeSequence
-    {
-        public override void InitAnim( SkeletalMeshComponent meshComp, AnimNodeBlendBase Parent )
-        {
-            base.InitAnim( meshComp, Parent );
-            TdPawnOwner = meshComp.Owner as TdPawn;
-        }
-    }
 }
