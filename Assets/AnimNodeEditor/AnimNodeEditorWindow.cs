@@ -18,7 +18,7 @@
 
 		public AnimNodeEditorWindow()
 		{
-			Separation = 8.0f;
+			Separation = 4.0f;
 		}
 
 
@@ -134,38 +134,53 @@
 		{
 			bool isInEditMode = _inEditModeFor != null;
 			if( GUI.Button( new Rect( 332, 0, 100, 16 ), isInEditMode ? "Edit->Gameplay" : "Gameplay->Edit" ) )
+				SwapModeTo(!isInEditMode);
+			
+			base.OnGUIDraw();
+		}
+
+
+
+		public void SwapModeTo( bool edit )
+		{
+			bool isInEditMode = _inEditModeFor != null;
+			if( edit == isInEditMode )
+				return;
+			
+			isInEditMode = !isInEditMode;
+			var setNodesPawnTo = isInEditMode ? null : _inEditModeFor;
+			TdPawn nodesPawn = null;
+			foreach( ObjectNodeDrawer drawerNode in _nodes )
 			{
-				isInEditMode = ! isInEditMode;
-				var setNodesPawnTo = isInEditMode ? null : _inEditModeFor;
-				TdPawn nodesPawn = null;
-				foreach( ObjectNodeDrawer node in _nodes )
+				var animNode = ( (AnimNodeDrawer) drawerNode ).GetContent as AnimNode;
+				if( animNode == null )
+					continue;
+				nodesPawn ??= animNode.SkelComponent.Owner as TdPawn;
+				animNode.SkelComponent.Owner = setNodesPawnTo;
+				switch( animNode )
 				{
-					switch( ( (AnimNodeDrawer)node ).GetContent )
+					case TdAnimNodeBlendList n:
 					{
-						case TdAnimNodeBlendList n:
-						{
-							nodesPawn = n.TdPawnOwner ?? nodesPawn;
-							n.TdPawnOwner = setNodesPawnTo;
-							break;
-						}
-						case TdAnimNodeSequence n:
-						{
-							nodesPawn = n.TdPawnOwner ?? nodesPawn;
-							n.TdPawnOwner = setNodesPawnTo;
-							break;
-						}
-						case TdAnimNodeIKEffectorController n:
-						{
-							nodesPawn = n.PawnOwner ?? nodesPawn;
-							n.PawnOwner = setNodesPawnTo;
-							break;
-						}
+						nodesPawn = n.TdPawnOwner ?? nodesPawn;
+						n.TdPawnOwner = setNodesPawnTo;
+						break;
+					}
+					case TdAnimNodeSequence n:
+					{
+						nodesPawn = n.TdPawnOwner ?? nodesPawn;
+						n.TdPawnOwner = setNodesPawnTo;
+						break;
+					}
+					case TdAnimNodeIKEffectorController n:
+					{
+						nodesPawn = n.PawnOwner ?? nodesPawn;
+						n.PawnOwner = setNodesPawnTo;
+						break;
 					}
 				}
-
-				_inEditModeFor = isInEditMode ? nodesPawn : null;
 			}
-			base.OnGUIDraw();
+
+			_inEditModeFor = isInEditMode ? nodesPawn : null;
 		}
 
 
@@ -226,25 +241,59 @@
 
 
 			public override Color? BackgroundColor => (_observedObject as AnimNode)?.bRelevant == true ? new Color(0f, 1f, 0f, 0.1f) : default(Color?);
-
-
-			bool _simpleModeToggle;
+			
+			bool _foldedOut;
 			bool _isHovered;
-
+			
 
 
 			public AnimNodeDrawer( object content ) : base( content )
 			{
-				if( content is AnimNodeSequence )
-					_simpleModeToggle = true;
+				
 			}
 
 
 
 			public override void OnDraw( NodeDrawer drawer )
 			{
-				if( _observedObject is AnimNodeSequence && drawer.IsInView( out var rectButton ) && GUI.Button( rectButton, "Simple" ) )
-					_simpleModeToggle = ! _simpleModeToggle;
+				if( drawer.IsInView( out var rectButton ) && GUI.Button( rectButton, _foldedOut ? "Fold" : "Unfold" ) )
+					_foldedOut = ! _foldedOut;
+
+				if( _observedObject is TdAnimNodeBlendList bl )
+				{
+					if( drawer.IsNextInView() && drawer.Editor.GUIStyle.fontSize >= NodeDrawer.ClippedFontSize )
+					{
+						var rect = drawer.UseRect();
+						// Weird, I know but that's how it works AFAICT
+						var prev = bl.ActiveChildIndex;
+						var newSI = Mathf.RoundToInt( GUI.HorizontalSlider( rect, prev, 0, bl.Children.Length - 1 ) );
+						if( prev != newSI )
+						{
+							bl.EditorSliderIndex = newSI;
+							bl.SetActiveMove(bl.EditorSliderIndex);
+						}
+					}
+					else
+					{
+						drawer.UseRect();
+					}
+				}
+				else if( _observedObject is AnimNodeSequence seq && seq.AnimSeq )
+				{
+					if( drawer.IsNextInView() && drawer.Editor.GUIStyle.fontSize >= NodeDrawer.ClippedFontSize )
+					{
+						var rect = drawer.UseRect();
+						var prev = seq.CurrentTime;
+						var curr = GUI.HorizontalSlider( rect, prev, 0f, seq.AnimSeq.SequenceLength );
+						if( curr != prev )
+							seq.AdvanceBy( curr - prev, 1f, false );
+					}
+					else
+					{
+						drawer.UseRect();
+					}
+				}
+
 				base.OnDraw( drawer );
 				_isHovered = drawer.SurfaceCovered.Contains( Event.current.mousePosition );
 			}
@@ -253,13 +302,30 @@
 
 			protected override void DrawField( IField field, (ObjectGraphWindow.ObjectNodeDrawer thisNode, int hash, int? arrayItemIndex) data, CachedContainer cache )
 			{
-				if( _simpleModeToggle && _isHovered == false )
-					return;
-				
 				if( field.Info.ReflectedType == typeof(Core.Object) ) 
 					return;
-				
+
+				if( _isHovered == false && _foldedOut == false )
+				{
+					if( field.Info.FieldType == typeof(array<AnimNodeBlendBase.AnimBlendChild>)  
+					    || field.Info.FieldType == typeof(AnimNodeBlendBase.AnimBlendChild) 
+					    || field.Info.FieldType == typeof(AnimNodeBlendBase.AnimBlendChild[])
+					    || (field.Info.ReflectedType == typeof(AnimNodeBlendBase.AnimBlendChild) 
+					        && field.Info.Name == nameof(AnimNodeBlendBase.AnimBlendChild.Anim)) )
+					{
+						base.DrawField( field, data, cache );
+					}
+					return;
+				}
+
 				base.DrawField( field, data, cache );
+			}
+
+
+
+			protected override Color? LineColorFor( IField field, CachedContainer container )
+			{
+				return container.ContainerAsObj is AnimNodeBlendBase.AnimBlendChild abc ? abc.TotalWeight > 0f ? new Color(0, 1, 0, 0.25f) : null : null;
 			}
 		}
 	}

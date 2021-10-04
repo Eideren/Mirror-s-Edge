@@ -148,11 +148,12 @@
 				}
 
 				data.hash = data.arrayItemIndex != null ? data.hash + data.arrayItemIndex.Value : NewHash( data.hash, field );
-				
-				if( drawer.Handles( field ) == false && field.IsReferenceType )
+
+				var noDefaultHandler = drawer.Handles( field ) == false;
+				if( noDefaultHandler && field.IsReferenceType )
 				{
 					var target = field.GetValueSlowAndBox( cache );
-					if( drawer.MarkNextAsReceiver( ( field, cache.ContainerAsObj ), ref target, acceptableTarget: AcceptableTarget ) )
+					if( drawer.MarkNextAsReceiver( ( field, cache.ContainerAsObj ), ref target, acceptableTarget: AcceptableTarget, color:LineColorFor( field, cache ) ) )
 						field.SetValueSlow( cache, target );
 
 					if( target is System.Array array )
@@ -179,7 +180,7 @@
 						}
 					}
 				}
-				else if( drawer.Handles( field ) == false && VisibilityToggle( drawer, data.hash, data.thisNode.ShownInlineHash ) )
+				else if( noDefaultHandler && VisibilityToggle( drawer, data.hash, data.thisNode.ShownInlineHash ) )
 				{
 					drawer.DrawProperty( field, cache, customLabel );
 					var newRect = drawer.NextRect;
@@ -217,6 +218,10 @@
 					return value == null || key.field.CanAssign( value );
 				}
 			}
+
+
+
+			protected virtual Color? LineColorFor( IField field, CachedContainer container ) => null;
 			
 			
 			
