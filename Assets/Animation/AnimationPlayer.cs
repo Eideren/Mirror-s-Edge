@@ -267,7 +267,10 @@
 
 			// Remember the root bone's translation so we can move the bounds.
 			//_skel.RootBoneTranslation = LocalAtoms[0].Pos - _skel.SkeletalMesh.RefSkeleton[0].BonePos.Position;
-
+			
+			NativeMarkers.MarkUnimplemented(); // For SkelControls
+			//ComposeSkeleton(LocalAtoms, RequiredBones);
+			
 
 			for( int i = 0; i < Bones.Length; i++ )
 			{

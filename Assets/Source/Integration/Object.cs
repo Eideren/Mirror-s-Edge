@@ -9,6 +9,8 @@
 	[Serializable]
 	public partial class Object
 	{
+		public static readonly name NAME_None = default;
+		public const bool GIsGame = true;
 		public const bool TRUE = true;
 		public const bool FALSE = false;
 		public const object NULL = null;

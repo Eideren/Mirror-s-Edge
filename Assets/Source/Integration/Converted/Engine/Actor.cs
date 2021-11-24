@@ -2028,7 +2028,7 @@ public partial class Actor : Object/*
 	// Export UActor::execSetNetUpdateTime(FFrame&, void* const)
 	public virtual /*native final function */void SetNetUpdateTime(float NewUpdateTime)
 	{
-		NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented("Non essential");
 	}
 	
 	public virtual /*simulated event */void ShutDown()

@@ -3056,7 +3056,7 @@ public partial class PlayerController : Controller/*
 	public virtual /*native final function */bool HasClientLoadedCurrentWorld()
 	{
 		NativeMarkers.MarkUnimplemented();
-		return default;
+		return true;
 	}
 	
 	public virtual /*function */void EnterStartState()

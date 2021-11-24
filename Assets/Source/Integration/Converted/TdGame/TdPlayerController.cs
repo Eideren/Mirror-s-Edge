@@ -173,7 +173,7 @@ public partial class TdPlayerController : GamePlayerController,
 	// Export UTdPlayerController::execLocalEnemyActors(FFrame&, void* const)
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<TdPawn/* enemyIt*/> LocalEnemyActors()
 	{
-		NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented("Non essential");
 		yield break;
 	}
 	
@@ -1142,7 +1142,7 @@ public partial class TdPlayerController : GamePlayerController,
 	// Export UTdPlayerController::execMaintainEnemyList(FFrame&, void* const)
 	public virtual /*native final function */void MaintainEnemyList()
 	{
-		NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented("Non essential");
 	}
 	
 	public override PlayerTick_del PlayerTick { get => bfield_PlayerTick ?? TdPlayerController_PlayerTick; set => bfield_PlayerTick = value; } PlayerTick_del bfield_PlayerTick;

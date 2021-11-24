@@ -72,11 +72,9 @@ namespace MEdge.Engine
 
 		public void TickSkelControls( float DeltaSeconds )
 		{
-			NativeMarkers.MarkUnimplemented();
-			#if UNUSED
 			//SCOPE_CYCLE_COUNTER(STAT_SkelControlTickTime);
 
-			bool bRenderedRecently = GWorld->GetTimeSeconds() - LastRenderTime < 1.f;
+			bool bRenderedRecently = true;//GWorld->GetTimeSeconds() - LastRenderTime < 1.f;
 			AnimTree AnimTree = (Animations) as AnimTree;
 			if(AnimTree)
 			{
@@ -94,7 +92,6 @@ namespace MEdge.Engine
 					}
 				}
 			}
-			#endif
 		}
 		
 		public void TickAnimNodes(float DeltaTime)
@@ -5807,7 +5804,7 @@ int FindBestChildToPlayAnim(MEdge.Core.name AnimToPlay)
 /// @param	bLooping		Should the anim loop? (and play forever until told to stop)
 /// @param	bOverride		play same animation over again only if bOverride is set to true.
 /// </summary>
-public float PlayCustomAnim(MEdge.Core.name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride)
+public float PlayCustomAnim(name AnimName, float Rate, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bLooping = default, /*optional */bool? _bOverride = default)
 {
 	// Pre requisites
 	if( AnimName == NAME_None || Rate <= 0f )
@@ -5818,7 +5815,7 @@ public float PlayCustomAnim(MEdge.Core.name AnimName, float Rate, float BlendInT
 	// Figure out on which child to the play the animation on.
 	// If BlendInTime == 0f, then no need to look for another child to play the animation on,
 	// It's fine to use the same
-	if( CustomChildIndex < 1 || BlendInTime > 0f )
+	if( CustomChildIndex < 1 || (_BlendInTime ?? 0f) > 0f )
 	{
 		CustomChildIndex = FindBestChildToPlayAnim(AnimName);
 	}
@@ -5835,8 +5832,8 @@ public float PlayCustomAnim(MEdge.Core.name AnimName, float Rate, float BlendInT
 		bool bSetAnim = true;
 
 		// if already playing the same anim, replay it again only if bOverride is set to true.
-		if( !bOverride && 
-			SeqNode.bPlaying && SeqNode.bLooping == bLooping && 
+		if( !(_bOverride ?? false) && 
+			SeqNode.bPlaying && SeqNode.bLooping == (_bLooping??false) && 
 			SeqNode.AnimSeqName == AnimName && SeqNode.AnimSeq != null )
 		{
 			bSetAnim = false;
@@ -5855,14 +5852,14 @@ public float PlayCustomAnim(MEdge.Core.name AnimName, float Rate, float BlendInT
 			}
 
 			// Play the animation
-			SeqNode.PlayAnim(bLooping, Rate, 0f);
+			SeqNode.PlayAnim(_bLooping??false, Rate, 0f);
 		}
 
-		SetActiveChild(CustomChildIndex, BlendInTime);
+		SetActiveChild(CustomChildIndex, _BlendInTime ?? 0f);
 		bIsPlayingCustomAnim = true;
 
 		// when looping an animation, blend out time is not supported
-		PendingBlendOutTime = bLooping ? -1f : BlendOutTime;
+		PendingBlendOutTime = _bLooping??false ? -1f : _BlendOutTime ?? 0f;
 
 		// Disable Actor AnimEnd notification.
 		SetActorAnimEndNotification(false);
@@ -5880,7 +5877,7 @@ public float PlayCustomAnim(MEdge.Core.name AnimName, float Rate, float BlendInT
 
 	return 0f;
 }
-#if UNUSED
+
 /// <summary>
 /// Play a custom animation. 
 /// Auto adjusts the animation's rate to match a given duration in seconds.
@@ -5896,7 +5893,7 @@ public float PlayCustomAnim(MEdge.Core.name AnimName, float Rate, float BlendInT
 /// @param	bLooping		Should the anim loop? (and play forever until told to stop)
 /// @param	bOverride		play same animation over again only if bOverride is set to true.
 /// </summary>
-public virtual void PlayCustomAnimByDuration(MEdge.Core.name AnimName, float Duration, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride)
+public virtual void PlayCustomAnimByDuration(name AnimName, float Duration, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bLooping = default, /*optional */bool? _bOverride = default)
 {
 	// Pre requisites
 	if( AnimName == NAME_None || Duration <= 0f )
@@ -5904,7 +5901,7 @@ public virtual void PlayCustomAnimByDuration(MEdge.Core.name AnimName, float Dur
 		return;
 	}
 
-	ref AnimSequence AnimSeq = SkelComponent.FindAnimSequence(AnimName);
+	AnimSequence AnimSeq = SkelComponent.FindAnimSequence(AnimName);
 	if( AnimSeq )
 	{
 		float NewRate = AnimSeq.SequenceLength / Duration;
@@ -5913,14 +5910,13 @@ public virtual void PlayCustomAnimByDuration(MEdge.Core.name AnimName, float Dur
 			NewRate /= AnimSeq.RateScale;
 		}
 
-		PlayCustomAnim(AnimName, NewRate, BlendInTime, BlendOutTime, bLooping, bOverride);
+		PlayCustomAnim(AnimName, NewRate, _BlendInTime ?? 0f, _BlendOutTime ?? 0f, _bLooping ?? false, _bOverride ?? true);
 	}
 	else
 	{
-		debugf(TEXT("AnimNodeSlot::PlayAnim - AnimSequence for %s not found"), *AnimName.ToString());
+		debugf(TEXT("AnimNodeSlot::PlayAnim - AnimSequence for %s not found"), AnimName.ToString());
 	}
 }
-#endif
 #if UNUSED
 /// <summary>
 /// Returns the Name of the currently played animation or NAME_None otherwise. 
@@ -6005,6 +6001,19 @@ public AnimNodeSequence GetCustomAnimNodeSeq()
 	}
 
 	return null;
+}
+	
+// Export UAnimNodeSlot::execSetRootBoneAxisOption(FFrame&, void* const)
+public virtual /*native final function */void SetRootBoneAxisOption(/*optional */AnimNodeSequence.ERootBoneAxis? _AxisX = default, /*optional */AnimNodeSequence.ERootBoneAxis? _AxisY = default, /*optional */AnimNodeSequence.ERootBoneAxis? _AxisZ = default)
+{
+	AnimNodeSequence SeqNode = GetCustomAnimNodeSeq();
+
+	if( SeqNode )
+	{
+		SeqNode.RootBoneOption[0] = _AxisX ?? AnimNodeSequence.ERootBoneAxis.RBA_Default;
+		SeqNode.RootBoneOption[1] = _AxisY ?? AnimNodeSequence.ERootBoneAxis.RBA_Default;
+		SeqNode.RootBoneOption[2] = _AxisZ ?? AnimNodeSequence.ERootBoneAxis.RBA_Default;
+	}
 }
 #if UNUSED
 /// <summary>

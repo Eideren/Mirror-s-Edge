@@ -307,18 +307,20 @@
 
 				if( _isHovered == false && _foldedOut == false )
 				{
-					if( field.Info.FieldType == typeof(array<AnimNodeBlendBase.AnimBlendChild>)  
-					    || field.Info.FieldType == typeof(AnimNodeBlendBase.AnimBlendChild) 
-					    || field.Info.FieldType == typeof(AnimNodeBlendBase.AnimBlendChild[])
+					var fieldType = field.Info.FieldType;
+					if( fieldType == typeof(array<AnimNodeBlendBase.AnimBlendChild>)  
+					    || fieldType == typeof(AnimNodeBlendBase.AnimBlendChild) 
+					    || fieldType == typeof(AnimNodeBlendBase.AnimBlendChild[])
 					    || (field.Info.ReflectedType == typeof(AnimNodeBlendBase.AnimBlendChild) 
 					        && field.Info.Name == nameof(AnimNodeBlendBase.AnimBlendChild.Anim)) )
 					{
 						base.DrawField( field, data, cache );
 					}
-					return;
 				}
-
-				base.DrawField( field, data, cache );
+				else
+				{
+					base.DrawField( field, data, cache );
+				}
 			}
 
 

@@ -12,6 +12,389 @@
     using static UnityEngine.Debug;
 	public partial class TdPawn
 	{
+        
+        // Export UTdPawn::execStopCustomAnim(FFrame&, void* const)
+        public /*native simulated function */void TdPawn_StopCustomAnim(TdPawn.CustomNodeType Type, float BlendOutTime)
+        {
+            AnimNodeSequence CustomSequence; // edi
+            AnimNodeSequence v4; // ebx
+            TdAnimNodeSlot CustomCannedNode1p; // ecx
+            TdAnimNodeSlot CustomCannedNode3p; // ecx
+            AnimNodeSequence v8; // eax
+            TdAnimNodeSlot v9; // ecx
+            TdAnimNodeSlot CustomCannedUpperBodyNode1p; // ecx
+            TdAnimNodeSlot CustomCannedUpperBodyNode3p; // ecx
+            TdAnimNodeSlot CustomFullBodyNode1p; // ecx
+            TdAnimNodeSlot CustomFullBodyNode3p; // ecx
+            TdAnimNodeSlot CustomFullBodyDirNode1p; // ecx
+            TdAnimNodeSlot CustomFullBodyDirNode3p; // ecx
+            TdAnimNodeSlot CustomUpperBodyNode1p; // ecx
+            TdAnimNodeSlot CustomUpperBodyNode3p; // ecx
+            TdAnimNodeSlot CustomLowerBodyNode1p; // ecx
+            TdAnimNodeSlot CustomLowerBodyNode3p; // ecx
+            TdAnimNodeSlot CustomCameraNode; // ecx
+            AnimNodeSequence v21; // eax
+            TdAnimNodeSlot CustomWeaponNode1p; // ecx
+            TdAnimNodeSlot CustomWeaponNode3p; // ecx
+            TdAnimNodeSlot CustomFaceNode; // ecx
+            TdMove movementStateMove; // ecx
+
+            CustomSequence = null;
+            v4 = null;
+            switch( Type )
+            {
+                case CustomNodeType.CNT_Canned:
+                    CustomCannedNode1p = this.CustomCannedNode1p;
+                    if( CustomCannedNode1p )
+                    {
+                        CustomSequence = CustomCannedNode1p .GetCustomAnimNodeSeq( );
+                        this.CustomCannedNode1p.StopCustomAnim(BlendOutTime );
+                    }
+
+                    CustomCannedNode3p = this.CustomCannedNode3p;
+                    if( CustomCannedNode3p )
+                    {
+                        v8 = CustomCannedNode3p .GetCustomAnimNodeSeq( );
+                        v9 = this.CustomCannedNode3p;
+                        v4 = v8;
+                        v9.StopCustomAnim( BlendOutTime );
+                        break;
+                    }
+
+                    break;
+                case CustomNodeType.CNT_CannedUpperBody:
+                    CustomCannedUpperBodyNode1p = this.CustomCannedUpperBodyNode1p;
+                    if( CustomCannedUpperBodyNode1p )
+                    {
+                        CustomSequence = CustomCannedUpperBodyNode1p .GetCustomAnimNodeSeq( );
+                        this.CustomCannedUpperBodyNode1p.StopCustomAnim( BlendOutTime );
+                    }
+
+                    CustomCannedUpperBodyNode3p = this.CustomCannedUpperBodyNode3p;
+                    if( CustomCannedUpperBodyNode3p )
+                    {
+                        v8 = CustomCannedUpperBodyNode3p .GetCustomAnimNodeSeq( );
+                        v9 = this.CustomCannedUpperBodyNode3p;
+                        v4 = v8;
+                        v9.StopCustomAnim( BlendOutTime );
+                        break;
+                    }
+
+                    break;
+                case CustomNodeType.CNT_FullBody:
+                    CustomFullBodyNode1p = this.CustomFullBodyNode1p;
+                    if( CustomFullBodyNode1p )
+                    {
+                        CustomSequence = CustomFullBodyNode1p .GetCustomAnimNodeSeq( );
+                        this.CustomFullBodyNode1p.StopCustomAnim( BlendOutTime );
+                    }
+
+                    CustomFullBodyNode3p = this.CustomFullBodyNode3p;
+                    if( CustomFullBodyNode3p )
+                    {
+                        v8 = CustomFullBodyNode3p .GetCustomAnimNodeSeq( );
+                        v9 = this.CustomFullBodyNode3p;
+                        v4 = v8;
+                        v9.StopCustomAnim( BlendOutTime );
+                        break;
+                    }
+
+                    break;
+                case CustomNodeType.CNT_FullBody_Dir:
+                    CustomFullBodyDirNode1p = this.CustomFullBodyDirNode1p;
+                    if( CustomFullBodyDirNode1p )
+                    {
+                        CustomSequence = CustomFullBodyDirNode1p .GetCustomAnimNodeSeq( );
+                        this.CustomFullBodyDirNode1p.StopCustomAnim( BlendOutTime );
+                    }
+
+                    CustomFullBodyDirNode3p = this.CustomFullBodyDirNode3p;
+                    if( CustomFullBodyDirNode3p )
+                    {
+                        v8 = CustomFullBodyDirNode3p .GetCustomAnimNodeSeq( );
+                        v9 = this.CustomFullBodyDirNode3p;
+                        v4 = v8;
+                        v9.StopCustomAnim( BlendOutTime );
+                        break;
+                    }
+
+                    break;
+                case CustomNodeType.CNT_UpperBody:
+                    CustomUpperBodyNode1p = this.CustomUpperBodyNode1p;
+                    if( CustomUpperBodyNode1p )
+                    {
+                        CustomSequence = CustomUpperBodyNode1p .GetCustomAnimNodeSeq( );
+                        this.CustomUpperBodyNode1p.StopCustomAnim( BlendOutTime );
+                    }
+
+                    CustomUpperBodyNode3p = this.CustomUpperBodyNode3p;
+                    if( CustomUpperBodyNode3p )
+                    {
+                        v8 = CustomUpperBodyNode3p .GetCustomAnimNodeSeq( );
+                        v9 = this.CustomUpperBodyNode3p;
+                        v4 = v8;
+                        v9.StopCustomAnim( BlendOutTime );
+                        break;
+                    }
+
+                    break;
+                case CustomNodeType.CNT_LowerBody:
+                    CustomLowerBodyNode1p = this.CustomLowerBodyNode1p;
+                    if( CustomLowerBodyNode1p )
+                    {
+                        CustomSequence = CustomLowerBodyNode1p .GetCustomAnimNodeSeq( );
+                        this.CustomLowerBodyNode1p.StopCustomAnim( BlendOutTime );
+                    }
+
+                    CustomLowerBodyNode3p = this.CustomLowerBodyNode3p;
+                    if( CustomLowerBodyNode3p )
+                    {
+                        v8 = CustomLowerBodyNode3p .GetCustomAnimNodeSeq( );
+                        v9 = this.CustomLowerBodyNode3p;
+                        v4 = v8;
+                        v9.StopCustomAnim( BlendOutTime );
+                        break;
+                    }
+
+                    break;
+                case CustomNodeType.CNT_Camera:
+                    CustomCameraNode = this.CustomCameraNode;
+                    if( CustomCameraNode )
+                    {
+                        v21 = CustomCameraNode .GetCustomAnimNodeSeq( );
+                        v9 = this.CustomCameraNode;
+                        CustomSequence = v21;
+                        v9.StopCustomAnim( BlendOutTime );
+                        break;
+                    }
+
+                    break;
+                case CustomNodeType.CNT_Weapon:
+                    CustomWeaponNode1p = this.CustomWeaponNode1p;
+                    if( CustomWeaponNode1p )
+                    {
+                        CustomSequence = CustomWeaponNode1p .GetCustomAnimNodeSeq( );
+                        this.CustomWeaponNode1p.StopCustomAnim( BlendOutTime );
+                    }
+
+                    CustomWeaponNode3p = this.CustomWeaponNode3p;
+                    if( CustomWeaponNode3p )
+                    {
+                        v8 = CustomWeaponNode3p .GetCustomAnimNodeSeq( );
+                        v9 = this.CustomWeaponNode3p;
+                        v4 = v8;
+                        v9.StopCustomAnim( BlendOutTime );
+                        break;
+                    }
+
+                    break;
+                case CustomNodeType.CNT_Face:
+                    CustomFaceNode = this.CustomFaceNode;
+                    if( CustomFaceNode )
+                    {
+                        v8 = CustomFaceNode .GetCustomAnimNodeSeq( );
+                        v9 = this.CustomFaceNode;
+                        LABEL_34:
+                        v4 = v8;
+                        LABEL_35:
+                        v9.StopCustomAnim( BlendOutTime );
+                    }
+
+                    break;
+                default:
+                    break;
+            }
+
+            CustomSequence ??= v4;
+            if( CustomSequence )
+            {
+                movementStateMove = this.Moves[ (int)this.MovementState ];
+                if( movementStateMove.CurrentCustomAnimName == CustomSequence.AnimSeqName )
+                {
+                    movementStateMove.OnAnimationStopped( CustomSequence );
+                }
+            }
+        }
+        
+        #region src
+        /*
+void __thiscall ATdPawn::StopCustomAnim(_E_struct_ATdPawn *this, _E_enum_ECustomNodeType Type, float BlendOutTime)
+{
+  _E_struct_UAnimNodeSequence *CustomSequence; // edi
+  _E_struct_UAnimNodeSequence *v4; // ebx
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomCannedNode1p; // ecx
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomCannedNode3p; // ecx
+  _E_struct_UAnimNodeSequence *v8; // eax
+  _E_struct_UTdAnimNodeSlot *__ptr32 v9; // ecx
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomCannedUpperBodyNode1p; // ecx
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomCannedUpperBodyNode3p; // ecx
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomFullBodyNode1p; // ecx
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomFullBodyNode3p; // ecx
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomFullBodyDirNode1p; // ecx
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomFullBodyDirNode3p; // ecx
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomUpperBodyNode1p; // ecx
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomUpperBodyNode3p; // ecx
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomLowerBodyNode1p; // ecx
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomLowerBodyNode3p; // ecx
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomCameraNode; // ecx
+  _E_struct_UAnimNodeSequence *v21; // eax
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomWeaponNode1p; // ecx
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomWeaponNode3p; // ecx
+  _E_struct_UTdAnimNodeSlot *__ptr32 CustomFaceNode; // ecx
+  _E_struct_UTdMove *__ptr32 movementStateMove; // ecx
+
+  CustomSequence = 0;
+  v4 = 0;
+  switch ( Type )
+  {
+    case CNT_Canned:
+      CustomCannedNode1p = this->CustomCannedNode1p;
+      if ( CustomCannedNode1p )
+      {
+        CustomSequence = UAnimNodeSlot::GetCustomSequence(CustomCannedNode1p);
+        UAnimNodeSlot::StopCustomAnim(this->CustomCannedNode1p, BlendOutTime);
+      }
+      CustomCannedNode3p = this->CustomCannedNode3p;
+      if ( CustomCannedNode3p )
+      {
+        v8 = UAnimNodeSlot::GetCustomSequence(CustomCannedNode3p);
+        v9 = this->CustomCannedNode3p;
+        goto LABEL_34;
+      }
+      break;
+    case CNT_CannedUpperBody:
+      CustomCannedUpperBodyNode1p = this->CustomCannedUpperBodyNode1p;
+      if ( CustomCannedUpperBodyNode1p )
+      {
+        CustomSequence = UAnimNodeSlot::GetCustomSequence(CustomCannedUpperBodyNode1p);
+        UAnimNodeSlot::StopCustomAnim(this->CustomCannedUpperBodyNode1p, BlendOutTime);
+      }
+      CustomCannedUpperBodyNode3p = this->CustomCannedUpperBodyNode3p;
+      if ( CustomCannedUpperBodyNode3p )
+      {
+        v8 = UAnimNodeSlot::GetCustomSequence(CustomCannedUpperBodyNode3p);
+        v9 = this->CustomCannedUpperBodyNode3p;
+        goto LABEL_34;
+      }
+      break;
+    case CNT_FullBody:
+      CustomFullBodyNode1p = this->CustomFullBodyNode1p;
+      if ( CustomFullBodyNode1p )
+      {
+        CustomSequence = UAnimNodeSlot::GetCustomSequence(CustomFullBodyNode1p);
+        UAnimNodeSlot::StopCustomAnim(this->CustomFullBodyNode1p, BlendOutTime);
+      }
+      CustomFullBodyNode3p = this->CustomFullBodyNode3p;
+      if ( CustomFullBodyNode3p )
+      {
+        v8 = UAnimNodeSlot::GetCustomSequence(CustomFullBodyNode3p);
+        v9 = this->CustomFullBodyNode3p;
+        goto LABEL_34;
+      }
+      break;
+    case CNT_FullBody_Dir:
+      CustomFullBodyDirNode1p = this->CustomFullBodyDirNode1p;
+      if ( CustomFullBodyDirNode1p )
+      {
+        CustomSequence = UAnimNodeSlot::GetCustomSequence(CustomFullBodyDirNode1p);
+        UAnimNodeSlot::StopCustomAnim(this->CustomFullBodyDirNode1p, BlendOutTime);
+      }
+      CustomFullBodyDirNode3p = this->CustomFullBodyDirNode3p;
+      if ( CustomFullBodyDirNode3p )
+      {
+        v8 = UAnimNodeSlot::GetCustomSequence(CustomFullBodyDirNode3p);
+        v9 = this->CustomFullBodyDirNode3p;
+        goto LABEL_34;
+      }
+      break;
+    case CNT_UpperBody:
+      CustomUpperBodyNode1p = this->CustomUpperBodyNode1p;
+      if ( CustomUpperBodyNode1p )
+      {
+        CustomSequence = UAnimNodeSlot::GetCustomSequence(CustomUpperBodyNode1p);
+        UAnimNodeSlot::StopCustomAnim(this->CustomUpperBodyNode1p, BlendOutTime);
+      }
+      CustomUpperBodyNode3p = this->CustomUpperBodyNode3p;
+      if ( CustomUpperBodyNode3p )
+      {
+        v8 = UAnimNodeSlot::GetCustomSequence(CustomUpperBodyNode3p);
+        v9 = this->CustomUpperBodyNode3p;
+        goto LABEL_34;
+      }
+      break;
+    case CNT_LowerBody:
+      CustomLowerBodyNode1p = this->CustomLowerBodyNode1p;
+      if ( CustomLowerBodyNode1p )
+      {
+        CustomSequence = UAnimNodeSlot::GetCustomSequence(CustomLowerBodyNode1p);
+        UAnimNodeSlot::StopCustomAnim(this->CustomLowerBodyNode1p, BlendOutTime);
+      }
+      CustomLowerBodyNode3p = this->CustomLowerBodyNode3p;
+      if ( CustomLowerBodyNode3p )
+      {
+        v8 = UAnimNodeSlot::GetCustomSequence(CustomLowerBodyNode3p);
+        v9 = this->CustomLowerBodyNode3p;
+        goto LABEL_34;
+      }
+      break;
+    case CNT_Camera:
+      CustomCameraNode = this->CustomCameraNode;
+      if ( CustomCameraNode )
+      {
+        v21 = UAnimNodeSlot::GetCustomSequence(CustomCameraNode);
+        v9 = this->CustomCameraNode;
+        CustomSequence = v21;
+        goto LABEL_35;
+      }
+      break;
+    case CNT_Weapon:
+      CustomWeaponNode1p = this->CustomWeaponNode1p;
+      if ( CustomWeaponNode1p )
+      {
+        CustomSequence = UAnimNodeSlot::GetCustomSequence(CustomWeaponNode1p);
+        UAnimNodeSlot::StopCustomAnim(this->CustomWeaponNode1p, BlendOutTime);
+      }
+      CustomWeaponNode3p = this->CustomWeaponNode3p;
+      if ( CustomWeaponNode3p )
+      {
+        v8 = UAnimNodeSlot::GetCustomSequence(CustomWeaponNode3p);
+        v9 = this->CustomWeaponNode3p;
+        goto LABEL_34;
+      }
+      break;
+    case CNT_Face:
+      CustomFaceNode = this->CustomFaceNode;
+      if ( CustomFaceNode )
+      {
+        v8 = UAnimNodeSlot::GetCustomSequence(CustomFaceNode);
+        v9 = this->CustomFaceNode;
+LABEL_34:
+        v4 = v8;
+LABEL_35:
+        UAnimNodeSlot::StopCustomAnim(v9, BlendOutTime);
+      }
+      break;
+    default:
+      break;
+  }
+  if ( (unsigned int)CustomSequence | (CustomSequence == 0 ? (unsigned int)v4 : 0) )
+  {
+    movementStateMove = this->Moves.Data[this->MovementState];
+    if ( movementStateMove->CurrentCustomAnimName.Index == *(_DWORD *)(((unsigned int)CustomSequence | (CustomSequence == 0 ? (unsigned int)v4 : 0))
+                                                                     + 0xBC)// Compare names
+      && movementStateMove->CurrentCustomAnimName.Number == *(_DWORD *)(((unsigned int)CustomSequence | (CustomSequence == 0 ? (unsigned int)v4 : 0))
+                                                                      + 0xC0) )
+    {
+      UTdMove::CallOnAnimationStopped(
+        movementStateMove,
+        (_E_struct_UAnimNodeSequence *)((unsigned int)CustomSequence | (CustomSequence == 0 ? (unsigned int)v4 : 0)));
+    }
+  }
+}
+         */
+        #endregion
+        
+        
         // Export UTdPawn::execGetCameraAnimation(FFrame&, void* const)
         public virtual /*native final function */void GetCameraAnimation(ref Object.Vector out_Location, ref Object.Rotator out_Rotation)
         {
@@ -178,8 +561,120 @@ void __thiscall ATdPawn::SyncLegMovement(_E_struct_ATdPawn *this)
         // Export UTdPawn::execGetCustomAnimation(FFrame&, void* const)
         public virtual /*native simulated function */AnimNodeSequence GetCustomAnimation(TdPawn.CustomNodeType Type)
         {
-            NativeMarkers.MarkUnimplemented();
-            return default;
+            TdAnimNodeSlot CustomCannedNode1p;
+            switch( (int) Type )
+            {
+                case 0:
+                    if( this.Mesh == this.Mesh1p )
+                    {
+                        CustomCannedNode1p = this.CustomCannedNode1p;
+                        if( ! CustomCannedNode1p )
+                            return null;
+                    }
+                    else
+                    {
+                        CustomCannedNode1p = this.CustomCannedNode3p;
+                        if( ! CustomCannedNode1p )
+                            return null;
+                    }
+
+                    return CustomCannedNode1p.GetCustomAnimNodeSeq();
+                case 1:
+                    if( this.Mesh == this.Mesh1p )
+                    {
+                        CustomCannedNode1p = this.CustomCannedUpperBodyNode1p;
+                        if( ! CustomCannedNode1p )
+                            return null;
+                    }
+                    else
+                    {
+                        CustomCannedNode1p = this.CustomCannedUpperBodyNode3p;
+                        if( ! CustomCannedNode1p )
+                            return null;
+                    }
+
+                    return CustomCannedNode1p.GetCustomAnimNodeSeq();
+                case 2:
+                    if( this.Mesh == this.Mesh1p )
+                    {
+                        CustomCannedNode1p = this.CustomFullBodyNode1p;
+                        if( ! CustomCannedNode1p )
+                            return null;
+                    }
+                    else
+                    {
+                        CustomCannedNode1p = this.CustomFullBodyNode3p;
+                        if( ! CustomCannedNode1p )
+                            return null;
+                    }
+
+                    return CustomCannedNode1p.GetCustomAnimNodeSeq();
+                case 3:
+                    if( this.Mesh == this.Mesh1p )
+                    {
+                        CustomCannedNode1p = this.CustomFullBodyDirNode1p;
+                        if( ! CustomCannedNode1p )
+                            return null;
+                    }
+                    else
+                    {
+                        CustomCannedNode1p = this.CustomFullBodyDirNode3p;
+                        if( ! CustomCannedNode1p )
+                            return null;
+                    }
+
+                    return CustomCannedNode1p.GetCustomAnimNodeSeq();
+                case 4:
+                    if( this.Mesh == this.Mesh1p )
+                    {
+                        CustomCannedNode1p = this.CustomUpperBodyNode1p;
+                        if( ! CustomCannedNode1p )
+                            return null;
+                    }
+                    else
+                    {
+                        CustomCannedNode1p = this.CustomUpperBodyNode3p;
+                        if( ! CustomCannedNode1p )
+                            return null;
+                    }
+
+                    return CustomCannedNode1p.GetCustomAnimNodeSeq();
+                case 6:
+                    if( this.Mesh == this.Mesh1p )
+                    {
+                        CustomCannedNode1p = this.CustomCameraNode;
+                        if( CustomCannedNode1p )
+                            return CustomCannedNode1p.GetCustomAnimNodeSeq();
+                    }
+
+                    return null;
+                case 7:
+                    if( this.Mesh == this.Mesh1p )
+                    {
+                        CustomCannedNode1p = this.CustomWeaponNode1p;
+                        if( CustomCannedNode1p )
+                            return CustomCannedNode1p.GetCustomAnimNodeSeq();
+                    }
+                    else
+                    {
+                        CustomCannedNode1p = this.CustomWeaponNode3p;
+                        if( CustomCannedNode1p )
+                            return CustomCannedNode1p.GetCustomAnimNodeSeq();
+                    }
+
+                    return null;
+                case 8:
+                    if( this.Mesh != this.Mesh1p )
+                    {
+                        CustomCannedNode1p = this.CustomFaceNode;
+                        if( CustomCannedNode1p )
+                            return CustomCannedNode1p.GetCustomAnimNodeSeq();
+                    }
+
+                    return null;
+                default:
+                    return null;
+            }
         }
         
         // Export UTdPawn::execSetRootOffset(FFrame&, void* const)
@@ -214,18 +709,358 @@ void __thiscall ATdPawn::SyncLegMovement(_E_struct_ATdPawn *this)
         // Export UTdPawn::execPlayCustomAnim(FFrame&, void* const)
         public virtual /*native simulated function */void PlayCustomAnim(TdPawn.CustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool? _bRootRotation = default)
         {
-            NativeMarkers.MarkUnimplemented();
+            int v10; // ebx
+  int v11; // ebp
+  int v12; // edi
+  bool v13; // eax
+  bool v14; // eax
+  bool v15; // eax
+  bool v16; // eax
+  bool v17; // eax
+  bool v18; // eax
+  bool v19; // eax
+  bool v20; // eax
+  bool v21; // eax
+  bool v22; // eax
+  
+  var bRootRotation = _bRootRotation ?? false;
+  switch ( Type )
+  {
+    case CustomNodeType.CNT_Canned:
+      v13 = bRootMotion && this.Mesh1p == this.Mesh;// PlayCustomAnimInternal
+      PlayCustomAnimInternal(
+        this.CustomCannedNode1p,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        v13,
+        bRootRotation);
+      PlayCustomAnimInternal(
+        this.CustomCannedNode3p,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        bRootMotion,
+        bLooping);
+      ReplicateCustomAnim(
+        Type,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        bRootMotion,
+        bRootRotation);
+      break;
+    case CustomNodeType.CNT_CannedUpperBody:
+      v14 = bRootMotion && this.Mesh1p == this.Mesh;
+      PlayCustomAnimInternal(
+        this.CustomCannedUpperBodyNode1p,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        v14,
+        bRootRotation);
+      PlayCustomAnimInternal(
+        this.CustomCannedUpperBodyNode3p,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        bRootMotion,
+        bLooping);
+      ReplicateCustomAnim(
+        Type,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        bRootMotion,
+        bRootRotation);
+      break;
+    case CustomNodeType.CNT_FullBody:
+      v15 = bRootMotion && this.Mesh1p == this.Mesh;
+      PlayCustomAnimInternal(
+        this.CustomFullBodyNode1p,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        v15,
+        bRootRotation);
+      PlayCustomAnimInternal(
+        this.CustomFullBodyNode3p,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        bRootMotion,
+        bLooping);
+      ReplicateCustomAnim(
+        Type,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        bRootMotion,
+        bRootRotation);
+      break;
+    case CustomNodeType.CNT_FullBody_Dir:
+      v16 = bRootMotion && this.Mesh1p == this.Mesh;
+      PlayCustomAnimInternal(
+        this.CustomFullBodyDirNode1p,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        v16,
+        bRootRotation);                                   // PlayCustomAnimInternal
+      PlayCustomAnimInternal(
+        this.CustomFullBodyDirNode3p,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        bRootMotion,
+        bLooping);                              // ATdPawn::PlayCustomAnimInternal ?!?!
+      ReplicateCustomAnim(
+        Type,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        bRootMotion,
+        bRootRotation);
+      break;
+    case CustomNodeType.CNT_UpperBody:
+      v17 = bRootMotion && this.Mesh1p == this.Mesh;
+      PlayCustomAnimInternal(
+        this.CustomUpperBodyNode1p,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        v17,
+        bRootRotation);
+      PlayCustomAnimInternal(
+        this.CustomUpperBodyNode3p,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        bRootMotion,
+        bLooping);
+      ReplicateCustomAnim(
+        Type,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        bRootMotion,
+        bRootRotation);
+      break;
+    case CustomNodeType.CNT_LowerBody:
+      v18 = bRootMotion && this.Mesh1p == this.Mesh;
+      PlayCustomAnimInternal(
+        this.CustomLowerBodyNode1p,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        v18,
+        bRootRotation);                                   // PlayCustomAnimInternal
+      PlayCustomAnimInternal(
+        this.CustomLowerBodyNode3p,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        bRootMotion,
+        bLooping);
+      ReplicateCustomAnim(
+        Type,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        bRootMotion,
+        bRootRotation);                         // ATdPawn::ReplicateCustomAnim_Maybe
+      break;
+    case CustomNodeType.CNT_Camera:
+      v19 = bRootMotion && this.Mesh1p == this.Mesh;
+      PlayCustomAnimInternal(
+        this.CustomCameraNode,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        v19,
+        bRootRotation);
+      break;
+    case CustomNodeType.CNT_Weapon:
+      v20 = bRootMotion && this.Mesh1p == this.Mesh;
+      PlayCustomAnimInternal(
+        this.CustomWeaponNode1p,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        v20,
+        bRootRotation);
+      v21 = bRootMotion && this.Mesh1p == this.Mesh;
+      PlayCustomAnimInternal(
+        this.CustomWeaponNode3p,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        v21,
+        bRootRotation);
+      break;
+    case CustomNodeType.CNT_Face:
+      v22 = bRootMotion && this.Mesh3p == this.Mesh;
+      PlayCustomAnimInternal(
+        this.CustomFaceNode,
+        AnimName,
+        Rate,
+        BlendInTime,
+        BlendOutTime,
+        bLooping,
+        bOverride,
+        v22,
+        bRootRotation);
+      break;
+    default:
+      return;
+  }
+        }
+        
+        
+        // Export UTdPawn::execPlayCustomAnimInternal(FFrame&, void* const)
+        public virtual /*native simulated function */bool PlayCustomAnimInternal(TdAnimNodeSlot tdSlot, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool? _bRootRotation = default)
+        {
+            if ( !tdSlot
+                 || tdSlot.PlayCustomAnim(AnimName, Rate, BlendInTime, BlendOutTime, bLooping, bOverride) == 0.0 )
+            {
+                return false;
+            }
+            if ( tdSlot == this.CustomCameraNode || tdSlot == this.CustomWeaponNode1p )
+            {
+                var CustomAnimNodeSeq = tdSlot.GetCustomAnimNodeSeq();
+                var asTdSeq = (CustomAnimNodeSeq) as TdAnimNodeSequence;
+                asTdSeq.bDeltaCameraAnimation = true;
+            }
+            if ( bRootMotion )
+                tdSlot.SetRootBoneAxisOption(AnimNodeSequence.ERootBoneAxis.RBA_Translate, AnimNodeSequence.ERootBoneAxis.RBA_Translate, AnimNodeSequence.ERootBoneAxis.RBA_Translate);
+            else
+                tdSlot.SetRootBoneAxisOption(AnimNodeSequence.ERootBoneAxis.RBA_Default, AnimNodeSequence.ERootBoneAxis.RBA_Default, AnimNodeSequence.ERootBoneAxis.RBA_Default);
+            if ( _bRootRotation ?? false )
+                tdSlot.SetRootBoneRotationAxisOption(AnimNodeSequence.ERootRotationOption.RRO_Extract, AnimNodeSequence.ERootRotationOption.RRO_Extract, AnimNodeSequence.ERootRotationOption.RRO_Extract);
+            else
+                tdSlot.SetRootBoneRotationAxisOption(AnimNodeSequence.ERootRotationOption.RRO_Discard, AnimNodeSequence.ERootRotationOption.RRO_Discard, AnimNodeSequence.ERootRotationOption.RRO_Discard);
+            tdSlot.SetActorAnimEndNotification(true);
+            tdSlot.SetCauseActorCeaseRelevant(true);
+            return true;
         }
         
         // Export UTdPawn::execSetCustomAnimsBlendOutTime(FFrame&, void* const)
         public virtual /*native simulated function */void SetCustomAnimsBlendOutTime(TdPawn.CustomNodeType Type, float BlendOutTime)
         {
-            NativeMarkers.MarkUnimplemented();
+            TdAnimNodeSlot node; // ecx
+
+            switch ( (int)Type )
+            {
+                case 0:
+                    goto LABEL_9;
+                case 1:
+                    goto LABEL_10;
+                case 2:
+                    CustomFullBodyNode1p.SetBlendOutTime(BlendOutTime);// SetBlendOutTime
+                    node = this.CustomFullBodyNode3p;
+                    goto LABEL_11;
+                case 3:
+                    CustomFullBodyDirNode1p.SetBlendOutTime(BlendOutTime);
+                    node = this.CustomFullBodyDirNode3p;
+                    goto LABEL_11;
+                case 4:
+                    CustomUpperBodyNode1p.SetBlendOutTime(BlendOutTime);
+                    node = this.CustomUpperBodyNode3p;
+                    goto LABEL_11;
+                case 5:
+                    CustomLowerBodyNode1p.SetBlendOutTime(BlendOutTime);
+                    node = this.CustomLowerBodyNode3p;
+                    goto LABEL_11;
+                case 6:
+                    node = this.CustomCameraNode;
+                    goto LABEL_11;
+                case 7:
+                    CustomWeaponNode1p.SetBlendOutTime(BlendOutTime);
+                    node = this.CustomWeaponNode3p;
+                    goto LABEL_11;
+                case 8:
+                    CustomFaceNode.SetBlendOutTime(BlendOutTime);
+                    LABEL_9:
+                    CustomCannedNode1p.SetBlendOutTime(BlendOutTime);
+                    CustomCannedNode3p.SetBlendOutTime(BlendOutTime);
+                    LABEL_10:
+                    CustomCannedUpperBodyNode1p.SetBlendOutTime(BlendOutTime);
+                    node = this.CustomCannedUpperBodyNode3p;
+                    LABEL_11:
+                    node.SetBlendOutTime(BlendOutTime);
+                    break;
+                default:
+                    return;
+            }
         }
 	
         // Export UTdPawn::execInitMoveObjects(FFrame&, void* const)
         public virtual /*native function */void InitMoveObjects()
         {
+            NativeMarkers.MarkUnimplemented();
             // Not verified
             for( int i = 0; i < this.MoveClasses.Length; i++ )
             {
@@ -245,6 +1080,7 @@ void __thiscall ATdPawn::SyncLegMovement(_E_struct_ATdPawn *this)
         
         public virtual void UpdateVelocityVariables()
         {
+            NativeMarkers.MarkUnimplemented();
             float velSqrt; // st7
             float v2; // xmm2_4
             float v3; // edx
@@ -297,6 +1133,7 @@ void __thiscall ATdPawn::SyncLegMovement(_E_struct_ATdPawn *this)
         
         public virtual void UpdateWalkingState()
         {
+            NativeMarkers.MarkUnimplemented();
             WalkingState v1; // eax
             TdWeapon ptrToWeapon; // eax
             float v4; // [esp+0h] [ebp-4h]
@@ -375,6 +1212,7 @@ void __thiscall ATdPawn::SyncLegMovement(_E_struct_ATdPawn *this)
         
         public virtual Vector /*E_ATdPawn_GetWalkAcceleration*/GetWalkAcceleration(float aForward, float aStrafe, int deltaRotation, float deltaTime)
         {
+            NativeMarkers.MarkUnimplemented();
             unsafe
             {
                 _E_struct_FMatrix *v7; // eax
@@ -552,6 +1390,7 @@ void __thiscall ATdPawn::SyncLegMovement(_E_struct_ATdPawn *this)
         
         public virtual Vector GetSprintAcceleration(float aForward, float aStrafe, int DeltaRotation, float deltaTime)
         {
+            NativeMarkers.MarkUnimplemented();
             unsafe
             {
                 _E_struct_FVector ____;
@@ -800,6 +1639,7 @@ void __thiscall ATdPawn::SyncLegMovement(_E_struct_ATdPawn *this)
         
         static unsafe double E_sampleCurveMaybe(ref _E_struct_FInterpCurveFloat _this, float currentTMaybe, float a3, float a4)
         {
+            NativeMarkers.MarkUnimplemented();
             // There's a fair amount of weird stuff going on here, do not fully trust this method
             // All assign to a4 have been removed
             
@@ -912,6 +1752,7 @@ void __thiscall ATdPawn::SyncLegMovement(_E_struct_ATdPawn *this)
         
         public virtual /*native function */float GetAverageSpeed(float Time)
         {
+            NativeMarkers.MarkUnimplemented();
             #warning need to populate those arrays before this works, have a dummy return for now
             return Velocity.Size();
             

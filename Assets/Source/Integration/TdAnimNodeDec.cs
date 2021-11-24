@@ -2,6 +2,40 @@ namespace MEdge.TdGame{
   using static MEdge.Source.DecFn;
   using System;
   using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+  
+public partial class TdAnimNodeSlot
+{
+  // Export UTdAnimNodeSlot::execSetBlendOutTime(FFrame&, void* const)
+  public virtual /*native function */void SetBlendOutTime(float BlendTime)
+  {
+    this.PendingBlendOutTime = BlendTime;
+  }
+	
+  // Export UTdAnimNodeSlot::execSetCauseActorCeaseRelevant(FFrame&, void* const)
+  public virtual /*native function */void SetCauseActorCeaseRelevant(bool bNewStatus)
+  {
+    var result = (this.Children[this.CustomChildIndex].Anim) as TdAnimNodeSequence;
+    result.bCauseActorCeaseRelevant = bNewStatus;
+    //result.bitfield_bSnapToKeyFrames_And11More ^= (result->bitfield_bSnapToKeyFrames_And11More ^ (16 * bNewStatus)) & bCauseActorCeaseRelevant;
+    // 0b11111111 ^ ((0b11111111 ^ 0) & 0b10000) => 0b11101111
+    // 0b11111111 ^ ((0b11111111 ^ 0b10000) & 0b10000) => 0b11111111
+    // 0b0 ^ ((0b0 ^ 0) & 0b10000) => 0b0
+    // 0b0 ^ ((0b0 ^ 0b10000) & 0b10000) => 0b10000
+  }
+
+  // Export UTdAnimNodeSlot::execSetRootBoneRotationAxisOption(FFrame&, void* const)
+  public virtual /*native final function */void SetRootBoneRotationAxisOption(/*optional */AnimNodeSequence.ERootRotationOption? _AxisX = default, /*optional */AnimNodeSequence.ERootRotationOption? _AxisY = default, /*optional */AnimNodeSequence.ERootRotationOption? _AxisZ = default)
+  {
+    var a2 = _AxisX ?? AnimNodeSequence.ERootRotationOption.RRO_Default;
+    var CustomAnimNodeSeq = GetCustomAnimNodeSeq();
+    if ( CustomAnimNodeSeq )
+    {
+      CustomAnimNodeSeq.RootRotationOption[0] = a2;
+      CustomAnimNodeSeq.RootRotationOption[1] = a2;
+      CustomAnimNodeSeq.RootRotationOption[2] = a2;
+    }
+  }
+}
 public partial class TdAnimNodeAgainstWallState
 {
   public override float GetBlendValue( int a2, int a3 )
@@ -43,7 +77,7 @@ public partial class TdAnimNodeAgainstWallState
   #endregion
   public override int GetState()
   {
-    TdPawn  TdPawnOwner; // eax
+    TdPawn TdPawnOwner; // eax
   
     TdPawnOwner = this.TdPawnOwner;
     if ( TdPawnOwner )

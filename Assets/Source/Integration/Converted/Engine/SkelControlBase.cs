@@ -41,10 +41,10 @@ public partial class SkelControlBase : Object/*
 	public int DrawWidth;
 	
 	// Export USkelControlBase::execSetSkelControlActive(FFrame&, void* const)
-	public virtual /*native final function */void SetSkelControlActive(bool bInActive)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native final function */void SetSkelControlActive(bool bInActive)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export USkelControlBase::execSetSkelControlStrength(FFrame&, void* const)
 	//public virtual /*native final function */void SetSkelControlStrength(float NewStrength, float InBlendTime)

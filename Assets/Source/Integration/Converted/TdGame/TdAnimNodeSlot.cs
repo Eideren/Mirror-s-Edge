@@ -13,16 +13,16 @@ public partial class TdAnimNodeSlot : AnimNodeSlot/*
 	//}
 	
 	// Export UTdAnimNodeSlot::execSetCauseActorCeaseRelevant(FFrame&, void* const)
-	public virtual /*native function */void SetCauseActorCeaseRelevant(bool bNewStatus)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native function */void SetCauseActorCeaseRelevant(bool bNewStatus)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UTdAnimNodeSlot::execSetRootBoneRotationAxisOption(FFrame&, void* const)
-	public virtual /*native final function */void SetRootBoneRotationAxisOption(/*optional */AnimNodeSequence.ERootRotationOption? _AxisX = default, /*optional */AnimNodeSequence.ERootRotationOption? _AxisY = default, /*optional */AnimNodeSequence.ERootRotationOption? _AxisZ = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native final function */void SetRootBoneRotationAxisOption(/*optional */AnimNodeSequence.ERootRotationOption? _AxisX = default, /*optional */AnimNodeSequence.ERootRotationOption? _AxisY = default, /*optional */AnimNodeSequence.ERootRotationOption? _AxisZ = default)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	public virtual /*final function */void AccelerateBlend(float BlendAmount)
 	{

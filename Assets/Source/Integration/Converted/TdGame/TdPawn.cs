@@ -732,7 +732,7 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execSetArmorDifficultyLevel(FFrame&, void* const)
 	public virtual /*protected native function */void SetArmorDifficultyLevel(int Difficulty)
 	{
-		NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented("Non essential");
 	}
 	
 	public override /*simulated event */void PreBeginPlay()
@@ -2604,7 +2604,7 @@ public partial class TdPawn : GamePawn/*
 	public virtual RegenerateHealth_del global_RegenerateHealth => TdPawn_RegenerateHealth;
 	public /*native function */void TdPawn_RegenerateHealth(float DeltaTime)
 	{
-		NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented("Non essential");
 	}
 	
 	//// Export UTdPawn::execUpdateVelocityVariables(FFrame&, void* const)
@@ -3423,7 +3423,7 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execGetWeaponType(FFrame&, void* const)
 	public virtual /*native final simulated function */TdPawn.EWeaponType GetWeaponType()
 	{
-		NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented("Non essential");
 		return default;
 	}
 	
@@ -3611,10 +3611,10 @@ public partial class TdPawn : GamePawn/*
 	public delegate void StopCustomAnim_del(TdPawn.CustomNodeType Type, float BlendOutTime);
 	public virtual StopCustomAnim_del StopCustomAnim { get => bfield_StopCustomAnim ?? TdPawn_StopCustomAnim; set => bfield_StopCustomAnim = value; } StopCustomAnim_del bfield_StopCustomAnim;
 	public virtual StopCustomAnim_del global_StopCustomAnim => TdPawn_StopCustomAnim;
-	public /*native simulated function */void TdPawn_StopCustomAnim(TdPawn.CustomNodeType Type, float BlendOutTime)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public /*native simulated function */void TdPawn_StopCustomAnim(TdPawn.CustomNodeType Type, float BlendOutTime)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	public virtual /*simulated function */void PlayReplicatedCustomAnim()
 	{
@@ -3624,7 +3624,7 @@ public partial class TdPawn : GamePawn/*
 	// Export UTdPawn::execReplicateCustomAnim(FFrame&, void* const)
 	public virtual /*native function */void ReplicateCustomAnim(TdPawn.CustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool? _bRootRotation = default)
 	{
-		NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented("Non essential");
 	}
 	
 	//// Export UTdPawn::execGetCustomAnimation(FFrame&, void* const)
@@ -3641,11 +3641,11 @@ public partial class TdPawn : GamePawn/*
 	//}
 	
 	// Export UTdPawn::execPlayCustomAnimInternal(FFrame&, void* const)
-	public virtual /*native simulated function */bool PlayCustomAnimInternal(TdAnimNodeSlot Node, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool? _bRootRotation = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native simulated function */bool PlayCustomAnimInternal(TdAnimNodeSlot Node, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool? _bRootRotation = default)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	//// Export UTdPawn::execSetCustomAnimsBlendOutTime(FFrame&, void* const)
 	//public virtual /*native simulated function */void SetCustomAnimsBlendOutTime(TdPawn.CustomNodeType Type, float BlendOutTime)

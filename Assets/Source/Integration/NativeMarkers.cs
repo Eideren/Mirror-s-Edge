@@ -10,14 +10,16 @@
 	{
 		public readonly struct MarkerData : IEquatable<MarkerData>
 		{
+			public readonly string Description;
 			public readonly int Line;
 			public readonly string Member;
 			public readonly string FilePath;
 
 
 
-			public MarkerData( int pLine, string pMember, string pFilePath )
+			public MarkerData( string description, int pLine, string pMember, string pFilePath )
 			{
+				Description = description;
 				Line = pLine;
 				Member = pMember;
 				FilePath = pFilePath;
@@ -34,23 +36,23 @@
 
 			public override int GetHashCode()
 			{
-				return HashCode.Combine( Line, Member, FilePath );
+				return HashCode.Combine( Description, Line, Member, FilePath );
 			}
 
 
 
 			public bool Equals( MarkerData other )
 			{
-				return Line == other.Line && Member == other.Member && FilePath == other.FilePath;
+				return Description == other.Description && Line == other.Line && Member == other.Member && FilePath == other.FilePath;
 			}
 		}
 
 
 
 		public static HashSet<MarkerData> Marked = new HashSet<MarkerData>();
-		public static void MarkUnimplemented([ CallerLineNumber ] int line = 0, [ CallerMemberName ] string member = "member", [ CallerFilePath ] string filePath = "filePath" )
+		public static void MarkUnimplemented(string description = null, [ CallerLineNumber ] int line = 0, [ CallerMemberName ] string member = "member", [ CallerFilePath ] string filePath = "filePath" )
 		{
-			Marked.Add( new MarkerData( line, member, filePath ) );
+			Marked.Add( new MarkerData( description, line, member, filePath ) );
 		}
 	}
 }
