@@ -70,11 +70,11 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 	public float StopLookingAtLedgeTime;
 	
 	// Export UTdMove_Grab::execCheckWallLegPlacement(FFrame&, void* const)
-	public virtual /*native function */TdMove_Grab.EGrabType CheckWallLegPlacement()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */TdMove_Grab.EGrabType CheckWallLegPlacement()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public override /*function */bool CanDoMove()
 	{

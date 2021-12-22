@@ -125,32 +125,32 @@ public partial class TdMove : Object/*
 	}
 	
 	// Export UTdMove::execGetMovementExclusionVolume(FFrame&, void* const)
-	public virtual /*native final function */TdMovementExclusionVolume GetMovementExclusionVolume(Object.Vector Loc)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native final function */TdMovementExclusionVolume GetMovementExclusionVolume(Object.Vector Loc)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdMove::execFindLedgeInFrontOfPlayer(FFrame&, void* const)
-	public virtual /*native final function */bool FindLedgeInFrontOfPlayer(ref Object.Vector out_LedgeLocation, ref Object.Vector out_LedgeNormal, ref Object.Vector out_MoveNormal)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native final function */bool FindLedgeInFrontOfPlayer(ref Object.Vector out_LedgeLocation, ref Object.Vector out_LedgeNormal, ref Object.Vector out_MoveNormal)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdMove::execFindLedge(FFrame&, void* const)
-	public virtual /*native final function */bool FindLedge(ref TdPawn.LedgeHitInfo out_LedgeHit, Object.Vector Start, Object.Vector End, Object.Vector Extent)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native final function */bool FindLedge(ref TdPawn.LedgeHitInfo out_LedgeHit, Object.Vector Start, Object.Vector End, Object.Vector Extent)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdMove::execFindLedgeEx(FFrame&, void* const)
-	public virtual /*native final function */int FindLedgeEx(ref TdPawn.LedgeHitInfo out_LedgeHit, Object.Vector Start, Object.Vector End, Object.Vector Extent)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native final function */int FindLedgeEx(ref TdPawn.LedgeHitInfo out_LedgeHit, Object.Vector Start, Object.Vector End, Object.Vector Extent)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public virtual /*final simulated event */void SetPreciseLocation(Object.Vector PreciseLocationToReach, TdMove.EPreciseLocationMode InterpMode, /*optional */float? _PreciseLocationSpeedToUse = default)
 	{
@@ -175,11 +175,11 @@ public partial class TdMove : Object/*
 	}
 	
 	// Export UTdMove::execCalculateRelativeExtent(FFrame&, void* const)
-	public virtual /*native final simulated function */float CalculateRelativeExtent(float BaseExtent)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native final simulated function */float CalculateRelativeExtent(float BaseExtent)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public virtual /*simulated event */void ReachedPreciseRotation()
 	{
@@ -212,38 +212,38 @@ public partial class TdMove : Object/*
 	}
 	
 	// Export UTdMove::execMovementTrace(FFrame&, void* const)
-	public virtual /*native final simulated function */bool MovementTrace(ref Object.Vector HitLocation, ref Object.Vector HitNormal, Object.Vector End, Object.Vector Start, Object.Vector Extent, /*optional */bool? _FindClosest = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native final simulated function */bool MovementTrace(ref Object.Vector HitLocation, ref Object.Vector HitNormal, Object.Vector End, Object.Vector Start, Object.Vector Extent, /*optional */bool? _FindClosest = default)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdMove::execMovementTraceForBlocking(FFrame&, void* const)
-	public virtual /*native final simulated function */bool MovementTraceForBlocking(Object.Vector End, Object.Vector Start, Object.Vector Extent)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native final simulated function */bool MovementTraceForBlocking(Object.Vector End, Object.Vector Start, Object.Vector Extent)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdMove::execMovementTraceForBlockingEx(FFrame&, void* const)
-	public virtual /*native final simulated function */bool MovementTraceForBlockingEx(Object.Vector End, Object.Vector Start, Object.Vector Extent, ref Object.Vector HitLocation, ref Object.Vector HitNormal)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native final simulated function */bool MovementTraceForBlockingEx(Object.Vector End, Object.Vector Start, Object.Vector Extent, ref Object.Vector HitLocation, ref Object.Vector HitNormal)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdMove::execGetLastMovementTraceInfoStatic(FFrame&, void* const)
-	public virtual /*native final simulated function */void GetLastMovementTraceInfoStatic(ref Actor HitActor, ref int ExcludeHandMoves, ref int ExcludeFootMoves)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native final simulated function */void GetLastMovementTraceInfoStatic(ref Actor HitActor, ref int ExcludeHandMoves, ref int ExcludeFootMoves)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UTdMove::execMovementTraceForBlockingBetweenActors(FFrame&, void* const)
-	public virtual /*native final simulated function */bool MovementTraceForBlockingBetweenActors(Object.Vector End, Object.Vector Start)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native final simulated function */bool MovementTraceForBlockingBetweenActors(Object.Vector End, Object.Vector Start)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public virtual /*final simulated function */void SetCustomCollisionSize(float CollisionRadius, float CollisionHeight)
 	{
@@ -1008,11 +1008,11 @@ public partial class TdMove : Object/*
 	}
 	
 	// Export UTdMove::execTestCanUnCrouch(FFrame&, void* const)
-	public virtual /*native final simulated function */bool TestCanUnCrouch()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native final simulated function */bool TestCanUnCrouch()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public TdMove()
 	{

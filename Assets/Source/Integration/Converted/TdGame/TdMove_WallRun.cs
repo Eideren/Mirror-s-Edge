@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -45,18 +47,18 @@ public partial class TdMove_WallRun : TdPhysicsMove/*
 	public/*private*/ int MaxContraintWorld;
 	
 	// Export UTdMove_WallRun::execFindWallForward(FFrame&, void* const)
-	public virtual /*native function */TdPawn.EMovement FindWallForward(ref TdPawn.LedgeHitInfo out_LedgeHit)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */TdPawn.EMovement FindWallForward(ref TdPawn.LedgeHitInfo out_LedgeHit)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdMove_WallRun::execFindWallSide(FFrame&, void* const)
-	public virtual /*native function */bool FindWallSide(TdPawn.EMovement WallRunSide, ref TdPawn.LedgeHitInfo out_LedgeHit)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */bool FindWallSide(TdPawn.EMovement WallRunSide, ref TdPawn.LedgeHitInfo out_LedgeHit)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public override /*function */bool CanDoMove()
 	{

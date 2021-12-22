@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -23,39 +25,39 @@ public partial class TdLadderVolume : TdMovementVolume/*
 	[Category] public bool bCanExitAtTop;
 	
 	// Export UTdLadderVolume::execGetLadderLocation(FFrame&, void* const)
-	public virtual /*native simulated function */Object.Vector GetLadderLocation(int Index)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native simulated function */Object.Vector GetLadderLocation(int Index)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdLadderVolume::execGetClosestStep(FFrame&, void* const)
-	public virtual /*native simulated function */int GetClosestStep(float LocationZ)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native simulated function */int GetClosestStep(float LocationZ)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdLadderVolume::execGetClosestStepUp(FFrame&, void* const)
-	public virtual /*native simulated function */int GetClosestStepUp(float LocationZ)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native simulated function */int GetClosestStepUp(float LocationZ)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdLadderVolume::execGetClosestStepDown(FFrame&, void* const)
-	public virtual /*native simulated function */int GetClosestStepDown(float LocationZ)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native simulated function */int GetClosestStepDown(float LocationZ)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdLadderVolume::execGetLastStep(FFrame&, void* const)
-	public virtual /*native simulated function */int GetLastStep()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native simulated function */int GetLastStep()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public override /*function */bool InUse(Pawn Ignored)
 	{

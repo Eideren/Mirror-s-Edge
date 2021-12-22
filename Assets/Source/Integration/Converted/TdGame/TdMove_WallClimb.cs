@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -27,17 +29,17 @@ public partial class TdMove_WallClimb : TdPhysicsMove/*
 	public/*protected*/ ForceFeedbackWaveform IntoWallClimbWaveform;
 	
 	// Export UTdMove_WallClimb::execDetectPossibleHandPlant(FFrame&, void* const)
-	public virtual /*native function */bool DetectPossibleHandPlant()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */bool DetectPossibleHandPlant()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdMove_WallClimb::execCheckDoubleJump(FFrame&, void* const)
-	public virtual /*native function */void CheckDoubleJump()
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native function */void CheckDoubleJump()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	public override /*simulated function */int HandleDeath(int Damage)
 	{

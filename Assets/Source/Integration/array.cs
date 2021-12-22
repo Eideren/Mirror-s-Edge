@@ -12,9 +12,10 @@ namespace MEdge
     /// but every time the entire array is copied." - https://wiki.beyondunreal.com/Types#Composite_types
     /// Use the <see cref="NewCopy()"/> function to manually replicate this behavior
     /// </summary>
-    public struct array<T> : IEnumerable<T>
+    public partial struct array<T> : IEnumerable<T>
     {
         private const int DefaultCapacity = 4;
+
 
         public int Capacity
         {
@@ -87,13 +88,25 @@ namespace MEdge
                 return ref _items[i];
             }
         }
-        
-        /*public T this[System.Enum i]
+
+
+
+        /// <summary>
+        /// DO NOT KEEP REF IF YOU MIGHT BE CALLING ADD()
+        /// </summary>
+        public ref T this[Enum e]
         {
-            #warning This is very hack-y, fix this asap
-            get => this[i.GetHashCode()];
-            set => this[i.GetHashCode()] = value;
-        }*/
+            #warning If you store a ref then swap, reorder or resize the array your ref might not match the right thing anymore
+            #warning this is garbage, let's replace this asap
+            get
+            {
+                var i = e.GetHashCode();
+                UnityEngine.Debug.Assert( Enum.ToObject( e.GetType(), i ).Equals( e ) );
+                while(i >= Length)
+                    Add(default);
+                return ref _items[i];
+            }
+        }
 
         public int Find(T val) => Array.IndexOf(_items, val, 0, _size);
 
@@ -158,6 +171,20 @@ namespace MEdge
                 AddWithResize(item);
             }
         }
+
+
+
+        public int Add( int Count, int ElementSize, int Alignment )
+        {
+            int pc = this.Count;
+            for( int i = 0; i < Count; i++ )
+            {
+                Add( default );
+            }
+            return pc;
+        }
+
+
 
         public void Insert(int i, int count = 1)
         {

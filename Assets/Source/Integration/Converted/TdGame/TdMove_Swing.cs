@@ -28,38 +28,38 @@ public partial class TdMove_Swing : TdPhysicsMove/*
 	public SoundCue SwingSound;
 	
 	// Export UTdMove_Swing::execGetPawnLocation(FFrame&, void* const)
-	public virtual /*native function */Object.Vector GetPawnLocation(float Angle)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */Object.Vector GetPawnLocation(float Angle)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdMove_Swing::execGetPawnAngle(FFrame&, void* const)
-	public virtual /*native function */float GetPawnAngle(Object.Vector Location)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */float GetPawnAngle(Object.Vector Location)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdMove_Swing::execUpdateShimmy(FFrame&, void* const)
-	public virtual /*native function */void UpdateShimmy(float DeltaTime)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native function */void UpdateShimmy(float DeltaTime)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UTdMove_Swing::execCanShimmy(FFrame&, void* const)
-	public virtual /*native function */bool CanShimmy(float Delta)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */bool CanShimmy(float Delta)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdMove_Swing::execCheckForTargetVolume(FFrame&, void* const)
-	public virtual /*native function */TdSwingVolume CheckForTargetVolume(Object.Vector Direction)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */TdSwingVolume CheckForTargetVolume(Object.Vector Direction)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public override /*function */bool CanDoMove()
 	{

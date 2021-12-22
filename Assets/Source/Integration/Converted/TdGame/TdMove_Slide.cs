@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -13,11 +15,11 @@ public partial class TdMove_Slide : TdMove/*
 	public/*private*/ ForceFeedbackWaveform SlideWaveform;
 	
 	// Export UTdMove_Slide::execFloorDeclineTooSteep(FFrame&, void* const)
-	public virtual /*native function */bool FloorDeclineTooSteep()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */bool FloorDeclineTooSteep()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public override /*function */bool CanDoMove()
 	{

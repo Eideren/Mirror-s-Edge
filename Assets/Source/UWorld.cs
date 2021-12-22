@@ -503,68 +503,6 @@
             return constructedActor;
 		}
         
-        public struct FCheckResult// : public FIteratorActorList
-        {
-	        public Actor Actor;
-	        // Variables.
-	        public Object.Vector						Location;	// Location of the hit in coordinate system of the returner.
-	        public Object.Vector						Normal;		// Normal vector in coordinate system of the returner. Zero=none.
-	        public float						Time;		// Time until hit, if line check.
-	        public int							Item;		// Primitive data item which was hit, INDEX_NONE=none.
-	        public MaterialInterface			Material;	// Material of the item which was hit.
-	        public PhysicalMaterial	PhysMaterial; // Physical material that was hit
-	        public PrimitiveComponent	Component;	// PrimitiveComponent that the check hit.
-	        public name						BoneName;	// Name of bone we hit (for skeletal meshes).
-	        public Level				Level;		// Level that was hit in case of BSPLineCheck
-			public int							LevelIndex; // Index of the level that was hit in the case of BSP checks.
-
-	        /** This line check started penetrating the primitive. */
-	        public bool						bStartPenetrating;
-
-	        // Functions.
-	        /*FCheckResult()
-		        : Location	(0,0,0)
-		        , Normal	(0,0,0)
-		        , Time		(0.0f)
-		        , Item		(INDEX_NONE)
-		        , Material	(NULL)
-		        , PhysMaterial( NULL)
-		        , Component	(NULL)
-		        , BoneName	(NAME_None)
-		        , Level		(NULL)
-		        , LevelIndex	(INDEX_NONE)
-		        , bStartPenetrating	(FALSE)
-	        {}
-
-
-	        FCheckResult( FLOAT InTime, FCheckResult* InNext=NULL )
-		        :	FIteratorActorList( InNext, NULL )
-		        ,	Location	(0,0,0)
-		        ,	Normal		(0,0,0)
-		        ,	Time		(InTime)
-		        ,	Item		(INDEX_NONE)
-		        ,	Material	(NULL)
-		        ,   PhysMaterial( NULL)
-		        ,	Component	(NULL)
-		        ,	BoneName	(NAME_None)
-		        ,	Level		(NULL)
-		        ,	LevelIndex	(INDEX_NONE)
-		        ,	bStartPenetrating	(FALSE)
-	        {}
-
-
-	        FCheckResult*& GetNext() const
-	        { 
-		        return *(FCheckResult**)&Next; 
-	        }
-
-
-	        static QSORT_RETURN CDECL CompareHits( const FCheckResult* A, const FCheckResult* B )
-	        { 
-		        return A->Time<B->Time ? -1 : A->Time>B->Time ? 1 : 0; 
-	        }*/
-        }
-        
         const int MOVE_IgnoreBases		= 0x00001; // ignore collisions with things the Actor is based on
         const int MOVE_NoFail				= 0x00002; // ignore conditions that would normally cause MoveActor() to abort (such as encroachment)
         const int MOVE_TraceHitMaterial	= 0x00004; // figure out material was hit for any collisions
@@ -632,7 +570,7 @@
 			Object.Vector	Delta,
 			Object.Rotator	NewRotation,
 			int			MoveFlags,
-			out FCheckResult Hit
+			out DecFn.CheckResult Hit
 		)
 		{
 			NativeMarkers.MarkUnimplemented();

@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -83,10 +85,10 @@ public partial class TdMove_Barge : TdPhysicsMove/*
 	[transient] public/*protected*/ TdMove_Barge.BargeDebugInfo AnimDebugInfo;
 	
 	// Export UTdMove_Barge::execFindAdditionalTargets(FFrame&, void* const)
-	public virtual /*native function */void FindAdditionalTargets(Object.Vector StartTrace, Object.Vector EndTrace, Actor IgnoreActor, ref array<TdMove_Barge.BargeHitInfo> ImpactList)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native function */void FindAdditionalTargets(Object.Vector StartTrace, Object.Vector EndTrace, Actor IgnoreActor, ref array<TdMove_Barge.BargeHitInfo> ImpactList)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	public virtual /*simulated function */void CalcBargeDamage(Object.Vector StartTrace, Object.Vector EndTrace, ref array<TdMove_Barge.BargeHitInfo> ImpactList)
 	{

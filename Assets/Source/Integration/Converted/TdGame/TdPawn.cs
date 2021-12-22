@@ -701,28 +701,28 @@ public partial class TdPawn : GamePawn/*
 	//}
 	
 	// Export UTdPawn::execOffsetMeshXY(FFrame&, void* const)
-	public virtual /*native function */void OffsetMeshXY(Object.Vector Offset, /*optional */bool? _bWorldSpace = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native function */void OffsetMeshXY(Object.Vector Offset, /*optional */bool? _bWorldSpace = default)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UTdPawn::execOffsetMeshZ(FFrame&, void* const)
-	public virtual /*native function */void OffsetMeshZ(float OffsetZ)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native function */void OffsetMeshZ(float OffsetZ)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UTdPawn::execSetTargetMeshZ(FFrame&, void* const)
-	public virtual /*native function */void SetTargetMeshZ(float OffsetZ, bool bForceSet)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native function */void SetTargetMeshZ(float OffsetZ, bool bForceSet)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UTdPawn::execUpdateLegToWorldMatrix(FFrame&, void* const)
-	public virtual /*native function */void UpdateLegToWorldMatrix(int Yaw)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native function */void UpdateLegToWorldMatrix(int Yaw)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	public virtual /*function */void SetDifficultyLevel(int Difficulty)
 	{
@@ -730,10 +730,10 @@ public partial class TdPawn : GamePawn/*
 	}
 	
 	// Export UTdPawn::execSetArmorDifficultyLevel(FFrame&, void* const)
-	public virtual /*protected native function */void SetArmorDifficultyLevel(int Difficulty)
-	{
-		NativeMarkers.MarkUnimplemented("Non essential");
-	}
+	//public virtual /*protected native function */void SetArmorDifficultyLevel(int Difficulty)
+	//{
+	//	NativeMarkers.MarkUnimplemented("Non essential");
+	//}
 	
 	public override /*simulated event */void PreBeginPlay()
 	{
@@ -990,11 +990,11 @@ public partial class TdPawn : GamePawn/*
 	//}
 	
 	// Export UTdPawn::execGetMove(FFrame&, void* const)
-	public virtual /*native function */TdPawn.EMovement GetMove()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */TdPawn.EMovement GetMove()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public virtual /*unreliable client simulated function */void ClientAdjustPreciseLocation(Object.Vector PreciceLocation, TdPawn.EMovement ServerMovementState)
 	{
@@ -1478,11 +1478,11 @@ public partial class TdPawn : GamePawn/*
 	}
 	
 	// Export UTdPawn::execCanDropWeapon(FFrame&, void* const)
-	public virtual /*native function */bool CanDropWeapon()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */bool CanDropWeapon()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public virtual /*function */bool CanZoom()
 	{
@@ -2602,10 +2602,10 @@ public partial class TdPawn : GamePawn/*
 	public delegate void RegenerateHealth_del(float DeltaTime);
 	public virtual RegenerateHealth_del RegenerateHealth { get => bfield_RegenerateHealth ?? TdPawn_RegenerateHealth; set => bfield_RegenerateHealth = value; } RegenerateHealth_del bfield_RegenerateHealth;
 	public virtual RegenerateHealth_del global_RegenerateHealth => TdPawn_RegenerateHealth;
-	public /*native function */void TdPawn_RegenerateHealth(float DeltaTime)
-	{
-		NativeMarkers.MarkUnimplemented("Non essential");
-	}
+	//public /*native function */void TdPawn_RegenerateHealth(float DeltaTime)
+	//{
+	//	NativeMarkers.MarkUnimplemented("Non essential");
+	//}
 	
 	//// Export UTdPawn::execUpdateVelocityVariables(FFrame&, void* const)
 	//public virtual /*native simulated function */void UpdateVelocityVariables()
@@ -3355,25 +3355,25 @@ public partial class TdPawn : GamePawn/*
 	}
 	
 	// Export UTdPawn::execGetAIAimingPenalty(FFrame&, void* const)
-	public virtual /*native function */float GetAIAimingPenalty()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */float GetAIAimingPenalty()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdPawn::execGetAIAimingOneShotPenalty(FFrame&, void* const)
-	public virtual /*native function */float GetAIAimingOneShotPenalty()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */float GetAIAimingOneShotPenalty()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdPawn::execGetAIAimingOneShotPenaltySniper(FFrame&, void* const)
-	public virtual /*native function */float GetAIAimingOneShotPenaltySniper()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */float GetAIAimingOneShotPenaltySniper()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public override /*simulated function */void FaceRotation(Object.Rotator NewRotation, float DeltaTime)
 	{
@@ -3421,11 +3421,11 @@ public partial class TdPawn : GamePawn/*
 	}
 	
 	// Export UTdPawn::execGetWeaponType(FFrame&, void* const)
-	public virtual /*native final simulated function */TdPawn.EWeaponType GetWeaponType()
-	{
-		NativeMarkers.MarkUnimplemented("Non essential");
-		return default;
-	}
+	//public virtual /*native final simulated function */TdPawn.EWeaponType GetWeaponType()
+	//{
+	//	NativeMarkers.MarkUnimplemented("Non essential");
+	//	return default;
+	//}
 	
 	public virtual /*function */void UseRootMotion(bool Use)
 	{
@@ -3602,10 +3602,10 @@ public partial class TdPawn : GamePawn/*
 	}
 	
 	// Export UTdPawn::execStopAllCustomAnimations(FFrame&, void* const)
-	public virtual /*native simulated function */void StopAllCustomAnimations(float BlendOutTime)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native simulated function */void StopAllCustomAnimations(float BlendOutTime)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UTdPawn::execStopCustomAnim(FFrame&, void* const)
 	public delegate void StopCustomAnim_del(TdPawn.CustomNodeType Type, float BlendOutTime);
@@ -3622,10 +3622,10 @@ public partial class TdPawn : GamePawn/*
 	}
 	
 	// Export UTdPawn::execReplicateCustomAnim(FFrame&, void* const)
-	public virtual /*native function */void ReplicateCustomAnim(TdPawn.CustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool? _bRootRotation = default)
-	{
-		NativeMarkers.MarkUnimplemented("Non essential");
-	}
+	//public virtual /*native function */void ReplicateCustomAnim(TdPawn.CustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, /*optional */bool? _bRootRotation = default)
+	//{
+	//	NativeMarkers.MarkUnimplemented("Non essential");
+	//}
 	
 	//// Export UTdPawn::execGetCustomAnimation(FFrame&, void* const)
 	//public virtual /*native simulated function */AnimNodeSequence GetCustomAnimation(TdPawn.CustomNodeType Type)
@@ -3743,11 +3743,11 @@ public partial class TdPawn : GamePawn/*
 	}
 	
 	// Export UTdPawn::execGetAimMode(FFrame&, void* const)
-	public virtual /*native final function */TdPawn.MoveAimMode GetAimMode(bool bAimingOnly)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native final function */TdPawn.MoveAimMode GetAimMode(bool bAimingOnly)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public override /*event */void HitWall(Object.Vector HitNormal, Actor Wall, PrimitiveComponent WallComp)
 	{
@@ -3938,11 +3938,11 @@ public partial class TdPawn : GamePawn/*
 	}
 	
 	// Export UTdPawn::execOkToInteract(FFrame&, void* const)
-	public virtual /*native final function */bool OkToInteract()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native final function */bool OkToInteract()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public delegate void RemoveAndDetachPawn_del();
 	public virtual RemoveAndDetachPawn_del RemoveAndDetachPawn { get => bfield_RemoveAndDetachPawn ?? (()=>{}); set => bfield_RemoveAndDetachPawn = value; } RemoveAndDetachPawn_del bfield_RemoveAndDetachPawn;

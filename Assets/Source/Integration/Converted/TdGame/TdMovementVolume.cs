@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
@@ -26,31 +28,31 @@ public partial class TdMovementVolume : PhysicsVolume/*
 	public array<Object.Vector> SplineLocations;
 	
 	// Export UTdMovementVolume::execGetLocationOnSpline(FFrame&, void* const)
-	public virtual /*native function */Object.Vector GetLocationOnSpline(float ParamT)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */Object.Vector GetLocationOnSpline(float ParamT)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdMovementVolume::execGetSlopeOnSpline(FFrame&, void* const)
-	public virtual /*native function */Object.Vector GetSlopeOnSpline(float ParamT)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */Object.Vector GetSlopeOnSpline(float ParamT)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdMovementVolume::execFindClosestPointOnDSpline(FFrame&, void* const)
-	public virtual /*native function */void FindClosestPointOnDSpline(Object.Vector InLocation, ref Object.Vector ClosestLocation, ref float NParamT, /*optional */int? _LowestIndexHint = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native function */void FindClosestPointOnDSpline(Object.Vector InLocation, ref Object.Vector ClosestLocation, ref float NParamT, /*optional */int? _LowestIndexHint = default)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	// Export UTdMovementVolume::execIsSplineMarkerSelected(FFrame&, void* const)
-	public virtual /*native function */bool IsSplineMarkerSelected()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */bool IsSplineMarkerSelected()
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
