@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using static MEdge.TdGame.TdPawn; using static MEdge.TdGame.TdPawn.EMovement; using static MEdge.TdGame.TdMove_ZipLine.EZipLineStatus; using static MEdge.TdGame.TdMove.EPreciseLocationMode; using static MEdge.Engine.Actor.EPhysics; using static MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Engine.Actor.ENetRole; using LedgeHitInfo = MEdge.TdGame.TdPawn.LedgeHitInfo; using ECustomNodeType = MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.TdGame.TdPawn.WalkingState; using static MEdge.TdGame.TdPawn.EWeaponType;using static MEdge.TdGame.TdPawn.EMoveActionHint; using EMoveAimMode = MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Source.DecFn; using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 public partial class TdMove_RumpSlide
@@ -20,15 +22,16 @@ public partial class TdMove_RumpSlide
     int v16 = default; // [esp+18h] [ebp-4h]
   
     v3 = this.PawnOwner;
-    if ( (BYTE2(v3.bDisableSkelControlSpring.AsBitfield(32)) & 1) != 0 )
+    if ( (BYTE2(v3.bDisableSkelControlSpring.AsBitfield(32)) & 1) != default )
       this.TimeFalling = 0.0f;
     else
       this.TimeFalling = this.TimeFalling + a2;
     if ( this.TimeFalling > 0.1f )
     {
       v13.X = 2.0f;
-      *(_QWORD *)&v13.Y = 0x4000000040000000i64;
-      v14 = *(_QWORD *)&v3.Location.X;
+      *(_QWORD *)&v13.Y = 0x4000000040000000L;
+      var c = v3.Location;
+      v14 = *(_QWORD *)&c.X;
       *(_QWORD *)&v12.X = v14;
       v12.Z = v3.Location.Z;
       *(_QWORD *)&v11.X = v14;
@@ -43,10 +46,11 @@ public partial class TdMove_RumpSlide
         v4 = this.PawnOwner;
         v5 = v4.VfTableObject.Dummy;
         v16 = default;
-        HIDWORD(v14) = default;
+        //v14.HIDWORD(default);
         v15 = 0.0f;
-        LOBYTE(v14) = 2;
-        CallUFunction(v4.SetMove, v4, v6, &v14, 0);
+        //v14.LOBYTE(2);
+        //CallUFunction(v4.SetMove, v4, v6, &v14, 0);
+        v4.SetMove((EMovement)2);
       }
     }
     v7 = this.Timer;
@@ -103,7 +107,7 @@ public partial class TdMove_RumpSlide
   
     base.PrePerformPhysics(DeltaTime);
     v3 = this.PawnOwner;
-    if ( (BYTE2(v3.bDisableSkelControlSpring.AsBitfield(32)) & 1) != 0 )// notice the BYTE2 on this line ! Equivalent to ((byte*)v)[3]
+    if ( (BYTE2(v3.bDisableSkelControlSpring.AsBitfield(32)) & 1) != default )// notice the BYTE2 on this line ! Equivalent to ((byte*)v)[3]
     {
       v4 = v3.UncontrolledSlideNormal.Y;
       v5 = v3.UncontrolledSlideNormal.X;
@@ -138,44 +142,7 @@ public partial class TdMove_RumpSlide
         v6 = 0.0f;
         if ( default == v11 )
         {
-  LABEL_12:
-          v16 = this.SideControl * DeltaTime;
-          v17 = (float)(v16 * v29) + v33;
-          v18 = (float)(v30 * v16) + v35;
-          v19 = (float)(v31 * v16) + v36;
-          v20 = v18;
-          if ( this.MaxSlideSpeed < v28 )
-            v21 = this.MaxSlideSpeed;
-          else
-            v21 = v28;
-          v22 = (float)((float)(v19 * v19) + (float)(v18 * v18)) + (float)(v17 * v17);
-          if ( v22 == 1.0f )
-          {
-            v23 = v17;
-            v24 = v18;
-            v6 = v19;
-          }
-          else if ( v22 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
-          {
-            v25 = 1.0f / fsqrt(v22);
-            v34 = (float)(3.0f - (float)((float)(v25 * v22) * v25)) * (float)(v25 * 0.5f);
-            v23 = v34 * v17;
-            v24 = v20 * v34;
-            v6 = v19 * v34;
-          }
-          else
-          {
-            v23 = 0.0f;
-            v24 = 0.0f;
-          }
-fixed(var ptr1 =&this.PawnOwner.Velocity)
-          v26 =  ptr1;
-          v26->X = v23 * v21;
-          v26->Y = v24 * v21;
-          v26->Z = v6 * v21;
-          if ( (this.bTouchedFallHeightVolume == false) )
-            this.PawnOwner.EnterFallingHeight = this.PawnOwner.Location.Z;
-          return;
+          goto LABEL_12;
         }
         if ( (float)(-0.0f - v11.ActualAccelX) == 0.0f )
         {
@@ -195,6 +162,46 @@ fixed(var ptr1 =&this.PawnOwner.Velocity)
       v29 = v13;
       goto LABEL_12;
     }
+    return;
+    LABEL_12:
+    
+    v16 = this.SideControl * DeltaTime;
+    v17 = (float)(v16 * v29) + v33;
+    v18 = (float)(v30 * v16) + v35;
+    v19 = (float)(v31 * v16) + v36;
+    v20 = v18;
+    if ( this.MaxSlideSpeed < v28 )
+      v21 = this.MaxSlideSpeed;
+    else
+      v21 = v28;
+    v22 = (float)((float)(v19 * v19) + (float)(v18 * v18)) + (float)(v17 * v17);
+    if ( v22 == 1.0f )
+    {
+      v23 = v17;
+      v24 = v18;
+      v6 = v19;
+    }
+    else if ( v22 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    {
+      v25 = 1.0f / fsqrt(v22);
+      v34 = (float)(3.0f - (float)((float)(v25 * v22) * v25)) * (float)(v25 * 0.5f);
+      v23 = v34 * v17;
+      v24 = v20 * v34;
+      v6 = v19 * v34;
+    }
+    else
+    {
+      v23 = 0.0f;
+      v24 = 0.0f;
+    }
+/*fixed(var ptr1 =&)
+          v26 =  ptr1;*/
+    this.PawnOwner.Velocity.X = v23 * v21;
+    this.PawnOwner.Velocity.Y = v24 * v21;
+    this.PawnOwner.Velocity.Z = v6 * v21;
+    if ( (this.bTouchedFallHeightVolume == false) )
+      this.PawnOwner.EnterFallingHeight = this.PawnOwner.Location.Z;
+    return;
   }
 }
 }

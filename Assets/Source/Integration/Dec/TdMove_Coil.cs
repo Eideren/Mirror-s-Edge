@@ -42,7 +42,7 @@ public partial class TdMove_Coil
       Delta.Y = 0.0f;
       Delta.Z = v4;
 fixed(Rotator* ptr1 =&v5.Rotation)
-      GWorld.MoveActor(v5, &Delta,  ptr1, 0, &Hit);
+      GWorld.MoveActor(v5, ref Delta,  ref *ptr1, 0, ref Hit);
     }
   }
 }

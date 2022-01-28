@@ -64,6 +64,9 @@ namespace MEdge
         public int Num() => Length;
 
 
+        internal T[] Data => __items;
+
+
         internal T[] _items
         {
             get => __items ?? Array.Empty<T>();
@@ -87,6 +90,11 @@ namespace MEdge
                     Add(default);
                 return ref _items[i];
             }
+        }
+        public ref T this[uint i]
+        {
+            #warning If you store a ref then swap, reorder or resize the array your ref might not match the right thing anymore
+            get => ref this[ (int) i ];
         }
 
 
@@ -114,6 +122,18 @@ namespace MEdge
         /// Returns the index of item.<paramref name="tMemberName"/> whose value matches <paramref name="tMemberValue"/>
         /// </summary>
         public int Find(string tMemberName, object tMemberValue) => throw new NotImplementedException();
+
+
+
+        public bool FindItem(T item, ref int Index)
+        {
+            for( Index=0; Index<Count; Index++ )
+                if( EqualityComparer<T>.Default.Equals( this[ Index ], item ) )
+                    return true;
+            return false;
+        }
+
+
 
         public void Remove(int index, int count)
         {

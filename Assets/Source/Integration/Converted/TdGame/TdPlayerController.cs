@@ -157,18 +157,18 @@ public partial class TdPlayerController : GamePlayerController,
 	}
 	
 	// Export UTdPlayerController::execGetAATarget(FFrame&, void* const)
-	public virtual /*native function */TdPawn GetAATarget(float MaxDistance)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */TdPawn GetAATarget(float MaxDistance)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdPlayerController::execGetMeleeTarget(FFrame&, void* const)
-	public virtual /*native function */TdPawn GetMeleeTarget(float MaxDistance)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
+	//public virtual /*native function */TdPawn GetMeleeTarget(float MaxDistance)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//	return default;
+	//}
 	
 	// Export UTdPlayerController::execLocalEnemyActors(FFrame&, void* const)
 	public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<TdPawn/* enemyIt*/> LocalEnemyActors()
@@ -3744,7 +3744,7 @@ public partial class TdPlayerController : GamePlayerController,
 	{
 		if(ShouldPlayStopAnim())
 		{
-			myPawn.PlayCustomAnim(TdPawn.CustomNodeType.CNT_LowerBody/*5*/, "walktostandpassleft", 1.0f, StopAnimBlendIn, StopAnimBlendOut, false, true, false, default(bool?));
+			myPawn.PlayCustomAnim(TdPawn.CustomNodeType.CNT_LowerBody/*5*/, "walktostandpassleft", 1.0f, StopAnimBlendIn, StopAnimBlendOut, false, true, false, default(bool));
 		}
 		bIsStopping = false;
 	}
@@ -3753,7 +3753,7 @@ public partial class TdPlayerController : GamePlayerController,
 	{
 		if(ShouldPlayStopAnim())
 		{
-			myPawn.PlayCustomAnim(TdPawn.CustomNodeType.CNT_LowerBody/*5*/, "walktostandpassright", 1.0f, StopAnimBlendIn, StopAnimBlendOut, false, true, false, default(bool?));
+			myPawn.PlayCustomAnim(TdPawn.CustomNodeType.CNT_LowerBody/*5*/, "walktostandpassright", 1.0f, StopAnimBlendIn, StopAnimBlendOut, false, true, false, default(bool));
 		}
 		bIsStopping = false;
 	}

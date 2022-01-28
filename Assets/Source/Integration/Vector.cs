@@ -1,8 +1,27 @@
-﻿namespace MEdge.Core
+﻿using static MEdge.Source.DecFn;
+namespace MEdge.Core
 {
     public partial class Object
     {
-        
+        public partial struct Vector4
+        {
+            public Vector4( float x, float y, float z, float w )
+            {
+                this.X = x;
+                this.Y = y;
+                this.Z = z;
+                this.W = w;
+            }
+
+
+
+            public static implicit operator Vector( Vector4 v )
+            {
+                return new Vector( v.X, v.Y, v.Z );
+            }
+        }
+
+
 
     public partial struct Vector
     {
@@ -110,6 +129,18 @@
             }
             float Scale = InvSqrt(SquareSum);
             return new Vector(X*Scale, Y*Scale, Z*Scale);
+        }
+        
+        public bool Normalize(float Tolerance=SMALL_NUMBER)
+        {
+            float SquareSum = X*X + Y*Y + Z*Z;
+            if( SquareSum > Tolerance )
+            {
+                float Scale = appInvSqrt(SquareSum);
+                X *= Scale; Y *= Scale; Z *= Scale;
+                return TRUE;
+            }
+            return FALSE;
         }
 
 

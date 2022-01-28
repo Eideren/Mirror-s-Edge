@@ -131,7 +131,7 @@ public partial class TdMove_Swing : TdPhysicsMove/*
 	public override /*simulated function */void StopReplicatedMove()
 	{
 		DisableSwingControl();
-		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.10f, default(SkelControlBase.EBoneControlSpace?));
+		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.10f, default(SkelControlBase.EBoneControlSpace));
 	}
 	
 	public override /*simulated function */void StopMove()
@@ -139,7 +139,7 @@ public partial class TdMove_Swing : TdPhysicsMove/*
 		base.StopMove();
 		DisableSwingControl();
 		StopSwingSound();
-		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.10f, default(SkelControlBase.EBoneControlSpace?));
+		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.10f, default(SkelControlBase.EBoneControlSpace));
 		bIsShimmying = false;
 		bIsTurning = false;
 	}

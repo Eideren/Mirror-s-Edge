@@ -1,8 +1,10 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using static MEdge.TdGame.TdPawn; using static MEdge.TdGame.TdPawn.EMovement; using static MEdge.TdGame.TdMove_ZipLine.EZipLineStatus; using static MEdge.TdGame.TdMove.EPreciseLocationMode; using static MEdge.Engine.Actor.EPhysics; using static MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Engine.Actor.ENetRole; using LedgeHitInfo = MEdge.TdGame.TdPawn.LedgeHitInfo; using ECustomNodeType = MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.TdGame.TdPawn.WalkingState; using static MEdge.TdGame.TdPawn.EWeaponType;using static MEdge.TdGame.TdPawn.EMoveActionHint; using EMoveAimMode = MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Source.DecFn; using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 public partial class TdMove_GrabTransfer
 {
-  public unsafe bool SomeMultiLineCheck(CheckResult *a2, Vector *a3, Vector *a4, Vector *a5)
+  public unsafe bool SomeMultiLineCheck(CheckResult *a2, ref Vector a3, ref Vector a4, ref Vector a5)
   {
     int v5 = default; // ebp
     CheckResult *v6; // ebx
@@ -10,10 +12,10 @@ public partial class TdMove_GrabTransfer
   
     v5 = FMemMark_Maybe;
     v8 = GMem;
-    v6 = GWorld.MultiLineCheck(&GMem, a3, a4, a5, 8u, this.PawnOwner, 0);
+    v6 = GWorld.MultiLineCheck(ref GMem, a3, a4, a5, 8u, this.PawnOwner, null);
     if(v6 != default)
     {
-      qmemcpy(a2, v6, 0x4Cu);
+      qmemcpy(ref *a2, *v6, 0x4Cu);
     }
     else
     {
@@ -21,18 +23,18 @@ public partial class TdMove_GrabTransfer
       a2->Actor = default;
     }
     if ( v5 != FMemMark_Maybe )
-      FMemMark_Pop_Maybe(&GMem, v5);
+      FMemMark_Pop_Maybe(ref GMem, v5);
     GMem = v8;
-    return v6 != 0;
+    return v6 != default;
   }
 
-  public unsafe bool CheckReachableTransferLedge(Vector *a2, Vector *a3, Vector *a4, Vector *a5)
+  public unsafe bool CheckReachableTransferLedge(ref Vector a2, ref Vector a3, ref Vector a4, ref Vector a5)
   {
     TdPawn v6 = default; // eax
     Actor v7 = default; // eax
     TdPawn v8 = default; // eax
     TdPawn v9 = default; // ebp
-    uint v10 = default; // ebx
+    int v10 = default; // ebx
     Rotator *v11; // edi
     Rotator *v12; // eax
     float v13 = default; // ecx
@@ -41,7 +43,7 @@ public partial class TdMove_GrabTransfer
     Rotator *v16; // eax
     bool v17 = default; // zf
     int v18 = default; // ecx
-    uint v19 = default; // edx
+    int v19 = default; // edx
     EMoveActionHint v20 = default; // al
     CylinderComponent v21 = default; // ecx
     Controller v22 = default; // ebp
@@ -86,10 +88,10 @@ public partial class TdMove_GrabTransfer
     rot_then_vec.Y.LODWORD(v9.Rotation.Yaw);
     v45 = v8;
     rot_then_vec.Z.LODWORD(v9.Rotation.Roll);
-fixed(var ptr1 =&v9.Rotation)
+fixed(Rotator* ptr1 =&v9.Rotation)
     v11 = E_ClipAmountOfTurns( ptr1, (Rotator *)&rot_then_vec3);
-fixed(var ptr2 =&v9.Controller.Pawn)
-    v12 = E_ClipAmountOfTurns( ptr2::Rotation, (Rotator *)&rot_then_vec2);
+fixed(Rotator* ptr2 =&v9.Controller.Rotation)
+    v12 = E_ClipAmountOfTurns( ptr2, (Rotator *)&rot_then_vec2);
     v13.LODWORD(v12->Pitch - v11->Pitch);
     v14.LODWORD(v12->Yaw - v11->Yaw);
     v15.LODWORD(v12->Roll - v11->Roll);
@@ -101,7 +103,7 @@ fixed(var ptr2 =&v9.Controller.Pawn)
     v18 = v16->Pitch;
     v19 = v16->Yaw;
     rot_then_vec2.Z.LODWORD(v16->Roll);
-    if ( v17 && v18 > 4096 && v19 + 0x1FFF <= 0x3FFE )
+    if ( v17 && v18 > 4096 && (uint)(v19 + 0x1FFF) <= 0x3FFE )
       this.TransferHint = MAH_Up;
     v20 = this.TransferHint;
     switch ( (int)v20 )
@@ -125,16 +127,18 @@ fixed(var ptr2 =&v9.Controller.Pawn)
     else
     {
       v22 = v9.Controller;
-      v23 = *(float *)&v22.Rotation.Yaw;
+      var y = v22.Rotation.Yaw;
+      v23 = *(float *)&y;
       v10 = v22.Rotation.Pitch;
-      v24 = *(float *)&v22.Rotation.Roll;
+      var r = v22.Rotation.Roll;
+      v24 = *(float *)&r;
       rot_then_vec.Y = v23;
     }
     v25 = LOWORD(rot_then_vec.Y);
     if ( LOWORD(rot_then_vec.Y) > 0x7FFFu )
       v25 = LOWORD(rot_then_vec.Y) - 0x10000;
     v42.Pitch = v10;
-    *(_QWORD *)&v42.Yaw = __PAIR64__(LODWORD(v24), v25);
+    *(_QWORD *)&v42.Yaw = __PAIR64__((int)LODWORD(v24), v25);
     if ( this.FindAutoMoveLedge(&rot_then_vec2, &rot_then_vec3, &rot_then_vec, v48, v42, a11, 0) == 2 )
     {
       v26 = this.PawnOwner;
@@ -150,63 +154,7 @@ fixed(var ptr2 =&v9.Controller.Pawn)
       v28 = rot_then_vec2.Z - v26.MoveLedgeLocation.Z;
       if ( v28 <= this.AllowedZTransferDistance && v28 >= 1.0f )
       {
-  LABEL_23:
-        v29 = E_TryCastTo<TdMove_Grab>(v26.Moves[3]);
-        v30 = rot_then_vec.Y;
-        v31 = rot_then_vec.X;
-        v32 = rot_then_vec2.X;
-        v33 = rot_then_vec2.Y;
-        v34 = v29;
-        BaseExtent = v45.CylinderComponent.CollisionRadius;
-        v35 = (float)(v30 * v30) + (float)(v31 * v31);
-        v49 = rot_then_vec2;
-        v53 = v35;
-        if ( v35 == 1.0f )
-        {
-          if ( rot_then_vec.Z == 0.0f )
-          {
-            v47 = rot_then_vec;
-  LABEL_32:
-            v44 = this.CalculateRelativeExtent(BaseExtent);
-            v37 = rot_then_vec2.Z - v34.GrabDesiredLedgeOffset.Z;
-            a2->X = v49.X + (float)(v47.X * (float)(v44 + BaseExtent));
-            a2->Y = v49.Y + (float)(v47.Y * (float)(v44 + BaseExtent));
-            v38 = rot_then_vec2.Z;
-            a2->Z = (float)(v47.Z * (float)(v44 + BaseExtent)) + v37;
-            a4->X = v32;
-            a4->Y = v33;
-            a4->Z = v38;
-            a3->X = v47.X;
-            a3->Y = v47.Y;
-            v39 = rot_then_vec3.X;
-            a3->Z = v47.Z;
-            v40 = rot_then_vec3.Y;
-            a5.X = v39;
-            v41 = rot_then_vec3.Z;
-            a5.Y = v40;
-            a5.Z = v41;
-            SetFromBitfield(ref this.PawnOwner.bDisableSkelControlSpring, 32, this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) | (0x800u));
-            return true;
-          }
-          v47.X = rot_then_vec.X;
-        }
-        else
-        {
-          if ( v35 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
-          {
-            v47.X = 0.0f;
-            v47.Y = 0.0f;
-  LABEL_31:
-            v47.Z = 0.0f;
-            goto LABEL_32;
-          }
-          v36 = 1.0f / fsqrt(v53);
-          rot_then_vec.X = (float)(3.0f - (float)((float)(v36 * v53) * v36)) * (float)(v36 * 0.5f);
-          v47.X = rot_then_vec.X * v31;
-          v30 = rot_then_vec.Y * rot_then_vec.X;
-        }
-        v47.Y = v30;
-        goto LABEL_31;
+        goto LABEL_23;
       }
     }
     else
@@ -214,9 +162,68 @@ fixed(var ptr2 =&v9.Controller.Pawn)
       SetFromBitfield(ref this.PawnOwner.bDisableSkelControlSpring, 32, this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) & (0xFFFFF7FF));
     }
     return false;
+    LABEL_23:
+    v29 = E_TryCastTo<TdMove_Grab>(v26.Moves[3]);
+    v30 = rot_then_vec.Y;
+    v31 = rot_then_vec.X;
+    v32 = rot_then_vec2.X;
+    v33 = rot_then_vec2.Y;
+    v34 = v29;
+    BaseExtent = v45.CylinderComponent.CollisionRadius;
+    v35 = (float)(v30 * v30) + (float)(v31 * v31);
+    v49 = rot_then_vec2;
+    v53 = v35;
+    if ( v35 == 1.0f )
+    {
+      if ( rot_then_vec.Z == 0.0f )
+      {
+        v47 = rot_then_vec;
+        goto LABEL_32;
+      }
+      v47.X = rot_then_vec.X;
+    }
+    else
+    {
+      if ( v35 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      {
+        v47.X = 0.0f;
+        v47.Y = 0.0f;
+        v47.Z = 0.0f;
+        goto LABEL_32;
+      }
+      v36 = 1.0f / fsqrt(v53);
+      rot_then_vec.X = (float)(3.0f - (float)((float)(v36 * v53) * v36)) * (float)(v36 * 0.5f);
+      v47.X = rot_then_vec.X * v31;
+      v30 = rot_then_vec.Y * rot_then_vec.X;
+    }
+    v47.Y = v30;
+    v47.Z = 0.0f;
+    goto LABEL_32;
+    
+    LABEL_32:
+    v44 = this.CalculateRelativeExtent(BaseExtent);
+    v37 = rot_then_vec2.Z - v34.GrabDesiredLedgeOffset.Z;
+    a2.X = v49.X + (float)(v47.X * (float)(v44 + BaseExtent));
+    a2.Y = v49.Y + (float)(v47.Y * (float)(v44 + BaseExtent));
+    v38 = rot_then_vec2.Z;
+    a2.Z = (float)(v47.Z * (float)(v44 + BaseExtent)) + v37;
+    a4.X = v32;
+    a4.Y = v33;
+    a4.Z = v38;
+    a3.X = v47.X;
+    a3.Y = v47.Y;
+    v39 = rot_then_vec3.X;
+    a3.Z = v47.Z;
+    v40 = rot_then_vec3.Y;
+    a5.X = v39;
+    v41 = rot_then_vec3.Z;
+    a5.Y = v40;
+    a5.Z = v41;
+    SetFromBitfield(ref this.PawnOwner.bDisableSkelControlSpring, 32, this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) | (0x800u));
+    return true;
   }
 
-  public unsafe bool CheckReachableTransferMoveVolume(Vector *a2, Vector *a3, Vector *a4)
+  public unsafe bool CheckReachableTransferMoveVolume(ref Vector a2, ref Vector a3, ref Vector a4)
   {
     TdPawn v5 = default; // edi
     Matrix *v6; // eax
@@ -264,7 +271,7 @@ fixed(var ptr2 =&v9.Controller.Pawn)
     float v49 = default; // [esp+B4h] [ebp-10h]
   
     v5 = this.PawnOwner;
-fixed(var ptr1 =&v5.Rotation)
+fixed(Rotator* ptr1 =&v5.Rotation)
     v6 = FRotationMatrix(&matrix_then_FCheckResult,  ptr1);
     v7 = v6->YPlane.X;
     v39.X = v7;
@@ -285,7 +292,7 @@ fixed(var ptr1 =&v5.Rotation)
         v42 = v39;
         break;
       case (int)MAH_None:
-        v11 = v5.Controller.Pawn::Rotation.Vector(&a2a);
+        v11 = v5.Controller.Rotation.Vector(&a2a);
         v12 = v11->Y;
         v42.X = v11->X;
         v13 = v11->Z;
@@ -296,7 +303,7 @@ fixed(var ptr1 =&v5.Rotation)
     v14 = v42.Y;
     v15 = v42.X;
     v16 = (float)(v14 * v14) + (float)(v15 * v15);
-    matrix_then_FCheckResult.ZPlane.Y = NAN;
+    matrix_then_FCheckResult.ZPlane.Y = float.NaN;
     v46 = -1;
     matrix_then_FCheckResult.XPlane.X = 0.0f;
     matrix_then_FCheckResult.XPlane.Y = 0.0f;
@@ -326,17 +333,17 @@ fixed(var ptr1 =&v5.Rotation)
         goto LABEL_16;
       }
       a2a.X = v42.X;
-      goto LABEL_14;
+      a2a.Y = v14;
+      goto LABEL_15;
     }
     if ( v16 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
       v42.X = 3.0f;
-      v43 = (TdMove_Climb )1056964608;// This variable is unused afaict, just written to further down
+      v43 = null;//(TdMove_Climb )1056964608;// This variable is unused afaict, just written to further down
       v17 = 1.0f / fsqrt(v49);
       a2a.X = (float)(3.0f - (float)((float)(v17 * v49) * v17)) * (float)(v17 * 0.5f);
       a2a.X = a2a.X * v15;
       v14 = v42.Y * (float)((float)(3.0f - (float)((float)(v17 * v49) * v17)) * (float)(v17 * 0.5f));
-  LABEL_14:
       a2a.Y = v14;
       goto LABEL_15;
     }
@@ -359,10 +366,10 @@ fixed(var ptr1 =&v5.Rotation)
     v21 = this.PawnOwner;
     v22 = v21.Location.X;
     v23 = this.HandPlantExtentCheckWidth;
-    v21 = (TdPawn )((byte *)v21 + 0xE8);// Ptr to this.PawnOwner.Location
+    //v21 = (TdPawn )((byte *)v21 + 0xE8);// Ptr to this.PawnOwner.Location
     v41.X = v22;
-    v41.Y.LODWORD(v21.ObjectInternalInteger);
-    v41.Z.LODWORD(v21.ObjectFlags_A);
+    v41.Y = (v21.Location.Y);
+    v41.Z = (v21.Location.Z);
     v24 = a2a.Z * v23;
     v25 = (float)((float)(v23 * a2a.X) * 2.0f) + v22;
     v26 = (float)(a2a.Y * v23) * 2.0f;
@@ -377,7 +384,7 @@ fixed(var ptr1 =&v5.Rotation)
     a2a.Z = (float)(a2a.Z * v27) + v28;
     v41.Z = v28;
     this.TransferLadder = default;
-    if ( SomeMultiLineCheck((CheckResult *)&matrix_then_FCheckResult, &v39, &v41, &a5) )
+    if ( SomeMultiLineCheck((CheckResult *)&matrix_then_FCheckResult, ref v39, ref v41, ref a5) )
     {
       v43 = E_TryCastTo<TdMove_Climb>(this.PawnOwner.Moves[21]);
       v29 = (CheckResult *)&matrix_then_FCheckResult;
@@ -405,17 +412,17 @@ fixed(var ptr1 =&v5.Rotation)
     v35 = v34 < 0 ? 0 : v34;
     if ( v35 > v33 )
       v35 = v33;
-    *a2 = *(Vector *)this.TransferLadder.GetLadderLocation( &a2a, v35);// GetLadderLocation
+    a2 = *(Vector *)this.TransferLadder.GetLadderLocation( &a2a, v35);// GetLadderLocation
     v36 = this.TransferLadder;
     v37 = v36.WallNormal.X;
-    v36 = (TdLadderVolume )((byte *)v36 + 0x244);// ptr to WallNormal
-    a3->X = v37;
-    a3->Y.LODWORD(v36.ObjectInternalInteger);
-    a3->Z.LODWORD(v36.ObjectFlags_A);
+    //v36 = (TdLadderVolume )((byte *)v36 + 0x244);// ptr to WallNormal
+    a3.X = v37;
+    a3.Y = (v36.WallNormal.Y);
+    a3.Z = (v36.WallNormal.Z);
     return true;
   }
 
-  public unsafe bool CheckContextMove(Vector *out_MoveLocation, Vector *out_MoveNormal, Vector *out_LedgeLocation, Vector *out_LedgeNormal)
+  public unsafe bool CheckContextMove(ref Vector out_MoveLocation, ref Vector out_MoveNormal, ref Vector out_LedgeLocation, ref Vector out_LedgeNormal)
   {
     TdMove_Grab v6 = default; // edi
     TdPawn v7 = default; // eax
@@ -424,10 +431,10 @@ fixed(var ptr1 =&v5.Rotation)
     TdPawn v10 = default; // ebp
     Rotator *v11; // edi
     Rotator *v12; // eax
-    uint v13 = default; // ecx
-    uint v14 = default; // edx
+    int v13 = default; // ecx
+    int v14 = default; // edx
     Rotator *v15; // eax
-    uint v16 = default; // edx
+    int v16 = default; // edx
     int v17 = default; // ecx
     EMoveActionHint v18 = default; // al
     Rotator a5a = default; // [esp+8h] [ebp-18h] BYREF
@@ -447,7 +454,7 @@ fixed(var ptr1 =&v5.Rotation)
         {
           if ( v6.IsHangingFree() )// UTdMove_Grab::IsHangingFree
           {
-            if ( (*(int (__thiscall **)(TdMove_Grab ))(v6.VfTableObject.Dummy + 304))(v6) )
+            if ( v6.IsHangingFree() )
             {
               if ( this.PawnOwner.MoveActionHint == MAH_Up )
                 this.TransferHint = MAH_Up;
@@ -465,10 +472,10 @@ fixed(var ptr1 =&v5.Rotation)
       }
     }
     v10 = this.PawnOwner;
-fixed(var ptr1 =&v10.Rotation)
+fixed(Rotator* ptr1 =&v10.Rotation)
     v11 = E_ClipAmountOfTurns( ptr1, &a5a);
-fixed(var ptr2 =&v10.Controller.Pawn)
-    v12 = E_ClipAmountOfTurns( ptr2::Rotation, &v20);
+fixed(Rotator* ptr2 =&v10.Controller.Rotation)
+    v12 = E_ClipAmountOfTurns( ptr2, &v20);
     v13 = v12->Pitch - v11->Pitch;
     v14 = v12->Yaw - v11->Yaw;
     a5a.Roll = v12->Roll - v11->Roll;
@@ -482,15 +489,15 @@ fixed(var ptr2 =&v10.Controller.Pawn)
     a5a.Roll = v16;
     if ( v18 == MAH_Up && (v17 < -8192 || v17 > 0x2000) || v18 == MAH_Left && (v17 > 0x2000 || v17 < -16384) || v18 == MAH_Right && (v17 < -8192 || v17 > 0x4000) )
       this.TransferHint = MAH_None;
-    if ( CheckReachableTransferMoveVolume(out_MoveLocation, out_MoveNormal, out_LedgeLocation) )
+    if ( CheckReachableTransferMoveVolume(ref out_MoveLocation, ref out_MoveNormal, ref out_LedgeLocation) )
     {
       this.TransferMove = MOVE_IntoClimb;
-      result = 1;
+      result = true;
     }
-    else if ( CheckReachableTransferLedge(out_MoveLocation, out_MoveNormal, out_LedgeLocation, out_LedgeNormal) )
+    else if ( CheckReachableTransferLedge(ref out_MoveLocation, ref out_MoveNormal, ref out_LedgeLocation, ref out_LedgeNormal) )
     {
       this.TransferMove = MOVE_IntoGrab;
-      result = 1;
+      result = true;
     }
     else
     {

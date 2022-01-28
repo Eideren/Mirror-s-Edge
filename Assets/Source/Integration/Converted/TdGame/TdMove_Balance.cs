@@ -34,7 +34,7 @@ public partial class TdMove_Balance : TdPhysicsMove/*
 		/*local */float NormalizedParam = default, Forwardness = default;
 	
 		base.StartMove();
-		Volume.FindClosestPointOnDSpline(PawnOwner.Location, ref/*probably?*/ PointOnSpline, ref/*probably?*/ CurrentParamOnCurve, default(int?));
+		Volume.FindClosestPointOnDSpline(PawnOwner.Location, ref/*probably?*/ PointOnSpline, ref/*probably?*/ CurrentParamOnCurve, default(int));
 		NormalizedParam = CurrentParamOnCurve / ((float)(Volume.NumSplineSegments));
 		SplineDirection = Volume.GetSlopeOnSpline(NormalizedParam);
 		Forwardness = Dot(((Vector)(PawnOwner.Rotation)), Normal(SplineDirection));

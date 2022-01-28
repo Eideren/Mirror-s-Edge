@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using static MEdge.TdGame.TdPawn; using static MEdge.TdGame.TdPawn.EMovement; using static MEdge.TdGame.TdMove_ZipLine.EZipLineStatus; using static MEdge.TdGame.TdMove.EPreciseLocationMode; using static MEdge.Engine.Actor.EPhysics; using static MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Engine.Actor.ENetRole; using LedgeHitInfo = MEdge.TdGame.TdPawn.LedgeHitInfo; using ECustomNodeType = MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.TdGame.TdPawn.WalkingState; using static MEdge.TdGame.TdPawn.EWeaponType;using static MEdge.TdGame.TdPawn.EMoveActionHint; using EMoveAimMode = MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Source.DecFn; using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 public partial class TdMove_Slide
@@ -14,8 +16,10 @@ public partial class TdMove_Slide
     result = this.PawnOwner;
     if ( result.MoveActionHint != MAH_Down )
       return (float)(this.SlideAbortSpeed * this.SlideAbortSpeed) > (float)((float)((float)(result.Velocity.X * result.Velocity.X) + (float)(result.Velocity.Y * result.Velocity.Y)) + (float)(result.Velocity.Z * result.Velocity.Z));
-    LOBYTE(result) = 1;
-    return (bool)result != default;
+
+    var b = true;
+    //result.LOBYTE(1);
+    return (bool)/*result*/b != default;
   }
 
   public override unsafe void PrePerformPhysics(float DeltaTime)
@@ -43,14 +47,14 @@ public partial class TdMove_Slide
     {
       if ( v3.Health > 0 )
       {
-        if ( this.0x011F8640() )// 0x011F8640, UTdMove_Slide::ShouldStopSliding_Maybe
+        if ( this.ShouldAbortMove() )// UTdMove_Slide::ShouldAbortMove
           this.AbortMove();
         v4 = this.PawnOwner;
-        v5 = (ushort)(LOWORD(v4.Controller.Pawn::Rotation.Yaw) - LOWORD(v4.Rotation.Yaw));
+        v5 = (ushort)(LOWORD(v4.Controller.Rotation.Yaw) - LOWORD(v4.Rotation.Yaw));
         if ( (uint)v5 > 32767 )
           v5 = v5 - (65536);
         v6 = (int)(float)((float)(DeltaTime * 0.2f) * (float)v5);
-fixed(var ptr1 =&v4.Velocity)
+fixed(Vector* ptr1 =&v4.Velocity)
         E_DirToRotator( ptr1, &out_a);
         v7 = this.PawnOwner;
         v8 = v7.MoveActionHint;
@@ -70,7 +74,7 @@ fixed(var ptr1 =&v4.Velocity)
         v16.Y = v9->Y * v15;
         v16.Z = v15 * v9->Z;
         this.PawnOwner.Velocity = v16;
-fixed(var ptr2 =&this.PawnOwner.Floor)
+fixed(Vector* ptr2 =&this.PawnOwner.Floor)
         v10 = E_DirToRotator( ptr2, (Rotator *)&vect_then_rotator);
         v11 = this.PawnOwner;
         v12 = 16384 - v10->Pitch;
@@ -81,10 +85,10 @@ fixed(var ptr2 =&this.PawnOwner.Floor)
           v14 = (ushort)(int)(float)((float)(v12 - v13.BoneRotation.Roll) * (float)(DeltaTime * 10.0f));
           if ( v14 > 32767 )
             v14 = v14 - (65536);
-          v11.SwingControl1p.BoneRotation.Roll = v11.SwingControl1p.BoneRotation.Roll + (v14);
+          v11.SwingControl1p.BoneRotation.Roll = v11.SwingControl1p.BoneRotation.Roll + (int)(v14);
           this.PawnOwner.SwingControl3p.BoneRotation.Roll = this.PawnOwner.SwingControl1p.BoneRotation.Roll;
         }
-        SetFromBitfield(ref this.PawnOwner.bDisableSkelControlSpring, 32, this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ ((this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ (2 * this.TestCanUnCrouch())) & 2));
+        SetFromBitfield(ref this.PawnOwner.bDisableSkelControlSpring, 32, this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ ((this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ (2 * (this.TestCanUnCrouch() ? 1u : 0))) & 2));
       }
     }
   }

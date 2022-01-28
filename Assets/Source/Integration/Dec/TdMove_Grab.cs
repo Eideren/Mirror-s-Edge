@@ -77,7 +77,7 @@ public partial class TdMove_Grab
     float v20 = default; // [esp+18h] [ebp-68h]
     float v21 = default; // [esp+20h] [ebp-60h]
     float v22 = default; // [esp+24h] [ebp-5Ch]
-    int v23 = default; // [esp+28h] [ebp-58h]
+    uint v23 = default; // [esp+28h] [ebp-58h]
     float v24 = default; // [esp+30h] [ebp-50h]
     Matrix v25 = default; // [esp+40h] [ebp-40h] BYREF
   
@@ -128,7 +128,7 @@ fixed(Rotator* ptr1 =&this.PawnOwner.Rotation)
     v12.Velocity.X = v8 * v11;
     v22 = v5 * v11;
     *(float *)&v13 = v9 * v11;
-    v23 = v13;
+    v23 = (uint)v13;
     v12.Velocity.Y = v5 * v11;
     v12.Velocity.Z = v13;
     v14 = this.ShimmyTime - DeltaTime;
@@ -334,7 +334,7 @@ fixed(Rotator* ptr1 =&this.PawnOwner.Rotation)
     a3.X = (float)((float)(v42 + 32.0f) * v4) + v19;
     a3.Y = (float)(v45 * (float)(v42 + 32.0f)) + v18;
     a3.Z = (float)(v46 * (float)(v42 + 32.0f)) + a4.Z;
-    if ( default == this.MovementLineCheck(&v53, &a3, &a4, &a5, 140494) )
+    if ( default == this.MovementLineCheck(ref v53, &a3, &a4, &a5, 140494) )
     {
       v34 = this.PawnOwner;
       v35 = this.HandPlantExtentCheckWidth * 0.5f;
@@ -351,7 +351,7 @@ fixed(Rotator* ptr1 =&this.PawnOwner.Rotation)
       a4.X = v37;
       a4.Y = v38;
       a4.Z = v39;
-      if ( default == this.MovementLineCheck(&v53, &a3, &a4, &a5, 140494) )
+      if ( default == this.MovementLineCheck(ref v53, &a3, &a4, &a5, 140494) )
         return (EGrabType)1;
     }
     v32 = sqrt((a4.X - v53.Location.X) * (a4.X - v53.Location.X) + (a4.Y - v53.Location.Y) * (a4.Y - v53.Location.Y)) - v42;

@@ -71,7 +71,7 @@ public partial class TdMove_AirBarge
       Delta.Y = v10;
       Delta.Z = v9;
       v11 = E_GetDefaultCollExtent(v7, &a2);
-      v12 = GWorld.EncroachingWorldGeometry(&v22, &Delta, v11, true) == false;
+      v12 = GWorld.EncroachingWorldGeometry(ref v22, Delta, *v11, true) == false;
       v13 = this.PawnOwner;
       if(v12 != default)
       {
@@ -97,7 +97,7 @@ public partial class TdMove_AirBarge
         v21 = default;
         Delta.Z = v19;
 fixed(Rotator* ptr1 =&v13.Rotation)
-        GWorld.MoveActor(v13, &Delta, ptr1, 0, &Hit);
+        GWorld.MoveActor(v13, ref Delta, ref *ptr1, 0, ref Hit);
       }
       else
       {

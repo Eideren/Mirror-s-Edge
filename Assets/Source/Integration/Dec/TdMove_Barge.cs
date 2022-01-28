@@ -27,7 +27,7 @@ public partial class TdMove_Barge
     a5a.X = 20.0f;
     a5a.Y = 20.0f;
     a5a.Z = 20.0f;
-    v5 = GWorld.MultiLineCheck(GMem_ptr, &a5, &a2, &a5a, 0x209Fu, v14, default);
+    v5 = GWorld.MultiLineCheck(ref GMem, a5, a2, a5a, 0x209Fu, v14, default);
     if(v5 == default)
       return;
     

@@ -340,10 +340,10 @@ public partial class Pawn : Actor/*
 	}
 	
 	// Export UPawn::execGetBoundingCylinder(FFrame&, void* const)
-	public override /*native function */void GetBoundingCylinder(ref float CollisionRadius, ref float CollisionHeight)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public override /*native function */void GetBoundingCylinder(ref float CollisionRadius, ref float CollisionHeight)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	public virtual /*function */int SpecialCostForPath(ReachSpec Path)
 	{

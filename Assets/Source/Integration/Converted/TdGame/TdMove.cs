@@ -452,7 +452,7 @@ public partial class TdMove : Object/*
 		{
 			ShrinkCollision();
 		}
-		PawnOwner.SetRootOffset(RootOffset, 0.30f, default(SkelControlBase.EBoneControlSpace?));
+		PawnOwner.SetRootOffset(RootOffset, 0.30f, default(SkelControlBase.EBoneControlSpace));
 		SetSwanNeckConstraints(SwanNeckEnableAtPitch, SwanNeckForward, SwanNeckDown);
 		if(BotOwner != default)
 		{
@@ -491,7 +491,7 @@ public partial class TdMove : Object/*
 		if(MovementTraceForBlockingEx(TraceEnd, TraceStart, TraceExtent, ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal))
 		{
 			MeshOffset.X = -VSize2D(TraceEnd - HitLocation);
-			PawnOwner.OffsetMeshXY(MeshOffset, false);
+			PawnOwner.OffsetMeshXY(MeshOffset, 0);
 		}
 	}
 	
@@ -533,7 +533,7 @@ public partial class TdMove : Object/*
 		}
 		bResetCameraLook = false;
 		RootOffset = DefaultAs<TdMove>().RootOffset;
-		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.30f, default(SkelControlBase.EBoneControlSpace?));
+		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.30f, default(SkelControlBase.EBoneControlSpace));
 		PawnOwner.ClearAnimationMovementState(default(float?));
 		ClearTimer();
 		using var v = TimerFunctions.GetEnumerator();while(v.MoveNext() && (FuncName = (name)v.Current) == FuncName)
@@ -562,7 +562,7 @@ public partial class TdMove : Object/*
 			PawnOwner.AttachWeaponToHand(PawnOwner.Weapon);
 		}
 		RootOffset = DefaultAs<TdMove>().RootOffset;
-		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.30f, default(SkelControlBase.EBoneControlSpace?));
+		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.30f, default(SkelControlBase.EBoneControlSpace));
 	}
 	
 	public virtual /*simulated function */void StartReplicatedMove()
@@ -575,7 +575,7 @@ public partial class TdMove : Object/*
 		{
 			ShrinkCollision();
 		}
-		PawnOwner.SetRootOffset(RootOffset, 0.30f, default(SkelControlBase.EBoneControlSpace?));
+		PawnOwner.SetRootOffset(RootOffset, 0.30f, default(SkelControlBase.EBoneControlSpace));
 	}
 	
 	public virtual /*simulated function */void ConstrainAxis(int Angle, int MinAngle, int MaxAngle, float InterpolateSpeed, ref int DeltaAngle)
@@ -934,7 +934,7 @@ public partial class TdMove : Object/*
 		var bRootRotation = _bRootRotation ?? false;
 		PawnOwner.PlayCustomAnim(((TdPawn.CustomNodeType)Type), AnimName, Rate, BlendInTime, BlendOutTime, false, true, bRootMotion, bRootRotation);
 		CurrentCustomAnimName = AnimName;
-		CurrentCustomAnimNode = PawnOwner.GetCustomAnimation(((TdPawn.CustomNodeType)Type));
+		CurrentCustomAnimNode = PawnOwner.GetCustomAnimation(((byte)Type));
 		if((CurrentCustomAnimNode != default) && !CurrentCustomAnimNode.bPlaying)
 		{
 			CurrentCustomAnimNode = default;
@@ -952,7 +952,7 @@ public partial class TdMove : Object/*
 		SetCustomCollisionSize(PawnOwner.DefaultAs<Pawn>().CylinderComponent.CollisionRadius, CrouchCollisionHeight);
 		PawnDeltaLocation.Z = PawnOwner.DefaultAs<Pawn>().CylinderComponent.CollisionHeight - CrouchCollisionHeight;
 		PawnOwner.Move(-PawnDeltaLocation);
-		PawnOwner.SetTargetMeshZ(PawnDeltaLocation.Z, true);
+		PawnOwner.SetTargetMeshZ(PawnDeltaLocation.Z, 1);
 	}
 	
 	public virtual /*simulated function */void EnlargeCollision()
@@ -975,7 +975,7 @@ public partial class TdMove : Object/*
 		{
 			PawnOwner.SetLocation(PawnOwner.Location + PawnDeltaLocation);
 		}
-		PawnOwner.SetTargetMeshZ(0.0f, true);
+		PawnOwner.SetTargetMeshZ(0.0f, 1);
 		if(bIsOnGround)
 		{
 			PawnOwner.Move(-PawnOwner.Floor * PawnOwner.MaxStepHeight);

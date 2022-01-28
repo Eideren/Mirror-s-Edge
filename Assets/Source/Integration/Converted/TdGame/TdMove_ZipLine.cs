@@ -38,7 +38,7 @@ public partial class TdMove_ZipLine : TdPhysicsMove/*
 		base.StartMove();
 		StartPosition = PawnOwner.Location;
 		StartPosition.Z -= HangOffset.Z;
-		ZipLine.FindClosestPointOnDSpline(StartPosition, ref/*probably?*/ StartPosition, ref/*probably?*/ CurrentParamOnCurve, default(int?));
+		ZipLine.FindClosestPointOnDSpline(StartPosition, ref/*probably?*/ StartPosition, ref/*probably?*/ CurrentParamOnCurve, default(int));
 		((PawnOwner.Controller) as TdPlayerController).ClientPlayForceFeedbackWaveform(ZiplineWaveform);
 		if(ZippingSoundComponent == default)
 		{
@@ -116,7 +116,7 @@ public partial class TdMove_ZipLine : TdPhysicsMove/*
 		if(((int)ZipLineStatus) == ((int)TdMove_ZipLine.EZipLineStatus.ZLS_Moving/*0*/))
 		{
 			PawnOwner.StopCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, 0.10f);
-			PawnOwner.PlayCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "ziplineintohitwall", 1.0f, 0.30f, 0.20f, true, true, false, default(bool?));
+			PawnOwner.PlayCustomAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, "ziplineintohitwall", 1.0f, 0.30f, 0.20f, true, true, false, default(bool));
 			ZipLineStatus = TdMove_ZipLine.EZipLineStatus.ZLS_CloseToEnd/*1*/;
 		}
 	}

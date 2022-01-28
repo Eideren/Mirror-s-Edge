@@ -5,6 +5,7 @@
 	using System.Linq;
 	using Core;
 	using Engine;
+	using Source;
 	using UnityEngine;
 	using ERootMotionMode = MEdge.Engine.SkeletalMeshComponent.ERootMotionMode;
 	using ERootMotionRotationMode = MEdge.Engine.SkeletalMeshComponent.ERootMotionRotationMode;
@@ -224,7 +225,8 @@
 	#endif
 					// Transform mesh directly. Doesn't take in-game physics into account.
 					//FCheckResult Hit(1.f);
-					UWorld.Instance.MoveActor(_skel.Owner, InstantTranslation, _skel.Owner.Rotation + InstantRotation, 0, out _);
+					DecFn.CheckResult r = default;
+					UWorld.Instance.MoveActor(_skel.Owner, InstantTranslation, _skel.Owner.Rotation + InstantRotation, 0, ref r);
 
 					// If we have used translation, reset the accumulator.
 					if( bCanDoTranslation )

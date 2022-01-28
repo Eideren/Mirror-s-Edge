@@ -1,7 +1,9 @@
 // NO OVERWRITE
 
 namespace MEdge.Engine{
-using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework;
+using Source;
+using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
 public partial class Actor : Object/*
 		abstract
@@ -689,10 +691,11 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execSetBase(FFrame&, void* const)
-	public virtual /*native(298) final function */void SetBase(Actor NewBase, /*optional */Object.Vector? _NewFloor = default, /*optional */SkeletalMeshComponent _SkelComp = default, /*optional */name? _AttachName = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	///public virtual /*native(298) final function */void SetBase(Actor NewBase, /*optional */Object.Vector? _NewFloor = default, /*optional */SkeletalMeshComponent _SkelComp = default, /*optional */name? _AttachName = default)
+	///{
+	///	#error
+	///	NativeMarkers.MarkUnimplemented();
+	///}
 	
 	// Export UActor::execSetOwner(FFrame&, void* const)
 	//public virtual /*native(272) final function */void SetOwner(Actor NewOwner)
@@ -1070,8 +1073,8 @@ public partial class Actor : Object/*
 	// Export UActor::execIsOverlapping(FFrame&, void* const)
 	public virtual /*native final function */bool IsOverlapping(Actor A)
 	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
+		DecFn.CheckResult r = default;
+		return this.IsOverlapping(A, ref r, null);
 	}
 	
 	// Export UActor::execGetComponentsBoundingBox(FFrame&, void* const)
@@ -1081,10 +1084,10 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execGetBoundingCylinder(FFrame&, void* const)
-	public virtual /*native function */void GetBoundingCylinder(ref float CollisionRadius, ref float CollisionHeight)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
+	//public virtual /*native function */void GetBoundingCylinder(ref float CollisionRadius, ref float CollisionHeight)
+	//{
+	//	NativeMarkers.MarkUnimplemented();
+	//}
 	
 	//// Export UActor::execSpawn(FFrame&, void* const)
 	//public virtual /*native final function */Actor Spawn(Core.ClassT<Actor> SpawnClass, /*optional */Actor? _SpawnOwner = default, /*optional */name? _SpawnTag = default, /*optional */Object.Vector? _SpawnLocation = default, /*optional */Object.Rotator? _SpawnRotation = default, /*optional */Actor? _ActorTemplate = default, /*optional */bool? _bNoCollisionFail = default)

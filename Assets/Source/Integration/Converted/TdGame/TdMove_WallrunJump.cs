@@ -71,7 +71,7 @@ public partial class TdMove_WallrunJump : TdPhysicsMove/*
 		Start = PawnOwner.Location;
 		End = Start;
 		End.Z += JumpHeight;
-		if(MovementTrace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, End, Start, PawnOwner.GetCollisionExtent(), default(bool?)))
+		if(MovementTrace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, End, Start, PawnOwner.GetCollisionExtent(), default(bool)))
 		{
 			JumpHeight = HitLocation.Z - PawnOwner.Location.Z;
 		}

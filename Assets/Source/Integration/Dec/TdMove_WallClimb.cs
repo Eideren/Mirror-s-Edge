@@ -1,8 +1,10 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using static MEdge.TdGame.TdPawn; using static MEdge.TdGame.TdPawn.EMovement; using static MEdge.TdGame.TdMove_ZipLine.EZipLineStatus; using static MEdge.TdGame.TdMove.EPreciseLocationMode; using static MEdge.Engine.Actor.EPhysics; using static MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Engine.Actor.ENetRole; using LedgeHitInfo = MEdge.TdGame.TdPawn.LedgeHitInfo; using ECustomNodeType = MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.TdGame.TdPawn.WalkingState; using static MEdge.TdGame.TdPawn.EWeaponType;using static MEdge.TdGame.TdPawn.EMoveActionHint; using EMoveAimMode = MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Source.DecFn; using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 public partial class TdMove_WallClimb
 {
-  public override unsafe bool CanDoMove()
+  public override unsafe bool TestCanTransitionInto_Maybe()
   {
     TdPawn v2 = default; // eax
     float v4 = default; // xmm1_4
@@ -44,7 +46,7 @@ public partial class TdMove_WallClimb
     float v40 = default; // xmm0_4
     TdPawn v41 = default; // ecx
     float v42 = default; // xmm2_4
-    float *v43; // ecx
+    //float *v43; // ecx
     float v44 = default; // xmm1_4
     float v45 = default; // xmm0_4
     float v46 = default; // xmm2_4
@@ -80,7 +82,8 @@ public partial class TdMove_WallClimb
       goto LABEL_31;
     if ( this.MinWallHeight > (float)((float)(v2.MoveLedgeLocation.Z - v2.Location.Z) + v2.CylinderComponent.CollisionHeight) )
       return false;
-    v64.Ctor(COERCE_INT(1.0f), 0);
+    v64 = new CheckResult();
+    v64.Time = 1.0f;
     v6 = this.PawnOwner.Rotation.Vector(&a2);
     v7 = v6->Y;
     v8 = v6->X;
@@ -172,13 +175,13 @@ public partial class TdMove_WallClimb
     a2.X = 0.0f;
     a2.Y = 0.0f;
     a2.Z = 0.0f;
-    if ( default == this.MovementLineCheck(&v64, &a3, &a4, &a2, 140494) || v64.Actor && (v64.Actor.bExludeHandMoves.AsBitfield(32) & 2) != 0 || v64.Component && (v64.Component.bUseViewOwnerDepthPriorityGroup.AsBitfield(21) & 0x200) != 0 )
+    if ( default == this.MovementLineCheck(ref v64, &a3, &a4, &a2, 140494) || v64.Actor && (v64.Actor.bExludeHandMoves.AsBitfield(32) & 2) != default || v64.Component && (v64.Component.bUseViewOwnerDepthPriorityGroup.AsBitfield(21) & 0x200) != default )
       return false;
   LABEL_31:
     v22 = this.PawnOwner;
     if ( (float)(this.WallClimbingVelocityStartLimit * this.WallClimbingVelocityStartLimit) > (float)((float)(v22.Velocity.X * v22.Velocity.X) + (float)(v22.Velocity.Y * v22.Velocity.Y)) || v22.Velocity.Z <= 0.0f )
       return false;
-    v23 = v22.Controller.Pawn::Rotation.Vector(&a2);
+    v23 = v22.Controller.Rotation.Vector(&a2);
     v24 = v23->Y;
     v25 = v23->X;
     v26 = (float)(v25 * v25) + (float)(v24 * v24);
@@ -216,17 +219,17 @@ public partial class TdMove_WallClimb
     v31 = this.PawnOwner;
     v32 = v31.Velocity.Y;
     v33 = v31.Velocity.X;
-fixed(var ptr1 =&v31.Velocity)
-    v34 =  ptr1;
+/*fixed(var ptr1 =&v31.Velocity)
+    v34 =  ptr1;*/
     v35 = (float)(v33 * v33) + (float)(v32 * v32);
     v62 = v35;
     if ( v35 == 1.0f )
     {
-      if ( v34->Z == 0.0f )
+      if ( v31.Velocity.Z == 0.0f )
       {
-        v36 = v34->X;
-        v37 = v34->Y;
-        v38 = v34->Z;
+        v36 = v31.Velocity.X;
+        v37 = v31.Velocity.Y;
+        v38 = v31.Velocity.Z;
         a3.X = v36;
         v33 = v36;
         a3.Y = v37;
@@ -241,8 +244,8 @@ fixed(var ptr1 =&v31.Velocity)
       v63 = 3.0f;
       v40 = fsqrt(v62);
       a3.X = (float)(3.0f - (float)((float)((float)(1.0f / v40) * v62) * (float)(1.0f / v40))) * (float)((float)(1.0f / v40) * 0.5f);
-      v33 = a3.X * v34->X;
-      v32 = v34->Y * a3.X;
+      v33 = a3.X * v31.Velocity.X;
+      v32 = v31.Velocity.Y * a3.X;
     }
     else
     {
@@ -256,32 +259,33 @@ fixed(var ptr1 =&v31.Velocity)
     v41 = this.PawnOwner;
     v42 = v41.MoveNormal.X;
     a3.X = -0.0f - v25;
-fixed(var ptr2 =&v41.MoveNormal.X)
-    v43 =  ptr2;
+/*fixed(var ptr2 =&v41.MoveNormal)
+    v43 =  ptr2;*/
     a3.Z = -0.0f - v29;
     a3.Y = -0.0f - v24;
-    v44 = v43[1];
+    v44 = v41.MoveNormal.Y;
     v45 = (float)(v42 * v42) + (float)(v44 * v44);
     v62 = v45;
     if ( v45 == 1.0f )
     {
-      if ( v43[2] == 0.0f )
+      if ( v41.MoveNormal.Z == 0.0f )
       {
-        v54 = *v43;
-        v56 = v43[1];
-        v58 = v43[2];
+        v54 = v41.MoveNormal.X;
+        v56 = v41.MoveNormal.Y;
+        v58 = v41.MoveNormal.Z;
         return cos(this.WallClimbingVerticalStartAngle * 0.017453292f) <= fabs(v58 * a3.Z + v56 * a3.Y + v54 * a3.X);
       }
       v54 = v42;
-      goto LABEL_55;
+      v56 = v44;
+      goto LABEL_56;
     }
     if ( v45 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
       v63 = 3.0f;
       v46 = 1.0f / fsqrt(v62);
       a2.X = (float)(3.0f - (float)((float)(v46 * v62) * v46)) * (float)(v46 * 0.5f);
-      v54 = *v43 * a2.X;
-      v44 = v43[1] * a2.X;
+      v54 = v41.MoveNormal.X * a2.X;
+      v44 = v41.MoveNormal.Y * a2.X;
   LABEL_55:
       v56 = v44;
       goto LABEL_56;
@@ -303,7 +307,7 @@ fixed(var ptr2 =&v41.MoveNormal.X)
     float v7 = default; // xmm2_4
     float v8 = default; // xmm1_4
     float v9 = default; // xmm0_4
-    Vector *v10; // edx
+    //Vector *v10; // edx
     float v11 = default; // xmm0_4
     float v12 = default; // xmm2_4
     float v13 = default; // [esp+0h] [ebp-34h]
@@ -311,7 +315,7 @@ fixed(var ptr2 =&v41.MoveNormal.X)
     float v15 = default; // [esp+14h] [ebp-20h]
   
     v4 = this.bHasReachedWall.AsBitfield(3);
-    if ( (v4 & 4) == 0 && (v4 & 2) != 0 )
+    if ( (v4 & 4) == default && (v4 & 2) != default )
     {
       v5 = this.PawnOwner;
       if ( this.MinUpwardsVelocityToDoubleJump > v5.Velocity.Z && (float)(this.PossibleEdgeDestination.Z - this.GroundZLoc) < 480.0f )
@@ -320,25 +324,25 @@ fixed(var ptr2 =&v41.MoveNormal.X)
           v13 = (float)(0.0099999998d);
         else
           v13 = (float)((float)((float)(this.PossibleEdgeDestination.Z - (float)(v5.CylinderComponent.CollisionHeight + v5.Location.Z)) + 4.0f) * this.WallClimbingGravity) * 4.0f;
-        v5.Velocity.Z = sqrt(v13);
+        v5.Velocity.Z = (float)sqrt(v13);
         v6 = this.PawnOwner;
         v7 = v6.Velocity.Y;
         v8 = v6.Velocity.Z;
         v9 = v6.Velocity.X;
-fixed(var ptr1 =&v6.Velocity)
-        v10 =  ptr1;
+/*fixed(var ptr1 =&)
+        v10 =  ptr1;*/
         v11 = (float)((float)(v9 * v9) + (float)(v7 * v7)) + (float)(v8 * v8);
         if ( v11 == 1.0f )
         {
-          v14 = *v10;
+          v14 = v6.Velocity;
         }
         else if ( v11 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
         {
           v12 = 1.0f / fsqrt(v11);
           v15 = (float)(3.0f - (float)((float)(v12 * v11) * v12)) * (float)(v12 * 0.5f);
-          v14.X = v10->X * v15;
-          v14.Y = v10->Y * v15;
-          v14.Z = v10->Z * v15;
+          v14.X = v6.Velocity.X * v15;
+          v14.Y = v6.Velocity.Y * v15;
+          v14.Z = v6.Velocity.Z * v15;
         }
         else
         {
@@ -349,7 +353,7 @@ fixed(var ptr1 =&v6.Velocity)
         this.PawnOwner.Acceleration = v14;
         SetFromBitfield(ref this.bHasReachedWall, 3, this.bHasReachedWall.AsBitfield(3) | (4u));
         v2 = this.VfTableObject.Dummy;
-        CallUFunction(this.PerformDoubleJump, this, v3);
+        this.PerformDoubleJump(); //CallUFunction(, this, v3);
       }
     }
   }
@@ -364,7 +368,7 @@ fixed(var ptr1 =&v6.Velocity)
     float v7 = default; // xmm0_4
     float v8 = default; // ecx
     float v9 = default; // xmm2_4
-    uint v10 = default; // edx
+    int v10 = default; // edx
     float v11 = default; // xmm0_4
     float v12 = default; // xmm1_4
     float v13 = default; // edx
@@ -390,7 +394,8 @@ fixed(var ptr1 =&v6.Velocity)
     a2.Z = v8;
     a11 = (float)v3;
     v17.Pitch = v10;
-    *(_QWORD *)&v17.Yaw = *(_QWORD *)&v2.Rotation.Yaw;// Copy as a 64bit value to assign both yaw and roll
+    v17.Yaw = v2.Rotation.Yaw;
+    v17.Roll = v2.Rotation.Roll;
     v11 = (float)((float)(v7 * v9) + v8) + 215.0f;
     v12 = (float)(v6 * v9) + a2.Y;
     a2.X = a2.X + (float)(v5 * v9);
@@ -432,10 +437,10 @@ fixed(var ptr1 =&v6.Velocity)
     this.FrictionModifier = 0.0f;
     base.PrePerformPhysics(DeltaTime);
     v3 = this.PawnOwner;
-    if ( v3.Physics == 2 )
+    if ( v3.Physics == (Actor.EPhysics)2 )
     {
       v4 = v3.VfTableObject.Dummy;
-      LOBYTE(v16) = 2;
+      v16.LOBYTE(2);
       v19 = default;
       v17 = 0.0f;
       v18 = 0.0f;
@@ -443,13 +448,13 @@ fixed(var ptr1 =&v6.Velocity)
     }
     else
     {
-      if ( (this.bHasReachedWall.AsBitfield(3) & 2) == 0 )
+      if ( (this.bHasReachedWall.AsBitfield(3) & 2) == default )
       {
         if ( this.DetectPossibleHandPlant() )// TdMove_WallClimb::DetectPossibleHandPlant
           this.FoundPossibleHandPlant();
       }
       this.CheckDoubleJump();// CheckDoubleJump
-      if ( (this.bHasReachedWall.AsBitfield(3) & 1) != 0 )
+      if ( (this.bHasReachedWall.AsBitfield(3) & 1) != default )
       {
         v6 = this.PawnOwner;
         v7 = v6.Velocity.X;
@@ -473,12 +478,12 @@ fixed(var ptr1 =&v6.Velocity)
       }
       v13 = this.PawnOwner;
       v16 = 0.0f;
-      v13 = (TdPawn )((byte *)v13 + 0x10C);// v13 points to Acceleration now
-      v13.VfTableObject.Dummy = default;
+      //v13 = (TdPawn )((byte *)v13 + 0x10C);// v13 points to Acceleration now
+      v13.Acceleration.X = default;
       v17 = 0.0f;
       v18 = 0.0f;
-      v13.ObjectInternalInteger = default;
-      v13.ObjectFlags_A = default;
+      v13.Acceleration.Y = default;
+      v13.Acceleration.Z = default;
       this.PawnOwner.Acceleration.Z = -0.0f - this.WallClimbingGravity;
     }
   }

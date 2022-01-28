@@ -1510,7 +1510,7 @@ public partial class TdPawn : GamePawn/*
 			return;
 		}
 		SetWeaponAnimState(TdPawn.EWeaponAnimState.WS_Throwing/*4*/);
-		PlayCustomAnim(TdPawn.CustomNodeType.CNT_CannedUpperBody/*1*/, "throwaway", 1.0f, 0.10f, 0.0f, false, true, false, default(bool?));
+		PlayCustomAnim(TdPawn.CustomNodeType.CNT_CannedUpperBody/*1*/, "throwaway", 1.0f, 0.10f, 0.0f, false, true, false, default(bool));
 		if(((int)TdW.WeaponType) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/))
 		{
 			if(TdW.WeaponAnimationNode1p != default)
@@ -2602,10 +2602,10 @@ public partial class TdPawn : GamePawn/*
 	public delegate void RegenerateHealth_del(float DeltaTime);
 	public virtual RegenerateHealth_del RegenerateHealth { get => bfield_RegenerateHealth ?? TdPawn_RegenerateHealth; set => bfield_RegenerateHealth = value; } RegenerateHealth_del bfield_RegenerateHealth;
 	public virtual RegenerateHealth_del global_RegenerateHealth => TdPawn_RegenerateHealth;
-	//public /*native function */void TdPawn_RegenerateHealth(float DeltaTime)
-	//{
-	//	NativeMarkers.MarkUnimplemented("Non essential");
-	//}
+	public /*native function */void TdPawn_RegenerateHealth(float DeltaTime)
+	{
+		_RegenerateHealth(DeltaTime);
+	}
 	
 	//// Export UTdPawn::execUpdateVelocityVariables(FFrame&, void* const)
 	//public virtual /*native simulated function */void UpdateVelocityVariables()
@@ -3611,10 +3611,10 @@ public partial class TdPawn : GamePawn/*
 	public delegate void StopCustomAnim_del(TdPawn.CustomNodeType Type, float BlendOutTime);
 	public virtual StopCustomAnim_del StopCustomAnim { get => bfield_StopCustomAnim ?? TdPawn_StopCustomAnim; set => bfield_StopCustomAnim = value; } StopCustomAnim_del bfield_StopCustomAnim;
 	public virtual StopCustomAnim_del global_StopCustomAnim => TdPawn_StopCustomAnim;
-	//public /*native simulated function */void TdPawn_StopCustomAnim(TdPawn.CustomNodeType Type, float BlendOutTime)
-	//{
-	//	NativeMarkers.MarkUnimplemented();
-	//}
+	public /*native simulated function */void TdPawn_StopCustomAnim(TdPawn.CustomNodeType Type, float BlendOutTime)
+	{
+		_StopCustomAnim(Type, BlendOutTime);
+	}
 	
 	public virtual /*simulated function */void PlayReplicatedCustomAnim()
 	{

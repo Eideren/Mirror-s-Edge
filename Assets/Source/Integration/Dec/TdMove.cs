@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using static MEdge.TdGame.TdPawn; using static MEdge.TdGame.TdPawn.EMovement; using static MEdge.TdGame.TdMove_ZipLine.EZipLineStatus; using static MEdge.TdGame.TdMove.EPreciseLocationMode; using static MEdge.Engine.Actor.EPhysics; using static MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Engine.Actor.ENetRole; using LedgeHitInfo = MEdge.TdGame.TdPawn.LedgeHitInfo; using ECustomNodeType = MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.TdGame.TdPawn.WalkingState; using static MEdge.TdGame.TdPawn.EWeaponType;using static MEdge.TdGame.TdPawn.EMoveActionHint; using EMoveAimMode = MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Source.DecFn; using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 public partial class TdMove
@@ -23,7 +25,7 @@ public partial class TdMove
     CallUFunction(this.FailedToReachPreciseLocation, this, v3, 0, 0);
   }
 
-  public override unsafe void UpdateMoveTimer(float DeltaTime)
+  public virtual unsafe void UpdateMoveTimer(float DeltaTime)
   {
     float v3 = default; // xmm0_4
     float v4 = default; // xmm0_4
@@ -45,16 +47,17 @@ public partial class TdMove
     this.MoveActiveTime = this.MoveActiveTime + DeltaTime;
   }
 
-  public override unsafe EMoveAimMode GetAimMode(int a2)
+  public unsafe EMoveAimMode GetAimMode( bool aimingOnly ) => GetAimMode(aimingOnly ? 1 : 0);
+  public virtual unsafe EMoveAimMode GetAimMode(int a2)
   {
     return this.AimMode;
   }
 
-  public unsafe void GetLastMovementTraceInfoStatic(Actor HitActor, int *ExcludeHandMoves, int *ExcludeFootMoves)
+  public unsafe void GetLastMovementTraceInfoStatic(ref Actor HitActor, uint *ExcludeHandMoves, uint *ExcludeFootMoves)
   {
-    int v3 = default; // eax
+    uint v3 = default; // eax
   
-    HitActor.VfTableObject.Dummy = (int)static_FCheckResult.Actor;
+    HitActor = static_FCheckResult.Actor;
     if ( static_FCheckResult.Actor )
       v3 = static_FCheckResult.Actor.bExludeHandMoves.AsBitfield(32) & 1;
     else
@@ -71,7 +74,7 @@ public partial class TdMove
     TdPawn v2 = default; // edx
     float v3 = default; // xmm2_4
     float v4 = default; // xmm1_4
-    Vector *v5; // edx
+    //Vector *v5; // edx
     float v6 = default; // xmm0_4
     float v7 = default; // xmm2_4
     double v8 = default; // st6
@@ -99,25 +102,23 @@ public partial class TdMove
     v2 = this.PawnOwner;
     v3 = v2.MoveNormal.Y;
     v4 = v2.MoveNormal.X;
-fixed(var ptr1 =&v2.MoveNormal)
-    v5 =  ptr1;
     v6 = (float)(v4 * v4) + (float)(v3 * v3);
     if ( v6 == 1.0f )
     {
-      if ( v5->Z == 0.0f )
+      if ( v2.MoveNormal.Z == 0.0f )
       {
-        v25 = *v5;
+        v25 = v2.MoveNormal;
         goto LABEL_9;
       }
       v25.X = v4;
-      v25.Y = v5->Y;
+      v25.Y = v2.MoveNormal.Y;
     }
     else if ( v6 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
       v7 = 1.0f / fsqrt(v6);
       a2a.X = (float)(3.0f - (float)((float)(v7 * v6) * v7)) * (float)(v7 * 0.5f);
-      v25.Y = a2a.X * v5->Y;
-      v25.X = v5->X * a2a.X;
+      v25.Y = a2a.X * v2.MoveNormal.Y;
+      v25.X = v2.MoveNormal.X * a2a.X;
     }
     else
     {
@@ -178,7 +179,7 @@ fixed(var ptr1 =&v2.MoveNormal)
     return (float)(sqrt(1.0f - v22) * v24 * BaseExtent * 0.82842702d);
   }
 
-  public unsafe bool MovementLineCheck(CheckResult *a2, Vector *a3, Vector *a4, Vector *a5, int TraceFlags)
+  public unsafe bool MovementLineCheck(ref CheckResult a2, Vector *a3, Vector *a4, Vector *a5, uint TraceFlags)
   {
     TdPawn v7 = default; // ecx
     uint v8 = default; // ebx
@@ -198,41 +199,41 @@ fixed(var ptr1 =&v2.MoveNormal)
     v15 = GMem;
     v10 = v8 >> 31;
     v16 = FMemMark_Maybe;
-    v11 = GWorld.MultiLineCheck(&GMem, a3, a4, a5, TraceFlags | 0x400, this.PawnOwner, 0);
+    v11 = GWorld.MultiLineCheck(ref GMem, *a3, *a4, *a5, TraceFlags | 0x400u, this.PawnOwner, null);
     TraceFlagsa = v11;
     if(v11 != default)
     {
-      qmemcpy(a2, v11, 0x4Cu);
-      v12 = a2->Material;
+      qmemcpy(ref a2, *v11, 0x4Cu);
+      v12 = a2.Material;
       if(v12 != default)
       {
-        v13 = (MaterialInterface )v12.GetMaterial( dword_1FFA334);// UMaterial::GetMaterial
+        v13 = (MaterialInterface )v12.GetMaterial( /*dword_1FFA334*/0);// UMaterial::GetMaterial
         v11 = TraceFlagsa;
         v9 = v16;
-        a2->Material = v13;
+        a2.Material = v13;
       }
       else
       {
         v9 = v16;
-        a2->Material = default;
+        a2.Material = default;
       }
     }
     else
     {
-      a2->Time = 1.0f;
-      a2->Actor = default;
+      a2.Time = 1.0f;
+      a2.Actor = default;
     }
     if ( v9 != FMemMark_Maybe )
     {
-      FMemMark_Pop_Maybe(&GMem, v9);
+      FMemMark_Pop_Maybe(ref GMem, v9);
       v11 = TraceFlagsa;
     }
     GMem = v15;
     SetFromBitfield(ref this.PawnOwner.bForceDemoRelevant, 32, this.PawnOwner.bForceDemoRelevant.AsBitfield(32) & ~2147483648 | (v10 << 31));
-    return v11 != 0;
+    return v11 != default;
   }
 
-  public unsafe bool FindLedge(LedgeHitInfo *out_LedgeHit, Vector Start, Vector End, Vector Extent)
+  public unsafe bool FindLedge(ref LedgeHitInfo out_LedgeHit, Vector Start, Vector End, Vector Extent)
   {
     float v5 = default; // xmm5_4
     float v6 = default; // xmm6_4
@@ -287,8 +288,7 @@ fixed(var ptr1 =&v2.MoveNormal)
     a2a.Location.X = 0.0f;
     a2a.Location.Y = 0.0f;
     a2a.Location.Z = 0.0f;
-    a2a.Normal.X = 0.0f;
-    *(_QWORD *)&a2a.Normal.Y = 0L;              // set Y&Z to zero
+    a2a.Normal = default;
     a2a.Time = 0.0f;
     a2a.Item = -1;
     a2a.LevelIndex = -1;
@@ -340,18 +340,21 @@ fixed(var ptr1 =&v2.MoveNormal)
       v10 = v10 * v15;
   LABEL_14:
       v35.Y = v10;
-      goto LABEL_15;
+      v35.Z = 0.0f;
+      goto LABEL_16;
     }
     if ( v34.Z != 0.0f )
     {
       v35.X = v11;
-      goto LABEL_14;
+      v35.Y = v10;
+      v35.Z = 0.0f;
+      goto LABEL_16;
     }
     v35.X = v34.X;
     v35.Y = v34.Y;
     v35.Z = 0.0f;
   LABEL_16:
-    if ( default == MovementLineCheck(&a2a, &End, &Start, &Extent, 9422) || a2a.Time <= 0.0f )
+    if ( default == MovementLineCheck(ref a2a, &End, &Start, &Extent, 9422) || a2a.Time <= 0.0f )
       return false;
     v16 = a2a.Normal.Z;
     v17 = a2a.Normal.Y;
@@ -365,8 +368,8 @@ fixed(var ptr1 =&v2.MoveNormal)
       {
         v34.X = a2a.Normal.X;
         v21 = a2a.Normal.X;
+        #warning suspicious cast but maybe just sets y to y and Z to zero ?
         *(_QWORD *)&v34.Y = LODWORD(a2a.Normal.Y);
-  #error  ???
         v17 = a2a.Normal.Y;
         goto LABEL_26;
       }
@@ -424,18 +427,18 @@ fixed(var ptr1 =&v2.MoveNormal)
     v35.X = 0.0f;
     v35.Y = 0.0f;
     v35.Z = 0.0f;
-    if ( MovementLineCheck(&a2a, &End, &Start, &v35, 9422) && a2a.Time > 0.0f )
+    if ( MovementLineCheck(ref a2a, &End, &Start, &v35, 9422) && a2a.Time > 0.0f )
     {
       v30.X = v19;
       *(_QWORD *)&v30.Y = __PAIR64__(LODWORD(v16), LODWORD(v18));
       v34.Z = a2a.Location.Z;
-      E_FLedgeHitInfo_FillWith(out_LedgeHit, &a2a, &v34, a2a.Normal, v30);
+      E_FLedgeHitInfo_FillWith(ref out_LedgeHit, &a2a, &v34, a2a.Normal, v30);
       return true;
     }
     return false;
   }
 
-  public unsafe int FindLedgeEx(LedgeHitInfo *out_LedgeHit, Vector Start, Vector End, Vector Extent)
+  public unsafe int FindLedgeEx(ref LedgeHitInfo out_LedgeHit, Vector Start, Vector End, Vector Extent)
   {
     float v5 = default; // xmm5_4
     float v6 = default; // xmm6_4
@@ -494,8 +497,7 @@ fixed(var ptr1 =&v2.MoveNormal)
     a2.Location.X = 0.0f;
     a2.Location.Y = 0.0f;
     a2.Location.Z = 0.0f;
-    a2.Normal.X = 0.0f;
-    *(_QWORD *)&a2.Normal.Y = 0L;               // set Y&Z to zero
+    a2.Normal = default;
     a2.Time = 0.0f;
     a2.Item = -1;
     a2.LevelIndex = -1;
@@ -540,7 +542,8 @@ fixed(var ptr1 =&v2.MoveNormal)
         goto LABEL_16;
       }
       v36.X = v11;
-      goto LABEL_14;
+      v36.Y = v10;
+      goto LABEL_15;
     }
     if ( v13 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
@@ -567,7 +570,7 @@ fixed(var ptr1 =&v2.MoveNormal)
     a4.Z = Start.Z - (float)(Extent.Z - 1.0f);
     a3.Z = (float)(Extent.Z - 1.0f) + Start.Z;
     a5.Z = 1.0f;
-    if ( MovementLineCheck(&a2, &a3, &a4, &a5, 9414) && a2.Time > 0.0f || default == MovementLineCheck(&a2, &End, &Start, &Extent, 9422) || a2.Time <= 0.0f )
+    if ( MovementLineCheck(ref a2, &a3, &a4, &a5, 9414) && a2.Time > 0.0f || default == MovementLineCheck(ref a2, &End, &Start, &Extent, 9422) || a2.Time <= 0.0f )
       return 0;
     v15 = a2.Normal.Z;
     v16 = a2.Normal.Y;
@@ -590,7 +593,10 @@ fixed(var ptr1 =&v2.MoveNormal)
         v20 = 0.0f;
         v16 = 0.0f;
       }
-      goto LABEL_27;
+      v35.X = v20;
+      v35.Y = v16;
+      v35.Z = 0.0f;
+      goto LABEL_28;
     }
     if ( a2.Normal.Z != 0.0f )
     {
@@ -641,7 +647,7 @@ fixed(var ptr1 =&v2.MoveNormal)
     v35.X = 0.0f;
     v35.Y = 0.0f;
     v35.Z = 0.0f;
-    if ( default == MovementLineCheck(&a2, &End, &Start, &v35, 9422) )
+    if ( default == MovementLineCheck(ref a2, &End, &Start, &v35, 9422) )
     {
       v31.X = v18;
       v31.Y = v17;
@@ -650,7 +656,7 @@ fixed(var ptr1 =&v2.MoveNormal)
   LABEL_43:
       v29.X = v18;
       *(_QWORD *)&v29.Y = __PAIR64__(LODWORD(v15), LODWORD(v17));
-      E_FLedgeHitInfo_FillWith(out_LedgeHit, &a2, &v36, v29, v31);
+      E_FLedgeHitInfo_FillWith(ref out_LedgeHit, &a2, &v36, v29, v31);
       return 1;
     }
     if ( a2.Time > 0.0f )
@@ -658,34 +664,42 @@ fixed(var ptr1 =&v2.MoveNormal)
       v30.X = v18;
       *(_QWORD *)&v30.Y = __PAIR64__(LODWORD(v15), LODWORD(v17));
       v36.Z = a2.Location.Z;
-      E_FLedgeHitInfo_FillWith(out_LedgeHit, &a2, &v36, a2.Normal, v30);
+      E_FLedgeHitInfo_FillWith(ref out_LedgeHit, &a2, &v36, a2.Normal, v30);
       return 2;
     }
     Start.Z = Start.Z - (float)((float)(Start.Z - End.Z) * 0.5f);
     v35.X = 0.0f;
     v35.Y = 0.0f;
     v35.Z = 0.0f;
-    if ( MovementLineCheck(&a2, &End, &Start, &v35, 9422) )
+    if ( MovementLineCheck(ref a2, &End, &Start, &v35, 9422) )
     {
       v31.X = v18;
       *(_QWORD *)&v31.Y = __PAIR64__(LODWORD(v15), LODWORD(v17));
       v36.Z = a2.Location.Z;
       if ( a2.Time > 0.0f )
       {
-        E_FLedgeHitInfo_FillWith(out_LedgeHit, &a2, &v36, a2.Normal, v31);
+        E_FLedgeHitInfo_FillWith(ref out_LedgeHit, &a2, &v36, a2.Normal, v31);
         return 2;
       }
-      goto LABEL_43;
+      v29.X = v18;
+      *(_QWORD *)&v29.Y = __PAIR64__(LODWORD(v15), LODWORD(v17));
+      E_FLedgeHitInfo_FillWith(ref out_LedgeHit, &a2, &v36, v29, v31);
+      return 1;
     }
     return 0;
   }
 
-  public unsafe bool MovementTrace(Vector *HitLocation, Vector *HitNormal, Vector End, Vector Start, Vector Extent, int FindClosest)
+
+
+  CheckResult static_FCheckResult;
+
+  public unsafe bool MovementTrace( ref Vector HitLocation, ref Vector HitNormal, Vector End, Vector Start, Vector Extent, bool FindClosest ) => MovementTrace(ref HitLocation, ref HitNormal, End, Start, Extent, FindClosest ? 1 : 0);
+  public unsafe bool MovementTrace(ref Vector HitLocation, ref Vector HitNormal, Vector End, Vector Start, Vector Extent, int FindClosest)
   {
-    if ( default == MovementLineCheck(&static_FCheckResult, &End, &Start, &Extent, FindClosest != 0 ? 9422 : 8910) )
+    if ( default == MovementLineCheck(ref static_FCheckResult, &End, &Start, &Extent, FindClosest != default ? 9422u : 8910u) )
       return false;
-    *HitLocation = static_FCheckResult.Location;
-    *HitNormal = static_FCheckResult.Normal;
+    HitLocation = static_FCheckResult.Location;
+    HitNormal = static_FCheckResult.Normal;
     return true;
   }
 
@@ -696,20 +710,20 @@ fixed(var ptr1 =&v2.MoveNormal)
     a5 = Extent;
     Extent = Start;
     Start = End;
-    return MovementLineCheck(&static_FCheckResult, &Start, &Extent, &a5, 8910) != default;
+    return MovementLineCheck(ref static_FCheckResult, &Start, &Extent, &a5, 8910) != default;
   }
 
-  public unsafe bool MovementTraceForBlockingEx(Vector End, Vector Start, Vector Extent, Vector *HitLocation, Vector *HitNormal)
+  public unsafe bool MovementTraceForBlockingEx(Vector End, Vector Start, Vector Extent, ref Vector HitLocation, ref Vector HitNormal)
   {
     Vector a5 = default; // [esp+0h] [ebp-Ch] BYREF
   
     a5 = Extent;
     Extent = Start;
     Start = End;
-    if ( default == MovementLineCheck(&static_FCheckResult, &Start, &Extent, &a5, 8910) )
+    if ( default == MovementLineCheck(ref static_FCheckResult, &Start, &Extent, &a5, 8910) )
       return false;
-    *HitLocation = static_FCheckResult.Location;
-    *HitNormal = static_FCheckResult.Normal;
+    HitLocation = static_FCheckResult.Location;
+    HitNormal = static_FCheckResult.Normal;
     return true;
   }
 
@@ -720,7 +734,7 @@ fixed(var ptr1 =&v2.MoveNormal)
     a5.X = 2.0f;
     a5.Y = 2.0f;
     a5.Z = 2.0f;
-    return MovementLineCheck(&static_FCheckResult, &End, &Start, &a5, 128) != default;
+    return MovementLineCheck(ref static_FCheckResult, &End, &Start, &a5, 128) != default;
   }
 
   public unsafe bool TestCanUnCrouch()
@@ -739,12 +753,13 @@ fixed(var ptr1 =&v2.MoveNormal)
     v3 = v2.Location.Y;
     v4 = v2.Location.Z;
     v5 = v2.Location.X;
-    if ( default == TdPawn_Class )
+    /*if ( default == TdPawn_Class )
     {
       TdPawn_Class = (Object )sub_12C2C40((int)L"TdGame");
       sub_12B2BE0();
-    }
-    v6 = (Actor )(Class .GetDefaultObject()TdPawn_Class, 0);
+    }*/
+    
+    v6 = Object.ClassT<TdPawn>().DefaultAs<Actor>();
     v7 = E_TryCastTo<TdPawn>(v6).CylinderComponent;
     v11.X = v7.CollisionRadius;
     v11.Y = v11.X;
@@ -761,17 +776,17 @@ fixed(var ptr1 =&v2.MoveNormal)
     return (float)(this.SpeedModifier);
   }
 
-  public override unsafe void CheckAutoMoves(float DeltaTime)
+  public virtual unsafe void CheckAutoMoves()
   {
     ;
   }
 
-  public override unsafe int Unknown()
+  public virtual unsafe bool TestCanTransitionInto_Maybe()
   {
-    return 0;
+    return false;
   }
 
-  public override unsafe void PrePerformPhysics(float DeltaTime)
+  public virtual unsafe void PrePerformPhysics(float DeltaTime)
   {
     uint v3 = default; // eax
     TdPawn v4 = default; // edi
@@ -794,22 +809,22 @@ fixed(var ptr1 =&v2.MoveNormal)
     float v21 = default; // xmm5_4
     float v22 = default; // xmm2_4
     float v23 = default; // xmm2_4
-    Vector *v24; // eax
-    Vector *v25; // eax
-    float v26 = default; // xmm5_4
+    //Vector *v24; // eax
+    //Vector *v25; // eax
+    int v26 = default; // xmm5_4
     float v27 = default; // xmm4_4
-    float v28 = default; // xmm1_4
+    int v28 = default; // xmm1_4
     float v29 = default; // xmm0_4
     float v30 = default; // xmm1_4
     float v31 = default; // xmm2_4
     float v32 = default; // xmm2_4
     float v33 = default; // xmm3_4
-    Vector *v34; // eax
-    Vector *v35; // eax
+    //Vector *v34; // eax
+    //Vector *v35; // eax
     double v36 = default; // st7
-    float v37 = default; // xmm5_4
+    int v37 = default; // xmm5_4
     float v38 = default; // xmm4_4
-    float v39 = default; // xmm1_4
+    int v39 = default; // xmm1_4
     float v40 = default; // xmm0_4
     float v41 = default; // xmm0_4
     float v42 = default; // xmm2_4
@@ -820,11 +835,11 @@ fixed(var ptr1 =&v2.MoveNormal)
     TdPawn v47 = default; // edi
     float v48 = default; // xmm3_4
     float v49 = default; // xmm0_4
-    Vector *v50; // eax
+    //Vector *v50; // eax
     double v51 = default; // st7
-    float v52 = default; // xmm5_4
+    int v52 = default; // xmm5_4
     float v53 = default; // xmm4_4
-    float v54 = default; // xmm1_4
+    int v54 = default; // xmm1_4
     float v55 = default; // xmm0_4
     float v56 = default; // xmm0_4
     float v57 = default; // xmm2_4
@@ -839,9 +854,9 @@ fixed(var ptr1 =&v2.MoveNormal)
     double v66 = default; // st7
     float v67 = default; // xmm0_4
     double v68 = default; // st7
-    float v69 = default; // xmm5_4
+    int v69 = default; // xmm5_4
     float v70 = default; // xmm4_4
-    float v71 = default; // xmm1_4
+    int v71 = default; // xmm1_4
     float v72 = default; // xmm0_4
     float v73 = default; // xmm1_4
     float v74 = default; // xmm2_4
@@ -854,12 +869,12 @@ fixed(var ptr1 =&v2.MoveNormal)
     uint v81 = default; // ebx
     TdPawn v82 = default; // edx
     float v83 = default; // xmm2_4
-    uint v84 = default; // ecx
+    int v84 = default; // ecx
     int v85 = default; // eax
     int v86 = default; // edi
     uint v87 = default; // eax
     Controller v88 = default; // ebx
-    uint v89 = default; // ecx
+    int v89 = default; // ecx
     Controller v90 = default; // edx
     TdPawn v91 = default; // edx
     uint v92 = default; // eax
@@ -895,7 +910,7 @@ fixed(var ptr1 =&v2.MoveNormal)
     int v122 = default; // [esp+B0h] [ebp-4h]
   
     v3 = this.bDebugMove.AsBitfield(29);
-    if ( (v3 & 16384) != 0 && (v3 & 32768) == 0 )
+    if ( (v3 & 16384) != default && (v3 & 32768) == default )
     {
       v4 = this.PawnOwner;
       v5 = this.PreciseLocationInterpMode;
@@ -955,35 +970,31 @@ fixed(var ptr1 =&v2.MoveNormal)
               v21 = 0.0f;
             }
             v23 = v116;
-fixed(var ptr1 =&this.PawnOwner.Velocity)
-            v24 =  ptr1;
             vec_then_rotator.X = v19 * v116;
-            v24->X = v19 * v116;
+            this.PawnOwner.Velocity.X = v19 * v116;
             vec_then_rotator.Y = v20 * v23;
-            v24->Y = v20 * v23;
+            this.PawnOwner.Velocity.Y = v20 * v23;
             vec_then_rotator.Z = v21 * v23;
-            v24->Z = v21 * v23;
-fixed(var ptr2 =&this.PawnOwner.Acceleration)
-            v25 =  ptr2;
+            this.PawnOwner.Velocity.Z = v21 * v23;
             vec_then_rotator.X = 0.0f;
-            v25->X = 0.0f;
+            this.PawnOwner.Acceleration.X = 0.0f;
             *(_QWORD *)&vec_then_rotator.Y = 0L;// set Y&Z to zero
-            v25->Y = 0.0f;
-            v25->Z = 0.0f;
+            this.PawnOwner.Acceleration.Y = 0.0f;
+            this.PawnOwner.Acceleration.Z = 0.0f;
             break;
           case (int)PLM_Walk:
             v116 = Min(v118 / DeltaTime, this.PreciseLocationSpeed);
-            v26 = this.PreciseLocation.X - v4.Location.X;
+            *(float *)&v26 = this.PreciseLocation.X - v4.Location.X;
             v27 = this.PreciseLocation.Y - v4.Location.Y;
-            v28 = this.PreciseLocation.Z - v4.Location.Z;
-            v29 = (float)(v27 * v27) + (float)(v26 * v26);
-            vec_then_rotator.X = v26;
+            *(float *)&v28 = this.PreciseLocation.Z - v4.Location.Z;
+            v29 = (float)(v27 * v27) + (float)(*(float *)&v26 * *(float *)&v26);
+            vec_then_rotator.X = *(float *)&v26;
             vec_then_rotator.Y = v27;
-            vec_then_rotator.Z = v28;
+            vec_then_rotator.Z.LODWORD(v28);
             v120 = v29;
             if ( v29 == 1.0f )
             {
-              if ( v28 == 0.0f )
+              if ( *(float *)&v28 == 0.0f )
               {
                 Delta = vec_then_rotator;
                 v30 = vec_then_rotator.X;
@@ -991,7 +1002,7 @@ fixed(var ptr2 =&this.PawnOwner.Acceleration)
                 v31 = vec_then_rotator.Z;
                 goto LABEL_22;
               }
-              v30 = v26;
+              v30 = *(float *)&v26;
             }
             else if ( v29 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
             {
@@ -1000,7 +1011,7 @@ fixed(var ptr2 =&this.PawnOwner.Acceleration)
               v32 = 1.0f / fsqrt(v120);
               vec_then_rotator.X = (float)(3.0f - (float)((float)(v32 * v120) * v32)) * (float)(v32 * 0.5f);
               v27 = v27 * vec_then_rotator.X;
-              v30 = vec_then_rotator.X * v26;
+              v30 = vec_then_rotator.X * *(float *)&v26;
             }
             else
             {
@@ -1010,38 +1021,34 @@ fixed(var ptr2 =&this.PawnOwner.Acceleration)
             v31 = 0.0f;
   LABEL_22:
             v33 = v116;
-fixed(var ptr3 =&this.PawnOwner.Velocity)
-            v34 =  ptr3;
             vec_then_rotator.X = v30 * v116;
-            v34->X = v30 * v116;
+            this.PawnOwner.Velocity.X = v30 * v116;
             vec_then_rotator.Y = v27 * v33;
-            v34->Y = v27 * v33;
+            this.PawnOwner.Velocity.Y = v27 * v33;
             vec_then_rotator.Z = v31 * v33;
-            v34->Z = v31 * v33;
-fixed(var ptr4 =&this.PawnOwner.Acceleration)
-            v35 =  ptr4;
+            this.PawnOwner.Velocity.Z = v31 * v33;
             vec_then_rotator.X = 0.0f;
-            v35->X = 0.0f;
+            this.PawnOwner.Acceleration.X = 0.0f;
             *(_QWORD *)&vec_then_rotator.Y = 0L;// set y&Z to zero
-            v35->Y = 0.0f;
-            v35->Z = 0.0f;
+            this.PawnOwner.Acceleration.Y = 0.0f;
+            this.PawnOwner.Acceleration.Z = 0.0f;
             break;
           case (int)PLM_Jump:
             v36 = this.PreciseLocationSpeed;
             v117 = 1.0f / DeltaTime;
             v109 = (float)v36;
             v115 = Min((float)(1.0f / DeltaTime) * v118, v109);
-            v37 = this.PreciseLocation.X - v4.Location.X;
+            *(float *)&v37 = this.PreciseLocation.X - v4.Location.X;
             v38 = this.PreciseLocation.Y - v4.Location.Y;
-            v39 = this.PreciseLocation.Z - v4.Location.Z;
-            v40 = (float)(v38 * v38) + (float)(v37 * v37);
-            vec_then_rotator.X = v37;
+            *(float *)&v39 = this.PreciseLocation.Z - v4.Location.Z;
+            v40 = (float)(v38 * v38) + (float)(*(float *)&v37 * *(float *)&v37);
+            vec_then_rotator.X = *(float *)&v37;
             vec_then_rotator.Y = v38;
-            vec_then_rotator.Z = v39;
+            vec_then_rotator.Z.LODWORD(v39);
             v120 = v40;
             if ( v40 == 1.0f )
             {
-              if ( v39 == 0.0f )
+              if ( *(float *)&v39 == 0.0f )
               {
                 Delta = vec_then_rotator;
                 v41 = vec_then_rotator.X;
@@ -1049,7 +1056,7 @@ fixed(var ptr4 =&this.PawnOwner.Acceleration)
               }
               else
               {
-                v41 = v37;
+                v41 = *(float *)&v37;
               }
             }
             else if ( v40 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
@@ -1058,7 +1065,7 @@ fixed(var ptr4 =&this.PawnOwner.Acceleration)
               v113 = 0.5f;
               v42 = 1.0f / fsqrt(v120);
               vec_then_rotator.X = (float)(3.0f - (float)((float)(v42 * v120) * v42)) * (float)(v42 * 0.5f);
-              v41 = vec_then_rotator.X * v37;
+              v41 = vec_then_rotator.X * *(float *)&v37;
               v38 = v38 * vec_then_rotator.X;
             }
             else
@@ -1098,17 +1105,17 @@ fixed(var ptr4 =&this.PawnOwner.Acceleration)
             v117 = 1.0f / DeltaTime;
             v110 = (float)v51;
             v116 = Min((float)(1.0f / DeltaTime) * v118, v110);
-            v52 = this.PreciseLocation.X - v4.Location.X;
+            *(float *)&v52 = this.PreciseLocation.X - v4.Location.X;
             v53 = this.PreciseLocation.Y - v4.Location.Y;
-            v54 = this.PreciseLocation.Z - v4.Location.Z;
-            v55 = (float)(v53 * v53) + (float)(v52 * v52);
-            vec_then_rotator.X = v52;
+            *(float *)&v54 = this.PreciseLocation.Z - v4.Location.Z;
+            v55 = (float)(v53 * v53) + (float)(*(float *)&v52 * *(float *)&v52);
+            vec_then_rotator.X = *(float *)&v52;
             vec_then_rotator.Y = v53;
-            vec_then_rotator.Z = v54;
+            vec_then_rotator.Z.LODWORD(v54);
             v120 = v55;
             if ( v55 == 1.0f )
             {
-              if ( v54 == 0.0f )
+              if ( *(float *)&v54 == 0.0f )
               {
                 Delta = vec_then_rotator;
                 v56 = vec_then_rotator.X;
@@ -1116,7 +1123,7 @@ fixed(var ptr4 =&this.PawnOwner.Acceleration)
               }
               else
               {
-                v56 = v52;
+                v56 = *(float *)&v52;
               }
             }
             else if ( v55 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
@@ -1125,7 +1132,7 @@ fixed(var ptr4 =&this.PawnOwner.Acceleration)
               v113 = 0.5f;
               v57 = 1.0f / fsqrt(v120);
               vec_then_rotator.X = (float)(3.0f - (float)((float)(v57 * v120) * v57)) * (float)(v57 * 0.5f);
-              v56 = vec_then_rotator.X * v52;
+              v56 = vec_then_rotator.X * *(float *)&v52;
               v53 = v53 * vec_then_rotator.X;
             }
             else
@@ -1155,41 +1162,39 @@ fixed(var ptr4 =&this.PawnOwner.Acceleration)
               {
                 v63 = v117 * v115;
                 v64 = sqrt(v115 / v61);
-                this.PawnOwner.Velocity.Z = v61 * v64 + v61 * v64;
+                this.PawnOwner.Velocity.Z = (float)(v61 * v64 + v61 * v64);
                 v65 = this.PawnOwner;
                 v66 = Min(v63, v65.Velocity.Z);
               }
-              v65.Velocity.Z = v66;
+              v65.Velocity.Z = (float)v66;
             }
             else
             {
               this.PawnOwner.Velocity.Z = (float)(v115 / (float)(v118 / v116)) + (float)((float)((float)(v118 / v116) * v113) * 0.5f);
             }
   LABEL_39:
-fixed(var ptr5 =&this.PawnOwner.Acceleration)
-            v50 =  ptr5;
             vec_then_rotator.X = 0.0f;
-            v50->X = 0.0f;
+            this.PawnOwner.Acceleration.X = 0.0f;
             *(_QWORD *)&vec_then_rotator.Y = 0L;// set y&Z to zero
-            v50->Y = 0.0f;
-            v50->Z = 0.0f;
+            this.PawnOwner.Acceleration.Y = 0.0f;
+            this.PawnOwner.Acceleration.Z = 0.0f;
             break;
           case (int)PLM_Fall:
             v68 = this.PreciseLocationSpeed;
             v117 = 1.0f / DeltaTime;
             v111 = (float)v68;
             v116 = Min((float)(1.0f / DeltaTime) * v118, v111);
-            v69 = this.PreciseLocation.X - v4.Location.X;
+            *(float *)&v69 = this.PreciseLocation.X - v4.Location.X;
             v70 = this.PreciseLocation.Y - v4.Location.Y;
-            v71 = this.PreciseLocation.Z - v4.Location.Z;
-            v72 = (float)(v70 * v70) + (float)(v69 * v69);
-            vec_then_rotator.X = v69;
+            *(float *)&v71 = this.PreciseLocation.Z - v4.Location.Z;
+            v72 = (float)(v70 * v70) + (float)(*(float *)&v69 * *(float *)&v69);
+            vec_then_rotator.X = *(float *)&v69;
             vec_then_rotator.Y = v70;
-            vec_then_rotator.Z = v71;
+            vec_then_rotator.Z.LODWORD(v71);
             v120 = v72;
             if ( v72 == 1.0f )
             {
-              if ( v71 == 0.0f )
+              if ( *(float *)&v71 == 0.0f )
               {
                 Delta = vec_then_rotator;
                 v73 = vec_then_rotator.X;
@@ -1197,7 +1202,7 @@ fixed(var ptr5 =&this.PawnOwner.Acceleration)
               }
               else
               {
-                v73 = v69;
+                v73 = *(float *)&v69;
               }
             }
             else if ( v72 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
@@ -1207,7 +1212,7 @@ fixed(var ptr5 =&this.PawnOwner.Acceleration)
               v74 = 1.0f / fsqrt(v120);
               vec_then_rotator.X = (float)(3.0f - (float)((float)(v74 * v120) * v74)) * (float)(v74 * 0.5f);
               v70 = v70 * vec_then_rotator.X;
-              v73 = vec_then_rotator.X * v69;
+              v73 = vec_then_rotator.X * *(float *)&v69;
             }
             else
             {
@@ -1226,8 +1231,13 @@ fixed(var ptr5 =&this.PawnOwner.Acceleration)
               break;
             v78 = v77.Location.Z;
             v79 = this.PreciseLocation.Z;
-            if ( v79 > v78 )
-              goto LABEL_62;
+            if( v79 > v78 )
+            {
+              SetFromBitfield(ref this.bDebugMove, 29, this.bDebugMove.AsBitfield(29) & (~573440u));
+              CallFailedToReachPreciseLocation();
+              break;
+            }
+
             if ( v76 > v118 )
             {
               v113 = Max((float)(v79 - v78) * v117, v113);
@@ -1254,7 +1264,7 @@ fixed(var ptr5 =&this.PawnOwner.Acceleration)
       }
     }
     v81 = this.bDebugMove.AsBitfield(29);
-    if ( (v81 & 131072) != 0 && (v81 & 262144) == 0 )
+    if ( (v81 & 131072) != default && (v81 & 262144) == default )
     {
       v82 = this.PawnOwner;
       v83 = this.PreciseRotationInterpolationTime;
@@ -1264,7 +1274,7 @@ fixed(var ptr5 =&this.PawnOwner.Acceleration)
         v89 = this.PreciseRotation.Yaw;
         vec_then_rotator.Y.LODWORD(v89);
         SetFromBitfield(ref this.bDebugMove, 29, v81 | 262144);
-        if ( ((v81 | 262144) & 4096) == 0 )
+        if ( ((v81 | 262144) & 4096) == default )
         {
           v90 = v82.Controller;
           if(v90 != default)
@@ -1282,11 +1292,11 @@ fixed(var ptr5 =&this.PawnOwner.Acceleration)
         if ( v87 > 0x7FFF )
           v87 = v87 - (0x10000);
         vec_then_rotator.Y.LODWORD(v87);
-        if ( (v81 & 0x1000) == 0 )
+        if ( (v81 & 0x1000) == default )
         {
           v88 = v82.Controller;
           if(v88 != default)
-            v88.Rotation.Yaw = E_WrapRot(v86 + v88.Rotation.Yaw);
+            v88.Rotation.Yaw = E_WrapRot((ushort)(v86 + v88.Rotation.Yaw));
         }
         this.PreciseRotationInterpolationTime = this.PreciseRotationInterpolationTime - DeltaTime;
       }
@@ -1312,21 +1322,21 @@ fixed(var ptr5 =&this.PawnOwner.Acceleration)
       Delta.X = 0.0f;
       Delta.Y = 0.0f;
       Delta.Z = 0.0f;
-      GWorld.MoveActor(v91, &Delta, (Rotator *)&vec_then_rotator, 0, &Hit);
+      GWorld.MoveActor(v91, ref Delta, ref *(Rotator *)&vec_then_rotator, 0, ref Hit);
       this.PawnOwner.DesiredRotation.Yaw = this.PawnOwner.Rotation.Yaw;
     }
     v92 = this.bDebugMove.AsBitfield(29);
     v93 = default;
-    if ( (v92 & 32768) != 0 )
+    if ( (v92 & 32768) != default )
     {
       v94 = this.VfTableObject.Dummy;
-      SetFromBitfield(ref this.bDebugMove, 29, v92 & ~49152);
+      SetFromBitfield(ref this.bDebugMove, 29, v92 & ~49152u);
       CallUFunction(this.ReachedPreciseLocation, this, v95, 0, 0);
       v96 = this.bDebugMove.AsBitfield(29);
-      if ( (v96 & 131072) == 0 || (v96 & 262144) != 0 )
+      if ( (v96 & 131072) == default || (v96 & 262144) != default )
       {
         v93 = 1;
-        if ( (v96 & 524288) == 0 )
+        if ( (v96 & 524288) == default )
         {
           v97 = this.VfTableObject.Dummy;
           CallUFunction(this.ReachedPreciseLocationAndRotation, this, v98, 0, 0);
@@ -1338,16 +1348,16 @@ fixed(var ptr5 =&this.PawnOwner.Acceleration)
       }
     }
     v99 = this.bDebugMove.AsBitfield(29);
-    if ( (v99 & 262144) != 0 )
+    if ( (v99 & 262144) != default )
     {
       v100 = this.VfTableObject.Dummy;
-      SetFromBitfield(ref this.bDebugMove, 29, v99 & ~393216);
+      SetFromBitfield(ref this.bDebugMove, 29, v99 & ~393216u);
       CallUFunction(this.ReachedPreciseRotation, this, v101, 0, 0);
       v102 = this.bDebugMove.AsBitfield(29);
-      if ( (v102 & 16384) == 0 || (v102 & 32768) != 0 )
+      if ( (v102 & 16384) == default || (v102 & 32768) != default )
       {
         v93 = 1;
-        if ( (v102 & 524288) == 0 )
+        if ( (v102 & 524288) == default )
         {
           v103 = this.VfTableObject.Dummy;
           CallUFunction(this.ReachedPreciseLocationAndRotation, this, v104, 0, 0);
@@ -1359,18 +1369,103 @@ fixed(var ptr5 =&this.PawnOwner.Acceleration)
       }
     }
     v105 = this.bDebugMove.AsBitfield(29);
-    if ( (v105 & 524288) != 0 )
+    if ( (v105 & 524288) != default )
     {
       if(v93 != default)
       {
         v106 = this.VfTableObject.Dummy;
-        SetFromBitfield(ref this.bDebugMove, 29, v105 & ~966656);
+        SetFromBitfield(ref this.bDebugMove, 29, v105 & ~966656u);
         CallUFunction(this.ReachedPreciseLocationAndRotation, this, v107, 0, 0);
       }
     }
   }
 
-  public unsafe bool FindLedgeInFrontOfPlayer(Vector *out_LedgeLocation, Vector *out_LedgeNormal, Vector *out_MoveNormal)
+  public unsafe TdMovementExclusionVolume  GetMovementExclusionVolume(Vector Loc)
+  {
+    int v2 = default; // ebp
+    TdMovementExclusionVolume v3 = default; // ebx
+    CheckResult *v4; // esi
+    Class v5 = default; // ecx
+    Actor v6 = default; // edi
+    Class v7 = default; // eax
+    Vector v9 = default; // [esp+0h] [ebp-18h] BYREF
+    int v10 = default; // [esp+14h] [ebp-4h]
+  
+    v2 = GMem;
+    v10 = FMemMark_Maybe;
+    v9.X = default;
+    v9.Y = default;
+    v9.Z = default;
+    v3 = default;
+    try
+    {
+      v4 = (CheckResult *)GWorld.BackupHash.ActorPointCheck(ref GMem, Loc, v9, 0x8000u);
+      if( v4 == null )
+        return null;
+      v5 = ClassT<TdMovementExclusionVolume>();
+      do
+      {
+        v6 = v4 -> Actor;
+        if( v6 == null )
+          continue;
+
+        v7 = v6.Class;
+        if( v7 != default && v5.IsBaseOf(v7) )
+        {
+          return (TdMovementExclusionVolume)v6;
+        }
+      } while((v4 = v4->Next) != null);
+
+      return null;
+    }
+    finally
+    {
+      if ( v10 != FMemMark_Maybe )
+        FMemMark_Pop_Maybe(ref GMem, v10);
+      GMem = v2;
+    }
+
+    /*if ( default == v4 )
+      goto LABEL_13;
+    v5 = Object.ClassT<TdMovementExclusionVolume>();
+    while(1 != default)
+    {
+      v6 = v4->Actor;
+      if ( default == v6 )
+        goto LABEL_10;
+      if ( default == v5 )
+      {
+        dword_2056158 = (int)sub_12016D0((int)L"TdGame");
+        sub_11F39A0();
+        v5 = dword_2056158;
+      }
+      v7 = v6.Class;
+      if(v7 != default)
+        break;
+  LABEL_9:
+      if ( default == v5 )
+        goto LABEL_12;
+  LABEL_10:
+      v4 = (CheckResult *)v4->Next;
+      if ( default == v4 )
+        goto LABEL_13;
+    }
+    while ( v7 != (Class )v5 )
+    {
+      v7 = (Class )v7.Next;
+      if ( default == v7 )
+        goto LABEL_9;
+    }
+  LABEL_12:
+    v3 = (TdMovementExclusionVolume )v6;
+  LABEL_13:
+    if ( v10 != FMemMark_Maybe )
+      FMemMark_Pop_Maybe(ref GMem, v10);
+    GMem = v2;
+    return v3;*/
+  }
+
+  public unsafe bool FindLedgeInFrontOfPlayer(ref Vector out_LedgeLocation, ref Vector out_LedgeNormal, ref Vector out_MoveNormal)
   {
     TdPawn v5 = default; // eax
     float v6 = default; // ebx
@@ -1444,20 +1539,20 @@ fixed(var ptr5 =&this.PawnOwner.Acceleration)
     v26.Z = v7 + (float)(v11 * v16);
     v25.X = v8;
     *(_QWORD *)&v25.Y = __PAIR64__(LODWORD(v7), LODWORD(v6));
-    if ( default == FindLedge(&out_LedgeHit, v25, v26, v15.LedgeFindExtent) )
+    if ( default == FindLedge(ref out_LedgeHit, v25, v26, v15.LedgeFindExtent) )
       return false;
     v17 = out_LedgeHit.LedgeNormal.Y;
     v18 = out_LedgeHit.LedgeLocation.Z;
     v19 = out_LedgeHit.MoveNormal.X;
-    out_LedgeNormal->X = out_LedgeHit.LedgeNormal.X;
+    out_LedgeNormal.X = out_LedgeHit.LedgeNormal.X;
     v20 = out_LedgeHit.LedgeNormal.Z;
-    out_LedgeNormal->Y = v17;
+    out_LedgeNormal.Y = v17;
     v21 = out_LedgeHit.LedgeLocation.Y;
-    out_LedgeNormal->Z = v20;
+    out_LedgeNormal.Z = v20;
     v22 = out_LedgeHit.LedgeLocation.X;
-    out_LedgeLocation->X = out_LedgeHit.LedgeLocation.X;
-    out_LedgeLocation->Y = v21;
-    out_LedgeLocation->Z = v18;
+    out_LedgeLocation.X = out_LedgeHit.LedgeLocation.X;
+    out_LedgeLocation.Y = v21;
+    out_LedgeLocation.Z = v18;
     out_MoveNormal.X = v19;
     out_MoveNormal.Y = out_LedgeHit.MoveNormal.Y;
     out_MoveNormal.Z = out_LedgeHit.MoveNormal.Z;
@@ -1477,7 +1572,7 @@ fixed(var ptr5 =&this.PawnOwner.Acceleration)
     int v4 = default; // eax
   
     v3 = this.VfTableObject.Dummy;
-    CallUFunction(this.OnAnimationStopped, this, v4, &a2, 0);
+    this.OnAnimationStopped(a2);
   }
 }
 }

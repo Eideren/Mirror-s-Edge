@@ -253,22 +253,22 @@ public partial class Object/*
 	//	}
 	};
 	
-	public partial struct /*atomic immutable */Plane// extends Vector
-	{
-		public/*()*/ float X;
-		public/*()*/ float Y;
-		public/*()*/ float Z;
-	
-		public/*()*/ float W;
-			// Object Offset:0x0001D73B
-	//		X = 0.0f;
-	//		Y = 0.0f;
-	//		Z = 0.0f;
+	//public partial struct /*atomic immutable */Plane// extends Vector
+	//{
+	//	public/*()*/ float X;
+	//	public/*()*/ float Y;
+	//	public/*()*/ float Z;
 	//
-	//	structdefaultproperties
-	//	{
-	//	}
-	};
+	//	public/*()*/ float W;
+	//		// Object Offset:0x0001D73B
+	////		X = 0.0f;
+	////		Y = 0.0f;
+	////		Z = 0.0f;
+	////
+	////	structdefaultproperties
+	////	{
+	////	}
+	//};
 	
 	public partial struct /*atomic immutable */Rotator
 	{
@@ -505,10 +505,10 @@ public partial class Object/*
 	
 	public partial struct /*atomic immutable */Matrix
 	{
-		public/*()*/ Object.Plane XPlane;
-		public/*()*/ Object.Plane YPlane;
-		public/*()*/ Object.Plane ZPlane;
-		public/*()*/ Object.Plane WPlane;
+		//public/*()*/ Object.Plane XPlane;
+		//public/*()*/ Object.Plane YPlane;
+		//public/*()*/ Object.Plane ZPlane;
+		//public/*()*/ Object.Plane WPlane;
 	
 	//	structdefaultproperties
 	//	{

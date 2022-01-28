@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using static MEdge.TdGame.TdPawn; using static MEdge.TdGame.TdPawn.EMovement; using static MEdge.TdGame.TdMove_ZipLine.EZipLineStatus; using static MEdge.TdGame.TdMove.EPreciseLocationMode; using static MEdge.Engine.Actor.EPhysics; using static MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Engine.Actor.ENetRole; using LedgeHitInfo = MEdge.TdGame.TdPawn.LedgeHitInfo; using ECustomNodeType = MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.TdGame.TdPawn.WalkingState; using static MEdge.TdGame.TdPawn.EWeaponType;using static MEdge.TdGame.TdPawn.EMoveActionHint; using EMoveAimMode = MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Source.DecFn; using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 public partial class TdMove_ZipLine
@@ -17,11 +19,11 @@ public partial class TdMove_ZipLine
     int v13 = default; // ecx
     TdZiplineVolume v14 = default; // ebx
     int v15 = default; // edx
-    Vector *v16; // eax
+    Vector[] v16; // eax
     double v17 = default; // st3
-    Vector *v18; // eax
+    //Vector *v18; // eax
     int v19 = default; // eax
-    Vector *v20; // ecx
+    Vector[] v20; // ecx
     float v21 = default; // xmm6_4
     float v22 = default; // xmm5_4
     float v23 = default; // xmm4_4
@@ -36,7 +38,7 @@ public partial class TdMove_ZipLine
     float v32 = default; // xmm4_4
     float v33 = default; // xmm5_4
     float v34 = default; // xmm0_4
-    Vector *v35; // eax
+    //Vector *v35; // eax
     TdPawn v36 = default; // ecx
     float v37 = default; // edx
     float v38 = default; // eax
@@ -45,20 +47,20 @@ public partial class TdMove_ZipLine
     float v41 = default; // xmm3_4
     float v42 = default; // xmm0_4
     float v43 = default; // xmm4_4
-    Vector *v44; // eax
+    //Vector *v44; // eax
     float v45 = default; // xmm3_4
     TdPawn v46 = default; // ecx
     float v47 = default; // xmm3_4
     float v48 = default; // xmm2_4
     float v49 = default; // xmm0_4
-    Vector *v50; // ecx
+    //Vector *v50; // ecx
     float v51 = default; // xmm0_4
     float v52 = default; // edx
     float v53 = default; // eax
     float v54 = default; // ecx
     float v55 = default; // xmm2_4
     float v56 = default; // ecx
-    Vector *v57; // eax
+    //Vector *v57; // eax
     float v58 = default; // edx
     TdPawn v59 = default; // edi
     double v60 = default; // st7
@@ -72,7 +74,7 @@ public partial class TdMove_ZipLine
     float v68 = default; // xmm2_4
     float v69 = default; // xmm1_4
     float v70 = default; // xmm0_4
-    float *v71; // ecx
+    //float *v71; // ecx
     float v72 = default; // xmm0_4
     float v73 = default; // edx
     float v74 = default; // eax
@@ -85,7 +87,7 @@ public partial class TdMove_ZipLine
     float v81 = default; // xmm2_4
     float v82 = default; // xmm1_4
     float v83 = default; // xmm0_4
-    Vector *v84; // ecx
+    //Vector *v84; // ecx
     float v85 = default; // xmm0_4
     float v86 = default; // edx
     float v87 = default; // eax
@@ -105,15 +107,15 @@ public partial class TdMove_ZipLine
     float v101 = default; // xmm2_4
     float v102 = default; // xmm1_4
     float v103 = default; // xmm3_4
-    Vector *v104; // ecx
+    //Vector *v104; // ecx
     float v105 = default; // xmm3_4
     float v106 = default; // edx
     float v107 = default; // eax
     float v108 = default; // ecx
     float v109 = default; // xmm1_4
     float v110 = default; // xmm2_4
-    Vector *v111; // eax
-    Vector *v112; // eax
+    //Vector *v111; // eax
+    //Vector *v112; // eax
     float v113 = default; // xmm0_4
     float v114 = default; // xmm2_4
     float v115 = default; // eax
@@ -176,20 +178,20 @@ public partial class TdMove_ZipLine
         v132.Z = v6;
       }
       v8 = this.PawnOwner;
-      v8.Velocity.Z = ((double (*)(void))*(_DWORD *)(v8.VfTableObject.Dummy + 308))() * fabs(v132.Z) * DeltaTime// GetGravityZ
-                     + v8.Velocity.Z;
+      v8.Velocity.Z = (float)(v8.GetGravityZ() * fabs(v132.Z) * DeltaTime// GetGravityZ
+                      + v8.Velocity.Z);
       v9 = this.PawnOwner;
       v10 = v9.Location.X;
       v128 = v9.Location.Z - this.HangOffset.Z;
       v125 = v10;
       v126 = v9.Location.Y;
-      this.ZipLine.FindClosestPointOnDSpline(
-        COERCE_FLOAT(LODWORD(v10)),
-        COERCE_FLOAT(LODWORD(v126)),
-        COERCE_FLOAT(LODWORD(v128)),
-        &Extent,
-fixed(var ptr1 =&this.CurrentParamOnCurve)
-         ptr1,
+      fixed(float* ptr1 =&this.CurrentParamOnCurve)
+      this.ZipLine.FindClosestPointOnDSpline(new Vector(
+        v10,
+        v126,
+        v128),
+        ref Extent,
+         ref *ptr1,
         (int)this.CurrentParamOnCurve);          // ATdMovementVolume::FindClosestPointOnDSpline
       v11 = this.PawnOwner;
       v12 = this.MinZipVelocity;
@@ -210,8 +212,7 @@ fixed(var ptr1 =&this.CurrentParamOnCurve)
             break;
           v16 = v14.SplineLocations.Data;
           v17 = v16[v15].X;
-          v18 = &v16[v15];
-          if ( v120 <= sqrt((v17 - v125) * (v17 - v125) + (v18->Z - v128) * (v18->Z - v128) + (v18->Y - v126) * (v18->Y - v126)) )
+          if ( v120 <= sqrt((v17 - v125) * (v17 - v125) + (v16[v15].Z - v128) * (v16[v15].Z - v128) + (v16[v15].Y - v126) * (v16[v15].Y - v126)) )
           {
             v10 = v125;
             goto LABEL_17;
@@ -221,7 +222,7 @@ fixed(var ptr1 =&this.CurrentParamOnCurve)
         v139 = default;
         v137 = 0.0f;
         v138 = default;
-        LOBYTE(v136) = 2;
+        v136.LOBYTE(2);
         CallUFunction(v11.SetMove, v11, v117, &v136, 0);
         return;
       }
@@ -275,14 +276,12 @@ fixed(var ptr1 =&this.CurrentParamOnCurve)
         v32 = 0.0f;
         v33 = 0.0f;
       }
-fixed(var ptr2 =&this.PawnOwner.Velocity)
-      v35 =  ptr2;
       v132.X = (float)(1.0f / DeltaTime) * (float)((float)(v31 * v122) + v136);
-      v35->X = v132.X;
+      this.PawnOwner.Velocity.X = v132.X;
       v132.Y = (float)((float)(v32 * v122) + v28) * (float)(1.0f / DeltaTime);
-      v35->Y = v132.Y;
+      this.PawnOwner.Velocity.Y = v132.Y;
       v132.Z = (float)((float)(v33 * v122) + v29) * (float)(1.0f / DeltaTime);
-      v35->Z = v132.Z;
+      this.PawnOwner.Velocity.Z = v132.Z;
       v36 = this.PawnOwner;
       if ( this.MinZipVelocity > sqrt(v36.Velocity.Z * v36.Velocity.Z + v36.Velocity.Y * v36.Velocity.Y + v36.Velocity.X * v36.Velocity.X) )
       {
@@ -314,29 +313,25 @@ fixed(var ptr2 =&this.PawnOwner.Velocity)
           v41 = 0.0f;
         }
         v43 = this.MinZipVelocity;
-fixed(var ptr3 =&this.PawnOwner.Velocity)
-        v44 =  ptr3;
         v132.X = v39 * v43;
-        v44->X = v39 * v43;
+        this.PawnOwner.Velocity.X = v39 * v43;
         v132.Y = v40 * v43;
         v45 = v41 * v43;
         v132.Z = v45;
-        v44->Y = v40 * v43;
-        v44->Z = v45;
+        this.PawnOwner.Velocity.Y = v40 * v43;
+        this.PawnOwner.Velocity.Z = v45;
       }
       v46 = this.PawnOwner;
       v47 = v46.Velocity.X;
       v48 = v46.Velocity.Y;
       v49 = v46.Velocity.Z;
-fixed(var ptr4 =&v46.Velocity)
-      v50 =  ptr4;
       v51 = (float)((float)(v49 * v49) + (float)(v47 * v47)) + (float)(v48 * v48);
       v133 = v51;
       if ( v51 == 1.0f )
       {
-        v52 = v50->X;
-        v53 = v50->Y;
-        v54 = v50->Z;
+        v52 = v46.Velocity.X;
+        v53 = v46.Velocity.Y;
+        v54 = v46.Velocity.Z;
         v132.X = v52;
         *(_QWORD *)&v132.Y = __PAIR64__(LODWORD(v54), LODWORD(v53));
       }
@@ -347,9 +342,9 @@ fixed(var ptr4 =&v46.Velocity)
           v140 = 3.0f;
           v55 = 1.0f / fsqrt(v133);
           v136 = (float)(3.0f - (float)((float)(v55 * v133) * v55)) * (float)(v55 * 0.5f);
-          v132.X = v50->X * v136;
-          v132.Y = v50->Y * v136;
-          v30 = v50->Z * v136;
+          v132.X = v46.Velocity.X * v136;
+          v132.Y = v46.Velocity.Y * v136;
+          v30 = v46.Velocity.Z * v136;
         }
         else
         {
@@ -359,12 +354,10 @@ fixed(var ptr4 =&v46.Velocity)
         v132.Z = v30;
       }
       v56 = v132.Y;
-fixed(var ptr5 =&this.PawnOwner.Acceleration)
-      v57 =  ptr5;
-      v57->X = v132.X;
+      this.PawnOwner.Acceleration.X = v132.X;
       v58 = v132.Z;
-      v57->Y = v56;
-      v57->Z = v58;
+      this.PawnOwner.Acceleration.Y = v56;
+      this.PawnOwner.Acceleration.Z = v58;
       v59 = this.PawnOwner;
       v60 = v59.GetGravityZ();// GetGravityZ
       v61 = this.MinZipAcceleration;
@@ -391,17 +384,15 @@ fixed(var ptr5 =&this.PawnOwner.Acceleration)
         v81 = v67.Velocity.Y;
         v82 = v67.Velocity.Z;
         v83 = v67.Velocity.X;
-fixed(var ptr6 =&v67.Velocity)
-        v84 =  ptr6;
         v85 = (float)((float)(v83 * v83) + (float)(v81 * v81)) + (float)(v82 * v82);
         v133 = v85;
         if ( v66 == ZLS_Impact )
         {
           if ( v85 == 1.0f )
           {
-            v86 = v84->X;
-            v87 = v84->Y;
-            v88 = v84->Z;
+            v86 = v67.Velocity.X;
+            v87 = v67.Velocity.Y;
+            v88 = v67.Velocity.Z;
             v89 = 2.0f;
             v133 = v86;
             v90 = v86;
@@ -415,9 +406,9 @@ fixed(var ptr6 =&v67.Velocity)
             v140 = 3.0f;
             v93 = fsqrt(v133);
             v136 = (float)(3.0f - (float)((float)((float)(1.0f / v93) * v133) * (float)(1.0f / v93))) * (float)((float)(1.0f / v93) * 0.5f);
-            v90 = v84->X * v136;
-            v91 = v84->Y * v136;
-            v92 = v84->Z * v136;
+            v90 = v67.Velocity.X * v136;
+            v91 = v67.Velocity.Y * v136;
+            v92 = v67.Velocity.Z * v136;
             v89 = 2.0f;
           }
           else
@@ -432,10 +423,10 @@ fixed(var ptr6 =&v67.Velocity)
         {
           if ( v85 == 1.0f )
           {
-            v94 = v84->X;
-            v95 = v84->Y;
-            v96 = v84->Z;
-            v133 = v94;
+            v94 = v67.Velocity.X;
+            v95 = v67.Velocity.Y;
+            v96 = v67.Velocity.Z;
+            v133 = v94;        
             v90 = v94;
             v134 = v95;
             v91 = v95;
@@ -447,9 +438,9 @@ fixed(var ptr6 =&v67.Velocity)
             v140 = 3.0f;
             v97 = fsqrt(v133);
             v136 = (float)(3.0f - (float)((float)((float)(1.0f / v97) * v133) * (float)(1.0f / v97))) * (float)((float)(1.0f / v97) * 0.5f);
-            v90 = v136 * v84->X;
-            v91 = v84->Y * v136;
-            v92 = v84->Z * v136;
+            v90 = v136 * v67.Velocity.X;
+            v91 = v67.Velocity.Y * v136;
+            v92 = v67.Velocity.Z * v136;
           }
           else
           {
@@ -468,15 +459,13 @@ fixed(var ptr6 =&v67.Velocity)
         v68 = v67.Velocity.Y;
         v69 = v67.Velocity.Z;
         v70 = v67.Velocity.X;
-fixed(var ptr7 =&v67.Velocity.X)
-        v71 =  ptr7;
         v72 = (float)((float)(v70 * v70) + (float)(v68 * v68)) + (float)(v69 * v69);
         v133 = v72;
         if ( v72 == 1.0f )
         {
-          v73 = *v71;
-          v74 = v71[1];
-          v75 = v71[2];
+          v73 = v67.Velocity.X;
+          v74 = v67.Velocity.Y;
+          v75 = v67.Velocity.Z;
           v133 = v73;
           v76 = v73;
           v134 = v74;
@@ -489,9 +478,9 @@ fixed(var ptr7 =&v67.Velocity.X)
           v140 = 3.0f;
           v79 = fsqrt(v133);
           v136 = (float)(3.0f - (float)((float)((float)(1.0f / v79) * v133) * (float)(1.0f / v79))) * (float)((float)(1.0f / v79) * 0.5f);
-          v77 = v136 * v71[1];
-          v76 = *v71 * v136;
-          v78 = v136 * v71[2];
+          v77 = v136 * v67.Velocity.Y;
+          v76 = v67.Velocity.X * v136;
+          v78 = v136 * v67.Velocity.Z;
         }
         else
         {
@@ -519,22 +508,18 @@ fixed(var ptr7 =&v67.Velocity.X)
           if ( v98 == ZLS_Impact )
           {
             v99 = 0.0f;
-fixed(var ptr8 =&this.PawnOwner.Velocity)
-            v111 =  ptr8;
             v133 = 0.0f;
-            v111->X = 0.0f;
+            this.PawnOwner.Velocity.X = 0.0f;
             v134 = 0.0f;
-            v111->Y = 0.0f;
+            this.PawnOwner.Velocity.Y = 0.0f;
             v135 = 0.0f;
-            v111->Z = 0.0f;
-fixed(var ptr9 =&this.PawnOwner.Acceleration)
-            v112 =  ptr9;
+            this.PawnOwner.Velocity.Z = 0.0f;
             v133 = 0.0f;
-            v112->X = 0.0f;
+            this.PawnOwner.Acceleration.X = 0.0f;
             v134 = 0.0f;
             v135 = 0.0f;
-            v112->Y = 0.0f;
-            v112->Z = 0.0f;
+            this.PawnOwner.Acceleration.Y = 0.0f;
+            this.PawnOwner.Acceleration.Z = 0.0f;
             goto LABEL_64;
           }
         }
@@ -550,15 +535,13 @@ fixed(var ptr9 =&this.PawnOwner.Acceleration)
       v101 = v100.Velocity.Y;
       v102 = v100.Velocity.Z;
       v103 = v100.Velocity.X;
-fixed(var ptr10 =&v100.Velocity)
-      v104 =  ptr10;
       v105 = (float)((float)(v103 * v103) + (float)(v101 * v101)) + (float)(v102 * v102);
       v133 = v105;
       if ( v105 == 1.0f )
       {
-        v106 = v104->X;
-        v107 = v104->Y;
-        v108 = v104->Z;
+        v106 = v100.Velocity.X;
+        v107 = v100.Velocity.Y;
+        v108 = v100.Velocity.Z;
         v133 = v106;
         v99 = v106;
         v134 = v107;
@@ -571,9 +554,9 @@ fixed(var ptr10 =&v100.Velocity)
         v140 = 3.0f;
         v113 = fsqrt(v133);
         v136 = (float)(3.0f - (float)((float)((float)(1.0f / v113) * v133) * (float)(1.0f / v113))) * (float)((float)(1.0f / v113) * 0.5f);
-        v109 = v136 * v104->Y;
-        v99 = v104->X * v136;
-        v110 = v136 * v104->Z;
+        v109 = v136 * v100.Velocity.Y;
+        v99 = v100.Velocity.X * v136;
+        v110 = v136 * v100.Velocity.Z;
       }
       else
       {

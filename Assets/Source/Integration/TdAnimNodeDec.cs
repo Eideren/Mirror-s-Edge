@@ -4323,7 +4323,7 @@ public partial class TdAnimNodeWeaponTypeState
   
     TdPawnOwner = this.TdPawnOwner;
     if( TdPawnOwner )
-      return (int) (TdPawnOwner.MyWeapon?.WeaponType ?? 0); //E_ReturnWeaponType(TdPawnOwner);
+      return (int)TdPawnOwner.GetWeaponType(); //E_ReturnWeaponType(TdPawnOwner);
     else
       return 0;
   }

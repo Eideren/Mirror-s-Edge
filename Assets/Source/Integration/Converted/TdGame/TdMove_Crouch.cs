@@ -28,7 +28,7 @@ public partial class TdMove_Crouch : TdPhysicsMove/*
 		if(((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_Walking/*1*/))
 		{
 			((PawnOwner) as TdPlayerPawn).EnableFootPlacement(0.10f);
-			PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 15.0f), 0.10f, default(SkelControlBase.EBoneControlSpace?));
+			PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 15.0f), 0.10f, default(SkelControlBase.EBoneControlSpace));
 			SetMoveTimer(0.150f, false, "DisableRootOffset");
 			PawnOwner.SetTimer(0.20f, false, "DisableFootPlacement", default(Object));
 		}
@@ -37,7 +37,7 @@ public partial class TdMove_Crouch : TdPhysicsMove/*
 	
 	public virtual /*simulated function */void DisableRootOffset()
 	{
-		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.10f, default(SkelControlBase.EBoneControlSpace?));
+		PawnOwner.SetRootOffset(vect(0.0f, 0.0f, 0.0f), 0.10f, default(SkelControlBase.EBoneControlSpace));
 	}
 	
 	public override /*simulated function */void StopMove()

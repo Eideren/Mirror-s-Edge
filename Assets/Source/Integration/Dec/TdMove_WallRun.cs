@@ -1,8 +1,10 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using static MEdge.TdGame.TdPawn; using static MEdge.TdGame.TdPawn.EMovement; using static MEdge.TdGame.TdMove_ZipLine.EZipLineStatus; using static MEdge.TdGame.TdMove.EPreciseLocationMode; using static MEdge.Engine.Actor.EPhysics; using static MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Engine.Actor.ENetRole; using LedgeHitInfo = MEdge.TdGame.TdPawn.LedgeHitInfo; using ECustomNodeType = MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.TdGame.TdPawn.WalkingState; using static MEdge.TdGame.TdPawn.EWeaponType;using static MEdge.TdGame.TdPawn.EMoveActionHint; using EMoveAimMode = MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Source.DecFn; using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 public partial class TdMove_WallRun
 {
-  public unsafe bool FindWallSide(EMovement WallRunSide, LedgeHitInfo *out_LedgeHit)
+  public unsafe bool FindWallSide(EMovement WallRunSide, ref LedgeHitInfo out_LedgeHit)
   {
     TdPawn v4 = default; // ecx
     float v5 = default; // xmm5_4
@@ -117,7 +119,7 @@ public partial class TdMove_WallRun
     a5.X = v6.CylinderComponent.CollisionRadius;
     a5.Y = a5.X;
     a5.Z = 2.0f;
-    if ( default == this.MovementLineCheck(&v72, &a3, &a4, &a5, 9422) )
+    if ( default == this.MovementLineCheck(ref v72, &a3, &a4, &a5, 9422) )
       return false;
     if ( cos(this.WallRunningStrafeStartAngle * 0.017453292f) > fabs(-v72.Normal.X * v62.X + -v72.Normal.Z * v62.Z + -v72.Normal.Y * v62.Y) )
       return false;
@@ -141,7 +143,7 @@ public partial class TdMove_WallRun
     a3.Y = (float)(v62.Y * v12) + a4.Y;
     a3.Z = (float)(v62.Z * v12) + v13;
     a4.Z = v13;
-    if ( default == this.MovementLineCheck(&v72, &a3, &a4, &a5, 9422) )
+    if ( default == this.MovementLineCheck(ref v72, &a3, &a4, &a5, 9422) )
       return false;
     v14 = v66.Z - v72.Location.Z;
     v62.X = v66.X - v72.Location.X;
@@ -202,7 +204,9 @@ public partial class TdMove_WallRun
         goto LABEL_30;
       }
       v30 = v27;
-      goto LABEL_28;
+      v70.Z = 0.0f;
+      v70.Y = v28;
+      goto LABEL_29;
     }
     if ( v29 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
@@ -240,7 +244,7 @@ public partial class TdMove_WallRun
     a5.Y = v37->Y;
     a5.Z = v37->Z;
     a5.Z = a5.Z - (float)(v38.MaxStepHeight * 0.5f);
-    if ( default == this.MovementLineCheck(&v72, &a3, &a4, &a5, 9439) )
+    if ( default == this.MovementLineCheck(ref v72, &a3, &a4, &a5, 9439) )
       return false;
     v39 = v72.Location.X - v66.X;
     v40 = v72.Location.Y - v66.Y;
@@ -257,7 +261,8 @@ public partial class TdMove_WallRun
         goto LABEL_40;
       }
       v62.X = v39;
-      goto LABEL_38;
+      v62.Y = v40;
+      goto LABEL_39;
     }
     if ( v41 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
@@ -278,7 +283,8 @@ public partial class TdMove_WallRun
     if ( fabs(v62.X * v72.Normal.X + v62.Z * v72.Normal.Z + v62.Y * v72.Normal.Y) >= 0.1f )
       return false;
     v43 = v72.Normal.Y;
-    v44 = *(_QWORD *)&v72.Normal.Y;               // set Y&Z
+    var cpy2 = v72.Normal;
+    v44 = *(_QWORD *)&cpy2.Y;               // set Y&Z
     v45 = v72.Normal.X;
     v46 = (float)(v72.Normal.X * v72.Normal.X) + (float)(v43 * v43);
     v66.X = v46;
@@ -292,7 +298,8 @@ public partial class TdMove_WallRun
         goto LABEL_50;
       }
       v62.X = v72.Normal.X;
-      goto LABEL_48;
+      v62.Y = v43;
+      goto LABEL_49;
     }
     if ( v46 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
@@ -344,13 +351,20 @@ public partial class TdMove_WallRun
       v49 = v70.Y * v67.X;
   LABEL_60:
       v53 = v49;
-      goto LABEL_61;
+      v66.X = v52;
+      v66.Y = v53;
+      v66.Z = 0.0f;
+      goto LABEL_62;
     }
     v51 = 0.0f;
     if ( v70.Z != 0.0f )
     {
       v52 = v70.X;
-      goto LABEL_60;
+      v53 = v49;
+      v66.X = v52;
+      v66.Y = v53;
+      v66.Z = 0.0f;
+      goto LABEL_62;
     }
     v66 = v70;
     v52 = v70.X;
@@ -369,11 +383,15 @@ public partial class TdMove_WallRun
     v67.X = (float)(v52 * v55) + v72.Location.X;
     v67.Y = (float)(v53 * v55) + v72.Location.Y;
     v67.Z = (float)(v51 * v55) + v72.Location.Z;
-    E_FLedgeHitInfo_FillWith(out_LedgeHit, &v72, &v67, v58, v59);
+    E_FLedgeHitInfo_FillWith(ref out_LedgeHit, &v72, &v67, v58, v59);
     return true;
   }
 
-  public unsafe EMovement FindWallForward(LedgeHitInfo *out_LedgeHit)
+
+
+  static uint hasinit_wallrun_pawn_collradius_const;
+  static Vector wallrun_pawn_collradius_const;
+  public unsafe EMovement FindWallForward(ref LedgeHitInfo out_LedgeHit)
   {
     TdPawn v3 = default; // ecx
     TdPawn v4 = default; // eax
@@ -392,7 +410,7 @@ public partial class TdMove_WallRun
     float v17 = default; // xmm2_4
     float v18 = default; // xmm1_4
     float v19 = default; // xmm0_4
-    Vector *v20; // ecx
+    //Vector *v20; // ecx
     float v21 = default; // xmm0_4
     float v22 = default; // xmm4_4
     float v23 = default; // xmm5_4
@@ -492,14 +510,16 @@ public partial class TdMove_WallRun
     a3.X = (float)(a2a.X * v80) + a4.X;
     a3.Y = a4.Y + (float)(a2a.Y * v80);
     a3.Z = (float)(a2a.Z * v80) + a4.Z;
-    if ( (hasinit_wallrun_pawn_collradius_const & 1) == 0 )
+    if ( (hasinit_wallrun_pawn_collradius_const & 1) == default )
     {
       hasinit_wallrun_pawn_collradius_const = hasinit_wallrun_pawn_collradius_const | (1u);
       wallrun_pawn_collradius_const.X = v4.CylinderComponent.CollisionRadius;
       wallrun_pawn_collradius_const.Y = wallrun_pawn_collradius_const.X;
       wallrun_pawn_collradius_const.Z = 2.0f;
     }
-    if ( default == this.MovementLineCheck(&v83, &a3, &a4, &wallrun_pawn_collradius_const, 9422) )
+
+    var cpy = wallrun_pawn_collradius_const;
+    if ( default == this.MovementLineCheck(ref v83, &a3, &a4, &cpy, 9422) )
       return 0;
     v66 = (float)((float)((float)(-0.0f - v83.Normal.X) * a2a.X) + (float)((float)(-0.0f - v83.Normal.Z) * a2a.Z)) + (float)((float)(-0.0f - v83.Normal.Y) * a2a.Y);
     if ( cos((90.0f - this.WallRunningForwardMinStartAngle) * 0.017453292f) > v66 )
@@ -516,7 +536,7 @@ public partial class TdMove_WallRun
     a3.Y = (float)(a2a.Y * v80) + a4.Y;
     a3.Z = (float)(a2a.Z * v80) + v8;
     a4.Z = v8;
-    if ( default == this.MovementLineCheck(&v83, &a3, &a4, &wallrun_pawn_collradius_const, 9422) )
+    if ( default == this.MovementLineCheck(ref v83, &a3, &a4, &cpy, 9422) )
       return 0;
     v9 = v83.Normal.Y - (float)(v83.Normal.Z * 0.0f);
     v10 = (float)(v83.Normal.Z * 0.0f) - v83.Normal.X;
@@ -543,14 +563,14 @@ public partial class TdMove_WallRun
     v17 = v16.Velocity.Y;
     v18 = v16.Velocity.Z;
     v19 = v16.Velocity.X;
-fixed(var ptr1 =&v16.Velocity)
-    v20 =  ptr1;
+/*fixed(var ptr1 =&v16.Velocity)
+    v20 =  ptr1;*/
     v21 = (float)((float)(v19 * v19) + (float)(v17 * v17)) + (float)(v18 * v18);
     v87 = v21;
     if ( v21 == 1.0f )
     {
-      v60 = *v20;
-      v22 = v20->X;
+      v60 = v16.Velocity;
+      v22 = v16.Velocity.X;
       v23 = v60.Y;
   LABEL_23:
       v24 = 0.0f;
@@ -561,13 +581,14 @@ fixed(var ptr1 =&v16.Velocity)
       v78.X = 3.0f;
       v25 = 1.0f / fsqrt(v87);
       v61 = (float)(3.0f - (float)((float)(v25 * v87) * v25)) * (float)(v25 * 0.5f);
-      v22 = v20->X * v61;
-      v23 = v61 * v20->Y;
-      v26 = v61 * v20->Z;
+      v22 = v16.Velocity.X * v61;
+      v23 = v61 * v16.Velocity.Y;
+      v26 = v61 * v16.Velocity.Z;
       v60.X = v22;
       v60.Y = v23;
       v60.Z = v26;
-      goto LABEL_23;
+      v24 = 0.0f;
+      goto LABEL_24;
     }
     v24 = 0.0f;
     v22 = 0.0f;
@@ -601,7 +622,9 @@ fixed(var ptr1 =&v16.Velocity)
         goto LABEL_37;
       }
       v31 = v28;
-      goto LABEL_35;
+      v78.Z = 0.0f;
+      v78.Y = v29;
+      goto LABEL_36;
     }
     if ( v30 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
@@ -632,7 +655,7 @@ fixed(var ptr1 =&v16.Velocity)
     a3.Z = (float)((float)(v78.Z * v34) * v35) + v36;
     v33.GetCylinderExtent(&a5);
     a5.Z = a5.Z - (float)(this.PawnOwner.MaxStepHeight * 0.5f);
-    if ( default == this.MovementLineCheck(&v83, &a3, &a4, &a5, 9439) )
+    if ( default == this.MovementLineCheck(ref v83, &a3, &a4, &a5, 9439) )
       return 0;
     v37 = v82.X - v83.Location.X;
     v38 = v82.Y - v83.Location.Y;
@@ -648,7 +671,8 @@ fixed(var ptr1 =&v16.Velocity)
         goto LABEL_47;
       }
       v63.X = v82.X - v83.Location.X;
-      goto LABEL_45;
+      v63.Y = v38;
+      goto LABEL_46;
     }
     if ( v39 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
@@ -669,7 +693,8 @@ fixed(var ptr1 =&v16.Velocity)
     if ( fabs(v63.X * v83.Normal.X + v63.Z * v83.Normal.Z + v63.Y * v83.Normal.Y) > 0.05f )
       return 0;
     v41 = v83.Normal.Y;
-    v42 = *(_QWORD *)&v83.Normal.Y;               // set Y&Z
+    var cpy2 = v83.Normal;
+    v42 = *(_QWORD *)&cpy2.Y;               // set Y&Z
     v43 = v83.Normal.X;
     v44 = (float)(v83.Normal.X * v83.Normal.X) + (float)(v41 * v41);
     if ( v44 == 1.0f )
@@ -730,12 +755,21 @@ fixed(var ptr1 =&v16.Velocity)
       v47 = v78.Y * v82.X;
   LABEL_66:
       v50 = v47;
-      goto LABEL_67;
+      v51 = 0.0f;
+      v75.X = v49;
+      v75.Y = v50;
+      v75.Z = 0.0f;
+      goto LABEL_68;
     }
     if ( v78.Z != 0.0f )
     {
       v49 = v78.X;
-      goto LABEL_66;
+      v50 = v47;
+      v51 = 0.0f;
+      v75.X = v49;
+      v75.Y = v50;
+      v75.Z = 0.0f;
+      goto LABEL_68;
     }
     v75 = v78;
     v49 = v78.X;
@@ -756,7 +790,7 @@ fixed(var ptr1 =&v16.Velocity)
     v82.X = (float)(v49 * v53) + v83.Location.X;
     v82.Y = (float)(v50 * v53) + v83.Location.Y;
     v82.Z = (float)(v51 * v53) + v83.Location.Z;
-    E_FLedgeHitInfo_FillWith(out_LedgeHit, &v83, &v82, v56, v57);
+    E_FLedgeHitInfo_FillWith(ref out_LedgeHit, &v83, &v82, v56, v57);
     if ( (float)((float)((float)((float)(-0.0f - v83.Normal.Z) * (float)(-0.0f - (float)((float)(a2a.X * 0.0f) - (float)(a2a.Y * 0.0f)))) + (float)((float)(-0.0f - v83.Normal.Y) * (float)(-0.0f - (float)((float)(a2a.Z * 0.0f) - a2a.X))))
                + (float)((float)(-0.0f - v83.Normal.X) * (float)(-0.0f - (float)(a2a.Y - (float)(a2a.Z * 0.0f))))) <= 0.0f )
       result = MOVE_WallRunningLeft;
@@ -770,7 +804,7 @@ fixed(var ptr1 =&v16.Velocity)
     TdPawn v3 = default; // edi
     int v4 = default; // esi
     int v5 = default; // eax
-    void (__thiscall **v6)(TdPawn , int, _DWORD, _DWORD); // ebp
+    //void (__thiscall **v6)(TdPawn , int, _DWORD, _DWORD); // ebp
     int v7 = default; // eax
     TdPawn v8 = default; // ecx
     int v9 = default; // eax
@@ -808,24 +842,25 @@ fixed(var ptr1 =&v16.Velocity)
       v32 = default;
       rotator_then_vec.Y = 0.0f;
       rotator_then_vec.Z = 0.0f;
-      LOBYTE(rotator_then_vec.X) = 2;
+      rotator_then_vec.X.LOBYTE(2);
       CallUFunction(v3.SetMove, v3, v5, &rotator_then_vec, 0);
     }
     else
     {
       if ( v3.VelocityMagnitude < 0.1f )
       {
-        v6 = (void (__thiscall **)(TdPawn , int, _DWORD, _DWORD))(v3.VfTableObject.Dummy + 244);
+        v3.FallingOffWall();
+        /*v6 = (void (__thiscall **)(TdPawn , int, _DWORD, _DWORD))(v3.VfTableObject.Dummy + 244);
         v7 = v3.FindFunctionChecked(FallingOffWall1, FallingOffWall2, 0);
-        (*v6)(v3, v7, 0, 0);
+        (*v6)(v3, v7, 0, 0);*/
         v8 = this.PawnOwner;
         if ( v8.Physics == PHYS_WallRunning )
-          v8.setPhysics( 2, 0, 0, 0, 1065353216);// setPhysics
+          v8.setPhysics( 2, default, new Vector(default, default, COERCE_FLOAT(1065353216)));// setPhysics
       }
-      if ( (this.PlayCameraHitWallEffect.AsBitfield(5) & 0x10) == 0 && this.MoveActiveTime > 0.30000001d )
+      if ( (this.PlayCameraHitWallEffect.AsBitfield(5) & 0x10) == default && this.MoveActiveTime > 0.30000001d )
       {
-fixed(var ptr1 =&this.WallNormal)
-        v9 = (ushort)E_DirToRotator( ptr1, (Rotator *)&rotator_then_vec).Yaw;
+fixed(Vector* ptr1 =&this.WallNormal)
+        v9 = (ushort)E_DirToRotator( ptr1, (Rotator *)&rotator_then_vec)->Yaw;
         if ( v9 > 0x7FFF )
           v9 = v9 - (0x10000);
         v10 = this.PawnOwner.MovementState;
@@ -839,7 +874,7 @@ fixed(var ptr1 =&this.WallNormal)
         }
         SetFromBitfield(ref this.PlayCameraHitWallEffect, 5, this.PlayCameraHitWallEffect.AsBitfield(5) | (0x10u));
       }
-      if ( (this.PlayCameraHitWallEffect.AsBitfield(5) & 2) != 0 )
+      if ( (this.PlayCameraHitWallEffect.AsBitfield(5) & 2) != default )
       {
         v11 = this.PawnOwner;
         v12 = v11.Velocity.X * v11.Velocity.X;
@@ -889,7 +924,7 @@ fixed(var ptr1 =&this.WallNormal)
         this.PawnOwner.Velocity.Y = v25 * v24;
         this.FrictionModifier = this.WallRunningHorisontalFriction;
       }
-      if ( (this.PlayCameraHitWallEffect.AsBitfield(5) & 4) == 0 )
+      if ( (this.PlayCameraHitWallEffect.AsBitfield(5) & 4) == default )
       {
         v26 = this.PawnOwner;
         if ( this.WallRunningVelocityStopLimit <= v26.Velocity.Z )
@@ -909,7 +944,7 @@ fixed(var ptr1 =&this.WallNormal)
           v26.FallingOffWall();
           v27 = this.PawnOwner;
           if ( v27.Physics == PHYS_WallRunning )
-            v27.setPhysics( 2, 0, 0, 0, 1065353216);// setPhysics
+            v27.setPhysics( 2, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));// setPhysics
         }
       }
     }

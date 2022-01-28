@@ -63,7 +63,7 @@ public partial class TdMove_Walking : TdPhysicsMove/*
 		}
 		if((PawnOwner.IsA("TdPlayerPawn") && ((int)PawnOwner.GetWeaponType()) == ((int)TdPawn.EWeaponType.EWT_Heavy/*1*/)) && ((int)PawnOwner.OldMovementState) == ((int)TdPawn.EMovement.MOVE_Landing/*20*/))
 		{
-			PawnOwner.PlayCustomAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, "JumpLand", 1.0f, 0.20f, 0.10f, false, true, false, default(bool?));
+			PawnOwner.PlayCustomAnim(TdPawn.CustomNodeType.CNT_Weapon/*7*/, "JumpLand", 1.0f, 0.20f, 0.10f, false, true, false, default(bool));
 			SetMoveTimer(0.20f, false, "OnBlendOutJumpLandTimer");
 		}
 	}

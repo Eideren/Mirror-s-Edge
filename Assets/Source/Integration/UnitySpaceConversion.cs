@@ -3,6 +3,7 @@
 	using V3 = UnityEngine.Vector3;
 	using UnityQuat = UnityEngine.Quaternion;
 	using Math = System.Math;
+	using static Source.DecFn;
 	
 	public static class V3Extension
 	{
@@ -48,6 +49,79 @@
 					W = v.w,
 				};
 			}
+			
+			public unsafe Quat( Matrix* M )
+			{
+				//const MeReal *const t = (MeReal *) tm;
+				float	s;
+
+				// Check diagonal (trace)
+				float tr = M->M[0, 0] + M->M[1, 1] + M->M[2, 2];
+
+				if (tr > 0.0f) 
+				{
+					float InvS = appInvSqrt(tr + 1f);
+					this.W = 0.5f * (1f / InvS);
+					s = 0.5f * InvS;
+
+					this.X = (M->M[1, 2] - M->M[2, 1]) * s;
+					this.Y = (M->M[2, 0] - M->M[0, 2]) * s;
+					this.Z = (M->M[0, 1] - M->M[1, 0]) * s;
+				} 
+				else 
+				{
+					// diagonal is negative
+					int i = 0;
+
+					if (M->M[1, 1] > M->M[0, 0])
+						i = 1;
+
+					if (M->M[2, 2] > M->M[i, i])
+						i = 2;
+
+					int* nxt = stackalloc int[3]{ 1, 2, 0 };
+					int j = nxt[i];
+					int k = nxt[j];
+
+					s = M->M[i, i] - M->M[j, j] - M->M[k, k] + 1.0f;
+
+					float InvS = appInvSqrt(s);
+
+					float* qt = stackalloc float[4];
+					qt[i] = 0.5f * (1f / InvS);
+
+					s = 0.5f * InvS;
+
+					qt[3] = (M->M[j, k] - M->M[k, j]) * s;
+					qt[j] = (M->M[i, j] + M->M[j, i]) * s;
+					qt[k] = (M->M[i, k] + M->M[k, i]) * s;
+
+					this.X = qt[0];
+					this.Y = qt[1];
+					this.Z = qt[2];
+					this.W = qt[3];
+				}
+			}
+			
+			public void ToAxisAndAngle(ref Vector Axis, ref float Angle)
+			{
+				Angle = 2f * appAcos(W);
+
+				float S = appSqrt(1f-(W*W));
+				if (S < 0.0001f) 
+				{ 
+					Axis.X = 1f;
+					Axis.Y = 0f;
+					Axis.Z = 0f;
+				} 
+				else 
+				{
+					Axis.X = X / S;
+					Axis.Y = Y / S;
+					Axis.Z = Z / S;
+				}
+			}
+			
 		}
 
 
@@ -60,6 +134,22 @@
 				return Abs(X)<Tolerance
 				       &&	Abs(Y)<Tolerance
 				       &&	Abs(Z)<Tolerance;
+			}
+			public Rotator Rotation()
+			{
+				const uint MAXWORD = 0xffffU;
+				Rotator R;
+
+				// Find yaw.
+				R.Yaw = appRound(appAtan2(Y,X) * (float)MAXWORD / (2f*PI));
+
+				// Find pitch.
+				R.Pitch = appRound(appAtan2(Z,appSqrt(X*X+Y*Y)) * (float)MAXWORD / (2f*PI));
+
+				// Find roll.
+				R.Roll = 0;
+
+				return R;
 			}
 		}
 
@@ -94,7 +184,17 @@
 				RotationYawPitchRoll( ref v, out var pitch, out var yaw, out var roll );
 				return new Rotator( -(int)Math.Round(pitch * convScaling), (int)Math.Round(yaw * convScaling), -(int)Math.Round(roll * convScaling) );
 			}
-		
+
+
+
+			public static unsafe explicit operator Quat( Rotator r )
+			{
+				Quat q = default;
+				return *r.Quaternion( &q );
+			}
+
+
+
 			static void RotationYawPitchRoll(ref UnityEngine.Quaternion rotation, out double pitch, out double yaw, out double roll)
 			{
 				var xx = (double)rotation.x * rotation.x;
@@ -147,6 +247,37 @@
 
 
 			public Vector Vector() => GetAxis( FRotationMatrix( this ), 0 );
+			
+			public unsafe Quat * Quaternion(Quat *out_data)
+			{
+				Matrix *v2; // eax
+				Matrix v4; // [esp+10h] [ebp-40h] BYREF
+
+				var c = this;
+				v2 = FRotationMatrix(&v4, &c);
+				*out_data = new Quat(v2);
+				return out_data;
+			}
+			
+			public unsafe Quat Quaternion()
+			{
+				Matrix *v2; // eax
+				Matrix v4; // [esp+10h] [ebp-40h] BYREF
+
+				var c = this;
+				v2 = FRotationMatrix(&v4, &c);
+				return new Quat(v2);
+			}
+			
+
+			public Rotator Denormalize()
+			{
+				Rotator Rot = this;
+				Rot.Pitch	= Rot.Pitch & 0xFFFF;
+				Rot.Yaw		= Rot.Yaw & 0xFFFF;
+				Rot.Roll	= Rot.Roll & 0xFFFF;
+				return Rot;
+			}
 		}
 	}
 }

@@ -1,6 +1,7 @@
 ﻿namespace MEdge.Source
 {
 	using System;
+	using System.Collections.Generic;
 	using System.Runtime.InteropServices;
 	using Core;
 	using Engine;
@@ -10,12 +11,21 @@
 	using Object = Core.Object;
 	using _E_struct_FVector = Core.Object.Vector;
 	using _E_struct_FRotator = Core.Object.Rotator;
+	using FLOAT = System.Single;
+	using INT = System.Int32;
+	using FVector = Core.Object.Vector;
+	using FVector4 = Core.Object.Vector4;
 
 	
-	public static class DecFn
+	public unsafe static class DecFn
 	{
+		public const float UCONST_ACTORMAXSTEPHEIGHT = 35.0f;
+		public const float UCONST_MINFLOORZ = 0.7f;
 		static System.Random _randomSource = new System.Random();
-		
+		public static float appAcos( FLOAT Value ) { return MathF.Acos( (Value<-1f) ? -1f : ((Value<1f) ? Value : 1f) ); }
+		public static float appSqrt( float f1 ) => (float)sqrt( f1 );
+		public static float appAtan2( float f1, float f2 ) => (float)atan2( f1, f2 );
+		public static int appRound( float f ) => Object.Round( f );
 		public static double fabs( double f ) => System.Math.Abs( f );
 		public static double pow( double x, double p ) => System.Math.Pow( x, p );
 		public static double sqrt( double f ) => System.Math.Sqrt( f );
@@ -25,31 +35,316 @@
 		public static double sin( double f ) => System.Math.Sin( f );
 		public static double cos( double f ) => System.Math.Cos( f );
 		public static int rand() => _randomSource.Next();
+		public static float appFrand() => (float)_randomSource.NextDouble();
 		public static double atan2( double y, double x ) => System.Math.Atan2( y, x );
 		
 		
 		public static short LOWORD( int i ) => (short)(i & 0b1111_1111_1111_1111);
-		public static unsafe byte LOBYTE( int i ) => *(byte*)&i;
-		public static unsafe sbyte SLOBYTE( int i ) => *(sbyte*)&i;
-		public static unsafe sbyte SLOBYTE( uint i ) => *(sbyte*)&i;
-		public static unsafe int LODWORD( float i ) => *(int*)&i;
-		public static unsafe float COERCE_FLOAT( int i ) => *(float*)&i;
+		public static short LOWORD( float f ) => LOWORD( *(int*)&f );
+		public static byte LOBYTE( int i ) => *(byte*)&i;
+		public static byte LOBYTE( uint i ) => *(byte*)&i;
+		public static byte HIBYTE( uint i ) => ((byte*) & i)[3];
+		public static sbyte SLOBYTE( int i ) => *(sbyte*)&i;
+		public static sbyte SLOBYTE( uint i ) => *(sbyte*)&i;
+		public static uint LODWORD( float i ) => *(uint*)&i;
+		public static int SLODWORD( float i ) => *(int*)&i;
+		public static float COERCE_FLOAT( int i ) => *(float*)&i;
+		public static byte BYTE2<T>( T x ) where T : unmanaged => BYTEn( x, 2 );
+		public static byte BYTEn<T>( T x, int n ) where T : unmanaged => ( * ( (byte*) & ( x ) + n ) );
+
+		public static bool AsBool( this int i ) => i != 0 ? true : false;
+		public static bool AsBool( this uint i ) => i != 0 ? true : false;
 
 
-
-		public static unsafe void LODWORD( this ref float i, int v )
+            
+		
+            
+		public static Matrix FTranslationMatrix(in Vector Delta)
 		{
-			#error
+			Matrix m = default;
+			m.XPlane.X = 1f;
+			m.YPlane.Y = 1f;
+			m.ZPlane.Z = 1f;
+                
+			m.WPlane.X = Delta.X;
+			m.WPlane.Y = Delta.Y;
+			m.WPlane.Z = Delta.Z;
+                
+			m.WPlane.W = 1f;
+			return m;
+		}
+		
+		public static Matrix FScaleMatrix(in FVector Scale)
+		{
+			return 
+			FMatrix(
+				FPlane( Scale.X, 0.0f, 0.0f, 0.0f ),
+				FPlane( 0.0f, Scale.Y, 0.0f, 0.0f ),
+				FPlane( 0.0f, 0.0f, Scale.Z, 0.0f ),
+				FPlane( 0.0f, 0.0f, 0.0f, 1.0f ) );
+		}
+		
+		public static Box GetBox(this BoxSphereBounds bsb)
+		{
+			return new Box(){ Min = bsb.Origin - bsb.BoxExtent, Max = bsb.Origin + bsb.BoxExtent, IsValid = 1 };
+		}
+		
+		public static FVector GetExtent( this Box bsb )
+		{
+			return 0.5f*(bsb.Max - bsb.Min);
+		}
+		public static void GetCenterAndExtents( this Box bsb, out FVector center, out FVector Extents )
+		{
+			Extents = bsb.GetExtent();
+			center = bsb.Min + Extents;
+		}
+
+		public static unsafe bool AsBool<T>( this T i ) where T : unmanaged, System.Enum
+		{
+			ulong l = default;
+			*(T*) & l = i;
+			return l != default;
 		}
 
 
 
-		public static unsafe uint* GMem_ptr
+		public static int AsInt( this bool i ) => i ? 1 : 0;
+		public static uint AsUInt( this bool i ) => i ? 1u : 0;
+
+
+
+		public static bool AllGreaterThan( this Vector thiss, float a2 )
 		{
-			get
+			return a2 > fabs(thiss.X) && a2 > fabs(thiss.Y) && a2 > fabs(thiss.Z);
+		}
+
+
+
+		public static void LODWORD( this ref float i, int v )
+		{
+			i = * (float*) & v;
+		}
+		public static void LODWORD( this ref float i, bool v )
+		{
+			float cpy = 0f;
+			( *(bool*) & cpy ) = v;
+			i = cpy;
+		}
+		public static void LODWORD( this ref float i, uint v )
+		{
+			i = * (float*) & v;
+		}
+		public static void LOBYTE( this ref float i, int v )
+		{
+			var cpy = i;
+			* (byte*) & cpy = (byte)v;
+			i = cpy;
+		}
+		public static void LOBYTE( this ref int i, int v )
+		{
+			var cpy = i;
+			* (byte*) & cpy = (byte)v;
+			i = cpy;
+		}
+		
+		public static INT appTrunc( FLOAT F )
+		{
+			return (INT)F;
+			//	return (INT)truncf(F);
+		}
+		
+		public static bool IsProbing( this Object obj, int ProbeName0, int ProbeName1 )
+		{
+			// AFAICT checks whether the given object has an implemented function of that name
+			return true;
+			/*return	(obj.ProbeName.GetIndex() <  NAME_PROBEMIN)
+			        ||		(obj.ProbeName.GetIndex() >= NAME_PROBEMAX)
+			        ||		(!StateFrame)
+			        ||		(StateFrame->ProbeMask & ((QWORD)1 << (ProbeName.GetIndex() - NAME_PROBEMIN)));*/
+		}
+
+
+
+		public static Vector* GetBoneAxis( this SkeletalMeshComponent thiss, Vector* ou, name n, EAxis axis )
+		{
+			* ou = thiss.GetBoneAxis( n, axis );
+			return ou;
+		}
+		public static Matrix* GetBoneMatrix( this SkeletalMeshComponent thiss, Matrix* ou, int index )
+		{
+			* ou = thiss.GetBoneMatrix( index );
+			return ou;
+		}
+
+
+
+		public static void TwoWallAdjust(in FVector DesiredDir, ref FVector Delta, in FVector HitNormal, in FVector OldHitNormal, FLOAT HitTime)
+		{
+			if ((OldHitNormal | HitNormal) <= 0f) //90 or less corner, so use cross product for dir
 			{
-				#error
+				FVector NewDir = (HitNormal ^ OldHitNormal);
+				NewDir = NewDir.SafeNormal();
+				Delta = (Delta | NewDir) * (1f - HitTime) * NewDir;
+				if ((DesiredDir | Delta) < 0f)
+					Delta = -1f * Delta;
 			}
+			else //adjust to new wall
+			{
+				Delta = (Delta - HitNormal * (Delta | HitNormal)) * (1f - HitTime);
+				if ((Delta | DesiredDir) <= 0f)
+					Delta = FVector(0f,0f,0f);
+			}
+		}
+
+
+
+		public static Matrix Mult( this Matrix Result, Matrix* mA, Matrix* mB )
+		{
+			//typedef FLOAT Float4x4[4][4];
+			//const Float4x4& A = *((const Float4x4*) Matrix1);
+			//const Float4x4& B = *((const Float4x4*) Matrix2);
+			ref var A = ref * mA;
+			ref var B = ref * mB;
+			Result[0, 0] = A[0, 0] * B[0, 0] + A[0, 1] * B[1, 0] + A[0, 2] * B[2, 0] + A[0, 3] * B[3, 0];
+			Result[0, 1] = A[0, 0] * B[0, 1] + A[0, 1] * B[1, 1] + A[0, 2] * B[2, 1] + A[0, 3] * B[3, 1];
+			Result[0, 2] = A[0, 0] * B[0, 2] + A[0, 1] * B[1, 2] + A[0, 2] * B[2, 2] + A[0, 3] * B[3, 2];
+			Result[0, 3] = A[0, 0] * B[0, 3] + A[0, 1] * B[1, 3] + A[0, 2] * B[2, 3] + A[0, 3] * B[3, 3];
+
+			Result[1, 0] = A[1, 0] * B[0, 0] + A[1, 1] * B[1, 0] + A[1, 2] * B[2, 0] + A[1, 3] * B[3, 0];
+			Result[1, 1] = A[1, 0] * B[0, 1] + A[1, 1] * B[1, 1] + A[1, 2] * B[2, 1] + A[1, 3] * B[3, 1];
+			Result[1, 2] = A[1, 0] * B[0, 2] + A[1, 1] * B[1, 2] + A[1, 2] * B[2, 2] + A[1, 3] * B[3, 2];
+			Result[1, 3] = A[1, 0] * B[0, 3] + A[1, 1] * B[1, 3] + A[1, 2] * B[2, 3] + A[1, 3] * B[3, 3];
+
+			Result[2, 0] = A[2, 0] * B[0, 0] + A[2, 1] * B[1, 0] + A[2, 2] * B[2, 0] + A[2, 3] * B[3, 0];
+			Result[2, 1] = A[2, 0] * B[0, 1] + A[2, 1] * B[1, 1] + A[2, 2] * B[2, 1] + A[2, 3] * B[3, 1];
+			Result[2, 2] = A[2, 0] * B[0, 2] + A[2, 1] * B[1, 2] + A[2, 2] * B[2, 2] + A[2, 3] * B[3, 2];
+			Result[2, 3] = A[2, 0] * B[0, 3] + A[2, 1] * B[1, 3] + A[2, 2] * B[2, 3] + A[2, 3] * B[3, 3];
+
+			Result[3, 0] = A[3, 0] * B[0, 0] + A[3, 1] * B[1, 0] + A[3, 2] * B[2, 0] + A[3, 3] * B[3, 0];
+			Result[3, 1] = A[3, 0] * B[0, 1] + A[3, 1] * B[1, 1] + A[3, 2] * B[2, 1] + A[3, 3] * B[3, 1];
+			Result[3, 2] = A[3, 0] * B[0, 2] + A[3, 1] * B[1, 2] + A[3, 2] * B[2, 2] + A[3, 3] * B[3, 2];
+			Result[3, 3] = A[3, 0] * B[0, 3] + A[3, 1] * B[1, 3] + A[3, 2] * B[2, 3] + A[3, 3] * B[3, 3];
+			return Result;
+			//memcpy( Result, &Temp, 16*sizeof(FLOAT) );
+		}
+		
+		
+		
+		
+		public static Matrix FRotationTranslationMatrix(in Rotator Rot, in FVector Origin)
+		{
+			Matrix M = default;
+			FLOAT	SR	= GMath.SinTab(Rot.Roll);
+			FLOAT	SP	= GMath.SinTab(Rot.Pitch);
+			FLOAT	SY	= GMath.SinTab(Rot.Yaw);
+			FLOAT	CR	= GMath.CosTab(Rot.Roll);
+			FLOAT	CP	= GMath.CosTab(Rot.Pitch);
+			FLOAT	CY	= GMath.CosTab(Rot.Yaw);
+
+			M[0,0]	= CP * CY;
+			M[0,1]	= CP * SY;
+			M[0,2]	= SP;
+			M[0,3]	= 0f;
+
+			M[1,0]	= SR * SP * CY - CR * SY;
+			M[1,1]	= SR * SP * SY + CR * CY;
+			M[1,2]	= - SR * CP;
+			M[1,3]	= 0f;
+
+			M[2,0]	= -( CR * SP * CY + SR * SY );
+			M[2,1]	= CY * SR - CR * SP * SY;
+			M[2,2]	= CR * CP;
+			M[2,3]	= 0f;
+
+			M[3,0]	= Origin.X;
+			M[3,1]	= Origin.Y;
+			M[3,2]	= Origin.Z;
+			M[3,3]	= 1f;
+			return M;
+		}
+
+
+
+		public static Object.Plane FPlane( float x, float y, float z, float w ) => new Object.Plane {X = x, Y = y, Z = z, W = w};
+		public static Matrix FMatrix( Object.Plane x, Object.Plane y, Object.Plane z, Object.Plane w ) => new Matrix {PlaneX = x, PlaneY = y, PlaneZ = z, PlaneW = w};
+
+
+		public static Matrix FInverseRotationMatrix( in Rotator Rot )
+		{
+			return (
+				FMatrix( // Yaw
+					FPlane( + GMath.CosTab( - Rot.Yaw ), + GMath.SinTab( - Rot.Yaw ), 0.0f, 0.0f ),
+					FPlane( - GMath.SinTab( - Rot.Yaw ), + GMath.CosTab( - Rot.Yaw ), 0.0f, 0.0f ),
+					FPlane( 0.0f, 0.0f, 1.0f, 0.0f ),
+					FPlane( 0.0f, 0.0f, 0.0f, 1.0f ) ) *
+				FMatrix( // Pitch
+					FPlane( + GMath.CosTab( - Rot.Pitch ), 0.0f, + GMath.SinTab( - Rot.Pitch ), 0.0f ),
+					FPlane( 0.0f, 1.0f, 0.0f, 0.0f ),
+					FPlane( - GMath.SinTab( - Rot.Pitch ), 0.0f, + GMath.CosTab( - Rot.Pitch ), 0.0f ),
+					FPlane( 0.0f, 0.0f, 0.0f, 1.0f ) ) *
+				FMatrix( // Roll
+					FPlane( 1.0f, 0.0f, 0.0f, 0.0f ),
+					FPlane( 0.0f, + GMath.CosTab( - Rot.Roll ), - GMath.SinTab( - Rot.Roll ), 0.0f ),
+					FPlane( 0.0f, + GMath.SinTab( - Rot.Roll ), + GMath.CosTab( - Rot.Roll ), 0.0f ),
+					FPlane( 0.0f, 0.0f, 0.0f, 1.0f ) )
+			);
+		}
+	
+
+
+		public static MEdge.Engine.MaterialInterface GetMaterial(this MEdge.Engine.MaterialInterface material, int/*EMaterialShaderPlatform*/ Platform)
+		{
+			NativeMarkers.MarkUnimplemented();
+			return material;
+			//pass the request to the fallback material if one exists and this is a sm2 platform
+			/*if (material.FallbackMaterial && Platform == 1)
+			{
+				return material.FallbackMaterial.GetMaterial(Platform);
+			}
+
+			const MaterialResource * MaterialResource = GetMaterialResource(Platform);
+
+			if(MaterialResource)
+			{
+				return this;
+			}
+			else
+			{
+				return GEngine ? GEngine->DefaultMaterial : NULL;
+			}*/
+		}
+
+
+
+		public static int* GMem_ptr => null;
+
+
+
+		public static float PointDistToLine( _E_struct_FVector* Point, _E_struct_FVector* Direction, _E_struct_FVector* Origin, _E_struct_FVector* OutClosestPoint )
+		{
+			Vector SafeDir = Direction->SafeNormal();
+			*OutClosestPoint = *Origin + (SafeDir * (Dot((*Point-*Origin), SafeDir)));
+			return (*OutClosestPoint-*Point).Size();
+		}
+
+
+
+		public static bool Encompasses( this Volume thiss, Vector vec )
+		{
+			NativeMarkers.MarkUnimplemented();
+			return false;
+			/*check(CollisionComponent);
+
+			CheckResult Hit = new(1f);
+			if (thiss.Brush != NULL)
+			{
+				//	debugf(TEXT("%s brush pointcheck %d at %f %f %f"),*GetName(),!Brush->PointCheck(Hit,this,	point, FVector(0.f,0.f,0.f), 0), point.X, point.Y,point.Z);
+				return !thiss.Brush->PointCheck(Hit,this,	NULL, point, FVector(0.f,0.f,0.f));
+			}
+			else
+			{
+				return (Cast<UBrushComponent>(CollisionComponent) != NULL) ? FALSE : !CollisionComponent->PointCheck(Hit, point, FVector(0.f, 0.f, 0.f), 0);
+			}*/
 		}
 
 
@@ -70,18 +365,100 @@
 			outputPtr.Roll = thisS.Roll - diffWith.Roll;
 			return outputPtr;
 		}
+		
+		
+		public static Vector* RotateVector(this Quat quat, Vector* vOut, Vector v)
+		{	
+			// (q.W*q.W-qv.qv)v + 2(qv.v)qv + 2 q.W (qv x v)
 
+			Vector qv = new Vector(quat.X, quat.Y, quat.Z);
+			*vOut = 2f * quat.W * (qv ^ v);
+			*vOut += ((quat.W * quat.W) - (qv | qv)) * v;
+			*vOut += (2f * (qv | v)) * qv;
 
-
-		public static unsafe void setPhysics( this TdPawn thiss, byte NewPhysics, int NewFloor, int NewFloorVX, int NewFloorVY, int NewFloorVZ )
+			return vOut;
+		}
+		
+		public static Vector* GetBoneLocation(this SkeletalMeshComponent mesh, Vector* vOut, name BoneName, /*optional */int? _Space = default) // 0 == World, 1 == Local (Component)
 		{
-			Debug.Assert(NewFloor == 0);
-			thiss.setPhysics(NewPhysics, null, new Vector(*(float*)&NewFloorVX, *(float*)&NewFloorVY, *(float*)&NewFloorVZ));
+			* vOut = mesh.GetBoneLocation( BoneName, _Space );
+			return vOut;
 		}
 
 
 
-		public static unsafe _E_struct_FVector * E_GetDefaultCollExtent(TdPawn thiss, _E_struct_FVector *a2)
+		public static float appInvSqrt(float x)
+		{
+			return 1f / MathF.Sqrt( x );
+		}
+
+
+
+		public static PhysicsVolume E_TryFindPhysicsVolumeAtThisLocation_Maybe( _E_struct_FVector vecArg, Object type )
+		{
+			NativeMarkers.MarkUnimplemented();
+			return null;
+		}
+
+
+
+		public static int GMem;
+		public static int FMemMark_Maybe => GMem;
+		/*public static DecFn.CheckResult* MultiLineCheck( this IUWorld world, ref int Mem, in Object.Vector End, in Object.Vector Start, in Object.Vector Extent, uint TraceFlags, Actor SourceActor, int dummy )
+		{
+			if( dummy != 0 )
+				throw new NotImplementedException();
+			
+			return world.MultiLineCheck( ref Mem, End, Start, Extent, TraceFlags, SourceActor, 0 );
+		}*/
+		
+		public static FVector4 TransformFVector(this Matrix thiss, in FVector V)
+		{
+			return TransformFVector4(thiss, new FVector4(V.X,V.Y,V.Z,1.0f));
+		}
+
+
+
+		public static void FMemMark_Pop_Maybe(ref int Mem, int Mark)
+		{
+			
+		}
+
+
+
+		public static void qmemcpy(ref CheckResult dest, CheckResult source, uint length)
+		{
+			if(length != 0x4Cu)
+				throw new NotImplementedException();
+			CheckResult.Overwrite(ref dest, source);
+		}
+		public static void qmemcpy<T>(ref T dest, T source, int length) where T : unmanaged
+		{
+			if(length != sizeof(T))
+				throw new NotImplementedException();
+			dest = source;
+		}
+
+
+
+		public static Object GetDefaultObject( this Class c, int bForce )
+		{
+			if(bForce != 0)
+				throw new NotImplementedException();
+			return c.DefaultAs<Object>();
+		}
+
+
+
+		/*public static void setPhysics( this TdPawn thiss, byte NewPhysics, int NewFloor, int NewFloorVX, int NewFloorVY, int NewFloorVZ )
+		{
+			Debug.Assert(NewFloor == 0);
+			thiss.setPhysics(NewPhysics, null, new Vector(*(float*)&NewFloorVX, *(float*)&NewFloorVY, *(float*)&NewFloorVZ));
+		}*/
+
+
+
+		public static _E_struct_FVector * E_GetDefaultCollExtent(TdPawn thiss, _E_struct_FVector *a2)
 		{
 			CylinderComponent v3; // eax
 			float v4; // xmm0_4
@@ -113,7 +490,7 @@
 		}
 		
 		
-		public static unsafe _E_struct_FRotator * E_DirToRotator(_E_struct_FVector *thiss, _E_struct_FRotator *out_a)
+		public static _E_struct_FRotator * E_DirToRotator(_E_struct_FVector *thiss, _E_struct_FRotator *out_a)
 		{
 			double v2; // st5
 			double v4; // st4
@@ -130,7 +507,7 @@
 			return out_a;
 		}
 		
-		public static unsafe _E_struct_FRotator * E_ClipAmountOfTurns(_E_struct_FRotator *thiss, _E_struct_FRotator *a5)
+		public static _E_struct_FRotator * E_ClipAmountOfTurns(_E_struct_FRotator *thiss, _E_struct_FRotator *a5)
 		{
 			_E_struct_FRotator *result; // eax
 			int v3; // edx
@@ -172,62 +549,38 @@
 		
 		
 		
-		public static unsafe _E_struct_FVector * GetCylinderExtent(this Actor thiss, _E_struct_FVector *a2)
+		public static _E_struct_FVector * GetCylinderExtent(this Actor thiss, _E_struct_FVector *a2)
 		{
-			CylinderComponent v3; // ecx
-			_E_struct_FVector *result; // eax
-			float v5; // xmm0_4
-			float v6; // xmm0_4
-			float v7; // [esp+8h] [ebp-8h] BYREF
-			float v8; // [esp+Ch] [ebp-4h] BYREF
-
-			v3 = (thiss.CollisionComponent) as CylinderComponent;
-			if ( v3 )
-			{
-				result = a2;
-				v5 = v3.CollisionRadius;
-				a2->Z = v3.CollisionHeight;
-				a2->X = v5;
-				a2->Y = v5;
-			}
-			else
-			{
-				(*(void (__thiscall **)(_E_struct_AActor *, float *, float *))(this->VfTableObject.Dummy + 300))(this, &v7, &v8);// GetBoundingCylinder
-				result = a2;
-				v6 = v7;
-				a2->X = v7;
-				a2->Y = v6;
-				a2->Z = v8;
-			}
-			return result;
+			* a2 = thiss.GetCylinderExtent();
+			return a2;
 		}
 		
 		
 		
-		public static unsafe void E_FLedgeHitInfo_FillWith(TdPawn.LedgeHitInfo *a1, CheckResult *a2, _E_struct_FVector *a3, _E_struct_FVector a4, _E_struct_FVector a9)
+		public static void E_FLedgeHitInfo_FillWith(ref TdPawn.LedgeHitInfo a1, CheckResult *a2, _E_struct_FVector *a3, _E_struct_FVector a4, _E_struct_FVector a9)
 		{
 			float v5; // ecx
-			int v6; // ecx
+			uint v6; // ecx
 			PrimitiveComponent v7; // ecx
-			int v8; // ecx
-			int v9; // ecx
+			uint v8; // ecx
+			uint v9; // ecx
 
-			a1->LedgeNormal = a4;
-			a1->LedgeLocation.X = a3->X;
-			a1->LedgeLocation.Y = a3->Y;
+			a1.LedgeNormal = a4;
+			a1.LedgeLocation.X = a3->X;
+			a1.LedgeLocation.Y = a3->Y;
 			v5 = a3->Z;
-			SetFromBitfield(ref a1->FeetExcluded, 2, a1->FeetExcluded.AsBitfield(2) & ~3);
-			a1->MoveNormal.X = a9.X;
-			a1->LedgeLocation.Z = v5;
-			a1->MoveNormal.Y = a9.Y;
-			a1->MoveNormal.Z = a9.Z;
-			a1->MoveActor = default;
+			SetFromBitfield(ref a1.FeetExcluded, 2, a1.FeetExcluded.AsBitfield(2) & ~3u);
+			a1.MoveNormal.X = a9.X;
+			a1.LedgeLocation.Z = v5;
+			a1.MoveNormal.Y = a9.Y;
+			a1.MoveNormal.Z = a9.Z;
+			a1.MoveActor = default;
 			if( a2->Actor )
 			{
-				v6 = a1->FeetExcluded.AsBitfield(2) ^ ( (byte)a1->FeetExcluded.AsBitfield(2) ^ (byte)( a1->FeetExcluded.AsBitfield(2) | ( a2->Actor.bExludeHandMoves.AsBitfield(32) >> 1 ) )) & 1;
-				SetFromBitfield(ref a1->FeetExcluded, 2, v6);
-				SetFromBitfield(ref a1->FeetExcluded, 2, v6 ^ ( (byte)v6 ^ (byte)( v6 | ( 2 * a2->Actor.bExludeHandMoves.AsBitfield(32) ) )) & 2);
-				a1->MoveActor = a2->Actor;
+				v6 =(uint)(a1.FeetExcluded.AsBitfield(2) ^ ( (byte)a1.FeetExcluded.AsBitfield(2) ^ (byte)( a1.FeetExcluded.AsBitfield(2) | ( a2->Actor.bExludeHandMoves.AsBitfield(32) >> 1 ) )) & 1u);
+				SetFromBitfield(ref a1.FeetExcluded, 2, v6);
+				SetFromBitfield(ref a1.FeetExcluded, 2, (uint)(v6 ^ ( (byte)v6 ^ (byte)( v6 | ( 2u * a2->Actor.bExludeHandMoves.AsBitfield(32) ) )) & 2u));
+				a1.MoveActor = a2->Actor;
 			}
 
 			v7 = a2->Component;
@@ -235,18 +588,18 @@
 			{
 				if( v7.Owner )
 				{
-					v8 = a1->FeetExcluded.AsBitfield(2) ^ ( (byte)a1->FeetExcluded.AsBitfield(2) ^ (byte)( a1->FeetExcluded.AsBitfield(2) | ( v7.Owner.bExludeHandMoves.AsBitfield(32) >> 1 ) )) & 1;
-					SetFromBitfield(ref a1->FeetExcluded, 2, v8);
-					SetFromBitfield(ref a1->FeetExcluded, 2, v8 ^ ( (byte)v8 ^ (byte)( v8 | ( 2 * a2->Component.Owner.bExludeHandMoves.AsBitfield(32) ) )) & 2);
-					a1->MoveActor = a2->Component.Owner;
+					v8 = (uint)(a1.FeetExcluded.AsBitfield(2) ^ ( (byte)a1.FeetExcluded.AsBitfield(2) ^ (byte)( a1.FeetExcluded.AsBitfield(2) | ( v7.Owner.bExludeHandMoves.AsBitfield(32) >> 1 ) )) & 1);
+					SetFromBitfield(ref a1.FeetExcluded, 2, v8);
+					SetFromBitfield(ref a1.FeetExcluded, 2, (uint)(v8 ^ ( (byte)v8 ^ (byte)( v8 | ( 2 * a2->Component.Owner.bExludeHandMoves.AsBitfield(32) ) )) & 2));
+					a1.MoveActor = a2->Component.Owner;
 				}
 			}
 
 			if( a2->Component )
 			{
-				v9 = a1->FeetExcluded.AsBitfield(2) ^ ( (byte)a1->FeetExcluded.AsBitfield(2) ^ (byte)( a1->FeetExcluded.AsBitfield(2) | ( a2->Component.bUseViewOwnerDepthPriorityGroup.AsBitfield(21) >> 9 ) )) & 1;
-				SetFromBitfield(ref a1->FeetExcluded, 2, v9);
-				SetFromBitfield(ref a1->FeetExcluded, 2, v9 ^ ( (byte)v9 ^ (byte)( v9 | ( a2->Component.bUseViewOwnerDepthPriorityGroup.AsBitfield(21) >> 7 ) )) & 2);
+				v9 = (uint)(a1.FeetExcluded.AsBitfield(2) ^ ( (byte)a1.FeetExcluded.AsBitfield(2) ^ (byte)( a1.FeetExcluded.AsBitfield(2) | ( a2->Component.bUseViewOwnerDepthPriorityGroup.AsBitfield(21) >> 9 ) )) & 1u);
+				SetFromBitfield(ref a1.FeetExcluded, 2, v9);
+				SetFromBitfield(ref a1.FeetExcluded, 2, (uint)(v9 ^ ( (byte)v9 ^ (byte)( v9 | ( a2->Component.bUseViewOwnerDepthPriorityGroup.AsBitfield(21) >> 7 ) )) & 2));
 			}
 		}
 
@@ -254,7 +607,7 @@
 
 
 
-		public static unsafe Vector* Vector( this Rotator rotator, Vector* output )
+		public static Vector* Vector( this Rotator rotator, Vector* output )
 		{
 			* output = rotator.Vector();
 			return output;
@@ -262,11 +615,16 @@
 
 
 
-		public static IUWorld GWorld => ;
+		public static IUWorld GWorld
+		{
+			get;
+			private set;
+		}
+
+		public static void SetWorld( IUWorld w ) => GWorld = w;
 
 
-
-		public static unsafe void SetFromBitfield(ref bool b, int span, uint bitfield)
+		public static void SetFromBitfield(ref bool b, int span, uint bitfield)
 		{
 			fixed( bool* v = &b )
 			{
@@ -277,15 +635,15 @@
 			}
 		}
 		
-		public static unsafe uint AsBitfield(ref this bool b, int span)
+		public static uint AsBitfield(ref this bool b, int span)
 		{
 			fixed( bool* v = & b )
 			{
-				int output = 0;
+				uint output = 0;
 				for( int i = 0; i < span; i++ )
 				{
 					if( v[ i ] )
-						output |= 1 << i;
+						output |= 1u << i;
 				}
 
 				return output;
@@ -294,7 +652,98 @@
 		
 		
 		
-		public static unsafe int E_GetHeadingAngle(_E_struct_FVector *a1)
+		public static float Eval( this InterpCurveFloat icf, float InVal, ref float Default, int* PtIdx = null )
+		{
+			ref var Points = ref icf.Points;
+			int NumPoints = Points.Num();
+
+			// If no point in curve, return the Default value we passed in.
+			if( NumPoints == 0 )
+			{
+				if( PtIdx != default )
+				{
+					*PtIdx = -1;
+				}
+				return Default;
+			}
+
+			// If only one point, or before the first point in the curve, return the first points value.
+			if( NumPoints < 2 || (InVal <= Points[0].InVal) )
+			{
+				if( PtIdx != default )
+				{
+					*PtIdx = 0;
+				}
+				return Points[0].OutVal;
+			}
+
+			// If beyond the last point in the curve, return its value.
+			if( InVal >= Points[NumPoints-1].InVal )
+			{
+				if( PtIdx != default )
+				{
+					*PtIdx = NumPoints - 1;
+				}
+				return Points[NumPoints-1].OutVal;
+			}
+
+			// Somewhere with curve range - linear search to find value.
+			for( INT i=1; i<NumPoints; i++ )
+			{	
+				if( InVal < Points[i].InVal )
+				{
+					FLOAT Diff = Points[i].InVal - Points[i-1].InVal;
+
+					if( Diff > 0f && Points[i-1].InterpMode != EInterpCurveMode.CIM_Constant )
+					{
+						FLOAT Alpha = (InVal - Points[i-1].InVal) / Diff;
+
+						if( PtIdx != default )
+						{
+							*PtIdx = i - 1;
+						}
+
+						if( Points[i-1].InterpMode == EInterpCurveMode.CIM_Linear )
+						{
+							return Lerp( Points[i-1].OutVal, Points[i].OutVal, Alpha );
+						}
+						else
+						{
+							throw new NotImplementedException();
+							/*if(icf.InterpMethod == EInterpMethodType.IMT_UseBrokenTangentEval)
+							{
+								return CubicInterp( Points[i-1].OutVal, Points[i-1].LeaveTangent, Points[i].OutVal, Points[i].ArriveTangent, Alpha );
+							}
+							else
+							{
+								return CubicInterp( Points[i-1].OutVal, Points[i-1].LeaveTangent * Diff, Points[i].OutVal, Points[i].ArriveTangent * Diff, Alpha );
+							}*/
+						}
+					}
+					else
+					{
+						if( PtIdx != default )
+						{
+							*PtIdx = i - 1;
+						}
+
+						return Points[i-1].OutVal;
+					}
+				}
+			}
+
+			// Shouldn't really reach here.
+			if( PtIdx != default )
+			{
+				*PtIdx = NumPoints - 1;
+			}
+
+			return Points[NumPoints-1].OutVal;
+		}
+		
+		
+		
+		public static int E_GetHeadingAngle(_E_struct_FVector *a1)
 		{
 			float v1; // xmm1_4
 			float v2; // xmm0_4
@@ -326,7 +775,7 @@
 
 
 
-		public static unsafe void CallUFunction<T>(System.Func<T> func, Object target, int idk, T* parameters, int idk2) where T : unmanaged
+		public static void CallUFunction<T>(System.Func<T> func, Object target, int idk, T* parameters, int idk2) where T : unmanaged
 		{
 			*parameters = func();
 		}
@@ -336,7 +785,7 @@
 			func();
 		}
 		
-		public static unsafe void CallUFunction<T>( TdPawn.SetMove_del func, object target, int idk, T* parameters, int idk2 ) where T : unmanaged
+		public static void CallUFunction<T>( TdPawn.SetMove_del func, object target, int idk, T* parameters, int idk2 ) where T : unmanaged
 		{
 			if( typeof(T) != typeof(Object.Vector) && typeof(T) != typeof(byte) )
 				throw new NotImplementedException("Haven't yet looked at how those other parameters are passed in");
@@ -352,24 +801,65 @@
 			func( (TdPawn.EMovement)(*((byte*)&(parameters))), false, false );
 		}
 		
-		public static unsafe void CallUFunction( Action<bool?> func, object target, int idk, int* parameters, int idk2 )
+		public static void CallUFunction( Action<bool?> func, object target, int idk, int* parameters, int idk2 )
 		{
 			func.Invoke(*parameters != 0);
 		}
 
 
 
-		public static unsafe Matrix* FRotationMatrix( Matrix* allocPtr, Rotator* rRef )
+		public static _QWORD __PAIR64__( int a, int b ) => new _QWORD( a, b );
+		public static _QWORD __PAIR64__( uint a, uint b ) => new _QWORD( (int)a, (int)b );
+		public static Rotator FRotator( int i ) => new Rotator( i, i, i );
+		public static Rotator FRotator( int i, int i2, int i3 ) => new Rotator( i, i2, i3 );
+		public static Vector FVector( float f ) => new Vector( f, f, f );
+		public static Vector FVector( float f, float f2, float f3 ) => new Vector( f, f2, f3 );
+
+		public static float Size2D( this FVector v ) => MathF.Sqrt( v.X * v.X + v.Y * v.Y );
+
+		public static Pawn GetAPawn( this Actor a ) => a as Pawn;
+		
+		
+		// MAGIC NUMBERS
+		public const FLOAT MAXSTEPSIDEZ = 0.08f;	// maximum z value for step side normal (if more, then treat as unclimbable)
+
+// range of acceptable distances for pawn cylinder to float above floor when walking
+		public const FLOAT MINFLOORDIST = 1.9f;
+		public const FLOAT MAXFLOORDIST = 2.4f;
+		public const FLOAT CYLINDERREPULSION = 2.2f;	// amount taken off trace dist for cylinders
+
+		public const FLOAT LEDGECHECKTHRESHOLD = 4f;	// used in determining if pawn is going off ledge
+		public const FLOAT MAXSTEPHEIGHTFUDGE = 2f;	
+		public const FLOAT SLOWVELOCITYSQUARED = 100f;// velocity threshold (used for deciding to stop)
+		public const FLOAT SHORTTRACETESTDIST = 100f;
+		public const FLOAT LADDEROUTPUSH = 3f;
+		public const FLOAT FASTWALKSPEED = 100f;		// ~4.5 MPH
+		public const FLOAT SWIMBOBSPEED = -80f;
+		public const FLOAT MINSTEPSIZESQUARED = 144f;
+
+
+
+		
+		public static unsafe bool MoveActor( this IUWorld w, Actor Actor, ref Object.Vector Delta, ref Object.Rotator NewRotation, uint MoveFlags, ref Source.DecFn.CheckResult Hit )
 		{
-			* allocPtr = Core.Object.FRotationMatrix( * rRef );
-			return allocPtr;
+			return w.MoveActor( Actor, Delta, NewRotation, MoveFlags, ref Hit );
 		}
 
 
 
-		public static _QWORD __PAIR64__( int a, int b ) => new _QWORD( a, b );
-		
-		
+		public static unsafe bool SingleLineCheck( this IUWorld w, ref DecFn.CheckResult a2, Actor a3, ref Object.Vector a4, ref Object.Vector a5, int a6, ref Object.Vector a7, int a8 = 0 )
+		{
+			return w.SingleLineCheck(ref a2, a3, ref a4, ref a5, a6, ref a7, a8);
+		}
+
+
+
+		/*public static void setPhysics( this Actor actor, byte NewPhysics, Actor NewFloor = null, FVector? NewFloorV = null )
+		{
+			actor.setPhysics( NewPhysics, NewFloor, NewFloorV ?? FVector( 0, 0, 1 ) );
+		}*/
+
+
 
 		[StructLayout( LayoutKind.Sequential, Size = 8)]
 		public struct _QWORD
@@ -401,118 +891,140 @@
 
 
 
+
+
+
 		public struct CheckResult// : public FIteratorActorList
-        {
-	        #error
-	        public unsafe CheckResult * Next
+		{
+			static internalCheckResult[] _buffer = new internalCheckResult[4];
+			static int _allocated = 1;
+			static List<IntPtr> _pinnedResults = new ();
+
+
+
+			struct internalCheckResult // : public FIteratorActorList
+			{
+				public unsafe CheckResult* Next;
+				public Actor Actor;
+				public Object.Vector Location;
+				public Object.Vector Normal;
+				public float Time;
+				public int Item;
+				public MaterialInterface Material;
+				public PhysicalMaterial PhysMaterial;
+				public PrimitiveComponent Component;
+				public name BoneName;
+				public Level Level;
+				public int LevelIndex;
+				public bool bStartPenetrating;
+			}
+			
+			int _indexInBuffer;
+
+
+
+			public unsafe CheckResult* Next
+			{
+				get => GetInternalRep.Next;
+				set
+				{
+					if(value != default)
+						throw new Exception();
+					GetInternalRep.Next = default;
+				}
+			}
+			public ref Actor Actor => ref GetInternalRep.Actor;
+			public ref Object.Vector Location => ref GetInternalRep.Location;
+			public ref Object.Vector Normal => ref GetInternalRep.Normal;
+			public ref float Time => ref GetInternalRep.Time;
+			public ref int Item => ref GetInternalRep.Item;
+			public ref MaterialInterface Material => ref GetInternalRep.Material;
+			public ref PhysicalMaterial PhysMaterial => ref GetInternalRep.PhysMaterial;
+			public ref PrimitiveComponent Component => ref GetInternalRep.Component;
+			public ref name BoneName => ref GetInternalRep.BoneName;
+			public ref Level Level => ref GetInternalRep.Level;
+			public ref int LevelIndex => ref GetInternalRep.LevelIndex;
+			public ref bool bStartPenetrating => ref GetInternalRep.bStartPenetrating;
+			
+
+
+			ref internalCheckResult GetInternalRep
+			{
+				get
+				{
+					if( _indexInBuffer == 0 )
+					{
+						_indexInBuffer = Alloc();
+						Debug.Assert(_indexInBuffer != 0, "index should not be zero");
+					}
+
+					return ref _buffer[ _indexInBuffer ];
+				}
+			}
+
+
+
+			public static void Overwrite( ref CheckResult dest, in CheckResult source )
+			{
+				dest.GetInternalRep = source.GetInternalRep;
+			}
+
+
+
+
+			static int Alloc()
+			{
+				var output = _allocated;
+				_allocated++;
+				if( _allocated > _buffer.Length )
+				{
+					Debug.Assert(_allocated > 4096, "Clear() should be called every frame");
+					var newAllocated = new internalCheckResult[ _allocated * _allocated ];
+					Array.Copy(_buffer, newAllocated, _allocated);
+					_buffer = newAllocated;
+				}
+
+				return output;
+			}
+
+
+
+			public void AssignNext( CheckResult data )
+			{
+				int len = Marshal.SizeOf(typeof(CheckResult));
+				IntPtr mem = Marshal.AllocCoTaskMem(len);
+				_pinnedResults.Add(mem);
+				var newPtr = (CheckResult*) mem;
+				* newPtr = data;
+				GetInternalRep.Next = newPtr;
+			}
+
+
+
+			public static void Clear()
+			{
+				_allocated = 1; // zero is 
+				Array.Clear(_buffer, 0, _buffer.Length);
+				foreach( IntPtr ptr in _pinnedResults )
+				{
+					Marshal.FreeCoTaskMem(ptr);
+				}
+				_pinnedResults.Clear();
+			}
+
+
+
+
+
+			public unsafe CheckResult( FLOAT InTime ) : this( InTime, null )
 	        {
-		        get
-		        {
-			        return default;
-		        }
-		        set
-		        {
-			        
-		        }
 	        }
 
-	        public Actor Actor
-	        {
-		        get
-		        {
-			        return default;
-		        }
-		        set
-		        {
-			        
-		        }
-	        }
-	        // Variables.
-	        public Object.Vector Location; // Location of the hit in coordinate system of the returner.
-	        public Object.Vector Normal; // Normal vector in coordinate system of the returner. Zero=none.
-	        public float Time; // Time until hit, if line check.
-	        public int Item; // Primitive data item which was hit, INDEX_NONE=none.
-	        public MaterialInterface Material
-	        {
-		        get
-		        {
-			        return default;
-		        }
-		        set
-		        {
-			        
-		        }
-	        }	// Material of the item which was hit.
-	        public PhysicalMaterial	PhysMaterial
-	        {
-		        get
-		        {
-			        return default;
-		        }
-		        set
-		        {
-			        
-		        }
-	        } // Physical material that was hit
-	        public PrimitiveComponent	Component
-	        {
-		        get
-		        {
-			        return default;
-		        }
-		        set
-		        {
-			        
-		        }
-	        }	// PrimitiveComponent that the check hit.
-	        public name BoneName
-	        {
-		        get
-		        {
-			        return default;
-		        }
-		        set
-		        {
-			        
-		        }
-	        }	// Name of bone we hit (for skeletal meshes).
-	        public Level Level
-	        {
-		        get
-		        {
-			        return default;
-		        }
-		        set
-		        {
-			        
-		        }
-	        }		// Level that was hit in case of BSPLineCheck
 
 
-	        public int LevelIndex; // Index of the level that was hit in the case of BSP checks.
-
-	        /** This line check started penetrating the primitive. */
-	        public bool						bStartPenetrating;
-
-	        // Functions.
-	        /*FCheckResult()
-		        : Location	(0,0,0)
-		        , Normal	(0,0,0)
-		        , Time		(0.0f)
-		        , Item		(INDEX_NONE)
-		        , Material	(NULL)
-		        , PhysMaterial( NULL)
-		        , Component	(NULL)
-		        , BoneName	(NAME_None)
-		        , Level		(NULL)
-		        , LevelIndex	(INDEX_NONE)
-		        , bStartPenetrating	(FALSE)
-	        {}
-
-
-	        FCheckResult( FLOAT InTime, FCheckResult* InNext=NULL )
-		        :	FIteratorActorList( InNext, NULL )
-		        ,	Location	(0,0,0)
+	        public unsafe CheckResult( FLOAT InTime, CheckResult* InNext )
+		        /*:	FIteratorActorList( InNext, NULL )
+	        ,	Location	(0,0,0)
 		        ,	Normal		(0,0,0)
 		        ,	Time		(InTime)
 		        ,	Item		(INDEX_NONE)
@@ -522,20 +1034,75 @@
 		        ,	BoneName	(NAME_None)
 		        ,	Level		(NULL)
 		        ,	LevelIndex	(INDEX_NONE)
-		        ,	bStartPenetrating	(FALSE)
-	        {}
-
-
-	        FCheckResult*& GetNext() const
-	        { 
-		        return *(FCheckResult**)&Next; 
+		        , bStartPenetrating( FALSE )*/
+	        {
+		        this = default;
+		        Time = InTime;
+		        Next = InNext;
 	        }
 
 
-	        static QSORT_RETURN CDECL CompareHits( const FCheckResult* A, const FCheckResult* B )
-	        { 
-		        return A->Time<B->Time ? -1 : A->Time>B->Time ? 1 : 0; 
-	        }*/
+
+	        public CheckResult* GetNext() => Next;
         }
+
+
+
+		public struct FMemMark
+		{
+			public FMemMark( int mem )
+			{
+			}
+
+
+
+			public void Pop()
+			{
+			}
+		}
+
+
+
+		[System.Flags]
+		public enum ETraceFlags
+		{
+			// Bitflags.
+			TRACE_Pawns					= 0x00001, // Check collision with pawns.
+			TRACE_Movers				= 0x00002, // Check collision with movers.
+			TRACE_Level					= 0x00004, // Check collision with BSP level geometry.
+			TRACE_Volumes				= 0x00008, // Check collision with soft volume boundaries.
+			TRACE_Others				= 0x00010, // Check collision with all other kinds of actors.
+			TRACE_OnlyProjActor			= 0x00020, // Check collision with other actors only if they are projectile targets
+			TRACE_Blocking				= 0x00040, // Check collision with other actors only if they block the check actor
+			TRACE_LevelGeometry			= 0x00080, // Check collision with other actors which are static level geometry
+			TRACE_ShadowCast			= 0x00100, // Check collision with shadow casting actors
+			TRACE_StopAtAnyHit			= 0x00200, // Stop when find any collision (for visibility checks)
+			TRACE_SingleResult			= 0x00400, // Stop when find guaranteed first nearest collision (for SingleLineCheck)
+			TRACE_Material				= 0x00800, // Request that Hit.Material return the material the trace hit.
+			TRACE_Visible				= 0x01000,
+			TRACE_Terrain				= 0x02000, // Check collision with terrain
+			TRACE_Tesselation			= 0x04000, // Check collision against highest tessellation level (not valid for box checks)  (no longer used)
+			TRACE_PhysicsVolumes		= 0x08000, // Check collision with physics volumes
+			TRACE_TerrainIgnoreHoles	= 0x10000, // Ignore terrain holes when checking collision
+			TRACE_ComplexCollision		= 0x20000, // Ignore simple collision on static meshes and always do per poly
+			TRACE_AllComponents			= 0x40000, // Don't discard collision results of actors that have already been tagged.  Currently adhered to only by ActorOverlapCheck.
+
+			// Combinations.
+			TRACE_Hash					= TRACE_Pawns	|	TRACE_Movers |	TRACE_Volumes	|	TRACE_Others			|	TRACE_Terrain	|	TRACE_LevelGeometry,
+			TRACE_Actors				= TRACE_Pawns	|	TRACE_Movers |	TRACE_Others	|	TRACE_LevelGeometry		|	TRACE_Terrain,
+			TRACE_World					= TRACE_Level	|	TRACE_Movers |	TRACE_Terrain	|	TRACE_LevelGeometry,
+			TRACE_AllColliding			= TRACE_Level	|	TRACE_Actors |	TRACE_Volumes,
+			TRACE_ProjTargets			= TRACE_AllColliding	| TRACE_OnlyProjActor,
+			TRACE_AllBlocking			= TRACE_Blocking		| TRACE_AllColliding,
+		};
+		
+		[System.Flags]
+		public enum EMoveFlags
+		{
+			// Bitflags.
+			MOVE_IgnoreBases		= 0x00001, // ignore collisions with things the Actor is based on
+			MOVE_NoFail				= 0x00002, // ignore conditions that would normally cause MoveActor() to abort (such as encroachment)
+			MOVE_TraceHitMaterial	= 0x00004, // figure out material was hit for any collisions
+		};
 	}
 }

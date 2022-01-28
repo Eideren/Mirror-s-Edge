@@ -1,18 +1,34 @@
 ﻿namespace MEdge.Core
 {
+	using System;
+
+
+
 	public partial class Object
     {
-	    protected const float PI = (3.1415926535897932f);
-	    protected const float SMALL_NUMBER = (1e-8f);
-	    protected const float KINDA_SMALL_NUMBER = (1e-4f);
-	    protected const float BIG_NUMBER = (3.4e+38f);
-	    protected const float EULERS_NUMBER = (2.71828182845904523536f);
+	    public const float PI = (3.1415926535897932f);
+	    public const float SMALL_NUMBER = (1e-8f);
+	    public const float KINDA_SMALL_NUMBER = (1e-4f);
+	    public const float BIG_NUMBER = (3.4e+38f);
+	    public const float EULERS_NUMBER = (2.71828182845904523536f);
+	    
+	    const int ANGLE_SHIFT = 2;		// Bits to right-shift to get lookup value.
+		const int ANGLE_BITS = 14;		// Number of valid bits in angles.
+		const int NUM_ANGLES = 16384; 	// Number of angles that are in lookup table.
+		const int ANGLE_MASK =  (((1<<ANGLE_BITS)-1)<<(16-ANGLE_BITS));
 	    
         public static float Abs(float f) => f < 0 ? -f : f;
+        public static int Abs(int f) => f < 0 ? -f : f;
         public static float Cos(float f) => (float)System.Math.Cos(f);
         public static float Sin(float f) => (float)System.Math.Sin(f);
         public static float Sqrt(float f) => (float)System.Math.Sqrt(f);
         public static float Square( float f ) => f * f;
+
+
+
+        public static int ReduceAngle( int Angle ) => Angle & ANGLE_MASK;
+
+
 
         // Export UObject::execRand(FFrame&, void* const)
         /// <summary> Returns a number between and including 0 to <paramref name="max"/> excluding </summary>
@@ -51,7 +67,7 @@
         public static float Tan(float f) => (float)System.Math.Tan(f);
 
         // Export UObject::execRound(FFrame&, void* const)
-        public /*native(199) final function */static int Round( float A ) => (int)System.Math.Round( (double)A );
+        public /*native(199) final function */static int Round( float A ) => (int)System.Math.Round( (double)A, MidpointRounding.AwayFromZero/*I think ?*/ );
 
 
 
@@ -209,12 +225,12 @@
         }
 
 
-        static Vector4 TransformNormal(Matrix M, Vector V)
+        public static Vector4 TransformNormal(Matrix M, Vector V)
         {
 	        return TransformFVector4(M, new Vector4(){ X=V.X,Y=V.Y,Z=V.Z,W=0.0f });
         }
         
-        static Vector4 TransformFVector4(Matrix M, Vector4 P)
+        public static Vector4 TransformFVector4(Matrix M, Vector4 P)
         {
 	        Vector4 Result;
 
@@ -224,6 +240,19 @@
 	        Result.W = P.X * M.M[0 , 3] + P.Y * M.M[1 , 3] + P.Z * M.M[2 , 3] + P.W * M.M[3 , 3];
 
 	        return Result;
+        }
+
+
+
+        public static unsafe Matrix* FRotationMatrix( Matrix* allocPtr, Rotator* rRef )
+        {
+	        * allocPtr = Core.Object.FRotationMatrix( * rRef );
+	        return allocPtr;
+        }
+        public static unsafe Matrix* FRotationMatrix( Matrix* allocPtr, ref Rotator rRef )
+        {
+	        * allocPtr = Core.Object.FRotationMatrix( rRef );
+	        return allocPtr;
         }
         
         public static Matrix FRotationMatrix(Rotator Rot)
@@ -260,19 +289,101 @@
 
 
 
-        public static Matrix VectorMatrixInverse( Matrix value )
+        public static unsafe Matrix VectorMatrixInverse( Matrix value )
         {
-	        unsafe
-	        {
-		        NativeMarkers.MarkUnimplemented(); // Matrix memory mapping might not match, not sure if it matters though
-		        var m = UnityEngine.Matrix4x4.Inverse( * ( (UnityEngine.Matrix4x4*) & value ) );
-		        return * ( (Matrix*) & m );
-	        }
+	        Matrix m = default;
+	        VectorMatrixInverse(&m, &value);
+	        return m;
         }
+        
+        public static unsafe Matrix* VectorMatrixInverse( Matrix* DstMatrix, Matrix* SrcMatrix )
+		{
+			//typedef FLOAT Float4x4[4][4];
+			Matrix M = *SrcMatrix;
+			float* Det = stackalloc float[4];
+			Matrix Result = default;
+			Matrix Tmp = default;
+
+			Tmp[0,0]	= M[2,2] * M[3,3] - M[2,3] * M[3,2];
+			Tmp[0,1]	= M[1,2] * M[3,3] - M[1,3] * M[3,2];
+			Tmp[0,2]	= M[1,2] * M[2,3] - M[1,3] * M[2,2];
+
+			Tmp[1,0]	= M[2,2] * M[3,3] - M[2,3] * M[3,2];
+			Tmp[1,1]	= M[0,2] * M[3,3] - M[0,3] * M[3,2];
+			Tmp[1,2]	= M[0,2] * M[2,3] - M[0,3] * M[2,2];
+
+			Tmp[2,0]	= M[1,2] * M[3,3] - M[1,3] * M[3,2];
+			Tmp[2,1]	= M[0,2] * M[3,3] - M[0,3] * M[3,2];
+			Tmp[2,2]	= M[0,2] * M[1,3] - M[0,3] * M[1,2];
+
+			Tmp[3,0]	= M[1,2] * M[2,3] - M[1,3] * M[2,2];
+			Tmp[3,1]	= M[0,2] * M[2,3] - M[0,3] * M[2,2];
+			Tmp[3,2]	= M[0,2] * M[1,3] - M[0,3] * M[1,2];
+
+			Det[0]		= M[1,1]*Tmp[0,0] - M[2,1]*Tmp[0,1] + M[3,1]*Tmp[0,2];
+			Det[1]		= M[0,1]*Tmp[1,0] - M[2,1]*Tmp[1,1] + M[3,1]*Tmp[1,2];
+			Det[2]		= M[0,1]*Tmp[2,0] - M[1,1]*Tmp[2,1] + M[3,1]*Tmp[2,2];
+			Det[3]		= M[0,1]*Tmp[3,0] - M[1,1]*Tmp[3,1] + M[2,1]*Tmp[3,2];
+
+			float Determinant = M[0,0]*Det[0] - M[1,0]*Det[1] + M[2,0]*Det[2] - M[3,0]*Det[3];
+			float	RDet = 1.0f / Determinant;
+
+			Result[0,0] =  RDet * Det[0];
+			Result[0,1] = -RDet * Det[1];
+			Result[0,2] =  RDet * Det[2];
+			Result[0,3] = -RDet * Det[3];
+			Result[1,0] = -RDet * (M[1,0]*Tmp[0,0] - M[2,0]*Tmp[0,1] + M[3,0]*Tmp[0,2]);
+			Result[1,1] =  RDet * (M[0,0]*Tmp[1,0] - M[2,0]*Tmp[1,1] + M[3,0]*Tmp[1,2]);
+			Result[1,2] = -RDet * (M[0,0]*Tmp[2,0] - M[1,0]*Tmp[2,1] + M[3,0]*Tmp[2,2]);
+			Result[1,3] =  RDet * (M[0,0]*Tmp[3,0] - M[1,0]*Tmp[3,1] + M[2,0]*Tmp[3,2]);
+			Result[2,0] =  RDet * (
+							M[1,0] * (M[2,1] * M[3,3] - M[2,3] * M[3,1]) -
+							M[2,0] * (M[1,1] * M[3,3] - M[1,3] * M[3,1]) +
+							M[3,0] * (M[1,1] * M[2,3] - M[1,3] * M[2,1])
+						);
+			Result[2,1] = -RDet * (
+							M[0,0] * (M[2,1] * M[3,3] - M[2,3] * M[3,1]) -
+							M[2,0] * (M[0,1] * M[3,3] - M[0,3] * M[3,1]) +
+							M[3,0] * (M[0,1] * M[2,3] - M[0,3] * M[2,1])
+						);
+			Result[2,2] =  RDet * (
+							M[0,0] * (M[1,1] * M[3,3] - M[1,3] * M[3,1]) -
+							M[1,0] * (M[0,1] * M[3,3] - M[0,3] * M[3,1]) +
+							M[3,0] * (M[0,1] * M[1,3] - M[0,3] * M[1,1])
+						);
+			Result[2,3] = -RDet * (
+							M[0,0] * (M[1,1] * M[2,3] - M[1,3] * M[2,1]) -
+							M[1,0] * (M[0,1] * M[2,3] - M[0,3] * M[2,1]) +
+							M[2,0] * (M[0,1] * M[1,3] - M[0,3] * M[1,1])
+						);
+			Result[3,0] = -RDet * (
+							M[1,0] * (M[2,1] * M[3,2] - M[2,2] * M[3,1]) -
+							M[2,0] * (M[1,1] * M[3,2] - M[1,2] * M[3,1]) +
+							M[3,0] * (M[1,1] * M[2,2] - M[1,2] * M[2,1])
+						);
+			Result[3,1] =  RDet * (
+							M[0,0] * (M[2,1] * M[3,2] - M[2,2] * M[3,1]) -
+							M[2,0] * (M[0,1] * M[3,2] - M[0,2] * M[3,1]) +
+							M[3,0] * (M[0,1] * M[2,2] - M[0,2] * M[2,1])
+						);
+			Result[3,2] = -RDet * (
+							M[0,0] * (M[1,1] * M[3,2] - M[1,2] * M[3,1]) -
+							M[1,0] * (M[0,1] * M[3,2] - M[0,2] * M[3,1]) +
+							M[3,0] * (M[0,1] * M[1,2] - M[0,2] * M[1,1])
+						);
+			Result[3,3] =  RDet * (
+						M[0,0] * (M[1,1] * M[2,2] - M[1,2] * M[2,1]) -
+						M[1,0] * (M[0,1] * M[2,2] - M[0,2] * M[2,1]) +
+						M[2,0] * (M[0,1] * M[1,2] - M[0,2] * M[1,1])
+					);
+
+			* DstMatrix = Result;
+			return DstMatrix;
+		}
 
 
 
-        class GMath
+        public class GMath
         {
 	        const int ANGLE_SHIFT = 2; // Bits to right-shift to get lookup value.
 	        const int ANGLE_BITS = 14; // Number of valid bits in angles.

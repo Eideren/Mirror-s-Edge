@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using static MEdge.TdGame.TdPawn; using static MEdge.TdGame.TdPawn.EMovement; using static MEdge.TdGame.TdMove_ZipLine.EZipLineStatus; using static MEdge.TdGame.TdMove.EPreciseLocationMode; using static MEdge.Engine.Actor.EPhysics; using static MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Engine.Actor.ENetRole; using LedgeHitInfo = MEdge.TdGame.TdPawn.LedgeHitInfo; using ECustomNodeType = MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.TdGame.TdPawn.WalkingState; using static MEdge.TdGame.TdPawn.EWeaponType;using static MEdge.TdGame.TdPawn.EMoveActionHint; using EMoveAimMode = MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Source.DecFn; using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 public partial class TdMove_LedgeWalk
@@ -72,13 +74,9 @@ public partial class TdMove_LedgeWalk
     v54 = v4;
     v55 = v5;
     v56 = v7;
-    this.Volume.FindClosestPointOnDSpline(
-      COERCE_FLOAT(LODWORD(v4)),
-      COERCE_FLOAT(LODWORD(v5)),
-      COERCE_FLOAT(LODWORD(v7)),
-      &a4,
-fixed(var ptr1 =&this.CurrentParamOnCurve)
-       ptr1,
+    this.Volume.FindClosestPointOnDSpline(new Vector(v4, v5, v7),
+      ref a4,
+       ref this.CurrentParamOnCurve,
       (int)v6);                                   // ATdMovementVolume::FindClosestPointOnDSpline
     v8 = (Vector *)this.Volume.GetSlopeOnSpline(&a2, this.CurrentParamOnCurve / (float)this.Volume.SplineLocations.Count);// ATdMovementVolume::GetSlopeOnSpline
     v9 = v8->X;
@@ -110,7 +108,8 @@ fixed(var ptr1 =&this.CurrentParamOnCurve)
         goto LABEL_10;
       }
       v49.X = v17 * v14;
-      goto LABEL_8;
+      v49.Y = v18;
+      goto LABEL_9;
     }
     if ( v21 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
@@ -161,23 +160,21 @@ fixed(var ptr1 =&this.CurrentParamOnCurve)
     v26 = 0.0f;
   LABEL_18:
     v28 = this.StrafeSpeed;
-fixed(var ptr2 =&this.PawnOwner.Velocity)
-    v29 =  ptr2;
     a2.X = v25 * v28;
-    v29->X = v25 * v28;
+    this.PawnOwner.Velocity.X = v25 * v28;
     a2.Y = v13 * v28;
-    v29->Y = v13 * v28;
+    this.PawnOwner.Velocity.Y = v13 * v28;
     a2.Z = v26 * v28;
-    v29->Z = v26 * v28;
+    this.PawnOwner.Velocity.Z = v26 * v28;
     v30 = this.PawnOwner;
     v31 = v30.Velocity.X;
-fixed(var ptr3 =&v30.Velocity)
-    v32 =  ptr3;
-    v30 = (TdPawn )((byte *)v30 + 0x10C);// v31 now points to Acceleration
-    *(float *)&v30.VfTableObject.Dummy = v31;
-    v30.ObjectInternalInteger = LODWORD(v32->Y);
-    v30.ObjectFlags_A = LODWORD(v32->Z);
-    if ( (this.bDebugMove.AsBitfield(29) & bUsePreciseRotation) == 0 )
+    //fixed(var ptr3 =&v30.Velocity)
+    //v32 =  ptr3;
+    //v30 = (TdPawn )((byte *)v30 + 0x10C);// v31 now points to Acceleration
+    v30.Acceleration.X = v31;
+    v30.Acceleration.Y = v30.Velocity.Y;
+    v30.Acceleration.Z = v30.Velocity.Z;
+    if ( (this.bDebugMove.AsBitfield(29) & 0x20000) == default )
     {
       v48 = *E_DirToRotator(&v49, (Rotator *)&a2);// a2 re-used as rotator to be written to and read inside of SetRotation below
       this.PawnOwner.SetRotation(v48);
@@ -241,8 +238,8 @@ fixed(var ptr3 =&v30.Velocity)
     Hit.Normal.Y = 0.0f;
     Hit.Normal.Z = 0.0f;
     Hit.Time = 1.0f;
-fixed(var ptr4 =&v41.Rotation)
-    GWorld.MoveActor(v41, &Delta,  ptr4, 0, &Hit);
+fixed(Rotator* ptr4 =&v41.Rotation)
+    GWorld.MoveActor(v41, ref Delta,  ref *ptr4, 0, ref Hit);
   }
 }
 }

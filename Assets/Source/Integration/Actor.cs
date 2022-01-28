@@ -157,11 +157,11 @@
 		}
 	
 		// Export UActor::execSetPhysics(FFrame&, void* const)
-		public virtual /*native(3970) final function */void SetPhysics(Actor.EPhysics newPhysics)
-		{
-			this.Physics = newPhysics;
-			NativeMarkers.MarkUnimplemented();
-		}
+		//public virtual /*native(3970) final function */void SetPhysics(Actor.EPhysics newPhysics)
+		//{
+		//	this.Physics = newPhysics;
+		//	NativeMarkers.MarkUnimplemented();
+		//}
 		
 		// Export UActor::execAttachComponent(FFrame&, void* const)
 		public virtual /*native final function */void AttachComponent(ActorComponent NewComponent)

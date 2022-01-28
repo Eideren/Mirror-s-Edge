@@ -1,3 +1,5 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
 using static MEdge.TdGame.TdPawn; using static MEdge.TdGame.TdPawn.EMovement; using static MEdge.TdGame.TdMove_ZipLine.EZipLineStatus; using static MEdge.TdGame.TdMove.EPreciseLocationMode; using static MEdge.Engine.Actor.EPhysics; using static MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Engine.Actor.ENetRole; using LedgeHitInfo = MEdge.TdGame.TdPawn.LedgeHitInfo; using ECustomNodeType = MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.TdGame.TdPawn.WalkingState; using static MEdge.TdGame.TdPawn.EWeaponType;using static MEdge.TdGame.TdPawn.EMoveActionHint; using EMoveAimMode = MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Source.DecFn; using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 public partial class TdPhysicsMove
@@ -11,9 +13,9 @@ public partial class TdPhysicsMove
     CallUFunction(this.FoundReachableHandPlant, this, v3, 0, 0);
   }
 
-  public unsafe int FindSoftLanding(Vector *hitLoc)
+  public unsafe bool FindSoftLanding(Vector *hitLoc)
   {
-    Vector *v3; // eax
+    //Vector *v3; // eax
     float v4 = default; // ecx
     float v5 = default; // edx
     float v6 = default; // eax
@@ -40,14 +42,12 @@ public partial class TdPhysicsMove
   
     a2a.Item = -1;
     a2a.LevelIndex = -1;
-fixed(var ptr1 =&this.PawnOwner.Acceleration)
-    v3 =  ptr1;
     a5.X = 0.0f;
     a5.Y = 0.0f;
     a5.Z = 0.0f;
-    v4 = v3->X;
-    v5 = v3->Y;
-    v6 = v3->Z;
+    v4 = this.PawnOwner.Acceleration.X;
+    v5 = this.PawnOwner.Acceleration.Y;
+    v6 = this.PawnOwner.Acceleration.Z;
     v21 = v4;
     v7 = this.PawnOwner;
     v22 = v5;
@@ -81,28 +81,28 @@ fixed(var ptr1 =&this.PawnOwner.Acceleration)
     a3.X = (float)((float)(v13 * 2.0f) + (float)((float)(v21 * 4.0f) * 0.5f)) + a4.X;
     a3.Y = a4.Y + (float)((float)(v11 * 2.0f) + (float)((float)(v22 * 4.0f) * 0.5f));
     a3.Z = v14;
-    if ( default == this.MovementLineCheck(&a2a, &a3, &a4, &a5, 9422) )
-      return 0;
+    if ( default == this.MovementLineCheck(ref a2a, &a3, &a4, &a5, 9422) )
+      return false;
     if ( a2a.Normal.Z <= 0.89999998d )
-      return 0;
+      return false;
     v15 = a2a.PhysMaterial;
     if ( default == a2a.PhysMaterial )
     {
       if ( default == a2a.Material )
-        return 0;
+        return false;
       v15 = (PhysicalMaterial )a2a.Material.GetPhysicalMaterial();// GetPhysicalMaterial
       if ( default == v15 )
-        return 0;
+        return false;
     }
     v16 = E_TryCastTo<TdPhysicalMaterialProperty>(v15.PhysicalMaterialProperty);
-    if ( default == v16 || (v16.bEnableSoftLanding.AsBitfield(4) & 1) == 0 )
-      return 0;
+    if ( default == v16 || (v16.bEnableSoftLanding.AsBitfield(4) & 1) == default )
+      return false;
     v17 = a2a.Location.Y;
-    hitLoc.X = a2a.Location.X;
+    hitLoc->X = a2a.Location.X;
     v18 = a2a.Location.Z;
-    hitLoc.Y = v17;
-    hitLoc.Z = v18;
-    return 1;
+    hitLoc->Y = v17;
+    hitLoc->Z = v18;
+    return true;
   }
 
   public unsafe int FindAutoMoveLedge(Vector *out_Location, Vector *out_ledgeNormal, Vector *out_MoveNormal, Vector a5, Rotator a8, float a11, int a12)
@@ -122,7 +122,7 @@ fixed(var ptr1 =&this.PawnOwner.Acceleration)
     float v21 = default; // xmm2_4
     float v22 = default; // xmm1_4
     float v23 = default; // xmm0_4
-    Vector *v24; // ecx
+    //Vector *v24; // ecx
     float v25 = default; // xmm0_4
     float v26 = default; // edx
     float v27 = default; // xmm0_4
@@ -282,7 +282,7 @@ fixed(var ptr1 =&this.PawnOwner.Acceleration)
     v16 = default;
     v17 = (Actor )this.PawnOwner.Class.GetDefaultObject(0);
     v18 = E_TryCastTo<TdPawn>(v17);
-    v52 = (this.bCheckForGrab.AsBitfield(7) & bCheckForEdgeInVelDir) == 0;
+    v52 = (this.bCheckForGrab.AsBitfield(7) & 8) == 0;
     v19 = v18;
     v122 = v18;
     if ( default == v52 )
@@ -291,15 +291,13 @@ fixed(var ptr1 =&this.PawnOwner.Acceleration)
       v21 = v20.Velocity.Y;
       v22 = v20.Velocity.Z;
       v23 = v20.Velocity.X;
-fixed(var ptr1 =&v20.Velocity)
-      v24 =  ptr1;
       v25 = (float)((float)(v23 * v23) + (float)(v21 * v21)) + (float)(v22 * v22);
       v117 = v25;
       if ( v25 == 1.0f )
       {
-        v26 = v24->Y;
-        a2.X = v24->X;
-        a2.Z = v24->Z;
+        v26 = v20.Velocity.Y;
+        a2.X = v20.Velocity.X;
+        a2.Z = v20.Velocity.Z;
         v27 = a2.Z;
         a2.Y = v26;
       }
@@ -308,7 +306,7 @@ fixed(var ptr1 =&v20.Velocity)
         v118 = 3.0f;
         v28 = 1.0f / fsqrt(v117);
         v107 = (float)(3.0f - (float)((float)(v28 * v117) * v28)) * (float)(v28 * 0.5f);
-        v27 = v107 * v24->Z;
+        v27 = v107 * v20.Velocity.Z;
       }
       else
       {
@@ -366,7 +364,7 @@ fixed(var ptr1 =&v20.Velocity)
     v84 = default;
     v120 = v41;
     v96 = default;
-    v131 = 2 * (a12 != 0) + 1;
+    v131 = 2 * ((a12 != 0 ? 1 : 0)) + 1;
     if ( v131 > 0 )
     {
       v42 = v110.Z;
@@ -374,35 +372,7 @@ fixed(var ptr1 =&v20.Velocity)
       {
         if(v106 != default)
         {
-  LABEL_84:
-          v68 = out_LedgeHit.LedgeLocation.Y;
-          v69 = out_LedgeHit.LedgeLocation.Z;
-          v70 = v140.LedgeLocation.Z - out_LedgeHit.LedgeLocation.Z;
-          v71 = (float)(v140.LedgeLocation.Y - out_LedgeHit.LedgeLocation.Y) * 0.5f;
-          a2.X = (float)((float)(v140.LedgeLocation.X - out_LedgeHit.LedgeLocation.X) * 0.5f) + out_LedgeHit.LedgeLocation.X;
-          out_Location->X = a2.X;
-          a2.Y = v71 + v68;
-          out_Location->Y = v71 + v68;
-          v72 = out_LedgeHit.MoveNormal.X;
-          a2.Z = (float)(v70 * 0.5f) + v69;
-          out_Location->Z = a2.Z;
-          v73 = out_LedgeHit.MoveNormal.Y;
-          out_MoveNormal->X = v72;
-          v74 = out_LedgeHit.MoveNormal.Z;
-          out_MoveNormal->Y = v73;
-          v75 = out_LedgeHit.LedgeNormal.X;
-          out_MoveNormal->Z = v74;
-          v76 = out_LedgeHit.LedgeNormal.Y;
-          out_ledgeNormal->X = v75;
-          v77 = out_LedgeHit.LedgeNormal.Z;
-          out_ledgeNormal->Y = v76;
-          out_ledgeNormal->Z = v77;
-          v78 = out_LedgeHit.FeetExcluded.AsBitfield(2);
-          this.PawnOwner.MovementActor = out_LedgeHit.MoveActor;
-          SetFromBitfield(ref this.PawnOwner.bDisableSkelControlSpring, 32, this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ ((this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ (v78 << 7)) & 0x100));
-          SetFromBitfield(ref this.PawnOwner.bDisableSkelControlSpring, 32, this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ ((this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ (v78 << 9)) & 0x200));
-          this.PawnOwner.MovementExclusionVolume = v84;
-          return (int)(v16);
+          goto LABEL_84;
         }
         if(v96 != default)
         {
@@ -458,7 +428,7 @@ fixed(var ptr1 =&v20.Velocity)
         v101 = v47;
         v102 = v50;
         *(_QWORD *)&v80.Y = __PAIR64__(LODWORD(v50), LODWORD(v47));
-        v16 = this.FindLedgeEx(&out_LedgeHit, v80, v109, v83);
+        v16 = this.FindLedgeEx(ref out_LedgeHit, v80, v109, v83);
         if ( default == v16 || v96 > 0 && out_LedgeHit.MoveNormal.Z < 0.98000002d )
           goto LABEL_82;
         if ( out_LedgeHit.MoveNormal.Z > 0.2f )
@@ -471,13 +441,13 @@ fixed(var ptr1 =&v20.Velocity)
         }
         if ( v16 == 2 )
         {
-          v52 = (out_LedgeHit.FeetExcluded.AsBitfield(2) & HandsExcluded) == 0;
+          v52 = (out_LedgeHit.FeetExcluded.AsBitfield(2) & 2) == 0;
         }
         else
         {
           if ( v16 != 1 )
             goto LABEL_46;
-          v52 = (out_LedgeHit.FeetExcluded.AsBitfield(2) & FeetExcluded) == 0;
+          v52 = (out_LedgeHit.FeetExcluded.AsBitfield(2) & 1) == 0;
         }
         if ( default == v52 )
           goto LABEL_82;
@@ -488,12 +458,14 @@ fixed(var ptr1 =&v20.Velocity)
         {
           if ( v16 == 2 )
           {
-            v54 = (v53.bExcludeFootMoves.AsBitfield(2) & bExcludeHandMoves) == 0;
-            goto LABEL_51;
+            v54 = (v53.bExcludeFootMoves.AsBitfield(2) & 2) == 0;
+            if ( default == v54 )
+              return 0;
+            goto LABEL_52;
           }
           if ( v16 == 1 )
           {
-            v54 = (v53.bExludeHandMoves.AsBitfield(32) & bExludeFootMoves) == 0;
+            v54 = (v53.bExludeHandMoves.AsBitfield(32) & 2) == 0;
   LABEL_51:
             if ( default == v54 )
               return 0;
@@ -524,7 +496,7 @@ fixed(var ptr1 =&v20.Velocity)
         v102 = v57;
         v81.Y = v130 + v94;
         v81.Z = v57;
-        if ( this.FindLedgeEx(&v140, v81, v82, v110) == v16 )
+        if ( this.FindLedgeEx(ref v140, v81, v82, v110) == v16 )
         {
           v58 = v140.LedgeLocation.Z - out_LedgeHit.LedgeLocation.Z;
           v59 = v140.LedgeLocation.X - out_LedgeHit.LedgeLocation.X;
@@ -588,10 +560,13 @@ fixed(var ptr1 =&v20.Velocity)
                 v107 = (float)(3.0f - (float)((float)(v64 * v143) * v64)) * (float)(v64 * 0.5f);
                 v92.X = v107 * v59;
                 v60 = v60 * v107;
-                goto LABEL_69;
+                v92.Y = v60;
               }
-              v92.X = 0.0f;
-              v92.Y = 0.0f;
+              else
+              {
+                v92.X = 0.0f;
+                v92.Y = 0.0f;
+              }
             }
             v92.Z = 0.0f;
   LABEL_71:
@@ -621,10 +596,13 @@ fixed(var ptr1 =&v20.Velocity)
                 v118 = (float)(3.0f - (float)((float)(v67 * v142) * v67)) * (float)(v67 * 0.5f);
                 v89 = v118 * out_LedgeHit.MoveNormal.X;
                 v65 = out_LedgeHit.MoveNormal.Y * v118;
-                goto LABEL_78;
+                v90 = v65;
               }
-              v89 = 0.0f;
-              v90 = 0.0f;
+              else
+              {
+                v89 = 0.0f;
+                v90 = 0.0f;
+              }
             }
             v91 = 0.0f;
   LABEL_80:
@@ -647,6 +625,36 @@ fixed(var ptr1 =&v20.Velocity)
       }
     }
     return 0;
+    
+    LABEL_84:
+    v68 = out_LedgeHit.LedgeLocation.Y;
+    v69 = out_LedgeHit.LedgeLocation.Z;
+    v70 = v140.LedgeLocation.Z - out_LedgeHit.LedgeLocation.Z;
+    v71 = (float)(v140.LedgeLocation.Y - out_LedgeHit.LedgeLocation.Y) * 0.5f;
+    a2.X = (float)((float)(v140.LedgeLocation.X - out_LedgeHit.LedgeLocation.X) * 0.5f) + out_LedgeHit.LedgeLocation.X;
+    out_Location->X = a2.X;
+    a2.Y = v71 + v68;
+    out_Location->Y = v71 + v68;
+    v72 = out_LedgeHit.MoveNormal.X;
+    a2.Z = (float)(v70 * 0.5f) + v69;
+    out_Location->Z = a2.Z;
+    v73 = out_LedgeHit.MoveNormal.Y;
+    out_MoveNormal->X = v72;
+    v74 = out_LedgeHit.MoveNormal.Z;
+    out_MoveNormal->Y = v73;
+    v75 = out_LedgeHit.LedgeNormal.X;
+    out_MoveNormal->Z = v74;
+    v76 = out_LedgeHit.LedgeNormal.Y;
+    out_ledgeNormal->X = v75;
+    v77 = out_LedgeHit.LedgeNormal.Z;
+    out_ledgeNormal->Y = v76;
+    out_ledgeNormal->Z = v77;
+    v78 = out_LedgeHit.FeetExcluded.AsBitfield(2);
+    this.PawnOwner.MovementActor = out_LedgeHit.MoveActor;
+    SetFromBitfield(ref this.PawnOwner.bDisableSkelControlSpring, 32, this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ ((this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ (v78 << 7)) & 0x100));
+    SetFromBitfield(ref this.PawnOwner.bDisableSkelControlSpring, 32, this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ ((this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ (v78 << 9)) & 0x200));
+    this.PawnOwner.MovementExclusionVolume = v84;
+    return (int)(v16);
   }
 
   public override unsafe void PrePerformPhysics(float DeltaTime)
@@ -665,12 +673,12 @@ fixed(var ptr1 =&v20.Velocity)
     int v14 = default; // [esp+18h] [ebp-4h]
   
     base.PrePerformPhysics(DeltaTime);
-    v3 = (this.bCheckForGrab.AsBitfield(7) & bCheckForSoftLanding) == 0;
+    v3 = (this.bCheckForGrab.AsBitfield(7) & 64) == 0;
     a2.Z = 0.0f;
     if ( default == v3 )
     {
       v4 = this.PawnOwner;
-      if ( this.SoftLandingZSpeedThreshold > v4.Velocity.Z && (((uint)&loc_7FFFFE + 2) & v4.bDisableSkelControlSpring.AsBitfield(32)) == 0 )
+      if ( this.SoftLandingZSpeedThreshold > v4.Velocity.Z && (/*((uint)&loc_7FFFFE + 2)*/0x800000 & v4.bDisableSkelControlSpring.AsBitfield(32)) == default )
       {
         if ( FindSoftLanding(&a2) )
         {
@@ -680,7 +688,7 @@ fixed(var ptr1 =&v20.Velocity)
             if ( E_TryCastTo<TdMove_SoftLanding>(v5.Moves[78]) )
             {
               v6 = this.PawnOwner;
-              LOBYTE(a2.X) = 78;
+              a2.X.LOBYTE(78);
   LABEL_14:
               v11 = v6.VfTableObject.Dummy;
               v14 = default;
@@ -694,7 +702,7 @@ fixed(var ptr1 =&v20.Velocity)
       }
     }
     v7 = this.bCheckForGrab.AsBitfield(7);
-    if ( (v7 & bCheckExitToFalling) != 0 )
+    if ( (v7 & 16) != default )
     {
       v8 = this.PawnOwner;
       if ( this.ExitToFallingZSpeed > v8.Velocity.Z )
@@ -703,16 +711,21 @@ fixed(var ptr1 =&v20.Velocity)
         v14 = default;
         a2.Y = 0.0f;
         a2.Z = 0.0f;
-        LOBYTE(a2.X) = 2;
+        a2.X.LOBYTE(2);
         CallUFunction(v8.SetMove, v8, v10, &a2, 0);
         return;
       }
     }
-    if ( (v7 & 0x20) != 0 && (float)(this.PawnOwner.EnterFallingHeight - this.PawnOwner.Location.Z) > this.PawnOwner.FallingUncontrolledHeight )
+    if ( (v7 & 0x20) != default && (float)(this.PawnOwner.EnterFallingHeight - this.PawnOwner.Location.Z) > this.PawnOwner.FallingUncontrolledHeight )
     {
       v6 = this.PawnOwner;
-      LOBYTE(a2.X) = 72;
-      goto LABEL_14;
+      a2.X.LOBYTE(72);
+      v11 = v6.VfTableObject.Dummy;
+      v14 = default;
+      a2.Y = 0.0f;
+      a2.Z = 0.0f;
+      CallUFunction(v6.SetMove, v6, v12, &a2, 0);
+      return;
     }
   }
 
@@ -722,7 +735,7 @@ fixed(var ptr1 =&v20.Velocity)
     TdMove_WallRun v3 = default; // eax
     TdPawn v4 = default; // edx
     TdPawn v5 = default; // eax
-    int v6 = default; // ecx
+    TdMove v6 = default; // ecx
     TdPawn v7 = default; // esi
     int v8 = default; // ebx
     int v9 = default; // eax
@@ -734,73 +747,83 @@ fixed(var ptr1 =&v20.Velocity)
     int v15 = default; // [esp+24h] [ebp-4h]
   
     v2 = this.PawnOwner;
-    if ( (fabs(v2.Velocity.X) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(v2.Velocity.Y) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(v2.Velocity.Z) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/) && E_ReturnWeaponType(v2) != EWT_Heavy )
+    if ( (fabs(v2.Velocity.X) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(v2.Velocity.Y) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(v2.Velocity.Z) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/) && v2.GetWeaponType() != EWT_Heavy )
     {
-      if ( (this.bCheckForGrab.AsBitfield(7) & bCheckForWallClimb) != 0 )
+      if ( (this.bCheckForGrab.AsBitfield(7) & 4) != default )
       {
         if ( this.PawnOwner.Moves[40].CallOnCanDoMove() )
         {
           v3 = E_TryCastTo<TdMove_WallRun>(this.PawnOwner.Moves[40]);
           if(v3 != default)
           {
-            scriptFuncParam[0] = v3.NextMove;
+            scriptFuncParam[0] = (byte)v3.NextMove;
   LABEL_26:
-            v11 = fnSetMove2;
-            v10 = fnSetMove1;
-            goto LABEL_27;
+            /*v11 = fnSetMove2;
+            v10 = fnSetMove1;*/
+            this.PawnOwner.SetMove( (EMovement)scriptFuncParam[0] );
           }
         }
       }
       this.PawnOwner.MoveLedgeResult = default;
-      if ( this.MoveActiveTime > this.bDelayTimeCheckAutoMoves && ((LOBYTE(this.bCheckForGrab.AsBitfield(7)) | (byte)((this.bCheckForGrab.AsBitfield(7) | (this.bCheckForGrab.AsBitfield(7) >> 1)) >> 1)) & 1) != 0 )
+      if ( this.MoveActiveTime > this.bDelayTimeCheckAutoMoves && ((LOBYTE(this.bCheckForGrab.AsBitfield(7)) | (byte)((this.bCheckForGrab.AsBitfield(7) | (this.bCheckForGrab.AsBitfield(7) >> 1)) >> 1)) & 1) != default )
       {
         v4 = this.PawnOwner;
-fixed(var ptr1 =&v4.MoveNormal)
-fixed(var ptr2 =&v4.MoveLedgeNormal)
-fixed(var ptr3 =&v4.MoveLedgeLocation)
-        v4.MoveLedgeResult = FindAutoMoveLedge( ptr3,  ptr2,  ptr1, v4.Location, v4.Rotation, this.HandPlantCheckDistance, 1);
+        fixed( Vector* ptr1 = & v4.MoveNormal )
+        {
+          fixed( Vector* ptr2 = & v4.MoveLedgeNormal )
+          {
+            fixed( Vector* ptr3 = & v4.MoveLedgeLocation )
+            {
+              v4.MoveLedgeResult = FindAutoMoveLedge( ptr3, ptr2, ptr1, v4.Location, v4.Rotation, this.HandPlantCheckDistance, 1 );
+            }
+          }
+        }
       }
       v5 = this.PawnOwner;
       if ( v5.MoveLedgeResult > 0 )
       {
-        if ( (this.bCheckForGrab.AsBitfield(7) & bCheckForWallClimb) != 0 && (*(int (__thiscall **)(_DWORD))(**((_DWORD **)v5.Moves.Data + 6) + 296))(*((_DWORD *)v5.Moves.Data + 6)) )// CanDoMove
+        if ( (this.bCheckForGrab.AsBitfield(7) & 4) != default && v5.Moves.Data[6].TestCanTransitionInto_Maybe() )// TestCanTransitionInto_Maybe
         {
           scriptFuncParam[0] = 6;
-          goto LABEL_26;
+          this.PawnOwner.SetMove( (EMovement)14 );
+          return;
         }
         if ( this.PawnOwner.MoveLedgeResult != 2 )
           return;
         CallFoundReachableHandPlant();
-        SetFromBitfield(ref this.PawnOwner.bDisableSkelControlSpring, 32, this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) | (bFoundLedge));
-        if ( (this.bCheckForGrab.AsBitfield(7) & 2) != 0 )
+        SetFromBitfield(ref this.PawnOwner.bDisableSkelControlSpring, 32, this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) | (2048u));
+        if ( (this.bCheckForGrab.AsBitfield(7) & 2) != default )
         {
           if ( this.PawnOwner.Moves[81].CallOnCanDoMove() )
           {
-            v11 = fnSetMove2;
+            //v11 = fnSetMove2;
             scriptFuncParam[0] = 81;
-            v10 = fnSetMove1;
+            //v10 = fnSetMove1;
   LABEL_27:
             v7 = this.PawnOwner;
             v8 = v7.VfTableObject.Dummy;
             v15 = default;
             v13 = default;
             v14 = default;
-            CallUFunction(v7.v1, v7, v9, scriptFuncParam, 0);
+            /*CallUFunction(v7.v1, v7, v9, scriptFuncParam, 0);*/
+            this.PawnOwner.SetMove( (EMovement)scriptFuncParam[0] );
             return;
           }
-          if ( (this.bCheckForGrab.AsBitfield(7) & 2) != 0 && this.PawnOwner.Moves[9].CallOnCanDoMove() )
+          if ( (this.bCheckForGrab.AsBitfield(7) & 2) != default && this.PawnOwner.Moves[9].CallOnCanDoMove() )
           {
             scriptFuncParam[0] = 9;
-            goto LABEL_26;
+            this.PawnOwner.SetMove( (EMovement)scriptFuncParam[0] );
+            return;
           }
         }
-        if ( (this.bCheckForGrab.AsBitfield(7) & bCheckForGrab) != 0 )
+        if ( (this.bCheckForGrab.AsBitfield(7) & 1) != default )
         {
-          v6 = *((_DWORD *)this.PawnOwner.Moves.Data + 14);
-          if ( (*(int (__thiscall **)(int))(*(_DWORD *)v6 + 296))(v6) )// CanDoMove
+          v6 = this.PawnOwner.Moves[14];
+          if ( v6.TestCanTransitionInto_Maybe() )// TestCanTransitionInto_Maybe
           {
             scriptFuncParam[0] = 14;
-            goto LABEL_26;
+            this.PawnOwner.SetMove( (EMovement)scriptFuncParam[0] );
+            return;
           }
         }
       }

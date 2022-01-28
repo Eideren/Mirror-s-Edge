@@ -1,11 +1,36 @@
 namespace MEdge.TdGame{
-using static MEdge.TdGame.TdPawn; using static MEdge.TdGame.TdPawn.EMovement; using static MEdge.TdGame.TdMove_ZipLine.EZipLineStatus; using static MEdge.TdGame.TdMove.EPreciseLocationMode; using static MEdge.Engine.Actor.EPhysics; using static MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Engine.Actor.ENetRole; using LedgeHitInfo = MEdge.TdGame.TdPawn.LedgeHitInfo; using ECustomNodeType = MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.TdGame.TdPawn.WalkingState; using static MEdge.TdGame.TdPawn.EWeaponType;using static MEdge.TdGame.TdPawn.EMoveActionHint; using EMoveAimMode = MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Source.DecFn; using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+  using static MEdge.TdGame.TdPawn; using static MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.Engine.AnimNodeSequence.ERootBoneAxis; using static MEdge.Core.Object.EAxis; using static MEdge.Engine.AnimNodeSequence.ERootRotationOption; using static MEdge.TdGame.TdPawn.EAgainstWallState; using static MEdge.TdGame.TdPawn.EWeaponAnimState; using static MEdge.Engine.SkeletalMeshComponent.ERootMotionMode; using static MEdge.TdGame.TdPawn.EMovement; using static MEdge.TdGame.TdMove_ZipLine.EZipLineStatus; using static MEdge.TdGame.TdMove.EPreciseLocationMode; using static MEdge.Engine.Actor.EPhysics; using static MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Engine.Actor.ENetRole; using LedgeHitInfo = MEdge.TdGame.TdPawn.LedgeHitInfo; using ECustomNodeType = MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.TdGame.TdPawn.WalkingState; using static MEdge.TdGame.TdPawn.EWeaponType;using static MEdge.TdGame.TdPawn.EMoveActionHint; using EMoveAimMode = MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Source.DecFn; using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 public partial class TdPlayerPawn
 {
-  public unsafe void SetBase(Actor NewBase, Vector NewFloor, int bNotifyActor, SkeletalMeshComponent SkelComp, name AttachName)
+  // Same as APawn::NewFallVelocity
+  public unsafe Vector * NewFallVelocity(Vector *returnVal, Vector OldVelocity, Vector OldAcceleration, float timeTick)
   {
-    if ( (this.bHasMorphNodes.AsBitfield(7) & 32) == 0 )
-      this.SetBase(NewBase, NewFloor, bNotifyActor, SkelComp, AttachName);
+    // void (__thiscall *GetNetBuoyancy)(TdPlayerPawn , float *, float *); // eax
+    Vector *result; // eax
+    float v7 = default; // xmm6_4
+    float v8 = default; // xmm4_4
+    float v9 = default; // xmm5_4
+    float NetBuoyancy = default; // [esp+8h] [ebp-8h] BYREF
+    float NetFluidFriction = default; // [esp+Ch] [ebp-4h] BYREF
+  
+    // GetNetBuoyancy = *(void (__thiscall **)(TdPlayerPawn , float *, float *))(this.VfTableObject.Dummy + 520);
+    NetBuoyancy = 0.0f;
+    NetFluidFriction = 0.0f;
+    this.GetNetBuoyancy(ref NetBuoyancy, ref NetFluidFriction);// APawn::GetNetBuoyancy
+    result = returnVal;
+    v7 = 1.0f - (float)(NetFluidFriction * timeTick);
+    v8 = (float)(OldVelocity.Y * v7) + (float)((float)((float)(1.0f - NetBuoyancy) * OldAcceleration.Y) * timeTick);
+    v9 = (float)(OldVelocity.Z * v7) + (float)((float)(OldAcceleration.Z * (float)(1.0f - NetBuoyancy)) * timeTick);
+    returnVal->X = (float)(OldVelocity.X * v7) + (float)((float)(OldAcceleration.X * (float)(1.0f - NetBuoyancy)) * timeTick);
+    returnVal->Y = v8;
+    returnVal->Z = v9;
+    return result;
+  }
+
+  public override unsafe void SetBase(Actor NewBase, Vector NewFloor, int bNotifyActor = 1, SkeletalMeshComponent SkelComp = null, name AttachName = default)
+  {
+    if ( (this.bHasMorphNodes.AsBitfield(7) & 32) == default )
+      base.SetBase(NewBase, NewFloor, bNotifyActor, SkelComp, AttachName);
   }
 
   public override unsafe float GetMobilityMultiplier()
@@ -14,9 +39,9 @@ public partial class TdPlayerPawn
     float v2 = default; // xmm2_4
     double result = default; // st7
   
-    v1 = 1.0f - (float)(this.TaserDamageLevel * 0.0099999998d);
+    v1 = (float)(1.0f - (float)(this.TaserDamageLevel * 0.0099999998d));
     v2 = 0.0f;
-    if ( v1 >= 0.0f && (v2 = 1.0f - (float)(this.TaserDamageLevel * 0.0099999998d), v1 > 1.0f) )
+    if ( v1 >= 0.0f && ((v2 = 1.0f - (float)(this.TaserDamageLevel * 0.0099999998d))is object && v1 > 1.0f) )
       result = 1.0f;
     else
       result = v2;
@@ -25,7 +50,7 @@ public partial class TdPlayerPawn
 
   public unsafe void Update1pArms(float DeltaTime)
   {
-    int v3 = default; // eax
+    MaterialInterface v3; // eax
     MaterialInstanceConstant v4 = default; // edi
     Vector *v5; // ebx
     int v6 = default; // eax
@@ -34,13 +59,13 @@ public partial class TdPlayerPawn
     int v9 = default; // eax
     Matrix *v10; // eax
     float v11 = default; // xmm0_4
-    name *v12; // ebx
+    name[] v12; // ebx
     Vector *v13; // eax
-    name *v14; // ebx
+    name[] v14; // ebx
     Vector *v15; // eax
-    name *v16; // ebx
+    name[] v16; // ebx
     Vector *v17; // eax
-    name *v18; // ebx
+    name[] v18; // ebx
     Vector *v19; // eax
     int v20 = default; // xmm1_4
     float v21 = default; // xmm0_4
@@ -66,45 +91,45 @@ public partial class TdPlayerPawn
   
     if ( this.Mesh )
     {
-      v3 = (*(int (__thiscall **)(SkeletalMeshComponent , _DWORD))(this.Mesh.GamePawn::Pawn::VfTableObject.Dummy + 528))(this.Mesh, 0);
+      v3 = this.Mesh.GetMaterial( 0);// GetMaterial
       v4 = E_TryCastTo<MaterialInstanceConstant>(v3);
       if(v4 != default)
       {
-        v5 = this.Mesh.GetBoneAxis(&output, this.BoneNames1p[1], 4u);
-        v6 = E_FindSocketIndex(this.Mesh, dword_2056794, dword_2056798);
+        v5 = this.Mesh.GetBoneAxis(&output, this.BoneNames1p[1], AXIS_Z);
+        v6 = this.Mesh.MatchRefBone("RightForeArm"/*_dword_2056794*/);
         v7 = this.Mesh.GetBoneMatrix(&a2, v6);
         VectorMatrixInverse(v7, &SrcMatrix);
         v29 = (float)((float)((float)(SrcMatrix.ZPlane.Y * v5->Z) + (float)(SrcMatrix.YPlane.Y * v5->Y)) + (float)(SrcMatrix.XPlane.Y * v5->X)) + (float)(SrcMatrix.WPlane.Y * 0.0f);
-        v8 = this.Mesh.GetBoneAxis(&output, this.BoneNames1p[7], 4u);
-        v9 = E_FindSocketIndex(this.Mesh, dword_205679C, dword_20567A0);
+        v8 = this.Mesh.GetBoneAxis(&output, this.BoneNames1p[7], AXIS_Z);
+        v9 = this.Mesh.MatchRefBone("LeftForeArm");
         v10 = this.Mesh.GetBoneMatrix(&a2, v9);
         VectorMatrixInverse(v10, &SrcMatrix);
         v11 = (float)((float)(SrcMatrix.XPlane.Y * v8->X) + (float)(SrcMatrix.ZPlane.Y * v8->Z)) + (float)(SrcMatrix.YPlane.Y * v8->Y);
         v12 = this.BoneNames1p.Data;
         v31 = v11 + (float)(SrcMatrix.WPlane.Y * 0.0f);
-        v23 = this.Mesh.GetBoneAxis(&output, v12[3], 2u);
-        v13 = this.Mesh.GetBoneAxis(&v38, v12[2], 2u);
+        v23 = this.Mesh.GetBoneAxis(&output, v12[3], AXIS_Y);
+        v13 = this.Mesh.GetBoneAxis(&v38, v12[2], AXIS_Y);
         if ( (float)((float)((float)(v23->Z * v13->Z) + (float)(v23->Y * v13->Y)) + (float)(v13->X * v23->X)) > 0.0f )
           v36 = (float)((float)(v23->Z * v13->Z) + (float)(v23->Y * v13->Y)) + (float)(v13->X * v23->X);
         else
           v36 = 0.0f;
         v14 = this.BoneNames1p.Data;
-        v24 = this.Mesh.GetBoneAxis(&v38, v14[5], 2u);
-        v15 = this.Mesh.GetBoneAxis(&output, v14[4], 2u);
+        v24 = this.Mesh.GetBoneAxis(&v38, v14[5], AXIS_Y);
+        v15 = this.Mesh.GetBoneAxis(&output, v14[4], AXIS_Y);
         if ( (float)((float)((float)(v24->Z * v15->Z) + (float)(v24->Y * v15->Y)) + (float)(v15->X * v24->X)) > 0.0f )
           v35 = (float)((float)(v24->Z * v15->Z) + (float)(v24->Y * v15->Y)) + (float)(v15->X * v24->X);
         else
           v35 = 0.0f;
         v16 = this.BoneNames1p.Data;
-        v25 = this.Mesh.GetBoneAxis(&v38, v16[9], 2u);
-        v17 = this.Mesh.GetBoneAxis(&output, v16[8], 2u);
+        v25 = this.Mesh.GetBoneAxis(&v38, v16[9], AXIS_Y);
+        v17 = this.Mesh.GetBoneAxis(&output, v16[8], AXIS_Y);
         if ( (float)((float)((float)(v25->Z * v17->Z) + (float)(v25->Y * v17->Y)) + (float)(v25->X * v17->X)) > 0.0f )
           v26 = (float)((float)(v25->Z * v17->Z) + (float)(v25->Y * v17->Y)) + (float)(v25->X * v17->X);
         else
           v26 = 0.0f;
         v18 = this.BoneNames1p.Data;
-        v33 = this.Mesh.GetBoneAxis(&v38, v18[11], 2u);
-        v19 = this.Mesh.GetBoneAxis(&output, v18[10], 2u);
+        v33 = this.Mesh.GetBoneAxis(&v38, v18[11], AXIS_Y);
+        v19 = this.Mesh.GetBoneAxis(&output, v18[10], AXIS_Y);
         if ( (float)((float)((float)(v33->Z * v19->Z) + (float)(v33->Y * v19->Y)) + (float)(v33->X * v19->X)) > 0.0f )
           v34 = (float)((float)(v33->Z * v19->Z) + (float)(v33->Y * v19->Y)) + (float)(v33->X * v19->X);
         else
@@ -119,40 +144,40 @@ public partial class TdPlayerPawn
           v29 = -1.0f;
         }
         v20 = -1082130432;
-        v30 = asin(v29) * 0.63661975f;
+        v30 = (float)(asin(v29) * 0.63661975f);
         if ( v31 < -1.0f || ((v20 = 1065353216) is object && v31 >= 1.0f) )
           v31 = *(float *)&v20;
-        v32 = asin(v31) * 0.63661975f;
-        (*(void (__thiscall **)(MaterialInstanceConstant , int, int, float))(v4.VfTableObject.Dummy + 364))(v4, this.HandNormalMapNames1p[0].Index, this.HandNormalMapNames1p[0].Number, COERCE_FLOAT(LODWORD(v35)));
-        (*(void (__thiscall **)(MaterialInstanceConstant , int, int, float))(v4.VfTableObject.Dummy + 364))(v4, this.HandNormalMapNames1p[1].Index, this.HandNormalMapNames1p[1].Number, COERCE_FLOAT(LODWORD(v35)));
-        (*(void (__thiscall **)(MaterialInstanceConstant , int, int, float))(v4.VfTableObject.Dummy + 364))(v4, this.HandNormalMapNames1p[2].Index, this.HandNormalMapNames1p[2].Number, COERCE_FLOAT(LODWORD(v35)));
-        (*(void (__thiscall **)(MaterialInstanceConstant , int, int, float))(v4.VfTableObject.Dummy + 364))(v4, this.HandNormalMapNames1p[3].Index, this.HandNormalMapNames1p[3].Number, COERCE_FLOAT(LODWORD(v36)));
-        (*(void (__thiscall **)(MaterialInstanceConstant , int, int, float))(v4.VfTableObject.Dummy + 364))(v4, this.HandNormalMapNames1p[4].Index, this.HandNormalMapNames1p[4].Number, COERCE_FLOAT(LODWORD(v36)));
-        (*(void (__thiscall **)(MaterialInstanceConstant , int, int, float))(v4.VfTableObject.Dummy + 364))(v4, this.HandNormalMapNames1p[5].Index, this.HandNormalMapNames1p[5].Number, COERCE_FLOAT(LODWORD(v34)));
-        (*(void (__thiscall **)(MaterialInstanceConstant , int, int, float))(v4.VfTableObject.Dummy + 364))(v4, this.HandNormalMapNames1p[6].Index, this.HandNormalMapNames1p[6].Number, COERCE_FLOAT(LODWORD(v34)));
-        (*(void (__thiscall **)(MaterialInstanceConstant , int, int, float))(v4.VfTableObject.Dummy + 364))(v4, this.HandNormalMapNames1p[7].Index, this.HandNormalMapNames1p[7].Number, COERCE_FLOAT(LODWORD(v34)));
-        (*(void (__thiscall **)(MaterialInstanceConstant , int, int, float))(v4.VfTableObject.Dummy + 364))(v4, this.HandNormalMapNames1p[8].Index, this.HandNormalMapNames1p[8].Number, COERCE_FLOAT(LODWORD(v26)));
-        (*(void (__thiscall **)(MaterialInstanceConstant , int, int, float))(v4.VfTableObject.Dummy + 364))(v4, this.HandNormalMapNames1p[9].Index, this.HandNormalMapNames1p[9].Number, COERCE_FLOAT(LODWORD(v26)));
-        if ( (this.bHasMorphNodes.AsBitfield(7) & 1) != 0 )
+        v32 = (float)(asin(v31) * 0.63661975f);
+        v4.SetScalarParameterValue( this.HandNormalMapNames1p[0], v35);// SetScalarParameterValue
+        v4.SetScalarParameterValue( this.HandNormalMapNames1p[1], v35);// SetScalarParameterValue
+        v4.SetScalarParameterValue( this.HandNormalMapNames1p[2], v35);// SetScalarParameterValue
+        v4.SetScalarParameterValue( this.HandNormalMapNames1p[3], v36);// SetScalarParameterValue
+        v4.SetScalarParameterValue( this.HandNormalMapNames1p[4], v36);// SetScalarParameterValue
+        v4.SetScalarParameterValue( this.HandNormalMapNames1p[5], v34);// SetScalarParameterValue
+        v4.SetScalarParameterValue( this.HandNormalMapNames1p[6], v34);// SetScalarParameterValue
+        v4.SetScalarParameterValue( this.HandNormalMapNames1p[7], v34);// SetScalarParameterValue
+        v4.SetScalarParameterValue( this.HandNormalMapNames1p[8], v26);// SetScalarParameterValue
+        v4.SetScalarParameterValue( this.HandNormalMapNames1p[9], v26);// SetScalarParameterValue
+        if ( (this.bHasMorphNodes.AsBitfield(7) & 1) != default )
         {
           if ( v30 > 0.0f )
-            v27 = (Vector *)LODWORD(v30);
+            v27 = (Vector*)(&v30);
           else
             v27 = default;
-          (*(void (__stdcall **)(Vector *))(**(_DWORD **)this.MorphNodeWeight1p.Data + 312))(v27);
+          this.MorphNodeWeight1p.Data[0].SetNodeWeight(v27->X);// SetNodeWeight
           v21 = v30;
           if ( v30 >= 0.0f )
             v21 = 0.0f;
-          (*(void (__stdcall **)(_DWORD))(**((_DWORD **)this.MorphNodeWeight1p.Data + 1) + 312))(v21 * -1.0f);
+          this.MorphNodeWeight1p.Data[1].SetNodeWeight(v21 * -1.0f);// UMorphNodeWeight::SetNodeWeight
           if ( v32 > 0.0f )
-            v28 = (Vector *)LODWORD(v32);
+            v28 = (Vector*)(&v32);
           else
             v28 = default;
-          (*(void (__stdcall **)(Vector *))(**((_DWORD **)this.MorphNodeWeight1p.Data + 2) + 312))(v28);
+          this.MorphNodeWeight1p.Data[2].SetNodeWeight(v28->X);// UMorphNodeWeight::SetNodeWeight
           v22 = v32;
           if ( v32 >= 0.0f )
             v22 = 0.0f;
-          (*(void (__stdcall **)(_DWORD))(**((_DWORD **)this.MorphNodeWeight1p.Data + 3) + 312))(v22 * -1.0f);
+          this.MorphNodeWeight1p.Data[3].SetNodeWeight(v22 * -1.0f);// UMorphNodeWeight::SetNodeWeight
         }
       }
     }
@@ -184,7 +209,7 @@ public partial class TdPlayerPawn
     float v23 = default; // xmm7_4
     float v24 = default; // ecx
     float v25 = default; // edx
-    Rotator *v26; // ecx
+    //Rotator *v26; // ecx
     Vector *v27; // eax
     float v28 = default; // xmm3_4
     float v29 = default; // xmm1_4
@@ -196,11 +221,11 @@ public partial class TdPlayerPawn
     float v35 = default; // xmm0_4
     float v36 = default; // xmm1_4
     int v37 = default; // ecx
-    TdMove *v38; // edx
+    TdMove[] v38; // edx
     Class v39 = default; // eax
     float v40 = default; // ecx
     float v41 = default; // edx
-    Rotator *v42; // ecx
+    //Rotator *v42; // ecx
     Vector *v43; // eax
     float v44 = default; // xmm3_4
     float v45 = default; // xmm1_4
@@ -241,7 +266,7 @@ public partial class TdPlayerPawn
     v8 = this.Velocity.Y;
     a4.Z = v3;
     v9 = this.MovementState;
-    v10 = (float)((float)((float)(v8 * a2.Y) + (float)(v6 * a2.Z)) + (float)(v7 * a2.X)) * 0.69999999d;
+    v10 = (float)((float)((float)((float)(v8 * a2.Y) + (float)(v6 * a2.Z)) + (float)(v7 * a2.X)) * 0.69999999d);
     v56.X = (float)(a2.Y * -1.0f) - (float)(a2.Z * 0.0f);
     v56.Z = (float)(a2.X * 0.0f) - (float)(a2.Y * 0.0f);
     a4.X = v4;
@@ -250,7 +275,7 @@ public partial class TdPlayerPawn
       v11 = a4.Z + 26.0f;
     else
       v11 = a4.Z + 68.0f;
-    v12 = v10 * 0.40000001d;
+    v12 = (float)(v10 * 0.40000001d);
     v13 = (float)((float)((float)(a2.Y * -1.0f) - (float)(a2.Z * 0.0f)) * 14.0f) + a4.X;
     v14 = (float)((float)((float)(a2.X * 0.0f) - (float)(a2.Y * 0.0f)) * 14.0f) + v11;
     v15 = a4.Y + (float)(v56.Y * 14.0f);
@@ -263,7 +288,7 @@ public partial class TdPlayerPawn
       v16 = v12;
     v17 = default;
     v18 = default;
-    v19 = this.Controller == 0;
+    v19 = this.Controller == null;
     a3.X = (float)(a2.X * v16) + v13;
     a3.Y = (float)(a2.Y * v16) + v15;
     a3.Z = (float)(a2.Z * v16) + v14;
@@ -287,9 +312,9 @@ public partial class TdPlayerPawn
     v63 = default;
     if(v19 != default)
       return 0;
-    if ( this.Moves[v9].MovementLineCheck(&v62, &a3, &a4, &a5, 8902) )
+    if ( this.Moves[v9].MovementLineCheck(ref v62, &a3, &a4, &a5, 8902) )
     {
-      if ( default == v62.Actor || (v20 = E_GetClass_ABlockingVolume(), default == E_ActorIsOfClass(v62.Actor, v20)) )
+      if ( !v62.Actor || v62.Actor is BlockingVolume )
       {
         v21 = a2.Y;
         v22 = a2.Z;
@@ -300,11 +325,10 @@ public partial class TdPlayerPawn
         v25 = v62.Location.Z;
         this.AgainstWallRightHand.X = v62.Location.X;
         this.AgainstWallRightHand.Y = v24;
-fixed(var ptr1 =&this.Controller.GamePawn)
-        v26 =  ptr1::Pawn::Rotation;
+        ref var v26 = ref this.Controller.Rotation;
         v18 = 1;
         this.AgainstWallRightHand.Z = v25;
-        v27 = v26->Vector(&v58);
+        v27 = v26.Vector(&v58);
         v28 = 0.0f;
         if ( (float)((float)((float)(v27->Y + v27->X) * 0.0f) + v27->Z) < 0.0f )
           v28 = (float)((float)(v27->Y + v27->X) * 0.0f) + v27->Z;
@@ -332,17 +356,17 @@ fixed(var ptr1 =&this.Controller.GamePawn)
       v33 = v59;
     v58.X = (float)(v23 * v33) + v34;
     a3.X = v58.X;
-    v37 = this.MovementState;
+    v37 = (int)this.MovementState;
     v58.Y = (float)(v21 * v33) + v35;
     a3.Y = v58.Y;
     v38 = this.Moves.Data;
     v58.Z = (float)(v22 * v33) + v36;
     a3.Z = v58.Z;
-    if ( default == v38[v37].MovementLineCheck(&v62, &a3, &a4, &a5, 8902)
-      || v62.Actor && (v39 = E_GetClass_ABlockingVolume(), E_ActorIsOfClass(v62.Actor, v39))
+    if ( !v38[v37].MovementLineCheck(ref v62, &a3, &a4, &a5, 8902)
+      || v62.Actor && (v62.Actor is BlockingVolume)
       || (float)((float)((float)(v62.Normal.Y * a2.Y) + (float)(v62.Normal.Z * a2.Z)) + (float)(v62.Normal.X * a2.X)) >= -0.5f )
     {
-      if ( default == v18 )
+      if ( v18 == default )
         return 0;
     }
     else
@@ -351,11 +375,10 @@ fixed(var ptr1 =&this.Controller.GamePawn)
       v41 = v62.Location.Z;
       this.AgainstWallLeftHand.X = v62.Location.X;
       this.AgainstWallLeftHand.Y = v40;
-fixed(var ptr2 =&this.Controller.GamePawn)
-      v42 =  ptr2::Pawn::Rotation;
+      ref var v42 = ref this.Controller.Rotation;
       v17 = 1;
       this.AgainstWallLeftHand.Z = v41;
-      v43 = v42->Vector(&v58);
+      v43 = v42.Vector(&v58);
       v44 = (float)((float)(v43->Y + v43->X) * 0.0f) + v43->Z;
       if ( v44 >= 0.0f )
         v44 = 0.0f;
@@ -398,21 +421,21 @@ fixed(var ptr2 =&this.Controller.GamePawn)
     if(v17 != default)
     {
       if(v18 != default)
-        return 1;
+        return (EAgainstWallState)1;
       v53 = this.MyWeapon;
       if(v53 != default)
         v2 = v53.WeaponType;
-      return (v2 != EWT_Heavy) + 1;
+      return (EAgainstWallState)((v2 != EWT_Heavy ? 1 : 0) + 1);
     }
-    if ( default == v18 )
+    if ( !(v18 != default) )
       return 0;
     v54 = this.MyWeapon;
     if(v54 != default)
       v2 = v54.WeaponType;
-    return 2 * (v2 != EWT_Heavy) + 1;
+    return (EAgainstWallState)(2 * (v2 != EWT_Heavy ? 1 : 0) + 1);
   }
 
-  public unsafe bool ComplexEgdeCheck_Maybe(Vector *a2, float a3, float a4, float a5, _DWORD *a6, Vector *a7)
+  public unsafe bool ComplexEgdeCheck_Maybe(Vector *a2, float a3, float a4, float a5, ref int a6, ref Vector a7)
   {
     float v7 = default; // xmm6_4
     float v8 = default; // xmm7_4
@@ -574,7 +597,7 @@ fixed(var ptr2 =&this.Controller.GamePawn)
     v74.Y = v8 - v16;
     v70 = v9 - v17;
     v74.Z = v9 - v17;
-    GWorld.SingleLineCheck(&v79, this, &v74, &v69, 8415, &v66, 0);
+    GWorld.SingleLineCheck(ref v79, this, ref v74, ref v69, 8415, ref v66, 0);
     v74.X = 0.0f;
     v74.Y = 0.0f;
     v74.Z = 0.0f;
@@ -584,11 +607,12 @@ fixed(var ptr2 =&this.Controller.GamePawn)
     v69.X = v76;
     v69.Y = v75;
     v69.Z = v71;
-    GWorld.SingleLineCheck(&v77, this, &v69, &v66, 8415, &v74, 0);
+    GWorld.SingleLineCheck(ref v77, this, ref v69, ref v66, 8415, ref v74, 0);
     if ( v79.Time >= 1.0f || this.WalkableFloorZ <= v79.Normal.Z )
     {
       v19 = 0.0f;
-      goto LABEL_11;
+      v20 = default;
+      goto LABEL_12;
     }
     v19 = 0.0f;
     if ( v79.Time <= 0.0f )
@@ -698,45 +722,7 @@ fixed(var ptr2 =&this.Controller.GamePawn)
               v66.X = a3;
               v66.Y = a4;
               v66.Z = 0.0f;
-  LABEL_47:
-              if ( v75 < v76 )
-                v70 = v75;
-              else
-                v70 = v76;
-              v44 = (float)((float)((float)(v28->Location.Y - this.Location.Y) * v35) + (float)((float)(v28->Location.X - this.Location.X) * v36)) + (float)((float)(v28->Location.Z - this.Location.Z) * v40);
-              v70 = (float)(fabs(v66.X * v70 * v69.X + v66.Y * v70 * v69.Y + v70 * v66.Z * v69.Z));
-              if ( v44 <= 0.0f )
-                v45 = 1.0f;
-              else
-                v45 = -1.0f;
-              v46 = fabs(v69.Y);
-              v73 = (float)v46;
-              v70 = v45 * v70;
-              v47 = v46;
-              v48 = fabs(v69.X);
-              v67 = (float)v48;
-              if ( v48 < v47 )
-                v49 = v73;
-              else
-                v49 = v67;
-              v68 = v49;
-              v50 = v49 * v49;
-              if ( v50 < 1.0f )
-                v72 = v50;
-              else
-                v72 = 1.0f;
-              v51 = (sqrt(1.0f - v72) * v68 * 0.82842702d + 1.0f) * this.CylinderComponent.CollisionRadius + 2.0f - v70;
-              v67 = (float)v51;
-              if ( v51 > 0.0f )
-                v19 = v67;
-              v66.X = v36 * v19;
-              a7.X = v36 * v19;
-              v66.Y = v35 * v19;
-              a7.Y = v35 * v19;
-              v66.Z = v40 * v19;
-              a7.Z = v40 * v19;
-              *a6 = 2;
-              return true;
+              goto LABEL_47;
             }
             v66.X = a3;
             v42 = a4;
@@ -758,7 +744,8 @@ fixed(var ptr2 =&this.Controller.GamePawn)
             v42 = a4 * v74.X;
           }
           v66.Y = v42;
-          goto LABEL_46;
+          v66.Z = 0.0f;
+          goto LABEL_47;
         }
         return false;
       }
@@ -766,7 +753,7 @@ fixed(var ptr2 =&this.Controller.GamePawn)
     }
     else
     {
-      if ( default == v21 )
+      if ( !v21 )
         return false;
       v53 = &v77;
     }
@@ -834,11 +821,55 @@ fixed(var ptr2 =&this.Controller.GamePawn)
     a7.Y = v54 * v19;
     v66.Z = v59 * v19;
     a7.Z = v59 * v19;
-    *a6 = 1;
+    a6 = 1;
+    return true;
+    
+    
+    LABEL_47:
+    if ( v75 < v76 )
+      v70 = v75;
+    else
+      v70 = v76;
+    v44 = (float)((float)((float)(v28->Location.Y - this.Location.Y) * v35) + (float)((float)(v28->Location.X - this.Location.X) * v36)) + (float)((float)(v28->Location.Z - this.Location.Z) * v40);
+    v70 = (float)(fabs(v66.X * v70 * v69.X + v66.Y * v70 * v69.Y + v70 * v66.Z * v69.Z));
+    if ( v44 <= 0.0f )
+      v45 = 1.0f;
+    else
+      v45 = -1.0f;
+    v46 = fabs(v69.Y);
+    v73 = (float)v46;
+    v70 = v45 * v70;
+    v47 = v46;
+    v48 = fabs(v69.X);
+    v67 = (float)v48;
+    if ( v48 < v47 )
+      v49 = v73;
+    else
+      v49 = v67;
+    v68 = v49;
+    v50 = v49 * v49;
+    if ( v50 < 1.0f )
+      v72 = v50;
+    else
+      v72 = 1.0f;
+    v51 = (sqrt(1.0f - v72) * v68 * 0.82842702d + 1.0f) * this.CylinderComponent.CollisionRadius + 2.0f - v70;
+    v67 = (float)v51;
+    if ( v51 > 0.0f )
+      v19 = v67;
+    v66.X = v36 * v19;
+    a7.X = v36 * v19;
+    v66.Y = v35 * v19;
+    a7.Y = v35 * v19;
+    v66.Z = v40 * v19;
+    a7.Z = v40 * v19;
+    a6 = 2;
     return true;
   }
 
-  public unsafe bool CheckValidFloor(TdPlayerPawn Actor, Vector a1, Vector a5, int a8)
+
+
+  public unsafe bool CheckValidFloor( Vector a1, Vector a5, bool a8 ) => CheckValidFloor(a1, a5, a8 ? 1 : 0);
+  public unsafe bool CheckValidFloor(Vector a1, Vector a5, int a8)
   {
     float v5 = default; // xmm0_4
     float v6 = default; // xmm0_4
@@ -891,7 +922,8 @@ fixed(var ptr2 =&this.Controller.GamePawn)
     float v54 = default; // [esp+68h] [ebp-5Ch]
     CheckResult Hit = default; // [esp+78h] [ebp-4Ch] BYREF
     int v56 = default; // [esp+C0h] [ebp-4h]
-  
+
+    var Actor = this;
     v5 = Actor.CylinderComponent.CollisionHeight;
     a5a.X = Actor.Location.X;
     a5a.Y = Actor.Location.Y;
@@ -1038,18 +1070,16 @@ fixed(var ptr2 =&this.Controller.GamePawn)
     if ( v35 != 1.0f )
     {
       if ( v35 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
-      {
-  LABEL_34:
-        v39 = 1.0f;
-        goto LABEL_38;
-      }
+        goto LABEL_34;
       v54 = 3.0f;
       v47 = 0.5f;
       v38 = fsqrt(v44.X);
       v51.X = (float)(3.0f - (float)((float)((float)(1.0f / v38) * v44.X) * (float)(1.0f / v38))) * (float)((float)(1.0f / v38) * 0.5f);
       v37 = v51.X * a5.X;
       v14 = a5.Y * v51.X;
-      goto LABEL_31;
+      v44.Y = v14;
+      v44.X = v37;
+      goto LABEL_32;
     }
     if ( a5.Z != 0.0f )
     {
@@ -1064,16 +1094,20 @@ fixed(var ptr2 =&this.Controller.GamePawn)
     v44.Z = 0.0f;
     v44.Y = a5.Y;
   LABEL_32:
-    if ( v37 == 0.0f && v44.Y == 0.0f )
-      goto LABEL_34;
-    v40 = fabs(v44.Y);
-    v45 = (float)v40;
-    v41 = fabs(v44.X);
-    v47 = (float)v41;
-    if ( v41 < v40 )
-      v39 = v45;
-    else
-      v39 = v47;
+    if ( v37 != 0.0f || v44.Y != 0.0f )
+    {
+      v40 = fabs(v44.Y);
+      v45 = (float)v40;
+      v41 = fabs(v44.X);
+      v47 = (float)v41;
+      if ( v41 < v40 )
+        v39 = v45;
+      else
+        v39 = v47;
+      goto LABEL_38;
+    }
+  LABEL_34:
+    v39 = 1.0f;
   LABEL_38:
     v45 = v39;
     v51.X = a2.X * v36;
@@ -1082,9 +1116,9 @@ fixed(var ptr2 =&this.Controller.GamePawn)
     a7.X = 0.0f;
     a7.Y = 0.0f;
     a7.Z = 0.0f;
-    a5a.Z = a5a.Z - sqrt(a6) * (1.0f / v39 / a5.Z * v46);
-    if ( Actor.ComplexEgdeCheck_Maybe(&a5a, a2.X * v36, a2.Y * v36, a2.Z * v36, &a6, &a7)
-      || ((a2.X = v50.X * v46) is object && a2.Y = v50.Y * v46, a2.Z = v50.Z * v46, Actor.ComplexEgdeCheck_Maybe(&a5a, v50.X * v46, v50.Y * v46, v50.Z * v46, &a6, &a7)) )
+    a5a.Z = (float)(a5a.Z - sqrt(a6) * (1.0f / v39 / a5.Z * v46));
+    if ( Actor.ComplexEgdeCheck_Maybe(&a5a, a2.X * v36, a2.Y * v36, a2.Z * v36, ref *(int*)&a6, ref a7)
+      || ((a2.X = v50.X * v46) is object && (a2.Y = v50.Y * v46) is object && (a2.Z = v50.Z * v46) is object && Actor.ComplexEgdeCheck_Maybe(&a5a, v50.X * v46, v50.Y * v46, v50.Z * v46, ref *(int*)&a6, ref a7)) )
     {
       a5a.X = Actor.Location.X + a7.X;
       a5a.Y = Actor.Location.Y + a7.Y;
@@ -1112,34 +1146,32 @@ fixed(var ptr2 =&this.Controller.GamePawn)
       Hit.bStartPenetrating = default;
       v56 = default;
       a2.Z = v51.Z + a5a.Z;
-      GWorld.SingleLineCheck(&Hit, Actor, &a2, &a5a, 8927, &v50, 0);
+      GWorld.SingleLineCheck(ref Hit, Actor, ref a2, ref a5a, 8927, ref v50, 0);
       if ( Hit.Time >= 1.0f || Hit.Time > 0.0f && Actor.WalkableFloorZ > Hit.Normal.Z )
       {
-        if ( default == a8 )
+        if ( !(a8 != default) )
           return false;
-fixed(var ptr1 =&Actor.Rotation)
-        GWorld.MoveActor(Actor, &a7,  ptr1, 0, &Hit);
+        GWorld.MoveActor(Actor, ref a7, ref Actor.Rotation, 0, ref Hit);
         if ( Hit.Time == 1.0f )
         {
           // v42 = *(void (__thiscall **)(TdPlayerPawn , _DWORD, _DWORD, _DWORD, int))(Actor.VfTableObject.Dummy + 1060);
           a2.X = -0.0f - a7.X;
           a2.Y = -0.0f - a7.Y;
           a2.Z = -0.0f - a7.Z;
-          v42(Actor, -0.0f - a7.X, -0.0f - a7.Y, -0.0f - a7.Z, 1);// OffsetMeshXY
+          Actor.OffsetMeshXY(new Vector(-0.0f - a7.X, -0.0f - a7.Y, -0.0f - a7.Z), 1);// OffsetMeshXY
           Actor.EvadeTimer = 0.2f;
           return false;
         }
         a2.X = (float)(-0.0f - a7.X) * Hit.Time;
         a2.Y = (float)(-0.0f - a7.Y) * Hit.Time;
         a2.Z = (float)(-0.0f - a7.Z) * Hit.Time;
-fixed(var ptr2 =&Actor.Rotation)
-        GWorld.MoveActor(Actor, &a2,  ptr2, 0, &Hit);
+        GWorld.MoveActor(Actor, ref a2, ref Actor.Rotation, 0, ref Hit);
       }
     }
     return true;
   }
 
-  public unsafe bool OnWalkableFloor_orsomething(Vector *a2, Vector *a3, Vector *a4)
+  public unsafe bool OnWalkableFloor_orsomething(ref Vector a2, ref Vector a3, ref Vector a4)
   {
     float v5 = default; // xmm0_4
     float v6 = default; // xmm0_4
@@ -1187,23 +1219,23 @@ fixed(var ptr2 =&Actor.Rotation)
     a7.X = 0.0f;
     a7.Y = 0.0f;
     a7.Z = 0.0f;
-    v5 = a2->X + a3->X;
+    v5 = a2.X + a3.X;
     v30.Item = -1;
     v30.LevelIndex = -1;
     v29.X = v5;
-    v29.Y = a2->Y + a3->Y;
-    v6 = a2->Z + a3->Z;
+    v29.Y = a2.Y + a3.Y;
+    v6 = a2.Z + a3.Z;
     v30.Time = 1.0f;
     v29.Z = v6;
-    GWorld.SingleLineCheck(&v30, this, &v29, a2, 8415, &a7, 0);
+    GWorld.SingleLineCheck(ref v30, this, ref v29, ref a2, 8415, ref a7, 0);
     if ( v30.Time >= 1.0f )
       return false;
     v7 = 0.0f;
     if ( v30.Time <= 0.0f || this.WalkableFloorZ <= fabs(v30.Normal.Z) )
       return false;
     v8 = v30.Normal.Y;
-    v9 = v30.Location.X - (float)(a2->X + a3->X);
-    v10 = v30.Location.Y - (float)(a2->Y + a3->Y);
+    v9 = v30.Location.X - (float)(a2.X + a3.X);
+    v10 = v30.Location.Y - (float)(a2.Y + a3.Y);
     v11 = v30.Normal.X;
     v12 = (float)(v8 * v8) + (float)(v11 * v11);
     v32 = v12;
@@ -1239,7 +1271,12 @@ fixed(var ptr2 =&Actor.Rotation)
     v29.X = v15;
     v19 = v15;
     v29.Y = v16;
-    if ( v18 || ((v26 = v17 / fabs(v17), v15 == 0.0f) ? (v20 = 0.0f) : (v24 = v19 / fabs(v19), v20 = v24), v26 == v20) )
+    if ( v18 || (
+      (v26 = (float)(v17 / fabs(v17))) is object 
+       && v15 == 0.0f 
+        ? (v20 = 0.0f) 
+        : v20 = v24 = (float)(v19 / fabs(v19))
+    ) is object && v26 == v20)
     {
       if ( fabs(v19) > fabs(v17) )
         v17 = v15;
@@ -1264,35 +1301,635 @@ fixed(var ptr2 =&Actor.Rotation)
     return true;
   }
 
-  // Check arg count
-  public unsafe void MAT_SetAnimWeights(_E_struct_TArray_FAnimSlotInfo a)
+  public unsafe Vector * CheckForLedges_Maybe(Vector* a2, ref Vector a3, ref Vector a6)
   {
-    name *v4; // esi
+    PrimitiveComponent v5 = default; // eax
+    //Vector *v6; // eax
+    float v7 = default; // ecx
+    float v8 = default; // edx
+    float v9 = default; // xmm5_4
+    float v10 = default; // xmm0_4
+    float v11 = default; // xmm3_4
+    float v12 = default; // xmm2_4
+    float v13 = default; // xmm0_4
+    CylinderComponent v14 = default; // ecx
+    float v15 = default; // xmm2_4
+    bool v16 = default; // eax
+    bool v17 = default; // ebx
+    float v18 = default; // xmm0_4
+    bool v19 = default; // eax
+    int v20 = default; // ebx
+    int v21 = default; // ebp
+    EMoveActionHint v22 = default; // al
+    float v23 = default; // xmm3_4
+    bool v24 = default; // eax
+    Vector *result; // eax
+    EMoveActionHint v26 = default; // al
+    CylinderComponent v27 = default; // ecx
+    float v28 = default; // xmm0_4
+    float v29 = default; // ebp
+    float v30 = default; // xmm2_4
+    bool v31 = default; // edx
+    bool v32 = default; // eax
+    float v33 = default; // xmm2_4
+    float v34 = default; // xmm1_4
+    float v35 = default; // xmm0_4
+    float v36 = default; // xmm1_4
+    float v37 = default; // xmm2_4
+    float v38 = default; // edx
+    float v39 = default; // ecx
+    float v40 = default; // xmm0_4
+    float v41 = default; // xmm6_4
+    int v42 = default; // ecx
+    float v43 = default; // xmm2_4
+    float v44 = default; // xmm6_4
+    float v45 = default; // xmm0_4
+    float v46 = default; // xmm5_4
+    float v47 = default; // xmm0_4
+    float v48 = default; // xmm1_4
+    float v49 = default; // xmm0_4
+    float v50 = default; // xmm0_4
+    float v51 = default; // xmm0_4
+    float v52 = default; // xmm0_4
+    float v53 = default; // xmm2_4
+    float v54 = default; // xmm0_4
+    float v55 = default; // xmm7_4
+    float v56 = default; // xmm0_4
+    float v57 = default; // xmm0_4
+    float v58 = default; // eax
+    float v59 = default; // ecx
+    float v60 = default; // edx
+    bool v61 = default; // cf
+    float v62 = default; // eax
+    float v63 = default; // ecx
+    float v64 = default; // edx
+    float v65 = default; // xmm3_4
+    float v66 = default; // xmm5_4
+    float v67 = default; // xmm0_4
+    float v68 = default; // xmm1_4
+    float v69 = default; // xmm3_4
+    float v70 = default; // xmm3_4
+    float v71 = default; // xmm0_4
+    float v72 = default; // xmm2_4
+    float v73 = default; // xmm2_4
+    float v74 = default; // edx
+    float v75 = default; // ecx
+    Vector a7 = default; // [esp+24h] [ebp-1ACh] BYREF
+    Vector v77 = default; // [esp+34h] [ebp-19Ch] BYREF
+    float v78 = default; // [esp+40h] [ebp-190h]
+    float v79 = default; // [esp+44h] [ebp-18Ch]
+    float v80 = default; // [esp+48h] [ebp-188h]
+    Vector v81 = default; // [esp+4Ch] [ebp-184h] BYREF
+    float v82 = default; // [esp+58h] [ebp-178h]
+    float v83 = default; // [esp+5Ch] [ebp-174h]
+    float v84 = default; // [esp+60h] [ebp-170h]
+    float v85 = default; // [esp+64h] [ebp-16Ch]
+    float v86 = default; // [esp+68h] [ebp-168h]
+    float v87 = default; // [esp+6Ch] [ebp-164h]
+    float v88 = default; // [esp+70h] [ebp-160h]
+    float v89 = default; // [esp+74h] [ebp-15Ch]
+    float v90 = default; // [esp+78h] [ebp-158h]
+    float v91 = default; // [esp+7Ch] [ebp-154h]
+    Vector v92 = default; // [esp+80h] [ebp-150h] BYREF
+    float v93 = default; // [esp+90h] [ebp-140h]
+    float v94 = default; // [esp+94h] [ebp-13Ch]
+    float v95 = default; // [esp+98h] [ebp-138h]
+    CheckResult v96 = default; // [esp+A0h] [ebp-130h] BYREF
+    int v97 = default; // [esp+E8h] [ebp-E8h]
+    CheckResult v98 = default; // [esp+ECh] [ebp-E4h] BYREF
+    int v99 = default; // [esp+134h] [ebp-9Ch]
+    CheckResult v100 = default; // [esp+138h] [ebp-98h] BYREF
+    int v101 = default; // [esp+180h] [ebp-50h]
+    CheckResult v102 = default; // [esp+184h] [ebp-4Ch] BYREF
+  
+    v100.Item = -1;
+    v100.LevelIndex = -1;
+    v96.Item = -1;
+    v96.LevelIndex = -1;
+    v98.Item = -1;
+    v98.LevelIndex = -1;
+    v5 = this.CollisionComponent;
+    v100.Next = default;
+    v100.Actor = default;
+    v100.Location.X = 0.0f;
+    v100.Location.Y = 0.0f;
+    v100.Location.Z = 0.0f;
+    v100.Normal.X = 0.0f;
+    v100.Normal.Y = 0.0f;
+    v100.Normal.Z = 0.0f;
+    v100.Time = 1.0f;
+    v100.Material = default;
+    v100.PhysMaterial = default;
+    v100.Component = default;
+    v100.BoneName = default;
+    v100.Level = default;
+    v100.bStartPenetrating = default;
+    v101 = default;
+    v96.Next = default;
+    v96.Actor = default;
+    v96.Location.X = 0.0f;
+    v96.Location.Y = 0.0f;
+    v96.Location.Z = 0.0f;
+    v96.Normal.X = 0.0f;
+    v96.Normal.Y = 0.0f;
+    v96.Normal.Z = 0.0f;
+    v96.Time = 1.0f;
+    v96.Material = default;
+    v96.PhysMaterial = default;
+    v96.Component = default;
+    v96.BoneName = default;
+    v96.Level = default;
+    v96.bStartPenetrating = default;
+    v97 = default;
+    v98.Next = default;
+    v98.Actor = default;
+    v98.Location.X = 0.0f;
+    v98.Location.Y = 0.0f;
+    v98.Location.Z = 0.0f;
+    v98.Normal.X = 0.0f;
+    v98.Normal.Y = 0.0f;
+    v98.Normal.Z = 0.0f;
+    v98.Time = 1.0f;
+    v98.Material = default;
+    v98.PhysMaterial = default;
+    v98.Component = default;
+    v98.BoneName = default;
+    v98.Level = default;
+    v98.bStartPenetrating = default;
+    v99 = default;
+    if(v5 != default)
+    {
+      a7.X = v5.Translation.X + this.Location.X;
+      a7.Y = v5.Translation.Y + this.Location.Y;
+      a7.Z = v5.Translation.Z + this.Location.Z;
+      v7 = a7.X;
+      v8 = a7.Y;
+      v90 = a7.Z;
+    }
+    else
+    {
+      ref var v6 = ref this.Location;
+      v7 = v6.X;
+      v8 = v6.Y;
+      v90 = v6.Z;
+    }
+    //v7 = v6->X;
+    //v8 = v6->Y;
+    v9 = a3.Y;
+    v10 = (float)(a3.X * a3.X) + (float)(v9 * v9);
+    //v90 = v6->Z;
+    v88 = v7;
+    v89 = v8;
+    v86 = v10;
+    v92.X = v10;
+    if ( v10 != 1.0f )
+    {
+      if ( v10 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      {
+        v93 = 3.0f;
+        v87 = 0.5f;
+        v12 = 1.0f / fsqrt(v92.X);
+        a7.X = (float)(3.0f - (float)((float)(v12 * v92.X) * v12)) * (float)(v12 * 0.5f);
+        v11 = a7.X * a3.X;
+        v9 = a3.Y * a7.X;
+      }
+      else
+      {
+        v11 = 0.0f;
+        v9 = 0.0f;
+      }
+      v78 = v11;
+      v79 = v9;
+      v80 = 0.0f;
+      goto LABEL_12;
+    }
+    if ( a3.Z != 0.0f )
+    {
+      v11 = a3.X;
+  LABEL_11:
+      v78 = v11;
+      v79 = v9;
+      v80 = 0.0f;
+      goto LABEL_12;
+    }
+    v78 = a3.X;
+    v11 = a3.X;
+    v79 = a3.Y;
+    v9 = a3.Y;
+    v80 = 0.0f;
+  LABEL_12:
+    v13 = this.EdgeCheckDistance;
+    v77.Y = (float)(v89 + a3.Y) + (float)(v9 * v13);
+    v77.X = (float)(v88 + a3.X) + (float)(v11 * v13);
+    v81.Y = v77.Y;
+    v77.Z = (float)(v90 + a3.Z) + (float)(v80 * v13);
+    v81.X = v77.X;
+    v14 = this.CylinderComponent;
+    v81.Z = v77.Z;
+    v15 = v77.Z - (float)((float)(v14.CollisionHeight + this.EdgeStopMinHeight) + 4.0f);
+    v85 = (float)(v14.CollisionHeight + this.EdgeStopMinHeight) + 4.0f;
+    v81.Z = v15;
+    a7.X = 0.0f;
+    a7.Y = 0.0f;
+    a7.Z = 0.0f;
+    GWorld.SingleLineCheck(ref v100, this, ref v81, ref v77, 8927, ref a7, 0);
+    v91 = (float)(this.CylinderComponent.CollisionHeight + this.MaxStepHeight) / v85;
+    v16 = v100.Time > v91 || this.WalkableFloorZ > v100.Normal.Z;
+    v82 = (float)(v80 * 0.0f) - v79;
+    v84 = (float)(v79 * 0.0f) - (float)(v78 * 0.0f);
+    v83 = v78 - (float)(v80 * 0.0f);
+    v94 = v83 + v79;
+    v95 = v84 + v80;
+    v93 = v82 + v78;
+    v17 = v16;
+    v87 = (float)(sqrt(v86));
+    v87 = v87 * 0.70710677f;
+    v18 = v87 + this.EdgeCheckDistance;
+    v77.Y = (float)((float)(v83 + v79) * v18) + v89;
+    v81.Y = v77.Y;
+    a7.Z = (float)((float)(v84 + v80) * v18) + v90;
+    v77.Z = a7.Z;
+    v77.X = (float)((float)(v82 + v78) * v18) + v88;
+    v81.X = v77.X;
+    v81.Z = a7.Z - v85;
+    a7.X = 0.0f;
+    a7.Y = 0.0f;
+    a7.Z = 0.0f;
+    GWorld.SingleLineCheck(ref v96, this, ref v81, ref v77, 8927, ref a7, 0);
+    v19 = v96.Time > v91 || this.WalkableFloorZ > v96.Normal.Z;
+    v20 = (v19 ? 1 : 0) + (v17 ? 1 : 0);
+    v21 = default;
+    if ( v20 == 2 && !this.IsTimerActive("SlideOffLedge") )
+    {
+      this.SetTimer(0.2f, false, "SlideOffLedge", this);
+      if ( (float)((float)(this.Velocity.X * this.Velocity.X) + (float)(this.Velocity.Y * this.Velocity.Y)) > (float)(this.EdgeCheckMaxSpeed * this.EdgeCheckMaxSpeed) || ((v22 = this.MoveActionHint) is object && v22 == MAH_Up) || v22 == MAH_Down )
+      {
+        goto LABEL_29;
+      }
+      v21 = 1;
+    }
+    v23 = v87 + this.EdgeCheckDistance;
+    v92.Z = v80 - v84;
+    a7.Z = (float)((float)(v80 - v84) * v23) + v90;
+    v92.X = v78 - v82;
+    v92.Y = v79 - v83;
+    v77.Z = a7.Z;
+    v77.X = (float)((float)(v78 - v82) * v23) + v88;
+    v81.X = v77.X;
+    v77.Y = (float)((float)(v79 - v83) * v23) + v89;
+    v81.Y = v77.Y;
+    v81.Z = a7.Z - v85;
+    a7.X = 0.0f;
+    a7.Y = 0.0f;
+    a7.Z = 0.0f;
+    GWorld.SingleLineCheck(ref v98, this, ref v81, ref v77, 8927, ref a7, 0);
+    v24 = v98.Time > v91 || this.WalkableFloorZ > v98.Normal.Z;
+    if ( !(v21 != default) )
+    {
+      if ( v20 + v24.AsInt() == 2 && !this.IsTimerActive("SlideOffLedge") )
+        this.SetTimer(0.2f, false, "SlideOffLedge", this);
+      if ( (float)((float)(this.Velocity.X * this.Velocity.X) + (float)(this.Velocity.Y * this.Velocity.Y)) > (float)(this.EdgeCheckMaxSpeed * this.EdgeCheckMaxSpeed) )
+        goto LABEL_29;
+      v26 = this.MoveActionHint;
+      if ( v26 == MAH_Up || v26 == MAH_Down )
+        goto LABEL_29;
+    }
+    v27 = this.CylinderComponent;
+    v28 = v90 - v27.CollisionHeight;
+    v29 = v88;
+    a7.Y = v89;
+    a7.Z = v28;
+    if ( v98.Time == 1.0f || ((v30 = this.WalkableFloorZ) is object && (v85 = 0.0f) is object && v30 > v98.Normal.Z) )
+      v85.LODWORD(1);
+    v31 = v96.Time == 1.0f || this.WalkableFloorZ > v96.Normal.Z;
+    v32 = v100.Time == 1.0f || this.WalkableFloorZ > v100.Normal.Z;
+    if ( !((LODWORD(v85) | (v31 || v32).AsInt()) != default) )
+      goto LABEL_115;
+    v33 = v27.CollisionRadius - 4.0f;
+    v34 = this.EdgeCheckDistance * this.EdgeCheckDistance;
+    v91 = v33;
+    v87 = v34;
+    if ( (v31.AsInt() & LODWORD(v85)) == default )
+    {
+      v82 = 0.0f;
+      v83 = 0.0f;
+      v84 = 0.0f;
+      if(v32 != default)
+      {
+        v62 = v78;
+        v63 = v79;
+        v64 = v80;
+      }
+      else if ( v85 == 0.0f )
+      {
+        if ( !v31 )
+        {
+          goto LABEL_102;
+        }
+        v62 = v93;
+        v63 = v94;
+        v64 = v95;
+      }
+      else
+      {
+        v62 = v92.X;
+        v63 = v92.Y;
+        v64 = v92.Z;
+      }
+      v82 = v62;
+      v83 = v63;
+      v84 = v64;
+      goto LABEL_102;
+    }
+    v86 = v28 - 8.0f;
+    v35 = v92.X * v33;
+    v36 = v92.Y * v33;
+    v37 = v92.Z * v33;
+    v81.X = v88 - v35;
+    v81.Y = a7.Y - v36;
+    v81.Z = v86 - v37;
+    v77.X = v35 + v88;
+    v77.Y = v36 + a7.Y;
+    v77.Z = v37 + v86;
+    v92.X = 0.0f;
+    v92.Y = 0.0f;
+    v92.Z = 0.0f;
+    GWorld.SingleLineCheck(ref v98, this, ref v81, ref v77, 8415, ref v92, 0);
+    if ( v98.Time >= 1.0f || v98.Time <= 0.0f || this.WalkableFloorZ <= v98.Normal.Z )
+    {
+      v85 = 0.0f;
+    }
+    else
+    {
+      v38 = v98.Location.Y;
+      a6.X = v98.Location.X;
+      v39 = v98.Location.Z;
+      a6.Y = v38;
+      a6.Z = v39;
+      v40 = a6.Z + 8.0f;
+      v85.LODWORD(1);
+      a6.Z = v40;
+    }
+    v41 = a7.Y;
+    a7.Y = a7.Y - (float)(v94 * v91);
+    v81.X = v29 - (float)(v93 * v91);
+    v81.Y = a7.Y;
+    v81.Z = v86 - (float)(v95 * v91);
+    v77.X = (float)(v93 * v91) + v29;
+    v77.Y = (float)(v94 * v91) + v41;
+    v77.Z = (float)(v95 * v91) + v86;
+    a7.X = 0.0f;
+    a7.Y = 0.0f;
+    a7.Z = 0.0f;
+    GWorld.SingleLineCheck(ref v96, this, ref v81, ref v77, 8415, ref a7, 0);
+    if ( v96.Time >= 1.0f || v96.Time <= 0.0f || this.WalkableFloorZ <= v96.Normal.Z )
+    {
+      v42 = default;
+    }
+    else
+    {
+      a6 = v96.Location;
+      v42 = 1;
+      a6.Z = a6.Z + 8.0f;
+    }
+    v43 = v98.Normal.X;
+    v44 = v98.Normal.Y;
+    v45 = (float)(v43 * v43) + (float)(v44 * v44);
+    v92.X = v45;
+    if ( v45 == 1.0f )
+    {
+      if ( v98.Normal.Z == 0.0f )
+      {
+        v82 = v98.Normal.X;
+        v83 = v98.Normal.Y;
+        v46 = v98.Normal.Y;
+        v84 = 0.0f;
+        goto LABEL_69;
+      }
+      v82 = v98.Normal.X;
+      v46 = v98.Normal.Y;
+    }
+    else if ( v45 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    {
+      v93 = 3.0f;
+      v86 = 0.5f;
+      v47 = fsqrt(v92.X);
+      a7.X = (float)(3.0f - (float)((float)((float)(1.0f / v47) * v92.X) * (float)(1.0f / v47))) * (float)((float)(1.0f / v47) * 0.5f);
+      v43 = v98.Normal.X;
+      v44 = v98.Normal.Y;
+      v82 = a7.X * v98.Normal.X;
+      v46 = v98.Normal.Y * a7.X;
+    }
+    else
+    {
+      v82 = 0.0f;
+      v46 = 0.0f;
+    }
+    v84 = 0.0f;
+  LABEL_69:
+    v48 = v96.Normal.Y;
+    v49 = (float)(v96.Normal.X * v96.Normal.X) + (float)(v48 * v48);
+    v92.X = v49;
+    if ( v49 == 1.0f )
+    {
+      if ( v96.Normal.Z == 0.0f )
+      {
+        v78 = v96.Normal.X;
+        v79 = v96.Normal.Y;
+        v48 = v96.Normal.Y;
+        v80 = 0.0f;
+        goto LABEL_77;
+      }
+      v78 = v96.Normal.X;
+    }
+    else if ( v49 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    {
+      v93 = 3.0f;
+      v86 = 0.5f;
+      v50 = fsqrt(v92.X);
+      a7.X = (float)(3.0f - (float)((float)((float)(1.0f / v50) * v92.X) * (float)(1.0f / v50))) * (float)((float)(1.0f / v50) * 0.5f);
+      v44 = v98.Normal.Y;
+      v48 = v96.Normal.Y * a7.X;
+      v43 = v98.Normal.X;
+      v78 = a7.X * v96.Normal.X;
+    }
+    else
+    {
+      v78 = 0.0f;
+      v48 = 0.0f;
+    }
+    v80 = 0.0f;
+  LABEL_77:
+    v51 = (float)((float)(a3.Z * v98.Normal.Z) + (float)(v43 * a3.X)) + (float)(v44 * a3.Y);
+    a7.X = a3.X - (float)(v98.Normal.X * v51);
+    a7.Y = a3.Y - (float)(v44 * v51);
+    a7.Z = a3.Z - (float)(v51 * v98.Normal.Z);
+    v52 = (float)((float)(a3.Z * v96.Normal.Z) + (float)(v96.Normal.X * a3.X)) + (float)(v96.Normal.Y * a3.Y);
+    v53 = a3.X - (float)(v52 * v96.Normal.X);
+    v93 = v53;
+    v94 = a3.Y - (float)(v96.Normal.Y * v52);
+    v95 = a3.Z - (float)(v52 * v96.Normal.Z);
+    if ( v85 == 0.0f )
+    {
+      v55 = 0.0f;
+    }
+    else
+    {
+      v54 = (float)((float)((float)((float)(v98.Location.X - v88) * v82) + (float)((float)(v98.Location.Z - v90) * v84)) + (float)((float)(v98.Location.Y - v89) * v46)) / (float)((float)((float)(v82 * v82) + (float)(v84 * v84)) + (float)(v46 * v46));
+      v55 = (float)((float)((float)(v54 * v82) - a7.X) * (float)((float)(v54 * v82) - a7.X)) + (float)((float)((float)(v46 * v54) - a7.Y) * (float)((float)(v46 * v54) - a7.Y));
+    }
+    if(v42 != default)
+    {
+      v56 = (float)((float)((float)((float)(v96.Location.X - v88) * v78) + (float)((float)(v96.Location.Z - v90) * v80)) + (float)((float)(v96.Location.Y - v89) * v48)) / (float)((float)((float)(v78 * v78) + (float)(v80 * v80)) + (float)(v48 * v48));
+      v57 = (float)((float)((float)(v56 * v78) - v53) * (float)((float)(v56 * v78) - v53)) + (float)((float)((float)(v48 * v56) - v94) * (float)((float)(v48 * v56) - v94));
+    }
+    else
+    {
+      v57 = 0.0f;
+    }
+    if ( v87 >= v57 )
+    {
+      if ( v87 < v55 )
+        goto LABEL_92;
+      if( v85 != 0.0f && v42.AsBool() )
+      {
+        result = a2;
+        a2->X = 0.0f;
+        a2->Y = 0.0f;
+        a2->Z = 0.0f;
+        return result;
+      }
+    }
+    if ( v87 >= v55 && v85 != 0.0f )
+    {
+      v58 = a7.X;
+      v59 = a7.Y;
+      v60 = a7.Z;
+      v61 = v87 < v57;
+      goto LABEL_90;
+    }
+  LABEL_92:
+    if ( v87 < v57 || !(v42.AsBool()) )
+      goto LABEL_115;
+    v58 = v93;
+    v59 = v94;
+    v60 = v95;
+    v61 = v87 < v55;
+  LABEL_90:
+    a3.Z = v60;
+    a3.Y = v59;
+    a3.X = v58;
+    if ( !v61 )
+    {
+  LABEL_91:
+      result = a2;
+      a2->X = 0.0f;
+      a2->Y = 0.0f;
+      a2->Z = 0.0f;
+      return result;
+    }
+  LABEL_115:
+    result = a2;
+    *a2 = a3;
+    return result;
+    
+    LABEL_29:
+    result = a2;
+    *a2 = a3;
+    return result;
+  LABEL_102:
+    v102 = new CheckResult(1.0f, null);
+    v65 = a7.Z - 8.0f;
+    v66 = a7.Y;
+    a7.Y = a7.Y - (float)(v83 * v91);
+    v81.X = v29 - (float)(v82 * v91);
+    a7.Z = (float)(a7.Z - 8.0f) - (float)(v84 * v91);
+    v81.Y = a7.Y;
+    v81.Z = a7.Z;
+    v77.X = (float)(v82 * v91) + v29;
+    v77.Y = (float)(v83 * v91) + v66;
+    v77.Z = (float)(v84 * v91) + v65;
+    a7.X = 0.0f;
+    a7.Y = 0.0f;
+    a7.Z = 0.0f;
+    GWorld.SingleLineCheck(ref v102, this, ref v81, ref v77, 8415, ref a7, 0);
+    if ( v102.Time >= 1.0f || v102.Time <= 0.0f || this.WalkableFloorZ <= v102.Normal.Z )
+      goto LABEL_115;
+    v67 = v102.Normal.X;
+    v68 = v102.Normal.Y;
+    v69 = (float)(v67 * v67) + (float)(v68 * v68);
+    v92.X = v69;
+    if ( v69 == 1.0f )
+    {
+      if ( v102.Normal.Z == 0.0f )
+      {
+        a7 = v102.Normal;
+        v67 = v102.Normal.X;
+        v68 = v102.Normal.Y;
+        v70 = v102.Normal.Z;
+        goto LABEL_112;
+      }
+    }
+    else if ( v69 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    {
+      v93 = 3.0f;
+      v91 = 0.5f;
+      v71 = fsqrt(v92.X);
+      a7.X = (float)(3.0f - (float)((float)((float)(1.0f / v71) * v92.X) * (float)(1.0f / v71))) * (float)((float)(1.0f / v71) * 0.5f);
+      v67 = a7.X * v102.Normal.X;
+      v68 = v102.Normal.Y * a7.X;
+    }
+    else
+    {
+      v67 = 0.0f;
+      v68 = 0.0f;
+    }
+    v70 = 0.0f;
+    goto LABEL_112;
+    LABEL_112:
+    v72 = (float)((float)((float)((float)(v102.Location.X - v88) * v67) + (float)((float)(v102.Location.Z - v90) * v70)) + (float)((float)(v102.Location.Y - v89) * v68))
+          / (float)((float)((float)(v67 * v67) + (float)(v70 * v70)) + (float)(v68 * v68));
+    if ( v87 >= (float)((float)((float)((float)(v72 * v67) * (float)(v72 * v67)) + (float)((float)(v68 * v72) * (float)(v68 * v72))) - v86) )
+    {
+      v73 = (float)((float)(v67 * a3.X) + (float)(v70 * a3.Z)) + (float)(v68 * a3.Y);
+      a3.X = a3.X - (float)(v67 * v73);
+      a3.Y = a3.Y - (float)(v68 * v73);
+      a3.Z = a3.Z - (float)(v70 * v73);
+    }
+    v74 = v102.Location.Y;
+    a6.X = v102.Location.X;
+    v75 = v102.Location.Z;
+    a6.Y = v74;
+    a6.Z = v75;
+    a6.Z = a6.Z + 8.0f;
+    goto LABEL_115;
+  }
+
+  public unsafe void MAT_SetAnimWeights(array<AnimSlotInfo> a)
+  {
+    //name *v4; // esi
     int i = default; // edi
     AnimNodeSlot v6 = default; // ecx
     int v7 = default; // [esp+8h] [ebp-4h]
     int aa = default; // [esp+10h] [ebp+4h]
   
     v7 = default;
-    if ( a[0].SlotName.Number > 0 )
+    if ( a.Count > 0 )
     {
       aa = default;
       do
       {
-        v4 = (name *)(aa + a[0].SlotName.Index);
+        //v4 = (name *)(aa + a[0].SlotName.Index);
         for ( i = default; i < this.SlotNodes.Count; ++i )
         {
           v6 = this.SlotNodes[i];
-          if(v6 != default)
-          {
-            if ( v6.NodeName.Index == v4->Index && v6.NodeName.Number == v4->Number )
-              v6.Mat_SetAnimWeights( v4);// UAnimNodeSlot::Mat_SetAnimWeights
-          }
+          if ( v6 && v6.NodeName == a[i].SlotName )
+            v6.MAT_SetAnimWeights( ref a[i] );// UAnimNodeSlot::MAT_SetAnimWeights
         }
-        aa = aa + (20);
+        //aa = aa + (20);
         ++v7;
       }
-      while ( v7 < a[0].SlotName.Number );
+      while ( v7 < a.Count );
     }
   }
 
@@ -1313,13 +1950,13 @@ fixed(var ptr2 =&Actor.Rotation)
     TdPlayerController v14 = default; // eax
     int v15 = default; // [esp+10h] [ebp-8h]
   
-    v11 = this.CheckAgainstWall();  
-  #error  This is not properly decompiled, likely to not work as expected
+    v11 = CheckAgainstWall();
+    NativeMarkers.MarkUnimplemented("This is not properly decompiled, likely to not work as expected");
     if(v11 != default)
     {
       this.AgainstWallState = v11;
-      this.ClearTimer(FuncName_StopAgainstWall, 0);
-      this.SetTimer(0.15000001d, 0, FuncName_StopAgainstWall, 0);
+      this.ClearTimer("StopAgainstWall");
+      this.SetTimer(0.15000001f, false, "StopAgainstWall");
       v12 = this.Controller;
       SetFromBitfield(ref this.bDisableSkelControlSpring, 32, this.bDisableSkelControlSpring.AsBitfield(32) | (4u));
       this.MinLookConstraint.Pitch = -5000;
@@ -1329,7 +1966,7 @@ fixed(var ptr2 =&Actor.Rotation)
         v13 = this.MyWeapon;
         if(v13 != default)
         {
-          if ( (v13.bTakingDamage.AsBitfield(9) & 8) != 0 )
+          if ( (v13.bTakingDamage.AsBitfield(9) & 8) != default )
           {
             v14 = E_TryCastTo<TdPlayerController>(v12);
             if(v14 != default)
@@ -1337,7 +1974,8 @@ fixed(var ptr2 =&Actor.Rotation)
               v15 = v9;
               v1 = v14;
               v2 = v14.VfTableObject.Dummy;
-              CallUFunction(v14.UnZoom, v1, v3, 0, 0, v15);
+              v14.UnZoom();
+              //CallUFunction(, v1, v3, 0, 0, v15);
             }
           }
         }
@@ -1345,34 +1983,250 @@ fixed(var ptr2 =&Actor.Rotation)
     }
     else if ( this.MovementState == MOVE_Walking )
     {
-      v4 = (TdMove )*((_DWORD *)this.Moves.Data + 1);
-      if ( default == class_TdMove )
+      v4 = this.Moves[1];
+      /*if ( !class_TdMove )
       {
         class_TdMove = (Class )sub_11FEB80((int)L"TdGame");
         sub_11F3850();
-      }
-      v5 = (TdMove )class_TdMove.GetDefaultObject(0);
+      }*/
+      v5 = ClassT<TdMove>().DefaultAs<TdMove>();
       v6 = v5.MinLookConstraint.Pitch;
-      v5 = (TdMove )((byte *)v5 + 216);
+      //v5 = (TdMove )((byte *)v5 + 216);
       v4.MinLookConstraint.Pitch = v6;
-      v4.MinLookConstraint.Yaw = v5.ObjectInternalInteger;
-      v4.MinLookConstraint.Roll = v5.ObjectFlags_A;
-      if ( default == class_TdMove )
+      v4.MinLookConstraint.Yaw = v5.MinLookConstraint.Yaw;
+      v4.MinLookConstraint.Roll = v5.MinLookConstraint.Roll;
+      /*if ( !class_TdMove )
       {
         class_TdMove = (Class )sub_11FEB80((int)L"TdGame");
         sub_11F3850();
-      }
-      v7 = (TdMove )class_TdMove.GetDefaultObject(0);
+      }*/
+      v7 = ClassT<TdMove>().DefaultAs<TdMove>();//(TdMove )class_TdMove.GetDefaultObject(0);
       v8 = v7.MaxLookConstraint.Pitch;
-      v7 = (TdMove )((byte *)v7 + 0xE4);// Now points to MaxLookConstraint
+      //v7 = (TdMove )((byte *)v7 + 0xE4);// Now points to MaxLookConstraint
       v4.MaxLookConstraint.Pitch = v8;
-      v4.MaxLookConstraint.Yaw = v7.ObjectInternalInteger;
-      v4.MaxLookConstraint.Roll = v7.ObjectFlags_A;
+      v4.MaxLookConstraint.Yaw = v7.MaxLookConstraint.Yaw;
+      v4.MaxLookConstraint.Roll = v7.MaxLookConstraint.Roll;
     }
   }
 
+  public unsafe Vector * SomethingVertigoRelated(Vector *a2, int a3, int a4, int a5, float a6, float a7, float a8, int a9, int a10, int a11, int* a12, int* a13)
+  {
+    float v14 = default; // xmm1_4
+    Vector *result; // eax
+    float v16 = default; // edx
+    float v17 = default; // ecx
+    float v18 = default; // xmm0_4
+    float v19 = default; // xmm2_4
+    float v20 = default; // xmm5_4
+    float v21 = default; // xmm4_4
+    float v22 = default; // xmm6_4
+    float v23 = default; // xmm0_4
+    float v24 = default; // xmm1_4
+    float v25 = default; // xmm2_4
+    PrimitiveComponent v26 = default; // eax
+    //Vector *v27; // eax
+    float v28 = default; // ecx
+    float v29 = default; // xmm0_4
+    float v30 = default; // edx
+    float v31 = default; // xmm0_4
+    TdMove_Vertigo v32 = default; // edi
+    double v33 = default; // st5
+    double v34 = default; // st4
+    double v35 = default; // st6
+    double v36 = default; // st5
+    float v37 = default; // eax
+    float v38 = default; // edx
+    float v39 = default; // ecx
+    float v40 = default; // edx
+    int v41 = default; // edi
+    int v42 = default; // eax
+    int v43 = default; // edi
+    int v44 = default; // eax
+    Vector v45 = default; // [esp-8h] [ebp-D4h]
+    Vector v46 = default; // [esp+18h] [ebp-B4h] BYREF
+    Vector v47 = default; // [esp+28h] [ebp-A4h] BYREF
+    int v48 = default; // [esp+34h] [ebp-98h]
+    Vector v49 = default; // [esp+38h] [ebp-94h] BYREF
+    Vector a2a = default; // [esp+44h] [ebp-88h] BYREF
+    int v51 = default; // [esp+54h] [ebp-78h]
+    Vector v52 = default; // [esp+58h] [ebp-74h] BYREF
+    Vector v53 = default; // [esp+64h] [ebp-68h] BYREF
+    float v54 = default; // [esp+70h] [ebp-5Ch]
+    CheckResult v55 = default; // [esp+80h] [ebp-4Ch] BYREF
+  
+    if ( (this.bUpAndOut.AsBitfield(32) & 0x8000) == default )
+      goto LABEL_29;
+    if ( (this.Moves[this.MovementState].bDebugMove.AsBitfield(29) & 0x2000) == default )
+      goto LABEL_29;
+    v45.X = a6;
+    *(_QWORD *)&v45.Y = __PAIR64__(LODWORD(a8), LODWORD(a7));
+    CheckForLedges_Maybe(&v46, ref v45, ref v53);
+    v14 = v46.Y;
+    if ( v46.X == a6 && v46.Y == a7 && v46.Z == a8 )
+      goto LABEL_29;
+    if ( this.MovementState == MOVE_Crouch )
+    {
+      result = a2;
+      v16 = v46.Y;
+      a2->X = v46.X;
+      v17 = v46.Z;
+      a2->Y = v16;
+      a2->Z = v17;
+      return result;
+    }
+    v18 = (float)(v46.Y * v46.Y) + (float)(v46.X * v46.X);
+    a2a.X = v18;
+    if ( v18 != 1.0f && v18 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    {
+      v47.X = 3.0f;
+      v51 = 1056964608;
+      v19 = 1.0f / fsqrt(a2a.X);
+      v54 = (float)(3.0f - (float)((float)(v19 * a2a.X) * v19)) * (float)(v19 * 0.5f);
+      v14 = v46.Y;
+    }
+    v20 = a8 - v46.Z;
+    v21 = a7 - v14;
+    v22 = a6 - v46.X;
+    v23 = (float)((float)(v20 * v20) + (float)(v21 * v21)) + (float)(v22 * v22);
+    v24 = 0.0f;
+    a2a.X = a6 - v46.X;
+    a2a.Y = v21;
+    a2a.Z = a8 - v46.Z;
+    v46.X = v23;
+    if ( v23 == 1.0f )
+    {
+      v46 = a2a;
+    }
+    else
+    {
+      if ( v23 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      {
+        v54 = 3.0f;
+        v51 = 1056964608;
+        v25 = 1.0f / fsqrt(v46.X);
+        v47.X = (float)(3.0f - (float)((float)(v25 * v46.X) * v25)) * (float)(v25 * 0.5f);
+        v24 = v47.X * v22;
+        v46.Y = v21 * v47.X;
+        v46.Z = v20 * v47.X;
+      }
+      else
+      {
+        v46.Y = 0.0f;
+        v46.Z = 0.0f;
+      }
+      v46.X = v24;
+    }
+    v55 = new CheckResult(1.0f, null);
+    v26 = this.CollisionComponent;
+    if(v26 != default)
+    {
+      v47.X = v26.Translation.X + this.Location.X;
+      v47.Y = v26.Translation.Y + this.Location.Y;
+      v47.Z = v26.Translation.Z + this.Location.Z;
+      ref var v27 = ref v47;
+      v28 = v27.Y;
+      a2a.X = v27.X;
+      v30 = v27.Z;
+    }
+    else
+    {
+      ref var v27 = ref this.Location;
+      v28 = v27.Y;
+      a2a.X = v27.X;
+      v30 = v27.Z;
+    }
+    v29 = this.VertigoEdgeProbingDistance;
+    v49.X = a2a.X + (float)(v46.X * v29);
+    a2a.Y = v28;
+    v49.Y = v28 + (float)(v46.Y * v29);
+    a2a.Z = v30;
+    v52.X = v49.X;
+    v49.Z = v30 + (float)(v46.Z * v29);
+    v31 = v49.Z - this.VertigoEdgeProbingHeight;
+    v52.Y = v49.Y;
+    v52.Z = v31;
+    v47.X = 0.0f;
+    v47.Y = 0.0f;
+    v47.Z = 0.0f;
+    GWorld.SingleLineCheck(ref v55, this, ref v52, ref v49, 8927, ref v47, 0);
+    if ( v55.Time != 1.0f )
+    {
+      goto LABEL_29;
+    }
+    else
+    {
+      v46.X = v49.X - a2a.X;
+      v46.Y = v49.Y - a2a.Y;
+      v46.Z = v49.Z - a2a.Z;
+      v46.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+      this.Rotation.Vector(&a2a);
+      a2a.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+      if ( fabs(a2a.Z * v46.Z + a2a.Y * v46.Y + v46.X * a2a.X) > this.VertigoEffectThreshold && this.MovementState == MOVE_Walking && this.CurrentWalkingState < WAS_Run )
+      {
+        v32 = E_TryCastTo<TdMove_Vertigo>(this.Moves[47]);
+        v33 = v53.Z - v32.LastActualVertigoEdgePosition.Z;
+        v34 = v53.Y - v32.LastActualVertigoEdgePosition.Y;
+        v35 = v34 * v34 + v33 * v33;
+        v36 = v53.X - v32.LastActualVertigoEdgePosition.X;
+        if ( sqrt(v36 * v36 + v35) >= 2.0f )
+        {
+          if ( this.CanDoMove((EMovement)47) )
+          {
+            v32.LastVertigoEdgePosition.X = v49.X;
+            v37 = v53.X;
+            v32.LastVertigoEdgePosition.Y = v49.Y;
+            v38 = v49.Z;
+            v39 = v53.Y;
+            v32.LastActualVertigoEdgePosition.X = v37;
+            v32.LastVertigoEdgePosition.Z = v38;
+            v40 = v53.Z;
+            v32.LastActualVertigoEdgePosition.Y = v39;
+            v32.LastActualVertigoEdgePosition.Z = v40;
+            v41 = this.VfTableObject.Dummy;
+            v48 = default;
+            v47.X.LOBYTE(47);
+            v47.Y = 0.0f;
+            v47.Z = 0.0f;
+            CallUFunction(this.SetMove, this, v42, &v47, 0);
+          }
+        }
+      }
+      if ( this.MovementState == MOVE_Vertigo )
+      {
+        result = a2;
+        a2->X = 0.0f;
+        a2->Y = 0.0f;
+        a2->Z = 0.0f;
+        return result;
+      }
+    }
+    LABEL_29_Cont:
+    result = a2;
+    a2->X = a6;
+    a2->Y = a7;
+    a2->Z = a8;
+    return result;
+    
+    LABEL_29:
+    if ( this.MovementState == MOVE_Vertigo )
+    {
+      v43 = this.VfTableObject.Dummy;
+      v48 = default;
+      v47.X.LOBYTE(1);
+      v47.Y = 0.0f;
+      v47.Z = 0.0f;
+      CallUFunction(this.SetMove, this, v44, &v47, 0);
+    }
+
+    goto LABEL_29_Cont;
+  }
+
   // Not Ready
-  public unsafe void MAT_BeginAnimControl(ref array<AnimSet_ptr> a1)
+  public unsafe void MAT_BeginAnimControl( in array<AnimSet> a1 )
+  {
+    NativeMarkers.MarkUnimplemented();
+  }
+  /*public unsafe void MAT_BeginAnimControl(ref array<AnimSet_ptr> a1)
   {
     ref array<AnimNodeSlot_ptr> v3; // esi
     int v4 = default; // ebx
@@ -1407,20 +2261,19 @@ fixed(var ptr2 =&Actor.Rotation)
     int v33 = default; // [esp+38h] [ebp-10h]
     int v34 = default; // [esp+44h] [ebp-4h]
   
-fixed(var ptr1 =&this.SlotNodes)
-    v3 =  ptr1;
+    v3 = ref this.SlotNodes;
     v4 = default;
     v5 = this.SlotNodes.Max == 0;
     this.SlotNodes.Count = default;
-    if ( default == v5 )
+    if ( !v5 )
     {
       v6 = v3.Data;
       v5 = v3.Data == 0;
       this.SlotNodes.Max = default;
-      if ( default == v5 )
+      if ( !v5 )
       {
         v7 = dword_2018708;
-        if ( default == dword_2018708 )
+        if ( !dword_2018708 )
         {
           GCreateMalloc_Prob();
           v7 = dword_2018708;
@@ -1434,7 +2287,7 @@ fixed(var ptr1 =&this.SlotNodes)
       v29 = default;
       v30 = default;
       v34 = default;
-      if ( default == dword_1FFCE34 )
+      if ( !dword_1FFCE34 )
       {
         dword_1FFCE34 = (int)sub_CF7D40((int)L"Engine");
         sub_CFFB70();
@@ -1460,7 +2313,7 @@ fixed(var ptr1 =&this.SlotNodes)
       {
         v10 = dword_2018708;
         v11 = v28;
-        if ( default == dword_2018708 )
+        if ( !dword_2018708 )
         {
           GCreateMalloc_Prob();
           v10 = dword_2018708;
@@ -1474,7 +2327,7 @@ fixed(var ptr1 =&this.SlotNodes)
       v32 = default;
       v33 = default;
       v34 = 1;
-      if ( default == dword_1FFCE34 )
+      if ( !dword_1FFCE34 )
       {
         dword_1FFCE34 = (int)sub_CF7D40((int)L"Engine");
         sub_CFFB70();
@@ -1491,7 +2344,7 @@ fixed(var ptr1 =&this.SlotNodes)
           v27 = v14;
           if(v14 != default)
           {
-            if ( default == v13 )
+            if ( !v13 )
             {
               dword_1FFCE34 = (int)sub_CF7D40((int)L"Engine");
               sub_CFFB70();
@@ -1503,24 +2356,24 @@ fixed(var ptr1 =&this.SlotNodes)
               while ( v15 != (Class )v13 )
               {
                 v15 = (Class )v15.Next;
-                if ( default == v15 )
+                if ( !v15 )
                   goto LABEL_29;
               }
   LABEL_30:
               v16 = v3.Count;
               v17 = v16 + 1 <= v3.Max;
               v3.Count = v16 + 1;
-              if ( default == v17 )
+              if ( !v17 )
               {
                 v18 = v3.CalculateSlack(4);
                 v19 = v3.Data;
                 v5 = v3.Data == 0;
                 v3.Max = v18;
-                if ( default == v5 || v18 )
+                if ( !v5 || v18 )
                 {
                   v20 = dword_2018708;
                   v21 = 4 * v18;
-                  if ( default == dword_2018708 )
+                  if ( !dword_2018708 )
                   {
                     GCreateMalloc_Prob();
                     v20 = dword_2018708;
@@ -1537,7 +2390,7 @@ fixed(var ptr1 =&this.SlotNodes)
               goto LABEL_39;
             }
   LABEL_29:
-            if ( default == v13 )
+            if ( !v13 )
               goto LABEL_30;
           }
   LABEL_39:
@@ -1550,7 +2403,7 @@ fixed(var ptr1 =&this.SlotNodes)
       if(v31 != default)
       {
         v25 = dword_2018708;
-        if ( default == dword_2018708 )
+        if ( !dword_2018708 )
         {
           GCreateMalloc_Prob();
           v25 = dword_2018708;
@@ -1558,8 +2411,11 @@ fixed(var ptr1 =&this.SlotNodes)
         (*(void (__thiscall **)(void *, int))(*(_DWORD *)v25 + 12))(v25, v24);
       }
     }
-  }
+  }*/
 
+
+
+  public unsafe void MAT_SetAnimPosition( name a2, int a3, name a4, float a5, bool a6, bool a7 ) => MAT_SetAnimPosition( a2, a3, a4, a5, a6 ? 1 : 0, a7 ? 1 : 0);
   public unsafe void MAT_SetAnimPosition(name a2, int a3, name a4, float a5, int a6, int a7)
   {
     int v7 = default; // edi
@@ -1569,47 +2425,42 @@ fixed(var ptr1 =&this.SlotNodes)
     int v11 = default; // esi
     int v12 = default; // edi
     AnimNodeSequence v13 = default; // eax
-    TdPlayerPawn v14 = default; // [esp+1Ch] [ebp-8h]
+    //TdPlayerPawn v14 = default; // [esp+1Ch] [ebp-8h]
     int i = default; // [esp+20h] [ebp-4h]
   
     v7 = default;
-    v14 = this;
     for ( i = default; v7 < this.SlotNodes.Count; i = v7 )
     {
       v8 = this.SlotNodes[v7];
-      if(v8 != default)
+      if ( v8 && v8.NodeName == a2 )
       {
-        if ( *(_QWORD *)&v8.NodeName == a2 )
+        v8.MAT_SetAnimPosition( a3, a4, a5, a6.AsBool(), a7.AsBool());// MAT_SetAnimPosition
+        v9 = E_TryCastTo<TdAnimNodeSlot>(v8);
+        v10 = v9;
+        if(v9 != default)
         {
-          v8.MAT_SetAnimPosition( a3, a4, LODWORD(a5), a6, a7);// MAT_SetAnimPosition
-          v9 = E_TryCastTo<TdAnimNodeSlot>(v8);
-          v10 = v9;
-          if(v9 != default)
+          v11 = v9.Children.Count - 1;
+          if ( v11 > 0 )
           {
-            v11 = v9.Children.Count - 1;
-            if ( v11 > 0 )
+            v12 = v11 << 6;
+            do
             {
-              v12 = v11 << 6;
-              do
+              v13 = E_TryCastTo<AnimNodeSequence>(v10.Children[v11].Anim/**(AnimNode *)((byte *)&v10.Children[0].Anim + v12)*/);
+              if(v13 != default)
               {
-                v13 = E_TryCastTo<nimNodeSequence>(*(AnimNode *)((byte *)&v10.Children[0].Anim + v12));
-                if(v13 != default)
-                {
-                  v13.RootBoneOption[0] = RBA_Translate;
-                  v13.RootBoneOption[1] = RBA_Translate;
-                  v13.RootBoneOption[2] = RBA_Translate;
-                  v13.RootRotationOption[0] = RRO_Extract;
-                  v13.RootRotationOption[1] = RRO_Extract;
-                  v13.RootRotationOption[2] = RRO_Extract;
-                }
-                --v11;
-                v12 = v12 - (64);
+                v13.RootBoneOption[0] = RBA_Translate;
+                v13.RootBoneOption[1] = RBA_Translate;
+                v13.RootBoneOption[2] = RBA_Translate;
+                v13.RootRotationOption[0] = RRO_Extract;
+                v13.RootRotationOption[1] = RRO_Extract;
+                v13.RootRotationOption[2] = RRO_Extract;
               }
-              while ( v11 > 0 );
-              v7 = i;
+              --v11;
+              v12 = v12 - (64);
             }
+            while ( v11 > 0 );
+            v7 = i;
           }
-          this = v14;
         }
       }
       ++v7;
@@ -1631,14 +2482,14 @@ fixed(var ptr1 =&this.SlotNodes)
 //        this.SlotNodes[i].SetActiveChild(0, 0.1f);
 //      v3 = this.SlotNodes.Max == 0;
 //      this.SlotNodes.Count = default;
-//      if ( default == v3 )
+//      if ( !v3 )
 //      {
 //        v4 = this.SlotNodes.Data;
 //        this.SlotNodes.Max = default;
 //        if(v4 != default)
 //        {
 //          v5 = dword_2018708;
-//          if ( default == dword_2018708 )
+//          if ( !dword_2018708 )
 //          {
 //            GCreateMalloc_Prob();
 //            v5 = dword_2018708;
@@ -1649,6 +2500,7 @@ fixed(var ptr1 =&this.SlotNodes)
 //    }
 //  }
 //
+  static int dword_205684C;
   public unsafe void physFalling(float DeltaTime, int Iterations)
   {
     Controller v4 = default; // ecx
@@ -1675,7 +2527,7 @@ fixed(var ptr1 =&this.SlotNodes)
     PrimitiveComponent v25 = default; // eax
     float v26 = default; // xmm3_4
     float v27 = default; // xmm4_4
-    Vector *ColLocation; // eax
+    //Vector *ColLocation; // eax
     float ColLocationX = default; // ecx
     float ColLocationY = default; // edx
     float ColLocationZ = default; // eax
@@ -1722,9 +2574,9 @@ fixed(var ptr1 =&this.SlotNodes)
     float v72 = default; // xmm0_4
     float v73 = default; // xmm1_4
     float v74 = default; // xmm2_4
-    Class v75 = default; // xmm0_4
-    unsigned __int32 v76 = default; // ecx
-    unsigned __int32 v77 = default; // edx
+    float v75 = default; // xmm0_4
+    uint v76 = default; // ecx
+    uint v77 = default; // edx
     uint v78 = default; // eax
     EMovement v79 = default; // al
     float v80 = default; // xmm4_4
@@ -1746,16 +2598,16 @@ fixed(var ptr1 =&this.SlotNodes)
     float v96 = default; // xmm1_4
     float v97 = default; // xmm3_4
     float v98 = default; // xmm0_4
-    Rotator *v99; // ebx
+    //Rotator *v99; // ebx
     int v100 = default; // edi
     float v101 = default; // xmm0_4
     float v102 = default; // xmm0_4
     float v103 = default; // xmm2_4
     float v104 = default; // xmm1_4
     float v105 = default; // xmm2_4
-    Class v106 = default; // xmm0_4
-    unsigned __int32 v107 = default; // ecx
-    unsigned __int32 v108 = default; // edx
+    float v106 = default; // xmm0_4
+    uint v107 = default; // ecx
+    uint v108 = default; // edx
     uint v109 = default; // eax
     EMovement v110 = default; // al
     float v111 = default; // xmm0_4
@@ -1849,7 +2701,7 @@ fixed(var ptr1 =&this.SlotNodes)
     Vector v199 = default; // [esp+23Ch] [ebp-D4h] BYREF
     Vector v200 = default; // [esp+248h] [ebp-C8h] BYREF
     Vector v201 = default; // [esp+254h] [ebp-BCh]
-    int *v202; // [esp+260h] [ebp-B0h]
+    //int *v202; // [esp+260h] [ebp-B0h]
     float v203 = default; // [esp+264h] [ebp-ACh]
     float v204 = default; // [esp+274h] [ebp-9Ch]
     float v205 = default; // [esp+284h] [ebp-8Ch]
@@ -1865,7 +2717,7 @@ fixed(var ptr1 =&this.SlotNodes)
     v4 = this.Controller;
     BoundSpeed = 0.0f;
     if(v4 != default)
-      v4.PreAirSteering(LODWORD(DeltaTime));// PreAirSteering
+      v4.PreAirSteering(DeltaTime);// PreAirSteering
     Mesh = this.Mesh;
     bDoRootMotionVelocity = Mesh && Mesh.RootMotionMode == RMM_Velocity && Mesh.PreviousRMM != RMM_Ignore && (this.bIsFemale.AsBitfield(20) & 0x40000) == 0;
     bDoRootMotionAccel = Mesh && Mesh.RootMotionMode == RMM_Accel && Mesh.PreviousRMM != RMM_Ignore && (this.bIsFemale.AsBitfield(20) & 0x40000) == 0;
@@ -1926,8 +2778,7 @@ fixed(var ptr1 =&this.SlotNodes)
     Hit.Location.X = 0.0f;
     Hit.Location.Y = 0.0f;
     Hit.Location.Z = 0.0f;
-    *(_QWORD *)&Hit.Normal.X = 0L;
-    Hit.Normal.Z = 0.0f;
+    Hit.Normal = default;
     Hit.Item = -1;
     Hit.Material = default;
     Hit.PhysMaterial = default;
@@ -1939,7 +2790,7 @@ fixed(var ptr1 =&this.SlotNodes)
     v157 = default;
     v160 = TickAirControl;
     this.Acceleration.Z = 0.0f;
-    if ( default == bDoRootMotion )
+    if ( !(bDoRootMotion.AsBool()) )
     {
       if ( TickAirControl > 0.050000001d )
       {
@@ -1982,16 +2833,17 @@ fixed(var ptr1 =&this.SlotNodes)
             v143.X = this.Location.X + v25.Translation.X;
             v143.Y = v26;
             v143.Z = v27;
-            ColLocation = &v143;
-          }
+            //ColLocation = &v143;
+            ColLocationX = v143.X;
+            ColLocationY = v143.Y;
+            ColLocationZ = v143.Z;
+          }                     
           else
           {
-fixed(var ptr1 =&this.Location)
-            ColLocation =  ptr1;
+            ColLocationX = this.Location.X;
+            ColLocationY = this.Location.Y;
+            ColLocationZ = this.Location.Z;
           }
-          ColLocationX = ColLocation->X;
-          ColLocationY = ColLocation->Y;
-          ColLocationZ = ColLocation->Z;
           ColLocation2.X = ColLocationX;
           ColLocation2.Z = ColLocationZ;
           v32 = this.CylinderComponent;
@@ -2003,7 +2855,7 @@ fixed(var ptr1 =&this.Location)
           v169.X = ColLocationX + TestWalkX;
           v169.Y = ColLocationY + TestWalkY;
           v169.Z = ColLocation2.Z;
-          GWorld.SingleLineCheck(&Hit, this, &v169, &ColLocation2, 8838, &v143, 0);
+          GWorld.SingleLineCheck(ref Hit, this, ref v169, ref ColLocation2, 8838, ref v143, 0);
           DeltaTime2 = DeltaTime;
           if ( Hit.Actor )
             TickAirControl = 0.0f;
@@ -2076,7 +2928,7 @@ fixed(var ptr1 =&this.Location)
     v45 = this.Controller;
     if(v45 != default)
     {
-      v45.Probably(LODWORD(DeltaTime));// Probably PostAirSteering, nullsub 0xB976E0
+      v45.PostAirSteering((DeltaTime));// Probably PostAirSteering, nullsub 0xB976E0
       DeltaTime2 = DeltaTime;
     }
     remainingTime = DeltaTime2;
@@ -2115,21 +2967,18 @@ fixed(var ptr1 =&this.Location)
       v172 = this.Acceleration.X;
       timeTick_8.X = v172;
       v173 = v57;
-      *(_QWORD *)&timeTick_8.Y = __PAIR64__(v58, LODWORD(v57));
+      *(_QWORD *)&timeTick_8.Y = __PAIR64__((int)v58, (int)LODWORD(v57));
       v174 = *(float *)&v58;
-      this.Velocity = *this.NewFallVelocity(&v195, v155, timeTick_8, v144);
+      this.Velocity = *NewFallVelocity(&v195, v155, timeTick_8, v144);
       v60 = this.Controller;
       v61 = default;
-      if(v60 != default)
+      if ( v60 && SLOBYTE(v60.bIsPlayer.AsBitfield(20)) < 0 && this.Velocity.Z <= 0.0f )
       {
-        if ( SLOBYTE(v60.bIsPlayer.AsBitfield(20)) < 0 && this.Velocity.Z <= 0.0f )
-        {
-          SetFromBitfield(ref this.bCollideComplex, 20, this.bCollideComplex.AsBitfield(20) | (0x100u));
-          SetFromBitfield(ref v60.bIsPlayer, 20, v60.bIsPlayer.AsBitfield(20) & (0xFFFFFF7F));
-          this.Controller.NotifyJumpApex();// NotifyJumpApex
-        }
+        SetFromBitfield(ref this.bCollideComplex, 20, this.bCollideComplex.AsBitfield(20) | (0x100u));
+        SetFromBitfield(ref v60.bIsPlayer, 20, v60.bIsPlayer.AsBitfield(20) & (0xFFFFFF7F));
+        this.Controller.NotifyJumpApex();// NotifyJumpApex
       }
-      if ( default == bDoRootMotion2 )
+      if ( !(bDoRootMotion2.AsBool()) )
       {
         v62 = BoundSpeed;
         if ( BoundSpeed != 0.0f )
@@ -2187,16 +3036,19 @@ fixed(var ptr1 =&this.Location)
       v142.X = v72 * v144;
       v142.Y = v73 * v144;
       v142.Z = v74 * v144;
-      v202 = &dword_205684C;
+      //v202 = &dword_205684C;
       v213 = default;
       v159 = default;
       speed2d2 = 0.0f;
       do
       {
-fixed(var ptr2 =&this.Rotation)
-        GWorld.MoveActor(this, &v142,  ptr2, 4u, &Hit);
-        if ( (this.bExludeHandMoves.AsBitfield(32) & 0x40) != 0 )
-          goto LABEL_194;
+        GWorld.MoveActor(this, ref v142, ref this.Rotation, 4u, ref Hit);
+        if( ( this.bExludeHandMoves.AsBitfield( 32 ) & 0x40 ) != default )
+        {
+          --dword_205684C;
+          return;
+        }
+
         if ( this.Physics == PHYS_Swimming )
         {
           timeTick.X = v59;
@@ -2210,14 +3062,17 @@ fixed(var ptr2 =&this.Rotation)
         {
           if ( Hit.Normal.Z < this.WalkableFloorZ )
           {
-            if ( v148 != 0.0f || v149 != 0.0f || v150 != 0.0f || (v87 = this.Controller) == 0 || !v87.AirControlFromWall(COERCE_FLOAT(LODWORD(v144)), &v148) )// AirControlFromWall
+            if ( v148 != 0.0f || v149 != 0.0f || v150 != 0.0f || (v87 = this.Controller) == default || !v87.AirControlFromWall(((v144)), ref *(Vector*)&v148) )// AirControlFromWall
             {
               this.processHitWall(
                 Hit.Normal,
                 Hit.Actor,
                 Hit.Component);
-              if ( (this.bExludeHandMoves.AsBitfield(32) & 0x40) != 0 || this.Physics != PHYS_Falling )
-                goto LABEL_194;
+              if( ( this.bExludeHandMoves.AsBitfield( 32 ) & 0x40 ) != default || this.Physics != PHYS_Falling )
+              {
+                --dword_205684C;
+                return;
+              }
             }
             if ( (float)(-0.0f - this.WalkableFloorZ) >= Hit.Normal.Z && this.Velocity.Z > 0.0f )
             {
@@ -2249,7 +3104,7 @@ fixed(var ptr2 =&this.Rotation)
                   a3.X.LODWORD(v189[v95 & 1]);
                   a3.Y = v96;
                   ++v95;
-                  v92 = v92 + (this.OnWalkableFloor_orsomething(&a2, &a3, &a4));
+                  v92 = v92 + (OnWalkableFloor_orsomething(ref a2, ref a3, ref a4).AsInt());
                 }
                 while ( v95 < 4 );
                 ++v93;
@@ -2261,7 +3116,7 @@ fixed(var ptr2 =&this.Rotation)
                   break;
                 }
               }
-              if ( default == bForceRMVelocity_False )
+              if ( !bForceRMVelocity_False )
               {
                 v191 = (float)((float)(a4.Z * a4.Z) + (float)(a4.Y * a4.Y)) + (float)(a4.X * a4.X);
                 if ( (float)(*(float *)&v91 * *(float *)&v91) >= v191 )
@@ -2274,8 +3129,7 @@ fixed(var ptr2 =&this.Rotation)
                   a4.X = (float)((float)(a4.X * v97) * (float)(1.0f / v161)) + a4.X;
                   a4.Y = a4.Y + (float)((float)(a4.Y * v97) * (float)(1.0f / v161));
                   a4.Z = a4.Z + (float)((float)(a4.Z * v97) * (float)(1.0f / v161));
-fixed(var ptr3 =&this.Rotation)
-                  GWorld.MoveActor(this, &a4,  ptr3, 0, &Hit);
+                  GWorld.MoveActor(this, ref a4, ref this.Rotation, 0, ref Hit);
                   if ( Hit.Time >= 1.0f || Hit.Time < 0.0f )
                   {
                     SetFromBitfield(ref this.bCollideComplex, 20, this.bCollideComplex.AsBitfield(20) | (0x100u));
@@ -2285,23 +3139,32 @@ fixed(var ptr3 =&this.Rotation)
                     v198.X = (float)(-0.0f - a4.X) * Hit.Time;
                     v198.Y = (float)(-0.0f - a4.Y) * Hit.Time;
                     v198.Z = (float)(-0.0f - a4.Z) * Hit.Time;
-fixed(var ptr4 =&this.Rotation)
-                    GWorld.MoveActor(this, &v198,  ptr4, 0, &Hit);
+                    GWorld.MoveActor(this, ref v198, ref this.Rotation, 0, ref Hit);
                   }
                 }
               }
             }
             v145 = Hit.Normal;
-            this.CalculateSlopeSlide( &v152, &v142, &Hit);// CalculateSlopeSlide
-            if ( (float)((float)((float)(v152.Z * v142.Z) + (float)(v152.Y * v142.Y)) + (float)(v152.X * v142.X)) < 0.0f )
-              goto LABEL_171;
+            v152 = this.CalculateSlopeSlide( ref v142, ref Hit);// CalculateSlopeSlide
+            if( (float) ( (float) ( (float) ( v152.Z * v142.Z ) + (float) ( v152.Y * v142.Y ) ) + (float) ( v152.X * v142.X ) ) < 0.0f )
+            {
+              v61 = v159;
+              v116 = (float)(1.0f / v144) * (float)(this.Location.X - v158.X);
+              v117 = (float)(1.0f / v144) * (float)(this.Location.Y - v158.Y);
+              v187 = (float)(1.0f / v144) * (float)(this.Location.Z - v158.Z);
+              v185 = v116;
+              v59 = v116;
+              v186 = v117;
+              v155.X = v116;
+              v155.Y = v117;
+              goto LABEL_172;
+            }
+
             v192 = this.Location.X + v152.X;
-fixed(var ptr5 =&this.Rotation)
-            v99 =  ptr5;
+            //v99 = ref this.Rotation;
             v182 = this.Location.Y + v152.Y;
             v190 = this.Location.Z + v152.Z;
-fixed(var ptr6 =&this.Rotation)
-            GWorld.MoveActor(this, &v152,  ptr6, 0, &Hit);
+            GWorld.MoveActor(this, ref v152, ref this.Rotation, 0, ref Hit);
             v100 = default;
             v101 = (float)((float)(v152.Y * v152.Y) + (float)(v152.X * v152.X)) + (float)(v152.Z * v152.Z);
             v211 = v101;
@@ -2328,14 +3191,12 @@ fixed(var ptr6 =&this.Rotation)
               {
                 v104 = v182 - this.Location.Y;
                 v105 = (float)(v190 + 1.9f) - this.Location.Z;
-fixed(var ptr7 =&this.Rotation)
-                v99 =  ptr7;
+                //v99 = ref this.Rotation;
                 v100 = 1;
                 v200.X = v192 - this.Location.X;
                 v200.Y = v104;
                 v200.Z = v105;
-fixed(var ptr8 =&this.Rotation)
-                GWorld.MoveActor(this, &v200,  ptr8, 0, &Hit);
+                GWorld.MoveActor(this, ref v200, ref this.Rotation, 0, ref Hit);
                 goto LABEL_131;
               }
   LABEL_171:
@@ -2358,10 +3219,18 @@ fixed(var ptr8 =&this.Rotation)
                 v199.X = 0.0f;
                 v199.Y = 0.0f;
                 v199.Z = -1.9f;
-fixed(var ptr9 =&this.Rotation)
-                GWorld.MoveActor(this, &v199,  ptr9, 0, &Hit);
+                GWorld.MoveActor(this, ref v199, ref this.Rotation, 0, ref Hit);
               }
-              goto LABEL_171;
+              v61 = v159;
+              v116 = (float)(1.0f / v144) * (float)(this.Location.X - v158.X);
+              v117 = (float)(1.0f / v144) * (float)(this.Location.Y - v158.Y);
+              v187 = (float)(1.0f / v144) * (float)(this.Location.Z - v158.Z);
+              v185 = v116;
+              v59 = v116;
+              v186 = v117;
+              v155.X = v116;
+              v155.Y = v117;
+              goto LABEL_172;
             }
             if ( Hit.Normal.Z < this.WalkableFloorZ )
             {
@@ -2369,8 +3238,12 @@ fixed(var ptr9 =&this.Rotation)
                 Hit.Normal,
                 Hit.Actor,
                 Hit.Component);
-              if ( (this.bExludeHandMoves.AsBitfield(32) & 0x40) != 0 || this.Physics != PHYS_Falling )
-                goto LABEL_148;
+              if( ( this.bExludeHandMoves.AsBitfield( 32 ) & 0x40 ) != default || this.Physics != PHYS_Falling )
+              {
+                --dword_205684C;
+                return;
+              }
+
               v112 = (float)((float)(v142.X * v142.X) + (float)(v142.Z * v142.Z)) + (float)(v142.Y * v142.Y);
               v206 = v112;
               if ( v112 == 1.0f )
@@ -2397,13 +3270,9 @@ fixed(var ptr9 =&this.Rotation)
                 }
                 ColLocation2.Z = v113;
               }
-fixed(var ptr10 =&v145.X)
-fixed(var ptr11 =&Hit.Normal.X)
-fixed(var ptr12 =&v152.X)
-fixed(var ptr13 =&ColLocation2.X)
-              TwoWallAdjust( ptr13,  ptr12,  ptr11,  ptr10, Hit.Time);
+              TwoWallAdjust(ColLocation2, ref v152, Hit.Normal, v145, Hit.Time);
               v115 = v145.Z > 0.0f && Hit.Normal.Z > 0.0f && v152.Z == 0.0f && (float)((float)((float)(v145.Z * Hit.Normal.Z) + (float)(Hit.Normal.Y * v145.Y)) + (float)(v145.X * Hit.Normal.X)) < 0.0f;
-              GWorld.MoveActor(this, &v152, v99, 0, &Hit);
+              GWorld.MoveActor(this, ref v152, ref this.Rotation, 0, ref Hit);
               if ( v115 || Hit.Normal.Z >= this.WalkableFloorZ )
               {
   LABEL_147:
@@ -2416,15 +3285,24 @@ fixed(var ptr13 =&ColLocation2.X)
                 --dword_205684C;
                 return;
               }
-              goto LABEL_171;
+              v61 = v159;
+              v116 = (float)(1.0f / v144) * (float)(this.Location.X - v158.X);
+              v117 = (float)(1.0f / v144) * (float)(this.Location.Y - v158.Y);
+              v187 = (float)(1.0f / v144) * (float)(this.Location.Z - v158.Z);
+              v185 = v116;
+              v59 = v116;
+              v186 = v117;
+              v155.X = v116;
+              v155.Y = v117;
+              goto LABEL_172;
             }
             v184 = Hit.Time;
-            if ( default == Class_TdMove_Landing )
+            /*if ( !Class_TdMove_Landing )
             {
               Class_TdMove_Landing = (Object )sub_1200C80((int)L"TdGame");
               sub_1201580();
-            }
-            v106 = (Class .GetDefaultObject()Class_TdMove_Landing, 0)[5].Class;
+            }*/
+            v106 = ClassT<TdMove_Landing>().DefaultAs<TdMove_Landing>().HardLandingHeight;//(Class .GetDefaultObject()Class_TdMove_Landing, 0)[5].Class;
             v107 = default;
             v108 = default;
             if ( Hit.Actor )
@@ -2441,7 +3319,7 @@ fixed(var ptr13 =&ColLocation2.X)
             v110 = this.MovementState;
             if ( v110 != MOVE_FallingUncontrolled )
             {
-              if ( (float)(this.EnterFallingHeight - this.Location.Z) > *(float *)&v106 || (v108 & v107) != 0 || v110 == MOVE_180TurnInAir )
+              if ( (float)(this.EnterFallingHeight - this.Location.Z) > v106 || (v108 & v107) != default || v110 == MOVE_180TurnInAir )
               {
                 if ( v142.Z != 0.0f
                   && !this.CheckValidFloor(
@@ -2449,14 +3327,23 @@ fixed(var ptr13 =&ColLocation2.X)
                         Hit.Normal,
                         1) )
                 {
-                  this.SetTimer(0.2f, 0, *(name *)&FuncName_SlideOffLedge_unknown_EyeJoint, this);
+                  this.SetTimer(0.2f, false, "SlideOffLedge", this);
                   v111 = 1.0f - v184;
                   SetFromBitfield(ref this.bCollideComplex, 20, this.bCollideComplex.AsBitfield(20) | (0x100u));
                   v142.X = v111 * v142.X;
                   v142.Y = v142.Y * v111;
                   v142.Z = v111 * v142.Z;
                   v159 = 1;
-                  goto LABEL_171;
+                  v61 = v159;
+                  v116 = (float)(1.0f / v144) * (float)(this.Location.X - v158.X);
+                  v117 = (float)(1.0f / v144) * (float)(this.Location.Y - v158.Y);
+                  v187 = (float)(1.0f / v144) * (float)(this.Location.Z - v158.Z);
+                  v185 = v116;
+                  v59 = v116;
+                  v186 = v117;
+                  v155.X = v116;
+                  v155.Y = v117;
+                  goto LABEL_172;
                 }
               }
               else if ( v142.Z != 0.0f
@@ -2465,20 +3352,40 @@ fixed(var ptr13 =&ColLocation2.X)
                            Hit.Normal,
                            0) )
               {
-                this.SetTimer(0.2f, 0, *(name *)&FuncName_SlideOffLedge_unknown_EyeJoint, this);
+                this.SetTimer(0.2f, false, "SlideOffLedge", this);
               }
             }
-            if ( default == v159 )
-              goto LABEL_147;
-            goto LABEL_171;
+
+            if( ! (v159.AsBool()) )
+            {
+              this.processLanded(
+                Hit.Normal,
+                Hit.Actor,
+                0.0f,
+                Iterations);
+              LABEL_148:
+              --dword_205684C;
+              return;
+            }
+
+            v61 = v159;
+            v116 = (float)(1.0f / v144) * (float)(this.Location.X - v158.X);
+            v117 = (float)(1.0f / v144) * (float)(this.Location.Y - v158.Y);
+            v187 = (float)(1.0f / v144) * (float)(this.Location.Z - v158.Z);
+            v185 = v116;
+            v59 = v116;
+            v186 = v117;
+            v155.X = v116;
+            v155.Y = v117;
+            goto LABEL_172;
           }
           v151 = Hit.Time;
-          if ( default == Class_TdMove_Landing )
+          /*if ( !Class_TdMove_Landing )
           {
             Class_TdMove_Landing = (Object )sub_1200C80((int)L"TdGame");
             sub_1201580();
-          }
-          v75 = (Class .GetDefaultObject()Class_TdMove_Landing, 0)[5].Class;
+          }*/
+          v75 = ClassT<TdMove_Landing>().DefaultAs<TdMove_Landing>().HardLandingHeight;
           v76 = default;
           v77 = default;
           if ( Hit.Actor )
@@ -2495,7 +3402,7 @@ fixed(var ptr13 =&ColLocation2.X)
           v79 = this.MovementState;
           if ( v79 != MOVE_FallingUncontrolled )
           {
-            if ( (float)(this.EnterFallingHeight - this.Location.Z) > *(float *)&v75 || (v77 & v76) != 0 || v79 == MOVE_180TurnInAir )
+            if ( (float)(this.EnterFallingHeight - this.Location.Z) > *(float *)&v75 || (v77 & v76) != default || v79 == MOVE_180TurnInAir )
             {
               if ( v142.Z != 0.0f
                 && !this.CheckValidFloor(
@@ -2503,7 +3410,7 @@ fixed(var ptr13 =&ColLocation2.X)
                       Hit.Normal,
                       1) )
               {
-                this.SetTimer(0.2f, 0, *(name *)&FuncName_SlideOffLedge_unknown_EyeJoint, this);// FuncName = SlideOffLedge
+                this.SetTimer(0.2f, false, "SlideOffLedge", this);// FuncName = SlideOffLedge
                 v85 = 1.0f - v151;
                 v86 = v142.X;
                 SetFromBitfield(ref this.bCollideComplex, 20, this.bCollideComplex.AsBitfield(20) | (0x100u));
@@ -2516,15 +3423,15 @@ fixed(var ptr13 =&ColLocation2.X)
               }
             }
             else if ( v142.Z != 0.0f
-                   && !this.CheckForLedges_Maybe(
+                   && !this.CheckValidFloor(
                          v142,
                          Hit.Normal,
-                         0) )                     // CheckForLedges_Maybe
+                         0) )                     // CheckValidFloor
             {
-              this.SetTimer(0.2f, 0, *(name *)&FuncName_SlideOffLedge_unknown_EyeJoint, this);// FuncName = SlideOffLedge
+              this.SetTimer(0.2f, false, "SlideOffLedge", this);// FuncName = SlideOffLedge
             }
           }
-          if ( default == v61 )
+          if ( !(v61.AsBool()) )
           {
             bForceRMVelocity_False = (this.bCollideComplex.AsBitfield(20) & 0x100) == 0;
             v153 = (float)((float)(1.0f - v151) * v144) + v153;
@@ -2545,94 +3452,92 @@ fixed(var ptr13 =&ColLocation2.X)
                 this.Velocity.Z = v84;
               }
             }
-            this.CheckForUncontrolledSlide(&Hit);
+            this.CheckForUncontrolledSlide(ref Hit);
             this.processLanded(
               Hit.Normal,
               Hit.Actor,
-              COERCE_FLOAT(LODWORD(v153)),
+              ((v153)),
               Iterations);                        // processLanded
             --dword_205684C;
             return;
           }
         }
   LABEL_172:
-        ++LODWORD(speed2d2);
+        uint dsfsf = (*(uint*) & speed2d2) + 1;
+        speed2d2 = * (float*) ( & dsfsf );
       }
-      while ( v61 && SLODWORD(speed2d2) < 2 && dword_205684C < 2 );
-      if ( default == bDoRootMotion2 && (this.bCollideComplex.AsBitfield(20) & 0x100) == 0 )
+      while ( v61.AsBool() && SLODWORD(speed2d2) < 2 && dword_205684C < 2 );
+      if ( !(bDoRootMotion2.AsBool()) && (this.bCollideComplex.AsBitfield(20) & 0x100) == default && this.Physics.AsBool() )
       {
-        if ( this.Physics )
+        v118 = this.Location.Y - v158.Y;
+        v119 = this.Location.Z - v158.Z;
+        v169.X = (float)(1.0f / v144) * (float)(this.Location.X - v158.X);
+        v120 = v155.Z;
+        v121 = (float)(1.0f / v144) * v119;
+        v169.Y = (float)(1.0f / v144) * v118;
+        v122 = v169.Y;
+        this.Velocity.X = v169.X;
+        v169.Z = v121;
+        this.Velocity.Y = v122;
+        this.Velocity.Z = v121;
+        if ( v120 > this.Velocity.Z || v120 >= 0.0f )
         {
-          v118 = this.Location.Y - v158.Y;
-          v119 = this.Location.Z - v158.Z;
-          v169.X = (float)(1.0f / v144) * (float)(this.Location.X - v158.X);
-          v120 = v155.Z;
-          v121 = (float)(1.0f / v144) * v119;
-          v169.Y = (float)(1.0f / v144) * v118;
-          v122 = v169.Y;
-          this.Velocity.X = v169.X;
-          v169.Z = v121;
-          this.Velocity.Y = v122;
-          this.Velocity.Z = v121;
-          if ( v120 > this.Velocity.Z || v120 >= 0.0f )
+          v123 = this.Velocity.Z;
+          v124 = (float)(this.Velocity.Y * 2.0f) - v155.Y;
+          v143.X = (float)(this.Velocity.X * 2.0f) - v155.X;
+          v125 = (float)(v123 * 2.0f) - v120;
+          v143.Y = v124;
+          v143.Z = v125;
+          this.Velocity.X = v143.X;
+          this.Velocity.Y = v124;
+          this.Velocity.Z = v125;
+        }
+        // v126 = *(double (__thiscall **)(TdPlayerPawn ))(this.VfTableObject.Dummy + 288);
+        v171 = (float)((float)(this.Velocity.X * this.Velocity.X) + (float)(this.Velocity.Y * this.Velocity.Y)) + (float)(this.Velocity.Z * this.Velocity.Z);
+        v161 = this.GetTerminalVelocity();
+        if ( v171 > (float)(v161 * v161) )
+        {
+          v127 = (float)((float)(this.Velocity.X * this.Velocity.X) + (float)(this.Velocity.Y * this.Velocity.Y)) + (float)(this.Velocity.Z * this.Velocity.Z);
+          v210 = v127;
+          if ( v127 == 1.0f )
           {
-            v123 = this.Velocity.Z;
-            v124 = (float)(this.Velocity.Y * 2.0f) - v155.Y;
-            v143.X = (float)(this.Velocity.X * 2.0f) - v155.X;
-            v125 = (float)(v123 * 2.0f) - v120;
-            v143.Y = v124;
-            v143.Z = v125;
-            this.Velocity.X = v143.X;
-            this.Velocity.Y = v124;
-            this.Velocity.Z = v125;
+            v128 = this.Velocity.Y;
+            v129 = this.Velocity.Z;
+            v163 = this.Velocity.X;
+            v164 = v128;
+            v165 = v129;
           }
-          // v126 = *(double (__thiscall **)(TdPlayerPawn ))(this.VfTableObject.Dummy + 288);
-          v171 = (float)((float)(this.Velocity.X * this.Velocity.X) + (float)(this.Velocity.Y * this.Velocity.Y)) + (float)(this.Velocity.Z * this.Velocity.Z);
-          v161 = this.GetTerminalVelocity();
-          if ( v171 > (float)(v161 * v161) )
+          else
           {
-            v127 = (float)((float)(this.Velocity.X * this.Velocity.X) + (float)(this.Velocity.Y * this.Velocity.Y)) + (float)(this.Velocity.Z * this.Velocity.Z);
-            v210 = v127;
-            if ( v127 == 1.0f )
+            if ( v127 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
             {
-              v128 = this.Velocity.Y;
-              v129 = this.Velocity.Z;
-              v163 = this.Velocity.X;
-              v164 = v128;
-              v165 = v129;
+              v208 = 1077936128;
+              v193 = 1056964608;
+              v131 = fsqrt(v210);
+              v194 = (float)(3.0f - (float)((float)((float)(1.0f / v131) * v210) * (float)(1.0f / v131))) * (float)((float)(1.0f / v131) * 0.5f);
+              v132 = v194 * this.Velocity.Y;
+              v130 = v194 * this.Velocity.Z;
+              v163 = this.Velocity.X * v194;
+              v164 = v132;
             }
             else
             {
-              if ( v127 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
-              {
-                v208 = 1077936128;
-                v193 = 1056964608;
-                v131 = fsqrt(v210);
-                v194 = (float)(3.0f - (float)((float)((float)(1.0f / v131) * v210) * (float)(1.0f / v131))) * (float)((float)(1.0f / v131) * 0.5f);
-                v132 = v194 * this.Velocity.Y;
-                v130 = v194 * this.Velocity.Z;
-                v163 = this.Velocity.X * v194;
-                v164 = v132;
-              }
-              else
-              {
-                v130 = 0.0f;
-                v163 = 0.0f;
-                v164 = 0.0f;
-              }
-              v165 = v130;
+              v130 = 0.0f;
+              v163 = 0.0f;
+              v164 = 0.0f;
             }
-            v133 = v164;
-            v134 = v165;
-            this.Velocity.X = v163;
-            this.Velocity.Y = v133;
-            v135 = this.VfTableObject.Dummy;
-            this.Velocity.Z = v134;
-            v136 = this.GetTerminalVelocity();// GetTerminalVelocity
-            this.Velocity.X = v136 * this.Velocity.X;
-            this.Velocity.Y = v136 * this.Velocity.Y;
-            this.Velocity.Z = v136 * this.Velocity.Z;
+            v165 = v130;
           }
+          v133 = v164;
+          v134 = v165;
+          this.Velocity.X = v163;
+          this.Velocity.Y = v133;
+          v135 = this.VfTableObject.Dummy;
+          this.Velocity.Z = v134;
+          v136 = this.GetTerminalVelocity();// GetTerminalVelocity
+          this.Velocity.X = (float)(v136 * this.Velocity.X);
+          this.Velocity.Y = (float)(v136 * this.Velocity.Y);
+          this.Velocity.Z = (float)(v136 * this.Velocity.Z);
         }
       }
       --dword_205684C;
@@ -2644,7 +3549,7 @@ fixed(var ptr13 =&ColLocation2.X)
   LABEL_190:
     v137 = this.Controller;
     if(v137 != default)
-      v137.PostAirSteering(LODWORD(DeltaTime));// PostAirSteering
+      v137.PostAirSteering((DeltaTime));// PostAirSteering
     v138 = v149;
     v139 = v150;
     this.Acceleration.X = v148;
@@ -2653,8 +3558,8 @@ fixed(var ptr13 =&ColLocation2.X)
   }
 
   // NOT READY
-  public unsafe void PostBeginPlay(){ NativeMarkers.MarkUnimplemented(); }
-//public unsafe void PostBeginPlay()
+  //public override unsafe void PostBeginPlay(){ NativeMarkers.MarkUnimplemented(); }
+//public override unsafe void PostBeginPlay()
 //  {
 //    int v2 = default; // eax
 //    int *v3; // edi
@@ -2673,7 +3578,7 @@ fixed(var ptr13 =&ColLocation2.X)
 //    int v16 = default; // esi
 //    int v17 = default; // [esp+4h] [ebp-4h] BYREF
 //  
-//    this.PostBeginPlay();
+//    base.PostBeginPlay();
 //    if ( *(_DWORD *)(GEngine + 696) )
 //    {
 //      v2 = (*(int (__thiscall **)(_DWORD))(**(_DWORD **)(GEngine + 696) + 300))(*(_DWORD *)(GEngine + 696));
@@ -2681,24 +3586,22 @@ fixed(var ptr13 =&ColLocation2.X)
 //      {
 //        v3 = (int *)(v2 + 188);
 //        sub_590620((int *)(v2 + 188), &v17, dword_2056814);
-//        if ( v17 == -1 || (v4 = *v3 + 20 * v17) == 0 )
+//        if ( v17 == -1 || (v4 = *v3 + 20 * v17) == default )
 //          v5 = default;
 //        else
 //          v5 = *(_DWORD *)(v4 + 8);
 //        this.IndoorSoundGroupIndex = v5;
 //        sub_590620(v3, &v17, dword_205681C);
-//        if ( v17 == -1 || (v6 = *v3 + 20 * v17) == 0 )
+//        if ( v17 == -1 || (v6 = *v3 + 20 * v17) == default )
 //          v7 = default;
 //        else
 //          v7 = *(_DWORD *)(v6 + 8);
-//fixed(var ptr1 =&this.OutdoorSoundGroupIndexes)
-//        v8 =  ptr1;
-//fixed(var ptr2 =&this.OutdoorSoundGroupIndexes)
-//        v9 =  ptr2[this.OutdoorSoundGroupIndexes.Add(1, 4, 8)];
+//        v8 = ref this.OutdoorSoundGroupIndexes;
+//        v9 = ref this.OutdoorSoundGroupIndexes[this.OutdoorSoundGroupIndexes.Add(1, 4, 8)];
 //        if(v9 != default)
 //          *v9 = v7;
 //        sub_590620(v3, &v17, dword_2056824);
-//        if ( v17 == -1 || (v10 = *v3 + 20 * v17) == 0 )
+//        if ( v17 == -1 || (v10 = *v3 + 20 * v17) == default )
 //          v11 = default;
 //        else
 //          v11 = *(_DWORD *)(v10 + 8);
@@ -2706,7 +3609,7 @@ fixed(var ptr13 =&ColLocation2.X)
 //        if(v12 != default)
 //          *v12 = v11;
 //        sub_590620(v3, &v17, dword_205682C);
-//        if ( v17 == -1 || (v13 = *v3 + 20 * v17) == 0 )
+//        if ( v17 == -1 || (v13 = *v3 + 20 * v17) == default )
 //          v14 = default;
 //        else
 //          v14 = *(_DWORD *)(v13 + 8);
@@ -2762,14 +3665,13 @@ fixed(var ptr13 =&ColLocation2.X)
 //    v3 = a2 + this.ReverbVolumeTimer;
 //    v4 = v3 <= this.ReverbVolumePollTime;
 //    this.ReverbVolumeTimer = v3;
-//    if ( v4 || this.IndoorSoundGroupIndex == -1 || default == this.OutdoorSoundGroupIndexes.Count )
+//    if ( v4 || this.IndoorSoundGroupIndex == -1 || !this.OutdoorSoundGroupIndexes.Count )
 //      return;
 //    this.ReverbVolumeTimer = 0.0f;
 //    v5 = sub_B82C60(GWorld);
 //    E_TryCastTo<TdPlayerController>(v5);
 //    v6 = GWorld.GetWorldInfo();
-//fixed(var ptr1 =&this.Location.X)
-//    v7 = sub_C0F170(v6,  ptr1);
+//    v7 = sub_C0F170(v6, ref this.Location.X);
 //    v8 = sub_1229240((int)v7);
 //    a2a = v8;
 //    if ( !*(_DWORD *)(GEngine + 696) )
@@ -2779,7 +3681,7 @@ fixed(var ptr13 =&ColLocation2.X)
 //    }
 //    v9 = (*(int (__thiscall **)(_DWORD))(**(_DWORD **)(GEngine + 696) + 300))(*(_DWORD *)(GEngine + 696));
 //    v10 = v9;
-//    if ( default == v9 )
+//    if ( !v9 )
 //    {
 //  LABEL_8:
 //      v11 = default;
@@ -2801,7 +3703,7 @@ fixed(var ptr13 =&ColLocation2.X)
 //          sub_4036D0(v30);
 //          v32 = -1;
 //          sub_4036D0(v31);
-//          if ( default == v15 )
+//          if ( !v15 )
 //            return;
 //          if ( *(_BYTE *)(a2a + 544) )
 //          {
@@ -2938,8 +3840,8 @@ fixed(var ptr13 =&ColLocation2.X)
     float v3 = default; // xmm0_4
     float v4 = default; // xmm0_4
   
-    this.TickSpecial(a2);
-    this.UpdateReverb_Probably(a2);
+    base.TickSpecial(a2);
+    UpdateReverb_Probably(a2);
     v3 = this.GravityModifierTimer;
     if ( v3 > 0.0f )
     {

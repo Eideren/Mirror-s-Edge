@@ -1,10 +1,25 @@
+// NO OVERWRITE
+
 namespace MEdge.TdGame{
-using static MEdge.TdGame.TdPawn; using static MEdge.TdGame.TdPawn.EMovement; using static MEdge.TdGame.TdMove_ZipLine.EZipLineStatus; using static MEdge.TdGame.TdMove.EPreciseLocationMode; using static MEdge.Engine.Actor.EPhysics; using static MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Engine.Actor.ENetRole; using LedgeHitInfo = MEdge.TdGame.TdPawn.LedgeHitInfo; using ECustomNodeType = MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.TdGame.TdPawn.WalkingState; using static MEdge.TdGame.TdPawn.EWeaponType;using static MEdge.TdGame.TdPawn.EMoveActionHint; using EMoveAimMode = MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Source.DecFn; using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+using static MEdge.TdGame.TdPawn; using static MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.Engine.AnimNodeSequence.ERootBoneAxis; using static MEdge.Engine.AnimNodeSequence.ERootRotationOption; using static MEdge.TdGame.TdPawn.EAgainstWallState; using static MEdge.TdGame.TdPawn.EWeaponAnimState; using static MEdge.Engine.SkeletalMeshComponent.ERootMotionMode; using static MEdge.TdGame.TdPawn.EMovement; using static MEdge.TdGame.TdMove_ZipLine.EZipLineStatus; using static MEdge.TdGame.TdMove.EPreciseLocationMode; using static MEdge.Engine.Actor.EPhysics; using static MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Engine.Actor.ENetRole; using LedgeHitInfo = MEdge.TdGame.TdPawn.LedgeHitInfo; using ECustomNodeType = MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.TdGame.TdPawn.WalkingState; using static MEdge.TdGame.TdPawn.EWeaponType;using static MEdge.TdGame.TdPawn.EMoveActionHint; using EMoveAimMode = MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Source.DecFn; using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 public partial class TdPawn
 {
-  public unsafe int OkToInteract()
+  public unsafe EWeaponType GetWeaponType()
   {
-    return 0;
+    TdWeapon v1 = default; // eax
+    EWeaponType result = default; // al
+  
+    v1 = this.MyWeapon;
+    if(v1 != default)
+      result = v1.WeaponType;
+    else
+      result = EWT_None;
+    return result;
+  }
+
+  public unsafe bool OkToInteract()
+  {
+    return false;
   }
 
   public unsafe void startNewPhysics(float deltaTime, int Iterations)
@@ -13,17 +28,17 @@ public partial class TdPawn
   
     if ( deltaTime >= 0.00030000001d && Iterations <= 7 )
     {
-      v3 = this.Physics;
+      v3 = (int)this.Physics;
       SetFromBitfield(ref this.bDisableSkelControlSpring, 32, this.bDisableSkelControlSpring.AsBitfield(32) & (0xFFFEFFFF));
       switch ( (int)v3 )
       {
         case (int)PHYS_None:
           return;
         case (int)PHYS_Walking:
-          this.physWalking(LODWORD(deltaTime), Iterations);// physWalking
+          this.physWalking((deltaTime), Iterations);// physWalking
           break;
         case (int)PHYS_Falling:
-          this.physFalling(LODWORD(deltaTime), Iterations);// physFalling
+          this.physFalling((deltaTime), Iterations);// physFalling
           break;
         case (int)PHYS_Swimming:
           this.physSwimming(deltaTime, Iterations);
@@ -32,7 +47,7 @@ public partial class TdPawn
           this.physFlying(deltaTime, Iterations);
           break;
         case (int)PHYS_Interpolating:
-          this.physInterpolating(LODWORD(deltaTime));// physInterpolating
+          this.physInterpolating((deltaTime));// physInterpolating
           break;
         case (int)PHYS_Spider:
           this.physSpider(deltaTime, Iterations);
@@ -41,16 +56,16 @@ public partial class TdPawn
           this.physLadder(deltaTime, Iterations);
           break;
         case (int)PHYS_RigidBody:
-          this.physRigidBody(LODWORD(deltaTime));// physRigidBody
+          this.physRigidBody((deltaTime));// physRigidBody
           break;
         case (int)PHYS_WallRunning:
-          this.physWallRunning(LODWORD(deltaTime), Iterations);// physWallRunning
+          this.physWallRunning((deltaTime), Iterations);// physWallRunning
           break;
         case (int)PHYS_WallClimbing:
-          this.physWallClimbing(LODWORD(deltaTime), Iterations);// physWallClimbing
+          this.physWallClimbing((deltaTime), Iterations);// physWallClimbing
           break;
         default:
-          this.setPhysics( 0, 0, 0, 0, 1065353216);// setPhysics
+          this.setPhysics( 0, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));// setPhysics
           break;
       }
     }
@@ -68,12 +83,11 @@ public partial class TdPawn
   
     v1 = sqrt(this.Velocity.Z * this.Velocity.Z + this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X);
     v7 = (float)v1;
-    this.VelocityMagnitude = v1;
+    this.VelocityMagnitude = (float)v1;
     if ( v1 <= 0.00000001f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
       this.VelocityMagnitude = 0.0f;
-      *(_QWORD *)&this.VelocityDir.Y = 0L;
-      this.VelocityDir.X = 0.0f;
+      this.VelocityDir = default;
     }
     else
     {
@@ -83,7 +97,7 @@ public partial class TdPawn
       this.VelocityDir.Y = v3;
       this.VelocityDir.Z = v2 * (float)(1.0f / v7);
       v4 = sqrt(this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X);
-      this.VelocityMagnitude2D = v4;
+      this.VelocityMagnitude2D = (float)v4;
       if ( v4 > 0.00000001f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
       {
         v5 = 1.0f / this.VelocityMagnitude2D;
@@ -103,11 +117,11 @@ public partial class TdPawn
     this.VelocityMagnitude2D = 0.0f;
   }
 
-  public unsafe void setPhysics(byte NewPhysics, Actor NewFloor, Vector NewFloorV)
+  public virtual unsafe void setPhysics(byte NewPhysics, Actor NewFloor, Vector NewFloorV)
   {
     EPhysics v5 = default; // al
   
-    if ( this.Physics == NewPhysics )
+    if ( this.Physics == (EPhysics)NewPhysics )
     {
       if ( NewPhysics == 1 )
         goto LABEL_6;
@@ -117,31 +131,31 @@ public partial class TdPawn
       this.NewFloorSmooth = (float)(this.Location.Z - this.CylinderComponent.CollisionHeight) - 2.0f;
       goto LABEL_6;
     }
-    this.ClearTimer(*(name *)&FuncName_SlideOffLedge_unknown_EyeJoint, 0);// SlideOffLedge
+    this.ClearTimer(/**(name *)&FuncName_SlideOffLedge_unknown_EyeJoint*/"SlideOffLedge", null);// SlideOffLedge
   LABEL_6:
     v5 = this.Physics;
-    if ( v5 != NewPhysics )
+    if ( v5 != (EPhysics)NewPhysics )
     {
       if ( v5 == PHYS_WallClimbing || v5 == PHYS_WallRunning )
         SetFromBitfield(ref this.bDisableSkelControlSpring, 32, this.bDisableSkelControlSpring.AsBitfield(32) & (~1024u));
-      if ( v5 != NewPhysics && NewPhysics == 2 )
+      if ( v5 != (EPhysics)NewPhysics && NewPhysics == 2 )
         this.EnterFallingHeight = this.Location.Z;
     }
     this.AnimLockRefCount = default;
-    this.setPhysics(NewPhysics, NewFloor, NewFloorV);
+    base.setPhysics(NewPhysics, NewFloor, NewFloorV);
   }
 
   public unsafe float GetGravityZ()
   {
-    return (float)(this.GetGravityZ() * this.GravityModifier);
+    return (float)(base.GetGravityZ() * this.GravityModifier);
   }
 
-  public unsafe bool UNKNOWN28(Vector *a2, int a3, int a4, Vector *a5, CheckResult *a6)
+  public unsafe bool UNKNOWN28(Vector *a2, bool a3, bool a4, Vector *a5, ref CheckResult a6)
   {
     float v6 = default; // xmm1_4
     float v7 = default; // xmm0_4
     float v8 = default; // edx
-    Vector *v10; // ebp
+    //Vector *v10; // ebp
     float v11 = default; // eax
     bool v12 = default; // zf
     bool result = default; // eax
@@ -173,8 +187,8 @@ public partial class TdPawn
     float v39 = default; // xmm0_4
     // void (__thiscall *v40)(TdPawn , _DWORD, _DWORD, _DWORD, int); // edx
     Vector *v41; // [esp-10h] [ebp-9Ch]
-    Rotator *v42; // [esp-Ch] [ebp-98h]
-    CheckResult *v43; // [esp-4h] [ebp-90h]
+    //Rotator *v42; // [esp-Ch] [ebp-98h]
+    //CheckResult *v43; // [esp-4h] [ebp-90h]
     bool v44 = default; // [esp+10h] [ebp-7Ch]
     bool v45 = default; // [esp+14h] [ebp-78h]
     float v46 = default; // [esp+18h] [ebp-74h]
@@ -195,8 +209,6 @@ public partial class TdPawn
     v7 = a6.Time;
     v8 = a6.Normal.Z;
     v50.Y = a6.Normal.Y;
-fixed(var ptr1 =&this.Location)
-    v10 =  ptr1;
     v50.X = a6.Normal.X;
     v49 = a6.Component;
     v47 = a6.Actor;
@@ -241,8 +253,7 @@ fixed(var ptr1 =&this.Location)
     Delta.X = a2->X * 32.0f;
     Delta.Y = a2->Y * 32.0f;
     Delta.Z = a2->Z * 32.0f;
-fixed(var ptr2 =&this.Rotation)
-    GWorld.MoveActor(this, &Delta,  ptr2, 0, a6);
+    GWorld.MoveActor(this, ref Delta, ref this.Rotation, 0, ref a6);
     v19 = a6.Time;
     if ( v19 >= 1.0f || v19 < 0.0f )
     {
@@ -283,21 +294,17 @@ fixed(var ptr2 =&this.Rotation)
       }
       v28 = 0.0f;
   LABEL_23:
-      Delta.X = (float)(v27 * 34.0f) + v10->X;
+      Delta.X = (float)(v27 * 34.0f) + this.Location.X;
       Delta.Y = this.Location.Y + (float)(v22 * 34.0f);
       Delta.Z = this.Location.Z + (float)(v28 * 34.0f);
       v30 = this.GetCylinderExtent(&a2a);
-fixed(var ptr3 =&this.Location)
-      GWorld.SingleLineCheck(a6, this, &Delta,  ptr3, 8415, v30, 0);
+      GWorld.SingleLineCheck(ref a6, this, ref Delta, ref this.Location, 8415, ref *v30, 0);
       if ( a6.Time < 1.0f )
       {
         v44 = default;
   LABEL_32:
         v34 = -0.0f - a2->Y;
         v35 = -0.0f - a2->Z;
-        v43 = a6;
-fixed(var ptr4 =&this.Rotation)
-        v42 =  ptr4;
         a2a.X = (float)(-0.0f - a2->X) * 32.0f;
         a2a.Y = v34 * 32.0f;
         a2a.Z = v35 * 32.0f;
@@ -311,8 +318,7 @@ fixed(var ptr4 =&this.Rotation)
       a5->Z = a5->Z * (float)(1.0f - v46);
       Delta.X = 0.0f;
       Delta.Y = 0.0f;
-fixed(var ptr5 =&this.Rotation)
-      GWorld.MoveActor(this, a5,  ptr5, 0, a6);
+      GWorld.MoveActor(this, ref *a5, ref this.Rotation, 0, ref a6);
       v31 = a6.Time;
       v48 = v31;
       v32 = v31;
@@ -322,8 +328,7 @@ fixed(var ptr5 =&this.Rotation)
       {
         if(a3 != default)
         {
-fixed(var ptr6 =&this.Rotation)
-          GWorld.MoveActor(this, &Delta,  ptr6, 0, a6);
+          GWorld.MoveActor(this, ref Delta, ref this.Rotation, 0, ref a6);
           v33 = a6.Time;
           v31 = v33;
           if ( v33 <= 0.050000001d )
@@ -332,8 +337,7 @@ fixed(var ptr6 =&this.Rotation)
           }
           else
           {
-fixed(var ptr7 =&this.Rotation)
-            GWorld.MoveActor(this, a5,  ptr7, 0, a6);
+            GWorld.MoveActor(this, ref *a5, ref this.Rotation, 0, ref a6);
             v31 = a6.Time;
             v45 = v31 <= 0.050000001d;
             v32 = v31;
@@ -350,34 +354,48 @@ fixed(var ptr7 =&this.Rotation)
         a2a.X = (float)(-0.0f - Delta.X) * v33;
         a2a.Y = (float)(-0.0f - Delta.Y) * v33;
         a2a.Z = (float)(-0.0f - Delta.Z) * v33;
-fixed(var ptr8 =&this.Rotation)
-        GWorld.MoveActor(this, &a2a,  ptr8, 0, a6);
+        GWorld.MoveActor(this, ref a2a, ref this.Rotation, 0, ref a6);
       }
-      goto LABEL_32;
+      v34 = -0.0f - a2->Y;
+      v35 = -0.0f - a2->Z;
+      a2a.X = (float)(-0.0f - a2->X) * 32.0f;
+      a2a.Y = v34 * 32.0f;
+      a2a.Z = v35 * 32.0f;
+      v41 = &a2a;
+      goto LABEL_33;
     }
     v20 = -0.0f - a2->Y;
     v21 = -0.0f - a2->Z;
-    v43 = a6;
-fixed(var ptr9 =&this.Rotation)
-    v42 =  ptr9;
     Delta.X = (float)((float)(-0.0f - a2->X) * 32.0f) * v19;
     Delta.Y = (float)(v20 * 32.0f) * v19;
     Delta.Z = (float)(v21 * 32.0f) * v19;
     v41 = &Delta;
   LABEL_33:
-    GWorld.MoveActor(this, v41, v42, 0, v43);
+    GWorld.MoveActor(this, ref *v41, ref this.Rotation, 0, ref a6);
     v36 = v53;
     v37 = v52;
-    SetFromBitfield(ref this.bCollideComplex, 20, this.bCollideComplex.AsBitfield(20) ^ ((this.bCollideComplex.AsBitfield(20) ^ (((float)((float)((float)(this.Location.Y - v53) * (float)(this.Location.Y - v53)) + (float)((float)(v10->X - v52) * (float)(v10->X - v52))) > (float)((float)(a5->X * a5->X) + (float)(a5->Y * a5->Y))) << 8)) & 0x100));
-    if ( (this.bCollideComplex.AsBitfield(20) & 0x100) != 0 )
+    SetFromBitfield(
+      ref this.bCollideComplex, 20, this.bCollideComplex.AsBitfield(20) ^ 
+                                                  (
+                                                    (
+                                                      this.bCollideComplex.AsBitfield(20) ^ 
+                                                        (
+                                                          (
+                                                            ((Location.Y - v53) * (Location.Y - v53) + (Location.X - v52) * (Location.X - v52)) > (a5->X * a5->X + a5->Y * a5->Y)
+                                                          ).AsUInt() << 8
+                                                        )
+                                                    ) & 0x100 
+                                                  )
+                                    );
+    if ( (this.bCollideComplex.AsBitfield(20) & 0x100) != default )
     {
       v38 = v36 - this.Location.Y;
       v39 = v54 - this.Location.Z;
       // v40 = *(void (__thiscall **)(TdPawn , _DWORD, _DWORD, _DWORD, int))(this.VfTableObject.Dummy + 1060);
-      Delta.X = v37 - v10->X;
+      Delta.X = v37 - this.Location.X;
       Delta.Y = v38;
       Delta.Z = v39;
-      v40(this, LODWORD(Delta.X), LODWORD(v38), LODWORD(v39), 1);// OffsetMeshXY
+      this.OffsetMeshXY(new Vector(Delta.X, v38, v39), 1);// OffsetMeshXY
       this.EvadeTimer = 0.2f;
     }
     a6.Normal.X = v50.X;
@@ -390,12 +408,12 @@ fixed(var ptr9 =&this.Rotation)
     return result != default;
   }
 
-  public unsafe void SetTargetMeshZ(float BlendTime, int TranslationSpace)
+  public unsafe void SetTargetMeshZ(float BlendTime, int bTranslationSpace)
   {
     TdSkeletalMeshComponent v3 = default; // eax
   
     this.TargetMeshTranslationZ = BlendTime;
-    if(TranslationSpace != default)
+    if(bTranslationSpace != default)
     {
       v3 = this.Mesh1p;
       if ( default == v3 )
@@ -404,17 +422,21 @@ fixed(var ptr9 =&this.Rotation)
     }
   }
 
-  public unsafe void UpdateWalkingState()
+  public virtual unsafe void UpdateWalkingState()
   {
-    EWalkingState v1 = default; // al
+    WalkingState v1 = default; // al
     TdWeapon v2 = default; // eax
     bool v3 = default; // eax
     float v4 = default; // [esp+0h] [ebp-4h]
   
     v1 = this.OverrideWalkingState;
     v4 = (float)(sqrt(this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X));
-    if ( v1 != WAS_None )
-      goto LABEL_10;
+    if( v1 != WAS_None )
+    {
+      this.CurrentWalkingState = v1;
+      return;
+    }
+
     v2 = this.MyWeapon;
     v3 = v2 && v2.WeaponType == EWT_Heavy;
     if ( this.SneakVelocity > v4 )
@@ -424,7 +446,7 @@ fixed(var ptr9 =&this.Rotation)
     }
     if ( this.WalkVelocity > v4 )
     {
-      v1 = v3 + 1;
+      v1 = (WalkingState)v3.AsInt() + 1;
   LABEL_10:
       this.CurrentWalkingState = v1;
       return;
@@ -434,7 +456,7 @@ fixed(var ptr9 =&this.Rotation)
       if ( this.RunVelocity <= v4 )
       {
         if ( this.SprintVelocity <= v4 )
-          this.CurrentWalkingState = default == v3 + 4;
+          this.CurrentWalkingState = (WalkingState)((default == v3).AsInt() + 4);
         else
           this.CurrentWalkingState = WAS_Run;
       }
@@ -451,7 +473,7 @@ fixed(var ptr9 =&this.Rotation)
 
   public unsafe bool IsInMove(EMovement Move)
   {
-    return this.MovementState == (byte)Move;
+    return this.MovementState == Move;
   }
 
   public unsafe EMovement GetMove()
@@ -459,9 +481,123 @@ fixed(var ptr9 =&this.Rotation)
     return this.MovementState;
   }
 
+
+
+  public unsafe AnimNodeSequence GetCustomAnimation( CustomNodeType a2 ) => GetCustomAnimation((byte)a2);
+  public unsafe AnimNodeSequence  GetCustomAnimation(byte a2)
+  {
+    TdAnimNodeSlot v2 = default; // ecx
+  
+    switch ( (int)a2 )
+    {
+      case (int)0:
+        if ( this.Mesh == this.Mesh1p )
+        {
+          v2 = this.CustomCannedNode1p;
+          if ( default == v2 )
+            return default;
+        }
+        else
+        {
+          v2 = this.CustomCannedNode3p;
+          if ( default == v2 )
+            return default;
+        }
+        return v2.GetCustomAnimNodeSeq();
+      case (int)1:
+        if ( this.Mesh == this.Mesh1p )
+        {
+          v2 = this.CustomCannedUpperBodyNode1p;
+          if ( default == v2 )
+            return default;
+        }
+        else
+        {
+          v2 = this.CustomCannedUpperBodyNode3p;
+          if ( default == v2 )
+            return default;
+        }
+        return v2.GetCustomAnimNodeSeq();
+      case (int)2:
+        if ( this.Mesh == this.Mesh1p )
+        {
+          v2 = this.CustomFullBodyNode1p;
+          if ( default == v2 )
+            return default;
+        }
+        else
+        {
+          v2 = this.CustomFullBodyNode3p;
+          if ( default == v2 )
+            return default;
+        }
+        return v2.GetCustomAnimNodeSeq();
+      case (int)3:
+        if ( this.Mesh == this.Mesh1p )
+        {
+          v2 = this.CustomFullBodyDirNode1p;
+          if ( default == v2 )
+            return default;
+        }
+        else
+        {
+          v2 = this.CustomFullBodyDirNode3p;
+          if ( default == v2 )
+            return default;
+        }
+        return v2.GetCustomAnimNodeSeq();
+      case (int)4:
+        if ( this.Mesh == this.Mesh1p )
+        {
+          v2 = this.CustomUpperBodyNode1p;
+          if ( default == v2 )
+            return default;
+        }
+        else
+        {
+          v2 = this.CustomUpperBodyNode3p;
+          if ( default == v2 )
+            return default;
+        }
+        return v2.GetCustomAnimNodeSeq();
+      case (int)6:
+        if ( this.Mesh == this.Mesh1p )
+        {
+          v2 = this.CustomCameraNode;
+          if(v2 != default)
+            return v2.GetCustomAnimNodeSeq();
+        }
+        return default;
+      case (int)7:
+        if ( this.Mesh == this.Mesh1p )
+        {
+          v2 = this.CustomWeaponNode1p;
+          if(v2 != default)
+            return v2.GetCustomAnimNodeSeq();
+        }
+        else
+        {
+          v2 = this.CustomWeaponNode3p;
+          if(v2 != default)
+            return v2.GetCustomAnimNodeSeq();
+        }
+        return default;
+      case (int)8:
+        if ( this.Mesh != this.Mesh1p )
+        {
+          v2 = this.CustomFaceNode;
+          if(v2 != default)
+            return v2.GetCustomAnimNodeSeq();
+        }
+        return default;
+      default:
+        return default;
+    }
+  }
+
   // NOT READY
-  public unsafe void RegenerateHealth(float a2){ NativeMarkers.MarkUnimplemented(); }
-//public unsafe void RegenerateHealth(float a2)
+  public unsafe void _RegenerateHealth(float a2){ NativeMarkers.MarkUnimplemented(); }
+//public unsafe void _RegenerateHealth(float a2)
 //  {
 //    float v2 = default; // xmm0_4
 //    bool v3 = default; // cf
@@ -523,7 +659,7 @@ fixed(var ptr9 =&this.Rotation)
 //    }
 //  }
 //
-  public unsafe void PlayCustomAnim(ECustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, int bRootRotation)
+  public virtual unsafe void PlayCustomAnim(ECustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, bool? _bRootRotation)
   {
     bool v11 = default; // eax
     bool v12 = default; // eax
@@ -535,7 +671,8 @@ fixed(var ptr9 =&this.Rotation)
     bool v18 = default; // eax
     bool v19 = default; // eax
     bool v20 = default; // eax
-  
+
+    var bRootRotation = _bRootRotation ?? false;
     switch ( (int)Type )
     {
       case (int)CNT_Canned:
@@ -543,17 +680,19 @@ fixed(var ptr9 =&this.Rotation)
         this.PlayCustomAnimInternal(
           this.CustomCannedNode1p,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          Rate,
+          BlendInTime,
+          BlendOutTime,
           bLooping,
           bOverride,
           v11,
           bRootRotation);
         this.PlayCustomAnimInternal(
           this.CustomCannedNode3p,
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          AnimName,
+          Rate,
+          BlendInTime,
+          BlendOutTime,
           bLooping,
           bOverride,
           bRootMotion,
@@ -561,9 +700,9 @@ fixed(var ptr9 =&this.Rotation)
         this.ReplicateCustomAnim(
           Type,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          Rate,
+          BlendInTime,
+          BlendOutTime,
           bLooping,
           bOverride,
           bRootMotion,
@@ -574,17 +713,19 @@ fixed(var ptr9 =&this.Rotation)
         this.PlayCustomAnimInternal(
           this.CustomCannedUpperBodyNode1p,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           v12,
           bRootRotation);
         this.PlayCustomAnimInternal(
           this.CustomCannedUpperBodyNode3p,
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          AnimName,
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           bRootMotion,
@@ -592,9 +733,9 @@ fixed(var ptr9 =&this.Rotation)
         this.ReplicateCustomAnim(
           Type,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           bRootMotion,
@@ -605,17 +746,19 @@ fixed(var ptr9 =&this.Rotation)
         this.PlayCustomAnimInternal(
           this.CustomFullBodyNode1p,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           v13,
           bRootRotation);
         this.PlayCustomAnimInternal(
           this.CustomFullBodyNode3p,
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          AnimName,
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           bRootMotion,
@@ -623,9 +766,9 @@ fixed(var ptr9 =&this.Rotation)
         this.ReplicateCustomAnim(
           Type,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           bRootMotion,
@@ -636,17 +779,19 @@ fixed(var ptr9 =&this.Rotation)
         this.PlayCustomAnimInternal(
           this.CustomFullBodyDirNode1p,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           v14,
           bRootRotation);
         this.PlayCustomAnimInternal(
           this.CustomFullBodyDirNode3p,
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          AnimName,
+          Rate,
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           bRootMotion,
@@ -654,9 +799,9 @@ fixed(var ptr9 =&this.Rotation)
         this.ReplicateCustomAnim(
           Type,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           bRootMotion,
@@ -667,17 +812,19 @@ fixed(var ptr9 =&this.Rotation)
         this.PlayCustomAnimInternal(
           this.CustomUpperBodyNode1p,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           v15,
           bRootRotation);
         this.PlayCustomAnimInternal(
           this.CustomUpperBodyNode3p,
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          AnimName,
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           bRootMotion,
@@ -685,9 +832,9 @@ fixed(var ptr9 =&this.Rotation)
         this.ReplicateCustomAnim(
           Type,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           bRootMotion,
@@ -698,17 +845,19 @@ fixed(var ptr9 =&this.Rotation)
         this.PlayCustomAnimInternal(
           this.CustomLowerBodyNode1p,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           v16,
           bRootRotation);
         this.PlayCustomAnimInternal(
           this.CustomLowerBodyNode3p,
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          AnimName,
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           bRootMotion,
@@ -716,9 +865,9 @@ fixed(var ptr9 =&this.Rotation)
         this.ReplicateCustomAnim(
           Type,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           bRootMotion,
@@ -729,9 +878,9 @@ fixed(var ptr9 =&this.Rotation)
         this.PlayCustomAnimInternal(
           this.CustomCameraNode,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           v17,
@@ -742,9 +891,9 @@ fixed(var ptr9 =&this.Rotation)
         this.PlayCustomAnimInternal(
           this.CustomWeaponNode1p,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           v18,
@@ -753,9 +902,9 @@ fixed(var ptr9 =&this.Rotation)
         this.PlayCustomAnimInternal(
           this.CustomWeaponNode3p,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           v19,
@@ -766,9 +915,9 @@ fixed(var ptr9 =&this.Rotation)
         this.PlayCustomAnimInternal(
           this.CustomFaceNode,
           AnimName,
-          LODWORD(Rate),
-          LODWORD(BlendInTime),
-          LODWORD(BlendOutTime),
+          (Rate),
+          (BlendInTime),
+          (BlendOutTime),
           bLooping,
           bOverride,
           v20,
@@ -779,7 +928,9 @@ fixed(var ptr9 =&this.Rotation)
     }
   }
 
-  public unsafe void SetCustomAnimsBlendOutTime(byte a2, float a3)
+
+
+  public virtual unsafe void SetCustomAnimsBlendOutTime( CustomNodeType a2, float a3)
   {
     TdAnimNodeSlot v4 = default; // ecx
   
@@ -790,57 +941,57 @@ fixed(var ptr9 =&this.Rotation)
       case (int)1:
         goto LABEL_10;
       case (int)2:
-        this.CustomFullBodyNode1p.SetBlendOutTime(LODWORD(a3));// SetBlendOutTime
+        this.CustomFullBodyNode1p.SetBlendOutTime((a3));// SetBlendOutTime
         v4 = this.CustomFullBodyNode3p;
         goto LABEL_11;
       case (int)3:
-        this.CustomFullBodyDirNode1p.SetBlendOutTime(LODWORD(a3));// SetBlendOutTime
+        this.CustomFullBodyDirNode1p.SetBlendOutTime((a3));// SetBlendOutTime
         v4 = this.CustomFullBodyDirNode3p;
         goto LABEL_11;
       case (int)4:
-        this.CustomUpperBodyNode1p.SetBlendOutTime(LODWORD(a3));// SetBlendOutTime
+        this.CustomUpperBodyNode1p.SetBlendOutTime((a3));// SetBlendOutTime
         v4 = this.CustomUpperBodyNode3p;
         goto LABEL_11;
       case (int)5:
-        this.CustomLowerBodyNode1p.SetBlendOutTime(LODWORD(a3));// SetBlendOutTime
+        this.CustomLowerBodyNode1p.SetBlendOutTime((a3));// SetBlendOutTime
         v4 = this.CustomLowerBodyNode3p;
         goto LABEL_11;
       case (int)6:
         v4 = this.CustomCameraNode;
         goto LABEL_11;
       case (int)7:
-        this.CustomWeaponNode1p.SetBlendOutTime(LODWORD(a3));// SetBlendOutTime
+        this.CustomWeaponNode1p.SetBlendOutTime((a3));// SetBlendOutTime
         v4 = this.CustomWeaponNode3p;
         goto LABEL_11;
       case (int)8:
-        this.CustomFaceNode.SetBlendOutTime(LODWORD(a3));// SetBlendOutTime
+        this.CustomFaceNode.SetBlendOutTime((a3));// SetBlendOutTime
   LABEL_9:
-        this.CustomCannedNode1p.SetBlendOutTime(LODWORD(a3));// SetBlendOutTime
-        this.CustomCannedNode3p.SetBlendOutTime(LODWORD(a3));// SetBlendOutTime
+        this.CustomCannedNode1p.SetBlendOutTime((a3));// SetBlendOutTime
+        this.CustomCannedNode3p.SetBlendOutTime((a3));// SetBlendOutTime
   LABEL_10:
-        this.CustomCannedUpperBodyNode1p.SetBlendOutTime(LODWORD(a3));// SetBlendOutTime
+        this.CustomCannedUpperBodyNode1p.SetBlendOutTime((a3));// SetBlendOutTime
         v4 = this.CustomCannedUpperBodyNode3p;
   LABEL_11:
-        v4.SetBlendOutTime(LODWORD(a3));// SetBlendOutTime
+        v4.SetBlendOutTime((a3));// SetBlendOutTime
         break;
       default:
         return;
     }
   }
 
-  public unsafe int StopAllCustomAnimations(float a2)
+  public unsafe void StopAllCustomAnimations(float a2)
   {
-    this.StopCustomAnim(0, LODWORD(a2));// StopCustomAnim
-    this.StopCustomAnim( 1, LODWORD(a2));// StopCustomAnim
-    this.StopCustomAnim( 2, LODWORD(a2));// StopCustomAnim
-    this.StopCustomAnim( 3, LODWORD(a2));// StopCustomAnim
-    this.StopCustomAnim( 4, LODWORD(a2));// StopCustomAnim
-    this.StopCustomAnim( 6, LODWORD(a2));// StopCustomAnim
-    this.StopCustomAnim( 7, LODWORD(a2));// StopCustomAnim
-    return (int)(this.StopCustomAnim( 8, LODWORD(a2)));// StopCustomAnim
+    this.StopCustomAnim(0, (a2));// StopCustomAnim
+    this.StopCustomAnim( (CustomNodeType)1, (a2));// StopCustomAnim
+    this.StopCustomAnim( (CustomNodeType)2, (a2));// StopCustomAnim
+    this.StopCustomAnim( (CustomNodeType)3, (a2));// StopCustomAnim
+    this.StopCustomAnim( (CustomNodeType)4, (a2));// StopCustomAnim
+    this.StopCustomAnim( (CustomNodeType)6, (a2));// StopCustomAnim
+    this.StopCustomAnim( (CustomNodeType)7, (a2));// StopCustomAnim
+    this.StopCustomAnim( (CustomNodeType)8, (a2));// StopCustomAnim
   }
 
-  public unsafe void SetRootOffset(Vector Offset, float BlendTime, EBoneControlSpace TranslationSpace)
+  public unsafe void SetRootOffset(Vector Offset, float BlendTime, SkelControlBase.EBoneControlSpace TranslationSpace = default)
   {
     SkelControlSingleBone v5 = default; // eax
     SkelControlSingleBone v6 = default; // eax
@@ -875,20 +1026,16 @@ fixed(var ptr9 =&this.Rotation)
     }
   }
 
-  public unsafe void UpdateBasedRotation(Rotator *a2, Rotator *a3)
+  public override void UpdateBasedRotation(ref Rotator a2, in Rotator a3)
   {
     this.LegRotation = this.LegRotation + (a3.Yaw);
-    this.UpdateBasedRotation(a2, a3);
+    base.UpdateBasedRotation(ref a2, a3);
   }
 
-  public unsafe int SetArmorDifficultyLevel(int a2)
+  public virtual unsafe void SetArmorDifficultyLevel(int a2)
   {
-    int result = default; // eax
-  
-    result = a2;
-    if(a2 != default)
+    if ( a2 != default )
     {
-      result = a2 - 1;
       if ( a2 == 1 )
       {
         this.ArmorBulletsHead = this.ArmorBulletsHeadSettings.Medium;
@@ -898,18 +1045,14 @@ fixed(var ptr9 =&this.Rotation)
         this.ArmorMeleeBody = this.ArmorMeleeBodySettings.Medium;
         this.ArmorMeleeLegs = this.ArmorMeleeLegsSettings.Medium;
       }
-      else
+      else if ( a2 == 2 )
       {
-        result = a2 - 2;
-        if ( a2 == 2 )
-        {
-          this.ArmorBulletsHead = this.ArmorBulletsHeadSettings.Hard;
-          this.ArmorBulletsBody = this.ArmorBulletsBodySettings.Hard;
-          this.ArmorBulletsLegs = this.ArmorBulletsLegsSettings.Hard;
-          this.ArmorMeleeHead = this.ArmorMeleeHeadSettings.Hard;
-          this.ArmorMeleeBody = this.ArmorMeleeBodySettings.Hard;
-          this.ArmorMeleeLegs = this.ArmorMeleeLegsSettings.Hard;
-        }
+        this.ArmorBulletsHead = this.ArmorBulletsHeadSettings.Hard;
+        this.ArmorBulletsBody = this.ArmorBulletsBodySettings.Hard;
+        this.ArmorBulletsLegs = this.ArmorBulletsLegsSettings.Hard;
+        this.ArmorMeleeHead = this.ArmorMeleeHeadSettings.Hard;
+        this.ArmorMeleeBody = this.ArmorMeleeBodySettings.Hard;
+        this.ArmorMeleeLegs = this.ArmorMeleeLegsSettings.Hard;
       }
     }
     else
@@ -921,15 +1064,14 @@ fixed(var ptr9 =&this.Rotation)
       this.ArmorMeleeBody = this.ArmorMeleeBodySettings.Easy;
       this.ArmorMeleeLegs = this.ArmorMeleeLegsSettings.Easy;
     }
-    return (int)(result);
   }
 
   public unsafe void performPhysics(float DeltaTime)
   {
     EMovement v3 = default; // al
-    TdMove *v4; // ecx
+    TdMove[] v4; // ecx
     bool v5 = default; // zf
-    TdMove *v6; // eax
+    //TdMove *v6; // eax
     float v7 = default; // xmm0_4
     int v8 = default; // edi
     int v9 = default; // eax
@@ -938,15 +1080,15 @@ fixed(var ptr9 =&this.Rotation)
     if(v3 != default)
     {
       v4 = this.Moves.Data;
-      v5 = v4[v3] == 0;
-      v6 = &v4[v3];
-      if ( default == v5 )
+      v5 = v4[(int)v3] == null;
+      ref TdMove v6 = ref v4[(int)v3];
+      if ( !v5 )
       {
         v6.CheckAutoMoves();// CheckAutoMoves
-        this.Moves[this.MovementState].PrePerformPhysics(LODWORD(DeltaTime));// PrePerformPhysics
+        this.Moves[this.MovementState].PrePerformPhysics((DeltaTime));// PrePerformPhysics
       }
     }
-    if ( (this.bDisableSkelControlSpring.AsBitfield(32) & 131072) != 0 )
+    if ( (this.bDisableSkelControlSpring.AsBitfield(32) & 131072) != default )
     {
       v7 = this.SlideEffectUpdateTimer - DeltaTime;
       this.SlideEffectUpdateTimer = v7;
@@ -957,18 +1099,18 @@ fixed(var ptr9 =&this.Rotation)
         CallUFunction(this.UpdateSlideEffect, this, v9, 0, 0);
       }
     }
-    this.performPhysics(DeltaTime);
+    base.performPhysics(DeltaTime);
   }
 
-  public override unsafe float GetMobilityMultiplier()
+  public virtual unsafe float GetMobilityMultiplier()
   {
     float v1 = default; // xmm0_4
     float v2 = default; // xmm2_4
     double result = default; // st7
   
-    v1 = 1.0f - (float)(this.TaserDamageLevel * 0.0099999998d);
+    v1 = (float)(1.0f - (float)(this.TaserDamageLevel * 0.0099999998d));
     v2 = 0.0f;
-    if ( v1 >= 0.0f && (v2 = 1.0f - (float)(this.TaserDamageLevel * 0.0099999998d), v1 > 1.0f) )
+    if ( v1 >= 0.0f && ((v2 = 1.0f - (float)(this.TaserDamageLevel * 0.0099999998d)) is object && v1 > 1.0f) )
       result = 1.0f;
     else
       result = v2;
@@ -983,14 +1125,14 @@ fixed(var ptr9 =&this.Rotation)
     TdMove v12 = default; // eax
     float v13 = default; // xmm0_4
     int v14 = default; // eax
-    TdMove *v15; // ecx
+    //TdMove *v15; // ecx
     bool v16 = default; // zf
-    TdMove *v17; // eax
+    //TdMove *v17; // eax
     double v18 = default; // st7
     float v19 = default; // xmm7_4
     float v20 = default; // xmm5_4
     float v21 = default; // edx
-    Vector *v22; // edi
+    //Vector *v22; // edi
     float v23 = default; // xmm0_4
     float v24 = default; // xmm0_4
     float v25 = default; // xmm1_4
@@ -1004,8 +1146,8 @@ fixed(var ptr9 =&this.Rotation)
     float v33 = default; // xmm0_4
     float v34 = default; // xmm2_4
     int v35 = default; // edx
-    TdMove *v36; // eax
-    TdMove *v37; // eax
+    //TdMove *v36; // eax
+    //TdMove *v37; // eax
     float v38 = default; // xmm1_4
     float v39 = default; // xmm6_4
     float v40 = default; // xmm0_4
@@ -1048,30 +1190,30 @@ fixed(var ptr9 =&this.Rotation)
     float a4a = default; // [esp+6Ch] [ebp+Ch]
   
     v9 = this.bIsFemale.AsBitfield(20);
-    if ( (v9 & 0x40000) == 0 && ((v9 & 0x20000) != 0 || (v10 = this.Mesh) != 0 && v10.RootMotionMode != RMM_Ignore) || (v11 = this.Controller) != 0 && (v11.bIsPlayer.AsBitfield(20) & 0x20000) != 0 )
+    if ( (v9 & 0x40000) == default && ((v9 & 0x20000) != default || (v10 = this.Mesh) != default && v10.RootMotionMode != RMM_Ignore) || (v11 = this.Controller) != default && (v11.bIsPlayer.AsBitfield(20) & 0x20000) != default )
     {
-      this.CalcVelocity(a2, a3, a4, a5, a6, a7, a8);
+      base.CalcVelocity(ref *a2, a3, a4, a5, a6, a7, a8);
       v12 = this.Moves[this.MovementState];
       v13 = this.Velocity.X * v12.RootMotionScale.X;
-      v12 = (TdMove )((byte *)v12 + 0xFC);// points to RootMotionScale now
+      //v12 = (TdMove )((byte *)v12 + 0xFC);// points to RootMotionScale now
       this.Velocity.X = v13;
-      this.Velocity.Y = *(float *)&v12.ObjectInternalInteger * this.Velocity.Y;
-      this.Velocity.Z = *(float *)&v12.ObjectFlags_A * this.Velocity.Z;
+      this.Velocity.Y = v12.RootMotionScale.Y * this.Velocity.Y;
+      this.Velocity.Z = v12.RootMotionScale.Z * this.Velocity.Z;
       return;
     }
-    v14 = this.MovementState;
-    v15 = this.Moves.Data;
-    v16 = v15[v14] == 0;
-    v17 = &v15[v14];
+    v14 = (int)this.MovementState;
+    var v15 = this.Moves.Data;
+    v16 = v15[v14] == null;
+    ref var v17 = ref v15[v14];
     v62 = 1.0f;
-    if ( default == v16 )
+    if ( !v16 )
       v62 = v17.GetSpeedModifier();// GetSpeedModifier
     v18 = this.GetMobilityMultiplier() * v62;// GetMobilityMultiplier
     v19 = 0.0f;
-    v63 = this.AccelRate * v18;
+    v63 = (float)(this.AccelRate * v18);
     v20 = v63;
-    a4a = v18 * a4;
-    if ( (BYTE2(this.bIsFemale.AsBitfield(20)) & 1) != 0 || (this.bDisableSkelControlSpring.AsBitfield(32) & 0x4000) != 0 )
+    a4a = (float)(v18 * a4);
+    if ( (BYTE2(this.bIsFemale.AsBitfield(20)) & 1) != default || (this.bDisableSkelControlSpring.AsBitfield(32) & 0x4000) != default )
     {
       SetFromBitfield(ref this.bDisableSkelControlSpring, 32, this.bDisableSkelControlSpring.AsBitfield(32) & (0xFFFFBFFF));
       if ( fabs(this.Acceleration.X) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(this.Acceleration.Y) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(this.Acceleration.Z) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
@@ -1083,8 +1225,7 @@ fixed(var ptr9 =&this.Rotation)
         this.Acceleration.Z = v70;
         goto LABEL_35;
       }
-fixed(var ptr1 =&this.Velocity)
-      v22 =  ptr1;
+      ref var v22 = ref this.Velocity;
       if ( this.Velocity.AllGreaterThan(0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/) )
       {
         v30 = this.Rotation.Vector(&a2a);
@@ -1106,7 +1247,11 @@ fixed(var ptr1 =&this.Velocity)
           if ( v33 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
           {
             v19 = 0.0f;
-            goto LABEL_31;
+            v64.X = 0.0f;
+            v64.Y = 0.0f;
+            v64.Z = 0.0f;
+            *a2 = v64;
+            goto LABEL_35;
           }
           v34 = 1.0f / fsqrt(v33);
           a2a.X = (float)(3.0f - (float)((float)(v34 * v33) * v34)) * (float)(v34 * 0.5f);
@@ -1115,13 +1260,14 @@ fixed(var ptr1 =&this.Velocity)
           v64.Z = a2a.X * this.Acceleration.Z;
         }
         v19 = 0.0f;
-        goto LABEL_34;
+        *a2 = v64;
+        goto LABEL_35;
       }
-      v23 = (float)((float)(v22->X * v22->X) + (float)(this.Velocity.Y * this.Velocity.Y)) + (float)(this.Velocity.Z * this.Velocity.Z);
+      v23 = (float)((float)(v22.X * v22.X) + (float)(this.Velocity.Y * this.Velocity.Y)) + (float)(this.Velocity.Z * this.Velocity.Z);
       v66 = v23;
       if ( v23 == 1.0f )
       {
-        v24 = v22->X;
+        v24 = v22.X;
         v25 = this.Velocity.Y;
         v26 = this.Velocity.Z;
       }
@@ -1133,51 +1279,52 @@ fixed(var ptr1 =&this.Velocity)
           v24 = 0.0f;
           v25 = 0.0f;
           v26 = 0.0f;
-  LABEL_23:
-          v20 = v63;
-          this.Acceleration.X = v24 * v63;
-          this.Acceleration.Y = v25 * v63;
-          this.Acceleration.Z = v26 * v63;
-          v28 = (float)((float)(this.Acceleration.X * this.Acceleration.X) + (float)(this.Acceleration.Y * this.Acceleration.Y)) + (float)(this.Acceleration.Z * this.Acceleration.Z);
-          if ( v28 == 1.0f )
-          {
-            v64 = this.Acceleration;
-  LABEL_34:
-            *a2 = v64;
-            goto LABEL_35;
-          }
-          if ( v28 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
-          {
-            v29 = 1.0f / fsqrt(v28);
-            a2a.X = (float)(3.0f - (float)((float)(v29 * v28) * v29)) * (float)(v29 * 0.5f);
-            v64.X = a2a.X * this.Acceleration.X;
-            v64.Y = this.Acceleration.Y * a2a.X;
-            v64.Z = this.Acceleration.Z * a2a.X;
-            goto LABEL_34;
-          }
-  LABEL_31:
-          v64.X = 0.0f;
-          v64.Y = 0.0f;
-          v64.Z = 0.0f;
-          goto LABEL_34;
+          goto LABEL_44;
+
         }
         v27 = fsqrt(v23);
         a2a.X = (float)(3.0f - (float)((float)((float)(1.0f / v27) * v66) * (float)(1.0f / v27))) * (float)((float)(1.0f / v27) * 0.5f);
         v25 = a2a.X * this.Velocity.Y;
-        v24 = v22->X * a2a.X;
+        v24 = v22.X * a2a.X;
         v26 = a2a.X * this.Velocity.Z;
       }
       v19 = 0.0f;
-      goto LABEL_23;
+      LABEL_44:
+      v20 = v63;
+      this.Acceleration.X = v24 * v63;
+      this.Acceleration.Y = v25 * v63;
+      this.Acceleration.Z = v26 * v63;
+      v28 = (float)((float)(this.Acceleration.X * this.Acceleration.X) + (float)(this.Acceleration.Y * this.Acceleration.Y)) + (float)(this.Acceleration.Z * this.Acceleration.Z);
+      if ( v28 == 1.0f )
+      {
+        v64 = this.Acceleration;
+        *a2 = v64;
+        goto LABEL_35;
+      }
+      if ( v28 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      {
+        v29 = 1.0f / fsqrt(v28);
+        a2a.X = (float)(3.0f - (float)((float)(v29 * v28) * v29)) * (float)(v29 * 0.5f);
+        v64.X = a2a.X * this.Acceleration.X;
+        v64.Y = this.Acceleration.Y * a2a.X;
+        v64.Z = this.Acceleration.Z * a2a.X;
+        *a2 = v64;
+        goto LABEL_35;
+      }
+      v64.X = 0.0f;
+      v64.Y = 0.0f;
+      v64.Z = 0.0f;
+      *a2 = v64;
+      goto LABEL_35;
     }
   LABEL_35:
-    v35 = this.MovementState;
-    v36 = this.Moves.Data;
-    v16 = v36[v35] == 0;
-    v37 = &v36[v35];
-    if ( v16 || ((*v37).bDebugMove.AsBitfield(29) & 0x4000) == 0 )
+    v35 = (int)this.MovementState;
+    var v36 = this.Moves.Data;
+    v16 = v36[v35] == null;
+    ref var v37 = ref v36[v35];
+    if ( v16 || ((v37).bDebugMove.AsBitfield(29) & 0x4000) == default )
     {
-      if ( a7 && this.Acceleration.X == 0.0f && this.Acceleration.Y == 0.0f && this.Acceleration.Z == 0.0f )
+      if ( a7 != default && this.Acceleration.X == 0.0f && this.Acceleration.Y == 0.0f && this.Acceleration.Z == 0.0f )
       {
         v38 = a3;
         v67 = this.Velocity;
@@ -1319,198 +1466,201 @@ fixed(var ptr1 =&this.Velocity)
     this.RMVelocity.Y = v60;
     this.RMVelocity.Z = v61;
   }
-
-  public unsafe int UNKNOWN31(TdPawn Actor, Vector *a3, Vector *a4, Vector *a5, CheckResult *a6)
+  
+  public unsafe void UNKNOWN31(ref Vector a3, ref Vector a4, ref Vector a5, ref CheckResult a6)
   {
     float v6 = default; // xmm4_4
     float v8 = default; // xmm0_4
     float v9 = default; // xmm1_4
     float v10 = default; // xmm2_4
     float v11 = default; // xmm4_4
-    // int (__thiscall *v12)(TdPawn , int, _DWORD, _DWORD, _DWORD, int); // edx
-    int v14 = default; // edi
-    int v15 = default; // eax
-    // int (__thiscall *v16)(TdPawn , int, _DWORD, _DWORD, _DWORD, int); // edx
-    float v18 = default; // ecx
-    float v19 = default; // edx
-    float v20 = default; // ecx
-    float v21 = default; // edx
-    float v22 = default; // xmm2_4
-    float v23 = default; // ecx
-    float v24 = default; // edx
-    float v25 = default; // xmm3_4
-    float v26 = default; // xmm4_4
-    float v27 = default; // xmm2_4
-    float v28 = default; // xmm0_4
-    float v29 = default; // ecx
-    float v30 = default; // eax
-    float v31 = default; // edx
-    float v32 = default; // xmm1_4
-    float v33 = default; // xmm3_4
-    float v34 = default; // xmm0_4
-    float v35 = default; // xmm4_4
-    float v36 = default; // xmm2_4
-    float v37 = default; // xmm5_4
-    float v38 = default; // xmm1_4
-    float v39 = default; // xmm4_4
-    float v40 = default; // xmm5_4
-    float v41 = default; // xmm0_4
-    float v42 = default; // xmm1_4
-    float v43 = default; // xmm0_4
-    Vector v44 = default; // [esp+18h] [ebp-5Ch] BYREF
-    float v45 = default; // [esp+24h] [ebp-50h]
-    float v46 = default; // [esp+28h] [ebp-4Ch]
-    float v47 = default; // [esp+30h] [ebp-44h]
-    Vector Delta = default; // [esp+34h] [ebp-40h] BYREF
-    Vector v49 = default; // [esp+40h] [ebp-34h] BYREF
-    Vector v50 = default; // [esp+4Ch] [ebp-28h]
-    Vector v51 = default; // [esp+58h] [ebp-1Ch] BYREF
-    float v52 = default; // [esp+64h] [ebp-10h]
-    float v53 = default; // [esp+68h] [ebp-Ch]
-    float a5a = default; // [esp+80h] [ebp+Ch]
-    float Hit = default; // [esp+84h] [ebp+10h]
-  
+    // void (__thiscall *v12)(TdPawn , int, _DWORD, _DWORD, _DWORD, int); // edx
+    int v13 = default; // edi
+    int v14 = default; // eax
+    // void (__thiscall *v15)(TdPawn , int, _DWORD, _DWORD, _DWORD, int); // edx
+    float v17 = default; // ecx
+    float v18 = default; // edx
+    float v19 = default; // ecx
+    float v20 = default; // edx
+    float v21 = default; // xmm2_4
+    float v22 = default; // ecx
+    float v23 = default; // edx
+    float v24 = default; // xmm3_4
+    float v25 = default; // xmm4_4
+    float v26 = default; // xmm2_4
+    float v27 = default; // xmm0_4
+    float v28 = default; // ecx
+    float v29 = default; // eax
+    float v30 = default; // edx
+    float v31 = default; // xmm1_4
+    float v32 = default; // xmm3_4
+    float v33 = default; // xmm0_4
+    float v34 = default; // xmm4_4
+    float v35 = default; // xmm2_4
+    float v36 = default; // xmm5_4
+    float v37 = default; // xmm1_4
+    float v38 = default; // xmm4_4
+    float v39 = default; // xmm5_4
+    float v40 = default; // xmm0_4
+    float v41 = default; // xmm1_4
+    float v42 = default; // xmm0_4
+    float v43 = default; // [esp+14h] [ebp-58h]
+    Vector v44 = default; // [esp+18h] [ebp-54h] BYREF
+    float v45 = default; // [esp+28h] [ebp-44h]
+    float v46 = default; // [esp+2Ch] [ebp-40h]
+    float v47 = default; // [esp+30h] [ebp-3Ch]
+    Vector v48 = default; // [esp+34h] [ebp-38h] BYREF
+    Vector Delta = default; // [esp+40h] [ebp-2Ch] BYREF
+    Vector v50 = default; // [esp+50h] [ebp-1Ch] BYREF
+    float v51 = default; // [esp+5Ch] [ebp-10h]
+    float v52 = default; // [esp+60h] [ebp-Ch]
+    float v53 = default; // [esp+78h] [ebp+Ch]
+    float Hit = default; // [esp+7Ch] [ebp+10h]
+
+    var Actor = this;
     v6 = Actor.MaxWallStepHeight;
     v8 = (float)(Actor.Floor.X * -1.0f) * v6;
     v9 = (float)(Actor.Floor.Y * -1.0f) * v6;
     v10 = (float)(Actor.Floor.Z * -1.0f) * v6;
     v11 = a6.Normal.Z;
-    v51.X = v8;
-    v51.Y = v9;
-    v51.Z = v10;
+    v50.X = v8;
+    v50.Y = v9;
+    v50.Z = v10;
     if ( v11 > 0.70700002d && Actor.Physics == PHYS_WallRunning )
     {
-      E_CallLanded(Actor, a6.Normal, a6.Actor);
-      // v12 = *(int (__thiscall **)(TdPawn , int, _DWORD, _DWORD, _DWORD, int))(Actor.VfTableObject.Dummy + 480);
-      v49.Z = 0.0f;
-      v50.X = 0.0f;
-      v50.Y = 1.0f;
-      return (int)(Actor.setPhysics(, 1, 0, 0, 0, 1065353216));
+      Actor.Landed(a6.Normal, a6.Actor);
+      // v12 = *(void (__thiscall **)(TdPawn , int, _DWORD, _DWORD, _DWORD, int))(Actor.VfTableObject.Dummy + 480);
+      Delta.X = 0.0f;
+      Delta.Y = 0.0f;
+      Delta.Z = 1.0f;
+      Actor.setPhysics(1, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));
+      return;
     }
     if ( v11 < -0.70700002d && Actor.Physics == PHYS_WallRunning )
     {
-      Actor.processHitWall( a6.Normal, a6.Actor, 0);// processHitWall
-      v14 = Actor.VfTableObject.Dummy;
-      CallUFunction(Actor.FallingOffWall, Actor, v15, 0, 0);
+      Actor.processHitWall(a6.Normal, a6.Actor, null);
+      v13 = Actor.VfTableObject.Dummy;
+      CallUFunction(Actor.FallingOffWall, Actor, v14, 0, 0);
   LABEL_7:
-      // v16 = *(int (__thiscall **)(TdPawn , int, _DWORD, _DWORD, _DWORD, int))(Actor.VfTableObject.Dummy + 480);
-      v49.Z = 0.0f;
-      v50.X = 0.0f;
-      v50.Y = 1.0f;
-      return (int)(Actor.setPhysics(, 2, 0, 0, 0, 1065353216));
+      // v15 = *(void (__thiscall **)(TdPawn , int, _DWORD, _DWORD, _DWORD, int))(Actor.VfTableObject.Dummy + 480);
+      Delta.X = 0.0f;
+      Delta.Y = 0.0f;
+      Delta.Z = 1.0f;
+      Actor.setPhysics( 2, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));
+      return;
     }
     if ( (float)((float)((float)(Actor.Floor.Z * a6.Normal.Z) + (float)(Actor.Floor.Y * a6.Normal.Y)) + (float)(Actor.Floor.X * a6.Normal.X)) < 0.1f )
     {
-      v49.Z = v8 * -1.0f;
-      v50.X = v9 * -1.0f;
-      v50.Y = v10 * -1.0f;
-fixed(var ptr1 =&Actor.Rotation)
-      GWorld.MoveActor(Actor, (Vector *)&v49.Z,  ptr1, 0, a6);
-fixed(var ptr2 =&Actor.Rotation)
-      GWorld.MoveActor(Actor, a5,  ptr2, 0, a6);
+      Delta.X = v8 * -1.0f;
+      Delta.Y = v9 * -1.0f;
+      Delta.Z = v10 * -1.0f;
+      GWorld.MoveActor(Actor, ref Delta, ref Actor.Rotation, 0, ref a6);
+      GWorld.MoveActor(Actor, ref a5, ref Actor.Rotation, 0, ref a6);
     }
     if ( a6.Time < 1.0f )
     {
       if ( (float)((float)((float)(a6.Normal.Z * Actor.Floor.Z) + (float)(a6.Normal.Y * Actor.Floor.Y)) + (float)(Actor.Floor.X * a6.Normal.X)) < 0.40000001d )
       {
-fixed(var ptr3 =&Actor.Rotation)
-        GWorld.MoveActor(Actor, &v51,  ptr3, 0, a6);
+        GWorld.MoveActor(Actor, ref v50, ref Actor.Rotation, 0, ref a6);
         Actor.FallingOffWall();
-        goto LABEL_7;
+        // v15 = *(void (__thiscall **)(TdPawn , int, _DWORD, _DWORD, _DWORD, int))(Actor.VfTableObject.Dummy + 480);
+        Delta.X = 0.0f;
+        Delta.Y = 0.0f;
+        Delta.Z = 1.0f;
+        Actor.setPhysics( 2, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));
+        return;
       }
-      v18 = Actor.Floor.Y;
-      v19 = Actor.Floor.Z;
-      v47 = Actor.Floor.X;
+      v17 = Actor.Floor.Y;
+      v18 = Actor.Floor.Z;
+      v45 = Actor.Floor.X;
       Actor.Floor.X = a6.Normal.X;
-      Delta.X = v18;
+      v46 = v17;
       Actor.Floor.Y = a6.Normal.Y;
-      Delta.Y = v19;
+      v47 = v18;
       Actor.Floor.Z = a6.Normal.Z;
       a6.Normal.Z = 0.0f;
-      v44.Z = (float)((float)(a6.Normal.X * a6.Normal.X) + (float)(a6.Normal.Y * a6.Normal.Y)) + (float)(0.0f * 0.0f);
-      if ( v44.Z == 1.0f )
+      v44.X = (float)((float)(a6.Normal.X * a6.Normal.X) + (float)(a6.Normal.Y * a6.Normal.Y)) + (float)(0.0f * 0.0f);
+      if ( v44.X == 1.0f )
       {
-        v20 = a6.Normal.Y;
-        v21 = a6.Normal.Z;
-        v44.Z = a6.Normal.X;
-        v45 = v20;
-        v46 = v21;
+        v19 = a6.Normal.Y;
+        v20 = a6.Normal.Z;
+        v44.X = a6.Normal.X;
+        v44.Y = v19;
+        v44.Z = v20;
       }
-      else if ( v44.Z >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      else if ( v44.X >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
       {
-        v49.Z = 3.0f;
-        v22 = 1.0f / fsqrt(v44.Z);
-        v52 = (float)(3.0f - (float)((float)(v22 * v44.Z) * v22)) * (float)(v22 * 0.5f);
-        v44.Z = a6.Normal.X * v52;
-        v45 = a6.Normal.Y * v52;
-        v46 = a6.Normal.Z * v52;
+        Delta.X = 3.0f;
+        v21 = 1.0f / fsqrt(v44.X);
+        v51 = (float)(3.0f - (float)((float)(v21 * v44.X) * v21)) * (float)(v21 * 0.5f);
+        v44.X = a6.Normal.X * v51;
+        v44.Y = a6.Normal.Y * v51;
+        v44.Z = a6.Normal.Z * v51;
       }
       else
       {
+        v44.X = 0.0f;
+        v44.Y = 0.0f;
         v44.Z = 0.0f;
-        v45 = 0.0f;
-        v46 = 0.0f;
       }
-      v23 = v45;
-      v24 = v46;
-      v25 = Delta.Y;
-      v26 = Delta.X;
-      a6.Normal.X = v44.Z;
-      a6.Normal.Y = v23;
-      a6.Normal.Z = v24;
-      v27 = Actor.Floor.Y;
-      v28 = Actor.Floor.Z;
-      v29 = a5->Y;
-      v30 = a5->X;
-      v31 = a5->Z;
-      v44.Z = (float)(v27 * v25) - (float)(v28 * v26);
-      v32 = Actor.Floor.X;
-      v49.X = v29;
-      Delta.Z = v30;
-      v49.Y = v31;
-      v45 = (float)(v28 * v47) - (float)(v32 * v25);
-      v46 = (float)(v32 * v26) - (float)(v27 * v47);
-      (Vector *.SafeNormal()&v44.Z, 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
-      v49.Z = (float)(v45 * Delta.Y) - (float)(v46 * Delta.X);
-      v50.X = (float)(v46 * v47) - (float)(Delta.Y * v44.Z);
-      v50.Y = (float)(Delta.X * v44.Z) - (float)(v45 * v47);
-      (Vector *.SafeNormal()&v49.Z, 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
-      v33 = a5->X;
-      v34 = (float)((float)(a5->Y * v50.X) + (float)(a5->Z * v50.Y)) + (float)(a5->X * v49.Z);
-      v44.Y = (float)((float)(a5->Y * Delta.X) + (float)(a5->Z * Delta.Y)) + (float)(a5->X * v47);
-      v35 = Actor.Floor.Z;
-      v36 = (float)((float)(a5->Y * v45) + (float)(a5->Z * v46)) + (float)(a5->X * v44.Z);
+      v22 = v44.Y;
+      v23 = v44.Z;
+      v24 = v47;
+      v25 = v46;
+      a6.Normal.X = v44.X;
+      a6.Normal.Y = v22;
+      a6.Normal.Z = v23;
+      v26 = Actor.Floor.Y;
+      v27 = Actor.Floor.Z;
+      v28 = a5.Y;
+      v29 = a5.X;
+      v30 = a5.Z;
+      v44.X = (float)(v26 * v24) - (float)(v27 * v25);
+      v31 = Actor.Floor.X;
+      v48.Y = v28;
+      v48.X = v29;
+      v48.Z = v30;
+      v44.Y = (float)(v27 * v45) - (float)(v31 * v24);
+      v44.Z = (float)(v31 * v25) - (float)(v26 * v45);
+      v44.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+      Delta.X = (float)(v44.Y * v47) - (float)(v44.Z * v46);
+      Delta.Y = (float)(v44.Z * v45) - (float)(v47 * v44.X);
+      Delta.Z = (float)(v46 * v44.X) - (float)(v44.Y * v45);
+      Delta.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+      v32 = a5.X;
+      v33 = (float)((float)(a5.Y * Delta.Y) + (float)(a5.Z * Delta.Z)) + (float)(a5.X * Delta.X);
+      v43 = (float)((float)(a5.Y * v46) + (float)(a5.Z * v47)) + (float)(a5.X * v45);
+      v34 = Actor.Floor.Z;
+      v35 = (float)((float)(a5.Y * v44.Y) + (float)(a5.Z * v44.Z)) + (float)(a5.X * v44.X);
       Hit = Actor.Floor.Y;
-      a5a = Actor.Floor.X;
-      v37 = (float)(a5a * v46) - (float)(v35 * v44.Z);
-      v50.Y = (float)(Hit * v44.Z) - (float)(a5a * v45);
-      v47 = Actor.Floor.X * v44.Y;
-      Delta.X = Actor.Floor.Y * v44.Y;
-      v38 = Actor.Floor.Z * v44.Y;
-      v53 = v45 * v36;
-      v39 = (float)((float)(v35 * v45) - (float)(Hit * v46)) * v34;
-      v40 = (float)((float)(v37 * v34) + (float)(v45 * v36)) + Delta.X;
-      v41 = (float)((float)(v50.Y * v34) + (float)(v46 * v36)) + v38;
-      v42 = a5->Z * v41;
-      v50.Y = v41;
-      v43 = a5->Y * v40;
-      v49.Z = (float)(v39 + (float)(v44.Z * v36)) + v47;
-      v50.X = v40;
-      Delta.Z = v49.Z;
-      v49.X = v40;
-      v49.Y = v50.Y;
-      if ( (float)((float)(v42 + v43) + (float)(v33 * v49.Z)) >= 0.0f )
+      v53 = Actor.Floor.X;
+      v36 = (float)(v53 * v44.Z) - (float)(v34 * v44.X);
+      Delta.Z = (float)(Hit * v44.X) - (float)(v53 * v44.Y);
+      v45 = Actor.Floor.X * v43;
+      v46 = Actor.Floor.Y * v43;
+      v37 = Actor.Floor.Z * v43;
+      v52 = v44.Y * v35;
+      v38 = (float)((float)(v34 * v44.Y) - (float)(Hit * v44.Z)) * v33;
+      v39 = (float)((float)(v36 * v33) + (float)(v44.Y * v35)) + v46;
+      v40 = (float)((float)(Delta.Z * v33) + (float)(v44.Z * v35)) + v37;
+      v41 = a5.Z * v40;
+      Delta.Z = v40;
+      v42 = a5.Y * v39;
+      Delta.X = (float)(v38 + (float)(v44.X * v35)) + v45;
+      Delta.Y = v39;
+      v48.X = Delta.X;
+      v48.Y = v39;
+      v48.Z = Delta.Z;
+      if ( (float)((float)(v41 + v42) + (float)(v32 * Delta.X)) >= 0.0f )
       {
         SetFromBitfield(ref Actor.bCollideComplex, 20, Actor.bCollideComplex.AsBitfield(20) | (0x100u));
-fixed(var ptr4 =&Actor.Rotation)
-        GWorld.MoveActor(Actor, (Vector *)&Delta.Z,  ptr4, 0, a6);
+        GWorld.MoveActor(Actor, ref v48, ref Actor.Rotation, 0, ref a6);
       }
     }
-fixed(var ptr5 =&Actor.Rotation)
-    return (int)(GWorld.MoveActor(Actor, &v51,  ptr5, 0, a6));
+    GWorld.MoveActor(Actor, ref v50,  ref Actor.Rotation, 0, ref a6);
   }
 
-  public unsafe void WallClimbingStepUp_maybe(TdPawn Actor, Vector *a3, Vector *a4, Vector *a5, CheckResult *a6)
+  public unsafe void WallClimbingStepUp_maybe(ref Vector a3, ref Vector a4, ref Vector a5, ref CheckResult a6)
   {
     float v6 = default; // xmm0_4
     float v7 = default; // xmm1_4
@@ -1526,7 +1676,8 @@ fixed(var ptr5 =&Actor.Rotation)
     float v17 = default; // xmm0_4
     Vector Delta = default; // [esp+Ch] [ebp-18h] BYREF
     Vector v19 = default; // [esp+18h] [ebp-Ch] BYREF
-  
+
+    TdPawn Actor = this;
     v6 = Actor.MaxWallStepHeight;
     Delta.X = Actor.Floor.X * v6;
     Delta.Y = Actor.Floor.Y * v6;
@@ -1534,40 +1685,35 @@ fixed(var ptr5 =&Actor.Rotation)
     v8 = Actor.Floor.Z;
     Delta.Z = v7;
     if ( (float)((float)((float)(v8 * a6.Normal.Z) + (float)(Actor.Floor.Y * a6.Normal.Y)) + (float)(Actor.Floor.X * a6.Normal.X)) >= 0.94999999d
-fixed(var ptr1 =&Actor.Rotation)
-fixed(var ptr5 =&Actor.Rotation)
-      || (GWorld.MoveActor(Actor, &Delta,  ptr5, 0, a6), GWorld.MoveActor(Actor, a5,  ptr1, 0, a6), v9 = a6.Time, v9 >= 1.0f)
+      || ((GWorld.MoveActor(Actor, ref Delta, ref Actor.Rotation, 0, ref a6) is object) && (GWorld.MoveActor(Actor, ref a5, ref Actor.Rotation, 0, ref a6) is object) && (v9 = a6.Time) is object && v9 >= 1.0f)
       || (float)((float)((float)(Actor.Floor.Z * a6.Normal.Z) + (float)(Actor.Floor.Y * a6.Normal.Y)) + (float)(a6.Normal.X * Actor.Floor.X)) >= 0.94999999d )
     {
       if ( a6.Time < 1.0f && (float)((float)((float)(Actor.Floor.Z * a6.Normal.Z) + (float)(Actor.Floor.Y * a6.Normal.Y)) + (float)(a6.Normal.X * Actor.Floor.X)) < 0.94999999d )
       {
         Actor.Floor = a6.Normal;
-        v13 = a5->Z;
-        v14 = a5->Y;
+        v13 = a5.Z;
+        v14 = a5.Y;
         v15 = Actor.Floor.Y;
         v16 = Actor.Floor.Z;
-        v17 = (float)((float)(v15 * v14) + (float)(v16 * v13)) + (float)(a5->X * Actor.Floor.X);
-        v19.X = a5->X - (float)(Actor.Floor.X * v17);
+        v17 = (float)((float)(v15 * v14) + (float)(v16 * v13)) + (float)(a5.X * Actor.Floor.X);
+        v19.X = a5.X - (float)(Actor.Floor.X * v17);
         v19.Y = v14 - (float)(v15 * v17);
         v19.Z = v13 - (float)(v16 * v17);
-fixed(var ptr2 =&Actor.Rotation)
-        GWorld.MoveActor(Actor, &v19,  ptr2, 0, a6);
+        GWorld.MoveActor(Actor, ref v19, ref Actor.Rotation, 0, ref a6);
       }
     }
     else
     {
-      v10 = (float)(-0.0f - a5->Y) * (float)(1.0f - v9);
-      v11 = (float)(-0.0f - a5->Z) * (float)(1.0f - v9);
-      v19.X = (float)(-0.0f - a5->X) * (float)(1.0f - v9);
+      v10 = (float)(-0.0f - a5.Y) * (float)(1.0f - v9);
+      v11 = (float)(-0.0f - a5.Z) * (float)(1.0f - v9);
+      v19.X = (float)(-0.0f - a5.X) * (float)(1.0f - v9);
       v19.Y = v10;
       v19.Z = v11;
-fixed(var ptr3 =&Actor.Rotation)
-      GWorld.MoveActor(Actor, &v19,  ptr3, 0, a6);
+      GWorld.MoveActor(Actor, ref v19, ref Actor.Rotation, 0, ref a6);
       v19.X = -0.0f - Delta.X;
       v19.Y = -0.0f - Delta.Y;
       v19.Z = -0.0f - Delta.Z;
-fixed(var ptr4 =&Actor.Rotation)
-      GWorld.MoveActor(Actor, &v19,  ptr4, 0, a6);
+      GWorld.MoveActor(Actor, ref v19, ref Actor.Rotation, 0, ref a6);
       if ( Actor.Physics == PHYS_WallClimbing )
       {
         Actor.FallingOffWall();
@@ -1575,14 +1721,14 @@ fixed(var ptr4 =&Actor.Rotation)
         v19.X = 0.0f;
         v19.Y = 0.0f;
         v19.Z = 1.0f;
-        Actor.setPhysics( 2, 0, 0, 0, 1065353216);
+        Actor.setPhysics( 2, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));
       }
       Actor.Velocity.Z = 0.0f;
     }
   }
 
   // NOT READY
-  public unsafe void GetCameraAnimation(Vector *out_Location, Rotator *out_Rotation){ NativeMarkers.MarkUnimplemented(); }
+  public unsafe void GetCameraAnimation(ref Vector out_Location, ref Rotator out_Rotation){ NativeMarkers.MarkUnimplemented(); }
 //public unsafe void GetCameraAnimation(Vector *out_Location, Rotator *out_Rotation)
 //  {
 //    SkeletalMeshComponent v4 = default; // ecx
@@ -1591,17 +1737,17 @@ fixed(var ptr4 =&Actor.Rotation)
 //    Matrix *v7; // eax
 //    int v8 = default; // esi
 //    int v9 = default; // eax
-//    uint v10 = default; // edx
-//    uint v11 = default; // esi
-//    uint v12 = default; // edx
-//    uint v13 = default; // ecx
+//    int v10 = default; // edx
+//    int v11 = default; // esi
+//    int v12 = default; // edx
+//    int v13 = default; // ecx
 //    int v14 = default; // [esp+14h] [ebp-11Ch] BYREF
 //    Rotator a2 = default; // [esp+18h] [ebp-118h] BYREF
 //    Rotator v16 = default; // [esp+24h] [ebp-10Ch] BYREF
 //    Matrix v17 = default; // [esp+30h] [ebp-100h] BYREF
 //    Matrix a1 = default; // [esp+70h] [ebp-C0h] BYREF
 //    Matrix SrcMatrix = default; // [esp+B0h] [ebp-80h] BYREF
-//    __m128* v20 = stackalloc __m128[4]; // [esp+F0h] [ebp-40h] BYREF
+//    __m128* out = stackalloc __m128[4]; // [esp+F0h] [ebp-40h] BYREF
 //  
 //    v4 = this.Mesh;
 //    if(v4 != default)
@@ -1613,7 +1759,7 @@ fixed(var ptr4 =&Actor.Rotation)
 //fixed(var ptr2 =&this.Mesh.SpaceBases)
 //      qmemcpy(&v17,  ptr2[E_FindSocketIndex(v6, dword_2056804, dword_2056808)], sizeof(v17));
 //      v7 = VectorMatrixInverse(&a1, &SrcMatrix);
-//      qmemcpy(&v17, (__m128 *.Mult()&v17, v20, (__m128 *)v7), sizeof(v17));
+//      qmemcpy(&v17, v17.Mult((Matrix *)out, v7), sizeof(v17));
 //      E_MatrixToRotator(&a1, &a2);
 //      E_MatrixToRotator(&v17, &v16);
 //      v8 = this.VfTableObject.Dummy;
@@ -1638,17 +1784,225 @@ fixed(var ptr4 =&Actor.Rotation)
 //    }
 //  }
 //
-  public unsafe void stepUp(Vector *GravDir, Vector *DesiredDir, Vector *Delta, CheckResult *Hit)
+  public unsafe Vector GetWalkAcceleration( float aForward, float aStrafe, int deltaRotation, float deltaTime )
   {
-    Vector *v5; // edi
+    Vector v = default;
+    return * GetWalkAcceleration( & v, aForward, aStrafe, deltaRotation, deltaTime );
+  }
+
+
+
+  public unsafe Vector * GetWalkAcceleration(Vector *retval, float aForward, float aStrafe, int deltaRotation, float deltaTime)
+  {
+    Matrix *v7; // eax
+    float v8 = default; // xmm6_4
+    float v9 = default; // xmm7_4
+    float v10 = default; // xmm4_4
+    float v11 = default; // xmm5_4
+    float v12 = default; // xmm0_4
+    float v13 = default; // xmm3_4
+    float v14 = default; // xmm1_4
+    int v15 = default; // xmm0_4
+    float v16 = default; // xmm2_4
+    float v17 = default; // xmm1_4
+    float v18 = default; // xmm0_4
+    float v19 = default; // xmm0_4
+    float v20 = default; // xmm3_4
+    float v21 = default; // xmm2_4
+    float v22 = default; // xmm0_4
+    float v23 = default; // xmm1_4
+    float v24 = default; // xmm0_4
+    float v25 = default; // xmm6_4
+    float v26 = default; // xmm7_4
+    float v27 = default; // xmm5_4
+    float v28 = default; // xmm0_4
+    float v29 = default; // xmm4_4
+    float v30 = default; // xmm0_4
+    float v31 = default; // xmm2_4
+    float v32 = default; // xmm6_4
+    Vector *result; // eax
+    float v34 = default; // [esp+10h] [ebp-98h]
+    Vector v35 = default; // [esp+10h] [ebp-98h]
+    float v36 = default; // [esp+10h] [ebp-98h]
+    float v37 = default; // [esp+10h] [ebp-98h]
+    float v38 = default; // [esp+14h] [ebp-94h]
+    float v39 = default; // [esp+14h] [ebp-94h]
+    float v40 = default; // [esp+14h] [ebp-94h]
+    float v41 = default; // [esp+18h] [ebp-90h]
+    float v42 = default; // [esp+18h] [ebp-90h]
+    float v43 = default; // [esp+18h] [ebp-90h]
+    float v44 = default; // [esp+1Ch] [ebp-8Ch]
+    float v45 = default; // [esp+20h] [ebp-88h]
+    float v46 = default; // [esp+20h] [ebp-88h]
+    float v47 = default; // [esp+24h] [ebp-84h]
+    float v48 = default; // [esp+24h] [ebp-84h]
+    float v49 = default; // [esp+2Ch] [ebp-7Ch]
+    float v50 = default; // [esp+2Ch] [ebp-7Ch]
+    float v51 = default; // [esp+30h] [ebp-78h]
+    float v52 = default; // [esp+3Ch] [ebp-6Ch]
+    float v53 = default; // [esp+48h] [ebp-60h]
+    float v54 = default; // [esp+50h] [ebp-58h]
+    float v55 = default; // [esp+5Ch] [ebp-4Ch]
+    float v56 = default; // [esp+60h] [ebp-48h]
+    Matrix v57 = default; // [esp+68h] [ebp-40h] BYREF
+  
+fixed(Rotator* ptr1 =&this.Rotation)
+    v7 = FRotationMatrix(&v57,  ptr1);
+    v8 = v7->YPlane.Y;
+    v9 = v7->YPlane.Z;
+    v10 = v7->XPlane.Y;
+    v11 = v7->XPlane.Z;
+    v52 = v7->YPlane.X;
+    v51 = v7->XPlane.X;
+    v41 = (float)(v11 * aForward) + (float)(v9 * aStrafe);
+    v12 = (float)((float)(v41 * v41) + (float)((float)((float)(v10 * aForward) + (float)(v8 * aStrafe)) * (float)((float)(v10 * aForward) + (float)(v8 * aStrafe))))
+        + (float)((float)((float)(v7->XPlane.X * aForward) + (float)(v52 * aStrafe)) * (float)((float)(v7->XPlane.X * aForward) + (float)(v52 * aStrafe)));
+    v34 = (float)(v7->XPlane.X * aForward) + (float)(v52 * aStrafe);
+    if ( v12 == 1.0f )
+    {
+      v44 = (float)(v7->XPlane.X * aForward) + (float)(v52 * aStrafe);
+      v13 = v44;
+      v47 = (float)(v11 * aForward) + (float)(v9 * aStrafe);
+      v14 = v47;
+      v45 = (float)(v10 * aForward) + (float)(v8 * aStrafe);
+  LABEL_6:
+      *(float *)&v15 = 0.0f;
+      goto LABEL_7;
+    }
+    if ( v12 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    {
+      v16 = 1.0f / fsqrt(v12);
+      v53 = (float)(3.0f - (float)((float)(v16 * v12) * v16)) * (float)(v16 * 0.5f);
+      v45 = (float)((float)(v10 * aForward) + (float)(v8 * aStrafe)) * v53;
+      v13 = v53 * v34;
+      v14 = v41 * v53;
+      v44 = v53 * v34;
+      v47 = v41 * v53;
+      *(float *)&v15 = 0.0f;
+      goto LABEL_7;
+    }
+    *(float *)&v15 = 0.0f;
+    v13 = 0.0f;
+    v14 = 0.0f;
+    v44 = 0.0f;
+    v45 = 0.0f;
+    v47 = 0.0f;
+  LABEL_7:
+    v35.X = 0.0f;
+    v35.Y = 0.0f;
+    v35.Z = 0.0f;
+    if ( fabs(v44) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(v45) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(v47) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    {
+      if ( this.SpeedSprintEnergy > 0.0f )
+      {
+        v17 = (float)((float)(v14 * v11) + (float)(v45 * v10)) + (float)(v13 * v51);
+        v49 = v17;
+        if ( v17 < 0.0f || ((*(float *)&v15 = 0.89999998f) is object && v17 > 0.89999998d) )
+          v49 = *(float *)&v15;
+        v50 = (float)(this.SpeedSprintEnergy - (1.0f - pow(v49, this.SpeedEnergyDecelerationExponent)) * (this.GroundSpeed - this.SpeedMaxBaseVelocity) / this.SpeedEnergyDecelerationTime * deltaTime);
+        v18 = v50;
+        this.SpeedSprintEnergy = v50;
+        if ( v50 < 0.0f )
+          v18 = 0.0f;
+        v13 = v44;
+        v14 = v47;
+        this.SpeedSprintEnergy = v18;
+      }
+      v19 = (float)((float)((float)((float)(v14 * v9) + (float)(v45 * v8)) + (float)(v13 * v52)) * this.SpeedMinBaseVelocity) + (float)((float)((float)(this.SpeedMaxBaseVelocity - this.SpeedMinBaseVelocity) + this.SpeedSprintEnergy) * aStrafe);
+      v55 = v8 * v19;
+      v56 = v9 * v19;
+      v20 = v19 * v52;
+      v21 = (float)((float)((float)((float)(v14 * v11) + (float)(v45 * v10)) + (float)(v44 * v51)) * this.SpeedMinBaseVelocity) + (float)((float)((float)(this.SpeedMaxBaseVelocity - this.SpeedMinBaseVelocity) + this.SpeedSprintEnergy) * aForward);
+      v54 = v11 * v21;
+      v22 = (float)((float)(this.Velocity.Z * v9) + (float)(this.Velocity.Y * v8)) + (float)(this.Velocity.X * v52);
+      v46 = v8 * v22;
+      v23 = v22;
+      v48 = v9 * v22;
+      v24 = (float)((float)(this.Velocity.Z * v11) + (float)(this.Velocity.Y * v10)) + (float)(this.Velocity.X * v51);
+      v25 = v24 * v51;
+      v26 = this.SpeedStrafeVelocityAccelerationFactor;
+      v27 = v11 * v24;
+      v28 = (float)(v10 * v21) - (float)(v10 * v24);
+      v29 = this.SpeedWalkVelocityAccelerationFactor;
+      v30 = (float)(v28 * v29) + (float)((float)(v55 - v46) * v26);
+      v31 = (float)((float)((float)(v21 * v51) - v25) * v29) + (float)((float)(v20 - (float)(v23 * v52)) * v26);
+      v36 = v31;
+      v38 = v30;
+      v42 = (float)((float)(v54 - v27) * v29) + (float)((float)(v56 - v48) * v26);
+      if ( this.Physics != PHYS_Falling )
+      {
+        v32 = this.PhysicsVolume.GroundFriction;
+        v36 = (float)((float)(this.Velocity.X * v32) * 0.1f) + v31;
+        v38 = (float)((float)(this.Velocity.Y * v32) * 0.1f) + v30;
+        v42 = (float)((float)(this.Velocity.Z * v32) * 0.1f) + (float)((float)((float)(v54 - v27) * v29) + (float)((float)(v56 - v48) * v26));
+      }
+      v39 = v38 * 10.0f;
+      v43 = 10.0f * v42;
+      v37 = (float)floor(v36 * 10.0f + 0.5f);
+      v40 = (float)floor(v39 + 0.5f);
+      v35.X = v37 * 0.1f;
+      v35.Y = v40 * 0.1f;
+      v35.Z = (float)floor(v43 + 0.5f) * 0.1f;
+    }
+    else
+    {
+      this.SpeedSprintEnergy = 0.0f;
+    }
+    result = retval;
+    *retval = v35;
+    return result;
+  }
+
+  public unsafe SoundCue  GetCharacterSound_Maybe(uint a2, int a3)
+  {
+    uint v3 = default; // edi
+    uint v4 = default; // eax
+    uint v5 = default; // edx
+    uint v6 = default; // eax
+    SoundCue result = default; // eax
+  
+    v3 = this.bDisableSkelControlSpring.AsBitfield(32);
+    if ( (v3 & 0x100000) != 0 )
+      return default;
+    v4 = this.NoOfBreathingSounds;
+
+    if( a2 >= v4 )
+      v5 = v4 + a2;
+    else if( ( v3 & 0x80000 ) == 0 )
+    {
+      v5 = 2 * a2 + 1;
+    }
+    else
+    {
+      v5 = 2 * a2;
+    }
+
+    if( a3 == default )
+      v6 = (( v3 & 0x80000 ) != 0) ? 1u : 0u;
+    else
+      v6 = (( v3 & 0x80000 ) == 0) ? 1u : 0u;
+    SetFromBitfield( ref this.bDisableSkelControlSpring, 32, v3 ^ ( v3 ^ ( v6 << 19 ) ) & 0x80000 );
+    if( v5 >= this.CharacterSoundCues.Count)
+    {
+      return default;
+    }
+    else
+    {
+      return this.CharacterSoundCues[v5];
+    }
+  }
+
+  public override unsafe void stepUp(in Vector GravDir, in Vector DesiredDir, in Vector Delta, ref CheckResult Hit)
+  {
+    //Vector *v5; // edi
     float v6 = default; // xmm4_4
     float v7 = default; // xmm5_4
     float v8 = default; // xmm6_4
     float v10 = default; // xmm3_4
     float v11 = default; // xmm2_4
-    CheckResult *v12; // eax
+    //CheckResult *v12; // eax
     float v13 = default; // xmm1_4
-    Vector *v14; // ebp
+    //Vector *v14; // ebp
     float v15 = default; // xmm0_4
     float v16 = default; // xmm3_4
     float v17 = default; // xmm5_4
@@ -1684,8 +2038,8 @@ fixed(var ptr4 =&Actor.Rotation)
     float v47 = default; // xmm1_4
     float v48 = default; // xmm2_4
     int v49 = default; // ecx
-    TdMove *v50; // edx
-    int v51 = default; // eax
+    //TdMove *v50; // edx
+    bool v51 = default; // eax
     bool v52 = default; // eax
     float v53 = default; // edx
     float v54 = default; // ecx
@@ -1744,7 +2098,7 @@ fixed(var ptr4 =&Actor.Rotation)
     float v107 = default; // [esp+5Ch] [ebp-108h]
     Vector v108 = default; // [esp+60h] [ebp-104h]
     Vector v109 = default; // [esp+70h] [ebp-F4h] BYREF
-    int v110 = default; // [esp+7Ch] [ebp-E8h]
+    uint v110 = default; // [esp+7Ch] [ebp-E8h]
     float v111 = default; // [esp+80h] [ebp-E4h]
     float v112 = default; // [esp+84h] [ebp-E0h]
     int v113 = default; // [esp+94h] [ebp-D0h]
@@ -1754,64 +2108,61 @@ fixed(var ptr4 =&Actor.Rotation)
     float v117 = default; // [esp+BCh] [ebp-A8h]
     CheckResult v118 = default; // [esp+CCh] [ebp-98h] BYREF
     int v119 = default; // [esp+114h] [ebp-50h]
-    byte* v120 = stackalloc byte[76]; // [esp+118h] [ebp-4Ch] BYREF
+    CheckResult v120 = default;//byte* v120 = stackalloc byte[76]; // [esp+118h] [ebp-4Ch] BYREF
   
-    v5 = GravDir;
-    v6 = GravDir->X;
-    v7 = GravDir->Y;
-    v8 = GravDir->Z;
+    var v5 = GravDir;
+    v6 = GravDir.X;
+    v7 = GravDir.Y;
+    v8 = GravDir.Z;
     v10 = this.MaxStepHeight + 2.0f;
     v11 = v8 * v10;
     v110 = 1;
     v113 = 1;
-    v12 = Hit;
+    ref var v12 = ref Hit;
     v13 = v7 * v10;
-fixed(var ptr1 =&Hit.Normal)
-    v14 =  ptr1;
+    ref var v14 = ref Hit.Normal;
     v15 = v6 * v10;
     v16 = (float)(Hit.Normal.Z * v8) + (float)(Hit.Normal.Y * v7);
     v17 = Hit.Normal.X * v6;
     v109.X = v15;
     v109.Y = v13;
     v109.Z = v11;
-    if ( (float)((float)(v16 + v17) * -1.0f) >= 0.079999998d && (v18 = Hit.Normal.Z < this.WalkableFloorZ, v107 = Hit.Normal.Z, v18) )
+    if ( (float)((float)(v16 + v17) * -1.0f) >= 0.079999998d && ((v18 = Hit.Normal.Z < this.WalkableFloorZ) is object && (v107 = Hit.Normal.Z, v18) is object) )
     {
-      v19 = Delta;
+      var cpy = Delta;
+      v19 = &cpy;
       if ( this.Physics == PHYS_Walking )
         goto LABEL_14;
-      v20 = Delta->Y;
-      v21 = Delta->Z;
-      v111 = Delta->X;
+      v20 = Delta.Y;
+      v21 = Delta.Z;
+      v111 = Delta.X;
       v110 = LODWORD(v20);
       v114 = v21;
       Deltaa.Y = v20;
       Deltaa.X = v111;
-      a2a.Z = sqrt(v111 * v111 + v20 * v20 + v21 * v21) * v107;
+      a2a.Z = (float)sqrt(v111 * v111 + v20 * v20 + v21 * v21) * v107;
       Deltaa.Z = a2a.Z + v21;
-fixed(var ptr2 =&this.Rotation)
-      GWorld.MoveActor(this, &Deltaa,  ptr2, 0, Hit);
+      GWorld.MoveActor(this, ref Deltaa, ref this.Rotation, 0, ref Hit);
       v110 = default;
     }
     else
     {
-      v22 = v14->X;
+      v22 = v14.X;
       v23 = Hit.Normal.Y;
       v24 = Hit.Normal.Z;
-      qmemcpy(v120, Hit, sizeof(v120));
+      qmemcpy(ref v120, Hit, 0x4Cu);
       Deltaa.X = (float)(v15 * -1.0f) + (float)(v22 * 0.1f);
       Deltaa.Y = (float)(v13 * -1.0f) + (float)(v23 * 0.1f);
       Deltaa.Z = (float)(v11 * -1.0f) + (float)(v24 * 0.1f);
-fixed(var ptr3 =&this.Rotation)
-      GWorld.MoveActor(this, &Deltaa,  ptr3, 0, Hit);
+      GWorld.MoveActor(this, ref Deltaa, ref this.Rotation, 0, ref Hit);
       v25 = this.Location.Y;
       v26 = this.Location.Z;
-fixed(var ptr4 =&this.Location)
-      v27 =  ptr4;
+      var cpy = this.Location;
+      v27 = &cpy;
       v108.X = this.Location.X;
       v108.Y = v25;
       v108.Z = v26;
-fixed(var ptr5 =&this.Rotation)
-      GWorld.MoveActor(this, Delta,  ptr5, 0, Hit);
+      GWorld.MoveActor(this, Delta, this.Rotation, 0, ref Hit);
       if ( Hit.Time >= 1.0f || this.WalkableFloorZ > Hit.Normal.Z )
       {
         v118.Item = -1;
@@ -1848,30 +2199,30 @@ fixed(var ptr5 =&this.Rotation)
         Deltaa.Z = v30;
         a4a.Z = v30 + v109.Z;
         v31 = this.GetCylinderExtent(&a2a);
-        GWorld.SingleLineCheck(&v118, this, &a4a, &Deltaa, 8415, v31, 0);
+        GWorld.SingleLineCheck(ref v118, this, ref a4a, ref Deltaa, 8415, ref *v31, 0);
         if ( v118.Time < 1.0f && this.WalkableFloorZ > v118.Normal.Z )
         {
           v32 = v108.X;
-          qmemcpy(Hit, v120, 0x4Cu);
+          qmemcpy(ref Hit, v120, 0x4Cu);
           a4a.X = v32 - this.Location.X;
           a4a.Y = v108.Y - this.Location.Y;
           v33 = v108.Z - this.Location.Z;
           v113 = default;
           a4a.Z = v33;
-fixed(var ptr6 =&this.Rotation)
-          GWorld.MoveActor(this, &a4a,  ptr6, 0, &v118);
+          GWorld.MoveActor(this, ref a4a, ref this.Rotation, 0, ref v118);
         }
       }
-      v19 = Delta;
+      var cpy2 = Delta;
+      v19 = &cpy2;
       v5 = GravDir;
     }
     v12 = Hit;
   LABEL_14:
-    v34 = v12->Time;
+    v34 = v12.Time;
     if ( v34 >= 1.0f )
       goto LABEL_98;
     v35 = v19->Y;
-    v36 = (float)((float)(Hit.Normal.Z * v5->Z) + (float)(Hit.Normal.Y * v5->Y)) + (float)(v5->X * Hit.Normal.X);
+    v36 = (float)((float)(Hit.Normal.Z * v5.Z) + (float)(Hit.Normal.Y * v5.Y)) + (float)(v5.X * Hit.Normal.X);
     a4a.X = v19->X;
     v37 = v19->Z;
     v111.LODWORD(1);
@@ -1881,21 +2232,20 @@ fixed(var ptr6 =&this.Rotation)
     {
       if(v110 != default)
       {
-fixed(var ptr7 =&this.Rotation)
-        GWorld.MoveActor(this, &v109,  ptr7, 0, v12);
+        GWorld.MoveActor(this, ref v109, ref this.Rotation, 0, ref v12);
         v12 = Hit;
       }
-      v38 = 1.0f - v12->Time;
+      v38 = 1.0f - v12.Time;
       // v39 = *(void (__thiscall **)(TdPawn , Vector *, Vector *, Vector *, CheckResult *))(this.VfTableObject.Dummy + 528);
       Deltaa.X = v19->X * v38;
       Deltaa.Y = v19->Y * v38;
       Deltaa.Z = v19->Z * v38;
-      this.stepUp( v5, DesiredDir, &Deltaa, v12);
+      this.stepUp( v5, DesiredDir, Deltaa, ref v12);
       return;
     }
-    if ( v113 && this.WalkableFloorZ > v12->Normal.Z )
+    if ( v113 != default && this.WalkableFloorZ > v12.Normal.Z )
     {
-      if ( !this.IsHitActorTdPawn( v12) )// IsHitActorTdPawn 0x012C3790
+      if ( !this.IsHitActorTdPawn( ref v12 ) )// IsHitActorTdPawn 0x012C3790
       {
   LABEL_37:
         v12 = Hit;
@@ -1905,7 +2255,7 @@ fixed(var ptr7 =&this.Rotation)
       v41 = v19->Y;
       v42 = (float)((float)(Hit.Normal.Y * v41) + (float)(Hit.Normal.Z * v40)) + (float)(Hit.Normal.X * v19->X);
       v43 = Hit.Normal.Z * v42;
-      v44 = v19->X - (float)(v14->X * v42);
+      v44 = v19->X - (float)(v14.X * v42);
       v45 = v41 - (float)(Hit.Normal.Y * v42);
       v46 = (float)(v44 * v44) + (float)(v45 * v45);
       v47 = v40 - v43;
@@ -1919,14 +2269,14 @@ fixed(var ptr7 =&this.Rotation)
         {
           Deltaa = v108;
   LABEL_32:
-          v49 = this.MovementState;
-          v50 = this.Moves.Data;
-          v51 = v50[v49] && (v50[v49].bDebugMove.AsBitfield(29) & 0x200000) != 0;
-          v52 = this.UNKNOWN28(&Deltaa, v51, 0, &a4a, Hit);
-          v111.LODWORD(default == v52);
+          v49 = (int)this.MovementState;
+          v51 = this.Moves.Data[v49] != null && (this.Moves.Data[v49].bDebugMove.AsBitfield(29) & 0x200000) != 0;
+          v52 = UNKNOWN28(&Deltaa, v51, false, &a4a, ref Hit);
+          v111.LODWORD(!v52 ? 1 : 0);
           if(v52 != default)
             goto LABEL_97;
-          goto LABEL_37;
+          v12 = Hit;
+          goto LABEL_38;
         }
         Deltaa.X = v44;
       }
@@ -1938,7 +2288,14 @@ fixed(var ptr7 =&this.Rotation)
           Deltaa.Y = 0.0f;
   LABEL_31:
           Deltaa.Z = 0.0f;
-          goto LABEL_32;
+          v49 = (int)this.MovementState;
+          v51 = this.Moves.Data[v49] != null && (this.Moves.Data[v49].bDebugMove.AsBitfield(29) & 0x200000) != 0;
+          v52 = UNKNOWN28(&Deltaa, v51, false, &a4a, ref Hit);
+          v111.LODWORD(!v52 ? 1 : 0);
+          if(v52 != default)
+            goto LABEL_97;
+          v12 = Hit;
+          goto LABEL_38;
         }
         v112 = 3.0f;
         v107 = 0.5f;
@@ -1948,20 +2305,29 @@ fixed(var ptr7 =&this.Rotation)
         Deltaa.X = a2a.X * v44;
       }
       Deltaa.Y = v45;
-      goto LABEL_31;
+      Deltaa.Z = 0.0f;
+      v49 = (int)this.MovementState;
+      var v50 = this.Moves.Data;
+      v51 = v50[v49] != null && (v50[v49].bDebugMove.AsBitfield(29) & 0x200000) != 0;
+      v52 = UNKNOWN28(&Deltaa, v51, false, &a4a, ref Hit);
+      v111.LODWORD(!v52 ? 1 : 0);
+      if(v52 != default)
+        goto LABEL_97;
+      v12 = Hit;
+      goto LABEL_38;
     }
   LABEL_38:
     this.processHitWall(
       Hit.Normal,
-      v12->Actor,
-      v12->Component);
+      v12.Actor,
+      v12.Component);
     if ( this.Physics == PHYS_Falling )
       return;
     Hit.Normal.Z = 0.0f;
     Deltaa.X = (float)((float)(Hit.Normal.X * Hit.Normal.X) + (float)(Hit.Normal.Y * Hit.Normal.Y)) + (float)(Hit.Normal.Z * Hit.Normal.Z);
     if ( Deltaa.X == 1.0f )
     {
-      v53 = v14->X;
+      v53 = v14.X;
       v54 = Hit.Normal.Y;
       v55 = Hit.Normal.Z;
     }
@@ -1973,7 +2339,7 @@ fixed(var ptr7 =&this.Rotation)
         v107 = 0.5f;
         v56 = 1.0f / fsqrt(Deltaa.X);
         a2a.X = (float)(3.0f - (float)((float)(v56 * Deltaa.X) * v56)) * (float)(v56 * 0.5f);
-        Deltaa.X = a2a.X * v14->X;
+        Deltaa.X = a2a.X * v14.X;
         Deltaa.Y = Hit.Normal.Y * a2a.X;
         Deltaa.Z = Hit.Normal.Z * a2a.X;
       }
@@ -1987,7 +2353,7 @@ fixed(var ptr7 =&this.Rotation)
       v54 = Deltaa.Y;
       v55 = Deltaa.Z;
     }
-    v14->X = v53;
+    v14.X = v53;
     Hit.Normal.Y = v54;
     Hit.Normal.Z = v55;
     v57 = v19->Z;
@@ -1997,7 +2363,7 @@ fixed(var ptr7 =&this.Rotation)
     v61 = v58 - (float)(Hit.Normal.Y * v60);
     v62 = v57 - (float)(Hit.Normal.Z * v60);
     v63 = 1.0f - Hit.Time;
-    Deltaa.X = (float)(v19->X - (float)(v14->X * v60)) * v63;
+    Deltaa.X = (float)(v19->X - (float)(v14.X * v60)) * v63;
     Deltaa.Y = v61 * v63;
     a2a.Z = v55;
     v64 = (float)((float)(v59 * v59) + (float)(v58 * v58)) + (float)(v57 * v57);
@@ -2111,8 +2477,7 @@ fixed(var ptr7 =&this.Rotation)
     }
     if ( (float)((float)((float)(v72 * v19->X) + (float)(v70 * v19->Z)) + (float)(v71 * v19->Y)) >= 0.0f )
     {
-fixed(var ptr8 =&this.Rotation)
-      GWorld.MoveActor(this, &a4a,  ptr8, 0, Hit);
+      GWorld.MoveActor(this, ref a4a, ref this.Rotation, 0, ref Hit);
       if(v113 != default)
       {
         if ( Hit.Time < 1.0f )
@@ -2135,114 +2500,7 @@ fixed(var ptr8 =&this.Rotation)
             {
               Deltaa.X = 0.0f;
               Deltaa.Y = 0.0f;
-  LABEL_74:
-              Deltaa.Z = 0.0f;
-  LABEL_75:
-              v89 = Hit.Normal.Y;
-              v90 = v14->X;
-              v91 = (float)(v90 * v90) + (float)(v89 * v89);
-              v117 = v91;
-              if ( v91 == 1.0f )
-              {
-                if ( Hit.Normal.Z == 0.0f )
-                {
-                  v92 = Hit.Normal.Y;
-                  v93 = Hit.Normal.Z;
-                  v108.X = v14->X;
-                  v108.Y = v92;
-                  v108.Z = v93;
-  LABEL_83:
-                  if ( v108.Z * Deltaa.Z + v108.Y * Deltaa.Y + v108.X * Deltaa.X < -0.707f && this.IsHitActorTdPawn( Hit) )// IsHitActorTdPawn
-                  {
-                    v96 = (float)((float)(Hit.Normal.Z * a4a.Z) + (float)(Hit.Normal.Y * a4a.Y)) + (float)(Hit.Normal.X * a4a.X);
-                    v97 = Hit.Normal.Z * v96;
-                    v98 = a4a.X - (float)(v96 * Hit.Normal.X);
-                    v99 = a4a.Y - (float)(Hit.Normal.Y * v96);
-                    v100 = (float)(v99 * v99) + (float)(v98 * v98);
-                    Deltaa.X = a4a.X - (float)((float)((float)((float)(Hit.Normal.Z * a4a.Z) + (float)(Hit.Normal.Y * a4a.Y)) + (float)(Hit.Normal.X * a4a.X)) * Hit.Normal.X);
-                    Deltaa.Y = v99;
-                    Deltaa.Z = a4a.Z - v97;
-                    v117 = v100;
-                    if ( v100 == 1.0f )
-                    {
-                      if ( (float)(a4a.Z - v97) == 0.0f )
-                      {
-                        v108 = Deltaa;
-                        v101 = Deltaa.X;
-                        v99 = Deltaa.Y;
-                        v102 = Deltaa.Z;
-                      }
-                      else
-                      {
-                        v101 = v98;
-                        v102 = 0.0f;
-                      }
-                    }
-                    else if ( v100 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
-                    {
-                      v116 = 3.0f;
-                      v107 = 0.5f;
-                      v103 = 1.0f / fsqrt(v117);
-                      v112 = (float)(3.0f - (float)((float)(v103 * v117) * v103)) * (float)(v103 * 0.5f);
-                      v99 = v99 * v112;
-                      v102 = 0.0f;
-                      v101 = v112 * v98;
-                    }
-                    else
-                    {
-                      v101 = 0.0f;
-                      v99 = 0.0f;
-                      v102 = 0.0f;
-                    }
-                    Deltaa.X = -0.0f - v101;
-                    Deltaa.Y = -0.0f - v99;
-                    Deltaa.Z = -0.0f - v102;
-                    v104.LODWORD(default == this.UNKNOWN28(&Deltaa, 0, 1, &a4a, Hit));
-                  }
-                  else
-                  {
-                    v104 = v111;
-                  }
-                  if ( v104 != 0.0f )
-                  {
-                    this.processHitWall(
-                      Hit.Normal,
-                      Hit.Actor,
-                      Hit.Component);
-                    if ( this.Physics == PHYS_Falling )
-                      return;
-fixed(var ptr9 =&a2a.X)
-fixed(var ptr12 =&v14->X)
-fixed(var ptr13 =&a4a.X)
-fixed(var ptr14 =&DesiredDir->X)
-                    TwoWallAdjust( ptr14,  ptr13,  ptr12,  ptr9, Hit.Time);
-fixed(var ptr10 =&this.Rotation)
-                    GWorld.MoveActor(this, &a4a,  ptr10, 0, Hit);
-                    v12 = Hit;
-                    goto LABEL_98;
-                  }
-                  goto LABEL_97;
-                }
-                v108.X = v90;
-                v108.Y = v89;
-              }
-              else if ( v91 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
-              {
-                v116 = 3.0f;
-                v107 = 0.5f;
-                v94 = 1.0f / fsqrt(v117);
-                v112 = (float)(3.0f - (float)((float)(v94 * v117) * v94)) * (float)(v94 * 0.5f);
-                v95 = v112 * Hit.Normal.Y;
-                v108.X = v112 * v14->X;
-                v108.Y = v95;
-              }
-              else
-              {
-                v108.X = 0.0f;
-                v108.Y = 0.0f;
-              }
-              v108.Z = 0.0f;
-              goto LABEL_83;
+              goto LABEL_74;
             }
             v116 = 3.0f;
             v107 = 0.5f;
@@ -2260,35 +2518,137 @@ fixed(var ptr10 =&this.Rotation)
     v12 = Hit;
   LABEL_98:
     if(v110 != default)
-fixed(var ptr11 =&this.Rotation)
-      GWorld.MoveActor(this, &v109,  ptr11, 0, v12);
+      GWorld.MoveActor(this, ref v109, ref this.Rotation, 0, ref v12);
+    return;
+    LABEL_74:
+    Deltaa.Z = 0.0f;
+    LABEL_75:
+    v89 = Hit.Normal.Y;
+    v90 = v14.X;
+    v91 = (float)(v90 * v90) + (float)(v89 * v89);
+    v117 = v91;
+    if ( v91 == 1.0f )
+    {
+      if ( Hit.Normal.Z == 0.0f )
+      {
+        v92 = Hit.Normal.Y;
+        v93 = Hit.Normal.Z;
+        v108.X = v14.X;
+        v108.Y = v92;
+        v108.Z = v93;
+        goto LABEL_83;
+      }
+      v108.X = v90;
+      v108.Y = v89;
+    }
+    else if ( v91 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    {
+      v116 = 3.0f;
+      v107 = 0.5f;
+      v94 = 1.0f / fsqrt(v117);
+      v112 = (float)(3.0f - (float)((float)(v94 * v117) * v94)) * (float)(v94 * 0.5f);
+      v95 = v112 * Hit.Normal.Y;
+      v108.X = v112 * v14.X;
+      v108.Y = v95;
+    }
+    else
+    {
+      v108.X = 0.0f;
+      v108.Y = 0.0f;
+    }
+    v108.Z = 0.0f;
+    goto LABEL_83;
+  LABEL_83:
+    if ( v108.Z * Deltaa.Z + v108.Y * Deltaa.Y + v108.X * Deltaa.X < -0.707f && this.IsHitActorTdPawn( ref Hit) )// IsHitActorTdPawn
+    {
+      v96 = (float)((float)(Hit.Normal.Z * a4a.Z) + (float)(Hit.Normal.Y * a4a.Y)) + (float)(Hit.Normal.X * a4a.X);
+      v97 = Hit.Normal.Z * v96;
+      v98 = a4a.X - (float)(v96 * Hit.Normal.X);
+      v99 = a4a.Y - (float)(Hit.Normal.Y * v96);
+      v100 = (float)(v99 * v99) + (float)(v98 * v98);
+      Deltaa.X = a4a.X - (float)((float)((float)((float)(Hit.Normal.Z * a4a.Z) + (float)(Hit.Normal.Y * a4a.Y)) + (float)(Hit.Normal.X * a4a.X)) * Hit.Normal.X);
+      Deltaa.Y = v99;
+      Deltaa.Z = a4a.Z - v97;
+      v117 = v100;
+      if ( v100 == 1.0f )
+      {
+        if ( (float)(a4a.Z - v97) == 0.0f )
+        {
+          v108 = Deltaa;
+          v101 = Deltaa.X;
+          v99 = Deltaa.Y;
+          v102 = Deltaa.Z;
+        }
+        else
+        {
+          v101 = v98;
+          v102 = 0.0f;
+        }
+      }
+      else if ( v100 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      {
+        v116 = 3.0f;
+        v107 = 0.5f;
+        v103 = 1.0f / fsqrt(v117);
+        v112 = (float)(3.0f - (float)((float)(v103 * v117) * v103)) * (float)(v103 * 0.5f);
+        v99 = v99 * v112;
+        v102 = 0.0f;
+        v101 = v112 * v98;
+      }
+      else
+      {
+        v101 = 0.0f;
+        v99 = 0.0f;
+        v102 = 0.0f;
+      }
+      Deltaa.X = -0.0f - v101;
+      Deltaa.Y = -0.0f - v99;
+      Deltaa.Z = -0.0f - v102;
+      v104.LODWORD(!UNKNOWN28(&Deltaa, false, true, &a4a, ref Hit));
+    }
+    else
+    {
+      v104 = v111;
+    }
+    if ( v104 != 0.0f )
+    {
+      this.processHitWall(
+        Hit.Normal,
+        Hit.Actor,
+        Hit.Component);
+      if ( this.Physics == PHYS_Falling )
+        return;
+      TwoWallAdjust(DesiredDir, ref a4a, v14, a2a, Hit.Time);
+      GWorld.MoveActor(this, ref a4a, ref this.Rotation, 0, ref Hit);
+      v12 = Hit;
+      goto LABEL_98;
+    }
+    goto LABEL_97;
   }
 
   public unsafe void SyncLegMovement()
   {
-    ref array<SynchGroup> v1; // edx
+    //ref array<AnimNodeSynch.SynchGroup> v1; // edx
     int v2 = default; // ebp
-    ref array<SynchGroup> v3; // edi
+    //ref array<AnimNodeSynch.SynchGroup> v3; // edi
     int v4 = default; // esi
-    SynchGroup *v5; // eax
-    SynchGroup *v6; // ecx
+    //AnimNodeSynch.SynchGroup *v5; // eax
+    //AnimNodeSynch.SynchGroup *v6; // ecx
   
-fixed(var ptr1 =&this.MasterSync3p.Groups)
-    v1 =  ptr1;
+    ref var v1 = ref this.MasterSync3p.Groups;
     v2 = default;
-fixed(var ptr2 =&this.MasterSync1p.Groups)
-    v3 =  ptr2;
+    ref var v3 = ref this.MasterSync1p.Groups;
     if ( this.MasterSync3p.Groups.Count > 0 )
     {
       v4 = default;
       do
       {
-        v5 = &v1[v4];
-        v6 = &v3[v4];
-        if ( (v5->bitfield_bUseSharedMasterControlNode & 1) != 0 )
+        ref var v5 = ref v1[v4];
+        ref var v6 = ref v3[v4];
+        if ( (v5.bUseSharedMasterControlNode.AsBitfield(1) & 1) != default )
         {
-          v5->SharedMasterRelativePosition = v6->SharedMasterRelativePosition;
-          v5->SharedMasterMoveDelta = v6->SharedMasterMoveDelta;
+          v5.SharedMasterRelativePosition = v6.SharedMasterRelativePosition;
+          v5.SharedMasterMoveDelta = v6.SharedMasterMoveDelta;
         }
         ++v2;
         ++v4;
@@ -2297,6 +2657,9 @@ fixed(var ptr2 =&this.MasterSync1p.Groups)
     }
   }
 
+
+
+  public unsafe void OffsetMeshXY( Vector Offset, bool bWorldSpace ) => OffsetMeshXY(Offset, bWorldSpace ? 1 : 0);
   public unsafe void OffsetMeshXY(Vector Offset, int bWorldSpace)
   {
     Vector *v4; // eax
@@ -2315,8 +2678,7 @@ fixed(var ptr2 =&this.MasterSync1p.Groups)
     Matrix SrcMatrix = default; // [esp+20h] [ebp-80h] BYREF
     Matrix DstMatrix = default; // [esp+60h] [ebp-40h] BYREF
   
-fixed(var ptr1 =&this.Rotation)
-    FRotationMatrix(&DstMatrix,  ptr1);
+    FRotationMatrix(&DstMatrix, ref this.Rotation);
     if(bWorldSpace != default)
     {
       VectorMatrixInverse(&DstMatrix, &SrcMatrix);
@@ -2621,7 +2983,7 @@ fixed(var ptr1 =&this.Rotation)
     float *v12; // edi
     int v13 = default; // ebp
     int v14 = default; // eax
-    uint v15 = default; // edx
+    int v15 = default; // edx
     int v16 = default; // ecx
     float v17 = default; // xmm2_4
     float v18 = default; // xmm4_4
@@ -2646,116 +3008,127 @@ fixed(var ptr1 =&this.Rotation)
     float *v37; // [esp+1Ch] [ebp-4h]
     int v38 = default; // [esp+24h] [ebp+4h]
     float *v39; // [esp+24h] [ebp+4h]
-  
-    v2 = this.ASFilterTime;
-    v3 = a2;
-    v34 = this;
-    v4 = 0.0f;
-    v5 = 0.0f;
-    if ( a2 >= v2 )
-      v3 = this.ASFilterTime;
-    v6 = this.ASPollSlots;
-    v7 = (int)(float)((float)((float)v6 * v3) / v2);
-    v38 = v6;
-    v35 = v7;
-    if ( v7 <= 0 )
-      return 0.0f;
-    v9 = default;
-    if ( v7 >= 4 )
+
+    fixed( float* timePtr = ASTimeData.Data )
     {
-      v10 = this.ASSlotPointer;
-      v11 = this.ASTimeData.Data;
-      v12 = this.ASDistanceData.Data;
-      v31 = v10 - 2;
-      v30 = v10;
-      v13 = v10 + v6 - 2;
-      v14 = 4 * (v10 - 2);
-      v32 = 1 - v6;
-      v15 = ((uint)(v7 - 4) >> 2) + 1;
-      v33 = -1 - v6;
-      v36 = 4 * v15;
-      do
+      fixed( float* distPtr = ASDistanceData.Data )
       {
-        v16 = v14 + 8;
-        if ( v30 < 0 )
-          v16 = v16 + (4 * v6);
-        v17 = *(float *__ptr32)((byte *)v11 + v16) + v4;
-        v18 = *(float *__ptr32)((byte *)v12 + v16) + v5;
-        v19 = v14 + 4;
-        if ( v13 + v32 < 0 )
-          v19 = v19 + (4 * v38);
-        v20 = *(float *__ptr32)((byte *)v11 + v19) + v17;
-        v21 = *(float *__ptr32)((byte *)v12 + v19) + v18;
-        v22 = v14;
-        if ( v31 < 0 )
-          v22 = v14 + 4 * v38;
-        v23 = v14 - 4;
-        if ( v13 + v33 < 0 )
-          v23 = v23 + (4 * v38);
-        v30 = v30 - (4);
-        v31 = v31 - (4);
-        v4 = *(float *__ptr32)((byte *)v11 + v23) + (float)(*(float *__ptr32)((byte *)v11 + v22) + v20);
-        v24 = *(float *__ptr32)((byte *)v12 + v23);
-        v6 = v38;
-        v14 = v14 - (16);
-        v13 = v13 - (4);
-        --v15;
-        v5 = v24 + (float)(*(float *__ptr32)((byte *)v12 + v22) + v21);
+      
+
+        v2 = this.ASFilterTime;
+        v3 = a2;
+        v34 = this;
+        v4 = 0.0f;
+        v5 = 0.0f;
+        if ( a2 >= v2 )
+          v3 = this.ASFilterTime;
+        v6 = this.ASPollSlots;
+        v7 = (int)(float)((float)((float)v6 * v3) / v2);
+        v38 = v6;
+        v35 = v7;
+        if ( v7 <= 0 )
+          return 0.0f;
+        v9 = default;
+        if ( v7 >= 4 )
+        {
+          v10 = this.ASSlotPointer;
+          v11 = timePtr;
+          v12 = distPtr;
+          v31 = v10 - 2;
+          v30 = v10;
+          v13 = v10 + v6 - 2;
+          v14 = 4 * (v10 - 2);
+          v32 = 1 - v6;
+          v15 = (int)(((uint)(v7 - 4) >> 2) + 1);
+          v33 = -1 - v6;
+          v36 = 4 * v15;
+          do
+          {
+            v16 = v14 + 8;
+            if ( v30 < 0 )
+              v16 = v16 + (4 * v6);
+            v17 = *(float *)((byte *)v11 + v16) + v4;
+            v18 = *(float *)((byte *)v12 + v16) + v5;
+            v19 = v14 + 4;
+            if ( v13 + v32 < 0 )
+              v19 = v19 + (4 * v38);
+            v20 = *(float *)((byte *)v11 + v19) + v17;
+            v21 = *(float *)((byte *)v12 + v19) + v18;
+            v22 = v14;
+            if ( v31 < 0 )
+              v22 = v14 + 4 * v38;
+            v23 = v14 - 4;
+            if ( v13 + v33 < 0 )
+              v23 = v23 + (4 * v38);
+            v30 = v30 - (4);
+            v31 = v31 - (4);
+            v4 = *(float *)((byte *)v11 + v23) + (float)(*(float *)((byte *)v11 + v22) + v20);
+            v24 = *(float *)((byte *)v12 + v23);
+            v6 = v38;
+            v14 = v14 - (16);
+            v13 = v13 - (4);
+            --v15;
+            v5 = v24 + (float)(*(float *)((byte *)v12 + v22) + v21);
+          }
+          while(v15 != default);
+          v7 = v35;
+          v9 = v36;
+        }
+        if ( v9 < v7 )
+        {
+          v39 = timePtr;
+          v37 = distPtr;
+          v25 = this.ASSlotPointer - v9;
+          v26 = v25 + v6;
+          v27 = 4 * v25;
+          v28 = v7 - v9;
+          do
+          {
+            v29 = v27;
+            if ( v25 < 0 )
+              v29 = v27 + 4 * v6;
+            v4 = *(float *)((byte *)v39 + v29) + v4;
+            v27 = v27 - (4);
+            --v25;
+            --v26;
+            --v28;
+            v5 = *(float *)((byte *)v37 + v29) + v5;
+          }
+          while(v28 != default);
+        }
+        if ( v5 == 0.0f )
+          result = 0.0f;
+        else
+          result = (float)(v5 / v4);
+        return (float)(result);
       }
-      while(v15 != default);
-      this = v34;
-      v7 = v35;
-      v9 = v36;
     }
-    if ( v9 < v7 )
-    {
-      v39 = this.ASTimeData.Data;
-      v37 = this.ASDistanceData.Data;
-      v25 = this.ASSlotPointer - v9;
-      v26 = v25 + v6;
-      v27 = 4 * v25;
-      v28 = v7 - v9;
-      do
-      {
-        v29 = v27;
-        if ( v25 < 0 )
-          v29 = v27 + 4 * v6;
-        v4 = *(float *__ptr32)((byte *)v39 + v29) + v4;
-        v27 = v27 - (4);
-        --v25;
-        --v26;
-        --v28;
-        v5 = *(float *__ptr32)((byte *)v37 + v29) + v5;
-      }
-      while(v28 != default);
-    }
-    if ( v5 == 0.0f )
-      result = 0.0f;
-    else
-      result = (float)(v5 / v4);
-    return (float)(result);
   }
 
+
+
+  public unsafe void UpdateLegToWorldMatrix( int Yaw ) => UpdateLegToWorldMatrix((short)Yaw);
   public unsafe void UpdateLegToWorldMatrix(short Yaw)
   {
     uint v3 = default; // eax
     Matrix *v4; // eax
     Matrix *v5; // [esp-4h] [ebp-A4h]
     Rotator a2 = default; // [esp+14h] [ebp-8Ch] BYREF
-    __m128* v7 = stackalloc __m128[4]; // [esp+20h] [ebp-80h] BYREF
+    Matrix outM = default; // [esp+20h] [ebp-80h] BYREF
     Matrix v8 = default; // [esp+60h] [ebp-40h] BYREF
   
     v3 = (ushort)(Yaw - LOWORD(this.Rotation.Yaw));
     if ( v3 > 0x7FFF )
       v3 = v3 - (0x10000);
-    a2.Pitch = v3;
+    a2.Pitch = (int)v3;
     a2.Yaw = default;
     a2.Roll = default;
-fixed(var ptr1 =&this.Mesh.LocalToWorld)
-    v5 =  ptr1;
-    v4 = FRotationMatrix(&v8, &a2);
-fixed(var ptr2 =&this.Mesh.LocalToLegRotatedWorld)
-    qmemcpy( ptr2, (__m128 *.Mult()v4, v7, (__m128 *)v5), sizeof(this.Mesh.LocalToLegRotatedWorld));
+    fixed( Matrix* ptr = & this.Mesh.LocalToWorld )
+    {
+      v5 = ptr;
+      v4 = FRotationMatrix(&v8, &a2);
+      qmemcpy(ref this.Mesh.LocalToLegRotatedWorld, v4->Mult(&outM, v5), sizeof(Matrix));
+    }
   }
 
   public unsafe float GetAIAimingPenalty()
@@ -2781,7 +3154,7 @@ fixed(var ptr2 =&this.Mesh.LocalToLegRotatedWorld)
     return (float)(this.Moves[this.MovementState].AiAimOneShotPenalty);
   }
 
-  public override unsafe EMoveAimMode GetAimMode(int a2)
+  public unsafe EMoveAimMode GetAimMode(bool a2)
   {
     TdMove v3 = default; // ecx
     EMoveAimMode v5 = default; // bl
@@ -2810,10 +3183,10 @@ fixed(var ptr2 =&this.Mesh.LocalToLegRotatedWorld)
       if(a2 != default)
       {
         if ( this.IsHumanControlled() && this.WeaponAnimState == WS_Reload || this.CurrentWalkingState > WAS_Walk || a2a == EWT_Heavy )
-          return 2;
+          return (EMoveAimMode)2;
         v8 = this.WeaponAnimState;
         if ( v8 == WS_Ready || v8 == WS_Throwing )
-          return 1;
+          return (EMoveAimMode)1;
       }
       else
       {
@@ -2824,23 +3197,29 @@ fixed(var ptr2 =&this.Mesh.LocalToLegRotatedWorld)
         }
         else if ( v11 == WS_Ready || v11 == WS_Relaxed )
         {
-          v5 = ((((byte)v7 - 1) >> 31) | ((1 - (byte)v7) >> 31)) + 2;
+          v5 = (MoveAimMode)(((((byte)v7 - 1) >> 31) | ((1 - (byte)v7) >> 31)) + 2);
         }
         if ( v10 == AW_AgainstWallLeft )
-          return ((((byte)v5 - 3) >> 31) | ((3 - (byte)v5) >> 31)) & 2;
+          return (MoveAimMode)(((((byte)v5 - 3) >> 31) | ((3 - (byte)v5) >> 31)) & 2);
         if ( v10 == AW_AgainstWallRight )
-          v5 = v5 + ((1 - v5) & ((((byte)v5 - 2) >> 31) | ((2 - (byte)v5) >> 31)));
+          v5 = (MoveAimMode)((int)v5 + ((1 - (int)v5) & ((((byte)v5 - 2) >> 31) | ((2 - (byte)v5) >> 31))));
       }
     }
     return v5;
   }
 
-  public unsafe int PlayCustomAnimInternal(TdAnimNodeSlot tdSlot, name AnimName, float Rate, float BlendInTime, float BlendOutTime, int bLooping, int bOverride, int bRootMotion, int bRootRotation)
+  public unsafe int PlayCustomAnimInternal(TdAnimNodeSlot tdSlot, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, bool bRootRotation)
   {
     AnimNodeSequence v11 = default; // eax
     TdAnimNodeSequence v12 = default; // eax
+    AnimNodeSequence.ERootBoneAxis v14 = default; // [esp+8h] [ebp-14h]
+    AnimNodeSequence.ERootRotationOption v15 = default; // [esp+8h] [ebp-14h]
+    AnimNodeSequence.ERootBoneAxis v16 = default; // [esp+Ch] [ebp-10h]
+    AnimNodeSequence.ERootRotationOption v17 = default; // [esp+Ch] [ebp-10h]
+    AnimNodeSequence.ERootBoneAxis v18 = default; // [esp+10h] [ebp-Ch]
+    AnimNodeSequence.ERootRotationOption v19 = default; // [esp+10h] [ebp-Ch]
   
-    if ( default == tdSlot || tdSlot.PlayCustomAnim(AnimName, Rate, BlendInTime, BlendOutTime, bLooping, bOverride) == 0.0f )
+    if ( !tdSlot || tdSlot.PlayCustomAnim(AnimName, Rate, BlendInTime, BlendOutTime, bLooping, bOverride) == 0.0f )
       return 0;
     if ( tdSlot == this.CustomCameraNode || tdSlot == this.CustomWeaponNode1p )
     {
@@ -2849,19 +3228,37 @@ fixed(var ptr2 =&this.Mesh.LocalToLegRotatedWorld)
       SetFromBitfield(ref v12.bSnapToKeyFrames, 12, v12.bSnapToKeyFrames.AsBitfield(12) | (0x40u));
     }
     if(bRootMotion != default)
-      tdSlot.SetRootBoneAxisOption(RBA_Translate, RBA_Translate, RBA_Translate);
+    {
+      v18 = RBA_Translate;
+      v16 = RBA_Translate;
+      v14 = RBA_Translate;
+    }
     else
-      tdSlot.SetRootBoneAxisOption(RBA_Default, RBA_Default, RBA_Default);
+    {
+      v18 = RBA_Default;
+      v16 = RBA_Default;
+      v14 = RBA_Default;
+    }
+    tdSlot.SetRootBoneAxisOption(v14, v16, v18);
     if(bRootRotation != default)
-      tdSlot.SetRootBoneRotationAxisOption(RRO_Extract, RRO_Extract, RRO_Extract);
+    {
+      v19 = RRO_Extract;
+      v17 = RRO_Extract;
+      v15 = RRO_Extract;
+    }
     else
-      tdSlot.SetRootBoneRotationAxisOption(RRO_Discard, RRO_Discard, RRO_Discard);
-    tdSlot.SetActorAnimEndNotification(1);
-    tdSlot.SetCauseActorCeaseRelevant( 1);// SetCauseActorCeaseRelevant
+    {
+      v19 = RRO_Discard;
+      v17 = RRO_Discard;
+      v15 = RRO_Discard;
+    }
+    tdSlot.SetRootBoneRotationAxisOption(v15, v17, v19);
+    tdSlot.SetActorAnimEndNotification(true);
+    tdSlot.SetCauseActorCeaseRelevant(true);// SetCauseActorCeaseRelevant
     return 1;
   }
 
-  public unsafe void StopCustomAnim(ECustomNodeType Type, float BlendOutTime)
+  public unsafe void _StopCustomAnim(ECustomNodeType Type, float BlendOutTime)
   {
     AnimNodeSequence v3 = default; // edi
     AnimNodeSequence v4 = default; // ebx
@@ -2902,7 +3299,8 @@ fixed(var ptr2 =&this.Mesh.LocalToLegRotatedWorld)
         {
           v8 = v7.GetCustomAnimNodeSeq();
           v9 = this.CustomCannedNode3p;
-          goto LABEL_34;
+          v4 = v8;
+          v9.StopCustomAnim(BlendOutTime);
         }
         break;
       case (int)CNT_CannedUpperBody:
@@ -2917,7 +3315,8 @@ fixed(var ptr2 =&this.Mesh.LocalToLegRotatedWorld)
         {
           v8 = v11.GetCustomAnimNodeSeq();
           v9 = this.CustomCannedUpperBodyNode3p;
-          goto LABEL_34;
+          v4 = v8;
+          v9.StopCustomAnim(BlendOutTime);
         }
         break;
       case (int)CNT_FullBody:
@@ -2932,7 +3331,8 @@ fixed(var ptr2 =&this.Mesh.LocalToLegRotatedWorld)
         {
           v8 = v13.GetCustomAnimNodeSeq();
           v9 = this.CustomFullBodyNode3p;
-          goto LABEL_34;
+          v4 = v8;
+          v9.StopCustomAnim(BlendOutTime);
         }
         break;
       case (int)CNT_FullBody_Dir:
@@ -2947,7 +3347,8 @@ fixed(var ptr2 =&this.Mesh.LocalToLegRotatedWorld)
         {
           v8 = v15.GetCustomAnimNodeSeq();
           v9 = this.CustomFullBodyDirNode3p;
-          goto LABEL_34;
+          v4 = v8;
+          v9.StopCustomAnim(BlendOutTime);
         }
         break;
       case (int)CNT_UpperBody:
@@ -2962,7 +3363,8 @@ fixed(var ptr2 =&this.Mesh.LocalToLegRotatedWorld)
         {
           v8 = v17.GetCustomAnimNodeSeq();
           v9 = this.CustomUpperBodyNode3p;
-          goto LABEL_34;
+          v4 = v8;
+          v9.StopCustomAnim(BlendOutTime);
         }
         break;
       case (int)CNT_LowerBody:
@@ -2977,7 +3379,8 @@ fixed(var ptr2 =&this.Mesh.LocalToLegRotatedWorld)
         {
           v8 = v19.GetCustomAnimNodeSeq();
           v9 = this.CustomLowerBodyNode3p;
-          goto LABEL_34;
+          v4 = v8;
+          v9.StopCustomAnim(BlendOutTime);
         }
         break;
       case (int)CNT_Camera:
@@ -2987,7 +3390,8 @@ fixed(var ptr2 =&this.Mesh.LocalToLegRotatedWorld)
           v21 = v20.GetCustomAnimNodeSeq();
           v9 = this.CustomCameraNode;
           v3 = v21;
-          goto LABEL_35;
+          v4 = v8;
+          v9.StopCustomAnim(BlendOutTime);
         }
         break;
       case (int)CNT_Weapon:
@@ -3002,7 +3406,8 @@ fixed(var ptr2 =&this.Mesh.LocalToLegRotatedWorld)
         {
           v8 = v23.GetCustomAnimNodeSeq();
           v9 = this.CustomWeaponNode3p;
-          goto LABEL_34;
+          v4 = v8;
+          v9.StopCustomAnim(BlendOutTime);
         }
         break;
       case (int)CNT_Face:
@@ -3020,11 +3425,13 @@ fixed(var ptr2 =&this.Mesh.LocalToLegRotatedWorld)
       default:
         break;
     }
-    if ( (uint)v3 | (v3 == 0 ? (uint)v4 : 0) )
+
+    var anim = v3 ?? v4; // equivalent to: (uint)v3 | (v3 == default ? (uint)v4 : 0)
+    if ( anim )
     {
       v25 = this.Moves[this.MovementState];
-      if ( v25.CurrentCustomAnimName.Index == *(_DWORD *)(((uint)v3 | (v3 == 0 ? (uint)v4 : 0)) + 0xBC) && v25.CurrentCustomAnimName.Number == *(_DWORD *)(((uint)v3 | (v3 == 0 ? (uint)v4 : 0)) + 0xC0) )
-        v25.CallOnAnimationStopped((AnimNodeSequence )((uint)v3 | (v3 == 0 ? (uint)v4 : 0)));
+      if ( v25.CurrentCustomAnimName == anim.AnimSeqName )
+        v25.CallOnAnimationStopped(anim);
     }
   }
 
@@ -3065,8 +3472,7 @@ fixed(var ptr2 =&this.Mesh.LocalToLegRotatedWorld)
     a2.Normal.Y = 0.0f;
     a2.Normal.Z = 0.0f;
     a2.Time = 0.0f;
-fixed(var ptr1 =&this.Rotation)
-    v2 = FRotationMatrix(&v18,  ptr1);
+    v2 = FRotationMatrix(&v18, ref this.Rotation);
     v3 = v2->ZPlane.X;
     v4 = v2->XPlane.X;
     v5 = v2->XPlane.Y;
@@ -3087,7 +3493,7 @@ fixed(var ptr1 =&this.Rotation)
     a4.X = 30.0f;
     a4.Y = 30.0f;
     a4.Z = 30.0f;
-    return GWorld.EncroachingWorldGeometry(&a2, &a3, &a4, 1) == 0;
+    return GWorld.EncroachingWorldGeometry(ref a2, a3, a4, true) == false;
   }
 
   // NOT READY
@@ -3099,72 +3505,69 @@ fixed(var ptr1 =&this.Rotation)
 //    float v4 = default; // xmm0_4
 //    float v5 = default; // xmm0_4
 //    int i = default; // ebx
-//    int v7 = default; // edi
+//    Class v7 = default; // edi
 //    int v8 = default; // eax
 //    MaterialInterface v9 = default; // edi
 //    int j = default; // ebx
-//    int v11 = default; // edi
+//    Class v11 = default; // edi
 //    int v12 = default; // eax
 //    MaterialInterface v13 = default; // edi
 //    TdSkeletalMeshComponent v14 = default; // eax
 //    SkeletalMesh v15 = default; // eax
 //    int v16 = default; // ebx
-//    int v17 = default; // edi
+//    Class v17 = default; // edi
 //    int v18 = default; // eax
 //    MaterialInterface v19 = default; // edi
 //    int result = default; // eax
 //    int v21 = default; // ebx
-//    int v22 = default; // edi
+//    Class v22 = default; // edi
 //    int v23 = default; // eax
 //    MaterialInterface v24 = default; // edi
 //  
 //    v2 = sub_F358A0((int)this.SceneCapture);
 //    v3 = this.DrawFrustum;
-//    if(v3 != default)
+//    if ( v3 && v2 )
 //    {
-//      if(v2 != default)
-//      {
-//        v3.FrustumAngle = *(float *)(v2 + 140);
-//        v4 = *(float *)(v2 + 144);
-//        if ( v4 < 50.0f )
-//          v4 = 50.0f;
-//        this.DrawFrustum.FrustumStartDist = v4;
-//        v5 = *(float *)(v2 + 148);
-//        if ( v5 < 200.0f )
-//          v5 = 200.0f;
-//        this.DrawFrustum.FrustumEndDist = v5;
-//        if ( *(_DWORD *)(v2 + 128) )
-//          this.DrawFrustum.FrustumAspectRatio = (float)*(int *)(*(_DWORD *)(v2 + 128) + 188) / (float)*(int *)(*(_DWORD *)(v2 + 128) + 192);
-//      }
+//      v3.FrustumAngle = *(float *)(v2 + 140);
+//      v4 = *(float *)(v2 + 144);
+//      if ( v4 < 50.0f )
+//        v4 = 50.0f;
+//      this.DrawFrustum.FrustumStartDist = v4;
+//      v5 = *(float *)(v2 + 148);
+//      if ( v5 < 200.0f )
+//        v5 = 200.0f;
+//      this.DrawFrustum.FrustumEndDist = v5;
+//      if ( *(_DWORD *)(v2 + 128) )
+//        this.DrawFrustum.FrustumAspectRatio = (float)*(int *)(*(_DWORD *)(v2 + 128) + 188) / (float)*(int *)(*(_DWORD *)(v2 + 128) + 192);
 //    }
 //    for ( i = default; i < this.Mesh3p.SkeletalMesh.Materials.Count; ++i )
 //    {
-//      if ( default == dword_1FFD744 )
+//      if ( !dword_1FFD744 )
 //      {
-//        dword_1FFD744 = (int)sub_E58D70((int)L"Engine");
+//        dword_1FFD744 = (Class )sub_E58D70((int)L"Engine");
 //        sub_E525E0();
 //      }
 //      v7 = dword_1FFD744;
 //      v8 = sub_1101A90();
 //      if ( v8 == -1 )
 //        v8 = sub_1101A90();
-//      v9 = (MaterialInterface )sub_1110DD0(v7, v8, 0, 0, 0, 0, 0, dword_20186F4, 0, 0);
+//      v9 = (MaterialInterface )sub_1110DD0((int)v7, v8, 0, 0, 0, 0, 0, dword_20186F4, 0, 0);
 //      (*(void (__thiscall **)(MaterialInterface , MaterialInterface ))(v9.VfTableObject.Dummy + 356))(v9, this.Mesh3p.SkeletalMesh.Materials[i]);
 //      (*(void (__thiscall **)(MaterialInterface , int, int, _DWORD))(v9.VfTableObject.Dummy + 372))(v9, dword_2056844, dword_2056848, *(_DWORD *)(v2 + 128));
 //      sub_D36AF0(this.Mesh3p, i, v9);
 //    }
 //    for ( j = default; j < this.Mesh.SkeletalMesh.Materials.Count; ++j )
 //    {
-//      if ( default == dword_1FFD744 )
+//      if ( !dword_1FFD744 )
 //      {
-//        dword_1FFD744 = (int)sub_E58D70((int)L"Engine");
+//        dword_1FFD744 = (Class )sub_E58D70((int)L"Engine");
 //        sub_E525E0();
 //      }
 //      v11 = dword_1FFD744;
 //      v12 = sub_1101A90();
 //      if ( v12 == -1 )
 //        v12 = sub_1101A90();
-//      v13 = (MaterialInterface )sub_1110DD0(v11, v12, 0, 0, 0, 0, 0, dword_20186F4, 0, 0);
+//      v13 = (MaterialInterface )sub_1110DD0((int)v11, v12, 0, 0, 0, 0, 0, dword_20186F4, 0, 0);
 //      (*(void (__thiscall **)(MaterialInterface , MaterialInterface ))(v13.VfTableObject.Dummy + 356))(v13, this.Mesh.SkeletalMesh.Materials[j]);
 //      (*(void (__thiscall **)(MaterialInterface , int, int, _DWORD))(v13.VfTableObject.Dummy + 372))(v13, dword_2056844, dword_2056848, *(_DWORD *)(v2 + 128));
 //      sub_D36AF0(this.Mesh, j, v13);
@@ -3180,16 +3583,16 @@ fixed(var ptr1 =&this.Rotation)
 //        {
 //          do
 //          {
-//            if ( default == dword_1FFD744 )
+//            if ( !dword_1FFD744 )
 //            {
-//              dword_1FFD744 = (int)sub_E58D70((int)L"Engine");
+//              dword_1FFD744 = (Class )sub_E58D70((int)L"Engine");
 //              sub_E525E0();
 //            }
 //            v17 = dword_1FFD744;
 //            v18 = sub_1101A90();
 //            if ( v18 == -1 )
 //              v18 = sub_1101A90();
-//            v19 = (MaterialInterface )sub_1110DD0(v17, v18, 0, 0, 0, 0, 0, dword_20186F4, 0, 0);
+//            v19 = (MaterialInterface )sub_1110DD0((int)v17, v18, 0, 0, 0, 0, 0, dword_20186F4, 0, 0);
 //            (*(void (__thiscall **)(MaterialInterface , MaterialInterface ))(v19.VfTableObject.Dummy + 356))(v19, this.Mesh1pLowerBody.SkeletalMesh.Materials[v16]);
 //            (*(void (__thiscall **)(MaterialInterface , int, int, _DWORD))(v19.VfTableObject.Dummy + 372))(v19, dword_2056844, dword_2056848, *(_DWORD *)(v2 + 128));
 //            sub_D36AF0(this.Mesh1pLowerBody, v16++, v19);
@@ -3209,16 +3612,16 @@ fixed(var ptr1 =&this.Rotation)
 //        {
 //          do
 //          {
-//            if ( default == dword_1FFD744 )
+//            if ( !dword_1FFD744 )
 //            {
-//              dword_1FFD744 = (int)sub_E58D70((int)L"Engine");
+//              dword_1FFD744 = (Class )sub_E58D70((int)L"Engine");
 //              sub_E525E0();
 //            }
 //            v22 = dword_1FFD744;
 //            v23 = sub_1101A90();
 //            if ( v23 == -1 )
 //              v23 = sub_1101A90();
-//            v24 = (MaterialInterface )sub_1110DD0(v22, v23, 0, 0, 0, 0, 0, dword_20186F4, 0, 0);
+//            v24 = (MaterialInterface )sub_1110DD0((int)v22, v23, 0, 0, 0, 0, 0, dword_20186F4, 0, 0);
 //            (*(void (__thiscall **)(MaterialInterface , MaterialInterface ))(v24.VfTableObject.Dummy + 356))(v24, this.Mesh1p.SkeletalMesh.Materials[v21]);
 //            (*(void (__thiscall **)(MaterialInterface , int, int, _DWORD))(v24.VfTableObject.Dummy + 372))(v24, dword_2056844, dword_2056848, *(_DWORD *)(v2 + 128));
 //            sub_D36AF0(this.Mesh1p, v21, v24);
@@ -3255,7 +3658,7 @@ fixed(var ptr1 =&this.Rotation)
     float v21 = default; // xmm0_4
     int v22 = default; // ecx
     uint v23 = default; // eax
-    uint v24 = default; // edx
+    int v24 = default; // edx
     int v25 = default; // eax
     int v26 = default; // eax
     float v27 = default; // [esp+Ch] [ebp-28h]
@@ -3272,7 +3675,7 @@ fixed(var ptr1 =&this.Rotation)
       this.LegRotationSlowTimer = v4;
     }
     v5 = this.MovementState;
-    if ( v5 != MOVE_BotStartWalking && v5 != MOVE_BotStartRunning && sqrt(this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X) > 20.0f || (this.Moves[v5].bDebugMove.AsBitfield(29) & 0x20000) != 0 )
+    if ( v5 != MOVE_BotStartWalking && v5 != MOVE_BotStartRunning && sqrt(this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X) > 20.0f || (this.Moves[v5].bDebugMove.AsBitfield(29) & 0x20000) != default )
     {
       v6 = this.Velocity.X;
       v28.Y = this.Velocity.Y;
@@ -3289,18 +3692,18 @@ fixed(var ptr1 =&this.Rotation)
         v29.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
         v28 = v29;
       }
-      v9 = E_GetHeadingAngle(&v28);
+      v9 = (short)E_GetHeadingAngle(&v28);
       v10 = (ushort)(v9 - LOWORD(this.Rotation.Yaw));
       if ( (uint)v10 > 0x7FFF )
         v10 = v10 - (0x10000);
       v11 = this.bDisableSkelControlSpring.AsBitfield(32);
-      if ( ((v11 >> 3) & 1) != 0 && (((v12 = this.LegAngleLimitFudge) is object && v10 > v12 + this.GoBackLegAngleLimitMax) || v10 < this.GoBackLegAngleLimitMin - v12) )
+      if ( ((v11 >> 3) & 1) != default && (((v12 = this.LegAngleLimitFudge) is object && v10 > v12 + this.GoBackLegAngleLimitMax) || v10 < this.GoBackLegAngleLimitMin - v12) )
       {
         v13 = v11 & 0xFFFFFFF7;
       }
       else
       {
-        if ( ((this.bDisableSkelControlSpring.AsBitfield(32) >> 3) & 1) != 0 )
+        if ( ((this.bDisableSkelControlSpring.AsBitfield(32) >> 3) & 1) != default )
           goto LABEL_22;
         v14 = this.LegAngleLimitFudge;
         if ( v10 >= this.GoBackLegAngleLimitMax - v14 || v10 <= v14 + this.GoBackLegAngleLimitMin )
@@ -3308,9 +3711,9 @@ fixed(var ptr1 =&this.Rotation)
         v13 = v11 | 8;
       }
       SetFromBitfield(ref this.bDisableSkelControlSpring, 32, v13);
-      this.LegRotationSlowTimer = 0.40000001d;
+      this.LegRotationSlowTimer = 0.40000001f;
   LABEL_22:
-      if ( (this.bDisableSkelControlSpring.AsBitfield(32) & 8) == 0 )
+      if ( (this.bDisableSkelControlSpring.AsBitfield(32) & 8) == default )
         v9 = (short)(v9 + (0x8000));
       v15 = sqrt(this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X) * 0.0049999999d;
       if ( v15 < 0.1f )
@@ -3344,7 +3747,7 @@ fixed(var ptr1 =&this.Rotation)
       v23 = (ushort)(v20 + (int)(float)((float)v22 * v21));
       if ( v23 > 0x7FFF )
         v23 = v23 - (0x10000);
-      this.LegRotation = v23;
+      this.LegRotation = (int)v23;
     }
     v24 = this.Rotation.Yaw;
     v25 = (ushort)(this.LegRotation - v24);
@@ -3362,7 +3765,7 @@ fixed(var ptr1 =&this.Rotation)
 
   public unsafe void physWallRunning(float a2, int a3)
   {
-    Vector *v4; // edi
+    //Vector *v4; // edi
     double v5 = default; // st7
     int v6 = default; // edi
     int v7 = default; // eax
@@ -3453,96 +3856,93 @@ fixed(var ptr1 =&this.Rotation)
     float v92 = default; // [esp+38h] [ebp-1D8h]
     float v93 = default; // [esp+38h] [ebp-1D8h]
     Vector Delta = default; // [esp+3Ch] [ebp-1D4h] BYREF
-    float v95 = default; // [esp+48h] [ebp-1C8h] BYREF
-    float v96 = default; // [esp+4Ch] [ebp-1C4h]
-    float v97 = default; // [esp+50h] [ebp-1C0h]
-    Vector v98 = default; // [esp+54h] [ebp-1BCh] BYREF
-    Vector v99 = default; // [esp+60h] [ebp-1B0h] BYREF
-    Vector v100 = default; // [esp+6Ch] [ebp-1A4h]
-    float v101 = default; // [esp+78h] [ebp-198h]
-    float v102 = default; // [esp+7Ch] [ebp-194h]
-    int v103 = default; // [esp+80h] [ebp-190h]
-    float v104 = default; // [esp+84h] [ebp-18Ch]
-    float v105 = default; // [esp+88h] [ebp-188h]
-    float v106 = default; // [esp+8Ch] [ebp-184h]
-    float v107 = default; // [esp+90h] [ebp-180h]
-    float v108 = default; // [esp+94h] [ebp-17Ch]
-    float v109 = default; // [esp+98h] [ebp-178h]
-    float v110 = default; // [esp+9Ch] [ebp-174h]
-    float v111 = default; // [esp+A0h] [ebp-170h]
-    Vector v112 = default; // [esp+A4h] [ebp-16Ch] BYREF
+    Vector v95 = default; // [esp+48h] [ebp-1C8h] BYREF
+    Vector v96 = default; // [esp+54h] [ebp-1BCh] BYREF
+    Vector v97 = default; // [esp+60h] [ebp-1B0h] BYREF
+    Vector v98 = default; // [esp+6Ch] [ebp-1A4h]
+    float v99 = default; // [esp+78h] [ebp-198h]
+    float v100 = default; // [esp+7Ch] [ebp-194h]
+    uint v101 = default; // [esp+80h] [ebp-190h]
+    float v102 = default; // [esp+84h] [ebp-18Ch]
+    float v103 = default; // [esp+88h] [ebp-188h]
+    float v104 = default; // [esp+8Ch] [ebp-184h]
+    float v105 = default; // [esp+90h] [ebp-180h]
+    float v106 = default; // [esp+94h] [ebp-17Ch]
+    float v107 = default; // [esp+98h] [ebp-178h]
+    float v108 = default; // [esp+9Ch] [ebp-174h]
+    float v109 = default; // [esp+A0h] [ebp-170h]
+    Vector v110 = default; // [esp+A4h] [ebp-16Ch] BYREF
     CheckResult Hit = default; // [esp+B0h] [ebp-160h] BYREF
-    int v114 = default; // [esp+F8h] [ebp-118h]
-    Vector v115 = default; // [esp+FCh] [ebp-114h] BYREF
-    Vector v116 = default; // [esp+108h] [ebp-108h] BYREF
-    Vector v117 = default; // [esp+114h] [ebp-FCh] BYREF
+    int v112 = default; // [esp+F8h] [ebp-118h]
+    Vector v113 = default; // [esp+FCh] [ebp-114h] BYREF
+    Vector v114 = default; // [esp+108h] [ebp-108h] BYREF
+    Vector v115 = default; // [esp+114h] [ebp-FCh] BYREF
     Vector a4 = default; // [esp+120h] [ebp-F0h] BYREF
-    float v119 = default; // [esp+12Ch] [ebp-E4h]
-    float v120 = default; // [esp+130h] [ebp-E0h]
-    float v121 = default; // [esp+134h] [ebp-DCh]
-    float v122 = default; // [esp+138h] [ebp-D8h]
-    float v123 = default; // [esp+13Ch] [ebp-D4h]
-    float v124 = default; // [esp+140h] [ebp-D0h]
+    float v117 = default; // [esp+12Ch] [ebp-E4h]
+    float v118 = default; // [esp+130h] [ebp-E0h]
+    float v119 = default; // [esp+134h] [ebp-DCh]
+    float v120 = default; // [esp+138h] [ebp-D8h]
+    float v121 = default; // [esp+13Ch] [ebp-D4h]
+    float v122 = default; // [esp+140h] [ebp-D0h]
     Vector a7 = default; // [esp+144h] [ebp-CCh] BYREF
-    int v126 = default; // [esp+150h] [ebp-C0h]
-    int v127 = default; // [esp+154h] [ebp-BCh]
+    int v124 = default; // [esp+150h] [ebp-C0h]
+    int v125 = default; // [esp+154h] [ebp-BCh]
     Vector a5 = default; // [esp+158h] [ebp-B8h] BYREF
-    Vector v129 = default; // [esp+164h] [ebp-ACh] BYREF
-    Vector v130 = default; // [esp+170h] [ebp-A0h] BYREF
-    Vector v131 = default; // [esp+17Ch] [ebp-94h] BYREF
-    Vector v132 = default; // [esp+188h] [ebp-88h] BYREF
-    float v133 = default; // [esp+194h] [ebp-7Ch]
-    float v134 = default; // [esp+1A4h] [ebp-6Ch]
-    Vector v135 = default; // [esp+1B4h] [ebp-5Ch] BYREF
-    float v136 = default; // [esp+1C4h] [ebp-4Ch]
-    int v137 = default; // [esp+1D4h] [ebp-3Ch]
-    float v138 = default; // [esp+1E4h] [ebp-2Ch]
-    float v139 = default; // [esp+1F4h] [ebp-1Ch]
+    Vector v127 = default; // [esp+164h] [ebp-ACh] BYREF
+    Vector v128 = default; // [esp+170h] [ebp-A0h] BYREF
+    Vector v129 = default; // [esp+17Ch] [ebp-94h] BYREF
+    Vector v130 = default; // [esp+188h] [ebp-88h] BYREF
+    float v131 = default; // [esp+194h] [ebp-7Ch]
+    float v132 = default; // [esp+1A4h] [ebp-6Ch]
+    Vector v133 = default; // [esp+1B4h] [ebp-5Ch] BYREF
+    float v134 = default; // [esp+1C4h] [ebp-4Ch]
+    int v135 = default; // [esp+1D4h] [ebp-3Ch]
+    float v136 = default; // [esp+1E4h] [ebp-2Ch]
+    float v137 = default; // [esp+1F4h] [ebp-1Ch]
     Vector a2a = default; // [esp+204h] [ebp-Ch] BYREF
   
-    if ( default == this.Controller && (this.bIsFemale.AsBitfield(20) & 0x8000) == 0 )
+    if ( !this.Controller && (this.bIsFemale.AsBitfield(20) & 0x8000) == default )
       return;
-fixed(var ptr1 =&this.Floor)
-    v4 =  ptr1;
-    v92 = atan2(this.Floor.Y, this.Floor.X) * 10430.222f;
+    ref var v4 = ref this.Floor;
+    v92 = (float)(atan2(this.Floor.Y, this.Floor.X) * 10430.222f);
     v5 = this.Floor.X;
-    v127 = (int)v92;
+    v125 = (int)v92;
     if ( fabs(v5) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(this.Floor.Y) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(this.Floor.Z) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
       v9 = this.Acceleration.Y;
       v10 = this.Acceleration.Z;
-      v108 = this.Moves[this.MovementState].FrictionModifier;
+      v106 = this.Moves[this.MovementState].FrictionModifier;
       v11 = v9 * v9;
       v12 = v10 * v10;
       v13 = 0.0f;
-      v133 = (float)((float)(this.Acceleration.X * this.Acceleration.X) + v11) + v12;
-      if ( v133 == 1.0f )
+      v131 = (float)((float)(this.Acceleration.X * this.Acceleration.X) + v11) + v12;
+      if ( v131 == 1.0f )
       {
         v14 = this.Acceleration.Y;
         v15 = this.Acceleration.Z;
-        v95 = this.Acceleration.X;
-        v96 = v14;
-        v97 = v15;
+        v95.X = this.Acceleration.X;
+        v95.Y = v14;
+        v95.Z = v15;
       }
       else
       {
-        if ( v133 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        if ( v131 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
         {
-          v134 = 3.0f;
-          v16 = 1.0f / fsqrt(v133);
-          v135.X = (float)(3.0f - (float)((float)(v16 * v133) * v16)) * (float)(v16 * 0.5f);
-          v95 = this.Acceleration.X * v135.X;
-          v96 = this.Acceleration.Y * v135.X;
-          v13 = this.Acceleration.Z * v135.X;
+          v132 = 3.0f;
+          v16 = 1.0f / fsqrt(v131);
+          v133.X = (float)(3.0f - (float)((float)(v16 * v131) * v16)) * (float)(v16 * 0.5f);
+          v95.X = this.Acceleration.X * v133.X;
+          v95.Y = this.Acceleration.Y * v133.X;
+          v13 = this.Acceleration.Z * v133.X;
         }
         else
         {
-          v95 = 0.0f;
-          v96 = 0.0f;
+          v95.X = 0.0f;
+          v95.Y = 0.0f;
         }
-        v97 = v13;
+        v95.Z = v13;
       }
-      this.CalcVelocity( &v95, LODWORD(a2), this.GroundSpeed * 4.0f, COERCE_FLOAT(LODWORD(v108)), 0, 0, 0);// CalcVelocity
+      this.CalcVelocity( &v95, (a2), this.GroundSpeed * 4.0f, ((v106)), 0, 0, 0);// CalcVelocity
       v17 = this.Velocity.Y;
       v18 = this.Velocity.Z;
       v19 = a2;
@@ -3553,11 +3953,11 @@ fixed(var ptr1 =&this.Floor)
       v20 = this.Velocity.X;
       Hit.Time = 1.0f;
       v21 = this.MaxStepHeight;
-      v105 = v20;
+      v103 = v20;
       v22 = this.Location.X;
-      v106 = v17;
+      v104 = v17;
       v23 = this.Location.Y;
-      v107 = v18;
+      v105 = v18;
       v24 = this.Location.Z;
       Hit.Next = default;
       Hit.Actor = default;
@@ -3573,58 +3973,25 @@ fixed(var ptr1 =&this.Floor)
       Hit.BoneName = default;
       Hit.Level = default;
       Hit.bStartPenetrating = default;
-      v114 = default;
-      v109 = v22;
-      v110 = v23;
-      v111 = v24;
+      v112 = default;
+      v107 = v22;
+      v108 = v23;
+      v109 = v24;
       v93 = a2;
-      v108 = v21 * v21;
-      if ( a2 <= 0.0f )
+      v106 = v21 * v21;
+      if( a2 <= 0.0f )
       {
-  LABEL_64:
-        if ( this.Physics == PHYS_WallRunning )
-        {
-          v79 = this.Rotation.Yaw;
-          v80 = atan2(this.Floor.Y, v4->X);
-          v81 = this.Rotation.Roll;
-          v99.X.LODWORD(this.Rotation.Pitch);
-          v99.Y.LODWORD(v79);
-          v99.Z.LODWORD(v81);
-          v104 = v80 * 10430.222f;
-          v82 = (ushort)((int)v104 - v127);
-          if ( v82 > 0x7FFF )
-            v82 = v82 - (0x10000);
-          v99.Y.LODWORD(LODWORD(v99.Y) + (v82));
-          v117.X = 0.0f;
-          v117.Y = 0.0f;
-          v117.Z = 0.0f;
-          GWorld.MoveActor(this, &v117, (Rotator *)&v99, 0, &Hit);
-          v83 = (float)(this.Location.Y - v110) * (float)(1.0f / a2);
-          v84 = (float)(1.0f / a2) * (float)(this.Location.X - v109);
-          v85 = this.Velocity.X;
-          v86 = this.Velocity.Y * this.Velocity.Y;
-          v87 = this.Velocity.Z * this.Velocity.Z;
-          v111 = (float)(this.Location.Z - v111) * (float)(1.0f / a2);
-          v110 = v83;
-          v109 = v84;
-          if ( (float)((float)((float)(v85 * v85) + v86) + v87) > (float)((float)((float)(v111 * v111) + (float)(v83 * v83)) + (float)(v84 * v84)) && (this.bCollideComplex.AsBitfield(20) & 0x100) == 0 && this.Physics == PHYS_WallRunning )
-          {
-            v88 = v110;
-            v89 = v111;
-            this.Velocity.X = v109;
-            this.Velocity.Y = v88;
-            this.Velocity.Z = v89;
-          }
-        }
-        return;
+        goto LABEL_64;
       }
-      while(1 != default)
-      {
+
+      LABEL_LOOP:
+      //while(1 != default)
+      //{
         if ( a3 >= 8 )
           goto LABEL_64;
         ++a3;
         if ( v19 <= 0.050000001d )
-          break;
+          goto LABEL_OUTLOOP;
         if ( this.IsHumanControlled() )
         {
           v19 = v93;
@@ -3632,70 +3999,66 @@ fixed(var ptr1 =&this.Floor)
         else
         {
           v25 = this.CylinderComponent.CollisionRadius * this.CylinderComponent.CollisionRadius;
-          if ( v108 < v25 )
-            v25 = v108;
+          if ( v106 < v25 )
+            v25 = v106;
           v19 = v93;
-          if ( (float)((float)((float)((float)((float)(v105 * v105) + (float)(v107 * v107)) + (float)(v106 * v106)) * v93) * v93) <= v25 )
-            break;
+          if ( (float)((float)((float)((float)((float)(v103 * v103) + (float)(v105 * v105)) + (float)(v104 * v104)) * v93) * v93) <= v25 )
+            goto LABEL_OUTLOOP;
         }
         v26 = v19 * 0.5f;
         if ( (float)(v19 * 0.5f) >= 0.050000001d )
           v26 = (float)(0.050000001d);
   LABEL_23:
         v93 = v19 - v26;
-        Delta.X = v105 * v26;
-        Delta.Y = v106 * v26;
-        Delta.Z = v107 * v26;
-fixed(var ptr2 =&this.Rotation)
-        GWorld.MoveActor(this, &Delta,  ptr2, 0, &Hit);
+        Delta.X = v103 * v26;
+        Delta.Y = v104 * v26;
+        Delta.Z = v105 * v26;
+        GWorld.MoveActor(this, ref Delta, ref this.Rotation, 0, ref Hit);
         v27 = Hit.Time;
-        if ( Hit.Time >= 1.0f )
-          goto LABEL_39;
-        if ( (this.bDisableSkelControlSpring.AsBitfield(32) & 0x400) != 0 )
+        if( Hit.Time >= 1.0f )
+        {
+          v28 = 0.0f;
+          goto LABEL_40;
+        }
+        if ( (this.bDisableSkelControlSpring.AsBitfield(32) & 0x400) != default )
         {
           a5.X = Delta.X * (float)(1.0f - Hit.Time);
           a5.Y = Delta.Y * (float)(1.0f - Hit.Time);
           a5.Z = Delta.Z * (float)(1.0f - Hit.Time);
-fixed(var ptr3 =&this.Floor)
-          this.UNKNOWN31( ptr3, &Delta, &a5, &Hit);
+          UNKNOWN31(ref this.Floor, ref Delta, ref a5, ref Hit);
   LABEL_39:
           v28 = 0.0f;
           goto LABEL_40;
         }
         v28 = 0.0f;
-        v112.Z = this.MaxWallStepHeight;
+        v110.Z = this.MaxWallStepHeight;
         v29 = Hit.Normal.Z <= this.WalkableFloorZ;
-        v100 = Hit.Normal;
-        v112.X = 0.0f;
-        v112.Y = 0.0f;
-        if ( default == v29 )
+        v98 = Hit.Normal;
+        v110.X = 0.0f;
+        v110.Y = 0.0f;
+        if ( !v29 )
         {
-          v130.X = (float)(1.0f - Hit.Time) * Delta.X;
-          v130.Y = Delta.Y * (float)(1.0f - Hit.Time);
-          v130.Z = Delta.Z * (float)(1.0f - Hit.Time);
-fixed(var ptr4 =&this.Rotation)
-          GWorld.MoveActor(this, &v112,  ptr4, 0, &Hit);
-fixed(var ptr5 =&this.Rotation)
-          GWorld.MoveActor(this, &v130,  ptr5, 0, &Hit);
+          v128.X = (float)(1.0f - Hit.Time) * Delta.X;
+          v128.Y = Delta.Y * (float)(1.0f - Hit.Time);
+          v128.Z = Delta.Z * (float)(1.0f - Hit.Time);
+          GWorld.MoveActor(this, ref v110, ref this.Rotation, 0, ref Hit);
+          GWorld.MoveActor(this, ref v128, ref this.Rotation, 0, ref Hit);
           if ( this.WalkableFloorZ > Hit.Normal.Z && Hit.Time < 1.0f )
-            v100 = Hit.Normal;
-          v131.X = -0.0f - v112.X;
-          v131.Y = -0.0f - v112.Y;
-          v131.Z = -0.0f - v112.Z;
-fixed(var ptr6 =&this.Rotation)
-          GWorld.MoveActor(this, &v131,  ptr6, 0, &Hit);
+            v98 = Hit.Normal;
+          v129.X = -0.0f - v110.X;
+          v129.Y = -0.0f - v110.Y;
+          v129.Z = -0.0f - v110.Z;
+          GWorld.MoveActor(this, ref v129, ref this.Rotation, 0, ref Hit);
           v27 = Hit.Time;
           v28 = 0.0f;
         }
-        if ( this.WalkableFloorZ > v100.Z )
+        if ( this.WalkableFloorZ > v98.Z )
         {
-          v132.X = Delta.X * (float)(1.0f - v27);
-          v132.Y = Delta.Y * (float)(1.0f - v27);
-          v132.Z = Delta.Z * (float)(1.0f - v27);
-fixed(var ptr7 =&this.Rotation)
-          GWorld.MoveActor(this, &v112,  ptr7, 0, &Hit);
-fixed(var ptr8 =&this.Rotation)
-          GWorld.MoveActor(this, &v132,  ptr8, 0, &Hit);
+          v130.X = Delta.X * (float)(1.0f - v27);
+          v130.Y = Delta.Y * (float)(1.0f - v27);
+          v130.Z = Delta.Z * (float)(1.0f - v27);
+          GWorld.MoveActor(this, ref v110, ref this.Rotation, 0, ref Hit);
+          GWorld.MoveActor(this, ref v130, ref this.Rotation, 0, ref Hit);
           if ( this.WalkableFloorZ > Hit.Normal.Z && Hit.Time < 1.0f )
           {
             v30 = (float)((float)(this.Velocity.Y * Hit.Normal.Y) + (float)(this.Velocity.Z * Hit.Normal.Z)) + (float)(this.Velocity.X * Hit.Normal.X);
@@ -3705,58 +4068,58 @@ fixed(var ptr8 =&this.Rotation)
             v34 = this.Velocity.Y - v31;
             v35 = this.Velocity.Z;
             SetFromBitfield(ref this.bDisableSkelControlSpring, 32, this.bDisableSkelControlSpring.AsBitfield(32) | (0x400u));
-            v119 = v33;
+            v117 = v33;
             v36 = v35 - v32;
             v37 = this.Velocity.Z;
             this.Velocity.X = v33;
-            v120 = v34;
+            v118 = v34;
             this.Velocity.Y = v34;
             this.Velocity.Z = v37;
             v38 = this.Velocity.Y;
             v39 = this.Velocity.Z;
-            v105 = this.Velocity.X;
-            v121 = v36;
-            v106 = v38;
-            v107 = v39;
-            E_CallReachedWall(this);
+            v103 = this.Velocity.X;
+            v119 = v36;
+            v104 = v38;
+            v105 = v39;
+            this.ReachedWall();
             SetFromBitfield(ref this.bCollideComplex, 20, this.bCollideComplex.AsBitfield(20) | (0x100u));
           }
-          v129.X = -0.0f - v112.X;
-          v129.Y = -0.0f - v112.Y;
-          v129.Z = -0.0f - v112.Z;
-fixed(var ptr9 =&this.Rotation)
-          GWorld.MoveActor(this, &v129,  ptr9, 0, &Hit);
-          goto LABEL_39;
+          v127.X = -0.0f - v110.X;
+          v127.Y = -0.0f - v110.Y;
+          v127.Z = -0.0f - v110.Z;
+          GWorld.MoveActor(this, ref v127, ref this.Rotation, 0, ref Hit);
+          v28 = 0.0f;
+          goto LABEL_40;
         }
   LABEL_40:
-        if ( (this.bDisableSkelControlSpring.AsBitfield(32) & 0x400) != 0 )
+        if ( (this.bDisableSkelControlSpring.AsBitfield(32) & 0x400) != default )
         {
           v40 = this.Velocity.Y;
           v41 = this.Velocity.X;
           v42 = (float)(v41 * v41) + (float)(v40 * v40);
-          v136 = v42;
+          v134 = v42;
           if ( v42 == 1.0f )
           {
             if ( this.Velocity.Z == 0.0f )
             {
               v43 = this.Velocity.Y;
               v44 = this.Velocity.Z;
-              v122 = this.Velocity.X;
-              v41 = v122;
-              v123 = v43;
+              v120 = this.Velocity.X;
+              v41 = v120;
+              v121 = v43;
               v40 = v43;
-              v124 = v44;
+              v122 = v44;
               v28 = v44;
             }
           }
           else if ( v42 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
           {
-            v139 = 3.0f;
-            v126 = 1056964608;
-            v45 = fsqrt(v136);
-            v133 = (float)(3.0f - (float)((float)((float)(1.0f / v45) * v136) * (float)(1.0f / v45))) * (float)((float)(1.0f / v45) * 0.5f);
-            v41 = v133 * this.Velocity.X;
-            v40 = this.Velocity.Y * v133;
+            v137 = 3.0f;
+            v124 = 1056964608;
+            v45 = fsqrt(v134);
+            v131 = (float)(3.0f - (float)((float)((float)(1.0f / v45) * v134) * (float)(1.0f / v45))) * (float)((float)(1.0f / v45) * 0.5f);
+            v41 = v131 * this.Velocity.X;
+            v40 = this.Velocity.Y * v131;
           }
           else
           {
@@ -3769,10 +4132,10 @@ fixed(var ptr9 =&this.Rotation)
           v49 = this.Location.Y + (float)(v40 * 35.0f);
           v50 = this.MaxWallStepHeight + 2.0f;
           v51 = this.Location.Z + (float)(v28 * 35.0f);
-          v52 = v4->X;
-          v116.X = v48;
-          v116.Y = v49;
-          v116.Z = v51;
+          v52 = v4.X;
+          v114.X = v48;
+          v114.Y = v49;
+          v114.Z = v51;
           a4.X = v48 - (float)(v52 * v50);
           a4.Y = v49 - (float)(v46 * v50);
           a4.Z = v51 - (float)(v47 * v50);
@@ -3782,22 +4145,22 @@ fixed(var ptr9 =&this.Rotation)
           a7.Y = v53->Y * 0.25f;
           a7.Z = v54 * 0.25f;
           v56 = (float)(v54 * 0.25f) * 0.75f;
-          v116.Z = v116.Z - v56;
+          v114.Z = v114.Z - v56;
           a7.X = v55 * 0.25f;
           a4.Z = a4.Z - v56;
-          GWorld.SingleLineCheck(&Hit, this, &a4, &v116, 8415, &a7, 0);
+          GWorld.SingleLineCheck(ref Hit, this, ref a4, ref v114, 8415, ref a7, 0);
           if ( Hit.Time >= 1.0f )
           {
             if ( this.Physics == PHYS_WallRunning )
             {
-              v98.X = 0.0f;
-              v98.Y = 0.0f;
+              v96.X = 0.0f;
+              v96.Y = 0.0f;
   LABEL_73:
-              v90 = v98.X;
-              v98.Z = 1.0f;
-              v91 = v98.Y;
+              v90 = v96.X;
+              v96.Z = 1.0f;
+              v91 = v96.Y;
   LABEL_74:
-              this.setPhysics( 2, 0, COERCE_FLOAT(LODWORD(v90)), COERCE_FLOAT(LODWORD(v91)), 1065353216);// setPhysics
+              this.setPhysics( 2, default, new Vector(v90, v91, 1065353216));// setPhysics
               this.FallingOffWall();
               goto LABEL_8;
             }
@@ -3807,32 +4170,35 @@ fixed(var ptr9 =&this.Rotation)
             if ( (float)((float)((float)(this.Floor.Y * Hit.Normal.Y) + (float)(this.Floor.Z * Hit.Normal.Z)) + (float)(this.Floor.X * Hit.Normal.X)) < 0.95999998d
               && (float)((float)((float)(Hit.Normal.Y * Delta.Y) + (float)(Delta.Z * Hit.Normal.Z)) + (float)(Hit.Normal.X * Delta.X)) > 0.0f )
             {
-              v98.X = 0.0f;
-              v98.Y = 0.0f;
-              goto LABEL_73;
+              v96.X = 0.0f;
+              v96.Y = 0.0f;
+              v90 = v96.X;
+              v96.Z = 1.0f;
+              v91 = v96.Y;
+              this.setPhysics( 2, default, new Vector(v90, v91, COERCE_FLOAT(1065353216)));// setPhysics
+              this.FallingOffWall();
+              goto LABEL_8;
             }
             v57 = this.Floor.Y;
             v58 = this.Floor.Z;
             v59 = this.MaxWallStepHeight + 2.0f;
-            v117.X = (float)(v4->X * -1.0f) * v59;
-            v117.Y = (float)(v57 * -1.0f) * v59;
-            v117.Z = (float)(v58 * -1.0f) * v59;
-fixed(var ptr10 =&this.Rotation)
-            GWorld.MoveActor(this, &v117,  ptr10, 0, &Hit);
+            v115.X = (float)(v4.X * -1.0f) * v59;
+            v115.Y = (float)(v57 * -1.0f) * v59;
+            v115.Z = (float)(v58 * -1.0f) * v59;
+            GWorld.MoveActor(this, ref v115, ref this.Rotation, 0, ref Hit);
             v60 = Hit.Normal.Y;
             v61 = Hit.Normal.Z;
-            v4->X = Hit.Normal.X;
+            v4.X = Hit.Normal.X;
             v62 = Hit.Actor == this.Base;
             this.Floor.Y = v60;
             this.Floor.Z = v61;
-            if ( default == v62 )
+            if ( !v62 )
               this.SetBase(
                 Hit.Actor,
                 Hit.Normal,
                 1,
-                0,
-                0,
-                0);
+                default,
+                default);
           }
         }
         else if ( this.Moves[this.MovementState].MoveActiveTime > 0.2f )
@@ -3840,29 +4206,29 @@ fixed(var ptr10 =&this.Rotation)
           v63 = this.Velocity.Y;
           v64 = this.Velocity.X;
           v65 = (float)(v64 * v64) + (float)(v63 * v63);
-          v138 = v65;
+          v136 = v65;
           if ( v65 == 1.0f )
           {
             if ( this.Velocity.Z == 0.0f )
             {
               v66 = this.Velocity.Y;
               v67 = this.Velocity.Z;
-              v101 = this.Velocity.X;
-              v64 = v101;
-              v102 = v66;
+              v99 = this.Velocity.X;
+              v64 = v99;
+              v100 = v66;
               v63 = v66;
-              v103 = LODWORD(v67);
+              v101 = LODWORD(v67);
               v28 = v67;
             }
           }
           else if ( v65 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
           {
-            v137 = 1077936128;
-            v104 = 0.5f;
-            v68 = fsqrt(v138);
-            v134 = (float)(3.0f - (float)((float)((float)(1.0f / v68) * v138) * (float)(1.0f / v68))) * (float)((float)(1.0f / v68) * 0.5f);
-            v64 = v134 * this.Velocity.X;
-            v63 = this.Velocity.Y * v134;
+            v135 = 1077936128;
+            v102 = 0.5f;
+            v68 = fsqrt(v136);
+            v132 = (float)(3.0f - (float)((float)((float)(1.0f / v68) * v136) * (float)(1.0f / v68))) * (float)((float)(1.0f / v68) * 0.5f);
+            v64 = v132 * this.Velocity.X;
+            v63 = this.Velocity.Y * v132;
           }
           else
           {
@@ -3874,37 +4240,41 @@ fixed(var ptr10 =&this.Rotation)
           v71 = this.Location.Y + (float)(v63 * 35.0f);
           v72 = this.Floor.Y;
           v73 = this.Location.Z + (float)(v28 * 35.0f);
-          v74 = v4->X;
-          v115.X = this.Location.X + (float)(v64 * 35.0f);
-          v115.Y = v71;
-          v115.Z = v73;
-          v99.X = v115.X - (float)(v74 * v70);
-          v99.Y = v71 - (float)(v72 * v70);
-          v99.Z = v73 - (float)(v69 * v70);
-          v75 = this.GetCylinderExtent(&v135);
+          v74 = v4.X;
+          v113.X = this.Location.X + (float)(v64 * 35.0f);
+          v113.Y = v71;
+          v113.Z = v73;
+          v97.X = v113.X - (float)(v74 * v70);
+          v97.Y = v71 - (float)(v72 * v70);
+          v97.Z = v73 - (float)(v69 * v70);
+          v75 = this.GetCylinderExtent(&v133);
           v76 = v75->Z;
           v77 = v75->X;
-          v98.Y = v75->Y * 0.25f;
-          v98.Z = v76 * 0.25f;
+          v96.Y = v75->Y * 0.25f;
+          v96.Z = v76 * 0.25f;
           v78 = (float)(v76 * 0.25f) * 0.75f;
-          v115.Z = v115.Z - v78;
-          v98.X = v77 * 0.25f;
-          v99.Z = v99.Z - v78;
-          GWorld.SingleLineCheck(&Hit, this, &v99, &v115, 8415, &v98, 0);
+          v113.Z = v113.Z - v78;
+          v96.X = v77 * 0.25f;
+          v97.Z = v97.Z - v78;
+          GWorld.SingleLineCheck(ref Hit, this, ref v97, ref v113, 8415, ref v96, 0);
           if ( Hit.Time >= 1.0f && this.Physics == PHYS_WallRunning )
           {
-            v101 = 0.0f;
+            v99 = 0.0f;
             v90 = 0.0f;
-            v102 = 0.0f;
-            v103 = 1065353216;
+            v100 = 0.0f;
+            v101 = 1065353216;
             v91 = 0.0f;
-            goto LABEL_74;
+            this.setPhysics( 2, default, new Vector(v90, v91, COERCE_FLOAT(1065353216)));// setPhysics
+            this.FallingOffWall();
+            goto LABEL_8;
           }
         }
         v19 = v93;
         if ( v93 <= 0.0f )
           goto LABEL_64;
-      }
+        goto LABEL_LOOP;
+      //}
+      LABEL_OUTLOOP:
       v26 = v19;
       goto LABEL_23;
     }
@@ -3913,13 +4283,51 @@ fixed(var ptr10 =&this.Rotation)
     if ( this.Physics == PHYS_WallRunning )
     {
       // v8 = *(void (__thiscall **)(TdPawn , int, _DWORD, _DWORD, _DWORD, int))(this.VfTableObject.Dummy + 480);
-      v100.X = 0.0f;
-      v100.Y = 0.0f;
-      v100.Z = 1.0f;
-      this.setPhysics( 2, 0, 0, 0, 1065353216);
+      v98.X = 0.0f;
+      v98.Y = 0.0f;
+      v98.Z = 1.0f;
+      this.setPhysics( 2, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));
     }
   LABEL_8:
-    this.startNewPhysics( LODWORD(a2), a3);// startNewPhysics
+    this.startNewPhysics( a2, a3);// startNewPhysics
+    return;
+    
+    LABEL_64:
+    if ( this.Physics == PHYS_WallRunning )
+    {
+      v79 = this.Rotation.Yaw;
+      v80 = atan2(this.Floor.Y, v4.X);
+      v81 = this.Rotation.Roll;
+      v97.X.LODWORD(this.Rotation.Pitch);
+      v97.Y.LODWORD(v79);
+      v97.Z.LODWORD(v81);
+      v102 = (float)(v80 * 10430.222f);
+      v82 = (ushort)((int)v102 - v125);
+      if ( v82 > 0x7FFF )
+        v82 = v82 - (0x10000);
+      v97.Y.LODWORD(LODWORD(v97.Y) + v82);
+      v115.X = 0.0f;
+      v115.Y = 0.0f;
+      v115.Z = 0.0f;
+      GWorld.MoveActor(this, ref v115, ref *((Rotator *)&v97), 0, ref Hit);
+      v83 = (float)(this.Location.Y - v108) * (float)(1.0f / a2);
+      v84 = (float)(1.0f / a2) * (float)(this.Location.X - v107);
+      v85 = this.Velocity.X;
+      v86 = this.Velocity.Y * this.Velocity.Y;
+      v87 = this.Velocity.Z * this.Velocity.Z;
+      v109 = (float)(this.Location.Z - v109) * (float)(1.0f / a2);
+      v108 = v83;
+      v107 = v84;
+      if ( (float)((float)((float)(v85 * v85) + v86) + v87) > (float)((float)((float)(v109 * v109) + (float)(v83 * v83)) + (float)(v84 * v84)) && (this.bCollideComplex.AsBitfield(20) & 0x100) == default && this.Physics == PHYS_WallRunning )
+      {
+        v88 = v108;
+        v89 = v109;
+        this.Velocity.X = v107;
+        this.Velocity.Y = v88;
+        this.Velocity.Z = v89;
+      }
+    }
+    return;
   }
 
   public unsafe void physWallClimbing(float a2, int a3)
@@ -3941,7 +4349,7 @@ fixed(var ptr10 =&this.Rotation)
     float v18 = default; // edx
     float v19 = default; // xmm1_4
     float v20 = default; // xmm0_4
-    Vector *v21; // ebx
+    //Vector *v21; // ebx
     float v22 = default; // ecx
     float v23 = default; // edx
     float v24 = default; // eax
@@ -4019,7 +4427,7 @@ fixed(var ptr10 =&this.Rotation)
     float v96 = default; // [esp+178h] [ebp-20h]
     int v97 = default; // [esp+188h] [ebp-10h]
   
-    if ( this.Controller || (this.bIsFemale.AsBitfield(20) & 0x8000) != 0 )
+    if ( this.Controller || (this.bIsFemale.AsBitfield(20) & 0x8000) != default )
     {
       if ( fabs(this.Floor.X) < 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ && fabs(this.Floor.Y) < 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ && fabs(this.Floor.Z) < 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || this.Velocity.Z < 0.0f )
       {
@@ -4031,9 +4439,9 @@ fixed(var ptr10 =&this.Rotation)
           v69 = 0.0f;
           v70 = 0.0f;
           v71 = 1.0f;
-          this.setPhysics( 2, 0, 0, 0, 1065353216);
+          this.setPhysics( 2, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));
         }
-        this.startNewPhysics( LODWORD(a2), a3);// startNewPhysics
+        this.startNewPhysics( (a2), a3);// startNewPhysics
       }
       else
       {
@@ -4066,12 +4474,12 @@ fixed(var ptr10 =&this.Rotation)
         v12 = this.Velocity.X;
         v13 = this.GroundSpeed * 4.0f;
         v70 = this.Velocity.Y;
-        v14 = this.MovementState;
+        v14 = (int)this.MovementState;
         v71 = v11;
         v15 = this.Moves[v14].FrictionModifier;
         v69 = v12;
         v58 = (float)v15;
-        this.CalcVelocity( &v65, LODWORD(a2), LODWORD(v13), LODWORD(v58), 0, 0, 0);// CalcVelocity
+        this.CalcVelocity( (Vector*)&v65, (a2), (v13), (v58), 0, 0, 0);// CalcVelocity
         v16 = this.Velocity.Z;
         v17 = this.Velocity.X;
         v18 = this.Velocity.Y;
@@ -4079,8 +4487,7 @@ fixed(var ptr10 =&this.Rotation)
         SetFromBitfield(ref this.bCollideComplex, 20, this.bCollideComplex.AsBitfield(20) & (0xFFFFFEFF));
         v20 = this.MaxStepHeight;
         v74 = v16;
-fixed(var ptr1 =&this.Location)
-        v21 =  ptr1;
+        ref var v21 = ref this.Location;
         v72 = v17;
         v22 = this.Location.X;
         v73 = v18;
@@ -4111,13 +4518,14 @@ fixed(var ptr1 =&this.Location)
         v83 = v20 * v20;
         if ( a2 > 0.0f )
         {
-          while(1 != default)
-          {
+          LABEL_LOOP:
+          //while(1 != default)
+          //{
             if ( a3 >= 8 )
               goto LABEL_48;
             v25 = ++a3;
             if ( v19 <= 0.050000001d )
-              break;
+              goto LABEL_OUTLOOP;
             if ( this.IsHumanControlled() )
             {
               v19 = Delta;
@@ -4129,7 +4537,7 @@ fixed(var ptr1 =&this.Location)
                 v26 = v83;
               v19 = Delta;
               if ( (float)((float)((float)((float)((float)(v72 * v72) + (float)(v73 * v73)) + (float)(v74 * v74)) * Delta) * Delta) <= v26 )
-                break;
+                goto LABEL_OUTLOOP;
             }
             v27 = v19 * 0.5f;
             if ( (float)(v19 * 0.5f) >= 0.050000001d )
@@ -4139,11 +4547,10 @@ fixed(var ptr1 =&this.Location)
             v68.X = v72 * v27;
             v68.Y = v73 * v27;
             v68.Z = v74 * v27;
-fixed(var ptr2 =&this.Rotation)
-            GWorld.MoveActor(this, &v68,  ptr2, 0, &Hit);
+            GWorld.MoveActor(this, ref v68, ref this.Rotation, 0, ref Hit);
             if ( Hit.Time < 1.0f )
             {
-              if ( (this.bDisableSkelControlSpring.AsBitfield(32) & 1024) != 0 )
+              if ( (this.bDisableSkelControlSpring.AsBitfield(32) & 1024) != default )
               {
                 v28 = v68.X;
                 v29 = v68.Z;
@@ -4163,12 +4570,19 @@ fixed(var ptr2 =&this.Rotation)
                 v90.X = v28 * (float)(1.0f - Hit.Time);
                 v90.Y = v30 * (float)(1.0f - Hit.Time);
                 v90.Z = v29 * (float)(1.0f - Hit.Time);
-                this.WallClimbingStepUp_maybe(&a4, &a4, &v90, &Hit);
+                WallClimbingStepUp_maybe(ref a4, ref a4, ref v90, ref Hit);
               }
               else
               {
-                if ( fabs(Hit.Normal.Z) >= 0.2f )
-                  goto LABEL_53;
+                if( fabs( Hit.Normal.Z ) >= 0.2f )
+                {
+                  this.FallingOffWall();
+                  if ( this.Physics == PHYS_WallClimbing )
+                    this.setPhysics( 2, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));// setPhysics
+                  startNewPhysics((a2), v25);
+                  return;
+                }
+
                 v33 = (float)((float)(this.Velocity.Z * Hit.Normal.Z) + (float)(this.Velocity.Y * Hit.Normal.Y)) + (float)(Hit.Normal.X * this.Velocity.X);
                 v34 = this.Velocity.X - (float)(v33 * Hit.Normal.X);
                 v35 = this.Velocity.Z - (float)(v33 * Hit.Normal.Z);
@@ -4228,24 +4642,23 @@ fixed(var ptr2 =&this.Rotation)
                 v25 = a3;
               }
             }
-            if ( (this.bDisableSkelControlSpring.AsBitfield(32) & 0x400) != 0 )
+            if ( (this.bDisableSkelControlSpring.AsBitfield(32) & 0x400) != default )
             {
               v45 = this.MaxWallStepHeight + 2.0f;
               v46 = this.Floor.Y * v45;
               v47 = this.Floor.Z * v45;
-              *(float *)v89 = v21->X - (float)(this.Floor.X * v45);
+              *(float *)v89 = v21.X - (float)(this.Floor.X * v45);
               *(float *)&v89[1] = this.Location.Y - v46;
               *(float *)&v89[2] = this.Location.Z - v47;
               v48 = this.GetCylinderExtent(&a2a);
-fixed(var ptr3 =&this.Location)
-              GWorld.SingleLineCheck(&Hit, this, (Vector *)v89,  ptr3, 8415, v48, 0);
+              GWorld.SingleLineCheck(ref Hit, this, ref *(Vector *)v89, ref this.Location, 8415, ref *v48, 0);
               if ( Hit.Time >= 1.0f )
               {
   LABEL_53:
                 this.FallingOffWall();
                 if ( this.Physics == PHYS_WallClimbing )
-                  this.setPhysics( 2, 0, 0, 0, 1065353216);// setPhysics
-                (*(void (__thiscall **)(TdPawn , _DWORD, int))(this.VfTableObject.Dummy + 1000))(this, LODWORD(a2), v25);
+                  this.setPhysics( 2, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));// setPhysics
+                startNewPhysics((a2), v25);
                 return;
               }
               v49 = this.Floor.Y;
@@ -4256,45 +4669,44 @@ fixed(var ptr3 =&this.Location)
               a4.Z = (float)(v50 * -1.0f) * v51;
               if ( fabs(Hit.Normal.Z) > 0.2f )
               {
-fixed(var ptr4 =&this.Rotation)
-                GWorld.MoveActor(this, &a4,  ptr4, 0, &Hit);
+                GWorld.MoveActor(this, ref a4, ref this.Rotation, 0, ref Hit);
                 if ( this.Physics == PHYS_WallClimbing )
-                  this.setPhysics( 2, 0, 0, 0, 1065353216);// setPhysics
+                  this.setPhysics( 2, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));// setPhysics
                 this.FallingOffWall();
-                (*(void (__thiscall **)(TdPawn , _DWORD, int))(this.VfTableObject.Dummy + 1000))(this, LODWORD(a2), v25);
+                startNewPhysics((a2), v25);
                 return;
               }
-fixed(var ptr5 =&this.Rotation)
-              GWorld.MoveActor(this, &a4,  ptr5, 0, &Hit);
+              GWorld.MoveActor(this, ref a4, ref this.Rotation, 0, ref Hit);
               v52 = Hit.Normal.Y;
               v53 = Hit.Normal.Z;
               this.Floor.X = Hit.Normal.X;
               v54 = Hit.Actor == this.Base;
               this.Floor.Y = v52;
               this.Floor.Z = v53;
-              if ( default == v54 )
+              if ( !v54 )
                 this.SetBase(
                   Hit.Actor,
                   Hit.Normal,
                   1,
-                  0,
-                  0,
-                  0);
+                  default,
+                  default);
             }
             v19 = Delta;
             if ( Delta <= 0.0f )
               goto LABEL_48;
-          }
+            goto LABEL_LOOP;
+          //}
+          LABEL_OUTLOOP:
           v27 = v19;
           goto LABEL_24;
         }
   LABEL_48:
-        if ( (this.bCollideComplex.AsBitfield(20) & 0x100) == 0 && this.Physics == PHYS_WallClimbing )
+        if ( (this.bCollideComplex.AsBitfield(20) & 0x100) == default && this.Physics == PHYS_WallClimbing )
         {
           v55 = v71;
           Delta_8a = (float)(this.Location.Y - Delta_8) * (float)(1.0f / a2);
           v56 = (float)(this.Location.Z - v64) * (float)(1.0f / a2);
-          this.Velocity.X = (float)(1.0f / a2) * (float)(v21->X - Delta_4);
+          this.Velocity.X = (float)(1.0f / a2) * (float)(v21.X - Delta_4);
           this.Velocity.Y = Delta_8a;
           this.Velocity.Z = v56;
           if ( v55 > this.Velocity.Z || v55 >= 0.0f )
@@ -4310,8 +4722,268 @@ fixed(var ptr5 =&this.Rotation)
     }
   }
 
+
+
+  public unsafe Vector GetSprintAcceleration( float aForward, float aStrafe, int DeltaRotation, float DeltaTime )
+  {
+    Vector v = default;
+    return *GetSprintAcceleration(&v, aForward, aStrafe, DeltaRotation, DeltaTime);
+  }
+
+
+
+  public unsafe Vector * GetSprintAcceleration(Vector *outputVec, float aForward, float aStrafe, int DeltaRotation, float DeltaTime)
+  {
+    Matrix *v7; // eax
+    double v8 = default; // st7
+    float v9 = default; // xmm6_4
+    float v10 = default; // xmm4_4
+    float v11 = default; // xmm5_4
+    float v12 = default; // xmm0_4
+    float v13 = default; // xmm2_4
+    Vector *result; // eax
+    float v15 = default; // edx
+    float v16 = default; // ecx
+    float v17 = default; // xmm0_4
+    double v18 = default; // st7
+    TdWeapon v19 = default; // eax
+    float v20 = default; // xmm5_4
+    float v21 = default; // xmm7_4
+    float v22 = default; // xmm6_4
+    float v23 = default; // xmm0_4
+    float v24 = default; // xmm4_4
+    double v25 = default; // st7
+    float v26 = default; // xmm4_4
+    float v27 = default; // xmm6_4
+    float v28 = default; // xmm5_4
+    float v29 = default; // xmm1_4
+    float v30 = default; // xmm0_4
+    float v31 = default; // xmm3_4
+    float v32 = default; // xmm0_4
+    float v33 = default; // xmm6_4
+    float v34 = default; // xmm0_4
+    float v35 = default; // xmm2_4
+    float v36 = default; // xmm3_4
+    float v37 = default; // xmm4_4
+    float v38 = default; // xmm5_4
+    float v39 = default; // xmm1_4
+    float v40 = default; // xmm4_4
+    float v41 = default; // xmm3_4
+    float v42 = default; // xmm6_4
+    float v43 = default; // xmm5_4
+    float v44 = default; // xmm4_4
+    float v45 = default; // xmm3_4
+    float v46 = default; // xmm1_4
+    float v47 = default; // xmm2_4
+    float v48 = default; // xmm0_4
+    double v49 = default; // st7
+    double v50 = default; // st5
+    float a2 = default; // [esp+0h] [ebp-ACh]
+    float a3 = default; // [esp+14h] [ebp-98h] BYREF
+    float v53 = default; // [esp+18h] [ebp-94h]
+    float v54 = default; // [esp+1Ch] [ebp-90h]
+    float v55 = default; // [esp+20h] [ebp-8Ch]
+    float v56 = default; // [esp+28h] [ebp-84h]
+    float v57 = default; // [esp+2Ch] [ebp-80h]
+    float v58 = default; // [esp+30h] [ebp-7Ch]
+    float v59 = default; // [esp+38h] [ebp-74h]
+    float v60 = default; // [esp+3Ch] [ebp-70h]
+    float v61 = default; // [esp+40h] [ebp-6Ch]
+    float v62 = default; // [esp+48h] [ebp-64h]
+    int v63 = default; // [esp+4Ch] [ebp-60h]
+    float v64 = default; // [esp+5Ch] [ebp-50h]
+    Matrix v65 = default; // [esp+6Ch] [ebp-40h] BYREF
+  
+    v7 = FRotationMatrix(&v65, ref this.Rotation);
+    v8 = sqrt(this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X);
+    v9 = (float)(v7->XPlane.X * aForward) + (float)(v7->YPlane.X * aStrafe);
+    v10 = (float)(v7->XPlane.Y * aForward) + (float)(v7->YPlane.Y * aStrafe);
+    v11 = (float)(v7->XPlane.Z * aForward) + (float)(v7->YPlane.Z * aStrafe);
+    v12 = (float)((float)(v11 * v11) + (float)(v10 * v10)) + (float)(v9 * v9);
+    v59 = v9;
+    v60 = v10;
+    v61 = v11;
+    v56 = v12;
+    v62 = (float)v8;
+    if ( v12 == 1.0f )
+    {
+      v53 = v59;
+      v54 = v60;
+      v55 = v61;
+    }
+    else if ( v12 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    {
+      a3 = 0.5f;
+      v13 = 1.0f / fsqrt(v56);
+      v59 = (float)(3.0f - (float)((float)(v13 * v56) * v13)) * (float)(v13 * 0.5f);
+      v53 = v59 * v9;
+      v54 = v10 * v59;
+      v55 = v11 * v59;
+    }
+    else
+    {
+      v53 = 0.0f;
+      v54 = 0.0f;
+      v55 = 0.0f;
+    }
+    v56 = 0.0f;
+    v57 = 0.0f;
+    v58 = 0.0f;
+    if ( fabs(v53) < 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ && fabs(v54) < 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ && fabs(v55) < 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    {
+      result = outputVec;
+      v15 = v57;
+      outputVec->X = v56;
+      v16 = v58;
+      outputVec->Y = v15;
+      this.SpeedSprintEnergy = 0.0f;
+      outputVec->Z = v16;
+      return result;
+    }
+    v17 = v62 - this.SpeedMaxBaseVelocity;
+    this.SpeedSprintEnergy = v17;
+    if ( v17 < 0.0f )
+      v17 = 0.0f;
+    a2 = (float)v8;
+    this.SpeedSprintEnergy = v17;
+    a3 = 0.0f;
+    v18 = this.AccelCurve_LightWeapon.Eval(a2, ref a3, default);
+    v59 = (float)(v53 * v18);
+    v56 = v59;
+    v19 = this.MyWeapon;
+    v60 = (float)(v54 * v18);
+    v57 = v60;
+    v61 = (float)(v18 * v55);
+    v58 = v61;
+    if ( v19 && v19.WeaponType == EWT_Heavy )
+    {
+      v20 = v62;
+      v21 = this.AccelCurve_HeavyWeapon.Points[this.AccelCurve_HeavyWeapon.Points.Count - 1].InVal;
+      if ( v62 > v21 )
+      {
+        v22 = v55;
+        v23 = v53;
+        v24 = v54;
+        v55 = -0.0f - v55;
+        v59 = (float)(-0.0f - v53) * (float)(v62 - v21);
+        v60 = (float)(-0.0f - v54) * (float)(v62 - v21);
+        v61 = v55 * (float)(v62 - v21);
+        v56 = v59;
+        v57 = v60;
+        v58 = v61;
+        goto LABEL_18;
+      }
+      a3 = 0.0f;
+      v25 = this.AccelCurve_HeavyWeapon.Eval(v62, ref a3, default);
+      v59 = (float)(v53 * v25);
+      v56 = v59;
+      v60 = (float)(v54 * v25);
+      v57 = v60;
+      v61 = (float)(v25 * v55);
+      v58 = v61;
+    }
+    v20 = v62;
+    v22 = v55;
+    v24 = v54;
+    v23 = v53;
+  LABEL_18:
+    if ( this.Physics == PHYS_Falling )
+    {
+      v44 = v58;
+      v43 = v57;
+      v42 = v56;
+      goto LABEL_33;
+    }
+    v26 = (float)(v24 * v20) - this.Velocity.Y;
+    v27 = v22 * v20;
+    v28 = (float)(v23 * v20) - this.Velocity.X;
+    v29 = (float)(v26 * v26) + (float)(v28 * v28);
+    a3 = v29;
+    v30 = this.SpeedSprintVelocityAccelerationFactor;
+    v31 = v27;
+    v59 = v28;
+    v60 = v26;
+    v61 = v27;
+    a3 = (float)(sqrt(v29));
+    v32 = v30 * a3;
+    if ( (float)(a3 / DeltaTime) < v32 )
+      v33 = a3 / DeltaTime;
+    else
+      v33 = v32;
+    v64 = (float)(v26 * v26) + (float)(v28 * v28);
+    if ( v29 != 1.0f )
+    {
+      if ( v29 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      {
+        v34 = 0.0f;
+        v54 = 0.0f;
+        v55 = 0.0f;
+  LABEL_30:
+        v53 = v34;
+        goto LABEL_31;
+      }
+      v63 = 1077936128;
+      a3 = 0.5f;
+      v35 = 1.0f / fsqrt(v64);
+      v53 = (float)(3.0f - (float)((float)(v35 * v64) * v35)) * (float)(v35 * 0.5f);
+      v26 = v26 * v53;
+      v34 = v53 * v28;
+  LABEL_29:
+      v55 = 0.0f;
+      v54 = v26;
+      v53 = v34;
+      goto LABEL_31;
+    }
+    if ( v31 != 0.0f )
+    {
+      v34 = v28;
+      v55 = 0.0f;
+      v54 = v26;
+      v53 = v34;
+      goto LABEL_31;
+    }
+    v53 = v59;
+    v34 = v59;
+    v54 = v60;
+    v55 = v61;
+  LABEL_31:
+    v36 = this.Velocity.Y;
+    v37 = this.Velocity.Z;
+    v59 = v53;
+    v38 = this.PhysicsVolume.GroundFriction;
+    v60 = v54;
+    v61 = v55;
+    v39 = (float)(v55 * v33) + v58;
+    v40 = (float)(v37 * v38) * 0.1f;
+    v41 = (float)((float)(v36 * v38) * 0.1f) + (float)((float)(v54 * v33) + v57);
+    v42 = (float)((float)(v38 * this.Velocity.X) * 0.1f) + (float)((float)(v34 * v33) + v56);
+    v43 = v41;
+    v44 = v40 + v39;
+  LABEL_33:
+    v45 = this.SpeedTurnDecelerationFactor;
+    v46 = this.Velocity.Y;
+    v47 = this.Velocity.Z;
+    v48 = this.Velocity.X * v45;
+    a3 = (float)(fabs((double)DeltaRotation));
+    v56 = (float)(v42 - (float)((float)(v48 * a3) * 0.000030517578f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/)) * 10.0f;
+    v57 = (float)(v43 - (float)((float)((float)(v46 * v45) * a3) * 0.000030517578f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/)) * 10.0f;
+    v58 = (float)(v44 - (float)((float)((float)(v47 * v45) * a3) * 0.000030517578f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/)) * 10.0f;
+    v56 = (float)floor(v56 + 0.5f);
+    v57 = (float)floor(v57 + 0.5f);
+    v49 = floor(v58 + 0.5f);
+    result = outputVec;
+    v56 = v56 * 0.1f;
+    v50 = v57;
+    outputVec->X = v56;
+    v57 = (float)(v50 * 0.1f);
+    outputVec->Y = v57;
+    v58 = (float)(v49 * 0.1f);
+    outputVec->Z = v58;
+    return result;
+  }
+
   // NOT READY
-  public unsafe void InitMoveObjects(){ NativeMarkers.MarkUnimplemented(); }
+  //public unsafe void InitMoveObjects(){ NativeMarkers.MarkUnimplemented(); }
 //public unsafe void InitMoveObjects()
 //  {
 //    ref array<TdMove_ptr> v2; // edi
@@ -4323,19 +4995,18 @@ fixed(var ptr5 =&this.Rotation)
 //    _DWORD *v8; // eax
 //    _DWORD *v9; // eax
 //  
-//fixed(var ptr1 =&this.Moves)
-//    v2 =  ptr1;
+//    v2 = ref this.Moves;
 //    v3 = this.Moves.Max == 0;
 //    this.Moves.Count = default;
-//    if ( default == v3 )
+//    if ( !v3 )
 //    {
 //      v4 = v2.Data;
 //      v3 = v2.Data == 0;
 //      this.Moves.Max = default;
-//      if ( default == v3 )
+//      if ( !v3 )
 //      {
 //        v5 = dword_2018708;
-//        if ( default == dword_2018708 )
+//        if ( !dword_2018708 )
 //        {
 //          GCreateMalloc_Prob();
 //          v5 = dword_2018708;
@@ -4350,7 +5021,7 @@ fixed(var ptr5 =&this.Rotation)
 //      while(1 != default)
 //      {
 //        v7 = this.MoveClasses.Data;
-//        if ( default == v7[v6] )
+//        if ( !v7[v6] )
 //        {
 //          v2[v6] = default;
 //          goto LABEL_16;
@@ -4380,31 +5051,26 @@ fixed(var ptr5 =&this.Rotation)
 //    }
 //  }
 //
-  public unsafe void CheckForUncontrolledSlide(CheckResult *a2)
+  public unsafe void CheckForUncontrolledSlide(ref CheckResult a2)
   {
     PhysicalMaterial v3 = default; // eax
     TdPhysicalMaterialProperty v4 = default; // eax
     PhysicalMaterial v5 = default; // eax
   
-    if ( this.IsHumanControlled() )
+    if ( this.IsHumanControlled()
+      && this.MovementState != MOVE_FallingUncontrolled
+      && (((v3 = a2.PhysMaterial) != default || a2.Material && (v3 = (PhysicalMaterial )a2.Material.GetPhysicalMaterial()) != default)// GetPhysicalMaterial
+       && (v4 = E_TryCastTo<TdPhysicalMaterialProperty>(v3.PhysicalMaterialProperty)) != default
+       || (v5 = this.LastFootstepMaterial) != default && (v4 = E_TryCastTo<TdPhysicalMaterialProperty>(v5.PhysicalMaterialProperty)) != default)
+      && (v4.bEnableSoftLanding.AsBitfield(4) & 4) != default )
     {
-      if ( this.MovementState != MOVE_FallingUncontrolled )
-      {
-        v3 = a2.PhysMaterial;
-        if ( ((v3 || a2.Material && (v3 = (PhysicalMaterial )a2.Material.GetPhysicalMaterial()) != 0)// GetPhysicalMaterial
-           && (v4 = E_TryCastTo<TdPhysicalMaterialProperty>(v3.PhysicalMaterialProperty)) != 0
-           || (v5 = this.LastFootstepMaterial) != 0 && (v4 = E_TryCastTo<TdPhysicalMaterialProperty>(v5.PhysicalMaterialProperty)) != 0)
-          && (v4.bEnableSoftLanding.AsBitfield(4) & 4) != 0 )
-        {
-          SetFromBitfield(ref this.bDisableSkelControlSpring, 32, this.bDisableSkelControlSpring.AsBitfield(32) | (0x10000u));
-          this.UncontrolledSlideNormal = a2.Normal;
-        }
-      }
+      SetFromBitfield(ref this.bDisableSkelControlSpring, 32, this.bDisableSkelControlSpring.AsBitfield(32) | (0x10000u));
+      this.UncontrolledSlideNormal = a2.Normal;
     }
   }
 
   // NOT READY
-  public unsafe void ReplicateCustomAnim(ECustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, int bRootRotation){ NativeMarkers.MarkUnimplemented(); }
+  public unsafe void ReplicateCustomAnim(ECustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, bool bRootRotation){ NativeMarkers.MarkUnimplemented(); }
 //public unsafe void ReplicateCustomAnim(ECustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, int bRootRotation)
 //  {
 //    int *v11; // eax
@@ -4418,14 +5084,13 @@ fixed(var ptr5 =&this.Rotation)
 //    {
 //      v11 = sub_1113310(&AnimName, v15);
 //      v16 = default;
-//fixed(var ptr1 =&this.ReplicatedCustomAnim)
-//      sub_44D910( ptr1, (int)v11);
+//      sub_44D910(ref this.ReplicatedCustomAnim, (int)v11);
 //      v16 = -1;
 //      if ( v15[0] )
 //      {
 //        v12 = dword_2018708;
 //        v13 = v15[0];
-//        if ( default == dword_2018708 )
+//        if ( !dword_2018708 )
 //        {
 //          GCreateMalloc_Prob();
 //          v12 = dword_2018708;
@@ -4449,9 +5114,9 @@ fixed(var ptr5 =&this.Rotation)
     int v7 = default; // edi
     int v8 = default; // eax
     EMovement v9 = default; // al
-    TdMove *v10; // edx
+    //TdMove *v10; // edx
     bool v11 = default; // zf
-    TdMove *v12; // eax
+    //TdMove *v12; // eax
     float v13 = default; // xmm2_4
     float v14 = default; // xmm0_4
     double v15 = default; // st7
@@ -4469,8 +5134,8 @@ fixed(var ptr5 =&this.Rotation)
     int v27 = default; // [esp+28h] [ebp-4h]
     float a2a = default; // [esp+30h] [ebp+4h]
   
-    this.TickSpecial(a2);
-    this.UpdateMeshTranslation_OrSomething(a2);
+    base.TickSpecial(a2);
+    UpdateMeshTranslation_OrSomething(a2);
     v3 = this.EvadeTimer;
     v4 = a2;
     if ( v3 > 0.0f )
@@ -4488,7 +5153,7 @@ fixed(var ptr5 =&this.Rotation)
         v4 = this.bIllegalLedgeTimer;
       this.bIllegalLedgeTimer = v6 - v4;
     }
-    if ( (BYTE2(this.bDisableSkelControlSpring.AsBitfield(32)) & 1) != 0 && this.MovementState != MOVE_RumpSlide )
+    if ( (BYTE2(this.bDisableSkelControlSpring.AsBitfield(32)) & 1) != default && this.MovementState != MOVE_RumpSlide )
     {
       v7 = this.VfTableObject.Dummy;
       v24[0] = 38;
@@ -4500,17 +5165,17 @@ fixed(var ptr5 =&this.Rotation)
     v9 = this.MovementState;
     if(v9 != default)
     {
-      v10 = this.Moves.Data;
-      v11 = v10[v9] == 0;
-      v12 = &v10[v9];
-      if ( default == v11 )
-        v12.UpdateMoveTimer( LODWORD(a2));// UTdMove::UpdateMoveTimer
+      var v10 = this.Moves.Data;
+      v11 = v10[(int)v9] == null;
+      ref var v12 = ref v10[(int)v9];
+      if ( !v11 )
+        v12.UpdateMoveTimer( (a2));// UTdMove::UpdateMoveTimer
     }
-    this.DoFootPlacement_Maybe(a2);
+    DoFootPlacement_Maybe(a2);
     v13 = this.ASPollTimer + a2;
     this.ASPollTimer = v13;
     v14 = 0.0f;
-    v15 = fabs(sqrt(this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X)) * (double)((((signed __int32)-((this.bDisableSkelControlSpring.AsBitfield(32) >> 3) & 1) >> 31) & 2) - 1) * a2;
+    v15 = fabs(sqrt(this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X)) * (double)((((int)-((this.bDisableSkelControlSpring.AsBitfield(32) >> 3) & 1) >> 31) & 2) - 1) * a2;
     if ( v15 > 0.0f )
     {
       a2a = (float)v15;
@@ -4523,7 +5188,7 @@ fixed(var ptr5 =&this.Rotation)
     v17 = v13 <= this.ASPollInterval;
     v18 = this.ASDistanceAccum + v16;
     this.ASDistanceAccum = v18;
-    if ( default == v17 )
+    if ( !v17 )
     {
       this.ASDistanceData[this.ASSlotPointer] = v18;
       this.ASTimeData[this.ASSlotPointer++] = this.ASPollTimer;
@@ -4533,9 +5198,15 @@ fixed(var ptr5 =&this.Rotation)
       if(v11 != default)
         this.ASSlotPointer = default;
       v19 = 0.0f;
-      if ( this.ASTimeData.Count > 0 )
+      if( this.ASTimeData.Count > 0 )
       {
-        v20 = this.ASDistanceData.Data;
+        for( int i = 0; i < ASTimeData.Count; i++ )
+        {
+          v14 += this.ASDistanceData.Data[ i ];
+          v19 += this.ASTimeData.Data[ i ];
+        }
+        // Basically this ?
+        /*v20 = this.ASDistanceData.Data;
         v21 = this.ASTimeData.Count;
         v22 = (byte *)((byte *)this.ASTimeData.Data - (byte *)v20);
         do
@@ -4545,7 +5216,7 @@ fixed(var ptr5 =&this.Rotation)
           --v21;
           v19 = v23 + v19;
         }
-        while(v21 != default);
+        while(v21 != default);*/
       }
       this.AverageSpeed = v14 / v19;
     }
@@ -4576,7 +5247,7 @@ fixed(var ptr5 =&this.Rotation)
     float v24 = default; // xmm5_4
     float v25 = default; // xmm0_4
     float v26 = default; // xmm0_4
-    Vector *v27; // ecx
+    //Vector *v27; // ecx
     Vector *v28; // eax
     float v29 = default; // xmm0_4
     float v30 = default; // edx
@@ -4584,8 +5255,8 @@ fixed(var ptr5 =&this.Rotation)
     float v32 = default; // ecx
     float v33 = default; // xmm2_4
     double v34 = default; // st7
-    int v35 = default; // ecx
-    int v36 = default; // edx
+    uint v35 = default; // ecx
+    uint v36 = default; // edx
     // void (__thiscall *v37)(TdPawn , float *, _DWORD, _DWORD, _DWORD, _DWORD, int, _DWORD); // eax
     PhysicsVolume v38 = default; // ecx
     PhysicsVolume v39 = default; // eax
@@ -4605,14 +5276,14 @@ fixed(var ptr5 =&this.Rotation)
     float v53 = default; // xmm1_4
     float v54 = default; // eax
     double v55 = default; // st6
-    Vector *v56; // ebx
+    //Vector *v56; // ebx
     float v57 = default; // eax
     float v58 = default; // xmm3_4
     float v59 = default; // xmm2_4
     float v60 = default; // eax
     Actor v61 = default; // ebp
     float v62 = default; // xmm1_4
-    int v63 = default; // eax
+    Vector* v63 = default; // eax
     Controller v64 = default; // ecx
     float v65 = default; // xmm4_4
     // void (__thiscall *v66)(TdPawn , int *, float *, float *, CheckResult *); // edx
@@ -4622,7 +5293,7 @@ fixed(var ptr5 =&this.Rotation)
     float v70 = default; // edx
     float v71 = default; // xmm0_4
     PrimitiveComponent v72 = default; // eax
-    float *v73; // eax
+    //float *v73; // eax
     float v74 = default; // ecx
     float v75 = default; // edx
     float v76 = default; // eax
@@ -4681,7 +5352,7 @@ fixed(var ptr5 =&this.Rotation)
     float v129 = default; // [esp+6Ch] [ebp-1B8h]
     int v130 = default; // [esp+70h] [ebp-1B4h] BYREF
     int bCheckedFall = default; // [esp+74h] [ebp-1B0h] BYREF
-    Actor v132 = default; // [esp+78h] [ebp-1ACh]
+    float v132 = default; // [esp+78h] [ebp-1ACh]
     float v133 = default; // [esp+7Ch] [ebp-1A8h]
     float v134 = default; // [esp+80h] [ebp-1A4h]
     float v135 = default; // [esp+84h] [ebp-1A0h]
@@ -4694,7 +5365,7 @@ fixed(var ptr5 =&this.Rotation)
     float v142 = default; // [esp+A8h] [ebp-17Ch]
     float v143 = default; // [esp+ACh] [ebp-178h]
     float v144 = default; // [esp+B0h] [ebp-174h]
-    int v145 = default; // [esp+B4h] [ebp-170h]
+    uint v145 = default; // [esp+B4h] [ebp-170h]
     float v146 = default; // [esp+B8h] [ebp-16Ch]
     float v147 = default; // [esp+BCh] [ebp-168h]
     float v148 = default; // [esp+C0h] [ebp-164h]
@@ -4702,8 +5373,8 @@ fixed(var ptr5 =&this.Rotation)
     CheckResult Hit = default; // [esp+C8h] [ebp-15Ch] BYREF
     int v151 = default; // [esp+110h] [ebp-114h]
     float v152 = default; // [esp+114h] [ebp-110h] BYREF
-    int v153 = default; // [esp+118h] [ebp-10Ch]
-    int v154 = default; // [esp+11Ch] [ebp-108h]
+    uint v153 = default; // [esp+118h] [ebp-10Ch]
+    uint v154 = default; // [esp+11Ch] [ebp-108h]
     int a7 = default; // [esp+120h] [ebp-104h] BYREF
     int v156 = default; // [esp+124h] [ebp-100h]
     int v157 = default; // [esp+128h] [ebp-FCh]
@@ -4734,7 +5405,7 @@ fixed(var ptr5 =&this.Rotation)
     float v182 = default; // [esp+204h] [ebp-20h]
     int v183 = default; // [esp+214h] [ebp-10h]
   
-    if ( default == this.Controller && (this.bIsFemale.AsBitfield(20) & 0x8000) == 0 )
+    if ( !this.Controller && (this.bIsFemale.AsBitfield(20) & 0x8000) == default )
     {
       this.Acceleration.X = 0.0f;
       this.Acceleration.Y = 0.0f;
@@ -4829,11 +5500,11 @@ fixed(var ptr5 =&this.Rotation)
     {
       v19 = 0.0f;
     }
-    v132 = (Actor )LODWORD(v19);
+    v132 = v19;
     v20 = this.MovementState;
     v21 = sqrt(1.0f - v19);
     v22 = this.Moves[v20].FrictionModifier;
-    *(float *)&v132 = v21 * v133;
+    *(float *)&v132 = (float)(v21 * v133);
     if ( v20 == MOVE_Slide || v20 == MOVE_RumpSlide || v20 == MOVE_MeleeSlide )
     {
       if ( v18 < 0.0f )
@@ -4841,7 +5512,9 @@ fixed(var ptr5 =&this.Rotation)
       else
         v26 = this.UpwardSlideFrictionScale;
       v25 = (float)((float)(v26 * *(float *)&v132) + 1.0f) * v22;
-      goto LABEL_37;
+  LABEL_37:
+      v24 = v25;
+      goto LABEL_38;
     }
     if ( v18 < 0.0f )
       v23 = this.DownwardWalkFrictionScale;
@@ -4851,25 +5524,28 @@ fixed(var ptr5 =&this.Rotation)
     v25 = (float)((float)(v23 * *(float *)&v132) + 1.0f) * v22;
     if ( v25 < this.MinWalkFrictionModify )
       v25 = this.MinWalkFrictionModify;
-    if ( v24 >= v25 )
-  LABEL_37:
+    if( v24 >= v25 )
+    {
       v24 = v25;
-fixed(var ptr1 =&this.Acceleration)
-    v27 =  ptr1;
+      goto LABEL_38;
+    }
+
+    LABEL_38:
+    ref var v27 = ref this.Acceleration;
+    var accelCopy = v27;
     this.Velocity.Z = 0.0f;
     this.Acceleration.Z = 0.0f;
     if ( this.Acceleration.X == 0.0f && this.Acceleration.Y == 0.0f && this.Acceleration.Z == 0.0f )
     {
-fixed(var ptr2 =&this.Acceleration)
-      v28 =  ptr2;
+      v28 = &accelCopy;
     }
     else
     {
-      v29 = (float)((float)(v27->X * v27->X) + (float)(this.Acceleration.Y * this.Acceleration.Y)) + (float)(this.Acceleration.Z * this.Acceleration.Z);
+      v29 = (float)((float)(v27.X * v27.X) + (float)(this.Acceleration.Y * this.Acceleration.Y)) + (float)(this.Acceleration.Z * this.Acceleration.Z);
       v170[0] = v29;
       if ( v29 == 1.0f )
       {
-        v30 = v27->X;
+        v30 = v27.X;
         v31 = this.Acceleration.Y;
         v32 = this.Acceleration.Z;
         DestLocation.Y = v30;
@@ -4882,7 +5558,7 @@ fixed(var ptr2 =&this.Acceleration)
         v133 = 0.5f;
         v33 = 1.0f / fsqrt(v170[0]);
         *(float *)a2 = (float)(3.0f - (float)((float)(v33 * v170[0]) * v33)) * (float)(v33 * 0.5f);
-        DestLocation.Y = *(float *)a2 * v27->X;
+        DestLocation.Y = *(float *)a2 * v27.X;
         DestLocation.Z = this.Acceleration.Y * *(float *)a2;
         v128 = this.Acceleration.Z * *(float *)a2;
       }
@@ -4903,7 +5579,7 @@ fixed(var ptr2 =&this.Acceleration)
     v38 = this.PhysicsVolume;
     v154 = v36;
     v126 = (float)v34;
-    v37(this, &v152, LODWORD(DeltaTime), LODWORD(v126), v38.GroundFriction * v24, 0, 1, 0);// CalcVelocity
+    this.CalcVelocity((Vector*)&v152, DeltaTime, v126, v38.GroundFriction * v24, 0, 1, 0);// CalcVelocity
     v39 = this.PhysicsVolume;
     v40 = this.Location.X;
     v41 = this.Location.Y;
@@ -4949,48 +5625,21 @@ fixed(var ptr2 =&this.Acceleration)
     v50 = this.Location.Z;
     v144 = v47;
     v145 = LODWORD(v48);
-    v132 = v49;
+    var v132b = v49;
     bCheckedFall = default;
     v130 = default;
     v51 = DeltaTime;
     v133 = v50;
-    if ( DeltaTime <= 0.0f )
+    if( DeltaTime <= 0.0f )
     {
-  LABEL_188:
-      if ( this.Physics == PHYS_Walking )
-      {
-        v119 = this.Location.Z;
-        v158 = this.Location.Z;
-        v120 = fabs(v119 - v133);
-        v146 = (float)v120;
-        if ( v120 > 4.0f && this.MaxStepHeight >= v146 )
-          this.OffsetMeshZ( v133 - v158);// OffsetMeshZ
-        if ( (this.bCollideComplex.AsBitfield(20) & 0x100) == 0 )
-        {
-          v121 = this.Location.Y;
-          v122 = this.Location.Z;
-          v143 = (float)(1.0f / DeltaTime) * (float)(this.Location.X - v141.X);
-          v123 = (float)(v121 - v141.Y) * (float)(1.0f / DeltaTime);
-          v144 = v123;
-          v124 = (float)(v122 - v141.Z) * (float)(1.0f / DeltaTime);
-          v145 = LODWORD(v124);
-          this.Velocity.X = v143;
-          this.Velocity.Y = v123;
-          this.Velocity.Z = v124;
-        }
-        this.Velocity.Z = 0.0f;
-      }
-      v125 = this.Controller;
-      if(v125 != default)
-        v125.PostPhysWalking(LODWORD(DeltaTime));// PostPhysWalking
-      return;
+      goto LABEL_188;
     }
     while(1 != default)
     {
       if ( Iterations >= 8 )
         goto LABEL_188;
       v52 = this.Controller;
-      if ( default == v52 && (this.bIsFemale.AsBitfield(20) & 0x8000) == 0 )
+      if ( !v52 && (this.bIsFemale.AsBitfield(20) & 0x8000) == default )
         goto LABEL_188;
       ++Iterations;
       v53 = v51;
@@ -5003,11 +5652,10 @@ fixed(var ptr2 =&this.Acceleration)
       v54 = this.Location.X;
       v137 = v53;
       v55 = v171 * v53;
-fixed(var ptr3 =&this.Location)
-      v56 =  ptr3;
+      ref var v56 = ref this.Location;
       v138 = v54;
       v57 = this.Location.Y;
-      DestLocation.Y = v55;
+      DestLocation.Y = (float)v55;
       v58 = v51 - v53;
       v59 = v42 * v53;
       v139 = v57;
@@ -5030,24 +5678,14 @@ fixed(var ptr3 =&this.Location)
       v161 = default;
       if(v52 != default)
       {
-        if ( v52.0x11C29D0()// 0x11C29D0, ATdPlayerController.Pawn != 0
-          && (v63 = this.SomethingVertigoRelated(
-                      v170,
-                      COERCE_FLOAT(LODWORD(v152)),
-                      v153,
-                      v154,
-                      LODWORD(DestLocation.Y),
-                      LODWORD(DestLocation.Z),
-                      COERCE_FLOAT(LODWORD(v128)),
-                      a7,
-                      v156,
-                      v157,
-                      &bCheckedFall,
-                      &v130),
-              DestLocation.Y = *(float *)v63,
-              v64 = this.Controller,
-              DestLocation.Z = *(float *)(v63 + 4),
-              v128 = *(float *)(v63 + 8),
+        if ( v52.Pawn != default
+          && (
+            (v63 = (this as TdPlayerPawn).SomethingVertigoRelated( (Vector*)v170, SLODWORD(v152), SLODWORD(v153), SLODWORD(v154), (DestLocation.Y), (DestLocation.Z), ((v128)), a7, v156, v157, &bCheckedFall, &v130))
+            [0] is object &&
+              (DestLocation.Y = v63->X) is object &&
+              (v64 = this.Controller) is object &&
+              (DestLocation.Z = v63->Y) is object &&
+              (v128 = v63->Z) is object &&
               v64.MoveTimer == -1.0f) )
         {
           v44 = 0.0f;
@@ -5075,12 +5713,11 @@ fixed(var ptr3 =&this.Location)
           v175.Y = (float)(1.0f - v44) * v65;
           v175.Z = v59 * (float)(1.0f - v44);
           v176 = v62 * (float)(1.0f - v44);
-fixed(var ptr4 =&v175.Y)
-          this.stepUp( &a7, v179,  ptr4, &Hit);
+          this.stepUp( *(Vector*)&a7, *(Vector*)v179, *(Vector*)&v175.Y, ref Hit);
           if ( this.Physics == PHYS_Falling )
           {
             v99 = this.Location.Y - v139;
-            v100 = v56->X - v138;
+            v100 = v56.X - v138;
             v101 = sqrt(v100 * v100 + v99 * v99) / v158;
             v146 = (float)v101;
             if ( v101 < 1.0f )
@@ -5105,7 +5742,8 @@ fixed(var ptr4 =&v175.Y)
               this.Acceleration.Y = v105;
               this.Acceleration.Z = v104;
             }
-            goto LABEL_142;
+            this.startNewPhysics( ((v129)), Iterations);// startNewPhysics
+            return;
           }
           if ( Hit.Time < 1.0f )
           {
@@ -5115,26 +5753,71 @@ fixed(var ptr4 =&v175.Y)
           goto LABEL_75;
         }
       }
-fixed(var ptr5 =&this.Rotation)
-      GWorld.MoveActor(this, (Vector *)&DestLocation.Y,  ptr5, 0, &Hit);
+      GWorld.MoveActor(this, ref *(Vector *)&DestLocation.Y, ref this.Rotation, 0, ref Hit);
       v44 = Hit.Time;
       if ( Hit.Time < 1.0f )
       {
         v62 = v128;
         v59 = DestLocation.Z;
         v65 = DestLocation.Y;
-        goto LABEL_72;
+        // v66 = *(void (__thiscall **)(TdPawn , int *, float *, float *, CheckResult *))(this.VfTableObject.Dummy + 528);
+        v158 = (float)(sqrt(DestLocation.Y * DestLocation.Y + v128 * v128 + DestLocation.Z * DestLocation.Z));
+        v179[0] = (float)(1.0f / v158) * v65;
+        v179[1] = v59 * (float)(1.0f / v158);
+        v179[2] = v62 * (float)(1.0f / v158);
+        v175.Y = (float)(1.0f - v44) * v65;
+        v175.Z = v59 * (float)(1.0f - v44);
+        v176 = v62 * (float)(1.0f - v44);
+        this.stepUp( *(Vector*)&a7, *(Vector*)v179, *(Vector*)&v175.Y, ref Hit);
+        if ( this.Physics == PHYS_Falling )
+        {
+          v99 = this.Location.Y - v139;
+          v100 = v56.X - v138;
+          v101 = sqrt(v100 * v100 + v99 * v99) / v158;
+          v146 = (float)v101;
+          if ( v101 < 1.0f )
+            v102 = v146;
+          else
+            v102 = 1.0f;
+          v129 = (float)((float)(1.0f - v102) * v137) + v129;
+          this.Falling();
+          if ( this.Physics == PHYS_Flying )
+          {
+            v136 = this.AirSpeed;
+            v103 = v136;
+            this.Velocity.X = 0.0f;
+            v134 = 0.0f;
+            v135 = 0.0f;
+            v104 = this.AccelRate;
+            this.Velocity.Y = 0.0f;
+            v105 = v135;
+            this.Velocity.Z = v103;
+            v136 = v104;
+            this.Acceleration.X = 0.0f;
+            this.Acceleration.Y = v105;
+            this.Acceleration.Z = v104;
+          }
+          this.startNewPhysics( ((v129)), Iterations);// startNewPhysics
+          return;
+        }
+        if ( Hit.Time < 1.0f )
+        {
+          v61 = Hit.Actor;
+          v162 = Hit.Normal;
+        }
+        goto LABEL_75;
       }
   LABEL_75:
-      if ( this.Physics == PHYS_Swimming )
-        goto LABEL_143;
+      if( this.Physics == PHYS_Swimming )
+      {
+        this.startSwimming(v141, this.Velocity, v137, v129, Iterations);
+        return;
+      }
+
   LABEL_76:
       v67 = this.Base;
-      if(v67 != default)
-      {
-        if ( (v67.bForceDemoRelevant.AsBitfield(32) & 0x40000000) == 0 && v67 != GWorld.GetWorldInfo() )
-          SetFromBitfield(ref this.bUpAndOut, 32, this.bUpAndOut.AsBitfield(32) | ((uint)&loc_1000000));// bForceFloorCheck = TRUE;
-      }
+      if( v67 && ( v67.bForceDemoRelevant.AsBitfield( 32 ) & 0x40000000 ) == default && v67 != GWorld.GetWorldInfo() )
+        this.bForceFloorCheck = true;//SetFromBitfield(ref this.bUpAndOut, 32, this.bUpAndOut.AsBitfield(32) | ((uint)&loc_1000000));// bForceFloorCheck = TRUE;
       if(v61 != default)
       {
         v68 = v162.X;
@@ -5149,37 +5832,43 @@ fixed(var ptr5 =&this.Rotation)
         Hit.Normal.Z = v70;
         goto LABEL_95;
       }
-      if ( v161
+      if ( v161 != default
         && v67
         && (v67.bExludeHandMoves.AsBitfield(32) & 0x400) != 0
-        && this.RelativeLocation.X == (float)(v56->X - v67.Location.X)
+        && this.RelativeLocation.X == (float)(v56.X - v67.Location.X)
         && this.RelativeLocation.Y == (float)(this.Location.Y - v67.Location.Y)
         && this.RelativeLocation.Z == (float)(this.Location.Z - v67.Location.Z)
-        && (HIBYTE(this.bUpAndOut.AsBitfield(32)) & 1) == 0 )
+        && (HIBYTE(this.bUpAndOut.AsBitfield(32)) & 1) == default )
       {
         v68 = this.Floor.X;
         v69 = this.Floor.Y;
         v70 = this.Floor.Z;
         Hit.Actor = v67;
-        goto LABEL_82;
+        Hit.Time = 0.1f;
+        v71 = (float)(2.4000001d);
+        Hit.Normal.Y = v69;
+        Hit.Normal.X = v68;
+        Hit.Normal.Z = v70;
+        goto LABEL_95;
       }
       v72 = this.CollisionComponent;
       SetFromBitfield(ref this.bUpAndOut, 32, this.bUpAndOut.AsBitfield(32) & (0xFEFFFFFF));
       if(v72 != default)
       {
-        *(float *)&v173 = v56->X + v72.Translation.X;
+        *(float *)&v173 = v56.X + v72.Translation.X;
         v174 = v72.Translation.Y + this.Location.Y;
         v175.X = v72.Translation.Z + this.Location.Z;
-        v73 = (float *)&v173;
+        var v73 = (float *)&v173;
+        v74 = *v73;
+        v75 = v73[1];
+        v76 = v73[2];
       }
       else
       {
-fixed(var ptr6 =&this.Location.X)
-        v73 =  ptr6;
+        v74 = this.Location.X;
+        v75 = this.Location.Y;
+        v76 = this.Location.Z;
       }
-      v74 = *v73;
-      v75 = v73[1];
-      v76 = v73[2];
       a5.X = v74;
       a4.X = v74 + v147;
       a5.Y = v75;
@@ -5187,7 +5876,7 @@ fixed(var ptr6 =&this.Location.X)
       a5.Z = v76;
       a4.Z = v76 + v149;
       v77 = this.GetCylinderExtent((Vector *)a2);
-      GWorld.SingleLineCheck(&Hit, this, &a4, &a5, 8415, v77, 0);
+      GWorld.SingleLineCheck(ref Hit, this, ref a4, ref a5, 8415, ref *v77, 0);
       v71 = (float)(this.MaxStepHeight + 2.0f) * Hit.Time;
       v78 = Hit.Normal.Y;
       v79 = Hit.Normal.Z;
@@ -5195,10 +5884,13 @@ fixed(var ptr6 =&this.Location.X)
       this.Floor.Y = v78;
       this.Floor.Z = v79;
       v142 = v71;
-      this.CheckForUncontrolledSlide(&Hit);
+      CheckForUncontrolledSlide(ref Hit);
       v80 = Hit.Normal.Z;
-      if ( this.WalkableFloorZ <= Hit.Normal.Z )
-        goto LABEL_99;
+      if( this.WalkableFloorZ <= Hit.Normal.Z )
+      {
+        v44 = 0.0f;
+        goto LABEL_99b;
+      }
   LABEL_95:
       if ( fabs(DestLocation.Y) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(DestLocation.Z) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(v128) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
       {
@@ -5210,16 +5902,14 @@ fixed(var ptr6 =&this.Location.X)
           v178.X = (float)(-0.0f - (float)(v83 * Hit.Normal.X)) * -1.0f;
           v178.Y = (float)(-0.0f - (float)(Hit.Normal.Y * v83)) * -1.0f;
           v178.Z = v84 * -1.0f;
-fixed(var ptr7 =&this.Rotation)
-          GWorld.MoveActor(this, &v178,  ptr7, 0, &Hit);
+          GWorld.MoveActor(this, ref v178, ref this.Rotation, 0, ref Hit);
           if ( Hit.Actor != this.Base && this.Physics == PHYS_Walking )
             this.SetBase(
               Hit.Actor,
               Hit.Normal,
               1,
-              0,
-              0,
-              0);
+              null,
+              default);
           v85 = Hit.Normal.Y;
           v86 = Hit.Normal.Z;
           v44 = 0.0f;
@@ -5234,6 +5924,7 @@ fixed(var ptr7 =&this.Rotation)
   LABEL_99:
         v44 = 0.0f;
       }
+      LABEL_99b:
       if ( Hit.Time >= 1.0f || ((v81 = Hit.Actor) is object && Hit.Actor == this.Base) && v142 <= 2.4000001d )
       {
         if ( v142 >= 1.9f )
@@ -5243,9 +5934,8 @@ fixed(var ptr7 =&this.Rotation)
         v95 = Hit.Normal.Z;
         v163.X = 0.0f;
         v163.Y = 0.0f;
-        v163.Z = 2.1500001d - v142;
-fixed(var ptr8 =&this.Rotation)
-        GWorld.MoveActor(this, &v163,  ptr8, 0, &Hit);
+        v163.Z = (float)(2.1500001d - v142);
+        GWorld.MoveActor(this, ref v163, ref this.Rotation, 0, ref Hit);
         v44 = 0.0f;
         Hit.Time = 0.0f;
         Hit.Normal.X = v93;
@@ -5254,7 +5944,10 @@ fixed(var ptr8 =&this.Rotation)
       }
       else
       {
-        v82 = (float)(v142 - 2.1500001d) > 0.0f ? v142 - 2.1500001d : 0.0f;
+        if ( (float)(v142 - 2.1500001d) > 0.0f )
+          v82 = (float)(v142 - 2.1500001d);
+        else
+          v82 = 0.0f;
         v87 = Hit.Normal.X;
         v88 = Hit.Normal.Y;
         v89 = (float)((float)(v147 * v147) + (float)(v149 * v149)) + (float)(v148 * v148);
@@ -5287,44 +5980,50 @@ fixed(var ptr8 =&this.Rotation)
         v166[1] = v90 * v82;
         v166[2] = v91 * v82;
         v166[3] = v44 * v82;
-fixed(var ptr9 =&this.Rotation)
-        GWorld.MoveActor(this, (Vector *)&v166[1],  ptr9, 0, &Hit);
+        GWorld.MoveActor(this, ref *(Vector *)&v166[1], ref this.Rotation, 0, ref Hit);
         v44 = 0.0f;
         Hit.Actor = v81;
         Hit.Time = 0.0f;
         Hit.Normal.X = v87;
         Hit.Normal.Y = v88;
         Hit.Normal.Z = v181;
-        if(v81 != default)
+        if ( v81 && v81 != this.Base && this.Physics == PHYS_Walking )
         {
-          if ( v81 != this.Base && this.Physics == PHYS_Walking )
-          {
-            this.SetBase(
-              Hit.Actor,
-              Hit.Normal,
-              1,
-              0,
-              0,
-              0);                                 // SetBase
-            v44 = 0.0f;
-          }
+          this.SetBase(
+            Hit.Actor,
+            Hit.Normal,
+            1,
+            default,
+            default);                                   // SetBase
+          v44 = 0.0f;
         }
       }
   LABEL_122:
       v80 = Hit.Normal.Z;
   LABEL_123:
       if ( this.Physics == PHYS_Swimming )
-        goto LABEL_143;
-      if(v130 != default)
-        goto LABEL_155;
+      {
+        this.startSwimming(v141, this.Velocity, v137, v129, Iterations);
+        return;
+      }
+
+      if( v130 != default )
+      {
+        v107 = v132b;
+        goto LABEL_155b;
+      }
+
       if ( Hit.Time >= 1.0f || v80 < this.WalkableFloorZ )
         break;
       if ( v80 < 0.99000001d && (float)(this.PhysicsVolume.GroundFriction * v80) < 3.3f )
       {
-        v160.Z.LODWORD(this.PhysicsVolume.GroundFriction > 0.5f ? LODWORD(this.PhysicsVolume.GroundFriction) : 1056964608);
+        if ( this.PhysicsVolume.GroundFriction > 0.5f )
+          v160.Z = this.PhysicsVolume.GroundFriction;
+        else
+          v160.Z = 0.5f;
         v96 = this.GetGravityZ();// GetGravityZ
         v44 = 0.0f;
-        v180 = v96 * DeltaTime / (v160.Z + v160.Z) * DeltaTime;
+        v180 = (float)(v96 * DeltaTime / (v160.Z + v160.Z) * DeltaTime);
         v97 = (float)((float)(Hit.Normal.Y + Hit.Normal.X) * 0.0f) + (float)(v180 * Hit.Normal.Z);
         v135 = -0.0f - (float)(Hit.Normal.Y * v97);
         v98 = v97 * Hit.Normal.Z;
@@ -5335,8 +6034,7 @@ fixed(var ptr9 =&this.Rotation)
         v128 = v180 - v98;
         if ( (float)((float)((float)(v135 + v134) * 0.0f) + (float)((float)(v180 - v98) * v180)) >= 0.0f )
         {
-fixed(var ptr10 =&this.Rotation)
-          GWorld.MoveActor(this, (Vector *)&DestLocation.Y,  ptr10, 0, &Hit);
+          GWorld.MoveActor(this, ref *(Vector *)&DestLocation.Y, ref this.Rotation, 0, ref Hit);
           v44 = 0.0f;
         }
         if ( this.Physics == PHYS_Swimming )
@@ -5351,35 +6049,43 @@ fixed(var ptr10 =&this.Rotation)
         goto LABEL_188;
       v42 = v172;
     }
-    if ( (this.bUpAndOut.AsBitfield(32) & 0x200) == 0 )
-      goto LABEL_151;
-    if ( default == bCheckedFall )
+
+    if( ( this.bUpAndOut.AsBitfield( 32 ) & 0x200 ) == default )
     {
-      if ( this.Controller )
+      v107 = v132b;
+      if ( !v132b || (v132b.bForceDemoRelevant.AsBitfield(32) & 0x40000000) == default && v107 != GWorld.GetWorldInfo() )
+        v130 = 1;
+      goto LABEL_155b;
+    }
+    if ( bCheckedFall == default && this.Controller )
+    {
+      v106 = this.Controller;
+      if ( v106.IsProbing(333, 0) )
       {
-        v106 = this.Controller;
-        if ( v106.IsProbing(333, 0) )
-        {
-          bCheckedFall = 1;
-          v106.MayFall();
-        }
-        if(v130 != default)
-          goto LABEL_155;
+        bCheckedFall = 1;
+        v106.MayFall();
+      }
+
+      if( v130 != default )
+      {
+        v107 = v132b;
+        goto LABEL_155b;
       }
     }
-    if ( (this.bUpAndOut.AsBitfield(32) & 0x200) != 0 )
+    if ( (this.bUpAndOut.AsBitfield(32) & 0x200) != default )
     {
   LABEL_155:
-      v107 = v132;
+      v107 = v132b;
     }
     else
     {
   LABEL_151:
-      v107 = v132;
-      if ( default == v132 || (v132.bForceDemoRelevant.AsBitfield(32) & 0x40000000) == 0 && v107 != GWorld.GetWorldInfo() )
+      v107 = v132b;
+      if ( !v132b || (v132b.bForceDemoRelevant.AsBitfield(32) & 0x40000000) == default && v107 != GWorld.GetWorldInfo() )
         v130 = 1;
     }
-    if ( bCheckedFall || (this.bCollideComplex.AsBitfield(20) & 0x100) != 0 || v130 || (v108 = this.bUpAndOut.AsBitfield(32), (v108 & 0x200) != 0) && ((v108 & 0x80000) != 0 || (v108 & 0xA) == 0) )
+    LABEL_155b:
+    if ( bCheckedFall != default || (this.bCollideComplex.AsBitfield(20) & 0x100) != default || v130 != default || ((v108 = this.bUpAndOut.AsBitfield(32)) is object && (v108 & 0x200) != 0) && ((v108 & 0x80000) != default || (v108 & 0xA) == 0) )
     {
       v163.X = this.Location.X - v138;
       v163.Y = this.Location.Y - v139;
@@ -5403,9 +6109,9 @@ fixed(var ptr10 =&this.Rotation)
       if ( this.Physics != PHYS_Walking )
         goto LABEL_142;
       v114 = E_TryCastTo<TdBotPawn>(this);
-      if(dword_2020740 != default)
+      if(false/*GIsEditor != default*/)
       {
-        if ( default == HasBegunPlay(GWorld) )
+        if ( !GWorld.HasBegunPlay() )
           goto LABEL_142;
         if ( GWorld.GetTimeSeconds() < 1.0f )
           goto LABEL_142;
@@ -5413,7 +6119,7 @@ fixed(var ptr10 =&this.Rotation)
         v143 = 0.0f;
         v144 = 0.0f;
         v145 = 1065353216;
-        this.setPhysics( 2, 0, 0, 0, 1065353216);
+        this.setPhysics( 2, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));
         if(v114 != default)
         {
           if ( v142 <= 36.0f )
@@ -5427,18 +6133,18 @@ fixed(var ptr10 =&this.Rotation)
         v143 = 0.0f;
         v144 = 0.0f;
         v145 = 1065353216;
-        this.setPhysics( 2, 0, 0, 0, 1065353216);
-        if ( v114 && (v142 <= 36.0f && this.WalkableFloorZ <= Hit.Normal.Z || this.IsInMove( 77)) )// IsInMove
+        this.setPhysics( 2, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));
+        if ( v114 && (v142 <= 36.0f && this.WalkableFloorZ <= Hit.Normal.Z || this.IsInMove((EMovement)77)) )// IsInMove
           goto LABEL_142;
         v160.X.LODWORD(1);
       }
       v117 = this.VfTableObject.Dummy;
       v160.Y = 0.0f;
-      LOBYTE(a2[0]) = 2;
+      a2[0].LOBYTE(2);
       a2[1] = default;
       CallUFunction(this.SetMove, this, v118, a2, 0);
   LABEL_142:
-      this.startNewPhysics( COERCE_FLOAT(LODWORD(v129)), Iterations);// startNewPhysics
+      this.startNewPhysics( ((v129)), Iterations);// startNewPhysics
       return;
     }
     this.Velocity.X = 0.0f;
@@ -5450,50 +6156,335 @@ fixed(var ptr10 =&this.Rotation)
     v136 = 0.0f;
     this.Acceleration.Y = 0.0f;
     this.Acceleration.Z = 0.0f;
-    GWorld.FarMoveActor(this, &v141, 0, 0, 0);
+    GWorld.FarMoveActor(this, v141, default, default, default);
     if(v107 != default)
     {
       v109 = v107.bExludeHandMoves.AsBitfield(32);
-      if ( (v109 & 8) != 0 || (v109 & 0x400) != 0 || (v107.bForceDemoRelevant.AsBitfield(32) & 0x100000) == 0 )
-        this.SetBase( v107, COERCE_FLOAT(LODWORD(v143)), COERCE_FLOAT(LODWORD(v144)), v145, 1, 0, 0, 0);// SetBase
+      if ( (v109 & 8) != default || (v109 & 0x400) != default || (v107.bForceDemoRelevant.AsBitfield(32) & 0x100000) == default )
+        this.SetBase( v107, new Vector(v143, v144, v145), 1, default, default);// SetBase
     }
     v110 = this.Controller;
     if(v110 != default)
       v110.MoveTimer = -1.0f;
+    return;
+    
+    LABEL_188:
+    if ( this.Physics == PHYS_Walking )
+    {
+      v119 = this.Location.Z;
+      v158 = this.Location.Z;
+      v120 = fabs(v119 - v133);
+      v146 = (float)v120;
+      if ( v120 > 4.0f && this.MaxStepHeight >= v146 )
+        this.OffsetMeshZ( v133 - v158);// OffsetMeshZ
+      if ( (this.bCollideComplex.AsBitfield(20) & 0x100) == default )
+      {
+        v121 = this.Location.Y;
+        v122 = this.Location.Z;
+        v143 = (float)(1.0f / DeltaTime) * (float)(this.Location.X - v141.X);
+        v123 = (float)(v121 - v141.Y) * (float)(1.0f / DeltaTime);
+        v144 = v123;
+        v124 = (float)(v122 - v141.Z) * (float)(1.0f / DeltaTime);
+        v145 = LODWORD(v124);
+        this.Velocity.X = v143;
+        this.Velocity.Y = v123;
+        this.Velocity.Z = v124;
+      }
+      this.Velocity.Z = 0.0f;
+    }
+    v125 = this.Controller;
+    if(v125 != default)
+      v125.PostPhysWalking((DeltaTime));// PostPhysWalking
+    return;
   }
 
+  public override unsafe Vector CalculateSlopeSlide(ref Vector a3, ref CheckResult a4)
+  {
+    CheckForUncontrolledSlide(ref a4);
+    return base.CalculateSlopeSlide(ref a3, ref a4);;
+  }
+
+  // NOT READY
+  //public override unsafe void PostBeginPlay(){ NativeMarkers.MarkUnimplemented(); }
+//public override unsafe void PostBeginPlay()
+//  {
+//    float v2 = default; // xmm0_4
+//    int v3 = default; // edi
+//    int i = default; // eax
+//    int v5 = default; // edi
+//    _E_struct_TArray_float *v6; // esi
+//  
+//    sub_F2DF50(this);
+//    sub_12C2DB0(ref this.SpeedCurve_LightWeapon, ref this.AccelCurve_LightWeapon, 10);
+//    sub_12C2DB0(ref this.SpeedCurve_HeavyWeapon, ref this.AccelCurve_HeavyWeapon, 10);
+//    v2 = this.ASFilterTime;
+//    if ( v2 < 1.0f )
+//      v2 = 1.0f;
+//    v3 = this.ASPollSlots;
+//    this.ASFilterTime = v2;
+//    if ( v3 < 10 )
+//      v3 = 10;
+//    this.ASPollSlots = v3;
+//    this.ASPollInterval = v2 / (float)v3;
+//    sub_40AD30(ref this.ASTimeData, 0, v3, 4, 8);
+//    memset(this.ASTimeData.Data, 0, 4 * v3);
+//    for ( i = default; i < this.ASTimeData.Count; ++i )
+//      this.ASTimeData[i] = this.ASPollInterval;
+//    v5 = this.ASPollSlots;
+//    v6 = ref this.ASDistanceData;
+//    sub_40AD30(v6, 0, v5, 4, 8);
+//    memset(v6->Data, 0, 4 * v5);
+//  }
+//
   // Not Ready
-  public unsafe bool IsHitActorTdPawn(CheckResult *a2)
+  public unsafe bool IsHitActorTdPawn(ref CheckResult a2)
   {
     Object v2 = default; // ecx
     Class v3 = default; // eax
-  
-    v2 = TdPawn_Class;
-    if ( default == TdPawn_Class )
+
+    return a2.Actor is TdPawn;
+    /*v2 = TdPawn_Class;
+    if ( !TdPawn_Class )
     {
       TdPawn_Class = (Object )sub_12C2C40((int)L"TdGame");
       sub_12B2BE0();
       v2 = TdPawn_Class;
     }
     v3 = a2.Actor.Class;
-    if ( default == v3 )
-      return v2 != 0;
+    if ( !v3 )
+      return v2 != default;
     while ( v3 != v2 )
     {
       v3 = (Class )v3.Next;
-      if ( default == v3 )
+      if ( !v3 )
         return v2 != 0;
     }
-    return false;
+    return false;*/
   }
 
-  public unsafe bool ShouldTrace(PrimitiveComponent Primitive, Actor SourceActor, DWORD TraceFlags)
+  public override unsafe bool ShouldTrace(PrimitiveComponent Primitive, Actor SourceActor, ETraceFlags TraceFlags)
   {
     bool result = default; // eax
   
     if ( this.ActorCylinderComponent != Primitive || (result = (bool)E_TryCastTo<TdPawn>(SourceActor)) )
-      result = this.ShouldTrace(Primitive, SourceActor, TraceFlags);
+      result = base.ShouldTrace(Primitive, SourceActor, TraceFlags);
     return result != default;
   }
-}
+
+  // NOT READY
+  public unsafe int * UNKNOWN21(int a2, int a3, int *a4, int a5, int a6){ NativeMarkers.MarkUnimplemented(); return default; }
+//public unsafe int * UNKNOWN21(int a2, int a3, int *a4, int a5, int a6)
+//  {
+//    int *v8; // ebx
+//    Class v9 = default; // ebx
+//    int v10 = default; // eax
+//    bool v11 = default; // zf
+//    int v12 = default; // ecx
+//    Object v13 = default; // eax
+//    uint v14 = default; // eax
+//    Object v15 = default; // eax
+//    int *a4a; // [esp+2Ch] [ebp+Ch]
+//    Class a6a = default; // [esp+34h] [ebp+14h]
+//  
+//    v8 = sub_BA2990((int)this, a2, a3, a4, a5, a6);
+//    a4a = v8;
+//    if ( ((this.bExludeHandMoves.AsBitfield(32) >> 30) & 1) != default || (this.bCollideComplex.AsBitfield(20) & 0x400) == default && this.Role == ROLE_Authority )
+//    {
+//      if ( ((uint)&_ImageBase & this.bExludeHandMoves.AsBitfield(32)) != default )
+//      {
+//        if ( ((this.bExludeHandMoves.AsBitfield(32) >> 30) & 1) == default )
+//        {
+//          v9 = *(Class *)(a2 + 1888);
+//          a6a = this.ReplicatedWeaponClass;
+//          if ( (*(int (__thiscall **)(int, Class ))(*(_DWORD *)a5 + 276))(a5, a6a) )
+//          {
+//            v10 = default;
+//            v11 = a6a == v9;
+//          }
+//          else
+//          {
+//            *(_DWORD *)(a6 + 140) = 140) | (4u);
+//            v10 = default;
+//            v11 = v9 == 0;
+//          }
+//          v10.LOBYTE(!v11);
+//          if(v10 != default)
+//          {
+//            if ( (dword_2056888 & 1) == default )
+//            {
+//              dword_2056888 = dword_2056888 | (1u);
+//              sub_11A95E0();
+//              sub_11A95E0();
+//              dword_2056884 = sub_12C4BC0(L"ReplicatedWeaponClass");
+//            }
+//            *a4a = *(ushort *)(dword_2056884 + 94);
+//            v8 = a4a + 1;
+//          }
+//          else
+//          {
+//            v8 = a4a;
+//          }
+//        }
+//        v12 = a2;
+//        if ( this.ReplicatedMovementState != *(_BYTE *)(a2 + 1279) )
+//        {
+//          if ( (dword_2056888 & 2) == default )
+//          {
+//            dword_2056888 = dword_2056888 | (2u);
+//            sub_11A95E0();
+//            sub_11A95E0();
+//            dword_2056880 = sub_12C4BC0(L"ReplicatedMovementState");
+//          }
+//          v12 = a2;
+//          *v8++ = *(ushort *)(dword_2056880 + 94);
+//        }
+//        if ( this.AnimationMovementState != *(_BYTE *)(v12 + 1274) )
+//        {
+//          if ( (dword_2056888 & 4) == default )
+//          {
+//            dword_2056888 = dword_2056888 | (4u);
+//            sub_11A95E0();
+//            sub_11A95E0();
+//            dword_205687C = sub_12C4BC0(L"AnimationMovementState");
+//          }
+//          v12 = a2;
+//          *v8++ = *(ushort *)(dword_205687C + 94);
+//        }
+//        if ( this.ReloadCount != *(_BYTE *)(v12 + 1286) )
+//        {
+//          if ( (dword_2056888 & 8) == default )
+//          {
+//            dword_2056888 = dword_2056888 | (8u);
+//            sub_11A95E0();
+//            sub_11A95E0();
+//            dword_2056878 = sub_12C4BC0(L"ReloadCount");
+//          }
+//          v12 = a2;
+//          *v8++ = *(ushort *)(dword_2056878 + 94);
+//        }
+//        if ( this.RemoteViewYaw != *(_DWORD *)(v12 + 1676) )
+//        {
+//          if ( (dword_2056888 & 0x10) == default )
+//          {
+//            dword_2056888 = dword_2056888 | (0x10u);
+//            sub_11A95E0();
+//            sub_11A95E0();
+//            dword_2056874 = sub_12C4BC0(L"RemoteViewYaw");
+//          }
+//          v12 = a2;
+//          *v8++ = *(ushort *)(dword_2056874 + 94);
+//        }
+//        if ( (this.bExludeHandMoves.AsBitfield(32) & 0x40000000) == 0
+//          && (this.LastPhysHitInfo.HitLocation.X != *(float *)(v12 + 1892) || this.LastPhysHitInfo.HitLocation.Y != *(float *)(v12 + 1896) || this.LastPhysHitInfo.HitLocation.Z != *(float *)(v12 + 1900)) )
+//        {
+//          if ( (dword_2056888 & 0x20) == default )
+//          {
+//            dword_2056888 = dword_2056888 | (0x20u);
+//            sub_11A95E0();
+//            sub_11A95E0();
+//            dword_2056870 = sub_12C4BC0(L"LastPhysHitInfo");
+//          }
+//          *v8 = *(ushort *)(dword_2056870 + 94);
+//          v12 = a2;
+//          ++v8;
+//        }
+//        if ( ((*(_BYTE *)(v12 + 1052) ^ LOBYTE(this.bDisableSkelControlSpring.AsBitfield(32))) & 0x10) != default )
+//        {
+//          if ( (dword_2056888 & 0x40) == default )
+//          {
+//            dword_2056888 = dword_2056888 | (0x40u);
+//            sub_11A95E0();
+//            sub_11A95E0();
+//            dword_205686C = sub_12C4BC0(L"bClimbLeftHand");
+//          }
+//          *v8 = *(ushort *)(dword_205686C + 94);
+//          v12 = a2;
+//          ++v8;
+//        }
+//        if ( this.CurrentGrabTurnType != *(_BYTE *)(v12 + 1272) )
+//        {
+//          if ( (dword_2056888 & 0x80u) == default )
+//          {
+//            dword_2056888 = dword_2056888 | (0x80u);
+//            sub_11A95E0();
+//            sub_11A95E0();
+//            dword_2056868 = sub_12C4BC0(L"CurrentGrabTurnType");
+//          }
+//          *v8 = *(ushort *)(dword_2056868 + 94);
+//          v12 = a2;
+//          ++v8;
+//        }
+//        if ( ((*(_BYTE *)(v12 + 1052) ^ LOBYTE(this.bDisableSkelControlSpring.AsBitfield(32))) & 0x20) != default )
+//        {
+//          if ( (dword_2056888 & 0x100) == default )
+//          {
+//            dword_2056888 = dword_2056888 | (0x100u);
+//            sub_11A95E0();
+//            sub_11A95E0();
+//            dword_2056864 = sub_12C4BC0(L"bClimbDownFast");
+//          }
+//          *v8 = *(ushort *)(dword_2056864 + 94);
+//          v12 = a2;
+//          ++v8;
+//        }
+//        if ( this.LadderType != *(_BYTE *)(v12 + 1273) )
+//        {
+//          if ( (dword_2056888 & 0x200) == default )
+//          {
+//            dword_2056888 = dword_2056888 | (0x200u);
+//            sub_11A95E0();
+//            sub_11A95E0();
+//            dword_2056860 = sub_12C4BC0(L"LadderType");
+//          }
+//          *v8++ = *(ushort *)(dword_2056860 + 94);
+//        }
+//      }
+//      if ( this.ReplicateCustomAnimCount )
+//      {
+//        if ( (dword_2056888 & 0x400) == default )
+//        {
+//          dword_2056888 = dword_2056888 | (0x400u);
+//          v13 = TdPawn_Class;
+//          if ( !TdPawn_Class )
+//          {
+//            TdPawn_Class = (Object )sub_12C2C40((int)L"TdGame");
+//            sub_12B2BE0();
+//            v13 = TdPawn_Class;
+//          }
+//          if ( !v13 )
+//          {
+//            TdPawn_Class = (Object )sub_12C2C40((int)L"TdGame");
+//            sub_12B2BE0();
+//          }
+//          dword_205685C = sub_12C4BC0(L"ReplicatedCustomAnim");
+//        }
+//        *v8++ = *(ushort *)(dword_205685C + 94);
+//        ++this.ReplicateCustomAnimCount;
+//      }
+//    }
+//    v14 = this.bExludeHandMoves.AsBitfield(32);
+//    if ( ((v14 & 0x40000000) != default || (this.bCollideComplex.AsBitfield(20) & 0x400) != default && ((uint)&_ImageBase & v14) != default && this.Role == ROLE_Authority) && LODWORD(this.TaserDamageLevel) != *(_DWORD *)(a2 + 2184) )
+//    {
+//      if ( (dword_2056888 & 0x800) == default )
+//      {
+//        dword_2056888 = dword_2056888 | (0x800u);
+//        v15 = TdPawn_Class;
+//        if ( !TdPawn_Class )
+//        {
+//          TdPawn_Class = (Object )sub_12C2C40((int)L"TdGame");
+//          sub_12B2BE0();
+//          v15 = TdPawn_Class;
+//        }
+//        if ( !v15 )
+//        {
+//          TdPawn_Class = (Object )sub_12C2C40((int)L"TdGame");
+//          sub_12B2BE0();
+//        }
+//        dword_2056858 = sub_12C4BC0(L"TaserDamageLevel");
+//      }
+//      *v8++ = *(ushort *)(dword_2056858 + 94);
+//    }
+//    return v8;
+//  }
+  }
 }

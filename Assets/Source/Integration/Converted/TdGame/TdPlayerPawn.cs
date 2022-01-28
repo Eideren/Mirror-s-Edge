@@ -1046,6 +1046,7 @@ public partial class TdPlayerPawn : TdPawn/*
 	
 	public override /*simulated event */void PostBeginPlay()
 	{
+		NativeMarkers.MarkUnimplemented( "See Dec/TdPlayerPawn PostBeginPlay, weird stuff" );
 		base.PostBeginPlay();
 		if(WorldInfo.Game.IsA("TdSPGame"))
 		{
@@ -1330,20 +1331,20 @@ public partial class TdPlayerPawn : TdPawn/*
 		switch(DeathMove)
 		{
 			case TdPawn.EMovement.MOVE_180TurnInAir/*25*/:
-				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDieBwd", 1.0f, 0.30f, -1.0f, false, true, false, default(bool?));
+				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDieBwd", 1.0f, 0.30f, -1.0f, false, true, false, default(bool));
 				SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
 				break;
 			case TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/:
-				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDie", 1.0f, 0.30f, -1.0f, false, true, false, default(bool?));
+				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDie", 1.0f, 0.30f, -1.0f, false, true, false, default(bool));
 				SetPhysics(Actor.EPhysics.PHYS_Falling/*2*/);
 				break;
 			case TdPawn.EMovement.MOVE_Crouch/*15*/:
 			case TdPawn.EMovement.MOVE_Slide/*16*/:
-				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "diecrouch", 1.0f, 0.30f, -1.0f, false, true, true, default(bool?));
+				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "diecrouch", 1.0f, 0.30f, -1.0f, false, true, true, default(bool));
 				bUseRootMotion = true;
 				break;
 			case TdPawn.EMovement.MOVE_LayOnGround/*26*/:
-				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "DiePursuitFinish", 1.0f, 0.30f, -1.0f, false, true, false, default(bool?));
+				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "DiePursuitFinish", 1.0f, 0.30f, -1.0f, false, true, false, default(bool));
 				SetPhysics(Actor.EPhysics.PHYS_Flying/*4*/);
 				bUseRootMotion = true;
 				break;
@@ -1358,7 +1359,7 @@ public partial class TdPlayerPawn : TdPawn/*
 				}
 				goto default;// UnrealScript fallthrough
 			default:
-				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "die", 1.0f, 0.30f, -1.0f, false, true, true, default(bool?));
+				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "die", 1.0f, 0.30f, -1.0f, false, true, true, default(bool));
 				bUseRootMotion = true;
 				break;
 		}
@@ -1582,23 +1583,23 @@ public partial class TdPlayerPawn : TdPawn/*
 		SetTimer(2.0f, false, "TurnOffRootMotion", default(Object));
 		if(((((int)OldMovementState) == ((int)TdPawn.EMovement.MOVE_Grabbing/*3*/)) || ((int)OldMovementState) == ((int)TdPawn.EMovement.MOVE_Climb/*21*/)))
 		{
-			PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "die", 1.0f, 0.30f, -1.0f, false, true, true, default(bool?));		
+			PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "die", 1.0f, 0.30f, -1.0f, false, true, true, default(bool));		
 		}
 		else
 		{
 			if(((((int)MovementState) == ((int)TdPawn.EMovement.MOVE_Falling/*2*/)) || ((int)MovementState) == ((int)TdPawn.EMovement.MOVE_FallingUncontrolled/*72*/)))
 			{
-				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDie", 1.0f, 0.30f, -1.0f, false, true, true, default(bool?));			
+				PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDie", 1.0f, 0.30f, -1.0f, false, true, true, default(bool));			
 			}
 			else
 			{
 				if(((int)MovementState) == ((int)TdPawn.EMovement.MOVE_180TurnInAir/*25*/))
 				{
-					PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDieBwd", 1.0f, 0.30f, -1.0f, false, true, true, default(bool?));				
+					PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "FallingLandDieBwd", 1.0f, 0.30f, -1.0f, false, true, true, default(bool));				
 				}
 				else
 				{
-					PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "die", 1.0f, 0.30f, -1.0f, false, true, true, default(bool?));
+					PlayCustomAnim(TdPawn.CustomNodeType.CNT_Canned/*0*/, "die", 1.0f, 0.30f, -1.0f, false, true, true, default(bool));
 				}
 			}
 		}

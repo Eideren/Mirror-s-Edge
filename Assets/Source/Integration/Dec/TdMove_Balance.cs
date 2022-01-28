@@ -44,17 +44,15 @@ public partial class TdMove_Balance
     {
       if ( E_TryCastTo<TdPlayerController>(this.PawnOwner.Controller) )
       {
-        fixed(float* ptr1 =&this.CurrentParamOnCurve)
         this.Volume.FindClosestPointOnDSpline(
           this.PawnOwner.Location,
-          &v17,
-          ptr1,
+          ref v17,
+          ref this.CurrentParamOnCurve,
           (int)this.CurrentParamOnCurve);
         v8 = this.Volume;
         v9 = this.CurrentParamOnCurve;
         v17.Z = this.PawnOwner.Location.Z;
-        Delta = v8.GetSlopeOnSpline(v9 / (float)v8.SplineLocations.Count);
-        v10 = &Delta;
+        v10 = v8.GetSlopeOnSpline(&Delta, v9 / (float)v8.SplineLocations.Count);
         v7 = (this.bIsFacingForward.AsBitfield(3) & 1) == 0;
         v16 = *v10;
         if(v7 != default)
@@ -94,7 +92,7 @@ public partial class TdMove_Balance
         Delta.Y = (float)(v12 * 10.0f) * v15;
         Delta.Z = (float)(v13 * 10.0f) * v15;
         v14 = E_DirToRotator(&v16, &out_a);
-        GWorld.MoveActor(this.PawnOwner, &Delta, v14, 0, &Hit);
+        GWorld.MoveActor(this.PawnOwner, ref Delta, ref *v14, 0, ref Hit);
       }
     }
   }

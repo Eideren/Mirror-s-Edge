@@ -229,7 +229,7 @@ public partial class TdMove_WallRun : TdPhysicsMove/*
 		Start = PawnOwner.Location;
 		End = Start;
 		End.Z += WallRunningHorisontalInitialZHeight;
-		if(MovementTrace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, End, Start, PawnOwner.GetCollisionExtent(), default(bool?)))
+		if(MovementTrace(ref/*probably?*/ HitLocation, ref/*probably?*/ HitNormal, End, Start, PawnOwner.GetCollisionExtent(), default(bool)))
 		{
 			WallRunHeight = HitLocation.Z - PawnOwner.Location.Z;		
 		}

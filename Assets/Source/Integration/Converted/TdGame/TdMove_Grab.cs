@@ -246,7 +246,7 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 		AnimNodeSeq1p.bResetOnBecomeRelevant = false;
 		AnimNodeSeq3p.bResetOnBecomeRelevant = false;
 		RootOffset.X += ((IsHangingFree()) ? -1.0f : 1.0f);
-		PawnOwner.SetRootOffset(RootOffset, 0.30f, default(SkelControlBase.EBoneControlSpace?));
+		PawnOwner.SetRootOffset(RootOffset, 0.30f, default(SkelControlBase.EBoneControlSpace));
 	}
 	
 	public virtual /*simulated function */void SetGrabType(TdMove_Grab.EGrabType NewGrabType)

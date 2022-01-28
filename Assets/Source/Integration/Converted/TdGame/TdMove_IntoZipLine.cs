@@ -55,8 +55,8 @@ public partial class TdMove_IntoZipLine : TdPhysicsMove/*
 		/*local */float TimeToDestination = default;
 	
 		base.StartMove();
-		ZipLine.FindClosestPointOnDSpline(PawnOwner.Location, ref/*probably?*/ DestinationToReach, ref/*probably?*/ EnterZipLineParam, default(int?));
-		ZipLine.FindClosestPointOnDSpline(DestinationToReach + (ZipLine.MoveDirection * ((float)(100))), ref/*probably?*/ DestinationToReach, ref/*probably?*/ EnterZipLineParam, default(int?));
+		ZipLine.FindClosestPointOnDSpline(PawnOwner.Location, ref/*probably?*/ DestinationToReach, ref/*probably?*/ EnterZipLineParam, default(int));
+		ZipLine.FindClosestPointOnDSpline(DestinationToReach + (ZipLine.MoveDirection * ((float)(100))), ref/*probably?*/ DestinationToReach, ref/*probably?*/ EnterZipLineParam, default(int));
 		DestinationToReach.Z += HangOffset.Z;
 		LastZipLineVolumeName = ZipLine.Name;
 		IntoClimbSpeed = FMax(VSize2D(PawnOwner.Velocity), 400.0f);
