@@ -4,7 +4,7 @@ namespace MEdge.TdGame{
 using static MEdge.TdGame.TdPawn; using static MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.Engine.AnimNodeSequence.ERootBoneAxis; using static MEdge.Engine.AnimNodeSequence.ERootRotationOption; using static MEdge.TdGame.TdPawn.EAgainstWallState; using static MEdge.TdGame.TdPawn.EWeaponAnimState; using static MEdge.Engine.SkeletalMeshComponent.ERootMotionMode; using static MEdge.TdGame.TdPawn.EMovement; using static MEdge.TdGame.TdMove_ZipLine.EZipLineStatus; using static MEdge.TdGame.TdMove.EPreciseLocationMode; using static MEdge.Engine.Actor.EPhysics; using static MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Engine.Actor.ENetRole; using LedgeHitInfo = MEdge.TdGame.TdPawn.LedgeHitInfo; using ECustomNodeType = MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.TdGame.TdPawn.WalkingState; using static MEdge.TdGame.TdPawn.EWeaponType;using static MEdge.TdGame.TdPawn.EMoveActionHint; using EMoveAimMode = MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Source.DecFn; using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 public partial class TdPawn
 {
-  public unsafe EWeaponType GetWeaponType()
+  public virtual unsafe EWeaponType GetWeaponType()
   {
     TdWeapon v1 = default; // eax
     EWeaponType result = default; // al
@@ -22,7 +22,7 @@ public partial class TdPawn
     return false;
   }
 
-  public unsafe void startNewPhysics(float deltaTime, int Iterations)
+  public override unsafe void startNewPhysics(float deltaTime, int Iterations)
   {
     int v3 = default; // edx
   
@@ -117,10 +117,11 @@ public partial class TdPawn
     this.VelocityMagnitude2D = 0.0f;
   }
 
-  public virtual unsafe void setPhysics(byte NewPhysics, Actor NewFloor, Vector NewFloorV)
+  public override unsafe void setPhysics(byte NewPhysics, Actor NewFloor = null, Vector? _NewFloorV = null)
   {
     EPhysics v5 = default; // al
-  
+
+    var NewFloorV = _NewFloorV ?? FVector( 0, 0, 1 );
     if ( this.Physics == (EPhysics)NewPhysics )
     {
       if ( NewPhysics == 1 )
@@ -145,7 +146,7 @@ public partial class TdPawn
     base.setPhysics(NewPhysics, NewFloor, NewFloorV);
   }
 
-  public unsafe float GetGravityZ()
+  public override unsafe float GetGravityZ()
   {
     return (float)(base.GetGravityZ() * this.GravityModifier);
   }
@@ -1066,7 +1067,7 @@ public partial class TdPawn
     }
   }
 
-  public unsafe void performPhysics(float DeltaTime)
+  public override unsafe void performPhysics(float DeltaTime)
   {
     EMovement v3 = default; // al
     TdMove[] v4; // ecx
@@ -1117,7 +1118,7 @@ public partial class TdPawn
     return (float)(result);
   }
 
-  public unsafe void CalcVelocity(Vector *a2, float a3, float a4, float a5, int a6, int a7, int a8)
+  public override unsafe void CalcVelocity(ref Vector a2, float a3, float a4, float a5, int a6, int a7, int a8) 
   {
     uint v9 = default; // eax
     SkeletalMeshComponent v10 = default; // eax
@@ -1192,7 +1193,7 @@ public partial class TdPawn
     v9 = this.bIsFemale.AsBitfield(20);
     if ( (v9 & 0x40000) == default && ((v9 & 0x20000) != default || (v10 = this.Mesh) != default && v10.RootMotionMode != RMM_Ignore) || (v11 = this.Controller) != default && (v11.bIsPlayer.AsBitfield(20) & 0x20000) != default )
     {
-      base.CalcVelocity(ref *a2, a3, a4, a5, a6, a7, a8);
+      base.CalcVelocity(ref a2, a3, a4, a5, a6, a7, a8);
       v12 = this.Moves[this.MovementState];
       v13 = this.Velocity.X * v12.RootMotionScale.X;
       //v12 = (TdMove )((byte *)v12 + 0xFC);// points to RootMotionScale now
@@ -1218,9 +1219,9 @@ public partial class TdPawn
       SetFromBitfield(ref this.bDisableSkelControlSpring, 32, this.bDisableSkelControlSpring.AsBitfield(32) & (0xFFFFBFFF));
       if ( fabs(this.Acceleration.X) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(this.Acceleration.Y) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(this.Acceleration.Z) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
       {
-        v21 = a2->Y * v63;
-        v70 = a2->Z * v63;
-        this.Acceleration.X = v63 * a2->X;
+        v21 = a2.Y * v63;
+        v70 = a2.Z * v63;
+        this.Acceleration.X = v63 * a2.X;
         this.Acceleration.Y = v21;
         this.Acceleration.Z = v70;
         goto LABEL_35;
@@ -1250,7 +1251,7 @@ public partial class TdPawn
             v64.X = 0.0f;
             v64.Y = 0.0f;
             v64.Z = 0.0f;
-            *a2 = v64;
+            a2 = v64;
             goto LABEL_35;
           }
           v34 = 1.0f / fsqrt(v33);
@@ -1260,7 +1261,7 @@ public partial class TdPawn
           v64.Z = a2a.X * this.Acceleration.Z;
         }
         v19 = 0.0f;
-        *a2 = v64;
+        a2 = v64;
         goto LABEL_35;
       }
       v23 = (float)((float)(v22.X * v22.X) + (float)(this.Velocity.Y * this.Velocity.Y)) + (float)(this.Velocity.Z * this.Velocity.Z);
@@ -1298,7 +1299,7 @@ public partial class TdPawn
       if ( v28 == 1.0f )
       {
         v64 = this.Acceleration;
-        *a2 = v64;
+        a2 = v64;
         goto LABEL_35;
       }
       if ( v28 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
@@ -1308,13 +1309,13 @@ public partial class TdPawn
         v64.X = a2a.X * this.Acceleration.X;
         v64.Y = this.Acceleration.Y * a2a.X;
         v64.Z = this.Acceleration.Z * a2a.X;
-        *a2 = v64;
+        a2 = v64;
         goto LABEL_35;
       }
       v64.X = 0.0f;
       v64.Y = 0.0f;
       v64.Z = 0.0f;
-      *a2 = v64;
+      a2 = v64;
       goto LABEL_35;
     }
   LABEL_35:
@@ -3942,7 +3943,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
         }
         v95.Z = v13;
       }
-      this.CalcVelocity( &v95, (a2), this.GroundSpeed * 4.0f, ((v106)), 0, 0, 0);// CalcVelocity
+      this.CalcVelocity( ref v95, (a2), this.GroundSpeed * 4.0f, ((v106)), 0, 0, 0);// CalcVelocity
       v17 = this.Velocity.Y;
       v18 = this.Velocity.Z;
       v19 = a2;
@@ -4479,7 +4480,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
         v15 = this.Moves[v14].FrictionModifier;
         v69 = v12;
         v58 = (float)v15;
-        this.CalcVelocity( (Vector*)&v65, (a2), (v13), (v58), 0, 0, 0);// CalcVelocity
+        this.CalcVelocity( ref *(Vector*)&v65, (a2), (v13), (v58), 0, 0, 0);// CalcVelocity
         v16 = this.Velocity.Z;
         v17 = this.Velocity.X;
         v18 = this.Velocity.Y;
@@ -5222,7 +5223,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
     }
   }
 
-  public unsafe void physWalking(float DeltaTime, int Iterations)
+  public override unsafe void physWalking(float DeltaTime, int Iterations)
   {
     float v4 = default; // xmm1_4
     float v5 = default; // xmm5_4
@@ -5579,7 +5580,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
     v38 = this.PhysicsVolume;
     v154 = v36;
     v126 = (float)v34;
-    this.CalcVelocity((Vector*)&v152, DeltaTime, v126, v38.GroundFriction * v24, 0, 1, 0);// CalcVelocity
+    this.CalcVelocity(ref *(Vector*)&v152, DeltaTime, v126, v38.GroundFriction * v24, 0, 1, 0);// CalcVelocity
     v39 = this.PhysicsVolume;
     v40 = this.Location.X;
     v41 = this.Location.Y;

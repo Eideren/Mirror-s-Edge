@@ -1187,7 +1187,7 @@ namespace MEdge.Engine
 			//DEBUGPHYSONLY(debugf(TEXT("%3.3f [%s] CalcVelocity MaxSpeed: %3.2f, Vel Mag: %3.2f, Vel Vect: %s"), GWorld.GetTimeSeconds(), *GetName(), MaxSpeed, Velocity.Size(), *Velocity.ToString());)
 		}
 		
-		public void GetBoundingCylinder(ref FLOAT CollisionRadius, ref FLOAT CollisionHeight)
+		public override void GetBoundingCylinder(ref FLOAT CollisionRadius, ref FLOAT CollisionHeight)
 		{
 			// if we are a template, no components will be attached and the default implementation of calling GetComponentsBoundingBox() will do nothing
 			// so use our CylinderComponent instead if possible

@@ -3,8 +3,9 @@ namespace MEdge.TdGame{
 public partial class TdPlayerPawn
 {
   // Same as APawn::NewFallVelocity
-  public unsafe Vector * NewFallVelocity(Vector *returnVal, Vector OldVelocity, Vector OldAcceleration, float timeTick)
+  public override unsafe Vector NewFallVelocity(Vector OldVelocity, Vector OldAcceleration, float timeTick)
   {
+    Vector returnVal = default;
     // void (__thiscall *GetNetBuoyancy)(TdPlayerPawn , float *, float *); // eax
     Vector *result; // eax
     float v7 = default; // xmm6_4
@@ -17,14 +18,14 @@ public partial class TdPlayerPawn
     NetBuoyancy = 0.0f;
     NetFluidFriction = 0.0f;
     this.GetNetBuoyancy(ref NetBuoyancy, ref NetFluidFriction);// APawn::GetNetBuoyancy
-    result = returnVal;
+    //result = returnVal;
     v7 = 1.0f - (float)(NetFluidFriction * timeTick);
     v8 = (float)(OldVelocity.Y * v7) + (float)((float)((float)(1.0f - NetBuoyancy) * OldAcceleration.Y) * timeTick);
     v9 = (float)(OldVelocity.Z * v7) + (float)((float)(OldAcceleration.Z * (float)(1.0f - NetBuoyancy)) * timeTick);
-    returnVal->X = (float)(OldVelocity.X * v7) + (float)((float)(OldAcceleration.X * (float)(1.0f - NetBuoyancy)) * timeTick);
-    returnVal->Y = v8;
-    returnVal->Z = v9;
-    return result;
+    returnVal.X = (float)(OldVelocity.X * v7) + (float)((float)(OldAcceleration.X * (float)(1.0f - NetBuoyancy)) * timeTick);
+    returnVal.Y = v8;
+    returnVal.Z = v9;
+    return returnVal;
   }
 
   public override unsafe void SetBase(Actor NewBase, Vector NewFloor, int bNotifyActor = 1, SkeletalMeshComponent SkelComp = null, name AttachName = default)
@@ -2501,7 +2502,7 @@ public partial class TdPlayerPawn
 //  }
 //
   static int dword_205684C;
-  public unsafe void physFalling(float DeltaTime, int Iterations)
+  public override unsafe void physFalling(float DeltaTime, int Iterations)
   {
     Controller v4 = default; // ecx
     SkeletalMeshComponent Mesh = default; // eax
@@ -2969,7 +2970,8 @@ public partial class TdPlayerPawn
       v173 = v57;
       *(_QWORD *)&timeTick_8.Y = __PAIR64__((int)v58, (int)LODWORD(v57));
       v174 = *(float *)&v58;
-      this.Velocity = *NewFallVelocity(&v195, v155, timeTick_8, v144);
+      v195 = NewFallVelocity(v155, timeTick_8, v144);
+      this.Velocity = v195;
       v60 = this.Controller;
       v61 = default;
       if ( v60 && SLOBYTE(v60.bIsPlayer.AsBitfield(20)) < 0 && this.Velocity.Z <= 0.0f )
