@@ -343,7 +343,7 @@
 			}
 		}
 		
-		void UpdateTimers(float DeltaSeconds)
+		public void UpdateTimers(float DeltaSeconds)
 		{
 			// split into two loops to avoid infinite loop where
 			// the timer is called, causes settimer to be called

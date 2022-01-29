@@ -131,7 +131,7 @@ public partial class TdKillZoneVolume : Volume/*
 		return TheEmitter;
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdKillZoneVolume_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdKillZoneVolume_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdKillZoneVolume_Tick;
 	public /*event */void TdKillZoneVolume_Tick(float DeltaTime)
 	{
@@ -342,7 +342,7 @@ public partial class TdKillZoneVolume : Volume/*
 	{
 		Touch = null;
 		UnTouch = null;
-		Tick = null;
+		eventTick = null;
 	
 	}
 	public TdKillZoneVolume()

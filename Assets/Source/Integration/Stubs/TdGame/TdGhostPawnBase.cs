@@ -34,7 +34,7 @@ public partial class TdGhostPawnBase : TdPawn/*
 		// stub
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdGhostPawnBase_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdGhostPawnBase_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdGhostPawnBase_Tick;
 	public /*simulated function */void TdGhostPawnBase_Tick(float DeltaTime)
 	{
@@ -73,7 +73,7 @@ public partial class TdGhostPawnBase : TdPawn/*
 	}
 	protected override void RestoreDefaultFunction()
 	{
-		Tick = null;
+		eventTick = null;
 	
 	}
 	public TdGhostPawnBase()

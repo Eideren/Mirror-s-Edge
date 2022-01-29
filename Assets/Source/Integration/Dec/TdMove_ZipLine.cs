@@ -223,7 +223,7 @@ public partial class TdMove_ZipLine
         v137 = 0.0f;
         v138 = default;
         v136.LOBYTE(2);
-        CallUFunction(v11.SetMove, v11, v117, &v136, 0);
+        v11.SetMove((EMovement)2);
         return;
       }
   LABEL_17:

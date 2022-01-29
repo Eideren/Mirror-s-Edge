@@ -154,7 +154,7 @@
 
 					if( Actor.CollisionComponent.IsValidComponent() )
 					{
-						if( !Actor.CollisionComponent.IsAttached() )
+						if( /*!Actor.CollisionComponent.IsAttached()*/false )
 						{
 							throw new Exception();
 							//appErrorf(TEXT("%s collisioncomponent %s not initialized deleteme %d"),*Actor.GetName(), *Actor.CollisionComponent.GetName(), Actor.bDeleteMe);
@@ -1149,7 +1149,7 @@
 				Exchange( ref Rotation, ref Actor.Rotation );
 				try
 				{
-					if(!Actor.CollisionComponent.IsAttached())
+					if(/*!Actor.CollisionComponent.IsAttached()*/false)
 					{
 						throw new Exception();
 						//debugf( TEXT("ActorEncroachmentCheck: Actor '%s' has uninitialised CollisionComponent!"), *Actor.GetName() );
@@ -1204,7 +1204,17 @@
 
 			return null;
 		}
-		
+
+
+
+		public bool Ticked{ get; }
+		public bool DestroyActor( Actor actor, bool bNetForce = false, bool bShouldModifyLevel = true )
+		{
+			throw new NotImplementedException();
+		}
+
+
+
 		void Swap<T>( ref T A, ref T B )
 		{
 			T Temp = A;

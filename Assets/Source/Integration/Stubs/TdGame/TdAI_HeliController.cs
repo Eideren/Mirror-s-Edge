@@ -70,7 +70,7 @@ public partial class TdAI_HeliController : AIController/*
 		// stub
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdAI_HeliController_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdAI_HeliController_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAI_HeliController_Tick;
 	public /*event */void TdAI_HeliController_Tick(float DeltaTime)
 	{
@@ -200,7 +200,7 @@ public partial class TdAI_HeliController : AIController/*
 	}
 	protected override void RestoreDefaultFunction()
 	{
-		Tick = null;
+		eventTick = null;
 		Possess = null;
 		SeePlayer = null;
 	

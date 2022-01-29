@@ -8,7 +8,6 @@
     using Core;
     using Source;
     using TdGame;
-    using Tp;
     using UnityEngine.Events;
     using UnityEngine.SceneManagement;
     using V3 = UnityEngine.Vector3;
@@ -54,8 +53,13 @@
 
 
 
+        public ulong FrameId{ get; private set; }
+
+
+
         void Update()
         {
+            FrameId++;
 	        DecFn.CheckResult.Clear();
 	        while( ScheduleInMainLoop.TryDequeue( out var a ) )
 	        {
@@ -85,23 +89,21 @@
                 {
                     #warning debug only
                     SampleInput( pc.PlayerInput as TdPlayerInput, pc as TdPlayerController, deltaTime );
-                    pc.PlayerInput.Tick( deltaTime );
-                    pc.PlayerTick( deltaTime );
                 }
             }
             
             foreach( var actor in _actorsThisFrame )
                 if( actor.TickGroup == Object.ETickingGroup.TG_PreAsyncWork )
-                    actor.Tick(deltaTime*actor.CustomTimeDilation);
+                    actor.Tick(deltaTime*actor.CustomTimeDilation, ELevelTick.LEVELTICK_All);
             foreach( var actor in _actorsThisFrame )
                 if( actor.TickGroup == Object.ETickingGroup.TG_DuringAsyncWork )
-                    actor.Tick(deltaTime*actor.CustomTimeDilation);
+                    actor.Tick(deltaTime*actor.CustomTimeDilation, ELevelTick.LEVELTICK_All);
             foreach( var actor in _actorsThisFrame )
                 if( actor.TickGroup == Object.ETickingGroup.TG_PostAsyncWork )
-                    actor.Tick(deltaTime*actor.CustomTimeDilation);
+                    actor.Tick(deltaTime*actor.CustomTimeDilation, ELevelTick.LEVELTICK_All);
             foreach( var actor in _actorsThisFrame )
                 if( actor.TickGroup == Object.ETickingGroup.TG_PostUpdateWork )
-                    actor.Tick(deltaTime*actor.CustomTimeDilation);
+                    actor.Tick(deltaTime*actor.CustomTimeDilation, ELevelTick.LEVELTICK_All);
             
             foreach( var actor in _actorsThisFrame )
             {
@@ -127,7 +129,45 @@
             }
         }
 
+        public PlayerController SpawnPlayActor(Player Player, Actor.ENetRole RemoteRole,/* const FURL& URL,*/ref String Error, byte InNetPlayerIndex)
+        {
+            //Error=TEXT("");
 
+            // Get package map.
+            /*UPackageMap*    PackageMap = NULL;
+            UNetConnection* Conn       = Cast<UNetConnection>( Player );
+            if( Conn )
+                PackageMap = Conn->PackageMap;*/
+
+            // Make the option string.
+            /*FString Options;
+            for( INT i=0; i<GameEngine.URL.Op.Num(); i++ )
+            {
+                Options += TEXT('?');
+                Options += GameEngine.URL.Op(i);
+            }*/
+
+            // Tell UnrealScript to log in.
+            //PlayerController Actor = GetGameInfo().Login( *GameEngine.URL.Portal, Options, Error );
+            //
+            PlayerController Actor = GetGameInfo().Login( default, "?Character=TdPlayerPawn", ref Error );
+            if( !Actor )
+            {
+                throw new Exception();
+                //debugf( NAME_Warning, TEXT("Login failed: %s"), *Error);
+                //return NULL;
+            }
+
+            // Possess the newly-spawned player.
+            Actor.NetPlayerIndex = InNetPlayerIndex;
+            Actor.SetPlayer( Player );
+            //debugf(TEXT("%s got player %s"), *Actor->GetName(), *Player->GetName());
+            Actor.Role       = GameInfo.ENetRole.ROLE_Authority;
+            Actor.RemoteRole = RemoteRole;
+            GetGameInfo().PostLogin( Actor );
+
+            return Actor;
+        }
 
         void OnDestroy()
         {
@@ -161,14 +201,16 @@
             var go = new UnityEngine.GameObject( nameof( UWorld ) );
             DontDestroyOnLoad( go );
             _instance = go.AddComponent<UWorld>();
+            DecFn.SetWorld(_instance);
             _instance._defaultOuter = new Actor();
             _instance.LevelStartup();
-            _instance.PlayerLogIn();
+            var player = _classImp<LocalPlayer>.Singleton.New( _instance._engine );
+            String error = default;
+            _instance.SpawnPlayActor( player, Actor.ENetRole.ROLE_Authority, ref error, 1 );
 
             if(_onSceneLoadedCached != null)
                 SceneManager.sceneLoaded -= _onSceneLoadedCached;
             SceneManager.sceneLoaded += _onSceneLoadedCached = OnSceneLoaded;
-            DecFn.SetWorld(_instance);
             return _instance;
         }
 
@@ -194,6 +236,7 @@
 
 
 
+        GameInfo GetGameInfo() => GetWorldInfo().Game;
         void LevelStartup()
         {
             // https://wiki.beyondunreal.com/Legacy:Chain_Of_Events_At_Level_Startup
@@ -257,28 +300,6 @@
                 actor.SetInitialState();
             
             WorldInfo.bStartup = false; // MAYBE ?
-        }
-
-
-
-        void PlayerLogIn()
-        {
-            // https://wiki.beyondunreal.com/Legacy:Chain_Of_Events_When_A_Player_Logs_In
-            String err = default;
-            WorldInfo.Game.PreLogin( default, default, ref err );
-            var controller = WorldInfo.Game.Login( default, "?Character=TdPlayerPawn", ref err );
-            var player = _classImp<LocalPlayer>.Singleton.New( _engine );
-            // Controller SetPlayer()
-            {
-                controller.Player = player;
-                controller.InitInputSystem();
-                controller.ReceivedPlayer();
-                // Hacks for now
-                controller.OnlinePlayerData ??= new UIDataStore_OnlinePlayerData{ ProfileProvider = new UIDataProvider_OnlineProfileSettings{ Profile = new TdProfileSettings() } };
-                ( controller as TdPlayerController ).StatsManager ??= new TdStatsManager();
-                controller.OnlineSub = new OnlineSubsystem{ PlayerInterface = new TpUoPlayer() };
-            }
-            WorldInfo.Game.PostLogin( controller );
         }
 
         bool FindSpot(Object.Vector extent, ref Object.Vector position, bool bComplex)

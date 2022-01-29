@@ -72,7 +72,7 @@ public partial class TdMove_Falling
         v15.X = (float)(v9 * 0.40000001d) + v13.X;
         v15.Y = v13.Y + (float)(v10 * 0.40000001d);
         v15.Z = (float)(v11 * 0.40000001d) + v12;
-        SetFromBitfield(ref this.bCloseToGround, 1, this.bCloseToGround.AsBitfield(1) ^ ((this.bCloseToGround.AsBitfield(1) ^ (default == GWorld.SingleLineCheck(ref v16, v8, ref v15, ref v13, 8415, ref v14, 0) ? 1u : 0u)) & 1u));
+        SetFromBitfield(ref this.bCloseToGround, 1, this.bCloseToGround.AsBitfield(1) ^ ((this.bCloseToGround.AsBitfield(1) ^ (default == GWorld.SingleLineCheck(ref v16, v8, v15, v13, 8415, v14, 0) ? 1u : 0u)) & 1u));
         if ( (this.bCloseToGround.AsBitfield(1) & 1) != 0 )
           this.CloseToGround();
       }

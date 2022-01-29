@@ -11,7 +11,7 @@ public partial class TdSPLevelRace : TdSPStoryGame/*
 	public/*private*/ UIDataStore_TdTimeTrialData TimeTrialData;
 	[transient] public TdSPPostProcessingBase PostProcess;
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdSPLevelRace_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdSPLevelRace_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdSPLevelRace_Tick;
 	public /*function */void TdSPLevelRace_Tick(float DeltaTime)
 	{
@@ -147,7 +147,7 @@ public partial class TdSPLevelRace : TdSPStoryGame/*
 	}
 	protected override void RestoreDefaultFunction()
 	{
-		Tick = null;
+		eventTick = null;
 		Reset = null;
 		PostLogin = null;
 		CanOpenPauseMenu = null;

@@ -843,7 +843,7 @@ public partial class TdMove_WallRun
       rotator_then_vec.Y = 0.0f;
       rotator_then_vec.Z = 0.0f;
       rotator_then_vec.X.LOBYTE(2);
-      CallUFunction(v3.SetMove, v3, v5, &rotator_then_vec, 0);
+      v3.SetMove((EMovement)2);
     }
     else
     {

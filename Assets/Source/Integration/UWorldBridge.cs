@@ -35,5 +35,8 @@
 		public T SpawnActor<T>(Core.ClassT<T> c) where T : Actor;
 		public PhysicsVolume GetDefaultPhysicsVolume();
 		public unsafe DecFn.CheckResult* ActorEncroachmentCheck( ref int Mem, Actor Actor, Object.Vector Location, Object.Rotator Rotation, int TraceFlags );
+		public bool Ticked{ get; }
+		public bool DestroyActor( Actor actor, bool bNetForce=false, bool bShouldModifyLevel=true );
+		public ulong FrameId{ get; }
 	}
 }

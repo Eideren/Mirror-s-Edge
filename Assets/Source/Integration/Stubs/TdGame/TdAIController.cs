@@ -1083,7 +1083,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdAIController_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdAIController_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAIController_Tick;
 	public /*event */void TdAIController_Tick(float DeltaTime)
 	{
@@ -2591,7 +2591,7 @@ public partial class TdAIController : AIController,
 		NotifyStumbleComplete = null;
 		Reset = null;
 		OkToDoStartMove = null;
-		Tick = null;
+		eventTick = null;
 		UpdatePawnFocus = null;
 		UpdatePose = null;
 		TestCombatTransitions = null;

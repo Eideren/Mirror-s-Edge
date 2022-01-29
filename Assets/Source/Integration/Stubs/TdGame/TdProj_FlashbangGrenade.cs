@@ -22,7 +22,7 @@ public partial class TdProj_FlashbangGrenade : TdProj_Grenade/*
 		// stub
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdProj_FlashbangGrenade_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdProj_FlashbangGrenade_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdProj_FlashbangGrenade_Tick;
 	public /*event */void TdProj_FlashbangGrenade_Tick(float DeltaTime)
 	{
@@ -35,7 +35,7 @@ public partial class TdProj_FlashbangGrenade : TdProj_Grenade/*
 	}
 	protected override void RestoreDefaultFunction()
 	{
-		Tick = null;
+		eventTick = null;
 	
 	}
 	public TdProj_FlashbangGrenade()

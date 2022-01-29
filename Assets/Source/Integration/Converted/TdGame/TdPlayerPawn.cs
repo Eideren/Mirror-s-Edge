@@ -496,7 +496,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		}
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdPlayerPawn_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdPlayerPawn_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdPlayerPawn_Tick;
 	public /*simulated function */void TdPlayerPawn_Tick(float DeltaTime)
 	{
@@ -1542,7 +1542,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		TakeDamage = null;
 		Died = null;
 		Landed = null;
-		Tick = null;
+		eventTick = null;
 		PlayWeaponSwitch = null;
 	
 	}

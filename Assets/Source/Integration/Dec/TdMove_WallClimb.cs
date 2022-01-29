@@ -444,7 +444,7 @@ public partial class TdMove_WallClimb
       v19 = default;
       v17 = 0.0f;
       v18 = 0.0f;
-      CallUFunction(v3.SetMove, v3, v5, &v16, 0);
+      v3.SetMove((EMovement)2);
     }
     else
     {

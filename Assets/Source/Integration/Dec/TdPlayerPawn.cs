@@ -598,7 +598,7 @@ public partial class TdPlayerPawn
     v74.Y = v8 - v16;
     v70 = v9 - v17;
     v74.Z = v9 - v17;
-    GWorld.SingleLineCheck(ref v79, this, ref v74, ref v69, 8415, ref v66, 0);
+    GWorld.SingleLineCheck(ref v79, this, v74, v69, 8415, v66, 0);
     v74.X = 0.0f;
     v74.Y = 0.0f;
     v74.Z = 0.0f;
@@ -608,7 +608,7 @@ public partial class TdPlayerPawn
     v69.X = v76;
     v69.Y = v75;
     v69.Z = v71;
-    GWorld.SingleLineCheck(ref v77, this, ref v69, ref v66, 8415, ref v74, 0);
+    GWorld.SingleLineCheck(ref v77, this, v69, v66, 8415, v74, 0);
     if ( v79.Time >= 1.0f || this.WalkableFloorZ <= v79.Normal.Z )
     {
       v19 = 0.0f;
@@ -1147,7 +1147,7 @@ public partial class TdPlayerPawn
       Hit.bStartPenetrating = default;
       v56 = default;
       a2.Z = v51.Z + a5a.Z;
-      GWorld.SingleLineCheck(ref Hit, Actor, ref a2, ref a5a, 8927, ref v50, 0);
+      GWorld.SingleLineCheck(ref Hit, Actor, a2, a5a, 8927, v50, 0);
       if ( Hit.Time >= 1.0f || Hit.Time > 0.0f && Actor.WalkableFloorZ > Hit.Normal.Z )
       {
         if ( !(a8 != default) )
@@ -1228,7 +1228,7 @@ public partial class TdPlayerPawn
     v6 = a2.Z + a3.Z;
     v30.Time = 1.0f;
     v29.Z = v6;
-    GWorld.SingleLineCheck(ref v30, this, ref v29, ref a2, 8415, ref a7, 0);
+    GWorld.SingleLineCheck(ref v30, this, v29, a2, 8415, a7, 0);
     if ( v30.Time >= 1.0f )
       return false;
     v7 = 0.0f;
@@ -1533,7 +1533,7 @@ public partial class TdPlayerPawn
     a7.X = 0.0f;
     a7.Y = 0.0f;
     a7.Z = 0.0f;
-    GWorld.SingleLineCheck(ref v100, this, ref v81, ref v77, 8927, ref a7, 0);
+    GWorld.SingleLineCheck(ref v100, this, v81, v77, 8927, a7, 0);
     v91 = (float)(this.CylinderComponent.CollisionHeight + this.MaxStepHeight) / v85;
     v16 = v100.Time > v91 || this.WalkableFloorZ > v100.Normal.Z;
     v82 = (float)(v80 * 0.0f) - v79;
@@ -1556,7 +1556,7 @@ public partial class TdPlayerPawn
     a7.X = 0.0f;
     a7.Y = 0.0f;
     a7.Z = 0.0f;
-    GWorld.SingleLineCheck(ref v96, this, ref v81, ref v77, 8927, ref a7, 0);
+    GWorld.SingleLineCheck(ref v96, this, v81, v77, 8927, a7, 0);
     v19 = v96.Time > v91 || this.WalkableFloorZ > v96.Normal.Z;
     v20 = (v19 ? 1 : 0) + (v17 ? 1 : 0);
     v21 = default;
@@ -1583,7 +1583,7 @@ public partial class TdPlayerPawn
     a7.X = 0.0f;
     a7.Y = 0.0f;
     a7.Z = 0.0f;
-    GWorld.SingleLineCheck(ref v98, this, ref v81, ref v77, 8927, ref a7, 0);
+    GWorld.SingleLineCheck(ref v98, this, v81, v77, 8927, a7, 0);
     v24 = v98.Time > v91 || this.WalkableFloorZ > v98.Normal.Z;
     if ( !(v21 != default) )
     {
@@ -1655,7 +1655,7 @@ public partial class TdPlayerPawn
     v92.X = 0.0f;
     v92.Y = 0.0f;
     v92.Z = 0.0f;
-    GWorld.SingleLineCheck(ref v98, this, ref v81, ref v77, 8415, ref v92, 0);
+    GWorld.SingleLineCheck(ref v98, this, v81, v77, 8415, v92, 0);
     if ( v98.Time >= 1.0f || v98.Time <= 0.0f || this.WalkableFloorZ <= v98.Normal.Z )
     {
       v85 = 0.0f;
@@ -1682,7 +1682,7 @@ public partial class TdPlayerPawn
     a7.X = 0.0f;
     a7.Y = 0.0f;
     a7.Z = 0.0f;
-    GWorld.SingleLineCheck(ref v96, this, ref v81, ref v77, 8415, ref a7, 0);
+    GWorld.SingleLineCheck(ref v96, this, v81, v77, 8415, a7, 0);
     if ( v96.Time >= 1.0f || v96.Time <= 0.0f || this.WalkableFloorZ <= v96.Normal.Z )
     {
       v42 = default;
@@ -1853,7 +1853,7 @@ public partial class TdPlayerPawn
     a7.X = 0.0f;
     a7.Y = 0.0f;
     a7.Z = 0.0f;
-    GWorld.SingleLineCheck(ref v102, this, ref v81, ref v77, 8415, ref a7, 0);
+    GWorld.SingleLineCheck(ref v102, this, v81, v77, 8415, a7, 0);
     if ( v102.Time >= 1.0f || v102.Time <= 0.0f || this.WalkableFloorZ <= v102.Normal.Z )
       goto LABEL_115;
     v67 = v102.Normal.X;
@@ -2149,7 +2149,7 @@ public partial class TdPlayerPawn
     v47.X = 0.0f;
     v47.Y = 0.0f;
     v47.Z = 0.0f;
-    GWorld.SingleLineCheck(ref v55, this, ref v52, ref v49, 8927, ref v47, 0);
+    GWorld.SingleLineCheck(ref v55, this, v52, v49, 8927, v47, 0);
     if ( v55.Time != 1.0f )
     {
       goto LABEL_29;
@@ -2188,7 +2188,7 @@ public partial class TdPlayerPawn
             v47.X.LOBYTE(47);
             v47.Y = 0.0f;
             v47.Z = 0.0f;
-            CallUFunction(this.SetMove, this, v42, &v47, 0);
+            this.SetMove((EMovement)47);
           }
         }
       }
@@ -2216,7 +2216,8 @@ public partial class TdPlayerPawn
       v47.X.LOBYTE(1);
       v47.Y = 0.0f;
       v47.Z = 0.0f;
-      CallUFunction(this.SetMove, this, v44, &v47, 0);
+      this.SetMove((EMovement)1);
+      //CallUFunction(this.SetMove, this, v44, &v47, 0);
     }
 
     goto LABEL_29_Cont;
@@ -2856,7 +2857,7 @@ public partial class TdPlayerPawn
           v169.X = ColLocationX + TestWalkX;
           v169.Y = ColLocationY + TestWalkY;
           v169.Z = ColLocation2.Z;
-          GWorld.SingleLineCheck(ref Hit, this, ref v169, ref ColLocation2, 8838, ref v143, 0);
+          GWorld.SingleLineCheck(ref Hit, this, v169, ColLocation2, 8838, v143, 0);
           DeltaTime2 = DeltaTime;
           if ( Hit.Actor )
             TickAirControl = 0.0f;

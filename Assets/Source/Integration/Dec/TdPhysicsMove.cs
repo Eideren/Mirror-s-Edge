@@ -694,7 +694,7 @@ public partial class TdPhysicsMove
               v14 = default;
               a2.Y = 0.0f;
               a2.Z = 0.0f;
-              CallUFunction(v6.SetMove, v6, v12, &a2, 0);
+              v6.SetMove((EMovement)LOBYTE(a2.X));
               return;
             }
           }
@@ -712,7 +712,7 @@ public partial class TdPhysicsMove
         a2.Y = 0.0f;
         a2.Z = 0.0f;
         a2.X.LOBYTE(2);
-        CallUFunction(v8.SetMove, v8, v10, &a2, 0);
+        v8.SetMove((EMovement)2);
         return;
       }
     }
@@ -724,7 +724,7 @@ public partial class TdPhysicsMove
       v14 = default;
       a2.Y = 0.0f;
       a2.Z = 0.0f;
-      CallUFunction(v6.SetMove, v6, v12, &a2, 0);
+      v6.SetMove((EMovement)72);
       return;
     }
   }

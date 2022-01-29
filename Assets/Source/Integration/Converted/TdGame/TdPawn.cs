@@ -2613,7 +2613,7 @@ public partial class TdPawn : GamePawn/*
 	//	NativeMarkers.MarkUnimplemented();
 	//}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdPawn_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdPawn_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdPawn_Tick;
 	public /*simulated function */void TdPawn_Tick(float DeltaTime)
 	{
@@ -3966,7 +3966,7 @@ public partial class TdPawn : GamePawn/*
 		CanSkillRoll = null;
 		PlayPhysicsBodyImpact = null;
 		RegenerateHealth = null;
-		Tick = null;
+		eventTick = null;
 		StopCustomAnim = null;
 	
 	}

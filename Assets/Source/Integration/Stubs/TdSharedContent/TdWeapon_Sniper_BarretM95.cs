@@ -44,7 +44,7 @@ public partial class TdWeapon_Sniper_BarretM95 : TdWeapon_Heavy/*
 	
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdWeapon_Sniper_BarretM95_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdWeapon_Sniper_BarretM95_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdWeapon_Sniper_BarretM95_Tick;
 	public /*simulated function */void TdWeapon_Sniper_BarretM95_Tick(float DeltaTime)
 	{
@@ -117,7 +117,7 @@ public partial class TdWeapon_Sniper_BarretM95 : TdWeapon_Heavy/*
 	}
 	protected override void RestoreDefaultFunction()
 	{
-		Tick = null;
+		eventTick = null;
 	
 	}
 	public TdWeapon_Sniper_BarretM95()

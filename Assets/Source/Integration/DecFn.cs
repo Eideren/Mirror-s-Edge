@@ -35,12 +35,14 @@
 		public static double sin( double f ) => System.Math.Sin( f );
 		public static double cos( double f ) => System.Math.Cos( f );
 		public static int rand() => _randomSource.Next();
-		public static float appFrand() => (float)_randomSource.NextDouble();
+		public static float appSRand() => (float)(_randomSource.NextDouble()*2d-1d); // Maybe ?
+		public static float appFrand() => (float)_randomSource.NextDouble(); // Maybe ?
 		public static double atan2( double y, double x ) => System.Math.Atan2( y, x );
 		
 		
 		public static short LOWORD( int i ) => (short)(i & 0b1111_1111_1111_1111);
 		public static short LOWORD( float f ) => LOWORD( *(int*)&f );
+		public static byte LOBYTE( float i ) => *(byte*)&i;
 		public static byte LOBYTE( int i ) => *(byte*)&i;
 		public static byte LOBYTE( uint i ) => *(byte*)&i;
 		public static byte HIBYTE( uint i ) => ((byte*) & i)[3];
@@ -785,22 +787,6 @@
 			func();
 		}
 		
-		public static void CallUFunction<T>( TdPawn.SetMove_del func, object target, int idk, T* parameters, int idk2 ) where T : unmanaged
-		{
-			if( typeof(T) != typeof(Object.Vector) && typeof(T) != typeof(byte) )
-				throw new NotImplementedException("Haven't yet looked at how those other parameters are passed in");
-
-			for( int i = 1; i < 12; i++ )
-			{
-				if( ( (byte*) parameters )[ i ] != default )
-				{
-					throw new NotImplementedException("Haven't yet looked at how those other parameters are passed in");
-				}
-			}
-			
-			func( (TdPawn.EMovement)(*((byte*)&(parameters))), false, false );
-		}
-		
 		public static void CallUFunction( Action<bool?> func, object target, int idk, int* parameters, int idk2 )
 		{
 			func.Invoke(*parameters != 0);
@@ -843,13 +829,6 @@
 		public static unsafe bool MoveActor( this IUWorld w, Actor Actor, ref Object.Vector Delta, ref Object.Rotator NewRotation, uint MoveFlags, ref Source.DecFn.CheckResult Hit )
 		{
 			return w.MoveActor( Actor, Delta, NewRotation, MoveFlags, ref Hit );
-		}
-
-
-
-		public static unsafe bool SingleLineCheck( this IUWorld w, ref DecFn.CheckResult a2, Actor a3, ref Object.Vector a4, ref Object.Vector a5, int a6, ref Object.Vector a7, int a8 = 0 )
-		{
-			return w.SingleLineCheck(ref a2, a3, ref a4, ref a5, a6, ref a7, a8);
 		}
 
 
@@ -897,7 +876,7 @@
 		public struct CheckResult// : public FIteratorActorList
 		{
 			static internalCheckResult[] _buffer = new internalCheckResult[4];
-			static int _allocated = 1;
+			static int _allocated = 0;
 			static List<IntPtr> _pinnedResults = new ();
 
 
@@ -974,17 +953,30 @@
 
 			static int Alloc()
 			{
-				var output = _allocated;
-				_allocated++;
-				if( _allocated > _buffer.Length )
+				_allocated += 1;
+				if( _allocated >= _buffer.Length )
 				{
-					Debug.Assert(_allocated > 4096, "Clear() should be called every frame");
+					if(_allocated > 4096)
+						UnityEngine.Debug.LogError("Clear() should be called every frame");
 					var newAllocated = new internalCheckResult[ _allocated * _allocated ];
-					Array.Copy(_buffer, newAllocated, _allocated);
+					Array.Copy(_buffer, newAllocated, _buffer.Length);
 					_buffer = newAllocated;
 				}
 
-				return output;
+				return _allocated;
+			}
+
+
+
+			public static void Clear()
+			{
+				_allocated = 0; // start at one  
+				Array.Clear(_buffer, 0, _buffer.Length);
+				foreach( IntPtr ptr in _pinnedResults )
+				{
+					Marshal.FreeCoTaskMem(ptr);
+				}
+				_pinnedResults.Clear();
 			}
 
 
@@ -997,19 +989,6 @@
 				var newPtr = (CheckResult*) mem;
 				* newPtr = data;
 				GetInternalRep.Next = newPtr;
-			}
-
-
-
-			public static void Clear()
-			{
-				_allocated = 1; // zero is 
-				Array.Clear(_buffer, 0, _buffer.Length);
-				foreach( IntPtr ptr in _pinnedResults )
-				{
-					Marshal.FreeCoTaskMem(ptr);
-				}
-				_pinnedResults.Clear();
 			}
 
 

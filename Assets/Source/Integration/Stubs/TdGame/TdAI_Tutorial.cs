@@ -24,7 +24,7 @@ public partial class TdAI_Tutorial : TdAIController/*
 		// stub
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdAI_Tutorial_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdAI_Tutorial_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAI_Tutorial_Tick;
 	public /*event */void TdAI_Tutorial_Tick(float DeltaTime)
 	{
@@ -203,7 +203,7 @@ public partial class TdAI_Tutorial : TdAIController/*
 	public virtual ShouldEnterMeleeMove_del global_ShouldEnterMeleeMove => ()=>default;
 	protected override void RestoreDefaultFunction()
 	{
-		Tick = null;
+		eventTick = null;
 		NotifyPrepareForMeleeAttack = null;
 		NotifyDamage = null;
 		UpdatePose = null;

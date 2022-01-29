@@ -999,7 +999,7 @@ public partial class TdBotPawn : TdPawn/*
 		// stub
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdBotPawn_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdBotPawn_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdBotPawn_Tick;
 	public /*simulated function */void TdBotPawn_Tick(float DeltaTime)
 	{
@@ -1558,7 +1558,7 @@ public partial class TdBotPawn : TdPawn/*
 		SetMove = null;
 		CanFireWeapon = null;
 		TakeDamage = null;
-		Tick = null;
+		eventTick = null;
 		StopLookback = null;
 		Landed = null;
 		Touch = null;

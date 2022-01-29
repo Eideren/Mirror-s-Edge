@@ -23,7 +23,7 @@ public partial class TdMove_180TurnInAir
         v7 = default;
         v8 = default;
         v6[0] = 20;
-        CallUFunction(v3.SetMove, v3, v5, v6, 0);
+        v3.SetMove((EMovement)20);
       }
     }
   }

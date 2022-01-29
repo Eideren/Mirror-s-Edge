@@ -17,18 +17,198 @@ using static MEdge.Source.DecFn.ETraceFlags;
 using static MEdge.Source.DecFn.EMoveFlags;
 using static MEdge.Core.Object.EObjectFlags;
 using FCheckResult = MEdge.Source.DecFn.CheckResult;
+using System;
+using MEdge.Core;
+using Object = MEdge.Core.Object;
 
 namespace MEdge.Engine
 {
-	using System;
-	using MEdge.Core;
-	using Unity.VisualScripting.YamlDotNet.Core;
-	using Object = Core.Object;
+	using Source;
 
 
 
 	public partial class Pawn
 	{
+		const int MAXPATHDIST = 1200; // maximum distance for paths between two nodes
+		public void rotateToward(FVector FocalPoint)
+		{
+			if( bRollToDesired || Physics == PHYS_Spider )
+			{
+				return;
+			}
+
+			if( IsGlider() )
+			{
+				Acceleration = Rotation.Vector() * AccelRate;
+			}
+
+			FVector Direction = FocalPoint - Location;
+			if ( (Physics == PHYS_Flying) 
+			     && Controller && Controller.MoveTarget && (Controller.MoveTarget != Controller.Focus) )
+			{
+				FVector MoveDir = (Controller.MoveTarget.Location - Location);
+				FLOAT Dist = MoveDir.Size();
+				if ( Dist < MAXPATHDIST )
+				{
+					Direction = Direction/Dist;
+					MoveDir = MoveDir.SafeNormal();
+					if ( (Direction | MoveDir) < 0.9f )
+					{
+						Direction = MoveDir;
+						Controller.Focus = Controller.MoveTarget;
+					}
+				}
+			}
+
+			// Rotate toward destination
+			DesiredRotation = Direction.Rotation();
+			DesiredRotation.Yaw = DesiredRotation.Yaw & 65535;
+			if ( (Physics == PHYS_Walking) && (!Controller || !Controller.MoveTarget || !Controller.MoveTarget.GetAPawn()) )
+			{
+				DesiredRotation.Pitch = 0;
+			}
+		}
+		public UBOOL IsGlider()
+		{
+			return !bCanStrafe && (Physics == PHYS_Flying || Physics == PHYS_Swimming);
+		}
+		
+		public override void SmoothHitWall(FVector HitNormal, Actor HitActor)
+		{
+			if ( Controller )
+			{
+				if ( Physics == PHYS_Walking )
+				{
+					HitNormal.Z = 0;
+				}
+				if ( Controller.NotifyHitWall(HitNormal, HitActor) )
+					return;
+			}
+			HitWall(HitNormal, HitActor, null);
+		}
+		
+		public override void TickSpecial( FLOAT DeltaSeconds )
+		{
+			if( (Role==ROLE_Authority) && (BreathTime > 0f) )
+			{
+				BreathTime -= DeltaSeconds;
+				if (BreathTime < 0.001f)
+				{
+					BreathTime = 0.0f;
+					BreathTimer();
+				}
+			}
+			// update MoveTimer here if no physics
+			if (Physics == PHYS_None && Controller != NULL)
+			{
+				Controller.MoveTimer -= DeltaSeconds;
+			}
+		}
+		public override void TickSimulated( FLOAT DeltaSeconds )
+		{
+			// Simulated Physics for pawns
+			// simulate gravity
+
+			if ( bHardAttach )
+			{
+				Acceleration = FVector(0f,0f,0f);
+				if (Physics == PHYS_RigidBody)
+					setPhysics(PHYS_None);
+				else
+					Physics = PHYS_None;
+			}
+			else if (Physics == PHYS_RigidBody || Physics == PHYS_Interpolating)
+			{
+				performPhysics(DeltaSeconds);
+			}
+			else if (Physics == PHYS_Spider)
+			{
+				// never try to detect/simulate other physics or gravity when spidering
+				Acceleration = Velocity.SafeNormal();
+				moveSmooth(Velocity * DeltaSeconds);
+			}
+			else
+			{
+				// make sure we have a valid physicsvolume (level streaming might kill it)
+				if (PhysicsVolume == NULL)
+				{
+					SetZone(FALSE, FALSE);
+				}
+
+				Acceleration = Velocity.SafeNormal();
+				if ( PhysicsVolume.bWaterVolume )
+					Physics = PHYS_Swimming;
+				else if ( bCanClimbLadders && PhysicsVolume is LadderVolume )
+					Physics = PHYS_Ladder;
+				else if ( bSimulateGravity )
+					Physics = PHYS_Walking;	// set physics mode guess for use by animation
+				else
+					Physics = PHYS_Flying;
+
+				//simulated pawns just predict location, no script execution
+				moveSmooth(Velocity * DeltaSeconds);
+
+				// allow touched actors to impact physics
+				if( PendingTouch )
+				{
+					PendingTouch.PostTouch(this);
+					Actor OldTouch = PendingTouch;
+					PendingTouch = PendingTouch.PendingTouch;
+					OldTouch.PendingTouch = null;
+				}
+
+				// if simulated gravity, check if falling
+				if ( bSimulateGravity && !bSimGravityDisabled && !PhysicsVolume.bWaterVolume)
+				{
+					FVector CollisionCenter = Location + CylinderComponent.Translation;
+					FCheckResult Hit = new FCheckResult(1f);
+					if ( Velocity.Z == 0f )
+					{
+						GWorld.SingleLineCheck(ref Hit, this, CollisionCenter - FVector(0f,0f,1.5f * CylinderComponent.CollisionHeight), CollisionCenter, (int)TRACE_AllBlocking, FVector(CylinderComponent.CollisionRadius,CylinderComponent.CollisionRadius,4f));
+					}
+					else if ( Velocity.Z < 0f )
+					{
+						GWorld.SingleLineCheck(ref Hit, this, CollisionCenter - FVector(0f,0f,8f), CollisionCenter, (int)TRACE_AllBlocking, GetCylinderExtent());
+					}
+
+					if ( (Hit.Time == 1f) || (Hit.Normal.Z < WalkableFloorZ) )
+					{
+						if ( Velocity.Z == 0f )
+							Velocity.Z = 0.15f * GetGravityZ();
+						Velocity.Z += GetGravityZ() * DeltaSeconds;
+						Physics = PHYS_Falling;
+					}
+					else
+					{
+						if ( (Velocity.Z == 0f) && (Hit.Time > 0.67f) )
+						{
+							// step down if walking
+							GWorld.MoveActor( this, FVector(0f,0f, -1f*MaxStepHeight), Rotation, 0, ref Hit );
+						}
+						Velocity.Z = 0f;
+					}
+				}
+			}
+
+			// Tick the nonplayer.
+			//clockSlow(GStats.DWORDStats(GEngineStats.STATS_Game_ScriptTickCycles));
+			eventTick(DeltaSeconds);
+			//unclockSlow(GStats.DWORDStats(GEngineStats.STATS_Game_ScriptTickCycles));
+
+			// Update the actor's script state code.
+			ProcessState( DeltaSeconds );
+
+			UpdateTimers(DeltaSeconds );
+		}
+
+		
+		
+		
+		public override UBOOL PlayerControlled()
+		{
+			return ( IsLocallyControlled() && Controller != NULL && Controller is PlayerController );
+		}
+		
 		public override void ReverseBasedRotation()
 		{
 			if (Controller != NULL && !bIgnoreBaseRotation)
@@ -192,7 +372,7 @@ namespace MEdge.Engine
 					FVector ColLocation = CollisionComponent ? Location + CollisionComponent.Translation : Location;
 					var v1 = ColLocation + TestWalk;
 					var v2 = FVector( CylinderComponent.CollisionRadius, CylinderComponent.CollisionRadius, CylinderComponent.CollisionHeight );
-					GWorld.SingleLineCheck( ref Hit, this, ref v1, ref ColLocation, (int)(TRACE_World|TRACE_StopAtAnyHit), ref v2 );
+					GWorld.SingleLineCheck( ref Hit, this, v1, ColLocation, (int)(TRACE_World|TRACE_StopAtAnyHit), v2 );
 					if( Hit.Actor )
 					{
 						TickAirControl = 0f;
@@ -1436,23 +1616,6 @@ namespace MEdge.Engine
 			return FALSE;
 		}
 
-		public override unsafe void TickSpecial( FLOAT DeltaSeconds )
-		{
-			if( (Role==ROLE_Authority) && (BreathTime > 0f) )
-			{
-				BreathTime -= DeltaSeconds;
-				if (BreathTime < 0.001f)
-				{
-					BreathTime = 0.0f;
-					BreathTimer();
-				}
-			}
-			// update MoveTimer here if no physics
-			if (Physics == PHYS_None && Controller != null)
-			{
-				Controller.MoveTimer -= DeltaSeconds;
-			}
-		}
 		public virtual unsafe void startSwimming(FVector OldLocation, FVector OldVelocity, FLOAT timeTick, FLOAT remainingTime, INT Iterations)
 		{
 			NativeMarkers.MarkUnimplemented();
@@ -1794,9 +1957,343 @@ determine how deep in water actor is standing:
 				return base.FindSlopeRotation(FloorNormal,NewRotation);
 		}
 	}
+	
+	public enum ELevelTick
+	{
+		LEVELTICK_TimeOnly		= 0,	// Update the level time only.
+		LEVELTICK_ViewportsOnly	= 1,	// Update time and viewports.
+		LEVELTICK_All			= 2,	// Update all.
+	};
 
 	public partial class Actor
 	{
+		public void ProcessState( FLOAT DeltaSeconds )
+		{
+			NativeMarkers.MarkUnimplemented();
+			_scheduledStateSwap?.Invoke();
+			_scheduledStateSwap = null;
+			try
+			{
+				_insideStateStack = true;
+				_currentControlFlow.Delta(DeltaSeconds);
+				TryTickState();
+			}
+			finally
+			{
+				_insideStateStack = false;
+			}
+			/*if
+			(	GetStateFrame()
+			&&	GetStateFrame()->Code
+			&&	(Role>=ROLE_Authority || (GetStateFrame()->StateNode->StateFlags & STATE_Simulated))
+			&&	!IsPendingKill() )
+			{
+				// If a latent action is in progress, update it.
+				if (GetStateFrame()->LatentAction != 0)
+				{
+					(this->*GNatives[GetStateFrame()->LatentAction])(*GetStateFrame(), (BYTE*)&DeltaSeconds);
+				}
+
+				if (GetStateFrame()->LatentAction == 0)
+				{
+					// Execute code.
+					INT NumStates = 0;
+					BYTE Buffer[MAX_SIMPLE_RETURN_VALUE_SIZE];
+					// create a copy of the state frame to execute state code from so that if the state is changed from within the code, the executing frame's code pointer isn't modified while it's being used
+					FStateFrame ExecStateFrame(*GetStateFrame());
+					while (!bDeleteMe && ExecStateFrame.Code != NULL && GetStateFrame()->LatentAction == 0)
+					{
+						// remember old starting point (+1 for the about-to-be-executed byte so we can detect a state/label jump back to the same byte we're at now)
+						BYTE* OldCode = ++GetStateFrame()->Code;
+
+						ExecStateFrame.Step( this, Buffer ); 
+						// if a state was pushed onto the stack, we need to correct the originally executing state's code pointer to reflect the code *after* the last state command was executed
+						if (GetStateFrame()->StateStack.Num() > ExecStateFrame.StateStack.Num())
+						{
+							GetStateFrame()->StateStack(ExecStateFrame.StateStack.Num()).Code = ExecStateFrame.Code;
+						}
+						// if the state frame's code pointer was directly modified by a state or label change, we need to update our copy
+						if (GetStateFrame()->Node != ExecStateFrame.Node)
+						{
+							// we have changed states
+							if( ++NumStates > 4 )
+							{
+								//debugf(TEXT("%s pause going from state %s to %s"), *ExecStateFrame.StateNode->GetName(), *GetStateFrame()->StateNode->GetName());
+								// shouldn't do any copying as the StateFrame was modified for the new state/label
+								break;
+							}
+							else
+							{
+								//debugf(TEXT("%s went from state %s to %s"), *GetName(), *ExecStateFrame.StateNode->GetName(), *GetStateFrame()->StateNode->GetName());
+								ExecStateFrame = *GetStateFrame();
+							}
+						}
+						else if (GetStateFrame()->Code != OldCode)
+						{
+							// transitioned to a new label
+							//debugf(TEXT("%s went to new label in state %s"), *GetName(), *GetStateFrame()->StateNode->GetName());
+							ExecStateFrame = *GetStateFrame();
+						}
+						else
+						{
+							// otherwise, copy the new code pointer back to the original state frame
+							GetStateFrame()->Code = ExecStateFrame.Code;
+						}
+					}
+				}
+			}*/
+		}
+		
+		public void stepUp(in FVector GravDir, in FVector DesiredDir, in FVector Delta, ref FCheckResult Hit)
+		{
+			FVector Down = GravDir * UCONST_ACTORMAXSTEPHEIGHT;
+
+			if (Abs(Hit.Normal.Z) < MAXSTEPSIDEZ)
+			{
+				// step up - treat as vertical wall
+				GWorld.MoveActor(this, -1 * Down, Rotation, 0, ref Hit);
+				GWorld.MoveActor(this, Delta, Rotation, 0, ref Hit);
+			}
+			else
+			{
+				// slide up slope
+				FLOAT Dist = Delta.Size();
+				GWorld.MoveActor(this, Delta + FVector(0,0,Dist*Hit.Normal.Z), Rotation, 0, ref Hit);
+			}
+
+			if (Hit.Time < 1f)
+			{
+				if ( (Abs(Hit.Normal.Z) < MAXSTEPSIDEZ) && (Hit.Time * Delta.SizeSquared() > MINSTEPSIZESQUARED) )
+				{
+					// try another step
+					GWorld.MoveActor(this, Down, Rotation, 0, ref Hit);
+					stepUp(GravDir, DesiredDir, Delta * (1f - Hit.Time), ref Hit);
+					return;
+				}
+
+				// notify script that actor ran into a wall
+				processHitWall(Hit.Normal, Hit.Actor, Hit.Component);
+				if ( Physics == PHYS_Falling )
+					return;
+
+				//adjust and try again
+				Hit.Normal.Z = 0;	// treat barrier as vertical;
+				Hit.Normal = Hit.Normal.SafeNormal();
+				FVector NewDelta = Delta;
+				FVector OldHitNormal = Hit.Normal;
+				NewDelta = (Delta - Hit.Normal * (Delta | Hit.Normal)) * (1f - Hit.Time);
+				if( (NewDelta | Delta) >= 0f )
+				{
+					GWorld.MoveActor(this, NewDelta, Rotation, 0, ref Hit);
+					if (Hit.Time < 1f)
+					{
+						processHitWall(Hit.Normal, Hit.Actor, Hit.Component);
+						if ( Physics == PHYS_Falling )
+							return;
+						TwoWallAdjust(DesiredDir, ref NewDelta, Hit.Normal, OldHitNormal, Hit.Time);
+						GWorld.MoveActor(this, NewDelta, Rotation, 0, ref Hit);
+					}
+				}
+			}
+			GWorld.MoveActor(this, Down, Rotation, 0, ref Hit);
+		}
+		public UBOOL InStasis()
+		{
+			return ((Physics==PHYS_None) || (Physics == PHYS_Rotating))
+			       && (WorldInfo.TimeSeconds - LastRenderTime > 5.0f || WorldInfo.NetMode == WorldInfo.ENetMode.NM_DedicatedServer);
+		}
+		
+		public virtual UBOOL PlayerControlled()
+		{
+			return false;
+		}
+		public Actor GetTopOwner()
+		{
+			Actor Top;
+			for( Top=this; Top.Owner; Top=Top.Owner );
+			return Top;
+		}
+		public virtual PlayerController GetTopPlayerController()
+		{
+			Actor TopActor = GetTopOwner();
+			return (TopActor ? TopActor as PlayerController : null);
+		}
+		
+		public UBOOL moveSmooth(FVector Delta)
+		{
+			FCheckResult Hit = new FCheckResult(1f);
+			UBOOL didHit = GWorld.MoveActor( this, Delta, Rotation, 0, ref Hit );
+			if (Hit.Time < 1f)
+			{
+				FVector GravDir = FVector(0,0,-1);
+				FVector DesiredDir = Delta.SafeNormal();
+
+				FLOAT UpDown = GravDir | DesiredDir;
+				if ( (Abs(Hit.Normal.Z) < 0.2f) && (UpDown < 0.5f) && (UpDown > -0.2f) )
+				{
+					stepUp(GravDir, DesiredDir, Delta * (1f - Hit.Time), ref Hit);
+				}
+				else
+				{
+					FVector Adjusted = (Delta - Hit.Normal * (Delta | Hit.Normal)) * (1f - Hit.Time);
+					if( (Delta | Adjusted) >= 0 )
+					{
+						FVector OldHitNormal = Hit.Normal;
+						DesiredDir = Delta.SafeNormal();
+						GWorld.MoveActor(this, Adjusted, Rotation, 0, ref Hit);
+						if (Hit.Time < 1f)
+						{
+							SmoothHitWall(Hit.Normal, Hit.Actor);
+							TwoWallAdjust(DesiredDir, ref Adjusted, Hit.Normal, OldHitNormal, Hit.Time);
+							GWorld.MoveActor(this, Adjusted, Rotation, 0, ref Hit);
+						}
+					}
+				}
+			}
+			return didHit;
+		}
+		
+		public virtual void SmoothHitWall(FVector HitNormal, Actor HitActor)
+		{
+			HitWall(HitNormal, HitActor, null);
+		}
+		
+		ulong lastTickId;
+		public virtual bool Tick( FLOAT DeltaSeconds, ELevelTick TickType )
+		{
+			if( lastTickId != 0 && lastTickId == GWorld.FrameId )
+				throw new Exception();
+			lastTickId = GWorld.FrameId;
+			
+			bTicked = GWorld.Ticked;
+
+			// Ignore actors in stasis
+			if (bStasis && InStasis())
+			{
+				return FALSE;
+			}
+
+			// Non-player update.
+			UBOOL bShouldTick = ((TickType!=ELevelTick.LEVELTICK_ViewportsOnly) || PlayerControlled());
+			if(bShouldTick)
+			{
+				// This actor is tickable.
+				if( RemoteRole == ROLE_AutonomousProxy )
+				{
+					PlayerController PC = GetTopPlayerController();
+					if ( (PC && PC.IsLocalPlayerController()) || Physics == PHYS_RigidBody || Physics == PHYS_Interpolating )
+					{
+						TickAuthoritative(DeltaSeconds);
+					}
+					else
+					{
+						eventTick(DeltaSeconds);
+
+						// Update the actor's script state code.
+						ProcessState( DeltaSeconds );
+						// Server handles timers for autonomous proxy.
+						UpdateTimers( DeltaSeconds );
+					}
+				}
+				else if ( Role>ROLE_SimulatedProxy )
+				{
+					TickAuthoritative(DeltaSeconds);
+				}
+				else if ( Role == ROLE_SimulatedProxy )
+				{
+					TickSimulated(DeltaSeconds);
+				}
+				else if ( !bDeleteMe && ((Physics == PHYS_Falling) || (Physics == PHYS_Rotating) || (Physics == PHYS_Projectile) || (Physics == PHYS_Interpolating)) ) // dumbproxies simulate falling if client side physics set
+				{
+					performPhysics( DeltaSeconds );
+				}
+
+				if (!bDeleteMe)
+				{
+					TickSpecial(DeltaSeconds);	// perform any tick functions unique to an actor subclass
+
+					// If a component was added outside the world, we call OutsideWorldBounds, to let gameplay destroy or teleport Actor.
+					if(bComponentOutsideWorld)
+					{
+						OutsideWorldBounds();
+						SetCollision(FALSE, FALSE, bIgnoreEncroachers);
+						setPhysics(PHYS_None);
+
+						bComponentOutsideWorld = FALSE;
+					}
+				}
+			}
+	
+			return TRUE;
+		}
+		
+		public virtual void TickAuthoritative( FLOAT DeltaSeconds )
+		{
+			// Tick the nonplayer.
+			//clockSlow(GStats.DWORDStats(GEngineStats.STATS_Game_ScriptTickCycles));
+			eventTick(DeltaSeconds);
+			//unclockSlow(GStats.DWORDStats(GEngineStats.STATS_Game_ScriptTickCycles));
+
+			// Update the actor's script state code.
+			ProcessState( DeltaSeconds );
+
+			UpdateTimers(DeltaSeconds );
+
+			// Update LifeSpan.
+			if( LifeSpan!=0f )
+			{
+				LifeSpan -= DeltaSeconds;
+				if( LifeSpan <= 0.0001f )
+				{
+					// Actor's LifeSpan expired.
+					GWorld.DestroyActor( this );
+					return;
+				}
+			}
+
+			// Perform physics.
+			if ( !bDeleteMe && (Physics!=PHYS_None) && (Role!=ROLE_AutonomousProxy) )
+				performPhysics( DeltaSeconds );
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		public virtual void TickSimulated( FLOAT DeltaSeconds )
+		{
+			TickAuthoritative(DeltaSeconds);
+		}
+		
+		public virtual void TickSpecial( FLOAT DeltaSeconds )
+		{
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		public unsafe void FindTouchingActors()
 		{
 			FMemMark Mark = new FMemMark(GMem);
@@ -2307,9 +2804,6 @@ determine how deep in water actor is standing:
 			return RetAngVel;
 		}
 		public virtual unsafe void GetNetBuoyancy(ref FLOAT NetBuoyancy, ref FLOAT NetFluidFriction)
-		{
-		}
-		public virtual unsafe void TickSpecial( FLOAT DeltaSeconds )
 		{
 		}
 		public virtual unsafe void physInterpolating(FLOAT DeltaTime)
@@ -2896,7 +3390,7 @@ determine how deep in water actor is standing:
 					}
 
 					// Bone exists and component is successfully initialized, so remember offset from it.
-					if(BoneIndex != INDEX_NONE && SkelComp.IsAttached() && SkelComp.GetOwner() != null)
+					if(BoneIndex != INDEX_NONE /*&& SkelComp.IsAttached()*/ && SkelComp.GetOwner() != null)
 					{				
 						check(SkelComp);
 						check(SkelComp.GetOwner() == Base); // SkelComp should always be owned by the Actor we are basing on.
@@ -3058,8 +3552,321 @@ determine how deep in water actor is standing:
 
 
 
+	public partial class PlayerController
+	{
+		public void SetPlayer( Player InPlayer )
+		{
+			check(InPlayer!=NULL);
+
+			// Detach old player.
+			if( InPlayer.Actor )
+				InPlayer.Actor.Player = null;
+
+			// Set the viewport.
+			Player = InPlayer;
+			InPlayer.Actor = this;
+
+			// cap outgoing rate to max set by server
+			NativeMarkers.MarkUnimplemented();
+			/*NetDriver Driver = GWorld.NetDriver;
+			if( (ClientCap>=2600) && Driver && Driver.ServerConnection )
+				Player.CurrentNetSpeed = Driver.ServerConnection.CurrentNetSpeed = Clamp( ClientCap, 1800, Driver.MaxClientRate );*/
+
+			// initialize the input system only if local player
+			if ( InPlayer as LocalPlayer )
+			{
+				InitInputSystem();
+			}
+
+			// This is done in controller replicated event for clients
+			if (GWorld.GetWorldInfo().NetMode != WorldInfo.ENetMode.NM_Client)
+			{
+				InitUniquePlayerId();
+			}
+			SpawnPlayerCamera();
+
+			// notify script that we've been assigned a valid player
+			ReceivedPlayer();
+		}
+		public override UBOOL LocalPlayerController()
+		{
+			return ( Player && Player is LocalPlayer );
+		}
+		public override UBOOL Tick( FLOAT DeltaSeconds, ELevelTick TickType )
+		{
+			bTicked = GWorld.Ticked;
+
+			GetViewTarget();
+			if( (RemoteRole == ROLE_AutonomousProxy) && !LocalPlayerController() )
+			{
+				throw new NotImplementedException();
+				#if false
+				// kick idlers
+				if ( PlayerReplicationInfo )
+				{
+					if ( (Pawn && ( !GWorld.GetWorldInfo().Game || !GWorld.GetWorldInfo().Game.bKickLiveIdlers || (Pawn.Physics != PHYS_Walking)) ) || !bShortConnectTimeOut || (PlayerReplicationInfo.bOnlySpectator && (ViewTarget != this)) || PlayerReplicationInfo.bOutOfLives 
+					|| GWorld.GetWorldInfo().Pauser || (GWorld.GetGameInfo() && (GWorld.GetGameInfo().bWaitingToStartMatch || GWorld.GetGameInfo().bGameEnded || (GWorld.GetGameInfo().NumPlayers < 2))) || PlayerReplicationInfo.bAdmin )
+					{
+						LastActiveTime = GWorld.GetTimeSeconds();
+					}
+					else if ( (GWorld.GetGameInfo().MaxIdleTime > 0) && (GWorld.GetTimeSeconds() - LastActiveTime > GWorld.GetGameInfo().MaxIdleTime - 10) )
+					{
+						if ( GWorld.GetTimeSeconds() - LastActiveTime > GWorld.GetGameInfo().MaxIdleTime )
+						{
+							GWorld.GetGameInfo().KickIdler(this);
+							LastActiveTime = GWorld.GetTimeSeconds() - GWorld.GetGameInfo().MaxIdleTime + 3f;
+						}
+						else
+							KickWarning();
+					}
+				}
+
+				// force physics update for clients that aren't sending movement updates in a timely manner 
+				// this prevents cheats associated with artificially induced ping spikes
+				if ( Pawn && !Pawn.bDeleteMe 
+					&& (Pawn.Physics!=PHYS_None) && (Pawn.Physics != PHYS_RigidBody)
+					&& (GWorld.GetTimeSeconds() - ServerTimeStamp > Max<FLOAT>(DeltaSeconds+0.06f,UCONST_MAXCLIENTUPDATEINTERVAL)) 
+					&& (ServerTimeStamp != 0f) )
+				{
+					// force position update
+					if ( !Pawn.Velocity.IsZero() )
+					{
+						Pawn.performPhysics( GWorld.GetTimeSeconds() - ServerTimeStamp );
+					}
+					ServerTimeStamp = GWorld.GetTimeSeconds();
+					TimeMargin = 0f;
+					MaxTimeMargin = ((AGameInfo *)(AGameInfo::StaticClass().GetDefaultActor())).MaxTimeMargin;
+				}
+
+				// update viewtarget replicated info
+				if( ViewTarget != Pawn )
+				{
+		            Pawn TargetPawn = ViewTarget ? ViewTarget.GetAPawn() : null; 
+					if ( TargetPawn )
+					{
+						if ( TargetPawn.Controller && TargetPawn.Controller is PlayerController )
+							TargetViewRotation = TargetPawn.Controller.Rotation;
+						else
+							TargetViewRotation = TargetPawn.Rotation;
+						TargetEyeHeight = TargetPawn.BaseEyeHeight;
+					}
+				}
+
+				// Update the actor's script state code.
+				ProcessState( DeltaSeconds );
+				// Server handles timers for autonomous proxy.
+				UpdateTimers( DeltaSeconds );
+
+				// send ClientAdjustment if necessary
+				if ( PendingAdjustment.TimeStamp > 0f )
+					SendClientAdjustment();
+				#endif
+			}
+			else if( Role>=ROLE_SimulatedProxy )
+			{
+				// Process PlayerTick with input.
+				if ( !PlayerInput )
+					InitInputSystem();
+
+				for(INT InteractionIndex = 0;InteractionIndex < Interactions.Num();InteractionIndex++)
+					if(Interactions[InteractionIndex])
+						Interactions[InteractionIndex].Tick(DeltaSeconds);
+
+				if(PlayerInput)
+					PlayerTick(DeltaSeconds);
+
+				for(INT InteractionIndex = 0;InteractionIndex < Interactions.Num();InteractionIndex++)
+					if(Interactions[InteractionIndex])
+						Interactions[InteractionIndex].Tick(-1.0f);
+
+				// Update the actor's script state code.
+				ProcessState( DeltaSeconds );
+
+				UpdateTimers( DeltaSeconds );
+
+				if ( bDeleteMe )
+					return true;
+
+				// Perform physics.
+				if( Physics!=PHYS_None && Role!=ROLE_AutonomousProxy )
+					performPhysics( DeltaSeconds );
+
+				// update viewtarget replicated info
+				if( ViewTarget != Pawn )
+				{
+		            Pawn TargetPawn = ViewTarget ? ViewTarget.GetAPawn() : null; 
+					if ( TargetPawn )
+					{
+						SmoothTargetViewRotation(TargetPawn, DeltaSeconds);
+					}
+				}
+
+			}
+
+			// Update eyeheight and send visibility updates
+			// with PVS, monsters look for other monsters, rather than sending msgs
+			if( Role==ROLE_Authority && TickType==ELevelTick.LEVELTICK_All )
+			{
+				if( SightCounter < 0.0f )
+				{
+					SightCounter += 0.2f;
+				}
+				SightCounter = SightCounter - DeltaSeconds;
+
+				if( Pawn && !Pawn.bHidden )
+				{
+					ShowSelf();
+				}
+			}
+
+			return true;
+		}
+		
+		public void SmoothTargetViewRotation(Pawn TargetPawn, FLOAT DeltaSeconds)
+		{
+			if ( TargetPawn.bSimulateGravity )
+				TargetViewRotation.Roll = 0;
+			BlendedTargetViewRotation.Pitch = BlendRot(DeltaSeconds, BlendedTargetViewRotation.Pitch, TargetViewRotation.Pitch & 65535);
+			BlendedTargetViewRotation.Yaw = BlendRot(DeltaSeconds, BlendedTargetViewRotation.Yaw, TargetViewRotation.Yaw & 65535);
+			BlendedTargetViewRotation.Roll = BlendRot(DeltaSeconds, BlendedTargetViewRotation.Roll, TargetViewRotation.Roll & 65535);
+		}
+		
+		public INT BlendRot(FLOAT DeltaTime, INT BlendC, INT NewC)
+		{
+			if ( Abs(BlendC - NewC) > 32767 )
+			{
+				if ( BlendC > NewC )
+					NewC += 65536;
+				else
+					BlendC += 65536;
+			}
+			if ( Abs(BlendC - NewC) > 4096 )
+				BlendC = NewC;
+			else
+				BlendC = appTrunc(BlendC + (NewC - BlendC) * Min(1f,24f * DeltaTime));
+
+			return (BlendC & 65535);
+		}
+	}
+
+
+
 	public partial class Controller
 	{
+		public virtual UBOOL LocalPlayerController()
+		{
+			return false;
+		}
+		public void CheckEnemyVisible()
+		{
+			if ( Enemy )
+			{
+				check(Enemy != null/*.IsValid()*/);
+				if ( !LineOfSightTo(Enemy) )
+					EnemyNotVisible();
+			}
+		}
+		
+		public override UBOOL Tick( FLOAT DeltaSeconds, ELevelTick TickType )
+		{
+			bTicked = GWorld.Ticked;
+
+			if (TickType == ELevelTick.LEVELTICK_ViewportsOnly)
+			{
+				return TRUE;
+			}
+
+			// Ignore controllers whose pawn is in stasis
+			if ( (Pawn && Pawn.bStasis && Pawn.InStasis())
+			     || (bStasis && InStasis()) )
+			{
+				return FALSE;
+			}
+
+			if( Role>=ROLE_SimulatedProxy )
+			{
+				TickAuthoritative(DeltaSeconds);
+			}
+	
+			// Update eyeheight and send visibility updates
+			// with PVS, monsters look for other monsters, rather than sending msgs
+
+			if( Role==ROLE_Authority && TickType==ELevelTick.LEVELTICK_All )
+			{
+				if( SightCounter < 0.0f )
+				{
+					//if( IsProbing(NAME_EnemyNotVisible) )
+					{
+						CheckEnemyVisible();
+					}
+					SightCounter += 0.15f + 0.1f * appSRand();
+				}
+
+				SightCounter = SightCounter - DeltaSeconds;
+				// for best performance, players show themselves to players and non-players (e.g. monsters),
+				// and monsters show themselves to players
+				// but monsters don't show themselves to each other
+				// also
+
+				if( Pawn && !Pawn.bHidden && !Pawn.bAmbientCreature )
+				{
+					ShowSelf();
+				}
+			}
+
+			if ( Pawn != NULL )
+			{
+				UpdatePawnRotation();
+			}
+			return TRUE;
+		}
+		public void ShowSelf()
+		{
+			if ( !Pawn )
+				return;
+			NativeMarkers.MarkUnimplemented();
+			/*for ( Controller C=GWorld.GetFirstController(); C!=null; C=C.NextController )
+			{
+				if( C!=this && C.ShouldCheckVisibilityOf(this) && C.SeePawn(Pawn) )
+				{
+					if ( bIsPlayer )
+						C.SeePlayer(Pawn);
+					else
+						C.SeeMonster(Pawn);
+				}
+			}*/
+		}
+
+		
+		public void UpdatePawnRotation()
+		{
+			if ( Focus )
+			{
+				NavigationPoint NavFocus = (Focus) as NavigationPoint;
+				if ( NavFocus && CurrentPath && CurrentPath.Start && (MoveTarget == NavFocus) && !Pawn.Velocity.IsZero() )
+				{
+					// gliding pawns must focus on where they are going
+					if ( Pawn.IsGlider() )
+					{
+						FocalPoint = bAdjusting ? AdjustLoc : Focus.Location;
+					}
+					else
+					{
+						FocalPoint = Focus.Location - CurrentPath.Start.Location + Pawn.Location;
+					}
+				}
+				else
+				{
+					FocalPoint = Focus.Location;
+				}
+			}
+
+			// rotate pawn toward focus
+			Pawn.rotateToward(FocalPoint);
+
+			// face same direction as pawn
+			Rotation = Pawn.Rotation;
+		}
 		public virtual void PreAirSteering(FLOAT DeltaTime){}
 		public virtual void PostAirSteering(FLOAT DeltaTime){}
 		public virtual void PostPhysFalling(FLOAT DeltaTime){}

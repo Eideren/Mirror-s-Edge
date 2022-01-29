@@ -96,7 +96,7 @@ public partial class UIInteraction : Interaction/* within GameViewportClient*//*
 	{
 		NativeMarkers.MarkUnimplemented();
 		// stub
-		return default;
+		return new DataStoreClient();
 	}
 	
 	// Export UUIInteraction::execIsMenuLevel(FFrame&, void* const)

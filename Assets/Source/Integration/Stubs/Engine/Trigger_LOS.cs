@@ -4,7 +4,7 @@ using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using Ip
 public partial class Trigger_LOS : Trigger/*
 		placeable
 		hidecategories(Navigation)*/{
-	public override Tick_del Tick { get => bfield_Tick ?? Trigger_LOS_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? Trigger_LOS_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => Trigger_LOS_Tick;
 	public /*simulated event */void Trigger_LOS_Tick(float DeltaTime)
 	{
@@ -12,7 +12,7 @@ public partial class Trigger_LOS : Trigger/*
 	}
 	protected override void RestoreDefaultFunction()
 	{
-		Tick = null;
+		eventTick = null;
 	
 	}
 	public Trigger_LOS()

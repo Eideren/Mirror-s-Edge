@@ -167,7 +167,7 @@ public partial class TdAIAnimationController : Actor/*
 		// stub
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdAIAnimationController_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdAIAnimationController_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAIAnimationController_Tick;
 	public /*function */void TdAIAnimationController_Tick(float DeltaTime)
 	{
@@ -408,7 +408,7 @@ public partial class TdAIAnimationController : Actor/*
 	}
 	protected override void RestoreDefaultFunction()
 	{
-		Tick = null;
+		eventTick = null;
 	
 	}
 	public TdAIAnimationController()

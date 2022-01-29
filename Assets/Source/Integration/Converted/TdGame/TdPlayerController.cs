@@ -197,7 +197,7 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	public virtual /*event */TdProfileSettings GetProfileSettings()
 	{
-		return ((OnlinePlayerData.ProfileProvider.Profile) as TdProfileSettings);
+		return ((OnlinePlayerData?.ProfileProvider?.Profile) as TdProfileSettings);
 	}
 	
 	public override /*reliable client simulated event */void TeamMessage(PlayerReplicationInfo PRI, /*coerce */String S, name Type, /*optional */float? _MsgLifeTime = default)
@@ -953,9 +953,10 @@ public partial class TdPlayerController : GamePlayerController,
 		{
 			((myHUD) as TdHUD).PlayerOwnerRestart();
 		}
-		SetAudioProfileSettings();
+		NativeMarkers.MarkUnimplemented();
+		//SetAudioProfileSettings();
 		SetPause(false, default(/*delegate*/PlayerController.CanUnpause));
-		SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_NORMAL/*0*/, default(float?), true, 1.50f);
+		//SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_NORMAL/*0*/, default(float?), true, 1.50f);
 	}
 	
 	public virtual /*function */void ForcePreRoundSpectate()
@@ -2289,6 +2290,8 @@ public partial class TdPlayerController : GamePlayerController,
 	
 	public override /*simulated function */void RegisterPlayerDataStores()
 	{
+		NativeMarkers.MarkUnimplemented();
+		return;
 		base.RegisterPlayerDataStores();
 		TdRegisterPlayerDataStores();
 	}

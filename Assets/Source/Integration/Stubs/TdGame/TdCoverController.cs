@@ -185,7 +185,7 @@ public partial class TdCoverController : Actor/*
 		return default;
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdCoverController_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdCoverController_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdCoverController_Tick;
 	public /*function */void TdCoverController_Tick(float DeltaTime)
 	{
@@ -301,7 +301,7 @@ public partial class TdCoverController : Actor/*
 	protected override void RestoreDefaultFunction()
 	{
 		Reset = null;
-		Tick = null;
+		eventTick = null;
 	
 	}
 	public TdCoverController()

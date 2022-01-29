@@ -299,7 +299,7 @@ public partial class TdPawn
       Delta.Y = this.Location.Y + (float)(v22 * 34.0f);
       Delta.Z = this.Location.Z + (float)(v28 * 34.0f);
       v30 = this.GetCylinderExtent(&a2a);
-      GWorld.SingleLineCheck(ref a6, this, ref Delta, ref this.Location, 8415, ref *v30, 0);
+      GWorld.SingleLineCheck(ref a6, this, Delta, this.Location, 8415, *v30, 0);
       if ( a6.Time < 1.0f )
       {
         v44 = default;
@@ -2200,7 +2200,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
         Deltaa.Z = v30;
         a4a.Z = v30 + v109.Z;
         v31 = this.GetCylinderExtent(&a2a);
-        GWorld.SingleLineCheck(ref v118, this, ref a4a, ref Deltaa, 8415, ref *v31, 0);
+        GWorld.SingleLineCheck(ref v118, this, a4a, Deltaa, 8415, *v31, 0);
         if ( v118.Time < 1.0f && this.WalkableFloorZ > v118.Normal.Z )
         {
           v32 = v108.X;
@@ -4149,7 +4149,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
           v114.Z = v114.Z - v56;
           a7.X = v55 * 0.25f;
           a4.Z = a4.Z - v56;
-          GWorld.SingleLineCheck(ref Hit, this, ref a4, ref v114, 8415, ref a7, 0);
+          GWorld.SingleLineCheck(ref Hit, this, a4, v114, 8415, a7, 0);
           if ( Hit.Time >= 1.0f )
           {
             if ( this.Physics == PHYS_WallRunning )
@@ -4257,7 +4257,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
           v113.Z = v113.Z - v78;
           v96.X = v77 * 0.25f;
           v97.Z = v97.Z - v78;
-          GWorld.SingleLineCheck(ref Hit, this, ref v97, ref v113, 8415, ref v96, 0);
+          GWorld.SingleLineCheck(ref Hit, this, v97, v113, 8415, v96, 0);
           if ( Hit.Time >= 1.0f && this.Physics == PHYS_WallRunning )
           {
             v99 = 0.0f;
@@ -4652,7 +4652,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
               *(float *)&v89[1] = this.Location.Y - v46;
               *(float *)&v89[2] = this.Location.Z - v47;
               v48 = this.GetCylinderExtent(&a2a);
-              GWorld.SingleLineCheck(ref Hit, this, ref *(Vector *)v89, ref this.Location, 8415, ref *v48, 0);
+              GWorld.SingleLineCheck(ref Hit, this, *(Vector *)v89, this.Location, 8415, *v48, 0);
               if ( Hit.Time >= 1.0f )
               {
   LABEL_53:
@@ -5161,7 +5161,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
       v27 = default;
       v25 = default;
       v26 = 1;
-      CallUFunction(this.SetMove, this, v8, v24, 0);
+      this.SetMove((EMovement)38);
     }
     v9 = this.MovementState;
     if(v9 != default)
@@ -5877,7 +5877,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
       a5.Z = v76;
       a4.Z = v76 + v149;
       v77 = this.GetCylinderExtent((Vector *)a2);
-      GWorld.SingleLineCheck(ref Hit, this, ref a4, ref a5, 8415, ref *v77, 0);
+      GWorld.SingleLineCheck(ref Hit, this, a4, a5, 8415, *v77, 0);
       v71 = (float)(this.MaxStepHeight + 2.0f) * Hit.Time;
       v78 = Hit.Normal.Y;
       v79 = Hit.Normal.Z;
@@ -6143,7 +6143,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
       v160.Y = 0.0f;
       a2[0].LOBYTE(2);
       a2[1] = default;
-      CallUFunction(this.SetMove, this, v118, a2, 0);
+      this.SetMove((EMovement)2);//CallUFunction(, this, v118, a2, 0);
   LABEL_142:
       this.startNewPhysics( ((v129)), Iterations);// startNewPhysics
       return;

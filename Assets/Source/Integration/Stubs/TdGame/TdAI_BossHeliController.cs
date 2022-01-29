@@ -10,7 +10,7 @@ public partial class TdAI_BossHeliController : TdAI_HeliController/*
 	public float TimeToInvalidateNode;
 	public float PlayerNearTimeToInvalidate;
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdAI_BossHeliController_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdAI_BossHeliController_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAI_BossHeliController_Tick;
 	public /*event */void TdAI_BossHeliController_Tick(float DeltaTime)
 	{
@@ -40,7 +40,7 @@ public partial class TdAI_BossHeliController : TdAI_HeliController/*
 	}
 	protected override void RestoreDefaultFunction()
 	{
-		Tick = null;
+		eventTick = null;
 	
 	}
 	

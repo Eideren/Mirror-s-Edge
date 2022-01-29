@@ -96,7 +96,7 @@ public partial class GameEngine : Engine/*
 	{
 		NativeMarkers.MarkUnimplemented();
 		// stub
-		return default;
+		return new OnlineSubsystem(){ PlayerInterface = new TpUoPlayer() };
 	}
 	
 	public override /*event */void DispatchExternalUIChange(bool bIsOpening)

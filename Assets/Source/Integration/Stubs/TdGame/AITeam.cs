@@ -196,7 +196,7 @@ public partial class AITeam : Actor/*
 		// stub
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? AITeam_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? AITeam_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => AITeam_Tick;
 	public /*event */void AITeam_Tick(float DeltaTime)
 	{
@@ -292,7 +292,7 @@ public partial class AITeam : Actor/*
 	protected override void RestoreDefaultFunction()
 	{
 		Reset = null;
-		Tick = null;
+		eventTick = null;
 	
 	}
 	

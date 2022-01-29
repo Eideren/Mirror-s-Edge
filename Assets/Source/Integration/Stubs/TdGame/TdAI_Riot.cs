@@ -223,7 +223,7 @@ public partial class TdAI_Riot : TdAIController/*
 		// stub
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdAI_Riot_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdAI_Riot_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAI_Riot_Tick;
 	public /*event */void TdAI_Riot_Tick(float DeltaTime)
 	{
@@ -292,7 +292,7 @@ public partial class TdAI_Riot : TdAIController/*
 		Possess = null;
 		AllowFire = null;
 		CheckCrouching = null;
-		Tick = null;
+		eventTick = null;
 		ShouldEnterMelee = null;
 	
 	}

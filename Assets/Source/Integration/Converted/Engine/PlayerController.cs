@@ -1,9 +1,16 @@
 // NO OVERWRITE
 
 namespace MEdge.Engine{
-using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+	using System;
+	using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework;
+using Source;
+using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+	using Object = Core.Object;
+	using String = Core.String;
 
-public partial class PlayerController : Controller/*
+
+
+	public partial class PlayerController : Controller/*
 		native
 		nativereplication
 		config(Game)
@@ -730,6 +737,8 @@ public partial class PlayerController : Controller/*
 	
 	public virtual /*simulated function */void RegisterPlayerDataStores()
 	{
+		NativeMarkers.MarkUnimplemented();
+		return;
 		/*local */LocalPlayer LP = default;
 		/*local */DataStoreClient DataStoreManager = default;
 		/*local */Core.ClassT<UIDataStore_PlayerSettings> PlayerSettingsDataStoreClass = default;
@@ -3133,12 +3142,18 @@ public partial class PlayerController : Controller/*
 	{
 	
 	}
-	
+
+
+
+	ulong lastTickId;
 	public delegate void PlayerTick_del(float DeltaTime);
 	public virtual PlayerTick_del PlayerTick { get => bfield_PlayerTick ?? PlayerController_PlayerTick; set => bfield_PlayerTick = value; } PlayerTick_del bfield_PlayerTick;
 	public virtual PlayerTick_del global_PlayerTick => PlayerController_PlayerTick;
 	public /*event */void PlayerController_PlayerTick(float DeltaTime)
 	{
+		if( lastTickId != 0 && lastTickId == DecFn.GWorld.FrameId )
+			throw new Exception();
+		lastTickId = DecFn.GWorld.FrameId;
 		if(!bShortConnectTimeOut)
 		{
 			bShortConnectTimeOut = true;

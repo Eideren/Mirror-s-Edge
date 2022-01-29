@@ -95,7 +95,7 @@ public partial class TdAIManager : Actor/*
 	[Category("AIManager")] public int MaxSimultaneousBursts;
 	public int NumberOfFireIntentsThisFrame;
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdAIManager_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdAIManager_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAIManager_Tick;
 	public /*event */void TdAIManager_Tick(float DeltaTime)
 	{
@@ -417,7 +417,7 @@ public partial class TdAIManager : Actor/*
 	}
 	protected override void RestoreDefaultFunction()
 	{
-		Tick = null;
+		eventTick = null;
 	
 	}
 	public TdAIManager()

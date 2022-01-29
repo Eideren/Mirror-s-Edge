@@ -1,35 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
-
-namespace MEdge.Engine
-{
-    public partial class Actor
-    {
-	    public /*event */void Actor_Tick(float DeltaSeconds)
-	    {
-            // From AActor::TickAuthoritative
-            _scheduledStateSwap?.Invoke();
-            _scheduledStateSwap = null;
-            try
-            {
-                _insideStateStack = true;
-                _currentControlFlow.Delta(DeltaSeconds);
-                TryTickState();
-            }
-            finally
-            {
-                _insideStateStack = false;
-            }
-            
-            UpdateTimers( DeltaSeconds );
-	    }
-    }
-}
-
-
-
 namespace MEdge.Core
 {
     public partial class Object

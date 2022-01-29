@@ -25,7 +25,7 @@ public partial class TdAI_Assault : TdAIController/*
 		// stub
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdAI_Assault_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdAI_Assault_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAI_Assault_Tick;
 	public /*event */void TdAI_Assault_Tick(float DeltaTime)
 	{
@@ -33,7 +33,7 @@ public partial class TdAI_Assault : TdAIController/*
 	}
 	protected override void RestoreDefaultFunction()
 	{
-		Tick = null;
+		eventTick = null;
 	
 	}
 	public TdAI_Assault()

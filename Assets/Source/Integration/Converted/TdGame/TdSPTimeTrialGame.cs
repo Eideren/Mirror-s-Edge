@@ -1194,7 +1194,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 			ResetPlayerToLatestCheckpoint = TdSPTimeTrialGame_RaceInProgress_ResetPlayerToLatestCheckpoint;
 			DisableIgnoreInputTimer = TdSPTimeTrialGame_RaceInProgress_DisableIgnoreInputTimer;
 			GetPlayerTime = TdSPTimeTrialGame_RaceInProgress_GetPlayerTime;
-			Tick = TdSPTimeTrialGame_RaceInProgress_Tick;
+			eventTick = TdSPTimeTrialGame_RaceInProgress_Tick;
 			FindClosestStartSpot = TdSPTimeTrialGame_RaceInProgress_FindClosestStartSpot;
 			OnCheckpointCompleted = TdSPTimeTrialGame_RaceInProgress_OnCheckpointCompleted;
 			ProcessTimedata = TdSPTimeTrialGame_RaceInProgress_ProcessTimedata;
@@ -1260,7 +1260,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		{
 			/*ignores*/ PrepareRace = ()=>{};
 	
-			Tick = TdSPTimeTrialGame_RaceFinishLine_Tick;
+			eventTick = TdSPTimeTrialGame_RaceFinishLine_Tick;
 	
 			if(jumpTo == null || jumpTo == "Begin")
 				goto Begin;

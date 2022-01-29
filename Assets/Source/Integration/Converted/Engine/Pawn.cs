@@ -1846,7 +1846,7 @@ public partial class Pawn : Actor/*
 		{
 			return;
 		}
-		if(HeadVolume.bWaterVolume)
+		if(HeadVolume?.bWaterVolume == true)
 		{
 			if(!newHeadVolume.bWaterVolume)
 			{

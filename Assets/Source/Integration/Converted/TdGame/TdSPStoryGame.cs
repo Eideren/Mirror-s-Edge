@@ -11,7 +11,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 	public int ActiveBossFight;
 	public bool bAllowStreamingVolumes;
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdSPStoryGame_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdSPStoryGame_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdSPStoryGame_Tick;
 	public /*function */void TdSPStoryGame_Tick(float DeltaTime)
 	{
@@ -247,7 +247,7 @@ public partial class TdSPStoryGame : TdSPGame/*
 	}
 	protected override void RestoreDefaultFunction()
 	{
-		Tick = null;
+		eventTick = null;
 		PostLogin = null;
 	
 	}

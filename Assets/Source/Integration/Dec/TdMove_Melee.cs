@@ -153,7 +153,7 @@ public partial class TdMove_Melee
           {
             fixed( Vector* ptr2 = & this.HitDetectionStart )
             {
-              if ( default == GWorld.SingleLineCheck(ref v29, v17, ref v25, ref *ptr2, 1, ref *ptr1, 0) )
+              if ( default == GWorld.SingleLineCheck(ref v29, v17, v25, *ptr2, 1, *ptr1, 0) )
               {
                 v20 = E_TryCastTo<TdPawn>(v29.Actor);
                 this.TriggerDamage(v20);

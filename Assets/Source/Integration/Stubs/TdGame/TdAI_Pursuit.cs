@@ -178,7 +178,7 @@ public partial class TdAI_Pursuit : TdAIController/*
 		// stub
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdAI_Pursuit_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdAI_Pursuit_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdAI_Pursuit_Tick;
 	public /*event */void TdAI_Pursuit_Tick(float DeltaTime)
 	{
@@ -486,7 +486,7 @@ public partial class TdAI_Pursuit : TdAIController/*
 	{
 		Possess = null;
 		TestCombatTransitions = null;
-		Tick = null;
+		eventTick = null;
 		NotifyDamage = null;
 		CheckCrouching = null;
 		AllowFire = null;

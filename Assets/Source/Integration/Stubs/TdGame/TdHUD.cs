@@ -95,7 +95,7 @@ public partial class TdHUD : HUD/*
 		// stub
 	}
 	
-	public override Tick_del Tick { get => bfield_Tick ?? TdHUD_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
+	public override Tick_del eventTick { get => bfield_Tick ?? TdHUD_Tick; set => bfield_Tick = value; } Tick_del bfield_Tick;
 	public override Tick_del global_Tick => TdHUD_Tick;
 	public /*simulated function */void TdHUD_Tick(float DeltaTime)
 	{
@@ -319,7 +319,7 @@ public partial class TdHUD : HUD/*
 	}
 	protected override void RestoreDefaultFunction()
 	{
-		Tick = null;
+		eventTick = null;
 		Reset = null;
 	
 	}
