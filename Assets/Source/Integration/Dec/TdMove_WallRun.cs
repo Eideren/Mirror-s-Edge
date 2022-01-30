@@ -46,7 +46,7 @@ public partial class TdMove_WallRun
     float v41 = default; // xmm0_4
     float v42 = default; // xmm2_4
     float v43 = default; // xmm4_4
-    long v44 = default; // rdi
+    (float, float) v44 = default; // rdi
     float v45 = default; // ebx
     float v46 = default; // xmm0_4
     float v47 = default; // xmm2_4
@@ -284,7 +284,7 @@ public partial class TdMove_WallRun
       return false;
     v43 = v72.Normal.Y;
     var cpy2 = v72.Normal;
-    v44 = *(_QWORD *)&cpy2.Y;               // set Y&Z
+    v44 = (cpy2.Y, cpy2.Z);               // set Y&Z
     v45 = v72.Normal.X;
     v46 = (float)(v72.Normal.X * v72.Normal.X) + (float)(v43 * v43);
     v66.X = v46;
@@ -377,9 +377,11 @@ public partial class TdMove_WallRun
     if ( v56 > 0.0f )
       v55 = v64 / v65;
     v59.X = v45;
-    *(_QWORD *)&v59.Y = v44;                      // set Y&Z
+    v59.Y = v44.Item1;                      // set Y&Z
+    v59.Z = v44.Item2;                      // set Y&Z
     v58.X = v45;
-    *(_QWORD *)&v58.Y = v44;                      // set Y&Z
+    v58.Y = v44.Item1;                      // set Y&Z
+    v58.Z = v44.Item2;                      // set Y&Z
     v67.X = (float)(v52 * v55) + v72.Location.X;
     v67.Y = (float)(v53 * v55) + v72.Location.Y;
     v67.Z = (float)(v51 * v55) + v72.Location.Z;
@@ -432,7 +434,7 @@ public partial class TdMove_WallRun
     float v39 = default; // xmm0_4
     float v40 = default; // xmm2_4
     float v41 = default; // xmm5_4
-    long v42 = default; // rdi
+    (float, float) v42 = default; // rdi
     float v43 = default; // ebx
     float v44 = default; // xmm0_4
     float v45 = default; // xmm2_4
@@ -694,7 +696,7 @@ public partial class TdMove_WallRun
       return 0;
     v41 = v83.Normal.Y;
     var cpy2 = v83.Normal;
-    v42 = *(_QWORD *)&cpy2.Y;               // set Y&Z
+    v42 = (cpy2.Y, cpy2.Z);               // set Y&Z
     v43 = v83.Normal.X;
     v44 = (float)(v83.Normal.X * v83.Normal.X) + (float)(v41 * v41);
     if ( v44 == 1.0f )
@@ -784,9 +786,11 @@ public partial class TdMove_WallRun
       v53 = v70 / v73;
     }
     v57.X = v43;
-    *(_QWORD *)&v57.Y = v42;                      // set Y&Z
+    v57.Y = v42.Item1;                      // set Y&Z
+    v57.Z = v42.Item2;
     v56.X = v43;
-    *(_QWORD *)&v56.Y = v42;                      // set Y&Z
+    v56.Y = v42.Item1;                      // set Y&Z
+    v56.Z = v42.Item2;
     v82.X = (float)(v49 * v53) + v83.Location.X;
     v82.Y = (float)(v50 * v53) + v83.Location.Y;
     v82.Z = (float)(v51 * v53) + v83.Location.Z;

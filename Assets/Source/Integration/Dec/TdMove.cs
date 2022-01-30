@@ -368,8 +368,8 @@ public partial class TdMove
       {
         v34.X = a2a.Normal.X;
         v21 = a2a.Normal.X;
-        #warning suspicious cast but maybe just sets y to y and Z to zero ?
-        *(_QWORD *)&v34.Y = LODWORD(a2a.Normal.Y);
+        v34.Y = a2a.Normal.Y;
+        v34.Z = 0f;
         v17 = a2a.Normal.Y;
         goto LABEL_26;
       }
@@ -609,7 +609,8 @@ public partial class TdMove
     }
     v35.X = a2.Normal.X;
     v20 = a2.Normal.X;
-    *(_QWORD *)&v35.Y = LODWORD(a2.Normal.Y);
+    v35.Y = a2.Normal.Y;
+    v35.Z = 0f;
     v16 = a2.Normal.Y;
   LABEL_28:
     v22 = fabs(v35.Y);
@@ -978,7 +979,7 @@ public partial class TdMove
             this.PawnOwner.Velocity.Z = v21 * v23;
             vec_then_rotator.X = 0.0f;
             this.PawnOwner.Acceleration.X = 0.0f;
-            *(_QWORD *)&vec_then_rotator.Y = 0L;// set Y&Z to zero
+            *(_QWORD *)&vec_then_rotator.Y = default;// set Y&Z to zero
             this.PawnOwner.Acceleration.Y = 0.0f;
             this.PawnOwner.Acceleration.Z = 0.0f;
             break;
@@ -1029,7 +1030,7 @@ public partial class TdMove
             this.PawnOwner.Velocity.Z = v31 * v33;
             vec_then_rotator.X = 0.0f;
             this.PawnOwner.Acceleration.X = 0.0f;
-            *(_QWORD *)&vec_then_rotator.Y = 0L;// set y&Z to zero
+            *(_QWORD *)&vec_then_rotator.Y = default;// set y&Z to zero
             this.PawnOwner.Acceleration.Y = 0.0f;
             this.PawnOwner.Acceleration.Z = 0.0f;
             break;
@@ -1175,7 +1176,7 @@ public partial class TdMove
   LABEL_39:
             vec_then_rotator.X = 0.0f;
             this.PawnOwner.Acceleration.X = 0.0f;
-            *(_QWORD *)&vec_then_rotator.Y = 0L;// set y&Z to zero
+            *(_QWORD *)&vec_then_rotator.Y = default;// set y&Z to zero
             this.PawnOwner.Acceleration.Y = 0.0f;
             this.PawnOwner.Acceleration.Z = 0.0f;
             break;

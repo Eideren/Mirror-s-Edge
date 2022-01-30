@@ -17,6 +17,7 @@
 	using Object = Core.Object;
 	using static MEdge.Source.DecFn;
 	using static MEdge.Core.Object;
+	using Color = UnityEngine.Color;
 
 
 
@@ -888,7 +889,7 @@
 
 			var dwn = unityLoc - new Vector3( 0, unityExtent.y, 0 );
 			var up = unityLoc + new Vector3( 0, unityExtent.y, 0 );
-
+			UnityEngine.Debug.DrawLine( dwn, up, Color.green );
 			var results = Physics.OverlapCapsule( dwn, up, unityExtent.x, -1, QueryTriggerInteraction.Ignore );
 			
 			int count = 0;
@@ -978,6 +979,7 @@
 
 			bool testTrigger = ( TraceFlags & TRACE_PhysicsVolumes ) != default;
 
+			UnityEngine.Debug.DrawLine( dwn, up, Color.green );
 			var results = Physics.OverlapCapsule( dwn, up, unityExtent.x, -1, 
 				testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
 			
@@ -998,6 +1000,8 @@
 					Actor = actor
 				};
 				current.AssignNext(next);
+				if( count == 0 )
+					root = current;
 				current = next;
 				count++;
 			}
@@ -1165,6 +1169,13 @@
 
 							var center = (ChkBox.Min + ChkBox.Max).ToUnityPos() * 0.5f;
 							var extent = (ChkBox.Max - ChkBox.Min).ToUnityPos();
+
+							Debug.DrawRay( center, Vector3.up * extent.y, Color.green );
+							Debug.DrawRay( center, -Vector3.up * extent.y, Color.green );
+							Debug.DrawRay( center, -Vector3.right * extent.x, Color.green );
+							Debug.DrawRay( center, Vector3.right * extent.x, Color.green );
+							Debug.DrawRay( center, -Vector3.forward * extent.z, Color.green );
+							Debug.DrawRay( center, Vector3.forward * extent.z, Color.green );
 							var results = Physics.OverlapBox( center, extent, Quaternion.identity, - 1, QueryTriggerInteraction.Ignore );
 
 							var root = new CheckResult();
@@ -1181,6 +1192,8 @@
 									Actor = actor
 								};
 								current.AssignNext(next);
+								if( count == 0 )
+									root = current;
 								current = next;
 								count++;
 							}
@@ -1240,6 +1253,7 @@
 			RaycastHit[] hits;
 			if( Extent == default )
 			{
+				UnityEngine.Debug.DrawRay( Start.ToUnityPos(), delta, Color.red );
 				hits = Physics.RaycastAll( Start.ToUnityPos(), delta.normalized, totalDistance, -1, testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
 			}
 			else
@@ -1248,6 +1262,8 @@
 				var radius = Extent.ToUnityPos().x;
 				var p1 = Start.ToUnityPos() + new Vector3(0, vertical, 0);
 				var p2 = Start.ToUnityPos() - new Vector3(0, vertical, 0);
+				UnityEngine.Debug.DrawLine( p1, p2, Color.green );
+				UnityEngine.Debug.DrawRay( Start.ToUnityPos(), delta, Color.red );
 				hits = Physics.CapsuleCastAll( p1, p2, radius, delta.normalized, totalDistance, -1, testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
 			}
 			
@@ -1272,6 +1288,8 @@
 					Component = component,
 				};
 				current.AssignNext(next);
+				if( count == 0 )
+					root = current;
 				current = next;
 				count++;
 			}

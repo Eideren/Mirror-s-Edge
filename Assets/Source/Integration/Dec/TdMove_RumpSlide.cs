@@ -17,7 +17,7 @@ public partial class TdMove_RumpSlide
     Vector v11 = default; // [esp-30h] [ebp-4Ch]
     Vector v12 = default; // [esp-24h] [ebp-40h]
     Vector v13 = default; // [esp-18h] [ebp-34h]
-    long v14 = default; // [esp+Ch] [ebp-10h] BYREF
+    //long v14 = default; // [esp+Ch] [ebp-10h] BYREF
     float v15 = default; // [esp+14h] [ebp-8h]
     int v16 = default; // [esp+18h] [ebp-4h]
   
@@ -29,12 +29,17 @@ public partial class TdMove_RumpSlide
     if ( this.TimeFalling > 0.1f )
     {
       v13.X = 2.0f;
-      *(_QWORD *)&v13.Y = 0x4000000040000000L;
+      v13.Y = 2f;
+      v13.Z = 2f;
       var c = v3.Location;
-      v14 = *(_QWORD *)&c.X;
-      *(_QWORD *)&v12.X = v14;
+      //v14 = *(_QWORD *)&c.X;
+      //*(_QWORD *)&v12.X = v14;
+      v12.X = c.X;
+      v12.Y = c.Y;
       v12.Z = v3.Location.Z;
-      *(_QWORD *)&v11.X = v14;
+      //*(_QWORD *)&v11.X = v14;
+      v11.X = c.X;
+      v11.Y = c.Y;
       v15 = v12.Z - 150.0f;
       v11.Z = v12.Z - 150.0f;
       if ( this.MovementTraceForBlocking(v11, v12, v13) )

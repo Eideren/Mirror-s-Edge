@@ -876,28 +876,11 @@
 		[StructLayout( LayoutKind.Sequential, Size = 8)]
 		public struct _QWORD
 		{
-			int a, b;
+			int b, a;
 			public _QWORD( int a, int b )
 			{
-				this.a = a;
 				this.b = b;
-			}
-
-
-
-			public static implicit operator long( _QWORD qw )
-			{
-				unsafe
-				{
-					return * ( (long*) & qw );
-				}
-			}
-			public static implicit operator _QWORD( long qw )
-			{
-				unsafe
-				{
-					return * ( (_QWORD*) & qw );
-				}
+				this.a = a;
 			}
 		}
 

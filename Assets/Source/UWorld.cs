@@ -71,7 +71,9 @@
 	        if(ReferenceEquals( this, _instance ) == false)
                 Destroy(this);
 
-            UnityEngine.Time.timeScale = this.WorldInfo.TimeDilation;
+            if( this.WorldInfo.TimeDilation != 1f )
+                throw new NotImplementedException();
+            //UnityEngine.Time.timeScale = this.WorldInfo.TimeDilation;
             var deltaTime = UnityEngine.Time.deltaTime;// * this._worldInfo.TimeDilation;
             deltaTime = deltaTime > 0.4f ? 0.4f : deltaTime < 0.0005f ? 0.0005f : deltaTime;
             this.WorldInfo.RealTimeSeconds = UnityEngine.Time.realtimeSinceStartup;

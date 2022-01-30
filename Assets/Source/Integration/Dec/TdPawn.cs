@@ -5859,10 +5859,9 @@ fixed(Rotator* ptr1 =&this.Rotation)
         *(float *)&v173 = v56.X + v72.Translation.X;
         v174 = v72.Translation.Y + this.Location.Y;
         v175.X = v72.Translation.Z + this.Location.Z;
-        var v73 = (float *)&v173;
-        v74 = *v73;
-        v75 = v73[1];
-        v76 = v73[2];
+        v74 = v56.X + v72.Translation.X;
+        v75 = v72.Translation.Y + this.Location.Y;
+        v76 = v72.Translation.Z + this.Location.Z;
       }
       else
       {

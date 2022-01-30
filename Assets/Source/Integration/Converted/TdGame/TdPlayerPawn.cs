@@ -1703,9 +1703,6 @@ public partial class TdPlayerPawn : TdPawn/*
 	}
 	public TdPlayerPawn()
 	{
-		var Default__TdPlayerPawn_ActorCollisionCylinder = new CylinderComponent
-		{
-		}/* Reference: CylinderComponent'Default__TdPlayerPawn.ActorCollisionCylinder' */;
 		var Default__TdPlayerPawn_MyLightEnvironment1P = new DynamicLightEnvironmentComponent
 		{
 			// Object Offset:0x0067F618
@@ -1771,18 +1768,6 @@ public partial class TdPlayerPawn : TdPawn/*
 			DepthPriorityGroup = Scene.ESceneDepthPriorityGroup.SDPG_Intermediate,
 			bOnlyOwnerSee = true,
 		}/* Reference: TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh1pLowerBody' */;
-		var Default__TdPlayerPawn_SceneCaptureCharacterComponent0 = new SceneCaptureCharacterComponent
-		{
-		}/* Reference: SceneCaptureCharacterComponent'Default__TdPlayerPawn.SceneCaptureCharacterComponent0' */;
-		var Default__TdPlayerPawn_DrawFrust0 = new DrawFrustumComponent
-		{
-		}/* Reference: DrawFrustumComponent'Default__TdPlayerPawn.DrawFrust0' */;
-		var Default__TdPlayerPawn_CollisionCylinder = new CylinderComponent
-		{
-		}/* Reference: CylinderComponent'Default__TdPlayerPawn.CollisionCylinder' */;
-		var Default__TdPlayerPawn_Arrow = new ArrowComponent
-		{
-		}/* Reference: ArrowComponent'Default__TdPlayerPawn.Arrow' */;
 		// Object Offset:0x00630A38
 		bEnableHairPhysics = true;
 		FirstPersonDPG = Scene.ESceneDepthPriorityGroup.SDPG_Foreground;
@@ -1816,7 +1801,6 @@ public partial class TdPlayerPawn : TdPawn/*
 		CommonArmedHeavy1p = LoadAsset<TdAnimSet>("AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common")/*Ref TdAnimSet'AS_C1P_TwoHanded_Common.AS_C1P_TwoHanded_Common'*/;
 		CommonArmedLight3p = LoadAsset<TdAnimSet>("AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common")/*Ref TdAnimSet'AS_F3P_OneHanded_Common.AS_F3P_OneHanded_Common'*/;
 		CommonArmedHeavy3p = LoadAsset<TdAnimSet>("AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common")/*Ref TdAnimSet'AS_F3P_TwoHanded_Common.AS_F3P_TwoHanded_Common'*/;
-		ActorCylinderComponent = Default__TdPlayerPawn_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdPlayerPawn.ActorCollisionCylinder'*/;
 		OldMovementState = TdPawn.EMovement.MOVE_None;
 		MovementState = TdPawn.EMovement.MOVE_None;
 		NoOfBreathingSounds = 8;
@@ -1894,23 +1878,10 @@ public partial class TdPlayerPawn : TdPawn/*
 		RegenerateHealthPerSecond = 25.0f;
 		bAvoidLedges = true;
 		bDirectHitWall = true;
-		SceneCapture = Default__TdPlayerPawn_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdPlayerPawn.SceneCaptureCharacterComponent0'*/;
-		DrawFrustum = Default__TdPlayerPawn_DrawFrust0/*Ref DrawFrustumComponent'Default__TdPlayerPawn.DrawFrust0'*/;
 		Mesh = Default__TdPlayerPawn_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh3p'*/;
-		CylinderComponent = Default__TdPlayerPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdPlayerPawn.CollisionCylinder'*/;
-		Components = new array</*export editinline */ActorComponent>
-		{
-			Default__TdPlayerPawn_SceneCaptureCharacterComponent0/*Ref SceneCaptureCharacterComponent'Default__TdPlayerPawn.SceneCaptureCharacterComponent0'*/,
-			Default__TdPlayerPawn_DrawFrust0/*Ref DrawFrustumComponent'Default__TdPlayerPawn.DrawFrust0'*/,
-			Default__TdPlayerPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdPlayerPawn.CollisionCylinder'*/,
-			Default__TdPlayerPawn_Arrow/*Ref ArrowComponent'Default__TdPlayerPawn.Arrow'*/,
-			Default__TdPlayerPawn_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment'*/,
-			Default__TdPlayerPawn_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh3p'*/,
-			Default__TdPlayerPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdPlayerPawn.CollisionCylinder'*/,
-			Default__TdPlayerPawn_ActorCollisionCylinder/*Ref CylinderComponent'Default__TdPlayerPawn.ActorCollisionCylinder'*/,
-			Default__TdPlayerPawn_MyLightEnvironment1P/*Ref DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment1P'*/,
-		};
-		CollisionComponent = Default__TdPlayerPawn_CollisionCylinder/*Ref CylinderComponent'Default__TdPlayerPawn.CollisionCylinder'*/;
+		Components.Add(Default__TdPlayerPawn_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment'*/);
+		Components.Add(Default__TdPlayerPawn_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh3p'*/);
+		Components.Add(Default__TdPlayerPawn_MyLightEnvironment1P/*Ref DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment1P'*/);
 	}
 }
 }

@@ -130,7 +130,7 @@ public partial class TdMove_ZipLine
     float v124 = default; // [esp+1Ch] [ebp-68h]
     float v125 = default; // [esp+20h] [ebp-64h]
     float v126 = default; // [esp+24h] [ebp-60h]
-    long v127 = default; // [esp+24h] [ebp-60h]
+    (float, float) v127 = default; // [esp+24h] [ebp-60h]
     float v128 = default; // [esp+28h] [ebp-5Ch]
     float v129 = default; // [esp+28h] [ebp-5Ch]
     Vector Extent = default; // [esp+2Ch] [ebp-58h] BYREF
@@ -489,13 +489,13 @@ public partial class TdMove_ZipLine
           v78 = 0.0f;
         }
         v80 = v132.X + (float)(v76 * 600.0f);
-        *(float *)&v127 = v126 + (float)(v77 * 600.0f);
-        *((float *)&v127 + 1) = v129 + (float)(v78 * 600.0f);
+        v127 = (v126 + (float)(v77 * 600.0f), v129 + (float)(v78 * 600.0f));
       }
       v119.X = v63;
       *(_QWORD *)&v119.Y = __PAIR64__(LODWORD(v64), LODWORD(v62));
       v118.X = v80;
-      *(_QWORD *)&v118.Y = v127;
+      v118.Y = v127.Item1;
+      v118.Z = v127.Item2;
       if ( this.MovementTraceForBlocking(v118, v119, a2) )
       {
         v98 = this.ZipLineStatus;
