@@ -175,24 +175,6 @@
 		{
 			this.Components.RemoveItem(ExComponent);
 		}
-		
-		// Export UActor::execSetLocation(FFrame&, void* const)
-		public virtual /*native(267) final function */bool SetLocation(Object.Vector NewLocation)
-		{
-			this.Location = NewLocation;
-			// This method might need to check for encroachment ?
-			NativeMarkers.MarkUnimplemented();
-			return true;
-		}
-
-		// Export UActor::execSetRotation(FFrame&, void* const)
-		public virtual /*native(299) final function */bool SetRotation(Object.Rotator NewRotation)
-		{
-			this.Rotation = NewRotation;
-			// This method might need to check for encroachment ?
-			NativeMarkers.MarkUnimplemented();
-			return true;
-		}
 	
 		// Export UActor::execSetOwner(FFrame&, void* const)
 		public virtual /*native(272) final function */void SetOwner(Actor NewOwner)
@@ -251,11 +233,6 @@
 					return true;
 			}
 			return false;
-		}
-	    
-		static void MarkOwnerRelevantComponentsDirty(Actor TheActor)
-		{
-			NativeMarkers.MarkUnimplemented();
 		}
 		public override bool IsPendingKill()
 		{

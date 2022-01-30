@@ -29,6 +29,29 @@ namespace MEdge.Engine
 
 	public partial class Pawn
 	{
+        
+		// Export UPawn::execIsLocallyControlled(FFrame&, void* const)
+		public virtual /*native final simulated function */ bool IsLocallyControlled()
+		{
+			if ( !Controller )
+				return false;
+			/*if ( GWorld.GetNetMode() == NM_Standalone )
+				return true;*/
+			if ( !(Controller is PlayerController) )
+				return true;
+
+			return Controller.LocalPlayerController();
+		}
+		// Export UPawn::execIsHumanControlled(FFrame&, void* const)
+		public virtual /*native final simulated function */bool IsHumanControlled()
+		{
+			return Controller is PlayerController;
+		}
+		// Export UPawn::execSetAnchor(FFrame&, void* const)
+		public virtual /*native function */void SetAnchor(NavigationPoint NewAnchor)
+		{
+			NativeMarkers.MarkUnimplemented();
+		}
 		const int MAXPATHDIST = 1200; // maximum distance for paths between two nodes
 		public void rotateToward(FVector FocalPoint)
 		{
@@ -246,22 +269,6 @@ namespace MEdge.Engine
 			}
 			#endif // WITH_NOVODEX
 		}
-			
-		// Export UPawn::execIsHumanControlled(FFrame&, void* const)
-        public virtual /*native final simulated function */bool IsHumanControlled()
-        {
-	        NativeMarkers.MarkUnimplemented(); // Check with source
-	        // IsHumanControlled() return true if controlled by a real live human on the local machine. On client, only local player's pawn returns true
-	        return this.Controller is PlayerController;
-        }
-        
-        // Export UPawn::execIsLocallyControlled(FFrame&, void* const)
-        public virtual /*native final simulated function */ bool IsLocallyControlled()
-        {
-	        NativeMarkers.MarkUnimplemented(); // Check with source
-	        // IsLocallyControlled() return true if controlled by local (not network) player
-	        return ( this.Controller as PlayerController )?.Player is LocalPlayer;
-        }
         
         // Export UPawn::execIsPlayerPawn(FFrame&, void* const)
         public virtual /*native simulated function */bool IsPlayerPawn()
@@ -1967,6 +1974,160 @@ determine how deep in water actor is standing:
 
 	public partial class Actor
 	{
+		// Export UActor::execForceUpdateComponents(FFrame&, void* const)
+		public virtual /*native function */void ForceUpdateComponents(/*optional */bool? _bCollisionUpdate = default, /*optional */bool? _bTransformOnly = default)
+		{
+			MarkComponentsAsDirty(_bTransformOnly ?? true);
+			ConditionalUpdateComponents( _bCollisionUpdate ?? false );
+		}
+		
+		// Export UActor::execGetTerminalVelocity(FFrame&, void* const)
+		public virtual /*native function */float GetTerminalVelocity()
+		{
+			return PhysicsVolume ? PhysicsVolume.TerminalVelocity :  ClassT<PhysicsVolume>().DefaultAs<PhysicsVolume>().TerminalVelocity;
+		}
+		// Export UActor::execFindBase(FFrame&, void* const)
+		public virtual /*native function */void FindBase()
+		{
+			FCheckResult Hit = new(1f);
+	
+			FVector ColLocation = CollisionComponent ? Location + CollisionComponent.Translation : Location;
+	
+			GWorld.SingleLineCheck(ref Hit, this, ColLocation + FVector(0,0,-8), ColLocation, (int)TRACE_AllBlocking, GetCylinderExtent());
+	
+			if( Base != Hit.Actor )
+			{
+				SetBase(Hit.Actor, Hit.Normal);
+			}
+		}
+		
+		// Export UActor::execSetLocation(FFrame&, void* const)
+		public virtual /*native(267) final function */bool SetLocation(Object.Vector NewLocation)
+		{
+			return GWorld.FarMoveActor( this, NewLocation );
+		}
+
+		// Export UActor::execSetRotation(FFrame&, void* const)
+		public virtual /*native(299) final function */bool SetRotation(Object.Rotator NewRotation)
+		{
+			FCheckResult Hit = new(1.0f);
+			return GWorld.MoveActor( this, FVector(0,0,0), NewRotation, 0, ref Hit );
+		}
+		static void MarkOwnerRelevantComponentsDirty(Actor TheActor)
+		{
+			for (INT i = 0; i < TheActor.AllComponents.Num(); i++)
+			{
+				PrimitiveComponent Primitive = (TheActor.AllComponents[i]) as PrimitiveComponent;
+				if (Primitive != NULL && (TheActor.bOnlyOwnerSee || Primitive.bOnlyOwnerSee || Primitive.bOwnerNoSee))
+				{
+					Primitive.BeginDeferredReattach();
+				}
+			}
+
+			// recurse over children of this Actor
+			for (INT i = 0; i < TheActor.Children.Num(); i++)
+			{
+				Actor Child = TheActor.Children[i];
+				if (Child != NULL && !Child.ActorIsPendingKill())
+				{
+					MarkOwnerRelevantComponentsDirty(Child);
+				}
+			}
+		}
+		public void MarkComponentsAsDirty(UBOOL bTransformOnly)
+		{
+			// Make a copy of the AllComponents array, since BeginDeferredReattach may change the order by reattaching the component.
+			var LocalAllComponents = AllComponents;
+
+			for (INT Idx = 0; Idx < LocalAllComponents.Num(); Idx++)
+			{
+				if (LocalAllComponents[Idx] != NULL)
+				{
+					if (bStatic)
+					{
+						LocalAllComponents[Idx].ConditionalDetach();
+					}
+					else
+					{
+						if(bTransformOnly)
+						{
+							LocalAllComponents[Idx].BeginDeferredUpdateTransform();
+						}
+						else
+						{
+							LocalAllComponents[Idx].BeginDeferredReattach();
+						}
+					}
+				}
+			}
+
+			if (bStatic  && !IsPendingKill())
+			{
+				ConditionalUpdateComponents(FALSE);
+			}
+		}
+		
+		UBOOL ActorIsPendingKill()
+		{
+			return bDeleteMe || HasAnyFlags(RF_PendingKill);
+		}
+		public void ConditionalUpdateComponents(UBOOL bCollisionUpdate = false)
+		{
+			#if DO_GUARD_SLOW
+	// Verify that actor has no references to unreachable components.
+	VerifyNoUnreachableReferences();
+			#endif
+			#if LOG_DETAILED_ACTOR_UPDATE_STATS
+	static QWORD LastFrameCounter = 0;
+	if( LastFrameCounter != GFrameCounter )
+	{
+		GDetailedActorUpdateStats.DumpStats();
+		GDetailedActorUpdateStats.Reset();
+		LastFrameCounter = GFrameCounter;
+	}
+			#endif
+
+			//SCOPE_CYCLE_COUNTER(STAT_UpdateComponentsTime);
+
+			// Don't update components on destroyed actors and default objects/ archetypes.
+			if( !ActorIsPendingKill()
+			    &&	!HasAnyFlags(RF_ArchetypeObject|RF_ClassDefaultObject) )
+			{
+				//TRACK_DETAILED_ACTOR_UPDATE_STATS(this);
+				UpdateComponentsInternal( bCollisionUpdate );
+			}
+		}
+		public virtual void UpdateComponentsInternal(UBOOL bCollisionUpdate = false)
+		{
+			/*checkf(!HasAnyFlags(RF_Unreachable), TEXT("%s"), *GetFullName());
+			checkf(!HasAnyFlags(RF_ArchetypeObject|RF_ClassDefaultObject), TEXT("%s"), *GetFullName());
+			checkf(!ActorIsPendingKill(), TEXT("%s"), *GetFullName());*/
+
+			FMatrix	ActorToWorld = LocalToWorld();
+
+			// if it's a collision only update
+			if (bCollisionUpdate)
+			{
+				// then only bother with the collision component
+				if (CollisionComponent != NULL)
+				{
+					CollisionComponent.UpdateComponent(GWorld.Scene,this,ActorToWorld,TRUE);
+				}
+			}
+			else
+			{
+				// Look for components which should be directly attached to the actor, but aren't yet.
+				for(INT ComponentIndex = 0;ComponentIndex < Components.Num();ComponentIndex++)
+				{
+					ActorComponent Component = Components[ComponentIndex]; 
+					if( Component )
+					{
+						Component.UpdateComponent(GWorld.Scene,this,ActorToWorld);
+					}
+				}
+			}
+		}
+	
 		public void ProcessState( FLOAT DeltaSeconds )
 		{
 			NativeMarkers.MarkUnimplemented();
@@ -3482,7 +3643,27 @@ determine how deep in water actor is standing:
 
 		public virtual void CheckStillInWorld()
 		{
-			NativeMarkers.MarkUnimplemented();
+			// check the variations of KillZ
+			WorldInfo WorldInfo = GWorld.GetWorldInfo();
+			if( Location.Z < ((WorldInfo.bSoftKillZ && Physics == PHYS_Falling) ? (WorldInfo.KillZ - WorldInfo.SoftKill) : WorldInfo.KillZ) )
+			{
+				FellOutOfWorld(WorldInfo.KillZDamageType);
+			}
+			// Check if box has poked outside the world
+			else if( ( CollisionComponent != NULL ) && ( CollisionComponent.IsAttached() == TRUE ) )
+			{
+				Box	Box = CollisionComponent.Bounds.GetBox();
+				if(	Box.Min.X < -HALF_WORLD_MAX || Box.Max.X > HALF_WORLD_MAX ||
+				    Box.Min.Y < -HALF_WORLD_MAX || Box.Max.Y > HALF_WORLD_MAX ||
+				    Box.Min.Z < -HALF_WORLD_MAX || Box.Max.Z > HALF_WORLD_MAX )
+				{
+					//debugf(NAME_Warning, TEXT("%s is outside the world bounds!"), *GetName());
+					OutsideWorldBounds();
+					// not safe to use physics or collision at this point
+					SetCollision(FALSE, FALSE, bIgnoreEncroachers);
+					setPhysics(PHYS_None);
+				}
+			}
 		}
 		
 		public virtual void SetZone( UBOOL bTest, UBOOL bForceRefresh )
@@ -3546,8 +3727,263 @@ determine how deep in water actor is standing:
 
 	public partial class ActorComponent
 	{
+		public void BeginDeferredReattach()
+		{
+			bNeedsReattach = TRUE;
+
+			if(Owner)
+			{
+				// If the component has a static owner, reattach it directly.
+				// If it has a dynamic owner, it will be reattached at the end of the tick.
+				if(Owner.bStatic)
+				{
+					Owner.ConditionalUpdateComponents(FALSE);
+				}
+			}
+			else
+			{
+				// If the component doesn't have an owner, reattach it directly using its existing transform.
+				//FComponentReattachContext(this);
+				throw new NotImplementedException();
+			}
+		}
+		public void BeginDeferredUpdateTransform()
+		{
+			bNeedsUpdateTransform = TRUE;
+
+			if(Owner)
+			{
+				// If the component has a static owner, update its transform directly.
+				// If it has a dynamic owner, it will be updated at the end of the tick.
+				if(Owner.bStatic)
+				{
+					Owner.ConditionalUpdateComponents(FALSE);
+				}
+			}
+			else
+			{
+				// If the component doesn't have an owner, just call UpdateTransform without actually applying a new transform.
+				ConditionalUpdateTransform();
+			}
+		}
+		public virtual void SetParentToWorld( in FMatrix ParentToWorld )
+		{
+		}
+
+
+
 		public UBOOL IsAttached(){ return bAttached; }
 		public Actor GetOwner(){ return Owner; }
+		public virtual void UpdateTransform()
+		{
+			check(bAttached);
+		}
+
+
+
+		public class FSceneInterface
+		{
+			
+		}
+
+
+
+		public void UpdateComponent(FSceneInterface InScene,Actor InOwner,in FMatrix InLocalToWorld, UBOOL bCollisionUpdate=FALSE)
+		{
+			#if LOG_DETAILED_COMPONENT_UPDATE_STATS
+			static QWORD LastFrameCounter = 0;
+			if( LastFrameCounter != GFrameCounter )
+			{
+				GDetailedComponentUpdateStats.DumpStats();
+				GDetailedComponentUpdateStats.Reset();
+				LastFrameCounter = GFrameCounter;
+			}
+			#endif
+
+			{
+				//TRACK_DETAILED_COMPONENT_UPDATE_STATS(this);
+
+				if( !IsAttached() )
+				{
+					// initialize the component if it hasn't already been
+					ConditionalAttach(InScene,InOwner,InLocalToWorld);
+				}
+				else if(bNeedsReattach)
+				{
+					// Reattach the component if it has changed since it was last updated.
+					ConditionalDetach();
+					ConditionalAttach(InScene,InOwner,InLocalToWorld);
+				}
+				else if(bNeedsUpdateTransform)
+				{
+					// Update the component's transform if the actor has been moved since it was last updated.
+					ConditionalUpdateTransform(InLocalToWorld);
+				}
+			}
+
+			// Update the components attached indirectly via this component.
+			//@note - testing whether or not we can skip this for collision only updates to improve performance
+			if (!bCollisionUpdate)
+			{
+				UpdateChildComponents();
+			}
+		}
+		
+		public virtual void UpdateChildComponents()
+		{
+		}
+
+
+
+		public void ConditionalDetach( UBOOL bWillReattach = false )
+		{
+			if(bAttached)
+			{
+				Detach( bWillReattach );
+			}
+			Scene = default;
+			Owner = null;
+		}
+		
+		void DetachFromAny()
+		{
+			if (IsAttached())
+			{
+				// if there is no owner, just call Detach()
+				if (Owner == NULL)
+				{
+					ConditionalDetach();
+				}
+				else
+				{
+					// try to detach from the actor directly
+					Owner.DetachComponent(this);
+					if (IsAttached())
+					{
+						// check if the owner has any SkeletalMeshComponents, and if so make sure this component is not attached to them
+						// we could optimize this by adding a pointer to ActorComponent for the SkeletalMeshComponent it's attached to
+						for (INT i = 0; i < Owner.AllComponents.Num(); i++)
+						{
+							SkeletalMeshComponent Mesh = Owner.AllComponents[i] as SkeletalMeshComponent;
+							if (Mesh != NULL && DetachComponentFromMesh(this, Mesh))
+							{
+								break;
+							}
+						}
+					}
+				}
+				check(!IsAttached());
+			}
+		}
+		
+		static UBOOL DetachComponentFromMesh(ActorComponent Component, SkeletalMeshComponent Mesh)
+		{
+			Mesh.DetachComponent(Component);
+			if (!Component.IsAttached())
+			{
+				// successfully removed from Mesh
+				return TRUE;
+			}
+			else
+			{
+				// iterate over attachments and recurse over any SkeletalMeshComponents found
+				for (INT i = 0; i < Mesh.Attachments.Num(); i++)
+				{
+					SkeletalMeshComponent AttachedMesh = (Mesh.Attachments[i].Component) as SkeletalMeshComponent;
+					if (AttachedMesh != NULL && DetachComponentFromMesh(Component, AttachedMesh))
+					{
+						return TRUE;
+					}
+				}
+
+				return FALSE;
+			}
+		}
+		public virtual UBOOL IsValidComponent() 
+		{ 
+			return IsPendingKill() == FALSE; 
+		}
+		public void ConditionalAttach(FSceneInterface InScene,Actor InOwner,in FMatrix ParentToWorld)
+		{
+			// If the component was already attached, detach it before reattaching.
+			if(IsAttached())
+			{
+				DetachFromAny();
+			}
+
+			bNeedsReattach = FALSE;
+			bNeedsUpdateTransform = FALSE;
+
+			//Scene = InScene;
+			Owner = InOwner;
+			SetParentToWorld(ParentToWorld);
+			if(IsValidComponent())
+			{
+				Attach();
+			}
+		}
+		
+		/**
+		 * Conditionally calls UpdateTransform if bAttached == true.
+		 * @param ParentToWorld - The ParentToWorld transform the component is attached to.
+		 */
+		public void ConditionalUpdateTransform(in FMatrix ParentToWorld)
+		{
+			bNeedsUpdateTransform = FALSE;
+
+			SetParentToWorld(ParentToWorld);
+			if(bAttached)
+			{
+				UpdateTransform();
+			}
+		}
+
+		/**
+		 * Conditionally calls UpdateTransform if bAttached == true.
+		 */
+		public void ConditionalUpdateTransform()
+		{
+			if(bAttached)
+			{
+				UpdateTransform();
+			}
+		}
+		/**
+		 * Detaches the component from the scene it is in.
+		 * Requires bAttached == true
+		 */
+		public virtual void Detach( UBOOL bWillReattach )
+		{
+			check(IsAttached());
+
+			bAttached = FALSE;
+
+			if(Owner)
+			{
+				// Remove the component from the owner's list of all owned components.
+				Owner.AllComponents.RemoveItem(this);
+			}
+		}
+		
+		public virtual void Attach()
+		{
+			/*checkf(!HasAnyFlags(RF_Unreachable), TEXT("%s"), *GetFullName());
+			checkf(!GetOuter()->IsTemplate(), TEXT("'%s' (%s)"), *GetOuter()->GetFullName(), *GetFullName());
+			checkf(!IsTemplate(), TEXT("'%s' (%s)"), *GetOuter()->GetFullName(), *GetFullName() );
+			check(Scene);
+			check(IsValidComponent());*/
+			check(!IsAttached());
+			check(!IsPendingKill());
+
+			bAttached = TRUE;
+
+			if(Owner)
+			{
+				check(!Owner.IsPendingKill());
+				// Add the component to the owner's list of all owned components.
+				Owner.AllComponents.AddItem(this);
+			}
+		}
 	}
 
 
@@ -3567,7 +4003,7 @@ determine how deep in water actor is standing:
 			InPlayer.Actor = this;
 
 			// cap outgoing rate to max set by server
-			NativeMarkers.MarkUnimplemented();
+			NativeMarkers.MarkUnimplemented("Stripped bloat");
 			/*NetDriver Driver = GWorld.NetDriver;
 			if( (ClientCap>=2600) && Driver && Driver.ServerConnection )
 				Player.CurrentNetSpeed = Driver.ServerConnection.CurrentNetSpeed = Clamp( ClientCap, 1800, Driver.MaxClientRate );*/
@@ -3988,12 +4424,238 @@ determine how deep in water actor is standing:
 
 
 
+	public partial class CylinderComponent
+	{
+		public override void UpdateBounds()
+		{
+			FVector BoxPoint = FVector(CollisionRadius,CollisionRadius,CollisionHeight);
+			Bounds = new BoxSphereBounds
+			{
+				Origin = GetOrigin(), 
+				BoxExtent = BoxPoint, 
+				SphereRadius = BoxPoint.Size()
+			};
+		}
+	}
+
+
+
 	public partial class PrimitiveComponent
 	{
+		public Vector GetOrigin()
+		{
+			return LocalToWorld.GetOrigin();
+		}
+		public override void SetParentToWorld(in FMatrix ParentToWorld)
+        {
+        	CachedParentToWorld = ParentToWorld;
+        }
+		
 		public virtual UBOOL LineCheck( ref CheckResult Result, in FVector End, in FVector Start, in FVector Extent, int TraceFlags )
 		{
 			NativeMarkers.MarkUnimplemented();
 			return false;
+		}
+		
+		public virtual void UpdateBounds()
+		{
+			Bounds.Origin = FVector(0,0,0);
+			Bounds.BoxExtent = FVector(HALF_WORLD_MAX,HALF_WORLD_MAX,HALF_WORLD_MAX);
+			Bounds.SphereRadius = appSqrt(3.0f * Square(HALF_WORLD_MAX));
+		}
+		
+		public virtual void SetTransformedToWorld()
+		{
+			LocalToWorld = CachedParentToWorld;
+
+			if(AbsoluteTranslation)
+				LocalToWorld.M[3,0] = LocalToWorld.M[3,1] = LocalToWorld.M[3,2] = 0.0f;
+
+			if(AbsoluteRotation || AbsoluteScale)
+			{
+				FVector	X = FVector(LocalToWorld.M[0,0],LocalToWorld.M[1,0],LocalToWorld.M[2,0]),
+				Y = FVector(LocalToWorld.M[0,1],LocalToWorld.M[1,1],LocalToWorld.M[2,1]),
+				Z = FVector(LocalToWorld.M[0,2],LocalToWorld.M[1,2],LocalToWorld.M[2,2]);
+
+				if(AbsoluteScale)
+				{
+					X.Normalize();
+					Y.Normalize();
+					Z.Normalize();
+				}
+
+				if(AbsoluteRotation)
+				{
+					X = FVector(X.Size(),0,0);
+					Y = FVector(0,Y.Size(),0);
+					Z = FVector(0,0,Z.Size());
+				}
+
+				LocalToWorld.M[0,0] = X.X;
+				LocalToWorld.M[1,0] = X.Y;
+				LocalToWorld.M[2,0] = X.Z;
+				LocalToWorld.M[0,1] = Y.X;
+				LocalToWorld.M[1,1] = Y.Y;
+				LocalToWorld.M[2,1] = Y.Z;
+				LocalToWorld.M[0,2] = Z.X;
+				LocalToWorld.M[1,2] = Z.Y;
+				LocalToWorld.M[2,2] = Z.Z;
+			}
+
+			LocalToWorld = FScaleRotationTranslationMatrix( Scale * Scale3D , Rotation, Translation) * LocalToWorld; 
+			LocalToWorldDeterminant = LocalToWorld.Determinant();
+		}
+		public virtual UBOOL ShouldCollide()
+		{
+			return CollideActors && (!Owner || Owner.bCollideActors); 
+		}
+		public override void UpdateTransform()
+		{
+			base.UpdateTransform();
+
+			SetTransformedToWorld();
+
+			UpdateBounds();
+
+			NativeMarkers.MarkUnimplemented("Stripped bloat");
+			
+			// If there primitive collides(or it's the editor) and the scene is associated with a world, update the primitive in the world's hash.
+			/*World World = Scene.GetWorld();
+			if(ShouldCollide() && World)
+			{
+				World.Hash.RemovePrimitive(this);
+				World.Hash.AddPrimitive(this);
+			}*/
+
+			// If the primitive isn't hidden update its transform.
+			/*UBOOL bShowInEditor = !HiddenEditor && (!Owner || !Owner.bHiddenEd);
+			UBOOL bShowInGame = !HiddenGame && (!Owner || !Owner.bHidden || bIgnoreOwnerHidden || bCastHiddenShadow);
+			UBOOL bDetailModeAllowsRendering	= DetailMode <= GSystemSettings.DetailMode;
+			if( bDetailModeAllowsRendering && ((GIsGame && bShowInGame) || (!GIsGame && bShowInEditor)) )
+			{
+				// Update the scene info's transform for this primitive.
+				Scene.UpdatePrimitiveTransform(this);
+			}*/
+
+			UpdateRBKinematicData();
+		}
+		
+		public virtual void UpdateRBKinematicData()
+		{
+			#if WITH_NOVODEX
+			NxActor* nActor = GetNxActor();
+
+			if(!nActor || !nActor->isDynamic() || !nActor->readBodyFlag(NX_BF_KINEMATIC) || nActor->readBodyFlag(NX_BF_FROZEN))
+			{
+				return;
+			}
+		#if !FINAL_RELEASE
+			// Check to see if this physics call is illegal during this tick group
+			if (GWorld->InTick && GWorld->TickGroup == TG_DuringAsyncWork)
+			{
+				debugf(NAME_Error,TEXT("Can't call UpdateRBKinematicData() on (%s)->(%s) during async work!"), *Owner->GetName(), *GetName());
+			}
+		#endif
+
+			// Synchronize the position and orientation of the rigid body to match the actor.
+			FVector FullScale;
+			FMatrix PrimTM;
+			GetTransformAndScale(PrimTM, FullScale);
+			check(!PrimTM.ContainsNaN());
+			NxMat34 nNewPose = U2NTransform(PrimTM);
+
+			// Don't call moveGlobalPose if we are already in the correct pose. 
+			// Also check matrix we are passing in is valid.
+			NxMat34 nCurrentPose = nActor->getGlobalPose();
+			if( !FullScale.IsNearlyZero() && 
+				nNewPose.M.determinant() > (FLOAT)KINDA_SMALL_NUMBER && 
+				!MatricesAreEqual(nNewPose, nCurrentPose, (FLOAT)KINDA_SMALL_NUMBER) )
+			{
+				nActor->moveGlobalPose( nNewPose );
+			}
+			#endif // WITH_NOVODEX
+		}
+		
+		public override void Detach( UBOOL bWillReattach )
+		{
+			// Clear the actor's shadow parent if it's the BaseSkelComponent.
+			if( Owner && Owner.bShadowParented )
+			{
+				ShadowParent = null;
+			}
+
+			NativeMarkers.MarkUnimplemented("Stripped bloat");
+			// If there primitive collides(or it's the editor) and the scene is associated with a world, remove the primitive from the world's hash.
+			/*World World = Scene.GetWorld();
+			if(World)
+			{
+				World.Hash.RemovePrimitive(this);
+			}
+
+			//remove the fog volume component
+			if (FogVolumeComponent)
+			{
+				Scene.RemoveFogVolume(this);
+			}
+
+			// Remove the primitive from the scene.
+			Scene.RemovePrimitive(this);
+
+			// Use a fence to keep track of when the rendering thread executes this scene detachment.
+			DetachFence.BeginFence();
+			if(Owner)
+			{
+				Owner.DetachFence.BeginFence();
+			}*/
+
+			base.Detach( bWillReattach );
+		}
+		public override void Attach()
+		{
+			NativeMarkers.MarkUnimplemented("Stripped bloat");
+			if( !LightingChannels.bInitialized )
+			{
+				/*UBOOL bHasStaticShadowing		= HasStaticShadowing();
+				LightingChannels.Static			= bHasStaticShadowing;
+				LightingChannels.Dynamic		= !bHasStaticShadowing;*/
+				LightingChannels.CompositeDynamic = FALSE;
+				LightingChannels.bInitialized	= TRUE;
+			}
+
+			base.Attach();
+
+			// build the crazy matrix
+			SetTransformedToWorld();
+
+			UpdateBounds();
+
+			// If there primitive collides(or it's the editor) and the scene is associated with a world, add it to the world's hash.
+			/*UWorld* World = Scene.GetWorld();
+			if(ShouldCollide() && World)
+			{
+				World.Hash.AddPrimitive(this);
+			}
+	
+			//add the fog volume component if one has been set
+			if (FogVolumeComponent)
+			{
+				Scene.AddFogVolume(FogVolumeComponent.CreateFogVolumeDensityInfo(Bounds.GetBox()), this);
+			}*/
+
+			// Use BaseSkelComponent as the shadow parent for this actor if requested.
+			if( Owner && Owner.bShadowParented )
+			{
+				ShadowParent = Owner.BaseSkelComponent;
+			}
+
+			// If the primitive isn't hidden and the detail mode setting allows it, add it to the scene.
+			/*UBOOL bShowInEditor				= !HiddenEditor && (!Owner || !Owner.bHiddenEd);
+			UBOOL bShowInGame					= !HiddenGame && (!Owner || !Owner.bHidden || bIgnoreOwnerHidden || bCastHiddenShadow);
+			UBOOL bDetailModeAllowsRendering	= DetailMode <= GSystemSettings.DetailMode;
+			if( bDetailModeAllowsRendering && ((GIsGame && bShowInGame) || (!GIsGame && bShowInEditor)) )
+			{
+				Scene.AddPrimitive(this);
+			}*/
 		}
 	}
 

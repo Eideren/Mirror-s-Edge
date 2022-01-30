@@ -300,12 +300,6 @@ public partial class Pawn : Actor/*
 	//	NativeMarkers.MarkUnimplemented();
 	//}
 	
-	// Export UPawn::execSetAnchor(FFrame&, void* const)
-	public virtual /*native function */void SetAnchor(NavigationPoint NewAnchor)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
-	
 	// Export UPawn::execGetBestAnchor(FFrame&, void* const)
 	public virtual /*native function */NavigationPoint GetBestAnchor(Actor TestActor, Object.Vector TestLocation, bool bStartPoint, bool bOnlyCheckVisible, ref float out_Dist)
 	{

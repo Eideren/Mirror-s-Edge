@@ -22,16 +22,6 @@
 
 	public partial class PrimitiveComponent
 	{
-		public bool IsValidComponent()
-		{
-			NativeMarkers.MarkUnimplemented();
-			return true;
-		}
-		
-		public Vector GetOrigin()
-		{
-			return LocalToWorld.GetOrigin();
-		}
 
 
 

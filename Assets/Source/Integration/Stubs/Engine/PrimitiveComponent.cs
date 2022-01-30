@@ -362,25 +362,41 @@ public partial class PrimitiveComponent : ActorComponent/*
 	// Export UPrimitiveComponent::execSetTranslation(FFrame&, void* const)
 	public virtual /*native function */void SetTranslation(Object.Vector NewTranslation)
 	{
-		NativeMarkers.MarkUnimplemented();
+		if( NewTranslation != Translation )
+		{
+			Translation = NewTranslation;
+			BeginDeferredUpdateTransform();
+		}
 	}
 	
 	// Export UPrimitiveComponent::execSetRotation(FFrame&, void* const)
 	public virtual /*native function */void SetRotation(Object.Rotator NewRotation)
 	{
-		NativeMarkers.MarkUnimplemented();
+		if( NewRotation != Rotation )
+		{
+			Rotation = NewRotation;
+			BeginDeferredUpdateTransform();
+		}
 	}
 	
 	// Export UPrimitiveComponent::execSetScale(FFrame&, void* const)
 	public virtual /*native function */void SetScale(float NewScale)
 	{
-		NativeMarkers.MarkUnimplemented();
+		if( NewScale != Scale )
+		{
+			Scale = NewScale;
+			BeginDeferredUpdateTransform();
+		}
 	}
 	
 	// Export UPrimitiveComponent::execSetScale3D(FFrame&, void* const)
 	public virtual /*native function */void SetScale3D(Object.Vector NewScale3D)
 	{
-		NativeMarkers.MarkUnimplemented();
+		if( NewScale3D != Scale3D )
+		{
+			Scale3D = NewScale3D;
+			BeginDeferredUpdateTransform();
+		}
 	}
 	
 	// Export UPrimitiveComponent::execSetAbsolute(FFrame&, void* const)

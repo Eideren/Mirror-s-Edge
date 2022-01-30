@@ -9,6 +9,7 @@
 	[Serializable]
 	public partial class Object
 	{
+		public const float HALF_WORLD_MAX = 262144f;	/* Half the maximum size of the world */
 		public static readonly name NAME_None = default;
 		public const bool GIsGame = true;
 		public const bool TRUE = true;

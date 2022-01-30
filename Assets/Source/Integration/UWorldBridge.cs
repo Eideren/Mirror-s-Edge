@@ -3,7 +3,6 @@
 	using System;
 	using System.Runtime.CompilerServices;
 	using Source;
-	using UnityEditor;
 	using Object = Core.Object;
 
 
@@ -38,5 +37,6 @@
 		public bool Ticked{ get; }
 		public bool DestroyActor( Actor actor, bool bNetForce=false, bool bShouldModifyLevel=true );
 		public ulong FrameId{ get; }
+		public ActorComponent.FSceneInterface Scene{ get; }
 	}
 }

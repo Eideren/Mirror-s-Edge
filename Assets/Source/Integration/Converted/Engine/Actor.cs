@@ -559,12 +559,6 @@ public partial class Actor : Object/*
 	//		Owner;
 	//}
 	
-	// Export UActor::execForceUpdateComponents(FFrame&, void* const)
-	public virtual /*native function */void ForceUpdateComponents(/*optional */bool? _bCollisionUpdate = default, /*optional */bool? _bTransformOnly = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
-	
 	// Export UActor::execConsoleCommand(FFrame&, void* const)
 	public virtual /*native function */String ConsoleCommand(String Command, /*optional */bool? _bWriteToLog = default)
 	{
@@ -683,13 +677,6 @@ public partial class Actor : Object/*
 		NativeMarkers.MarkUnimplemented();
 	}
 	
-	// Export UActor::execGetTerminalVelocity(FFrame&, void* const)
-	public virtual /*native function */float GetTerminalVelocity()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
-	
 	// Export UActor::execSetBase(FFrame&, void* const)
 	///public virtual /*native(298) final function */void SetBase(Actor NewBase, /*optional */Object.Vector? _NewFloor = default, /*optional */SkeletalMeshComponent _SkelComp = default, /*optional */name? _AttachName = default)
 	///{
@@ -702,12 +689,6 @@ public partial class Actor : Object/*
 	//{
 	//	NativeMarkers.MarkUnimplemented();
 	//}
-	
-	// Export UActor::execFindBase(FFrame&, void* const)
-	public virtual /*native function */void FindBase()
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
 	
 	// Export UActor::execIsBasedOn(FFrame&, void* const)
 	public virtual /*native final function */bool IsBasedOn(Actor TestActor)

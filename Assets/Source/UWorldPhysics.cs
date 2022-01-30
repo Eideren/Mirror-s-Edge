@@ -976,17 +976,17 @@
 			var dwn = unityLoc - new Vector3( 0, unityExtent.y, 0 );
 			var up = unityLoc + new Vector3( 0, unityExtent.y, 0 );
 
-			bool filterOutTrigger = ( TraceFlags & TRACE_PhysicsVolumes ) == default;
+			bool testTrigger = ( TraceFlags & TRACE_PhysicsVolumes ) != default;
 
 			var results = Physics.OverlapCapsule( dwn, up, unityExtent.x, -1, 
-				filterOutTrigger ? QueryTriggerInteraction.Ignore : QueryTriggerInteraction.Collide );
+				testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
 			
 			var root = new CheckResult();
 			var current = root;
 			int count = 0;
 			foreach( Collider unityColl in results )
 			{
-				if( unityColl.isTrigger != filterOutTrigger )
+				if( unityColl.isTrigger != testTrigger )
 					continue;
 
 				if( ExtractMappingData( unityColl, out var component, out var actor ) == false )
@@ -1215,6 +1215,10 @@
 
 
 
+		public ActorComponent.FSceneInterface Scene{ get; } = new ActorComponent.FSceneInterface();
+
+
+
 		void Swap<T>( ref T A, ref T B )
 		{
 			T Temp = A;
@@ -1228,8 +1232,7 @@
 
 		public unsafe DecFn.CheckResult* MultiLineCheck( ref int Mem, in Object.Vector End, in Object.Vector Start, in Object.Vector Extent, uint TraceFlags, Actor SourceActor, LightComponent SourceLight = null )
 		{
-
-			bool filterOutTrigger = ( TraceFlags & TRACE_PhysicsVolumes ) == default;
+			bool testTrigger = ( TraceFlags & TRACE_PhysicsVolumes ) != default;
 
 			var delta = End.ToUnityPos() - Start.ToUnityPos();
 
@@ -1237,7 +1240,7 @@
 			RaycastHit[] hits;
 			if( Extent == default )
 			{
-				hits = Physics.RaycastAll( Start.ToUnityPos(), delta.normalized, totalDistance, -1, QueryTriggerInteraction.Ignore );
+				hits = Physics.RaycastAll( Start.ToUnityPos(), delta.normalized, totalDistance, -1, testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
 			}
 			else
 			{
@@ -1245,7 +1248,7 @@
 				var radius = Extent.ToUnityPos().x;
 				var p1 = Start.ToUnityPos() + new Vector3(0, vertical, 0);
 				var p2 = Start.ToUnityPos() - new Vector3(0, vertical, 0);
-				hits = Physics.CapsuleCastAll( p1, p2, radius, delta.normalized, totalDistance, -1, QueryTriggerInteraction.Ignore );
+				hits = Physics.CapsuleCastAll( p1, p2, radius, delta.normalized, totalDistance, -1, testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
 			}
 			
 			var root = new CheckResult();
@@ -1254,6 +1257,9 @@
 			foreach( var hit in hits )
 			{
 				var unityColl = hit.collider;
+				if( unityColl.isTrigger != testTrigger )
+					continue;
+				
 				if( ExtractMappingData( unityColl, out var component, out var actor ) == false )
 					continue;
 

@@ -15,6 +15,7 @@
 	using INT = System.Int32;
 	using FVector = Core.Object.Vector;
 	using FVector4 = Core.Object.Vector4;
+	using FRotator = Core.Object.Rotator;
 
 	
 	public unsafe static class DecFn
@@ -829,6 +830,38 @@
 		public static unsafe bool MoveActor( this IUWorld w, Actor Actor, ref Object.Vector Delta, ref Object.Rotator NewRotation, uint MoveFlags, ref Source.DecFn.CheckResult Hit )
 		{
 			return w.MoveActor( Actor, Delta, NewRotation, MoveFlags, ref Hit );
+		}
+		
+		public static Matrix FScaleRotationTranslationMatrix(in FVector Scale, in FRotator Rot, in FVector Origin)
+		{
+			FLOAT	SR	= GMath.SinTab(Rot.Roll);
+			FLOAT	SP	= GMath.SinTab(Rot.Pitch);
+			FLOAT	SY	= GMath.SinTab(Rot.Yaw);
+			FLOAT	CR	= GMath.CosTab(Rot.Roll);
+			FLOAT	CP	= GMath.CosTab(Rot.Pitch);
+			FLOAT	CY	= GMath.CosTab(Rot.Yaw);
+			Matrix M = default;
+
+			M[0,0]	= (CP * CY) * Scale.X;
+			M[0,1]	= (CP * SY) * Scale.X;
+			M[0,2]	= (SP) * Scale.X;
+			M[0,3]	= 0f;
+
+			M[1,0]	= (SR * SP * CY - CR * SY) * Scale.Y;
+			M[1,1]	= (SR * SP * SY + CR * CY) * Scale.Y;
+			M[1,2]	= (- SR * CP) * Scale.Y;
+			M[1,3]	= 0f;
+
+			M[2,0]	= ( -( CR * SP * CY + SR * SY ) ) * Scale.Z;
+			M[2,1]	= (CY * SR - CR * SP * SY) * Scale.Z;
+			M[2,2]	= (CR * CP) * Scale.Z;
+			M[2,3]	= 0f;
+
+			M[3,0]	= Origin.X;
+			M[3,1]	= Origin.Y;
+			M[3,2]	= Origin.Z;
+			M[3,3]	= 1f;
+			return M;
 		}
 
 

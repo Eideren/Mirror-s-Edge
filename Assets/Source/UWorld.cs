@@ -59,6 +59,8 @@
 
         void Update()
         {
+            // See UWorld::Tick
+            
             FrameId++;
 	        DecFn.CheckResult.Clear();
 	        while( ScheduleInMainLoop.TryDequeue( out var a ) )
@@ -104,6 +106,18 @@
             foreach( var actor in _actorsThisFrame )
                 if( actor.TickGroup == Object.ETickingGroup.TG_PostUpdateWork )
                     actor.Tick(deltaTime*actor.CustomTimeDilation, ELevelTick.LEVELTICK_All);
+
+            foreach( var actor in _actorsThisFrame )
+            {
+                actor.ConditionalUpdateComponents();
+            }
+
+            foreach( var actor in _actorsThisFrame )
+            {
+                if( actor is PlayerController PC && PC.PlayerCamera )
+                    PC.PlayerCamera.UpdateCamera(deltaTime);
+            }
+            
             
             foreach( var actor in _actorsThisFrame )
             {

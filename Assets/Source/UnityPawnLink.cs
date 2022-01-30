@@ -96,7 +96,7 @@
 
                 if( ( Pawn.Controller as PlayerController ).PlayerCamera is Camera cam )
                 {
-                    cam.UpdateCamera(deltaTime);
+                    //cam.UpdateCamera(deltaTime);
                     var camPov = cam.CameraCache.POV;
                     _unityCam.transform.SetPositionAndRotation( camPov.Location.ToUnityPos(), (Quaternion)camPov.Rotation );
                     #warning probably switch things around to ensure camera doesn't lag one frame behind animation
@@ -117,7 +117,25 @@
             public void PrintUnimplementedDebug()
             {
                 {
-                    string appendedMessage = "Native unimplemented calls:\n" + string.Join( "\n", NativeMarkers.Marked.Select( x => $"{x.FilePath} - {x.Member}:{x.Line}" ).OrderBy( x => x ) );
+                    var baseString = NativeMarkers.Marked.FirstOrDefault().FilePath;
+                    int prefixLength = baseString?.Length ?? 0;
+                    foreach( var data in NativeMarkers.Marked )
+                    {
+                        var comp = data.FilePath;
+                        if( comp.Length < prefixLength )
+                            prefixLength = comp.Length;
+
+                        for( int i = 0; i < prefixLength; i++ )
+                        {
+                            if( comp[ i ] != baseString[ i ] )
+                                prefixLength = i;
+                        }
+
+                        if( prefixLength == 0 )
+                            break;
+                    }
+                    
+                    string appendedMessage = "Native unimplemented calls:\n" + string.Join( "\n", NativeMarkers.Marked.Select( x => $"{x.FilePath.Remove(0, prefixLength)} - {x.Member}:{x.Line} {(x.Description != null ? $"- {x.Description}" : "")}" ).OrderBy( x => x ) );
                     LogError(appendedMessage);
                 }
                 {
