@@ -81,8 +81,7 @@ public partial class TdMove_Grab
     float v24 = default; // [esp+30h] [ebp-50h]
     Matrix v25 = default; // [esp+40h] [ebp-40h] BYREF
   
-fixed(Rotator* ptr1 =&this.PawnOwner.Rotation)
-    v3 = FRotationMatrix(&v25,  ptr1);
+    v3 = FRotationMatrix(&v25, this.PawnOwner.Rotation);
     v4 = v3->YPlane.X;
     v5 = v3->YPlane.Y;
     v6 = v3->YPlane.Z;
@@ -450,8 +449,7 @@ fixed(Rotator* ptr1 =&this.PawnOwner.Rotation)
         this.PreviousGrabType = v6;
         this.UpdateGrabType(v3 == 12);
       }
-fixed(Rotator* ptr1 =&this.PawnOwner.Rotation)
-      v7 = FRotationMatrix(&v69,  ptr1);
+      v7 = FRotationMatrix(&v69, this.PawnOwner.Rotation);
       v8 = 0.0f;
       v9 = v7->YPlane.X;
       v10 = v7->YPlane.Y;
@@ -532,7 +530,7 @@ fixed(Rotator* ptr1 =&this.PawnOwner.Rotation)
       *(_QWORD *)&v55.X = __PAIR64__(LODWORD(v60), LODWORD(v24));
       v61 = v25 + (float)(v8 * 5.0f);
       v55.Z = v61;
-      if ( this.FindAutoMoveLedge(&a2, &a3, &a4, v55, v56, 30.0f, 0) == 2 )
+      if ( this.FindAutoMoveLedge(ref a2, ref a3, ref a4, v55, v56, 30.0f, 0) == 2 )
       {
         v42 = this.PawnOwner;
         if ( (float)((float)((float)(v42.MoveNormal.Z * a4.Z) + (float)(v42.MoveNormal.Y * a4.Y)) + (float)(v42.MoveNormal.X * a4.X)) >= 0.98000002d )
@@ -571,7 +569,7 @@ fixed(Rotator* ptr1 =&this.PawnOwner.Rotation)
           vect_then_rotator2.X = 0.0f;
           vect_then_rotator2.Z = 0.0f;
           v57 = *E_ClipAmountOfTurns((Rotator *)&vect_then_rotator2, (Rotator *)&vect_then_rotator);
-          if ( this.FindAutoMoveLedge(&a2, &a3, &a4, this.TargetLocation, v57, this.HandPlantCheckDistance, 0) == 2 )
+          if ( this.FindAutoMoveLedge(ref a2, ref a3, ref a4, this.TargetLocation, v57, this.HandPlantCheckDistance, 0) == 2 )
           {
             this.PawnOwner.MoveLedgeLocation = a2;
             v27 = a3.Y;

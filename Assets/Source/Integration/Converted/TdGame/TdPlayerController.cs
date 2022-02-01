@@ -4620,12 +4620,6 @@ public partial class TdPlayerController : GamePlayerController,
 	}
 	public TdPlayerController()
 	{
-		var Default__TdPlayerController_CollisionCylinder = new CylinderComponent
-		{
-		}/* Reference: CylinderComponent'Default__TdPlayerController.CollisionCylinder' */;
-		var Default__TdPlayerController_Sprite = new SpriteComponent
-		{
-		}/* Reference: SpriteComponent'Default__TdPlayerController.Sprite' */;
 		// Object Offset:0x006251F4
 		bLeftThumbStickPassedDeadZone = true;
 		bRightThumbStickPassedDeadZone = true;
@@ -4673,15 +4667,8 @@ public partial class TdPlayerController : GamePlayerController,
 		SavedMoveClass = ClassT<TdSavedMove>()/*Ref Class'TdSavedMove'*/;
 		CheatClass = ClassT<TdCheatManager>()/*Ref Class'TdCheatManager'*/;
 		InputClass = ClassT<TdPlayerInputConsole>()/*Ref Class'TdPlayerInputConsole'*/;
-		CylinderComponent = Default__TdPlayerController_CollisionCylinder/*Ref CylinderComponent'Default__TdPlayerController.CollisionCylinder'*/;
 		bNotifyFallingHitWall = true;
 		MinHitWall = 1.0f;
-		Components = new array</*export editinline */ActorComponent>
-		{
-			Default__TdPlayerController_Sprite/*Ref SpriteComponent'Default__TdPlayerController.Sprite'*/,
-			Default__TdPlayerController_CollisionCylinder/*Ref CylinderComponent'Default__TdPlayerController.CollisionCylinder'*/,
-		};
-		CollisionComponent = Default__TdPlayerController_CollisionCylinder/*Ref CylinderComponent'Default__TdPlayerController.CollisionCylinder'*/;
 	}
 }
 }

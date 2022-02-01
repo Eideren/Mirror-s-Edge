@@ -139,8 +139,7 @@ public partial class TdMove_Swing
     {
       if ( v9.ActiveMovementVolume )
       {
-fixed(Rotator* ptr1 =&v9.ActiveMovementVolume.Rotation)
-        Line = FRotationMatrix(&v17,  ptr1)->YPlane.Vector;
+        Line = FRotationMatrix(&v17, v9.ActiveMovementVolume.Rotation)->YPlane.Vector;
 fixed(Vector* ptr2 =&this.SwingLocation)
 fixed(Vector* ptr3 =&v9.ActiveMovementVolume.Location)
 fixed(Vector* ptr4 =&v9.Location)
@@ -171,9 +170,8 @@ fixed(Vector* ptr4 =&v9.Location)
     v9.X = a1.X - this.SwingLocation.X;
     v9.Y = a1.Y - this.SwingLocation.Y;
     v9.Z = a1.Z - this.SwingLocation.Z;
-fixed(Vector* ptr1 =&this.SwingDirection)
-    v2 = E_DirToRotator( ptr1, (Rotator *)&rot_then_vec);
-    FRotationMatrix(&SrcMatrix, v2);
+    v2 = E_DirToRotator( this.SwingDirection, (Rotator *)&rot_then_vec);
+    FRotationMatrix(&SrcMatrix, *v2);
     VectorMatrixInverse(&SrcMatrix, &DstMatrix);
     rot_then_vec.Z = (float)((float)((float)(DstMatrix.XPlane.Z * v9.X) + (float)(DstMatrix.ZPlane.Z * v9.Z)) + (float)(DstMatrix.YPlane.Z * v9.Y)) + DstMatrix.WPlane.Z;
     rot_then_vec.X = (float)((float)((float)(DstMatrix.ZPlane.X * v9.Z) + (float)(DstMatrix.XPlane.X * v9.X)) + (float)(DstMatrix.YPlane.X * v9.Y)) + DstMatrix.WPlane.X;

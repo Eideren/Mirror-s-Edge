@@ -884,13 +884,8 @@
 		
 		public unsafe bool EncroachingWorldGeometry( ref DecFn.CheckResult Hit, in Object.Vector Location, in Object.Vector Extent, bool bUseComplexCollision=FALSE )
 		{
-			var unityExtent = Extent.ToUnityPos();
-			var unityLoc = Location.ToUnityPos();
-
-			var dwn = unityLoc - new Vector3( 0, unityExtent.y, 0 );
-			var up = unityLoc + new Vector3( 0, unityExtent.y, 0 );
-			UnityEngine.Debug.DrawLine( dwn, up, Color.green );
-			var results = Physics.OverlapCapsule( dwn, up, unityExtent.x, -1, QueryTriggerInteraction.Ignore );
+			UnrealToUnityCapsule( Location, Extent, out var dwn, out var up, out var radius );
+			var results = Physics.OverlapCapsule( dwn, up, radius, -1, QueryTriggerInteraction.Ignore );
 			
 			int count = 0;
 			foreach( Collider unityColl in results )
@@ -967,20 +962,46 @@
 
 
 
+		static void UnrealToUnityCapsule( in Object.Vector Location, in Object.Vector Extent, out Vector3 bot, out Vector3 top, out float radius )
+		{
+			var unityExtent = Extent.ToUnityPos();
+			var unityLoc = Location.ToUnityPos();
+
+			radius = unityExtent.x;
+			bot = unityLoc + new Vector3( 0, radius, 0 );
+			top = unityLoc + new Vector3( 0, unityExtent.y * 2f - radius, 0 );
+
+			var cross = Vector3.right;
+			var topEnd = top + new Vector3( 0, radius, 0 );
+			var botEnd = bot - new Vector3( 0, radius, 0 );
+			const int subdiv = 6;
+			for( int i = 0; i < subdiv; i++ )
+			{
+				var prevBotVert = bot + cross * radius;
+				var prevTopVert = top + cross * radius;
+				cross = Quaternion.AngleAxis( 360f / subdiv, Vector3.up ) * cross;
+				var botVert = bot + cross * radius;
+				var topVert = top + cross * radius;
+				UnityEngine.Debug.DrawLine( botVert, topVert, Color.magenta );
+				UnityEngine.Debug.DrawLine( botVert, botEnd, Color.magenta );
+				UnityEngine.Debug.DrawLine( topVert, topEnd, Color.magenta );
+				UnityEngine.Debug.DrawLine( topVert, prevTopVert, Color.magenta );
+				UnityEngine.Debug.DrawLine( botVert, prevBotVert, Color.magenta );
+			}
+		}
+
+
+
 		public unsafe DecFn.CheckResult* ActorPointCheck( ref int Mem, in Object.Vector Location, in Object.Vector Extent, uint TraceFlags )
 		{
 			// Make a list of all actors which overlap with a cylinder at Location
 			// with the given collision size.
-			var unityExtent = Extent.ToUnityPos();
-			var unityLoc = Location.ToUnityPos();
-
-			var dwn = unityLoc - new Vector3( 0, unityExtent.y, 0 );
-			var up = unityLoc + new Vector3( 0, unityExtent.y, 0 );
 
 			bool testTrigger = ( TraceFlags & TRACE_PhysicsVolumes ) != default;
 
-			UnityEngine.Debug.DrawLine( dwn, up, Color.green );
-			var results = Physics.OverlapCapsule( dwn, up, unityExtent.x, -1, 
+			UnrealToUnityCapsule( Location, Extent, out var dwn, out var up, out var radius );
+			
+			var results = Physics.OverlapCapsule( dwn, up, radius, -1, 
 				testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
 			
 			var root = new CheckResult();
@@ -1258,11 +1279,8 @@
 			}
 			else
 			{
-				var vertical = Extent.ToUnityPos().y;
-				var radius = Extent.ToUnityPos().x;
-				var p1 = Start.ToUnityPos() + new Vector3(0, vertical, 0);
-				var p2 = Start.ToUnityPos() - new Vector3(0, vertical, 0);
-				UnityEngine.Debug.DrawLine( p1, p2, Color.green );
+				UnrealToUnityCapsule( Start, Extent, out var p1, out var p2, out var radius );
+				
 				UnityEngine.Debug.DrawRay( Start.ToUnityPos(), delta, Color.red );
 				hits = Physics.CapsuleCastAll( p1, p2, radius, delta.normalized, totalDistance, -1, testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
 			}

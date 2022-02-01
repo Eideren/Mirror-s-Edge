@@ -31,26 +31,12 @@
             {
                 [FieldOffset(0)] public fixed float Vals[ 16 ];
                 public ref float this[ int x, int y ] => ref Vals[ x * 4 + y ];
-                public ref float this[ int index ] => ref Vals[ index ];
             }
             public ref float this[ int x, int y ] => ref Vals[ x * 4 + y ];
-            public ref float this[ int index ] => ref Vals[ index ];
 
 
 
-            public static Matrix Identity
-            {
-                get
-                {
-                    Matrix m = default;
-                    int i = 0;
-                    m[i++] = 1f; m[i++] = 0f; m[i++] = 0f; m[i++] = 0f;
-                    m[i++] = 0f; m[i++] = 1f; m[i++] = 0f; m[i++] = 0f;
-                    m[i++] = 0f; m[i++] = 0f; m[i++] = 1f; m[i++] = 0f;
-                    m[i++] = 0f; m[i++] = 0f; m[i++] = 0f; m[i++] = 1f;
-                    return m;
-                }
-            }
+            public static readonly Matrix Identity = new Matrix {PlaneX = new(1f, 0f, 0f, 0f), PlaneY = new(0f, 1f, 0f, 0f), PlaneZ = new(0f,0f,1f,0f), PlaneW = new(0f,0f,0f,1f)};
             public void SetAxis( int i, in Vector Axis )
             {
                 checkSlow(i >= 0 && i <= 2);
@@ -164,7 +150,7 @@
             }
             
             // Inverse.
-            public unsafe Matrix Inverse()
+            public Matrix Inverse()
             {
                 Matrix Result = default;
                 Matrix thiss = this;
@@ -183,7 +169,6 @@
             [FieldOffset(0)] public/*()*/ float X;
             [FieldOffset(4)] public/*()*/ float Y;
             [FieldOffset(8)] public/*()*/ float Z;
-	
             [FieldOffset(12)] public/*()*/ float W;
             
             [FieldOffset(0)] public Vector Vector;
@@ -195,6 +180,14 @@
             //	structdefaultproperties
             //	{
             //	}
+            public Plane( float X, float Y, float Z, float W )
+            {
+	            Vector = default;
+	            this.X = X;
+		        this.Y = Y;
+	            this.Z = Z;
+		        this.W = W;
+            }
         };
     }
 }

@@ -176,7 +176,7 @@ public partial class TdMove_LedgeWalk
     v30.Acceleration.Z = v30.Velocity.Z;
     if ( (this.bDebugMove.AsBitfield(29) & 0x20000) == default )
     {
-      v48 = *E_DirToRotator(&v49, (Rotator *)&a2);// a2 re-used as rotator to be written to and read inside of SetRotation below
+      v48 = *E_DirToRotator(v49, (Rotator *)&a2);// a2 re-used as rotator to be written to and read inside of SetRotation below
       this.PawnOwner.SetRotation(v48);
     }
     v33 = (float)(v49.Y * -1.0f) - (float)(v49.Z * 0.0f);

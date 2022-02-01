@@ -244,18 +244,13 @@
 
 
 
-        public static unsafe Matrix* FRotationMatrix( Matrix* allocPtr, Rotator* rRef )
-        {
-	        * allocPtr = Core.Object.FRotationMatrix( * rRef );
-	        return allocPtr;
-        }
-        public static unsafe Matrix* FRotationMatrix( Matrix* allocPtr, ref Rotator rRef )
+        public static unsafe Matrix* FRotationMatrix( Matrix* allocPtr, in Rotator rRef )
         {
 	        * allocPtr = Core.Object.FRotationMatrix( rRef );
 	        return allocPtr;
         }
         
-        public static Matrix FRotationMatrix(Rotator Rot)
+        public static Matrix FRotationMatrix(in Rotator Rot)
         {
 	        Matrix M = default;
 	        float SR = GMath.SinTab(Rot.Roll);

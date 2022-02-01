@@ -493,18 +493,18 @@
 		}
 		
 		
-		public static _E_struct_FRotator * E_DirToRotator(_E_struct_FVector *thiss, _E_struct_FRotator *out_a)
+		public static _E_struct_FRotator * E_DirToRotator(in _E_struct_FVector thiss, _E_struct_FRotator* out_a)
 		{
 			double v2; // st5
 			double v4; // st4
 			float v6; // [esp+0h] [ebp-4h]
 			float a2a; // [esp+8h] [ebp+4h]
 
-			v6 = (float)(atan2(thiss->Y, thiss->X) * 65535.0d * 0.1591549430918953d);
-			v2 = thiss->Y;
-			v4 = thiss->X;
+			v6 = (float)(atan2(thiss.Y, thiss.X) * 65535.0d * 0.1591549430918953d);
+			v2 = thiss.Y;
+			v4 = thiss.X;
 			out_a->Yaw = (int)v6;
-			a2a = (float)(0.1591549430918953d * (65535.0d * atan2(thiss->Z, sqrt(v4 * v4 + v2 * v2))));
+			a2a = (float)(0.1591549430918953d * (65535.0d * atan2(thiss.Z, sqrt(v4 * v4 + v2 * v2))));
 			out_a->Pitch = (int)a2a;
 			out_a->Roll = 0;
 			return out_a;

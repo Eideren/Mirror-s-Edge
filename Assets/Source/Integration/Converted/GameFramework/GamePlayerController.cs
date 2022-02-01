@@ -31,20 +31,6 @@ public partial class GamePlayerController : PlayerController/*
 	
 	public GamePlayerController()
 	{
-		var Default__GamePlayerController_CollisionCylinder = new CylinderComponent
-		{
-		}/* Reference: CylinderComponent'Default__GamePlayerController.CollisionCylinder' */;
-		var Default__GamePlayerController_Sprite = new SpriteComponent
-		{
-		}/* Reference: SpriteComponent'Default__GamePlayerController.Sprite' */;
-		// Object Offset:0x000075A5
-		CylinderComponent = Default__GamePlayerController_CollisionCylinder/*Ref CylinderComponent'Default__GamePlayerController.CollisionCylinder'*/;
-		Components = new array</*export editinline */ActorComponent>
-		{
-			Default__GamePlayerController_Sprite/*Ref SpriteComponent'Default__GamePlayerController.Sprite'*/,
-			Default__GamePlayerController_CollisionCylinder/*Ref CylinderComponent'Default__GamePlayerController.CollisionCylinder'*/,
-		};
-		CollisionComponent = Default__GamePlayerController_CollisionCylinder/*Ref CylinderComponent'Default__GamePlayerController.CollisionCylinder'*/;
 	}
 }
 }

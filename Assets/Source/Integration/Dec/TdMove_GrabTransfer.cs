@@ -139,7 +139,7 @@ fixed(Rotator* ptr2 =&v9.Controller.Rotation)
       v25 = LOWORD(rot_then_vec.Y) - 0x10000;
     v42.Pitch = v10;
     *(_QWORD *)&v42.Yaw = __PAIR64__((int)LODWORD(v24), v25);
-    if ( this.FindAutoMoveLedge(&rot_then_vec2, &rot_then_vec3, &rot_then_vec, v48, v42, a11, 0) == 2 )
+    if ( this.FindAutoMoveLedge(ref rot_then_vec2, ref rot_then_vec3, ref rot_then_vec, v48, v42, a11, 0) == 2 )
     {
       v26 = this.PawnOwner;
       if ( (float)((float)((float)(v26.MoveNormal.Y * rot_then_vec.Y) + (float)(v26.MoveNormal.Z * rot_then_vec.Z)) + (float)(v26.MoveNormal.X * rot_then_vec.X)) <= 0.99000001d )
@@ -271,8 +271,7 @@ fixed(Rotator* ptr2 =&v9.Controller.Rotation)
     float v49 = default; // [esp+B4h] [ebp-10h]
   
     v5 = this.PawnOwner;
-fixed(Rotator* ptr1 =&v5.Rotation)
-    v6 = FRotationMatrix(&matrix_then_FCheckResult,  ptr1);
+    v6 = FRotationMatrix(&matrix_then_FCheckResult, v5.Rotation);
     v7 = v6->YPlane.X;
     v39.X = v7;
     v8 = v6->YPlane.Y;

@@ -145,7 +145,7 @@ public partial class TdMove_IntoGrab
     v2 = this.PawnOwner;
     if ( (fabs(v2.Velocity.X) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(v2.Velocity.Y) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(v2.Velocity.Z) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/) && v2.OldMovementState != MOVE_GrabTransfer )
     {
-      this.PawnOwner.MoveLedgeResult = this.FindAutoMoveLedge(&a2, &a3, &a4, v2.Location, v2.Rotation, this.HandPlantCheckDistance, 1);
+      this.PawnOwner.MoveLedgeResult = this.FindAutoMoveLedge(ref a2, ref a3, ref a4, v2.Location, v2.Rotation, this.HandPlantCheckDistance, 1);
       if ( this.PawnOwner.MoveLedgeResult == 2 )
       {
         if ( this.CanDoMove() )// UTdMove_IntoGrab::CanDoMove

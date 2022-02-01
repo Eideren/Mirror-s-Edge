@@ -863,8 +863,7 @@ public partial class TdMove_WallRun
       }
       if ( (this.PlayCameraHitWallEffect.AsBitfield(5) & 0x10) == default && this.MoveActiveTime > 0.30000001d )
       {
-fixed(Vector* ptr1 =&this.WallNormal)
-        v9 = (ushort)E_DirToRotator( ptr1, (Rotator *)&rotator_then_vec)->Yaw;
+        v9 = (ushort)E_DirToRotator( this.WallNormal, (Rotator *)&rotator_then_vec)->Yaw;
         if ( v9 > 0x7FFF )
           v9 = v9 - (0x10000);
         v10 = this.PawnOwner.MovementState;

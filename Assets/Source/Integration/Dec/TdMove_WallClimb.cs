@@ -403,7 +403,7 @@ public partial class TdMove_WallClimb
     a2.Y = v12;
     *(_QWORD *)&v16.Y = __PAIR64__(LODWORD(v11), LODWORD(v12));
     a2.Z = v11;
-    this.PawnOwner.MoveLedgeResult = this.FindAutoMoveLedge(&a2, &a3, &a4, v16, v17, a11, 1);
+    this.PawnOwner.MoveLedgeResult = this.FindAutoMoveLedge(ref a2, ref a3, ref a4, v16, v17, a11, 1);
     if ( this.PawnOwner.MoveLedgeResult != 2 )
       return false;
     v13 = a2.Y;

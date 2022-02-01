@@ -1803,7 +1803,7 @@ public partial class TdPawn
     float v12 = default; // xmm0_4
     float v13 = default; // xmm3_4
     float v14 = default; // xmm1_4
-    int v15 = default; // xmm0_4
+    float v15 = default; // xmm0_4
     float v16 = default; // xmm2_4
     float v17 = default; // xmm1_4
     float v18 = default; // xmm0_4
@@ -1847,8 +1847,7 @@ public partial class TdPawn
     float v56 = default; // [esp+60h] [ebp-48h]
     Matrix v57 = default; // [esp+68h] [ebp-40h] BYREF
   
-fixed(Rotator* ptr1 =&this.Rotation)
-    v7 = FRotationMatrix(&v57,  ptr1);
+    v7 = FRotationMatrix(&v57, this.Rotation);
     v8 = v7->YPlane.Y;
     v9 = v7->YPlane.Z;
     v10 = v7->XPlane.Y;
@@ -1867,7 +1866,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
       v14 = v47;
       v45 = (float)(v10 * aForward) + (float)(v8 * aStrafe);
   LABEL_6:
-      *(float *)&v15 = 0.0f;
+      v15 = 0.0f;
       goto LABEL_7;
     }
     if ( v12 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
@@ -1879,10 +1878,10 @@ fixed(Rotator* ptr1 =&this.Rotation)
       v14 = v41 * v53;
       v44 = v53 * v34;
       v47 = v41 * v53;
-      *(float *)&v15 = 0.0f;
+      v15 = 0.0f;
       goto LABEL_7;
     }
-    *(float *)&v15 = 0.0f;
+    v15 = 0.0f;
     v13 = 0.0f;
     v14 = 0.0f;
     v44 = 0.0f;
@@ -1898,8 +1897,8 @@ fixed(Rotator* ptr1 =&this.Rotation)
       {
         v17 = (float)((float)(v14 * v11) + (float)(v45 * v10)) + (float)(v13 * v51);
         v49 = v17;
-        if ( v17 < 0.0f || ((*(float *)&v15 = 0.89999998f) is object && v17 > 0.89999998d) )
-          v49 = *(float *)&v15;
+        if ( v17 < 0.0f || ((v15 = 0.89999998f) is object && v17 > 0.89999998d) )
+          v49 = v15;
         v50 = (float)(this.SpeedSprintEnergy - (1.0f - pow(v49, this.SpeedEnergyDecelerationExponent)) * (this.GroundSpeed - this.SpeedMaxBaseVelocity) / this.SpeedEnergyDecelerationTime * deltaTime);
         v18 = v50;
         this.SpeedSprintEnergy = v50;
@@ -2679,7 +2678,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
     Matrix SrcMatrix = default; // [esp+20h] [ebp-80h] BYREF
     Matrix DstMatrix = default; // [esp+60h] [ebp-40h] BYREF
   
-    FRotationMatrix(&DstMatrix, ref this.Rotation);
+    FRotationMatrix(&DstMatrix, this.Rotation);
     if(bWorldSpace != default)
     {
       VectorMatrixInverse(&DstMatrix, &SrcMatrix);
@@ -3127,7 +3126,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
     fixed( Matrix* ptr = & this.Mesh.LocalToWorld )
     {
       v5 = ptr;
-      v4 = FRotationMatrix(&v8, &a2);
+      v4 = FRotationMatrix(&v8, a2);
       qmemcpy(ref this.Mesh.LocalToLegRotatedWorld, v4->Mult(&outM, v5), sizeof(Matrix));
     }
   }
@@ -3473,7 +3472,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
     a2.Normal.Y = 0.0f;
     a2.Normal.Z = 0.0f;
     a2.Time = 0.0f;
-    v2 = FRotationMatrix(&v18, ref this.Rotation);
+    v2 = FRotationMatrix(&v18, this.Rotation);
     v3 = v2->ZPlane.X;
     v4 = v2->XPlane.X;
     v5 = v2->XPlane.Y;
@@ -4418,7 +4417,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
     float v86 = default; // [esp+104h] [ebp-94h]
     float v87 = default; // [esp+108h] [ebp-90h]
     float v88 = default; // [esp+10Ch] [ebp-8Ch]
-    int* v89 = stackalloc int[3]; // [esp+110h] [ebp-88h] BYREF
+    Vector v89 = default; // [esp+110h] [ebp-88h] BYREF
     Vector v90 = default; // [esp+11Ch] [ebp-7Ch] BYREF
     float v91 = default; // [esp+128h] [ebp-70h]
     Vector a2a = default; // [esp+138h] [ebp-60h] BYREF
@@ -4648,11 +4647,11 @@ fixed(Rotator* ptr1 =&this.Rotation)
               v45 = this.MaxWallStepHeight + 2.0f;
               v46 = this.Floor.Y * v45;
               v47 = this.Floor.Z * v45;
-              *(float *)v89 = v21.X - (float)(this.Floor.X * v45);
-              *(float *)&v89[1] = this.Location.Y - v46;
-              *(float *)&v89[2] = this.Location.Z - v47;
+              v89.X = v21.X - (float)(this.Floor.X * v45);
+              v89.Y = this.Location.Y - v46;
+              v89.Z = this.Location.Z - v47;
               v48 = this.GetCylinderExtent(&a2a);
-              GWorld.SingleLineCheck(ref Hit, this, *(Vector *)v89, this.Location, 8415, *v48, 0);
+              GWorld.SingleLineCheck(ref Hit, this, v89, this.Location, 8415, *v48, 0);
               if ( Hit.Time >= 1.0f )
               {
   LABEL_53:
@@ -4795,7 +4794,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
     float v64 = default; // [esp+5Ch] [ebp-50h]
     Matrix v65 = default; // [esp+6Ch] [ebp-40h] BYREF
   
-    v7 = FRotationMatrix(&v65, ref this.Rotation);
+    v7 = FRotationMatrix(&v65, this.Rotation);
     v8 = sqrt(this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X);
     v9 = (float)(v7->XPlane.X * aForward) + (float)(v7->YPlane.X * aStrafe);
     v10 = (float)(v7->XPlane.Y * aForward) + (float)(v7->YPlane.Y * aStrafe);
@@ -5249,7 +5248,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
     float v25 = default; // xmm0_4
     float v26 = default; // xmm0_4
     //Vector *v27; // ecx
-    Vector *v28; // eax
+    Vector v28; // eax
     float v29 = default; // xmm0_4
     float v30 = default; // edx
     float v31 = default; // eax
@@ -5387,7 +5386,6 @@ fixed(Rotator* ptr1 =&this.Rotation)
     Vector v163 = default; // [esp+154h] [ebp-D0h] BYREF
     Vector a5 = default; // [esp+160h] [ebp-C4h] BYREF
     float v165 = default; // [esp+16Ch] [ebp-B8h]
-    float* v166 = stackalloc float[4]; // [esp+178h] [ebp-ACh] BYREF
     float v167 = default; // [esp+188h] [ebp-9Ch]
     float v168 = default; // [esp+18Ch] [ebp-98h]
     float v169 = default; // [esp+190h] [ebp-94h]
@@ -5400,7 +5398,8 @@ fixed(Rotator* ptr1 =&this.Rotation)
     float v176 = default; // [esp+1C4h] [ebp-60h]
     Vector a4 = default; // [esp+1C8h] [ebp-5Ch] BYREF
     Vector v178 = default; // [esp+1D4h] [ebp-50h] BYREF
-    float* v179 = stackalloc float[5]; // [esp+1E0h] [ebp-44h] BYREF
+    Vector v179 = default; // [esp+1E0h] [ebp-44h] BYREF
+    float* v179b = stackalloc float[2]; // [esp+1E0h] [ebp-44h] BYREF
     float v180 = default; // [esp+1F4h] [ebp-30h]
     float v181 = default; // [esp+200h] [ebp-24h]
     float v182 = default; // [esp+204h] [ebp-20h]
@@ -5538,7 +5537,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
     this.Acceleration.Z = 0.0f;
     if ( this.Acceleration.X == 0.0f && this.Acceleration.Y == 0.0f && this.Acceleration.Z == 0.0f )
     {
-      v28 = &accelCopy;
+      v28 = accelCopy;
     }
     else
     {
@@ -5569,12 +5568,12 @@ fixed(Rotator* ptr1 =&this.Rotation)
         DestLocation.Z = 0.0f;
         v128 = 0.0f;
       }
-      v28 = (Vector *)&DestLocation.Y;
+      v28 = new Vector(DestLocation.Y, DestLocation.Z, v128);
     }
     v34 = this.GroundSpeed;
-    v35 = LODWORD(v28->Y);
-    v152 = v28->X;
-    v36 = LODWORD(v28->Z);
+    v35 = LODWORD(v28.Y);
+    v152 = v28.X;
+    v36 = LODWORD(v28.Z);
     // v37 = *(void (__thiscall **)(TdPawn , float *, _DWORD, _DWORD, _DWORD, _DWORD, int, _DWORD))(this.VfTableObject.Dummy + 1040);
     v153 = v35;
     v38 = this.PhysicsVolume;
@@ -5708,13 +5707,13 @@ fixed(Rotator* ptr1 =&this.Rotation)
   LABEL_72:
           // v66 = *(void (__thiscall **)(TdPawn , int *, float *, float *, CheckResult *))(this.VfTableObject.Dummy + 528);
           v158 = (float)(sqrt(DestLocation.Y * DestLocation.Y + v128 * v128 + DestLocation.Z * DestLocation.Z));
-          v179[0] = (float)(1.0f / v158) * v65;
-          v179[1] = v59 * (float)(1.0f / v158);
-          v179[2] = v62 * (float)(1.0f / v158);
+          v179.X = (float)(1.0f / v158) * v65;
+          v179.Y = v59 * (float)(1.0f / v158);
+          v179.Z = v62 * (float)(1.0f / v158);
           v175.Y = (float)(1.0f - v44) * v65;
           v175.Z = v59 * (float)(1.0f - v44);
           v176 = v62 * (float)(1.0f - v44);
-          this.stepUp( *(Vector*)&a7, *(Vector*)v179, *(Vector*)&v175.Y, ref Hit);
+          this.stepUp( *(Vector*)&a7, v179, new Vector(v175.Y, v175.Z, v176)/**(Vector*)&v175.Y*/, ref Hit);
           if ( this.Physics == PHYS_Falling )
           {
             v99 = this.Location.Y - v139;
@@ -5754,7 +5753,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
           goto LABEL_75;
         }
       }
-      GWorld.MoveActor(this, ref *(Vector *)&DestLocation.Y, ref this.Rotation, 0, ref Hit);
+      GWorld.MoveActor(this, new Vector(DestLocation.Y, DestLocation.Z, v128)/*ref *(Vector *)&DestLocation.Y*/, this.Rotation, 0, ref Hit);
       v44 = Hit.Time;
       if ( Hit.Time < 1.0f )
       {
@@ -5763,13 +5762,13 @@ fixed(Rotator* ptr1 =&this.Rotation)
         v65 = DestLocation.Y;
         // v66 = *(void (__thiscall **)(TdPawn , int *, float *, float *, CheckResult *))(this.VfTableObject.Dummy + 528);
         v158 = (float)(sqrt(DestLocation.Y * DestLocation.Y + v128 * v128 + DestLocation.Z * DestLocation.Z));
-        v179[0] = (float)(1.0f / v158) * v65;
-        v179[1] = v59 * (float)(1.0f / v158);
-        v179[2] = v62 * (float)(1.0f / v158);
+        v179.X = (float)(1.0f / v158) * v65;
+        v179.Y = v59 * (float)(1.0f / v158);
+        v179.Z = v62 * (float)(1.0f / v158);
         v175.Y = (float)(1.0f - v44) * v65;
         v175.Z = v59 * (float)(1.0f - v44);
         v176 = v62 * (float)(1.0f - v44);
-        this.stepUp( *(Vector*)&a7, *(Vector*)v179, *(Vector*)&v175.Y, ref Hit);
+        this.stepUp( *(Vector*)&a7, v179, new Vector(v175.Y, v175.Z, v176), ref Hit);
         if ( this.Physics == PHYS_Falling )
         {
           v99 = this.Location.Y - v139;
@@ -5977,10 +5976,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
           v90 = 0.0f;
           v91 = 0.0f;
         }
-        v166[1] = v90 * v82;
-        v166[2] = v91 * v82;
-        v166[3] = v44 * v82;
-        GWorld.MoveActor(this, ref *(Vector *)&v166[1], ref this.Rotation, 0, ref Hit);
+        GWorld.MoveActor(this, new Vector( v90 * v82, v91 * v82, v44 * v82 ), this.Rotation, 0, ref Hit);
         v44 = 0.0f;
         Hit.Actor = v81;
         Hit.Time = 0.0f;
@@ -6034,7 +6030,7 @@ fixed(Rotator* ptr1 =&this.Rotation)
         v128 = v180 - v98;
         if ( (float)((float)((float)(v135 + v134) * 0.0f) + (float)((float)(v180 - v98) * v180)) >= 0.0f )
         {
-          GWorld.MoveActor(this, ref *(Vector *)&DestLocation.Y, ref this.Rotation, 0, ref Hit);
+          GWorld.MoveActor(this, /*ref *(Vector *)&DestLocation.Y*/new Vector(DestLocation.Y, DestLocation.Z, v128), this.Rotation, 0, ref Hit);
           v44 = 0.0f;
         }
         if ( this.Physics == PHYS_Swimming )

@@ -105,7 +105,7 @@ public partial class TdPhysicsMove
     return true;
   }
 
-  public unsafe int FindAutoMoveLedge(Vector *out_Location, Vector *out_ledgeNormal, Vector *out_MoveNormal, Vector a5, Rotator a8, float a11, int a12)
+  public unsafe int FindAutoMoveLedge(ref Vector out_Location, ref Vector out_ledgeNormal, ref Vector out_MoveNormal, Vector a5, Rotator a8, float a11, int a12)
   {
     Vector *v9; // ecx
     float v10 = default; // xmm1_4
@@ -632,23 +632,23 @@ public partial class TdPhysicsMove
     v70 = v140.LedgeLocation.Z - out_LedgeHit.LedgeLocation.Z;
     v71 = (float)(v140.LedgeLocation.Y - out_LedgeHit.LedgeLocation.Y) * 0.5f;
     a2.X = (float)((float)(v140.LedgeLocation.X - out_LedgeHit.LedgeLocation.X) * 0.5f) + out_LedgeHit.LedgeLocation.X;
-    out_Location->X = a2.X;
+    out_Location.X = a2.X;
     a2.Y = v71 + v68;
-    out_Location->Y = v71 + v68;
+    out_Location.Y = v71 + v68;
     v72 = out_LedgeHit.MoveNormal.X;
     a2.Z = (float)(v70 * 0.5f) + v69;
-    out_Location->Z = a2.Z;
+    out_Location.Z = a2.Z;
     v73 = out_LedgeHit.MoveNormal.Y;
-    out_MoveNormal->X = v72;
+    out_MoveNormal.X = v72;
     v74 = out_LedgeHit.MoveNormal.Z;
-    out_MoveNormal->Y = v73;
+    out_MoveNormal.Y = v73;
     v75 = out_LedgeHit.LedgeNormal.X;
-    out_MoveNormal->Z = v74;
+    out_MoveNormal.Z = v74;
     v76 = out_LedgeHit.LedgeNormal.Y;
-    out_ledgeNormal->X = v75;
+    out_ledgeNormal.X = v75;
     v77 = out_LedgeHit.LedgeNormal.Z;
-    out_ledgeNormal->Y = v76;
-    out_ledgeNormal->Z = v77;
+    out_ledgeNormal.Y = v76;
+    out_ledgeNormal.Z = v77;
     v78 = out_LedgeHit.FeetExcluded.AsBitfield(2);
     this.PawnOwner.MovementActor = out_LedgeHit.MoveActor;
     SetFromBitfield(ref this.PawnOwner.bDisableSkelControlSpring, 32, this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ ((this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ (v78 << 7)) & 0x100));
@@ -757,10 +757,7 @@ public partial class TdPhysicsMove
           if(v3 != default)
           {
             scriptFuncParam[0] = (byte)v3.NextMove;
-  LABEL_26:
-            /*v11 = fnSetMove2;
-            v10 = fnSetMove1;*/
-            this.PawnOwner.SetMove( (EMovement)scriptFuncParam[0] );
+            goto LABEL_26;
           }
         }
       }
@@ -768,16 +765,7 @@ public partial class TdPhysicsMove
       if ( this.MoveActiveTime > this.bDelayTimeCheckAutoMoves && ((LOBYTE(this.bCheckForGrab.AsBitfield(7)) | (byte)((this.bCheckForGrab.AsBitfield(7) | (this.bCheckForGrab.AsBitfield(7) >> 1)) >> 1)) & 1) != default )
       {
         v4 = this.PawnOwner;
-        fixed( Vector* ptr1 = & v4.MoveNormal )
-        {
-          fixed( Vector* ptr2 = & v4.MoveLedgeNormal )
-          {
-            fixed( Vector* ptr3 = & v4.MoveLedgeLocation )
-            {
-              v4.MoveLedgeResult = FindAutoMoveLedge( ptr3, ptr2, ptr1, v4.Location, v4.Rotation, this.HandPlantCheckDistance, 1 );
-            }
-          }
-        }
+        v4.MoveLedgeResult = FindAutoMoveLedge(ref v4.MoveLedgeLocation, ref v4.MoveLedgeNormal, ref v4.MoveNormal, v4.Location, v4.Rotation, this.HandPlantCheckDistance, 1);
       }
       v5 = this.PawnOwner;
       if ( v5.MoveLedgeResult > 0 )
@@ -785,8 +773,7 @@ public partial class TdPhysicsMove
         if ( (this.bCheckForGrab.AsBitfield(7) & 4) != default && v5.Moves.Data[6].TestCanTransitionInto_Maybe() )// TestCanTransitionInto_Maybe
         {
           scriptFuncParam[0] = 6;
-          this.PawnOwner.SetMove( (EMovement)14 );
-          return;
+          goto LABEL_26;
         }
         if ( this.PawnOwner.MoveLedgeResult != 2 )
           return;
@@ -799,21 +786,12 @@ public partial class TdPhysicsMove
             //v11 = fnSetMove2;
             scriptFuncParam[0] = 81;
             //v10 = fnSetMove1;
-  LABEL_27:
-            v7 = this.PawnOwner;
-            v8 = v7.VfTableObject.Dummy;
-            v15 = default;
-            v13 = default;
-            v14 = default;
-            /*CallUFunction(v7.v1, v7, v9, scriptFuncParam, 0);*/
-            this.PawnOwner.SetMove( (EMovement)scriptFuncParam[0] );
-            return;
+            goto LABEL_27;
           }
           if ( (this.bCheckForGrab.AsBitfield(7) & 2) != default && this.PawnOwner.Moves[9].CallOnCanDoMove() )
           {
             scriptFuncParam[0] = 9;
-            this.PawnOwner.SetMove( (EMovement)scriptFuncParam[0] );
-            return;
+            goto LABEL_26;
           }
         }
         if ( (this.bCheckForGrab.AsBitfield(7) & 1) != default )
@@ -822,12 +800,28 @@ public partial class TdPhysicsMove
           if ( v6.TestCanTransitionInto_Maybe() )// TestCanTransitionInto_Maybe
           {
             scriptFuncParam[0] = 14;
-            this.PawnOwner.SetMove( (EMovement)scriptFuncParam[0] );
-            return;
+            goto LABEL_26;
           }
         }
       }
     }
+
+    return;
+    
+    LABEL_26:
+    //v11 = fnSetMove2;
+    //v10 = fnSetMove1;
+    goto LABEL_27;
+    
+    LABEL_27:
+    v7 = this.PawnOwner;
+    v8 = v7.VfTableObject.Dummy;
+    v15 = default;
+    v13 = default;
+    v14 = default;
+    v7.SetMove((EMovement)scriptFuncParam[0]);
+    return;
+
   }
 }
 }

@@ -2592,7 +2592,7 @@ public partial class TdPlayerPawn
     CylinderComponent v88 = default; // eax
     float v89 = default; // xmm4_4
     float v90 = default; // xmm1_4
-    int v91 = default; // xmm0_4
+    float v91 = default; // xmm0_4
     int v92 = default; // ebp
     uint v93 = default; // ebx
     bool bForceRMVelocity_False = default; // zf
@@ -2690,7 +2690,7 @@ public partial class TdPlayerPawn
     float v186 = default; // [esp+1CCh] [ebp-144h]
     float v187 = default; // [esp+1D0h] [ebp-140h]
     int v188 = default; // [esp+1D4h] [ebp-13Ch]
-    int* v189 = stackalloc int[3]; // [esp+1D8h] [ebp-138h]
+    float* v189 = stackalloc float[3]; // [esp+1D8h] [ebp-138h]
     float v190 = default; // [esp+1E4h] [ebp-12Ch]
     float v191 = default; // [esp+1E8h] [ebp-128h]
     float v192 = default; // [esp+1ECh] [ebp-124h]
@@ -3007,7 +3007,7 @@ public partial class TdPlayerPawn
             else if ( v65 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
             {
               v212 = 1077936128;
-              v189[2] = 1056964608;
+              v189[2] = 0.5f;
               v69 = fsqrt(v205);
               v204 = (float)(3.0f - (float)((float)((float)(1.0f / v69) * v205) * (float)(1.0f / v69))) * (float)((float)(1.0f / v69) * 0.5f);
               v66 = v204 * v166;
@@ -3085,13 +3085,13 @@ public partial class TdPlayerPawn
               a2.X = this.Location.X;
               a2.Y = v89;
               a2.Z = v90;
-              *(float *)&v91 = v88.CollisionRadius + 1.0f;
+              v91 = v88.CollisionRadius + 1.0f;
               v92 = default;
-              v160 = *(float *)&v91;
+              v160 = v91;
               a4.X = 0.0f;
               a4.Y = 0.0f;
               a4.Z = 0.0f;
-              *(float *)v189 = -0.0f - *(float *)&v91;
+              v189[0] = -0.0f - v91;
               v189[1] = v91;
               v93 = default;
               while(1 != default)
@@ -3103,8 +3103,8 @@ public partial class TdPlayerPawn
                 a3.Z = 0.0f;
                 do
                 {
-                  v96 = *(float *)&v189[v95 >> 1];
-                  a3.X.LODWORD(v189[v95 & 1]);
+                  v96 = v189[v95 >> 1];
+                  a3.X = v189[v95 & 1];
                   a3.Y = v96;
                   ++v95;
                   v92 = v92 + (OnWalkableFloor_orsomething(ref a2, ref a3, ref a4).AsInt());

@@ -253,8 +253,7 @@
 				Matrix *v2; // eax
 				Matrix v4; // [esp+10h] [ebp-40h] BYREF
 
-				var c = this;
-				v2 = FRotationMatrix(&v4, &c);
+				v2 = FRotationMatrix(&v4, this);
 				*out_data = new Quat(v2);
 				return out_data;
 			}
@@ -264,8 +263,7 @@
 				Matrix *v2; // eax
 				Matrix v4; // [esp+10h] [ebp-40h] BYREF
 
-				var c = this;
-				v2 = FRotationMatrix(&v4, &c);
+				v2 = FRotationMatrix(&v4, this);
 				return new Quat(v2);
 			}
 			

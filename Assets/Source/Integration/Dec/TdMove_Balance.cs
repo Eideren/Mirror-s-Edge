@@ -91,7 +91,7 @@ public partial class TdMove_Balance
         Delta.X = (float)((float)((float)(v17.X - v11.Location.X) * a2) * 10.0f) * v15;
         Delta.Y = (float)(v12 * 10.0f) * v15;
         Delta.Z = (float)(v13 * 10.0f) * v15;
-        v14 = E_DirToRotator(&v16, &out_a);
+        v14 = E_DirToRotator(v16, &out_a);
         GWorld.MoveActor(this.PawnOwner, ref Delta, ref *v14, 0, ref Hit);
       }
     }

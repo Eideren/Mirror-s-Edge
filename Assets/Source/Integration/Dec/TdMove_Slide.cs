@@ -54,8 +54,7 @@ public partial class TdMove_Slide
         if ( (uint)v5 > 32767 )
           v5 = v5 - (65536);
         v6 = (int)(float)((float)(DeltaTime * 0.2f) * (float)v5);
-fixed(Vector* ptr1 =&v4.Velocity)
-        E_DirToRotator( ptr1, &out_a);
+        E_DirToRotator( v4.Velocity, &out_a);
         v7 = this.PawnOwner;
         v8 = v7.MoveActionHint;
         if ( v8 == MAH_Left )
@@ -74,8 +73,7 @@ fixed(Vector* ptr1 =&v4.Velocity)
         v16.Y = v9->Y * v15;
         v16.Z = v15 * v9->Z;
         this.PawnOwner.Velocity = v16;
-fixed(Vector* ptr2 =&this.PawnOwner.Floor)
-        v10 = E_DirToRotator( ptr2, (Rotator *)&vect_then_rotator);
+        v10 = E_DirToRotator( this.PawnOwner.Floor, (Rotator *)&vect_then_rotator);
         v11 = this.PawnOwner;
         v12 = 16384 - v10->Pitch;
         this.SlideAngleTarget = v12;

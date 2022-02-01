@@ -6109,9 +6109,6 @@ using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; usi
 		var Default__PlayerController_CollisionCylinder = new CylinderComponent
 		{
 		}/* Reference: CylinderComponent'Default__PlayerController.CollisionCylinder' */;
-		var Default__PlayerController_Sprite = new SpriteComponent
-		{
-		}/* Reference: SpriteComponent'Default__PlayerController.Sprite' */;
 		// Object Offset:0x002897AA
 		CameraClass = ClassT<Camera>()/*Ref Class'Camera'*/;
 		DebugCameraControllerClass = ClassT<DebugCameraController>()/*Ref Class'DebugCameraController'*/;
@@ -6143,11 +6140,7 @@ using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; usi
 		MaxConcurrentHearSounds = 64;
 		bIsPlayer = true;
 		bCanDoSpecial = true;
-		Components = new array</*export editinline */ActorComponent>
-		{
-			Default__PlayerController_Sprite/*Ref SpriteComponent'Default__PlayerController.Sprite'*/,
-			Default__PlayerController_CollisionCylinder/*Ref CylinderComponent'Default__PlayerController.CollisionCylinder'*/,
-		};
+		Components.Add(Default__PlayerController_CollisionCylinder);
 		NetPriority = 3.0f;
 		CollisionComponent = Default__PlayerController_CollisionCylinder/*Ref CylinderComponent'Default__PlayerController.CollisionCylinder'*/;
 	}
