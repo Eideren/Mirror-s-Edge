@@ -36,7 +36,7 @@ public partial class Teleporter : NavigationPoint/*
 		return default;
 	}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

@@ -7,7 +7,7 @@ public partial class Admin : PlayerController/*
 		config(Game)
 		notplaceable
 		hidecategories(Navigation)*/{
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 	
 	}

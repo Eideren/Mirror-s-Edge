@@ -7,7 +7,7 @@ public partial class TdFlareEmitter : Emitter/*
 		hidecategories(Navigation)*/{
 	[Category] public ParticleSystem ImpactEffect;
 	
-	public override /*simulated function */void PostBeginPlay()
+	public override /*simulated function */void eventPostBeginPlay()
 	{
 		// stub
 	}

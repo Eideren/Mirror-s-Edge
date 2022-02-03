@@ -12,7 +12,7 @@ public partial class TdDirectionalFlareEmitter : TdFlareEmitter/*
 	public float ConePlusOne;
 	public float OneMinusConeInv;
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		// stub
 	}

@@ -24,9 +24,9 @@ public partial class DynamicSMActor : Actor/*
 	//		ReplicatedMeshTranslation;
 	//}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 		ReplicatedMesh = StaticMeshComponent.StaticMesh;
 	}
 	

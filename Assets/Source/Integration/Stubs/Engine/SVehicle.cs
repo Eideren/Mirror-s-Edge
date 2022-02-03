@@ -129,7 +129,7 @@ public partial class SVehicle : Vehicle/*
 		// stub
 	}
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		// stub
 	}

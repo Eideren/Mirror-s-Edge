@@ -6,7 +6,7 @@ public partial class DebugCameraHUD : HUD/*
 		config(Game)
 		notplaceable
 		hidecategories(Navigation)*/{
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		// stub
 	}

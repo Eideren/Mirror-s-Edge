@@ -15,7 +15,7 @@ public partial class TdBotPawn_Tutorial : TdBotPawn/*
 		// stub
 	}
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		// stub
 	}

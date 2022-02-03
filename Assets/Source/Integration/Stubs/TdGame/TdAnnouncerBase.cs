@@ -10,7 +10,7 @@ public partial class TdAnnouncerBase : Info/*
 	public/*private*/ SoundCue RadioSoundCueTemplate;
 	[export, editinline] public/*private*/ AudioComponent CurrentAnnouncementComponent;
 	
-	public override /*function */void PostBeginPlay()
+	public override /*function */void eventPostBeginPlay()
 	{
 		// stub
 	}

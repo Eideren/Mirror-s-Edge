@@ -586,12 +586,6 @@ public partial class Actor : Object/*
 		NativeMarkers.MarkUnimplemented();
 	}
 	
-	// Export UActor::execSetCollisionSize(FFrame&, void* const)
-	public virtual /*native(283) final function */void SetCollisionSize(float NewRadius, float NewHeight)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
-	
 	// Export UActor::execSetCollisionType(FFrame&, void* const)
 	public virtual /*native final function */void SetCollisionType(Actor.ECollisionType NewCollisionType)
 	{
@@ -608,13 +602,6 @@ public partial class Actor : Object/*
 	public virtual /*native final function */void SetDrawScale3D(Object.Vector NewScale3D)
 	{
 		NativeMarkers.MarkUnimplemented();
-	}
-	
-	// Export UActor::execMove(FFrame&, void* const)
-	public virtual /*native(266) final function */bool Move(Object.Vector Delta)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
 	}
 	
 	//// Export UActor::execSetLocation(FFrame&, void* const)
@@ -689,13 +676,6 @@ public partial class Actor : Object/*
 	//{
 	//	NativeMarkers.MarkUnimplemented();
 	//}
-	
-	// Export UActor::execIsBasedOn(FFrame&, void* const)
-	public virtual /*native final function */bool IsBasedOn(Actor TestActor)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
 	
 	// Export UActor::execGetBaseMost(FFrame&, void* const)
 	public virtual /*native function */Actor GetBaseMost()
@@ -1009,29 +989,8 @@ public partial class Actor : Object/*
 		Destroy();
 	}
 	
-	// Export UActor::execTrace(FFrame&, void* const)
-	public virtual /*native(277) final function */Actor Trace(ref Object.Vector HitLocation, ref Object.Vector HitNormal, Object.Vector TraceEnd, /*optional */Object.Vector? _TraceStart/* = default*/, /*optional */bool? _bTraceActors/* = default*/, /*optional */Object.Vector? _Extent/* = default*/, /*optional */ref Actor.TraceHitInfo HitInfo/* = default*/, /*optional */int? _ExtraTraceFlags = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
-	
-	// Export UActor::execTraceComponent(FFrame&, void* const)
-	public virtual /*native final function */bool TraceComponent(ref Object.Vector HitLocation, ref Object.Vector HitNormal, PrimitiveComponent InComponent, Object.Vector TraceEnd, /*optional */Object.Vector? _TraceStart/* = default*/, /*optional */Object.Vector? _Extent/* = default*/, /*optional */ref Actor.TraceHitInfo HitInfo/* = default*/)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
-	
 	// Export UActor::execPointCheckComponent(FFrame&, void* const)
 	public virtual /*native final function */bool PointCheckComponent(PrimitiveComponent InComponent, Object.Vector PointLocation, Object.Vector PointExtent)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
-	
-	// Export UActor::execFastTrace(FFrame&, void* const)
-	public virtual /*native(548) final function */bool FastTrace(Object.Vector TraceEnd, /*optional */Object.Vector? _TraceStart = default, /*optional */Object.Vector? _BoxExtent = default, /*optional */bool? _bTraceBullet = default)
 	{
 		NativeMarkers.MarkUnimplemented();
 		return default;
@@ -1056,12 +1015,6 @@ public partial class Actor : Object/*
 	{
 		DecFn.CheckResult r = default;
 		return this.IsOverlapping(A, ref r, null);
-	}
-	
-	// Export UActor::execGetComponentsBoundingBox(FFrame&, void* const)
-	public virtual /*native final function */void GetComponentsBoundingBox(ref Object.Box ActorBox)
-	{
-		NativeMarkers.MarkUnimplemented();
 	}
 	
 	// Export UActor::execGetBoundingCylinder(FFrame&, void* const)
@@ -1100,13 +1053,6 @@ public partial class Actor : Object/*
 	//{
 	//	NativeMarkers.MarkUnimplemented();
 	//}
-	
-	// Export UActor::execIsTimerActive(FFrame&, void* const)
-	public virtual /*native final function */bool IsTimerActive(/*optional */name? _inTimerFunc = default, /*optional */Object _inObj = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
 	
 	// Export UActor::execGetTimerCount(FFrame&, void* const)
 	public virtual /*native final function */float GetTimerCount(/*optional */name? _inTimerFunc = default, /*optional */Object _inObj = default)
@@ -1330,7 +1276,7 @@ public partial class Actor : Object/*
 		WorldInfo.Game.BroadcastLocalizedTeam(TeamIndex, this, InMessageClass, Switch, RelatedPRI_1, RelatedPRI_2, OptionalObject);
 	}
 	
-	public virtual /*event */void PostBeginPlay()
+	public virtual /*event */void eventPostBeginPlay()
 	{
 	
 	}

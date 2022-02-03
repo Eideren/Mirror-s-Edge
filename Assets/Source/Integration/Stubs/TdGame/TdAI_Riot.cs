@@ -64,7 +64,7 @@ public partial class TdAI_Riot : TdAIController/*
 		return default;
 	}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

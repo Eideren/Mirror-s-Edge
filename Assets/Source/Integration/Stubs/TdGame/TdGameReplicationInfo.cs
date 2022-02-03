@@ -28,7 +28,7 @@ public partial class TdGameReplicationInfo : GameReplicationInfo/*
 		return default;
 	}
 	
-	public override /*simulated function */void PostBeginPlay()
+	public override /*simulated function */void eventPostBeginPlay()
 	{
 		// stub
 	}

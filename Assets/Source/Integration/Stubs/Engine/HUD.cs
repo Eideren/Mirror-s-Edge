@@ -123,7 +123,7 @@ public partial class HUD : Actor/*
 		// stub
 	}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

@@ -90,7 +90,7 @@ public partial class TdHUD : HUD/*
 		// stub
 	}
 	
-	public override /*function */void PostBeginPlay()
+	public override /*function */void eventPostBeginPlay()
 	{
 		// stub
 	}

@@ -24,9 +24,9 @@ public partial class TdTrigger : Trigger/*
 	[Category] public float AngleLimit;
 	[transient] public/*private*/ int CurrentRev;
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 		InitTrigger();
 	}
 	

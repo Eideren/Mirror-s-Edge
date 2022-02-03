@@ -54,13 +54,13 @@ public partial class KActor : DynamicSMActor/*
 		NativeMarkers.MarkUnimplemented();
 	}
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		if(bLOIObject && WorldInfo.IsLOIEnabled())
 		{
 			InitLOI();
 		}
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 		if(bWakeOnLevelStart)
 		{
 			StaticMeshComponent.WakeRigidBody(default(name?));

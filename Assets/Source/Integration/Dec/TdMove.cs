@@ -706,12 +706,12 @@ public partial class TdMove
 
   public unsafe bool MovementTraceForBlocking(Vector End, Vector Start, Vector Extent)
   {
-    Vector a5 = default; // [esp+0h] [ebp-Ch] BYREF
+    /*Vector a5 = default; // [esp+0h] [ebp-Ch] BYREF
   
     a5 = Extent;
     Extent = Start;
-    Start = End;
-    return MovementLineCheck(ref static_FCheckResult, &Start, &Extent, &a5, 8910) != default;
+    Start = End;*/
+    return MovementLineCheck(ref static_FCheckResult, &End, &Start, &Extent, 8910) != default;
   }
 
   public unsafe bool MovementTraceForBlockingEx(Vector End, Vector Start, Vector Extent, ref Vector HitLocation, ref Vector HitNormal)

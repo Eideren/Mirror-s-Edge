@@ -41,7 +41,7 @@ public partial class TdGrenadeTargetArea : TdGrenadeArea/*
 		return default;
 	}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

@@ -9,6 +9,19 @@
 	[Serializable]
 	public partial class Object
 	{
+		public const int UCONST_RB_Sleeping = 0x02;
+		public const int UCONST_RB_NeedsUpdate = 0x01;
+		public const int UCONST_RB_None = 0x00;
+		public const float UCONST_RBSTATE_ANGVELSCALE = 1000.0f;
+		public const float UCONST_RBSTATE_LINVELSCALE = 10.0f;
+		public const float UCONST_ACTORMAXSTEPHEIGHT = 35.0f;
+		public const float UCONST_MINFLOORZ = 0.7f;
+		public const float UCONST_REP_RBLOCATION_ERROR_TOLERANCE_SQ = 16.0f;
+		public const int UCONST_TRACEFLAG_Blocking = 8;
+		public const int UCONST_TRACEFLAG_SkipMovers = 4;
+		public const int UCONST_TRACEFLAG_PhysicsVolumes = 2;
+		public const int UCONST_TRACEFLAG_Bullet = 1;
+
 		public const float HALF_WORLD_MAX = 262144f;	/* Half the maximum size of the world */
 		public static readonly name NAME_None = default;
 		public const bool GIsGame = true;

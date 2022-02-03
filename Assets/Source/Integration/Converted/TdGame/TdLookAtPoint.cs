@@ -11,7 +11,7 @@ public partial class TdLookAtPoint : Keypoint/*
 	[Category] public bool bDoNotRegisterAsLookAt;
 	[Category] public bool bAutoRegisterOnStartup;
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		if(!bDoNotRegisterAsLookAt && bAutoRegisterOnStartup)
 		{

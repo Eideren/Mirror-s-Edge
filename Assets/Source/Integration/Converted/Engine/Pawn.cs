@@ -1436,9 +1436,9 @@ public partial class Pawn : Actor/*
 		EyeHeight = BaseEyeHeight;
 	}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 		SplashTime = 0.0f;
 		SpawnTime = WorldInfo.TimeSeconds;
 		EyeHeight = BaseEyeHeight;
@@ -2505,7 +2505,7 @@ public partial class Pawn : Actor/*
 	// Export UPawn::execClearPathStep(FFrame&, void* const)
 	public virtual /*native function */void ClearPathStep()
 	{
-		NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented("Calls DEBUGEMPTYPATHSTEP, probably not needed");
 	}
 	
 	public virtual /*event */float GetRunSpeed()

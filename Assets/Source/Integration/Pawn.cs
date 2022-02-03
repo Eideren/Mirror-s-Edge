@@ -29,7 +29,15 @@ namespace MEdge.Engine
 
 	public partial class Pawn
 	{
-        
+		public override void PostBeginPlay()
+		{
+			base.PostBeginPlay();
+			if ( !bDeleteMe )
+			{
+				NativeMarkers.MarkUnimplemented("Just adding pawn to world coll");
+				//GWorld.AddPawn( this );
+			}
+		}
 		// Export UPawn::execIsLocallyControlled(FFrame&, void* const)
 		public virtual /*native final simulated function */ bool IsLocallyControlled()
 		{
@@ -1974,6 +1982,238 @@ determine how deep in water actor is standing:
 
 	public partial class Actor
 	{
+		public UBOOL IsTimerActive( name? _FuncName = default, Object inObj = null )
+		{
+			var FuncName = _FuncName ?? default(name);
+			if( !inObj ) { inObj = this; }
+
+			UBOOL Return = FALSE;
+			for (INT Idx = 0; Idx < Timers.Num(); Idx++)
+			{
+				if( Timers[Idx].FuncName == FuncName &&
+				    Timers[Idx].TimerObj == inObj )
+				{
+					Return = (Timers[Idx].Rate > 0f);
+					break;
+				}
+			}
+			return Return;
+		}
+		
+		// Export UActor::execGetComponentsBoundingBox(FFrame&, void* const)
+		public virtual /*native final function */void GetComponentsBoundingBox(ref Object.Box ActorBox)
+		{
+			ActorBox = GetComponentsBoundingBox();
+		}
+		
+		public Box GetComponentsBoundingBox(UBOOL bNonColliding = false)
+		{
+			Box Box = new();
+
+			for(UINT ComponentIndex = 0;ComponentIndex < (UINT)this.Components.Num();ComponentIndex++)
+			{
+				PrimitiveComponent	primComp = (this.Components[ComponentIndex]) as PrimitiveComponent;
+
+				// Only use collidable components to find collision bounding box.
+				if( primComp && primComp.IsAttached() && (bNonColliding || primComp.CollideActors) )
+				{
+					Box += primComp.Bounds.GetBox();
+				}
+			}
+
+			return Box;
+		}
+		
+		// Export UActor::execFastTrace(FFrame&, void* const)
+		public virtual /*native(548) final function */bool FastTrace(Object.Vector TraceEnd, /*optional */Object.Vector? _TraceStart = default, /*optional */Object.Vector? _BoxExtent = default, /*optional */bool? _bTraceBullet = default)
+		{
+			//P_GET_VECTOR(TraceEnd);
+			var TraceStart = _TraceStart ?? Location;
+			var BoxExtent = _BoxExtent ?? FVector(0f,0f,0f);
+			var bTraceComplex = /*_bTraceComplex*/_bTraceBullet ??  FALSE;
+			//P_FINISH;
+
+			ETraceFlags TraceFlags = TRACE_World|TRACE_StopAtAnyHit;
+			if( bTraceComplex )
+			{
+				TraceFlags |= TRACE_ComplexCollision;
+			}
+
+			// Trace the line.
+			//LINE_CHECK_TRACE_SCRIPT(TraceFlags, &Stack);
+			FCheckResult Hit = new(1f);
+			GWorld.SingleLineCheck( ref Hit, this, TraceEnd, TraceStart, (int)TraceFlags, BoxExtent );
+
+			return !Hit.Actor;
+		}
+
+
+
+		const bool pHitInfo = true; // No idea what that is
+		
+		// Export UActor::execTrace(FFrame&, void* const)
+		public virtual /*native(277) final function */Actor Trace(ref Object.Vector HitLocation, ref Object.Vector HitNormal, Object.Vector TraceEnd, /*optional */Object.Vector? _TraceStart/* = default*/, /*optional */bool? _bTraceActors/* = default*/, /*optional */Object.Vector? _Extent/* = default*/, /*optional */ref Actor.TraceHitInfo HitInfo/* = default*/, /*optional */int? _ExtraTraceFlags = default)
+		{
+			//P_GET_VECTOR_REF(HitLocation);
+			//P_GET_VECTOR_REF(HitNormal);
+			//P_GET_VECTOR(TraceEnd);
+			var TraceStart = _TraceStart ?? Location;
+			var bTraceActors = _bTraceActors ?? bCollideActors;
+			var TraceExtent = _Extent??FVector(0,0,0);
+			//var FTraceHitInfo = _HitInfo ?? new TraceHitInfo();	// optional
+			var ExtraTraceFlags = _ExtraTraceFlags ?? 0;
+			//P_FINISH;
+
+			// Trace the line.
+			FCheckResult Hit = new FCheckResult(1.0f);
+			ETraceFlags TraceFlags;
+			if( bTraceActors )
+			{
+				TraceFlags = (ExtraTraceFlags & UCONST_TRACEFLAG_Blocking) != 0 ? TRACE_AllBlocking : TRACE_ProjTargets;
+			}
+			else
+			{
+				TraceFlags = TRACE_World;
+			}
+
+			if( pHitInfo )
+			{
+				TraceFlags |= TRACE_Material;
+			}
+			if( (ExtraTraceFlags & UCONST_TRACEFLAG_PhysicsVolumes) != 0 )
+			{
+				TraceFlags |= TRACE_PhysicsVolumes;
+			}
+			if( (ExtraTraceFlags & UCONST_TRACEFLAG_Bullet) != 0 )
+			{
+				TraceFlags |= TRACE_ComplexCollision;
+			}
+			if( (ExtraTraceFlags & UCONST_TRACEFLAG_SkipMovers) !=0 && (TraceFlags & TRACE_Movers) != 0 )
+			{
+				TraceFlags -= TRACE_Movers;
+			}
+
+			Actor TraceActor = this;
+			Controller C = this as Controller;
+			if ( C && C.Pawn )
+			{
+				TraceActor = C.Pawn;
+			}
+
+			//If enabled, capture the callstack that triggered this script linecheck
+			//LINE_CHECK_TRACE_SCRIPT(TraceFlags, &Stack);
+			GWorld.SingleLineCheck( ref Hit, TraceActor, TraceEnd, TraceStart, (int)TraceFlags, TraceExtent );
+
+			//*(Actor**)Result = Hit.Actor;
+			HitLocation      = Hit.Location;
+			HitNormal        = Hit.Normal;
+
+			if(pHitInfo)
+			{
+				//DetermineCorrectPhysicalMaterial<FCheckResult, FTraceHitInfo>( Hit, HitInfo );
+				NativeMarkers.MarkUnimplemented("DetermineCorrectPhysicalMaterial");
+
+				HitInfo.Material = Hit.Material ? Hit.Material.GetMaterial() : null;
+
+				HitInfo.Item = Hit.Item;
+				HitInfo.LevelIndex = Hit.LevelIndex;
+				HitInfo.BoneName = Hit.BoneName;
+				HitInfo.HitComponent = Hit.Component;
+			}
+			return Hit.Actor;
+		}
+	
+		// Export UActor::execTraceComponent(FFrame&, void* const)
+		public virtual /*native final function */bool TraceComponent(ref Object.Vector HitLocation, ref Object.Vector HitNormal, PrimitiveComponent InComponent, Object.Vector TraceEnd, /*optional */Object.Vector? _TraceStart/* = default*/, /*optional */Object.Vector? _Extent/* = default*/, /*optional */ref Actor.TraceHitInfo HitInfo/* = default*/)
+		{
+			//P_GET_VECTOR_REF(HitLocation);
+			//P_GET_VECTOR_REF(HitNormal);
+			//P_GET_OBJECT(UPrimitiveComponent, InComponent);
+			//P_GET_VECTOR(TraceEnd);
+			var TraceStart = _TraceStart ?? Location;
+			var TraceExtent = _Extent ?? FVector(0,0,0);
+			//P_GET_STRUCT_OPTX_REF(FTraceHitInfo, HitInfo, FTraceHitInfo());
+			//P_FINISH;
+
+			UBOOL bNoHit = TRUE;
+			FCheckResult Hit = new(1.0f);
+
+			// Ensure the component is valid and attached before checking the line against it.
+			// LineCheck needs a transform and IsValidComponent()==TRUE, both of which are implied by IsAttached()==TRUE.
+			if( InComponent != NULL && InComponent.IsAttached() )
+			{
+				bNoHit = InComponent.LineCheck(ref Hit, TraceEnd, TraceStart, TraceExtent, (int)TRACE_AllBlocking);
+
+				HitLocation      = Hit.Location;
+				HitNormal        = Hit.Normal;
+
+				if(pHitInfo)
+				{
+					//DetermineCorrectPhysicalMaterial<FCheckResult, FTraceHitInfo>( Hit, HitInfo );
+					NativeMarkers.MarkUnimplemented("DetermineCorrectPhysicalMaterial");
+
+					HitInfo.Material = Hit.Material ? Hit.Material.GetMaterial() : null;
+
+					HitInfo.Item = Hit.Item;
+					HitInfo.LevelIndex = Hit.LevelIndex;
+					HitInfo.BoneName = Hit.BoneName;
+					HitInfo.HitComponent = Hit.Component;
+				}
+			}
+
+			return !bNoHit;
+		}
+	
+		// Export UActor::execSetCollisionSize(FFrame&, void* const)
+		public virtual /*native(283) final function */void SetCollisionSize(float NewRadius, float NewHeight)
+		{
+			CylinderComponent CylComp = CollisionComponent as CylinderComponent;
+
+			if(CylComp)
+				CylComp.SetCylinderSize(NewRadius, NewHeight);
+
+			UnTouchActors();
+			FindTouchingActors();
+			// notify script
+			CollisionChanged();
+			// dirty this actor for replication
+			bNetDirty = true;	
+		}
+	
+		// Export UActor::execMove(FFrame&, void* const)
+		public virtual /*native(266) final function */bool Move(Object.Vector Delta)
+		{
+			FCheckResult Hit = new(1.0f);
+			return GWorld.MoveActor( this, Delta, Rotation, 0, ref Hit );
+		}
+		
+		public virtual void PostBeginPlay()
+		{
+			// Send PostBeginPlay.
+			eventPostBeginPlay();
+
+			if( bDeleteMe )
+				return;
+
+			// Init scripting.
+			SetInitialState();
+
+			// Find Base
+			if( !Base && bCollideWorld && bShouldBaseAtStartup && ((Physics == PHYS_None) || (Physics == PHYS_Rotating)) )
+			{
+				FindBase();
+			}
+		}
+		
+		// Export UActor::execIsBasedOn(FFrame&, void* const)
+		public virtual /*native final function */bool IsBasedOn(Actor Other)
+		{
+			for( Actor Test=this; Test!=NULL; Test=Test.Base )
+				if( Test == Other )
+					return true;
+			return false;
+		}
+		
 		// Export UActor::execForceUpdateComponents(FFrame&, void* const)
 		public virtual /*native function */void ForceUpdateComponents(/*optional */bool? _bCollisionUpdate = default, /*optional */bool? _bTransformOnly = default)
 		{
@@ -3990,6 +4230,74 @@ determine how deep in water actor is standing:
 
 	public partial class PlayerController
 	{
+		// Export UPlayerController::execGetViewTarget(FFrame&, void* const)
+		public override /*native function */Actor GetViewTarget()
+		{
+			if( PlayerCamera )
+			{
+				return PlayerCamera.GetViewTarget();
+			}
+
+			if ( RealViewTarget && !RealViewTarget.bDeleteMe )
+			{
+				if ( !ViewTarget || ViewTarget.bDeleteMe || !ViewTarget.GetAPawn() || (ViewTarget.GetAPawn().PlayerReplicationInfo != RealViewTarget) )
+				{
+					// not viewing pawn associated with RealViewTarget, so look for one
+					// Assuming on server, so PRI Owner is valid
+					if ( !RealViewTarget.Owner )
+					{
+						RealViewTarget = null;
+					}
+					else
+					{
+						Controller PRIOwner = RealViewTarget.Owner as Controller;
+						if ( PRIOwner )
+						{
+							if ( PRIOwner as PlayerController && (PRIOwner as PlayerController).ViewTarget && !(PRIOwner as PlayerController).ViewTarget.bDeleteMe )
+							{
+								UpdateViewTarget((PRIOwner as PlayerController).ViewTarget);
+							}
+							else if ( PRIOwner.Pawn )
+							{
+								UpdateViewTarget(PRIOwner.Pawn);
+							}
+						}
+						else
+						{
+							RealViewTarget = null;
+						}
+					}
+				}
+			}
+
+			if ( !ViewTarget || ViewTarget.bDeleteMe )
+			{
+				if ( Pawn && !Pawn.bDeleteMe && !Pawn.bPendingDelete )
+					UpdateViewTarget(Pawn);
+				else
+					UpdateViewTarget(this);
+			}
+			return ViewTarget;
+		}
+		
+		public void UpdateViewTarget(Actor NewViewTarget)
+		{
+			if ( (NewViewTarget == ViewTarget) || !NewViewTarget )
+				return;
+
+			Actor OldViewTarget = ViewTarget;
+			ViewTarget = NewViewTarget;
+
+			ViewTarget.BecomeViewTarget(this);
+			if ( OldViewTarget )
+				OldViewTarget.EndViewTarget(this);
+
+			if ( !LocalPlayerController() && (GWorld.GetNetMode() != WorldInfo.ENetMode.NM_Client) )
+			{
+				ClientSetViewTarget(ViewTarget);
+			}
+		}
+		
 		public void SetPlayer( Player InPlayer )
 		{
 			check(InPlayer!=NULL);
@@ -4187,8 +4495,47 @@ determine how deep in water actor is standing:
 
 
 
+	public partial class Camera
+	{
+		public Actor GetViewTarget()
+		{
+			// if blending to another view target, return this one first
+			if( PendingViewTarget.Target )
+			{
+				CheckViewTarget(ref PendingViewTarget);
+				if( PendingViewTarget.Target )
+				{
+					return PendingViewTarget.Target;
+				}
+			}
+
+			CheckViewTarget(ref ViewTarget);
+			return ViewTarget.Target;
+		}
+	}
+
+
+
 	public partial class Controller
 	{
+		public virtual Actor GetViewTarget()
+		{
+			if ( Pawn )
+				return Pawn;
+			return this;
+		}
+		public UBOOL ShouldCheckVisibilityOf(Controller C)
+		{
+			// only check visibility if this or C is a player, and sightcounter has counted down, and is probing event.
+			if ( (bIsPlayer || C.bIsPlayer) && (SightCounter < 0f) /*&& (C.bIsPlayer ? IsProbing(NAME_SeePlayer) : IsProbing(NAME_SeeMonster))*/ )
+			{
+				// don't check visibility if on same team if bSeeFriendly==false
+				return ( bSeeFriendly || (WorldInfo.Game && !WorldInfo.Game.bTeamGame) || !PlayerReplicationInfo || !PlayerReplicationInfo.Team 
+				         || !C.PlayerReplicationInfo || !C.PlayerReplicationInfo.Team
+				         || (PlayerReplicationInfo.Team != C.PlayerReplicationInfo.Team) );
+			}
+			return FALSE;
+		}
 		public virtual UBOOL LocalPlayerController()
 		{
 			return false;
@@ -4271,6 +4618,62 @@ determine how deep in water actor is standing:
 						C.SeeMonster(Pawn);
 				}
 			}*/
+		}
+		
+		public UBOOL SeePawn(Pawn Other, UBOOL bMaySkipChecks = TRUE)
+		{
+			if ( !Other || !Pawn || Other.IsInvisible() )
+				return false;
+
+			if (Other != Enemy)
+				bLOSflag = !bLOSflag;
+			else
+				return LineOfSightTo(Other);
+
+			if ( BeyondFogDistance(Pawn.Location, Other.Location) )
+				return false;
+
+			FLOAT maxdist = Pawn.SightRadius;
+
+			// fixed max sight distance
+			if ( (Other.Location - Pawn.Location).SizeSquared() > maxdist * maxdist )
+				return false;
+
+			FLOAT dist = (Other.Location - Pawn.Location).Size();
+
+			// may skip if more than 1/5 of maxdist away (longer time to acquire)
+			if ( bMaySkipChecks && (appFrand() * dist > 0.1f * maxdist) )
+				return false;
+
+			// check field of view
+			FVector SightDir = (Other.Location - Pawn.Location).SafeNormal();
+			FVector LookDir = Rotation.Vector();
+			FLOAT Stimulus = (SightDir | LookDir);
+			if ( Stimulus < Pawn.PeripheralVision )
+				return false;
+
+			// need to make this only have effect at edge of vision
+			//if ( bMaySkipChecks && (appFrand() * (1.f - Pawn->PeripheralVision) < 1.f - Stimulus) )
+			//	return 0;
+			if ( bMaySkipChecks && bSlowerZAcquire && (appFrand() * dist > 0.1f * maxdist) )
+			{
+				// lower FOV vertically
+				SightDir.Z *= 2f;
+				SightDir.Normalize();
+				if ( (SightDir | LookDir) < Pawn.PeripheralVision )
+					return false;
+
+				// notice other pawns at very different heights more slowly
+				FLOAT heightMod = Abs(Other.Location.Z - Pawn.Location.Z);
+				if ( appFrand() * dist < heightMod )
+					return false;
+			}
+
+			Stimulus = 1;
+			NativeMarkers.MarkUnimplemented();
+			return false;
+			//return LineOfSightTo(Other, bMaySkipChecks);
+
 		}
 
 		
@@ -4436,12 +4839,21 @@ determine how deep in water actor is standing:
 				SphereRadius = BoxPoint.Size()
 			};
 		}
+	
+		// Export UCylinderComponent::execSetCylinderSize(FFrame&, void* const)
+		public virtual /*native final function */void SetCylinderSize(float NewRadius, float NewHeight)
+		{
+			CollisionHeight = NewHeight;
+			CollisionRadius = NewRadius;
+			BeginDeferredReattach();
+		}
 	}
 
 
 
 	public partial class PrimitiveComponent
 	{
+		public static int CurrentTag;
 		public Vector GetOrigin()
 		{
 			return LocalToWorld.GetOrigin();

@@ -14,7 +14,7 @@ public partial class LadderVolume : PhysicsVolume/*
 	[Category] public bool bAllowLadderStrafing;
 	public Pawn PendingClimber;
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		// stub
 	}

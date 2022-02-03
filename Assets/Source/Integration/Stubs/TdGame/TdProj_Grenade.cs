@@ -21,7 +21,7 @@ public partial class TdProj_Grenade : TdProjectile/*
 	//		bHasExploded;
 	//}
 	
-	public override /*simulated function */void PostBeginPlay()
+	public override /*simulated function */void eventPostBeginPlay()
 	{
 		// stub
 	}

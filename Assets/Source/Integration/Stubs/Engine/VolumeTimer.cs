@@ -6,7 +6,7 @@ public partial class VolumeTimer : Info/*
 		hidecategories(Navigation,Movement,Collision)*/{
 	public PhysicsVolume V;
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

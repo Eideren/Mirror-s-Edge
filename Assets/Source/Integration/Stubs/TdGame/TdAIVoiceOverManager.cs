@@ -174,7 +174,7 @@ public partial class TdAIVoiceOverManager : Actor/*
 	public array<TdAIVoiceOverManager.PostponedSoundCue> PostponedItems;
 	[transient] public/*private*/ bool bMuted;
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

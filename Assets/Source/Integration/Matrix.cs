@@ -1,6 +1,7 @@
 ﻿namespace MEdge.Core
 {
     using System.Runtime.InteropServices;
+    using UnityEngine;
     using static MEdge.Source.DecFn;
 
 
@@ -13,16 +14,16 @@
             [FieldOffset(0)] public fixed float Vals[ 16 ];
             
             [FieldOffset(0)] public MatrixM M;
+            
             [FieldOffset(0)] public Plane PlaneX;
-            [FieldOffset(4)] public Plane PlaneY;
-            [FieldOffset(8)] public Plane PlaneZ;
-            [FieldOffset(12)] public Plane PlaneW;
+            [FieldOffset(16)] public Plane PlaneY;
+            [FieldOffset(32)] public Plane PlaneZ;
+            [FieldOffset(48)] public Plane PlaneW;
             
             [FieldOffset(0)] public Plane XPlane;
-            [FieldOffset(4)] public Plane YPlane;
-            [FieldOffset(8)] public Plane ZPlane;
-            [FieldOffset(12)] public Plane WPlane;
-
+            [FieldOffset(16)] public Plane YPlane;
+            [FieldOffset(32)] public Plane ZPlane;
+            [FieldOffset(48)] public Plane WPlane;
 
 
 
@@ -30,9 +31,20 @@
             public struct MatrixM
             {
                 [FieldOffset(0)] public fixed float Vals[ 16 ];
-                public ref float this[ int x, int y ] => ref Vals[ x * 4 + y ];
+                public float this[ int x, int y ]
+                {
+	                get => Vals[ x * 4 + y ];
+	                set => Vals[ x * 4 + y ] = value;
+                }
             }
-            public ref float this[ int x, int y ] => ref Vals[ x * 4 + y ];
+
+
+
+            public float this[ int x, int y ]
+            {
+	            get => Vals[ x * 4 + y ];
+	            set => Vals[ x * 4 + y ] = value;
+            }
 
 
 
@@ -188,6 +200,34 @@
 	            this.Z = Z;
 		        this.W = W;
             }
+
+
+
+            public override string ToString() => $"{{{X}, {Y}, {Z}, {W}}}";
         };
+
+
+
+        public partial struct Box
+        {
+	        public static Box operator +( Box thiss, Box Other )
+	        {
+		        if( thiss.IsValid != 0 && Other.IsValid != 0 )
+		        {
+			        thiss.Min.X = FMin( thiss.Min.X, Other.Min.X );
+			        thiss.Min.Y = FMin( thiss.Min.Y, Other.Min.Y );
+			        thiss.Min.Z = FMin( thiss.Min.Z, Other.Min.Z );
+
+			        thiss.Max.X = FMax( thiss.Max.X, Other.Max.X );
+			        thiss.Max.Y = FMax( thiss.Max.Y, Other.Max.Y );
+			        thiss.Max.Z = FMax( thiss.Max.Z, Other.Max.Z );
+		        }
+		        else if( Other.IsValid != 0 )
+		        {
+			        return Other;
+		        }
+		        return thiss;
+	        }
+        }
     }
 }

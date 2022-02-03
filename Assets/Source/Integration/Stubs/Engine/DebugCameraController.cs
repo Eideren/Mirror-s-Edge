@@ -10,7 +10,7 @@ public partial class DebugCameraController : PlayerController/*
 	public bool bIsFrozenRendering;
 	[export, editinline] public DrawFrustumComponent DrawFrustum;
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		// stub
 	}

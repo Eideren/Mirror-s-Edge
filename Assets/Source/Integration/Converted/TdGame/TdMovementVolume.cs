@@ -54,9 +54,9 @@ public partial class TdMovementVolume : PhysicsVolume/*
 	//	return default;
 	//}
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 	}
 	
 	public virtual /*function */bool InUse(Pawn Ignored)

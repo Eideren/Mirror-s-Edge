@@ -127,9 +127,9 @@ public partial class Controller : Actor/*
 		NativeMarkers.MarkUnimplemented();
 	}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 		if((!bDeleteMe && bIsPlayer) && ((int)WorldInfo.NetMode) != ((int)WorldInfo.ENetMode.NM_Client/*3*/))
 		{
 			InitPlayerReplicationInfo();

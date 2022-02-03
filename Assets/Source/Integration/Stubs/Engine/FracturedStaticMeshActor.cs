@@ -31,7 +31,7 @@ public partial class FracturedStaticMeshActor : Actor/*
 		// stub
 	}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

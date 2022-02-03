@@ -34,7 +34,7 @@ public partial class TdTimeTrialHUD : TdSPHUD/*
 		// stub
 	}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

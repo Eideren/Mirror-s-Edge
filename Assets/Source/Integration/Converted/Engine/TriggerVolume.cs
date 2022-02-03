@@ -5,9 +5,9 @@ public partial class TriggerVolume : Volume/*
 		native
 		placeable
 		hidecategories(Navigation,Object,Movement,Display)*/{
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 		if(BrushComponent != default)
 		{
 			bProjTarget = BrushComponent.BlockZeroExtent;

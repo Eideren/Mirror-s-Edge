@@ -15,7 +15,7 @@ public partial class FogVolumeDensityInfo : Info/*
 	//		bEnabled;
 	//}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

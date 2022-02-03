@@ -13,7 +13,7 @@ public partial class HeightFog : Info/*
 	//		bEnabled;
 	//}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

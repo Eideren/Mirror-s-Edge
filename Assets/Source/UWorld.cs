@@ -29,7 +29,6 @@
         public ConcurrentQueue<Action> ScheduleInMainLoop = new ConcurrentQueue<Action>();
 
         Engine _engine = new TdGameEngine();
-        UnityEngine.BoxCollider _cacheCollider = new UnityEngine.BoxCollider();
         List<Actor> _actorsThisFrame = new List<Actor>();
 
         static UWorld _instance;
@@ -312,34 +311,7 @@
             foreach( var (actor, _) in actors )
                 actor.PostBeginPlay();
             
-            foreach( var (actor, _) in actors )
-                actor.SetInitialState();
-            
             WorldInfo.bStartup = false; // MAYBE ?
-        }
-
-        bool FindSpot(Object.Vector extent, ref Object.Vector position, bool bComplex)
-        {
-            Collider[] colliders = new Collider[ 1 ];
-            int iterations = 0;
-            _cacheCollider.size = extent.ToUnityPos();
-            while(UnityEngine.Physics.OverlapBoxNonAlloc( position.ToUnityPos(), extent.ToUnityPos() / 2f, colliders ) > 0)
-            {
-                var otherCollider = colliders[ 0 ];
-                if( false == UnityEngine.Physics.ComputePenetration( _cacheCollider, position.ToUnityPos(), default,
-                    otherCollider, otherCollider.transform.position, otherCollider.transform.rotation,
-                    out var direction, out var distance ) )
-                {
-                    return true;
-                }
-
-                position += (direction * distance).ToUnrealPos();
-                
-                if( iterations++ > 8 )
-                    return false;
-            }
-
-            return true;
         }
 
 
@@ -524,7 +496,6 @@
             {
                 // .text:00C10790 E_AActor_PostBeginPlay
                 constructedActor.PostBeginPlay();
-                constructedActor.SetInitialState();
                 //(*(void (__thiscall **)(_E_struct_AActor *))(constructedActor->VfTableObject.Dummy + 476))(constructedActor);
                 if ( (constructedActor.bDeleteMe) != false && !bProbablyNoFail )
                     return null;

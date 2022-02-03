@@ -60,9 +60,9 @@ public partial class TdKillZoneVolume : Volume/*
 	public float RangeOfSlapBackRays;
 	[transient] public/*private*/ TdPlayerPawn Player;
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 		SetupLasers();
 	}
 	

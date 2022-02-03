@@ -9,7 +9,7 @@ public partial class SceneCaptureReflectActor : SceneCaptureActor/*
 	[transient] public MaterialInstanceConstant ReflectMaterialInst;
 	[Category] [Const] public Volume ReflectionVolume;
 	
-	public override /*function */void PostBeginPlay()
+	public override /*function */void eventPostBeginPlay()
 	{
 		// stub
 	}

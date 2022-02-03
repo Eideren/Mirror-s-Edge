@@ -877,7 +877,7 @@ public partial class TdAIController : AIController,
 		// stub
 	}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

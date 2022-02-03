@@ -46,7 +46,7 @@ public partial class TdGhostPawnBase : TdPawn/*
 		// stub
 	}
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		// stub
 	}

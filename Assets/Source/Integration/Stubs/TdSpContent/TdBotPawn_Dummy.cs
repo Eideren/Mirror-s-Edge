@@ -5,7 +5,7 @@ public partial class TdBotPawn_Dummy : TdBotPawn/*
 		config(AI)
 		notplaceable
 		hidecategories(Navigation)*/{
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		// stub
 	}

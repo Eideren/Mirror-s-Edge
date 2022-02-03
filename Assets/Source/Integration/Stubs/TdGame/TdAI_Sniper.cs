@@ -48,7 +48,7 @@ public partial class TdAI_Sniper : TdAIController/*
 		// stub
 	}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

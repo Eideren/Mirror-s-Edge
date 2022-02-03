@@ -1286,11 +1286,11 @@ public partial class TdPlayerController : GamePlayerController,
 		}
 	}
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		/*local */TdOnScreenErrorHandler ErrorHandler = default;
 	
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 		DefaultFOV = ClassT<TdPlayerCamera>().DefaultAs<Camera>().DefaultFOV;
 		DesiredFOV = DefaultFOV;
 		FOVAngle = DefaultFOV;

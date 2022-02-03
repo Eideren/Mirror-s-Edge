@@ -160,7 +160,7 @@ public partial class GameInfo : Info/*
 		return CoverReplicatorBase;
 	}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		if(MaxIdleTime > ((float)(0)))
 		{

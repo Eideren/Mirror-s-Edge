@@ -17,7 +17,7 @@ public partial class InventoryManager : Actor/*
 	//		InventoryChain;
 	//}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

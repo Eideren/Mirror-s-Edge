@@ -13,7 +13,7 @@ public partial class AnimatedCamera : Camera/*
 	[transient] public/*protected*/ DynamicCameraActor AnimCameraActor;
 	[transient] public/*protected*/ DynamicCameraActor AccumulatorCameraActor;
 	
-	public override /*function */void PostBeginPlay()
+	public override /*function */void eventPostBeginPlay()
 	{
 		// stub
 	}

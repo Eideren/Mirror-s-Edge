@@ -20,7 +20,7 @@ public partial class KAsset : Actor/*
 	//		ReplicatedMesh, ReplicatedPhysAsset;
 	//}
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		// stub
 	}

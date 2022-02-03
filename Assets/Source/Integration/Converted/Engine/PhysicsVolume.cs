@@ -37,9 +37,9 @@ public partial class PhysicsVolume : Volume/*
 		return default;
 	}
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 		BACKUP_bPainCausing = bPainCausing;
 		if(((int)Role) < ((int)Actor.ENetRole.ROLE_Authority/*3*/))
 		{

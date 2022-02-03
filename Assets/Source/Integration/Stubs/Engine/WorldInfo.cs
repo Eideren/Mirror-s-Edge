@@ -336,17 +336,17 @@ public partial class WorldInfo : ZoneInfo/*
 	// Export UWorldInfo::execIsConsoleBuild(FFrame&, void* const)
 	public /*native final simulated function */static bool IsConsoleBuild(/*optional */WorldInfo.EConsoleType? _ConsoleType = default)
 	{
-		NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented("Returns false by default");
 		// stub
-		return default;
+		return false;
 	}
 	
 	// Export UWorldInfo::execIsPlayInEditor(FFrame&, void* const)
 	public /*native final simulated function */static bool IsPlayInEditor()
 	{
-		NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented("Returns false by default");
 		// stub
-		return default;
+		return false;
 	}
 	
 	// Export UWorldInfo::execForceGarbageCollection(FFrame&, void* const)
@@ -398,7 +398,7 @@ public partial class WorldInfo : ZoneInfo/*
 		// stub
 	}
 	
-	public override /*simulated function */void PostBeginPlay()
+	public override /*simulated function */void eventPostBeginPlay()
 	{
 		// stub
 	}

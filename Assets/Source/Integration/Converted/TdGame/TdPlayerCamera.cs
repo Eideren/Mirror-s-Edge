@@ -12,9 +12,9 @@ public partial class TdPlayerCamera : Camera/*
 	public Object.Rotator FixedPersonVectorRelativeRotator;
 	public int ThirdPerson360Yaw;
 	
-	public override /*function */void PostBeginPlay()
+	public override /*function */void eventPostBeginPlay()
 	{
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 		if(FreeflightScale <= 0.0f)
 		{
 			FreeflightScale = 1.0f;

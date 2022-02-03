@@ -21,7 +21,7 @@ public partial class DoorMarker : NavigationPoint/*
 	public bool bDoorOpen;
 	[Const, transient] public bool bTempDisabledCollision;
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

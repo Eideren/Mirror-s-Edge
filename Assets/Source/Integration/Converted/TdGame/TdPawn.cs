@@ -740,9 +740,9 @@ public partial class TdPawn : GamePawn/*
 		base.PreBeginPlay();
 	}
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 		InitMoves();
 		CacheAnimNodes();
 		SlideEffectEmitter = Spawn(ClassT<TdEmitter>(), this, default(name?), default(Object.Vector?), default(Object.Rotator?), default(Actor), default(bool?));
@@ -3618,6 +3618,7 @@ public partial class TdPawn : GamePawn/*
 	
 	public virtual /*simulated function */void PlayReplicatedCustomAnim()
 	{
+		// If this triggers I need to setup the native stuff that writes to 'ReplicatedCustomAnim'
 		PlayCustomAnim(((TdPawn.CustomNodeType)ReplicatedCustomAnim.NodeType), ((name)(ReplicatedCustomAnim.AnimName)), 1.0f, ReplicatedCustomAnim.BlendInTime, ReplicatedCustomAnim.BlendOutTime, false, true, false, false);
 	}
 	

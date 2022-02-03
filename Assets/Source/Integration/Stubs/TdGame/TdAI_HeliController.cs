@@ -65,7 +65,7 @@ public partial class TdAI_HeliController : AIController/*
 	public bool bMuted;
 	public Object.Vector LastLoc;
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

@@ -134,8 +134,11 @@
                         if( prefixLength == 0 )
                             break;
                     }
+
+                    var formattedMarkers = from data in NativeMarkers.Marked
+                        select ( data, str:$"{data.FilePath.Remove( 0, prefixLength )}:{data.Line} - {data.Member} {( data.Description != null ? $"- {data.Description}" : "" )}" );
                     
-                    string appendedMessage = "Native unimplemented calls:\n" + string.Join( "\n", NativeMarkers.Marked.Select( x => $"{x.FilePath.Remove(0, prefixLength)} - {x.Member}:{x.Line} {(x.Description != null ? $"- {x.Description}" : "")}" ).OrderBy( x => x ) );
+                    string appendedMessage = "Native unimplemented calls:\n" + string.Join( "\n", from marker in formattedMarkers orderby marker.data.Description != null, marker.str select marker.str );
                     LogError(appendedMessage);
                 }
                 {

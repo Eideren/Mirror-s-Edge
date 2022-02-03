@@ -25,7 +25,7 @@ public partial class SampleClass : Actor/*
 		// stub
 	}
 	
-	public override /*function */void PostBeginPlay()
+	public override /*function */void eventPostBeginPlay()
 	{
 		// stub
 	}

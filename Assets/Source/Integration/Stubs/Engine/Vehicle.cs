@@ -95,7 +95,7 @@ public partial class Vehicle : Pawn/*
 		// stub
 	}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

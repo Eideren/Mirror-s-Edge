@@ -23,7 +23,7 @@ public partial class SkeletalMeshActor : Actor/*
 	//		ReplicatedMesh;
 	//}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

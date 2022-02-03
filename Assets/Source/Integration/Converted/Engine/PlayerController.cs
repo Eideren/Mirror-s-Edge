@@ -442,9 +442,9 @@ using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; usi
 		return MyCoverReplicator;
 	}
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 		ResetCameraMode();
 		MaxTimeMargin = ClassT<GameInfo>().DefaultAs<GameInfo>().MaxTimeMargin;
 		MaxResponseTime = DefaultAs<PlayerController>().MaxResponseTime * WorldInfo.TimeDilation;
@@ -894,19 +894,19 @@ using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; usi
 	// Export UPlayerController::execSetControllerTiltActive(FFrame&, void* const)
 	public virtual /*native simulated function */void SetControllerTiltActive(bool bActive)
 	{
-		NativeMarkers.MarkUnimplemented();
+		// only there to override
 	}
 	
 	// Export UPlayerController::execSetOnlyUseControllerTiltInput(FFrame&, void* const)
 	public virtual /*native simulated function */void SetOnlyUseControllerTiltInput(bool bActive)
 	{
-		NativeMarkers.MarkUnimplemented();
+		// only there to override
 	}
 	
 	// Export UPlayerController::execSetUseTiltForwardAndBack(FFrame&, void* const)
 	public virtual /*native simulated function */void SetUseTiltForwardAndBack(bool bActive)
 	{
-		NativeMarkers.MarkUnimplemented();
+		// only there to override
 	}
 	
 	// Export UPlayerController::execIsKeyboardAvailable(FFrame&, void* const)
@@ -3064,7 +3064,7 @@ using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; usi
 	// Export UPlayerController::execHasClientLoadedCurrentWorld(FFrame&, void* const)
 	public virtual /*native final function */bool HasClientLoadedCurrentWorld()
 	{
-		NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented("Returns true");
 		return true;
 	}
 	
@@ -3354,13 +3354,6 @@ using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; usi
 			ServerVerifyViewTarget();
 		}
 		SetViewTarget(A, TransitionParams);
-	}
-	
-	// Export UPlayerController::execGetViewTarget(FFrame&, void* const)
-	public virtual /*native function */Actor GetViewTarget()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
 	}
 	
 	public virtual /*reliable server function */void ServerVerifyViewTarget()

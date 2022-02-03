@@ -54,7 +54,7 @@ public partial class TdAi_Celeste : TdAI_Pursuit/*
 		return default;
 	}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

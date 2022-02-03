@@ -4,6 +4,77 @@ namespace MEdge.TdGame{
 using static MEdge.TdGame.TdPawn; using static MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.Engine.AnimNodeSequence.ERootBoneAxis; using static MEdge.Engine.AnimNodeSequence.ERootRotationOption; using static MEdge.TdGame.TdPawn.EAgainstWallState; using static MEdge.TdGame.TdPawn.EWeaponAnimState; using static MEdge.Engine.SkeletalMeshComponent.ERootMotionMode; using static MEdge.TdGame.TdPawn.EMovement; using static MEdge.TdGame.TdMove_ZipLine.EZipLineStatus; using static MEdge.TdGame.TdMove.EPreciseLocationMode; using static MEdge.Engine.Actor.EPhysics; using static MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Engine.Actor.ENetRole; using LedgeHitInfo = MEdge.TdGame.TdPawn.LedgeHitInfo; using ECustomNodeType = MEdge.TdGame.TdPawn.CustomNodeType; using static MEdge.TdGame.TdPawn.WalkingState; using static MEdge.TdGame.TdPawn.EWeaponType;using static MEdge.TdGame.TdPawn.EMoveActionHint; using EMoveAimMode = MEdge.TdGame.TdPawn.MoveAimMode; using static MEdge.Source.DecFn; using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 public partial class TdPawn
 {
+  public override void PostBeginPlay()
+  {
+    float filterTime; // xmm0_4
+    int slots; // edi
+    int i; // eax
+    int slots_1; // edi
+    //_E_struct_TArray_float *distanceData; // esi
+
+    base.PostBeginPlay();
+    HardWrittenSetter(ref this.SpeedCurve_LightWeapon, ref this.AccelCurve_LightWeapon);
+    NativeMarkers.MarkUnimplemented("Replaced with the hard-written setter above");
+    //ComputeAccelerationCurve(&this.SpeedCurve_LightWeapon, &this.AccelCurve_LightWeapon, 10);
+    //ComputeAccelerationCurve(&this.SpeedCurve_HeavyWeapon, &this.AccelCurve_HeavyWeapon, 10);
+    
+    filterTime = this.ASFilterTime;
+    if ( filterTime < 1.0 )
+      filterTime = 1.0f;
+    slots = this.ASPollSlots;
+    this.ASFilterTime = filterTime;
+    if ( slots < 10 )
+      slots = 10;
+    this.ASPollSlots = slots;
+    this.ASPollInterval = filterTime / (float)slots;
+    this.ASTimeData.Reset();
+    this.ASTimeData.Insert(0, slots);
+    //FArray::Insert(&this.ASTimeData, 0, slots, 4, 8);
+    //memset(this.ASTimeData.Data, 0, 4 * slots);
+    for ( i = 0; i < this.ASTimeData.Count; ++i )
+      this.ASTimeData.Data[i] = this.ASPollInterval;
+    slots_1 = this.ASPollSlots;
+    //distanceData = &this.ASDistanceData;
+    //FArray::Insert(distanceData, 0, slots_1, 4, 8);
+    //memset(distanceData.Data, 0, 4 * slots_1);
+    this.ASDistanceData.Reset();
+    this.ASDistanceData.Insert(0, slots_1);
+
+
+    static void HardWrittenSetter(ref InterpCurveFloat light, ref InterpCurveFloat heavy)
+    {
+      light.InterpMethod = 0;
+      light.Points[0] = Pt(0, 1148846080, 0, 0, 0);
+      light.Points[1] = Pt(1116733440, 1148846080, 0, 0, 0);
+      light.Points[2] = Pt(1125122048, 1148846080, 0, 0, 0);
+      light.Points[3] = Pt(1129840640, 1148846075, 0, 0, 0);
+      light.Points[4] = Pt(1133510656, 1148846080, 0, 0, 0);
+      light.Points[5] = Pt(1135869952, 1143518640, 0, 0, 0);
+      light.Points[6] = Pt(1138229248, 1128792064, 0, 0, 0);
+      light.Points[7] = Pt(1140588544, 1128792064, 0, 0, 0);
+      light.Points[8] = Pt(1141899264, 1112539008, 0, 0, 0);
+      light.Points[9] = Pt(1143078912, 1110603328, 0, 0, 0);
+      light.Points[10] = Pt(1144258560, 0, 0, 0, 0);
+
+      heavy.InterpMethod = 0;
+      heavy.Points[0] = Pt(0, 1137180672, 0, 0, 0);
+      heavy.Points[1] = Pt(1109393408, 1137180674, 0, 0, 0);
+      heavy.Points[2] = Pt(1117782016, 1137180672, 0, 0, 0);
+      heavy.Points[3] = Pt(1123024896, 1137180677, 0, 0, 0);
+      heavy.Points[4] = Pt(1126170624, 1137180672, 0, 0, 0);
+      heavy.Points[5] = Pt(1128792064, 1137180672, 0, 0, 0);
+      heavy.Points[6] = Pt(1131413504, 1137180682, 0, 0, 0);
+      heavy.Points[7] = Pt(1133248512, 1137180672, 0, 0, 0);
+      heavy.Points[8] = Pt(1134559232, 1137180672, 0, 0, 0);
+      heavy.Points[9] = Pt(1135869952, 1137180672, 0, 0, 0);
+      heavy.Points[10] = Pt(1137180672, 0, 0, 0, 0);
+    }
+
+    static unsafe InterpCurvePointFloat Pt(int a, int b, int c, int d, int e)
+    {
+      return new InterpCurvePointFloat() {InVal = * (float*) & a, OutVal = * (float*) & b, ArriveTangent = * (float*) & c, LeaveTangent = * (float*) & d, InterpMode = (EInterpCurveMode) e};
+    }
+  }
   public virtual unsafe EWeaponType GetWeaponType()
   {
     TdWeapon v1 = default; // eax
@@ -1796,15 +1867,15 @@ public partial class TdPawn
   public unsafe Vector * GetWalkAcceleration(Vector *retval, float aForward, float aStrafe, int deltaRotation, float deltaTime)
   {
     Matrix *v7; // eax
-    float v8 = default; // xmm6_4
-    float v9 = default; // xmm7_4
-    float v10 = default; // xmm4_4
-    float v11 = default; // xmm5_4
-    float v12 = default; // xmm0_4
+    float YY = default; // xmm6_4
+    float YZ = default; // xmm7_4
+    float XY = default; // xmm4_4
+    float XZ = default; // xmm5_4
+    float sqrLngth = default; // xmm0_4
     float v13 = default; // xmm3_4
     float v14 = default; // xmm1_4
     float v15 = default; // xmm0_4
-    float v16 = default; // xmm2_4
+    float invSqrt = default; // xmm2_4
     float v17 = default; // xmm1_4
     float v18 = default; // xmm0_4
     float v19 = default; // xmm0_4
@@ -1822,25 +1893,25 @@ public partial class TdPawn
     float v31 = default; // xmm2_4
     float v32 = default; // xmm6_4
     Vector *result; // eax
-    float v34 = default; // [esp+10h] [ebp-98h]
+    float XX_YX2 = default; // [esp+10h] [ebp-98h]
     Vector v35 = default; // [esp+10h] [ebp-98h]
     float v36 = default; // [esp+10h] [ebp-98h]
     float v37 = default; // [esp+10h] [ebp-98h]
     float v38 = default; // [esp+14h] [ebp-94h]
     float v39 = default; // [esp+14h] [ebp-94h]
     float v40 = default; // [esp+14h] [ebp-94h]
-    float v41 = default; // [esp+18h] [ebp-90h]
+    float XZ_YZ = default; // [esp+18h] [ebp-90h]
     float v42 = default; // [esp+18h] [ebp-90h]
     float v43 = default; // [esp+18h] [ebp-90h]
-    float v44 = default; // [esp+1Ch] [ebp-8Ch]
-    float v45 = default; // [esp+20h] [ebp-88h]
+    float XX_YX = default; // [esp+1Ch] [ebp-8Ch]
+    float XY_YY = default; // [esp+20h] [ebp-88h]
     float v46 = default; // [esp+20h] [ebp-88h]
-    float v47 = default; // [esp+24h] [ebp-84h]
+    float XZ_YZ_ = default; // [esp+24h] [ebp-84h]
     float v48 = default; // [esp+24h] [ebp-84h]
     float v49 = default; // [esp+2Ch] [ebp-7Ch]
     float v50 = default; // [esp+2Ch] [ebp-7Ch]
-    float v51 = default; // [esp+30h] [ebp-78h]
-    float v52 = default; // [esp+3Ch] [ebp-6Ch]
+    float XX = default; // [esp+30h] [ebp-78h]
+    float YX = default; // [esp+3Ch] [ebp-6Ch]
     float v53 = default; // [esp+48h] [ebp-60h]
     float v54 = default; // [esp+50h] [ebp-58h]
     float v55 = default; // [esp+5Ch] [ebp-4Ch]
@@ -1848,54 +1919,53 @@ public partial class TdPawn
     Matrix v57 = default; // [esp+68h] [ebp-40h] BYREF
   
     v7 = FRotationMatrix(&v57, this.Rotation);
-    v8 = v7->YPlane.Y;
-    v9 = v7->YPlane.Z;
-    v10 = v7->XPlane.Y;
-    v11 = v7->XPlane.Z;
-    v52 = v7->YPlane.X;
-    v51 = v7->XPlane.X;
-    v41 = (float)(v11 * aForward) + (float)(v9 * aStrafe);
-    v12 = (float)((float)(v41 * v41) + (float)((float)((float)(v10 * aForward) + (float)(v8 * aStrafe)) * (float)((float)(v10 * aForward) + (float)(v8 * aStrafe))))
-        + (float)((float)((float)(v7->XPlane.X * aForward) + (float)(v52 * aStrafe)) * (float)((float)(v7->XPlane.X * aForward) + (float)(v52 * aStrafe)));
-    v34 = (float)(v7->XPlane.X * aForward) + (float)(v52 * aStrafe);
-    if ( v12 == 1.0f )
+    YY = v7->YPlane.Y;
+    YZ = v7->YPlane.Z;
+    XY = v7->XPlane.Y;
+    XZ = v7->XPlane.Z;
+    YX = v7->YPlane.X;
+    XX = v7->XPlane.X;
+    XZ_YZ = (XZ * aForward) + (YZ * aStrafe);
+    sqrLngth = ((XZ_YZ * XZ_YZ) + (((XY * aForward) + (YY * aStrafe)) * ((XY * aForward) + (YY * aStrafe))))
+        + (((v7->XPlane.X * aForward) + (YX * aStrafe)) * ((v7->XPlane.X * aForward) + (YX * aStrafe)));
+    XX_YX2 = (v7->XPlane.X * aForward) + (YX * aStrafe);
+    if ( sqrLngth == 1.0f )
     {
-      v44 = (float)(v7->XPlane.X * aForward) + (float)(v52 * aStrafe);
-      v13 = v44;
-      v47 = (float)(v11 * aForward) + (float)(v9 * aStrafe);
-      v14 = v47;
-      v45 = (float)(v10 * aForward) + (float)(v8 * aStrafe);
-  LABEL_6:
+      XX_YX = (v7->XPlane.X * aForward) + (YX * aStrafe);
+      v13 = XX_YX;
+      XZ_YZ_ = (XZ * aForward) + (YZ * aStrafe);
+      v14 = XZ_YZ_;
+      XY_YY = (XY * aForward) + (YY * aStrafe);
       v15 = 0.0f;
-      goto LABEL_7;
     }
-    if ( v12 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( sqrLngth >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
-      v16 = 1.0f / fsqrt(v12);
-      v53 = (float)(3.0f - (float)((float)(v16 * v12) * v16)) * (float)(v16 * 0.5f);
-      v45 = (float)((float)(v10 * aForward) + (float)(v8 * aStrafe)) * v53;
-      v13 = v53 * v34;
-      v14 = v41 * v53;
-      v44 = v53 * v34;
-      v47 = v41 * v53;
+      invSqrt = 1.0f / fsqrt(sqrLngth);
+      v53 = (3.0f - ((invSqrt * sqrLngth) * invSqrt)) * (invSqrt * 0.5f);
+      XY_YY = ((XY * aForward) + (YY * aStrafe)) * v53;
+      v13 = v53 * XX_YX2;
+      v14 = XZ_YZ * v53;
+      XX_YX = v53 * XX_YX2;
+      XZ_YZ_ = XZ_YZ * v53;
       v15 = 0.0f;
-      goto LABEL_7;
     }
-    v15 = 0.0f;
-    v13 = 0.0f;
-    v14 = 0.0f;
-    v44 = 0.0f;
-    v45 = 0.0f;
-    v47 = 0.0f;
-  LABEL_7:
+    else
+    {
+      v15 = 0.0f;
+      v13 = 0.0f;
+      v14 = 0.0f;
+      XX_YX = 0.0f;
+      XY_YY = 0.0f;
+      XZ_YZ_ = 0.0f;
+    }
     v35.X = 0.0f;
     v35.Y = 0.0f;
     v35.Z = 0.0f;
-    if ( fabs(v44) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(v45) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(v47) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    if ( fabs(XX_YX) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(XY_YY) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(XZ_YZ_) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
       if ( this.SpeedSprintEnergy > 0.0f )
       {
-        v17 = (float)((float)(v14 * v11) + (float)(v45 * v10)) + (float)(v13 * v51);
+        v17 = ((v14 * XZ) + (XY_YY * XY)) + (v13 * XX);
         v49 = v17;
         if ( v17 < 0.0f || ((v15 = 0.89999998f) is object && v17 > 0.89999998d) )
           v49 = v15;
@@ -1904,37 +1974,37 @@ public partial class TdPawn
         this.SpeedSprintEnergy = v50;
         if ( v50 < 0.0f )
           v18 = 0.0f;
-        v13 = v44;
-        v14 = v47;
+        v13 = XX_YX;
+        v14 = XZ_YZ_;
         this.SpeedSprintEnergy = v18;
       }
-      v19 = (float)((float)((float)((float)(v14 * v9) + (float)(v45 * v8)) + (float)(v13 * v52)) * this.SpeedMinBaseVelocity) + (float)((float)((float)(this.SpeedMaxBaseVelocity - this.SpeedMinBaseVelocity) + this.SpeedSprintEnergy) * aStrafe);
-      v55 = v8 * v19;
-      v56 = v9 * v19;
-      v20 = v19 * v52;
-      v21 = (float)((float)((float)((float)(v14 * v11) + (float)(v45 * v10)) + (float)(v44 * v51)) * this.SpeedMinBaseVelocity) + (float)((float)((float)(this.SpeedMaxBaseVelocity - this.SpeedMinBaseVelocity) + this.SpeedSprintEnergy) * aForward);
-      v54 = v11 * v21;
-      v22 = (float)((float)(this.Velocity.Z * v9) + (float)(this.Velocity.Y * v8)) + (float)(this.Velocity.X * v52);
-      v46 = v8 * v22;
+      v19 = ((((v14 * YZ) + (XY_YY * YY)) + (v13 * YX)) * this.SpeedMinBaseVelocity) + (((this.SpeedMaxBaseVelocity - this.SpeedMinBaseVelocity) + this.SpeedSprintEnergy) * aStrafe);
+      v55 = YY * v19;
+      v56 = YZ * v19;
+      v20 = v19 * YX;
+      v21 = ((((v14 * XZ) + (XY_YY * XY)) + (XX_YX * XX)) * this.SpeedMinBaseVelocity) + (((this.SpeedMaxBaseVelocity - this.SpeedMinBaseVelocity) + this.SpeedSprintEnergy) * aForward);
+      v54 = XZ * v21;
+      v22 = ((this.Velocity.Z * YZ) + (this.Velocity.Y * YY)) + (this.Velocity.X * YX);
+      v46 = YY * v22;
       v23 = v22;
-      v48 = v9 * v22;
-      v24 = (float)((float)(this.Velocity.Z * v11) + (float)(this.Velocity.Y * v10)) + (float)(this.Velocity.X * v51);
-      v25 = v24 * v51;
+      v48 = YZ * v22;
+      v24 = ((this.Velocity.Z * XZ) + (this.Velocity.Y * XY)) + (this.Velocity.X * XX);
+      v25 = v24 * XX;
       v26 = this.SpeedStrafeVelocityAccelerationFactor;
-      v27 = v11 * v24;
-      v28 = (float)(v10 * v21) - (float)(v10 * v24);
+      v27 = XZ * v24;
+      v28 = (XY * v21) - (XY * v24);
       v29 = this.SpeedWalkVelocityAccelerationFactor;
-      v30 = (float)(v28 * v29) + (float)((float)(v55 - v46) * v26);
-      v31 = (float)((float)((float)(v21 * v51) - v25) * v29) + (float)((float)(v20 - (float)(v23 * v52)) * v26);
+      v30 = (v28 * v29) + ((v55 - v46) * v26);
+      v31 = (((v21 * XX) - v25) * v29) + ((v20 - (v23 * YX)) * v26);
       v36 = v31;
       v38 = v30;
-      v42 = (float)((float)(v54 - v27) * v29) + (float)((float)(v56 - v48) * v26);
+      v42 = ((v54 - v27) * v29) + ((v56 - v48) * v26);
       if ( this.Physics != PHYS_Falling )
       {
         v32 = this.PhysicsVolume.GroundFriction;
-        v36 = (float)((float)(this.Velocity.X * v32) * 0.1f) + v31;
-        v38 = (float)((float)(this.Velocity.Y * v32) * 0.1f) + v30;
-        v42 = (float)((float)(this.Velocity.Z * v32) * 0.1f) + (float)((float)((float)(v54 - v27) * v29) + (float)((float)(v56 - v48) * v26));
+        v36 = ((this.Velocity.X * v32) * 0.1f) + v31;
+        v38 = ((this.Velocity.Y * v32) * 0.1f) + v30;
+        v42 = ((this.Velocity.Z * v32) * 0.1f) + (((v54 - v27) * v29) + ((v56 - v48) * v26));
       }
       v39 = v38 * 10.0f;
       v43 = 10.0f * v42;
@@ -6056,11 +6126,12 @@ public partial class TdPawn
     if ( bCheckedFall == default && this.Controller )
     {
       v106 = this.Controller;
-      if ( v106.IsProbing(333, 0) )
+      NativeMarkers.MarkUnimplemented("This wouldn't occur in retail, bCheckedFall is tested and would have the wrong value");
+      /*if ( v106.IsProbing(333, 0) )
       {
         bCheckedFall = 1;
         v106.MayFall();
-      }
+      }*/
 
       if( v130 != default )
       {
@@ -6200,39 +6271,6 @@ public partial class TdPawn
     return base.CalculateSlopeSlide(ref a3, ref a4);;
   }
 
-  // NOT READY
-  //public override unsafe void PostBeginPlay(){ NativeMarkers.MarkUnimplemented(); }
-//public override unsafe void PostBeginPlay()
-//  {
-//    float v2 = default; // xmm0_4
-//    int v3 = default; // edi
-//    int i = default; // eax
-//    int v5 = default; // edi
-//    _E_struct_TArray_float *v6; // esi
-//  
-//    sub_F2DF50(this);
-//    sub_12C2DB0(ref this.SpeedCurve_LightWeapon, ref this.AccelCurve_LightWeapon, 10);
-//    sub_12C2DB0(ref this.SpeedCurve_HeavyWeapon, ref this.AccelCurve_HeavyWeapon, 10);
-//    v2 = this.ASFilterTime;
-//    if ( v2 < 1.0f )
-//      v2 = 1.0f;
-//    v3 = this.ASPollSlots;
-//    this.ASFilterTime = v2;
-//    if ( v3 < 10 )
-//      v3 = 10;
-//    this.ASPollSlots = v3;
-//    this.ASPollInterval = v2 / (float)v3;
-//    sub_40AD30(ref this.ASTimeData, 0, v3, 4, 8);
-//    memset(this.ASTimeData.Data, 0, 4 * v3);
-//    for ( i = default; i < this.ASTimeData.Count; ++i )
-//      this.ASTimeData[i] = this.ASPollInterval;
-//    v5 = this.ASPollSlots;
-//    v6 = ref this.ASDistanceData;
-//    sub_40AD30(v6, 0, v5, 4, 8);
-//    memset(v6->Data, 0, 4 * v5);
-//  }
-//
-  // Not Ready
   public unsafe bool IsHitActorTdPawn(ref CheckResult a2)
   {
     Object v2 = default; // ecx

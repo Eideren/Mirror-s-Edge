@@ -933,7 +933,7 @@ public partial class TdBotPawn : TdPawn/*
 		// stub
 	}
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		// stub
 	}

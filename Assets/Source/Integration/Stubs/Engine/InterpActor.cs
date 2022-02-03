@@ -54,7 +54,7 @@ public partial class InterpActor : DynamicSMActor/*
 	[Category("Interaction")] [Const] public array<name> LOIGroups;
 	public/*private*/ TdLOIAddOnObject TdLOIAddOn;
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		// stub
 	}

@@ -1044,10 +1044,10 @@ public partial class TdPlayerPawn : TdPawn/*
 		}
 	}
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		NativeMarkers.MarkUnimplemented( "See Dec/TdPlayerPawn PostBeginPlay, weird stuff" );
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 		if(WorldInfo.Game.IsA("TdSPGame"))
 		{
 			((WorldInfo.Game) as TdSPGame).AIManager.SetPlayer(this);

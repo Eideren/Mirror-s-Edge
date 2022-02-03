@@ -12,7 +12,7 @@ public partial class LiftCenter : NavigationPoint/*
 	public float CollisionHeight;
 	[Category] public Trigger LiftTrigger;
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		// stub
 	}

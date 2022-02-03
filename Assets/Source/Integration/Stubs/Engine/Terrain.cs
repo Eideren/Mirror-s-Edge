@@ -202,7 +202,7 @@ public partial class Terrain : Info/*
 		// stub
 	}
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		// stub
 	}

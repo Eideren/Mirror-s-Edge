@@ -310,7 +310,7 @@ public partial class TdWeapon : Weapon/*
 	
 	}
 	
-	public override /*simulated function */void PostBeginPlay()
+	public override /*simulated function */void eventPostBeginPlay()
 	{
 	
 	}

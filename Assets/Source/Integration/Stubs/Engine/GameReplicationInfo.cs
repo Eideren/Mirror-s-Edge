@@ -54,7 +54,7 @@ public partial class GameReplicationInfo : ReplicationInfo/*
 	//		bIsArbitrated, bTrackStats;
 	//}
 	
-	public override /*simulated event */void PostBeginPlay()
+	public override /*simulated event */void eventPostBeginPlay()
 	{
 		// stub
 	}

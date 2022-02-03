@@ -31,12 +31,12 @@ public partial class TdSPLevelRace : TdSPStoryGame/*
 		return (((((!bRaceOver && RacingController != default) && !RacingController.bCinematicMode) && WorldInfo.Pauser == default) && !RacingController.IsButtonInputIgnored()) && ((RacingController.Pawn) as TdPlayerPawn).bAllowMoveChange) && !((RacingController.Pawn) as TdPlayerPawn).bSRPauseTimer;
 	}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
 		/*local */DataStoreClient DataStoreManager = default;
 		/*local */String QualifierTimeString = default;
 	
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 		DataStoreManager = UIInteraction.GetDataStoreClient();
 		if((TimeTrialData == default) && DataStoreManager != default)
 		{

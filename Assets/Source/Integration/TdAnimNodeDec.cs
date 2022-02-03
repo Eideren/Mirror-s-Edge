@@ -3296,7 +3296,7 @@ void __thiscall UTdAnimNodeSequence::InitAnim(
 
   public void CacheAnimNodes_Prob()
   {
-    NativeMarkers.MarkUnimplemented();
+    NativeMarkers.MarkUnimplemented("Sets WeaponPoseOffsetNode");
     /*AnimTree tree; // eax
     void *poseOffset; // eax
   

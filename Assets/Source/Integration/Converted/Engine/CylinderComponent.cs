@@ -12,12 +12,6 @@ public partial class CylinderComponent : PrimitiveComponent/*
 	[Const] public bool bDrawBoundingBox;
 	[Const] public bool bDrawNonColliding;
 	
-	// Export UCylinderComponent::execSetCylinderSize(FFrame&, void* const)
-	public virtual /*native final function */void SetCylinderSize(float NewRadius, float NewHeight)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
-	
 	public CylinderComponent()
 	{
 		// Object Offset:0x00268CB8

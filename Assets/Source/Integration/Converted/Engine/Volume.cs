@@ -19,9 +19,9 @@ public partial class Volume : Brush/*
 		return default;
 	}
 	
-	public override /*event */void PostBeginPlay()
+	public override /*event */void eventPostBeginPlay()
 	{
-		base.PostBeginPlay();
+		base.eventPostBeginPlay();
 		if(AssociatedActor != default)
 		{
 			GotoState("AssociatedTouch", default(name?), default(bool?), default(bool?));
