@@ -78,7 +78,7 @@
 
                 //_3pPlayer.Sample( deltaTime );
                 _1pPlayer.Sample( deltaTime );
-                var (pos, rot) = ( Pawn.Location.ToUnityPos(), (Quaternion)Pawn.Rotation );
+                var (pos, rot) = ( (Pawn.Location - new Object.Vector(0f,0f,Pawn.GetCollisionHeight())).ToUnityPos(), (Quaternion)Pawn.Rotation );
                 _1pPlayer.GameObject.transform.SetPositionAndRotation( pos, rot );
                 _3pPlayer.GameObject.transform.SetPositionAndRotation( pos, rot );
                 

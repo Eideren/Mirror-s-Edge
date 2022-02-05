@@ -929,6 +929,9 @@
 				}
 			}
 			public ref Actor Actor => ref GetInternalRep.Actor;
+			/// <summary>
+			/// Basically the position to take to get out of this collision hit
+			/// </summary>
 			public ref Object.Vector Location => ref GetInternalRep.Location;
 			public ref Object.Vector Normal => ref GetInternalRep.Normal;
 			public ref float Time => ref GetInternalRep.Time;

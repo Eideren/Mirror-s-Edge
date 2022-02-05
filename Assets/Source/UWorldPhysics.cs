@@ -24,6 +24,12 @@
 
 	public partial class UWorld
 	{
+		/// <summary>
+		/// Far from perfect, need to tweak stuff that uses this value
+		/// </summary>
+		public float defaultContactOffset => 0*UnityEngine.Physics.defaultContactOffset;
+		
+		
 		const bool TRUE = true;
 		const bool FALSE = false;
 
@@ -885,43 +891,9 @@
 		
 		public unsafe bool EncroachingWorldGeometry( ref DecFn.CheckResult Hit, in Object.Vector Location, in Object.Vector Extent, bool bUseComplexCollision=FALSE )
 		{
-			//return PenTestCapsule( Location, Extent, 0 ) != null;
-			UnrealToUnityCapsule( Location, Extent, out var capsule, out var box );
-			var results = Physics.OverlapCapsule( capsule.bot, capsule.top, capsule.radius, -1, QueryTriggerInteraction.Ignore );
-			Collider[] boxResults = null;
-			if(box.HasValue)
-				boxResults = Physics.OverlapBox( box.Value.center, box.Value.extent, Quaternion.identity, -1, QueryTriggerInteraction.Ignore );
-			
-			int count = 0;
-			foreach( Collider unityColl in results )
-			{
-				if( boxResults != null )
-				{
-					foreach( var boxResult in boxResults )
-					{
-						if( ReferenceEquals( boxResult, unityColl ) )
-						{
-							// This collider overlaps both the box and capsule, so it overlaps the cylinder, return as valid
-							goto VALID_COLL;
-						}
-					}
-					// Did not find this collider when testing box, this collider is overlapping the sphere part of the capsule
-					continue;
-				}
-				VALID_COLL:
-
-				if( ExtractMappingData( unityColl, out var component, out var actor ) == false )
-					continue;
-
-				Hit = new CheckResult
-				{
-					Component = component,
-					Actor = actor
-				};
-				return true;
-			}
-
-			return false;
+			var v = ActorPointCheck( ref GMem, Location, Extent, (uint)(TRACE_World | TRACE_Blocking | TRACE_StopAtAnyHit | (bUseComplexCollision ? TRACE_ComplexCollision : 0)));
+			Hit = v == null ? default : *v;
+			return v != null;
 
 			#if false
 			FMemMark Mark = new FMemMark(GMem);
@@ -984,7 +956,7 @@
 
 
 
-		static void UnrealToUnityCapsule( in Object.Vector pivotPos, in Object.Vector halfExtent, out (Vector3 bot, Vector3 top, float radius) capsule, out (Vector3 center, Vector3 extent)? addBox )
+		static void UnrealToUnityBox( in Object.Vector pivotPos, in Object.Vector halfExtent, out (Vector3 center, Vector3 extent) box )
 		{
 			var unityExtent = halfExtent.ToUnityPos();
 			var unityLoc = pivotPos.ToUnityPos();
@@ -992,45 +964,20 @@
 			if( unityExtent.x < 0 || unityExtent.y < 0 || unityExtent.z < 0 )
 				throw new Exception();
 			if( Physics.queriesHitBackfaces )
-				throw new Exception("Disable Physics Backface queries, collision test relying on this fake cylinder will misbehave");
-
-			if( false )
-			{
-				capsule.radius = unityExtent.x;
-				capsule.bot = Vector3.up * capsule.radius;
-				capsule.top = Vector3.up * (unityExtent.y * 2f - capsule.radius);
+				throw new Exception("Disable Physics Backface queries, collision test are likely to misbehave");
 			
-				if(capsule.bot.y > capsule.top.y || Mathf.Abs(capsule.bot.y-capsule.top.y) < capsule.radius)
-					Debug.LogError( $"Invalid extent:{unityExtent}" );
-				
-				capsule.bot += unityLoc;
-				capsule.top += unityLoc;
-				addBox = null;
-			}
-			else
-			{
-				capsule.radius = unityExtent.x;
-				capsule.bot = unityLoc;
-				capsule.top = unityLoc + Vector3.up * unityExtent.y * 2f;
-				
-				addBox = ( (capsule.bot + capsule.top)*0.5f, new Vector3( capsule.radius, unityExtent.y, capsule.radius ) );
-			}
-			DrawCapsule( capsule );
-			if( addBox.HasValue )
-			{
-				DrawBox(addBox.Value);
-			}
+			box = ( unityLoc, unityExtent );
+			DrawBox( box );
 		}
 
 
 
-		static void DrawCapsule(in (Vector3 bot, Vector3 top, float radius) capsule)
+		static void DrawCapsule(in (Vector3 bot, Vector3 top, float radius) capsule, int subdiv = 6)
 		{
 			( Vector3 bot, Vector3 top, float radius ) = capsule;
 			var cross = Vector3.right;
 			var topEnd = top + new Vector3( 0, radius, 0 );
 			var botEnd = bot - new Vector3( 0, radius, 0 );
-			const int subdiv = 6;
 			for( int i = 0; i < subdiv; i++ )
 			{
 				var prevBotVert = bot + cross * radius;
@@ -1038,11 +985,31 @@
 				cross = Quaternion.AngleAxis( 360f / subdiv, Vector3.up ) * cross;
 				var botVert = bot + cross * radius;
 				var topVert = top + cross * radius;
-				UnityEngine.Debug.DrawLine( botVert, topVert, Color.magenta );
-				UnityEngine.Debug.DrawLine( botVert, botEnd, Color.magenta );
-				UnityEngine.Debug.DrawLine( topVert, topEnd, Color.magenta );
-				UnityEngine.Debug.DrawLine( topVert, prevTopVert, Color.magenta );
-				UnityEngine.Debug.DrawLine( botVert, prevBotVert, Color.magenta );
+				Debug.DrawLine( botVert, topVert, Color.magenta );
+				Debug.DrawLine( botVert, botEnd, Color.magenta );
+				Debug.DrawLine( topVert, topEnd, Color.magenta );
+				Debug.DrawLine( topVert, prevTopVert, Color.magenta );
+				Debug.DrawLine( botVert, prevBotVert, Color.magenta );
+			}
+		}
+
+
+
+		static void DrawBox( in (Vector3 center, Vector3 extent) box )
+		{
+			var a = Vector3.forward + Vector3.up + Vector3.right;
+			var b = Vector3.forward + Vector3.up + Vector3.left;
+			var c = Vector3.forward + Vector3.down + Vector3.left;
+			var d = Vector3.forward + Vector3.down + Vector3.right;
+			for( int i = 0; i < 4; i++ )
+			{
+				var a2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * a, box.extent);
+				var b2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * b, box.extent);
+				var c2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * c, box.extent);
+				var d2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * d, box.extent);
+				Debug.DrawLine( a2, b2, Color.green );
+				Debug.DrawLine( b2, c2, Color.green );
+				Debug.DrawLine( c2, d2, Color.green );
 			}
 		}
 
@@ -1055,42 +1022,30 @@
 
 			bool testTrigger = ( TraceFlags & TRACE_PhysicsVolumes ) != default;
 
-			UnrealToUnityCapsule( Location, Extent, out var capsule, out var box );
-			var results = Physics.OverlapCapsule( capsule.bot, capsule.top, capsule.radius, -1, QueryTriggerInteraction.Ignore );
-			Collider[] boxResults = null;
-			if(box.HasValue)
-				boxResults = Physics.OverlapBox( box.Value.center, box.Value.extent, Quaternion.identity, -1, QueryTriggerInteraction.Ignore );
+			UnrealToUnityBox( Location, Extent, out var box );
+			var colliders = Physics.OverlapBox( box.center, box.extent, Quaternion.identity, -1, QueryTriggerInteraction.Ignore );
 			
 			var root = new CheckResult();
 			var current = root;
 			int count = 0;
-			foreach( Collider unityColl in results )
+			foreach( var coll in colliders )
 			{
-				if( unityColl.isTrigger != testTrigger )
+				if( coll.isTrigger != testTrigger )
 					continue;
-				
-				if( boxResults != null )
-				{
-					foreach( var boxResult in boxResults )
-					{
-						if( ReferenceEquals( boxResult, unityColl ) )
-						{
-							// This collider overlaps both the box and capsule, so it overlaps the cylinder, return as valid
-							goto VALID_COLL;
-						}
-					}
-					// Did not find this collider when testing box, this collider is overlapping the sphere part of the capsule
-					continue;
-				}
-				VALID_COLL:
 
-				if( ExtractMappingData( unityColl, out var component, out var actor ) == false )
+				if( ExtractMappingData( coll, out var component, out var actor ) == false )
+					continue;
+
+				if( ComputePenetration( coll, box, out var length, out var direction ) == false )
 					continue;
 
 				var next = new CheckResult
 				{
 					Component = component,
-					Actor = actor
+					Actor = actor,
+					Time = 0f,
+					Location = Location + (direction * length).ToUnrealPos(),
+					Normal = direction.ToUnrealDir()
 				};
 				current.AssignNext(next);
 				if( count == 0 )
@@ -1214,26 +1169,6 @@
 
 
 
-		static void DrawBox( in (Vector3 center, Vector3 extent) box )
-		{
-			var a = Vector3.forward + Vector3.up + Vector3.right;
-			var b = Vector3.forward + Vector3.up + Vector3.left;
-			var c = Vector3.forward + Vector3.down + Vector3.left;
-			var d = Vector3.forward + Vector3.down + Vector3.right;
-			for( int i = 0; i < 4; i++ )
-			{
-				var a2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * a, box.extent);
-				var b2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * b, box.extent);
-				var c2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * c, box.extent);
-				var d2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * d, box.extent);
-				Debug.DrawLine( a2, b2, Color.green );
-				Debug.DrawLine( b2, c2, Color.green );
-				Debug.DrawLine( c2, d2, Color.green );
-			}
-		}
-
-
-
 		public unsafe DecFn.CheckResult* ActorEncroachmentCheck( ref int Mem, Actor Actor, Object.Vector Location, Object.Rotator Rotation, int TraceFlags )
 		{
 			// If an Actors Spawn location is being blocked we call that Encroachment,
@@ -1326,6 +1261,43 @@
 			Swap(ref A, ref B);
 		}
 
+
+
+		public BoxCollider BoxForTests;
+
+
+
+		bool ComputePenetration(Collider otherCollider, (Vector3 center, Vector3 extent) box, out float length, out Vector3 direction)
+		{
+			if( BoxForTests == null )
+			{
+				BoxForTests ??= new GameObject(nameof(BoxForTests)).AddComponent<BoxCollider>();
+				BoxForTests.gameObject.SetActive(false);
+			}
+				
+			// Epsilon otherwise hits considered as intersecting are not detected as such through ComputePenetration 
+			BoxForTests.size = box.extent * 2f + Vector3.one * defaultContactOffset;
+			
+			BoxForTests.gameObject.SetActive(true);
+			
+			bool boxTest = Physics.ComputePenetration(
+				BoxForTests, box.center, Quaternion.identity,
+				otherCollider, otherCollider.transform.position, otherCollider.transform.rotation, 
+				out direction, out length
+			);
+
+			/*if( boxTest == false )
+			{
+				BoxForTests.transform.position = box.center;
+				Debug.LogError($"Unexpected intersection test result with {otherCollider.gameObject.name}: {box.center}, {BoxForTests.size}");
+				UnityEditor.EditorApplication.isPaused = true;
+				throw new Exception();
+			}*/
+						
+			BoxForTests.gameObject.SetActive(false);
+			return boxTest;
+		}
+
 		public unsafe DecFn.CheckResult* MultiLineCheck( ref int Mem, in Object.Vector End, in Object.Vector Start, in Object.Vector Extent, uint TraceFlags, Actor SourceActor, LightComponent SourceLight = null )
 		{
 			bool testTrigger = ( TraceFlags & TRACE_PhysicsVolumes ) != default;
@@ -1333,14 +1305,13 @@
 			var delta = End.ToUnityPos() - Start.ToUnityPos();
 
 			var totalDistance = delta.magnitude;
-			RaycastHit[] hits;
 			var root = new CheckResult();
 			int count = 0;
-			Vector center;
+			Vector3 center;
 			if( Extent == default )
 			{
-				center = Start;
-				hits = Physics.RaycastAll( Start.ToUnityPos(), delta.normalized, totalDistance, -1, testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
+				center = Start.ToUnityPos();
+				var hits = Physics.RaycastAll( Start.ToUnityPos(), delta.normalized, totalDistance, -1, testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
 				
 				var current = root;
 				foreach( var hit in hits )
@@ -1369,57 +1340,47 @@
 			}
 			else
 			{
-				UnrealToUnityCapsule( Start, Extent, out var capsule, out var box );
+				UnrealToUnityBox( Start, Extent, out var box );
+
+				center = box.center;
 				
-				center = (( capsule.bot + capsule.top ) * 0.5f).ToUnrealPos();
-				
-				UnityEngine.Debug.DrawRay( Start.ToUnityPos(), delta, Color.green );
-				hits = Physics.CapsuleCastAll( capsule.bot, capsule.top, capsule.radius, delta.normalized, totalDistance, -1, testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
-				RaycastHit[] boxResults = null;
-				if(box.HasValue)
-					boxResults = Physics.BoxCastAll( box.Value.center, box.Value.extent, delta.normalized , Quaternion.identity, totalDistance, -1, QueryTriggerInteraction.Ignore );
+				var hits = Physics.BoxCastAll( box.center, box.extent, delta.normalized , Quaternion.identity, totalDistance, -1, QueryTriggerInteraction.Ignore );
 				
 				var current = root;
-				foreach( var hit in hits )
+				for( int i = 0; i < hits.Length; i++ )
 				{
-					var unityColl = hit.collider;
-					
-					if( unityColl.isTrigger != testTrigger )
+					var hit = hits[ i ];
+					if( hit.collider.isTrigger != testTrigger )
 						continue;
 
-					RaycastHit? matchingBoxHit = default;
-					if( boxResults != null )
-					{
-						foreach( var boxHit in boxResults )
-						{
-							if( boxHit.collider == hit.collider )
-							{
-								matchingBoxHit = boxHit;
-								goto VALID_HIT;
-							}
-						}
-						// Box did not hit this collider, collider only hit the sphere part of the capsule, not cylinder
-						continue;
-					}
-					
-					VALID_HIT:
-					
-				
-					if( ExtractMappingData( unityColl, out var component, out var actor ) == false )
+					if( ExtractMappingData( hit.collider, out var component, out var actor ) == false )
 						continue;
 
-					// If the impact lays on either spheres of the capsule use the box instead
-					bool useBoxHit = matchingBoxHit.HasValue && matchingBoxHit.Value.distance > hit.distance;
-					var hitSource = useBoxHit ? matchingBoxHit ?? throw new Exception() : hit;
 					var next = new CheckResult
 					{
 						Actor = actor,
-						Location = hitSource.point.ToUnrealPos(),
-						Normal = hitSource.normal.ToUnrealDir(),
-						Time = hitSource.distance / totalDistance,
 						Component = component,
+						Time = Mathf.Max(hit.distance - defaultContactOffset, 0f) / totalDistance,
 					};
-					Debug.DrawRay( next.Location.ToUnityPos(), next.Normal.ToUnityDir(), Color.yellow, 0.1f );
+					
+					// This indicates a test that already intersects at origin
+					bool penetrating = hit.distance == 0f && hit.point == default;
+					if( penetrating )
+					{
+						if( ComputePenetration( hit.collider, box, out var length, out var direction ) == false )
+							continue;
+						// Actually penetrating, not just bounds against bounds
+						// Looks to be this value when looking at the source, I'm not sure to be honest
+						next.Normal = (-delta).normalized.ToUnrealDir();
+						next.Location = (Start.ToUnityPos() + direction * (length)).ToUnrealPos();
+						next.bStartPenetrating = true;
+					}
+					else
+					{
+						next.Normal = hit.normal.ToUnrealDir();
+						next.Location = (Start.ToUnityPos() + delta.normalized * next.Time).ToUnrealPos();
+					}
+
 					current.AssignNext(next);
 					if( count == 0 )
 						root = current;
@@ -1427,10 +1388,14 @@
 					count++;
 				}
 			}
+
+			for( var ptr = count == 0 ? null : root.Next; ptr != null; ptr = ptr->Next )
+				Debug.DrawRay( ptr->Location.ToUnityPos(), ptr->Normal.ToUnityDir(), Color.yellow, 0.1f );
 			
-			UnityEngine.Debug.DrawRay( center.ToUnityPos(), delta, Color.green );
+			Debug.DrawRay( center, delta, Color.green );
 			if(count != 0)
-				UnityEngine.Debug.DrawRay( center.ToUnityPos(), delta * root.Next->Time, Color.red );
+				Debug.DrawRay( center, delta * root.Next->Time, Color.red );
+			
 			return count == 0 ? null : root.Next;
 			
 			
