@@ -1,7 +1,8 @@
 // NO OVERWRITE
 
 namespace MEdge.TdGame{
-using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+	using System.Linq;
+	using Core; using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
 public partial class TdPlayerPawn : TdPawn/*
 		native
@@ -1879,6 +1880,11 @@ public partial class TdPlayerPawn : TdPawn/*
 		bAvoidLedges = true;
 		bDirectHitWall = true;
 		Mesh = Default__TdPlayerPawn_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh3p'*/;
+		
+		// Hacks, so many hacks
+		Components.RemoveItem(Components.First( c => c is SkeletalMeshComponent ));
+		Components.Add(Default__TdPlayerPawn_TdPawnMesh1p);
+		
 		Components.Add(Default__TdPlayerPawn_MyLightEnvironment/*Ref DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment'*/);
 		Components.Add(Default__TdPlayerPawn_TdPawnMesh3p/*Ref TdSkeletalMeshComponent'Default__TdPlayerPawn.TdPawnMesh3p'*/);
 		Components.Add(Default__TdPlayerPawn_MyLightEnvironment1P/*Ref DynamicLightEnvironmentComponent'Default__TdPlayerPawn.MyLightEnvironment1P'*/);

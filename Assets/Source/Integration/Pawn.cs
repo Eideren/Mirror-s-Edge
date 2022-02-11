@@ -10,13 +10,13 @@ using FVector = MEdge.Core.Object.Vector;
 using FRotator = MEdge.Core.Object.Rotator;
 using FQuat = MEdge.Core.Object.Quat;
 using FMatrix = MEdge.Core.Object.Matrix;
+using FCheckResult = MEdge.Source.DecFn.CheckResult;
 using static MEdge.Engine.SkeletalMeshComponent.ERootMotionMode;
 using static MEdge.Engine.Actor.ENetRole;
 using static MEdge.Engine.Actor.EPhysics;
 using static MEdge.Source.DecFn.ETraceFlags;
 using static MEdge.Source.DecFn.EMoveFlags;
 using static MEdge.Core.Object.EObjectFlags;
-using FCheckResult = MEdge.Source.DecFn.CheckResult;
 using System;
 using MEdge.Core;
 using Object = MEdge.Core.Object;
@@ -1980,8 +1980,83 @@ determine how deep in water actor is standing:
 		LEVELTICK_All			= 2,	// Update all.
 	};
 
+
 	public partial class Actor
 	{
+		public virtual void Spawned()
+		{
+			SetDefaultCollisionType();
+		}
+		
+		public virtual void SetDefaultCollisionType()
+		{
+			// default to 'custom' (programmer set nonstandard settings)
+			CollisionType = ECollisionType.COLLIDE_CustomDefault;
+
+			if (bCollideActors && CollisionComponent != null && CollisionComponent.CollideActors)
+			{
+				if (!bBlockActors || CollisionComponent.BlockActors)
+				{
+					if (CollisionComponent.BlockZeroExtent)
+					{
+						if (CollisionComponent.BlockNonZeroExtent)
+						{
+							CollisionType = (bBlockActors && CollisionComponent.BlockActors) ? ECollisionType.COLLIDE_BlockAll : ECollisionType.COLLIDE_TouchAll;
+						}
+						else
+						{
+							CollisionType = (bBlockActors && CollisionComponent.BlockActors) ? ECollisionType.COLLIDE_BlockWeapons : ECollisionType.COLLIDE_TouchWeapons;
+						}
+					}
+					else if (CollisionComponent.BlockNonZeroExtent)
+					{
+						CollisionType = (bBlockActors && CollisionComponent.BlockActors) ? ECollisionType.COLLIDE_BlockAllButWeapons : ECollisionType.COLLIDE_TouchAllButWeapons;
+					}
+				}
+				// else (bBlockActors && !CollisionComponent.BlockActors), we're using some custom collision (e.g. only secondary collision component blocks)
+			}
+			else if (!bCollideActors && (!CollisionComponent || !CollisionComponent.BlockRigidBody))
+			{
+				CollisionType = ECollisionType.COLLIDE_NoCollision;
+			}
+
+			// match mirrored BlockRigidBody flag
+			if (CollisionComponent != null)
+			{
+				BlockRigidBody = CollisionComponent.BlockRigidBody;
+			}
+
+			// also make sure archetype CollisionType is set so that it only shows up bold in the property window if it has actually been changed
+			/*Actor TemplateActor = GetArchetype<AActor>(); 
+			if (TemplateActor != null)
+			{
+				TemplateActor.SetDefaultCollisionType();
+			}*/ // Not sure what this maps to
+		}
+		
+		public override void InitExecution()
+		{
+			base.InitExecution();
+
+			/*checkSlow(GetStateFrame());
+			checkSlow(GetStateFrame()->Object==this);
+			checkSlow(GWorld!=NULL);*/
+		}
+		
+		public virtual void InitRBPhys()
+		{
+			NativeMarkers.MarkUnimplemented( "Not important, has overrides in Pawn and others" );
+		}
+		
+		public virtual void ConditionalForceUpdateComponents(UBOOL bCollisionUpdate,UBOOL bTransformOnly)
+		{
+			if ( GIsEditor )
+			{
+				MarkComponentsAsDirty(bTransformOnly);
+			}
+			ConditionalUpdateComponents( bCollisionUpdate );
+		}
+		
 		public UBOOL IsTimerActive( name? _FuncName = default, Object inObj = null )
 		{
 			var FuncName = _FuncName ?? default(name);
@@ -2307,7 +2382,7 @@ determine how deep in water actor is standing:
 			}
 		}
 		
-		UBOOL ActorIsPendingKill()
+		public UBOOL ActorIsPendingKill()
 		{
 			return bDeleteMe || HasAnyFlags(RF_PendingKill);
 		}
@@ -2636,9 +2711,9 @@ determine how deep in water actor is standing:
 			//unclockSlow(GStats.DWORDStats(GEngineStats.STATS_Game_ScriptTickCycles));
 
 			// Update the actor's script state code.
-			ProcessState( DeltaSeconds );
+			ProcessState(DeltaSeconds);
 
-			UpdateTimers(DeltaSeconds );
+			UpdateTimers(DeltaSeconds);
 
 			// Update LifeSpan.
 			if( LifeSpan!=0f )
@@ -3967,6 +4042,28 @@ determine how deep in water actor is standing:
 
 	public partial class ActorComponent
 	{
+		public void ConditionalTick(FLOAT DeltaTime)
+		{
+			if(bAttached)
+			{
+				Tick(DeltaTime);
+			}
+		}
+		public virtual void Tick(float deltaTime) => check(bAttached);
+		public UBOOL NeedsUpdateTransform(){ return bNeedsUpdateTransform; }
+		public virtual void BeginPlay()
+		{
+			check(bAttached);
+		}
+		
+		public virtual void ConditionalBeginPlay()
+		{
+			if(bAttached)
+			{
+				BeginPlay();
+			}
+		}
+		
 		public void BeginDeferredReattach()
 		{
 			bNeedsReattach = TRUE;
@@ -4762,66 +4859,24 @@ determine how deep in water actor is standing:
 
 			return null;
 		}
-	}
-
-
-
-	public partial class AnimNodeSlot
-	{
-		public void MAT_SetAnimWeights(ref Actor.AnimSlotInfo SlotInfo)
-		{
-			INT NumChilds = Children.Num();
-
-			if( NumChilds == 1 )
-			{
-				// Only one child, not much choice here!
-				Children[0].Weight = 1f;
-			}
-			else if( NumChilds >= 2 )
-			{
-				// number of channels from Matinee
-				INT NumChannels	= SlotInfo.ChannelWeights.Num();
-				FLOAT AccumulatedWeight = 0f;
-
-				// Set blend weight to each child, from Matinee channels alpha.
-				// Start from last to first, as we want bottom channels to have precedence over top ones.
-				for(INT i=Children.Num()-1; i>0; i--)
-				{
-					INT	ChannelIndex	= i - 1;
-					FLOAT ChannelWeight	= ChannelIndex < NumChannels ? Clamp<FLOAT>(SlotInfo.ChannelWeights[ChannelIndex], 0f, 1f) : 0f;
-					Children[i].Weight			= ChannelWeight * (1f - AccumulatedWeight);
-					AccumulatedWeight			+= Children[i].Weight;
-				}
 		
-				// Set remaining weight to "normal" / animtree animation.
-				Children[0].Weight = 1f - AccumulatedWeight;
-			}
-		}
-		
-		public virtual unsafe void MAT_SetAnimPosition(INT ChannelIndex, name InAnimSeqName, FLOAT InPosition, bool bFireNotifies, bool bLooping)
+		public INT MatchRefBone(name StartBoneName)
 		{
-			INT ChildNum = ChannelIndex + 1;
-
-			if( ChildNum >= Children.Num() )
+			throw new Exception();
+			INT BoneIndex = INDEX_NONE;
+			if( StartBoneName != NAME_None )
 			{
-				debugf(TEXT("UAnimNodeSlot::MAT_SetAnimPosition, invalid ChannelIndex: %d"), ChannelIndex);
-				return;
-			}
-
-			AnimNodeSequence SeqNode = (Children[ChildNum].Anim) as AnimNodeSequence;
-			if( SeqNode )
-			{
-				// Update Animation if needed
-				if( SeqNode.AnimSeqName != InAnimSeqName )
+				if( NameIndexMap.TryGetValue( StartBoneName, out var index ) )
 				{
-					SeqNode.SetAnim(InAnimSeqName);
+					return index;
 				}
-
-				SeqNode.bLooping = bLooping;
-
-				// Set new position
-				SeqNode.SetPosition(InPosition, bFireNotifies);
+				/*INT* IndexPtr = NameIndexMap.Find(StartBoneName);
+				if(IndexPtr)
+				{
+					BoneIndex = *IndexPtr;
+				}*/
 			}
+			return BoneIndex;
 		}
 	}
 
@@ -5190,6 +5245,10 @@ namespace MEdge.Core
 			}
 
 			return false;
+		}
+		public virtual void InitExecution()
+		{
+			NativeMarkers.MarkUnimplemented("Not important, flags and state frame");
 		}
 	}
 }

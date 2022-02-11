@@ -31,6 +31,12 @@ namespace MEdge.Core
             this.Y = y;
             this.Z = z;
         }
+        public Vector( float x )
+        {
+            this.X = x;
+            this.Y = x;
+            this.Z = x;
+        }
         
         public static float operator|( Vector A, Vector V )
         {
@@ -40,6 +46,13 @@ namespace MEdge.Core
         public static Vector operator^( Vector A, Vector V )
         {
             return A.Cross(V);
+        }
+
+
+
+        public static Vector operator *( Vector A, Vector B )
+        {
+            return new(A.X * B.X, A.Y * B.Y, A.Z * B.Z);
         }
 
 
@@ -106,16 +119,16 @@ namespace MEdge.Core
             };
         }
         
-        public float Size()
+        public readonly float Size()
         {
             return Sqrt( X*X + Y*Y + Z*Z );
         }
         
-        public float SizeSquared()
+        public readonly float SizeSquared()
         {
             return X*X + Y*Y + Z*Z;
         }
-        public Vector SafeNormal(float Tolerance = SMALL_NUMBER)
+        public readonly Vector SafeNormal(float Tolerance = SMALL_NUMBER)
         {
             float SquareSum = X*X + Y*Y + Z*Z;
             
@@ -145,8 +158,8 @@ namespace MEdge.Core
 
 
         /// <summary> Also known as the '|' operator between two vectors in unreal c++ or 'x Dot y' in unreal script </summary>
-        public float Dot( Vector V ) => X*V.X + Y*V.Y + Z*V.Z;
-        public Vector Cross( Vector V ) => new Vector
+        public readonly float Dot( Vector V ) => X*V.X + Y*V.Y + Z*V.Z;
+        public readonly Vector Cross( Vector V ) => new Vector
         (
             Y * V.Z - Z * V.Y, 
             Z * V.X - X * V.Z, 
@@ -168,6 +181,27 @@ namespace MEdge.Core
 
 
         public override string ToString() => $"({X}, {Y}, {Z})";
+        
+        public readonly bool IsZero() => this == default;
+        public readonly bool IsNearlyZero(float Tolerance=KINDA_SMALL_NUMBER)
+        {
+            return Abs(X)<Tolerance
+                   &&	Abs(Y)<Tolerance
+                   &&	Abs(Z)<Tolerance;
+        }
+        public readonly void FindBestAxisVectors( ref Vector Axis1, ref Vector Axis2 )
+        {
+            float NX = Abs(X);
+            float NY = Abs(Y);
+            float NZ = Abs(Z);
+
+            // Find best basis vectors.
+            if( NZ>NX && NZ>NY )	Axis1 = FVector(1,0,0);
+            else					Axis1 = FVector(0,0,1);
+
+            Axis1 = (Axis1 - this * (Axis1 | this)).SafeNormal();
+            Axis2 = Axis1 ^ this;
+        }
     }
     }
 }

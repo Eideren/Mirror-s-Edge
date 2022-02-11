@@ -46,7 +46,7 @@ public partial class AnimNode : Object/*
 	[Category] public name NodeName;
 	[transient] public array<AnimNode.BoneAtom> CachedBoneAtoms;
 	[transient] public AnimNode.BoneAtom CachedRootMotionDelta;
-	[transient] public int bCachedHasRootMotion;
+	[transient] public bool bCachedHasRootMotion;
 	[Const, transient] public bool bRelevant;
 	[Const, transient] public bool bJustBecameRelevant;
 	[Category] public bool bSkipTickWhenZeroWeight;

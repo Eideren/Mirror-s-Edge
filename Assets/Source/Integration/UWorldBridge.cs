@@ -16,8 +16,9 @@
 
 	public interface IUWorld
 	{
+		public float GetDeltaSeconds();
 		public WorldInfo.ENetMode GetNetMode();
-		public T E_UWorld_SpawnActor<T>( Core.ClassT<T> SpawnClass, int a3, float a4, Object.Vector SpawnLocation, Object.Rotator SpawnRotation, Actor ActorTemplate, bool bNoCollisionFail, int networkRelatedParam, Actor SpawnOwner, Pawn Instigator, bool bProbablyNoFail ) where T : Actor;
+		public T E_UWorld_SpawnActor<T>( Core.ClassT<T> Class, Core.name InName, Object.Vector Location, Object.Rotator Rotation, Actor Template, bool bNoCollisionFail, int bRemoteOwned, Actor Owner, Pawn Instigator, bool bNoFail ) where T : Actor;
 		public TClass LoadAsset<TClass>( Core.String assetPath ) where TClass : new();
 		public ConditionalWeakTable<object, UnityEngine.Object> UScriptToUnity{ get; }
 		public bool MoveActor( Actor Actor, in Object.Vector Delta, in Object.Rotator NewRotation, uint MoveFlags, ref Source.DecFn.CheckResult Hit );

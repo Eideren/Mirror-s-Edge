@@ -4,13 +4,18 @@
 	using System.Linq;
 	using Core;
 	using JetBrains.Annotations;
+	using Source;
 	using UnityEngine;
 	using Object = Core.Object;
+	using static Source.DecFn;
 
 
 
 	public partial class SkeletalMeshComponent
 	{
+		[CanBeNull] SkinnedMeshRenderer _associatedRenderer;
+		[CanBeNull] Dictionary<name, Transform> _bones;
+		
 		IEnumerable<AnimNode> EnumerateAllNodes( AnimNode n )
 		{
 			if( n == null )
@@ -28,19 +33,6 @@
 			}
 		}
 
-
-
-		[CanBeNull] SkinnedMeshRenderer _associatedRenderer;
-		[CanBeNull] Dictionary<name, Transform> _bones;
-
-
-
-		// Export USkeletalMeshComponent::execForceSkelUpdate(FFrame&, void* const)
-		public virtual /*native final function */void ForceSkelUpdate()
-		{
-			NativeMarkers.MarkUnimplemented();
-		}
-
 		// Export USkeletalMeshComponent::execUpdateAnimations(FFrame&, void* const)
 		public virtual /*native final function */void UpdateAnimations()
 		{
@@ -50,6 +42,23 @@
 				TickTag++;
 				Animations.AnimSetsUpdated();
 			}
+		}
+		
+		public bool LegLineCheck(in Vector Start, in Vector End, ref Vector HitLocation, ref Vector HitNormal)
+		{
+			if(Owner)
+			{
+				DecFn.CheckResult Hit = new(1f);
+				var bHit = !GWorld.SingleLineCheck( ref Hit, Owner, End, Start, (int)ETraceFlags.TRACE_AllBlocking );
+				if(bHit)
+				{
+					HitLocation = Hit.Location;
+					HitNormal = Hit.Normal;
+					return true;
+				}
+			}
+
+			return false;
 		}
 		
 		// Export USkeletalMeshComponent::execFindAnimNode(FFrame&, void* const)
@@ -76,20 +85,13 @@
 		// Export USkeletalMeshComponent::execFindSkelControl(FFrame&, void* const)
 		public virtual /*native final function */SkelControlBase FindSkelControl(name InControlName)
 		{
-			var tree = EnumerateAllNodes( Animations ).First( x => x is AnimTree ) as AnimTree;
-			foreach( var skelControl in tree.SkelControlLists )
+			AnimTree AnimTree = Animations as AnimTree;
+			if(AnimTree)
 			{
-				if( skelControl.ControlHead == null )
-					continue;
-
-				for( var c = skelControl.ControlHead; c != null; c = c.NextControl )
-				{
-					if( c.ControlName == InControlName )
-						return c;
-				}
+				return AnimTree.FindSkelControl(InControlName);
 			}
-			
-			return default;
+
+			return null;
 		}
 	
 		// Export USkeletalMeshComponent::execFindAnimSequence(FFrame&, void* const)
@@ -155,15 +157,6 @@
 			}
 
 			return buff;
-		}
-
-
-
-		// Export USkeletalMeshComponent::execMatchRefBone(FFrame&, void* const)
-		public virtual /*native final function */int MatchRefBone(name BoneName)
-		{
-			NativeMarkers.MarkUnimplemented();
-			return default;
 		}
 	}
 }

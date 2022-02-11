@@ -43,32 +43,6 @@ public partial class AnimNodeSynch : AnimNodeBlendBase/*
 		NativeMarkers.MarkUnimplemented();
 	}
 	
-	// Export UAnimNodeSynch::execGetMasterNodeOfGroup(FFrame&, void* const)
-	public virtual /*native final function */AnimNodeSequence GetMasterNodeOfGroup(name GroupName)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
-	
-	// Export UAnimNodeSynch::execForceRelativePosition(FFrame&, void* const)
-	public virtual /*native final function */void ForceRelativePosition(name GroupName, float RelativePosition)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
-	
-	// Export UAnimNodeSynch::execGetRelativePosition(FFrame&, void* const)
-	public virtual /*native final function */float GetRelativePosition(name GroupName)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
-	
-	// Export UAnimNodeSynch::execSetGroupRateScale(FFrame&, void* const)
-	public virtual /*native final function */void SetGroupRateScale(name GroupName, float NewRateScale)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
-	
 	public AnimNodeSynch()
 	{
 		// Object Offset:0x0029F812
@@ -80,7 +54,7 @@ public partial class AnimNodeSynch : AnimNodeBlendBase/*
 				Anim = default,
 				Weight = 1.0f,
 				TotalWeight = 0.0f,
-				bHasRootMotion = 0,
+				bHasRootMotion = false,
 				RootMotion = new AnimNode.BoneAtom
 				{
 					Rotation = new Quat

@@ -1,10 +1,322 @@
 ﻿namespace MEdge.Engine
 {
+	using System;
 	using Core;
-public partial class AnimNodeSequence
+	using String = Core.String;
+	using System;
+	using Core;
+	using static Source.DecFn;
+	using FLOAT = System.Single;
+	using INT = System.Int32;
+	using FVector = Core.Object.Vector;
+	using FVector4 = Core.Object.Vector4;
+	using FRotator = Core.Object.Rotator;
+	using FQuat = Core.Object.Quat;
+	using FBoneAtom = AnimNode.BoneAtom;
+	using UBOOL = System.Boolean;
+	using BoneAtom = AnimNode.BoneAtom;
+	using FMatrix = Core.Object.Matrix;
+	using BYTE = System.Byte;
+	using UINT = System.UInt32;
+	using static Actor.EPhysics;
+	using static Actor.EAxis;
+	using static SkelControlBase.EBoneControlSpace;
+	using static SkeletalMeshComponent.ERootMotionMode;
+	using static SkeletalMeshComponent.ERootMotionRotationMode;
+	using static AnimNodeAimOffset.EAnimAimDir;
+	using static AnimNodeSequence.ERootBoneAxis;
+	using static AnimNodeSequence.ERootRotationOption;
+
+
+
+	public partial class AnimSet
+	{
+		public int GetMeshLinkupIndex(SkeletalMesh InSkelMesh)
+		{
+			NativeMarkers.MarkUnimplemented();
+			return default;
+			/*
+			// First, see if we have a cached link-up between this animation and the given skeletal mesh.
+			check(InSkelMesh);
+			//check(InSkelMesh.SkelMeshGUID.IsValid());
+			for(int i=0; i<LinkupCache.Num(); i++)
+			{
+				if( LinkupCache[i].SkelMeshLinkupGUID == InSkelMesh.SkelMeshGUID )
+				{
+					return i;
+				}
+			}
+
+			// No linkup found - so create one here and add to cache.
+			int NewLinkupIndex = LinkupCache.AddZeroed();
+			ref AnimSetMeshLinkup NewLinkup = ref LinkupCache[NewLinkupIndex];
+			NewLinkup.BuildLinkup(InSkelMesh, this);
+
+			return NewLinkupIndex;*/
+		}
+	}
+
+
+
+	public partial class AnimSequence
+	{
+		public UnityEngine.AnimationClip _unityClip;
+		public UnityEngine.Transform[] _unityBones;
+		public UnityEngine.GameObject _unityClipTarget;
+		public (FBoneAtom[] start, FBoneAtom[] end) _unityPoses;
+		public BoneAtom[] _unityRefPose;
+		
+		public AnimSet GetAnimSet()
+		{
+			return (AnimSet)GetOuter();
+		}
+		
+		public void GetBoneAtom(ref FBoneAtom OutAtom, INT TrackIndex, FLOAT Time, UBOOL bLooping, UBOOL bUseRawData)
+		{
+			if(_unityClip == null)
+				return;
+			if( bLooping && Time > _unityClip.length )
+			{
+				float unexpectedDiff = SequenceLength - _unityClip.length;
+				float currentTimeBetweenKeyframe = ( Time - _unityClip.length ) / unexpectedDiff;
+				OutAtom.Blend( _unityPoses.end[ TrackIndex ], _unityPoses.start[ TrackIndex ], currentTimeBetweenKeyframe );
+			}
+			else if( bLooping && Time < 0f )
+			{
+				throw new Exception();
+			}
+			else
+			{
+				_unityClip.wrapMode = /*bLoopingInterpolation ? WrapMode.Loop : */UnityEngine.WrapMode.Default;
+				_unityClip.SampleAnimation( _unityClipTarget, Time/* / InAnimSeq.SequenceLength * unityClip.length*/ );
+				var b = _unityBones[ TrackIndex ];
+				OutAtom = new BoneAtom( (Quat)b.localRotation, b.localPosition.ToUnrealPos(), 1f );
+			}
+			
+			return;
+			
+			#if UNUSED
+			// If the caller didn't request that raw animation data be used . . .
+			if ( !bUseRawData )
+			{
+		#if false
+				if( CompressedTranslationData.Num() > 0 )
+				{
+					//const FScopedTimer Timer( TEXT("Compressed") );
+					// Build the pose using bitwise compressed data.
+					ReconstructBoneAtom( OutAtom,
+											CompressedTranslationData(TrackIndex),
+											CompressedRotationData(TrackIndex),
+											static_cast<AnimationCompressionFormat>(TranslationCompressionFormat),
+											static_cast<AnimationCompressionFormat>(RotationCompressionFormat),
+											SequenceLength,
+											Time,
+											bLooping );
+					return;
+				}
+		#else
+				if ( CompressedTrackOffsets.Num() > 0 )
+				{
+					ReconstructBoneAtom( OutAtom,
+											CompressedByteStream.GetTypedData()+CompressedTrackOffsets[TrackIndex*4],
+											CompressedTrackOffsets[TrackIndex*4+1],
+											CompressedByteStream.GetTypedData()+CompressedTrackOffsets[TrackIndex*4+2],
+											CompressedTrackOffsets[TrackIndex*4+3],
+											static_cast<AnimationCompressionFormat>(TranslationCompressionFormat),
+											static_cast<AnimationCompressionFormat>(RotationCompressionFormat),
+											SequenceLength,
+											Time,
+											bLooping );
+					return;
+				}
+		#endif
+				/*
+				else if ( TranslationData.Num() > 0 )
+				{
+					// Build the pose using the key reduced data.
+					ReconstructBoneAtom( OutAtom, TranslationData(TrackIndex), RotationData(TrackIndex), SequenceLength, Time, bLooping );
+					return;
+				}
+				*/
+			}
+			#endif
+
+			//const FScopedTimer Timer( TEXT("Raw") );
+			OutAtom.Scale = 1f;
+
+			// Bail out if the animation data doesn't exists (e.g. was stripped by the cooker).
+			if ( RawAnimData.Num() == 0 )
+			{
+				debugf( TEXT("UAnimSequence.GetBoneAtom : No anim data in AnimSequence!") );
+				OutAtom.Rotation = FQuat.Identity;
+				OutAtom.Translation = FVector(0f, 0f, 0f);
+				return;
+			}
+
+			ref RawAnimSequenceTrack RawTrack = ref RawAnimData[TrackIndex];
+
+			// Bail out (with rather wacky data) if data is empty for some reason.
+			if( RawTrack.KeyTimes.Num() == 0 || 
+				RawTrack.PosKeys.Num() == 0 ||
+				RawTrack.RotKeys.Num() == 0 )
+			{
+				debugf( TEXT("UAnimSequence.GetBoneAtom : No anim data in AnimSequence!") );
+				OutAtom.Rotation = FQuat.Identity;
+				OutAtom.Translation = FVector(0f, 0f, 0f);
+				return;
+			}
+
+   			// Check for 1-frame, before-first-frame and after-last-frame cases.
+			if( Time <= 0f || RawTrack.KeyTimes.Num() == 1 )
+			{
+				OutAtom.Translation = RawTrack.PosKeys[0];
+				OutAtom.Rotation	= RawTrack.RotKeys[0];
+				return;
+			}
+
+			INT LastIndex		= RawTrack.KeyTimes.Num() - 1;
+			INT LastPosIndex	= Min(LastIndex, RawTrack.PosKeys.Num()-1);
+			INT LastRotIndex	= Min(LastIndex, RawTrack.RotKeys.Num()-1);
+			if( Time >= SequenceLength )
+			{
+				// If we're not looping, key n-1 is the final key.
+				// If we're looping, key 0 is the final key.
+				OutAtom.Translation = RawTrack.PosKeys[ bLooping ? 0 : LastPosIndex ];
+				OutAtom.Rotation	= RawTrack.RotKeys[ bLooping ? 0 : LastRotIndex ];
+				return;
+			}
+
+			// This assumes that all keys are equally spaced (ie. won't work if we have dropped unimportant frames etc).	
+			FLOAT FrameInterval = bLooping ?
+			(
+				// by default, for looping animation, the last frame has a duration, and interpolates back to the first one.
+				//RawTrack.KeyTimes(1) - RawTrack.KeyTimes(0);
+				SequenceLength / (FLOAT)RawTrack.KeyTimes.Num()
+			)
+				:
+			(
+				// For non looping animation, the last frame is the ending frame, and has no duration.
+				SequenceLength / ((FLOAT)RawTrack.KeyTimes.Num()-1)
+			);
+
+			// Keyframe we want is somewhere in the actual data. 
+
+			// Find key position as a float.
+			FLOAT KeyPos = Time/FrameInterval;
+
+			// Find the integer part (ensuring within range) and that gives us the 'starting' key index.
+			INT KeyIndex1 = Clamp( appFloor(KeyPos), 0, RawTrack.KeyTimes.Num()-1 );  // @todo should be changed to appTrunc
+
+			// The alpha (fractional part) is then just the remainder.
+			FLOAT Alpha = KeyPos - (FLOAT)KeyIndex1;
+
+			INT KeyIndex2 = KeyIndex1 + 1;
+
+			// If we have gone over the end, do different things in case of looping
+			if( KeyIndex2 == RawTrack.KeyTimes.Num() )
+			{
+				// If looping, interpolate between last and first frame
+				if( bLooping )
+				{
+					KeyIndex2 = 0;
+				}
+				// If not looping - hold the last frame.
+				else
+				{
+					KeyIndex2 = KeyIndex1;
+				}
+			}
+
+			INT PosKeyIndex1 = Min(KeyIndex1, RawTrack.PosKeys.Num()-1);
+			INT RotKeyIndex1 = Min(KeyIndex1, RawTrack.RotKeys.Num()-1);
+			INT PosKeyIndex2 = Min(KeyIndex2, RawTrack.PosKeys.Num()-1);
+			INT RotKeyIndex2 = Min(KeyIndex2, RawTrack.RotKeys.Num()-1);
+
+			OutAtom.Translation = VLerp(RawTrack.PosKeys[PosKeyIndex1], RawTrack.PosKeys[PosKeyIndex2], Alpha);
+
+		#if !USE_SLERP
+			// Fast linear quaternion interpolation.
+			// To ensure the 'shortest route', we make sure the dot product between the two keys is positive.
+			if( (RawTrack.RotKeys[RotKeyIndex1] | RawTrack.RotKeys[RotKeyIndex2]) < 0f )
+			{
+				// To clarify the code here: a slight optimization of inverting the parametric variable as opposed to the quaternion.
+				OutAtom.Rotation = (RawTrack.RotKeys[RotKeyIndex1] * (1f-Alpha)) + (RawTrack.RotKeys[RotKeyIndex2] * -Alpha);
+			}
+			else
+			{
+				OutAtom.Rotation = (RawTrack.RotKeys[RotKeyIndex1] * (1f-Alpha)) + (RawTrack.RotKeys[RotKeyIndex2] * Alpha);
+				OutAtom.Rotation = (RawTrack.RotKeys[RotKeyIndex1] * (1f-Alpha)) + (RawTrack.RotKeys[RotKeyIndex2] * Alpha);
+			}
+		#else
+			OutAtom.Rotation = SlerpQuat( RawTrack.RotKeys(RotKeyIndex1), RawTrack.RotKeys(RotKeyIndex2), Alpha );
+		#endif
+			OutAtom.Rotation.Normalize();
+		}
+	}
+
+
+
+	public partial class AnimNodeSequence
 {
-#if UNUSED
-public virtual boolGetCachedResults(ref array<BoneAtom> OutAtoms, ref BoneAtom OutRootMotionDelta, ref int bOutHasRootMotion)
+public override void SetAnim(name InSequenceName)
+{
+	if (false)
+	{
+		debugf(TEXT("** SetAnim %s, on %s"), InSequenceName.ToString(), GetFName().ToString());
+	}
+
+	// Abort if we are in the process of firing notifies, as this can cause a crash.
+	//
+	//	Unless the animation is the same. This can happen if a new skeletal mesh is set, then it forces all
+	// animations to be recached. If the animation is the same, then it's safe to update it.
+	// Note that it can be set to NAME_None if the AnimSet has been removed as well.
+	if( bIsIssuingNotifies && AnimSeqName != InSequenceName )
+	{
+		debugf( TEXT("UAnimNodeSequence.SetAnim : Not safe to call SetAnim from inside a Notify. AnimName: %s, Owner: %s"), InSequenceName.ToString(), SkelComponent.GetOwner().GetName() );
+		return;
+	}
+
+	AnimSeqName		= InSequenceName;
+	AnimSeq			= null;
+	AnimLinkupIndex = INDEX_NONE;
+
+	// Clear out the cached data
+	CachedBoneAtoms.Reset();
+
+	if( InSequenceName == NAME_None || !SkelComponent || !SkelComponent.SkeletalMesh )
+	{
+		return;
+	}
+
+	AnimSeq = SkelComponent.FindAnimSequence(AnimSeqName);
+	if( AnimSeq != NULL )
+	{
+		#if UNUSED
+		AnimSet AnimSet = AnimSeq.GetAnimSet();
+		AnimLinkupIndex = AnimSet.GetMeshLinkupIndex( SkelComponent.SkeletalMesh );
+		
+		check(AnimLinkupIndex != INDEX_NONE);
+		check(AnimLinkupIndex < AnimSet.LinkupCache.Num());
+
+		AnimSet.AnimSetMeshLinkup AnimLinkup = AnimSet.LinkupCache[AnimLinkupIndex];
+
+		//check( AnimLinkup.SkelMeshLinkupGUID == SkelComponent.SkeletalMesh.SkelMeshGUID );
+		check( AnimLinkup.BoneToTrackTable.Num() == SkelComponent.SkeletalMesh.RefSkeleton.Num() );
+		check( AnimLinkup.BoneUseAnimTranslation.Num() == SkelComponent.SkeletalMesh.RefSkeleton.Num() );
+		#endif
+	}
+	else if( !bDisableWarningWhenAnimNotFound && !SkelComponent.bDisableWarningWhenAnimNotFound )
+	{
+		debugf( "NAME_DevAnim", TEXT("%s - Failed to find animsequence '%s' on SkeletalMeshComponent: %s whose owner is: %s using mesh: %s" ),
+			   GetName(),
+			   InSequenceName.ToString(),
+			   SkelComponent.GetName(),
+			   SkelComponent.GetOwner().GetName(),
+			   SkelComponent.SkeletalMesh.GetPathName()
+			   );
+	}
+}
+public virtual bool GetCachedResults(ref array<BoneAtom> OutAtoms, ref BoneAtom OutRootMotionDelta, ref bool bOutHasRootMotion)
 {
 	check(SkelComponent);
 
@@ -58,17 +370,18 @@ public virtual void HandleSliderMove(int SliderIndex, int ValueIndex, float NewS
 
 public virtual String GetSliderDrawValue(int SliderIndex)
 {
-	check(0 == SliderIndex);
+	throw new Exception();
+	/*check(0 == SliderIndex);
 
 	if( !AnimSeq || AnimSeq.SequenceLength == 0f )
 	{
-		return String::Printf(TEXT("N/A"));
+		return (TEXT("N/A"));
 	}
 
-	return String::Printf(TEXT("Pos: %3.2f%%, Time: %3.2fs"), (CurrentTime/AnimSeq.SequenceLength)*100f, CurrentTime);
+	return String.Printf(TEXT("Pos: %3.2f%%, Time: %3.2fs"), (CurrentTime/AnimSeq.SequenceLength)*100f, CurrentTime);*/
 }
 
-public virtual void PostEditChange(Property PropertyThatChanged)
+public override void PostEditChange(Property PropertyThatChanged)
 {
 	SetAnim( AnimSeqName );
 
@@ -80,7 +393,6 @@ public virtual void PostEditChange(Property PropertyThatChanged)
 
 	base.PostEditChange(PropertyThatChanged);
 }
-#endif
 
 public override void InitAnim( SkeletalMeshComponent meshComp, AnimNodeBlendBase Parent )
 {
@@ -239,59 +551,64 @@ public virtual void OnAnimEnd(float PlayedTime, float ExcessTime)
 	}
 }
 
-#if UNUSED
-public virtual void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref int bHasRootMotion)
+public override void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
-	START_GETBONEATOM_TIMER
+	//START_GETBONEATOM_TIMER
 
-	if( GetCachedResults(Atoms, RootMotionDelta, bHasRootMotion) )
+	if( GetCachedResults(ref Atoms, ref RootMotionDelta, ref bHasRootMotion) )
 	{
 		//debugf(TEXT("%2.3f: %s returning cached atoms"),GWorld.GetTimeSeconds(),*GetPathName());
 		return;
 	}
 
-	GetAnimationPose(AnimSeq, AnimLinkupIndex, Atoms, DesiredBones, RootMotionDelta, bHasRootMotion);
+	GetAnimationPose(AnimSeq, ref AnimLinkupIndex, ref Atoms, ref DesiredBones, ref RootMotionDelta, ref bHasRootMotion);
 
-	SaveCachedResults(Atoms, RootMotionDelta, bHasRootMotion);
+	SaveCachedResults(ref Atoms, ref RootMotionDelta, bHasRootMotion);
 }
 
 
-public virtual void GetAnimationPose(AnimSequence InAnimSeq, ref int InAnimLinkupIndex, ref array<BoneAtom> Atoms, ref array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref int bHasRootMotion)
+public virtual void GetAnimationPose(AnimSequence InAnimSeq, ref int InAnimLinkupIndex, ref array<BoneAtom> Atoms, ref array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
-	SCOPE_CYCLE_COUNTER(STAT_GetAnimationPose);
+	//SCOPE_CYCLE_COUNTER(STAT_GetAnimationPose);
 
 	check(SkelComponent);
 	check(SkelComponent.SkeletalMesh);
 
 	// Set root motion delta to identity, so it's always initialized, even when not extracted.
-	RootMotionDelta = BoneAtom::Identity;
-	bHasRootMotion	= 0;
+	RootMotionDelta = BoneAtom.Identity;
+	bHasRootMotion	 = false;
 
+	#if UNUSED
 	if( !InAnimSeq || InAnimLinkupIndex == INDEX_NONE )
+	#else
+	if( !InAnimSeq )
+	#endif
 	{
 #if false//0
 		debugf(TEXT("GetAnimationPose - %s - No animation data!"), *GetFName());
 #endif
-		FillWithRefPose(Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
+		FillWithRefPose(ref Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 		return;
 	}
 
 	// Get the reference skeleton
-	ref array<FMeshBone> RefSkel = SkelComponent.SkeletalMesh.RefSkeleton;
+	ref array<FMeshBone> RefSkel = ref SkelComponent.SkeletalMesh.RefSkeleton;
 	int NumBones = RefSkel.Num();
 	check(NumBones == Atoms.Num());
-
+	
+	#if UNUSED
 	AnimSet AnimSet = InAnimSeq.GetAnimSet();
 	check(InAnimLinkupIndex < AnimSet.LinkupCache.Num());
 
-	FAnimSetMeshLinkup* AnimLinkup = &AnimSet.LinkupCache(InAnimLinkupIndex);
+	ref AnimSet.AnimSetMeshLinkup AnimLinkup = ref AnimSet.LinkupCache[InAnimLinkupIndex];
 
 	// @remove me, trying to figure out why this is failing
 	if( AnimLinkup.BoneToTrackTable.Num() != NumBones )
 	{
-		debugf(TEXT("AnimLinkup.BoneToTrackTable.Num() != NumBones, BoneToTrackTable.Num(): %d, NumBones: %d, AnimName: %s, Owner: %s, Mesh: %s"), AnimLinkup.BoneToTrackTable.Num(), NumBones, *InAnimSeq.SequenceName.ToString(), *SkelComponent.GetOwner()->GetName(), *SkelComponent.SkeletalMesh.GetName());
+		debugf(TEXT("AnimLinkup.BoneToTrackTable.Num() != NumBones, BoneToTrackTable.Num(): %d, NumBones: %d, AnimName: %s, Owner: %s, Mesh: %s"), AnimLinkup.BoneToTrackTable.Num(), NumBones, InAnimSeq.SequenceName.ToString(), SkelComponent.GetOwner().GetName(), SkelComponent.SkeletalMesh.GetName());
 	}
 	check(AnimLinkup.BoneToTrackTable.Num() == NumBones);
+	#endif
 
 	// Are we doing root motion for this node?
 	bool bDoRootTranslation	= (RootBoneOption[0] != RBA_Default) || (RootBoneOption[1] != RBA_Default) || (RootBoneOption[2] != RBA_Default);
@@ -309,15 +626,15 @@ public virtual void GetAnimationPose(AnimSequence InAnimSeq, ref int InAnimLinku
 	// For each desired bone...
 	for( int i=0; i<DesiredBones.Num(); i++ )
 	{
-		int	BoneIndex = DesiredBones(i);
+		int	BoneIndex = DesiredBones[i];
 
 		// Find which track in the sequence we look in for this bones data
-		int	TrackIndex = AnimLinkup.BoneToTrackTable(BoneIndex);
+		int	TrackIndex = /*AnimLinkup.BoneToTrackTable[*/BoneIndex/*]*/;
 
 		// If there is no track for this bone, we just use the reference pose.
 		if( TrackIndex == INDEX_NONE )
 		{
-			Atoms(BoneIndex) = BoneAtom(RefSkel(BoneIndex).BonePos.Orientation, RefSkel(BoneIndex).BonePos.Position, 1f);					
+			Atoms[BoneIndex] = new BoneAtom(RefSkel[BoneIndex].BonePos.Orientation, RefSkel[BoneIndex].BonePos.Position, 1f);					
 		}
 		else 
 		{
@@ -325,39 +642,41 @@ public virtual void GetAnimationPose(AnimSequence InAnimSeq, ref int InAnimLinku
 			if( BoneIndex > 0 )
 			{
 				// Otherwise read it from the sequence.
-				InAnimSeq.GetBoneAtom(Atoms(BoneIndex), TrackIndex, CurrentTime, bLoopingInterpolation, bUseRawData);
+				InAnimSeq.GetBoneAtom(ref Atoms[BoneIndex], TrackIndex, CurrentTime, bLoopingInterpolation, bUseRawData);
 
 				// If doing 'rotation only' case, use ref pose for all non-root bones that are not in the BoneUseAnimTranslation array.
-				if(	AnimSet.bAnimRotationOnly && !AnimLinkup.BoneUseAnimTranslation(BoneIndex) )
+				#if UNUSED
+				if(	AnimSet.bAnimRotationOnly && !(AnimLinkup.BoneUseAnimTranslation[BoneIndex] != default) )
+				#endif
 				{
-					Atoms(BoneIndex).Translation = RefSkel(BoneIndex).BonePos.Position;
+					Atoms[BoneIndex].Translation = RefSkel[BoneIndex].BonePos.Position;
 				}
 
 				// Apply quaternion fix for ActorX-exported quaternions.
-				Atoms(BoneIndex).Rotation.W *= -1.0f;
+				//Atoms[BoneIndex].Rotation.W *= -1.0f;
 			}
 			// Root Bone
 			else
 			{
 				// Otherwise read it from the sequence.
-				InAnimSeq.GetBoneAtom(Atoms(BoneIndex), TrackIndex, CurrentTime, bLoopingInterpolation && !bDoingRootMotion, bUseRawData);
+				InAnimSeq.GetBoneAtom(ref Atoms[BoneIndex], TrackIndex, CurrentTime, bLoopingInterpolation && !bDoingRootMotion, bUseRawData);
 
 				// If doing root motion for this animation, extract it!
 				if( bDoingRootMotion )
 				{
-					ExtractRootMotion(InAnimSeq, TrackIndex, Atoms(0), RootMotionDelta, bHasRootMotion);
+					ExtractRootMotion(InAnimSeq, ref TrackIndex, ref Atoms[0], ref RootMotionDelta, ref bHasRootMotion);
 				}
 
 				// If desired, zero out Root Bone rotation.
 				if( bZeroRootRotation )
 				{
-					Atoms(0).Rotation = FQuat::Identity;
+					Atoms[0].Rotation = FQuat.Identity;
 				}
 
 				// If desired, zero out Root Bone translation.
 				if( bZeroRootTranslation )
 				{
-					Atoms(0).Translation = FVector(0f);
+					Atoms[0].Translation = FVector(0f);
 				}
 			}
 		}
@@ -368,7 +687,7 @@ public virtual void GetAnimationPose(AnimSequence InAnimSeq, ref int InAnimLinku
 ///
 ///  Extract Root Motion for the current Animation Pose.
 ///</summary>
-public virtual void ExtractRootMotion(AnimSequence InAnimSeq, int &TrackIndex, ref BoneAtom CurrentFrameAtom, ref BoneAtom DeltaMotionAtom, ref int bHasRootMotion)
+public virtual void ExtractRootMotion(AnimSequence InAnimSeq, ref int TrackIndex, ref BoneAtom CurrentFrameAtom, ref BoneAtom DeltaMotionAtom, ref bool bHasRootMotion)
 {
 	// SkeletalMesh has a transformation that is applied between the component and the actor, 
 	// instead of being between mesh and component. 
@@ -378,19 +697,19 @@ public virtual void ExtractRootMotion(AnimSequence InAnimSeq, int &TrackIndex, r
 	FMatrix CompToMeshTM = MeshToCompTM.Inverse();
 
 	// Get the exact translation of the root bone on the first frame of the animation
-	BoneAtom FirstFrameAtom;
-	InAnimSeq.GetBoneAtom(FirstFrameAtom, TrackIndex, 0f, FALSE, SkelComponent.bUseRawData);
+	BoneAtom FirstFrameAtom = default;
+	InAnimSeq.GetBoneAtom(ref FirstFrameAtom, TrackIndex, 0f, FALSE, SkelComponent.bUseRawData);
 
 	// Do we need to extract root motion?
-	bool bExtractRootTranslation	= (RootBoneOption[0] == RBA_Translate) || (RootBoneOption[1] == RBA_Translate) || (RootBoneOption[2] == RBA_Translate);
-	bool bExtractRootRotation	= (RootRotationOption[0] == RRO_Extract) || (RootRotationOption[1] == RRO_Extract) || (RootRotationOption[2] == RRO_Extract);
-	bool	bExtractRootMotion		= bExtractRootTranslation || bExtractRootRotation;
+	bool bExtractRootTranslation = (RootBoneOption[0] == RBA_Translate) || (RootBoneOption[1] == RBA_Translate) || (RootBoneOption[2] == RBA_Translate);
+	bool bExtractRootRotation	 = (RootRotationOption[0] == RRO_Extract) || (RootRotationOption[1] == RRO_Extract) || (RootRotationOption[2] == RRO_Extract);
+	bool bExtractRootMotion		 = bExtractRootTranslation || bExtractRootRotation;
 
 	// Calculate bone motion
 	if( bExtractRootMotion )
 	{
 		// We are extracting root motion, so set the flag to TRUE
-		bHasRootMotion	= 1;
+		bHasRootMotion	 = true;
 		float StartTime	= PreviousTime;
 		float EndTime	= CurrentTime;
 
@@ -428,7 +747,7 @@ public virtual void ExtractRootMotion(AnimSequence InAnimSeq, int &TrackIndex, r
 			else
 			{
 				// If animation is done playing we're not extracting root motion anymore.
-				bHasRootMotion = 0;
+				bHasRootMotion  = false;
 			}
 		}
 
@@ -436,10 +755,10 @@ public virtual void ExtractRootMotion(AnimSequence InAnimSeq, int &TrackIndex, r
 		if( StartTime != EndTime )
 		{
 			// Get Root Bone Position of start of movement
-			BoneAtom StartAtom;
+			BoneAtom StartAtom = default;
 			if( StartTime != CurrentTime )
 			{
-				InAnimSeq.GetBoneAtom(StartAtom, TrackIndex, StartTime, FALSE, SkelComponent.bUseRawData);
+				InAnimSeq.GetBoneAtom(ref StartAtom, TrackIndex, StartTime, FALSE, SkelComponent.bUseRawData);
 			}
 			else
 			{
@@ -447,10 +766,10 @@ public virtual void ExtractRootMotion(AnimSequence InAnimSeq, int &TrackIndex, r
 			}
 
 			// Get Root Bone Position of end of movement
-			BoneAtom EndAtom;
+			BoneAtom EndAtom = default;
 			if( EndTime != CurrentTime )
 			{
-				InAnimSeq.GetBoneAtom(EndAtom, TrackIndex, EndTime, FALSE, SkelComponent.bUseRawData);
+				InAnimSeq.GetBoneAtom(ref EndAtom, TrackIndex, EndTime, FALSE, SkelComponent.bUseRawData);
 			}
 			else
 			{
@@ -458,11 +777,11 @@ public virtual void ExtractRootMotion(AnimSequence InAnimSeq, int &TrackIndex, r
 			}
 
 			// Get position on last frame if we extract translation and/or rotation
-			BoneAtom LastFrameAtom;
+			BoneAtom LastFrameAtom = default;
 			if( StartTime > EndTime && (bExtractRootTranslation || bExtractRootRotation) )
 			{
 				// Get the exact root position of the root bone on the last frame of the animation
-				InAnimSeq.GetBoneAtom(LastFrameAtom, TrackIndex, InAnimSeq.SequenceLength, FALSE, SkelComponent.bUseRawData);
+				InAnimSeq.GetBoneAtom(ref LastFrameAtom, TrackIndex, InAnimSeq.SequenceLength, FALSE, SkelComponent.bUseRawData);
 			}
 
 			// We don't support scale
@@ -544,7 +863,7 @@ public virtual void ExtractRootMotion(AnimSequence InAnimSeq, int &TrackIndex, r
 				// Only do that if an axis needs to be filtered out.
 				if( RootRotationOption[0] != RRO_Extract || RootRotationOption[1] != RRO_Extract || RootRotationOption[2] != RRO_Extract )
 				{
-					FQuat	MeshToCompQuat(MeshToCompTM);
+					FQuat	MeshToCompQuat = new(MeshToCompTM);
 
 					// Turn delta rotation from mesh space to component space
 					FQuat	CompDeltaQuat = MeshToCompQuat * DeltaMotionAtom.Rotation * (-MeshToCompQuat);
@@ -611,7 +930,7 @@ public virtual void ExtractRootMotion(AnimSequence InAnimSeq, int &TrackIndex, r
 					// Only do that if an axis needs to be filtered out.
 					if( RootRotationOption[0] != RRO_Extract || RootRotationOption[1] != RRO_Extract || RootRotationOption[2] != RRO_Extract )
 					{
-						FQuat	MeshToCompQuat(MeshToCompTM);
+						FQuat	MeshToCompQuat = new(MeshToCompTM);
 
 						// Turn delta rotation from mesh space to component space
 						FQuat	CompDeltaQuat = MeshToCompQuat * MeshDeltaRotQuat * (-MeshToCompQuat);
@@ -650,13 +969,13 @@ public virtual void ExtractRootMotion(AnimSequence InAnimSeq, int &TrackIndex, r
 			else
 			{			
 				// If we're not extracting rotation, then set to identity
-				DeltaMotionAtom.Rotation = FQuat::Identity;
+				DeltaMotionAtom.Rotation = FQuat.Identity;
 			}
 		}
 		else // if( StartTime != EndTime )
 		{
 			// Root Motion cannot be extracted.
-			DeltaMotionAtom = BoneAtom::Identity;
+			DeltaMotionAtom = BoneAtom.Identity;
 		}
 	}
 
@@ -671,7 +990,7 @@ public virtual void ExtractRootMotion(AnimSequence InAnimSeq, int &TrackIndex, r
 		// Do we need to lock at least one axis of the bone's rotation to the first frame's value?
 		else if( RootRotationOption[0] != RRO_Default || RootRotationOption[1] != RRO_Default || RootRotationOption[2] != RRO_Default )
 		{
-			FQuat	MeshToCompQuat(MeshToCompTM);
+			FQuat	MeshToCompQuat = new(MeshToCompTM);
 
 			// Find delta between current frame and first frame
 			FQuat	CompFirstQuat	= MeshToCompQuat * FirstFrameAtom.Rotation;
@@ -716,8 +1035,8 @@ public virtual void ExtractRootMotion(AnimSequence InAnimSeq, int &TrackIndex, r
 		// Do we need to lock at least one axis of the bone's translation to the first frame's value?
 		else if( RootBoneOption[0] != RBA_Default || RootBoneOption[1] != RBA_Default || RootBoneOption[2] != RBA_Default )
 		{
-			FVector CompCurrentFrameTranslation			= MeshToCompTM.TransformNormal(CurrentFrameAtom.Translation);
-			const	FVector	CompFirstFrameTranslation	= MeshToCompTM.TransformNormal(FirstFrameAtom.Translation);
+			FVector CompCurrentFrameTranslation = MeshToCompTM.TransformNormal(CurrentFrameAtom.Translation);
+			FVector	CompFirstFrameTranslation	= MeshToCompTM.TransformNormal(FirstFrameAtom.Translation);
 
 			// Lock back to first frame position any of the X, Y, Z axis
 			if( RootBoneOption[0] != RBA_Default  )
@@ -738,7 +1057,6 @@ public virtual void ExtractRootMotion(AnimSequence InAnimSeq, int &TrackIndex, r
 		}
 	}				
 }
-#endif
 
 public virtual void IssueNotifies(float DeltaTime)
 {
@@ -850,71 +1168,6 @@ public virtual void IssueNotifies(float DeltaTime)
 }
 
 ///<summary>
-/// 
-/// Set a new animation by name.
-/// This will find the UAnimationSequence by name, from the list of AnimSets specified in the SkeletalMeshComponent and cache it
-/// Will also store a pointer to the anim track <-> 
-///</summary>
-public virtual void SetAnim(name InSequenceName)
-{
-	if (false)
-	{
-		debugf(TEXT("** SetAnim %s, on %s"), InSequenceName.ToString(), Name);
-	}
-
-	// Abort if we are in the process of firing notifies, as this can cause a crash.
-	//
-	//	Unless the animation is the same. This can happen if a new skeletal mesh is set, then it forces all
-	// animations to be recached. If the animation is the same, then it's safe to update it.
-	// Note that it can be set to NAME_None if the AnimSet has been removed as well.
-	if( bIsIssuingNotifies && AnimSeqName != InSequenceName )
-	{
-		debugf( TEXT("SetAnim : Not safe to call SetAnim from inside a Notify. AnimName: %s, Owner: %s"), InSequenceName.ToString(), SkelComponent.Owner.Name );
-		return;
-	}
-
-	AnimSeqName		= InSequenceName;
-	AnimSeq			= null;
-	AnimLinkupIndex = INDEX_NONE;
-
-	// Clear out the cached data
-	CachedBoneAtoms.Reset();
-
-	if( InSequenceName == NAME_None || !SkelComponent || !SkelComponent.SkeletalMesh )
-	{
-		return;
-	}
-
-	AnimSeq = SkelComponent.FindAnimSequence(AnimSeqName);
-	if( AnimSeq != null )
-	{
-		#if UNUSED
-		AnimSet AnimSet = AnimSeq.GetAnimSet();
-		AnimLinkupIndex = AnimSet.GetMeshLinkupIndex( SkelComponent.SkeletalMesh );
-		
-		check(AnimLinkupIndex != INDEX_NONE);
-		check(AnimLinkupIndex < AnimSet.LinkupCache.Num());
-
-		var AnimLinkup = AnimSet.LinkupCache[AnimLinkupIndex];
-
-		check( AnimLinkup.SkelMeshLinkupGUID == SkelComponent.SkeletalMesh.SkelMeshGUID );
-		check( AnimLinkup.BoneToTrackTable.Num() == SkelComponent.SkeletalMesh.RefSkeleton.Num() );
-		check( AnimLinkup.BoneUseAnimTranslation.Num() == SkelComponent.SkeletalMesh.RefSkeleton.Num() );
-		#endif
-	}
-	else if( !bDisableWarningWhenAnimNotFound && !SkelComponent.bDisableWarningWhenAnimNotFound )
-	{
-		debugf( /*NAME_DevAnim,*/ TEXT($"{Name} - Failed to find animsequence '{InSequenceName.ToString()}' on SkeletalMeshComponent: {SkelComponent.Name} whose owner is: {SkelComponent.Owner.Name} using mesh: {SkelComponent.SkeletalMesh./*GetPathName()*/Name}" ),
-			   Name,
-			   InSequenceName.ToString(),
-			   SkelComponent.Name,
-			   SkelComponent.Owner.Name,
-			   SkelComponent.SkeletalMesh./*GetPathName()*/Name
-			   );
-	}
-}
-
-///<summary>
 /// Start the current animation playing. This just sets the bPlaying flag to true, so that TickAnim will move CurrentTime forwards. 
 ///</summary>
 public override void PlayAnim(bool bInLoop, float InRate, float StartTime)
@@ -953,7 +1206,7 @@ public virtual void SetPosition(float NewTime, bool bFireNotifies)
 {
 	// Ensure NewTime lies within sequence length.
 	float AnimLength = AnimSeq ? AnimSeq.SequenceLength : 0f;
-	NewTime = Clamp<float>(NewTime, 0f, AnimLength+KINDA_SMALL_NUMBER);
+	NewTime = Clamp(NewTime, 0f, AnimLength+KINDA_SMALL_NUMBER);
 
 	// Find the amount we are moving.
 	float DeltaTime = NewTime - CurrentTime;
@@ -990,7 +1243,7 @@ public virtual float GetNormalizedPosition()
 {
 	if( AnimSeq && AnimSeq.SequenceLength > 0f )
 	{
-		return Clamp<float>(CurrentTime / AnimSeq.SequenceLength, 0f, 1f);
+		return Clamp(CurrentTime / AnimSeq.SequenceLength, 0f, 1f);
 	}
 
 	return 0f;
@@ -1140,7 +1393,7 @@ public virtual void CheckAnimsUpToDate()
 ///</summary>
 public override void InitAnim(SkeletalMeshComponent MeshComp, AnimNodeBlendBase Parent)
 {
-	// Call Super version first, because that's where SkeletalMeshComponent reference is set (see UAnimNode::InitAnim()).
+	// Call Super version first, because that's where SkeletalMeshComponent reference is set (see UAnimNode.InitAnim()).
 	base.InitAnim(MeshComp, Parent);
 
 #if false//0
@@ -1163,13 +1416,12 @@ public override void AnimSetsUpdated()
 	CheckAnimsUpToDate();
 }
 
-#if UNUSED
 ///<summary>
 ///
 /// A property has been changed from the editor
 /// Make sure animation references are up to date.
 ///</summary>
-public virtual void PostEditChange(Property PropertyThatChanged)
+public override void PostEditChange(Property PropertyThatChanged)
 {
 #if false//0
 	debugf(TEXT("* PostEditChange on %s"), *GetFName());
@@ -1180,7 +1432,6 @@ public virtual void PostEditChange(Property PropertyThatChanged)
 
 	base.PostEditChange(PropertyThatChanged);
 }
-#endif
 
 ///<summary>
 /// 
@@ -1250,7 +1501,6 @@ public virtual void SetAnimInfo(name InSequenceName, ref AnimInfo InAnimInfo)
 	}
 }
 
-#if UNUSED
 ///<summary>
 ///
 /// Blends together the animations of this node based on the Weight in each element of the Anims array.
@@ -1259,10 +1509,10 @@ public virtual void SetAnimInfo(name InSequenceName, ref AnimInfo InAnimInfo)
 /// @param	DesiredBones	Indices of bones that we want to return. Note that bones not in this array will not be modified, so are not safe to access! 
 /// 							This array must be in strictly increasing order.
 ///</summary>
-public virtual void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref int bHasRootMotion)
+public override void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	// See if results are cached.
-	if( GetCachedResults(Atoms, RootMotionDelta, bHasRootMotion) )
+	if( GetCachedResults(ref Atoms, ref RootMotionDelta, ref bHasRootMotion) )
 	{
 		return;
 	}
@@ -1272,9 +1522,9 @@ public virtual void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> Desi
 #if false//!FINAL_RELEASE && 1
 	if( NumAnims == 0 )
 	{
-		debugf(TEXT("UAnimNodeSequenceBlendBase::GetBoneAtoms - %s - Anims array is empty!"), *GetName());
-		RootMotionDelta = BoneAtom::Identity;
-		bHasRootMotion	= 0;
+		debugf(TEXT("UAnimNodeSequenceBlendBase.GetBoneAtoms - %s - Anims array is empty!"), *GetName());
+		RootMotionDelta = BoneAtom.Identity;
+		bHasRootMotion	 = false;
 		FillWithRefPose(Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 		return;
 	}
@@ -1301,8 +1551,8 @@ public virtual void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> Desi
 		debugf(TEXT("Total Weight: %f"), TotalWeight);
 		//@todo - adjust first node weight to 
 
-		RootMotionDelta = BoneAtom::Identity;
-		bHasRootMotion	= 0;
+		RootMotionDelta = BoneAtom.Identity;
+		bHasRootMotion	 = false;
 		FillWithRefPose(Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 		return;
 	}
@@ -1317,8 +1567,8 @@ public virtual void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> Desi
 			// If this is the only child with any weight, pass Atoms array into it directly.
 			if( Anims[i].Weight >= (1f - ZERO_ANIMWEIGHT_THRESH) )
 			{
-				GetAnimationPose(Anims[i].AnimInfo.AnimSeq, Anims[i].AnimInfo.AnimLinkupIndex, Atoms, DesiredBones, RootMotionDelta, bHasRootMotion);
-				SaveCachedResults(Atoms, RootMotionDelta, bHasRootMotion);
+				GetAnimationPose(Anims[i].AnimInfo.AnimSeq, ref Anims[i].AnimInfo.AnimLinkupIndex, ref Atoms, ref DesiredBones, ref RootMotionDelta, ref bHasRootMotion);
+				SaveCachedResults(ref Atoms, ref RootMotionDelta, bHasRootMotion);
 				return;
 			}
 			LastChildIndex = i;
@@ -1327,11 +1577,11 @@ public virtual void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> Desi
 	check(LastChildIndex != INDEX_NONE);
 
 	// We don't allocate this array until we need it.
-	TArray<BoneAtom> ChildAtoms;
+	array<BoneAtom> ChildAtoms = new();
 	bool bNoChildrenYet = TRUE;
 
 	// Root Motion
-	BoneAtom ExtractedRootMotion;
+	BoneAtom ExtractedRootMotion = default;
 
 	// Iterate over each child getting its atoms, scaling them and adding them to output (Atoms array)
 	for(int i=0; i<=LastChildIndex; i++)
@@ -1344,13 +1594,13 @@ public virtual void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> Desi
 			{
 				int NumAtoms = SkelComponent.SkeletalMesh.RefSkeleton.Num();
 				check(NumAtoms == Atoms.Num());
-				ChildAtoms.Add(NumAtoms);
+				ChildAtoms.AddCount(NumAtoms);
 			}
 
 			check(ChildAtoms.Num() == Atoms.Num());
 
 			// Get Animation pose
-			GetAnimationPose(Anims[i].AnimInfo.AnimSeq, Anims[i].AnimInfo.AnimLinkupIndex, ChildAtoms, DesiredBones, ExtractedRootMotion, bHasRootMotion);
+			GetAnimationPose(Anims[i].AnimInfo.AnimSeq, ref Anims[i].AnimInfo.AnimLinkupIndex, ref ChildAtoms, ref DesiredBones, ref ExtractedRootMotion, ref bHasRootMotion);
 
 			if( bHasRootMotion )
 			{
@@ -1367,7 +1617,7 @@ public virtual void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> Desi
 						ExtractedRootMotion.Rotation = ExtractedRootMotion.Rotation * -1f;
 					}
 
-					RootMotionDelta += ExtractedRootMotion * Anims[i].Weight;
+					RootMotionDelta.AddAssign(ExtractedRootMotion * Anims[i].Weight);
 				}
 
 				// If Last Child, normalize rotation quaternion
@@ -1387,28 +1637,28 @@ public virtual void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> Desi
 
 			for(int j=0; j<DesiredBones.Num(); j++)
 			{
-				int BoneIndex = DesiredBones(j);
+				int BoneIndex = DesiredBones[j];
 
 				// We just write the first childrens atoms into the output array. Avoids zero-ing it out.
 				if( bNoChildrenYet )
 				{
-					Atoms(BoneIndex) = ChildAtoms(BoneIndex) * Anims[i].Weight;
+					Atoms[BoneIndex] = ChildAtoms[BoneIndex] * Anims[i].Weight;
 				}
 				else
 				{
 					// To ensure the 'shortest route', we make sure the dot product between the accumulator and the incoming child atom is positive.
-					if( (Atoms(BoneIndex).Rotation | ChildAtoms(BoneIndex).Rotation) < 0f )
+					if( (Atoms[BoneIndex].Rotation | ChildAtoms[BoneIndex].Rotation) < 0f )
 					{
-						ChildAtoms(BoneIndex).Rotation = ChildAtoms(BoneIndex).Rotation * -1f;
+						ChildAtoms[BoneIndex].Rotation = ChildAtoms[BoneIndex].Rotation * -1f;
 					}
 
-					Atoms(BoneIndex) += ChildAtoms(BoneIndex) * Anims[i].Weight;
+					Atoms[BoneIndex].AddAssign(ChildAtoms[BoneIndex] * Anims[i].Weight);
 				}
 
 				// If last child - normalize the rotation quaternion now.
 				if( i == LastChildIndex )
 				{
-					Atoms(BoneIndex).Rotation.Normalize();
+					Atoms[BoneIndex].Rotation.Normalize();
 				}
 			}
 
@@ -1416,9 +1666,8 @@ public virtual void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> Desi
 		}
 	}
 
-	SaveCachedResults(Atoms, RootMotionDelta, bHasRootMotion);
+	SaveCachedResults(ref Atoms, ref RootMotionDelta, bHasRootMotion);
 }
-#endif
 }
 
 ///<summary>
@@ -1512,8 +1761,8 @@ public override void TickAnim(float DeltaSeconds, float TotalWeight)
 	}
 
 	// Make sure we're using correct values within legal range.
-	SafeAim.X = Clamp<float>(SafeAim.X, -1f, +1f);
-	SafeAim.Y = Clamp<float>(SafeAim.Y, -1f, +1f);
+	SafeAim.X = Clamp(SafeAim.X, -1f, +1f);
+	SafeAim.Y = Clamp(SafeAim.Y, -1f, +1f);
 
 	// Animation update
 	if( SafeAim.X >= 0f && SafeAim.Y >= 0f ) // Up Right
@@ -1627,7 +1876,7 @@ public virtual void HandleSliderMove(int SliderIndex, int ValueIndex, float NewS
 public virtual String GetSliderDrawValue(int SliderIndex)
 {
 	check(SliderIndex == 0);
-	return String::Printf(TEXT("%0.2f,%0.2f"), Aim.X, Aim.Y);
+	return String.Printf(TEXT("%0.2f,%0.2f"), Aim.X, Aim.Y);
 }
 #endif
 }

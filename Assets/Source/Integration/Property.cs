@@ -2,7 +2,7 @@
 {
     public interface Property
     {
-
+        public name GetFName();
     }
     
     public partial class BoolProperty : Object, Property

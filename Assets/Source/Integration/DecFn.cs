@@ -24,6 +24,9 @@
 		public const float UCONST_MINFLOORZ = 0.7f;
 		static System.Random _randomSource = new System.Random();
 		public static float appAcos( FLOAT Value ) { return MathF.Acos( (Value<-1f) ? -1f : ((Value<1f) ? Value : 1f) ); }
+		public static float appSin( FLOAT Value ) { return MathF.Sin( Value ); }
+		public static float appAsin( FLOAT Value ) { return MathF.Asin( (Value<-1f) ? -1f : ((Value<1f) ? Value : 1f)  ); }
+		
 		public static float appSqrt( float f1 ) => (float)sqrt( f1 );
 		public static float appAtan2( float f1, float f2 ) => (float)atan2( f1, f2 );
 		public static int appRound( float f ) => Object.Round( f );
@@ -32,9 +35,11 @@
 		public static double sqrt( double f ) => System.Math.Sqrt( f );
 		public static float fsqrt( float f ) => System.MathF.Sqrt( f );
 		public static double floor( double f ) => System.Math.Floor( f );
+		public static int appFloor( float F ) => appTrunc(System.MathF.Floor(F));
 		public static double asin( double f ) => System.Math.Asin( f );
 		public static double sin( double f ) => System.Math.Sin( f );
 		public static double cos( double f ) => System.Math.Cos( f );
+		public static float appCos( float f ) => System.MathF.Cos( f );
 		public static int rand() => _randomSource.Next();
 		public static float appSRand() => (float)(_randomSource.NextDouble()*2d-1d); // Maybe ?
 		public static float appFrand() => (float)_randomSource.NextDouble(); // Maybe ?
@@ -58,7 +63,156 @@
 		public static bool AsBool( this int i ) => i != 0 ? true : false;
 		public static bool AsBool( this uint i ) => i != 0 ? true : false;
 
+		
+		public static float CubicInterp( float P0, float T0, float P1, float T1, float A )
+		{
+			FLOAT A2 = A  * A;
+			FLOAT A3 = A2 * A;
 
+			return (((2*A3)-(3*A2)+1) * P0) + ((A3-(2*A2)+A) * T0) + ((A3-A2) * T1) + (((-2*A3)+(3*A2)) * P1);
+		}
+		
+		public static FLOAT GetMaximumAxisScale(in Matrix Matrix)
+		{
+			FLOAT MaxRowScaleSquared = Max(
+				Matrix.GetAxis(0).SizeSquared(),
+				Max(
+					Matrix.GetAxis(1).SizeSquared(),
+					Matrix.GetAxis(2).SizeSquared()
+				)
+			);
+			return appSqrt(MaxRowScaleSquared);
+		}
+		
+		public static Matrix BuildMatrixFromVectors(Object.EAxis Vec1Axis, in FVector Vec1, Object.EAxis Vec2Axis, in FVector Vec2)
+		{
+			check(Vec1 != Vec2);
+
+			Matrix OutMatrix = Matrix.Identity;
+
+			if(Vec1Axis == Object.EAxis.AXIS_X)
+			{
+				OutMatrix.SetAxis(0, Vec1);
+
+				if(Vec2Axis == Object.EAxis.AXIS_Y)
+				{
+					OutMatrix.SetAxis(1, Vec2);
+					OutMatrix.SetAxis(2, Vec1 ^ Vec2);
+				}
+				else // AXIS_Z
+				{
+					OutMatrix.SetAxis(2, Vec2);
+					OutMatrix.SetAxis(1, Vec2 ^ Vec1 );
+				}
+			}
+			else if(Vec1Axis == Object.EAxis.AXIS_Y)
+			{
+				OutMatrix.SetAxis(1, Vec1);
+
+				if(Vec2Axis == Object.EAxis.AXIS_X)
+				{
+					OutMatrix.SetAxis(0, Vec2);
+					OutMatrix.SetAxis(2, Vec2 ^ Vec1);
+				}
+				else // AXIS_Z
+				{
+					OutMatrix.SetAxis(2, Vec2);
+					OutMatrix.SetAxis(0, Vec1 ^ Vec2 );
+				}
+			}
+			else // AXIS_Z
+			{
+				OutMatrix.SetAxis(2, Vec1);
+
+				if(Vec2Axis == Object.EAxis.AXIS_X)
+				{
+					OutMatrix.SetAxis(0, Vec2);
+					OutMatrix.SetAxis(1, Vec1 ^ Vec2);
+				}
+				else // AXIS_Y
+				{
+					OutMatrix.SetAxis(1, Vec2);
+					OutMatrix.SetAxis(0, Vec2 ^ Vec1 );
+				}
+			}
+
+			FLOAT Det = OutMatrix.RotDeterminant();
+			if( OutMatrix.Determinant() <= 0f )
+			{
+				debugf( TEXT("BuildMatrixFromVectors : Bad Determinant (%f)"), Det );
+				debugf( TEXT("Vec1: %d (%f %f %f)"), Vec1Axis, Vec1.X, Vec1.Y, Vec1.Z );
+				debugf( TEXT("Vec2: %d (%f %f %f)"), Vec2Axis, Vec2.X, Vec2.Y, Vec2.Z );
+			}
+			//check( OutMatrix.RotDeterminant() > 0.f );
+
+			return OutMatrix;
+		}
+		
+		
+		public static Quat FQuatFindBetween(in FVector vec1, in FVector vec2)
+		{
+			FVector cross = vec1 ^ vec2;
+			FLOAT crossMag = cross.Size();
+
+			// If these vectors are basically parallel - just return identity quaternion (ie no rotation).
+			if(crossMag < KINDA_SMALL_NUMBER)
+			{
+				return Quat.Identity;
+			}
+
+			if(crossMag < KINDA_SMALL_NUMBER)
+			{
+				FLOAT Dot = vec1 | vec2;
+				if(Dot > -KINDA_SMALL_NUMBER)
+				{
+					return Quat.Identity; // no rotation
+				}
+				else
+				{
+					// rotation by 180 degrees around a vector orthogonal to vec1 & vec2
+					FVector Vec = vec1.SizeSquared() > vec2.SizeSquared() ? vec1 : vec2;
+					Vec.Normalize();
+
+					FVector AxisA = default, AxisB = default;
+					Vec.FindBestAxisVectors(ref AxisA, ref AxisB);
+
+					return new Quat(AxisA.X, AxisA.Y, AxisA.Z, 0f); // (axis*sin(pi/2), cos(pi/2)) = (axis, 0)
+				}
+			}
+
+			FLOAT angle = appAsin(crossMag);
+
+			FLOAT dot = vec1 | vec2;
+			if(dot < 0.0f)
+			{
+				angle = PI - angle;
+			}
+
+			FLOAT sinHalfAng = appSin(0.5f * angle);
+			FLOAT cosHalfAng = appCos(0.5f * angle);
+			FVector axis = cross / crossMag;
+
+			return new Quat(
+				sinHalfAng * axis.X,
+				sinHalfAng * axis.Y,
+				sinHalfAng * axis.Z,
+				cosHalfAng );
+		}
+		
+		public static void CopyRotationPart(ref Matrix DestMatrix, in Matrix SrcMatrix)
+		{
+			DestMatrix.M[0,0] = SrcMatrix.M[0,0];
+			DestMatrix.M[0,1] = SrcMatrix.M[0,1];
+			DestMatrix.M[0,2] = SrcMatrix.M[0,2];
+
+			DestMatrix.M[1,0] = SrcMatrix.M[1,0];
+			DestMatrix.M[1,1] = SrcMatrix.M[1,1];
+			DestMatrix.M[1,2] = SrcMatrix.M[1,2];
+
+			DestMatrix.M[2,0] = SrcMatrix.M[2,0];
+			DestMatrix.M[2,1] = SrcMatrix.M[2,1];
+			DestMatrix.M[2,2] = SrcMatrix.M[2,2];
+		}
             
 		
             
@@ -85,6 +239,16 @@
 				FPlane( 0.0f, Scale.Y, 0.0f, 0.0f ),
 				FPlane( 0.0f, 0.0f, Scale.Z, 0.0f ),
 				FPlane( 0.0f, 0.0f, 0.0f, 1.0f ) );
+		}
+		
+		public static Matrix FScaleMatrix(float Scale)
+		{
+			return 
+				FMatrix(
+					FPlane( Scale, 0.0f, 0.0f, 0.0f ),
+					FPlane( 0.0f, Scale, 0.0f, 0.0f ),
+					FPlane( 0.0f, 0.0f, Scale, 0.0f ),
+					FPlane( 0.0f, 0.0f, 0.0f, 1.0f ) );
 		}
 		
 		public static Box GetBox(this BoxSphereBounds bsb)

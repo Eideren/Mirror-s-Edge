@@ -138,7 +138,7 @@ public partial class TdWeapon_Pistol_TaserContent : TdWeapon_Pistol_Taser/*
 		{
 			#warning fallofftype values are weird, replaced with default
 			//149,
-			default
+			default(EWeaponFireType)
 		};
 		FireInterval = new array<float>
 		{

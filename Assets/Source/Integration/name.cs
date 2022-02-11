@@ -22,7 +22,7 @@
 
 
 
-        public static bool operator ==(name a, name b) => (a.Value == "None" && b.Value == "") || (a.Value == "" && b.Value == "None") || string.Equals( a.Value, b.Value, StringComparison.InvariantCultureIgnoreCase );
+        public static bool operator ==(name a, name b) => (a.Value == "none" && b.Value == "") || (a.Value == "" && b.Value == "none") || string.Equals( a.Value, b.Value, StringComparison.InvariantCultureIgnoreCase );
         public static bool operator !=(name a, name b) => (a == b) == false;
         public override string ToString() => Value.ToString();
     }

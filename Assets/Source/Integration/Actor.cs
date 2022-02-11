@@ -20,7 +20,7 @@
             Actor ActorTemplate = default, /*optional */bool? bNoCollisionFail = default) where T : Actor
         {
             // Decompiled from _E_UActor_execSpawn
-            var result = UWorldBridge.GetUWorld().E_UWorld_SpawnActor( SpawnClass, 0, 0, SpawnLocation ?? Location, SpawnRotation ?? Rotation, ActorTemplate, bNoCollisionFail ?? false /* probably */, 0, SpawnOwner, this.Instigator, false );
+            var result = UWorldBridge.GetUWorld().E_UWorld_SpawnActor( SpawnClass, default, SpawnLocation ?? Location, SpawnRotation ?? Rotation, ActorTemplate, bNoCollisionFail ?? false /* probably */, 0, SpawnOwner, this.Instigator, false );
             if( result != null && SpawnTag != null )
             {
                 result.Tag = SpawnTag.Value;

@@ -13,7 +13,7 @@ public partial class AnimNodeBlendBase : AnimNode/*
 		[export, editinline] public AnimNode Anim;
 		public float Weight;
 		[Const] public float TotalWeight;
-		[Const, transient] public int bHasRootMotion;
+		[Const, transient] public bool bHasRootMotion;
 		[Const, transient] public AnimNode.BoneAtom RootMotion;
 		public bool bMirrorSkeleton;
 		public int DrawY;

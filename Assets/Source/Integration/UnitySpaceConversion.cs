@@ -49,7 +49,88 @@
 					W = v.w,
 				};
 			}
+
+
+
+			public Quat(float X, float Y, float Z, float W)
+			{
+				this.X = X;
+				this.Y = Y;
+				this.Z = Z;
+				this.W = W;
+			}
 			
+			public unsafe Quat( in Matrix M )
+			{
+				//const MeReal *const t = (MeReal *) tm;
+				float	s;
+
+				// Check diagonal (trace)
+				float tr = M.M[0,0] + M.M[1,1] + M.M[2,2];
+
+				if (tr > 0.0f) 
+				{
+					float InvS = appInvSqrt(tr + 1f);
+					this.W = 0.5f * (1f / InvS);
+					s = 0.5f * InvS;
+
+					this.X = (M.M[1,2] - M.M[2,1]) * s;
+					this.Y = (M.M[2,0] - M.M[0,2]) * s;
+					this.Z = (M.M[0,1] - M.M[1,0]) * s;
+				} 
+				else 
+				{
+					// diagonal is negative
+					int i = 0;
+
+					if (M.M[1,1] > M.M[0,0])
+						i = 1;
+
+					if (M.M[2,2] > M.M[i,i])
+						i = 2;
+
+					int* nxt = stackalloc int[]{ 1, 2, 0 };
+					int j = nxt[i];
+					int k = nxt[j];
+
+					s = M.M[i,i] - M.M[j,j] - M.M[k,k] + 1.0f;
+
+					float InvS = appInvSqrt(s);
+
+					float* qt = stackalloc float[4];
+					qt[i] = 0.5f * (1f / InvS);
+
+					s = 0.5f * InvS;
+
+					qt[3] = (M.M[j,k] - M.M[k,j]) * s;
+					qt[j] = (M.M[i,j] + M.M[j,i]) * s;
+					qt[k] = (M.M[i,k] + M.M[k,i]) * s;
+
+					this.X = qt[0];
+					this.Y = qt[1];
+					this.Z = qt[2];
+					this.W = qt[3];
+				}
+			}
+			
+			public Quat( Vector Axis, float Angle )
+			{
+				float half_a = 0.5f * Angle;
+				float s = appSin(half_a);
+				float c = appCos(half_a);
+
+				X = s * Axis.X;
+				Y = s * Axis.Y;
+				Z = s * Axis.Z;
+				W = c;
+			}
+
+
+
+			public static Quat Identity => new Quat( 0f, 0f, 0f, 1f );
+
+
+
 			public unsafe Quat( Matrix* M )
 			{
 				//const MeReal *const t = (MeReal *) tm;
@@ -121,20 +202,61 @@
 					Axis.Z = Z / S;
 				}
 			}
+
+
+
+			public static Quat operator *( Quat A, Quat Q )
+			{
+				A.X = A.W*Q.X + A.X*Q.W + A.Y*Q.Z - A.Z*Q.Y;
+				A.Y = A.W*Q.Y - A.X*Q.Z + A.Y*Q.W + A.Z*Q.X;
+				A.Z = A.W*Q.Z + A.X*Q.Y - A.Y*Q.X + A.Z*Q.W;
+				A.W = A.W*Q.W - A.X*Q.X - A.Y*Q.Y - A.Z*Q.Z;
+				return A; 
+			}
+        
+			public static Quat operator -( in Quat Q )
+			{
+				return new( -Q.X, -Q.Y, -Q.Z, Q.W );
+			}
 			
+			public static Quat operator *( in Quat Q, float Scale )
+			{
+				return new ( Scale*Q.X, Scale*Q.Y, Scale*Q.Z, Scale*Q.W);			
+			}
+	
+			public static float operator |( in Quat A, in Quat Q )
+			{
+				return A.X*Q.X + A.Y*Q.Y + A.Z*Q.Z + A.W*Q.W;
+			}
+
+			// Binary operators.
+			public static Quat operator+( in Quat A, in Quat Q )
+			{		
+				return new( A.X + Q.X, A.Y + Q.Y, A.Z + Q.Z, A.W + Q.W );
+			}
+
+			public static Quat operator-( in Quat A, in Quat Q )
+			{		
+				return new( A.X - Q.X, A.Y - Q.Y, A.Z - Q.Z, A.W - Q.W );
+			}
+				
+			public void Normalize()
+			{
+				float SquareSum = X*X + Y*Y + Z*Z + W*W;
+				// Make sure we have a non null SquareSum. It shouldn't happen with a quaternion, but better be safe.
+				check(SquareSum > SMALL_NUMBER);
+				float Scale = appInvSqrt(SquareSum);
+				X *= Scale; 
+				Y *= Scale; 
+				Z *= Scale;
+				W *= Scale;
+			}
 		}
 
 
 
 		public partial struct Vector
 		{
-			public bool IsZero() => this == default;
-			public bool IsNearlyZero(float Tolerance=KINDA_SMALL_NUMBER)
-			{
-				return Abs(X)<Tolerance
-				       &&	Abs(Y)<Tolerance
-				       &&	Abs(Z)<Tolerance;
-			}
 			public Rotator Rotation()
 			{
 				const uint MAXWORD = 0xffffU;

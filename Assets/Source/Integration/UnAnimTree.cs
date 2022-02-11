@@ -5,10 +5,181 @@ namespace MEdge.Engine
 {
 	using System;
 	using Core;
-	
+	using static Source.DecFn;
+	using FLOAT = System.Single;
+	using INT = System.Int32;
+	using FVector = Core.Object.Vector;
+	using FVector4 = Core.Object.Vector4;
+	using FRotator = Core.Object.Rotator;
+	using FQuat = Core.Object.Quat;
+	using FBoneAtom = AnimNode.BoneAtom;
+	using UBOOL = System.Boolean;
+	using BoneAtom = AnimNode.BoneAtom;
+	using FMatrix = Core.Object.Matrix;
+	using BYTE = System.Byte;
+	using UINT = System.UInt32;
+	using static Actor.EPhysics;
+	using static Actor.EAxis;
+	using static SkelControlBase.EBoneControlSpace;
+	using static SkeletalMeshComponent.ERootMotionMode;
+	using static SkeletalMeshComponent.ERootMotionRotationMode;
+	using static AnimNodeAimOffset.EAnimAimDir;
+
+
+
 	public partial class SkeletalMeshComponent
 	{
-		public void InitAnimTree(bool bForceReInit)
+		public void BuildComposePriorityList(ref array<BYTE> PriorityList)
+		{
+			if( !SkeletalMesh || !Animations )
+			{
+				return;
+			}
+
+			AnimTree	Tree		= Animations as AnimTree;
+			INT			NumBones	= SkeletalMesh.RefSkeleton.Num();
+
+			// If the first node of the Animation Tree if not a UAnimTree, then skip.
+			// This can happen in the AnimTree editor when previewing a node different than the root.
+			if( !Tree )
+			{
+				return;
+			}
+
+			// reinitialize list
+			PriorityList.Empty();
+			PriorityList.AddZeroed(NumBones);
+
+			const BYTE Flag = 1;
+
+			for(INT i=0; i<Tree.PrioritizedSkelBranches.Num(); i++)
+			{
+				name BoneName = Tree.PrioritizedSkelBranches[i];
+
+				if( BoneName != NAME_None )
+				{
+					INT BoneIndex = MatchRefBone(BoneName);
+
+					if( BoneIndex != INDEX_NONE )
+					{
+						// flag selected bone.
+						PriorityList[BoneIndex] = Flag;
+
+						// flag all parents up until root node to be evaluated.
+						if( BoneIndex > 0 )
+						{
+							INT TestBoneIndex = SkeletalMesh.RefSkeleton[BoneIndex].ParentIndex;
+							PriorityList[TestBoneIndex] = Flag;
+							while( TestBoneIndex > 0 )
+							{
+								TestBoneIndex = SkeletalMesh.RefSkeleton[TestBoneIndex].ParentIndex;
+								PriorityList[TestBoneIndex] = Flag;
+							}
+						}
+
+						// Flag all child bones. We rely on the fact that they are in strictly increasing order
+						// so we start at the bone after BoneIndex, up until we reach the end of the list
+						// or we find another bone that has a parent before BoneIndex.
+						INT	Index = BoneIndex + 1;
+						if(Index < NumBones)
+						{
+							INT ParentIndex	= SkeletalMesh.RefSkeleton[Index].ParentIndex;
+
+							while( Index < NumBones && ParentIndex >= BoneIndex )
+							{
+								PriorityList[Index]	= Flag;
+								ParentIndex			= SkeletalMesh.RefSkeleton[Index].ParentIndex;
+
+								Index++;
+							}
+						}
+					}
+				}
+			}
+
+		#if false
+			debugf(TEXT("USkeletalMeshComponent.BuildComposePriorityList"));
+			for(INT i=0; i<PriorityList.Num(); i++)
+			{
+				debugf(TEXT(" Bone: %3d, Flag: %3d"), i, PriorityList(i));
+			}
+		#endif
+
+		}
+
+
+
+		// Export USkeletalMeshComponent::execMatchRefBone(FFrame&, void* const)
+		public virtual /*native final function */ int MatchRefBone( name BoneName )
+		{
+			return Array.IndexOf(this.AnimSets[0].TrackBoneNames._items, BoneName);
+			
+			int BoneIndex = INDEX_NONE;
+			if ( BoneName != NAME_None && SkeletalMesh )
+			{
+				BoneIndex = SkeletalMesh.MatchRefBone( BoneName );
+			}
+
+			return BoneIndex;
+		}
+
+
+
+		// Export USkeletalMeshComponent::execForceSkelUpdate(FFrame&, void* const)
+		public virtual /*native final function */void ForceSkelUpdate()
+		{
+			if (IsAttached())
+			{
+				// easiest way to make sure everything works is to temporarily pretend we've been recently rendered
+				FLOAT OldRenderTime = LastRenderTime;
+				LastRenderTime = GWorld.GetWorldInfo().TimeSeconds;
+
+				UpdateLODStatus();
+				UpdateSkelPose();
+				ConditionalUpdateTransform(); 
+
+				LastRenderTime = OldRenderTime;
+			}
+		}
+		
+		
+		
+		public override void BeginPlay()
+		{
+			base.BeginPlay();
+
+			UBOOL bNewAnim = false;
+			if(!Animations && AnimTreeTemplate)
+			{
+				NativeMarkers.MarkUnimplemented("Would need to implement proper copy instead of straight assign but its fine for our use case");
+				Animations = AnimTreeTemplate;
+				//Animations = AnimTreeTemplate.CopyAnimTree(this);
+				bNewAnim = true;
+			}
+
+			// If we created a new AnimTree, init it now.
+			if(bNewAnim)
+			{
+				InitAnimTree();
+
+				UpdateSkelPose();
+				ConditionalUpdateTransform();
+			}
+
+			// Call BeginPlay on any attached components.
+			for(UINT AttachmentIndex = 0;AttachmentIndex < (UINT)Attachments.Num();AttachmentIndex++)
+			{
+				ref Attachment Attachment = ref Attachments[AttachmentIndex];
+				if(Attachment.Component)
+				{
+					Attachment.Component.ConditionalBeginPlay();
+				}
+			}
+		}
+		
+		
+		
+		public void InitAnimTree(bool bForceReInit=true)
 		{
 			// If not already initialised (or we are forcing a re-init), and we have an AnimTree
 			if((bForceReInit || !bAnimTreeInitialised) && Animations)
@@ -40,7 +211,6 @@ namespace MEdge.Engine
 				Animations.BuildTickArray(ref AnimTickArray);
 
 				// If its an AnimTree, initialise the MorphNodes.
-				#if UNUSED
 				if(Tree)
 				{
 					array<MorphNodeBase> MorphNodes = new();
@@ -51,9 +221,8 @@ namespace MEdge.Engine
 						MorphNodes[i].SkelComponent = null;
 					}
 
-					Tree.InitTreeMorphNodes(ref skel);
+					Tree.InitTreeMorphNodes(this);
 				}
-				#endif
 		
 				// Initialise the skeletal controls on the tree.
 				InitSkelControls();
@@ -74,7 +243,7 @@ namespace MEdge.Engine
 		{
 			//SCOPE_CYCLE_COUNTER(STAT_SkelControlTickTime);
 
-			bool bRenderedRecently = true;//GWorld->GetTimeSeconds() - LastRenderTime < 1.f;
+			bool bRenderedRecently = true;//GWorld.GetTimeSeconds() - LastRenderTime < 1.f;
 			AnimTree AnimTree = (Animations) as AnimTree;
 			if(AnimTree)
 			{
@@ -153,7 +322,7 @@ namespace MEdge.Engine
 					if( GShouldLogOutAFrameOfSkelCompTick )
 					{
 						DOUBLE End = appSeconds();
-						debugf(TEXT("-- %s - %s:\t%fms"), SkeletalMesh?*SkeletalMesh->GetName():TEXT("None"), *Node->GetName(), (End-Start)*1000.f);
+						debugf(TEXT("-- %s - %s:\t%fms"), SkeletalMesh?*SkeletalMesh.GetName():TEXT("None"), *Node.GetName(), (End-Start)*1000.f);
 					}
 		#endif
 				}
@@ -169,21 +338,16 @@ namespace MEdge.Engine
 			}
 		}
 		
-		#if UNUSED
-		public void Tick(float DeltaTime)
+		public override void Tick(float DeltaTime)
 		{
 			//SCOPE_CYCLE_COUNTER(STAT_SkelComponentTickTime);
 
 			DeltaTime *= Owner ? Owner.CustomTimeDilation : 1f;
 			
-			#if UNUSED
-			var GWorld = UWorld.Instance;
+			//var GWorld = UWorld.Instance;
 
 			// If in-game, tick all animation channels in our anim nodes tree. Dont want to play animation in level editor.
 			bool bHasBegunPlay = GWorld.HasBegunPlay();
-			#else
-			bool bHasBegunPlay = true;
-			#endif
 
 			#if UNUSED
 			if( MeshObject && Animations && bHasBegunPlay )
@@ -195,10 +359,11 @@ namespace MEdge.Engine
 				TickAnimNodes(DeltaTime);
 				TickSkelControls(DeltaTime);
 			}
-			#if UNUSED
-			// See if this mesh was rendered recently.
-			bool bRecentlyRendered = (LastRenderTime > GWorld->GetWorldInfo()->TimeSeconds - 1.0f);
 			
+			// See if this mesh was rendered recently.
+			bool bRecentlyRendered = (LastRenderTime > GWorld.GetWorldInfo().TimeSeconds - 1.0f);
+			
+			#if UNUSED
 			// If we have cloth, apply wind forces to make it flutter, each frame.
 			if(ClothSim)
 			{
@@ -232,13 +397,14 @@ namespace MEdge.Engine
 			bool bUpdateKinematics = (bUseSingleBodyPhysics == 0 && PhysicsAssetInstance && bUpdateKinematicBonesFromAnimation && !bNotUpdatingKinematicDueToDistance);
 
 			// If we need it, find the up-to-date transform for this component. 
-			Matrix ParentTransform = FMatrix::Identity;
+			Matrix ParentTransform = FMatrix.Identity;
 			if((bUpdateKinematics || bForceUpdateAttachmentsInTick) && bNeedsUpdateTransform && (Owner != NULL))
 			{
 				// We have a special case for when its attached to another SkelComp.
-				if(AttachedToSkelComponent)
+				if( AttachedToSkelComponent )
 				{
-					ParentTransform = AttachedToSkelComponent.CalcAttachedSkelCompMatrix(this);
+					throw new Exception();
+					//ParentTransform = AttachedToSkelComponent.CalcAttachedSkelCompMatrix(this);
 				}
 				else
 				{
@@ -269,14 +435,14 @@ namespace MEdge.Engine
 			}
 
 			// If we have been recently rendered, and bForceRefPose has been on for at least a frame, or the LOD changed, update bone matrices.
-			if(((bRecentlyRendered || bUpdateSkelWhenNotRendered) && !(bForceRefpose && bOldForceRefPose)) || bLODHasChanged)
+			if(((bRecentlyRendered || bUpdateSkelWhenNotRendered) && !(bForceRefpose.AsBool() && bOldForceRefPose.AsBool())) || bLODHasChanged)
 			{
 		#if SHOW_SKELETAL_MESH_COMPONENT_TICK_TIME || LOOKING_FOR_PERF_ISSUES
-				const DOUBLE UpdateSkelPoseStart = appSeconds();	
+				DOUBLE UpdateSkelPoseStart = appSeconds();	
 		#endif
 
 				// Do not update bones if we are taking bone transforms from another SkelMeshComp
-				if(!ParentAnimComponent && !bNoSkeletonUpdate)
+				if(!ParentAnimComponent && !bNoSkeletonUpdate.AsBool())
 				{
 					// Update the mesh-space bone transforms held in SpaceBases array from animation data.
 					UpdateSkelPose( DeltaTime ); 
@@ -301,10 +467,10 @@ namespace MEdge.Engine
 				}
 
 		#if SHOW_SKELETAL_MESH_COMPONENT_TICK_TIME || LOOKING_FOR_PERF_ISSUES
-				const DOUBLE UpdateSkelPoseStop = (appSeconds() - UpdateSkelPoseStart) * 1000.f;
+				DOUBLE UpdateSkelPoseStop = (appSeconds() - UpdateSkelPoseStart) * 1000.f;
 				if( GShouldLogOutAFrameOfSkelCompTick == TRUE )
 				{
-					debugf( TEXT( "USkeletalMeshComponent:  %s   SkelMesh:  %s  Owner: %s, UpdateSkelPoseS: %f" ), *this->GetPathName(), *SkeletalMesh->GetPathName(), *GetOwner()->GetName(), UpdateSkelPoseStop );
+					debugf( TEXT( "USkeletalMeshComponent:  %s   SkelMesh:  %s  Owner: %s, UpdateSkelPoseS: %f" ), *this.GetPathName(), *SkeletalMesh.GetPathName(), *GetOwner().GetName(), UpdateSkelPoseStop );
 				}
 		#endif
 			}
@@ -329,13 +495,81 @@ namespace MEdge.Engine
 				UpdateRBBonesFromSpaceBases(CurrentLocalToWorld, FALSE, FALSE);
 			}
 		}
-		#endif
 
-		#if UNUSED
-		public void UpdateSkelPose( float DeltaTime, bool bTickFaceFX )
+
+
+		UBOOL UpdateLODStatus()
+		{
+			NativeMarkers.MarkUnimplemented("Not necessary");
+			return false;
+		}
+
+
+
+		FMatrix CalcCurrentLocalToWorld(in FMatrix ParentMatrix)
+		{
+			FMatrix ResultMatrix = ParentMatrix;
+
+			if(AbsoluteTranslation)
+			{
+				ResultMatrix.M[3,0] = ResultMatrix.M[3,1] = ResultMatrix.M[3,2] = 0.0f;
+			}
+
+			if(AbsoluteRotation || AbsoluteScale)
+			{
+				FVector	X = new(ResultMatrix.M[0,0],ResultMatrix.M[1,0],ResultMatrix.M[2,0]),
+				Y = new(ResultMatrix.M[0,1],ResultMatrix.M[1,1],ResultMatrix.M[2,1]),
+				Z = new(ResultMatrix.M[0,2],ResultMatrix.M[1,2],ResultMatrix.M[2,2]);
+
+				if(AbsoluteScale)
+				{
+					X.Normalize();
+					Y.Normalize();
+					Z.Normalize();
+				}
+
+				if(AbsoluteRotation)
+				{
+					X = FVector(X.Size(),0,0);
+					Y = FVector(0,Y.Size(),0);
+					Z = FVector(0,0,Z.Size());
+				}
+
+				ResultMatrix.M[0,0] = X.X;
+				ResultMatrix.M[1,0] = X.Y;
+				ResultMatrix.M[2,0] = X.Z;
+				ResultMatrix.M[0,1] = Y.X;
+				ResultMatrix.M[1,1] = Y.Y;
+				ResultMatrix.M[2,1] = Y.Z;
+				ResultMatrix.M[0,2] = Z.X;
+				ResultMatrix.M[1,2] = Z.Y;
+				ResultMatrix.M[2,2] = Z.Z;
+			}
+
+			// If desired, take into account the transform from the Origin/RotOrigin in the SkeletalMesh (if there is one).
+			// We don't do this if bTransformFromAnimParent is true and we have a parent - in that case both ResultMatrixs should be the same, including skeletal offset.
+			FMatrix SkelCompOffset = FMatrix.Identity;
+			if(SkeletalMesh && !bForceRawOffset.AsBool() && !(ParentAnimComponent && bTransformFromAnimParent.AsBool()))
+			{
+				SkelCompOffset = FTranslationMatrix( SkeletalMesh.Origin ) * FRotationMatrix(SkeletalMesh.RotOrigin);
+			}
+
+			ResultMatrix = SkelCompOffset * FScaleRotationTranslationMatrix( Scale * Scale3D, Rotation, Translation ) * ResultMatrix;
+			return ResultMatrix;
+		}
+
+
+
+		public void UpdateRBBonesFromSpaceBases( in FMatrix CurrentLocalToWorld, UBOOL bMoveUnfixedBodies, UBOOL bTeleport )
+		{
+			NativeMarkers.MarkUnimplemented("Unnecessary");
+		}
+
+
+
+		public void UpdateSkelPose( float DeltaTime = 0f, bool bTickFaceFX = true )
 		{
 			//SCOPE_CYCLE_COUNTER(STAT_UpdateSkelPose);
-			#if UNUSED
 			// Can't do anything without a SkeletalMesh
 			if( !SkeletalMesh )
 			{
@@ -348,33 +582,33 @@ namespace MEdge.Engine
 			if( SpaceBases.Num() != SkeletalMesh.RefSkeleton.Num() )
 			{
 				SpaceBases.Empty( SkeletalMesh.RefSkeleton.Num() );
-				SpaceBases.Add( SkeletalMesh.RefSkeleton.Num() );
+				SpaceBases.AddCount( SkeletalMesh.RefSkeleton.Num() );
 
 				// Controls sometimes use last frames position of a bone. But if that is not valid (ie array is freshly allocated)
 				// we need to turn them off.
-				bIgnoreControllers = TRUE;
+				bIgnoreControllers = TRUE.AsInt();
 			}
 
 			if( LocalAtoms.Num() != SkeletalMesh.RefSkeleton.Num() )
 			{
 				LocalAtoms.Empty( SkeletalMesh.RefSkeleton.Num() );
-				LocalAtoms.Add( SkeletalMesh.RefSkeleton.Num() );
+				LocalAtoms.AddCount( SkeletalMesh.RefSkeleton.Num() );
 			}
 
 			// Do nothing more if no bones in skeleton.
 			if( SpaceBases.Num() == 0 )
 			{
-				bIgnoreControllers = bOldIgnoreControllers;
+				bIgnoreControllers = bOldIgnoreControllers.AsInt();
 				return;
 			}
 
 			// Update bones transform from animations (if present)
 
-			const UBOOL bRenderedRecently = (GWorld.GetTimeSeconds() - LastRenderTime) < 1.0f;
+			UBOOL bRenderedRecently = (GWorld.GetTimeSeconds() - LastRenderTime) < 1.0f;
 
 			// See if this mesh is far enough from the viewer we should stop updating kinematic rig
 			UBOOL bNewNotUpdateKinematic = FALSE;
-			if(	MinDistFactorForKinematicUpdate > 0.f && 
+			if(	MinDistFactorForKinematicUpdate > 0f && 
 				(MaxDistanceFactor < MinDistFactorForKinematicUpdate || !bRenderedRecently) )
 			{
 				bNewNotUpdateKinematic = TRUE;
@@ -403,10 +637,10 @@ namespace MEdge.Engine
 			}
 
 			// Recalculate the RequiredBones array, if necessary
-			if(!bRequiredBonesUpToDate)
+			if(!(bRequiredBonesUpToDate.AsBool()))
 			{
 				RecalcRequiredBones(PredictedLODLevel);
-				bRequiredBonesUpToDate = TRUE;
+				bRequiredBonesUpToDate = TRUE.AsInt();
 			}
 
 			// We can skip doing some work when using PHYS_RigidBody and physics bodies asleep
@@ -414,18 +648,13 @@ namespace MEdge.Engine
 			{
 				return;
 			}
-			#endif
 
 			// Root motion extracted for this call
-			FBoneAtom	ExtractedRootMotionDelta	= FBoneAtom::Identity;
-			INT			bHasRootMotion				= 0;
+			BoneAtom	ExtractedRootMotionDelta	= BoneAtom.Identity;
+			bool			bHasRootMotion				= false;
 			{
 				//SCOPE_CYCLE_COUNTER(STAT_AnimBlendTime);
-				#if UNUSED
-				if( Animations && !bForceRefpose )
-				#else
-				if( Animations )
-				#endif
+				if( Animations && !bForceRefpose.AsBool() )
 				{
 					// Check its been initialized
 					checkf(Animations.SkelComponent, TEXT("! Component: %s  SkeletalMesh: %s"), /*GetPathName()*/"GetPathName()", SkeletalMesh.Name);
@@ -439,7 +668,7 @@ namespace MEdge.Engine
 					BoneAtomBlendStats.Empty();
 		#endif
 					//debugf(TEXT("%2.3f: %s GetBoneAtoms(), owner: %s"),GWorld.GetTimeSeconds(),*GetPathName(),*Owner.GetName());
-					Animations.GetBoneAtoms(LocalAtoms, RequiredBones, ExtractedRootMotionDelta, bHasRootMotion);
+					Animations.GetBoneAtoms(ref LocalAtoms, ref RequiredBones, ref ExtractedRootMotionDelta, ref bHasRootMotion);
 
 		#if ENABLE_GETBONEATOM_STATS
 					if(GShouldLogOutAFrameOfSkelCompTick)
@@ -458,7 +687,7 @@ namespace MEdge.Engine
 				}
 				else
 				{
-					UAnimNode::FillWithRefPose(LocalAtoms, RequiredBones, SkeletalMesh.RefSkeleton);
+					AnimNode.FillWithRefPose(ref LocalAtoms, RequiredBones, SkeletalMesh.RefSkeleton);
 				}
 			}
 
@@ -504,7 +733,7 @@ namespace MEdge.Engine
 					ExtractedRootMotionDelta.Translation = LocalToWorld.TransformNormal(ExtractedRootMotionDelta.Translation);
 
 					// Scale RootMotion translation in Mesh Space.
-					if( RootMotionAccelScale != FVector(1.f) )
+					if( RootMotionAccelScale != FVector(1f) )
 					{
 						ExtractedRootMotionDelta.Translation *= RootMotionAccelScale;
 					}
@@ -512,7 +741,7 @@ namespace MEdge.Engine
 					// If Owner required a Script event forwarded when root motion has been extracted, forward it
 					if( Owner && bRootMotionExtractedNotify )
 					{
-						Owner.RootMotionExtracted(this, ExtractedRootMotionDelta);
+						Owner.RootMotionExtracted(this, ref ExtractedRootMotionDelta);
 					}
 
 					// Root Motion delta is accumulated every time it is extracted.
@@ -525,8 +754,8 @@ namespace MEdge.Engine
 				}
 				else
 				{
-					RootMotionDelta.Translation = FVector(0.f);
-					RootMotionVelocity			= FVector(0.f);
+					RootMotionDelta.Translation = FVector(0f);
+					RootMotionVelocity			= FVector(0f);
 				}
 
 		#if false//0 // DEBUG
@@ -552,7 +781,7 @@ namespace MEdge.Engine
 
 				if( bHasRootMotion && RootMotionRotationMode != ERootMotionRotationMode.RMRM_Ignore )
 				{
-					FQuat	MeshToWorldQuat(LocalToWorld);
+					Quat MeshToWorldQuat = new(LocalToWorld);
 
 					// Transform mesh space delta rotation to world space.
 					RootMotionDelta.Rotation = MeshToWorldQuat * ExtractedRootMotionDelta.Rotation * (-MeshToWorldQuat);
@@ -560,13 +789,13 @@ namespace MEdge.Engine
 				}
 				else
 				{
-					RootMotionDelta.Rotation = FQuat::Identity;
+					RootMotionDelta.Rotation = Quat.Identity;
 				}
 
 		#if false//0 // DEBUG ROOT ROTATION
 				if( RootMotionRotationMode != RMRM_Ignore )
 				{
-					const FRotator DeltaRotation = FQuatRotationTranslationMatrix(RootMotionDelta.Rotation, FVector(0.f)).Rotator();
+					FRotator DeltaRotation = FQuatRotationTranslationMatrix(RootMotionDelta.Rotation, FVector(0.f)).Rotator();
 					debugf(TEXT("%3.2f Root Rotation: %s"), GWorld.GetTimeSeconds(), *DeltaRotation.ToString());
 				}
 		#endif
@@ -582,11 +811,11 @@ namespace MEdge.Engine
 					 * We need to do this because in-game physics have already been applied for this tick.
 					 * So we want root motion to kick in for next frame.
 					 */
-					const UBOOL		bCanDoTranslation	= (RootMotionMode == RMM_Translate && PreviousRMM == RMM_Translate);
-					const FVector	InstantTranslation	= bCanDoTranslation ? RootMotionDelta.Translation : FVector(0.f);
+					UBOOL		bCanDoTranslation	= (RootMotionMode == RMM_Translate && PreviousRMM == RMM_Translate);
+					FVector	InstantTranslation	= bCanDoTranslation ? RootMotionDelta.Translation : FVector(0f);
 
-					const UBOOL		bCanDoRotation		= (RootMotionRotationMode == RMRM_RotateActor);
-					const FRotator	InstantRotation		=  bCanDoRotation ? FQuatRotationTranslationMatrix(RootMotionDelta.Rotation, FVector(0.f)).Rotator() : FRotator(0,0,0);
+					UBOOL		bCanDoRotation		= (RootMotionRotationMode == RMRM_RotateActor);
+					FRotator	InstantRotation		=  bCanDoRotation ? FQuatRotationTranslationMatrix(RootMotionDelta.Rotation, FVector(0f)).Rotator() : FRotator(0,0,0);
 
 					if( Owner && (!InstantRotation.IsZero() || InstantTranslation.SizeSquared() > SMALL_NUMBER) )
 					{
@@ -594,13 +823,13 @@ namespace MEdge.Engine
 						debugf(TEXT("%3.2f Root Motion Instant. DeltaRot: %s"), GWorld.GetTimeSeconds(), *InstantRotation.ToString());
 		#endif
 						// Transform mesh directly. Doesn't take in-game physics into account.
-						FCheckResult Hit(1.f);
-						GWorld.MoveActor(Owner, InstantTranslation, Owner.Rotation + InstantRotation, 0, Hit);
+						CheckResult Hit = new(1f);
+						GWorld.MoveActor(Owner, InstantTranslation, Owner.Rotation + InstantRotation, 0, ref Hit);
 
 						// If we have used translation, reset the accumulator.
 						if( bCanDoTranslation )
 						{
-							RootMotionDelta.Translation = FVector(0.f);
+							RootMotionDelta.Translation = FVector(0f);
 						}
 
 						if( bCanDoRotation )
@@ -608,7 +837,7 @@ namespace MEdge.Engine
 							Owner.DesiredRotation = Owner.Rotation;
 
 							// Update DesiredRotation for AI Controlled Pawns
-							APawn* PawnOwner = Cast<APawn>(Owner);
+							Pawn PawnOwner = (Owner as Pawn);
 							if( PawnOwner && PawnOwner.Controller && PawnOwner.Controller.bForceDesiredRotation )
 							{
 								PawnOwner.Controller.DesiredRotation = Owner.Rotation;
@@ -624,7 +853,7 @@ namespace MEdge.Engine
 					// if RootMotionMode != RMM_Ignore, then on next frame root motion will kick in.
 					if( bRootMotionModeChangeNotify && Owner )
 					{
-						Owner.eventRootMotionModeChanged(this);
+						Owner.RootMotionModeChanged(this);
 					}
 					PreviousRMM = RootMotionMode;
 				}
@@ -639,21 +868,21 @@ namespace MEdge.Engine
 
 			if( bForceDiscardRootMotion )
 			{
-				LocalAtoms(0).Translation	= FVector(0.f);
-				LocalAtoms(0).Rotation		= FQuat::Identity;
+				LocalAtoms[0].Translation	= FVector(0f);
+				LocalAtoms[0].Rotation		= FQuat.Identity;
 			}
 
 			// Remember the root bone's translation so we can move the bounds.
-			RootBoneTranslation = LocalAtoms(0).Translation - SkeletalMesh.RefSkeleton(0).BonePos.Position;
+			RootBoneTranslation = LocalAtoms[0].Translation - SkeletalMesh.RefSkeleton[0].BonePos.Position;
 
 			// Update the ActiveMorphs array.
 			UpdateActiveMorphs();
 
 			if( SkeletalMesh.FaceFXAsset )
 			{
-				SCOPE_CYCLE_COUNTER(STAT_UpdateFaceFX);
+				//SCOPE_CYCLE_COUNTER(STAT_UpdateFaceFX);
 				// Do FaceFX processing.
-				UpdateFaceFX(LocalAtoms, bTickFaceFX);
+				UpdateFaceFX(ref LocalAtoms, bTickFaceFX);
 			}
 
 			// We need the world space bone transforms now for two reasons:
@@ -663,11 +892,11 @@ namespace MEdge.Engine
 
 			//const DOUBLE ComposeSkeleton_Start = appSeconds();
 
-			ComposeSkeleton(LocalAtoms, RequiredBones);
+			ComposeSkeleton(ref LocalAtoms, RequiredBones);
 
 		// 	if( GShouldLogOutAFrameOfSkelCompTick == TRUE )
 		// 	{
-		// 		const DOUBLE ComposeSkeleton_Time = (appSeconds() - ComposeSkeleton_Start) * 1000.f;
+		// 		DOUBLE ComposeSkeleton_Time = (appSeconds() - ComposeSkeleton_Start) * 1000.f;
 		// 		debugf( TEXT( "   ComposeSkeleton_Time: %f" ), ComposeSkeleton_Time );
 		// 	}
 
@@ -685,10 +914,448 @@ namespace MEdge.Engine
 				UpdateRBJointMotors();
 			}
 
-			bIgnoreControllers = bOldIgnoreControllers;
+			bIgnoreControllers = bOldIgnoreControllers.AsInt();
 			bHasHadPhysicsBlendedIn = FALSE;
 		}
+		
+		void UpdateFaceFX( ref array<FBoneAtom> LocalTransforms, UBOOL bTickFaceFX )
+		{
+			NativeMarkers.MarkUnimplemented("Not necessary");
+		}
+
+
+
+		void UpdateRBJointMotors()
+		{
+			NativeMarkers.MarkUnimplemented("Not necessary");
+		}
+		
+		
+		public FMatrix CalcComponentToFrameMatrix(INT BoneIndex, SkelControlBase.EBoneControlSpace Space, name OtherBoneName)
+		{
+			FMatrix ComponentToFrame;
+			if(Space == BCS_WorldSpace)
+			{
+				ComponentToFrame = LocalToWorld;
+			}
+			else if(Space == BCS_ActorSpace)
+			{
+				if(Owner)
+				{
+					ComponentToFrame = LocalToWorld * Owner.LocalToWorld().Inverse();
+				}
+				else
+				{
+					//ActorToWorld = FMatrix::Identity;
+					ComponentToFrame = LocalToWorld;
+				}
+			}
+			else if(Space == BCS_ComponentSpace)
+			{
+				ComponentToFrame = FMatrix.Identity;
+			}
+			else if(Space == BCS_ParentBoneSpace)
+			{
+				if(BoneIndex == 0)
+				{
+					ComponentToFrame = FMatrix.Identity;
+				}
+				else
+				{
+					INT ParentIndex = SkeletalMesh.RefSkeleton[BoneIndex].ParentIndex;
+					ComponentToFrame =SpaceBases[ParentIndex].Inverse();
+				}
+			}
+			else if(Space == BCS_BoneSpace)
+			{
+				ComponentToFrame = SpaceBases[BoneIndex].Inverse();
+			}
+			else if(Space == BCS_OtherBoneSpace)
+			{
+				INT OtherBoneIndex = MatchRefBone(OtherBoneName);
+				if(OtherBoneIndex != INDEX_NONE)
+				{
+					ComponentToFrame = SpaceBases[OtherBoneIndex].Inverse();
+				}
+				else
+				{
+					debugf( TEXT("GetFrameMatrix: Invalid BoneName: %s  for Mesh: %s"), OtherBoneName.ToString(), SkeletalMesh.GetFName().ToString() );
+					ComponentToFrame = FMatrix.Identity;
+				}
+			}
+			else
+			{
+				debugf( TEXT("GetFrameMatrix: Unknown Frame %d  for Mesh: %s"), Space, SkeletalMesh.GetFName().ToString() );
+				ComponentToFrame = FMatrix.Identity;
+			}
+
+			ComponentToFrame.RemoveScaling();
+			return ComponentToFrame;
+		}
+
+
+
+		void ComposeSkeleton(ref array<FBoneAtom> LocalTransforms, in array<BYTE> RequiredBones)
+		{
+			//SCOPE_CYCLE_COUNTER(STAT_SkelComposeTime);
+
+			if( !SkeletalMesh )
+			{
+				return;
+			}
+
+			check( SkeletalMesh.RefSkeleton.Num() == LocalTransforms.Num() );
+			check( SkeletalMesh.RefSkeleton.Num() == SpaceBases.Num() );
+
+			AnimTree Tree = (Animations) as AnimTree;
+
+			array<INT>		AffectedBones = new();
+			array<FMatrix> NewBoneTransforms = new();
+			array<FLOAT>	NewBoneScales = new();
+
+			// Cache this once
+			WorldInfo WorldInfo = GWorld.GetWorldInfo();
+
+			// If bIgnoreControllersWhenNotRendered is true, set bForceIgnore if the Owner has not been drawn recently.
+			UBOOL bRenderedRecently	= (WorldInfo.TimeSeconds - LastRenderTime) < 1.0f;
+			UBOOL bForceIgnore		= GIsGame && bIgnoreControllersWhenNotRendered && !bRenderedRecently;
+
+			// Number of passes for composing
+			// AnimTree defines a list of branches that should be performed before the rest of the others.
+			INT PassNb = Tree && Tree.PrioritizedSkelBranches.Num() > 0 ? 1 : 0;
+			while( PassNb >= 0 )
+			{
+				// Iterate over each bone
+				for(INT i=0; i<RequiredBones.Num(); i++)
+				{
+					INT BoneIndex = RequiredBones[i];
+
+					// If we should skip the bones for this pass, then do so.
+					if( Tree && BoneIndex < Tree.PriorityList.Num() && Tree.PriorityList[BoneIndex] != PassNb )
+					{
+						continue;
+					}
+
+					// For root bone, just read bone atom as component-space transform.
+					if( BoneIndex == 0 )
+					{
+						LocalTransforms[0].ToTransform(ref SpaceBases[0]);
+					}
+					// For all bones below the root, final component-space transform is relative transform * component-space transform of parent.
+					else
+					{
+						FMatrix LocalBoneTM = default;
+						LocalTransforms[BoneIndex].ToTransform(ref LocalBoneTM);
+
+						INT ParentIndex = SkeletalMesh.RefSkeleton[BoneIndex].ParentIndex;
+
+		#if DO_GUARD_SLOW
+						// Check the precondition that Parents occur before Children in the RequiredBones array.
+						INT ReqBoneParentIndex = RequiredBones.FindItemIndex(ParentIndex);
+						check(ReqBoneParentIndex != INDEX_NONE);
+						check(ReqBoneParentIndex < i);
 		#endif
+						SpaceBases[BoneIndex] = LocalBoneTM * SpaceBases[ParentIndex];
+					}
+
+					// If we have an AnimTree, and we are not ignoring controllers, apply any SkelControls in the tree now.
+					if( Tree && !bIgnoreControllers.AsBool() && !bForceIgnore )
+					{
+						// If the SkelControlIndex is not empty, and we have controllers for this bone, apply it now.
+						if( (SkelControlIndex.Num() > 0) && (SkelControlIndex[BoneIndex] != 255) )
+						{
+							INT ControlIndex = SkelControlIndex[BoneIndex];
+							check( ControlIndex < Tree.SkelControlLists.Num() );
+
+							// Iterate over linked list of controls, calculate desired transforms for each.
+							SkelControlBase Control = Tree.SkelControlLists[ControlIndex].ControlHead;
+							while( Control )
+							{
+								if ((bRenderedRecently || !Control.bIgnoreWhenNotRendered) && (PredictedLODLevel < Control.IgnoreAtOrAboveLOD) && Control.ControlStrength > ZERO_ANIMWEIGHT_THRESH )
+								{
+									//SCOPE_CYCLE_COUNTER(STAT_SkelControl);
+
+									AffectedBones.Reset();
+									Control.GetAffectedBones(BoneIndex, this, ref AffectedBones);
+
+									// Do nothing if we are not going to affect any bones.
+									if( AffectedBones.Num() > 0 )
+									{
+										NewBoneTransforms.Reset();
+										Control.CalculateNewBoneTransforms(BoneIndex, this, ref NewBoneTransforms);
+										UBOOL bTransformingAffectedBones = (NewBoneTransforms.Num() > 0);
+
+										NewBoneScales.Reset();
+										Control.CalculateNewBoneScales(BoneIndex, this, ref NewBoneScales);
+										UBOOL bScalingAffectedBones = (NewBoneScales.Num() > 0);
+
+										// Get Alpha for this control. CalculateNewBoneTransforms() may have changed it.
+										FLOAT ControlAlpha = Control.GetControlAlpha();
+
+										// This allows the SkelControl to do nothing, by returning empty arrays.
+										// ControlAlpha can also return 0 to skip applying the controller.
+										if( ControlAlpha > ZERO_ANIMWEIGHT_THRESH && (bTransformingAffectedBones || bScalingAffectedBones) )
+										{
+											// handle skelcontrol pos/rot modifications to bones
+											if (bTransformingAffectedBones)
+											{
+												check( AffectedBones.Num() == NewBoneTransforms.Num() );
+
+												// Now handle blending control output into skeleton.
+												// We basically have to turn each transform back into a local-space FBoneAtom, interpolate between the current FBoneAtom
+												// for this bone, then do the regular 'relative to parent' blend maths.
+
+												for(INT AffectedIdx=0; AffectedIdx<AffectedBones.Num(); AffectedIdx++)
+												{
+													INT AffectedBoneIndex	= AffectedBones[AffectedIdx];
+													INT ParentIndex		= SkeletalMesh.RefSkeleton[AffectedBoneIndex].ParentIndex;
+
+													// Calculate transform of parent bone
+													FMatrix ParentTM;
+													if( AffectedBoneIndex > 0 )
+													{
+														// If the parent of this bone is another one affected by this controller,
+														// we want to use the new parent transform from the controller as the basis for the relative-space animation atom.
+														// If not, use the current SpaceBase matrix for the parent.
+														INT NewBoneTransformIndex = AffectedBones.FindItemIndex(ParentIndex);
+														if( NewBoneTransformIndex == INDEX_NONE )
+														{
+															ParentTM = SpaceBases[ParentIndex];
+														}
+														else
+														{
+															ParentTM = NewBoneTransforms[NewBoneTransformIndex];
+														}
+													}
+													else
+													{
+														ParentTM = FMatrix.Identity;
+													}
+
+													// Then work out relative transform, and convert to FBoneAtom.
+													FMatrix RelTM = NewBoneTransforms[AffectedIdx] * ParentTM.Inverse();
+													FBoneAtom ControlRelAtom = new(RelTM);
+
+													// faster version when we don't need to blend. Copy results directly
+													if( ControlAlpha >= (1f - ZERO_ANIMWEIGHT_THRESH) )
+													{
+														// FBoneAtom transform from above doesn't take into account scaling. So make sure we don't here either.
+														// We can't just assign NewBoneTransforms to SpaceBases, because we want to inherit scaling from parents.
+														RelTM.RemoveScaling();
+														if( AffectedBoneIndex > 0 )
+														{
+															SpaceBases[AffectedBoneIndex] = RelTM * SpaceBases[ParentIndex];
+														}
+														else
+														{
+															SpaceBases[AffectedBoneIndex] = RelTM;
+														}
+
+														LocalTransforms[AffectedBoneIndex] = ControlRelAtom;
+													}
+													else
+													{
+														// Set the new FBoneAtom to be a blend between the current one, and the one from the controller.
+														FBoneAtom CurrentAtom = LocalTransforms[AffectedBoneIndex];
+														LocalTransforms[AffectedBoneIndex].Blend(CurrentAtom, ControlRelAtom, ControlAlpha);
+
+														// Then do usual hierarchical blending stuff (just like in ComposeSkeleton).
+														if( AffectedBoneIndex > 0 )
+														{
+															FMatrix LocalBoneTM = default;
+															LocalTransforms[AffectedBoneIndex].ToTransform(ref LocalBoneTM);
+															SpaceBases[AffectedBoneIndex] = LocalBoneTM * SpaceBases[ParentIndex];
+														}
+														else
+														{
+															LocalTransforms[0].ToTransform(ref SpaceBases[0]);
+														}
+													}
+												}
+											}
+
+											// handle scaling separately for now.  loops through affected bones again, but
+											// should be a rarely used code path
+											if (bScalingAffectedBones)
+											{
+												check( AffectedBones.Num() == NewBoneScales.Num() );
+
+												for(INT AffectedIdx=0; AffectedIdx<AffectedBones.Num(); AffectedIdx++)
+												{
+													INT AffectedBoneIndex	= AffectedBones[AffectedIdx];
+													INT ParentIndex		= SkeletalMesh.RefSkeleton[AffectedBoneIndex].ParentIndex;
+
+													FLOAT ParentScale = 1f;
+													{
+														if( AffectedBoneIndex > 0 )
+														{
+															// If the parent of this bone is another one affected by this controller,
+															// we want to use the new parent transform from the controller as the basis for the relative-space animation atom.
+															// If not, use the current SpaceBase matrix for the parent.
+															INT ParentBoneIndex = AffectedBones.FindItemIndex(ParentIndex);
+															if( ParentBoneIndex != INDEX_NONE )
+															{
+																ParentScale = NewBoneScales[ParentBoneIndex];
+															}
+														}
+													}
+
+													FLOAT FinalScale, FinalRelScale;
+													if( ControlAlpha >= (1f - ZERO_ANIMWEIGHT_THRESH) )
+													{
+														// faster version when we don't need to blend. Copy results directly
+														FinalScale = NewBoneScales[AffectedIdx];
+														FinalRelScale = (ParentScale == 0f) ? 1f : FinalScale / ParentScale;
+													}
+													else
+													{
+														// else, need to blend.  Just doing lerp here for now, instead of pushing through 
+														// the FBoneAtom.Blend() call.
+														FLOAT RelScale = (ParentScale == 0f) ? 1f : NewBoneScales[AffectedIdx] / ParentScale;
+														FinalRelScale = Lerp(LocalTransforms[AffectedBoneIndex].Scale, RelScale, ControlAlpha);
+														FinalScale = FinalRelScale * ParentScale;
+													}
+
+													// apply the scaling
+													LocalTransforms[AffectedBoneIndex].Scale *= FinalRelScale;
+													SpaceBases[AffectedBoneIndex] = FScaleMatrix(FinalRelScale) * SpaceBases[AffectedBoneIndex];
+												}
+											}
+
+											// Calculate desired bone scaling for this bone - scaled by the ControlStrength.
+											FLOAT BoneScale = Lerp(1f, Control.GetBoneScale(BoneIndex, this), ControlAlpha);
+
+											// Apply bone scaling.
+											if( BoneScale != 1f )
+											{
+												LocalTransforms[BoneIndex].Scale *= BoneScale;
+												SpaceBases[BoneIndex] = FScaleMatrix(BoneScale) * SpaceBases[BoneIndex];
+											}
+
+											// Find the earliest bone in bones array affected by this controller. 
+											// Because parents are always before children in AffectedBones, this will always be the first element.
+											INT FirstAffectedBone = AffectedBones[0];
+
+											// For any bones between that bone and the one we updated, that was not affected by the bone controller, we need to refresh it.
+											for(INT UpdateBoneIndex = FirstAffectedBone+1; UpdateBoneIndex<BoneIndex; UpdateBoneIndex++)
+											{
+												// @todo We don't need to do this for any bones that are not in RequiredBones, but we don't want to do another ContainsItem here,
+												// so should probably build an array of bools (entry for each bone) which we can quickly look up into.
+												if( !AffectedBones.ContainsItem(UpdateBoneIndex) )
+												{
+													LocalTransforms[UpdateBoneIndex].ToTransform(ref  SpaceBases[UpdateBoneIndex] );
+													INT UpdateParentIndex = SkeletalMesh.RefSkeleton[UpdateBoneIndex].ParentIndex;
+													SpaceBases[UpdateBoneIndex] *= SpaceBases[UpdateParentIndex];
+												}
+											}
+										}
+									} // if( AffectedBones.Num() > 0 )
+								} // if( Control.ControlStrength > KINDA_SMALL_NUMBER )
+
+								Control = Control.NextControl;
+							}
+						}
+					}
+				}
+
+				PassNb--;
+			} // while( PassNb >= 0 )
+		}
+
+
+
+		void UpdateActiveMorphs()
+		{
+			ActiveMorphs.Empty();
+
+			AnimTree AnimTree = Animations as AnimTree;
+			if(AnimTree)
+			{
+				AnimTree.GetTreeActiveMorphs( ref ActiveMorphs );
+			}
+		}
+
+
+
+		public void RecalcRequiredBones( INT LODIndex )
+		{
+			RequiredBones.Empty();
+			for(int i = 0; i < AnimSets[0].TrackBoneNames.Count; i++)
+				RequiredBones.Add((byte)i);
+			NativeMarkers.MarkUnimplemented();
+			#if UNUSED
+			// The list of bones we want is taken from the predicted LOD level.
+			FStaticLODModel& LODModel = SkeletalMesh.LODModels(LODIndex);
+
+
+			// The LODModel.RequiredBones array only includes bones that are desired for that LOD level.
+			// They are also in strictly increasing order, which also infers parents-before-children.
+			RequiredBones = LODModel.RequiredBones;
+
+
+			// Add in any bones that may be required when mirroring.
+			// JTODO: This is only required if there are mirroring nodes in the tree, but hard to know...
+			if(SkeletalMesh.SkelMirrorTable.Num() == LocalAtoms.Num())
+			{
+				array<BYTE> MirroredDesiredBones = new();
+				MirroredDesiredBones.AddCount(RequiredBones.Num());
+
+				// Look up each bone in the mirroring table.
+				for(INT i=0; i<RequiredBones.Num(); i++)
+				{
+					MirroredDesiredBones[i] = (byte)SkeletalMesh.SkelMirrorTable[RequiredBones[i]].SourceIndex;
+				}
+
+				// Sort to ensure strictly increasing order.
+				Sort<USE_COMPARE_CONSTREF(BYTE, UnSkeletalComponent)>(&MirroredDesiredBones(0), MirroredDesiredBones.Num());
+
+				// Make sure all of these are in RequiredBones, and 
+				MergeInByteArray(RequiredBones, MirroredDesiredBones);
+			}
+
+			// If we have a PhysicsAsset, we also need to make sure that all the bones used by it are always updated, as its used
+			// by line checks etc. We might also want to kick in the physics, which means having valid bone transforms.
+			if(PhysicsAsset)
+			{
+				array<BYTE> PhysAssetBones = new();
+				for(INT i=0; i<PhysicsAsset.BodySetup.Num(); i++ )
+				{
+					INT PhysBoneIndex = SkeletalMesh.MatchRefBone( PhysicsAsset.BodySetup[i].BoneName );
+					if(PhysBoneIndex != INDEX_NONE)
+					{
+						PhysAssetBones.AddItem((byte)PhysBoneIndex);
+					}	
+				}
+
+				// Then sort array of required bones in hierarchy order
+				Sort<USE_COMPARE_CONSTREF(BYTE, UnSkeletalComponent)>( &PhysAssetBones(0), PhysAssetBones.Num() );
+
+				// Make sure all of these are in RequiredBones.
+				MergeInByteArray(RequiredBones, PhysAssetBones);
+			}
+
+			// Make sure that bones with per-poly collision are also always updated.
+			if(SkeletalMesh.PerPolyCollisionBones.Num() > 0)
+			{
+				array<BYTE> PerPolyCollisionBones = new();
+				for(INT i=0; i<SkeletalMesh.PerPolyCollisionBones.Num(); i++ )
+				{
+					INT PerPolyBoneIndex = SkeletalMesh.MatchRefBone( SkeletalMesh.PerPolyCollisionBones[i] );
+					if(PerPolyBoneIndex != INDEX_NONE)
+					{
+						PerPolyCollisionBones.AddItem((byte)PerPolyBoneIndex);
+					}	
+				}
+
+				// Once again, sort and merge.
+				Sort<USE_COMPARE_CONSTREF(BYTE, UnSkeletalComponent)>( &PerPolyCollisionBones(0), PerPolyCollisionBones.Num() );
+				MergeInByteArray(RequiredBones, PerPolyCollisionBones);
+			}
+
+			// Ensure that we have a complete hierarchy down to those bones.
+			UAnimNode.EnsureParentsPresent(RequiredBones, SkeletalMesh);
+			#endif
+		}
 	}
 
 
@@ -701,24 +1368,171 @@ namespace MEdge.Engine
 		protected static float appFmod( float a, float b ) => a % b;
 		protected static float appAcos( float Value ) => MathF.Acos( ( Value < - 1f ) ? - 1f : ( ( Value < 1f ) ? Value : 1f ) );
 
-		public partial struct BoneAtom{}
+		
+		public virtual void SetAnim( name SequenceName ) {}
+
+		public partial struct BoneAtom
+		{
+			public BoneAtom(Quat q, Vector v, float s)
+			{
+				this.Rotation = q;
+				this.Translation = v;
+				this.Scale = s;
+			}
+			
+			public BoneAtom(in Matrix mat)
+			{
+				this.Rotation = new(mat);
+				this.Translation = mat.GetOrigin();
+				this.Scale = 1f;
+			}
+
+
+
+			public static BoneAtom Identity = new BoneAtom(new Quat(0f,0f,0f,1f), FVector(0f, 0f, 0f), 1f);
+			
+			public void ToTransform(ref FMatrix OutMatrix)
+			{
+				OutMatrix.M[3,0] = Translation.X;
+				OutMatrix.M[3,1] = Translation.Y;
+				OutMatrix.M[3,2] = Translation.Z;
+
+				FLOAT x2 = Rotation.X + Rotation.X;	
+				FLOAT y2 = Rotation.Y + Rotation.Y;  
+				FLOAT z2 = Rotation.Z + Rotation.Z;
+				{
+					FLOAT xx2 = Rotation.X * x2;
+					FLOAT yy2 = Rotation.Y * y2;			
+					FLOAT zz2 = Rotation.Z * z2;
+
+					OutMatrix.M[0,0] = (1.0f - (yy2 + zz2)) * Scale;	
+					OutMatrix.M[1,1] = (1.0f - (xx2 + zz2)) * Scale;
+					OutMatrix.M[2,2] = (1.0f - (xx2 + yy2)) * Scale;
+				}
+				{
+					FLOAT yz2 = Rotation.Y * z2;   
+					FLOAT wx2 = Rotation.W * x2;	
+
+					OutMatrix.M[2,1] = (yz2 - wx2) * Scale;
+					OutMatrix.M[1,2] = (yz2 + wx2) * Scale;
+				}
+				{
+					FLOAT xy2 = Rotation.X * y2;
+					FLOAT wz2 = Rotation.W * z2;
+
+					OutMatrix.M[1,0] = (xy2 - wz2) * Scale;
+					OutMatrix.M[0,1] = (xy2 + wz2) * Scale;
+				}
+				{
+					FLOAT xz2 = Rotation.X * z2;
+					FLOAT wy2 = Rotation.W * y2;   
+
+					OutMatrix.M[2,0] = (xz2 + wy2) * Scale;
+					OutMatrix.M[0,2] = (xz2 - wy2) * Scale;
+				}
+
+				OutMatrix.M[0,3] = 0.0f;
+				OutMatrix.M[1,3] = 0.0f;
+				OutMatrix.M[2,3] = 0.0f;
+				OutMatrix.M[3,3] = 1.0f;
+			}
+				
+				
+			public void Blend(in FBoneAtom Atom1, in FBoneAtom Atom2, FLOAT Alpha)
+			{
+				if( Alpha <= ZERO_ANIMWEIGHT_THRESH )
+				{
+					// if blend is all the way for child1, then just copy its bone atoms
+					this = Atom1;
+				}
+				else if( Alpha >= 1f - ZERO_ANIMWEIGHT_THRESH )
+				{
+					// if blend is all the way for child2, then just copy its bone atoms
+					this = Atom2;
+				}
+				else
+				{
+					// Simple linear interpolation for translation and scale.
+					Translation = VLerp(Atom1.Translation, Atom2.Translation, Alpha);
+					Scale		= Lerp(Atom1.Scale, Atom2.Scale, Alpha);
+
+					// We use a linear interpolation and a re-normalize for the rotation.
+					// Treating Rotation as an accumulator, initialise to a scaled version of Atom1.
+					Rotation = Atom1.Rotation * (1f - Alpha);
+
+					// To ensure the 'shortest route', we make sure the dot product between the accumulator and the incoming rotation is positive.
+					if( (Rotation | Atom2.Rotation) < 0f )
+					{
+						Rotation = (Atom2.Rotation * Alpha) - Rotation;
+					}
+					else
+					{
+						// Then add on the second rotation..
+						Rotation = (Atom2.Rotation * Alpha) + Rotation;
+					}
+
+					// ..and renormalize
+					Rotation.Normalize();
+				}
+			}
+
+			public static FBoneAtom operator *(FBoneAtom atom, FLOAT Mult)
+			{
+				return new(atom.Rotation * Mult, atom.Translation * Mult, atom.Scale * Mult);
+			}
+
+
+
+			public void AddAssign( in FBoneAtom Atom )
+			{
+				Translation += Atom.Translation;
+
+				Rotation.X += Atom.Rotation.X;
+				Rotation.Y += Atom.Rotation.Y;
+				Rotation.Z += Atom.Rotation.Z;
+				Rotation.W += Atom.Rotation.W;
+
+				Scale += Atom.Scale;
+			}
+		}
+
+
+
+		public struct VJointPos
+		{
+			public Quat   	Orientation;  //
+			public Vector		Position;     //  needed or not ?
+
+			//public float       Length;       //  For collision testing / debugging drawing...
+			//public float       XSize;
+			//public float       YSize;
+			//public float       ZSize;
+		}
 
 
 
 		/// <summary> Dummy </summary>
-		public class FMeshBone
+		public struct FMeshBone
 		{
+			public name 		Name;		  // Bone's name.
+			//public int		    Flags;        // reserved
+			public VJointPos	BonePos;      // reference position
+			public int         ParentIndex;  // 0/NULL if this is the root bone.  
+			public int 		NumChildren;  // children  // only needed in animation ?
+			public int         Depth;        // Number of steps to root in the skeletal hierarcy; root=0.
+
+			// DEBUG rendering
+			//FColor		BoneColor;		// Color to use when drawing bone on screen.
 		}
 
 
 
 		public const string NAME_None = default;
 
-		#if UNUSED
 	/// <summary>
 	/// Reset the specified TargetWeight array to the given number of children.
 	/// </summary>
-	protected static void ResetTargetWeightArray(ref TArrayNoInit<float> TargetWeight, int ChildNum)
+	protected static void ResetTargetWeightArray(ref array<float> TargetWeight, int ChildNum)
 	{
 		TargetWeight.Empty();
 		if( ChildNum > 0 )
@@ -727,7 +1541,6 @@ namespace MEdge.Engine
 			TargetWeight[0] = 1f;
 		}
 	}
-#endif
 
 
 	public virtual void BuildTickArray(ref MEdge.array<AnimNode> OutTickArray) {}
@@ -768,7 +1581,6 @@ public virtual void AnimSetsUpdated()
 
 
 
-#if UNUSED
 /// <summary>
 /// Fills the Atoms array with the specified skeletal mesh reference pose.
 /// 
@@ -776,15 +1588,15 @@ public virtual void AnimSetsUpdated()
 /// @param DesiredBones		Indices of bones we want to modify. Parents must occur before children.
 /// @param RefSkel			Input reference skeleton to create atoms from.
 /// </summary>
-public virtual void FillWithRefPose(ref MEdge.array<BoneAtom> OutAtoms,  ref MEdge.array<byte> DesiredBones,  ref MEdge.array<FMeshBone> RefSkel)
+public static void FillWithRefPose(ref MEdge.array<BoneAtom> OutAtoms,  in MEdge.array<byte> DesiredBones,  in MEdge.array<FMeshBone> RefSkel)
 {
 	check( OutAtoms.Num() == RefSkel.Num() );
 
 	for(int i=0; i<DesiredBones.Num(); i++)
 	{
 		int BoneIndex				= DesiredBones[i];
-		ref FMeshBone RefSkelBone	= RefSkel[BoneIndex];
-		ref BoneAtom OutAtom				= ref OutAtoms[BoneIndex];
+		ref FMeshBone RefSkelBone	= ref RefSkel[BoneIndex];
+		ref BoneAtom OutAtom		= ref OutAtoms[BoneIndex];
 
 		OutAtom.Rotation	= RefSkelBone.BonePos.Orientation;
 		OutAtom.Translation	= RefSkelBone.BonePos.Position;
@@ -816,12 +1628,12 @@ public virtual void EnsureParentsPresent(ref MEdge.array<byte> BoneIndices, ref 
 			// This should never happen, so if it does, something is wrong!
 			if( BoneIndex >= SkelMesh.RefSkeleton.Num() )
 			{
-				debugf(TEXT("AnimNode::EnsureParentsPresent, BoneIndex >= SkelMesh.RefSkeleton.Num()."));
+				debugf(TEXT("AnimNode.EnsureParentsPresent, BoneIndex >= SkelMesh.RefSkeleton.Num()."));
 				i++;
 				continue;
 			}
 
-			byte ParentIndex = SkelMesh.RefSkeleton[BoneIndex].ParentIndex;
+			byte ParentIndex = checked((byte)SkelMesh.RefSkeleton[BoneIndex].ParentIndex);
 
 			// If we do not have this parent in the array, we add it in this location, and leave 'i' where it is.
 			if( !BoneIndices.ContainsItem(ParentIndex) )
@@ -848,26 +1660,24 @@ public virtual void EnsureParentsPresent(ref MEdge.array<byte> BoneIndices, ref 
 /// @param	Atoms			Output array of bone transforms. Must be correct size when calling function - that is one entry for each bone. Contents will be erased by function though.
 /// @param	DesiredBones	Indices of bones that we want to return. Note that bones not in this array will not be modified, so are not safe to access! Parents must occur before children.
 /// </summary>
-public virtual void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref int bHasRootMotion)
+public virtual void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	// START_GETBONEATOM_TIMER
 
 	// No root motion here, move along, nothing to see...
 	RootMotionDelta = BoneAtom.Identity;
-	bHasRootMotion	= 0;
+	bHasRootMotion	= false;
 
 	 int NumAtoms = SkelComponent.SkeletalMesh.RefSkeleton.Num();
 	check(NumAtoms == Atoms.Num());
-	FillWithRefPose(Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
+	FillWithRefPose(ref Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 }
-#endif
 
-#if UNUSED
 /// <summary>
 /// 	Will copy the cached results into the OutAtoms array if they are up to date and return true 
 /// 	If cache is not up to date, does nothing and returns false.
 /// </summary>
-protected bool GetCachedResults(ref MEdge.array<BoneAtom> OutAtoms, ref BoneAtom OutRootMotionDelta, ref int bOutHasRootMotion)
+protected bool GetCachedResults(ref MEdge.array<BoneAtom> OutAtoms, ref BoneAtom OutRootMotionDelta, ref bool bOutHasRootMotion)
 {
 	check(SkelComponent);
 
@@ -895,7 +1705,7 @@ protected bool ShouldSaveCachedResults()
 /// <summary>
 /// Save the supplied array of BoneAtoms in the CachedBoneAtoms. 
 /// </summary>
-public virtual void SaveCachedResults( ref MEdge.array<BoneAtom> NewAtoms,  ref BoneAtom NewRootMotionDelta, int bNewHasRootMotion)
+public virtual void SaveCachedResults( ref MEdge.array<BoneAtom> NewAtoms,  ref BoneAtom NewRootMotionDelta, bool bNewHasRootMotion)
 {
 	check(SkelComponent);
 
@@ -914,7 +1724,6 @@ public virtual void SaveCachedResults( ref MEdge.array<BoneAtom> NewAtoms,  ref 
 	// Change flag to indicate cache is up to date
 	NodeCachedAtomsTag = SkelComponent.CachedAtomsTag;
 }
-#endif
 
 protected static bool bNodeSearching;
 protected static int CurrentSearchTag;
@@ -948,27 +1757,6 @@ public virtual void GetNodesInternal(ref MEdge.array<AnimNode> Nodes)
 		Nodes.AddItem(this);
 	}
 }
-#if UNUSED
-/// <summary>
-/// Add this node and all children of the specified class to array. Node are added so a parent is always before its children in the array. 
-/// </summary>
-public virtual void GetNodesByClass(ref MEdge.array<AnimNode> Nodes, ref Class BaseClass)
-{
-	MEdge.array<AnimNode> AllNodes;
-	GetNodes(AllNodes);
-
-	// preallocate enough for all nodes to avoid repeated realloc
-	Nodes.Reserve(AllNodes.Num());
-	for (int i = 0; i < AllNodes.Num(); i++)
-	{
-		checkSlow( AllNodes[i] );
-		if (AllNodes[i].IsA(BaseClass))
-		{
-			Nodes.AddItem(AllNodes[i]);
-		}
-	}
-}
-#endif
 
 /// <summary>
 /// Return an array with all AnimNodeSequence childs, including this node. 
@@ -990,27 +1778,6 @@ public virtual void GetAnimSeqNodes(ref MEdge.array<AnimNodeSequence> Nodes, str
 }
 
 
-#if UNUSED
-/// <summary>
-/// Find a node whose NodeName matches InNodeName. Will search this node and all below it. 
-/// </summary>
-public AnimNode FindAnimNode(MEdge.Core.name InNodeName)
-{
-	MEdge.array<AnimNode> Nodes;
-	this.GetNodes( Nodes );
-
-	for(int i=0; i<Nodes.Num(); i++)
-	{
-		checkSlow( Nodes[i] );
-		if( Nodes[i].NodeName == InNodeName )
-		{
-			return Nodes[i];
-		}
-	}
-
-	return null;
-}
-#endif
 /// <summary>
 /// tility for counting the number of parents of this node that have been ticked. 
 /// </summary>
@@ -1233,7 +2000,6 @@ public override void GetNodesInternal(ref MEdge.array<AnimNode> Nodes)
 		}
 	}
 }
-#if UNUSED
 /// <summary>
 /// Blends together the Children AnimNodes of this blend based on the Weight in each element of the Children array.
 /// Instead of using SLERPs, the blend is done by taking a weighted sum of each atom, and renormalising the quaternion part at the end.
@@ -1243,12 +2009,12 @@ public override void GetNodesInternal(ref MEdge.array<AnimNode> Nodes)
 /// @param	DesiredBones	Indices of bones that we want to return. Note that bones not in this array will not be modified, so are not safe to access! 
 /// 							This array must be in strictly increasing order.
 /// </summary>
-public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref int bHasRootMotion)
+public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	// START_GETBONEATOM_TIMER
 
 	// See if results are cached.
-	if( GetCachedResults(Atoms, RootMotionDelta, bHasRootMotion) )
+	if( GetCachedResults(ref Atoms, ref RootMotionDelta, ref bHasRootMotion) )
 	{
 		return;
 	}
@@ -1257,8 +2023,8 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	if( Children.Num() == 0 )
 	{
 		RootMotionDelta = BoneAtom.Identity;
-		bHasRootMotion	= 0;
-		FillWithRefPose(Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
+		bHasRootMotion	= false;
+		FillWithRefPose(ref Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 		return;
 	}
 
@@ -1280,7 +2046,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 		//@todo - adjust first node weight to 
 
 		RootMotionDelta = BoneAtom.Identity;
-		bHasRootMotion	= 0;
+		bHasRootMotion	= false;
 		FillWithRefPose(Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 		return;
 	}
@@ -1313,15 +2079,15 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 				else
 				{
 					RootMotionDelta = BoneAtom.Identity;
-					bHasRootMotion	= 0;
-					FillWithRefPose(ref Atoms, ref DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
+					bHasRootMotion	= false;
+					FillWithRefPose(ref Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 				}
 
 				// If we're modifying the input, then cache results.
 				// Otherwise just pass through without caching anything.
 				if( Children[i].bMirrorSkeleton )
 				{
-					SaveCachedResults(Atoms, RootMotionDelta, bHasRootMotion);
+					SaveCachedResults(ref Atoms, ref RootMotionDelta, bHasRootMotion);
 				}
 				return;
 			}
@@ -1334,7 +2100,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	MEdge.array<BoneAtom> ChildAtoms = new array<BoneAtom>();
 	bool bNoChildrenYet = true;
 
-	bHasRootMotion						= 0;
+	bHasRootMotion						= false;
 	int		LastRootMotionChildIndex	= INDEX_NONE;
 	float	AccumulatedRootMotionWeight	= 0f;
 
@@ -1347,7 +2113,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 			// Do need to request atoms, so allocate array here.
 			if( ChildAtoms.Num() == 0 )
 			{
-				ChildAtoms.Add(NumAtoms);
+				ChildAtoms.AddCount(NumAtoms);
 			}
 
 			// Get bone atoms from child node (if no child - use ref pose).
@@ -1356,18 +2122,18 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 				// EXCLUDE_CHILD_TIME
 				if( Children[i].bMirrorSkeleton )
 				{
-					GetMirroredBoneAtoms(ChildAtoms, i, DesiredBones, Children[i].RootMotion, Children[i].bHasRootMotion);
+					GetMirroredBoneAtoms(ref ChildAtoms, i, ref DesiredBones, ref Children[i].RootMotion, ref Children[i].bHasRootMotion);
 				}
 				else
 				{
-					Children[i].Anim.GetBoneAtoms(ChildAtoms, DesiredBones, Children[i].RootMotion, Children[i].bHasRootMotion);
+					Children[i].Anim.GetBoneAtoms(ref ChildAtoms, ref DesiredBones, ref Children[i].RootMotion, ref Children[i].bHasRootMotion);
 				}
 
 
 				// If this children received root motion information, accumulate its weight
 				if( Children[i].bHasRootMotion )
 				{
-					bHasRootMotion				= 1;
+					bHasRootMotion				= true;
 					LastRootMotionChildIndex	= i;
 					AccumulatedRootMotionWeight += Children[i].Weight;
 				}
@@ -1375,13 +2141,13 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 			else
 			{	
 				Children[i].RootMotion		= BoneAtom.Identity;
-				Children[i].bHasRootMotion	= 0;
-				FillWithRefPose(ChildAtoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
+				Children[i].bHasRootMotion	= false;
+				FillWithRefPose(ref ChildAtoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 			}
 
 			for(int j=0; j<DesiredBones.Num(); j++)
 			{
-				 int BoneIndex = DesiredBones(j);
+				 int BoneIndex = DesiredBones[j];
 
 				// We just write the first childrens atoms into the output array. Avoids zero-ing it out.
 				if( bNoChildrenYet )
@@ -1396,7 +2162,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 						ChildAtoms[BoneIndex].Rotation = ChildAtoms[BoneIndex].Rotation * -1f;
 					}
 
-					Atoms[BoneIndex] += ChildAtoms[BoneIndex] * Children[i].Weight;
+					Atoms[BoneIndex].AddAssign(ChildAtoms[BoneIndex] * Children[i].Weight);
 				}
 
 				// If last child - normalize the rotation quaternion now.
@@ -1444,7 +2210,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 						WeightedRootMotion.Rotation = WeightedRootMotion.Rotation * -1f;
 					}
 
-					RootMotionDelta += WeightedRootMotion;
+					RootMotionDelta.AddAssign(WeightedRootMotion);
 				}
 			}
 		}
@@ -1460,37 +2226,35 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	}
 #endif
 
-	SaveCachedResults(Atoms, RootMotionDelta, bHasRootMotion);
+	SaveCachedResults(ref Atoms, ref RootMotionDelta, bHasRootMotion);
 }
-#endif
 
-#if UNUSED
 /// <summary>
 /// Get mirrored bone atoms from desired child index. 
 /// Bones are mirrored using the SkelMirrorTable.
 /// </summary>
-public virtual void GetMirroredBoneAtoms(ref MEdge.array<BoneAtom> Atoms, int ChildIndex,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref int bHasRootMotion)
+public virtual void GetMirroredBoneAtoms(ref MEdge.array<BoneAtom> Atoms, int ChildIndex, ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
-	ref SkeletalMesh SkelMesh = SkelComponent.SkeletalMesh;
+	ref SkeletalMesh SkelMesh = ref SkelComponent.SkeletalMesh;
 	check(SkelMesh);
 
 	// If mirroring is enabled, and the mirror info array is initialized correctly.
 	if( SkelMesh.SkelMirrorTable.Num() == Atoms.Num() )
 	{
 		// Get atoms from SourceNode.
-		MEdge.array<BoneAtom> ChildAtoms;
-		ChildAtoms.Add(Atoms.Num());
+		MEdge.array<BoneAtom> ChildAtoms = new();
+		ChildAtoms.AddCount(Atoms.Num());
 
-		BoneAtom RMD;
+		BoneAtom RMD = default;
 		if( Children[ChildIndex].Anim )
 		{
-			Children[ChildIndex].Anim.GetBoneAtoms(ChildAtoms, DesiredBones, RMD, bHasRootMotion);
+			Children[ChildIndex].Anim.GetBoneAtoms(ref ChildAtoms, ref DesiredBones, ref RMD, ref bHasRootMotion);
 		}
 		else
 		{
 			RMD				= BoneAtom.Identity;
-			bHasRootMotion	= 0;
-			FillWithRefPose(ChildAtoms, DesiredBones, SkelMesh.RefSkeleton);
+			bHasRootMotion	= false;
+			FillWithRefPose(ref ChildAtoms, DesiredBones, SkelMesh.RefSkeleton);
 		}
 
 		{
@@ -1498,8 +2262,8 @@ public virtual void GetMirroredBoneAtoms(ref MEdge.array<BoneAtom> Atoms, int Ch
 
 
 			// We build the mesh-space matrices of the source bones.
-			MEdge.array<MEdge.Core.Object.Matrix> BoneTM;
-			BoneTM.Add(SkelMesh.RefSkeleton.Num());
+			MEdge.array<MEdge.Core.Object.Matrix> BoneTM = new ();
+			BoneTM.AddCount(SkelMesh.RefSkeleton.Num());
 
 			for(int i=0; i<DesiredBones.Num(); i++)
 			{	
@@ -1507,12 +2271,12 @@ public virtual void GetMirroredBoneAtoms(ref MEdge.array<BoneAtom> Atoms, int Ch
 
 				if( BoneIndex == 0 )
 				{
-					ChildAtoms[0].ToTransform(BoneTM[0]);
+					ChildAtoms[0].ToTransform(ref BoneTM[0]);
 				}
 				else
 				{
-					MEdge.Core.Object.Matrix LocalBoneTM;
-					ChildAtoms[BoneIndex].ToTransform(LocalBoneTM);
+					MEdge.Core.Object.Matrix LocalBoneTM = new();
+					ChildAtoms[BoneIndex].ToTransform(ref LocalBoneTM);
 
 					 int ParentIndex	= SkelMesh.RefSkeleton[BoneIndex].ParentIndex;
 					BoneTM[BoneIndex]		= LocalBoneTM * BoneTM[ParentIndex];
@@ -1522,7 +2286,7 @@ public virtual void GetMirroredBoneAtoms(ref MEdge.array<BoneAtom> Atoms, int Ch
 			// Then we do the mirroring.
 
 			// Make array of flags to track which bones have already been mirrored.
-			MEdge.array<bool> BoneMirrored;
+			MEdge.array<bool> BoneMirrored = new();
 			BoneMirrored.InsertZeroed(0, Atoms.Num());
 
 			for(int i=0; i<DesiredBones.Num(); i++)
@@ -1536,8 +2300,8 @@ public virtual void GetMirroredBoneAtoms(ref MEdge.array<BoneAtom> Atoms, int Ch
 				int SourceIndex = SkelMesh.SkelMirrorTable[BoneIndex].SourceIndex;
 
 				// Get 'flip axis' from SkeletalMesh, unless we have specified an override for that bone.
-				byte FlipAxis = SkelMesh.SkelMirrorFlipAxis;
-				if( SkelMesh.SkelMirrorTable[BoneIndex].BoneFlipAxis != AXIS_None )
+				var FlipAxis = SkelMesh.SkelMirrorFlipAxis;
+				if( SkelMesh.SkelMirrorTable[BoneIndex].BoneFlipAxis != AXIS_NONE )
 				{
 					FlipAxis = SkelMesh.SkelMirrorTable[BoneIndex].BoneFlipAxis;
 				}
@@ -1550,7 +2314,7 @@ public virtual void GetMirroredBoneAtoms(ref MEdge.array<BoneAtom> Atoms, int Ch
 
 					if( bHasRootMotion && !RMD.Translation.IsZero() )
 					{
-						FTranslationMatrix RootTM = new FTranslationMatrix(RMD.Translation);
+						var RootTM = FTranslationMatrix(RMD.Translation);
 						RootTM.Mirror(SkelMesh.SkelMirrorAxis, FlipAxis);
 						RootMotionDelta.Translation = RootTM.GetOrigin();
 					}
@@ -1564,8 +2328,8 @@ public virtual void GetMirroredBoneAtoms(ref MEdge.array<BoneAtom> Atoms, int Ch
 				else
 				{
 					// get source flip axis
-					byte SourceFlipAxis = SkelMesh.SkelMirrorFlipAxis;
-					if( SkelMesh.SkelMirrorTable[SourceIndex].BoneFlipAxis != AXIS_None )
+					var SourceFlipAxis = SkelMesh.SkelMirrorFlipAxis;
+					if( SkelMesh.SkelMirrorTable[SourceIndex].BoneFlipAxis != AXIS_NONE )
 					{
 						SourceFlipAxis = SkelMesh.SkelMirrorTable[SourceIndex].BoneFlipAxis;
 					}
@@ -1588,11 +2352,11 @@ public virtual void GetMirroredBoneAtoms(ref MEdge.array<BoneAtom> Atoms, int Ch
 
 				if( BoneIndex == 0 )
 				{
-					Atoms[BoneIndex] = BoneAtom(BoneTM[BoneIndex]);
+					Atoms[BoneIndex] = new(BoneTM[BoneIndex]);
 				}
 				else
 				{
-					Atoms[BoneIndex] = BoneAtom(BoneTM[BoneIndex] * BoneTM(SkelMesh.RefSkeleton[BoneIndex].ParentIndex).Inverse());
+					Atoms[BoneIndex] = new(BoneTM[BoneIndex] * BoneTM[SkelMesh.RefSkeleton[BoneIndex].ParentIndex].Inverse());
 				}
 			}
 		}
@@ -1602,17 +2366,17 @@ public virtual void GetMirroredBoneAtoms(ref MEdge.array<BoneAtom> Atoms, int Ch
 	{
 		if( Children[ChildIndex].Anim )
 		{
-			Children[ChildIndex].Anim.GetBoneAtoms(Atoms, DesiredBones, RootMotionDelta, bHasRootMotion);
+			Children[ChildIndex].Anim.GetBoneAtoms(ref Atoms, ref DesiredBones, ref RootMotionDelta, ref bHasRootMotion);
 		}
 		else
 		{
 			RootMotionDelta	= BoneAtom.Identity;
-			bHasRootMotion	= 0;
-			FillWithRefPose(Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
+			bHasRootMotion	= false;
+			FillWithRefPose(ref Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 		}
 	}
 }
-#endif
+
 /// <summary>
 /// For debugging.
 /// 
@@ -1665,7 +2429,6 @@ public override void StopAnim()
 	}
 }
 
-#if UNUSED
 /// <summary>
 /// Rename all child nodes upon Add/Remove, so they match their position in the array. 
 /// </summary>
@@ -1693,7 +2456,7 @@ public virtual void OnRemoveChild(int ChildNum)
 	// Make sure name matches position in array.
 	RenameChildConnectors();
 }
-#endif
+
 }
 
 public partial class AnimNodeBlend
@@ -1744,7 +2507,7 @@ public override void TickAnim(float DeltaSeconds, float TotalWeight)
 /// </summary>
 public virtual void SetBlendTarget(float BlendTarget, float BlendTime)
 {
-	Child2WeightTarget = Clamp<float>(BlendTarget, 0f, 1f);
+	Child2WeightTarget = Clamp(BlendTarget, 0f, 1f);
 	
 	// If we want this weight NOW - update weights straight away (dont wait for TickAnim).
 	if( BlendTime <= 0.0f )
@@ -1758,13 +2521,12 @@ public virtual void SetBlendTarget(float BlendTarget, float BlendTime)
 }
 }
 
-#if UNUSED
 public partial class AnimNodeCrossfader
 {
 /// <summary>
 /// see AnimNode.InitAnim 
 ///</summary>
-public override void InitAnim( ref SkeletalMeshComponent meshComp, ref AnimNodeBlendBase Parent )
+public override void InitAnim( SkeletalMeshComponent meshComp, AnimNodeBlendBase Parent )
 {
 	base.InitAnim( meshComp, Parent );
 	
@@ -1822,7 +2584,7 @@ public MEdge.Core.name GetAnimName()
 /// 
 /// @return	AnimNodeSequence currently playing.
 /// </summary>
-AnimNodeSequence GetActiveChild()
+public AnimNodeSequence GetActiveChild()
 {
 	// requirements for the crossfader. Just exit if not met, do not crash.
 	if( Children.Num() != 2 ||	// needs 2 childs
@@ -1857,12 +2619,12 @@ public virtual void /*exec*/PlayOneShotAnim(MEdge.Core.name AnimSeqName, /*optio
 	// Make sure AnimSeqName exists
 	if( SkelComponent.FindAnimSequence( AnimSeqName ) == null )
 	{
-		debugf( NAME_Warning,TEXT("%s - Failed to find animsequence '%s' on SkeletalMeshComponent: '%s' whose owner is: '%s' and is of type %s" ),
-			*Name,
-			*AnimSeqName.ToString(),
-			*SkelComponent.Name, 
-			*SkelComponent.Owner.Name,
-			*SkelComponent.TemplateName.ToString()
+		debugf( "NAME_Warning",TEXT("%s - Failed to find animsequence '%s' on SkeletalMeshComponent: '%s' whose owner is: '%s' and is of type %s" ),
+			Name,
+			AnimSeqName.ToString(),
+			SkelComponent.Name, 
+			SkelComponent.Owner.Name,
+			SkelComponent.TemplateName.ToString()
 			);
 		return;
 	}
@@ -1902,12 +2664,12 @@ public virtual void /*exec*/BlendToLoopingAnim(name AnimSeqName, /*optional */fl
 	// Make sure AnimSeqName exists
 	if( SkelComponent.FindAnimSequence( AnimSeqName ) == null )
 	{
-		debugf( NAME_Warning,TEXT("%s - Failed to find animsequence '%s' on SkeletalMeshComponent: '%s' whose owner is: '%s' and is of type %s" ),
-			*Name,
-			*AnimSeqName.ToString(),
-			*SkelComponent.Name, 
-			*SkelComponent.Owner.Name,
-			*SkelComponent.TemplateName.ToString()
+		debugf( "NAME_Warning",TEXT("%s - Failed to find animsequence '%s' on SkeletalMeshComponent: '%s' whose owner is: '%s' and is of type %s" ),
+			Name,
+			AnimSeqName.ToString(),
+			SkelComponent.Name, 
+			SkelComponent.Owner.Name,
+			SkelComponent.TemplateName.ToString()
 			);
 		return;
 	}
@@ -1928,7 +2690,7 @@ public virtual void /*exec*/BlendToLoopingAnim(name AnimSeqName, /*optional */fl
 	}
 }
 }
-#endif
+
 
 public partial class AnimNodeBlendPerBone
 {
@@ -1954,11 +2716,10 @@ public override void SetChildrenTotalWeightAccumulator( int Index)
 		Children[Index].Anim.TotalWeightAccumulator += Children[Index].TotalWeight;
 	}
 }
-#if UNUSED
-public override void PostEditChange(ref MEdge.Core.Property PropertyThatChanged)
+public override void PostEditChange(MEdge.Core.Property PropertyThatChanged)
 {
-	if( PropertyThatChanged && 
-		(PropertyThatChanged.GetFName() == MEdge.Core.name(TEXT("BranchStartBoneName"))) )
+	if( PropertyThatChanged != null && 
+		(PropertyThatChanged.GetFName() == TEXT("BranchStartBoneName")) )
 	{
 		BuildWeightList();
 	}
@@ -1973,13 +2734,13 @@ public virtual void BuildWeightList()
 		return;
 	}
 
-	ref MEdge.array<FMeshBone> RefSkel	= SkelComponent.SkeletalMesh.RefSkeleton;
-	 int NumAtoms			= RefSkel.Num();
+	ref MEdge.array<FMeshBone> RefSkel	= ref SkelComponent.SkeletalMesh.RefSkeleton;
+	int NumAtoms			= RefSkel.Num();
 
 	Child2PerBoneWeight.Reset();
 	Child2PerBoneWeight.AddZeroed(NumAtoms);
 
-	MEdge.array<int> BranchStartBoneIndex;
+	MEdge.array<int> BranchStartBoneIndex = new();
 	BranchStartBoneIndex.Add( BranchStartBoneName.Num() );
 
 	for(int NameIndex=0; NameIndex<BranchStartBoneName.Num(); NameIndex++)
@@ -2008,17 +2769,17 @@ public virtual void BuildWeightList()
 	// build list of required bones
 	LocalToCompReqBones.Empty();
 
-	float LastWeight = Child2PerBoneWeight(0);
+	float LastWeight = Child2PerBoneWeight[0];
 	for(int i=0; i<NumAtoms; i++)
 	{
 		// if weight different than previous one, then this bone needs to be blended in component space
 		if( Child2PerBoneWeight[i] != LastWeight )
 		{
-			LocalToCompReqBones.AddItem(i);
+			LocalToCompReqBones.AddItem((byte)i);
 			LastWeight = Child2PerBoneWeight[i];
 		}
 	}
-	EnsureParentsPresent(LocalToCompReqBones, SkelComponent.SkeletalMesh);
+	EnsureParentsPresent(ref LocalToCompReqBones, ref SkelComponent.SkeletalMesh);
 }
 
 /// <summary>
@@ -2050,30 +2811,27 @@ static void IntersectByteArrays(ref MEdge.array<byte> Output,  ref MEdge.array<b
 		}
 	}
 }
-#endif
+
 
 public override void InitAnim(SkeletalMeshComponent meshComp, AnimNodeBlendBase Parent)
 {
 	base.InitAnim(meshComp, Parent);
-	#if UNUSED
 	BuildWeightList();
-	#endif
 }
 
 // Arrays used for temporary bone blending
 static MEdge.array<MEdge.Core.Object.Matrix> Child1CompSpace;
 static MEdge.array<MEdge.Core.Object.Matrix> Child2CompSpace;
 static MEdge.array<MEdge.Core.Object.Matrix> ResultCompSpace;
-#if UNUSED
 /// <summary>
 /// see AnimNode.GetBoneAtoms. 
 ///</summary>
-public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref int bHasRootMotion)
+public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	// START_GETBONEATOM_TIMER
 
 	// See if results are cached.
-	if( GetCachedResults(Atoms, RootMotionDelta, bHasRootMotion) )
+	if( GetCachedResults(ref Atoms, ref RootMotionDelta, ref bHasRootMotion) )
 	{
 		return;
 	}
@@ -2084,65 +2842,65 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 		if( Children[0].Anim )
 		{
 			// EXCLUDE_CHILD_TIME
-			Children[0].Anim.GetBoneAtoms(Atoms, DesiredBones, RootMotionDelta, bHasRootMotion);
+			Children[0].Anim.GetBoneAtoms(ref Atoms, ref DesiredBones, ref RootMotionDelta, ref bHasRootMotion);
 		}
 		else
 		{
 			RootMotionDelta = BoneAtom.Identity;
-			bHasRootMotion	= 0;
-			FillWithRefPose(Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
+			bHasRootMotion	= false;
+			FillWithRefPose(ref Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 		}
 
 		// Pass-through, no caching needed.
 		return;
 	}
 
-	ref MEdge.array<FMeshBone> RefSkel = SkelComponent.SkeletalMesh.RefSkeleton;
+	ref MEdge.array<FMeshBone> RefSkel = ref SkelComponent.SkeletalMesh.RefSkeleton;
 	 int NumAtoms = RefSkel.Num();
 
-	MEdge.array<BoneAtom> Child1Atoms, Child2Atoms;
+	MEdge.array<BoneAtom> Child1Atoms = new(), Child2Atoms = new();
 
 	// Get bone atoms from each child (if no child - use ref pose).
-	Child1Atoms.Add(NumAtoms);
+	Child1Atoms.AddCount(NumAtoms);
 	BoneAtom	Child1RMD				= BoneAtom.Identity;
-	int  		bChild1HasRootMotion	= false;
+	bool  		bChild1HasRootMotion	= false;
 	if( Children[0].Anim )
 	{
 		// EXCLUDE_CHILD_TIME
-		Children[0].Anim.GetBoneAtoms(Child1Atoms, DesiredBones, Child1RMD, bChild1HasRootMotion);
+		Children[0].Anim.GetBoneAtoms(ref Child1Atoms, ref DesiredBones, ref Child1RMD, ref bChild1HasRootMotion);
 	}
 	else
 	{
-		FillWithRefPose(Child1Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
+		FillWithRefPose(ref Child1Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 	}
 
 	// Get only the necessary bones from child2. The ones that have a Child2PerBoneWeight[BoneIndex] > 0
-	Child2Atoms.Add(NumAtoms);
+	Child2Atoms.AddCount(NumAtoms);
 	BoneAtom	Child2RMD				= BoneAtom.Identity;
-	int		bChild2HasRootMotion	= false;
+	bool		bChild2HasRootMotion	= false;
 
 	//debugf(TEXT("child2 went from %d bones to %d bones."), DesiredBones.Num(), Child2DesiredBones.Num() );
 	if( Children[1].Anim )
 	{
 		// EXCLUDE_CHILD_TIME
-		Children[1].Anim.GetBoneAtoms(Child2Atoms, DesiredBones, Child2RMD, bChild2HasRootMotion);
+		Children[1].Anim.GetBoneAtoms(ref Child2Atoms, ref DesiredBones, ref Child2RMD, ref bChild2HasRootMotion);
 	}
 	else
 	{
-		FillWithRefPose(Child2Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
+		FillWithRefPose(ref Child2Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 	}
 
 	// If we are doing component-space blend, ensure working buffers are big enough
 	if(!bForceLocalSpaceBlend)
 	{
 		Child1CompSpace.Reset();
-		Child1CompSpace.Add(NumAtoms);
+		Child1CompSpace.AddCount(NumAtoms);
 
 		Child2CompSpace.Reset();
-		Child2CompSpace.Add(NumAtoms);
+		Child2CompSpace.AddCount(NumAtoms);
 
 		ResultCompSpace.Reset();
-		ResultCompSpace.Add(NumAtoms);
+		ResultCompSpace.AddCount(NumAtoms);
 	}
 
 	int LocalToCompReqIndex = 0;
@@ -2165,8 +2923,8 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 			 int ParentIndex	= RefSkel[BoneIndex].ParentIndex;
 
 			// turn bone atoms to matrices
-			Child1Atoms[BoneIndex].ToTransform(Child1CompSpace[BoneIndex]);
-			Child2Atoms[BoneIndex].ToTransform(Child2CompSpace[BoneIndex]);
+			Child1Atoms[BoneIndex].ToTransform(ref Child1CompSpace[BoneIndex]);
+			Child2Atoms[BoneIndex].ToTransform(ref Child2CompSpace[BoneIndex]);
 
 			// transform to component space
 			if( BoneIndex > 0 )
@@ -2211,7 +2969,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 				Child1CompSpaceAtom.Rotation.Normalize();
 
 				// convert back BoneAtom to MEdge.Core.Object.Matrix
-				Child1CompSpaceAtom.ToTransform(ResultCompSpace[BoneIndex]);
+				Child1CompSpaceAtom.ToTransform(ref ResultCompSpace[BoneIndex]);
 			}
 
 			// Blend Translation and Scale in local space
@@ -2228,7 +2986,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 			else
 			{
 				// Simple linear interpolation for translation and scale.
-				Atoms[BoneIndex].Translation	= Lerp(Child1Atoms[BoneIndex].Translation, Child2Atoms[BoneIndex].Translation, Child2BoneWeight);
+				Atoms[BoneIndex].Translation	= VLerp(Child1Atoms[BoneIndex].Translation, Child2Atoms[BoneIndex].Translation, Child2BoneWeight);
 				Atoms[BoneIndex].Scale			= Lerp(Child1Atoms[BoneIndex].Scale, Child2Atoms[BoneIndex].Scale, Child2BoneWeight);
 			}
 
@@ -2242,7 +3000,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 
 			// Then work out relative transform, and convert to BoneAtom.
 			 MEdge.Core.Object.Matrix RelTM = ResultCompSpace[BoneIndex] * ParentTM.Inverse();				
-			Atoms[BoneIndex].Rotation = BoneAtom(RelTM).Rotation;
+			Atoms[BoneIndex].Rotation = new BoneAtom(RelTM).Rotation;
 		}	
 		else
 		{
@@ -2270,9 +3028,8 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 		}
 	}
 
-	SaveCachedResults(Atoms, RootMotionDelta, bHasRootMotion);
+	SaveCachedResults(ref Atoms, ref RootMotionDelta, bHasRootMotion);
 }
-#endif
 }
 
 
@@ -2372,7 +3129,7 @@ public override void TickAnim( float DeltaSeconds, float TotalWeight )
 		if( DeltaDir != 0f )
 		{
 			float MaxDelta = DeltaSeconds * DirDegreesPerSecond * (PI/180f);
-			DeltaDir = Clamp<float>(DeltaDir, -MaxDelta, MaxDelta);
+			DeltaDir = Clamp(DeltaDir, -MaxDelta, MaxDelta);
 			DirAngle = UnwindHeading( DirAngle + DeltaDir );
 		}
 	}
@@ -2526,7 +3283,7 @@ public virtual void SetActiveChild( int ChildIndex, float BlendTime )
 	
 	if( ChildIndex < 0 || ChildIndex >= Children.Num() )
 	{
-		debugf( TEXT("AnimNodeBlendList::SetActiveChild : %s ChildIndex (%d) outside number of Children (%d)."), Name, ChildIndex, Children.Num() );
+		debugf( TEXT("AnimNodeBlendList.SetActiveChild : %s ChildIndex (%d) outside number of Children (%d)."), Name, ChildIndex, Children.Num() );
 		ChildIndex = 0;
 	}
 
@@ -2566,7 +3323,6 @@ public virtual void SetActiveChild( int ChildIndex, float BlendTime )
 		}
 	}
 }
-#if UNUSED
 /// <summary>
 /// Called when we add a child to this node. We reset the TargetWeight array when this happens. 
 /// </summary>
@@ -2574,7 +3330,7 @@ public override void OnAddChild(int ChildNum)
 {
 	base.OnAddChild(ChildNum);
 
-	ResetTargetWeightArray( TargetWeight, Children.Num() );
+	ResetTargetWeightArray( ref TargetWeight, Children.Num() );
 }
 
 /// <summary>
@@ -2584,9 +3340,8 @@ public override void OnRemoveChild(int ChildNum)
 {
 	base.OnRemoveChild(ChildNum);
 
-	ResetTargetWeightArray( TargetWeight, Children.Num() );
+	ResetTargetWeightArray( ref TargetWeight, Children.Num() );
 }
-#endif
 }
 
 public partial class AnimNodeBlendByPosture
@@ -2682,11 +3437,11 @@ public override void TickAnim( float DeltaSeconds, float TotalWeight )
 	}
 	else if( !SufficientChannels )
 	{
-		debugf(TEXT("AnimNodeBlendBySpeed::TickAnim - Need at least two children"));
+		debugf(TEXT("AnimNodeBlendBySpeed.TickAnim - Need at least two children"));
 	}
 	else if( !SufficientConstraints )
 	{
-		debugf(TEXT("AnimNodeBlendBySpeed::TickAnim - Number of constraints (%i) is lower than number of children! (%i)"), Constraints.Num(), NumChannels);
+		debugf(TEXT("AnimNodeBlendBySpeed.TickAnim - Number of constraints (%i) is lower than number of children! (%i)"), Constraints.Num(), NumChannels);
 	}
 	
 	// pdate AnimNodeBlendList
@@ -2722,12 +3477,11 @@ float CalcSpeed()
 
 public partial class AnimNodeMirror
 {
-	#if UNUSED
-public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref int bHasRootMotion)
+public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	// START_GETBONEATOM_TIMER
 
-	if( GetCachedResults(Atoms, RootMotionDelta, bHasRootMotion) )
+	if( GetCachedResults(ref Atoms, ref RootMotionDelta, ref bHasRootMotion) )
 	{
 		return;
 	}
@@ -2738,10 +3492,10 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	if( bEnableMirroring )
 	{
 		// EXCLUDE_CHILD_TIME
-		GetMirroredBoneAtoms(Atoms, 0, DesiredBones, RootMotionDelta, bHasRootMotion);
+		GetMirroredBoneAtoms(ref Atoms, 0, ref DesiredBones, ref RootMotionDelta, ref bHasRootMotion);
 
 		// Save cached results if input is modified. Pass-through otherwise.
-		SaveCachedResults(Atoms, RootMotionDelta, bHasRootMotion);
+		SaveCachedResults(ref Atoms, ref RootMotionDelta, bHasRootMotion);
 	}
 	// If no mirroring is going on, just pass right through.
 	else
@@ -2749,17 +3503,16 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 		// EXCLUDE_CHILD_TIME
 		if( Children[0].Anim )
 		{
-			Children[0].Anim.GetBoneAtoms(Atoms, DesiredBones, RootMotionDelta, bHasRootMotion);
+			Children[0].Anim.GetBoneAtoms(ref Atoms, ref DesiredBones, ref RootMotionDelta, ref bHasRootMotion);
 		}
 		else
 		{
 			RootMotionDelta = BoneAtom.Identity;
-			bHasRootMotion	= 0;
-			FillWithRefPose(Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
+			bHasRootMotion	= false;
+			FillWithRefPose(ref Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 		}
 	}
 }
-#endif
 }
 
 public partial class AnimTree
@@ -2768,32 +3521,29 @@ public override void InitAnim(SkeletalMeshComponent meshComp, AnimNodeBlendBase 
 {
 	base.InitAnim(meshComp, Parent);
 
-#if UNUSED
 	if( meshComp )
 	{
 		// update list of bone priorities
-		meshComp.BuildComposePriorityList(PriorityList);
+		meshComp.BuildComposePriorityList(ref PriorityList);
 	}
-#endif
 
 	// Rebuild cached list of nodes belonging to each group
 	RepopulateAnimGroups();
 }
 
-#if UNUSED
-public virtual void PostEditChange(ref MEdge.Core.Property PropertyThatChanged)
+public override void PostEditChange(MEdge.Core.Property PropertyThatChanged)
 {
-	if( PropertyThatChanged && (PropertyThatChanged.GetFName() == MEdge.Core.name(TEXT("PrioritizedSkelBranches"))) )
+	if( PropertyThatChanged != null && (PropertyThatChanged.GetFName() == (TEXT("PrioritizedSkelBranches"))) )
 	{
 		if( SkelComponent )
 		{
-			SkelComponent.BuildComposePriorityList(PriorityList);
+			SkelComponent.BuildComposePriorityList(ref PriorityList);
 		}
 	}
 
-	if( PropertyThatChanged && 
-		(	PropertyThatChanged.GetFName() == MEdge.Core.name(TEXT("PreviewSkelMesh")) ||
-			PropertyThatChanged.GetFName() == MEdge.Core.name(TEXT("PreviewAnimSets"))
+	if( PropertyThatChanged != null && 
+		(	PropertyThatChanged.GetFName() == (TEXT("PreviewSkelMesh")) ||
+			PropertyThatChanged.GetFName() == (TEXT("PreviewAnimSets"))
 		) )
 	{
 		if( SkelComponent )
@@ -2805,7 +3555,6 @@ public virtual void PostEditChange(ref MEdge.Core.Property PropertyThatChanged)
 
 	base.PostEditChange(PropertyThatChanged);
 }
-#endif
 
 /// <summary>
 /// Look up AnimNodeSequences and cache Group lists 
@@ -3057,7 +3806,6 @@ public virtual void UpdateAnimNodeSeqGroups(float DeltaSeconds)
 	}
 }
 
-#if UNUSED
 /// <summary>
 /// Add a node to an existing group 
 /// </summary>
@@ -3080,7 +3828,7 @@ bool SetAnimGroupForNode(ref AnimNodeSequence SeqNode, MEdge.Core.name GroupName
 		 int GroupIndex = GetGroupIndex(SeqNode.SynchGroupName);
 		if( GroupIndex != INDEX_NONE )
 		{
-			ref FAnimGroup AnimGroup	= AnimGroups[GroupIndex];
+			ref AnimGroup AnimGroup	= ref AnimGroups[GroupIndex];
 			SeqNode.SynchGroupName = NAME_None;
 			AnimGroup.SeqNodes.RemoveItem(SeqNode);
 
@@ -3100,7 +3848,7 @@ bool SetAnimGroupForNode(ref AnimNodeSequence SeqNode, MEdge.Core.name GroupName
 			}
 			if( bUpdateMasterNodes )
 			{
-				UpdateMasterNodesForGroup(AnimGroup);
+				UpdateMasterNodesForGroup(ref AnimGroup);
 			}
 		}
 	}
@@ -3120,7 +3868,7 @@ bool SetAnimGroupForNode(ref AnimNodeSequence SeqNode, MEdge.Core.name GroupName
 
 		if( GroupIndex != INDEX_NONE )
 		{
-			ref FAnimGroup AnimGroup	= AnimGroups[GroupIndex];
+			ref AnimGroup AnimGroup	= ref AnimGroups[GroupIndex];
 			// Set group name
 			SeqNode.SynchGroupName = GroupName;
 			AnimGroup.SeqNodes.AddUniqueItem(SeqNode);
@@ -3144,12 +3892,12 @@ public virtual void ForceGroupRelativePosition(MEdge.Core.name GroupName, float 
 {
 	for( int GroupIdx=0; GroupIdx<AnimGroups.Num(); GroupIdx++ )
 	{
-		 ref FAnimGroup AnimGroup = AnimGroups(GroupIdx);
+		 ref AnimGroup AnimGroup = ref AnimGroups[GroupIdx];
 		if( AnimGroup.GroupName == GroupName )
 		{
 			for( int i=0; i<AnimGroup.SeqNodes.Num(); i++ )
 			{
-				ref AnimNodeSequence SeqNode = AnimGroup.SeqNodes[i];
+				ref AnimNodeSequence SeqNode = ref AnimGroup.SeqNodes[i];
 				if( IsAnimNodeRelevantForSynchGroup(SeqNode) )
 				{
 					SeqNode.SetPosition(FindNodePositionFromRelative(SeqNode, RelativePosition), false);
@@ -3177,7 +3925,7 @@ float GetGroupRelativePosition(MEdge.Core.name GroupName)
 /// <summary>
 /// Returns the master node driving synchronization for this group. 
 /// </summary>
-ref AnimNodeSequence GetGroupSynchMaster(MEdge.Core.name GroupName)
+public AnimNodeSequence GetGroupSynchMaster(MEdge.Core.name GroupName)
 {
 	 int GroupIndex = GetGroupIndex(GroupName);
 	if( GroupIndex != INDEX_NONE )
@@ -3260,16 +4008,16 @@ public virtual void GetMorphNodes(ref MEdge.array<MorphNodeBase> OutNodes)
 {
 	// Firest empty the array we will put nodes into.
 	OutNodes.Empty();
-
+	NativeMarkers.MarkUnimplemented("Not necessary");
 	// Iterate over each node connected to the root.
-	for(int i=0; i<RootMorphNodes.Num(); i++)
+	/*for(int i=0; i<RootMorphNodes.Num(); i++)
 	{
 		// If non-null, call GetNodes. This will add itself and any children.
 		if( RootMorphNodes[i] )
 		{
-			RootMorphNodes[i].GetNodes(OutNodes);
+			RootMorphNodes[i].GetNodes(ref OutNodes);
 		}
-	}
+	}*/
 }
 
 /// <summary>
@@ -3277,15 +4025,16 @@ public virtual void GetMorphNodes(ref MEdge.array<MorphNodeBase> OutNodes)
 /// </summary>
 public virtual void GetTreeActiveMorphs(ref MEdge.array<SkeletalMeshComponent.ActiveMorph> OutMorphs)
 {
+	NativeMarkers.MarkUnimplemented("Not necessary");
 	// Iterate over each node connected to the root.
-	for(int i=0; i<RootMorphNodes.Num(); i++)
+	/*for(int i=0; i<RootMorphNodes.Num(); i++)
 	{
 		// If non-null, call GetNodes. This will add itself and any children.
 		if( RootMorphNodes[i] )
 		{
 			RootMorphNodes[i].GetActiveMorphs(OutMorphs);
 		}
-	}
+	}*/
 }
 
 /// <summary>
@@ -3293,8 +4042,9 @@ public virtual void GetTreeActiveMorphs(ref MEdge.array<SkeletalMeshComponent.Ac
 /// </summary>
 public virtual void InitTreeMorphNodes(SkeletalMeshComponent InSkelComp)
 {
-	MEdge.array<MorphNodeBase>	AllNodes;
-	GetMorphNodes(AllNodes);
+	NativeMarkers.MarkUnimplemented("Not necessary");
+	/*MEdge.array<MorphNodeBase>	AllNodes = new();
+	GetMorphNodes(ref AllNodes);
 
 	for(int i=0; i<AllNodes.Num(); i++)
 	{
@@ -3302,9 +4052,8 @@ public virtual void InitTreeMorphNodes(SkeletalMeshComponent InSkelComp)
 		{
 			AllNodes[i].InitMorphNode(InSkelComp);
 		}
-	}
+	}*/
 }
-#endif
 
 /// <summary>
 /// tility for find a SkelControl in an AnimTree by name. 
@@ -3335,11 +4084,10 @@ public SkelControlBase FindSkelControl(MEdge.Core.name InControlName)
 	return null;
 }
 
-#if UNUSED
 /// <summary>
 /// tility for find a MorphNode in an AnimTree by name. 
 /// </summary>
-ref MorphNodeBase FindMorphNode(MEdge.Core.name InNodeName)
+public MorphNodeBase FindMorphNode(MEdge.Core.name InNodeName)
 {
 	// Always return null if we did not pass in a name.
 	if(InNodeName == NAME_None)
@@ -3347,8 +4095,8 @@ ref MorphNodeBase FindMorphNode(MEdge.Core.name InNodeName)
 		return null;
 	}
 
-	MEdge.array<MorphNodeBase>	MorphNodes;
-	GetMorphNodes(MorphNodes);
+	MEdge.array<MorphNodeBase>	MorphNodes = new();
+	GetMorphNodes(ref MorphNodes);
 
 	for(int i=0; i<MorphNodes.Num(); i++)
 	{
@@ -3360,204 +4108,6 @@ ref MorphNodeBase FindMorphNode(MEdge.Core.name InNodeName)
 
 	return null;
 }
-
-public virtual void CopyAnimNodes( ref MEdge.array<AnimNode> SrcNodes, ref Object NewOuter, ref MEdge.array<AnimNode> DestNodes, ref TMap<AnimNode,AnimNode> SrcToDestNodeMap)
-{
-	DWORD OldHackFlags = GUglyHackFlags;
-	GUglyHackFlags |= HACK_DisableSubobjectInstancing; // Disable subobject instancing. Will not be needed when we can remove 'editinline export' from AnimTree pointers.
-
-	// Duplicate each AnimNode in tree.
-	for(int i=0; i<SrcNodes.Num(); i++)
-	{
-		ref AnimNode NewNode = ConstructObject<AnimNode>( SrcNodes[i].Class, NewOuter, NAME_None, 0, SrcNodes[i] );
-		NewNode.SetArchetype( SrcNodes[i].Class.GetDefaultObject() );
-		DestNodes.AddItem(NewNode);
-		SrcToDestNodeMap.Set( SrcNodes[i], NewNode );
-	}
-
-	// Then fix up pointers.
-	for(int i=0; i<DestNodes.Num(); i++)
-	{
-		// Only AnimNodeBlendBase classes have references to other AnimNodes.
-		ref AnimNodeBlendBase NewBlend = ( DestNodes[i] as AnimNodeBlendBase );
-		if(NewBlend)
-		{
-			for(int j=0; j<NewBlend.Children.Num(); j++)
-			{
-				if(NewBlend.Children[j].Anim)
-				{
-					AnimNode* NewNode = SrcToDestNodeMap.Find(NewBlend.Children[j].Anim);
-					if(NewNode)
-					{
-						check(*NewNode);
-						NewBlend.Children[j].Anim = *NewNode;
-					}
-				}
-			}
-		}
-
-		DestNodes[i].ParentNodes.Empty(); // Just in case...
-
-		// Allow node to do work post-instance
-		DestNodes[i].PostAnimNodeInstance( SrcNodes[i] );
-	}
-
-	GUglyHackFlags = OldHackFlags;
-}
-
-public virtual void CopySkelControls( ref MEdge.array<SkelControlBase> SrcControls, ref Object NewOuter, ref MEdge.array<SkelControlBase> DestControls, ref TMap<SkelControlBase,SkelControlBase> SrcToDestControlMap)
-{
-	DWORD OldHackFlags = GUglyHackFlags;
-	GUglyHackFlags |= HACK_DisableSubobjectInstancing; // Disable subobject instancing. Will not be needed when we can remove 'editinline export' from AnimTree pointers.
-
-	for(int i=0; i<SrcControls.Num(); i++)
-	{
-		ref SkelControlBase NewControl = ConstructObject<SkelControlBase>( SrcControls[i].Class, NewOuter, NAME_None, 0, SrcControls[i] );
-		NewControl.SetArchetype( SrcControls[i].Class.GetDefaultObject() );
-		DestControls.AddItem(NewControl);
-		SrcToDestControlMap.Set( SrcControls[i], NewControl );
-	}
-
-	// Then we fix up 'NextControl' pointers.
-	for(int i=0; i<DestControls.Num(); i++)
-	{
-		if(DestControls[i].NextControl)
-		{
-			SkelControlBase* NewControl = SrcToDestControlMap.Find(DestControls[i].NextControl);
-			if(NewControl)
-			{
-				check(*NewControl);
-				DestControls[i].NextControl = *NewControl;
-			}
-		}
-	}
-
-	GUglyHackFlags = OldHackFlags;
-}
-
-public virtual void CopyMorphNodes( ref MEdge.array<MorphNodeBase> SrcNodes, ref Object NewOuter, ref MEdge.array<MorphNodeBase> DestNodes, ref TMap<MorphNodeBase,MorphNodeBase> SrcToDestNodeMap)
-{
-	DWORD OldHackFlags = GUglyHackFlags;
-	GUglyHackFlags |= HACK_DisableSubobjectInstancing; // Disable subobject instancing. Will not be needed when we can remove 'editinline export' from AnimTree pointers.
-
-	for(int i=0; i<SrcNodes.Num(); i++)
-	{
-		ref MorphNodeBase NewNode = ConstructObject<MorphNodeBase>( SrcNodes[i].Class, NewOuter, NAME_None, 0, SrcNodes[i] );
-		NewNode.SetArchetype( SrcNodes[i].Class.GetDefaultObject() );
-		DestNodes.AddItem(NewNode);
-		SrcToDestNodeMap.Set( SrcNodes[i], NewNode );
-	}
-
-	// Then we fix up links in the NodeConns array.
-	for(int i=0; i<DestNodes.Num(); i++)
-	{
-		ref MorphNodeWeightBase WeightNode = ( DestNodes[i]  as MorphNodeWeightBase );
-		if(WeightNode)
-		{
-			// Iterate over each connector
-			for(int j=0; j<WeightNode.NodeConns.Num(); j++)
-			{
-				ref FMorphNodeConn Conn = WeightNode.NodeConns(j);
-
-				// Iterate over each link from this connector.
-				for(int k=0; k<Conn.ChildNodes.Num(); k++)
-				{
-					// If this is a pointer to another node, look it up in the SrcToDestNodeMap and replace the reference.
-					if( Conn.ChildNodes(k) )
-					{
-						MorphNodeBase* NewNode = SrcToDestNodeMap.Find( Conn.ChildNodes(k) );
-						if(NewNode)
-						{
-							check(*NewNode);
-							Conn.ChildNodes(k) = *NewNode;
-						}
-					}
-				}
-			}
-		}
-	}
-
-	GUglyHackFlags = OldHackFlags;
-}
-
-ref AnimTree CopyAnimTree(ref Object NewTreeOuter)
-{
-#if false//SHOW_COPYANIMTREE_TIMES
-	DOUBLE Start = appSeconds();	
-#endif
-
-	// Construct the new AnimTree object.
-	DWORD OldHackFlags = GUglyHackFlags;
-	GUglyHackFlags |= HACK_DisableSubobjectInstancing; // Disable subobject instancing. Will not be needed when we can remove 'editinline export' from AnimTree pointers.
-	ref AnimTree NewTree = ConstructObject<AnimTree>( AnimTree::StaticClass(), NewTreeOuter, NAME_None, 0, this );
-	GUglyHackFlags = OldHackFlags;
-
-
-	// Then get all the nodes in the source tree, excluding the tree itself (ie this object).
-	MEdge.array<AnimNode> SrcNodes;
-	GetNodes(SrcNodes);
-	verify(SrcNodes.RemoveItem(this) > 0);
-
-	// Duplicate all the AnimNodes	
-	MEdge.array<AnimNode> DestNodes; // Array of newly created nodes.
-	TMap<AnimNode,AnimNode> SrcToDestNodeMap; // Mapping table from src node to newly created node.
-	CopyAnimNodes(SrcNodes, NewTree, DestNodes, SrcToDestNodeMap);
-
-
-	// Now we get all the SkelControls in this tree
-	MEdge.array<SkelControlBase> SrcControls;
-	GetSkelControls(SrcControls);
-
-	// Duplicate all the SkelControls
-	MEdge.array<SkelControlBase> DestControls; // Array of new skel controls.
-	TMap<SkelControlBase, SkelControlBase> SrcToDestControlMap; // Map from src control to newly created one.
-	CopySkelControls(SrcControls, NewTree, DestControls, SrcToDestControlMap);
-
-	// Now we get all the MorphNodes in this tree
-	MEdge.array<MorphNodeBase> SrcMorphNodes;
-	GetMorphNodes(SrcMorphNodes);
-
-	// Duplicate all the MorphNodes
-	MEdge.array<MorphNodeBase> DestMorphNodes; // Array of new morph nodes.
-	TMap<MorphNodeBase, MorphNodeBase> SrcToDestMorphNodeMap; // Map from src node to newly created one.
-	CopyMorphNodes(SrcMorphNodes, NewTree, DestMorphNodes, SrcToDestMorphNodeMap);
-
-	// Finally we fix up references in the new AnimTree itself (root AnimNode, head of each SkelControl chain, and root MorphNodes).
-	check(NewTree.Children.Num() == 1);
-	if(NewTree.Children[0].Anim)
-	{
-		AnimNode NewNode = SrcToDestNodeMap.Find(NewTree.Children[0].Anim);
-		check(NewNode && NewNode); // When we copy the entire tree, we should always find the node we want.
-		NewTree.Children[0].Anim = NewNode;
-	}
-
-	for(int i=0; i<NewTree.SkelControlLists.Num(); i++)
-	{
-		if(NewTree.SkelControlLists[i].ControlHead)
-		{
-			SkelControlBase NewControl = SrcToDestControlMap.Find(NewTree.SkelControlLists[i].ControlHead);
-			check(NewControl && NewControl);
-			NewTree.SkelControlLists[i].ControlHead = NewControl;
-		}
-	}
-
-	for(int i=0; i<NewTree.RootMorphNodes.Num(); i++)
-	{
-		if( NewTree.RootMorphNodes[i] )
-		{
-			MorphNodeBase NewNode = SrcToDestMorphNodeMap.Find( NewTree.RootMorphNodes[i] );
-			check(NewNode);
-			NewTree.RootMorphNodes[i] = NewNode;
-		}
-	}
-
-#if false//SHOW_COPYANIMTREE_TIMES
-	debugf(TEXT("CopyAnimTree: %f ms"), (appSeconds() - Start) * 1000f);
-#endif
-
-	return NewTree;
-}
-#endif
 }
 
 
@@ -3595,8 +4145,6 @@ public override void SetChildrenTotalWeightAccumulator( int Index)
 public override void InitAnim(SkeletalMeshComponent meshComp, AnimNodeBlendBase Parent)
 {
 	base.InitAnim(meshComp, Parent);
-	NativeMarkers.MarkUnimplemented();
-#if UNUSED
 	for( int Idx = 0; Idx < BlendTargetList.Num(); Idx++ )
 	{
 		if( BlendTargetList[Idx].InitTargetStartBone != NAME_None )
@@ -3604,17 +4152,15 @@ public override void InitAnim(SkeletalMeshComponent meshComp, AnimNodeBlendBase 
 			SetTargetStartBone( Idx, BlendTargetList[Idx].InitTargetStartBone, BlendTargetList[Idx].InitPerBoneIncrease );
 		}
 	}
-#endif
 }
 
-#if UNUSED
-public virtual void PostEditChange(ref MEdge.Core.Property PropertyThatChanged)
+public override void PostEditChange(MEdge.Core.Property PropertyThatChanged)
 {
 	for( int Idx = 0; Idx < BlendTargetList.Num(); Idx++ )
 	{
-		if( PropertyThatChanged && 
-			(PropertyThatChanged.GetFName() == MEdge.Core.name(TEXT("InitTargetStartBone")) || 
-			 PropertyThatChanged.GetFName() == MEdge.Core.name(TEXT("InitPerBoneIncrease"))) )
+		if( PropertyThatChanged != null && 
+			(PropertyThatChanged.GetFName() == TEXT("InitTargetStartBone") || 
+			 PropertyThatChanged.GetFName() == TEXT("InitPerBoneIncrease")) )
 		{
 			SetTargetStartBone( Idx, BlendTargetList[Idx].InitTargetStartBone, BlendTargetList[Idx].InitPerBoneIncrease );
 		}
@@ -3658,11 +4204,11 @@ public virtual void SetTargetStartBone( int TargetIdx, MEdge.Core.name StartBone
 		int StartBoneIndex = SkelComponent.MatchRefBone( StartBoneName );
 		if( StartBoneIndex == INDEX_NONE )
 		{
-			debugf( TEXT("AnimNodeBlendPerBone::SetTargetStartBone : StartBoneName (%s) not found."), StartBoneName.ToString() );
+			debugf( TEXT("AnimNodeBlendPerBone.SetTargetStartBone : StartBoneName (%s) not found."), StartBoneName.ToString() );
 			return;
 		}
 
-		ref MEdge.array<FMeshBone> RefSkel = SkelComponent.SkeletalMesh.RefSkeleton;
+		ref MEdge.array<FMeshBone> RefSkel = ref SkelComponent.SkeletalMesh.RefSkeleton;
 		Info.TargetRequiredBones.Empty();
 		Info.TargetPerBoneWeight.Empty();
 		Info.TargetPerBoneWeight.AddZeroed( RefSkel.Num() );
@@ -3684,16 +4230,15 @@ public virtual void SetTargetStartBone( int TargetIdx, MEdge.Core.name StartBone
 
 			if( Info.TargetPerBoneWeight[i] > ZERO_ANIMWEIGHT_THRESH )
 			{
-				Info.TargetRequiredBones.AddItem(i);
+				Info.TargetRequiredBones.AddItem((byte)i);
 			}
 			else if( Info.TargetPerBoneWeight[i] <=(1f - ZERO_ANIMWEIGHT_THRESH) )
 			{
-				SourceRequiredBones.AddItem( i );
+				SourceRequiredBones.AddItem((byte)i);
 			}
 		}
 	}
 }
-
 //public virtual void /*exec*/SetTargetStartBone( ref FFrame Stack, RESULT_DECL )
 //{
 //	P_GET_INT(TargetIdx);
@@ -3706,11 +4251,11 @@ public virtual void SetTargetStartBone( int TargetIdx, MEdge.Core.name StartBone
 /// <summary>
 /// see AnimNode.GetBoneAtoms. 
 /// </summary>
-public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref int bHasRootMotion)
+public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	// START_GETBONEATOM_TIMER
 
-	if( GetCachedResults(Atoms, RootMotionDelta, bHasRootMotion) )
+	if( GetCachedResults(ref Atoms, ref RootMotionDelta, ref bHasRootMotion) )
 	{
 		return;
 	}
@@ -3719,8 +4264,8 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	if( Children.Num() == 0 )
 	{
 		RootMotionDelta = BoneAtom.Identity;
-		bHasRootMotion	= 0;
-		FillWithRefPose(Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
+		bHasRootMotion	= false;
+		FillWithRefPose(ref Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 		return;
 	}
 
@@ -3739,19 +4284,19 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	check(LastChildIndex != INDEX_NONE);
 
 	// We don't allocate this array until we need it.
-	MEdge.array<BoneAtom> ChildAtoms;
+	MEdge.array<BoneAtom> ChildAtoms = new();
 	if( LastChildIndex == 0 )
 	{
 		if( Children[0].Anim )
 		{
 			// EXCLUDE_CHILD_TIME
-			Children[0].Anim.GetBoneAtoms(Atoms, DesiredBones, RootMotionDelta, bHasRootMotion);
+			Children[0].Anim.GetBoneAtoms(ref Atoms, ref DesiredBones, ref RootMotionDelta, ref bHasRootMotion);
 		}
 		else
 		{
 			RootMotionDelta = BoneAtom.Identity;
-			bHasRootMotion	= 0;
-			FillWithRefPose(Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
+			bHasRootMotion	= false;
+			FillWithRefPose(ref Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 		}
 
 		// We're acting as a pass-through, no need to cache results.
@@ -3768,7 +4313,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 		{
 			if( Children[i].Weight > ZERO_ANIMWEIGHT_THRESH )
 			{
-				int		BoneIndex	= DesiredBones(j);
+				int		BoneIndex	= DesiredBones[j];
 				float	BoneWeight;
 				if( i > 0 )
 				{
@@ -3783,14 +4328,14 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 				// Do need to request atoms, so allocate array here.
 				if( ChildAtoms.Num() == 0 )
 				{
-					ChildAtoms.Add(NumAtoms);
+					ChildAtoms.AddCount(NumAtoms);
 				}
 
 				// Get bone atoms from child node (if no child - use ref pose).
 				if( Children[i].Anim )
 				{
 					// EXCLUDE_CHILD_TIME
-					Children[i].Anim.GetBoneAtoms(ChildAtoms, DesiredBones, Children[i].RootMotion, Children[i].bHasRootMotion);
+					Children[i].Anim.GetBoneAtoms(ref ChildAtoms, ref DesiredBones, ref Children[i].RootMotion, ref Children[i].bHasRootMotion);
 
 					bHasRootMotion = bHasRootMotion || Children[i].bHasRootMotion;
 
@@ -3800,12 +4345,12 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 					}
 					else
 					{
-						RootMotionDelta += Children[i].RootMotion * Children[i].Weight;
+						RootMotionDelta.AddAssign(Children[i].RootMotion * Children[i].Weight);
 					}
 				}
 				else
 				{
-					FillWithRefPose(ChildAtoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
+					FillWithRefPose(ref ChildAtoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 				}
 
 				// To ensure the 'shortest route', we make sure the dot product between the accumulator and the incoming child atom is positive.
@@ -3821,7 +4366,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 				}
 				else
 				{
-					Atoms[BoneIndex] += ChildAtoms[BoneIndex] * BoneWeight;
+					Atoms[BoneIndex].AddAssign(ChildAtoms[BoneIndex] * BoneWeight);
 				}
 
 				// If last child - normalize the rotaion quaternion now.
@@ -3840,9 +4385,8 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 		}
 	}
 
-	SaveCachedResults(Atoms, RootMotionDelta, bHasRootMotion);
+	SaveCachedResults(ref Atoms, ref RootMotionDelta, bHasRootMotion);
 }
-#endif
 }
 
 
@@ -3854,26 +4398,24 @@ public partial class AnimNodeAimOffset
 {
 	public virtual Vector2D	GetAim() { return Aim; }
 	
-	#if UNUSED
 public virtual void PostAnimNodeInstance(ref AnimNode SourceNode)
 {
-	TemplateNode = CastChecked<AnimNodeAimOffset>(SourceNode);
+	TemplateNode = (AnimNodeAimOffset)(SourceNode);
 
 	// We are going to use data from the TemplateNode, rather than keeping a copy for each instance of the node.
 	Profiles.Empty();
 }
 
-public virtual void PostEditChange(ref MEdge.Core.Property PropertyThatChanged)
+public override void PostEditChange(MEdge.Core.Property PropertyThatChanged)
 {
 	base.PostEditChange(PropertyThatChanged);
 
-	if( PropertyThatChanged.GetFName() == MEdge.Core.name(TEXT("bBakeFromAnimations")) )
+	if( PropertyThatChanged.GetFName() == (TEXT("bBakeFromAnimations")) )
 	{
 		bBakeFromAnimations = false;
 		BakeOffsetsFromAnimations();
 	}
 }
-#endif
 
 public override void InitAnim(SkeletalMeshComponent meshComp, AnimNodeBlendBase Parent)
 {
@@ -3881,20 +4423,17 @@ public override void InitAnim(SkeletalMeshComponent meshComp, AnimNodeBlendBase 
 
 	// Update list of required bones
 	// this is the list of bones needed for transformation and their parents.
-#if UNUSED
 	UpdateListOfRequiredBones();
-#endif
 }
 
-#if UNUSED
 public virtual void UpdateListOfRequiredBones()
 {
 	// Empty required bones list
 	RequiredBones.Reset();
 	BoneToAimCpnt.Reset();
 
-	ref AimOffsetProfile P = GetCurrentProfile();
-	if( !P || !SkelComponent || !SkelComponent.SkeletalMesh )
+	ref AimOffsetProfile P = ref GetCurrentProfile(out var valid);
+	if( valid == false || !SkelComponent || !SkelComponent.SkeletalMesh )
 	{
 		return;
 	}
@@ -3930,13 +4469,13 @@ public virtual void UpdateListOfRequiredBones()
 		// Build RequiredBones array in increasing order
 		if( AimCompIndex != INDEX_NONE )
 		{
-			RequiredBones.AddItem(BoneIndex);
+			RequiredBones.AddItem((byte)BoneIndex);
 		}
 	}
 
 	// Make sure parents are present in the array. Since we need to get the relevant bones in component space.
 	// And that require the parent bones...
-	EnsureParentsPresent(RequiredBones, SkelComponent.SkeletalMesh);
+	EnsureParentsPresent(ref RequiredBones, ref SkelComponent.SkeletalMesh);
 }
 
 static float UnWindNormalizedAimAngle(float Angle)
@@ -3954,27 +4493,31 @@ static float UnWindNormalizedAimAngle(float Angle)
 	return Angle;
 }
 
-ref AimOffsetProfile GetCurrentProfile()
+
+
+static AimOffsetProfile dummyProfile;
+ref AimOffsetProfile GetCurrentProfile(out bool valid)
 {
 	// Check profile index is not outside range.
-	ref AimOffsetProfile P = null;
 	if(TemplateNode)
 	{
 		if(CurrentProfileIndex < TemplateNode.Profiles.Num())
 		{
-			P = &TemplateNode.Profiles[CurrentProfileIndex];
+			valid = true;
+			return ref TemplateNode.Profiles[CurrentProfileIndex];
 		}
 	}
 	else
 	{
 		if(CurrentProfileIndex < Profiles.Num())
 		{
-			P = &Profiles[CurrentProfileIndex];
+			valid = true;
+			return ref Profiles[CurrentProfileIndex];
 		}
 	}
-	return P;
+	valid = false;
+	return ref dummyProfile;
 }
-#endif
 
 /// <summary>
 /// Temporary working space used by AimOffset node. Grows to max size required by any node. 
@@ -3982,12 +4525,12 @@ ref AimOffsetProfile GetCurrentProfile()
 static MEdge.array<MEdge.Core.Object.Matrix> AimOffsetBoneTM;
 
 public virtual void PostAimProcessing(ref Vector2D AimOffsetPct) {}
-#if UNUSED
-public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref int bHasRootMotion)
+
+public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	// START_GETBONEATOM_TIMER
 
-	if( GetCachedResults(Atoms, RootMotionDelta, bHasRootMotion) )
+	if( GetCachedResults(ref Atoms, ref RootMotionDelta, ref bHasRootMotion) )
 	{
 		return;
 	}
@@ -3996,13 +4539,13 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	if( Children[0].Anim )
 	{
 		// EXCLUDE_CHILD_TIME
-		Children[0].Anim.GetBoneAtoms(Atoms, DesiredBones, RootMotionDelta, bHasRootMotion);
+		Children[0].Anim.GetBoneAtoms(ref Atoms, ref DesiredBones, ref RootMotionDelta, ref bHasRootMotion);
 	}
 	else
 	{
 		RootMotionDelta = BoneAtom.Identity;
-		bHasRootMotion	= 0;
-		FillWithRefPose(Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
+		bHasRootMotion	= false;
+		FillWithRefPose(ref Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 	}
 
 	// Have the option of doing nothing if at a low LOD.
@@ -4015,8 +4558,8 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	 int				NumBones = SkelMesh.RefSkeleton.Num();
 
 	// Make sure we have a valid setup
-	ref AimOffsetProfile P = GetCurrentProfile();
-	if( BoneToAimCpnt.Num() != NumBones || !P )
+	ref AimOffsetProfile P = ref GetCurrentProfile(out var valid);
+	if( BoneToAimCpnt.Num() != NumBones || valid == false )
 	{
 		return;
 	}
@@ -4055,11 +4598,11 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	}
 
 	// Make sure we're using correct values within legal range.
-	SafeAim.X = Clamp<float>(SafeAim.X, -1f, +1f);
-	SafeAim.Y = Clamp<float>(SafeAim.Y, -1f, +1f);
+	SafeAim.X = Clamp(SafeAim.X, -1f, +1f);
+	SafeAim.Y = Clamp(SafeAim.Y, -1f, +1f);
 
 	// Post process final Aim.
-	PostAimProcessing(SafeAim);
+	PostAimProcessing(ref SafeAim);
 
 	// Bypass node if using center center position.
 	if( (!bForceAimDir && SafeAim.IsNearlyZero()) || (bForceAimDir && ForcedAimDir == EAnimAimDir.ANIMAIM_CENTERCENTER) )
@@ -4071,7 +4614,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	if( AimOffsetBoneTM.Num() < NumBones )
 	{
 		AimOffsetBoneTM.Reset();
-		AimOffsetBoneTM.Add(NumBones);
+		AimOffsetBoneTM.AddCount(NumBones);
 	}
 
 	 int NumAimComp = P.AimComponents.Num();
@@ -4104,7 +4647,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 		}
 
 		// transform required bones into component space
-		Atoms[BoneIndex].ToTransform(AimOffsetBoneTM[BoneIndex]);
+		Atoms[BoneIndex].ToTransform(ref AimOffsetBoneTM[BoneIndex]);
 		if( BoneIndex > 0 )
 		{
 			AimOffsetBoneTM[BoneIndex] *= AimOffsetBoneTM[SkelMesh.RefSkeleton[BoneIndex].ParentIndex];
@@ -4114,9 +4657,9 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 		 int AimCompIndex = BoneToAimCpnt[BoneIndex];
 		if( AimCompIndex != INDEX_NONE )
 		{
-					Quat			QuaternionOffset;
-					Vector			TranslationOffset;
-				AimComponent	AimCpnt = P.AimComponents[AimCompIndex];
+			Quat			QuaternionOffset = default;
+			Vector			TranslationOffset = default;
+			AimComponent	AimCpnt = P.AimComponents[AimCompIndex];
 
 			// If bForceAimDir - just use whatever ForcedAimDir is set to - ignore Aim.
 			if( bForceAimDir )
@@ -4181,7 +4724,8 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 
 			// only perform a transformation if it is significant
 			// (Since it's something expensive to do)
-			 bool	bDoRotation	= Square(QuaternionOffset.W) < 1f - DELTA * DELTA;
+			const float DELTA = 0.00001f;
+			bool	bDoRotation	= Square(QuaternionOffset.W) < 1f - DELTA * DELTA;
 			if( bDoRotation || !TranslationOffset.IsNearlyZero() )
 			{
 				// Find bone translation
@@ -4190,7 +4734,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 				// Apply bone rotation
 				if( bDoRotation )
 				{
-					AimOffsetBoneTM[BoneIndex] *= FQuatRotationTranslationMatrix(QuaternionOffset, Vector(0f));
+					AimOffsetBoneTM[BoneIndex] *= FQuatRotationTranslationMatrix(QuaternionOffset, new Vector(0f));
 				}
 
 				// Apply bone translation
@@ -4215,7 +4759,27 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 		}
 	}
 
-	SaveCachedResults(Atoms, RootMotionDelta, bHasRootMotion);
+	SaveCachedResults(ref Atoms, ref RootMotionDelta, bHasRootMotion);
+}
+static Quat BiLerpQuat(in Quat P00, in Quat P10, in Quat P01, in Quat P11, float FracX, float FracY)
+{
+	return LerpQuat( LerpQuat( P00, P10, FracX ), LerpQuat( P01, P11, FracX ), FracY );
+}
+static FQuat LerpQuat(in FQuat A, in FQuat B, FLOAT Alpha)
+{
+	// To ensure the 'shortest route', we make sure the dot product between the both rotations is positive.
+	if( (A | B) < 0f )
+	{
+		return (B * Alpha) - (A * (1f - Alpha));
+	}
+
+	// Then add on the second rotation..
+	return (B * Alpha) + (A * (1f - Alpha));
+}
+		
+static Vector BiLerp(in Vector P00, in Vector P10, in Vector P01, in Vector P11, float FracX, float FracY)
+{
+	return VLerp( VLerp( P00, P10, FracX ), VLerp( P01, P11, FracX ), FracY );
 }
 float GetSliderPosition(int SliderIndex, int ValueIndex)
 {
@@ -4253,10 +4817,13 @@ public string GetSliderDrawValue(int SliderIndex)
 	return $"{Aim.X:F1},{Aim.Y:F1}";
 }
 
+
+
+static Quat DummyQuat;
 /// <summary>
 /// Util for finding the quaternion that corresponds to a particular direction. 
 /// </summary>
-static ref Quat GetAimQuatPtr(ref AimOffsetProfile P, int CompIndex, EAnimAimDir InAimDir)
+static ref Quat GetAimQuatPtr(ref AimOffsetProfile P, int CompIndex, EAnimAimDir InAimDir, out bool valid)
 {
 	if( CompIndex < 0 || CompIndex >= P.AimComponents.Num() )
 	{
@@ -4279,23 +4846,32 @@ static ref Quat GetAimQuatPtr(ref AimOffsetProfile P, int CompIndex, EAnimAimDir
 		case EAnimAimDir.ANIMAIM_LEFTDOWN		: QuatPtr = ref (AimCpnt.LD.Quaternion); break;
 		case EAnimAimDir.ANIMAIM_CENTERDOWN		: QuatPtr = ref (AimCpnt.CD.Quaternion); break;
 		case EAnimAimDir.ANIMAIM_RIGHTDOWN		: QuatPtr = ref (AimCpnt.RD.Quaternion); break;
-		default: throw new Exception();
+		default:
+		{
+			valid = false;
+			return ref DummyQuat;
+		}
 	}
 
+	valid = true;
 	return ref QuatPtr;
 }
+
+
+
+static Vector dummyVector;
 
 /// <summary>
 /// Util for finding the translation that corresponds to a particular direction. 
 /// </summary>
-static ref Vector GetAimTransPtr(ref AimOffsetProfile P, int CompIndex, EAnimAimDir InAimDir)
+static ref Vector GetAimTransPtr(ref AimOffsetProfile P, int CompIndex, EAnimAimDir InAimDir, out bool valid)
 {
 	if( CompIndex < 0 || CompIndex >= P.AimComponents.Num() )
 	{
 		throw new Exception();
 	}
 
-	var	AimCpnt	= P.AimComponents[CompIndex];
+	ref var	AimCpnt	= ref P.AimComponents[CompIndex];
 	ref Vector			TransPtr	= ref (AimCpnt.LU.Translation);
 
 	switch( InAimDir )
@@ -4311,9 +4887,14 @@ static ref Vector GetAimTransPtr(ref AimOffsetProfile P, int CompIndex, EAnimAim
 		case EAnimAimDir.ANIMAIM_LEFTDOWN		: TransPtr = ref (AimCpnt.LD.Translation); break;
 		case EAnimAimDir.ANIMAIM_CENTERDOWN		: TransPtr = ref (AimCpnt.CD.Translation); break;
 		case EAnimAimDir.ANIMAIM_RIGHTDOWN		: TransPtr = ref (AimCpnt.RD.Translation); break;
-		default: throw new Exception();
+		default:
+		{
+			valid = false;
+			return ref dummyVector;
+		}
 	}
 
+	valid = true;
 	return ref TransPtr;
 }
 
@@ -4322,19 +4903,19 @@ static ref Vector GetAimTransPtr(ref AimOffsetProfile P, int CompIndex, EAnimAim
 /// </summary>
 protected Quat GetBoneAimQuaternion(int CompIndex, EAnimAimDir InAimDir)
 {
-	ref AimOffsetProfile P = GetCurrentProfile();
-	if(!P)
+	ref AimOffsetProfile P = ref GetCurrentProfile(out var valid);
+	if(valid == false)
 	{
 		return Quat.Identity;
 	}
 
 	// Get the array for this pose.
-	Quat *QuatPtr = GetAimQuatPtr(P, CompIndex, InAimDir);
+	ref Quat QuatPtr = ref GetAimQuatPtr(ref P, CompIndex, InAimDir, out var valid2);
 
 	// And return the Quaternion (if its in range).
-	if( QuatPtr )
+	if( valid2 )
 	{
-		return (*QuatPtr);
+		return QuatPtr;
 	}
 	else
 	{
@@ -4346,23 +4927,23 @@ protected Quat GetBoneAimQuaternion(int CompIndex, EAnimAimDir InAimDir)
 /// </summary>
 Vector GetBoneAimTranslation(int CompIndex, EAnimAimDir InAimDir)
 {
-	ref AimOffsetProfile P = GetCurrentProfile();
-	if(!P)
+	ref AimOffsetProfile P = ref GetCurrentProfile(out var valid);
+	if(valid == false)
 	{
-		return Vector(0,0,0);
+		return new(0,0,0);
 	}
 
 	// Get the translation for this pose.
-	Vector *TransPtr = GetAimTransPtr(P, CompIndex, InAimDir);
+	ref Vector TransPtr = ref GetAimTransPtr(ref P, CompIndex, InAimDir, out var valid2);
 
 	// And return the Rotator (if its in range).
-	if( TransPtr )
+	if( valid2 )
 	{
-		return (*TransPtr);
+		return (TransPtr);
 	}
 	else
 	{
-		return Vector(0,0,0);
+		return new(0,0,0);
 	}
 }
 
@@ -4371,19 +4952,19 @@ Vector GetBoneAimTranslation(int CompIndex, EAnimAimDir InAimDir)
 /// </summary>
 public virtual void SetBoneAimQuaternion(int CompIndex, EAnimAimDir InAimDir, Quat InQuat)
 {
-	ref AimOffsetProfile P = GetCurrentProfile();
-	if(!P)
+	ref AimOffsetProfile P = ref GetCurrentProfile(out var valid);
+	if(valid == false)
 	{
 		return;
 	}
 
 	// Get the array for this pose.
-	Quat *QuatPtr = GetAimQuatPtr(P, CompIndex, InAimDir);
+	ref Quat QuatPtr = ref GetAimQuatPtr(ref P, CompIndex, InAimDir, out var valid2);
 
 	// Set the Rotator (if BoneIndex is in range).
-	if( QuatPtr )
+	if( valid2 )
 	{
-		(*QuatPtr) = InQuat;
+		QuatPtr = InQuat;
 	}
 }
 
@@ -4392,19 +4973,19 @@ public virtual void SetBoneAimQuaternion(int CompIndex, EAnimAimDir InAimDir, Qu
 /// </summary>
 public virtual void SetBoneAimTranslation(int CompIndex, EAnimAimDir InAimDir, Vector InTrans)
 {
-	ref AimOffsetProfile P = GetCurrentProfile();
-	if(!P)
+	ref AimOffsetProfile P = ref GetCurrentProfile(out var valid);
+	if(valid == false)
 	{
 		return;
 	}
 
 	// Get the array for this pose.
-	Vector *TransPtr = GetAimTransPtr(P, CompIndex, InAimDir);
+	ref Vector TransPtr = ref GetAimTransPtr(ref P, CompIndex, InAimDir, out var valid2);
 
 	// Set the Rotator (if BoneIndex is in range).
-	if( TransPtr )
+	if( valid2 )
 	{
-		(*TransPtr) = InTrans;
+		TransPtr = InTrans;
 	}
 }
 
@@ -4413,8 +4994,8 @@ public virtual void SetBoneAimTranslation(int CompIndex, EAnimAimDir InAimDir, V
 /// </summary>
 bool ContainsBone( ref MEdge.Core.name BoneName)
 {
-	ref AimOffsetProfile P = GetCurrentProfile();
-	if(!P)
+	ref AimOffsetProfile P = ref GetCurrentProfile(out var valid);
+	if(valid == false)
 	{
 		return false;
 	}
@@ -4429,20 +5010,23 @@ bool ContainsBone( ref MEdge.Core.name BoneName)
 	return false;
 }
 
+
+
 /// <summary>
 /// Bake in Offsets from supplied Animations. 
 /// </summary>
 public virtual void BakeOffsetsFromAnimations()
 {
-	if( !SkelComponent || !SkelComponent.SkeletalMesh )
+	throw new Exception();
+	/*if( !SkelComponent || !SkelComponent.SkeletalMesh )
 	{
 		appMsgf(AMT_OK, TEXT(" No SkeletalMesh to import animations from. Aborting."));
 		return;
 	}
 
 	// Check profile index is not outside range.
-	ref AimOffsetProfile P = GetCurrentProfile();
-	if(!P)
+	ref AimOffsetProfile P = ref GetCurrentProfile(out var valid);
+	if(valid == false)
 	{
 		return;
 	}
@@ -4452,7 +5036,7 @@ public virtual void BakeOffsetsFromAnimations()
 	BoneToAimCpnt.Empty();
 
 	// AnimNodeSequence used to extract animation data.
-	AnimNodeSequence	SeqNode = ConstructObject<AnimNodeSequence>(AnimNodeSequence::StaticClass());
+	AnimNodeSequence	SeqNode = ConstructObject<AnimNodeSequence>(AnimNodeSequence.StaticClass());
 	SeqNode.SkelComponent = SkelComponent;
 
 	// Extract Center/Center (reference pose)
@@ -4528,30 +5112,30 @@ public virtual void BakeOffsetsFromAnimations()
 	SeqNode.SkelComponent	= null;
 	SeqNode					= null;
 
-	appMsgf(AMT_OK, TEXT(" Export finished, check log for details."));
+	appMsgf(AMT_OK, TEXT(" Export finished, check log for details."));*/
 }
 public virtual void ExtractOffsets(ref MEdge.array<BoneAtom> RefBoneAtoms, ref MEdge.array<BoneAtom> BoneAtoms, EAnimAimDir InAimDir)
 {
-	MEdge.array<MEdge.Core.Object.Matrix>	TargetTM;
-	TargetTM.Add(BoneAtoms.Num());
+	MEdge.array<MEdge.Core.Object.Matrix>	TargetTM = new();
+	TargetTM.AddCount(BoneAtoms.Num());
 
 	for(int i=0; i<BoneAtoms.Num(); i++)
 	{
 		// Transform target pose into mesh space
-		BoneAtoms[i].ToTransform(TargetTM[i]);
+		BoneAtoms[i].ToTransform(ref TargetTM[i]);
 		if( i > 0 )
 		{
-			TargetTM[i] *= TargetTM(SkelComponent.SkeletalMesh.RefSkeleton[i].ParentIndex);
+			TargetTM[i] *= TargetTM[SkelComponent.SkeletalMesh.RefSkeleton[i].ParentIndex];
 		}
 
 		// Now get Source transform on this bone
 		// But from Target parent bone in mesh space.
-		MEdge.Core.Object.Matrix SourceTM;
-		RefBoneAtoms[i].ToTransform(SourceTM);
+		MEdge.Core.Object.Matrix SourceTM = default;
+		RefBoneAtoms[i].ToTransform(ref SourceTM);
 		if( i > 0 )
 		{
 			// Transform Target Skeleton by reference transform for this bone
-			SourceTM *= TargetTM(SkelComponent.SkeletalMesh.RefSkeleton[i].ParentIndex);
+			SourceTM *= TargetTM[SkelComponent.SkeletalMesh.RefSkeleton[i].ParentIndex];
 		}
 
 		MEdge.Core.Object.Matrix TargetTranslationM = MEdge.Core.Object.Matrix.Identity;
@@ -4575,11 +5159,11 @@ public virtual void ExtractOffsets(ref MEdge.array<BoneAtom> RefBoneAtoms, ref M
 
 		MEdge.Core.Object.Matrix TargetRotationM = TargetTM[i];
 		TargetRotationM.RemoveScaling();
-		TargetRotationM.SetOrigin(Vector(0f));
+		TargetRotationM.SetOrigin(new Vector(0f));
 
 		MEdge.Core.Object.Matrix SourceRotationM = SourceTM;
 		SourceRotationM.RemoveScaling();
-		SourceRotationM.SetOrigin(Vector(0f));
+		SourceRotationM.SetOrigin(new Vector(0f));
 
 		// Convert delta rotation to FRotator.
 		 MEdge.Core.Object.Matrix	RotationTM		= SourceRotationM.Inverse() * TargetRotationM;
@@ -4606,8 +5190,8 @@ int GetComponentIdxFromBoneIdx( int BoneIndex, bool bCreateIfNotFound)
 		return INDEX_NONE;
 	}
 
-	ref AimOffsetProfile P = GetCurrentProfile();
-	if( !P )
+	ref AimOffsetProfile P = ref GetCurrentProfile(out var valid);
+	if( valid == false )
 	{
 		return INDEX_NONE;
 	}
@@ -4631,7 +5215,7 @@ int GetComponentIdxFromBoneIdx( int BoneIndex, bool bCreateIfNotFound)
 			for(int i=0; i<P.AimComponents.Num() && InsertPos == INDEX_NONE; i++)
 			{
 				 MEdge.Core.name	TestName	= P.AimComponents[i].BoneName;
-				 int	TestIndex	= SkelComponent.SkeletalMesh.MatchRefBone(TestName);
+				 int	TestIndex	= SkelComponent.MatchRefBone(TestName);
 
 				if( TestIndex != INDEX_NONE && TestIndex > BoneIndex )
 				{
@@ -4650,7 +5234,7 @@ int GetComponentIdxFromBoneIdx( int BoneIndex, bool bCreateIfNotFound)
 			P.AimComponents.InsertZeroed(InsertPos);
 
 			// Set correct name and index.
-			P.AimComponents(InsertPos).BoneName = BoneName;
+			P.AimComponents[InsertPos].BoneName = BoneName;
 
 			// Initialize Quaternions - InsertZeroed doesn't set them to Identity
 			SetBoneAimQuaternion(InsertPos, ANIMAIM_LEFTUP,			Quat.Identity);
@@ -4686,7 +5270,7 @@ bool ExtractAnimationData(AnimNodeSequence SeqNode, MEdge.Core.name AnimationNam
 
 	if( SeqNode.AnimSeq == null )
 	{
-		debugf(TEXT(" ExtractAnimationData: Animation not found: %s, Skipping..."), *AnimationName.ToString());
+		debugf(TEXT(" ExtractAnimationData: Animation not found: %s, Skipping..."), AnimationName.ToString());
 		return false;
 	}
 
@@ -4697,26 +5281,26 @@ bool ExtractAnimationData(AnimNodeSequence SeqNode, MEdge.Core.name AnimationNam
 	if( BoneAtoms.Num() != NumBones )
 	{
 		BoneAtoms.Empty();
-		BoneAtoms.Add(NumBones);
+		BoneAtoms.AddCount(NumBones);
 	}
 
 	// Initialize Desired bones array. We take all.
-	MEdge.array<byte> DesiredBones;
+	MEdge.array<byte> DesiredBones = new();
 	DesiredBones.Empty();
-	DesiredBones.Add(NumBones);
+	DesiredBones.AddCount(NumBones);
 	for(int i=0; i<DesiredBones.Num(); i++)
 	{
-		DesiredBones[i] = i;
+		DesiredBones[i] = (byte)i;
 	}
 
 	// Extract bone atoms from animation data
-	BoneAtom	RootMotionDelta;
-	int			bHasRootMotion;
-	SeqNode.GetBoneAtoms(BoneAtoms, DesiredBones, RootMotionDelta, bHasRootMotion);
+	BoneAtom	RootMotionDelta = default;
+	bool		bHasRootMotion = false;
+	SeqNode.GetBoneAtoms(ref BoneAtoms, ref DesiredBones, ref RootMotionDelta, ref bHasRootMotion);
 
 	return true;
 }
-#endif
+
 /// <summary>
 /// 	Change the currently active profile to the one with the supplied name. 
 /// 	If a profile with that name does not exist, this does nothing.
@@ -4778,15 +5362,12 @@ public virtual void SetActiveProfileByIndex(int ProfileIndex)
 	CurrentProfileIndex = ProfileIndex;
 
 	// We need to recalculate the bone indices modified by the new profile.
-#if UNUSED
 	UpdateListOfRequiredBones();
-#endif
 }
 }
 
 public partial class AnimNodeSynch
 {
-#if UNUSED
 /// <summary>
 /// Add a node to an existing group 
 /// </summary>
@@ -4799,7 +5380,7 @@ public virtual void AddNodeToGroup(ref AnimNodeSequence SeqNode, MEdge.Core.name
 
 	for( int GroupIdx=0; GroupIdx<Groups.Num(); GroupIdx++ )
 	{
-		ref SynchGroup SynchGroup = Groups(GroupIdx);
+		ref SynchGroup SynchGroup = ref Groups[GroupIdx];
 		if( SynchGroup.GroupName == GroupName )
 		{
 			// Set group name
@@ -4824,7 +5405,7 @@ public virtual void RemoveNodeFromGroup(ref AnimNodeSequence SeqNode, MEdge.Core
 
 	for( int GroupIdx=0; GroupIdx<Groups.Num(); GroupIdx++ )
 	{
-		ref SynchGroup SynchGroup = Groups(GroupIdx);
+		ref SynchGroup SynchGroup = ref Groups[GroupIdx];
 		if( SynchGroup.GroupName == GroupName )
 		{
 			SeqNode.SynchGroupName = NAME_None;
@@ -4834,7 +5415,7 @@ public virtual void RemoveNodeFromGroup(ref AnimNodeSequence SeqNode, MEdge.Core
 			if( SynchGroup.MasterNode == SeqNode )
 			{
 				SynchGroup.MasterNode = null;
-				UpdateMasterNodeForGroup(SynchGroup);
+				UpdateMasterNodeForGroup(ref SynchGroup);
 			}
 
 			break;
@@ -4850,12 +5431,12 @@ public void ForceRelativePosition(MEdge.Core.name GroupName, float RelativePosit
 {
 	for( int GroupIdx=0; GroupIdx<Groups.Num(); GroupIdx++ )
 	{
-		ref SynchGroup SynchGroup = Groups[GroupIdx];
+		ref SynchGroup SynchGroup = ref Groups[GroupIdx];
 		if( SynchGroup.GroupName == GroupName )
 		{
 			for( int i=0; i < SynchGroup.SeqNodes.Num(); i++ )
 			{
-				ref AnimNodeSequence SeqNode = SynchGroup.SeqNodes[i];
+				ref AnimNodeSequence SeqNode = ref SynchGroup.SeqNodes[i];
 				if( SeqNode && SeqNode.AnimSeq )
 				{
 					SeqNode.SetPosition(FindNodePositionFromRelative(SeqNode, RelativePosition), false);
@@ -4873,7 +5454,7 @@ public float GetRelativePosition(MEdge.Core.name GroupName)
 {
 	for( int GroupIdx=0; GroupIdx<Groups.Num(); GroupIdx++ )
 	{
-		ref SynchGroup SynchGroup = Groups[GroupIdx];
+		ref SynchGroup SynchGroup = ref Groups[GroupIdx];
 		if( SynchGroup.GroupName == GroupName )
 		{
 			if( SynchGroup.MasterNode )
@@ -4882,7 +5463,7 @@ public float GetRelativePosition(MEdge.Core.name GroupName)
 			}
 			else
 			{
-				debugf(TEXT("AnimNodeSynch::GetRelativePosition, no master node for group %s"), *SynchGroup.GroupName.ToString());
+				debugf(TEXT("AnimNodeSynch.GetRelativePosition, no master node for group %s"), SynchGroup.GroupName.ToString());
 			}
 		}
 	}
@@ -4919,7 +5500,6 @@ public virtual void SetGroupRateScale(MEdge.Core.name GroupName, float NewRateSc
 		}
 	}
 }
-#endif
 
 public override void InitAnim(SkeletalMeshComponent MeshComp, AnimNodeBlendBase Parent)
 {
@@ -5135,7 +5715,7 @@ public override void InitAnim(SkeletalMeshComponent meshComp, AnimNodeBlendBase 
 		PlayPendingAnimation(0f, 0f);
 	}
 }
-#if UNUSED
+
 /// <summary>
 /// A child has been added, update RandomInfo accordingly 
 /// </summary>
@@ -5156,10 +5736,10 @@ public override void OnAddChild(int ChildNum)
 		}
 
 		// Set up new addition w/ defaults
-		ref FRandomAnimInfo Info = RandomInfo(ChildNum);
+		ref RandomAnimInfo Info = ref RandomInfo[ChildNum];
 		Info.Chance			= 1f;
 		Info.BlendInTime	= 0.25f;
-		Info.PlayRateRange	= FVector2D(1f,1f);
+		Info.PlayRateRange	= new(){ X = 1f, Y = 1f };
 	}
 }
 
@@ -5174,10 +5754,9 @@ public override void OnRemoveChild(int ChildNum)
 	if( ChildNum < RandomInfo.Num() )
 	{
 		// pdate Mask to match Children array
-		RandomInfo.Remove(ChildNum);
+		RandomInfo.RemoveAt(ChildNum);
 	}
 }
-#endif
 
 public override void OnChildAnimEnd(AnimNodeSequence Child, float PlayedTime, float ExcessTime)
 {
@@ -5531,7 +6110,7 @@ public override void TickAnim(float DeltaSeconds, float TotalWeight)
 	// pdate AnimNodeBlendList
 	base.TickAnim(DeltaSeconds, TotalWeight);
 }
-#if UNUSED
+
 /// <summary>
 /// Play a custom animation.
 /// Supports many features, including blending in and out. *
@@ -5601,15 +6180,15 @@ public virtual void PlayCustomAnimByDuration(MEdge.Core.name AnimName, float Dur
 		return;
 	}
 
-	ref AnimSequence AnimSeq = ref SkelComponent.FindAnimSequence(AnimName);
+	AnimSequence AnimSeq = SkelComponent.FindAnimSequence(AnimName);
 	if( AnimSeq )
 	{
-		 float NewRate = AnimSeq.SequenceLength / Duration;
+		float NewRate = AnimSeq.SequenceLength / Duration;
 		PlayCustomAnim(AnimName, NewRate, BlendInTime, BlendOutTime, bLooping, bOverride);
 	}
 	else
 	{
-		debugf(TEXT("UWarAnim_PlayCustomAnim::PlayAnim - AnimSequence for %s not found"), AnimName.ToString());
+		debugf(TEXT("UWarAnim_PlayCustomAnim.PlayAnim - AnimSequence for %s not found"), AnimName.ToString());
 	}
 }
 
@@ -5625,7 +6204,7 @@ public virtual void StopCustomAnim(float BlendOutTime)
 		CustomPendingBlendOutTime	= BlendOutTime;
 	}
 }
-#endif
+
 }
 
 /// <summary>
@@ -5633,7 +6212,7 @@ public virtual void StopCustomAnim(float BlendOutTime)
 /// Also, if all Children weights are zero, will set Children[0] as the active child.
 /// 
 /// @public partial class AnimNode
-// see UAnimNode::InitAnim
+// see UAnimNode.InitAnim
 /// </summary>
 public partial class AnimNodeSlot
 {
@@ -5671,7 +6250,6 @@ public override void InitAnim(SkeletalMeshComponent MeshComp, AnimNodeBlendBase 
 	SynchNode = null;
 }
 
-#if UNUSED
 /// <summary>
 /// pdate position of given channel 
 /// </summary>
@@ -5681,11 +6259,11 @@ public virtual void MAT_SetAnimPosition(int ChannelIndex, MEdge.Core.name InAnim
 
 	if( ChildNum >= Children.Num() )
 	{
-		debugf(TEXT("AnimNodeSlot::MAT_SetAnimPosition, invalid ChannelIndex: %d"), ChannelIndex);
+		debugf(TEXT("AnimNodeSlot.MAT_SetAnimPosition, invalid ChannelIndex: %d"), ChannelIndex);
 		return;
 	}
 
-	ref AnimNodeSequence SeqNode = (Children[ChildNum].Anim as AnimNodeSequence );
+	AnimNodeSequence SeqNode = (Children[ChildNum].Anim as AnimNodeSequence);
 	if( SeqNode )
 	{
 		// pdate Animation if needed
@@ -5722,8 +6300,8 @@ public virtual void MAT_SetAnimWeights( ref Actor.AnimSlotInfo SlotInfo)
 		// Start from last to first, as we want bottom channels to have precedence over top ones.
 		for(int i=Children.Num()-1; i>0; i--)
 		{
-			 int	ChannelIndex	= i - 1;
-			 float ChannelWeight	= ChannelIndex < NumChannels ? Clamp<float>(SlotInfo.ChannelWeights[ChannelIndex], 0f, 1f) : 0f;
+			int	ChannelIndex	= i - 1;
+			float ChannelWeight	= ChannelIndex < NumChannels ? Clamp(SlotInfo.ChannelWeights[ChannelIndex], 0f, 1f) : 0f;
 			Children[i].Weight			= ChannelWeight * (1f - AccumulatedWeight);
 			AccumulatedWeight			+= Children[i].Weight;
 		}
@@ -5751,7 +6329,6 @@ public override void RenameChildConnectors()
 		}
 	}
 }
-#endif
 
 /// <summary>
 /// When requested to play a new animation, we need to find a new child.
@@ -5782,7 +6359,7 @@ int FindBestChildToPlayAnim(MEdge.Core.name AnimToPlay)
 	if( BestWeight > ZERO_ANIMWEIGHT_THRESH )
 	{
 		Actor AOwner = SkelComponent ? SkelComponent.Owner : null;
-		debugf(TEXT("AnimNodeSlot::FindBestChildToPlayAnim - Best Index %d with a weight of %f, for Anim: %s and Owner: %s"), 
+		debugf(TEXT("AnimNodeSlot.FindBestChildToPlayAnim - Best Index %d with a weight of %f, for Anim: %s and Owner: %s"), 
 			BestIndex, BestWeight, AnimToPlay.ToString(), AOwner.Name);
 	}
 
@@ -5822,7 +6399,7 @@ public float PlayCustomAnim(name AnimName, float Rate, /*optional */float? _Blen
 
 	if( CustomChildIndex < 1 || CustomChildIndex >= Children.Num() )
 	{
-		debugf(TEXT("AnimNodeSlot::PlayCustomAnim, CustomChildIndex %d is out of bounds."), CustomChildIndex);
+		debugf(TEXT("AnimNodeSlot.PlayCustomAnim, CustomChildIndex %d is out of bounds."), CustomChildIndex);
 		return 0f;
 	}
 
@@ -5872,7 +6449,7 @@ public float PlayCustomAnim(name AnimName, float Rate, /*optional */float? _Blen
 	}
 	else
 	{
-		debugf(TEXT("AnimNodeSlot::PlayCustomAnim, Child %d, is not hooked up to a AnimNodeSequence."), CustomChildIndex);
+		debugf(TEXT("AnimNodeSlot.PlayCustomAnim, Child %d, is not hooked up to a AnimNodeSequence."), CustomChildIndex);
 	}
 
 	return 0f;
@@ -5914,16 +6491,16 @@ public virtual void PlayCustomAnimByDuration(name AnimName, float Duration, /*op
 	}
 	else
 	{
-		debugf(TEXT("AnimNodeSlot::PlayAnim - AnimSequence for %s not found"), AnimName.ToString());
+		debugf(TEXT("AnimNodeSlot.PlayAnim - AnimSequence for %s not found"), AnimName.ToString());
 	}
 }
-#if UNUSED
+
 /// <summary>
 /// Returns the Name of the currently played animation or NAME_None otherwise. 
 /// </summary>
 public MEdge.Core.name GetPlayedAnimation()
 {
-	ref AnimNodeSequence SeqNode = GetCustomAnimNodeSeq();
+	AnimNodeSequence SeqNode = GetCustomAnimNodeSeq();
 	if( SeqNode )
 	{	
 		return SeqNode.AnimSeqName;
@@ -5931,7 +6508,6 @@ public MEdge.Core.name GetPlayedAnimation()
 
 	return NAME_None;
 }
-#endif
 
 
 /// <summary>
@@ -5951,7 +6527,7 @@ public virtual void StopCustomAnim(float BlendOutTime)
 		SetActiveChild(0, BlendOutTime);
 	}
 }
-#if UNUSED
+
 /// <summary>
 /// Stop playing a custom animation. 
 /// sed for blending out of a looping custom animation.
@@ -5960,14 +6536,14 @@ public virtual void SetCustomAnim(MEdge.Core.name AnimName)
 {
 	if( bIsPlayingCustomAnim )
 	{
-		ref AnimNodeSequence SeqNode = GetCustomAnimNodeSeq();
+		AnimNodeSequence SeqNode = GetCustomAnimNodeSeq();
 		if( SeqNode && SeqNode.AnimSeqName != AnimName )
 		{
 			SeqNode.SetAnim(AnimName);
 		}
 	}
 }
-#endif
+
 /// <summary>
 /// Set bCauseActorAnimEnd flag to receive AnimEnd() notification.
 /// </summary>
@@ -6021,25 +6597,24 @@ public virtual /*native final function */void SetRootBoneAxisOption(/*optional *
 /// </summary>
 public virtual void SetRootBoneAxisOption(byte AxisX, byte AxisY, byte AxisZ)
 {
-	ref AnimNodeSequence SeqNode = GetCustomAnimNodeSeq();
+	AnimNodeSequence SeqNode = GetCustomAnimNodeSeq();
 
 	if( SeqNode )
 	{
-		SeqNode.RootBoneOption[0] = AxisX;
-		SeqNode.RootBoneOption[1] = AxisY;
-		SeqNode.RootBoneOption[2] = AxisZ;
+		SeqNode.RootBoneOption[0] = (AnimNodeSequence.ERootBoneAxis)AxisX;
+		SeqNode.RootBoneOption[1] = (AnimNodeSequence.ERootBoneAxis)AxisY;
+		SeqNode.RootBoneOption[2] = (AnimNodeSequence.ERootBoneAxis)AxisZ;
 	}
 }
 #endif
 
-#if UNUSED
 /// <summary>
 /// Synchronize this animation with others. 
 /// @param GroupName	Add node to synchronization group named group name.
 /// </summary>
 public virtual void AddToSynchGroup(MEdge.Core.name GroupName)
 {
-	ref AnimNodeSequence SeqNode = GetCustomAnimNodeSeq();
+	AnimNodeSequence SeqNode = GetCustomAnimNodeSeq();
 
 	if( !SeqNode || SeqNode.SynchGroupName == GroupName )
 	{
@@ -6049,11 +6624,11 @@ public virtual void AddToSynchGroup(MEdge.Core.name GroupName)
 	// Find synchronization node if necessary
 	if (SynchNode == null)
 	{
-		MEdge.array<AnimNode> Nodes;
-		SkelComponent.Animations.GetNodes(Nodes);
+		MEdge.array<AnimNode> Nodes = new();
+		SkelComponent.Animations.GetNodes(ref Nodes);
 		for(int i = 0; i < Nodes.Num(); i++)
 		{
-			SynchNode = (Nodes[i] as AnimNodeSynch );
+			SynchNode = (Nodes[i] as AnimNodeSynch);
 			if (SynchNode != null)
 			{
 				break;
@@ -6076,7 +6651,7 @@ public virtual void AddToSynchGroup(MEdge.Core.name GroupName)
 		}
 	}
 }
-#endif
+
 public override void TickAnim(float DeltaSeconds, float TotalWeight)
 {
 	if( bIsPlayingCustomAnim   )
@@ -6158,7 +6733,7 @@ public virtual void SetActiveChild(int ChildIndex, float BlendTime)
 
 	if( ChildIndex < 0 || ChildIndex >= Children.Num() )
 	{
-		debugf( TEXT("AnimNodeBlendList::SetActiveChild : %s ChildIndex (%d) outside number of Children (%d)."), this.Name, ChildIndex, Children.Num() );
+		debugf( TEXT("AnimNodeBlendList.SetActiveChild : %s ChildIndex (%d) outside number of Children (%d)."), this.Name, ChildIndex, Children.Num() );
 		ChildIndex = 0;
 	}
 
@@ -6200,7 +6775,6 @@ public virtual void SetActiveChild(int ChildIndex, float BlendTime)
 	TargetChildIndex	= ChildIndex;
 }
 
-#if UNUSED
 /// <summary>
 /// Called when we add a child to this node. We reset the TargetWeight array when this happens. 
 /// </summary>
@@ -6208,7 +6782,7 @@ public override void OnAddChild(int ChildNum)
 {
 	base.OnAddChild(ChildNum);
 
-	ResetTargetWeightArray(TargetWeight, Children.Num());
+	ResetTargetWeightArray(ref TargetWeight, Children.Num());
 }
 
 /// <summary>
@@ -6218,8 +6792,7 @@ public override void OnRemoveChild(int ChildNum)
 {
 	base.OnRemoveChild(ChildNum);
 
-	ResetTargetWeightArray(TargetWeight, Children.Num());
+	ResetTargetWeightArray(ref TargetWeight, Children.Num());
 }
-#endif
 }
 }

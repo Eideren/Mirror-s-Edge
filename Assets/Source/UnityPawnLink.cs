@@ -1,7 +1,9 @@
 ﻿namespace MEdge.Engine
 {
-    using System.Linq;
-    using Core;
+	using System;
+	using System.Linq;
+	using AnimNodeEditor;
+	using Core;
     using Source;
     using TdGame;
     using UnityEngine;
@@ -16,9 +18,10 @@
         class PawnLink : IProcessor
         {
             public TdPawn Pawn;
-            AnimationPlayer _1pPlayer, _3pPlayer;
+            GameObject _1pPlayer, _3pPlayer;
+            Transform[] _1pBones, _3pBones;
             SkinnedMeshRenderer _1pLower;
-            AnimNodeEditor.AnimNodeEditorWindow _window;
+            AnimNodeEditorWindow _window;
             UnityEngine.Camera _unityCam;
 
 
@@ -36,28 +39,30 @@
                     Pawn.Mesh1pLowerBody.Owner = Pawn.Mesh1p.Owner = Pawn;
                     
                     Asset.UScriptToUnity.TryGetValue( Pawn.Mesh1p.SkeletalMesh, out var fpMesh );
-                    var fpUpper = (SkinnedMeshRenderer) fpMesh;
                     Asset.UScriptToUnity.TryGetValue( Pawn.Mesh1pLowerBody.SkeletalMesh, out var unityObjectLower );
+                    
+                    var fpUpper = (SkinnedMeshRenderer) fpMesh;
                     _1pLower = (SkinnedMeshRenderer)unityObjectLower;
                     
-                    _1pPlayer = new AnimationPlayer(Pawn.Mesh1p, 
-                        Resources.LoadAll<AnimationClip>( "Animations/AS_C1P_Unarmed/" ), 
-                        Asset.Get_AS_C1P_Unarmed(),  
-                        fpUpper.transform.parent.gameObject );
-                    
+                    _1pPlayer = fpUpper.transform.parent.gameObject;
+                    var clips = Resources.LoadAll<AnimationClip>( "Animations/AS_C1P_Unarmed/" );
+                    foreach( var set in Pawn.Mesh1p.AnimSets )
+                    {
+	                    if(set!=null)
+		                    FixRefsForAnimation( Pawn.Mesh1p, clips, set, _1pPlayer );
+                    }
+
                     // Merge lower skinned mesh to the same hierarchy as upper
+                    var nameToBones = _1pPlayer.GetComponentsInChildren<Transform>().ToDictionary( t => (name)t.name );
                     var oldParent = _1pLower.transform.parent;
                     _1pLower.transform.parent = fpUpper.transform.parent;
-                    _1pLower.rootBone = _1pPlayer.Bones[ _1pPlayer.NameToIndex[ _1pLower.rootBone.name ] ];
-                    var tempBones = _1pLower.bones;
-                    for( int i = 0; i < tempBones.Length; i++ )
-                    {
-                        tempBones[ i ] = _1pPlayer.Bones[ _1pPlayer.NameToIndex[ tempBones[i].name ] ];
-                    }
-                    _1pLower.bones = tempBones;
+                    _1pLower.rootBone = nameToBones[ _1pLower.rootBone.name ];
+                    _1pLower.bones = _1pLower.bones.Select( t => nameToBones[t.name] ).ToArray();
                     Destroy(oldParent.gameObject);
                     
-                    _window = AnimNodeEditor.AnimNodeEditorWindow.CreateInstance<AnimNodeEditor.AnimNodeEditorWindow>();
+                    _1pBones = Pawn.Mesh1p.AnimSets[0].TrackBoneNames.Select( n => nameToBones[ n ] ).ToArray();
+                    
+                    _window = AnimNodeEditorWindow.CreateInstance<AnimNodeEditorWindow>();
                     _window.LoadFromNode( Pawn.Mesh1p.Animations );
                     _window.Show();
                 }
@@ -71,16 +76,43 @@
                     var clips = Resources.LoadAll<AnimationClip>( "Animations/AS_F3P_Unarmed/" );
                     Asset.UScriptToUnity.TryGetValue( Pawn.Mesh3p.SkeletalMesh, out var tracker );
                     Pawn.Mesh3p.Owner = Pawn; // Shouldn't have to do this here, source has some other system making sure it is set
-                    _3pPlayer = new AnimationPlayer( Pawn.Mesh3p, clips, Asset.Get_AS_F3P_Unarmed(), ((SkinnedMeshRenderer)tracker).transform.parent.gameObject );
+                    _3pPlayer = ( (SkinnedMeshRenderer) tracker ).transform.parent.gameObject;
+                    foreach( var set in Pawn.Mesh3p.AnimSets )
+                    {
+	                    if(set!=null)
+							FixRefsForAnimation( Pawn.Mesh3p, clips, set, _3pPlayer );
+	                }
+	                
+	                var nameToBones = _3pPlayer.GetComponentsInChildren<Transform>().ToDictionary( t => (name)t.name );
+	                _3pBones = Pawn.Mesh3p.AnimSets[0].TrackBoneNames.Select( n => nameToBones[ n ] ).ToArray();
+	                
                     // Disable rendering for now, let's focus on 1P first
                     ( (SkinnedMeshRenderer)tracker ).enabled = false;
                 }
 
+                for( int i = 0; i < Pawn.Mesh1p.LocalAtoms.Length; i++ )
+                {
+	                ref var atom = ref Pawn.Mesh1p.LocalAtoms[i];
+	                _1pBones[i].localPosition = atom.Translation.ToUnityPos();
+	                _1pBones[i].localRotation = (Quaternion)atom.Rotation;
+	                _1pBones[i].localScale = Vector3.one * atom.Scale;
+                }
+                
+                for( int i = 0; i < Pawn.Mesh3p.LocalAtoms.Length; i++ )
+                {
+	                ref var atom = ref Pawn.Mesh3p.LocalAtoms[i];
+	                _3pBones[i].localPosition = atom.Translation.ToUnityPos();
+	                _3pBones[i].localRotation = (Quaternion)atom.Rotation;
+	                _3pBones[i].localScale = Vector3.one * atom.Scale;
+                }
+                
                 //_3pPlayer.Sample( deltaTime );
-                _1pPlayer.Sample( deltaTime );
-                var (pos, rot) = ( (Pawn.Location - new Object.Vector(0f,0f,Pawn.GetCollisionHeight())).ToUnityPos(), (Quaternion)Pawn.Rotation );
-                _1pPlayer.GameObject.transform.SetPositionAndRotation( pos, rot );
-                _3pPlayer.GameObject.transform.SetPositionAndRotation( pos, rot );
+                //_1pPlayer.Sample( deltaTime );
+                #warning This offset with collision is kind of a hack as the exported animation and model's pivot is at the base instead of in the center of the model
+                var basePos = Pawn.Location - new Object.Vector( 0f, 0f, Pawn.GetCollisionHeight());
+                var baseRot = Pawn.Rotation;
+                _1pPlayer.transform.SetPositionAndRotation( (basePos + Pawn.Mesh1p.Translation).ToUnityPos(), (Quaternion)(baseRot + Pawn.Mesh1p.Rotation) );
+                _3pPlayer.transform.SetPositionAndRotation( (basePos + Pawn.Mesh3p.Translation).ToUnityPos(), (Quaternion)(baseRot + Pawn.Mesh3p.Rotation) );
                 
                 if( _unityCam == null )
                 {
@@ -146,6 +178,40 @@
                     LogError(appendedMessage);
                 }
             }
+
+
+
+            static void FixRefsForAnimation(SkeletalMeshComponent skel, AnimationClip[] clips, AnimSet animSet, GameObject gameObject)
+            {
+	            var nameToClip = clips.ToDictionary( x => (name)x.name, x => x ); 
+	            var nameToTransforms = gameObject.GetComponentsInChildren<Transform>().ToDictionary( x => (name)x.name );
+	            var bones = animSet.TrackBoneNames.Select( name => nameToTransforms[ name ] ).ToArray();
+	            var bindPose = bones.Select( x => new AnimNode.BoneAtom( (Object.Quat) x.localRotation, x.localPosition.ToUnrealPos(), 1f ) ).ToArray();
+				
+				
+	            foreach( AnimSequence sequence in animSet.Sequences )
+	            {
+		            if( nameToClip.TryGetValue( sequence.SequenceName, out var clip ) == false )
+		            {
+			            LogError($"Could not find sequence {sequence.SequenceName} in provided clips");
+			            continue;
+		            }
+
+		            sequence._unityBones = bones;
+		            sequence._unityClipTarget = gameObject;
+		            sequence._unityClip = clip;
+		            sequence._unityRefPose = bindPose;
+					
+		            clip.wrapMode = WrapMode.Default;
+		            clip.SampleAnimation( gameObject, 0f );
+		            sequence._unityPoses.start = bones.Select( bone => new AnimNode.BoneAtom( (Object.Quat) bone.localRotation, bone.localPosition.ToUnrealPos(), 1f ) ).ToArray();
+					
+		            clip.SampleAnimation( gameObject, clip.length );
+		            sequence._unityPoses.end = bones.Select( bone => new AnimNode.BoneAtom( (Object.Quat) bone.localRotation, bone.localPosition.ToUnrealPos(), 1f ) ).ToArray();
+	            }
+            }
+
+
         }
 	}
 }

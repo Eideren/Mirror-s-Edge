@@ -87,7 +87,7 @@ namespace MEdge
             get
             {
                 while(i >= Length)
-                    Add(default);
+                    Add(default(T));
                 return ref _items[i];
             }
         }
@@ -111,7 +111,7 @@ namespace MEdge
                 var i = e.GetHashCode();
                 UnityEngine.Debug.Assert( Enum.ToObject( e.GetType(), i ).Equals( e ) );
                 while(i >= Length)
-                    Add(default);
+                    Add(default(T));
                 return ref _items[i];
             }
         }
@@ -125,12 +125,21 @@ namespace MEdge
 
 
 
-        public bool FindItem(T item, ref int Index)
+        public bool FindItem(in T item, ref int Index)
         {
             for( Index=0; Index<Count; Index++ )
                 if( EqualityComparer<T>.Default.Equals( this[ Index ], item ) )
                     return true;
             return false;
+        }
+
+
+
+        public int FindItemIndex(in T item)
+        {
+            var index = -1;
+            FindItem( item, ref index );
+            return index;
         }
 
 
@@ -172,11 +181,7 @@ namespace MEdge
 
 
 
-        public void AddItem(T item) => Add(item);
-
-
-
-        public void Add(T item)
+        public int Add(T item)
         {
             _version++;
             T[] array = _items;
@@ -190,18 +195,39 @@ namespace MEdge
             {
                 AddWithResize(item);
             }
+
+            return size;
+        }
+        
+        
+        
+        public int AddZeroed(int amount = 1)
+        {
+            int ret = this.Count;
+            for( int i = 0; i < amount; i++ )
+                Add(default(T));
+            return ret;
         }
 
 
 
-        public int Add( int Count, int ElementSize, int Alignment )
+        public void AddItem(T item) => Add(item);
+        public void AddCount( int count ) => AddZeroed(count);
+        public int Add( int Count, int ElementSize, int Alignment ) => AddZeroed(Count);
+
+
+
+        public void InsertZeroed(int index, int count=1) => Insert(index, count);
+
+
+
+        public int AddUniqueItem(T item)
         {
-            int pc = this.Count;
-            for( int i = 0; i < Count; i++ )
-            {
-                Add( default );
-            }
-            return pc;
+            var index = FindItemIndex( item );
+            if( index != - 1 )
+                return index;
+            Add( item );
+            return Length - 1;
         }
 
 
@@ -235,7 +261,7 @@ namespace MEdge
 
         public bool ContainsItem( T item )
         {
-            return Array.IndexOf( _items, item, Length ) != -1;
+            return Array.IndexOf( _items, item, 0, Length ) != -1;
         }
 
 
@@ -245,18 +271,13 @@ namespace MEdge
             if( length > Capacity )
                 Capacity = length;
         }
-        public void Empty()
+        public void Empty(int slack = 0)
         {
             Reset();
         }
         public void Reset()
         {
             Remove(0, Count);
-        }
-        public void AddZeroed(int amount)
-        {
-            for( int i = 0; i < amount; i++ )
-                Add(default);
         }
 
 

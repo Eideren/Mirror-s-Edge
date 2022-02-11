@@ -79,7 +79,9 @@
         public static float FMax(float a, float b) => a > b ? a : b;
         public static int Clamp(int x, int min, int max) => x > max ? max : x < min ? min : x;
         public static float FClamp(float x, float min, float max) => x > max ? max : x < min ? min : x;
-        public static float Clamp<T>(float x, float min, float max) => x > max ? max : x < min ? min : x;
+        public static float Clamp(float x, float min, float max) => x > max ? max : x < min ? min : x;
+
+
 
         /// <summary> Unreal Scripts support 'intX *= floatY' operation, this replaces that for c# </summary>
         public static int IntFloat_Mult(int x, float y)
@@ -230,7 +232,7 @@
 	        return TransformFVector4(M, new Vector4(){ X=V.X,Y=V.Y,Z=V.Z,W=0.0f });
         }
         
-        public static Vector4 TransformFVector4(Matrix M, Vector4 P)
+        public static Vector4 TransformFVector4(in Matrix M, in Vector4 P)
         {
 	        Vector4 Result;
 

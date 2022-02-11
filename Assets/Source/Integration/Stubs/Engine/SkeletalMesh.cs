@@ -1,5 +1,6 @@
 namespace MEdge.Engine{
-using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+	using System.Collections.Generic;
+	using Core; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
 public partial class SkeletalMesh : Object/*
 		native
@@ -61,9 +62,9 @@ public partial class SkeletalMesh : Object/*
 	[Category] [native, Const] public array<MaterialInterface> Materials;
 	[Category] [native, Const] public Object.Vector Origin;
 	[Category] [native, Const] public Object.Rotator RotOrigin;
-	[native, Const] public array<int> RefSkeleton;
+	[native, Const] public array<AnimNode.FMeshBone> RefSkeleton;
 	[native, Const] public int SkeletalDepth;
-	[native, Const] public /*map<0,0>*/map<object, object> NameIndexMap;
+	[native, Const] public /*map<0,0>*/Dictionary<name, int> NameIndexMap;
 	[native, Const] public/*private*/ Object.IndirectArray_Mirror LODModels;
 	[native, Const] public array<Object.Matrix> RefBasesInvMatrix;
 	[Category] [editfixedsize] public array<SkeletalMesh.BoneMirrorInfo> SkelMirrorTable;

@@ -38,6 +38,47 @@
 		public static string TEXT( string s ) => s;
 		
 		public static implicit operator bool(Object o) => o != null;
+		public virtual void PreEditChange(Property PropertyThatWillChange){}
+		public virtual void PostEditChange(Property PropertyThatChanged){}
+		public Object GetOuter() => Outer;
+
+		public name GetName() => Name;
+		public name GetFName() => Name;
+		
+		public String GetPathName( Object StopOuter = null )
+		{
+			String Result = default;
+			GetPathName(StopOuter, ref Result);
+			return Result;
+		}
+
+		void GetPathName( Object StopOuter, ref String ResultString )
+		{
+			if( this != StopOuter && this != NULL )
+			{
+				if ( Outer && Outer != StopOuter )
+				{
+					Outer.GetPathName( StopOuter, ref ResultString );
+
+					// SUBOBJECT_DELIMITER is used to indicate that this object's outer is not a UPackage
+					/*if (Outer.GetClass() != UPackage::StaticClass()
+					    &&	Outer.GetOuter().GetClass() == UPackage::StaticClass())
+					{
+						ResultString += SUBOBJECT_DELIMITER;
+					}
+					else*/
+					{
+						ResultString += TEXT(".");
+					}
+				}
+
+				ResultString += Name;
+			}
+			else
+			{
+				ResultString += TEXT("None");
+			}
+		}
 		
 		/// <summary>
 		/// IN UE3:

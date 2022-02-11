@@ -27,24 +27,11 @@ public partial class AnimNodeSlot : AnimNodeBlendBase/*
 	//	NativeMarkers.MarkUnimplemented();
 	//}
 	
-	// Export UAnimNodeSlot::execGetPlayedAnimation(FFrame&, void* const)
-	public virtual /*native final function */name GetPlayedAnimation()
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
-	
 	// Export UAnimNodeSlot::execStopCustomAnim(FFrame&, void* const)
 	//public virtual /*native final function */void StopCustomAnim(float BlendOutTime)
 	//{
 	//	NativeMarkers.MarkUnimplemented();
 	//}
-	
-	// Export UAnimNodeSlot::execSetCustomAnim(FFrame&, void* const)
-	public virtual /*native final function */void SetCustomAnim(name AnimName)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
 	
 	// Export UAnimNodeSlot::execSetActorAnimEndNotification(FFrame&, void* const)
 	//public virtual /*native final function */void SetActorAnimEndNotification(bool bNewStatus)
@@ -65,12 +52,6 @@ public partial class AnimNodeSlot : AnimNodeBlendBase/*
 	//	NativeMarkers.MarkUnimplemented();
 	//}
 	
-	// Export UAnimNodeSlot::execAddToSynchGroup(FFrame&, void* const)
-	public virtual /*native final function */void AddToSynchGroup(name GroupName)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
-	
 	public AnimNodeSlot()
 	{
 		// Object Offset:0x0029ED13
@@ -86,7 +67,7 @@ public partial class AnimNodeSlot : AnimNodeBlendBase/*
 				Anim = default,
 				Weight = 1.0f,
 				TotalWeight = 0.0f,
-				bHasRootMotion = 0,
+				bHasRootMotion = false,
 				RootMotion = new AnimNode.BoneAtom
 				{
 					Rotation = new Quat
@@ -113,7 +94,7 @@ public partial class AnimNodeSlot : AnimNodeBlendBase/*
 				Anim = default,
 				Weight = 0.0f,
 				TotalWeight = 0.0f,
-				bHasRootMotion = 0,
+				bHasRootMotion = false,
 				RootMotion = new AnimNode.BoneAtom
 				{
 					Rotation = new Quat

@@ -14,10 +14,6 @@
         // Export UTdPawn::execInitMoveObjects(FFrame&, void* const)
         public virtual unsafe /*native function */void InitMoveObjects()
         {
-            this.Mesh3p.Animations = this.Mesh3p.AnimTreeTemplate;
-            this.Mesh1p.Animations = this.Mesh1p.AnimTreeTemplate;
-            LogWarning( $"Need to implement clone for {nameof(this.Mesh3p.AnimTreeTemplate)} instead of straight assign" );
-            
             /*ref array<TdMove> v2; // edi
             bool v3; // zf
             TdMove[] v4; // esi

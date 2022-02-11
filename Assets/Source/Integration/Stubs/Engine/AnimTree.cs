@@ -67,62 +67,8 @@ public partial class AnimTree : AnimNodeBlendBase/*
 	//	return default;
 	//}
 	
-	// Export UAnimTree::execFindMorphNode(FFrame&, void* const)
-	public virtual /*native final function */MorphNodeBase FindMorphNode(name InNodeName)
-	{
-		NativeMarkers.MarkUnimplemented();
-		// stub
-		return default;
-	}
-	
 	// Export UAnimTree::execSetAnimGroupForNode(FFrame&, void* const)
 	public virtual /*native final function */bool SetAnimGroupForNode(AnimNodeSequence SeqNode, name GroupName, /*optional */bool? _bCreateIfNotFound = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-		// stub
-		return default;
-	}
-	
-	// Export UAnimTree::execGetGroupSynchMaster(FFrame&, void* const)
-	public virtual /*native final function */AnimNodeSequence GetGroupSynchMaster(name GroupName)
-	{
-		NativeMarkers.MarkUnimplemented();
-		// stub
-		return default;
-	}
-	
-	// Export UAnimTree::execGetGroupNotifyMaster(FFrame&, void* const)
-	public virtual /*native final function */AnimNodeSequence GetGroupNotifyMaster(name GroupName)
-	{
-		NativeMarkers.MarkUnimplemented();
-		// stub
-		return default;
-	}
-	
-	// Export UAnimTree::execForceGroupRelativePosition(FFrame&, void* const)
-	public virtual /*native final function */void ForceGroupRelativePosition(name GroupName, float RelativePosition)
-	{
-		NativeMarkers.MarkUnimplemented();
-		// stub
-	}
-	
-	// Export UAnimTree::execGetGroupRelativePosition(FFrame&, void* const)
-	public virtual /*native final function */float GetGroupRelativePosition(name GroupName)
-	{
-		NativeMarkers.MarkUnimplemented();
-		// stub
-		return default;
-	}
-	
-	// Export UAnimTree::execSetGroupRateScale(FFrame&, void* const)
-	public virtual /*native final function */void SetGroupRateScale(name GroupName, float NewRateScale)
-	{
-		NativeMarkers.MarkUnimplemented();
-		// stub
-	}
-	
-	// Export UAnimTree::execGetGroupIndex(FFrame&, void* const)
-	public virtual /*native final function */int GetGroupIndex(name GroupName)
 	{
 		NativeMarkers.MarkUnimplemented();
 		// stub
@@ -141,7 +87,7 @@ public partial class AnimTree : AnimNodeBlendBase/*
 				Anim = default,
 				Weight = 1.0f,
 				TotalWeight = 0.0f,
-				bHasRootMotion = 0,
+				bHasRootMotion = false,
 				RootMotion = new AnimNode.BoneAtom
 				{
 					Rotation = new Quat

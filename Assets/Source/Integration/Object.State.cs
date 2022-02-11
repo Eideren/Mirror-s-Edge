@@ -106,7 +106,7 @@ because it makes the most sense given that BeginState and EndState requires prev
             // It is possible for an actor to be in "no state" by using GotoState(). When an actor is in "no state", only its global (non-state) functions are called.
             if (string.IsNullOrWhiteSpace(stateName.Value))
                 return (null, null, null);
-            if (stateName.Value == "Auto" || stateName.Value == "auto")
+            if (stateName == "Auto" || stateName == "auto")
                 return GetAutoState();
             throw new ArgumentException($"Unknown state:'{stateName}'");
         }

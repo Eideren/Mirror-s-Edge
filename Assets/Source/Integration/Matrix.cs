@@ -45,6 +45,11 @@
 	            get => Vals[ x * 4 + y ];
 	            set => Vals[ x * 4 + y ] = value;
             }
+            
+            public readonly Vector InverseTransformFVector(ref Vector V)
+            {
+	            return Inverse().TransformFVector(V);
+            }
 
 
 
@@ -57,7 +62,7 @@
                 M[i,2] = Axis.Z;
             }
             
-            public Vector GetAxis(int i)
+            public readonly Vector GetAxis(int i)
             {
                 checkSlow(i >= 0 && i <= 2);
                 return new Vector(M[i,0], M[i,1], M[i,2]);
@@ -80,7 +85,54 @@
                 return Rotator;
             }
             
-            public Vector GetOrigin()
+            public void Mirror(EAxis MirrorAxis, EAxis FlipAxis)
+            {
+	            if(MirrorAxis == EAxis.AXIS_X)
+	            {
+		            M[0,0] *= -1f;
+		            M[1,0] *= -1f;
+		            M[2,0] *= -1f;
+
+		            M[3,0] *= -1f;
+	            }
+	            else if(MirrorAxis == EAxis.AXIS_Y)
+	            {
+		            M[0,1] *= -1f;
+		            M[1,1] *= -1f;
+		            M[2,1] *= -1f;
+
+		            M[3,1] *= -1f;
+	            }
+	            else if(MirrorAxis == EAxis.AXIS_Z)
+	            {
+		            M[0,2] *= -1f;
+		            M[1,2] *= -1f;
+		            M[2,2] *= -1f;
+
+		            M[3,2] *= -1f;
+	            }
+
+	            if(FlipAxis == EAxis.AXIS_X)
+	            {
+		            M[0,0] *= -1f;
+		            M[0,1] *= -1f;
+		            M[0,2] *= -1f;
+	            }
+	            else if(FlipAxis == EAxis.AXIS_Y)
+	            {
+		            M[1,0] *= -1f;
+		            M[1,1] *= -1f;
+		            M[1,2] *= -1f;
+	            }
+	            else if(FlipAxis == EAxis.AXIS_Z)
+	            {
+		            M[2,0] *= -1f;
+		            M[2,1] *= -1f;
+		            M[2,2] *= -1f;
+	            }
+            }
+            
+            public readonly Vector GetOrigin()
             {
                 return FVector(M[3,0],M[3,1],M[3,2]);
             }
@@ -162,13 +214,51 @@
             }
             
             // Inverse.
-            public Matrix Inverse()
+            public readonly Matrix Inverse()
             {
                 Matrix Result = default;
                 Matrix thiss = this;
                 VectorMatrixInverse( &Result, &thiss );
                 return Result;
             }
+            public readonly float RotDeterminant()
+            {
+	            return	
+		            M[0,0] * (M[1,1] * M[2,2] - M[1,2] * M[2,1]) -
+		            M[1,0] * (M[0,1] * M[2,2] - M[0,2] * M[2,1]) +
+		            M[2,0] * (M[0,1] * M[1,2] - M[0,2] * M[1,1]);
+            }
+            
+            public void SetOrigin( in Vector NewOrigin )
+            {
+	            M[3,0] = NewOrigin.X;
+	            M[3,1] = NewOrigin.Y;
+	            M[3,2] = NewOrigin.Z;
+            }
+            public readonly Vector4 TransformNormal(in Vector V)
+            {
+	            return TransformFVector4(this, new Vector4(V.X,V.Y,V.Z,0.0f));
+            }
+            public readonly Vector InverseTransformNormal(in Vector V)
+            {
+	            return Inverse().TransformNormal(V);
+            }
+            public readonly bool ContainsNaN()
+            {
+	            for(int i=0; i<4; i++)
+	            {
+		            for(int j=0; j<4; j++)
+		            {
+			            if(float.IsNaN(M[i,j]) || !float.IsFinite(M[i,j]))
+			            {
+				            return TRUE;
+			            }
+		            }
+	            }
+
+	            return FALSE;
+            }
+
         }
 
 

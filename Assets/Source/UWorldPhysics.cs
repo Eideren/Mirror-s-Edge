@@ -162,7 +162,7 @@
 
 					if( Actor.CollisionComponent.IsValidComponent() )
 					{
-						if( /*!Actor.CollisionComponent.IsAttached()*/false )
+						if( !Actor.CollisionComponent.IsAttached() )
 						{
 							throw new Exception();
 							//appErrorf(TEXT("%s collisioncomponent %s not initialized deleteme %d"),*Actor.GetName(), *Actor.CollisionComponent.GetName(), Actor.bDeleteMe);

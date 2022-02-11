@@ -20,7 +20,7 @@ public partial class TdAnimNodePawnRotation : TdAnimNodeBlendList/*
 				Anim = default,
 				Weight = 0.0f,
 				TotalWeight = 0.0f,
-				bHasRootMotion = 0,
+				bHasRootMotion = false,
 				RootMotion = new AnimNode.BoneAtom
 				{
 					Rotation = new Quat
@@ -47,7 +47,7 @@ public partial class TdAnimNodePawnRotation : TdAnimNodeBlendList/*
 				Anim = default,
 				Weight = 0.0f,
 				TotalWeight = 0.0f,
-				bHasRootMotion = 0,
+				bHasRootMotion = false,
 				RootMotion = new AnimNode.BoneAtom
 				{
 					Rotation = new Quat
@@ -74,7 +74,7 @@ public partial class TdAnimNodePawnRotation : TdAnimNodeBlendList/*
 				Anim = default,
 				Weight = 0.0f,
 				TotalWeight = 0.0f,
-				bHasRootMotion = 0,
+				bHasRootMotion = false,
 				RootMotion = new AnimNode.BoneAtom
 				{
 					Rotation = new Quat

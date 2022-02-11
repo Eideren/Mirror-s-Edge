@@ -20,12 +20,6 @@ public partial class AnimNodePlayCustomAnim : AnimNodeBlend/*
 		NativeMarkers.MarkUnimplemented();
 	}
 	
-	// Export UAnimNodePlayCustomAnim::execStopCustomAnim(FFrame&, void* const)
-	public virtual /*native final function */void StopCustomAnim(float BlendOutTime)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
-	
 	public virtual /*final function */void SetCustomAnim(name AnimName)
 	{
 		/*local */AnimNodeSequence SeqNode = default;
@@ -80,7 +74,7 @@ public partial class AnimNodePlayCustomAnim : AnimNodeBlend/*
 				Anim = default,
 				Weight = 1.0f,
 				TotalWeight = 0.0f,
-				bHasRootMotion = 0,
+				bHasRootMotion = false,
 				RootMotion = new AnimNode.BoneAtom
 				{
 					Rotation = new Quat
@@ -107,7 +101,7 @@ public partial class AnimNodePlayCustomAnim : AnimNodeBlend/*
 				Anim = default,
 				Weight = 0.0f,
 				TotalWeight = 0.0f,
-				bHasRootMotion = 0,
+				bHasRootMotion = false,
 				RootMotion = new AnimNode.BoneAtom
 				{
 					Rotation = new Quat

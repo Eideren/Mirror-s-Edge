@@ -2998,12 +2998,10 @@ void __thiscall UTdAnimNodeSequence::OnAnimEnd(_E_struct_UTdAnimNodeSequence *th
   {
     if ( bFireNotifies )
     {
-      SkelComponent = this.SkelComponent;
       if ( SkelComponent )
       {
         if ( SkelComponent.Owner )
         {
-          TdPawnOwner = this.TdPawnOwner;
           if ( TdPawnOwner )
           {
             if ( SkelComponent != TdPawnOwner.Mesh )
