@@ -1799,63 +1799,65 @@ public partial class TdPawn
     }
   }
 
-  // NOT READY
-  public unsafe void GetCameraAnimation(ref Vector out_Location, ref Rotator out_Rotation){ NativeMarkers.MarkUnimplemented(); }
-//public unsafe void GetCameraAnimation(Vector *out_Location, Rotator *out_Rotation)
-//  {
-//    SkeletalMeshComponent v4 = default; // ecx
-//    int v5 = default; // eax
-//    SkeletalMeshComponent v6 = default; // edx
-//    Matrix *v7; // eax
-//    int v8 = default; // esi
-//    int v9 = default; // eax
-//    int v10 = default; // edx
-//    int v11 = default; // esi
-//    int v12 = default; // edx
-//    int v13 = default; // ecx
-//    int v14 = default; // [esp+14h] [ebp-11Ch] BYREF
-//    Rotator a2 = default; // [esp+18h] [ebp-118h] BYREF
-//    Rotator v16 = default; // [esp+24h] [ebp-10Ch] BYREF
-//    Matrix v17 = default; // [esp+30h] [ebp-100h] BYREF
-//    Matrix a1 = default; // [esp+70h] [ebp-C0h] BYREF
-//    Matrix SrcMatrix = default; // [esp+B0h] [ebp-80h] BYREF
-//    __m128* out = stackalloc __m128[4]; // [esp+F0h] [ebp-40h] BYREF
-//  
-//    v4 = this.Mesh;
-//    if(v4 != default)
-//    {
-//      v5 = E_FindSocketIndex(v4, *(&FuncName_SlideOffLedge_unknown_EyeJoint + 2), dword_2056800);
-//      v6 = this.Mesh;
-//fixed(var ptr1 =&v6.SpaceBases)
-//      qmemcpy(&a1,  ptr1[v5], sizeof(a1));
-//fixed(var ptr2 =&this.Mesh.SpaceBases)
-//      qmemcpy(&v17,  ptr2[E_FindSocketIndex(v6, dword_2056804, dword_2056808)], sizeof(v17));
-//      v7 = VectorMatrixInverse(&a1, &SrcMatrix);
-//      qmemcpy(&v17, v17.Mult((Matrix *)out, v7), sizeof(v17));
-//      E_MatrixToRotator(&a1, &a2);
-//      E_MatrixToRotator(&v17, &v16);
-//      v8 = this.VfTableObject.Dummy;
-//      v14 = default;
-//      CallUFunction(this.AddCameraDeltaAnimations, this, v9, &v14, 0);
-//      if(v14 != default)
-//      {
-//        v10 = v16.Yaw + a2.Yaw;
-//        v11 = a2.Roll + v16.Roll;
-//        out_Rotation.Pitch = v16.Pitch + a2.Pitch;
-//        out_Rotation.Yaw = v10;
-//        out_Rotation.Roll = v11;
-//      }
-//      else
-//      {
-//        v12 = a2.Yaw;
-//        out_Rotation.Pitch = a2.Pitch;
-//        v13 = a2.Roll;
-//        out_Rotation.Yaw = v12;
-//        out_Rotation.Roll = v13;
-//      }
-//    }
-//  }
-//
+  public unsafe void GetCameraAnimation(ref Vector out_Location, ref Rotator out_Rotation)
+  {
+    SkeletalMeshComponent v4; // ecx
+    int v5; // eax
+    SkeletalMeshComponent v6; // edx
+    Matrix *v7; // eax
+    int v8; // esi
+    int v9; // eax
+    int v10; // edx
+    int v11; // esi
+    int v12; // edx
+    int v13; // ecx
+    int v14; // [esp+14h] [ebp-11Ch] BYREF
+    Rotator a2; // [esp+18h] [ebp-118h] BYREF
+    Rotator v16; // [esp+24h] [ebp-10Ch] BYREF
+    Matrix v17; // [esp+30h] [ebp-100h] BYREF
+    Matrix a1; // [esp+70h] [ebp-C0h] BYREF
+    Matrix SrcMatrix; // [esp+B0h] [ebp-80h] BYREF
+    Matrix outval; // [esp+F0h] [ebp-40h] BYREF
+
+    v4 = this.Mesh;
+    if ( v4 )
+    {
+      v5 = v4.MatchRefBone("EyeJoint");
+      v6 = this.Mesh;
+      a1 = v6.SpaceBases.Data[v5];
+      //qmemcpy(&a1, &v6.SpaceBases.Data[v5], sizeof(a1));
+      v17 = this.Mesh.SpaceBases.Data[v6.MatchRefBone("CameraJoint")];
+      //qmemcpy(&v17, &this.Mesh.SpaceBases.Data[v6.MatchRefBone("CameraJoint")], sizeof(v17));
+      v7 = VectorMatrixInverse(&a1, &SrcMatrix);
+      v17 = v17.Mult(&outval, v7);
+      //qmemcpy(&v17, v17.Mult(&out, v7), sizeof(v17));
+      E_MatrixToRotator(&a1, &a2);
+      E_MatrixToRotator(&v17, &v16);
+      /*v8 = this.VfTableObject.Dummy;
+      v14 = 0;
+      v9 = UObject::FindFunctionChecked(this, AddCameraDeltaAnimations1, AddCameraDeltaAnimations2, 0);
+      (*(void (__stdcall **)(int, int *, _DWORD))(v8 + 244))(v9, &v14, 0);*/
+      v14 = this.AddCameraDeltaAnimations() ? 1 : 0;
+      if ( v14.AsBool() )
+      {
+        v10 = v16.Yaw + a2.Yaw;
+        v11 = a2.Roll + v16.Roll;
+        out_Rotation.Pitch = v16.Pitch + a2.Pitch;
+        out_Rotation.Yaw = v10;
+        out_Rotation.Roll = v11;
+      }
+      else
+      {
+        v12 = a2.Yaw;
+        out_Rotation.Pitch = a2.Pitch;
+        v13 = a2.Roll;
+        out_Rotation.Yaw = v12;
+        out_Rotation.Roll = v13;
+      }
+    }
+  }
+
+  
   public unsafe Vector GetWalkAcceleration( float aForward, float aStrafe, int deltaRotation, float deltaTime )
   {
     Vector v = default;

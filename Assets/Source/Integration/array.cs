@@ -130,6 +130,7 @@ namespace MEdge
             for( Index=0; Index<Count; Index++ )
                 if( EqualityComparer<T>.Default.Equals( this[ Index ], item ) )
                     return true;
+            Index = -1;
             return false;
         }
 

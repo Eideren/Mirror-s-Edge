@@ -71,10 +71,14 @@
 			return (AnimSet)GetOuter();
 		}
 		
-		public void GetBoneAtom(ref FBoneAtom OutAtom, INT TrackIndex, FLOAT Time, UBOOL bLooping, UBOOL bUseRawData)
+		public unsafe void GetBoneAtom(ref FBoneAtom OutAtom, INT TrackIndex, FLOAT Time, UBOOL bLooping, UBOOL bUseRawData)
 		{
-			if(_unityClip == null)
+			if( _unityClip == null )
+			{
+				OutAtom = BoneAtom.Identity;
 				return;
+			}
+
 			if( bLooping && Time > _unityClip.length )
 			{
 				float unexpectedDiff = SequenceLength - _unityClip.length;
@@ -88,8 +92,10 @@
 			else
 			{
 				_unityClip.wrapMode = /*bLoopingInterpolation ? WrapMode.Loop : */UnityEngine.WrapMode.Default;
-				_unityClip.SampleAnimation( _unityClipTarget, Time/* / InAnimSeq.SequenceLength * unityClip.length*/ );
 				var b = _unityBones[ TrackIndex ];
+				b.localPosition = default;
+				b.localRotation = default;
+				_unityClip.SampleAnimation( _unityClipTarget, Time/* / InAnimSeq.SequenceLength * unityClip.length*/ );
 				OutAtom = new BoneAtom( (Quat)b.localRotation, b.localPosition.ToUnrealPos(), 1f );
 			}
 			
@@ -314,23 +320,6 @@ public override void SetAnim(name InSequenceName)
 			   SkelComponent.GetOwner().GetName(),
 			   SkelComponent.SkeletalMesh.GetPathName()
 			   );
-	}
-}
-public virtual bool GetCachedResults(ref array<BoneAtom> OutAtoms, ref BoneAtom OutRootMotionDelta, ref bool bOutHasRootMotion)
-{
-	check(SkelComponent);
-
-	// See if cached array is the same size as the target array.
-	if( CachedBoneAtoms.Num() == OutAtoms.Num() )
-	{
-		OutAtoms = CachedBoneAtoms;
-		OutRootMotionDelta = CachedRootMotionDelta;
-		bOutHasRootMotion = bCachedHasRootMotion;
-		return TRUE;
-	}
-	else
-	{
-		return FALSE;
 	}
 }
 
@@ -1595,6 +1584,8 @@ public override void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> Des
 				int NumAtoms = SkelComponent.SkeletalMesh.RefSkeleton.Num();
 				check(NumAtoms == Atoms.Num());
 				ChildAtoms.AddCount(NumAtoms);
+				for( int j = 0; j < ChildAtoms.Length; j++ )
+					ChildAtoms[j] = BoneAtom.Identity;
 			}
 
 			check(ChildAtoms.Num() == Atoms.Num());

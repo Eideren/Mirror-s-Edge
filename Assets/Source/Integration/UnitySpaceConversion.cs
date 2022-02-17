@@ -1,5 +1,6 @@
 ﻿namespace MEdge.Core
 {
+	using System;
 	using V3 = UnityEngine.Vector3;
 	using UnityQuat = UnityEngine.Quaternion;
 	using Math = System.Math;
@@ -123,6 +124,27 @@
 				Y = s * Axis.Y;
 				Z = s * Axis.Z;
 				W = c;
+			}
+
+
+
+			public unsafe float this[ int index ]
+			{
+				get
+				{
+					if( index > 3 || index < 0 )
+						throw new Exception();
+					var cpy = this;
+					return ( (float*) &cpy )[ index ];
+				}
+				set
+				{
+					if( index > 3 || index < 0 )
+						throw new Exception();
+					var cpy = this;
+					( (float*) & cpy )[ index ] = value;
+					this = cpy;
+				}
 			}
 
 
@@ -272,6 +294,21 @@
 				R.Roll = 0;
 
 				return R;
+			}
+
+
+
+			public void Deconstruct( out float X, out float Y, out float Z )
+			{
+				X = this.X;
+				Y = this.Y;
+				Z = this.Z;
+			}
+			
+			
+			public static implicit operator Vector( (float x, float y, float z) tuple )
+			{
+				return new Vector( tuple.x, tuple.y, tuple.z );
 			}
 		}
 

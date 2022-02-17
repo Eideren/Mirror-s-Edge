@@ -557,13 +557,9 @@ public partial class TdAnimNodeAimState
     TdPawnOwner = this.TdPawnOwner;
     if ( TdPawnOwner == null )
       return 0;
-    /*if ( this.bOnlyMoveMode )
-      return (int)(*(unsigned __int8 (__stdcall **)(_DWORD))(TdPawnOwner.Moves[TdPawnOwner.MovementState].VfTableObject.Dummy
-                                                      + 276))(0);
-    return (int)ATdPawn::GetAimMode_Maybe(TdPawnOwner, 0);*/
-    
-    NativeMarkers.MarkUnimplemented();
-    return 0;
+    if ( this.bOnlyMoveMode )
+      return (int)TdPawnOwner.Moves[TdPawnOwner.MovementState].GetAimMode(0);
+    return (int)TdPawnOwner.GetAimMode(false);
   }
 #region src
 /*

@@ -4,7 +4,9 @@
 namespace MEdge.Engine
 {
 	using System;
+	using System.Collections.Generic;
 	using Core;
+	using Source;
 	using static Source.DecFn;
 	using FLOAT = System.Single;
 	using INT = System.Int32;
@@ -24,11 +26,210 @@ namespace MEdge.Engine
 	using static SkeletalMeshComponent.ERootMotionMode;
 	using static SkeletalMeshComponent.ERootMotionRotationMode;
 	using static AnimNodeAimOffset.EAnimAimDir;
+	using Object = Core.Object;
 
 
 
 	public partial class SkeletalMeshComponent
 	{
+		// Export USkeletalMeshComponent::execGetBoneMatrix(FFrame&, void* const)
+		public virtual /*native final function */Object.Matrix GetBoneMatrix(int BoneIdx)
+		{
+			if(ParentAnimComponent)
+			{
+				throw new Exception(); // Not implemented, ParentBoneMap is not set up
+				if(BoneIdx < ParentBoneMap.Num())
+				{
+					int ParentBoneIndex = ParentBoneMap[BoneIdx];
+
+					// If ParentBoneIndex is valid, grab matrix from ParentAnimComponent.
+					if(	ParentBoneIndex != INDEX_NONE && 
+					    ParentBoneIndex < ParentAnimComponent.SpaceBases.Num())
+					{
+						return ParentAnimComponent.SpaceBases[ParentBoneIndex] * LocalToWorld;
+					}
+					else
+					{
+						throw new Exception();
+						/*#if !PS3 // will be caught on PC, hopefully
+						debugf( NAME_Warning, TEXT("GetBoneMatrix : ParentBoneIndex(%d) out of range of ParentAnimComponent->SpaceBases for %s"), BoneIdx, *this->GetFName().ToString() );
+						#endif
+						return FMatrix::Identity;*/
+					}
+				}
+				else
+				{
+					throw new Exception();
+					/*#if !PS3 // will be caught on PC, hopefully
+					debugf( NAME_Warning, TEXT("GetBoneMatrix : BoneIndex(%d) out of range of ParentBoneMap for %s"), BoneIdx, *this->GetFName().ToString() );
+					#endif
+					return FMatrix::Identity;*/
+				}
+			}
+			else
+			{
+				if( SpaceBases.Num() != default && BoneIdx < SpaceBases.Num() )
+				{
+					return SpaceBases[BoneIdx] * LocalToWorld;
+				}
+				else
+				{
+					throw new Exception();
+					/*#if !PS3 // will be caught on PC, hopefully
+					debugf( NAME_Warning, TEXT("GetBoneMatrix : BoneIndex(%d) out of range of SpaceBases for %s owned by %s"), BoneIdx, *this->GetFName().ToString(),this->Owner?*this->Owner->GetFName().ToString():TEXT("NULL") );
+					#endif
+					return FMatrix::Identity;*/
+				}
+			}
+		}
+		
+		IEnumerable<AnimNode> EnumerateAllNodes( AnimNode n )
+		{
+			if( n == null )
+				yield break; 
+			yield return n;
+			if( n is AnimNodeBlendBase anbb )
+			{
+				foreach( var child in anbb.Children )
+				{
+					foreach( var node in EnumerateAllNodes( child.Anim ) )
+					{
+						yield return node;
+					}
+				}
+			}
+		}
+
+		// Export USkeletalMeshComponent::execUpdateAnimations(FFrame&, void* const)
+		public virtual /*native final function */void UpdateAnimations()
+		{
+			if( Animations )
+			{
+				// Force all nodes in the AnimTree to re-look up their animations.
+				TickTag++;
+				Animations.AnimSetsUpdated();
+			}
+		}
+		
+		public bool LegLineCheck(in Vector Start, in Vector End, ref Vector HitLocation, ref Vector HitNormal)
+		{
+			if(Owner)
+			{
+				DecFn.CheckResult Hit = new(1f);
+				var bHit = !GWorld.SingleLineCheck( ref Hit, Owner, End, Start, (int)ETraceFlags.TRACE_AllBlocking );
+				if(bHit)
+				{
+					HitLocation = Hit.Location;
+					HitNormal = Hit.Normal;
+					return true;
+				}
+			}
+
+			return false;
+		}
+		
+		// Export USkeletalMeshComponent::execFindAnimNode(FFrame&, void* const)
+		public virtual /*native final function */AnimNode FindAnimNode(name InNodeName)
+		{
+			foreach( var node in EnumerateAllNodes( Animations ) )
+			{
+				if( node.NodeName == InNodeName )
+					return node;
+			}
+
+			return default;
+		}
+
+		public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<AnimNode/* Node*/> AllAnimNodes(Core.ClassT<AnimNode> BaseClass)
+		{
+			foreach( var node in EnumerateAllNodes( Animations ) )
+			{
+				if( BaseClass.IsBaseOf( node.Class ) )
+					yield return node;
+			}
+		}
+		
+		// Export USkeletalMeshComponent::execFindSkelControl(FFrame&, void* const)
+		public virtual /*native final function */SkelControlBase FindSkelControl(name InControlName)
+		{
+			AnimTree AnimTree = Animations as AnimTree;
+			if(AnimTree)
+			{
+				return AnimTree.FindSkelControl(InControlName);
+			}
+
+			return null;
+		}
+	
+		// Export USkeletalMeshComponent::execFindAnimSequence(FFrame&, void* const)
+		public virtual /*native final function */AnimSequence FindAnimSequence(name AnimSeqName)
+		{
+			for( int i = AnimSets.Length - 1; i >= 0; i-- )
+			{
+				var set = AnimSets[ i ];
+				if( set == null )
+					continue;
+				
+				for( int j = 0; j < set.Sequences.Length; j++ )
+				{
+					var seq = set.Sequences[ j ];
+					if( seq.SequenceName == AnimSeqName )
+						return seq;
+				}
+			}
+			return default;
+		}
+	
+		// Export USkeletalMeshComponent::execFindMorphNode(FFrame&, void* const)
+		public virtual /*native final function */MorphNodeBase FindMorphNode(name InNodeName)
+		{
+			NativeMarkers.MarkUnimplemented();
+			return default;
+		}
+	
+		// Export USkeletalMeshComponent::execGetBoneQuaternion(FFrame&, void* const)
+		public virtual /*native final function */Object.Quat GetBoneQuaternion(name BoneName, /*optional */int? _Space = 0)
+		{
+			var Space = _Space ?? 0;
+			int BoneIndex = MatchRefBone(BoneName);
+
+			if( BoneIndex == INDEX_NONE )
+			{
+				throw new Exception();
+				//debugf(NAME_Warning, TEXT("USkeletalMeshComponent::execGetBoneQuaternion : Could not find bone: %s"), *BoneName.ToString());
+				//return FQuat::Identity;
+			}
+
+			// If local space...
+			var BoneMatrix = (Space == 1) ? SpaceBases[BoneIndex] : GetBoneMatrix(BoneIndex);
+			BoneMatrix.RemoveScaling();
+
+			return new Quat(BoneMatrix);
+		}
+	
+		// Export USkeletalMeshComponent::execGetBoneLocation(FFrame&, void* const)
+		public virtual /*native final function */Object.Vector GetBoneLocation(name BoneName, /*optional */int? _Space = 0) // 0 == World, 1 == Local (Component)
+		{
+			var Space = _Space ?? 0;
+			int BoneIndex = MatchRefBone(BoneName);
+			if( BoneIndex == INDEX_NONE )
+			{
+				throw new Exception();
+				/*debugf( TEXT("USkeletalMeshComponent::GetBoneLocation : Could not find bone: %s"), *BoneName.ToString() );
+				return FVector(0,0,0);*/
+			}
+
+			// If space == Local
+			if( Space == 1 )
+			{
+				return SpaceBases[BoneIndex].GetOrigin();
+			}
+			else
+			{
+				return GetBoneMatrix(BoneIndex).GetOrigin();
+			}
+		}
+		
 		public void BuildComposePriorityList(ref array<BYTE> PriorityList)
 		{
 			if( !SkeletalMesh || !Animations )
@@ -236,6 +437,47 @@ namespace MEdge.Engine
 				bAnimTreeInitialised = true;
 			}
 		}
+		
+		
+		
+		public void InitSkelControls()
+        {
+        	// Initialise the SkelControls and the SkelControlIndex array.
+        	SkelControlIndex.Reset();
+        
+        	AnimTree Tree = (Animations) as AnimTree;
+        	if(SkeletalMesh && Tree && Tree.SkelControlLists.Num() > 0)
+        	{
+        		INT NumBones = SkeletalMesh.RefSkeleton.Num();
+        
+        		// Allocate SkelControlIndex array and initialize all elements to '255' - which indicates 'no control'.
+        		SkelControlIndex.AddCount(NumBones);
+                for( int i = 0; i < SkelControlIndex.Length; i++ )
+	                SkelControlIndex[i] = 0xFF;
+        		//appMemset( &SkelControlIndex[0], 0xFF, sizeof(BYTE) * NumBones );
+        
+        		INT NumControls = Tree.SkelControlLists.Num();
+        		check(NumControls < 255);
+        
+        		// For each list, store index of head struct at the bone where it should be applied.
+        		for(INT ControlIndex = 0; ControlIndex < NumControls; ControlIndex++)
+        		{
+        				INT BoneIndex = /*SkeletalMesh.*/MatchRefBone(Tree.SkelControlLists[ControlIndex].BoneName);
+        				if(BoneIndex != INDEX_NONE)
+        				{
+        					if(SkelControlIndex[BoneIndex] != 255)
+        					{
+        						debugf( TEXT("SkelControl: Trying To Control Bone Which Already Has Control List.") );
+        					}
+        					else
+        					{
+        						// Save index of SkelControl.
+        						SkelControlIndex[BoneIndex] = (byte)ControlIndex;
+        					}
+        				}
+        		}
+        	}
+        }
 
 
 
@@ -583,6 +825,8 @@ namespace MEdge.Engine
 			{
 				SpaceBases.Empty( SkeletalMesh.RefSkeleton.Num() );
 				SpaceBases.AddCount( SkeletalMesh.RefSkeleton.Num() );
+				for( int i = 0; i < SpaceBases.Length; i++ )
+					SpaceBases[i] = Matrix.Identity;
 
 				// Controls sometimes use last frames position of a bone. But if that is not valid (ie array is freshly allocated)
 				// we need to turn them off.
@@ -593,6 +837,10 @@ namespace MEdge.Engine
 			{
 				LocalAtoms.Empty( SkeletalMesh.RefSkeleton.Num() );
 				LocalAtoms.AddCount( SkeletalMesh.RefSkeleton.Num() );
+				for( int i = 0; i < LocalAtoms.Length; i++ )
+				{
+					LocalAtoms[i] = BoneAtom.Identity;
+				}
 			}
 
 			// Do nothing more if no bones in skeleton.
@@ -669,7 +917,7 @@ namespace MEdge.Engine
 		#endif
 					//debugf(TEXT("%2.3f: %s GetBoneAtoms(), owner: %s"),GWorld.GetTimeSeconds(),*GetPathName(),*Owner.GetName());
 					Animations.GetBoneAtoms(ref LocalAtoms, ref RequiredBones, ref ExtractedRootMotionDelta, ref bHasRootMotion);
-
+					
 		#if ENABLE_GETBONEATOM_STATS
 					if(GShouldLogOutAFrameOfSkelCompTick)
 					{
@@ -1282,7 +1530,7 @@ namespace MEdge.Engine
 			RequiredBones.Empty();
 			for(int i = 0; i < AnimSets[0].TrackBoneNames.Count; i++)
 				RequiredBones.Add((byte)i);
-			NativeMarkers.MarkUnimplemented();
+			NativeMarkers.MarkUnimplemented("No need for LODs");
 			#if UNUSED
 			// The list of bones we want is taken from the predicted LOD level.
 			FStaticLODModel& LODModel = SkeletalMesh.LODModels(LODIndex);
@@ -1351,10 +1599,10 @@ namespace MEdge.Engine
 				Sort<USE_COMPARE_CONSTREF(BYTE, UnSkeletalComponent)>( &PerPolyCollisionBones(0), PerPolyCollisionBones.Num() );
 				MergeInByteArray(RequiredBones, PerPolyCollisionBones);
 			}
+			#endif
 
 			// Ensure that we have a complete hierarchy down to those bones.
-			UAnimNode.EnsureParentsPresent(RequiredBones, SkeletalMesh);
-			#endif
+			AnimNode.EnsureParentsPresent(ref RequiredBones, ref SkeletalMesh);
 		}
 	}
 
@@ -1611,7 +1859,7 @@ public static void FillWithRefPose(ref MEdge.array<BoneAtom> OutAtoms,  in MEdge
 /// 	(ie. all bones between those in the array and the root are present). 
 /// 	Note that this must ensure the invariant that parent occur before children in BoneIndices.
 /// </summary>
-public virtual void EnsureParentsPresent(ref MEdge.array<byte> BoneIndices, ref SkeletalMesh SkelMesh)
+public static void EnsureParentsPresent(ref MEdge.array<byte> BoneIndices, ref SkeletalMesh SkelMesh)
 {
 	// Iterate through existing array.
 	int i=0;
@@ -1685,7 +1933,8 @@ protected bool GetCachedResults(ref MEdge.array<BoneAtom> OutAtoms, ref BoneAtom
 	if( NodeCachedAtomsTag == SkelComponent.CachedAtomsTag && 
 		CachedBoneAtoms.Num() == OutAtoms.Num() )
 	{
-		OutAtoms = CachedBoneAtoms;
+		for( int i = 0; i < OutAtoms.Length; i++ )
+			OutAtoms[i] = CachedBoneAtoms[i];
 		OutRootMotionDelta = CachedRootMotionDelta;
 		bOutHasRootMotion = bCachedHasRootMotion;
 		return true;
@@ -1716,7 +1965,8 @@ public virtual void SaveCachedResults( ref MEdge.array<BoneAtom> NewAtoms,  ref 
 	}
 	else
 	{
-		CachedBoneAtoms = NewAtoms;
+		for( int i = 0; i < NewAtoms.Length; i++ )
+			CachedBoneAtoms[i] = NewAtoms[i];
 		CachedRootMotionDelta = NewRootMotionDelta;
 		bCachedHasRootMotion = bNewHasRootMotion;
 	}
@@ -2114,6 +2364,8 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 			if( ChildAtoms.Num() == 0 )
 			{
 				ChildAtoms.AddCount(NumAtoms);
+				for( int j = 0; j < ChildAtoms.Length; j++ )
+					ChildAtoms[j] = BoneAtom.Identity;
 			}
 
 			// Get bone atoms from child node (if no child - use ref pose).
@@ -2244,6 +2496,8 @@ public virtual void GetMirroredBoneAtoms(ref MEdge.array<BoneAtom> Atoms, int Ch
 		// Get atoms from SourceNode.
 		MEdge.array<BoneAtom> ChildAtoms = new();
 		ChildAtoms.AddCount(Atoms.Num());
+		for( int j = 0; j < ChildAtoms.Length; j++ )
+			ChildAtoms[j] = BoneAtom.Identity;
 
 		BoneAtom RMD = default;
 		if( Children[ChildIndex].Anim )
@@ -2264,6 +2518,10 @@ public virtual void GetMirroredBoneAtoms(ref MEdge.array<BoneAtom> Atoms, int Ch
 			// We build the mesh-space matrices of the source bones.
 			MEdge.array<MEdge.Core.Object.Matrix> BoneTM = new ();
 			BoneTM.AddCount(SkelMesh.RefSkeleton.Num());
+			for( int i = 0; i < BoneTM.Length; i++ )
+			{
+				BoneTM[i] = Matrix.Identity;
+			}
 
 			for(int i=0; i<DesiredBones.Num(); i++)
 			{	
@@ -2862,6 +3120,8 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 
 	// Get bone atoms from each child (if no child - use ref pose).
 	Child1Atoms.AddCount(NumAtoms);
+	for( int j = 0; j < Child1Atoms.Length; j++ )
+		Child1Atoms[j] = BoneAtom.Identity;
 	BoneAtom	Child1RMD				= BoneAtom.Identity;
 	bool  		bChild1HasRootMotion	= false;
 	if( Children[0].Anim )
@@ -2876,6 +3136,8 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 
 	// Get only the necessary bones from child2. The ones that have a Child2PerBoneWeight[BoneIndex] > 0
 	Child2Atoms.AddCount(NumAtoms);
+	for( int j = 0; j < Child2Atoms.Length; j++ )
+		Child2Atoms[j] = BoneAtom.Identity;
 	BoneAtom	Child2RMD				= BoneAtom.Identity;
 	bool		bChild2HasRootMotion	= false;
 
@@ -2901,6 +3163,11 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 
 		ResultCompSpace.Reset();
 		ResultCompSpace.AddCount(NumAtoms);
+
+		for( int i = 0; i < NumAtoms; i++ )
+		{
+			Child1CompSpace[i] = Child2CompSpace[i] = ResultCompSpace[i] = Matrix.Identity;
+		}
 	}
 
 	int LocalToCompReqIndex = 0;
@@ -4329,6 +4596,8 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 				if( ChildAtoms.Num() == 0 )
 				{
 					ChildAtoms.AddCount(NumAtoms);
+					for( int k = 0; k < ChildAtoms.Length; k++ )
+						ChildAtoms[k] = BoneAtom.Identity;
 				}
 
 				// Get bone atoms from child node (if no child - use ref pose).
@@ -4525,7 +4794,7 @@ ref AimOffsetProfile GetCurrentProfile(out bool valid)
 static MEdge.array<MEdge.Core.Object.Matrix> AimOffsetBoneTM;
 
 public virtual void PostAimProcessing(ref Vector2D AimOffsetPct) {}
-
+const float DELTA = ( 0.00001f );
 public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	// START_GETBONEATOM_TIMER
@@ -4538,12 +4807,12 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	// Get local space atoms from child
 	if( Children[0].Anim )
 	{
-		// EXCLUDE_CHILD_TIME
+		//EXCLUDE_CHILD_TIME
 		Children[0].Anim.GetBoneAtoms(ref Atoms, ref DesiredBones, ref RootMotionDelta, ref bHasRootMotion);
 	}
 	else
 	{
-		RootMotionDelta = BoneAtom.Identity;
+		RootMotionDelta = FBoneAtom.Identity;
 		bHasRootMotion	= false;
 		FillWithRefPose(ref Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 	}
@@ -4554,17 +4823,17 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 		return;
 	}
 
-	 SkeletalMesh	SkelMesh = SkelComponent.SkeletalMesh;
-	 int				NumBones = SkelMesh.RefSkeleton.Num();
+	SkeletalMesh	SkelMesh = SkelComponent.SkeletalMesh;
+	INT				NumBones = SkelMesh.RefSkeleton.Num();
 
 	// Make sure we have a valid setup
-	ref AimOffsetProfile P = ref GetCurrentProfile(out var valid);
-	if( BoneToAimCpnt.Num() != NumBones || valid == false )
+	ref var P = ref GetCurrentProfile(out var valid);
+	if( BoneToAimCpnt.Num() != NumBones || !valid )
 	{
 		return;
 	}
 
-	Vector2D SafeAim = this.Aim;
+	Vector2D SafeAim = GetAim();
 	
 	// Add in rotation offset, but not in the editor
 	if( !GIsEditor || GIsGame )
@@ -4605,7 +4874,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	PostAimProcessing(ref SafeAim);
 
 	// Bypass node if using center center position.
-	if( (!bForceAimDir && SafeAim.IsNearlyZero()) || (bForceAimDir && ForcedAimDir == EAnimAimDir.ANIMAIM_CENTERCENTER) )
+	if( (!bForceAimDir && SafeAim.IsNearlyZero()) || (bForceAimDir && ForcedAimDir == ANIMAIM_CENTERCENTER) )
 	{
 		return;
 	}
@@ -4615,14 +4884,18 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	{
 		AimOffsetBoneTM.Reset();
 		AimOffsetBoneTM.AddCount(NumBones);
+		for( int i = 0; i < AimOffsetBoneTM.Length; i++ )
+		{
+			AimOffsetBoneTM[i] = Matrix.Identity;
+		}
 	}
 
-	 int NumAimComp = P.AimComponents.Num();
-	 int RequiredNum = RequiredBones.Num();
-	 int DesiredNum = DesiredBones.Num();
-	int DesiredPos = 0;
-	int RequiredPos = 0;
-	int BoneIndex = 0;
+	INT NumAimComp = P.AimComponents.Num();
+	INT RequiredNum = RequiredBones.Num();
+	INT DesiredNum = DesiredBones.Num();
+	INT DesiredPos = 0;
+	INT RequiredPos = 0;
+	INT BoneIndex = 0;
 	while( DesiredPos < DesiredNum && RequiredPos < RequiredNum )
 	{
 		// Perform intersection of RequiredBones and DesiredBones array.
@@ -4654,50 +4927,50 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 		}
 
 		// See if this bone should be transformed. ie there is an AimComponent defined for it
-		 int AimCompIndex = BoneToAimCpnt[BoneIndex];
+		INT AimCompIndex = BoneToAimCpnt[BoneIndex];
 		if( AimCompIndex != INDEX_NONE )
 		{
-			Quat			QuaternionOffset = default;
-			Vector			TranslationOffset = default;
-			AimComponent	AimCpnt = P.AimComponents[AimCompIndex];
+			FQuat			QuaternionOffset = default;
+			FVector			TranslationOffset = default;
+			ref AimComponent	AimCpnt = ref P.AimComponents[AimCompIndex];
 
 			// If bForceAimDir - just use whatever ForcedAimDir is set to - ignore Aim.
 			if( bForceAimDir )
 			{
 				switch( ForcedAimDir )
 				{
-					case EAnimAimDir.ANIMAIM_LEFTUP			:	QuaternionOffset	= AimCpnt.LU.Quaternion; 
+					case ANIMAIM_LEFTUP			:	QuaternionOffset	= AimCpnt.LU.Quaternion; 
 													TranslationOffset	= AimCpnt.LU.Translation;	
 													break;
-					case EAnimAimDir.ANIMAIM_CENTERUP		:	QuaternionOffset	= AimCpnt.CU.Quaternion; 
+					case ANIMAIM_CENTERUP		:	QuaternionOffset	= AimCpnt.CU.Quaternion; 
 													TranslationOffset	= AimCpnt.CU.Translation;	
 													break;
-					case EAnimAimDir.ANIMAIM_RIGHTUP		:	QuaternionOffset	= AimCpnt.RU.Quaternion; 
+					case ANIMAIM_RIGHTUP		:	QuaternionOffset	= AimCpnt.RU.Quaternion; 
 													TranslationOffset	= AimCpnt.RU.Translation; 
 													break;
-					case EAnimAimDir.ANIMAIM_LEFTCENTER		:	QuaternionOffset	= AimCpnt.LC.Quaternion; 
+					case ANIMAIM_LEFTCENTER		:	QuaternionOffset	= AimCpnt.LC.Quaternion; 
 													TranslationOffset	= AimCpnt.LC.Translation; 
 													break;
-					case EAnimAimDir.ANIMAIM_CENTERCENTER	:	QuaternionOffset	= AimCpnt.CC.Quaternion; 
+					case ANIMAIM_CENTERCENTER	:	QuaternionOffset	= AimCpnt.CC.Quaternion; 
 													TranslationOffset	= AimCpnt.CC.Translation; 
 													break;
-					case EAnimAimDir.ANIMAIM_RIGHTCENTER	:	QuaternionOffset	= AimCpnt.RC.Quaternion; 
+					case ANIMAIM_RIGHTCENTER	:	QuaternionOffset	= AimCpnt.RC.Quaternion; 
 													TranslationOffset	= AimCpnt.RC.Translation; 
 													break;
-					case EAnimAimDir.ANIMAIM_LEFTDOWN		:	QuaternionOffset	= AimCpnt.LD.Quaternion; 
+					case ANIMAIM_LEFTDOWN		:	QuaternionOffset	= AimCpnt.LD.Quaternion; 
 													TranslationOffset	= AimCpnt.LD.Translation; 
 													break;
-					case EAnimAimDir.ANIMAIM_CENTERDOWN		:	QuaternionOffset	= AimCpnt.CD.Quaternion; 
+					case ANIMAIM_CENTERDOWN		:	QuaternionOffset	= AimCpnt.CD.Quaternion; 
 													TranslationOffset	= AimCpnt.CD.Translation; 
 													break;
-					case EAnimAimDir.ANIMAIM_RIGHTDOWN		:	QuaternionOffset	= AimCpnt.RD.Quaternion; 
+					case ANIMAIM_RIGHTDOWN		:	QuaternionOffset	= AimCpnt.RD.Quaternion; 
 													TranslationOffset	= AimCpnt.RD.Translation; 
 													break;
 				}
 			}
 			else
 			{
-				if( SafeAim.X >= 0f && SafeAim.Y >= 0f ) // p Right
+				if( SafeAim.X >= 0f && SafeAim.Y >= 0f ) // Up Right
 				{
 					QuaternionOffset	= BiLerpQuat(AimCpnt.CC.Quaternion, AimCpnt.RC.Quaternion, AimCpnt.CU.Quaternion, AimCpnt.RU.Quaternion, SafeAim.X, SafeAim.Y);
 					TranslationOffset	= BiLerp(AimCpnt.CC.Translation, AimCpnt.RC.Translation, AimCpnt.CU.Translation, AimCpnt.RU.Translation, SafeAim.X, SafeAim.Y);
@@ -4707,7 +4980,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 					QuaternionOffset	= BiLerpQuat(AimCpnt.CD.Quaternion, AimCpnt.RD.Quaternion, AimCpnt.CC.Quaternion, AimCpnt.RC.Quaternion, SafeAim.X, SafeAim.Y+1f);
 					TranslationOffset	= BiLerp(AimCpnt.CD.Translation, AimCpnt.RD.Translation, AimCpnt.CC.Translation, AimCpnt.RC.Translation, SafeAim.X, SafeAim.Y+1f);
 				}
-				else if( SafeAim.X < 0f && SafeAim.Y >= 0f ) // p Left
+				else if( SafeAim.X < 0f && SafeAim.Y >= 0f ) // Up Left
 				{
 					QuaternionOffset	= BiLerpQuat(AimCpnt.LC.Quaternion, AimCpnt.CC.Quaternion, AimCpnt.LU.Quaternion, AimCpnt.CU.Quaternion, SafeAim.X+1f, SafeAim.Y);
 					TranslationOffset	= BiLerp(AimCpnt.LC.Translation, AimCpnt.CC.Translation, AimCpnt.LU.Translation, AimCpnt.CU.Translation, SafeAim.X+1f, SafeAim.Y);
@@ -4724,35 +4997,34 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 
 			// only perform a transformation if it is significant
 			// (Since it's something expensive to do)
-			const float DELTA = 0.00001f;
-			bool	bDoRotation	= Square(QuaternionOffset.W) < 1f - DELTA * DELTA;
+			UBOOL	bDoRotation	= Square(QuaternionOffset.W) < 1f - DELTA * DELTA;
 			if( bDoRotation || !TranslationOffset.IsNearlyZero() )
 			{
 				// Find bone translation
-				 Vector BoneOrigin = TranslationOffset + AimOffsetBoneTM[BoneIndex].GetOrigin();
+				FVector BoneOrigin = TranslationOffset + AimOffsetBoneTM[BoneIndex].GetOrigin();
 
 				// Apply bone rotation
 				if( bDoRotation )
 				{
-					AimOffsetBoneTM[BoneIndex] *= FQuatRotationTranslationMatrix(QuaternionOffset, new Vector(0f));
+					AimOffsetBoneTM[BoneIndex] *= FQuatRotationTranslationMatrix(QuaternionOffset, FVector(0f));
 				}
 
 				// Apply bone translation
 				AimOffsetBoneTM[BoneIndex].SetOrigin(BoneOrigin);
 
 				// Transform back to parent bone space
-				MEdge.Core.Object.Matrix RelTM;
+				FMatrix RelTM;
 				if( BoneIndex == 0 )
 				{
 					RelTM = AimOffsetBoneTM[BoneIndex];
 				}
 				else
 				{
-					 int ParentIndex = SkelMesh.RefSkeleton[BoneIndex].ParentIndex;
+					INT ParentIndex = SkelMesh.RefSkeleton[BoneIndex].ParentIndex;
 					RelTM = AimOffsetBoneTM[BoneIndex] * AimOffsetBoneTM[ParentIndex].Inverse();
 				}
 
-				 BoneAtom	TransformedAtom = new BoneAtom(RelTM);
+				FBoneAtom TransformedAtom = new (RelTM);
 				Atoms[BoneIndex].Rotation		= TransformedAtom.Rotation;
 				Atoms[BoneIndex].Translation	= TransformedAtom.Translation;
 			}
@@ -5118,6 +5390,10 @@ public virtual void ExtractOffsets(ref MEdge.array<BoneAtom> RefBoneAtoms, ref M
 {
 	MEdge.array<MEdge.Core.Object.Matrix>	TargetTM = new();
 	TargetTM.AddCount(BoneAtoms.Num());
+	for( int i = 0; i < TargetTM.Length; i++ )
+	{
+		TargetTM[i] = Matrix.Identity;
+	}
 
 	for(int i=0; i<BoneAtoms.Num(); i++)
 	{

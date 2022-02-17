@@ -661,12 +661,12 @@
 		}
 		public virtual void GetAffectedBones( INT BoneIndex, SkeletalMeshComponent SkelComp, ref array<INT> OutBoneIndices )
 		{
-			NativeMarkers.MarkUnimplemented(this.GetType().ToString());
+			throw new System.NotImplementedException(this.GetType().ToString());
 		}
 		
 		public virtual void CalculateNewBoneTransforms( int BoneIndex, SkeletalMeshComponent SkelComp, ref array<Matrix> OutBoneTransforms )
 		{
-			NativeMarkers.MarkUnimplemented(this.GetType().ToString());
+			throw new System.NotImplementedException(this.GetType().ToString());
 		}
 		
 		// Export USkelControlBase::execSetSkelControlActive(FFrame&, void* const)

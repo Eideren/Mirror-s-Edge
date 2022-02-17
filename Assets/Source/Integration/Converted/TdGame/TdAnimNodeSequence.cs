@@ -101,12 +101,12 @@ public partial class TdAnimNodeSequence : AnimNodeSequence/*
 	{
 		if(bCauseActorCeaseRelevant)
 		{
-			((SkelComponent.Owner) as TdPawn).OnCeaseRelevantRootMotion(this);
+			((SkelComponent.Owner) as TdPawn)?.OnCeaseRelevantRootMotion(this);
 			bCauseActorCeaseRelevant = false;
 		}
 		if(bHasLockedAnimation)
 		{
-			((SkelComponent.Owner) as TdPawn).PopAnimationLock();
+			((SkelComponent.Owner) as TdPawn)?.PopAnimationLock();
 			bHasLockedAnimation = false;
 		}
 	}

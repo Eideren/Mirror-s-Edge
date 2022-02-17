@@ -97,7 +97,7 @@
 								},
 								ParentIndex = Array.FindIndex( bones, other => other == bone.parent.name ),
 								NumChildren = bone.childCount,
-								Depth = depth,
+								//Depth = depth,// Inspecting memory showed that this value is always zero
 							};
 						}
 					}

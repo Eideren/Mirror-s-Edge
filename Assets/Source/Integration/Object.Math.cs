@@ -564,7 +564,7 @@
 	        return MatrixRotator( FQuatRotationTranslationMatrix( A, default ) );
         }
 
-        protected static Matrix FQuatRotationTranslationMatrix(Quat Q, Vector Origin)
+        public static Matrix FQuatRotationTranslationMatrix(Quat Q, Vector Origin)
         {
 	        Matrix M = default;
 	        float x2 = Q.X + Q.X;  float y2 = Q.Y + Q.Y;  float z2 = Q.Z + Q.Z;

@@ -11,6 +11,8 @@
 	using Object = Core.Object;
 	using _E_struct_FVector = Core.Object.Vector;
 	using _E_struct_FRotator = Core.Object.Rotator;
+	using _E_struct_FMatrix = Core.Object.Matrix;
+	using _E_struct_FQuat = Core.Object.Quat;
 	using FLOAT = System.Single;
 	using INT = System.Int32;
 	using FVector = Core.Object.Vector;
@@ -70,6 +72,175 @@
 			FLOAT A3 = A2 * A;
 
 			return (((2*A3)-(3*A2)+1) * P0) + ((A3-(2*A2)+A) * T0) + ((A3-A2) * T1) + (((-2*A3)+(3*A2)) * P1);
+		}
+		public static int E_ClampInt(int srcVal, int min, int max)
+		{
+			int result; // eax
+
+			result = srcVal;
+			if ( srcVal < min )
+				result = min;
+			if ( result > max )
+				result = max;
+			return result;
+		}
+		
+		public static void E_MatrixToRotator(_E_struct_FMatrix *a1, _E_struct_FRotator *a2)
+		{
+			float v3; // xmm0_4
+			double v4; // st7
+			_E_struct_FRotator *v5; // edi
+			float v6; // xmm0_4
+			float a1b; // [esp+4h] [ebp+4h]
+			float a1a; // [esp+4h] [ebp+4h]
+			float a1c; // [esp+4h] [ebp+4h]
+			float a1d; // [esp+4h] [ebp+4h]
+			float a1e; // [esp+4h] [ebp+4h]
+			float a1f; // [esp+4h] [ebp+4h]
+
+			v3 = a1->ZPlane.Y;
+			if ( v3 >= 1.0 )
+			{
+				if ( fabs(a1->XPlane.Z) >= 0.00000001 || fabs(a1->XPlane.X) >= 0.00000001 )
+				{
+					a1f = (float)(atan2(a1->XPlane.Z, a1->XPlane.X) * 10430.378);
+					a2->Yaw = (int)a1f;
+					a2->Roll = 0x4000;
+					a2->Pitch = 0;
+				}
+				else
+				{
+					a2->Yaw = 0;
+					a2->Roll = 0x4000;
+					a2->Pitch = 0;
+				}
+			}
+			else if ( v3 <= -1.0 )
+			{
+				if ( fabs(a1->XPlane.Z) >= 0.00000001 || fabs(a1->XPlane.X) >= 0.00000001 )
+				{
+					a1e = (float)(atan2(a1->XPlane.Z, a1->XPlane.X) * -10430.378);
+					a2->Yaw = (int)a1e;
+					a2->Roll = -16384;
+					a2->Pitch = 0;
+				}
+				else
+				{
+					a2->Yaw = 0;
+					a2->Roll = -16384;
+					a2->Pitch = 0;
+				}
+			}
+			else
+			{
+				v4 = a1->XPlane.Y;
+				if ( fabs(v4) >= 0.00000001 || fabs(a1->YPlane.Y) >= 0.00000001 )
+				{
+					a1b = (float)(atan2(v4, a1->YPlane.Y) * 10430.378);
+					v5 = a2;
+					a2->Yaw = (int)a1b;
+				}
+				else
+				{
+					v5 = a2;
+					a2->Yaw = 0;
+				}
+				v6 = a1->ZPlane.Y;
+				if ( v6 >= -1.0 )
+				{
+					if ( v6 >= 1.0 )
+						a1a = 1.0f;
+					else
+						a1a = a1->ZPlane.Y;
+				}
+				else
+				{
+					a1a = -1.0f;
+				}
+				a1c = (float)(asin(a1a) * 10430.378);
+				v5->Roll = (int)a1c;
+				if ( fabs(a1->ZPlane.X) >= 0.00000001 || fabs(a1->ZPlane.Z) >= 0.00000001 )
+				{
+					a1d = (float)(10430.378 * atan2(-a1->ZPlane.X, a1->ZPlane.Z));
+					v5->Pitch = (int)a1d;
+				}
+				else
+				{
+					v5->Pitch = 0;
+				}
+			}
+		}
+		
+		public static _E_struct_FRotator * E_Quat2Rot(_E_struct_FRotator *thiss, _E_struct_FQuat *a2)
+		{
+			_E_struct_FMatrix *v2; // eax
+			_E_struct_FVector a3; // [esp+0h] [ebp-4Ch] BYREF
+			_E_struct_FMatrix v5; // [esp+Ch] [ebp-40h] BYREF
+
+			a3.X = 0.0f;
+			a3.Y = 0.0f;
+			a3.Z = 0.0f;
+			v5 = FQuatRotationTranslationMatrix(*a2, a3);
+			v2 = & v5;
+			* thiss = v2 -> Rotator();
+			//*thiss = *FMatrix::Rotator(v2, (_E_struct_FRotator *)&a3);
+			return thiss;
+		}
+		public static _E_struct_FVector * E_SomeKindOfLerp(_E_struct_FVector* output, ref _E_struct_FVector atZero, ref _E_struct_FVector atOne, ref float scaler, float scaler_scaler)
+		{
+			float v5; // xmm0_4
+			float v6; // xmm3_4
+			double v7; // st7
+			float v8; // xmm4_4
+			float v9; // xmm6_4
+			float v10; // xmm7_4
+			_E_struct_FVector *result; // eax
+			float v12; // ecx
+			float v13; // xmm1_4
+			float v14; // edx
+			float v15; // [esp+4h] [ebp-Ch]
+
+			v5 = 0.0f;
+			if ( scaler == 0.0 || atZero.X == atOne.X && atZero.Y == atOne.Y && atZero.Z == atOne.Z )
+			{
+				result = output;
+				output->X = atZero.X;
+				v14 = atZero.Z;
+				output->Y = atZero.Y;
+				output->Z = v14;
+			}
+			else
+			{
+				v6 = atZero.Y;
+				v7 = atOne.X - atZero.X;
+				v8 = atZero.Z;
+				v9 = atOne.Y - v6;
+				v10 = atOne.Z - v8;
+				if ( v7 * v7 + v9 * v9 + v10 * v10 >= 0.0001 )
+				{
+					v13 = scaler * scaler_scaler;
+					if ( v13 >= 0.0 )
+					{
+						v5 = scaler * scaler_scaler;
+						if ( v13 > 1.0 )
+							v5 = 1.0f;
+					}
+					result = output;
+					v15 = (float)v7;
+					output->X = atZero.X + (float)(v5 * v15);
+					output->Y = v6 + (float)(v5 * v9);
+					output->Z = v8 + (float)(v5 * v10);
+				}
+				else
+				{
+					result = output;
+					output->X = atOne.X;
+					v12 = atOne.Z;
+					output->Y = atOne.Y;
+					output->Z = v12;
+				}
+			}
+			return result;
 		}
 		
 		public static FLOAT GetMaximumAxisScale(in Matrix Matrix)

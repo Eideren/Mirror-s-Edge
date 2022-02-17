@@ -99,7 +99,13 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	[Category] public float GlobalAnimRateScale;
 	[native, Const, transient] public Object.Pointer MeshObject;
 	[Category] public Object.Color WireframeColor;
+	/// <summary>
+	/// Temporary array of of component-space bone matrices, update each frame and used for rendering the mesh.
+	/// </summary>
 	[native, Const, transient] public array<Object.Matrix> SpaceBases;
+	/// <summary>
+	/// Temporary array of local-space (ie relative to parent bone) rotation/translation for each bone.
+	/// </summary>
 	[native, Const, transient] public array<AnimNode.BoneAtom> LocalAtoms;
 	[native, Const, transient] public array<byte> RequiredBones;
 	[Category] [Const, export, editinline] public SkeletalMeshComponent ParentAnimComponent;
@@ -623,13 +629,6 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	//	return default;
 	//}
 	
-	// Export USkeletalMeshComponent::execGetBoneMatrix(FFrame&, void* const)
-	public virtual /*native final function */Object.Matrix GetBoneMatrix(int BoneIndex)
-	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
-	}
-	
 	// Export USkeletalMeshComponent::execGetParentBone(FFrame&, void* const)
 	public virtual /*native final function */name GetParentBone(name BoneName)
 	{
@@ -683,12 +682,6 @@ public partial class SkeletalMeshComponent : MeshComponent/*
 	
 	// Export USkeletalMeshComponent::execUpdateParentBoneMap(FFrame&, void* const)
 	public virtual /*native final function */void UpdateParentBoneMap()
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
-	
-	// Export USkeletalMeshComponent::execInitSkelControls(FFrame&, void* const)
-	public virtual /*native final function */void InitSkelControls()
 	{
 		NativeMarkers.MarkUnimplemented();
 	}

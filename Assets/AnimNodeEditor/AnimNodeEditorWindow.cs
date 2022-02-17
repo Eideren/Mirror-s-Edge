@@ -240,7 +240,7 @@
 
 
 
-			public override Color? BackgroundColor => (_observedObject as AnimNode)?.bRelevant == true ? new Color(0f, 1f, 0f, 0.1f) : default(Color?);
+			public override Color? BackgroundColor => (_observedObject as AnimNode)?.bRelevant == true || (_observedObject as SkelControlBase)?.GetControlAlpha() > 0f ? new Color(0f, 1f, 0f, 0.1f) : default(Color?);
 			
 			bool _foldedOut;
 			bool _isHovered;

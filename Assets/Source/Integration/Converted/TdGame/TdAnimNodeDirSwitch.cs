@@ -7,8 +7,10 @@ public partial class TdAnimNodeDirSwitch : TdAnimNodeBlendList/*
 	// Export UTdAnimNodeDirSwitch::execIsGoingForward(FFrame&, void* const)
 	public virtual /*native function */bool IsGoingForward()
 	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
+		if( SkelComponent.Owner is TdPawn pwn )
+			return pwn.bGoingForward;
+		else
+			return true;
 	}
 	
 	public override /*function */void OnBecomeRelevant()

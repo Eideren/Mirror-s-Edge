@@ -55,11 +55,35 @@ namespace MEdge.Engine
 		{
 			return Controller is PlayerController;
 		}
+		
+		
+		
 		// Export UPawn::execSetAnchor(FFrame&, void* const)
 		public virtual /*native function */void SetAnchor(NavigationPoint NewAnchor)
 		{
-			NativeMarkers.MarkUnimplemented();
+			if (Anchor != NULL &&
+			    Anchor.AnchoredPawn == this)
+			{
+				Anchor.AnchoredPawn = null;
+				Anchor.LastAnchoredPawnTime = GWorld.GetTimeSeconds();
+			}
+
+			Anchor = NewAnchor;
+			if ( Anchor )
+			{
+				LastValidAnchorTime = GWorld.GetTimeSeconds();
+				LastAnchor = Anchor;
+				// set the anchor reference for path finding purposes
+				// only for AI pawns as PlayerControllers using pathfinding is usually sporadic, so this might not get updated for a long time
+				if (!IsHumanControlled())
+				{
+					Anchor.AnchoredPawn = this;
+				}
+			}
 		}
+		
+		
+		
 		const int MAXPATHDIST = 1200; // maximum distance for paths between two nodes
 		public void rotateToward(FVector FocalPoint)
 		{
