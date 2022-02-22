@@ -93,8 +93,12 @@
                 for( int i = 0; i < Pawn.Mesh1p.LocalAtoms.Length; i++ )
                 {
 	                ref var atom = ref Pawn.Mesh1p.LocalAtoms[i];
-	                _1pBones[i].localPosition = atom.Translation.ToUnityPos();
-	                _1pBones[i].localRotation = (Quaternion)atom.Rotation;
+	                // Temporary as world to ensure that transformation differences between unity and unreal are properly dealt with
+	                _1pBones[i].position = Pawn.Mesh1p.GetBoneLocation(_1pBones[i].gameObject.name, 0).ToUnityPos();
+	                _1pBones[i].rotation = Pawn.Mesh1p.GetBoneQuaternion(_1pBones[i].gameObject.name, 0).ToUnity();
+	                
+	                //_1pBones[i].localRotation = atom.Rotation.ToUnity();
+	                //_1pBones[i].localPosition = atom.Translation.ToUnityPos();
 	                _1pBones[i].localScale = Vector3.one * atom.Scale;
                 }
                 
@@ -102,17 +106,15 @@
                 {
 	                ref var atom = ref Pawn.Mesh3p.LocalAtoms[i];
 	                _3pBones[i].localPosition = atom.Translation.ToUnityPos();
-	                _3pBones[i].localRotation = (Quaternion)atom.Rotation;
+	                _3pBones[i].localRotation = atom.Rotation.ToUnity();
 	                _3pBones[i].localScale = Vector3.one * atom.Scale;
                 }
                 
-                //_3pPlayer.Sample( deltaTime );
-                //_1pPlayer.Sample( deltaTime );
                 #warning This offset with collision is kind of a hack as the exported animation and model's pivot is at the base instead of in the center of the model
-                var basePos = Pawn.Location - new Object.Vector( 0f, 0f, Pawn.GetCollisionHeight());
+                var basePos = Pawn.Location;
                 var baseRot = Pawn.Rotation;
-                _1pPlayer.transform.SetPositionAndRotation( (basePos + Pawn.Mesh1p.Translation).ToUnityPos(), (Quaternion)(baseRot + Pawn.Mesh1p.Rotation) );
-                _3pPlayer.transform.SetPositionAndRotation( (basePos + Pawn.Mesh3p.Translation).ToUnityPos(), (Quaternion)(baseRot + Pawn.Mesh3p.Rotation) );
+                _1pPlayer.transform.SetPositionAndRotation( (basePos + Pawn.Mesh1p.Translation).ToUnityPos(), (baseRot + Pawn.Mesh1p.Rotation).ToUnityQuat() );
+                _3pPlayer.transform.SetPositionAndRotation( (basePos + Pawn.Mesh3p.Translation).ToUnityPos(), (baseRot + Pawn.Mesh3p.Rotation).ToUnityQuat() );
                 
                 if( _unityCam == null )
                 {
@@ -128,10 +130,8 @@
 
                 if( ( Pawn.Controller as PlayerController ).PlayerCamera is Camera cam )
                 {
-                    //cam.UpdateCamera(deltaTime);
                     var camPov = cam.CameraCache.POV;
-                    _unityCam.transform.SetPositionAndRotation( camPov.Location.ToUnityPos(), (Quaternion)camPov.Rotation );
-                    #warning probably switch things around to ensure camera doesn't lag one frame behind animation
+                    _unityCam.transform.SetPositionAndRotation( camPov.Location.ToUnityPos(), camPov.Rotation.ToUnityQuat() * Quaternion.Euler(90f, 0f, 0f)/* Not too sure why we need to change this, perhaps unreal cameras points downwards by default instead of horizontally ? */ );
                 }
             }
 
@@ -186,7 +186,7 @@
 	            var nameToClip = clips.ToDictionary( x => (name)x.name, x => x ); 
 	            var nameToTransforms = gameObject.GetComponentsInChildren<Transform>().ToDictionary( x => (name)x.name );
 	            var bones = animSet.TrackBoneNames.Select( name => nameToTransforms[ name ] ).ToArray();
-	            var bindPose = bones.Select( x => new AnimNode.BoneAtom( (Object.Quat) x.localRotation, x.localPosition.ToUnrealPos(), 1f ) ).ToArray();
+	            var bindPose = bones.Select( x => new AnimNode.BoneAtom( x.localRotation.ToUnrealAnim(), x.localPosition.ToUnrealAnim(), 1f ) ).ToArray();
 				
 				
 	            foreach( AnimSequence sequence in animSet.Sequences )
@@ -204,10 +204,10 @@
 					
 		            clip.wrapMode = WrapMode.Default;
 		            clip.SampleAnimation( gameObject, 0f );
-		            sequence._unityPoses.start = bones.Select( bone => new AnimNode.BoneAtom( (Object.Quat) bone.localRotation, bone.localPosition.ToUnrealPos(), 1f ) ).ToArray();
+		            sequence._unityPoses.start = bones.Select( bone => new AnimNode.BoneAtom( bone.localRotation.ToUnrealAnim(), bone.localPosition.ToUnrealAnim(), 1f ) ).ToArray();
 					
 		            clip.SampleAnimation( gameObject, clip.length );
-		            sequence._unityPoses.end = bones.Select( bone => new AnimNode.BoneAtom( (Object.Quat) bone.localRotation, bone.localPosition.ToUnrealPos(), 1f ) ).ToArray();
+		            sequence._unityPoses.end = bones.Select( bone => new AnimNode.BoneAtom( bone.localRotation.ToUnrealAnim(), bone.localPosition.ToUnrealAnim(), 1f ) ).ToArray();
 	            }
             }
 

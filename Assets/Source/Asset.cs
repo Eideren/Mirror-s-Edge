@@ -6,8 +6,8 @@
 	using System.Runtime.CompilerServices;
 	using Core;
 	using Engine;
-	using UnityEngine;
 	using static UnityEngine.Debug;
+	using Object = Core.Object;
 	using String = Core.String;
 
 
@@ -43,7 +43,7 @@
 			{
 				resourceAsset = UnityEngine.Resources.Load( path.Replace( '.', '/' ) );
 			}
-			catch(System.Exception e)
+			catch(Exception e)
 			{
 				LogError( e );
 				return new TClass();
@@ -70,11 +70,29 @@
 				if( associatedUnityObject != null )
 				{
 					var unrealObj = new TClass();
-					if( unrealObj is SkeletalMesh sm && associatedUnityObject is SkinnedMeshRenderer usm )
+					if( unrealObj is SkeletalMesh sm && associatedUnityObject is UnityEngine.SkinnedMeshRenderer usm )
 					{
-						var bones = (path == "CH_TKY_Crim_Fixer.SK_TKY_Crim_Fixer" ? Get_AS_F3P_Unarmed() : Get_AS_C1P_Unarmed()).TrackBoneNames.ToArray();
-						var nonDicTrs = usm.transform.parent.GetComponentsInChildren<Transform>();
+						// Default offsets for the character meshes, as seen in ME's editor
+					    sm.Origin.Y = 94f;
+					    sm.RotOrigin = new (0, -16384, 16384); // 16384 is 90 degrees
+					    
+					    MEdge.TdGame.TdAnimSet set;
+					    switch( path )
+					    {
+						    case "CH_TKY_Crim_Fixer_1P.SK_UpperBody":
+						    case "CH_TKY_Crim_Fixer_1P.SK_LowerBody":
+							    set = Get_AS_C1P_Unarmed();
+							    break;
+							case "CH_TKY_Crim_Fixer.SK_TKY_Crim_Fixer":
+							    set = Get_AS_F3P_Unarmed();
+							    break;
+						    default: 
+							    throw new Exception();
+					    }
+						var bones = set.TrackBoneNames.ToArray();
+						var nonDicTrs = usm.transform.parent.GetComponentsInChildren<UnityEngine.Transform>();
 						var trs = nonDicTrs.Where(t => t != usm.transform && t != usm.transform.parent).ToDictionary( trs => (name)trs.name );
+
 						sm.RefSkeleton = new();
 						var rootBonesTrs = trs[ bones[ 0 ] ];
 						for( int i = 0; i < bones.Length; i++ )
@@ -86,14 +104,31 @@
 							{
 								depth++;
 							}
-					
+
+							/*var _source = decFPModelJPos[ i ];
+							var _unity = new AnimNode.VJointPos
+							{
+								Orientation = bone.localRotation.ToUnreal(),
+								Position = bone.localPosition.ToUnrealPos(),
+							};
+							var _unityInPlace = new AnimNode.VJointPos
+							{
+								Orientation = bone.localRotation.Inplace(),
+								Position = bone.localPosition.Inplace(),
+							}; 
+							var _unityAnim = new AnimNode.VJointPos
+							{
+								Orientation = bone.localRotation.ToUnrealAnim(),
+								Position = bone.localPosition.ToUnrealAnim(),
+							};*/
+
 							sm.RefSkeleton[ i ] = new AnimNode.FMeshBone
 							{
 								Name = bone.name,
-								BonePos = 
+								BonePos = new AnimNode.VJointPos
 								{
-									Orientation = (Core.Object.Quat)bone.localRotation,
-									Position = bone.localPosition.ToUnrealPos(),
+									Orientation = bone.localRotation.ToUnrealAnim(),
+									Position = bone.localPosition.ToUnrealAnim(),
 								},
 								ParentIndex = Array.FindIndex( bones, other => other == bone.parent.name ),
 								NumChildren = bone.childCount,
@@ -112,5 +147,104 @@
 			LogWarning($"{nameof(LoadAsset)} not implemented yet, requesting '{assetPath}'");
 			return new TClass();
 		}
+		
+		
+						
+
+		static unsafe Object.Quat FromUInt4( uint a, uint b, uint c, uint d )
+		{
+			Object.Quat q = default;
+			((uint*) & q)[0] = a;
+			((uint*) & q)[1] = b;
+			((uint*) & q)[2] = c;
+			((uint*) & q)[3] = d;
+			return q;
+		}
+		static unsafe Object.Vector FromUInt( uint a, uint b, uint c )
+		{
+			Object.Vector q = default;
+			((uint*) & q)[0] = a;
+			((uint*) & q)[1] = b;
+			((uint*) & q)[2] = c;
+			return q;
+		}
+		static AnimNode.VJointPos[] decFPModelJPos = new AnimNode.VJointPos[]
+		{
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 0, 2147483648, 0 )},
+			new() {Orientation = FromUInt4( 1024614358, 1024614358, 1060424124, 3207907771 ), Position = FromUInt( 0, 3269031164, 1078773069 )},
+			new() {Orientation = FromUInt4( 0, 3174989524, 0, 3212818710 ), Position = FromUInt( 1085004549, 644481477, 2805989376 )},
+			new() {Orientation = FromUInt4( 0, 3181468644, 0, 3212784711 ), Position = FromUInt( 1098336570, 657475004, 2815426560 )},
+			new() {Orientation = FromUInt4( 1060417209, 1060417210, 3174079038, 3174079038 ), Position = FromUInt( 3236011403, 1092345392, 3222646426 )},
+			new() {Orientation = FromUInt4( 1033420854, 2147483648, 0, 3212790135 ), Position = FromUInt( 2841116672, 3258322198, 2863136768 )},
+			new() {Orientation = FromUInt4( 3202766933, 841573527, 833268236, 3211043088 ), Position = FromUInt( 679477248, 3258471183, 675282944 )},
+			new() {Orientation = FromUInt4( 3200209079, 845225137, 833969817, 3211621601 ), Position = FromUInt( 681574400, 3245868586, 2805989376 )},
+			new() {Orientation = FromUInt4( 3203959291, 3204685812, 1057202165, 3203959291 ), Position = FromUInt( 671088640, 2826960896, 677904384 )},
+			new() {Orientation = FromUInt4( 3174079038, 3174079038, 3207900858, 3207900857 ), Position = FromUInt( 3236011643, 3239829045, 3222646379 )},
+			new() {Orientation = FromUInt4( 1033420854, 2147483648, 0, 3212790135 ), Position = FromUInt( 671088640, 1110838515, 913486817 )},
+			new() {Orientation = FromUInt4( 3202766933, 2996525253, 2988213053, 3211043088 ), Position = FromUInt( 677380096, 1110987547, 892274154 )},
+			new() {Orientation = FromUInt4( 3200209079, 2147483648, 0, 3211621601 ), Position = FromUInt( 662700032, 1098384920, 935023555 )},
+			new() {Orientation = FromUInt4( 658383520, 2815603808, 2840396160, 3212836864 ), Position = FromUInt( 2810183680, 687865856, 2793406464 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 668119059, 3274062260, 1090583925 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 2811128264, 2147483648, 0 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 1078632338, 1099401329, 3236051737 )},
+			new() {Orientation = FromUInt4( 3162840441, 3172868301, 3200676877, 3211509347 ), Position = FromUInt( 1096003501, 1062522140, 3221915275 )},
+			new() {Orientation = FromUInt4( 1021509188, 1053022343, 3158051869, 3211552803 ), Position = FromUInt( 1103402809, 687865856, 889431287 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 1104048423, 2998635696, 884844647 )},
+			new() {Orientation = FromUInt4( 3168045662, 975998925, 1008341559, 3212830471 ), Position = FromUInt( 2810183680, 2835349504, 698351616 )},
+			new() {Orientation = FromUInt4( 1016768486, 1028236624, 1016958176, 3212810420 ), Position = FromUInt( 1061995439, 3189106621, 1042078132 )},
+			new() {Orientation = FromUInt4( 3177181218, 3175261684, 3177408612, 3212766843 ), Position = FromUInt( 1090775388, 2826960896, 2826960896 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 1082527523, 687865856, 0 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 1076325789, 2147483648, 692060160 )},
+			new() {Orientation = FromUInt4( 1011211996, 3173758339, 1014119940, 3212819056 ), Position = FromUInt( 1062313251, 3187383946, 3194952608 )},
+			new() {Orientation = FromUInt4( 3174809636, 1031975069, 3176907873, 3212760758 ), Position = FromUInt( 1090390068, 2147483648, 2826960896 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 1082575091, 2826960896, 2818572288 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 1072933554, 687865856, 697303040 )},
+			new() {Orientation = FromUInt4( 3148476899, 3186828056, 3153347751, 3212717517 ), Position = FromUInt( 1063021097, 3199023878, 3209326283 )},
+			new() {Orientation = FromUInt4( 3167824827, 1041925912, 3171701891, 3212629235 ), Position = FromUInt( 1090248082, 2826960896, 2818572288 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 1079404485, 687865856, 0 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 1068833929, 700448768, 2826960896 )},
+			new() {Orientation = FromUInt4( 1028484985, 1039468971, 1026919064, 3212678449 ), Position = FromUInt( 1062371078, 1026756390, 1060771289 )},
+			new() {Orientation = FromUInt4( 3182646516, 3187732174, 3181425450, 3212586031 ), Position = FromUInt( 1090724160, 2835349504, 2826960896 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 1082315467, 2826960896, 671088640 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 1075262687, 692060160, 2850029568 )},
+			new() {Orientation = FromUInt4( 1058313421, 1050538512, 1023583588, 3208692337 ), Position = FromUInt( 1065103324, 1063556589, 1073758981 )},
+			new() {Orientation = FromUInt4( 0, 1036482545, 0, 3212757099 ), Position = FromUInt( 1083014763, 698351616, 692060160 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 1023553648, 3212828387 ), Position = FromUInt( 1081901544, 2843738112, 2845835264 )},
+			new() {Orientation = FromUInt4( 3159657180, 2147483648, 0, 3212835452 ), Position = FromUInt( 2850029568, 2857369600, 694157312 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 1095659815, 2859466752, 2818572288 )},
+			new() {Orientation = FromUInt4( 1036298734, 1036298734, 1060329380, 3207813028 ), Position = FromUInt( 2836970159, 1093367594, 3239464471 )},
+			new() {Orientation = FromUInt4( 0, 3183648440, 0, 3212760940 ), Position = FromUInt( 1089360207, 2789868691, 0 )},
+			new() {Orientation = FromUInt4( 1065353216, 2147483648, 0, 613232946 ), Position = FromUInt( 663644613, 970131358, 898541409 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 3226115989, 3246884651, 1088568091 )},
+			new() {Orientation = FromUInt4( 3162840441, 3172868301, 3200676877, 3211509347 ), Position = FromUInt( 3243487170, 3210001514, 1074431640 )},
+			new() {Orientation = FromUInt4( 1021509188, 1053022343, 3158051871, 3211552803 ), Position = FromUInt( 3250886710, 3119612934, 3045865559 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 3251531876, 969850477, 3116087885 )},
+			new() {Orientation = FromUInt4( 3168045662, 975998925, 1008341559, 3212830471 ), Position = FromUInt( 671088640, 679477248, 679477248 )},
+			new() {Orientation = FromUInt4( 1016768486, 1028236624, 1016958176, 3212810420 ), Position = FromUInt( 3209487276, 1041581675, 3189533515 )},
+			new() {Orientation = FromUInt4( 3159618139, 3174626602, 3177929573, 3212790597 ), Position = FromUInt( 3238258622, 974270524, 3114938345 )},
+			new() {Orientation = FromUInt4( 845001687, 2147483648, 0, 3212836864 ), Position = FromUInt( 3230011768, 3113137093, 957487834 )},
+			new() {Orientation = FromUInt4( 848239549, 2147483648, 0, 3212836864 ), Position = FromUInt( 3223809960, 3102620095, 957319159 )},
+			new() {Orientation = FromUInt4( 1029486213, 3173914626, 1012221669, 3212795881 ), Position = FromUInt( 3209799794, 1039885375, 1047481740 )},
+			new() {Orientation = FromUInt4( 3174710739, 1032549849, 3175417679, 3212761041 ), Position = FromUInt( 3237874089, 3114355907, 950165786 )},
+			new() {Orientation = FromUInt4( 842335475, 2147483648, 0, 3212836864 ), Position = FromUInt( 3230058301, 966348693, 3107911864 )},
+			new() {Orientation = FromUInt4( 847249408, 2147483648, 0, 3212836864 ), Position = FromUInt( 3220417813, 3104027411, 937806086 )},
+			new() {Orientation = FromUInt4( 1024886733, 3186771585, 3159108605, 3212706329 ), Position = FromUInt( 3210511502, 1051524067, 1061849808 )},
+			new() {Orientation = FromUInt4( 3167696104, 1042084161, 3165587336, 3212629337 ), Position = FromUInt( 3237731540, 943075689, 3086915947 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 3226887484, 965479210, 3106047919 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 3216318382, 3105210791, 949332406 )},
+			new() {Orientation = FromUInt4( 1035782913, 1039201804, 1028272529, 3212627709 ), Position = FromUInt( 3209858460, 3174302948, 3208251819 )},
+			new() {Orientation = FromUInt4( 3182742892, 3186847161, 3182810147, 3212584956 ), Position = FromUInt( 3238207961, 3109791942, 958756128 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 3229799183, 3100384175, 952099378 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 3222745768, 951442382, 3101764003 )},
+			new() {Orientation = FromUInt4( 1058313421, 1050538512, 1023583588, 3208692337 ), Position = FromUInt( 3212593099, 3211047542, 3221241184 )},
+			new() {Orientation = FromUInt4( 842279073, 1036482545, 814549928, 3212757099 ), Position = FromUInt( 3230497996, 969072306, 955506124 )},
+			new() {Orientation = FromUInt4( 845018305, 2950815176, 1023553648, 3212828387 ), Position = FromUInt( 3229385294, 3095666500, 949734247 )},
+			new() {Orientation = FromUInt4( 3159657180, 2147483648, 0, 3212835452 ), Position = FromUInt( 687865856, 2147483648, 698351616 )},
+			new() {Orientation = FromUInt4( 1057323589, 3208078018, 3203229120, 842182390 ), Position = FromUInt( 1111746840, 3263599912, 3257808904 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 3243143573, 3102935049, 951330858 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 672604262, 3274062260, 1090583925 )},
+			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 311427072, 2147483648, 654311424 )},
+		};
+		
 	}
 }

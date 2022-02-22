@@ -405,7 +405,7 @@
                 actor.CreationTime = UnityEngine.Time.time;
                 actor.WorldInfo = WorldInfo;
                 actor.Location = go.transform.position.ToUnrealPos();
-                actor.Rotation = (Object.Rotator)go.transform.rotation;
+                actor.Rotation = go.transform.rotation.ToUnrealRot();
                 actor.PhysicsVolume = WorldInfo.PhysicsVolume ?? throw new System.NullReferenceException();
             }
             

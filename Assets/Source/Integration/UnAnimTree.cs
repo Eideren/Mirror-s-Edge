@@ -32,6 +32,12 @@ namespace MEdge.Engine
 
 	public partial class SkeletalMeshComponent
 	{
+		public override void SetTransformedToWorld()
+		{
+			LocalToWorld = CalcCurrentLocalToWorld(CachedParentToWorld);
+			LocalToWorldDeterminant = LocalToWorld.Determinant();
+		}
+	
 		// Export USkeletalMeshComponent::execGetBoneMatrix(FFrame&, void* const)
 		public virtual /*native final function */Object.Matrix GetBoneMatrix(int BoneIdx)
 		{
@@ -1844,11 +1850,8 @@ public static void FillWithRefPose(ref MEdge.array<BoneAtom> OutAtoms,  in MEdge
 	{
 		int BoneIndex				= DesiredBones[i];
 		ref FMeshBone RefSkelBone	= ref RefSkel[BoneIndex];
-		ref BoneAtom OutAtom		= ref OutAtoms[BoneIndex];
 
-		OutAtom.Rotation	= RefSkelBone.BonePos.Orientation;
-		OutAtom.Translation	= RefSkelBone.BonePos.Position;
-		OutAtom.Scale		= 1f;
+		OutAtoms[BoneIndex] = new BoneAtom( RefSkelBone.BonePos.Orientation, RefSkelBone.BonePos.Position, 1f );
 		//Atoms[BoneIndex] = BoneAtom( RefSkel[BoneIndex].BonePos.Orientation, RefSkel[BoneIndex].BonePos.Position, 1f );		
 	}
 }

@@ -1,25 +1,130 @@
 ﻿namespace MEdge.Core
 {
 	using System;
-	using V3 = UnityEngine.Vector3;
-	using UnityQuat = UnityEngine.Quaternion;
+	using UnityV = UnityEngine.Vector3;
+	using UnityQ = UnityEngine.Quaternion;
+	using UnrealV = Object.Vector;
+	using UnrealQ = Object.Quat;
 	using Math = System.Math;
 	using static Source.DecFn;
 	
 	public static class V3Extension
 	{
+		public static UnrealV Inplace(this UnityV v, float mult = 100f) => new UnrealV( v.x, v.y, v.z ) * mult;
+		public static UnrealQ Inplace(this UnityQ v) => new UnrealQ( v.x, v.y, v.z, v.w );
+		
+		
 		/// <summary> This vector be rotated and scaled to fit in the proper metric system, I.E.: divided by 100 since 1 unity unit = 100 unreal unit</summary>
-		public static V3 ToUnityPos(this Object.Vector v) => new V3( v.Y, v.Z, v.X ) * 0.01f;
-		/// <summary> This vector should only be rotated to unreal space, not scaled to fit in the proper metric system </summary>
-		public static V3 ToUnityDir(this Object.Vector v) => new V3( v.Y, v.Z, v.X );
+		public static UnityV ToUnityPos(this UnrealV v) => new UnityV( v.Y, v.Z, v.X ) / 100f;
 		/// <summary> This vector be rotated and scaled to fit in the proper metric system, I.E.: multiplied by 100 since 1 unity unit = 100 unreal unit</summary>
-		public static Object.Vector ToUnrealPos(this V3 v) => new Object.Vector( v.z, v.x, v.y ) * 100f;
+		public static UnrealV ToUnrealPos(this UnityV v) => new UnrealV( v.z, v.x, v.y ) * 100f;
 		/// <summary> This vector should only be rotated to unreal space, not scaled to fit in the proper metric system </summary>
-		public static Object.Vector ToUnrealDir(this V3 v) => new Object.Vector( v.z, v.x, v.y );
+		public static UnityV ToUnityDir(this UnrealV v) => new UnityV( v.Y, v.Z, v.X );
+		/// <summary> This vector should only be rotated to unreal space, not scaled to fit in the proper metric system </summary>
+		public static UnrealV ToUnrealDir(this UnityV v) => new UnrealV( v.z, v.x, v.y );
+		
+		public static UnrealV ToUnrealAnim(this UnityV v, float mult = 100f) => new UnrealV( -v.x, -v.y, v.z ) * mult;
+		public static UnityV ToUnityAnim(this UnrealV v, float mult = 100f) => new UnityV( -v.X, -v.Y, v.Z ) / mult;
+		
+		public static UnrealQ ToUnrealAnim( this UnityQ q )
+		{
+			var m = Object.FQuatRotationTranslationMatrix( q.Inplace(), default );
+			m.XPlane.Z *= -1f;
+			m.YPlane.Z *= -1f;
+			m.ZPlane.X *= -1f;
+			m.ZPlane.Y *= -1f;
+			return new UnrealQ(m);
+		}
+		
+		public static unsafe UnityQ ToUnityAnim( this UnrealQ v )
+		{
+			var m = Object.FQuatRotationTranslationMatrix( v, default );
+			m.XPlane.Z *= -1f;
+			m.YPlane.Z *= -1f;
+			m.ZPlane.X *= -1f;
+			m.ZPlane.Y *= -1f;
+			var q = new UnrealQ(m);
+			return *(UnityQ*)&q;
+		}
+
+
+
+		public static UnityQ ToUnityQuat( this Object.Rotator v )
+		{
+			const double convScaling = 1d / (ushort.MaxValue) * (Math.PI * 2d);
+			Object.Rotator.RotationYawPitchRoll( -v.Pitch * convScaling, v.Yaw * convScaling, -v.Roll * convScaling, out UnityQ q );
+			return q;
+		}
+			
+		public static Object.Rotator ToUnrealRot( this UnityQ v )
+		{
+			const double convScaling = 1d / (Math.PI * 2d) * (ushort.MaxValue);
+			Object.Rotator.RotationYawPitchRoll( ref v, out var pitch, out var yaw, out var roll );
+			return new Object.Rotator( -(int)Math.Round(pitch * convScaling), (int)Math.Round(yaw * convScaling), -(int)Math.Round(roll * convScaling) );
+		}
+		
+		
+		
+		
+		public static UnityQ ToUnity( this UnrealQ v )
+		{
+			var quatAsMat = Object.FQuatRotationTranslationMatrix( v, default );
+			var transformed = new Object.Matrix
+			{
+				XPlane = new()
+				{
+					X = -quatAsMat.XPlane.Y,
+					Y = -quatAsMat.XPlane.Z,
+					Z = -quatAsMat.XPlane.X,
+				},
+				YPlane = new()
+				{
+					X = -quatAsMat.YPlane.Y,
+					Y = -quatAsMat.YPlane.Z,
+					Z = -quatAsMat.YPlane.X,
+				},
+				ZPlane = new()
+				{
+					X = +quatAsMat.ZPlane.Y,
+					Y = +quatAsMat.ZPlane.Z,
+					Z = +quatAsMat.ZPlane.X,
+				},
+				WPlane = new()
+				{
+					W = 1f,
+				},
+			};
+			var q = new UnrealQ( transformed );
+			return new UnityQ
+			{
+				x = q.X,
+				y = q.Y,
+				z = q.Z,
+				w = q.W,
+			};
+		}
+		
+		/// <summary>
+		/// This hasn't been properly tested
+		/// </summary>
+		public static UnrealQ ToUnreal( this UnityQ v )
+		{
+			return v.ToUnrealAnim();
+			/*return new UnrealQ
+			{
+				X = v.z,
+				Y = v.x,
+				Z = v.y,
+				W = v.w,
+			};*/
+		}
+		
+		
+		
 
 
 		// Arbitrary, not compared against source
-		public static bool IsNearlyZero( this V3 v ) => v.sqrMagnitude <= 0.0001f;
+		public static bool IsNearlyZero( this UnityV v ) => v.sqrMagnitude <= 0.0001f;
 		public static bool IsNearlyZero( this Object.Vector2D v ) => v.X * v.X + v.Y * v.Y <= 0.0001f;
 	}
 
@@ -29,30 +134,6 @@
 	{
 		public partial struct Quat
 		{
-			public static explicit operator UnityQuat( Quat v )
-			{
-				return new UnityQuat
-				{
-					x = v.Y,
-					y = v.Z,
-					z = v.X,
-					w = v.W,
-				};
-			}
-			
-			public static explicit operator Quat( UnityQuat v )
-			{
-				return new Quat
-				{
-					X = v.z,
-					Y = v.x,
-					Z = v.y,
-					W = v.w,
-				};
-			}
-
-
-
 			public Quat(float X, float Y, float Z, float W)
 			{
 				this.X = X;
@@ -330,22 +411,6 @@
 
 
 
-			public static explicit operator UnityQuat( Rotator v )
-			{
-				const double convScaling = 1d / (ushort.MaxValue) * (Math.PI * 2d);
-				RotationYawPitchRoll( -v.Pitch * convScaling, v.Yaw * convScaling, -v.Roll * convScaling, out UnityQuat q );
-				return q;
-			}
-			
-			public static explicit operator Rotator( UnityQuat v )
-			{
-				const double convScaling = 1d / (Math.PI * 2d) * (ushort.MaxValue);
-				RotationYawPitchRoll( ref v, out var pitch, out var yaw, out var roll );
-				return new Rotator( -(int)Math.Round(pitch * convScaling), (int)Math.Round(yaw * convScaling), -(int)Math.Round(roll * convScaling) );
-			}
-
-
-
 			public static unsafe explicit operator Quat( Rotator r )
 			{
 				Quat q = default;
@@ -354,7 +419,7 @@
 
 
 
-			static void RotationYawPitchRoll(ref UnityEngine.Quaternion rotation, out double pitch, out double yaw, out double roll)
+			public static void RotationYawPitchRoll(ref UnityEngine.Quaternion rotation, out double pitch, out double yaw, out double roll)
 			{
 				var xx = (double)rotation.x * rotation.x;
 				var yy = (double)rotation.y * rotation.y;
@@ -381,7 +446,7 @@
 					yaw = 0f;
 				}
 			}
-			static void RotationYawPitchRoll(double pitch, double yaw, double roll, out UnityEngine.Quaternion result)
+			public static void RotationYawPitchRoll(double pitch, double yaw, double roll, out UnityEngine.Quaternion result)
 			{
 				var halfRoll = roll * 0.5d;
 				var halfPitch = pitch * 0.5d;

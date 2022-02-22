@@ -924,7 +924,7 @@
 				{
 					Name = unityColl.gameObject.name, 
 					Location = unityColl.transform.position.ToUnrealPos(),
-					Rotation = (Rotator)unityColl.transform.rotation,
+					Rotation = unityColl.transform.rotation.ToUnrealRot(),
 					bWorldGeometry = true,
 					bBlockActors = true
 				} );

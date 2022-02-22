@@ -3,8 +3,7 @@
 	using System;
 	using Core;
 	using String = Core.String;
-	using System;
-	using Core;
+	using UnityEngine;
 	using static Source.DecFn;
 	using FLOAT = System.Single;
 	using INT = System.Int32;
@@ -65,6 +64,9 @@
 		public UnityEngine.GameObject _unityClipTarget;
 		public (FBoneAtom[] start, FBoneAtom[] end) _unityPoses;
 		public BoneAtom[] _unityRefPose;
+		(Vector3, Quaternion)[] _unitySamplingCache;
+		(float, bool) _cacheData;
+		
 		
 		public AnimSet GetAnimSet()
 		{
@@ -79,26 +81,43 @@
 				return;
 			}
 
-			if( bLooping && Time > _unityClip.length )
+			// Make sure to normalize it within the unity clip's duration instead of the unreal one
+			Time = Time / SequenceLength * _unityClip.length;
+
+			if( Time <= 0f )
 			{
-				float unexpectedDiff = SequenceLength - _unityClip.length;
-				float currentTimeBetweenKeyframe = ( Time - _unityClip.length ) / unexpectedDiff;
-				OutAtom.Blend( _unityPoses.end[ TrackIndex ], _unityPoses.start[ TrackIndex ], currentTimeBetweenKeyframe );
+				OutAtom = _unityPoses.start[ TrackIndex ];
+				return;
 			}
-			else if( bLooping && Time < 0f )
+
+			if( Time >= _unityClip.length )
 			{
-				throw new Exception();
+				OutAtom = bLooping ? _unityPoses.start[ TrackIndex ] : _unityPoses.end[ TrackIndex ];
+				return;
 			}
-			else
+
+			if( _unitySamplingCache == null || _cacheData != (Time, bLooping) )
 			{
-				_unityClip.wrapMode = /*bLoopingInterpolation ? WrapMode.Loop : */UnityEngine.WrapMode.Default;
-				var b = _unityBones[ TrackIndex ];
-				b.localPosition = default;
-				b.localRotation = default;
-				_unityClip.SampleAnimation( _unityClipTarget, Time/* / InAnimSeq.SequenceLength * unityClip.length*/ );
-				OutAtom = new BoneAtom( (Quat)b.localRotation, b.localPosition.ToUnrealPos(), 1f );
+				_unitySamplingCache ??= new (Vector3, Quaternion)[_unityBones.Length];
+				_cacheData = (Time, bLooping);
+				
+				_unityClip.wrapMode = bLooping ? WrapMode.Loop : WrapMode.ClampForever;
+				foreach( var b in _unityBones )
+				{
+					b.localPosition = default;
+					b.localRotation = Quaternion.identity;
+					b.localScale = Vector3.one;
+				}
+				_unityClip.SampleAnimation( _unityClipTarget, Time );
+				for( int i = 0; i < _unityBones.Length; i++ )
+				{
+					var b = _unityBones[i];
+					_unitySamplingCache[i] = (b.localPosition, b.localRotation);
+				}
 			}
-			
+			var thisBone = _unitySamplingCache[ TrackIndex ];
+			OutAtom = new BoneAtom( thisBone.Item2.ToUnrealAnim(), thisBone.Item1.ToUnrealAnim(), 1f );
+
 			return;
 			
 			#if UNUSED
