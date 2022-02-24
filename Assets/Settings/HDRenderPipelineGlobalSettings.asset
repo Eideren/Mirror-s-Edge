@@ -63,6 +63,7 @@ MonoBehaviour:
   m_RenderPipelineRayTracingResources: {fileID: 0}
   beforeTransparentCustomPostProcesses: []
   beforePostProcessCustomPostProcesses: []
+  afterPostProcessBlursCustomPostProcesses: []
   afterPostProcessCustomPostProcesses: []
   beforeTAACustomPostProcesses: []
   lightLayerName0: Light LayerDefault
@@ -100,4 +101,10 @@ MonoBehaviour:
     serializedHasVolumes:
     - scenePath: Assets/Scenes/TestActor.unity
       hasProbeVolumes: 1
+    - scenePath: Assets/OutdoorsScene.unity
+      hasProbeVolumes: 0
+    - scenePath: Assets/Scenes/TestAnimNode.unity
+      hasProbeVolumes: 0
+    - scenePath: Assets/Scenes/IndoorsScene.unity
+      hasProbeVolumes: 0
   m_Version: 3

@@ -1,8 +1,9 @@
 ﻿namespace MEdge.Engine
 {
-	using System;
 	using System.Linq;
+	/*#if UNITY_EDITOR
 	using AnimNodeEditor;
+	#endif*/
 	using Core;
     using Source;
     using TdGame;
@@ -21,7 +22,9 @@
             GameObject _1pPlayer, _3pPlayer;
             Transform[] _1pBones, _3pBones;
             SkinnedMeshRenderer _1pLower;
+            /*#if UNITY_EDITOR
             AnimNodeEditorWindow _window;
+			#endif*/
             UnityEngine.Camera _unityCam;
 
 
@@ -62,9 +65,11 @@
                     
                     _1pBones = Pawn.Mesh1p.AnimSets[0].TrackBoneNames.Select( n => nameToBones[ n ] ).ToArray();
                     
+					/*#if UNITY_EDITOR
                     _window = AnimNodeEditorWindow.CreateInstance<AnimNodeEditorWindow>();
                     _window.LoadFromNode( Pawn.Mesh1p.Animations );
                     _window.Show();
+                    #endif*/
                 }
 
                 if( _3pPlayer == null )
@@ -139,8 +144,10 @@
 
             public void OnDestroy()
             {
+	            /*#if UNITY_EDITOR
                 _window?.Close();
                 _window = null;
+                #endif*/
                 PrintUnimplementedDebug();
             }
 
