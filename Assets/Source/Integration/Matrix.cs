@@ -300,6 +300,15 @@
 
         public partial struct Box
         {
+	        public Box( in Vector InMin, in Vector InMax )
+	        {
+		        this.Min = InMin;
+		        this.Max = InMax;
+		        IsValid = 1;
+	        }
+
+
+
 	        public static Box operator +( Box thiss, Box Other )
 	        {
 		        if( thiss.IsValid != 0 && Other.IsValid != 0 )
@@ -318,6 +327,79 @@
 		        }
 		        return thiss;
 	        }
+	        
+	        public unsafe Box TransformBy(in Matrix M)
+	        {
+				VectorRegister* Vertices = stackalloc VectorRegister[8];
+				VectorRegister m0 = VectorLoadAligned( M.PlaneX );
+				VectorRegister m1 = VectorLoadAligned( M.PlaneY );
+				VectorRegister m2 = VectorLoadAligned( M.PlaneZ );
+				VectorRegister m3 = VectorLoadAligned( M.PlaneW );
+				Vertices[0]   = VectorLoadFloat3( Min );
+				Vertices[1]   = VectorSetFloat3( Min.X, Min.Y, Max.Z );
+				Vertices[2]   = VectorSetFloat3( Min.X, Max.Y, Min.Z );
+				Vertices[3]   = VectorSetFloat3( Max.X, Min.Y, Min.Z );
+				Vertices[4]   = VectorSetFloat3( Max.X, Max.Y, Min.Z );
+				Vertices[5]   = VectorSetFloat3( Max.X, Min.Y, Max.Z );
+				Vertices[6]   = VectorSetFloat3( Min.X, Max.Y, Max.Z );
+				Vertices[7]   = VectorLoadFloat3( Max );
+				VectorRegister r0 = VectorMultiply( VectorReplicate(Vertices[0],0), m0 );
+				VectorRegister r1 = VectorMultiply( VectorReplicate(Vertices[1],0), m0 );
+				VectorRegister r2 = VectorMultiply( VectorReplicate(Vertices[2],0), m0 );
+				VectorRegister r3 = VectorMultiply( VectorReplicate(Vertices[3],0), m0 );
+				VectorRegister r4 = VectorMultiply( VectorReplicate(Vertices[4],0), m0 );
+				VectorRegister r5 = VectorMultiply( VectorReplicate(Vertices[5],0), m0 );
+				VectorRegister r6 = VectorMultiply( VectorReplicate(Vertices[6],0), m0 );
+				VectorRegister r7 = VectorMultiply( VectorReplicate(Vertices[7],0), m0 );
+
+				r0 = VectorMultiplyAdd( VectorReplicate(Vertices[0],1), m1, r0 );
+				r1 = VectorMultiplyAdd( VectorReplicate(Vertices[1],1), m1, r1 );
+				r2 = VectorMultiplyAdd( VectorReplicate(Vertices[2],1), m1, r2 );
+				r3 = VectorMultiplyAdd( VectorReplicate(Vertices[3],1), m1, r3 );
+				r4 = VectorMultiplyAdd( VectorReplicate(Vertices[4],1), m1, r4 );
+				r5 = VectorMultiplyAdd( VectorReplicate(Vertices[5],1), m1, r5 );
+				r6 = VectorMultiplyAdd( VectorReplicate(Vertices[6],1), m1, r6 );
+				r7 = VectorMultiplyAdd( VectorReplicate(Vertices[7],1), m1, r7 );
+
+				r0 = VectorMultiplyAdd( VectorReplicate(Vertices[0],2), m2, r0 );
+				r1 = VectorMultiplyAdd( VectorReplicate(Vertices[1],2), m2, r1 );
+				r2 = VectorMultiplyAdd( VectorReplicate(Vertices[2],2), m2, r2 );
+				r3 = VectorMultiplyAdd( VectorReplicate(Vertices[3],2), m2, r3 );
+				r4 = VectorMultiplyAdd( VectorReplicate(Vertices[4],2), m2, r4 );
+				r5 = VectorMultiplyAdd( VectorReplicate(Vertices[5],2), m2, r5 );
+				r6 = VectorMultiplyAdd( VectorReplicate(Vertices[6],2), m2, r6 );
+				r7 = VectorMultiplyAdd( VectorReplicate(Vertices[7],2), m2, r7 );
+
+				r0 = VectorAdd( r0, m3 );
+				r1 = VectorAdd( r1, m3 );
+				r2 = VectorAdd( r2, m3 );
+				r3 = VectorAdd( r3, m3 );
+				r4 = VectorAdd( r4, m3 );
+				r5 = VectorAdd( r5, m3 );
+				r6 = VectorAdd( r6, m3 );
+				r7 = VectorAdd( r7, m3 );
+
+				Box NewBox = new();
+				VectorRegister min0 = VectorMin( r0, r1 );
+				VectorRegister min1 = VectorMin( r2, r3 );
+				VectorRegister min2 = VectorMin( r4, r5 );
+				VectorRegister min3 = VectorMin( r6, r7 );
+				VectorRegister max0 = VectorMax( r0, r1 );
+				VectorRegister max1 = VectorMax( r2, r3 );
+				VectorRegister max2 = VectorMax( r4, r5 );
+				VectorRegister max3 = VectorMax( r6, r7 );
+				min0 = VectorMin( min0, min1 );
+				min1 = VectorMin( min2, min3 );
+				max0 = VectorMax( max0, max1 );
+				max1 = VectorMax( max2, max3 );
+				min0 = VectorMin( min0, min1 );
+				max0 = VectorMax( max0, max1 );
+				VectorStoreFloat3( min0, ref NewBox.Min );
+				VectorStoreFloat3( max0, ref NewBox.Max );
+				NewBox.IsValid = 1;
+
+				return NewBox;
+			}
         }
     }
 }

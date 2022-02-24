@@ -89,6 +89,11 @@
                     // Disable rendering for now, let's focus on 1P first
                     ( (SkinnedMeshRenderer)tracker ).enabled = false;
                 }
+                
+                var basePos = Pawn.Location;
+                var baseRot = Pawn.Rotation;
+                _1pPlayer.transform.SetPositionAndRotation( (basePos + Pawn.Mesh1p.Translation).ToUnityPos(), (baseRot + Pawn.Mesh1p.Rotation).ToUnityQuat() );
+                _3pPlayer.transform.SetPositionAndRotation( (basePos + Pawn.Mesh3p.Translation).ToUnityPos(), (baseRot + Pawn.Mesh3p.Rotation).ToUnityQuat() );
 
                 for( int i = 0; i < Pawn.Mesh1p.LocalAtoms.Length; i++ )
                 {
@@ -110,12 +115,6 @@
 	                _3pBones[i].localScale = Vector3.one * atom.Scale;
                 }
                 
-                #warning This offset with collision is kind of a hack as the exported animation and model's pivot is at the base instead of in the center of the model
-                var basePos = Pawn.Location;
-                var baseRot = Pawn.Rotation;
-                _1pPlayer.transform.SetPositionAndRotation( (basePos + Pawn.Mesh1p.Translation).ToUnityPos(), (baseRot + Pawn.Mesh1p.Rotation).ToUnityQuat() );
-                _3pPlayer.transform.SetPositionAndRotation( (basePos + Pawn.Mesh3p.Translation).ToUnityPos(), (baseRot + Pawn.Mesh3p.Rotation).ToUnityQuat() );
-                
                 if( _unityCam == null )
                 {
                     _unityCam = UnityEngine.Camera.main;
@@ -130,6 +129,7 @@
 
                 if( ( Pawn.Controller as PlayerController ).PlayerCamera is Camera cam )
                 {
+	                cam.UpdateCamera(deltaTime);
                     var camPov = cam.CameraCache.POV;
                     _unityCam.transform.SetPositionAndRotation( camPov.Location.ToUnityPos(), camPov.Rotation.ToUnityQuat() * Quaternion.Euler(90f, 0f, 0f)/* Not too sure why we need to change this, perhaps unreal cameras points downwards by default instead of horizontally ? */ );
                 }

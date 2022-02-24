@@ -316,10 +316,22 @@ namespace MEdge.Engine
 
 
 
+		Dictionary<name, int> _cacheRefBone = new();
+
+		(int, AnimSet) _cacheValid;
 		// Export USkeletalMeshComponent::execMatchRefBone(FFrame&, void* const)
 		public virtual /*native final function */ int MatchRefBone( name BoneName )
 		{
-			return Array.IndexOf(this.AnimSets[0].TrackBoneNames._items, BoneName);
+			var set = this.AnimSets[0];
+			if( _cacheValid != ( set.TrackBoneNames.Length, set ) )
+			{
+				_cacheValid = ( set.TrackBoneNames.Length, set );
+				_cacheRefBone.Clear();
+				for( int i = 0; i < set.TrackBoneNames.Length; i++ )
+					_cacheRefBone.Add(set.TrackBoneNames[i], i);
+			}
+
+			return _cacheRefBone.TryGetValue(BoneName, out var idx) ? idx : -1;
 			
 			int BoneIndex = INDEX_NONE;
 			if ( BoneName != NAME_None && SkeletalMesh )

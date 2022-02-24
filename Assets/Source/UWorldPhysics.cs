@@ -1014,7 +1014,8 @@
 		}
 
 
-		
+
+		static UnityEngine.Collider[] _colliderCache = new Collider[16];
 		public unsafe DecFn.CheckResult* ActorPointCheck( ref int Mem, in Object.Vector Location, in Object.Vector Extent, uint TraceFlags )
 		{
 			// Make a list of all actors which overlap with a cylinder at Location
@@ -1023,13 +1024,14 @@
 			bool testTrigger = ( TraceFlags & TRACE_PhysicsVolumes ) != default;
 
 			UnrealToUnityBox( Location, Extent, out var box );
-			var colliders = Physics.OverlapBox( box.center, box.extent, Quaternion.identity, -1, QueryTriggerInteraction.Ignore );
+			var colliderCount = Physics.OverlapBoxNonAlloc( box.center, box.extent, _colliderCache, Quaternion.identity, -1, QueryTriggerInteraction.Ignore );
 			
 			var root = new CheckResult();
 			var current = root;
 			int count = 0;
-			foreach( var coll in colliders )
+			for( int i = 0; i < colliderCount; i++ )
 			{
+				var coll = _colliderCache[i];
 				if( coll.isTrigger != testTrigger )
 					continue;
 
@@ -1250,19 +1252,6 @@
 
 
 
-		void Swap<T>( ref T A, ref T B )
-		{
-			T Temp = A;
-			A = B;
-			B = Temp;
-		}
-		void Exchange<T>( ref T A, ref T B )
-		{
-			Swap(ref A, ref B);
-		}
-
-
-
 		public BoxCollider BoxForTests;
 
 
@@ -1298,6 +1287,8 @@
 			return boxTest;
 		}
 
+		
+		static RaycastHit[] _hitCache = new RaycastHit[16];
 		public unsafe DecFn.CheckResult* MultiLineCheck( ref int Mem, in Object.Vector End, in Object.Vector Start, in Object.Vector Extent, uint TraceFlags, Actor SourceActor, LightComponent SourceLight = null )
 		{
 			bool testTrigger = ( TraceFlags & TRACE_PhysicsVolumes ) != default;
@@ -1311,11 +1302,13 @@
 			if( Extent == default )
 			{
 				center = Start.ToUnityPos();
-				var hits = Physics.RaycastAll( Start.ToUnityPos(), delta.normalized, totalDistance, -1, testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
+				var hits = Physics.RaycastNonAlloc( Start.ToUnityPos(), delta.normalized, _hitCache, totalDistance, -1, testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
 				
 				var current = root;
-				foreach( var hit in hits )
+				//foreach( var hit in hits )
+				for( int i = 0; i < hits; i++ )
 				{
+					var hit = _hitCache[i];
 					var unityColl = hit.collider;
 					if( unityColl.isTrigger != testTrigger )
 						continue;
@@ -1344,12 +1337,12 @@
 
 				center = box.center;
 				
-				var hits = Physics.BoxCastAll( box.center, box.extent, delta.normalized , Quaternion.identity, totalDistance, -1, QueryTriggerInteraction.Ignore );
+				var hits = Physics.BoxCastNonAlloc( box.center, box.extent, delta.normalized, _hitCache, Quaternion.identity, totalDistance, -1, QueryTriggerInteraction.Ignore );
 				
 				var current = root;
-				for( int i = 0; i < hits.Length; i++ )
+				for( int i = 0; i < hits; i++ )
 				{
-					var hit = hits[ i ];
+					var hit = _hitCache[i];
 					if( hit.collider.isTrigger != testTrigger )
 						continue;
 

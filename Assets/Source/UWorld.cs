@@ -594,7 +594,7 @@
 			//check(Actor->Role==ROLE_Authority);
 			if( bRemoteOwned != default )
 			{
-				Exchange( ref Actor.Role, ref Actor.RemoteRole );
+				DecFn.Exchange( ref Actor.Role, ref Actor.RemoteRole );
 			}
 
 			// Set the actor's location and rotation.

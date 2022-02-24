@@ -19,11 +19,38 @@ namespace MEdge.Core
             {
                 return new Vector( v.X, v.Y, v.Z );
             }
+            
+            public Vector4 SafeNormal(float Tolerance=SMALL_NUMBER)
+            {
+                float SquareSum = X*X + Y*Y + Z*Z;
+                if( SquareSum > Tolerance )
+                {
+                    float Scale = appInvSqrt(SquareSum);
+                    return new Vector4(X*Scale, Y*Scale, Z*Scale, 0.0f);
+                }
+                return new Vector4();
+            }
         }
 
 
 
-    public partial struct Vector
+        public partial struct Plane
+        {
+            public Plane( in Vector InBase, in Vector InNormal )
+            {
+                this = default;
+                Vector = ( InNormal );
+                W = ( InBase | InNormal );
+            }
+            public float PlaneDot( in Vector P )
+            {
+                return X*P.X + Y*P.Y + Z*P.Z - W;
+            }
+        }
+
+
+
+        public partial struct Vector
     {
         public Vector( float x, float y, float z )
         {
@@ -117,6 +144,11 @@ namespace MEdge.Core
                 Y = -a.Y,
                 Z = -a.Z,
             };
+        }
+        
+        public readonly float GetMax()
+        {
+            return Max(Max(X,Y),Z);
         }
         
         public readonly float Size()

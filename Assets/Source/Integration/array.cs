@@ -213,7 +213,7 @@ namespace MEdge
 
 
         public void AddItem(T item) => Add(item);
-        public void AddCount( int count ) => AddZeroed(count);
+        public int AddCount( int count ) => AddZeroed(count);
         public int Add( int Count, int ElementSize, int Alignment ) => AddZeroed(Count);
 
 

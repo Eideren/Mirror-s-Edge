@@ -64,7 +64,16 @@
 
 		public static bool AsBool( this int i ) => i != 0 ? true : false;
 		public static bool AsBool( this uint i ) => i != 0 ? true : false;
-
+		public static void Swap<T>( ref T A, ref T B )
+		{
+			T Temp = A;
+			A = B;
+			B = Temp;
+		}
+		public static void Exchange<T>( ref T A, ref T B )
+		{
+			Swap(ref A, ref B);
+		}
 		
 		public static float CubicInterp( float P0, float T0, float P1, float T1, float A )
 		{
@@ -1221,6 +1230,91 @@
 
 
 
+		public struct VectorRegister
+		{
+			public fixed FLOAT V[4];
+		};
+
+
+
+		public static VectorRegister VectorLoadAligned( in Object.Plane Ptr )
+		{
+			var cpy = Ptr;
+			return *(VectorRegister*) & cpy;
+		}
+
+
+
+		public static VectorRegister MakeVectorRegister( FLOAT X, FLOAT Y, FLOAT Z, FLOAT W )
+		{
+			VectorRegister Vec = new VectorRegister();
+			Vec.V[ 0 ] = X;
+			Vec.V[ 1 ] = Y;
+			Vec.V[ 2 ] = Z;
+			Vec.V[ 3 ] = W;
+			return Vec;
+		}
+		public static VectorRegister VectorLoadFloat3( Vector Ptr ) => MakeVectorRegister( Ptr.X, Ptr.Y, Ptr.Z, 0f );
+		public static VectorRegister VectorSetFloat3( float X, float Y, float Z ) => MakeVectorRegister( X, Y, Z, 0f );
+		public static VectorRegister VectorReplicate( in VectorRegister Vec, int ElementIndex ) => MakeVectorRegister( ( Vec ).V[ ElementIndex ], ( Vec ).V[ ElementIndex ], ( Vec ).V[ ElementIndex ], ( Vec ).V[ ElementIndex ] );
+		public static VectorRegister VectorMultiply( in VectorRegister Vec1, in VectorRegister Vec2 )
+		{
+			VectorRegister Vec;
+			Vec.V[0] = Vec1.V[0] * Vec2.V[0];
+			Vec.V[1] = Vec1.V[1] * Vec2.V[1];
+			Vec.V[2] = Vec1.V[2] * Vec2.V[2];
+			Vec.V[3] = Vec1.V[3] * Vec2.V[3];
+			return Vec;
+		}
+		
+		public static VectorRegister VectorMultiplyAdd( in VectorRegister Vec1, in VectorRegister Vec2, in VectorRegister Vec3 )
+		{
+			VectorRegister Vec;
+			Vec.V[0] = Vec1.V[0] * Vec2.V[0] + Vec3.V[0];
+			Vec.V[1] = Vec1.V[1] * Vec2.V[1] + Vec3.V[1];
+			Vec.V[2] = Vec1.V[2] * Vec2.V[2] + Vec3.V[2];
+			Vec.V[3] = Vec1.V[3] * Vec2.V[3] + Vec3.V[3];
+			return Vec;
+		}
+		
+		public static VectorRegister VectorAdd( in VectorRegister Vec1, in VectorRegister Vec2 )
+		{
+			VectorRegister Vec;
+			Vec.V[0] = Vec1.V[0] + Vec2.V[0];
+			Vec.V[1] = Vec1.V[1] + Vec2.V[1];
+			Vec.V[2] = Vec1.V[2] + Vec2.V[2];
+			Vec.V[3] = Vec1.V[3] + Vec2.V[3];
+			return Vec;
+		}
+		
+		public static VectorRegister VectorMin( in VectorRegister Vec1, in VectorRegister Vec2 )
+		{
+			VectorRegister Vec;
+			Vec.V[0] = Min(Vec1.V[0], Vec2.V[0]);
+			Vec.V[1] = Min(Vec1.V[1], Vec2.V[1]);
+			Vec.V[2] = Min(Vec1.V[2], Vec2.V[2]);
+			Vec.V[3] = Min(Vec1.V[3], Vec2.V[3]);
+			return Vec;
+		}
+		
+		public static VectorRegister VectorMax( in VectorRegister Vec1, in VectorRegister Vec2 )
+		{
+			VectorRegister Vec;
+			Vec.V[0] = Max(Vec1.V[0], Vec2.V[0]);
+			Vec.V[1] = Max(Vec1.V[1], Vec2.V[1]);
+			Vec.V[2] = Max(Vec1.V[2], Vec2.V[2]);
+			Vec.V[3] = Max(Vec1.V[3], Vec2.V[3]);
+			return Vec;
+		}
+
+
+
+		public static void VectorStoreFloat3( in VectorRegister Vec, ref Vector Ptr )
+		{
+			Ptr.X = Vec.V[ 0 ];
+			Ptr.Y = Vec.V[ 1 ];
+			Ptr.Z = Vec.V[ 2 ];
+		}
 
 
 
@@ -1296,6 +1390,14 @@
 			}
 
 
+			/// <summary>
+			/// Mark this instance as shared, any copy of this now points to the same data as this one's data 
+			/// </summary>
+			public void ForceFixAndAllocate()
+			{
+				var r = GetInternalRep;
+			}
+			
 
 			public static void Overwrite( ref CheckResult dest, in CheckResult source )
 			{
