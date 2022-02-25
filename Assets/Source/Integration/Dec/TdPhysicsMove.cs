@@ -105,10 +105,10 @@ public partial class TdPhysicsMove
     return true;
   }
 
-  public unsafe int FindAutoMoveLedge(ref Vector out_Location, ref Vector out_ledgeNormal, ref Vector out_MoveNormal, Vector a5, Rotator a8, float a11, int a12)
+  public unsafe int FindAutoMoveLedge(ref Vector out_Location, ref Vector out_ledgeNormal, ref Vector out_MoveNormal, Vector Location, Rotator Rotation, float handPlantCheckDistance, int someBoolParam)
   {
-    Vector *v9; // ecx
-    float v10 = default; // xmm1_4
+    Vector *rotXDirection; // ecx
+    float rotXDirX = default; // xmm1_4
     float v11 = default; // edx
     float v12 = default; // eax
     float v13 = default; // ecx
@@ -116,8 +116,8 @@ public partial class TdPhysicsMove
     float v15 = default; // xmm1_4
     int v16 = default; // edi
     Actor v17 = default; // eax
-    TdPawn v18 = default; // eax
-    TdPawn v19 = default; // ebp
+    TdPawn defaultTdPawn = default; // eax
+    TdPawn defaultTdPawn2 = default; // ebp
     TdPawn v20 = default; // ecx
     float v21 = default; // xmm2_4
     float v22 = default; // xmm1_4
@@ -135,11 +135,11 @@ public partial class TdPhysicsMove
     float v34 = default; // xmm3_4
     float v35 = default; // xmm1_4
     float v36 = default; // xmm0_4
-    float v37 = default; // xmm6_4
+    float collRadius = default; // xmm6_4
     float v38 = default; // xmm1_4
     float v39 = default; // xmm0_4
     float v40 = default; // xmm1_4
-    float v41 = default; // xmm6_4
+    float handAndCollExtent = default; // xmm6_4
     float v42 = default; // ebx
     float v43 = default; // eax
     float v44 = default; // ecx
@@ -150,7 +150,7 @@ public partial class TdPhysicsMove
     float v49 = default; // xmm1_4
     float v50 = default; // xmm0_4
     TdPawn v51 = default; // eax
-    bool v52 = default; // zf
+    bool bCheckForEdgeInVelDir = default; // zf
     TdMovementExclusionVolume v53 = default; // eax
     bool v54 = default; // zf
     CylinderComponent v55 = default; // eax
@@ -182,10 +182,10 @@ public partial class TdPhysicsMove
     Vector v82 = default; // [esp-18h] [ebp-200h]
     Vector v83 = default; // [esp-Ch] [ebp-1F4h]
     TdMovementExclusionVolume v84 = default; // [esp+10h] [ebp-1D8h]
-    Vector a2 = default; // [esp+14h] [ebp-1D4h] BYREF
-    float v86 = default; // [esp+20h] [ebp-1C8h]
-    float v87 = default; // [esp+24h] [ebp-1C4h]
-    float v88 = default; // [esp+28h] [ebp-1C0h]
+    Vector rotXDirection2 = default; // [esp+14h] [ebp-1D4h] BYREF
+    float rotXDirXNorm = default; // [esp+20h] [ebp-1C8h]
+    float rotXDirYNorm = default; // [esp+24h] [ebp-1C4h]
+    float rotXDirZNorm = default; // [esp+28h] [ebp-1C0h]
     float v89 = default; // [esp+2Ch] [ebp-1BCh]
     float v90 = default; // [esp+30h] [ebp-1B8h]
     float v91 = default; // [esp+34h] [ebp-1B4h]
@@ -214,12 +214,12 @@ public partial class TdPhysicsMove
     float v114 = default; // [esp+DCh] [ebp-10Ch]
     float v115 = default; // [esp+E0h] [ebp-108h]
     float v116 = default; // [esp+E4h] [ebp-104h]
-    float v117 = default; // [esp+E8h] [ebp-100h]
+    float rotVertMag = default; // [esp+E8h] [ebp-100h]
     float v118 = default; // [esp+F8h] [ebp-F0h]
     float v119 = default; // [esp+108h] [ebp-E0h]
-    float v120 = default; // [esp+10Ch] [ebp-DCh]
+    float handAndCollExtent2 = default; // [esp+10Ch] [ebp-DCh]
     float v121 = default; // [esp+110h] [ebp-D8h]
-    TdPawn v122 = default; // [esp+114h] [ebp-D4h]
+    TdPawn defaultTdPawn3 = default; // [esp+114h] [ebp-D4h]
     int v123 = default; // [esp+118h] [ebp-D0h]
     float v124 = default; // [esp+11Ch] [ebp-CCh]
     int v125 = default; // [esp+120h] [ebp-C8h]
@@ -245,82 +245,82 @@ public partial class TdPhysicsMove
     int v145 = default; // [esp+1C8h] [ebp-20h]
     int v146 = default; // [esp+1D8h] [ebp-10h]
   
-    v9 = a8.Vector(&a2);
-    v10 = v9->X;
-    v117 = (float)(v10 * v10) + (float)(v9->Y * v9->Y);
-    if ( v117 == 1.0f )
+    rotXDirection = Rotation.Vector(&rotXDirection2);
+    rotXDirX = rotXDirection->X;
+    rotVertMag = (float)(rotXDirX * rotXDirX) + (float)(rotXDirection->Y * rotXDirection->Y);
+    if ( rotVertMag == 1.0f )
     {
-      if ( v9->Z == 0.0f )
+      if ( rotXDirection->Z == 0.0f )
       {
-        v11 = v9->X;
-        v12 = v9->Y;
-        v13 = v9->Z;
-        v86 = v11;
-        v87 = v12;
-        v88 = v13;
+        v11 = rotXDirection->X;
+        v12 = rotXDirection->Y;
+        v13 = rotXDirection->Z;
+        rotXDirXNorm = v11;
+        rotXDirYNorm = v12;
+        rotXDirZNorm = v13;
         goto LABEL_9;
       }
-      v86 = v10;
-      v87 = v9->Y;
+      rotXDirXNorm = rotXDirX;
+      rotXDirYNorm = rotXDirection->Y;
     }
-    else if ( v117 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( rotVertMag >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
       v118 = 3.0f;
-      v14 = 1.0f / fsqrt(v117);
-      v107 = (float)(3.0f - (float)((float)(v14 * v117) * v14)) * (float)(v14 * 0.5f);
-      v15 = v9->X * v107;
-      v87 = v107 * v9->Y;
-      v86 = v15;
+      v14 = 1.0f / fsqrt(rotVertMag);
+      v107 = (float)(3.0f - (float)((float)(v14 * rotVertMag) * v14)) * (float)(v14 * 0.5f);
+      v15 = rotXDirection->X * v107;
+      rotXDirYNorm = v107 * rotXDirection->Y;
+      rotXDirXNorm = v15;
     }
     else
     {
-      v86 = 0.0f;
-      v87 = 0.0f;
+      rotXDirXNorm = 0.0f;
+      rotXDirYNorm = 0.0f;
     }
-    v88 = 0.0f;
+    rotXDirZNorm = 0.0f;
   LABEL_9:
     v16 = default;
     v17 = (Actor )this.PawnOwner.Class.GetDefaultObject(0);
-    v18 = E_TryCastTo<TdPawn>(v17);
-    v52 = (this.bCheckForGrab.AsBitfield(7) & 8) == 0;
-    v19 = v18;
-    v122 = v18;
-    if ( default == v52 )
+    defaultTdPawn = E_TryCastTo<TdPawn>(v17);
+    bCheckForEdgeInVelDir = (this.bCheckForGrab.AsBitfield(7) & 8) == 0;
+    defaultTdPawn2 = defaultTdPawn;
+    defaultTdPawn3 = defaultTdPawn;
+    if ( default == bCheckForEdgeInVelDir )
     {
       v20 = this.PawnOwner;
       v21 = v20.Velocity.Y;
       v22 = v20.Velocity.Z;
       v23 = v20.Velocity.X;
       v25 = (float)((float)(v23 * v23) + (float)(v21 * v21)) + (float)(v22 * v22);
-      v117 = v25;
+      rotVertMag = v25;
       if ( v25 == 1.0f )
       {
         v26 = v20.Velocity.Y;
-        a2.X = v20.Velocity.X;
-        a2.Z = v20.Velocity.Z;
-        v27 = a2.Z;
-        a2.Y = v26;
+        rotXDirection2.X = v20.Velocity.X;
+        rotXDirection2.Z = v20.Velocity.Z;
+        v27 = rotXDirection2.Z;
+        rotXDirection2.Y = v26;
       }
       else if ( v25 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
       {
         v118 = 3.0f;
-        v28 = 1.0f / fsqrt(v117);
-        v107 = (float)(3.0f - (float)((float)(v28 * v117) * v28)) * (float)(v28 * 0.5f);
+        v28 = 1.0f / fsqrt(rotVertMag);
+        v107 = (float)(3.0f - (float)((float)(v28 * rotVertMag) * v28)) * (float)(v28 * 0.5f);
         v27 = v107 * v20.Velocity.Z;
       }
       else
       {
         v27 = 0.0f;
       }
-      v88 = v27 + v88;
+      rotXDirZNorm = v27 + rotXDirZNorm;
     }
     v110.X = this.HandPlantExtentCheckWidth * 0.5f;
     v110.Y = v110.X;
     v110.Z = this.HandPlantExtentCheckHeight;
-    v29 = a8.Vector(&a2);
+    v29 = Rotation.Vector(&rotXDirection2);
     v30 = v29->X;
-    v117 = (float)(v30 * v30) + (float)(v29->Y * v29->Y);
-    if ( v117 == 1.0f )
+    rotVertMag = (float)(v30 * v30) + (float)(v29->Y * v29->Y);
+    if ( rotVertMag == 1.0f )
     {
       if ( v29->Z == 0.0f )
       {
@@ -337,11 +337,11 @@ public partial class TdPhysicsMove
       }
       v34 = v29->Y;
     }
-    else if ( v117 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( rotVertMag >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
       v118 = 3.0f;
-      v36 = fsqrt(v117);
-      v107 = (float)(3.0f - (float)((float)((float)(1.0f / v36) * v117) * (float)(1.0f / v36))) * (float)((float)(1.0f / v36) * 0.5f);
+      v36 = fsqrt(rotVertMag);
+      v107 = (float)(3.0f - (float)((float)((float)(1.0f / v36) * rotVertMag) * (float)(1.0f / v36))) * (float)((float)(1.0f / v36) * 0.5f);
       v30 = v107 * v29->X;
       v34 = v29->Y * v107;
     }
@@ -352,19 +352,19 @@ public partial class TdPhysicsMove
     }
     v35 = 0.0f;
   LABEL_24:
-    v37 = v19.CylinderComponent.CollisionRadius;
+    collRadius = defaultTdPawn2.CylinderComponent.CollisionRadius;
     v38 = v35 * 0.0f;
     v39 = v34 - v38;
     v40 = v38 - v30;
     v113 = (float)(v30 * 0.0f) - (float)(v34 * 0.0f);
-    v41 = v37 - (float)(this.HandPlantExtentCheckWidth * 0.5f);
+    handAndCollExtent = collRadius - (float)(this.HandPlantExtentCheckWidth * 0.5f);
     v111 = v39;
     v112 = v40;
     v106 = default;
     v84 = default;
-    v120 = v41;
+    handAndCollExtent2 = handAndCollExtent;
     v96 = default;
-    v131 = 2 * ((a12 != 0 ? 1 : 0)) + 1;
+    v131 = 2 * ((someBoolParam != 0 ? 1 : 0)) + 1;
     if ( v131 > 0 )
     {
       v42 = v110.Z;
@@ -378,51 +378,51 @@ public partial class TdPhysicsMove
         {
           if ( v96 == 1 )
           {
-            v128 = a5.Y - (float)(v40 * 30.0f);
+            v128 = Location.Y - (float)(v40 * 30.0f);
             v44 = v128;
-            v127 = a5.X - (float)(v39 * 30.0f);
+            v127 = Location.X - (float)(v39 * 30.0f);
             v43 = v127;
-            v129 = a5.Z - (float)(v113 * 30.0f);
+            v129 = Location.Z - (float)(v113 * 30.0f);
             v45 = v129;
           }
           else
           {
             if ( v96 != 2 )
               goto LABEL_35;
-            v137 = (float)(v39 * 30.0f) + a5.X;
+            v137 = (float)(v39 * 30.0f) + Location.X;
             v43 = v137;
-            v138 = (float)(v40 * 30.0f) + a5.Y;
+            v138 = (float)(v40 * 30.0f) + Location.Y;
             v44 = v138;
-            v139 = (float)(v113 * 30.0f) + a5.Z;
+            v139 = (float)(v113 * 30.0f) + Location.Z;
             v45 = v139;
           }
         }
         else
         {
-          v43 = a5.X;
-          v44 = a5.Y;
-          v45 = a5.Z;
+          v43 = Location.X;
+          v44 = Location.Y;
+          v45 = Location.Z;
         }
         v93 = v43;
         v94 = v44;
         v95 = v45;
   LABEL_35:
-        v46 = v19.CylinderComponent;
-        v130 = v40 * v41;
-        v47 = v94 - (float)(v40 * v41);
-        v48 = v39 * v41;
-        v121 = v113 * v41;
+        v46 = defaultTdPawn2.CylinderComponent;
+        v130 = v40 * handAndCollExtent;
+        v47 = v94 - (float)(v40 * handAndCollExtent);
+        v48 = v39 * handAndCollExtent;
+        v121 = v113 * handAndCollExtent;
         v49 = v93 - v48;
         v124 = v48;
-        v50 = (float)(this.HandPlantCheckHeight - v46.CollisionHeight) + (float)(v95 - (float)(v113 * v41));
+        v50 = (float)(this.HandPlantCheckHeight - v46.CollisionHeight) + (float)(v95 - (float)(v113 * handAndCollExtent));
         v83.X = v110.X;
         *(_QWORD *)&v83.Y = __PAIR64__(LODWORD(v42), LODWORD(v110.Y));
-        v119 = v86 * a11;
-        v132 = v87 * a11;
-        v109.X = (float)(v86 * a11) + v49;
-        v133 = v88 * a11;
-        v109.Y = (float)(v87 * a11) + v47;
-        v109.Z = (float)(v88 * a11) + v50;
+        v119 = rotXDirXNorm * handPlantCheckDistance;
+        v132 = rotXDirYNorm * handPlantCheckDistance;
+        v109.X = (float)(rotXDirXNorm * handPlantCheckDistance) + v49;
+        v133 = rotXDirZNorm * handPlantCheckDistance;
+        v109.Y = (float)(rotXDirYNorm * handPlantCheckDistance) + v47;
+        v109.Z = (float)(rotXDirZNorm * handPlantCheckDistance) + v50;
         v100 = v49;
         v80.X = v49;
         v101 = v47;
@@ -441,15 +441,15 @@ public partial class TdPhysicsMove
         }
         if ( v16 == 2 )
         {
-          v52 = (out_LedgeHit.FeetExcluded.AsBitfield(2) & 2) == 0;
+          bCheckForEdgeInVelDir = (out_LedgeHit.FeetExcluded.AsBitfield(2) & 2) == 0;
         }
         else
         {
           if ( v16 != 1 )
             goto LABEL_46;
-          v52 = (out_LedgeHit.FeetExcluded.AsBitfield(2) & 1) == 0;
+          bCheckForEdgeInVelDir = (out_LedgeHit.FeetExcluded.AsBitfield(2) & 1) == 0;
         }
-        if ( default == v52 )
+        if ( default == bCheckForEdgeInVelDir )
           goto LABEL_82;
   LABEL_46:
         v53 = this.GetMovementExclusionVolume(out_LedgeHit.LedgeLocation);
@@ -475,7 +475,7 @@ public partial class TdPhysicsMove
   LABEL_52:
         v136 = v121 + v95;
         v102 = v121 + v95;
-        v55 = v19.CylinderComponent;
+        v55 = defaultTdPawn2.CylinderComponent;
         v134 = v124 + v93;
         v56 = this.HandPlantCheckHeight - v55.CollisionHeight;
         v135 = v130 + v94;
@@ -517,10 +517,10 @@ public partial class TdPhysicsMove
             v141 = 1077936128;
             v125 = 1056964608;
             v62 = 1.0f / fsqrt(v144);
-            v117 = (float)(3.0f - (float)((float)(v62 * v144) * v62)) * (float)(v62 * 0.5f);
-            v103 = v117 * v97;
-            v104 = v60 * v117;
-            v105 = v99 * v117;
+            rotVertMag = (float)(3.0f - (float)((float)(v62 * v144) * v62)) * (float)(v62 * 0.5f);
+            v103 = rotVertMag * v97;
+            v104 = v60 * rotVertMag;
+            v105 = v99 * rotVertMag;
           }
           else
           {
@@ -535,15 +535,15 @@ public partial class TdPhysicsMove
             && fabs(v140.MoveNormal.X * out_LedgeHit.MoveNormal.X + v140.MoveNormal.Y * out_LedgeHit.MoveNormal.Y + v140.MoveNormal.Z * out_LedgeHit.MoveNormal.Z) >= 0.94999999d )
           {
             v63 = (float)(v60 * v60) + (float)(v59 * v59);
-            a2.X = v140.LedgeLocation.X - out_LedgeHit.LedgeLocation.X;
-            a2.Y = v140.LedgeLocation.Y - out_LedgeHit.LedgeLocation.Y;
-            a2.Z = v140.LedgeLocation.Z - out_LedgeHit.LedgeLocation.Z;
+            rotXDirection2.X = v140.LedgeLocation.X - out_LedgeHit.LedgeLocation.X;
+            rotXDirection2.Y = v140.LedgeLocation.Y - out_LedgeHit.LedgeLocation.Y;
+            rotXDirection2.Z = v140.LedgeLocation.Z - out_LedgeHit.LedgeLocation.Z;
             v143 = v63;
             if ( v63 == 1.0f )
             {
               if ( v58 == 0.0f )
               {
-                v92 = a2;
+                v92 = rotXDirection2;
                 goto LABEL_71;
               }
               v92.X = v140.LedgeLocation.X - out_LedgeHit.LedgeLocation.X;
@@ -620,8 +620,8 @@ public partial class TdPhysicsMove
         }
         v39 = v111;
         v40 = v112;
-        v41 = v120;
-        v19 = v122;
+        handAndCollExtent = handAndCollExtent2;
+        defaultTdPawn2 = defaultTdPawn3;
       }
     }
     return 0;
@@ -631,13 +631,13 @@ public partial class TdPhysicsMove
     v69 = out_LedgeHit.LedgeLocation.Z;
     v70 = v140.LedgeLocation.Z - out_LedgeHit.LedgeLocation.Z;
     v71 = (float)(v140.LedgeLocation.Y - out_LedgeHit.LedgeLocation.Y) * 0.5f;
-    a2.X = (float)((float)(v140.LedgeLocation.X - out_LedgeHit.LedgeLocation.X) * 0.5f) + out_LedgeHit.LedgeLocation.X;
-    out_Location.X = a2.X;
-    a2.Y = v71 + v68;
+    rotXDirection2.X = (float)((float)(v140.LedgeLocation.X - out_LedgeHit.LedgeLocation.X) * 0.5f) + out_LedgeHit.LedgeLocation.X;
+    out_Location.X = rotXDirection2.X;
+    rotXDirection2.Y = v71 + v68;
     out_Location.Y = v71 + v68;
     v72 = out_LedgeHit.MoveNormal.X;
-    a2.Z = (float)(v70 * 0.5f) + v69;
-    out_Location.Z = a2.Z;
+    rotXDirection2.Z = (float)(v70 * 0.5f) + v69;
+    out_Location.Z = rotXDirection2.Z;
     v73 = out_LedgeHit.MoveNormal.Y;
     out_MoveNormal.X = v72;
     v74 = out_LedgeHit.MoveNormal.Z;

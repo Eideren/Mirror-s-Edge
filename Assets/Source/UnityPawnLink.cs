@@ -58,17 +58,6 @@
                     Destroy(oldParent.gameObject);
                     
                     _1pBones = Pawn.Mesh1p.AnimSets[0].TrackBoneNames.Select( n => nameToBones[ n ] ).ToArray();
-
-                    try
-                    {
-	                    _window = ScriptableObject.CreateInstance(("AnimNodeEditorWindow")/*Type.GetType("MEdge.AnimNodeEditor.AnimNodeEditorWindow")*/) as IAnimNodeEditorWindow;
-	                    _window.LoadFromNode( Pawn.Mesh1p.Animations );
-	                    _window.Show();
-                    }
-                    catch( System.Exception e )
-                    {
-	                    Debug.LogException(e);
-                    }
                 }
 
                 if( _3pPlayer == null )
@@ -93,7 +82,23 @@
                     // Disable rendering for now, let's focus on 1P first
                     ( (SkinnedMeshRenderer)tracker ).enabled = false;
                 }
-                
+
+                if( UnityEngine.Input.GetKey( KeyCode.M ) )
+                {
+	                try
+	                {
+		                _window?.Close();
+		                _window = null;
+		                _window = ScriptableObject.CreateInstance(("AnimNodeEditorWindow")/*Type.GetType("MEdge.AnimNodeEditor.AnimNodeEditorWindow")*/) as IAnimNodeEditorWindow;
+		                _window.LoadFromNode( Pawn.Mesh1p.Animations );
+		                _window.Show();
+	                }
+	                catch( System.Exception e )
+	                {
+		                Debug.LogException(e);
+	                }
+                }
+
                 var basePos = Pawn.Location;
                 var baseRot = Pawn.Rotation;
                 _1pPlayer.transform.SetPositionAndRotation( (basePos + Pawn.Mesh1p.Translation).ToUnityPos(), (baseRot + Pawn.Mesh1p.Rotation).ToUnityQuat() );

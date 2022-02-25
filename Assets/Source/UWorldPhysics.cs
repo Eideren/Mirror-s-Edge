@@ -1,12 +1,9 @@
 ﻿namespace MEdge.Engine
 {
 	using System;
-	using System.Collections;
 	using System.Collections.Generic;
-	using System.Runtime.CompilerServices;
 	using Core;
 	using Source;
-	using UnityEngine;
 	using FLOAT = System.Single;
 	using INT = System.Int32;
 	using FVector = Core.Object.Vector;
@@ -16,20 +13,13 @@
 	using FCheckResult = Source.DecFn.CheckResult;
 	using DWORD = System.Int32;
 	using Object = Core.Object;
-	using static MEdge.Source.DecFn;
-	using static MEdge.Core.Object;
-	using Color = UnityEngine.Color;
+	using static Source.DecFn;
+	using static Core.Object;
 
 
 
 	public partial class UWorld
 	{
-		/// <summary>
-		/// Far from perfect, need to tweak stuff that uses this value
-		/// </summary>
-		public float defaultContactOffset => 0*UnityEngine.Physics.defaultContactOffset;
-		
-		
 		const bool TRUE = true;
 		const bool FALSE = false;
 
@@ -581,7 +571,7 @@
 			//LINE_CHECK_TRACE(TraceFlags, &Extent);
 
 			TraceFlags = TraceFlags | TRACE_SingleResult;
-			FCheckResult* FirstHit = MultiLineCheck
+			CheckResult* FirstHit = MultiLineCheck
 			(
 				ref GMem,
 				End,
@@ -908,228 +898,6 @@
 			return true;
 			#endif
 		}
-
-
-
-		static ConditionalWeakTable<UnityEngine.Object, Core.Object> _mappingTable = new ConditionalWeakTable<UnityEngine.Object, Object>();
-
-
-
-		static bool ExtractMappingData( Collider unityColl, out PrimitiveComponent component, out Actor actor )
-		{
-			if( _mappingTable.TryGetValue( unityColl.gameObject, out var GO ) )
-				actor = (Actor)GO;
-			else
-				_mappingTable.Add( unityColl.gameObject, actor = new Actor
-				{
-					Name = unityColl.gameObject.name, 
-					Location = unityColl.transform.position.ToUnrealPos(),
-					Rotation = unityColl.transform.rotation.ToUnrealRot(),
-					bWorldGeometry = true,
-					bBlockActors = true
-				} );
-
-			if( _mappingTable.TryGetValue( unityColl, out var value ) )
-			{
-				component = (PrimitiveComponent) value;
-			}
-			else
-			{
-				if( unityColl is BoxCollider bColl )
-					component = new BrushComponent();
-				else if( unityColl is CapsuleCollider capsule )
-					component = new CylinderComponent();
-				else if( unityColl is MeshCollider meshColl )
-					component = new StaticMeshComponent();
-				else
-				{
-					component = null;
-					actor = null;
-					return false;
-				}
-
-				_mappingTable.Add( unityColl, component );
-			}
-
-			return true;
-		}
-
-
-
-		static void UnrealToUnityBox( in Object.Vector pivotPos, in Object.Vector halfExtent, out (Vector3 center, Vector3 extent) box )
-		{
-			var unityExtent = halfExtent.ToUnityPos();
-			var unityLoc = pivotPos.ToUnityPos();
-
-			if( unityExtent.x < 0 || unityExtent.y < 0 || unityExtent.z < 0 )
-				throw new Exception();
-			if( Physics.queriesHitBackfaces )
-				throw new Exception("Disable Physics Backface queries, collision test are likely to misbehave");
-			
-			box = ( unityLoc, unityExtent );
-			DrawBox( box );
-		}
-
-
-
-		static void DrawCapsule(in (Vector3 bot, Vector3 top, float radius) capsule, int subdiv = 6)
-		{
-			( Vector3 bot, Vector3 top, float radius ) = capsule;
-			var cross = Vector3.right;
-			var topEnd = top + new Vector3( 0, radius, 0 );
-			var botEnd = bot - new Vector3( 0, radius, 0 );
-			for( int i = 0; i < subdiv; i++ )
-			{
-				var prevBotVert = bot + cross * radius;
-				var prevTopVert = top + cross * radius;
-				cross = Quaternion.AngleAxis( 360f / subdiv, Vector3.up ) * cross;
-				var botVert = bot + cross * radius;
-				var topVert = top + cross * radius;
-				Debug.DrawLine( botVert, topVert, Color.magenta );
-				Debug.DrawLine( botVert, botEnd, Color.magenta );
-				Debug.DrawLine( topVert, topEnd, Color.magenta );
-				Debug.DrawLine( topVert, prevTopVert, Color.magenta );
-				Debug.DrawLine( botVert, prevBotVert, Color.magenta );
-			}
-		}
-
-
-
-		static void DrawBox( in (Vector3 center, Vector3 extent) box )
-		{
-			var a = Vector3.forward + Vector3.up + Vector3.right;
-			var b = Vector3.forward + Vector3.up + Vector3.left;
-			var c = Vector3.forward + Vector3.down + Vector3.left;
-			var d = Vector3.forward + Vector3.down + Vector3.right;
-			for( int i = 0; i < 4; i++ )
-			{
-				var a2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * a, box.extent);
-				var b2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * b, box.extent);
-				var c2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * c, box.extent);
-				var d2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * d, box.extent);
-				Debug.DrawLine( a2, b2, Color.green );
-				Debug.DrawLine( b2, c2, Color.green );
-				Debug.DrawLine( c2, d2, Color.green );
-			}
-		}
-
-
-
-		static UnityEngine.Collider[] _colliderCache = new Collider[16];
-		public unsafe DecFn.CheckResult* ActorPointCheck( ref int Mem, in Object.Vector Location, in Object.Vector Extent, uint TraceFlags )
-		{
-			// Make a list of all actors which overlap with a cylinder at Location
-			// with the given collision size.
-
-			bool testTrigger = ( TraceFlags & TRACE_PhysicsVolumes ) != default;
-
-			UnrealToUnityBox( Location, Extent, out var box );
-			var colliderCount = Physics.OverlapBoxNonAlloc( box.center, box.extent, _colliderCache, Quaternion.identity, -1, QueryTriggerInteraction.Ignore );
-			
-			var root = new CheckResult();
-			var current = root;
-			int count = 0;
-			for( int i = 0; i < colliderCount; i++ )
-			{
-				var coll = _colliderCache[i];
-				if( coll.isTrigger != testTrigger )
-					continue;
-
-				if( ExtractMappingData( coll, out var component, out var actor ) == false )
-					continue;
-
-				if( ComputePenetration( coll, box, out var length, out var direction ) == false )
-					continue;
-
-				var next = new CheckResult
-				{
-					Component = component,
-					Actor = actor,
-					Time = 0f,
-					Location = Location + (direction * length).ToUnrealPos(),
-					Normal = direction.ToUnrealDir()
-				};
-				current.AssignNext(next);
-				if( count == 0 )
-					root = current;
-				current = next;
-				count++;
-			}
-
-			return count == 0 ? null : root.Next;
-
-			#if false
-			// First, see if this actors box overlaps tthe query point
-			// If it doesn't - return straight away.
-			//FBox TestBox = FBox(o->ChkStart - o->ChkExtent, o->ChkStart + o->ChkExtent);
-			//if( !Box.Intersect(o->ChkBox) )
-			//	return;
-
-			for(INT i = 0; i<Primitives.Num(); i++)
-			{
-				UPrimitiveComponent*	TestPrimitive = Primitives(i);
-
-				// Skip if we've already checked this actor.
-				if (TestPrimitive->Tag != UPrimitiveComponent::CurrentTag)
-				{
-					TestPrimitive->Tag = UPrimitiveComponent::CurrentTag;
-
-					AActor* PrimOwner = TestPrimitive->GetOwner();		
-					if(PrimOwner)
-					{
-						UBOOL hitActorBox;
-						{
-							SCOPE_CYCLE_COUNTER_SLOW(STAT_BoxBoxTime);
-							// Check actor box against query box.
-							hitActorBox = BoxBoxIntersect(TestPrimitive->Bounds.GetBox(), o->ChkBox);
-						}
-						INC_DWORD_STAT_SLOW(STAT_BoxBoxCount);
-
-		#if !CHECK_FALSE_NEG
-						if(!hitActorBox)
-						{
-							continue;
-						}
-		#endif
-						if ((o->bChkExtentIsZero ? TestPrimitive->BlockZeroExtent : TestPrimitive->BlockNonZeroExtent) &&
-							TestPrimitive->ShouldCollide() &&
-							PrimOwner->ShouldTrace(TestPrimitive,NULL, o->ChkTraceFlags) )
-						{
-							// Collision test.
-							FCheckResult TestHit(1.f);
-							if (TestPrimitive->PointCheck(TestHit, o->ChkStart, o->ChkExtent, o->ChkTraceFlags) == 0)
-							{
-								check(TestHit.Actor == PrimOwner);
-
-		#if CHECK_FALSE_NEG
-						if(!hitActorBox)
-							debugf(TEXT("PC False Neg! : %s %s"), testActor->GetName());
-		#endif
-
-								FCheckResult* NewResult = new(*(o->ChkMem))FCheckResult(TestHit);
-								NewResult->GetNext() = o->ChkResult;
-								o->ChkResult = NewResult;
-								if (o->ChkTraceFlags & TRACE_StopAtAnyHit)
-									return;
-							}
-						}
-					}
-				}
-			}
-			// Now traverse children of this node if present.
-			if(Children)
-			{
-				INT childIXs[8];
-				INT numChildren = FindChildren(Bounds, o->ChkBox, childIXs);
-				for(INT i = 0; i<numChildren; i++)
-				{
-					FOctreeNodeBounds	ChildBounds(Bounds,childIXs[i]);
-					this->Children[childIXs[i]].ActorPointCheck(o,ChildBounds);
-					// JTODO: Should we check TRACE_StopAtAnyHit and bail out early for Encroach check?
-				}
-			}
-			#endif
-		}
 		
 		
 		
@@ -1217,7 +985,7 @@
 							{
 								//RootNode.ActorEncroachmentCheck(this, RootNodeBounds);
 								var extent = (ChkBox.Max - ChkBox.Min).ToUnityPos() * 0.5f;
-								var center = ChkBox.Min.ToUnityPos() + new Vector3(extent.x, 0f, extent.z);
+								var center = (ChkBox.Max + ChkBox.Min).ToUnityPos() * 0.5f;
 								return ActorPointCheck(ref Mem, center.ToUnrealPos(), extent.ToUnrealPos(), (uint)TraceFlags);
 							}
 							finally
@@ -1250,222 +1018,7 @@
 
 		public ActorComponent.FSceneInterface Scene{ get; } = new ActorComponent.FSceneInterface();
 
-
-
-		public BoxCollider BoxForTests;
-
-
-
-		bool ComputePenetration(Collider otherCollider, (Vector3 center, Vector3 extent) box, out float length, out Vector3 direction)
-		{
-			if( BoxForTests == null )
-			{
-				BoxForTests ??= new GameObject(nameof(BoxForTests)).AddComponent<BoxCollider>();
-				BoxForTests.gameObject.SetActive(false);
-			}
-				
-			// Epsilon otherwise hits considered as intersecting are not detected as such through ComputePenetration 
-			BoxForTests.size = box.extent * 2f + Vector3.one * defaultContactOffset;
-			
-			BoxForTests.gameObject.SetActive(true);
-			
-			bool boxTest = Physics.ComputePenetration(
-				BoxForTests, box.center, Quaternion.identity,
-				otherCollider, otherCollider.transform.position, otherCollider.transform.rotation, 
-				out direction, out length
-			);
-
-			/*if( boxTest == false )
-			{
-				BoxForTests.transform.position = box.center;
-				Debug.LogError($"Unexpected intersection test result with {otherCollider.gameObject.name}: {box.center}, {BoxForTests.size}");
-				UnityEditor.EditorApplication.isPaused = true;
-				throw new Exception();
-			}*/
-						
-			BoxForTests.gameObject.SetActive(false);
-			return boxTest;
-		}
-
 		
-		static RaycastHit[] _hitCache = new RaycastHit[16];
-		public unsafe DecFn.CheckResult* MultiLineCheck( ref int Mem, in Object.Vector End, in Object.Vector Start, in Object.Vector Extent, uint TraceFlags, Actor SourceActor, LightComponent SourceLight = null )
-		{
-			bool testTrigger = ( TraceFlags & TRACE_PhysicsVolumes ) != default;
-
-			var delta = End.ToUnityPos() - Start.ToUnityPos();
-
-			var totalDistance = delta.magnitude;
-			var root = new CheckResult();
-			int count = 0;
-			Vector3 center;
-			if( Extent == default )
-			{
-				center = Start.ToUnityPos();
-				var hits = Physics.RaycastNonAlloc( Start.ToUnityPos(), delta.normalized, _hitCache, totalDistance, -1, testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
-				
-				var current = root;
-				//foreach( var hit in hits )
-				for( int i = 0; i < hits; i++ )
-				{
-					var hit = _hitCache[i];
-					var unityColl = hit.collider;
-					if( unityColl.isTrigger != testTrigger )
-						continue;
-				
-					if( ExtractMappingData( unityColl, out var component, out var actor ) == false )
-						continue;
-
-					var next = new CheckResult
-					{
-						Actor = actor,
-						Location = hit.point.ToUnrealPos(),
-						Normal = hit.normal.ToUnrealDir(),
-						Time = hit.distance / totalDistance,
-						Component = component,
-					};
-					current.AssignNext(next);
-					if( count == 0 )
-						root = current;
-					current = next;
-					count++;
-				}
-			}
-			else
-			{
-				UnrealToUnityBox( Start, Extent, out var box );
-
-				center = box.center;
-				
-				var hits = Physics.BoxCastNonAlloc( box.center, box.extent, delta.normalized, _hitCache, Quaternion.identity, totalDistance, -1, QueryTriggerInteraction.Ignore );
-				
-				var current = root;
-				for( int i = 0; i < hits; i++ )
-				{
-					var hit = _hitCache[i];
-					if( hit.collider.isTrigger != testTrigger )
-						continue;
-
-					if( ExtractMappingData( hit.collider, out var component, out var actor ) == false )
-						continue;
-
-					var next = new CheckResult
-					{
-						Actor = actor,
-						Component = component,
-						Time = Mathf.Max(hit.distance - defaultContactOffset, 0f) / totalDistance,
-					};
-					
-					// This indicates a test that already intersects at origin
-					bool penetrating = hit.distance == 0f && hit.point == default;
-					if( penetrating )
-					{
-						if( ComputePenetration( hit.collider, box, out var length, out var direction ) == false )
-							continue;
-						// Actually penetrating, not just bounds against bounds
-						// Looks to be this value when looking at the source, I'm not sure to be honest
-						next.Normal = (-delta).normalized.ToUnrealDir();
-						next.Location = (Start.ToUnityPos() + direction * (length)).ToUnrealPos();
-						next.bStartPenetrating = true;
-					}
-					else
-					{
-						next.Normal = hit.normal.ToUnrealDir();
-						next.Location = (Start.ToUnityPos() + delta.normalized * next.Time).ToUnrealPos();
-					}
-
-					current.AssignNext(next);
-					if( count == 0 )
-						root = current;
-					current = next;
-					count++;
-				}
-			}
-
-			for( var ptr = count == 0 ? null : root.Next; ptr != null; ptr = ptr->Next )
-				Debug.DrawRay( ptr->Location.ToUnityPos(), ptr->Normal.ToUnityDir(), Color.yellow, 0.1f );
-			
-			Debug.DrawRay( center, delta, Color.green );
-			if(count != 0)
-				Debug.DrawRay( center, delta * root.Next->Time, Color.red );
-			
-			return count == 0 ? null : root.Next;
-			
-			
-			
-			#if false
-			//SCOPE_CYCLE_COUNTER(STAT_MultiLineCheck);
-
-			INT NumHits=0;
-			Span<FCheckResult> Hits = stackalloc FCheckResult[64];
-
-			// Draw line that we are checking, and box showing extent at end of line, if non-zero
-			/*if(this.bShowLineChecks && Extent.IsZero())
-			{
-				LineBatcher.DrawLine(Start, End, FColor(0, 255, 128), SDPG_World);
-		
-			}
-			else if(this.bShowExtentLineChecks && !Extent.IsZero())
-			{
-				LineBatcher.DrawLine(Start, End, FColor(0, 255, 255), SDPG_World);
-				DrawWireBox(LineBatcher,FBox(End-Extent, End+Extent), FColor(0, 255, 255), SDPG_World);
-			}*/
-
-			FLOAT Dilation = 1f;
-			FVector NewEnd = End;
-
-			// Check for collision with the level, and cull by the end point for speed.
-			INT WorldNum = 0;
-	
-			{
-				//SCOPE_CYCLE_COUNTER(STAT_Col_Level);
-				if( (TraceFlags & TRACE_Level) != default && BSPLineCheck( Hits[NumHits], NULL, End, Start, Extent, TraceFlags )==0 )
-				{
-					Hits[NumHits].Actor = GetWorldInfo();
-					FLOAT Dist = (Hits[NumHits].Location - Start).Size();
-					Hits[NumHits].Time *= Dilation;
-					Dilation = Min(1f, Hits[NumHits].Time * (Dist + 5)/(Dist+0.0001f));
-					NewEnd = Start + (End - Start) * Dilation;
-					WorldNum = NumHits;
-					NumHits++;
-				}
-			}
-
-			if(Dilation > SMALL_NUMBER)
-			{
-				//SCOPE_CYCLE_COUNTER(STAT_Col_Actors);
-				if( !(NumHits != default) || !((TraceFlags & TRACE_StopAtAnyHit) != default) )
-				{
-					// Check with actors.
-					if( (TraceFlags & TRACE_Hash) != default && Hash != default )
-					{
-						for( FCheckResult* Link=Hash.ActorLineCheck( Mem, NewEnd, Start, Extent, TraceFlags, SourceActor, SourceLight ); Link && NumHits<ARRAY_COUNT(Hits); Link=Link->GetNext() )
-						{
-							Link->Time *= Dilation;
-							Hits[NumHits++] = *Link;
-						}
-					}
-				}
-			}
-
-			// Sort the list.
-			FCheckResult* Result = null;
-			if( NumHits != default )
-			{
-				//SCOPE_CYCLE_COUNTER(STAT_Col_Sort);
-				appQsort( Hits, NumHits, sizeof(Hits[0]), (QSORT_COMPARE)FCheckResult::CompareHits );
-				Result = new(Mem,NumHits)FCheckResult;
-				for( INT i=0; i<NumHits; i++ )
-				{
-					Result[i]      = Hits[i];
-					Result[i].Next = (i+1<NumHits) ? &Result[i+1] : null;
-				}
-			}
-
-			return Result;
-			#endif
-		}
-
 		bool FindSpot(Object.Vector Extent, ref Object.Vector Location, bool bUseComplexCollision)
 		{
 			FCheckResult Hit = new(1f);
@@ -1544,79 +1097,6 @@
 				return TRUE;
 			}
 			return FALSE;
-		}
-
-
-		HashSet<Collider> Colliders
-		{
-			get
-			{
-				if( _cachedCollider == null )
-				{
-					_cachedCollider = new HashSet<Collider>();
-					StartCoroutine( ContinuousGatherCollider() );
-				}
-
-				return _cachedCollider;
-			}
-		}
-
-
-		HashSet<Collider> _cachedCollider;
-
-
-
-		IEnumerator ContinuousGatherCollider()
-		{
-			var waitPattern = new WaitForEndOfFrame();
-			List<GameObject> allocRoots = new List<GameObject>();
-			List<Collider> allocColliders = new List<Collider>();
-			Queue<GameObject> leftToProcess = new Queue<GameObject>();
-			
-			const int OperationsPerFrame = 100;
-			bool firstPass;
-			int op;
-			for(firstPass = true, op = 0 ; true ; op = 0, firstPass = false)
-			{
-				var scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
-				scene.GetRootGameObjects( allocRoots );
-				foreach( GameObject o in allocRoots )
-					leftToProcess.Enqueue(o);
-				allocRoots.Clear();
-				
-				// Traverse the hierarchy breadth-first, aggregating colliders on the way
-				while( leftToProcess.TryDequeue( out var go ) )
-				{
-					if( go == null )
-						continue;
-
-					foreach( Transform child in go.transform )
-						leftToProcess.Enqueue(child.gameObject);
-
-					go.GetComponents( allocColliders );
-					foreach( Collider coll in allocColliders )
-						_cachedCollider.Add( coll );
-					allocColliders.Clear();
-
-					if( firstPass == false && op++ > OperationsPerFrame )
-					{
-						op = 0;
-						yield return waitPattern;
-					}
-				}
-
-				// Cleanup destroyed colliders from the cache
-				foreach( var coll in _cachedCollider )
-				{
-					if( coll == null )
-						allocColliders.Add(coll);
-				}
-				foreach( var destroyedColl in allocColliders )
-					_cachedCollider.Remove( destroyedColl );
-				allocColliders.Clear();
-				
-				yield return waitPattern;
-			}
 		}
 	}
 }
