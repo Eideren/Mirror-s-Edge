@@ -63,7 +63,6 @@
 		public UnityEngine.Transform[] _unityBones;
 		public UnityEngine.GameObject _unityClipTarget;
 		public (FBoneAtom[] start, FBoneAtom[] end) _unityPoses;
-		public BoneAtom[] _unityRefPose;
 		(Vector3, Quaternion)[] _unitySamplingCache;
 		(float, bool) _cacheData;
 		

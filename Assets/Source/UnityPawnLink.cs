@@ -187,12 +187,13 @@
 
             static void FixRefsForAnimation(SkeletalMeshComponent skel, AnimationClip[] clips, AnimSet animSet, GameObject gameObject)
             {
+	            if(animSet.Sequences.Count == 0)
+		            return;
+	            
 	            var nameToClip = clips.ToDictionary( x => (name)x.name, x => x ); 
 	            var nameToTransforms = gameObject.GetComponentsInChildren<Transform>().ToDictionary( x => (name)x.name );
 	            var bones = animSet.TrackBoneNames.Select( name => nameToTransforms[ name ] ).ToArray();
-	            var bindPose = bones.Select( x => new AnimNode.BoneAtom( x.localRotation.ToUnrealAnim(), x.localPosition.ToUnrealAnim(), 1f ) ).ToArray();
-				
-				
+
 	            foreach( AnimSequence sequence in animSet.Sequences )
 	            {
 		            if( nameToClip.TryGetValue( sequence.SequenceName, out var clip ) == false )
@@ -204,7 +205,6 @@
 		            sequence._unityBones = bones;
 		            sequence._unityClipTarget = gameObject;
 		            sequence._unityClip = clip;
-		            sequence._unityRefPose = bindPose;
 					
 		            clip.wrapMode = WrapMode.Default;
 		            clip.SampleAnimation( gameObject, 0f );

@@ -92,35 +92,12 @@
 						var bones = set.TrackBoneNames.ToArray();
 						var nonDicTrs = usm.transform.parent.GetComponentsInChildren<UnityEngine.Transform>();
 						var trs = nonDicTrs.Where(t => t != usm.transform && t != usm.transform.parent).ToDictionary( trs => (name)trs.name );
+						trs[ "root" ].localRotation = UnityEngine.Quaternion.identity;
 
 						sm.RefSkeleton = new();
-						var rootBonesTrs = trs[ bones[ 0 ] ];
 						for( int i = 0; i < bones.Length; i++ )
 						{
 							var bone = trs[bones[i]];
-
-							int depth = 0;
-							for( var parent = bone; parent != rootBonesTrs; parent = parent.parent )
-							{
-								depth++;
-							}
-
-							/*var _source = decFPModelJPos[ i ];
-							var _unity = new AnimNode.VJointPos
-							{
-								Orientation = bone.localRotation.ToUnreal(),
-								Position = bone.localPosition.ToUnrealPos(),
-							};
-							var _unityInPlace = new AnimNode.VJointPos
-							{
-								Orientation = bone.localRotation.Inplace(),
-								Position = bone.localPosition.Inplace(),
-							}; 
-							var _unityAnim = new AnimNode.VJointPos
-							{
-								Orientation = bone.localRotation.ToUnrealAnim(),
-								Position = bone.localPosition.ToUnrealAnim(),
-							};*/
 
 							sm.RefSkeleton[ i ] = new AnimNode.FMeshBone
 							{
