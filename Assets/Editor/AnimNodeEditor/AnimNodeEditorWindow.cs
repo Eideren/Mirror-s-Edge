@@ -10,7 +10,7 @@
 
 
 
-	public class AnimNodeEditorWindow : ObjectGraphWindow
+	public class AnimNodeEditorWindow : ObjectGraphWindow, IAnimNodeEditorWindow
 	{
 		T3DFile _file;
 

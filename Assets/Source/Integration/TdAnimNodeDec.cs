@@ -3842,7 +3842,7 @@ BOOL __thiscall UTdAnimNodeSwitch::GetActiveState(_E_struct_UTdAnimNodeSwitch *t
       {
         this.StateSwitched();
       }
-      else //if ( dword_2020740 )                   // In editor
+      else if ( this.TdPawnOwner == null )                   // In editor
       {
         if ( SetActiveMove(this.EditorSliderIndex/*, 0*/) )// TdAnimNodeBlendList::SetActiveMove
           StateSwitched();                      // Call StateSwitched
