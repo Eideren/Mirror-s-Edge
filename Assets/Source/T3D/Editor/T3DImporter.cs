@@ -1,4 +1,5 @@
 ﻿#if CSHARP_7_3_OR_NEWER
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEditor.AssetImporters;
@@ -7,7 +8,6 @@ namespace MEdge.T3D
 {
 	using System;
 	using System.Linq;
-	using J2N.Collections.Generic;
 	using UnityEditor;
 
 

@@ -121,7 +121,8 @@
 			}
 
 			NotImplementedFor.Add( assetPath );
-			LogWarning($"{nameof(LoadAsset)} not implemented yet, requesting '{assetPath}'");
+			if(NotImplementedFor.Count == 1)
+				LogWarning($"{nameof(LoadAsset)} not implemented yet, requesting '{assetPath}'. Any other unimplemented request will silently fail but will be logged when exitting play mode.");
 			return new TClass();
 		}
 		
