@@ -306,7 +306,7 @@ public partial class TdPawn
       Delta.Z = v15;
       v17 = v15;
     }
-    else if ( Delta.X >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( Delta.X >= SMALL_NUMBER )
     {
       v56 = 3.0f;
       v18 = fsqrt(Delta.X);
@@ -351,7 +351,7 @@ public partial class TdPawn
         }
         v27 = v23;
       }
-      else if ( v24 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      else if ( v24 >= SMALL_NUMBER )
       {
         v57 = 1077936128;
         v29 = fsqrt(v58);
@@ -1316,7 +1316,7 @@ public partial class TdPawn
         }
         else
         {
-          if ( v33 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+          if ( v33 < SMALL_NUMBER )
           {
             v19 = 0.0f;
             v64.X = 0.0f;
@@ -1345,7 +1345,7 @@ public partial class TdPawn
       }
       else
       {
-        if ( v23 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        if ( v23 < SMALL_NUMBER )
         {
           v19 = 0.0f;
           v24 = 0.0f;
@@ -1373,7 +1373,7 @@ public partial class TdPawn
         a2 = v64;
         goto LABEL_35;
       }
-      if ( v28 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v28 >= SMALL_NUMBER )
       {
         v29 = 1.0f / fsqrt(v28);
         a2a.X = (float)(3.0f - (float)((float)(v29 * v28) * v29)) * (float)(v29 * 0.5f);
@@ -1453,7 +1453,7 @@ public partial class TdPawn
           v47 = this.Acceleration.Y;
           v48 = this.Acceleration.Z;
         }
-        else if ( v45 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        else if ( v45 >= SMALL_NUMBER )
         {
           v49 = fsqrt(v45);
           a2a.X = (float)(3.0f - (float)((float)((float)(1.0f / v49) * v68) * (float)(1.0f / v49))) * (float)((float)(1.0f / v49) * 0.5f);
@@ -1515,7 +1515,7 @@ public partial class TdPawn
         v58 = this.Velocity.Y;
         v19 = this.Velocity.Z;
       }
-      else if ( v56 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      else if ( v56 >= SMALL_NUMBER )
       {
         v59 = fsqrt(v56);
         a2a.X = (float)(3.0f - (float)((float)((float)(1.0f / v59) * v69) * (float)(1.0f / v59))) * (float)((float)(1.0f / v59) * 0.5f);
@@ -1660,7 +1660,7 @@ public partial class TdPawn
         v44.Y = v19;
         v44.Z = v20;
       }
-      else if ( v44.X >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      else if ( v44.X >= SMALL_NUMBER )
       {
         Delta.X = 3.0f;
         v21 = 1.0f / fsqrt(v44.X);
@@ -1694,11 +1694,11 @@ public partial class TdPawn
       v48.Z = v30;
       v44.Y = (float)(v27 * v45) - (float)(v31 * v24);
       v44.Z = (float)(v31 * v25) - (float)(v26 * v45);
-      v44.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+      v44.Normalize();
       Delta.X = (float)(v44.Y * v47) - (float)(v44.Z * v46);
       Delta.Y = (float)(v44.Z * v45) - (float)(v47 * v44.X);
       Delta.Z = (float)(v46 * v44.X) - (float)(v44.Y * v45);
-      Delta.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+      Delta.Normalize();
       v32 = a5.X;
       v33 = (float)((float)(a5.Y * Delta.Y) + (float)(a5.Z * Delta.Z)) + (float)(a5.X * Delta.X);
       v43 = (float)((float)(a5.Y * v46) + (float)(a5.Z * v47)) + (float)(a5.X * v45);
@@ -1940,7 +1940,7 @@ public partial class TdPawn
       XY_YY = (XY * aForward) + (YY * aStrafe);
       v15 = 0.0f;
     }
-    else if ( sqrLngth >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( sqrLngth >= SMALL_NUMBER )
     {
       invSqrt = 1.0f / fsqrt(sqrLngth);
       v53 = (3.0f - ((invSqrt * sqrLngth) * invSqrt)) * (invSqrt * 0.5f);
@@ -2354,7 +2354,7 @@ public partial class TdPawn
       }
       else
       {
-        if ( v46 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        if ( v46 < SMALL_NUMBER )
         {
           Deltaa.X = 0.0f;
           Deltaa.Y = 0.0f;
@@ -2405,7 +2405,7 @@ public partial class TdPawn
     }
     else
     {
-      if ( Deltaa.X >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( Deltaa.X >= SMALL_NUMBER )
       {
         v112 = 3.0f;
         v107 = 0.5f;
@@ -2456,7 +2456,7 @@ public partial class TdPawn
     }
     else
     {
-      if ( v64 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v64 < SMALL_NUMBER )
       {
         v67 = 0.0f;
         Deltaa.X = 0.0f;
@@ -2487,7 +2487,7 @@ public partial class TdPawn
       v74 = a4a.Y;
       v75 = a4a.Z;
     }
-    else if ( v73 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v73 >= SMALL_NUMBER )
     {
       v117 = 3.0f;
       v107 = 0.5f;
@@ -2519,7 +2519,7 @@ public partial class TdPawn
         v81 = a4a.Y;
         v82 = a4a.Z;
       }
-      else if ( v77 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      else if ( v77 >= SMALL_NUMBER )
       {
         v116 = 3.0f;
         v107 = 0.5f;
@@ -2568,7 +2568,7 @@ public partial class TdPawn
           }
           else
           {
-            if ( v87 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+            if ( v87 < SMALL_NUMBER )
             {
               Deltaa.X = 0.0f;
               Deltaa.Y = 0.0f;
@@ -2613,7 +2613,7 @@ public partial class TdPawn
       v108.X = v90;
       v108.Y = v89;
     }
-    else if ( v91 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v91 >= SMALL_NUMBER )
     {
       v116 = 3.0f;
       v107 = 0.5f;
@@ -2657,7 +2657,7 @@ public partial class TdPawn
           v102 = 0.0f;
         }
       }
-      else if ( v100 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      else if ( v100 >= SMALL_NUMBER )
       {
         v116 = 3.0f;
         v107 = 0.5f;
@@ -3707,41 +3707,41 @@ public partial class TdPawn
 //    return (int)(result);
 //  }
 //
-  public unsafe void DoFootPlacement_Maybe(float a2)
+  public unsafe void DoFootPlacement_Maybe(float DeltaSeconds)
   {
     float v3 = default; // xmm0_4
     float v4 = default; // xmm0_4
     EMovement v5 = default; // cl
     float v6 = default; // eax
-    Vector *v7; // eax
+    Vector *rotationFacingDir; // eax
     float v8 = default; // edx
-    short v9 = default; // cx
+    short headingAngleOf = default; // cx
     int v10 = default; // eax
     uint v11 = default; // edx
     int v12 = default; // ebx
     uint v13 = default; // edx
     int v14 = default; // edi
-    double v15 = default; // st7
-    float v16 = default; // xmm0_4
-    float v17 = default; // xmm1_4
-    float v18 = default; // xmm0_4
-    float v19 = default; // xmm0_4
-    int v20 = default; // edx
-    float v21 = default; // xmm0_4
-    int v22 = default; // ecx
-    uint v23 = default; // eax
+    double velMult = default; // st7
+    float velMultClamped = default; // xmm0_4
+    float timeAndVelMult = default; // xmm1_4
+    float rotSlowT = default; // xmm0_4
+    float timeVelAndSlowMult = default; // xmm0_4
+    int legRotCurrent = default; // edx
+    float timeVelStateAndSlowMult = default; // xmm0_4
+    int currentToHeadingDiff = default; // ecx
+    uint newRotFromVel = default; // eax
     int v24 = default; // edx
     int v25 = default; // eax
     int v26 = default; // eax
     float v27 = default; // [esp+Ch] [ebp-28h]
-    Vector v28 = default; // [esp+10h] [ebp-24h] BYREF
-    Vector v29 = default; // [esp+1Ch] [ebp-18h] BYREF
+    Vector horVel = default; // [esp+10h] [ebp-24h] BYREF
+    Vector horDir = default; // [esp+1Ch] [ebp-18h] BYREF
     Vector a2a = default; // [esp+28h] [ebp-Ch] BYREF
   
     v3 = this.LegRotationSlowTimer;
     if ( v3 > 0.0f )
     {
-      v4 = v3 - a2;
+      v4 = v3 - DeltaSeconds;
       if ( v4 <= 0.0f )
         v4 = 0.0f;
       this.LegRotationSlowTimer = v4;
@@ -3750,22 +3750,22 @@ public partial class TdPawn
     if ( v5 != MOVE_BotStartWalking && v5 != MOVE_BotStartRunning && sqrt(this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X) > 20.0f || (this.Moves[v5].bDebugMove.AsBitfield(29) & 0x20000) != default )
     {
       v6 = this.Velocity.X;
-      v28.Y = this.Velocity.Y;
-      v28.X = v6;
-      v28.Z = 0.0f;
-      v28.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+      horVel.Y = this.Velocity.Y;
+      horVel.X = v6;
+      horVel.Z = 0.0f;
+      horVel.Normalize();
       if ( this.Physics == PHYS_Falling )
       {
-        v7 = this.Rotation.Vector(&a2a);
-        v8 = v7->Y;
-        v29.X = v7->X;
-        v29.Y = v8;
-        v29.Z = 0.0f;
-        v29.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
-        v28 = v29;
+        rotationFacingDir = this.Rotation.Vector(&a2a);
+        v8 = rotationFacingDir->Y;
+        horDir.X = rotationFacingDir->X;
+        horDir.Y = v8;
+        horDir.Z = 0.0f;
+        horDir.Normalize();
+        horVel = horDir;
       }
-      v9 = (short)E_GetHeadingAngle(&v28);
-      v10 = (ushort)(v9 - LOWORD(this.Rotation.Yaw));
+      headingAngleOf = (short)E_GetHeadingAngle(&horVel);
+      v10 = (ushort)(headingAngleOf - LOWORD(this.Rotation.Yaw));
       if ( (uint)v10 > 0x7FFF )
         v10 = v10 - (0x10000);
       v11 = this.bDisableSkelControlSpring.AsBitfield(32);
@@ -3786,40 +3786,40 @@ public partial class TdPawn
       this.LegRotationSlowTimer = 0.40000001f;
   LABEL_22:
       if ( (this.bDisableSkelControlSpring.AsBitfield(32) & 8) == default )
-        v9 = (short)(v9 + (0x8000));
-      v15 = sqrt(this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X) * 0.0049999999d;
-      if ( v15 < 0.1f )
+        headingAngleOf = (short)(headingAngleOf + (0x8000));
+      velMult = sqrt(this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X) * 0.0049999999d;
+      if ( velMult < 0.1f )
       {
-        v16 = 0.1f;
+        velMultClamped = 0.1f;
       }
       else
       {
-        v16 = (float)v15;
-        v27 = (float)v15;
+        velMultClamped = (float)velMult;
+        v27 = (float)velMult;
         if ( v27 > 1.0f )
-          v16 = 1.0f;
+          velMultClamped = 1.0f;
       }
-      v17 = v16 * a2;
+      timeAndVelMult = velMultClamped * DeltaSeconds;
       if ( this.LegRotationSlowTimer <= 0.0f )
-        v18 = 1.0f;
+        rotSlowT = 1.0f;
       else
-        v18 = (float)(0.40000001d);
-      v19 = v18 * v17;
+        rotSlowT = (float)(0.40000001d);
+      timeVelAndSlowMult = rotSlowT * timeAndVelMult;
       if ( this.MovementState == MOVE_Crouch )
-        v19 = v19 * 0.5f;
+        timeVelAndSlowMult = timeVelAndSlowMult * 0.5f;
       if ( this.Physics == PHYS_Falling )
-        v19 = v19 * 0.25f;
-      v20 = this.LegRotation;
-      v21 = v19 * 8.0f;
-      v22 = (ushort)(v9 - v20);
-      if ( v22 > 0x7FFF )
-        v22 = v22 - (0x10000);
-      if ( v21 >= 1.0f )
-        v21 = 1.0f;
-      v23 = (ushort)(v20 + (int)(float)((float)v22 * v21));
-      if ( v23 > 0x7FFF )
-        v23 = v23 - (0x10000);
-      this.LegRotation = (int)v23;
+        timeVelAndSlowMult = timeVelAndSlowMult * 0.25f;
+      legRotCurrent = this.LegRotation;
+      timeVelStateAndSlowMult = timeVelAndSlowMult * 8.0f;
+      currentToHeadingDiff = (ushort)(headingAngleOf - legRotCurrent);
+      if ( currentToHeadingDiff > 0x7FFF )
+        currentToHeadingDiff = currentToHeadingDiff - (0x10000);
+      if ( timeVelStateAndSlowMult >= 1.0f )
+        timeVelStateAndSlowMult = 1.0f;
+      newRotFromVel = (ushort)(legRotCurrent + (int)(float)((float)currentToHeadingDiff * timeVelStateAndSlowMult));
+      if ( newRotFromVel > 0x7FFF )
+        newRotFromVel = newRotFromVel - (0x10000);
+      this.LegRotation = (int)newRotFromVel;
     }
     v24 = this.Rotation.Yaw;
     v25 = (ushort)(this.LegRotation - v24);
@@ -3998,7 +3998,7 @@ public partial class TdPawn
       }
       else
       {
-        if ( v131 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        if ( v131 >= SMALL_NUMBER )
         {
           v132 = 3.0f;
           v16 = 1.0f / fsqrt(v131);
@@ -4184,7 +4184,7 @@ public partial class TdPawn
               v28 = v44;
             }
           }
-          else if ( v42 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+          else if ( v42 >= SMALL_NUMBER )
           {
             v137 = 3.0f;
             v124 = 1056964608;
@@ -4293,7 +4293,7 @@ public partial class TdPawn
               v28 = v67;
             }
           }
-          else if ( v65 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+          else if ( v65 >= SMALL_NUMBER )
           {
             v135 = 1077936128;
             v102 = 0.5f;
@@ -4527,7 +4527,7 @@ public partial class TdPawn
           v66 = v8;
           v67 = v9;
         }
-        else if ( v7 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        else if ( v7 >= SMALL_NUMBER )
         {
           v91 = 3.0f;
           v10 = 1.0f / fsqrt(a4.X);
@@ -4629,7 +4629,7 @@ public partial class TdPawn
                 v30 = v68.Y;
                 v31 = (float)((float)(v28 * v28) + (float)(v29 * v29)) + (float)(v30 * v30);
                 v93 = v31;
-                if ( v31 != 1.0f && v31 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+                if ( v31 != 1.0f && v31 >= SMALL_NUMBER )
                 {
                   v97 = 1077936128;
                   v81 = 1056964608;
@@ -4684,7 +4684,7 @@ public partial class TdPawn
                     v40 = v34;
                   }
                 }
-                else if ( v37 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+                else if ( v37 >= SMALL_NUMBER )
                 {
                   v94 = 1077936128;
                   v84 = 1056964608;
@@ -4883,7 +4883,7 @@ public partial class TdPawn
       v54 = v60;
       v55 = v61;
     }
-    else if ( v12 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v12 >= SMALL_NUMBER )
     {
       a3 = 0.5f;
       v13 = 1.0f / fsqrt(v56);
@@ -4985,7 +4985,7 @@ public partial class TdPawn
     v64 = (float)(v26 * v26) + (float)(v28 * v28);
     if ( v29 != 1.0f )
     {
-      if ( v29 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v29 < SMALL_NUMBER )
       {
         v34 = 0.0f;
         v54 = 0.0f;
@@ -5177,7 +5177,7 @@ public partial class TdPawn
 //    }
 //  }
 //
-  public override unsafe void TickSpecial(float a2)
+  public override unsafe void TickSpecial(float DeltaSeconds)
   {
     float v3 = default; // xmm0_4
     float v4 = default; // xmm1_4
@@ -5206,22 +5206,22 @@ public partial class TdPawn
     int v27 = default; // [esp+28h] [ebp-4h]
     float a2a = default; // [esp+30h] [ebp+4h]
   
-    base.TickSpecial(a2);
-    UpdateMeshTranslation_OrSomething(a2);
+    base.TickSpecial(DeltaSeconds);
+    UpdateMeshTranslation_OrSomething(DeltaSeconds);
     v3 = this.EvadeTimer;
-    v4 = a2;
+    v4 = DeltaSeconds;
     if ( v3 > 0.0f )
     {
-      if ( v3 < a2 )
+      if ( v3 < DeltaSeconds )
         v5 = this.EvadeTimer;
       else
-        v5 = a2;
+        v5 = DeltaSeconds;
       this.EvadeTimer = v3 - v5;
     }
     v6 = this.bIllegalLedgeTimer;
     if ( v6 > 0.0f )
     {
-      if ( v6 < a2 )
+      if ( v6 < DeltaSeconds )
         v4 = this.bIllegalLedgeTimer;
       this.bIllegalLedgeTimer = v6 - v4;
     }
@@ -5241,13 +5241,13 @@ public partial class TdPawn
       v11 = v10[(int)v9] == null;
       ref var v12 = ref v10[(int)v9];
       if ( !v11 )
-        v12.UpdateMoveTimer( (a2));// UTdMove::UpdateMoveTimer
+        v12.UpdateMoveTimer( (DeltaSeconds));// UTdMove::UpdateMoveTimer
     }
-    DoFootPlacement_Maybe(a2);
-    v13 = this.ASPollTimer + a2;
+    DoFootPlacement_Maybe(DeltaSeconds);
+    v13 = this.ASPollTimer + DeltaSeconds;
     this.ASPollTimer = v13;
     v14 = 0.0f;
-    v15 = fabs(sqrt(this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X)) * (double)((((int)-((this.bDisableSkelControlSpring.AsBitfield(32) >> 3) & 1) >> 31) & 2) - 1) * a2;
+    v15 = fabs(sqrt(this.Velocity.Y * this.Velocity.Y + this.Velocity.X * this.Velocity.X)) * (double)((((int)-((this.bDisableSkelControlSpring.AsBitfield(32) >> 3) & 1) >> 31) & 2) - 1) * DeltaSeconds;
     if ( v15 > 0.0f )
     {
       a2a = (float)v15;
@@ -5509,7 +5509,7 @@ public partial class TdPawn
       }
       v9 = v4;
     }
-    else if ( v6 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v6 >= SMALL_NUMBER )
     {
       v165 = 3.0f;
       v133 = 0.5f;
@@ -5544,7 +5544,7 @@ public partial class TdPawn
         goto LABEL_19;
       }
     }
-    else if ( v13 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v13 >= SMALL_NUMBER )
     {
       v165 = 3.0f;
       v133 = 0.5f;
@@ -5624,7 +5624,7 @@ public partial class TdPawn
         DestLocation.Z = v31;
         v128 = v32;
       }
-      else if ( v29 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      else if ( v29 >= SMALL_NUMBER )
       {
         v165 = 3.0f;
         v133 = 0.5f;
@@ -6033,7 +6033,7 @@ public partial class TdPawn
           v169 = v149;
           v44 = v149;
         }
-        else if ( v89 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        else if ( v89 >= SMALL_NUMBER )
         {
           v183 = 1077936128;
           v146 = 0.5f;

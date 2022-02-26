@@ -113,7 +113,7 @@ public partial class TdMove
       v25.X = v4;
       v25.Y = v2.MoveNormal.Y;
     }
-    else if ( v6 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v6 >= SMALL_NUMBER )
     {
       v7 = 1.0f / fsqrt(v6);
       a2a.X = (float)(3.0f - (float)((float)(v7 * v6) * v7)) * (float)(v7 * 0.5f);
@@ -140,7 +140,7 @@ public partial class TdMove
           v11 = v10->X;
         v12 = v10->Y;
       }
-      else if ( v29 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      else if ( v29 >= SMALL_NUMBER )
       {
         v28 = 3.0f;
         v13 = fsqrt(v29);
@@ -303,7 +303,7 @@ public partial class TdMove
     }
     else
     {
-      if ( v9 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v9 < SMALL_NUMBER )
       {
         v11 = 0.0f;
         v10 = 0.0f;
@@ -325,7 +325,7 @@ public partial class TdMove
     v41 = v13;
     if ( v13 != 1.0f )
     {
-      if ( v13 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v13 < SMALL_NUMBER )
       {
         v35.X = 0.0f;
         v35.Y = 0.0f;
@@ -375,7 +375,7 @@ public partial class TdMove
       }
       v21 = a2a.Normal.X;
     }
-    else if ( v20 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v20 >= SMALL_NUMBER )
     {
       v41 = 3.0f;
       v22 = 1.0f / fsqrt(v40);
@@ -512,7 +512,7 @@ public partial class TdMove
     }
     else
     {
-      if ( v9 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v9 < SMALL_NUMBER )
       {
         v11 = 0.0f;
         v10 = 0.0f;
@@ -545,7 +545,7 @@ public partial class TdMove
       v36.Y = v10;
       goto LABEL_15;
     }
-    if ( v13 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    if ( v13 >= SMALL_NUMBER )
     {
       v44 = 3.0f;
       v14 = 1.0f / fsqrt(v45);
@@ -580,7 +580,7 @@ public partial class TdMove
     v44 = v19;
     if ( v19 != 1.0f )
     {
-      if ( v19 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v19 >= SMALL_NUMBER )
       {
         v45 = 3.0f;
         v21 = 1.0f / fsqrt(v44);
@@ -954,7 +954,7 @@ public partial class TdMove
               v20 = Delta.Y;
               v21 = Delta.Z;
             }
-            else if ( v18 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+            else if ( v18 >= SMALL_NUMBER )
             {
               v120 = 3.0f;
               v113 = 0.5f;
@@ -1005,7 +1005,7 @@ public partial class TdMove
               }
               v30 = *(float *)&v26;
             }
-            else if ( v29 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+            else if ( v29 >= SMALL_NUMBER )
             {
               v119 = 3.0f;
               v113 = 0.5f;
@@ -1060,7 +1060,7 @@ public partial class TdMove
                 v41 = *(float *)&v37;
               }
             }
-            else if ( v40 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+            else if ( v40 >= SMALL_NUMBER )
             {
               v119 = 3.0f;
               v113 = 0.5f;
@@ -1127,7 +1127,7 @@ public partial class TdMove
                 v56 = *(float *)&v52;
               }
             }
-            else if ( v55 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+            else if ( v55 >= SMALL_NUMBER )
             {
               v119 = 3.0f;
               v113 = 0.5f;
@@ -1206,7 +1206,7 @@ public partial class TdMove
                 v73 = *(float *)&v69;
               }
             }
-            else if ( v72 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+            else if ( v72 >= SMALL_NUMBER )
             {
               v119 = 3.0f;
               v113 = 0.5f;
@@ -1518,7 +1518,7 @@ public partial class TdMove
     }
     else
     {
-      if ( v30 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v30 >= SMALL_NUMBER )
       {
         v29 = 3.0f;
         v13 = fsqrt(v30);

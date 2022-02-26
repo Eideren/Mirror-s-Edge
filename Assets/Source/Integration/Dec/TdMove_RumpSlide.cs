@@ -186,7 +186,7 @@ public partial class TdMove_RumpSlide
       v24 = v18;
       v6 = v19;
     }
-    else if ( v22 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v22 >= SMALL_NUMBER )
     {
       v25 = 1.0f / fsqrt(v22);
       v34 = (float)(3.0f - (float)((float)(v25 * v22) * v25)) * (float)(v25 * 0.5f);

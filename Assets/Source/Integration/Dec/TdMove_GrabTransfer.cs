@@ -184,7 +184,7 @@ fixed(Rotator* ptr2 =&v9.Controller.Rotation)
     }
     else
     {
-      if ( v35 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v35 < SMALL_NUMBER )
       {
         v47.X = 0.0f;
         v47.Y = 0.0f;
@@ -335,7 +335,7 @@ fixed(Rotator* ptr2 =&v9.Controller.Rotation)
       a2a.Y = v14;
       goto LABEL_15;
     }
-    if ( v16 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    if ( v16 >= SMALL_NUMBER )
     {
       v42.X = 3.0f;
       v43 = null;//(TdMove_Climb )1056964608;// This variable is unused afaict, just written to further down

@@ -104,7 +104,7 @@ public partial class TdMove_Grab
       }
       v8 = v4;
     }
-    else if ( v7 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v7 >= SMALL_NUMBER )
     {
       v18 = 3.0f;
       v17 = 1056964608;
@@ -236,7 +236,7 @@ public partial class TdMove_Grab
       v45 = v8;
       goto LABEL_9;
     }
-    if ( v55 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    if ( v55 >= SMALL_NUMBER )
     {
       v44 = 3.0f;
       v41 = 0.5f;
@@ -298,7 +298,7 @@ public partial class TdMove_Grab
         v49 = v26;
       }
     }
-    else if ( v22 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v22 >= SMALL_NUMBER )
     {
       v55 = 3.0f;
       v41 = 0.5f;
@@ -503,7 +503,7 @@ public partial class TdMove_Grab
       }
       else
       {
-        if ( v16 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        if ( v16 < SMALL_NUMBER )
         {
           v19 = 0.0f;
           v20 = 0.0f;

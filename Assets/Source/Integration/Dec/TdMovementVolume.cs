@@ -86,7 +86,7 @@ public partial class TdMovementVolume
       returnValue->Y = v4;
       returnValue->Z = v5;
     }
-    else if ( v7 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v7 >= SMALL_NUMBER )
     {
       v9 = fsqrt(v7);
       v10 = (float)(3.0f - (float)((float)((float)(1.0f / v9) * v11) * (float)(1.0f / v9))) * (float)((float)(1.0f / v9) * 0.5f);

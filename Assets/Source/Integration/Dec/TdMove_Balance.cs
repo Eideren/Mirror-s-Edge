@@ -65,7 +65,7 @@ public partial class TdMove_Balance
           v16.Z = v16.Z * -1.0f;
         }
         v16.Z = 0.0f;
-        v16.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+        v16.Normalize();
         Hit.Location.X = 0.0f;
         Hit.Location.Y = 0.0f;
         Hit.Location.Z = 0.0f;

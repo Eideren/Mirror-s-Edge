@@ -53,7 +53,7 @@ public partial class TdMove_Barge
       v19 = (float)(v11 * v11) + (float)(v5->Normal.Y * v5->Normal.Y);
       if( v19 != 1.0f )
       {
-        if ( v19 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        if ( v19 >= SMALL_NUMBER )
         {
           v18 = 1077936128;
           #warning  This is very weird

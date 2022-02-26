@@ -132,6 +132,10 @@
                         GameObject camGo = new GameObject();
                         _unityCam = camGo.AddComponent<UnityEngine.Camera>();
                     }
+                    else
+                    {
+	                    Log($"Hijacking main camera '{_unityCam.name}' to use for player character");
+                    }
 
                     _unityCam.fieldOfView = 59f;// 90 horizontal is around this value vertical for 16/9
                 }

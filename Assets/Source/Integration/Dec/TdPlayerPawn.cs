@@ -315,7 +315,7 @@ public partial class TdPlayerPawn
       return 0;
     if ( this.Moves[v9].MovementLineCheck(ref v62, &a3, &a4, &a5, 8902) )
     {
-      if ( !v62.Actor || v62.Actor is BlockingVolume )
+      if ( !v62.Actor || v62.Actor is BlockingVolume == false )
       {
         v21 = a2.Y;
         v22 = a2.Z;
@@ -399,7 +399,7 @@ public partial class TdPlayerPawn
     {
       v56 = v58;
     }
-    else if ( v48 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v48 >= SMALL_NUMBER )
     {
       v59 = 0.5f;
       v49 = 1.0f / fsqrt(v64);
@@ -528,7 +528,7 @@ public partial class TdPlayerPawn
       v66.Z = a5;
       v14 = a5;
     }
-    else if ( v10 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v10 >= SMALL_NUMBER )
     {
       v66.X = 3.0f;
       v68 = 0.5f;
@@ -648,7 +648,7 @@ public partial class TdPlayerPawn
           }
           v25 = v79.Normal.X - v77.Normal.X;
         }
-        else if ( v24 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        else if ( v24 >= SMALL_NUMBER )
         {
           v66.X = 3.0f;
           v71 = 0.5f;
@@ -696,7 +696,7 @@ public partial class TdPlayerPawn
               goto LABEL_38;
             }
           }
-          else if ( v37 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+          else if ( v37 >= SMALL_NUMBER )
           {
             v66.X = 3.0f;
             v71 = 0.5f;
@@ -730,7 +730,7 @@ public partial class TdPlayerPawn
           }
           else
           {
-            if ( (float)(v73 + v67) < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+            if ( (float)(v73 + v67) < SMALL_NUMBER )
             {
               v66.X = 0.0f;
               v66.Y = 0.0f;
@@ -777,7 +777,7 @@ public partial class TdPlayerPawn
         goto LABEL_72;
       }
     }
-    else if ( v56 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v56 >= SMALL_NUMBER )
     {
       v81 = 3.0f;
       v67 = 0.5f;
@@ -955,7 +955,7 @@ public partial class TdPlayerPawn
       }
       else
       {
-        if ( v6 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        if ( v6 >= SMALL_NUMBER )
         {
           v50.X = 3.0f;
           v46 = 0.5f;
@@ -1004,7 +1004,7 @@ public partial class TdPlayerPawn
       v44 = v51;
       v21 = v51.X;
     }
-    else if ( v20 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v20 >= SMALL_NUMBER )
     {
       v44.X = 3.0f;
       v46 = 0.5f;
@@ -1043,7 +1043,7 @@ public partial class TdPlayerPawn
       v31 = v51.Y;
       v32 = v51.Z;
     }
-    else if ( v29 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v29 >= SMALL_NUMBER )
     {
       v54 = 3.0f;
       v47 = 0.5f;
@@ -1070,7 +1070,7 @@ public partial class TdPlayerPawn
     v44.X = v35;
     if ( v35 != 1.0f )
     {
-      if ( v35 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v35 < SMALL_NUMBER )
         goto LABEL_34;
       v54 = 3.0f;
       v47 = 0.5f;
@@ -1251,7 +1251,7 @@ public partial class TdPlayerPawn
         a7.Z = 0.0f;
       }
     }
-    else if ( v12 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v12 >= SMALL_NUMBER )
     {
       a7.X = 3.0f;
       v13 = fsqrt(v32);
@@ -1485,7 +1485,7 @@ public partial class TdPlayerPawn
     v92.X = v10;
     if ( v10 != 1.0f )
     {
-      if ( v10 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v10 >= SMALL_NUMBER )
       {
         v93 = 3.0f;
         v87 = 0.5f;
@@ -1710,7 +1710,7 @@ public partial class TdPlayerPawn
       v82 = v98.Normal.X;
       v46 = v98.Normal.Y;
     }
-    else if ( v45 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v45 >= SMALL_NUMBER )
     {
       v93 = 3.0f;
       v86 = 0.5f;
@@ -1743,7 +1743,7 @@ public partial class TdPlayerPawn
       }
       v78 = v96.Normal.X;
     }
-    else if ( v49 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v49 >= SMALL_NUMBER )
     {
       v93 = 3.0f;
       v86 = 0.5f;
@@ -1871,7 +1871,7 @@ public partial class TdPlayerPawn
         goto LABEL_112;
       }
     }
-    else if ( v69 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v69 >= SMALL_NUMBER )
     {
       v93 = 3.0f;
       v91 = 0.5f;
@@ -2077,7 +2077,7 @@ public partial class TdPlayerPawn
     }
     v18 = (float)(v46.Y * v46.Y) + (float)(v46.X * v46.X);
     a2a.X = v18;
-    if ( v18 != 1.0f && v18 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    if ( v18 != 1.0f && v18 >= SMALL_NUMBER )
     {
       v47.X = 3.0f;
       v51 = 1056964608;
@@ -2100,7 +2100,7 @@ public partial class TdPlayerPawn
     }
     else
     {
-      if ( v23 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v23 >= SMALL_NUMBER )
       {
         v54 = 3.0f;
         v51 = 1056964608;
@@ -2159,9 +2159,9 @@ public partial class TdPlayerPawn
       v46.X = v49.X - a2a.X;
       v46.Y = v49.Y - a2a.Y;
       v46.Z = v49.Z - a2a.Z;
-      v46.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+      v46.Normalize();
       this.Rotation.Vector(&a2a);
-      a2a.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+      a2a.Normalize();
       if ( fabs(a2a.Z * v46.Z + a2a.Y * v46.Y + v46.X * a2a.X) > this.VertigoEffectThreshold && this.MovementState == MOVE_Walking && this.CurrentWalkingState < WAS_Run )
       {
         v32 = E_TryCastTo<TdMove_Vertigo>(this.Moves[47]);
@@ -2807,7 +2807,7 @@ public partial class TdPlayerPawn
           nrml_AccelerationY = v16;
           v143.Z = v17;
         }
-        else if ( v196 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        else if ( v196 >= SMALL_NUMBER )
         {
           v194 = 3.0f;
           v151 = 0.5f;
@@ -2899,7 +2899,7 @@ public partial class TdPlayerPawn
           a4.Y = v38;
           a4.Z = v39;
         }
-        else if ( v37 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        else if ( v37 >= SMALL_NUMBER )
         {
           v194 = 3.0f;
           v151 = 0.5f;
@@ -3004,7 +3004,7 @@ public partial class TdPlayerPawn
               v177 = v168;
               v68 = v168;
             }
-            else if ( v65 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+            else if ( v65 >= SMALL_NUMBER )
             {
               v212 = 1077936128;
               v189[2] = 0.5f;
@@ -3176,7 +3176,7 @@ public partial class TdPlayerPawn
               v201 = v152;
               v102 = v152.Z;
             }
-            else if ( v101 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+            else if ( v101 >= SMALL_NUMBER )
             {
               v207 = 1077936128;
               v178 = 1056964608;
@@ -3255,7 +3255,7 @@ public partial class TdPlayerPawn
               }
               else
               {
-                if ( v112 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+                if ( v112 >= SMALL_NUMBER )
                 {
                   v209 = 1077936128;
                   v188 = 1056964608;
@@ -3512,7 +3512,7 @@ public partial class TdPlayerPawn
           }
           else
           {
-            if ( v127 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+            if ( v127 >= SMALL_NUMBER )
             {
               v208 = 1077936128;
               v193 = 1056964608;
@@ -3838,17 +3838,17 @@ public partial class TdPlayerPawn
 //    }
 //  }
 //
-  public override unsafe void TickSpecial(float a2)
+  public override unsafe void TickSpecial(float DeltaSeconds)
   {
     float v3 = default; // xmm0_4
     float v4 = default; // xmm0_4
   
-    base.TickSpecial(a2);
-    UpdateReverb_Probably(a2);
+    base.TickSpecial(DeltaSeconds);
+    UpdateReverb_Probably(DeltaSeconds);
     v3 = this.GravityModifierTimer;
     if ( v3 > 0.0f )
     {
-      v4 = v3 - a2;
+      v4 = v3 - DeltaSeconds;
       this.GravityModifierTimer = v4;
       if ( v4 < 0.0f )
         this.GravityModifier = 1.0f;

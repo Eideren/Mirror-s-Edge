@@ -62,7 +62,7 @@ public partial class TdMove_IntoGrab
         locDeltaXNrml = locDeltaX;
       }
     }
-    else if ( locDelta2DSqr >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( locDelta2DSqr >= SMALL_NUMBER )
     {
       v26 = 3.0f;
       iSqrt = 1.0f / fsqrt(locDelta2DSqr2);
@@ -214,7 +214,7 @@ public partial class TdMove_IntoGrab
               a3.X = v16;
               a3.Y = v15.MoveNormal.Y;
             }
-            else if ( v18 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+            else if ( v18 >= SMALL_NUMBER )
             {
               a3.X = 3.0f;
               v21 = 1.0f / fsqrt(v35);

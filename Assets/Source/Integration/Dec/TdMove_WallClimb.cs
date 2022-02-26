@@ -102,7 +102,7 @@ public partial class TdMove_WallClimb
       v53 = v8;
       v55 = v7;
     }
-    else if ( v9 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v9 >= SMALL_NUMBER )
     {
       v62 = 3.0f;
       v11 = 1.0f / fsqrt(v63);
@@ -146,7 +146,7 @@ public partial class TdMove_WallClimb
     }
     else
     {
-      if ( v17 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v17 >= SMALL_NUMBER )
       {
         v63 = 3.0f;
         v20 = 1.0f / fsqrt(v62);
@@ -201,7 +201,7 @@ public partial class TdMove_WallClimb
         goto LABEL_40;
       }
     }
-    else if ( v26 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v26 >= SMALL_NUMBER )
     {
       v63 = 3.0f;
       v30 = 1.0f / fsqrt(v62);
@@ -239,7 +239,7 @@ public partial class TdMove_WallClimb
         goto LABEL_47;
       }
     }
-    else if ( v35 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v35 >= SMALL_NUMBER )
     {
       v63 = 3.0f;
       v40 = fsqrt(v62);
@@ -279,7 +279,7 @@ public partial class TdMove_WallClimb
       v56 = v44;
       goto LABEL_56;
     }
-    if ( v45 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    if ( v45 >= SMALL_NUMBER )
     {
       v63 = 3.0f;
       v46 = 1.0f / fsqrt(v62);
@@ -336,7 +336,7 @@ public partial class TdMove_WallClimb
         {
           v14 = v6.Velocity;
         }
-        else if ( v11 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        else if ( v11 >= SMALL_NUMBER )
         {
           v12 = 1.0f / fsqrt(v11);
           v15 = (float)(3.0f - (float)((float)(v12 * v11) * v12)) * (float)(v12 * 0.5f);

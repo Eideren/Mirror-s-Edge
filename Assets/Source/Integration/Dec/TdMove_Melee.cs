@@ -15,9 +15,9 @@ public partial class TdMove_Melee
     Vector a4_nrml = default; // [esp+10h] [ebp-Ch] BYREF
   
     threshold = threshold * 0.017453292f;          // degrees to radians, 180.3f.14...
-    arg2.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+    arg2.Normalize();
     a4_nrml = arg1;
-    a4_nrml.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+    a4_nrml.Normalize();
     if ( (float)((float)((float)(a4_nrml.Y * arg2.Y) + (float)(arg2.Z * a4_nrml.Z)) + (float)(arg2.X * a4_nrml.X)) < threshold )// Comparing result of a dot ([-1,1] when normalized) to a radian ([0, 6.28f]) ?!
     {                                             // This equates to:
                                                   // a4_nrml = SafeNormal(arg1 - arg2 * dot(arg1, arg2));
@@ -27,12 +27,12 @@ public partial class TdMove_Melee
       a4_nrml.X = arg1.X - (float)(arg2.X * v5);
       a4_nrml.Y = arg1.Y - (float)(arg2.Y * v5);
       a4_nrml.Z = arg1.Z - (float)(arg2.Z * v5);
-      a4_nrml.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+      a4_nrml.Normalize();
       threshold = (float)sin(threshold);
       a4_nrml.X = (float)(a4_nrml.X * threshold) + arg2.X;
       a4_nrml.Y = (float)(a4_nrml.Y * threshold) + arg2.Y;
       a4_nrml.Z = (float)(a4_nrml.Z * threshold) + arg2.Z;
-      a4_nrml.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+      a4_nrml.Normalize();
       result = out_arg;
       threshold = (float)sqrt(arg1.Y * arg1.Y + arg1.Z * arg1.Z + arg1.X * arg1.X);
       arg1_length = threshold;
@@ -142,7 +142,7 @@ public partial class TdMove_Melee
           v25.X = v14;
           v25.Y = v15;
           v25.Z = v16;
-          v25.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+          v25.Normalize();
           v17 = this.PawnOwner;
           v18 = this.HitDetectionStart.X + (float)(v25.X * 10.0f);
           v25.Y = this.HitDetectionStart.Y + (float)(v25.Y * 10.0f);

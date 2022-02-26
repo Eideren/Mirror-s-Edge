@@ -158,7 +158,7 @@ public partial class TdMove_WallRun
     }
     else
     {
-      if ( v15 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v15 < SMALL_NUMBER )
         return false;
       v62.X = 3.0f;
       v64 = 0.5f;
@@ -180,7 +180,7 @@ public partial class TdMove_WallRun
     v62.X = v18 * v21;
     v62.Y = v19 * v21;
     v62.Z = v20 * v21;
-    v62.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+    v62.Normalize();
     v22 = this.WallRunningVelocityStartLimit;
     v23 = this.WallRunningHorisontalAlignSpeed;
     v67.Z = v22 * v62.Z;
@@ -208,7 +208,7 @@ public partial class TdMove_WallRun
       v70.Y = v28;
       goto LABEL_29;
     }
-    if ( v29 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    if ( v29 >= SMALL_NUMBER )
     {
       v62.X = 3.0f;
       v64 = 0.5f;
@@ -264,7 +264,7 @@ public partial class TdMove_WallRun
       v62.Y = v40;
       goto LABEL_39;
     }
-    if ( v41 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    if ( v41 >= SMALL_NUMBER )
     {
       v65 = 0.5f;
       v42 = 1.0f / fsqrt(v66.X);
@@ -301,7 +301,7 @@ public partial class TdMove_WallRun
       v62.Y = v43;
       goto LABEL_49;
     }
-    if ( v46 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    if ( v46 >= SMALL_NUMBER )
     {
       v65 = 0.5f;
       v47 = 1.0f / fsqrt(v66.X);
@@ -331,7 +331,7 @@ public partial class TdMove_WallRun
     v64 = (float)((v48 * sqrt(1.0f - v64) * 0.82842702d + 1.0f) * a5.X);
     if ( v50 != 1.0f )
     {
-      if ( v50 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v50 < SMALL_NUMBER )
       {
         v52 = 0.0f;
         v53 = 0.0f;
@@ -560,7 +560,7 @@ public partial class TdMove_WallRun
     v75.X = v12 * v15;
     v75.Y = v13 * v15;
     v75.Z = v15 * v14;
-    v75.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+    v75.Normalize();
     v16 = this.PawnOwner;
     v17 = v16.Velocity.Y;
     v18 = v16.Velocity.Z;
@@ -578,7 +578,7 @@ public partial class TdMove_WallRun
       v24 = 0.0f;
       goto LABEL_24;
     }
-    if ( v21 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    if ( v21 >= SMALL_NUMBER )
     {
       v78.X = 3.0f;
       v25 = 1.0f / fsqrt(v87);
@@ -628,7 +628,7 @@ public partial class TdMove_WallRun
       v78.Y = v29;
       goto LABEL_36;
     }
-    if ( v30 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    if ( v30 >= SMALL_NUMBER )
     {
       v87 = 3.0f;
       v32 = 1.0f / fsqrt(v75.X);
@@ -676,7 +676,7 @@ public partial class TdMove_WallRun
       v63.Y = v38;
       goto LABEL_46;
     }
-    if ( v39 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    if ( v39 >= SMALL_NUMBER )
     {
       v87 = 3.0f;
       v40 = 1.0f / fsqrt(v39);
@@ -711,7 +711,7 @@ public partial class TdMove_WallRun
     }
     else
     {
-      if ( v44 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v44 < SMALL_NUMBER )
       {
         v64 = 0.0f;
         v65 = 0.0f;
@@ -739,7 +739,7 @@ public partial class TdMove_WallRun
     v70 = (float)((v46 * sqrt(1.0f - v69) * 0.82842702d + 1.0f) * a5.X);
     if ( v48 != 1.0f )
     {
-      if ( v48 < 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      if ( v48 < SMALL_NUMBER )
       {
         v49 = 0.0f;
         v50 = 0.0f;
@@ -904,7 +904,7 @@ public partial class TdMove_WallRun
             v20 = v16;
           }
         }
-        else if ( v19 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        else if ( v19 >= SMALL_NUMBER )
         {
           v21 = 1.0f / fsqrt(v33);
           rotator_then_vec.X = (float)(3.0f - (float)((float)(v21 * v33) * v21)) * (float)(v21 * 0.5f);

@@ -164,7 +164,7 @@ public partial class TdMove_ZipLine
       }
       else
       {
-        if ( v4 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        if ( v4 >= SMALL_NUMBER )
         {
           v133 = 3.0f;
           v7 = 1.0f / fsqrt(v132.X);
@@ -259,7 +259,7 @@ public partial class TdMove_ZipLine
         v32 = v132.Y;
         v33 = v132.Z;
       }
-      else if ( v124 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      else if ( v124 >= SMALL_NUMBER )
       {
         v132.X = 3.0f;
         v34 = fsqrt(v140);
@@ -296,7 +296,7 @@ public partial class TdMove_ZipLine
           v40 = v37;
           v41 = v38;
         }
-        else if ( v133 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        else if ( v133 >= SMALL_NUMBER )
         {
           v140 = 3.0f;
           v42 = fsqrt(v133);
@@ -337,7 +337,7 @@ public partial class TdMove_ZipLine
       }
       else
       {
-        if ( v51 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        if ( v51 >= SMALL_NUMBER )
         {
           v140 = 3.0f;
           v55 = 1.0f / fsqrt(v133);
@@ -401,7 +401,7 @@ public partial class TdMove_ZipLine
             v135 = v88;
             v92 = v88;
           }
-          else if ( v85 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+          else if ( v85 >= SMALL_NUMBER )
           {
             v140 = 3.0f;
             v93 = fsqrt(v133);
@@ -433,7 +433,7 @@ public partial class TdMove_ZipLine
             v135 = v96;
             v92 = v96;
           }
-          else if ( v85 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+          else if ( v85 >= SMALL_NUMBER )
           {
             v140 = 3.0f;
             v97 = fsqrt(v133);
@@ -473,7 +473,7 @@ public partial class TdMove_ZipLine
           v135 = v75;
           v78 = v75;
         }
-        else if ( v72 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+        else if ( v72 >= SMALL_NUMBER )
         {
           v140 = 3.0f;
           v79 = fsqrt(v133);
@@ -549,7 +549,7 @@ public partial class TdMove_ZipLine
         v135 = v108;
         v110 = v108;
       }
-      else if ( v105 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      else if ( v105 >= SMALL_NUMBER )
       {
         v140 = 3.0f;
         v113 = fsqrt(v133);

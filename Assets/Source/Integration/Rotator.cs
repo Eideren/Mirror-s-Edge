@@ -26,12 +26,17 @@
             // Returns rotation matching the vector's direction
             public static explicit operator Rotator( Vector v )
             {
-                // This has not been decompiled, could not find the source, just tested as matching when doing the same operation over in UDK
-                v = v.SafeNormal();
-                Rotator R;
-                R.Yaw = (int)(atan2(v.Y,v.X) * 65536f / 2f / PI);
-                R.Pitch = (int)(atan2(v.Z,Sqrt(v.X*v.X+v.Y*v.Y)) * 65536f / 2f / PI);
+                Rotator R = default;
+
+                // Find yaw.
+                R.Yaw = appRound(appAtan2(v.Y,v.X) * (float)MAXWORD / (2f*PI));
+
+                // Find pitch.
+                R.Pitch = appRound(appAtan2(v.Z,appSqrt(v.X*v.X+v.Y*v.Y)) * (float)MAXWORD / (2f*PI));
+
+                // Find roll.
                 R.Roll = 0;
+
                 return R;
             }
             

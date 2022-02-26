@@ -1116,7 +1116,7 @@ LABEL_11:
       if ( sqrt(vel.Y * vel.Y + X * X) > 0.00000001d )
       {
         vel.Z = 0.0f;
-        vel.SafeNormal( 0.0000000099999999f );
+        vel.Normalize();
         rotMat = FRotationMatrix(pawn2.Rotation);
         invRotMat = VectorMatrixInverse(rotMat);
         newY = (float)((float)((float)(invRotMat.YPlane.X * vel.Y) + (float)(invRotMat.XPlane.X * vel.X))
@@ -1639,111 +1639,111 @@ public partial class TdAnimNodeDirBone
 {
   public override void TickAnim(float DeltaTime, float TotalWeight)
   {
-    TdPawn pawn; // eax
-    TdPawn pawn2; // esi
-    int GoBackLegAngleLimitMax; // eax
-    int GoBackLegAngleLimitMin; // ecx
-    float newAimX; // xmm0_4
-    float newAimX2; // xmm1_4
-    TdAIController tdAiController; // eax
-    int Pitch; // eax
-    float Y; // xmm0_4
-    Controller  Controller; // eax
-  
-    pawn = E_TryCastTo<TdPawn>(this.SkelComponent.Owner);
-    pawn2 = pawn;
-    if ( pawn == null )
+  TdPawn pawn; // eax
+  TdPawn pawn2; // esi
+  int rotDiff; // eax
+  int scaler; // ecx
+  float aimX; // xmm0_4
+  float clampVal; // xmm1_4
+  TdAIController v10; // eax
+  int controllerRotDiff; // eax
+  float aimY; // xmm0_4
+  Controller controller; // eax
+
+  pawn = (this.SkelComponent.Owner) as TdPawn;
+  pawn2 = pawn;
+  if ( !pawn )
+  {
+    if ( this.bUsePitch )
+    {
+      aimY = this.Aim.Y;
+      goto LABEL_35;
+    }
+    goto LABEL_34;
+  }
+  rotDiff = (UInt16)(LOWORD(pawn.LegRotation) - LOWORD(pawn.Rotation.Yaw));
+  if ( (UInt16)(LOWORD(pawn2.LegRotation) - LOWORD(pawn2.Rotation.Yaw)) > 0x7FFFu )
+    rotDiff -= 0x10000;
+  scaler = pawn2.GoBackLegAngleLimitMin;
+  if ( rotDiff < scaler )
+    rotDiff = pawn2.GoBackLegAngleLimitMin;
+  if ( rotDiff > pawn2.GoBackLegAngleLimitMax )
+    rotDiff = pawn2.GoBackLegAngleLimitMax;
+  if ( rotDiff < 0 )
+  {
+    if ( scaler < 0 )
+      scaler = -scaler;
+  }
+  else
+  {
+    scaler = pawn2.GoBackLegAngleLimitMax;
+  }
+  if ( scaler <= 1 )
+    scaler = 1;
+  aimX = (float)rotDiff / (float)scaler;
+  this.Aim.X = aimX;
+  if ( pawn2.MovementState == TdPawn.EMovement.MOVE_Crouch )
+  {
+    clampVal = -0.69999999f;
+    if ( aimX >= -0.69999999f )
+    {
+      clampVal = 0.69999999f;
+      goto LABEL_19;
+    }
+  }
+  else
+  {
+    clampVal = -1.0f;
+    if ( aimX >= -1.0 )
+    {
+      clampVal = 1.0f;
+      goto LABEL_19;
+    }
+  }
+LABEL_20:
+  aimX = clampVal;
+LABEL_21:
+  this.Aim.X = aimX;
+  v10 = (pawn2.Controller) as TdAIController;
+  if ( !v10 )
+  {
+    controller = pawn2.Controller;
+    if ( controller )
     {
       if ( this.bUsePitch )
       {
-        Y = this.Aim.Y;
-        goto LABEL_35;
-      }
-      Y = 0.0f;
-      goto LABEL_35;
-    }
-    GoBackLegAngleLimitMax = (ushort)(LOWORD(pawn.LegRotation) - LOWORD(pawn.Rotation.Yaw));
-    if ( (ushort)(LOWORD(pawn2.LegRotation) - LOWORD(pawn2.Rotation.Yaw)) > 32767u )
-      GoBackLegAngleLimitMax -= 65536;
-    GoBackLegAngleLimitMin = pawn2.GoBackLegAngleLimitMin;
-    if ( GoBackLegAngleLimitMax < GoBackLegAngleLimitMin )
-      GoBackLegAngleLimitMax = pawn2.GoBackLegAngleLimitMin;
-    if ( GoBackLegAngleLimitMax > pawn2.GoBackLegAngleLimitMax )
-      GoBackLegAngleLimitMax = pawn2.GoBackLegAngleLimitMax;
-    if ( GoBackLegAngleLimitMax < 0 )
-    {
-      if ( GoBackLegAngleLimitMin < 0 )
-        GoBackLegAngleLimitMin = -GoBackLegAngleLimitMin;
-    }
-    else
-    {
-      GoBackLegAngleLimitMin = pawn2.GoBackLegAngleLimitMax;
-    }
-    if ( GoBackLegAngleLimitMin <= 1 )
-      GoBackLegAngleLimitMin = 1;
-    newAimX = (float)GoBackLegAngleLimitMax / (float)GoBackLegAngleLimitMin;
-    this.Aim.X = newAimX;
-    if ( pawn2.MovementState == TdPawn.EMovement.MOVE_Crouch )
-    {
-      newAimX2 = -0.69999999f;
-      if ( newAimX >= -0.69999999d )
-      {
-        newAimX2 = 0.69999999f;
-        if ( newAimX2 >= newAimX )
-          goto LABEL_21;
-        newAimX = newAimX2;
-        goto LABEL_21;
-      }
-    }
-    else
-    {
-      newAimX2 = -1.0f;
-      if ( newAimX >= -1.0f )
-      {
-        newAimX2 = 1.0f;
-  LABEL_19:
-        if ( newAimX2 >= newAimX )
-          goto LABEL_21;
-      }
-    }
-    newAimX = newAimX2;
-  LABEL_21:
-    this.Aim.X = newAimX;
-    tdAiController = E_TryCastTo<TdAIController>(pawn2.Controller);
-    if ( tdAiController == null )
-    {
-      Controller = pawn2.Controller;
-      if ( Controller )
-      {
-        if ( this.bUsePitch )
-        {
-          Pitch = Controller.Rotation.Pitch - pawn2.Rotation.Pitch;
-          goto LABEL_24;
-        }
-      }
-      else if ( this.bUsePitch )
-      {
-        Pitch = (pawn2.RemoteViewPitch << 8) - pawn2.Rotation.Pitch;
+        controllerRotDiff = controller.Rotation.Pitch - pawn2.Rotation.Pitch;
         goto LABEL_24;
       }
-  LABEL_34:
-      Y = 0.0f;
-      goto LABEL_35;
     }
-    if( this.bUsePitch == false )
+    else if ( this.bUsePitch )
     {
-      Y = 0.0f;
-      goto LABEL_35;
+      controllerRotDiff = (pawn2.RemoteViewPitch << 8) - pawn2.Rotation.Pitch;
+      goto LABEL_24;
     }
-    Pitch = tdAiController.AimingRotation.Pitch;
-  LABEL_24:
-    Pitch = (ushort)Pitch;
-    if ( (ushort)Pitch > 32767u )
-      Pitch = (ushort)Pitch - 65536;
-    Y = (float)Pitch * 0.000061035156f;
-  LABEL_35:
-    this.Aim.Y = Y;
-    base.TickAnim(DeltaTime, TotalWeight);
+    goto LABEL_34;
+  }
+  if ( this.bUsePitch == false )
+    goto LABEL_34;
+  controllerRotDiff = v10.AimingRotation.Pitch;
+LABEL_24:
+  controllerRotDiff = (UInt16)controllerRotDiff;
+  if ( (UInt16)controllerRotDiff > 0x7FFFu )
+    controllerRotDiff = (UInt16)controllerRotDiff - 0x10000;
+  aimY = (float)controllerRotDiff * 0.000061035156f;
+LABEL_35:
+  this.Aim.Y = aimY;
+  base.TickAnim(DeltaTime, TotalWeight);
+  return;
+  
+  LABEL_34:
+  aimY = 0.0f;
+  goto LABEL_35;
+  
+  LABEL_19:
+  if ( clampVal >= aimX )
+    goto LABEL_21;
+  goto LABEL_20;
   }
 #region src
 /*

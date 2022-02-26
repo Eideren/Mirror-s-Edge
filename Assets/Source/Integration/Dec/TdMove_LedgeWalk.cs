@@ -111,7 +111,7 @@ public partial class TdMove_LedgeWalk
       v49.Y = v18;
       goto LABEL_9;
     }
-    if ( v21 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    if ( v21 >= SMALL_NUMBER )
     {
       v59 = 3.0f;
       v22 = 1.0f / fsqrt(v60);
@@ -144,7 +144,7 @@ public partial class TdMove_LedgeWalk
       }
       v25 = v53.X;
     }
-    else if ( v24 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v24 >= SMALL_NUMBER )
     {
       v60 = 3.0f;
       v27 = 1.0f / fsqrt(v59);
@@ -194,7 +194,7 @@ public partial class TdMove_LedgeWalk
       v38 = a2.Y;
       v39 = a2.Z;
     }
-    else if ( v36 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v36 >= SMALL_NUMBER )
     {
       v60 = 3.0f;
       v40 = 1.0f / fsqrt(v59);

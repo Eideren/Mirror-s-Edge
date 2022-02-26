@@ -189,7 +189,7 @@ public partial class TdSkelControlFootPlacement
       v34 = 0.0f;
       goto LABEL_7;
     }
-    if ( v32 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    if ( v32 >= SMALL_NUMBER )
     {
       v106 = 0.5f;
       v35 = fsqrt(v127.X);
@@ -362,7 +362,7 @@ public partial class TdSkelControlFootPlacement
       {
         v111 = a2;
       }
-      else if ( v81 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      else if ( v81 >= SMALL_NUMBER )
       {
         v127.X = 3.0f;
         Angle = 0.5f;

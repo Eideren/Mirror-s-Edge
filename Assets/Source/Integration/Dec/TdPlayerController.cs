@@ -44,7 +44,7 @@ public partial class TdPlayerController
       v7 = v14;
       v8 = v15;
     }
-    else if ( v5 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( v5 >= SMALL_NUMBER )
     {
       v9 = fsqrt(v18);
       v16 = (float)(3.0f - (float)((float)((float)(1.0f / v9) * v18) * (float)(1.0f / v9))) * (float)((float)(1.0f / v9) * 0.5f);

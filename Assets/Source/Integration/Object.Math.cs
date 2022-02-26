@@ -5,7 +5,8 @@
 
 
 	public partial class Object
-    {
+	{
+		public const uint MAXWORD = 0xffffU;
 	    public const float PI = (3.1415926535897932f);
 	    public const float SMALL_NUMBER = (1e-8f);
 	    public const float KINDA_SMALL_NUMBER = (1e-4f);

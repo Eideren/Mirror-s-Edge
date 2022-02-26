@@ -263,7 +263,7 @@ public partial class TdPhysicsMove
       rotXDirXNorm = rotXDirX;
       rotXDirYNorm = rotXDirection->Y;
     }
-    else if ( rotVertMag >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( rotVertMag >= SMALL_NUMBER )
     {
       v118 = 3.0f;
       v14 = 1.0f / fsqrt(rotVertMag);
@@ -301,7 +301,7 @@ public partial class TdPhysicsMove
         v27 = rotXDirection2.Z;
         rotXDirection2.Y = v26;
       }
-      else if ( v25 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      else if ( v25 >= SMALL_NUMBER )
       {
         v118 = 3.0f;
         v28 = 1.0f / fsqrt(rotVertMag);
@@ -337,7 +337,7 @@ public partial class TdPhysicsMove
       }
       v34 = v29->Y;
     }
-    else if ( rotVertMag >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+    else if ( rotVertMag >= SMALL_NUMBER )
     {
       v118 = 3.0f;
       v36 = fsqrt(rotVertMag);
@@ -512,7 +512,7 @@ public partial class TdPhysicsMove
             v104 = v98;
             v105 = v99;
           }
-          else if ( v61 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+          else if ( v61 >= SMALL_NUMBER )
           {
             v141 = 1077936128;
             v125 = 1056964608;
@@ -552,7 +552,7 @@ public partial class TdPhysicsMove
             }
             else
             {
-              if ( v63 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+              if ( v63 >= SMALL_NUMBER )
               {
                 v146 = 1077936128;
                 v126 = 1056964608;
@@ -588,7 +588,7 @@ public partial class TdPhysicsMove
             }
             else
             {
-              if ( v66 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+              if ( v66 >= SMALL_NUMBER )
               {
                 v145 = 1077936128;
                 v123 = 1056964608;

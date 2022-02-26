@@ -95,7 +95,7 @@ public partial class TdMove_Swing
     a2->Z = v17;
     v20.X = v12;
     v20.Z = v18;
-    v20.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);// Wth is going on here, v20 is a locally declared variable, which is normalized and not used anywhere ?
+    v20.Normalize();// Wth is going on here, v20 is a locally declared variable, which is normalized and not used anywhere ?
     return a2;
   }
 
@@ -179,7 +179,7 @@ fixed(Vector* ptr4 =&v9.Location)
     v9.Z = rot_then_vec.Z;
     v9.X = rot_then_vec.X;
     v9.Y = 0.0f;
-    v9.SafeNormal(0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/);
+    v9.Normalize();
     v3 = -1.0f;
     if ( v9.Z <= 0.0f )
     {
