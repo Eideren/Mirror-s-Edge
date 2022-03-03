@@ -16,9 +16,20 @@ public partial class AnimNotify_Scripted : AnimNotify/*
 
 
 
-	public override /*event */ void Notify( AnimNodeSequence AnimSeqInstigator )
+	public override /*event */ void Notify( AnimNodeSequence NodeSeq )
 	{
-		NativeMarkers.MarkUnimplemented();
+		Actor Owner = NodeSeq.SkelComponent.GetOwner();
+		if( Owner )
+		{
+			/*if( !GWorld->HasBegunPlay() )
+			{
+				debugf( NAME_Log, TEXT("Editor: skipping AnimNotify_Scripted %s"), *GetName() );
+			}
+			else*/
+			{
+				Notify( Owner, NodeSeq );
+			}
+		}
 	}
 
 }

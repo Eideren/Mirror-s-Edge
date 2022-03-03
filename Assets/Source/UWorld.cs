@@ -150,6 +150,8 @@
                 }
                 p?.Update(deltaTime);
             }
+
+            UpdateMixes();
             
             _actorsThisFrame.Clear();
             while( ScheduleInMainLoop.TryDequeue( out var a ) )
