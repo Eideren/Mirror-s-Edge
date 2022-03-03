@@ -1,0 +1,83 @@
+Begin Object Class=SoundCue Name=_24_Female_HandStepSlowRelease ObjName=_24_Female_HandStepSlowRelease Archetype=SoundCue'Engine.Default__SoundCue'
+   Begin Object Class=TdSoundNodeMixGroup Name=TdSoundNodeMixGroup_3 ObjName=TdSoundNodeMixGroup_3 Archetype=TdSoundNodeMixGroup'TdGame.Default__TdSoundNodeMixGroup'
+      MixGroups(0)="CharacterSounds"
+      MixGroupIDs(0)=2
+      MixGroupIDs(1)=2
+      MixGroupIDs(2)=2
+      MixGroupIDs(3)=2
+      ChildNodes(0)=SoundNodeAttenuation'SoundNodeAttenuation_3'
+      Name="TdSoundNodeMixGroup_3"
+      ObjectArchetype=TdSoundNodeMixGroup'TdGame.Default__TdSoundNodeMixGroup'
+   End Object
+   Begin Object Class=SoundNodeRandom Name=SoundNodeRandom_4 ObjName=SoundNodeRandom_4 Archetype=SoundNodeRandom'Engine.Default__SoundNodeRandom'
+      Weights(0)=1.000000
+      Weights(1)=1.000000
+      Weights(2)=1.000000
+      ChildNodes(0)=SoundNodeWave'ConcreteHandStepFastRelease_03'
+      ChildNodes(1)=SoundNodeWave'ConcreteHandStepFastRelease_01'
+      ChildNodes(2)=SoundNodeWave'ConcreteHandStepFastRelease_02'
+      Name="SoundNodeRandom_4"
+      ObjectArchetype=SoundNodeRandom'Engine.Default__SoundNodeRandom'
+   End Object
+   Begin Object Class=SoundNodeModulator Name=SoundNodeModulator_3 ObjName=SoundNodeModulator_3 Archetype=SoundNodeModulator'Engine.Default__SoundNodeModulator'
+      Begin Object Class=DistributionFloatUniform Name=DistributionVolume ObjName=DistributionFloatUniform_12 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeModulator:DistributionVolume'
+         Min=0.700000
+         Max=0.800000
+         bIsDirty=False
+         Name="DistributionFloatUniform_12"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeModulator:DistributionVolume'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionPitch ObjName=DistributionFloatUniform_13 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeModulator:DistributionPitch'
+         Min=0.700000
+         Max=0.800000
+         bIsDirty=False
+         Name="DistributionFloatUniform_13"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeModulator:DistributionPitch'
+      End Object
+      VolumeModulation=(Distribution=DistributionFloatUniform'DistributionFloatUniform_12',LookupTable=(0.700000,0.800000,0.700000,0.800000,0.700000,0.800000))
+      PitchModulation=(Distribution=DistributionFloatUniform'DistributionFloatUniform_13',LookupTable=(0.700000,0.800000,0.700000,0.800000,0.700000,0.800000))
+      ChildNodes(0)=SoundNodeRandom'SoundNodeRandom_4'
+      Name="SoundNodeModulator_3"
+      ObjectArchetype=SoundNodeModulator'Engine.Default__SoundNodeModulator'
+   End Object
+   Begin Object Class=SoundNodeAttenuation Name=SoundNodeAttenuation_3 ObjName=SoundNodeAttenuation_3 Archetype=SoundNodeAttenuation'Engine.Default__SoundNodeAttenuation'
+      Begin Object Class=DistributionFloatUniform Name=DistributionMinRadius ObjName=DistributionFloatUniform_14 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMinRadius'
+         Min=1.000000
+         Max=1.000000
+         bIsDirty=False
+         Name="DistributionFloatUniform_14"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMinRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionMaxRadius ObjName=DistributionFloatUniform_15 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMaxRadius'
+         Min=200.000000
+         Max=200.000000
+         bIsDirty=False
+         Name="DistributionFloatUniform_15"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMaxRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionLPFMinRadius ObjName=DistributionFloatUniform_80 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMinRadius'
+         bIsDirty=False
+         Name="DistributionFloatUniform_80"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMinRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionLPFMaxRadius ObjName=DistributionFloatUniform_81 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMaxRadius'
+         bIsDirty=False
+         Name="DistributionFloatUniform_81"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMaxRadius'
+      End Object
+      DistanceModel=ATTENUATION_Logarithmic
+      MinRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_14',LookupTable=(1.000000,1.000000,1.000000,1.000000,1.000000,1.000000))
+      MaxRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_15',LookupTable=(200.000000,200.000000,200.000000,200.000000,200.000000,200.000000))
+      LPFMinRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_80')
+      LPFMaxRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_81')
+      ChildNodes(0)=SoundNodeModulator'SoundNodeModulator_3'
+      Name="SoundNodeAttenuation_3"
+      ObjectArchetype=SoundNodeAttenuation'Engine.Default__SoundNodeAttenuation'
+   End Object
+   SoundGroup="InGameSFX"
+   FirstNode=TdSoundNodeMixGroup'TdSoundNodeMixGroup_3'
+   VolumeMultiplier=0.100000
+   Duration=0.203175
+   Name="_24_Female_HandStepSlowRelease"
+   ObjectArchetype=SoundCue'Engine.Default__SoundCue'
+End Object

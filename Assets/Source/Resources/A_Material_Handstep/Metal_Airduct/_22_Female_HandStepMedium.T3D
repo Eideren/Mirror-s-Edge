@@ -1,0 +1,154 @@
+Begin Object Class=SoundCue Name=_22_Female_HandStepMedium ObjName=_22_Female_HandStepMedium Archetype=SoundCue'Engine.Default__SoundCue'
+   Begin Object Class=TdSoundNodeMixGroup Name=TdSoundNodeMixGroup_1 ObjName=TdSoundNodeMixGroup_1 Archetype=TdSoundNodeMixGroup'TdGame.Default__TdSoundNodeMixGroup'
+      MixGroups(0)="CharacterSounds"
+      MixGroupIDs(0)=2
+      MixGroupIDs(1)=2
+      MixGroupIDs(2)=2
+      MixGroupIDs(3)=2
+      MixGroupIDs(4)=2
+      MixGroupIDs(5)=2
+      ChildNodes(0)=SoundNodeAttenuation'SoundNodeAttenuation_1'
+      Name="TdSoundNodeMixGroup_1"
+      ObjectArchetype=TdSoundNodeMixGroup'TdGame.Default__TdSoundNodeMixGroup'
+   End Object
+   Begin Object Class=SoundNodeRandom Name=SoundNodeRandom_1 ObjName=SoundNodeRandom_1 Archetype=SoundNodeRandom'Engine.Default__SoundNodeRandom'
+      Weights(0)=1.000000
+      Weights(1)=1.000000
+      Weights(2)=1.000000
+      Weights(3)=1.000000
+      ChildNodes(0)=SoundNodeWave'ConcreteHandStepSoft_01'
+      ChildNodes(1)=SoundNodeWave'ConcreteHandStepSoft_02'
+      ChildNodes(2)=SoundNodeWave'ConcreteHandStepSoft_03'
+      ChildNodes(3)=SoundNodeWave'ConcreteHandStepSoft_04'
+      Name="SoundNodeRandom_1"
+      ObjectArchetype=SoundNodeRandom'Engine.Default__SoundNodeRandom'
+   End Object
+   Begin Object Class=SoundNodeRandom Name=SoundNodeRandom_0 ObjName=SoundNodeRandom_0 Archetype=SoundNodeRandom'Engine.Default__SoundNodeRandom'
+      Weights(0)=1.000000
+      Weights(1)=1.000000
+      Weights(2)=1.000000
+      ChildNodes(0)=SoundNodeWave'AirDuctHandstepMed_04'
+      ChildNodes(1)=SoundNodeWave'AirDuctHandstepMed_05'
+      ChildNodes(2)=SoundNodeWave'AirDuctHandstepMed_08'
+      Name="SoundNodeRandom_0"
+      ObjectArchetype=SoundNodeRandom'Engine.Default__SoundNodeRandom'
+   End Object
+   Begin Object Class=SoundNodeMixer Name=SoundNodeMixer_0 ObjName=SoundNodeMixer_0 Archetype=SoundNodeMixer'Engine.Default__SoundNodeMixer'
+      InputVolume(0)=0.200000
+      InputVolume(1)=5.000000
+      ChildNodes(0)=SoundNodeModulator'SoundNodeModulator_1'
+      ChildNodes(1)=TdSoundNodeADSR'TdSoundNodeADSR_3'
+      Name="SoundNodeMixer_0"
+      ObjectArchetype=SoundNodeMixer'Engine.Default__SoundNodeMixer'
+   End Object
+   Begin Object Class=TdSoundNodeADSR Name=TdSoundNodeADSR_3 ObjName=TdSoundNodeADSR_3 Archetype=TdSoundNodeADSR'TdGame.Default__TdSoundNodeADSR'
+      Begin Object Class=DistributionFloatUniform Name=DistributionAttack ObjName=DistributionFloatUniform_18 Archetype=DistributionFloatUniform'TdGame.Default__TdSoundNodeADSR:DistributionAttack'
+         Min=0.500000
+         Max=0.500000
+         bIsDirty=False
+         Name="DistributionFloatUniform_18"
+         ObjectArchetype=DistributionFloatUniform'TdGame.Default__TdSoundNodeADSR:DistributionAttack'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionDecay ObjName=DistributionFloatUniform_19 Archetype=DistributionFloatUniform'TdGame.Default__TdSoundNodeADSR:DistributionDecay'
+         bIsDirty=False
+         Name="DistributionFloatUniform_19"
+         ObjectArchetype=DistributionFloatUniform'TdGame.Default__TdSoundNodeADSR:DistributionDecay'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionSustain ObjName=DistributionFloatUniform_20 Archetype=DistributionFloatUniform'TdGame.Default__TdSoundNodeADSR:DistributionSustain'
+         bIsDirty=False
+         Name="DistributionFloatUniform_20"
+         ObjectArchetype=DistributionFloatUniform'TdGame.Default__TdSoundNodeADSR:DistributionSustain'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionRelease ObjName=DistributionFloatUniform_21 Archetype=DistributionFloatUniform'TdGame.Default__TdSoundNodeADSR:DistributionRelease'
+         bIsDirty=False
+         Name="DistributionFloatUniform_21"
+         ObjectArchetype=DistributionFloatUniform'TdGame.Default__TdSoundNodeADSR:DistributionRelease'
+      End Object
+      Attack=(Distribution=DistributionFloatUniform'DistributionFloatUniform_18',LookupTable=(0.500000,0.500000,0.500000,0.500000,0.500000,0.500000))
+      Decay=(Distribution=DistributionFloatUniform'DistributionFloatUniform_19')
+      Sustain=(Distribution=DistributionFloatUniform'DistributionFloatUniform_20')
+      Release=(Distribution=DistributionFloatUniform'DistributionFloatUniform_21')
+      ChildNodes(0)=SoundNodeModulator'SoundNodeModulator_0'
+      Name="TdSoundNodeADSR_3"
+      ObjectArchetype=TdSoundNodeADSR'TdGame.Default__TdSoundNodeADSR'
+   End Object
+   Begin Object Class=SoundNodeModulator Name=SoundNodeModulator_1 ObjName=SoundNodeModulator_1 Archetype=SoundNodeModulator'Engine.Default__SoundNodeModulator'
+      Begin Object Class=DistributionFloatUniform Name=DistributionVolume ObjName=DistributionFloatUniform_4 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeModulator:DistributionVolume'
+         Min=1.000000
+         Max=1.200000
+         bIsDirty=False
+         Name="DistributionFloatUniform_4"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeModulator:DistributionVolume'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionPitch ObjName=DistributionFloatUniform_5 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeModulator:DistributionPitch'
+         Min=0.950000
+         Max=1.150000
+         bIsDirty=False
+         Name="DistributionFloatUniform_5"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeModulator:DistributionPitch'
+      End Object
+      VolumeModulation=(Distribution=DistributionFloatUniform'DistributionFloatUniform_4',LookupTable=(1.000000,1.200000,1.000000,1.200000,1.000000,1.200000))
+      PitchModulation=(Distribution=DistributionFloatUniform'DistributionFloatUniform_5',LookupTable=(0.950000,1.150000,0.950000,1.150000,0.950000,1.150000))
+      ChildNodes(0)=SoundNodeRandom'SoundNodeRandom_1'
+      Name="SoundNodeModulator_1"
+      ObjectArchetype=SoundNodeModulator'Engine.Default__SoundNodeModulator'
+   End Object
+   Begin Object Class=SoundNodeModulator Name=SoundNodeModulator_0 ObjName=SoundNodeModulator_0 Archetype=SoundNodeModulator'Engine.Default__SoundNodeModulator'
+      Begin Object Class=DistributionFloatUniform Name=DistributionVolume ObjName=DistributionFloatUniform_16 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeModulator:DistributionVolume'
+         bIsDirty=False
+         Name="DistributionFloatUniform_16"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeModulator:DistributionVolume'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionPitch ObjName=DistributionFloatUniform_17 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeModulator:DistributionPitch'
+         Min=0.980000
+         Max=1.010000
+         bIsDirty=False
+         Name="DistributionFloatUniform_17"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeModulator:DistributionPitch'
+      End Object
+      VolumeModulation=(Distribution=DistributionFloatUniform'DistributionFloatUniform_16')
+      PitchModulation=(Distribution=DistributionFloatUniform'DistributionFloatUniform_17',LookupTable=(0.980000,1.010000,0.980000,1.010000,0.980000,1.010000))
+      ChildNodes(0)=SoundNodeRandom'SoundNodeRandom_0'
+      Name="SoundNodeModulator_0"
+      ObjectArchetype=SoundNodeModulator'Engine.Default__SoundNodeModulator'
+   End Object
+   Begin Object Class=SoundNodeAttenuation Name=SoundNodeAttenuation_1 ObjName=SoundNodeAttenuation_1 Archetype=SoundNodeAttenuation'Engine.Default__SoundNodeAttenuation'
+      Begin Object Class=DistributionFloatUniform Name=DistributionMinRadius ObjName=DistributionFloatUniform_6 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMinRadius'
+         Min=100.000000
+         Max=100.000000
+         bIsDirty=False
+         Name="DistributionFloatUniform_6"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMinRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionMaxRadius ObjName=DistributionFloatUniform_7 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMaxRadius'
+         Min=800.000000
+         Max=800.000000
+         bIsDirty=False
+         Name="DistributionFloatUniform_7"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMaxRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionLPFMinRadius ObjName=DistributionFloatUniform_204 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMinRadius'
+         bIsDirty=False
+         Name="DistributionFloatUniform_204"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMinRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionLPFMaxRadius ObjName=DistributionFloatUniform_205 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMaxRadius'
+         bIsDirty=False
+         Name="DistributionFloatUniform_205"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMaxRadius'
+      End Object
+      MinRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_6',LookupTable=(100.000000,100.000000,100.000000,100.000000,100.000000,100.000000))
+      MaxRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_7',LookupTable=(800.000000,800.000000,800.000000,800.000000,800.000000,800.000000))
+      LPFMinRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_204')
+      LPFMaxRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_205')
+      ChildNodes(0)=SoundNodeMixer'SoundNodeMixer_0'
+      Name="SoundNodeAttenuation_1"
+      ObjectArchetype=SoundNodeAttenuation'Engine.Default__SoundNodeAttenuation'
+   End Object
+   SoundGroup="InGameSFX"
+   FirstNode=TdSoundNodeMixGroup'TdSoundNodeMixGroup_1'
+   VolumeMultiplier=1.500000
+   Duration=0.348730
+   Name="_22_Female_HandStepMedium"
+   ObjectArchetype=SoundCue'Engine.Default__SoundCue'
+End Object

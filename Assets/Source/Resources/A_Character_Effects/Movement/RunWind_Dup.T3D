@@ -1,0 +1,179 @@
+Begin Object Class=SoundCue Name=RunWind_Dup ObjName=RunWind_Dup Archetype=SoundCue'Engine.Default__SoundCue'
+   Begin Object Class=SoundNodeModulatorContinuous Name=SoundNodeModulatorContinuous_0 ObjName=SoundNodeModulatorContinuous_0 Archetype=SoundNodeModulatorContinuous'Engine.Default__SoundNodeModulatorContinuous'
+      Begin Object Class=DistributionFloatSoundParameter Name=DistributionFloatSoundParameter_0 ObjName=DistributionFloatSoundParameter_0 Archetype=DistributionFloatSoundParameter'Engine.Default__DistributionFloatSoundParameter'
+         ParameterName="CharacterSpeedModulatorParam"
+         MinInput=0.500000
+         bIsDirty=False
+         Name="DistributionFloatSoundParameter_0"
+         ObjectArchetype=DistributionFloatSoundParameter'Engine.Default__DistributionFloatSoundParameter'
+      End Object
+      Begin Object Class=DistributionFloatSoundParameter Name=DistributionFloatSoundParameter_2 ObjName=DistributionFloatSoundParameter_2 Archetype=DistributionFloatSoundParameter'Engine.Default__DistributionFloatSoundParameter'
+         ParameterName="CharacterSpeedModulatorParam"
+         MinInput=0.900000
+         MinOutput=1.000000
+         MaxOutput=1.200000
+         bIsDirty=False
+         Name="DistributionFloatSoundParameter_2"
+         ObjectArchetype=DistributionFloatSoundParameter'Engine.Default__DistributionFloatSoundParameter'
+      End Object
+      VolumeModulation=(Distribution=DistributionFloatSoundParameter'DistributionFloatSoundParameter_0',LookupTable=)
+      PitchModulation=(Distribution=DistributionFloatSoundParameter'DistributionFloatSoundParameter_2',LookupTable=)
+      ChildNodes(0)=SoundNodeModulatorContinuous'SoundNodeModulatorContinuous_3'
+      Name="SoundNodeModulatorContinuous_0"
+      ObjectArchetype=SoundNodeModulatorContinuous'Engine.Default__SoundNodeModulatorContinuous'
+   End Object
+   Begin Object Class=SoundNodeModulatorContinuous Name=SoundNodeModulatorContinuous_1 ObjName=SoundNodeModulatorContinuous_1 Archetype=SoundNodeModulatorContinuous'Engine.Default__SoundNodeModulatorContinuous'
+      Begin Object Class=DistributionFloatSoundParameter Name=DistributionFloatSoundParameter_1 ObjName=DistributionFloatSoundParameter_1 Archetype=DistributionFloatSoundParameter'Engine.Default__DistributionFloatSoundParameter'
+         ParameterName="CharacterSpeedModulatorParam"
+         MinInput=0.600000
+         bIsDirty=False
+         Name="DistributionFloatSoundParameter_1"
+         ObjectArchetype=DistributionFloatSoundParameter'Engine.Default__DistributionFloatSoundParameter'
+      End Object
+      Begin Object Class=DistributionFloatSoundParameter Name=DistributionFloatSoundParameter_3 ObjName=DistributionFloatSoundParameter_3 Archetype=DistributionFloatSoundParameter'Engine.Default__DistributionFloatSoundParameter'
+         ParameterName="CharacterSpeedModulatorParam"
+         MinInput=0.800000
+         MinOutput=1.000000
+         MaxOutput=1.300000
+         bIsDirty=False
+         Name="DistributionFloatSoundParameter_3"
+         ObjectArchetype=DistributionFloatSoundParameter'Engine.Default__DistributionFloatSoundParameter'
+      End Object
+      VolumeModulation=(Distribution=DistributionFloatSoundParameter'DistributionFloatSoundParameter_1',LookupTable=)
+      PitchModulation=(Distribution=DistributionFloatSoundParameter'DistributionFloatSoundParameter_3',LookupTable=)
+      ChildNodes(0)=SoundNodeModulatorContinuous'SoundNodeModulatorContinuous_4'
+      Name="SoundNodeModulatorContinuous_1"
+      ObjectArchetype=SoundNodeModulatorContinuous'Engine.Default__SoundNodeModulatorContinuous'
+   End Object
+   Begin Object Class=SoundNodeModulatorContinuous Name=SoundNodeModulatorContinuous_3 ObjName=SoundNodeModulatorContinuous_3 Archetype=SoundNodeModulatorContinuous'Engine.Default__SoundNodeModulatorContinuous'
+      Begin Object Class=DistributionFloatSoundParameter Name=DistributionFloatSoundParameter_1 ObjName=DistributionFloatSoundParameter_1 Archetype=DistributionFloatSoundParameter'Engine.Default__DistributionFloatSoundParameter'
+         ParameterName="CharacterSpeedModulatorParam"
+         MaxOutput=0.500000
+         bIsDirty=False
+         Name="DistributionFloatSoundParameter_1"
+         ObjectArchetype=DistributionFloatSoundParameter'Engine.Default__DistributionFloatSoundParameter'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionPitch ObjName=DistributionFloatUniform_3 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeModulatorContinuous:DistributionPitch'
+         bIsDirty=False
+         Name="DistributionFloatUniform_3"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeModulatorContinuous:DistributionPitch'
+      End Object
+      VolumeModulation=(Distribution=DistributionFloatSoundParameter'DistributionFloatSoundParameter_1',LookupTable=)
+      PitchModulation=(Distribution=DistributionFloatUniform'DistributionFloatUniform_3')
+      ChildNodes(0)=SoundNodeLooping'SoundNodeLooping_0'
+      Name="SoundNodeModulatorContinuous_3"
+      ObjectArchetype=SoundNodeModulatorContinuous'Engine.Default__SoundNodeModulatorContinuous'
+   End Object
+   Begin Object Class=SoundNodeModulatorContinuous Name=SoundNodeModulatorContinuous_4 ObjName=SoundNodeModulatorContinuous_4 Archetype=SoundNodeModulatorContinuous'Engine.Default__SoundNodeModulatorContinuous'
+      Begin Object Class=DistributionFloatSoundParameter Name=DistributionFloatSoundParameter_2 ObjName=DistributionFloatSoundParameter_2 Archetype=DistributionFloatSoundParameter'Engine.Default__DistributionFloatSoundParameter'
+         ParameterName="CharacterSpeedModulatorParam"
+         MaxOutput=0.500000
+         bIsDirty=False
+         Name="DistributionFloatSoundParameter_2"
+         ObjectArchetype=DistributionFloatSoundParameter'Engine.Default__DistributionFloatSoundParameter'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionPitch ObjName=DistributionFloatUniform_5 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeModulatorContinuous:DistributionPitch'
+         bIsDirty=False
+         Name="DistributionFloatUniform_5"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeModulatorContinuous:DistributionPitch'
+      End Object
+      VolumeModulation=(Distribution=DistributionFloatSoundParameter'DistributionFloatSoundParameter_2',LookupTable=)
+      PitchModulation=(Distribution=DistributionFloatUniform'DistributionFloatUniform_5')
+      ChildNodes(0)=SoundNodeLooping'SoundNodeLooping_1'
+      Name="SoundNodeModulatorContinuous_4"
+      ObjectArchetype=SoundNodeModulatorContinuous'Engine.Default__SoundNodeModulatorContinuous'
+   End Object
+   Begin Object Class=SoundNodeAttenuation Name=SoundNodeAttenuation_0 ObjName=SoundNodeAttenuation_0 Archetype=SoundNodeAttenuation'Engine.Default__SoundNodeAttenuation'
+      Begin Object Class=DistributionFloatUniform Name=DistributionMinRadius ObjName=DistributionFloatUniform_3 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMinRadius'
+         Min=20.000000
+         Max=20.000000
+         bIsDirty=False
+         Name="DistributionFloatUniform_3"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMinRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionMaxRadius ObjName=DistributionFloatUniform_4 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMaxRadius'
+         Min=500.000000
+         Max=500.000000
+         bIsDirty=False
+         Name="DistributionFloatUniform_4"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMaxRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionLPFMinRadius ObjName=DistributionFloatUniform_335 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMinRadius'
+         bIsDirty=False
+         Name="DistributionFloatUniform_335"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMinRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionLPFMaxRadius ObjName=DistributionFloatUniform_336 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMaxRadius'
+         bIsDirty=False
+         Name="DistributionFloatUniform_336"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMaxRadius'
+      End Object
+      MinRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_3',LookupTable=(20.000000,20.000000,20.000000,20.000000,20.000000,20.000000))
+      MaxRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_4',LookupTable=(500.000000,500.000000,500.000000,500.000000,500.000000,500.000000))
+      LPFMinRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_335')
+      LPFMaxRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_336')
+      ChildNodes(0)=TdSoundNodeVelocity'TdSoundNodeVelocity_0'
+      Name="SoundNodeAttenuation_0"
+      ObjectArchetype=SoundNodeAttenuation'Engine.Default__SoundNodeAttenuation'
+   End Object
+   Begin Object Class=SoundNodeLooping Name=SoundNodeLooping_0 ObjName=SoundNodeLooping_0 Archetype=SoundNodeLooping'Engine.Default__SoundNodeLooping'
+      Begin Object Class=DistributionFloatUniform Name=DistributionLoopCount ObjName=DistributionFloatUniform_6 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeLooping:DistributionLoopCount'
+         bIsDirty=False
+         Name="DistributionFloatUniform_6"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeLooping:DistributionLoopCount'
+      End Object
+      LoopCount=(Distribution=DistributionFloatUniform'DistributionFloatUniform_6')
+      ChildNodes(0)=SoundNodeWave'HighSpeedClothing'
+      Name="SoundNodeLooping_0"
+      ObjectArchetype=SoundNodeLooping'Engine.Default__SoundNodeLooping'
+   End Object
+   Begin Object Class=SoundNodeLooping Name=SoundNodeLooping_1 ObjName=SoundNodeLooping_1 Archetype=SoundNodeLooping'Engine.Default__SoundNodeLooping'
+      Begin Object Class=DistributionFloatUniform Name=DistributionLoopCount ObjName=DistributionFloatUniform_7 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeLooping:DistributionLoopCount'
+         bIsDirty=False
+         Name="DistributionFloatUniform_7"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeLooping:DistributionLoopCount'
+      End Object
+      LoopCount=(Distribution=DistributionFloatUniform'DistributionFloatUniform_7')
+      ChildNodes(0)=SoundNodeWave'CharacterRunWind'
+      Name="SoundNodeLooping_1"
+      ObjectArchetype=SoundNodeLooping'Engine.Default__SoundNodeLooping'
+   End Object
+   Begin Object Class=SoundNodeLooping Name=SoundNodeLooping_2 ObjName=SoundNodeLooping_2 Archetype=SoundNodeLooping'Engine.Default__SoundNodeLooping'
+      Begin Object Class=DistributionFloatUniform Name=DistributionLoopCount ObjName=DistributionFloatUniform_6 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeLooping:DistributionLoopCount'
+         bIsDirty=False
+         Name="DistributionFloatUniform_6"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeLooping:DistributionLoopCount'
+      End Object
+      LoopCount=(Distribution=DistributionFloatUniform'DistributionFloatUniform_6')
+      ChildNodes(0)=None
+      Name="SoundNodeLooping_2"
+      ObjectArchetype=SoundNodeLooping'Engine.Default__SoundNodeLooping'
+   End Object
+   Begin Object Class=SoundNodeMixer Name=SoundNodeMixer_1 ObjName=SoundNodeMixer_1 Archetype=SoundNodeMixer'Engine.Default__SoundNodeMixer'
+      InputVolume(0)=1.000000
+      InputVolume(1)=1.000000
+      ChildNodes(0)=SoundNodeModulatorContinuous'SoundNodeModulatorContinuous_0'
+      ChildNodes(1)=SoundNodeModulatorContinuous'SoundNodeModulatorContinuous_1'
+      Name="SoundNodeMixer_1"
+      ObjectArchetype=SoundNodeMixer'Engine.Default__SoundNodeMixer'
+   End Object
+   Begin Object Class=TdSoundNodeSlowMotion Name=TdSoundNodeSlowMotion_0 ObjName=TdSoundNodeSlowMotion_0 Archetype=TdSoundNodeSlowMotion'TdGame.Default__TdSoundNodeSlowMotion'
+      ChildNodes(0)=SoundNodeMixer'SoundNodeMixer_1'
+      Name="TdSoundNodeSlowMotion_0"
+      ObjectArchetype=TdSoundNodeSlowMotion'TdGame.Default__TdSoundNodeSlowMotion'
+   End Object
+   Begin Object Class=TdSoundNodeVelocity Name=TdSoundNodeVelocity_0 ObjName=TdSoundNodeVelocity_0 Archetype=TdSoundNodeVelocity'TdGame.Default__TdSoundNodeVelocity'
+      MinSpeed=200.000000
+      MaxSpeed=800.000000
+      FadeInTimeFilter=1.000000
+      FadeOutTimeFilter=1.000000
+      ChildNodes(0)=SoundNodeLooping'SoundNodeLooping_2'
+      Name="TdSoundNodeVelocity_0"
+      ObjectArchetype=TdSoundNodeVelocity'TdGame.Default__TdSoundNodeVelocity'
+   End Object
+   SoundGroup="InGameSFX"
+   FirstNode=SoundNodeAttenuation'SoundNodeAttenuation_0'
+   Duration=10000.000000
+   Name="RunWind_Dup"
+   ObjectArchetype=SoundCue'Engine.Default__SoundCue'
+End Object

@@ -1,0 +1,65 @@
+Begin Object Class=SoundCue Name=CatchPlasticBag ObjName=CatchPlasticBag Archetype=SoundCue'Engine.Default__SoundCue'
+   Begin Object Class=SoundNodeMixer Name=SoundNodeMixer_0 ObjName=SoundNodeMixer_0 Archetype=SoundNodeMixer'Engine.Default__SoundNodeMixer'
+      InputVolume(0)=1.000000
+      InputVolume(1)=1.000000
+      ChildNodes(0)=SoundNodeWave'A_Character_Disarm.Disarm_RAW.GrabHelmetTop_1a'
+      ChildNodes(1)=SoundNodeDelay'SoundNodeDelay_0'
+      Name="SoundNodeMixer_0"
+      ObjectArchetype=SoundNodeMixer'Engine.Default__SoundNodeMixer'
+   End Object
+   Begin Object Class=SoundNodeDelay Name=SoundNodeDelay_0 ObjName=SoundNodeDelay_0 Archetype=SoundNodeDelay'Engine.Default__SoundNodeDelay'
+      Begin Object Class=DistributionFloatUniform Name=DistributionDelayDuration ObjName=DistributionFloatUniform_0 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeDelay:DistributionDelayDuration'
+         Min=0.002000
+         Max=0.002000
+         bIsDirty=False
+         Name="DistributionFloatUniform_0"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeDelay:DistributionDelayDuration'
+      End Object
+      DelayDuration=(Distribution=DistributionFloatUniform'DistributionFloatUniform_0',LookupTable=(0.002000,0.002000,0.002000,0.002000,0.002000,0.002000))
+      ChildNodes(0)=SoundNodeWave'A_Character_Disarm.Disarm_RAW.GrabHelmetTop_2d'
+      Name="SoundNodeDelay_0"
+      ObjectArchetype=SoundNodeDelay'Engine.Default__SoundNodeDelay'
+   End Object
+   Begin Object Class=SoundNodeAttenuation Name=SoundNodeAttenuation_0 ObjName=SoundNodeAttenuation_0 Archetype=SoundNodeAttenuation'Engine.Default__SoundNodeAttenuation'
+      Begin Object Class=DistributionFloatUniform Name=DistributionMinRadius ObjName=DistributionFloatUniform_0 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMinRadius'
+         Min=500.000000
+         Max=500.000000
+         bIsDirty=False
+         Name="DistributionFloatUniform_0"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMinRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionMaxRadius ObjName=DistributionFloatUniform_1 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMaxRadius'
+         Min=3000.000000
+         Max=3000.000000
+         bIsDirty=False
+         Name="DistributionFloatUniform_1"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMaxRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionLPFMinRadius ObjName=DistributionFloatUniform_2 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMinRadius'
+         Min=5000.000000
+         Max=5000.000000
+         bIsDirty=False
+         Name="DistributionFloatUniform_2"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMinRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionLPFMaxRadius ObjName=DistributionFloatUniform_3 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMaxRadius'
+         bIsDirty=False
+         Name="DistributionFloatUniform_3"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMaxRadius'
+      End Object
+      DistanceModel=ATTENUATION_NaturalSound
+      MinRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_0',LookupTable=(500.000000,500.000000,500.000000,500.000000,500.000000,500.000000))
+      MaxRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_1',LookupTable=(3000.000000,3000.000000,3000.000000,3000.000000,3000.000000,3000.000000))
+      LPFMinRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_2',LookupTable=(5000.000000,5000.000000,5000.000000,5000.000000,5000.000000,5000.000000))
+      LPFMaxRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_3')
+      ChildNodes(0)=SoundNodeMixer'SoundNodeMixer_0'
+      Name="SoundNodeAttenuation_0"
+      ObjectArchetype=SoundNodeAttenuation'Engine.Default__SoundNodeAttenuation'
+   End Object
+   SoundGroup="InGameSFX"
+   FirstNode=SoundNodeAttenuation'SoundNodeAttenuation_0'
+   VolumeMultiplier=0.400000
+   Duration=0.211746
+   Name="CatchPlasticBag"
+   ObjectArchetype=SoundCue'Engine.Default__SoundCue'
+End Object

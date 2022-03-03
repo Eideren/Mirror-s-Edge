@@ -1,0 +1,132 @@
+Begin Object Class=SoundCue Name=Medium ObjName=Medium Archetype=SoundCue'Engine.Default__SoundCue'
+   Begin Object Class=TdSoundNodeMixGroup Name=TdSoundNodeMixGroup_1 ObjName=TdSoundNodeMixGroup_1 Archetype=TdSoundNodeMixGroup'TdGame.Default__TdSoundNodeMixGroup'
+      MixGroups(0)="CharacterSounds"
+      MixGroupIDs(0)=2
+      MixGroupIDs(1)=2
+      MixGroupIDs(2)=2
+      MixGroupIDs(3)=2
+      MixGroupIDs(4)=2
+      MixGroupIDs(5)=2
+      MixGroupIDs(6)=2
+      MixGroupIDs(7)=2
+      MixGroupIDs(8)=2
+      MixGroupIDs(9)=2
+      MixGroupIDs(10)=2
+      MixGroupIDs(11)=2
+      MixGroupIDs(12)=2
+      MixGroupIDs(13)=2
+      MixGroupIDs(14)=2
+      MixGroupIDs(15)=2
+      ChildNodes(0)=TdSoundNodeDuckTrigger'TdSoundNodeDuckTrigger_4'
+      Name="TdSoundNodeMixGroup_1"
+      ObjectArchetype=TdSoundNodeMixGroup'TdGame.Default__TdSoundNodeMixGroup'
+   End Object
+   Begin Object Class=TdSoundNodeRelativePosition Name=TdSoundNodeRelativePosition_2 ObjName=TdSoundNodeRelativePosition_2 Archetype=TdSoundNodeRelativePosition'TdGame.Default__TdSoundNodeRelativePosition'
+      bCalculateOnce=False
+      bRelativeToCamera=True
+      RelativePos=(X=2.000000,Y=0.000000,Z=0.000000)
+      ChildNodes(0)=SoundNodeAttenuation'SoundNodeAttenuation_1'
+      Name="TdSoundNodeRelativePosition_2"
+      ObjectArchetype=TdSoundNodeRelativePosition'TdGame.Default__TdSoundNodeRelativePosition'
+   End Object
+   Begin Object Class=SoundNodeAttenuation Name=SoundNodeAttenuation_1 ObjName=SoundNodeAttenuation_1 Archetype=SoundNodeAttenuation'Engine.Default__SoundNodeAttenuation'
+      Begin Object Class=DistributionFloatUniform Name=DistributionMaxRadius ObjName=DistributionFloatUniform_7 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMaxRadius'
+         Min=500.000000
+         Max=700.000000
+         bIsDirty=False
+         Name="DistributionFloatUniform_7"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMaxRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionLPFMinRadius ObjName=DistributionFloatUniform_30 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMinRadius'
+         Min=200.000000
+         Max=200.000000
+         bIsDirty=False
+         Name="DistributionFloatUniform_30"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMinRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionLPFMaxRadius ObjName=DistributionFloatUniform_31 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMaxRadius'
+         Min=700.000000
+         Max=700.000000
+         bIsDirty=False
+         Name="DistributionFloatUniform_31"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionLPFMaxRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionMinRadius ObjName=DistributionFloatUniform_6 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMinRadius'
+         Min=100.000000
+         Max=100.000000
+         bIsDirty=False
+         Name="DistributionFloatUniform_6"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeAttenuation:DistributionMinRadius'
+      End Object
+      MinRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_6',LookupTable=(100.000000,100.000000,100.000000,100.000000,100.000000,100.000000))
+      MaxRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_7',LookupTable=(500.000000,700.000000,500.000000,700.000000,500.000000,700.000000))
+      LPFMinRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_30',LookupTable=(200.000000,200.000000,200.000000,200.000000,200.000000,200.000000))
+      LPFMaxRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_31',LookupTable=(700.000000,700.000000,700.000000,700.000000,700.000000,700.000000))
+      bSpatialize=False
+      bAttenuate=False
+      bAttenuateWithLowPassFilter=False
+      ChildNodes(0)=SoundNodeRandom'SoundNodeRandom_2'
+      Name="SoundNodeAttenuation_1"
+      ObjectArchetype=SoundNodeAttenuation'Engine.Default__SoundNodeAttenuation'
+   End Object
+   Begin Object Class=SoundNodeRandom Name=SoundNodeRandom_2 ObjName=SoundNodeRandom_2 Archetype=SoundNodeRandom'Engine.Default__SoundNodeRandom'
+      Weights(0)=1.000000
+      Weights(1)=1.000000
+      Weights(2)=1.000000
+      Weights(3)=1.000000
+      Weights(4)=1.000000
+      Weights(5)=1.000000
+      Weights(6)=1.000000
+      Weights(7)=1.000000
+      Weights(8)=1.000000
+      Weights(9)=1.000000
+      Weights(10)=1.000000
+      Weights(11)=1.000000
+      Weights(12)=1.000000
+      Weights(13)=1.000000
+      ChildNodes(0)=SoundNodeWave'Impact_Med_14'
+      ChildNodes(1)=SoundNodeWave'Impact_Med_13'
+      ChildNodes(2)=SoundNodeWave'Impact_Med_12'
+      ChildNodes(3)=SoundNodeWave'Impact_Med_11'
+      ChildNodes(4)=SoundNodeWave'Impact_Med_10'
+      ChildNodes(5)=SoundNodeWave'Impact_Med_09'
+      ChildNodes(6)=SoundNodeWave'Impact_Med_08'
+      ChildNodes(7)=SoundNodeWave'Impact_Med_07'
+      ChildNodes(8)=SoundNodeWave'Impact_Med_06'
+      ChildNodes(9)=SoundNodeWave'Impact_Med_05'
+      ChildNodes(10)=SoundNodeWave'Impact_Med_04'
+      ChildNodes(11)=SoundNodeWave'Impact_Med_03'
+      ChildNodes(12)=SoundNodeWave'Impact_Med_02'
+      ChildNodes(13)=SoundNodeWave'Impact_Med_01'
+      Name="SoundNodeRandom_2"
+      ObjectArchetype=SoundNodeRandom'Engine.Default__SoundNodeRandom'
+   End Object
+   Begin Object Class=TdSoundNodeDuckTrigger Name=TdSoundNodeDuckTrigger_4 ObjName=TdSoundNodeDuckTrigger_4 Archetype=TdSoundNodeDuckTrigger'TdGame.Default__TdSoundNodeDuckTrigger'
+      Begin Object Class=DistributionFloatUniform Name=DistributionMaxRadius ObjName=DistributionFloatUniform_9 Archetype=DistributionFloatUniform'TdGame.Default__TdSoundNodeDuckTrigger:DistributionMaxRadius'
+         bIsDirty=False
+         Name="DistributionFloatUniform_9"
+         ObjectArchetype=DistributionFloatUniform'TdGame.Default__TdSoundNodeDuckTrigger:DistributionMaxRadius'
+      End Object
+      Begin Object Class=DistributionFloatUniform Name=DistributionMinRadius ObjName=DistributionFloatUniform_8 Archetype=DistributionFloatUniform'TdGame.Default__TdSoundNodeDuckTrigger:DistributionMinRadius'
+         bIsDirty=False
+         Name="DistributionFloatUniform_8"
+         ObjectArchetype=DistributionFloatUniform'TdGame.Default__TdSoundNodeDuckTrigger:DistributionMinRadius'
+      End Object
+      MixGroups(0)="Breathing"
+      DuckDuration=1.500000
+      MinRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_8')
+      MaxRadius=(Distribution=DistributionFloatUniform'DistributionFloatUniform_9')
+      ChildNodes(0)=TdSoundNodeRelativePosition'TdSoundNodeRelativePosition_2'
+      Name="TdSoundNodeDuckTrigger_4"
+      ObjectArchetype=TdSoundNodeDuckTrigger'TdGame.Default__TdSoundNodeDuckTrigger'
+   End Object
+   SoundGroup="FaithVocal"
+   FirstNode=TdSoundNodeMixGroup'TdSoundNodeMixGroup_1'
+   VolumeMultiplier=1.000000
+   Duration=0.906594
+   MaxConcurrentPlayCount=1
+   timeToLive=0.800000
+   AbsoluteMaxConcurrentPlayCount=1
+   Name="Medium"
+   ObjectArchetype=SoundCue'Engine.Default__SoundCue'
+End Object

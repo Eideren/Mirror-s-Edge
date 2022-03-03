@@ -1,0 +1,97 @@
+Begin Object Class=SoundCue Name=cough ObjName=cough Archetype=SoundCue'Engine.Default__SoundCue'
+   Begin Object Class=SoundNodeDelay Name=SoundNodeDelay_0 ObjName=SoundNodeDelay_0 Archetype=SoundNodeDelay'Engine.Default__SoundNodeDelay'
+      Begin Object Class=DistributionFloatUniform Name=DistributionDelayDuration ObjName=DistributionFloatUniform_0 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeDelay:DistributionDelayDuration'
+         Min=0.900000
+         Max=0.900000
+         bIsDirty=False
+         Name="DistributionFloatUniform_0"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeDelay:DistributionDelayDuration'
+      End Object
+      DelayDuration=(Distribution=DistributionFloatUniform'DistributionFloatUniform_0',LookupTable=(0.900000,0.900000,0.900000,0.900000,0.900000,0.900000))
+      ChildNodes(0)=SoundNodeRandom'SoundNodeRandom_1'
+      Name="SoundNodeDelay_0"
+      ObjectArchetype=SoundNodeDelay'Engine.Default__SoundNodeDelay'
+   End Object
+   Begin Object Class=SoundNodeDelay Name=SoundNodeDelay_1 ObjName=SoundNodeDelay_1 Archetype=SoundNodeDelay'Engine.Default__SoundNodeDelay'
+      Begin Object Class=DistributionFloatUniform Name=DistributionDelayDuration ObjName=DistributionFloatUniform_1 Archetype=DistributionFloatUniform'Engine.Default__SoundNodeDelay:DistributionDelayDuration'
+         Min=1.500000
+         Max=1.600000
+         bIsDirty=False
+         Name="DistributionFloatUniform_1"
+         ObjectArchetype=DistributionFloatUniform'Engine.Default__SoundNodeDelay:DistributionDelayDuration'
+      End Object
+      DelayDuration=(Distribution=DistributionFloatUniform'DistributionFloatUniform_1',LookupTable=(1.500000,1.600000,1.500000,1.600000,1.500000,1.600000))
+      ChildNodes(0)=SoundNodeRandom'SoundNodeRandom_2'
+      Name="SoundNodeDelay_1"
+      ObjectArchetype=SoundNodeDelay'Engine.Default__SoundNodeDelay'
+   End Object
+   Begin Object Class=SoundNodeMixer Name=SoundNodeMixer_0 ObjName=SoundNodeMixer_0 Archetype=SoundNodeMixer'Engine.Default__SoundNodeMixer'
+      InputVolume(0)=1.000000
+      InputVolume(1)=0.700000
+      InputVolume(2)=0.500000
+      ChildNodes(0)=SoundNodeRandom'SoundNodeRandom_0'
+      ChildNodes(1)=SoundNodeDelay'SoundNodeDelay_0'
+      ChildNodes(2)=SoundNodeDelay'SoundNodeDelay_1'
+      Name="SoundNodeMixer_0"
+      ObjectArchetype=SoundNodeMixer'Engine.Default__SoundNodeMixer'
+   End Object
+   Begin Object Class=SoundNodeRandom Name=SoundNodeRandom_0 ObjName=SoundNodeRandom_0 Archetype=SoundNodeRandom'Engine.Default__SoundNodeRandom'
+      Weights(0)=1.000000
+      Weights(1)=1.000000
+      Weights(2)=1.000000
+      Weights(3)=1.000000
+      Weights(4)=1.000000
+      ChildNodes(0)=SoundNodeWave'Cough_Hard_01'
+      ChildNodes(1)=SoundNodeWave'Cough_Hard_02'
+      ChildNodes(2)=SoundNodeWave'Cough_Hard_03'
+      ChildNodes(3)=SoundNodeWave'Cough_Hard_04'
+      ChildNodes(4)=SoundNodeWave'Cough_Hard_05'
+      Name="SoundNodeRandom_0"
+      ObjectArchetype=SoundNodeRandom'Engine.Default__SoundNodeRandom'
+   End Object
+   Begin Object Class=SoundNodeRandom Name=SoundNodeRandom_1 ObjName=SoundNodeRandom_1 Archetype=SoundNodeRandom'Engine.Default__SoundNodeRandom'
+      Weights(0)=1.000000
+      Weights(1)=1.000000
+      Weights(2)=1.000000
+      ChildNodes(0)=SoundNodeWave'Cough_Mid_01'
+      ChildNodes(1)=SoundNodeWave'Cough_Mid_02'
+      ChildNodes(2)=SoundNodeWave'Cough_Mid_03'
+      Name="SoundNodeRandom_1"
+      ObjectArchetype=SoundNodeRandom'Engine.Default__SoundNodeRandom'
+   End Object
+   Begin Object Class=SoundNodeRandom Name=SoundNodeRandom_2 ObjName=SoundNodeRandom_2 Archetype=SoundNodeRandom'Engine.Default__SoundNodeRandom'
+      Weights(0)=1.000000
+      Weights(1)=1.000000
+      Weights(2)=1.000000
+      Weights(3)=1.000000
+      Weights(4)=1.000000
+      Weights(5)=1.000000
+      ChildNodes(0)=SoundNodeWave'Cough_Soft_01'
+      ChildNodes(1)=SoundNodeWave'Cough_Soft_02'
+      ChildNodes(2)=SoundNodeWave'Cough_Soft_03'
+      ChildNodes(3)=SoundNodeWave'Cough_Soft_04'
+      ChildNodes(4)=SoundNodeWave'Cough_Soft_05'
+      ChildNodes(5)=SoundNodeWave'Cough_Soft_06'
+      Name="SoundNodeRandom_2"
+      ObjectArchetype=SoundNodeRandom'Engine.Default__SoundNodeRandom'
+   End Object
+   Begin Object Class=TdSoundNodeMixGroup Name=TdSoundNodeMixGroup_0 ObjName=TdSoundNodeMixGroup_0 Archetype=TdSoundNodeMixGroup'TdGame.Default__TdSoundNodeMixGroup'
+      MixGroups(0)="CharacterSounds"
+      MixGroupIDs(0)=2
+      MixGroupIDs(1)=2
+      ChildNodes(0)=TdSoundNodeRelativePosition'TdSoundNodeRelativePosition_0'
+      Name="TdSoundNodeMixGroup_0"
+      ObjectArchetype=TdSoundNodeMixGroup'TdGame.Default__TdSoundNodeMixGroup'
+   End Object
+   Begin Object Class=TdSoundNodeRelativePosition Name=TdSoundNodeRelativePosition_0 ObjName=TdSoundNodeRelativePosition_0 Archetype=TdSoundNodeRelativePosition'TdGame.Default__TdSoundNodeRelativePosition'
+      RelativePos=(X=2.000000,Y=0.000000,Z=0.000000)
+      ChildNodes(0)=SoundNodeMixer'SoundNodeMixer_0'
+      Name="TdSoundNodeRelativePosition_0"
+      ObjectArchetype=TdSoundNodeRelativePosition'TdGame.Default__TdSoundNodeRelativePosition'
+   End Object
+   SoundGroup="InGameSFX"
+   FirstNode=TdSoundNodeMixGroup'TdSoundNodeMixGroup_0'
+   Duration=2.086009
+   Name="cough"
+   ObjectArchetype=SoundCue'Engine.Default__SoundCue'
+End Object
