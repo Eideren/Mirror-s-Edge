@@ -54,7 +54,7 @@ public partial class ParticleModuleUberRainSplashB : ParticleModuleUberBase/*
 		// Object Offset:0x0038A59F
 		Lifetime = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__ParticleModuleUberRainSplashB.DistributionLifetime")/*Ref DistributionFloatUniform'Default__ParticleModuleUberRainSplashB.DistributionLifetime'*/,
+			Distribution = Default__ParticleModuleUberRainSplashB_DistributionLifetime/*Ref DistributionFloatUniform'Default__ParticleModuleUberRainSplashB.DistributionLifetime'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -73,7 +73,7 @@ public partial class ParticleModuleUberRainSplashB : ParticleModuleUberBase/*
 		};
 		StartSize = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorUniform>("Default__ParticleModuleUberRainSplashB.DistributionStartSize")/*Ref DistributionVectorUniform'Default__ParticleModuleUberRainSplashB.DistributionStartSize'*/,
+			Distribution = Default__ParticleModuleUberRainSplashB_DistributionStartSize/*Ref DistributionVectorUniform'Default__ParticleModuleUberRainSplashB.DistributionStartSize'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -100,7 +100,7 @@ public partial class ParticleModuleUberRainSplashB : ParticleModuleUberBase/*
 		};
 		ColorOverLife = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstantCurve>("Default__ParticleModuleUberRainSplashB.DistributionColorOverLife")/*Ref DistributionVectorConstantCurve'Default__ParticleModuleUberRainSplashB.DistributionColorOverLife'*/,
+			Distribution = Default__ParticleModuleUberRainSplashB_DistributionColorOverLife/*Ref DistributionVectorConstantCurve'Default__ParticleModuleUberRainSplashB.DistributionColorOverLife'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -121,7 +121,7 @@ public partial class ParticleModuleUberRainSplashB : ParticleModuleUberBase/*
 		};
 		AlphaOverLife = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleUberRainSplashB.DistributionAlphaOverLife")/*Ref DistributionFloatConstant'Default__ParticleModuleUberRainSplashB.DistributionAlphaOverLife'*/,
+			Distribution = Default__ParticleModuleUberRainSplashB_DistributionAlphaOverLife/*Ref DistributionFloatConstant'Default__ParticleModuleUberRainSplashB.DistributionAlphaOverLife'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -138,7 +138,7 @@ public partial class ParticleModuleUberRainSplashB : ParticleModuleUberBase/*
 		};
 		LifeMultiplier = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__ParticleModuleUberRainSplashB.DistributionLifeMultiplier")/*Ref DistributionVectorConstant'Default__ParticleModuleUberRainSplashB.DistributionLifeMultiplier'*/,
+			Distribution = Default__ParticleModuleUberRainSplashB_DistributionLifeMultiplier/*Ref DistributionVectorConstant'Default__ParticleModuleUberRainSplashB.DistributionLifeMultiplier'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -162,7 +162,7 @@ public partial class ParticleModuleUberRainSplashB : ParticleModuleUberBase/*
 		MultiplyZ = true;
 		StartRotationRate = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleUberRainSplashB.DistributionStartRotationRate")/*Ref DistributionFloatConstant'Default__ParticleModuleUberRainSplashB.DistributionStartRotationRate'*/,
+			Distribution = Default__ParticleModuleUberRainSplashB_DistributionStartRotationRate/*Ref DistributionFloatConstant'Default__ParticleModuleUberRainSplashB.DistributionStartRotationRate'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

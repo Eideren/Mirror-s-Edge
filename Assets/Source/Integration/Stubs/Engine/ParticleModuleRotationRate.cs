@@ -15,7 +15,7 @@ public partial class ParticleModuleRotationRate : ParticleModuleRotationRateBase
 		// Object Offset:0x003815DC
 		StartRotationRate = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleRotationRate.DistributionStartRotationRate")/*Ref DistributionFloatConstant'Default__ParticleModuleRotationRate.DistributionStartRotationRate'*/,
+			Distribution = Default__ParticleModuleRotationRate_DistributionStartRotationRate/*Ref DistributionFloatConstant'Default__ParticleModuleRotationRate.DistributionStartRotationRate'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

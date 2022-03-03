@@ -19,7 +19,7 @@ public partial class ParticleModuleSpawnPerUnit : ParticleModuleSpawnBase/*
 		UnitScalar = 50.0f;
 		SpawnPerUnit = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleSpawnPerUnit.RequiredDistributionSpawnPerUnit")/*Ref DistributionFloatConstant'Default__ParticleModuleSpawnPerUnit.RequiredDistributionSpawnPerUnit'*/,
+			Distribution = Default__ParticleModuleSpawnPerUnit_RequiredDistributionSpawnPerUnit/*Ref DistributionFloatConstant'Default__ParticleModuleSpawnPerUnit.RequiredDistributionSpawnPerUnit'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

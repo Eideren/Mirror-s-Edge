@@ -15,7 +15,7 @@ public partial class ParticleModuleAcceleration : ParticleModuleAccelerationBase
 		// Object Offset:0x00378BAE
 		Acceleration = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorUniform>("Default__ParticleModuleAcceleration.DistributionAcceleration")/*Ref DistributionVectorUniform'Default__ParticleModuleAcceleration.DistributionAcceleration'*/,
+			Distribution = Default__ParticleModuleAcceleration_DistributionAcceleration/*Ref DistributionVectorUniform'Default__ParticleModuleAcceleration.DistributionAcceleration'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,

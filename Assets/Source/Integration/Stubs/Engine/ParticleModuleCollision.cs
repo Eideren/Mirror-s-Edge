@@ -47,7 +47,7 @@ public partial class ParticleModuleCollision : ParticleModuleCollisionBase/*
 		// Object Offset:0x0037BE4E
 		DampingFactor = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorUniform>("Default__ParticleModuleCollision.DistributionDampingFactor")/*Ref DistributionVectorUniform'Default__ParticleModuleCollision.DistributionDampingFactor'*/,
+			Distribution = Default__ParticleModuleCollision_DistributionDampingFactor/*Ref DistributionVectorUniform'Default__ParticleModuleCollision.DistributionDampingFactor'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -74,7 +74,7 @@ public partial class ParticleModuleCollision : ParticleModuleCollisionBase/*
 		};
 		DampingFactorRotation = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__ParticleModuleCollision.DistributionDampingFactorRotation")/*Ref DistributionVectorConstant'Default__ParticleModuleCollision.DistributionDampingFactorRotation'*/,
+			Distribution = Default__ParticleModuleCollision_DistributionDampingFactorRotation/*Ref DistributionVectorConstant'Default__ParticleModuleCollision.DistributionDampingFactorRotation'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -95,7 +95,7 @@ public partial class ParticleModuleCollision : ParticleModuleCollisionBase/*
 		};
 		MaxCollisions = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__ParticleModuleCollision.DistributionMaxCollisions")/*Ref DistributionFloatUniform'Default__ParticleModuleCollision.DistributionMaxCollisions'*/,
+			Distribution = Default__ParticleModuleCollision_DistributionMaxCollisions/*Ref DistributionFloatUniform'Default__ParticleModuleCollision.DistributionMaxCollisions'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -115,7 +115,7 @@ public partial class ParticleModuleCollision : ParticleModuleCollisionBase/*
 		bDropDetail = true;
 		ParticleMass = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleCollision.DistributionParticleMass")/*Ref DistributionFloatConstant'Default__ParticleModuleCollision.DistributionParticleMass'*/,
+			Distribution = Default__ParticleModuleCollision_DistributionParticleMass/*Ref DistributionFloatConstant'Default__ParticleModuleCollision.DistributionParticleMass'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -134,7 +134,7 @@ public partial class ParticleModuleCollision : ParticleModuleCollisionBase/*
 		VerticalFudgeFactor = 0.10f;
 		DelayAmount = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleCollision.DistributionDelayAmount")/*Ref DistributionFloatConstant'Default__ParticleModuleCollision.DistributionDelayAmount'*/,
+			Distribution = Default__ParticleModuleCollision_DistributionDelayAmount/*Ref DistributionFloatConstant'Default__ParticleModuleCollision.DistributionDelayAmount'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

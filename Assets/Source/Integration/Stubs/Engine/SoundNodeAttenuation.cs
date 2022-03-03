@@ -25,7 +25,46 @@ public partial class SoundNodeAttenuation : SoundNode/*
 	[Category] public bool bSpatialize;
 	[Category] public bool bAttenuate;
 	[Category] public bool bAttenuateWithLowPassFilter;
+
+
+
+	public class DistributionMaxRadius : DistributionFloatUniform
+	{
+		public DistributionMaxRadius()
+		{
+			Min = 5000.0f;
+			Max = 5000.0f;
+		}
+	}
+	public class DistributionMinRadius : DistributionFloatUniform
+	{
+		public DistributionMinRadius()
+		{
+			Min = 400.0f;
+			Max = 400.0f;
+		}
+	}
 	
+	public class DistributionLPFMinRadius : DistributionFloatUniform
+	{
+		public DistributionLPFMinRadius()
+		{
+			Min = 1500.0f;
+			Max = 1500.0f;
+		}
+	}
+	
+	public class DistributionLPFMaxRadius : DistributionFloatUniform
+	{
+		public DistributionLPFMaxRadius()
+		{
+			Min = 5000.0f;
+			Max = 5000.0f;
+		}
+	}
+
+
+
 	public SoundNodeAttenuation()
 	{
 		var Default__SoundNodeAttenuation_DistributionMinRadius = new DistributionFloatUniform
@@ -55,7 +94,7 @@ public partial class SoundNodeAttenuation : SoundNode/*
 		// Object Offset:0x003E8A18
 		MinRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SoundNodeAttenuation.DistributionMinRadius")/*Ref DistributionFloatUniform'Default__SoundNodeAttenuation.DistributionMinRadius'*/,
+			Distribution = Default__SoundNodeAttenuation_DistributionMinRadius/*Ref DistributionFloatUniform'Default__SoundNodeAttenuation.DistributionMinRadius'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -74,7 +113,7 @@ public partial class SoundNodeAttenuation : SoundNode/*
 		};
 		MaxRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SoundNodeAttenuation.DistributionMaxRadius")/*Ref DistributionFloatUniform'Default__SoundNodeAttenuation.DistributionMaxRadius'*/,
+			Distribution = Default__SoundNodeAttenuation_DistributionMaxRadius/*Ref DistributionFloatUniform'Default__SoundNodeAttenuation.DistributionMaxRadius'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -94,7 +133,7 @@ public partial class SoundNodeAttenuation : SoundNode/*
 		dBAttenuationAtMax = -60.0f;
 		LPFMinRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SoundNodeAttenuation.DistributionLPFMinRadius")/*Ref DistributionFloatUniform'Default__SoundNodeAttenuation.DistributionLPFMinRadius'*/,
+			Distribution = Default__SoundNodeAttenuation_DistributionLPFMinRadius/*Ref DistributionFloatUniform'Default__SoundNodeAttenuation.DistributionLPFMinRadius'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -113,7 +152,7 @@ public partial class SoundNodeAttenuation : SoundNode/*
 		};
 		LPFMaxRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SoundNodeAttenuation.DistributionLPFMaxRadius")/*Ref DistributionFloatUniform'Default__SoundNodeAttenuation.DistributionLPFMaxRadius'*/,
+			Distribution = Default__SoundNodeAttenuation_DistributionLPFMaxRadius/*Ref DistributionFloatUniform'Default__SoundNodeAttenuation.DistributionLPFMaxRadius'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,

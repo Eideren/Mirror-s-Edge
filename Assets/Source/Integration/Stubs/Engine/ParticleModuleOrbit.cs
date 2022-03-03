@@ -72,7 +72,7 @@ public partial class ParticleModuleOrbit : ParticleModuleOrbitBase/*
 		ChainMode = ParticleModuleOrbit.EOrbitChainMode.EOChainMode_Link;
 		OffsetAmount = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorUniform>("Default__ParticleModuleOrbit.DistributionOffsetAmount")/*Ref DistributionVectorUniform'Default__ParticleModuleOrbit.DistributionOffsetAmount'*/,
+			Distribution = Default__ParticleModuleOrbit_DistributionOffsetAmount/*Ref DistributionVectorUniform'Default__ParticleModuleOrbit.DistributionOffsetAmount'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -105,7 +105,7 @@ public partial class ParticleModuleOrbit : ParticleModuleOrbitBase/*
 		};
 		RotationAmount = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorUniform>("Default__ParticleModuleOrbit.DistributionRotationAmount")/*Ref DistributionVectorUniform'Default__ParticleModuleOrbit.DistributionRotationAmount'*/,
+			Distribution = Default__ParticleModuleOrbit_DistributionRotationAmount/*Ref DistributionVectorUniform'Default__ParticleModuleOrbit.DistributionRotationAmount'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -138,7 +138,7 @@ public partial class ParticleModuleOrbit : ParticleModuleOrbitBase/*
 		};
 		RotationRateAmount = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorUniform>("Default__ParticleModuleOrbit.DistributionRotationRateAmount")/*Ref DistributionVectorUniform'Default__ParticleModuleOrbit.DistributionRotationRateAmount'*/,
+			Distribution = Default__ParticleModuleOrbit_DistributionRotationRateAmount/*Ref DistributionVectorUniform'Default__ParticleModuleOrbit.DistributionRotationRateAmount'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,

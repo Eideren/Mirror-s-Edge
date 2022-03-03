@@ -65,7 +65,7 @@ public partial class ParticleModuleUberLTISIVCLIL : ParticleModuleUberBase/*
 		// Object Offset:0x00386730
 		Lifetime = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__ParticleModuleUberLTISIVCLIL.DistributionLifetime")/*Ref DistributionFloatUniform'Default__ParticleModuleUberLTISIVCLIL.DistributionLifetime'*/,
+			Distribution = Default__ParticleModuleUberLTISIVCLIL_DistributionLifetime/*Ref DistributionFloatUniform'Default__ParticleModuleUberLTISIVCLIL.DistributionLifetime'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -84,7 +84,7 @@ public partial class ParticleModuleUberLTISIVCLIL : ParticleModuleUberBase/*
 		};
 		StartSize = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorUniform>("Default__ParticleModuleUberLTISIVCLIL.DistributionStartSize")/*Ref DistributionVectorUniform'Default__ParticleModuleUberLTISIVCLIL.DistributionStartSize'*/,
+			Distribution = Default__ParticleModuleUberLTISIVCLIL_DistributionStartSize/*Ref DistributionVectorUniform'Default__ParticleModuleUberLTISIVCLIL.DistributionStartSize'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,

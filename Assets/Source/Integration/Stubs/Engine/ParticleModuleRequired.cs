@@ -43,7 +43,7 @@ public partial class ParticleModuleRequired : ParticleModule/*
 		EmitterDuration = 1.0f;
 		SpawnRate = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleRequired.RequiredDistributionSpawnRate")/*Ref DistributionFloatConstant'Default__ParticleModuleRequired.RequiredDistributionSpawnRate'*/,
+			Distribution = Default__ParticleModuleRequired_RequiredDistributionSpawnRate/*Ref DistributionFloatConstant'Default__ParticleModuleRequired.RequiredDistributionSpawnRate'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

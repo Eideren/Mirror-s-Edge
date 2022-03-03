@@ -22,7 +22,7 @@ public partial class ParticleModuleVelocityInheritParent : ParticleModuleVelocit
 		// Object Offset:0x0038B1C0
 		Scale = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__ParticleModuleVelocityInheritParent.DistributionScale")/*Ref DistributionVectorConstant'Default__ParticleModuleVelocityInheritParent.DistributionScale'*/,
+			Distribution = Default__ParticleModuleVelocityInheritParent_DistributionScale/*Ref DistributionVectorConstant'Default__ParticleModuleVelocityInheritParent.DistributionScale'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

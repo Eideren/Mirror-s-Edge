@@ -215,7 +215,7 @@ public partial class SeqAct_CrowdSpawner : SeqAct_Latent/*
 		MaxVelDamping = 0.0030f;
 		ActionDuration = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SeqAct_CrowdSpawner.DistributionActionDuration")/*Ref DistributionFloatUniform'Default__SeqAct_CrowdSpawner.DistributionActionDuration'*/,
+			Distribution = Default__SeqAct_CrowdSpawner_DistributionActionDuration/*Ref DistributionFloatUniform'Default__SeqAct_CrowdSpawner.DistributionActionDuration'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -234,7 +234,7 @@ public partial class SeqAct_CrowdSpawner : SeqAct_Latent/*
 		};
 		ActionInterval = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SeqAct_CrowdSpawner.DistributionActionInterval")/*Ref DistributionFloatUniform'Default__SeqAct_CrowdSpawner.DistributionActionInterval'*/,
+			Distribution = Default__SeqAct_CrowdSpawner_DistributionActionInterval/*Ref DistributionFloatUniform'Default__SeqAct_CrowdSpawner.DistributionActionInterval'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -253,7 +253,7 @@ public partial class SeqAct_CrowdSpawner : SeqAct_Latent/*
 		};
 		TargetActionInterval = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SeqAct_CrowdSpawner.DistributionTargetActionInterval")/*Ref DistributionFloatUniform'Default__SeqAct_CrowdSpawner.DistributionTargetActionInterval'*/,
+			Distribution = Default__SeqAct_CrowdSpawner_DistributionTargetActionInterval/*Ref DistributionFloatUniform'Default__SeqAct_CrowdSpawner.DistributionTargetActionInterval'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,

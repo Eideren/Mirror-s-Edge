@@ -42,23 +42,23 @@ public partial class TdParticleModuleCollision : ParticleModuleCollision/*
 		DefaultImpactMaterial = LoadAsset<PhysicalMaterial>("TDPhysicalMaterials.PM_Default")/*Ref PhysicalMaterial'TDPhysicalMaterials.PM_Default'*/;
 		DampingFactor = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorUniform>("Default__TdParticleModuleCollision.DistributionDampingFactor")/*Ref DistributionVectorUniform'Default__TdParticleModuleCollision.DistributionDampingFactor'*/,
+			Distribution = Default__TdParticleModuleCollision_DistributionDampingFactor/*Ref DistributionVectorUniform'Default__TdParticleModuleCollision.DistributionDampingFactor'*/,
 		};
 		DampingFactorRotation = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__TdParticleModuleCollision.DistributionDampingFactorRotation")/*Ref DistributionVectorConstant'Default__TdParticleModuleCollision.DistributionDampingFactorRotation'*/,
+			Distribution = Default__TdParticleModuleCollision_DistributionDampingFactorRotation/*Ref DistributionVectorConstant'Default__TdParticleModuleCollision.DistributionDampingFactorRotation'*/,
 		};
 		MaxCollisions = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__TdParticleModuleCollision.DistributionMaxCollisions")/*Ref DistributionFloatUniform'Default__TdParticleModuleCollision.DistributionMaxCollisions'*/,
+			Distribution = Default__TdParticleModuleCollision_DistributionMaxCollisions/*Ref DistributionFloatUniform'Default__TdParticleModuleCollision.DistributionMaxCollisions'*/,
 		};
 		ParticleMass = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__TdParticleModuleCollision.DistributionParticleMass")/*Ref DistributionFloatConstant'Default__TdParticleModuleCollision.DistributionParticleMass'*/,
+			Distribution = Default__TdParticleModuleCollision_DistributionParticleMass/*Ref DistributionFloatConstant'Default__TdParticleModuleCollision.DistributionParticleMass'*/,
 		};
 		DelayAmount = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__TdParticleModuleCollision.DistributionDelayAmount")/*Ref DistributionFloatConstant'Default__TdParticleModuleCollision.DistributionDelayAmount'*/,
+			Distribution = Default__TdParticleModuleCollision_DistributionDelayAmount/*Ref DistributionFloatConstant'Default__TdParticleModuleCollision.DistributionDelayAmount'*/,
 		};
 	}
 }

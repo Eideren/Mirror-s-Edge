@@ -8,7 +8,29 @@ public partial class SoundNodeModulator : SoundNode/*
 		hidecategories(Object,Object)*/{
 	[Category] public DistributionFloat.RawDistributionFloat VolumeModulation;
 	[Category] public DistributionFloat.RawDistributionFloat PitchModulation;
+
+
+
+	public class DistributionVolume : DistributionFloatUniform
+	{
+		public DistributionVolume()
+		{
+			Min = 0.90f;
+			Max = 1.10f;
+		}
+	}
 	
+	public class DistributionPitch : DistributionFloatUniform
+	{
+		public DistributionPitch()
+		{
+			Min = 0.90f;
+			Max = 1.10f;
+		}
+	}
+
+
+
 	public SoundNodeModulator()
 	{
 		var Default__SoundNodeModulator_DistributionVolume = new DistributionFloatUniform

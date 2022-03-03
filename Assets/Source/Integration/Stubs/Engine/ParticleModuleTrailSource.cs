@@ -33,7 +33,7 @@ public partial class ParticleModuleTrailSource : ParticleModuleTrailBase/*
 		SelectionMethod = ParticleModule.EParticleSourceSelectionMethod.EPSSM_Sequential;
 		SourceStrength = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleTrailSource.DistributionSourceStrength")/*Ref DistributionFloatConstant'Default__ParticleModuleTrailSource.DistributionSourceStrength'*/,
+			Distribution = Default__ParticleModuleTrailSource_DistributionSourceStrength/*Ref DistributionFloatConstant'Default__ParticleModuleTrailSource.DistributionSourceStrength'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

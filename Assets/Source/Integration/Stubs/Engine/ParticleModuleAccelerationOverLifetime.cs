@@ -15,7 +15,7 @@ public partial class ParticleModuleAccelerationOverLifetime : ParticleModuleAcce
 		// Object Offset:0x00378DDD
 		AccelOverLife = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstantCurve>("Default__ParticleModuleAccelerationOverLifetime.DistributionAccelOverLife")/*Ref DistributionVectorConstantCurve'Default__ParticleModuleAccelerationOverLifetime.DistributionAccelOverLife'*/,
+			Distribution = Default__ParticleModuleAccelerationOverLifetime_DistributionAccelOverLife/*Ref DistributionVectorConstantCurve'Default__ParticleModuleAccelerationOverLifetime.DistributionAccelOverLife'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

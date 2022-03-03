@@ -18,7 +18,7 @@ public partial class ParticleModuleSizeMultiplyVelocity : ParticleModuleSizeBase
 		// Object Offset:0x00381FD3
 		VelocityMultiplier = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__ParticleModuleSizeMultiplyVelocity.DistributionVelocityMultiplier")/*Ref DistributionVectorConstant'Default__ParticleModuleSizeMultiplyVelocity.DistributionVelocityMultiplier'*/,
+			Distribution = Default__ParticleModuleSizeMultiplyVelocity_DistributionVelocityMultiplier/*Ref DistributionVectorConstant'Default__ParticleModuleSizeMultiplyVelocity.DistributionVelocityMultiplier'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

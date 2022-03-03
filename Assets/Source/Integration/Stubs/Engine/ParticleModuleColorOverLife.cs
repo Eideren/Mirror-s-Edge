@@ -22,7 +22,7 @@ public partial class ParticleModuleColorOverLife : ParticleModuleColorBase/*
 		// Object Offset:0x0037CB0A
 		ColorOverLife = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstantCurve>("Default__ParticleModuleColorOverLife.DistributionColorOverLife")/*Ref DistributionVectorConstantCurve'Default__ParticleModuleColorOverLife.DistributionColorOverLife'*/,
+			Distribution = Default__ParticleModuleColorOverLife_DistributionColorOverLife/*Ref DistributionVectorConstantCurve'Default__ParticleModuleColorOverLife.DistributionColorOverLife'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -43,7 +43,7 @@ public partial class ParticleModuleColorOverLife : ParticleModuleColorBase/*
 		};
 		AlphaOverLife = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleColorOverLife.DistributionAlphaOverLife")/*Ref DistributionFloatConstant'Default__ParticleModuleColorOverLife.DistributionAlphaOverLife'*/,
+			Distribution = Default__ParticleModuleColorOverLife_DistributionAlphaOverLife/*Ref DistributionFloatConstant'Default__ParticleModuleColorOverLife.DistributionAlphaOverLife'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

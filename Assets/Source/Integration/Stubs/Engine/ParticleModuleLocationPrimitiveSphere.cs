@@ -23,7 +23,7 @@ public partial class ParticleModuleLocationPrimitiveSphere : ParticleModuleLocat
 		// Object Offset:0x0037F154
 		StartRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleLocationPrimitiveSphere.DistributionStartRadius")/*Ref DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveSphere.DistributionStartRadius'*/,
+			Distribution = Default__ParticleModuleLocationPrimitiveSphere_DistributionStartRadius/*Ref DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveSphere.DistributionStartRadius'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -40,11 +40,11 @@ public partial class ParticleModuleLocationPrimitiveSphere : ParticleModuleLocat
 		};
 		VelocityScale = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleLocationPrimitiveSphere.DistributionVelocityScale")/*Ref DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveSphere.DistributionVelocityScale'*/,
+			Distribution = Default__ParticleModuleLocationPrimitiveSphere_DistributionVelocityScale/*Ref DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveSphere.DistributionVelocityScale'*/,
 		};
 		StartLocation = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__ParticleModuleLocationPrimitiveSphere.DistributionStartLocation")/*Ref DistributionVectorConstant'Default__ParticleModuleLocationPrimitiveSphere.DistributionStartLocation'*/,
+			Distribution = Default__ParticleModuleLocationPrimitiveSphere_DistributionStartLocation/*Ref DistributionVectorConstant'Default__ParticleModuleLocationPrimitiveSphere.DistributionStartLocation'*/,
 		};
 		bSupported3DDrawMode = true;
 	}

@@ -18,7 +18,7 @@ public partial class ParticleModuleSizeMultiplyLife : ParticleModuleSizeBase/*
 		// Object Offset:0x00381CE4
 		LifeMultiplier = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__ParticleModuleSizeMultiplyLife.DistributionLifeMultiplier")/*Ref DistributionVectorConstant'Default__ParticleModuleSizeMultiplyLife.DistributionLifeMultiplier'*/,
+			Distribution = Default__ParticleModuleSizeMultiplyLife_DistributionLifeMultiplier/*Ref DistributionVectorConstant'Default__ParticleModuleSizeMultiplyLife.DistributionLifeMultiplier'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

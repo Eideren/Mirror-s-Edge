@@ -15,6 +15,21 @@ public partial class TdSoundNodeDuckTrigger : SoundNode/*
 	[Category] public bool bAttenuate;
 	[Category] public bool bInvertMixGroupSelection;
 	
+	public class DistributionMinRadius : DistributionFloatUniform
+	{
+		public DistributionMinRadius(){// Object Offset:0x01AFCB9E
+			Min = 100.0f;
+			Max = 100.0f;
+		}
+	}/* Reference: DistributionFloatUniform'Default__TdSoundNodeDuckTrigger.DistributionMinRadius' */;
+	public class DistributionMaxRadius : DistributionFloatUniform
+	{
+		public DistributionMaxRadius(){// Object Offset:0x01AFCC1A
+			Min = 1000.0f;
+			Max = 1000.0f;
+		}
+	}/* Reference: DistributionFloatUniform'Default__TdSoundNodeDuckTrigger.DistributionMaxRadius' */;
+	
 	public TdSoundNodeDuckTrigger()
 	{
 		var Default__TdSoundNodeDuckTrigger_DistributionMinRadius = new DistributionFloatUniform
@@ -34,7 +49,7 @@ public partial class TdSoundNodeDuckTrigger : SoundNode/*
 		DuckLevel = 0.30f;
 		MinRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__TdSoundNodeDuckTrigger.DistributionMinRadius")/*Ref DistributionFloatUniform'Default__TdSoundNodeDuckTrigger.DistributionMinRadius'*/,
+			Distribution = Default__TdSoundNodeDuckTrigger_DistributionMinRadius,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -53,7 +68,7 @@ public partial class TdSoundNodeDuckTrigger : SoundNode/*
 		};
 		MaxRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__TdSoundNodeDuckTrigger.DistributionMaxRadius")/*Ref DistributionFloatUniform'Default__TdSoundNodeDuckTrigger.DistributionMaxRadius'*/,
+			Distribution = Default__TdSoundNodeDuckTrigger_DistributionMaxRadius,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,

@@ -22,7 +22,7 @@ public partial class ParticleModuleColor : ParticleModuleColorBase/*
 		// Object Offset:0x0037C640
 		StartColor = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__ParticleModuleColor.DistributionStartColor")/*Ref DistributionVectorConstant'Default__ParticleModuleColor.DistributionStartColor'*/,
+			Distribution = Default__ParticleModuleColor_DistributionStartColor/*Ref DistributionVectorConstant'Default__ParticleModuleColor.DistributionStartColor'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -43,7 +43,7 @@ public partial class ParticleModuleColor : ParticleModuleColorBase/*
 		};
 		StartAlpha = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleColor.DistributionStartAlpha")/*Ref DistributionFloatConstant'Default__ParticleModuleColor.DistributionStartAlpha'*/,
+			Distribution = Default__ParticleModuleColor_DistributionStartAlpha/*Ref DistributionFloatConstant'Default__ParticleModuleColor.DistributionStartAlpha'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

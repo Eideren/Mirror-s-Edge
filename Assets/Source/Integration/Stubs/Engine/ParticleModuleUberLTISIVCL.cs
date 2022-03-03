@@ -61,7 +61,7 @@ public partial class ParticleModuleUberLTISIVCL : ParticleModuleUberBase/*
 		// Object Offset:0x00385DE5
 		Lifetime = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__ParticleModuleUberLTISIVCL.DistributionLifetime")/*Ref DistributionFloatUniform'Default__ParticleModuleUberLTISIVCL.DistributionLifetime'*/,
+			Distribution = Default__ParticleModuleUberLTISIVCL_DistributionLifetime/*Ref DistributionFloatUniform'Default__ParticleModuleUberLTISIVCL.DistributionLifetime'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -80,7 +80,7 @@ public partial class ParticleModuleUberLTISIVCL : ParticleModuleUberBase/*
 		};
 		StartSize = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorUniform>("Default__ParticleModuleUberLTISIVCL.DistributionStartSize")/*Ref DistributionVectorUniform'Default__ParticleModuleUberLTISIVCL.DistributionStartSize'*/,
+			Distribution = Default__ParticleModuleUberLTISIVCL_DistributionStartSize/*Ref DistributionVectorUniform'Default__ParticleModuleUberLTISIVCL.DistributionStartSize'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -107,7 +107,7 @@ public partial class ParticleModuleUberLTISIVCL : ParticleModuleUberBase/*
 		};
 		StartVelocity = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorUniform>("Default__ParticleModuleUberLTISIVCL.DistributionStartVelocity")/*Ref DistributionVectorUniform'Default__ParticleModuleUberLTISIVCL.DistributionStartVelocity'*/,
+			Distribution = Default__ParticleModuleUberLTISIVCL_DistributionStartVelocity/*Ref DistributionVectorUniform'Default__ParticleModuleUberLTISIVCL.DistributionStartVelocity'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -134,7 +134,7 @@ public partial class ParticleModuleUberLTISIVCL : ParticleModuleUberBase/*
 		};
 		StartVelocityRadial = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__ParticleModuleUberLTISIVCL.DistributionStartVelocityRadial")/*Ref DistributionFloatUniform'Default__ParticleModuleUberLTISIVCL.DistributionStartVelocityRadial'*/,
+			Distribution = Default__ParticleModuleUberLTISIVCL_DistributionStartVelocityRadial/*Ref DistributionFloatUniform'Default__ParticleModuleUberLTISIVCL.DistributionStartVelocityRadial'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -153,7 +153,7 @@ public partial class ParticleModuleUberLTISIVCL : ParticleModuleUberBase/*
 		};
 		ColorOverLife = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstantCurve>("Default__ParticleModuleUberLTISIVCL.DistributionColorOverLife")/*Ref DistributionVectorConstantCurve'Default__ParticleModuleUberLTISIVCL.DistributionColorOverLife'*/,
+			Distribution = Default__ParticleModuleUberLTISIVCL_DistributionColorOverLife/*Ref DistributionVectorConstantCurve'Default__ParticleModuleUberLTISIVCL.DistributionColorOverLife'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -174,7 +174,7 @@ public partial class ParticleModuleUberLTISIVCL : ParticleModuleUberBase/*
 		};
 		AlphaOverLife = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleUberLTISIVCL.DistributionAlphaOverLife")/*Ref DistributionFloatConstant'Default__ParticleModuleUberLTISIVCL.DistributionAlphaOverLife'*/,
+			Distribution = Default__ParticleModuleUberLTISIVCL_DistributionAlphaOverLife/*Ref DistributionFloatConstant'Default__ParticleModuleUberLTISIVCL.DistributionAlphaOverLife'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

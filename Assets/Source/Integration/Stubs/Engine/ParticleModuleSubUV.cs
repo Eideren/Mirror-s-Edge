@@ -15,7 +15,7 @@ public partial class ParticleModuleSubUV : ParticleModuleSubUVBase/*
 		// Object Offset:0x00382D11
 		SubImageIndex = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleSubUV.DistributionSubImage")/*Ref DistributionFloatConstant'Default__ParticleModuleSubUV.DistributionSubImage'*/,
+			Distribution = Default__ParticleModuleSubUV_DistributionSubImage/*Ref DistributionFloatConstant'Default__ParticleModuleSubUV.DistributionSubImage'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

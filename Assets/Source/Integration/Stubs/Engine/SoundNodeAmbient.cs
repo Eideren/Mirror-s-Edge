@@ -59,7 +59,7 @@ public partial class SoundNodeAmbient : SoundNode/*
 		// Object Offset:0x0028FDA6
 		MinRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SoundNodeAmbient.DistributionMinRadius")/*Ref DistributionFloatUniform'Default__SoundNodeAmbient.DistributionMinRadius'*/,
+			Distribution = Default__SoundNodeAmbient_DistributionMinRadius/*Ref DistributionFloatUniform'Default__SoundNodeAmbient.DistributionMinRadius'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -78,7 +78,7 @@ public partial class SoundNodeAmbient : SoundNode/*
 		};
 		MaxRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SoundNodeAmbient.DistributionMaxRadius")/*Ref DistributionFloatUniform'Default__SoundNodeAmbient.DistributionMaxRadius'*/,
+			Distribution = Default__SoundNodeAmbient_DistributionMaxRadius/*Ref DistributionFloatUniform'Default__SoundNodeAmbient.DistributionMaxRadius'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -97,7 +97,7 @@ public partial class SoundNodeAmbient : SoundNode/*
 		};
 		LPFMinRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SoundNodeAmbient.DistributionLPFMinRadius")/*Ref DistributionFloatUniform'Default__SoundNodeAmbient.DistributionLPFMinRadius'*/,
+			Distribution = Default__SoundNodeAmbient_DistributionLPFMinRadius/*Ref DistributionFloatUniform'Default__SoundNodeAmbient.DistributionLPFMinRadius'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -116,7 +116,7 @@ public partial class SoundNodeAmbient : SoundNode/*
 		};
 		LPFMaxRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SoundNodeAmbient.DistributionLPFMaxRadius")/*Ref DistributionFloatUniform'Default__SoundNodeAmbient.DistributionLPFMaxRadius'*/,
+			Distribution = Default__SoundNodeAmbient_DistributionLPFMaxRadius/*Ref DistributionFloatUniform'Default__SoundNodeAmbient.DistributionLPFMaxRadius'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -137,7 +137,7 @@ public partial class SoundNodeAmbient : SoundNode/*
 		bAttenuate = true;
 		VolumeModulation = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SoundNodeAmbient.DistributionVolume")/*Ref DistributionFloatUniform'Default__SoundNodeAmbient.DistributionVolume'*/,
+			Distribution = Default__SoundNodeAmbient_DistributionVolume/*Ref DistributionFloatUniform'Default__SoundNodeAmbient.DistributionVolume'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -156,7 +156,7 @@ public partial class SoundNodeAmbient : SoundNode/*
 		};
 		PitchModulation = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SoundNodeAmbient.DistributionPitch")/*Ref DistributionFloatUniform'Default__SoundNodeAmbient.DistributionPitch'*/,
+			Distribution = Default__SoundNodeAmbient_DistributionPitch/*Ref DistributionFloatUniform'Default__SoundNodeAmbient.DistributionPitch'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,

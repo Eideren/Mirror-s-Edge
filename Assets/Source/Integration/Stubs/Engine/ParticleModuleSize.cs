@@ -28,7 +28,7 @@ public partial class ParticleModuleSize : ParticleModuleSizeBase/*
 		// Object Offset:0x00381A4D
 		StartSize = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorUniform>("Default__ParticleModuleSize.DistributionStartSize")/*Ref DistributionVectorUniform'Default__ParticleModuleSize.DistributionStartSize'*/,
+			Distribution = Default__ParticleModuleSize_DistributionStartSize/*Ref DistributionVectorUniform'Default__ParticleModuleSize.DistributionStartSize'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,

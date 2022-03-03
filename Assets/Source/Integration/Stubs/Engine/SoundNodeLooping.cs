@@ -8,7 +8,21 @@ public partial class SoundNodeLooping : SoundNode/*
 		hidecategories(Object,Object)*/{
 	[Category] public bool bLoopIndefinitely;
 	[Category] public DistributionFloat.RawDistributionFloat LoopCount;
-	
+
+
+
+	public class DistributionLoopCount : DistributionFloatUniform
+	{
+		public DistributionLoopCount()
+		{
+			
+			Min = 1000000.0f;
+			Max = 1000000.0f;
+		}
+	}
+
+
+
 	public SoundNodeLooping()
 	{
 		var Default__SoundNodeLooping_DistributionLoopCount = new DistributionFloatUniform
@@ -21,7 +35,7 @@ public partial class SoundNodeLooping : SoundNode/*
 		bLoopIndefinitely = true;
 		LoopCount = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SoundNodeLooping.DistributionLoopCount")/*Ref DistributionFloatUniform'Default__SoundNodeLooping.DistributionLoopCount'*/,
+			Distribution = Default__SoundNodeLooping_DistributionLoopCount,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,

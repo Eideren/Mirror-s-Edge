@@ -32,7 +32,7 @@ public partial class TdSoundNodeAttenuation : SoundNodeAttenuation/*
 		// Object Offset:0x0065A7CA
 		SpeedOfSound = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__TdSoundNodeAttenuation.DistributionSpeedOfSound")/*Ref DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionSpeedOfSound'*/,
+			Distribution = Default__TdSoundNodeAttenuation_DistributionSpeedOfSound/*Ref DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionSpeedOfSound'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -51,19 +51,19 @@ public partial class TdSoundNodeAttenuation : SoundNodeAttenuation/*
 		};
 		MinRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__TdSoundNodeAttenuation.DistributionMinRadius")/*Ref DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionMinRadius'*/,
+			Distribution = Default__TdSoundNodeAttenuation_DistributionMinRadius/*Ref DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionMinRadius'*/,
 		};
 		MaxRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__TdSoundNodeAttenuation.DistributionMaxRadius")/*Ref DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionMaxRadius'*/,
+			Distribution = Default__TdSoundNodeAttenuation_DistributionMaxRadius/*Ref DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionMaxRadius'*/,
 		};
 		LPFMinRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__TdSoundNodeAttenuation.DistributionLPFMinRadius")/*Ref DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionLPFMinRadius'*/,
+			Distribution = Default__TdSoundNodeAttenuation_DistributionLPFMinRadius/*Ref DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionLPFMinRadius'*/,
 		};
 		LPFMaxRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__TdSoundNodeAttenuation.DistributionLPFMaxRadius")/*Ref DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionLPFMaxRadius'*/,
+			Distribution = Default__TdSoundNodeAttenuation_DistributionLPFMaxRadius/*Ref DistributionFloatUniform'Default__TdSoundNodeAttenuation.DistributionLPFMaxRadius'*/,
 		};
 	}
 }

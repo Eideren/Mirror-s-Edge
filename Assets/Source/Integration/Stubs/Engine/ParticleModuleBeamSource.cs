@@ -46,7 +46,7 @@ public partial class ParticleModuleBeamSource : ParticleModuleBeamBase/*
 		// Object Offset:0x0037B165
 		Source = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__ParticleModuleBeamSource.DistributionSource")/*Ref DistributionVectorConstant'Default__ParticleModuleBeamSource.DistributionSource'*/,
+			Distribution = Default__ParticleModuleBeamSource_DistributionSource/*Ref DistributionVectorConstant'Default__ParticleModuleBeamSource.DistributionSource'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -67,7 +67,7 @@ public partial class ParticleModuleBeamSource : ParticleModuleBeamBase/*
 		};
 		SourceTangent = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__ParticleModuleBeamSource.DistributionSourceTangent")/*Ref DistributionVectorConstant'Default__ParticleModuleBeamSource.DistributionSourceTangent'*/,
+			Distribution = Default__ParticleModuleBeamSource_DistributionSourceTangent/*Ref DistributionVectorConstant'Default__ParticleModuleBeamSource.DistributionSourceTangent'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -88,7 +88,7 @@ public partial class ParticleModuleBeamSource : ParticleModuleBeamBase/*
 		};
 		SourceStrength = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleBeamSource.DistributionSourceStrength")/*Ref DistributionFloatConstant'Default__ParticleModuleBeamSource.DistributionSourceStrength'*/,
+			Distribution = Default__ParticleModuleBeamSource_DistributionSourceStrength/*Ref DistributionFloatConstant'Default__ParticleModuleBeamSource.DistributionSourceStrength'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

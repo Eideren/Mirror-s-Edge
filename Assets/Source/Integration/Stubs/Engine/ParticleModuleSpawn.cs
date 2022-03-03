@@ -25,7 +25,7 @@ public partial class ParticleModuleSpawn : ParticleModuleSpawnBase/*
 		// Object Offset:0x003826E0
 		Rate = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleSpawn.RequiredDistributionSpawnRate")/*Ref DistributionFloatConstant'Default__ParticleModuleSpawn.RequiredDistributionSpawnRate'*/,
+			Distribution = Default__ParticleModuleSpawn_RequiredDistributionSpawnRate/*Ref DistributionFloatConstant'Default__ParticleModuleSpawn.RequiredDistributionSpawnRate'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -42,7 +42,7 @@ public partial class ParticleModuleSpawn : ParticleModuleSpawnBase/*
 		};
 		RateScale = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleSpawn.RequiredDistributionSpawnRateScale")/*Ref DistributionFloatConstant'Default__ParticleModuleSpawn.RequiredDistributionSpawnRateScale'*/,
+			Distribution = Default__ParticleModuleSpawn_RequiredDistributionSpawnRateScale/*Ref DistributionFloatConstant'Default__ParticleModuleSpawn.RequiredDistributionSpawnRateScale'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

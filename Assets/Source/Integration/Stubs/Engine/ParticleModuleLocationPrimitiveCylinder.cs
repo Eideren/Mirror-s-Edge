@@ -40,7 +40,7 @@ public partial class ParticleModuleLocationPrimitiveCylinder : ParticleModuleLoc
 		RadialVelocity = true;
 		StartRadius = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleLocationPrimitiveCylinder.DistributionStartRadius")/*Ref DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveCylinder.DistributionStartRadius'*/,
+			Distribution = Default__ParticleModuleLocationPrimitiveCylinder_DistributionStartRadius/*Ref DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveCylinder.DistributionStartRadius'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -57,7 +57,7 @@ public partial class ParticleModuleLocationPrimitiveCylinder : ParticleModuleLoc
 		};
 		StartHeight = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleLocationPrimitiveCylinder.DistributionStartHeight")/*Ref DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveCylinder.DistributionStartHeight'*/,
+			Distribution = Default__ParticleModuleLocationPrimitiveCylinder_DistributionStartHeight/*Ref DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveCylinder.DistributionStartHeight'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -75,11 +75,11 @@ public partial class ParticleModuleLocationPrimitiveCylinder : ParticleModuleLoc
 		HeightAxis = ParticleModuleLocationPrimitiveCylinder.CylinderHeightAxis.PMLPC_HEIGHTAXIS_Z;
 		VelocityScale = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleLocationPrimitiveCylinder.DistributionVelocityScale")/*Ref DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveCylinder.DistributionVelocityScale'*/,
+			Distribution = Default__ParticleModuleLocationPrimitiveCylinder_DistributionVelocityScale/*Ref DistributionFloatConstant'Default__ParticleModuleLocationPrimitiveCylinder.DistributionVelocityScale'*/,
 		};
 		StartLocation = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__ParticleModuleLocationPrimitiveCylinder.DistributionStartLocation")/*Ref DistributionVectorConstant'Default__ParticleModuleLocationPrimitiveCylinder.DistributionStartLocation'*/,
+			Distribution = Default__ParticleModuleLocationPrimitiveCylinder_DistributionStartLocation/*Ref DistributionVectorConstant'Default__ParticleModuleLocationPrimitiveCylinder.DistributionStartLocation'*/,
 		};
 		bSupported3DDrawMode = true;
 	}

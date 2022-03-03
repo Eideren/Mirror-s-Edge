@@ -34,7 +34,7 @@ public partial class ParticleModuleLocationDirect : ParticleModuleLocationBase/*
 		// Object Offset:0x0037DE51
 		Location = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorUniform>("Default__ParticleModuleLocationDirect.DistributionLocation")/*Ref DistributionVectorUniform'Default__ParticleModuleLocationDirect.DistributionLocation'*/,
+			Distribution = Default__ParticleModuleLocationDirect_DistributionLocation/*Ref DistributionVectorUniform'Default__ParticleModuleLocationDirect.DistributionLocation'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -61,7 +61,7 @@ public partial class ParticleModuleLocationDirect : ParticleModuleLocationBase/*
 		};
 		LocationOffset = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__ParticleModuleLocationDirect.DistributionLocationOffset")/*Ref DistributionVectorConstant'Default__ParticleModuleLocationDirect.DistributionLocationOffset'*/,
+			Distribution = Default__ParticleModuleLocationDirect_DistributionLocationOffset/*Ref DistributionVectorConstant'Default__ParticleModuleLocationDirect.DistributionLocationOffset'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -82,7 +82,7 @@ public partial class ParticleModuleLocationDirect : ParticleModuleLocationBase/*
 		};
 		ScaleFactor = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__ParticleModuleLocationDirect.DistributionScaleFactor")/*Ref DistributionVectorConstant'Default__ParticleModuleLocationDirect.DistributionScaleFactor'*/,
+			Distribution = Default__ParticleModuleLocationDirect_DistributionScaleFactor/*Ref DistributionVectorConstant'Default__ParticleModuleLocationDirect.DistributionScaleFactor'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -103,7 +103,7 @@ public partial class ParticleModuleLocationDirect : ParticleModuleLocationBase/*
 		};
 		Direction = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorUniform>("Default__ParticleModuleLocationDirect.DistributionDirection")/*Ref DistributionVectorUniform'Default__ParticleModuleLocationDirect.DistributionDirection'*/,
+			Distribution = Default__ParticleModuleLocationDirect_DistributionDirection/*Ref DistributionVectorUniform'Default__ParticleModuleLocationDirect.DistributionDirection'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,

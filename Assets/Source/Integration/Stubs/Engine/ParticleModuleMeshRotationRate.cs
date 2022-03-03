@@ -22,7 +22,7 @@ public partial class ParticleModuleMeshRotationRate : ParticleModuleRotationRate
 		// Object Offset:0x0037FA21
 		StartRotationRate = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorUniform>("Default__ParticleModuleMeshRotationRate.DistributionStartRotationRate")/*Ref DistributionVectorUniform'Default__ParticleModuleMeshRotationRate.DistributionStartRotationRate'*/,
+			Distribution = Default__ParticleModuleMeshRotationRate_DistributionStartRotationRate/*Ref DistributionVectorUniform'Default__ParticleModuleMeshRotationRate.DistributionStartRotationRate'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,

@@ -15,7 +15,7 @@ public partial class ParticleModuleRotationRateMultiplyLife : ParticleModuleRota
 		// Object Offset:0x003817C7
 		LifeMultiplier = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleRotationRateMultiplyLife.DistributionLifeMultiplier")/*Ref DistributionFloatConstant'Default__ParticleModuleRotationRateMultiplyLife.DistributionLifeMultiplier'*/,
+			Distribution = Default__ParticleModuleRotationRateMultiplyLife_DistributionLifeMultiplier/*Ref DistributionFloatConstant'Default__ParticleModuleRotationRateMultiplyLife.DistributionLifeMultiplier'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

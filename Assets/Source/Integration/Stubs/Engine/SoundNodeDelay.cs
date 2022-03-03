@@ -7,7 +7,15 @@ public partial class SoundNodeDelay : SoundNode/*
 		collapsecategories
 		hidecategories(Object,Object)*/{
 	[Category] public DistributionFloat.RawDistributionFloat DelayDuration;
-	
+
+
+
+	public class DistributionDelayDuration : DistributionFloatUniform
+	{
+	}
+
+
+
 	public SoundNodeDelay()
 	{
 		var Default__SoundNodeDelay_DistributionDelayDuration = new DistributionFloatUniform
@@ -16,7 +24,7 @@ public partial class SoundNodeDelay : SoundNode/*
 		// Object Offset:0x003E9092
 		DelayDuration = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SoundNodeDelay.DistributionDelayDuration")/*Ref DistributionFloatUniform'Default__SoundNodeDelay.DistributionDelayDuration'*/,
+			Distribution = Default__SoundNodeDelay_DistributionDelayDuration,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,

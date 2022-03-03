@@ -69,7 +69,7 @@ public partial class ParticleModuleTypeDataBeam : ParticleModuleTypeDataBase/*
 		// Object Offset:0x00383F1D
 		Distance = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleTypeDataBeam.DistributionDistance")/*Ref DistributionFloatConstant'Default__ParticleModuleTypeDataBeam.DistributionDistance'*/,
+			Distribution = Default__ParticleModuleTypeDataBeam_DistributionDistance/*Ref DistributionFloatConstant'Default__ParticleModuleTypeDataBeam.DistributionDistance'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -86,7 +86,7 @@ public partial class ParticleModuleTypeDataBeam : ParticleModuleTypeDataBase/*
 		};
 		EndPoint = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__ParticleModuleTypeDataBeam.DistributionEndPoint")/*Ref DistributionVectorConstant'Default__ParticleModuleTypeDataBeam.DistributionEndPoint'*/,
+			Distribution = Default__ParticleModuleTypeDataBeam_DistributionEndPoint/*Ref DistributionVectorConstant'Default__ParticleModuleTypeDataBeam.DistributionEndPoint'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -108,7 +108,7 @@ public partial class ParticleModuleTypeDataBeam : ParticleModuleTypeDataBase/*
 		TessellationFactor = 1;
 		EmitterStrength = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleTypeDataBeam.DistributionEmitterStrength")/*Ref DistributionFloatConstant'Default__ParticleModuleTypeDataBeam.DistributionEmitterStrength'*/,
+			Distribution = Default__ParticleModuleTypeDataBeam_DistributionEmitterStrength/*Ref DistributionFloatConstant'Default__ParticleModuleTypeDataBeam.DistributionEmitterStrength'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,
@@ -125,7 +125,7 @@ public partial class ParticleModuleTypeDataBeam : ParticleModuleTypeDataBase/*
 		};
 		TargetStrength = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatConstant>("Default__ParticleModuleTypeDataBeam.DistributionTargetStrength")/*Ref DistributionFloatConstant'Default__ParticleModuleTypeDataBeam.DistributionTargetStrength'*/,
+			Distribution = Default__ParticleModuleTypeDataBeam_DistributionTargetStrength/*Ref DistributionFloatConstant'Default__ParticleModuleTypeDataBeam.DistributionTargetStrength'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

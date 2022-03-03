@@ -21,7 +21,7 @@ public partial class ParticleModuleKillBox : ParticleModuleKillBase/*
 		// Object Offset:0x0037D303
 		LowerLeftCorner = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__ParticleModuleKillBox.DistributionLowerLeftCorner")/*Ref DistributionVectorConstant'Default__ParticleModuleKillBox.DistributionLowerLeftCorner'*/,
+			Distribution = Default__ParticleModuleKillBox_DistributionLowerLeftCorner/*Ref DistributionVectorConstant'Default__ParticleModuleKillBox.DistributionLowerLeftCorner'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

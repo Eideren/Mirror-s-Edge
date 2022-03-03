@@ -15,7 +15,7 @@ public partial class ParticleModuleMeshRotationRateMultiplyLife : ParticleModule
 		// Object Offset:0x0037FC50
 		LifeMultiplier = new DistributionVector.RawDistributionVector
 		{
-			Distribution = LoadAsset<DistributionVectorConstant>("Default__ParticleModuleMeshRotationRateMultiplyLife.DistributionLifeMultiplier")/*Ref DistributionVectorConstant'Default__ParticleModuleMeshRotationRateMultiplyLife.DistributionLifeMultiplier'*/,
+			Distribution = Default__ParticleModuleMeshRotationRateMultiplyLife_DistributionLifeMultiplier/*Ref DistributionVectorConstant'Default__ParticleModuleMeshRotationRateMultiplyLife.DistributionLifeMultiplier'*/,
 			Type = 0,
 			Op = 1,
 			LookupTableNumElements = 1,

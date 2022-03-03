@@ -276,7 +276,7 @@ public partial class LensFlare : Object/*
 			LFMaterials = default,
 			LFMaterialIndex = new DistributionFloat.RawDistributionFloat
 			{
-				Distribution = LoadAsset<DistributionFloatConstant>("Default__LensFlare.DistributionLFMaterialIndex")/*Ref DistributionFloatConstant'Default__LensFlare.DistributionLFMaterialIndex'*/,
+				Distribution = Default__LensFlare_DistributionLFMaterialIndex/*Ref DistributionFloatConstant'Default__LensFlare.DistributionLFMaterialIndex'*/,
 				Type = 0,
 				Op = 1,
 				LookupTableNumElements = 1,
@@ -293,7 +293,7 @@ public partial class LensFlare : Object/*
 			},
 			Scaling = new DistributionFloat.RawDistributionFloat
 			{
-				Distribution = LoadAsset<DistributionFloatConstant>("Default__LensFlare.DistributionScaling")/*Ref DistributionFloatConstant'Default__LensFlare.DistributionScaling'*/,
+				Distribution = Default__LensFlare_DistributionScaling/*Ref DistributionFloatConstant'Default__LensFlare.DistributionScaling'*/,
 				Type = 0,
 				Op = 1,
 				LookupTableNumElements = 1,
@@ -310,7 +310,7 @@ public partial class LensFlare : Object/*
 			},
 			AxisScaling = new DistributionVector.RawDistributionVector
 			{
-				Distribution = LoadAsset<DistributionVectorConstant>("Default__LensFlare.DistributionAxisScaling")/*Ref DistributionVectorConstant'Default__LensFlare.DistributionAxisScaling'*/,
+				Distribution = Default__LensFlare_DistributionAxisScaling/*Ref DistributionVectorConstant'Default__LensFlare.DistributionAxisScaling'*/,
 				Type = 0,
 				Op = 1,
 				LookupTableNumElements = 1,
@@ -331,7 +331,7 @@ public partial class LensFlare : Object/*
 			},
 			Rotation = new DistributionFloat.RawDistributionFloat
 			{
-				Distribution = LoadAsset<DistributionFloatConstant>("Default__LensFlare.DistributionRotation")/*Ref DistributionFloatConstant'Default__LensFlare.DistributionRotation'*/,
+				Distribution = Default__LensFlare_DistributionRotation/*Ref DistributionFloatConstant'Default__LensFlare.DistributionRotation'*/,
 				Type = 0,
 				Op = 1,
 				LookupTableNumElements = 1,
@@ -348,7 +348,7 @@ public partial class LensFlare : Object/*
 			},
 			Color = new DistributionVector.RawDistributionVector
 			{
-				Distribution = LoadAsset<DistributionVectorConstant>("Default__LensFlare.DistributionColor")/*Ref DistributionVectorConstant'Default__LensFlare.DistributionColor'*/,
+				Distribution = Default__LensFlare_DistributionColor/*Ref DistributionVectorConstant'Default__LensFlare.DistributionColor'*/,
 				Type = 0,
 				Op = 1,
 				LookupTableNumElements = 1,

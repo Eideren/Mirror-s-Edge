@@ -24,7 +24,48 @@ public partial class TdSoundNodeADSR : SoundNode/*
 	[Category] public DistributionFloat.RawDistributionFloat Release;
 	[Category] public bool bModulatePitch;
 	[Category] public bool bModulateVolume;
-	
+
+
+
+	public class DistributionAttack : DistributionFloatUniform
+	{
+		public DistributionAttack()
+		{
+		} /* Reference: DistributionFloatUniform'Default__TdSoundNodeADSR.DistributionAttack' */
+	}
+
+
+
+	public class DistributionDecay : DistributionFloatUniform
+	{
+		public DistributionDecay()
+		{
+		} /* Reference: DistributionFloatUniform'Default__TdSoundNodeADSR.DistributionDecay' */
+	}
+
+
+
+	public class DistributionSustain : DistributionFloatUniform
+	{
+		public DistributionSustain()
+		{
+			// Object Offset:0x01AFC87E
+			Min = 1.0f;
+			Max = 1.0f;
+		} /* Reference: DistributionFloatUniform'Default__TdSoundNodeADSR.DistributionSustain' */
+	}
+
+
+
+	public class DistributionRelease : DistributionFloatUniform
+	{
+		public DistributionRelease()
+		{
+		} /* Reference: DistributionFloatUniform'Default__TdSoundNodeADSR.DistributionRelease' */
+	}
+
+
+
 	public TdSoundNodeADSR()
 	{
 		var Default__TdSoundNodeADSR_DistributionAttack = new DistributionFloatUniform
@@ -45,7 +86,7 @@ public partial class TdSoundNodeADSR : SoundNode/*
 		// Object Offset:0x00659A40
 		Attack = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__TdSoundNodeADSR.DistributionAttack")/*Ref DistributionFloatUniform'Default__TdSoundNodeADSR.DistributionAttack'*/,
+			Distribution = Default__TdSoundNodeADSR_DistributionAttack,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -64,7 +105,7 @@ public partial class TdSoundNodeADSR : SoundNode/*
 		};
 		Decay = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__TdSoundNodeADSR.DistributionDecay")/*Ref DistributionFloatUniform'Default__TdSoundNodeADSR.DistributionDecay'*/,
+			Distribution = Default__TdSoundNodeADSR_DistributionDecay,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -83,7 +124,7 @@ public partial class TdSoundNodeADSR : SoundNode/*
 		};
 		Sustain = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__TdSoundNodeADSR.DistributionSustain")/*Ref DistributionFloatUniform'Default__TdSoundNodeADSR.DistributionSustain'*/,
+			Distribution = Default__TdSoundNodeADSR_DistributionSustain,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -102,7 +143,7 @@ public partial class TdSoundNodeADSR : SoundNode/*
 		};
 		Release = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__TdSoundNodeADSR.DistributionRelease")/*Ref DistributionFloatUniform'Default__TdSoundNodeADSR.DistributionRelease'*/,
+			Distribution = Default__TdSoundNodeADSR_DistributionRelease,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
