@@ -1780,25 +1780,25 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.15950f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound'*/,
+					Notify = TdAnimNotify_CharacterSound/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound'*/,
 					Comment = (name)"Oral",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.325380f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep")/*Ref AnimNotify_Footstep'AnimNotify_Footstep'*/,
+					Notify = AnimNotify_Footstep/*Ref AnimNotify_Footstep'AnimNotify_Footstep'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.62881670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_1")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_1'*/,
+					Notify = AnimNotify_Footstep_1/*Ref AnimNotify_Footstep'AnimNotify_Footstep_1'*/,
 					Comment = (name)"FX",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.63020f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_2")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_2'*/,
+					Notify = AnimNotify_Footstep_2/*Ref AnimNotify_Footstep'AnimNotify_Footstep_2'*/,
 					Comment = (name)"Foot",
 				},
 			},
@@ -2123,31 +2123,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.02190f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_3")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_3'*/,
+					Notify = AnimNotify_Footstep_3/*Ref AnimNotify_Footstep'AnimNotify_Footstep_3'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.050960f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_4")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_4'*/,
+					Notify = AnimNotify_Footstep_4/*Ref AnimNotify_Footstep'AnimNotify_Footstep_4'*/,
 					Comment = (name)"Attack",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.0830f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_1")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_1'*/,
+					Notify = TdAnimNotify_CharacterSound_1/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_1'*/,
 					Comment = (name)"Oral",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.35960f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_5")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_5'*/,
+					Notify = AnimNotify_Footstep_5/*Ref AnimNotify_Footstep'AnimNotify_Footstep_5'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.71978660f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_6")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_6'*/,
+					Notify = AnimNotify_Footstep_6/*Ref AnimNotify_Footstep'AnimNotify_Footstep_6'*/,
 					Comment = (name)"Foot",
 				},
 			},
@@ -2467,25 +2467,25 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.14690f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_7")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_7'*/,
+					Notify = AnimNotify_Footstep_7/*Ref AnimNotify_Footstep'AnimNotify_Footstep_7'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.2890f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_2")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_2'*/,
+					Notify = TdAnimNotify_CharacterSound_2/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_2'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.63580f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_8")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_8'*/,
+					Notify = AnimNotify_Footstep_8/*Ref AnimNotify_Footstep'AnimNotify_Footstep_8'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.810f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_3")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_3'*/,
+					Notify = TdAnimNotify_CharacterSound_3/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_3'*/,
 					Comment = (name)"Leg",
 				},
 			},
@@ -2807,25 +2807,25 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.07690f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_9")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_9'*/,
+					Notify = AnimNotify_Footstep_9/*Ref AnimNotify_Footstep'AnimNotify_Footstep_9'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.2890f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_4")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_4'*/,
+					Notify = TdAnimNotify_CharacterSound_4/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_4'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.55580f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_10")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_10'*/,
+					Notify = AnimNotify_Footstep_10/*Ref AnimNotify_Footstep'AnimNotify_Footstep_10'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.810f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_5")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_5'*/,
+					Notify = TdAnimNotify_CharacterSound_5/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_5'*/,
 					Comment = (name)"Leg",
 				},
 			},
@@ -3147,25 +3147,25 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.02690f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_11")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_11'*/,
+					Notify = AnimNotify_Footstep_11/*Ref AnimNotify_Footstep'AnimNotify_Footstep_11'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.2890f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_6")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_6'*/,
+					Notify = TdAnimNotify_CharacterSound_6/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_6'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.49580f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_12")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_12'*/,
+					Notify = AnimNotify_Footstep_12/*Ref AnimNotify_Footstep'AnimNotify_Footstep_12'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.810f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_7")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_7'*/,
+					Notify = TdAnimNotify_CharacterSound_7/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_7'*/,
 					Comment = (name)"Leg",
 				},
 			},
@@ -3487,25 +3487,25 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.02690f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_13")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_13'*/,
+					Notify = AnimNotify_Footstep_13/*Ref AnimNotify_Footstep'AnimNotify_Footstep_13'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.2890f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_8")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_8'*/,
+					Notify = TdAnimNotify_CharacterSound_8/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_8'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.49580f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_14")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_14'*/,
+					Notify = AnimNotify_Footstep_14/*Ref AnimNotify_Footstep'AnimNotify_Footstep_14'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.810f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_9")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_9'*/,
+					Notify = TdAnimNotify_CharacterSound_9/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_9'*/,
 					Comment = (name)"Leg",
 				},
 			},
@@ -3827,25 +3827,25 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.02690f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_15")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_15'*/,
+					Notify = AnimNotify_Footstep_15/*Ref AnimNotify_Footstep'AnimNotify_Footstep_15'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.2890f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_10")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_10'*/,
+					Notify = TdAnimNotify_CharacterSound_10/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_10'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.49580f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_16")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_16'*/,
+					Notify = AnimNotify_Footstep_16/*Ref AnimNotify_Footstep'AnimNotify_Footstep_16'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.810f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_11")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_11'*/,
+					Notify = TdAnimNotify_CharacterSound_11/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_11'*/,
 					Comment = (name)"Leg",
 				},
 			},
@@ -4167,25 +4167,25 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.02690f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_17")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_17'*/,
+					Notify = AnimNotify_Footstep_17/*Ref AnimNotify_Footstep'AnimNotify_Footstep_17'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.2890f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_12")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_12'*/,
+					Notify = TdAnimNotify_CharacterSound_12/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_12'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.49580f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_18")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_18'*/,
+					Notify = AnimNotify_Footstep_18/*Ref AnimNotify_Footstep'AnimNotify_Footstep_18'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.810f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_13")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_13'*/,
+					Notify = TdAnimNotify_CharacterSound_13/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_13'*/,
 					Comment = (name)"Leg",
 				},
 			},
@@ -4496,13 +4496,13 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.02940f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_14")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_14'*/,
+					Notify = TdAnimNotify_CharacterSound_14/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_14'*/,
 					Comment = (name)"None",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.06750f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound")/*Ref AnimNotify_Sound'AnimNotify_Sound'*/,
+					Notify = AnimNotify_Sound/*Ref AnimNotify_Sound'AnimNotify_Sound'*/,
 					Comment = (name)"Slide",
 				},
 			},
@@ -5696,25 +5696,25 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.03190f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_19")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_19'*/,
+					Notify = AnimNotify_Footstep_19/*Ref AnimNotify_Footstep'AnimNotify_Footstep_19'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.098750f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_15")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_15'*/,
+					Notify = TdAnimNotify_CharacterSound_15/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_15'*/,
 					Comment = (name)"Cloth",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.142850f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_20")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_20'*/,
+					Notify = AnimNotify_Footstep_20/*Ref AnimNotify_Footstep'AnimNotify_Footstep_20'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.384050f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_21")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_21'*/,
+					Notify = AnimNotify_Footstep_21/*Ref AnimNotify_Footstep'AnimNotify_Footstep_21'*/,
 					Comment = (name)"Foot",
 				},
 			},
@@ -6017,7 +6017,7 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.03620f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_16")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_16'*/,
+					Notify = TdAnimNotify_CharacterSound_16/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_16'*/,
 					Comment = (name)"None",
 				},
 			},
@@ -6333,19 +6333,19 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.027520f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_22")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_22'*/,
+					Notify = AnimNotify_Footstep_22/*Ref AnimNotify_Footstep'AnimNotify_Footstep_22'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.23360f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_17")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_17'*/,
+					Notify = TdAnimNotify_CharacterSound_17/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_17'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.437760f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_23")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_23'*/,
+					Notify = AnimNotify_Footstep_23/*Ref AnimNotify_Footstep'AnimNotify_Footstep_23'*/,
 					Comment = (name)"Foot",
 				},
 			},
@@ -6661,19 +6661,19 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.027520f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_24")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_24'*/,
+					Notify = AnimNotify_Footstep_24/*Ref AnimNotify_Footstep'AnimNotify_Footstep_24'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.23360f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_18")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_18'*/,
+					Notify = TdAnimNotify_CharacterSound_18/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_18'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.437760f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_25")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_25'*/,
+					Notify = AnimNotify_Footstep_25/*Ref AnimNotify_Footstep'AnimNotify_Footstep_25'*/,
 					Comment = (name)"Foot",
 				},
 			},
@@ -6989,19 +6989,19 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.027520f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_26")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_26'*/,
+					Notify = AnimNotify_Footstep_26/*Ref AnimNotify_Footstep'AnimNotify_Footstep_26'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.23360f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_19")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_19'*/,
+					Notify = TdAnimNotify_CharacterSound_19/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_19'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.437760f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_27")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_27'*/,
+					Notify = AnimNotify_Footstep_27/*Ref AnimNotify_Footstep'AnimNotify_Footstep_27'*/,
 					Comment = (name)"Foot",
 				},
 			},
@@ -7317,19 +7317,19 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.027520f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_28")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_28'*/,
+					Notify = AnimNotify_Footstep_28/*Ref AnimNotify_Footstep'AnimNotify_Footstep_28'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.23360f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_20")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_20'*/,
+					Notify = TdAnimNotify_CharacterSound_20/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_20'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.437760f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_29")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_29'*/,
+					Notify = AnimNotify_Footstep_29/*Ref AnimNotify_Footstep'AnimNotify_Footstep_29'*/,
 					Comment = (name)"Foot",
 				},
 			},
@@ -8527,31 +8527,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.0f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_30")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_30'*/,
+					Notify = AnimNotify_Footstep_30/*Ref AnimNotify_Footstep'AnimNotify_Footstep_30'*/,
 					Comment = (name)"FR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.016533330f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_21")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_21'*/,
+					Notify = TdAnimNotify_CharacterSound_21/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_21'*/,
 					Comment = (name)"Oral",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.050736670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_31")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_31'*/,
+					Notify = AnimNotify_Footstep_31/*Ref AnimNotify_Footstep'AnimNotify_Footstep_31'*/,
 					Comment = (name)"FR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.54136330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_32")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_32'*/,
+					Notify = AnimNotify_Footstep_32/*Ref AnimNotify_Footstep'AnimNotify_Footstep_32'*/,
 					Comment = (name)"FS",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.746790f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_33")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_33'*/,
+					Notify = AnimNotify_Footstep_33/*Ref AnimNotify_Footstep'AnimNotify_Footstep_33'*/,
 					Comment = (name)"FS",
 				},
 			},
@@ -8876,31 +8876,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.0f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_34")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_34'*/,
+					Notify = AnimNotify_Footstep_34/*Ref AnimNotify_Footstep'AnimNotify_Footstep_34'*/,
 					Comment = (name)"FR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.016533330f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_22")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_22'*/,
+					Notify = TdAnimNotify_CharacterSound_22/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_22'*/,
 					Comment = (name)"Oral",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.050736670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_35")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_35'*/,
+					Notify = AnimNotify_Footstep_35/*Ref AnimNotify_Footstep'AnimNotify_Footstep_35'*/,
 					Comment = (name)"FR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.54136330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_36")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_36'*/,
+					Notify = AnimNotify_Footstep_36/*Ref AnimNotify_Footstep'AnimNotify_Footstep_36'*/,
 					Comment = (name)"FS",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.746790f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_37")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_37'*/,
+					Notify = AnimNotify_Footstep_37/*Ref AnimNotify_Footstep'AnimNotify_Footstep_37'*/,
 					Comment = (name)"FS",
 				},
 			},
@@ -9220,25 +9220,25 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.020f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_23")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_23'*/,
+					Notify = TdAnimNotify_CharacterSound_23/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_23'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.40f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_38")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_38'*/,
+					Notify = AnimNotify_Footstep_38/*Ref AnimNotify_Footstep'AnimNotify_Footstep_38'*/,
 					Comment = (name)"FX",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.4050f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_24")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_24'*/,
+					Notify = TdAnimNotify_CharacterSound_24/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_24'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.15820f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_25")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_25'*/,
+					Notify = TdAnimNotify_CharacterSound_25/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_25'*/,
 					Comment = (name)"Breath",
 				},
 			},
@@ -10133,19 +10133,19 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.09610f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_1")/*Ref AnimNotify_Sound'AnimNotify_Sound_1'*/,
+					Notify = AnimNotify_Sound_1/*Ref AnimNotify_Sound'AnimNotify_Sound_1'*/,
 					Comment = (name)"None",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.12450f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_26")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_26'*/,
+					Notify = TdAnimNotify_CharacterSound_26/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_26'*/,
 					Comment = (name)"None",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.9950f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_27")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_27'*/,
+					Notify = TdAnimNotify_CharacterSound_27/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_27'*/,
 					Comment = (name)"None",
 				},
 			},
@@ -10493,61 +10493,61 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.0150f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_2")/*Ref AnimNotify_Sound'AnimNotify_Sound_2'*/,
+					Notify = AnimNotify_Sound_2/*Ref AnimNotify_Sound'AnimNotify_Sound_2'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.05470f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_39")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_39'*/,
+					Notify = AnimNotify_Footstep_39/*Ref AnimNotify_Footstep'AnimNotify_Footstep_39'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.0850f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_40")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_40'*/,
+					Notify = AnimNotify_Footstep_40/*Ref AnimNotify_Footstep'AnimNotify_Footstep_40'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.20470f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_28")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_28'*/,
+					Notify = TdAnimNotify_CharacterSound_28/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_28'*/,
 					Comment = (name)"Oral",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.24910f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_3")/*Ref AnimNotify_Sound'AnimNotify_Sound_3'*/,
+					Notify = AnimNotify_Sound_3/*Ref AnimNotify_Sound'AnimNotify_Sound_3'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.4790f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_29")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_29'*/,
+					Notify = TdAnimNotify_CharacterSound_29/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_29'*/,
 					Comment = (name)"Oral",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.69250f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_4")/*Ref AnimNotify_Sound'AnimNotify_Sound_4'*/,
+					Notify = AnimNotify_Sound_4/*Ref AnimNotify_Sound'AnimNotify_Sound_4'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.7906670f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_5")/*Ref AnimNotify_Sound'AnimNotify_Sound_5'*/,
+					Notify = AnimNotify_Sound_5/*Ref AnimNotify_Sound'AnimNotify_Sound_5'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 2.30930f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_30")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_30'*/,
+					Notify = TdAnimNotify_CharacterSound_30/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_30'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 2.4213330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_41")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_41'*/,
+					Notify = AnimNotify_Footstep_41/*Ref AnimNotify_Footstep'AnimNotify_Footstep_41'*/,
 					Comment = (name)"Foot",
 				},
 			},
@@ -11770,61 +11770,61 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.11970f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_31")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_31'*/,
+					Notify = TdAnimNotify_CharacterSound_31/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_31'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.16935330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_42")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_42'*/,
+					Notify = AnimNotify_Footstep_42/*Ref AnimNotify_Footstep'AnimNotify_Footstep_42'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.17872670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_43")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_43'*/,
+					Notify = AnimNotify_Footstep_43/*Ref AnimNotify_Footstep'AnimNotify_Footstep_43'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.25650f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_32")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_32'*/,
+					Notify = TdAnimNotify_CharacterSound_32/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_32'*/,
 					Comment = (name)"Knee",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.36834670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_44")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_44'*/,
+					Notify = AnimNotify_Footstep_44/*Ref AnimNotify_Footstep'AnimNotify_Footstep_44'*/,
 					Comment = (name)"FR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.379240f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_45")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_45'*/,
+					Notify = AnimNotify_Footstep_45/*Ref AnimNotify_Footstep'AnimNotify_Footstep_45'*/,
 					Comment = (name)"FR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.603060f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_33")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_33'*/,
+					Notify = TdAnimNotify_CharacterSound_33/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_33'*/,
 					Comment = (name)"Knee",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.92162660f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_46")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_46'*/,
+					Notify = AnimNotify_Footstep_46/*Ref AnimNotify_Footstep'AnimNotify_Footstep_46'*/,
 					Comment = (name)"FS",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.96355330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_47")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_47'*/,
+					Notify = AnimNotify_Footstep_47/*Ref AnimNotify_Footstep'AnimNotify_Footstep_47'*/,
 					Comment = (name)"FS",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.0227070f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_34")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_34'*/,
+					Notify = TdAnimNotify_CharacterSound_34/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_34'*/,
 					Comment = (name)"None",
 				},
 			},
@@ -13873,7 +13873,7 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.240f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_35")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_35'*/,
+					Notify = TdAnimNotify_CharacterSound_35/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_35'*/,
 					Comment = (name)"Breath",
 				},
 			},
@@ -14780,31 +14780,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.21962330f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_36")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_36'*/,
+					Notify = TdAnimNotify_CharacterSound_36/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_36'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.34043670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_48")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_48'*/,
+					Notify = AnimNotify_Footstep_48/*Ref AnimNotify_Footstep'AnimNotify_Footstep_48'*/,
 					Comment = (name)"HSL",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.68087330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_49")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_49'*/,
+					Notify = AnimNotify_Footstep_49/*Ref AnimNotify_Footstep'AnimNotify_Footstep_49'*/,
 					Comment = (name)"HSR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.99602670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_50")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_50'*/,
+					Notify = AnimNotify_Footstep_50/*Ref AnimNotify_Footstep'AnimNotify_Footstep_50'*/,
 					Comment = (name)"HSL",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.3565530f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_51")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_51'*/,
+					Notify = AnimNotify_Footstep_51/*Ref AnimNotify_Footstep'AnimNotify_Footstep_51'*/,
 					Comment = (name)"HSR",
 				},
 			},
@@ -15129,31 +15129,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.21962330f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_37")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_37'*/,
+					Notify = TdAnimNotify_CharacterSound_37/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_37'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.40040f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_52")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_52'*/,
+					Notify = AnimNotify_Footstep_52/*Ref AnimNotify_Footstep'AnimNotify_Footstep_52'*/,
 					Comment = (name)"HSR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.71090f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_53")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_53'*/,
+					Notify = AnimNotify_Footstep_53/*Ref AnimNotify_Footstep'AnimNotify_Footstep_53'*/,
 					Comment = (name)"HSL",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.0460f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_54")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_54'*/,
+					Notify = AnimNotify_Footstep_54/*Ref AnimNotify_Footstep'AnimNotify_Footstep_54'*/,
 					Comment = (name)"HSR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.3565530f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_55")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_55'*/,
+					Notify = AnimNotify_Footstep_55/*Ref AnimNotify_Footstep'AnimNotify_Footstep_55'*/,
 					Comment = (name)"HSL",
 				},
 			},
@@ -16620,7 +16620,7 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.240f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_38")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_38'*/,
+					Notify = TdAnimNotify_CharacterSound_38/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_38'*/,
 					Comment = (name)"Breath",
 				},
 			},
@@ -16945,31 +16945,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.21962330f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_39")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_39'*/,
+					Notify = TdAnimNotify_CharacterSound_39/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_39'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.34043670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_56")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_56'*/,
+					Notify = AnimNotify_Footstep_56/*Ref AnimNotify_Footstep'AnimNotify_Footstep_56'*/,
 					Comment = (name)"HSL",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.68087330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_57")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_57'*/,
+					Notify = AnimNotify_Footstep_57/*Ref AnimNotify_Footstep'AnimNotify_Footstep_57'*/,
 					Comment = (name)"HSR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.99602670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_58")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_58'*/,
+					Notify = AnimNotify_Footstep_58/*Ref AnimNotify_Footstep'AnimNotify_Footstep_58'*/,
 					Comment = (name)"HSL",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.3565530f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_59")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_59'*/,
+					Notify = AnimNotify_Footstep_59/*Ref AnimNotify_Footstep'AnimNotify_Footstep_59'*/,
 					Comment = (name)"HSR",
 				},
 			},
@@ -17294,31 +17294,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.21962330f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_40")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_40'*/,
+					Notify = TdAnimNotify_CharacterSound_40/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_40'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.40040f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_60")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_60'*/,
+					Notify = AnimNotify_Footstep_60/*Ref AnimNotify_Footstep'AnimNotify_Footstep_60'*/,
 					Comment = (name)"HSR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.71090f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_61")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_61'*/,
+					Notify = AnimNotify_Footstep_61/*Ref AnimNotify_Footstep'AnimNotify_Footstep_61'*/,
 					Comment = (name)"HSL",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.0460f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_62")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_62'*/,
+					Notify = AnimNotify_Footstep_62/*Ref AnimNotify_Footstep'AnimNotify_Footstep_62'*/,
 					Comment = (name)"HSR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.3565530f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_63")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_63'*/,
+					Notify = AnimNotify_Footstep_63/*Ref AnimNotify_Footstep'AnimNotify_Footstep_63'*/,
 					Comment = (name)"HSL",
 				},
 			},
@@ -18230,37 +18230,37 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.07490f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_64")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_64'*/,
+					Notify = AnimNotify_Footstep_64/*Ref AnimNotify_Footstep'AnimNotify_Footstep_64'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.09720f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_65")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_65'*/,
+					Notify = AnimNotify_Footstep_65/*Ref AnimNotify_Footstep'AnimNotify_Footstep_65'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.10f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_66")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_66'*/,
+					Notify = AnimNotify_Footstep_66/*Ref AnimNotify_Footstep'AnimNotify_Footstep_66'*/,
 					Comment = (name)"FX",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.1190f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_41")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_41'*/,
+					Notify = TdAnimNotify_CharacterSound_41/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_41'*/,
 					Comment = (name)"Oral",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.12080f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_67")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_67'*/,
+					Notify = AnimNotify_Footstep_67/*Ref AnimNotify_Footstep'AnimNotify_Footstep_67'*/,
 					Comment = (name)"FXL",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.21350f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_42")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_42'*/,
+					Notify = TdAnimNotify_CharacterSound_42/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_42'*/,
 					Comment = (name)"Clothing",
 				},
 			},
@@ -18900,55 +18900,55 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.013066670f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_43")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_43'*/,
+					Notify = TdAnimNotify_CharacterSound_43/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_43'*/,
 					Comment = (name)"Oral",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.094933330f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_44")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_44'*/,
+					Notify = TdAnimNotify_CharacterSound_44/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_44'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.35340f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_68")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_68'*/,
+					Notify = AnimNotify_Footstep_68/*Ref AnimNotify_Footstep'AnimNotify_Footstep_68'*/,
 					Comment = (name)"HSR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.40080f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_45")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_45'*/,
+					Notify = TdAnimNotify_CharacterSound_45/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_45'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.78780f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_69")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_69'*/,
+					Notify = AnimNotify_Footstep_69/*Ref AnimNotify_Footstep'AnimNotify_Footstep_69'*/,
 					Comment = (name)"HSL",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.9030f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_46")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_46'*/,
+					Notify = TdAnimNotify_CharacterSound_46/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_46'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.02080f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_47")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_47'*/,
+					Notify = TdAnimNotify_CharacterSound_47/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_47'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.29820f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_70")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_70'*/,
+					Notify = AnimNotify_Footstep_70/*Ref AnimNotify_Footstep'AnimNotify_Footstep_70'*/,
 					Comment = (name)"FSR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.58520f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_48")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_48'*/,
+					Notify = TdAnimNotify_CharacterSound_48/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_48'*/,
 					Comment = (name)"Leg",
 				},
 			},
@@ -19865,43 +19865,43 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.08010f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_49")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_49'*/,
+					Notify = TdAnimNotify_CharacterSound_49/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_49'*/,
 					Comment = (name)"Oral",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.10020f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_71")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_71'*/,
+					Notify = AnimNotify_Footstep_71/*Ref AnimNotify_Footstep'AnimNotify_Footstep_71'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.197780f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_72")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_72'*/,
+					Notify = AnimNotify_Footstep_72/*Ref AnimNotify_Footstep'AnimNotify_Footstep_72'*/,
 					Comment = (name)"FX",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.52490f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_73")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_73'*/,
+					Notify = AnimNotify_Footstep_73/*Ref AnimNotify_Footstep'AnimNotify_Footstep_73'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.54704670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_74")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_74'*/,
+					Notify = AnimNotify_Footstep_74/*Ref AnimNotify_Footstep'AnimNotify_Footstep_74'*/,
 					Comment = (name)"FXL",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.72190f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_75")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_75'*/,
+					Notify = AnimNotify_Footstep_75/*Ref AnimNotify_Footstep'AnimNotify_Footstep_75'*/,
 					Comment = (name)"HandRelease",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.93140f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_76")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_76'*/,
+					Notify = AnimNotify_Footstep_76/*Ref AnimNotify_Footstep'AnimNotify_Footstep_76'*/,
 					Comment = (name)"Hand",
 				},
 			},
@@ -20226,31 +20226,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.19821670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_77")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_77'*/,
+					Notify = AnimNotify_Footstep_77/*Ref AnimNotify_Footstep'AnimNotify_Footstep_77'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.31266670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_78")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_78'*/,
+					Notify = AnimNotify_Footstep_78/*Ref AnimNotify_Footstep'AnimNotify_Footstep_78'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.36598330f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_50")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_50'*/,
+					Notify = TdAnimNotify_CharacterSound_50/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_50'*/,
 					Comment = (name)"Oral",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.45756660f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_79")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_79'*/,
+					Notify = AnimNotify_Footstep_79/*Ref AnimNotify_Footstep'AnimNotify_Footstep_79'*/,
 					Comment = (name)"HandRelease",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.83883330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_80")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_80'*/,
+					Notify = AnimNotify_Footstep_80/*Ref AnimNotify_Footstep'AnimNotify_Footstep_80'*/,
 					Comment = (name)"Hand",
 				},
 			},
@@ -20856,19 +20856,19 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.08820f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_51")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_51'*/,
+					Notify = TdAnimNotify_CharacterSound_51/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_51'*/,
 					Comment = (name)"Oral",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.22220f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_6")/*Ref AnimNotify_Sound'AnimNotify_Sound_6'*/,
+					Notify = AnimNotify_Sound_6/*Ref AnimNotify_Sound'AnimNotify_Sound_6'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.30390f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_7")/*Ref AnimNotify_Sound'AnimNotify_Sound_7'*/,
+					Notify = AnimNotify_Sound_7/*Ref AnimNotify_Sound'AnimNotify_Sound_7'*/,
 					Comment = (name)"Wind",
 				},
 			},
@@ -21212,55 +21212,55 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.01210f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_52")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_52'*/,
+					Notify = TdAnimNotify_CharacterSound_52/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_52'*/,
 					Comment = (name)"None",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.045733330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_81")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_81'*/,
+					Notify = AnimNotify_Footstep_81/*Ref AnimNotify_Footstep'AnimNotify_Footstep_81'*/,
 					Comment = (name)"FootRelease",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.068133330f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_53")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_53'*/,
+					Notify = TdAnimNotify_CharacterSound_53/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_53'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.10290f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_82")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_82'*/,
+					Notify = AnimNotify_Footstep_82/*Ref AnimNotify_Footstep'AnimNotify_Footstep_82'*/,
 					Comment = (name)"FootRelease",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.321650f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_54")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_54'*/,
+					Notify = TdAnimNotify_CharacterSound_54/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_54'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.67608330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_83")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_83'*/,
+					Notify = AnimNotify_Footstep_83/*Ref AnimNotify_Footstep'AnimNotify_Footstep_83'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.72298320f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_55")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_55'*/,
+					Notify = TdAnimNotify_CharacterSound_55/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_55'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.91081660f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_84")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_84'*/,
+					Notify = AnimNotify_Footstep_84/*Ref AnimNotify_Footstep'AnimNotify_Footstep_84'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.97790f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_56")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_56'*/,
+					Notify = TdAnimNotify_CharacterSound_56/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_56'*/,
 					Comment = (name)"Breath",
 				},
 			},
@@ -22729,7 +22729,7 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.4490f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_85")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_85'*/,
+					Notify = AnimNotify_Footstep_85/*Ref AnimNotify_Footstep'AnimNotify_Footstep_85'*/,
 					Comment = (name)"HSL",
 				},
 			},
@@ -23032,7 +23032,7 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.240f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_57")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_57'*/,
+					Notify = TdAnimNotify_CharacterSound_57/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_57'*/,
 					Comment = (name)"Breath",
 				},
 			},
@@ -23628,7 +23628,7 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.0f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_86")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_86'*/,
+					Notify = AnimNotify_Footstep_86/*Ref AnimNotify_Footstep'AnimNotify_Footstep_86'*/,
 					Comment = (name)"HandRelease",
 				},
 			},
@@ -23933,7 +23933,7 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.49950f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_87")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_87'*/,
+					Notify = AnimNotify_Footstep_87/*Ref AnimNotify_Footstep'AnimNotify_Footstep_87'*/,
 					Comment = (name)"HSR",
 				},
 			},
@@ -24236,7 +24236,7 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.240f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_58")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_58'*/,
+					Notify = TdAnimNotify_CharacterSound_58/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_58'*/,
 					Comment = (name)"Breath",
 				},
 			},
@@ -24832,7 +24832,7 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.0f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_88")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_88'*/,
+					Notify = AnimNotify_Footstep_88/*Ref AnimNotify_Footstep'AnimNotify_Footstep_88'*/,
 					Comment = (name)"HandRelease",
 				},
 			},
@@ -28632,13 +28632,13 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.045440f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_8")/*Ref AnimNotify_Sound'AnimNotify_Sound_8'*/,
+					Notify = AnimNotify_Sound_8/*Ref AnimNotify_Sound'AnimNotify_Sound_8'*/,
 					Comment = (name)"None",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.161120f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_9")/*Ref AnimNotify_Sound'AnimNotify_Sound_9'*/,
+					Notify = AnimNotify_Sound_9/*Ref AnimNotify_Sound'AnimNotify_Sound_9'*/,
 					Comment = (name)"Vault",
 				},
 			},
@@ -29246,19 +29246,19 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.18180f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_10")/*Ref AnimNotify_Sound'AnimNotify_Sound_10'*/,
+					Notify = AnimNotify_Sound_10/*Ref AnimNotify_Sound'AnimNotify_Sound_10'*/,
 					Comment = (name)"Body",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.1920f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_11")/*Ref AnimNotify_Sound'AnimNotify_Sound_11'*/,
+					Notify = AnimNotify_Sound_11/*Ref AnimNotify_Sound'AnimNotify_Sound_11'*/,
 					Comment = (name)"Slide",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.258120f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_59")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_59'*/,
+					Notify = TdAnimNotify_CharacterSound_59/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_59'*/,
 					Comment = (name)"Oral",
 				},
 			},
@@ -29564,13 +29564,13 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.1170f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_60")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_60'*/,
+					Notify = TdAnimNotify_CharacterSound_60/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_60'*/,
 					Comment = (name)"None",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.04640f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_61")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_61'*/,
+					Notify = TdAnimNotify_CharacterSound_61/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_61'*/,
 					Comment = (name)"None",
 				},
 			},
@@ -29915,55 +29915,55 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.0780f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_62")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_62'*/,
+					Notify = TdAnimNotify_CharacterSound_62/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_62'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.15840f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_89")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_89'*/,
+					Notify = AnimNotify_Footstep_89/*Ref AnimNotify_Footstep'AnimNotify_Footstep_89'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.21573330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_90")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_90'*/,
+					Notify = AnimNotify_Footstep_90/*Ref AnimNotify_Footstep'AnimNotify_Footstep_90'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.33733330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_12")/*Ref AnimNotify_Sound'AnimNotify_Sound_12'*/,
+					Notify = AnimNotify_Sound_12/*Ref AnimNotify_Sound'AnimNotify_Sound_12'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.52320f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_91")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_91'*/,
+					Notify = AnimNotify_Footstep_91/*Ref AnimNotify_Footstep'AnimNotify_Footstep_91'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.65173330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_13")/*Ref AnimNotify_Sound'AnimNotify_Sound_13'*/,
+					Notify = AnimNotify_Sound_13/*Ref AnimNotify_Sound'AnimNotify_Sound_13'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.73666670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_92")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_92'*/,
+					Notify = AnimNotify_Footstep_92/*Ref AnimNotify_Footstep'AnimNotify_Footstep_92'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.92253330f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_63")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_63'*/,
+					Notify = TdAnimNotify_CharacterSound_63/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_63'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.11760f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_93")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_93'*/,
+					Notify = AnimNotify_Footstep_93/*Ref AnimNotify_Footstep'AnimNotify_Footstep_93'*/,
 					Comment = (name)"Foot",
 				},
 			},
@@ -31453,31 +31453,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.020250f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_14")/*Ref AnimNotify_Sound'AnimNotify_Sound_14'*/,
+					Notify = AnimNotify_Sound_14/*Ref AnimNotify_Sound'AnimNotify_Sound_14'*/,
 					Comment = (name)"Release",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.152050f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_15")/*Ref AnimNotify_Sound'AnimNotify_Sound_15'*/,
+					Notify = AnimNotify_Sound_15/*Ref AnimNotify_Sound'AnimNotify_Sound_15'*/,
 					Comment = (name)"Cloth",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.25165670f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_64")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_64'*/,
+					Notify = TdAnimNotify_CharacterSound_64/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_64'*/,
 					Comment = (name)"None",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.33333330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_16")/*Ref AnimNotify_Sound'AnimNotify_Sound_16'*/,
+					Notify = AnimNotify_Sound_16/*Ref AnimNotify_Sound'AnimNotify_Sound_16'*/,
 					Comment = (name)"Down",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.33333330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_17")/*Ref AnimNotify_Sound'AnimNotify_Sound_17'*/,
+					Notify = AnimNotify_Sound_17/*Ref AnimNotify_Sound'AnimNotify_Sound_17'*/,
 					Comment = (name)"Hand",
 				},
 			},
@@ -32091,25 +32091,25 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.020250f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_18")/*Ref AnimNotify_Sound'AnimNotify_Sound_18'*/,
+					Notify = AnimNotify_Sound_18/*Ref AnimNotify_Sound'AnimNotify_Sound_18'*/,
 					Comment = (name)"Release",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.152050f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_19")/*Ref AnimNotify_Sound'AnimNotify_Sound_19'*/,
+					Notify = AnimNotify_Sound_19/*Ref AnimNotify_Sound'AnimNotify_Sound_19'*/,
 					Comment = (name)"Cloth",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.33333330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_20")/*Ref AnimNotify_Sound'AnimNotify_Sound_20'*/,
+					Notify = AnimNotify_Sound_20/*Ref AnimNotify_Sound'AnimNotify_Sound_20'*/,
 					Comment = (name)"Down",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.33333330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_21")/*Ref AnimNotify_Sound'AnimNotify_Sound_21'*/,
+					Notify = AnimNotify_Sound_21/*Ref AnimNotify_Sound'AnimNotify_Sound_21'*/,
 					Comment = (name)"Hand",
 				},
 			},
@@ -32738,43 +32738,43 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.05850f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_94")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_94'*/,
+					Notify = AnimNotify_Footstep_94/*Ref AnimNotify_Footstep'AnimNotify_Footstep_94'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.30980f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_95")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_95'*/,
+					Notify = AnimNotify_Footstep_95/*Ref AnimNotify_Footstep'AnimNotify_Footstep_95'*/,
 					Comment = (name)"FR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.33730f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_22")/*Ref AnimNotify_Sound'AnimNotify_Sound_22'*/,
+					Notify = AnimNotify_Sound_22/*Ref AnimNotify_Sound'AnimNotify_Sound_22'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.35730f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_23")/*Ref AnimNotify_Sound'AnimNotify_Sound_23'*/,
+					Notify = AnimNotify_Sound_23/*Ref AnimNotify_Sound'AnimNotify_Sound_23'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.37010f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_24")/*Ref AnimNotify_Sound'AnimNotify_Sound_24'*/,
+					Notify = AnimNotify_Sound_24/*Ref AnimNotify_Sound'AnimNotify_Sound_24'*/,
 					Comment = (name)"Cloth",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.41650f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_65")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_65'*/,
+					Notify = TdAnimNotify_CharacterSound_65/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_65'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.71770f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_25")/*Ref AnimNotify_Sound'AnimNotify_Sound_25'*/,
+					Notify = AnimNotify_Sound_25/*Ref AnimNotify_Sound'AnimNotify_Sound_25'*/,
 					Comment = (name)"Foot",
 				},
 			},
@@ -33710,61 +33710,61 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.048833330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_26")/*Ref AnimNotify_Sound'AnimNotify_Sound_26'*/,
+					Notify = AnimNotify_Sound_26/*Ref AnimNotify_Sound'AnimNotify_Sound_26'*/,
 					Comment = (name)"RFR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.083166670f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_27")/*Ref AnimNotify_Sound'AnimNotify_Sound_27'*/,
+					Notify = AnimNotify_Sound_27/*Ref AnimNotify_Sound'AnimNotify_Sound_27'*/,
 					Comment = (name)"Cloth",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.3270f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_28")/*Ref AnimNotify_Sound'AnimNotify_Sound_28'*/,
+					Notify = AnimNotify_Sound_28/*Ref AnimNotify_Sound'AnimNotify_Sound_28'*/,
 					Comment = (name)"RF",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.35283330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_29")/*Ref AnimNotify_Sound'AnimNotify_Sound_29'*/,
+					Notify = AnimNotify_Sound_29/*Ref AnimNotify_Sound'AnimNotify_Sound_29'*/,
 					Comment = (name)"RH",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.40450f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_30")/*Ref AnimNotify_Sound'AnimNotify_Sound_30'*/,
+					Notify = AnimNotify_Sound_30/*Ref AnimNotify_Sound'AnimNotify_Sound_30'*/,
 					Comment = (name)"Cloth",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.50483330f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_66")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_66'*/,
+					Notify = TdAnimNotify_CharacterSound_66/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_66'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.70f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_96")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_96'*/,
+					Notify = AnimNotify_Footstep_96/*Ref AnimNotify_Footstep'AnimNotify_Footstep_96'*/,
 					Comment = (name)"RF",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.81749990f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_31")/*Ref AnimNotify_Sound'AnimNotify_Sound_31'*/,
+					Notify = AnimNotify_Sound_31/*Ref AnimNotify_Sound'AnimNotify_Sound_31'*/,
 					Comment = (name)"Cloth",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.1618330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_97")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_97'*/,
+					Notify = AnimNotify_Footstep_97/*Ref AnimNotify_Footstep'AnimNotify_Footstep_97'*/,
 					Comment = (name)"RF",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.31950f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_32")/*Ref AnimNotify_Sound'AnimNotify_Sound_32'*/,
+					Notify = AnimNotify_Sound_32/*Ref AnimNotify_Sound'AnimNotify_Sound_32'*/,
 					Comment = (name)"Hand",
 				},
 			},
@@ -34118,61 +34118,61 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.048833330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_33")/*Ref AnimNotify_Sound'AnimNotify_Sound_33'*/,
+					Notify = AnimNotify_Sound_33/*Ref AnimNotify_Sound'AnimNotify_Sound_33'*/,
 					Comment = (name)"RFR",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.083166670f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_34")/*Ref AnimNotify_Sound'AnimNotify_Sound_34'*/,
+					Notify = AnimNotify_Sound_34/*Ref AnimNotify_Sound'AnimNotify_Sound_34'*/,
 					Comment = (name)"Cloth",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.3270f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_35")/*Ref AnimNotify_Sound'AnimNotify_Sound_35'*/,
+					Notify = AnimNotify_Sound_35/*Ref AnimNotify_Sound'AnimNotify_Sound_35'*/,
 					Comment = (name)"RF",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.35283330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_36")/*Ref AnimNotify_Sound'AnimNotify_Sound_36'*/,
+					Notify = AnimNotify_Sound_36/*Ref AnimNotify_Sound'AnimNotify_Sound_36'*/,
 					Comment = (name)"RH",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.40450f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_37")/*Ref AnimNotify_Sound'AnimNotify_Sound_37'*/,
+					Notify = AnimNotify_Sound_37/*Ref AnimNotify_Sound'AnimNotify_Sound_37'*/,
 					Comment = (name)"Cloth",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.50483330f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_67")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_67'*/,
+					Notify = TdAnimNotify_CharacterSound_67/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_67'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.70f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_98")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_98'*/,
+					Notify = AnimNotify_Footstep_98/*Ref AnimNotify_Footstep'AnimNotify_Footstep_98'*/,
 					Comment = (name)"RF",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.81749990f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_38")/*Ref AnimNotify_Sound'AnimNotify_Sound_38'*/,
+					Notify = AnimNotify_Sound_38/*Ref AnimNotify_Sound'AnimNotify_Sound_38'*/,
 					Comment = (name)"Cloth",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.1618330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_99")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_99'*/,
+					Notify = AnimNotify_Footstep_99/*Ref AnimNotify_Footstep'AnimNotify_Footstep_99'*/,
 					Comment = (name)"RF",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.31950f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_39")/*Ref AnimNotify_Sound'AnimNotify_Sound_39'*/,
+					Notify = AnimNotify_Sound_39/*Ref AnimNotify_Sound'AnimNotify_Sound_39'*/,
 					Comment = (name)"Hand",
 				},
 			},
@@ -40021,25 +40021,25 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.026866670f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_40")/*Ref AnimNotify_Sound'AnimNotify_Sound_40'*/,
+					Notify = AnimNotify_Sound_40/*Ref AnimNotify_Sound'AnimNotify_Sound_40'*/,
 					Comment = (name)"Cloth",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.249080f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_68")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_68'*/,
+					Notify = TdAnimNotify_CharacterSound_68/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_68'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.362440f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_100")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_100'*/,
+					Notify = AnimNotify_Footstep_100/*Ref AnimNotify_Footstep'AnimNotify_Footstep_100'*/,
 					Comment = (name)"Kick",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.60710f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_41")/*Ref AnimNotify_Sound'AnimNotify_Sound_41'*/,
+					Notify = AnimNotify_Sound_41/*Ref AnimNotify_Sound'AnimNotify_Sound_41'*/,
 					Comment = (name)"None",
 				},
 			},
@@ -45602,31 +45602,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.07490f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_101")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_101'*/,
+					Notify = AnimNotify_Footstep_101/*Ref AnimNotify_Footstep'AnimNotify_Footstep_101'*/,
 					Comment = (name)"LF",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.12850f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_102")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_102'*/,
+					Notify = AnimNotify_Footstep_102/*Ref AnimNotify_Footstep'AnimNotify_Footstep_102'*/,
 					Comment = (name)"RH",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.18420f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_103")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_103'*/,
+					Notify = AnimNotify_Footstep_103/*Ref AnimNotify_Footstep'AnimNotify_Footstep_103'*/,
 					Comment = (name)"RH",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.30840f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_104")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_104'*/,
+					Notify = AnimNotify_Footstep_104/*Ref AnimNotify_Footstep'AnimNotify_Footstep_104'*/,
 					Comment = (name)"LH",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.51610f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_69")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_69'*/,
+					Notify = TdAnimNotify_CharacterSound_69/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_69'*/,
 					Comment = (name)"Oral",
 				},
 			},
@@ -47696,31 +47696,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.12020f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_105")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_105'*/,
+					Notify = AnimNotify_Footstep_105/*Ref AnimNotify_Footstep'AnimNotify_Footstep_105'*/,
 					Comment = (name)"Release",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.31210f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_42")/*Ref AnimNotify_Sound'AnimNotify_Sound_42'*/,
+					Notify = AnimNotify_Sound_42/*Ref AnimNotify_Sound'AnimNotify_Sound_42'*/,
 					Comment = (name)"Cloth",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.34170f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_70")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_70'*/,
+					Notify = TdAnimNotify_CharacterSound_70/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_70'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.50f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_106")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_106'*/,
+					Notify = AnimNotify_Footstep_106/*Ref AnimNotify_Footstep'AnimNotify_Footstep_106'*/,
 					Comment = (name)"Down",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.50f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_43")/*Ref AnimNotify_Sound'AnimNotify_Sound_43'*/,
+					Notify = AnimNotify_Sound_43/*Ref AnimNotify_Sound'AnimNotify_Sound_43'*/,
 					Comment = (name)"Hand",
 				},
 			},
@@ -48335,31 +48335,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.12020f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_107")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_107'*/,
+					Notify = AnimNotify_Footstep_107/*Ref AnimNotify_Footstep'AnimNotify_Footstep_107'*/,
 					Comment = (name)"Release",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.31210f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_44")/*Ref AnimNotify_Sound'AnimNotify_Sound_44'*/,
+					Notify = AnimNotify_Sound_44/*Ref AnimNotify_Sound'AnimNotify_Sound_44'*/,
 					Comment = (name)"Cloth",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.34170f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_71")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_71'*/,
+					Notify = TdAnimNotify_CharacterSound_71/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_71'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.50f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_108")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_108'*/,
+					Notify = AnimNotify_Footstep_108/*Ref AnimNotify_Footstep'AnimNotify_Footstep_108'*/,
 					Comment = (name)"Down",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.50f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_45")/*Ref AnimNotify_Sound'AnimNotify_Sound_45'*/,
+					Notify = AnimNotify_Sound_45/*Ref AnimNotify_Sound'AnimNotify_Sound_45'*/,
 					Comment = (name)"Hand",
 				},
 			},
@@ -49856,43 +49856,43 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.01310f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_109")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_109'*/,
+					Notify = AnimNotify_Footstep_109/*Ref AnimNotify_Footstep'AnimNotify_Footstep_109'*/,
 					Comment = (name)"Release",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.064916660f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_72")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_72'*/,
+					Notify = TdAnimNotify_CharacterSound_72/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_72'*/,
 					Comment = (name)"Test",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.19250f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_110")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_110'*/,
+					Notify = AnimNotify_Footstep_110/*Ref AnimNotify_Footstep'AnimNotify_Footstep_110'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.25590f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_46")/*Ref AnimNotify_Sound'AnimNotify_Sound_46'*/,
+					Notify = AnimNotify_Sound_46/*Ref AnimNotify_Sound'AnimNotify_Sound_46'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.32590f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_111")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_111'*/,
+					Notify = AnimNotify_Footstep_111/*Ref AnimNotify_Footstep'AnimNotify_Footstep_111'*/,
 					Comment = (name)"Release",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.51960f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_112")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_112'*/,
+					Notify = AnimNotify_Footstep_112/*Ref AnimNotify_Footstep'AnimNotify_Footstep_112'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.54846670f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_47")/*Ref AnimNotify_Sound'AnimNotify_Sound_47'*/,
+					Notify = AnimNotify_Sound_47/*Ref AnimNotify_Sound'AnimNotify_Sound_47'*/,
 					Comment = (name)"Leg",
 				},
 			},
@@ -50217,31 +50217,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.0147330f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_73")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_73'*/,
+					Notify = TdAnimNotify_CharacterSound_73/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_73'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.022066670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_113")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_113'*/,
+					Notify = AnimNotify_Footstep_113/*Ref AnimNotify_Footstep'AnimNotify_Footstep_113'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.02890f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_48")/*Ref AnimNotify_Sound'AnimNotify_Sound_48'*/,
+					Notify = AnimNotify_Sound_48/*Ref AnimNotify_Sound'AnimNotify_Sound_48'*/,
 					Comment = (name)"Knee",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.36726670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_114")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_114'*/,
+					Notify = AnimNotify_Footstep_114/*Ref AnimNotify_Footstep'AnimNotify_Footstep_114'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.40950f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_49")/*Ref AnimNotify_Sound'AnimNotify_Sound_49'*/,
+					Notify = AnimNotify_Sound_49/*Ref AnimNotify_Sound'AnimNotify_Sound_49'*/,
 					Comment = (name)"Knee",
 				},
 			},
@@ -51439,31 +51439,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.07690f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_115")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_115'*/,
+					Notify = AnimNotify_Footstep_115/*Ref AnimNotify_Footstep'AnimNotify_Footstep_115'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.2490f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_50")/*Ref AnimNotify_Sound'AnimNotify_Sound_50'*/,
+					Notify = AnimNotify_Sound_50/*Ref AnimNotify_Sound'AnimNotify_Sound_50'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.31980f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_74")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_74'*/,
+					Notify = TdAnimNotify_CharacterSound_74/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_74'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.46580f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_116")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_116'*/,
+					Notify = AnimNotify_Footstep_116/*Ref AnimNotify_Footstep'AnimNotify_Footstep_116'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.630f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_51")/*Ref AnimNotify_Sound'AnimNotify_Sound_51'*/,
+					Notify = AnimNotify_Sound_51/*Ref AnimNotify_Sound'AnimNotify_Sound_51'*/,
 					Comment = (name)"Leg",
 				},
 			},
@@ -51798,43 +51798,43 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.075286660f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_117")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_117'*/,
+					Notify = AnimNotify_Footstep_117/*Ref AnimNotify_Footstep'AnimNotify_Footstep_117'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.099743330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_118")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_118'*/,
+					Notify = AnimNotify_Footstep_118/*Ref AnimNotify_Footstep'AnimNotify_Footstep_118'*/,
 					Comment = (name)"Release",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.18346330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_52")/*Ref AnimNotify_Sound'AnimNotify_Sound_52'*/,
+					Notify = AnimNotify_Sound_52/*Ref AnimNotify_Sound'AnimNotify_Sound_52'*/,
 					Comment = (name)"Knee",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.34690f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_119")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_119'*/,
+					Notify = AnimNotify_Footstep_119/*Ref AnimNotify_Footstep'AnimNotify_Footstep_119'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.36217330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_120")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_120'*/,
+					Notify = AnimNotify_Footstep_120/*Ref AnimNotify_Footstep'AnimNotify_Footstep_120'*/,
 					Comment = (name)"Release",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.42427330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_53")/*Ref AnimNotify_Sound'AnimNotify_Sound_53'*/,
+					Notify = AnimNotify_Sound_53/*Ref AnimNotify_Sound'AnimNotify_Sound_53'*/,
 					Comment = (name)"Knee",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.51458660f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_75")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_75'*/,
+					Notify = TdAnimNotify_CharacterSound_75/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_75'*/,
 					Comment = (name)"Breath",
 				},
 			},
@@ -52169,43 +52169,43 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.075286660f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_121")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_121'*/,
+					Notify = AnimNotify_Footstep_121/*Ref AnimNotify_Footstep'AnimNotify_Footstep_121'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.099743330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_122")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_122'*/,
+					Notify = AnimNotify_Footstep_122/*Ref AnimNotify_Footstep'AnimNotify_Footstep_122'*/,
 					Comment = (name)"Release",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.18346330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_54")/*Ref AnimNotify_Sound'AnimNotify_Sound_54'*/,
+					Notify = AnimNotify_Sound_54/*Ref AnimNotify_Sound'AnimNotify_Sound_54'*/,
 					Comment = (name)"Knee",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.34690f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_123")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_123'*/,
+					Notify = AnimNotify_Footstep_123/*Ref AnimNotify_Footstep'AnimNotify_Footstep_123'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.36217330f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_124")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_124'*/,
+					Notify = AnimNotify_Footstep_124/*Ref AnimNotify_Footstep'AnimNotify_Footstep_124'*/,
 					Comment = (name)"Release",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.42427330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_55")/*Ref AnimNotify_Sound'AnimNotify_Sound_55'*/,
+					Notify = AnimNotify_Sound_55/*Ref AnimNotify_Sound'AnimNotify_Sound_55'*/,
 					Comment = (name)"Knee",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.51458660f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_76")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_76'*/,
+					Notify = TdAnimNotify_CharacterSound_76/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_76'*/,
 					Comment = (name)"None",
 				},
 			},
@@ -52530,31 +52530,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.012426670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_125")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_125'*/,
+					Notify = AnimNotify_Footstep_125/*Ref AnimNotify_Footstep'AnimNotify_Footstep_125'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.027893330f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_77")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_77'*/,
+					Notify = TdAnimNotify_CharacterSound_77/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_77'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.10910f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_126")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_126'*/,
+					Notify = AnimNotify_Footstep_126/*Ref AnimNotify_Footstep'AnimNotify_Footstep_126'*/,
 					Comment = (name)"Release",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.29578670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_127")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_127'*/,
+					Notify = AnimNotify_Footstep_127/*Ref AnimNotify_Footstep'AnimNotify_Footstep_127'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.36450f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_128")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_128'*/,
+					Notify = AnimNotify_Footstep_128/*Ref AnimNotify_Footstep'AnimNotify_Footstep_128'*/,
 					Comment = (name)"Release",
 				},
 			},
@@ -52860,13 +52860,13 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.2740f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_78")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_78'*/,
+					Notify = TdAnimNotify_CharacterSound_78/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_78'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.32340f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_79")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_79'*/,
+					Notify = TdAnimNotify_CharacterSound_79/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_79'*/,
 					Comment = (name)"Breath",
 				},
 			},
@@ -65991,31 +65991,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.01660f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_80")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_80'*/,
+					Notify = TdAnimNotify_CharacterSound_80/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_80'*/,
 					Comment = (name)"Oral",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.120590f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_56")/*Ref AnimNotify_Sound'AnimNotify_Sound_56'*/,
+					Notify = AnimNotify_Sound_56/*Ref AnimNotify_Sound'AnimNotify_Sound_56'*/,
 					Comment = (name)"None",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.26160f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_57")/*Ref AnimNotify_Sound'AnimNotify_Sound_57'*/,
+					Notify = AnimNotify_Sound_57/*Ref AnimNotify_Sound'AnimNotify_Sound_57'*/,
 					Comment = (name)"None",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.411680f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_129")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_129'*/,
+					Notify = AnimNotify_Footstep_129/*Ref AnimNotify_Footstep'AnimNotify_Footstep_129'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.50f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_58")/*Ref AnimNotify_Sound'AnimNotify_Sound_58'*/,
+					Notify = AnimNotify_Sound_58/*Ref AnimNotify_Sound'AnimNotify_Sound_58'*/,
 					Comment = (name)"None",
 				},
 			},
@@ -66340,31 +66340,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.10680f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_130")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_130'*/,
+					Notify = AnimNotify_Footstep_130/*Ref AnimNotify_Footstep'AnimNotify_Footstep_130'*/,
 					Comment = (name)"RightHand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.14690f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_131")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_131'*/,
+					Notify = AnimNotify_Footstep_131/*Ref AnimNotify_Footstep'AnimNotify_Footstep_131'*/,
 					Comment = (name)"LeftHand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.22070f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_81")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_81'*/,
+					Notify = TdAnimNotify_CharacterSound_81/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_81'*/,
 					Comment = (name)"Oral",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.30710f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_59")/*Ref AnimNotify_Sound'AnimNotify_Sound_59'*/,
+					Notify = AnimNotify_Sound_59/*Ref AnimNotify_Sound'AnimNotify_Sound_59'*/,
 					Comment = (name)"None",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.64450f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_132")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_132'*/,
+					Notify = AnimNotify_Footstep_132/*Ref AnimNotify_Footstep'AnimNotify_Footstep_132'*/,
 					Comment = (name)"Foot",
 				},
 			},
@@ -66978,31 +66978,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.00810f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_82")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_82'*/,
+					Notify = TdAnimNotify_CharacterSound_82/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_82'*/,
 					Comment = (name)"Oral",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.11015330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_60")/*Ref AnimNotify_Sound'AnimNotify_Sound_60'*/,
+					Notify = AnimNotify_Sound_60/*Ref AnimNotify_Sound'AnimNotify_Sound_60'*/,
 					Comment = (name)"None",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.15690f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_61")/*Ref AnimNotify_Sound'AnimNotify_Sound_61'*/,
+					Notify = AnimNotify_Sound_61/*Ref AnimNotify_Sound'AnimNotify_Sound_61'*/,
 					Comment = (name)"None",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.41994660f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_133")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_133'*/,
+					Notify = AnimNotify_Footstep_133/*Ref AnimNotify_Footstep'AnimNotify_Footstep_133'*/,
 					Comment = (name)"Hand",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.53810f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_83")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_83'*/,
+					Notify = TdAnimNotify_CharacterSound_83/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_83'*/,
 					Comment = (name)"None",
 				},
 			},
@@ -67322,25 +67322,25 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.10680f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_134")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_134'*/,
+					Notify = AnimNotify_Footstep_134/*Ref AnimNotify_Footstep'AnimNotify_Footstep_134'*/,
 					Comment = (name)"LH",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.14690f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_135")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_135'*/,
+					Notify = AnimNotify_Footstep_135/*Ref AnimNotify_Footstep'AnimNotify_Footstep_135'*/,
 					Comment = (name)"Vault",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.22070f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_84")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_84'*/,
+					Notify = TdAnimNotify_CharacterSound_84/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_84'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.30710f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_62")/*Ref AnimNotify_Sound'AnimNotify_Sound_62'*/,
+					Notify = AnimNotify_Sound_62/*Ref AnimNotify_Sound'AnimNotify_Sound_62'*/,
 					Comment = (name)"Wind",
 				},
 			},
@@ -67650,13 +67650,13 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.03560f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_85")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_85'*/,
+					Notify = TdAnimNotify_CharacterSound_85/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_85'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.27528070f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_86")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_86'*/,
+					Notify = TdAnimNotify_CharacterSound_86/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_86'*/,
 					Comment = (name)"Oral",
 				},
 			},
@@ -67966,13 +67966,13 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.03560f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_87")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_87'*/,
+					Notify = TdAnimNotify_CharacterSound_87/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_87'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.27528070f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_88")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_88'*/,
+					Notify = TdAnimNotify_CharacterSound_88/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_88'*/,
 					Comment = (name)"Oral",
 				},
 			},
@@ -68297,31 +68297,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.031610f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_136")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_136'*/,
+					Notify = AnimNotify_Footstep_136/*Ref AnimNotify_Footstep'AnimNotify_Footstep_136'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.07170f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_89")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_89'*/,
+					Notify = TdAnimNotify_CharacterSound_89/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_89'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.1790f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_90")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_90'*/,
+					Notify = TdAnimNotify_CharacterSound_90/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_90'*/,
 					Comment = (name)"Knee",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.51803670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_137")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_137'*/,
+					Notify = AnimNotify_Footstep_137/*Ref AnimNotify_Footstep'AnimNotify_Footstep_137'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.64720f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_91")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_91'*/,
+					Notify = TdAnimNotify_CharacterSound_91/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_91'*/,
 					Comment = (name)"Knee",
 				},
 			},
@@ -68645,31 +68645,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.031610f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_138")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_138'*/,
+					Notify = AnimNotify_Footstep_138/*Ref AnimNotify_Footstep'AnimNotify_Footstep_138'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.07170f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_92")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_92'*/,
+					Notify = TdAnimNotify_CharacterSound_92/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_92'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.1790f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_93")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_93'*/,
+					Notify = TdAnimNotify_CharacterSound_93/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_93'*/,
 					Comment = (name)"Knee",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.51803670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_139")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_139'*/,
+					Notify = AnimNotify_Footstep_139/*Ref AnimNotify_Footstep'AnimNotify_Footstep_139'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.64720f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_94")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_94'*/,
+					Notify = TdAnimNotify_CharacterSound_94/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_94'*/,
 					Comment = (name)"Knee",
 				},
 			},
@@ -68993,31 +68993,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.031610f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_140")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_140'*/,
+					Notify = AnimNotify_Footstep_140/*Ref AnimNotify_Footstep'AnimNotify_Footstep_140'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.07170f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_95")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_95'*/,
+					Notify = TdAnimNotify_CharacterSound_95/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_95'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.1790f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_96")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_96'*/,
+					Notify = TdAnimNotify_CharacterSound_96/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_96'*/,
 					Comment = (name)"Knee",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.51803670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_141")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_141'*/,
+					Notify = AnimNotify_Footstep_141/*Ref AnimNotify_Footstep'AnimNotify_Footstep_141'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.64720f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_97")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_97'*/,
+					Notify = TdAnimNotify_CharacterSound_97/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_97'*/,
 					Comment = (name)"Knee",
 				},
 			},
@@ -69327,13 +69327,13 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.18660f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_98")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_98'*/,
+					Notify = TdAnimNotify_CharacterSound_98/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_98'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.08660f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_99")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_99'*/,
+					Notify = TdAnimNotify_CharacterSound_99/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_99'*/,
 					Comment = (name)"Breath",
 				},
 			},
@@ -69643,13 +69643,13 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.18660f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_100")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_100'*/,
+					Notify = TdAnimNotify_CharacterSound_100/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_100'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 1.08660f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_101")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_101'*/,
+					Notify = TdAnimNotify_CharacterSound_101/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_101'*/,
 					Comment = (name)"Breath",
 				},
 			},
@@ -70845,31 +70845,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.00020f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_142")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_142'*/,
+					Notify = AnimNotify_Footstep_142/*Ref AnimNotify_Footstep'AnimNotify_Footstep_142'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.05840f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_102")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_102'*/,
+					Notify = TdAnimNotify_CharacterSound_102/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_102'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.1710f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_63")/*Ref AnimNotify_Sound'AnimNotify_Sound_63'*/,
+					Notify = AnimNotify_Sound_63/*Ref AnimNotify_Sound'AnimNotify_Sound_63'*/,
 					Comment = (name)"Knee",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.48690f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_143")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_143'*/,
+					Notify = AnimNotify_Footstep_143/*Ref AnimNotify_Footstep'AnimNotify_Footstep_143'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.68410f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_64")/*Ref AnimNotify_Sound'AnimNotify_Sound_64'*/,
+					Notify = AnimNotify_Sound_64/*Ref AnimNotify_Sound'AnimNotify_Sound_64'*/,
 					Comment = (name)"Knee",
 				},
 			},
@@ -71192,31 +71192,31 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.00020f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_144")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_144'*/,
+					Notify = AnimNotify_Footstep_144/*Ref AnimNotify_Footstep'AnimNotify_Footstep_144'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.05840f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_103")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_103'*/,
+					Notify = TdAnimNotify_CharacterSound_103/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_103'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.1710f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_65")/*Ref AnimNotify_Sound'AnimNotify_Sound_65'*/,
+					Notify = AnimNotify_Sound_65/*Ref AnimNotify_Sound'AnimNotify_Sound_65'*/,
 					Comment = (name)"Knee",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.48690f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_145")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_145'*/,
+					Notify = AnimNotify_Footstep_145/*Ref AnimNotify_Footstep'AnimNotify_Footstep_145'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.68410f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_66")/*Ref AnimNotify_Sound'AnimNotify_Sound_66'*/,
+					Notify = AnimNotify_Sound_66/*Ref AnimNotify_Sound'AnimNotify_Sound_66'*/,
 					Comment = (name)"Knee",
 				},
 			},
@@ -72710,37 +72710,37 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.024133330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_67")/*Ref AnimNotify_Sound'AnimNotify_Sound_67'*/,
+					Notify = AnimNotify_Sound_67/*Ref AnimNotify_Sound'AnimNotify_Sound_67'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.04840f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_146")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_146'*/,
+					Notify = AnimNotify_Footstep_146/*Ref AnimNotify_Footstep'AnimNotify_Footstep_146'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.13840f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_147")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_147'*/,
+					Notify = AnimNotify_Footstep_147/*Ref AnimNotify_Footstep'AnimNotify_Footstep_147'*/,
 					Comment = (name)"Release",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.27430f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_68")/*Ref AnimNotify_Sound'AnimNotify_Sound_68'*/,
+					Notify = AnimNotify_Sound_68/*Ref AnimNotify_Sound'AnimNotify_Sound_68'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.30120f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_148")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_148'*/,
+					Notify = AnimNotify_Footstep_148/*Ref AnimNotify_Footstep'AnimNotify_Footstep_148'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.47280f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_149")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_149'*/,
+					Notify = AnimNotify_Footstep_149/*Ref AnimNotify_Footstep'AnimNotify_Footstep_149'*/,
 					Comment = (name)"Release",
 				},
 			},
@@ -73361,37 +73361,37 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.024133330f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_69")/*Ref AnimNotify_Sound'AnimNotify_Sound_69'*/,
+					Notify = AnimNotify_Sound_69/*Ref AnimNotify_Sound'AnimNotify_Sound_69'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.04840f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_150")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_150'*/,
+					Notify = AnimNotify_Footstep_150/*Ref AnimNotify_Footstep'AnimNotify_Footstep_150'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.13840f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_151")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_151'*/,
+					Notify = AnimNotify_Footstep_151/*Ref AnimNotify_Footstep'AnimNotify_Footstep_151'*/,
 					Comment = (name)"Release",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.27430f,
-					Notify = LoadAsset<AnimNotify_Sound>("AnimNotify_Sound_70")/*Ref AnimNotify_Sound'AnimNotify_Sound_70'*/,
+					Notify = AnimNotify_Sound_70/*Ref AnimNotify_Sound'AnimNotify_Sound_70'*/,
 					Comment = (name)"Leg",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.30120f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_152")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_152'*/,
+					Notify = AnimNotify_Footstep_152/*Ref AnimNotify_Footstep'AnimNotify_Footstep_152'*/,
 					Comment = (name)"Foot",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.47280f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_153")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_153'*/,
+					Notify = AnimNotify_Footstep_153/*Ref AnimNotify_Footstep'AnimNotify_Footstep_153'*/,
 					Comment = (name)"Release",
 				},
 			},
@@ -74002,25 +74002,25 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.01710f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_104")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_104'*/,
+					Notify = TdAnimNotify_CharacterSound_104/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_104'*/,
 					Comment = (name)"Breath",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.084746660f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_154")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_154'*/,
+					Notify = AnimNotify_Footstep_154/*Ref AnimNotify_Footstep'AnimNotify_Footstep_154'*/,
 					Comment = (name)"RF",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.21186670f,
-					Notify = LoadAsset<AnimNotify_Footstep>("AnimNotify_Footstep_155")/*Ref AnimNotify_Footstep'AnimNotify_Footstep_155'*/,
+					Notify = AnimNotify_Footstep_155/*Ref AnimNotify_Footstep'AnimNotify_Footstep_155'*/,
 					Comment = (name)"LF",
 				},
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.42429330f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_105")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_105'*/,
+					Notify = TdAnimNotify_CharacterSound_105/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_105'*/,
 					Comment = (name)"Knee",
 				},
 			},
@@ -75780,7 +75780,7 @@ public static partial class Asset
 				new AnimSequence.AnimNotifyEvent
 				{
 					Time = 0.00710f,
-					Notify = LoadAsset<TdAnimNotify_CharacterSound>("TdAnimNotify_CharacterSound_106")/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_106'*/,
+					Notify = TdAnimNotify_CharacterSound_106/*Ref TdAnimNotify_CharacterSound'TdAnimNotify_CharacterSound_106'*/,
 					Comment = (name)"Breath",
 				},
 			},
