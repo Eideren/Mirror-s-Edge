@@ -48,7 +48,7 @@ public partial class SoundNodeModulator : SoundNode/*
 		// Object Offset:0x003E99B9
 		VolumeModulation = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SoundNodeModulator.DistributionVolume")/*Ref DistributionFloatUniform'Default__SoundNodeModulator.DistributionVolume'*/,
+			Distribution = Default__SoundNodeModulator_DistributionVolume/*Ref DistributionFloatUniform'Default__SoundNodeModulator.DistributionVolume'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,
@@ -67,7 +67,7 @@ public partial class SoundNodeModulator : SoundNode/*
 		};
 		PitchModulation = new DistributionFloat.RawDistributionFloat
 		{
-			Distribution = LoadAsset<DistributionFloatUniform>("Default__SoundNodeModulator.DistributionPitch")/*Ref DistributionFloatUniform'Default__SoundNodeModulator.DistributionPitch'*/,
+			Distribution = Default__SoundNodeModulator_DistributionPitch/*Ref DistributionFloatUniform'Default__SoundNodeModulator.DistributionPitch'*/,
 			Type = 0,
 			Op = 2,
 			LookupTableNumElements = 2,

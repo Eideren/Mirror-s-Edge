@@ -2007,6 +2007,81 @@ determine how deep in water actor is standing:
 
 	public partial class Actor
 	{
+		// Export UActor::execSetCollision(FFrame&, void* const)
+		public virtual /*native(262) final function */void SetCollision(/*optional */bool bNewCollideActors = false, /*optional */bool bNewBlockActors = false, /*optional */bool? _bNewIgnoreEncroachers = false)
+		{
+			var bNewIgnoreEncroachers = _bNewIgnoreEncroachers ?? false;
+			// Make sure we're calling this function to change something.
+			if( ( bCollideActors == bNewCollideActors )
+			    && ( bBlockActors == bNewBlockActors )
+			    && ( bIgnoreEncroachers == bNewIgnoreEncroachers )
+			)
+			{
+				return;
+			}
+
+			/*#if !FINAL_RELEASE
+			// Check to see if this move is illegal during this tick group
+			if( GWorld->InTick && GWorld->TickGroup == TG_DuringAsyncWork )
+			{
+				debugf(NAME_Error,TEXT("Can't change collision on actor (%s) during async work!"),*GetName());
+			}
+			#endif*/
+
+			/*const UBOOL*/var bOldCollideActors = bCollideActors;
+
+			// Untouch everything if we're turning collision off.
+			if( bCollideActors && !bNewCollideActors )
+			{
+				for( int i=0; i<Touching.Num(); )
+				{
+					if( Touching[i] )
+					{
+						Touching[i].EndTouch(this, false);
+					}
+					else
+					{
+						i++;
+					}
+				}
+			}
+
+			// If the collide actors flag is changing, then all collidable components
+			// need to be detached and then reattached
+			var bClearAndUpdate = bCollideActors != bNewCollideActors;
+			if (bClearAndUpdate)
+			{
+				// clear only primitive components so we don't needlessly reattach components that never collide
+				for (int ComponentIndex = 0; ComponentIndex < Components.Num(); ComponentIndex++)
+				{
+					PrimitiveComponent Primitive = (Components[ComponentIndex]) as PrimitiveComponent;
+					if (Primitive != NULL && Primitive.CollideActors)
+					{
+						Primitive.ConditionalDetach();
+					}
+				}
+			}
+			// Set properties.
+			bCollideActors = bNewCollideActors;
+			bBlockActors   = bNewBlockActors;
+			bIgnoreEncroachers = bNewIgnoreEncroachers;
+			// Collision flags changed and collidable components need to be re-added
+			if (bClearAndUpdate)
+			{
+				ConditionalUpdateComponents();
+			}
+
+			// Touch.
+			if( bNewCollideActors && !bOldCollideActors )
+			{
+				FindTouchingActors();
+			}
+			// notify script
+			CollisionChanged();
+			// dirty this actor for replication
+			bNetDirty = TRUE;
+		}
+		
 		public virtual void Spawned()
 		{
 			SetDefaultCollisionType();

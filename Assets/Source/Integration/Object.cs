@@ -429,5 +429,10 @@
 
 
         public static bool GIsEditor => false;
-    }
+
+        public override string ToString()
+        {
+	        return $"{Name}: {base.ToString()}";
+        }
+	}
 }

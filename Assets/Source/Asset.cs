@@ -16,7 +16,7 @@
 	{
 		public static HashSet<string> NotImplementedFor = new HashSet<string>();
 		public static ConditionalWeakTable<object, UnityEngine.Object> UScriptToUnity = new();
-		static Dictionary<name, UnityEngine.AudioClip> Clips;
+		public static Dictionary<name, UnityEngine.AudioClip> Clips;
 
 
 		public static TClass LoadAsset<TClass>( String assetPath ) where TClass : new()
@@ -42,14 +42,14 @@
 			if( typeof(TClass) == typeof(SoundNodeWave) )
 			{
 				Clips ??= UnityEngine.Resources.LoadAll<UnityEngine.AudioClip>( "" ).ToDictionary( x => (name) x.name, x => x );
-				if( Clips.TryGetValue( assetPath, out var unityClip ) )
+				
+				if( Clips.TryGetValue( assetPath, out var unityClip ) || 
+				    Clips.TryGetValue( assetPath.ToString().Substring( assetPath.ToString().LastIndexOf('.')+1 ), out unityClip ) )
 				{
 					var snw = new TClass();
 					var unrealClip = snw as SoundNodeWave;
 					unrealClip.Duration = unityClip.length;
 					unrealClip.Name = assetPath;
-					lock( UScriptToUnity )
-						UScriptToUnity.Add( snw, unityClip );
 					return snw;
 				}
 			}

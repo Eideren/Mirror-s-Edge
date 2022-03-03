@@ -1,5 +1,5 @@
 namespace MEdge.Core{
-using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
+using System;using Engine; using Editor; using UnrealEd; using Fp; using Tp; using Ts; using IpDrv; using GameFramework; using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; using TdSpBossContent; using TdSpContent; using TdTTContent; using TdTuContent; using TdEditor;
 
 public partial class DistributionFloat : Component/*
 		abstract
@@ -35,6 +35,11 @@ public partial class DistributionFloat : Component/*
 	[native, Const, noexport] public/*private*/ Object.Pointer VfTable_FCurveEdInterface;
 	[Category("Baked")] public bool bCanBeBaked;
 	public bool bIsDirty;
+	
+	public virtual float GetValue( float F, Object Data )
+	{
+		throw new NotImplementedException( this.GetType().ToString() );
+	}
 	
 	public DistributionFloat()
 	{

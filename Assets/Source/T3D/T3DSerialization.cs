@@ -56,7 +56,7 @@
 			static void Recurse( T3DNode node, object instance, Utility utility )
 			{
 				// Prepare child object first
-				string[] children = new string[node.Children.Count];
+				(string, object)[] children = new (string, object)[node.Children.Count];
 				for( int i = 0; i < node.Children.Count; i++ )
 				{
 					var child = node.Children[i];
@@ -70,8 +70,11 @@
 						if( utility == null || utility.IgnoreException( e ) == false )
 							throw;
 					}
-					Recurse( child, obj, utility );
-					children[i] = fullname;
+					children[i] = (fullname, obj);
+				}
+				for( int i = 0; i < children.Length; i++ )
+				{
+					Recurse( node.Children[i], children[i].Item2, utility );
 				}
 
 				// Deserialize properties now that child and their refs have been setup
@@ -88,7 +91,7 @@
 				
 				// We're leaving this scope, remove refs we added in
 				for( int i = 0; i < node.Children.Count; i++ )
-					utility.NamedReferences.Remove( (name)children[ i ] );
+					utility.NamedReferences.Remove( (name)children[ i ].Item1 );
 			}
 
 			static object AllocInstance( T3DNode node, out string fullname )

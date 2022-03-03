@@ -52,6 +52,8 @@
 		public static HashSet<MarkerData> Marked = new HashSet<MarkerData>();
 		public static void MarkUnimplemented(string description = null, [ CallerLineNumber ] int line = 0, [ CallerMemberName ] string member = "member", [ CallerFilePath ] string filePath = "filePath" )
 		{
+			if(Marked.Count == 0)
+				UnityEngine.Debug.LogError("New unimplemented marker logged, exit play mode to dump them to the console");
 			Marked.Add( new MarkerData( description, line, member, filePath ) );
 		}
 	}

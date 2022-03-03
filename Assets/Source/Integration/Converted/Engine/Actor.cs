@@ -580,12 +580,6 @@ public partial class Actor : Object/*
 		return default;
 	}
 	
-	// Export UActor::execSetCollision(FFrame&, void* const)
-	public virtual /*native(262) final function */void SetCollision(/*optional */bool? _bNewColActors = default, /*optional */bool? _bNewBlockActors = default, /*optional */bool? _bNewIgnoreEncroachers = default)
-	{
-		NativeMarkers.MarkUnimplemented();
-	}
-	
 	// Export UActor::execSetCollisionType(FFrame&, void* const)
 	public virtual /*native final function */void SetCollisionType(Actor.ECollisionType NewCollisionType)
 	{

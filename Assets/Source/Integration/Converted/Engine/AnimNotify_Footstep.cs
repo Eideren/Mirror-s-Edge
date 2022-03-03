@@ -10,7 +10,26 @@ public partial class AnimNotify_Footstep : AnimNotify/*
 	
 	public override void Notify( AnimNodeSequence NodeSeq )
 	{
-		throw new NotImplementedException();
+		Actor Owner = (NodeSeq && NodeSeq.SkelComponent) ? NodeSeq.SkelComponent.GetOwner() : null;
+
+		if( !Owner )
+		{
+			// This should not be the case in the game, so generate a warning.
+			/*if( GWorld->HasBegunPlay() )
+			{
+				debugf(TEXT("FOOTSTEP no owner"));
+			}*/
+		}
+		else
+		{
+			//debugf(TEXT("FOOTSTEP for %s"),*Owner->GetName());
+
+			// Act on footstep...  FootDown signifies which paw hits earth 0=left, 1=right, 2=left-hindleg etc.
+			if( (Owner is Pawn) )
+			{
+				(Owner as Pawn).PlayFootStepSound(FootDown);
+			}
+		}
 	}
 }
 }

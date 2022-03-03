@@ -14,7 +14,38 @@ public partial class AnimNotify_Sound : AnimNotify/*
 
 	public override void Notify( AnimNodeSequence NodeSeq )
 	{
-		throw new NotImplementedException();
+		SkeletalMeshComponent SkelComp = NodeSeq.SkelComponent;
+		check( SkelComp );
+
+		Actor Owner = SkelComp.GetOwner();
+		if( BoneName != NAME_None )
+		{
+			UWorldBridge.GetUWorld().PlaySoundCue(SoundCue, Owner, false, SkelComp.GetBoneLocation( BoneName ) );
+		}                  
+		else if( !(bFollowActor && Owner) )
+		{
+			UWorldBridge.GetUWorld().PlaySoundCue(SoundCue, Owner, false, SkelComp.LocalToWorld.GetOrigin() );
+		}
+		/*AudioComponent AudioComponent = UAudioDevice::CreateComponent( SoundCue, SkelComp.GetScene(), Owner, 0 );
+		if( AudioComponent )
+		{
+			if( BoneName != NAME_None )
+			{
+				AudioComponent.bUseOwnerLocation	= 0;
+				AudioComponent.Location			= SkelComp.GetBoneLocation( BoneName );
+			}                  
+			else if( !(bFollowActor && Owner) )
+			{	
+				AudioComponent.bUseOwnerLocation	= 0;
+				AudioComponent.Location			= SkelComp->LocalToWorld.GetOrigin();
+			}
+
+			AudioComponent.bAllowSpatialization	&= GIsGame;
+			AudioComponent.bIsUISound			= !GIsGame;
+			AudioComponent.bAutoDestroy			= 1;
+			AudioComponent.SubtitlePriority		= SUBTITLE_PRIORITY_ANIMNOTIFY;
+			AudioComponent.Play();
+		}*/
 	}
 
 
