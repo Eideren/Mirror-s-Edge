@@ -76,63 +76,56 @@
 				return (TClass) iAsset.GetRuntimeAsset();
 			else if( resourceAsset is TClass == false )
 			{
-				UnityEngine.Object associatedUnityObject = null;
 				if( typeof(TClass) == typeof(SkeletalMesh) 
 				    && resourceAsset is UnityEngine.GameObject prefabRoot 
-				    && prefabRoot.GetComponentInChildren<UnityEngine.SkinnedMeshRenderer>() is UnityEngine.SkinnedMeshRenderer smr )
-				{
-					associatedUnityObject = smr;
-				}
-
-				if( associatedUnityObject != null )
+				    && prefabRoot.GetComponentInChildren<UnityEngine.SkinnedMeshRenderer>() is UnityEngine.SkinnedMeshRenderer usm )
 				{
 					var unrealObj = new TClass();
-					if( unrealObj is SkeletalMesh sm && associatedUnityObject is UnityEngine.SkinnedMeshRenderer usm )
-					{
-						// Default offsets for the character meshes, as seen in ME's editor
-					    sm.Origin.Y = 94f;
-					    sm.RotOrigin = new (0, -16384, 16384); // 16384 is 90 degrees
+					var sm = unrealObj as SkeletalMesh;
+					
+					// Default offsets for the character meshes, as seen in ME's editor
+					sm.Origin.Y = 94f;
+					sm.RotOrigin = new (0, -16384, 16384); // 16384 is 90 degrees
 					    
-					    MEdge.TdGame.TdAnimSet set;
-					    switch( path )
-					    {
-						    case "CH_TKY_Crim_Fixer_1P.SK_UpperBody":
-						    case "CH_TKY_Crim_Fixer_1P.SK_LowerBody":
-							    set = Get_AS_C1P_Unarmed();
-							    break;
-							case "CH_TKY_Crim_Fixer.SK_TKY_Crim_Fixer":
-							    set = Get_AS_F3P_Unarmed();
-							    break;
-						    default: 
-							    throw new Exception();
-					    }
-						var bones = set.TrackBoneNames.ToArray();
-						var nonDicTrs = usm.transform.parent.GetComponentsInChildren<UnityEngine.Transform>();
-						var trs = nonDicTrs.Where(t => t != usm.transform && t != usm.transform.parent).ToDictionary( trs => (name)trs.name );
-						trs[ "root" ].localRotation = UnityEngine.Quaternion.identity;
+					TdGame.TdAnimSet set;
+					switch( path )
+					{
+						case "CH_TKY_Crim_Fixer_1P.SK_UpperBody":
+						case "CH_TKY_Crim_Fixer_1P.SK_LowerBody":
+							set = Get_AS_C1P_Unarmed();
+							break;
+						case "CH_TKY_Crim_Fixer.SK_TKY_Crim_Fixer":
+							set = Get_AS_F3P_Unarmed();
+							break;
+						default: 
+							throw new Exception();
+					}
+					var bones = set.TrackBoneNames.ToArray();
+					var nonDicTrs = usm.transform.parent.GetComponentsInChildren<UnityEngine.Transform>();
+					var trs = nonDicTrs.Where(t => t != usm.transform && t != usm.transform.parent).ToDictionary( trs => (name)trs.name );
+					trs[ "root" ].localRotation = UnityEngine.Quaternion.identity;
 
-						sm.RefSkeleton = new();
-						for( int i = 0; i < bones.Length; i++ )
+					sm.RefSkeleton = new();
+					for( int i = 0; i < bones.Length; i++ )
+					{
+						var bone = trs[bones[i]];
+
+						sm.RefSkeleton[ i ] = new AnimNode.FMeshBone
 						{
-							var bone = trs[bones[i]];
-
-							sm.RefSkeleton[ i ] = new AnimNode.FMeshBone
+							Name = bone.name,
+							BonePos = new AnimNode.VJointPos
 							{
-								Name = bone.name,
-								BonePos = new AnimNode.VJointPos
-								{
-									Orientation = bone.localRotation.ToUnrealAnim(),
-									Position = bone.localPosition.ToUnrealAnim(),
-								},
-								ParentIndex = Array.FindIndex( bones, other => other == bone.parent.name ),
-								NumChildren = bone.childCount,
-								//Depth = depth,// Inspecting memory showed that this value is always zero
-							};
-						}
+								Orientation = bone.localRotation.ToUnrealAnim(),
+								Position = bone.localPosition.ToUnrealAnim(),
+							},
+							ParentIndex = Array.FindIndex( bones, other => other == bone.parent.name ),
+							NumChildren = bone.childCount,
+							//Depth = depth,// Inspecting memory showed that this value is always zero
+						};
 					}
 
 					lock( UScriptToUnity )
-						UScriptToUnity.Add( unrealObj, associatedUnityObject );
+						UScriptToUnity.Add( unrealObj, usm );
 					return unrealObj;
 				}
 			}

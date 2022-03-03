@@ -2,10 +2,13 @@
 {
 	public readonly struct String
 	{
+		/// <summary>
+		/// Have to always test this value otherwise 'default' wouldn't work
+		/// </summary>
 		string ValidVal => _invalidVal ?? "";
 		readonly string _invalidVal;
 		
-		String( string s ) => _invalidVal = s;
+		String( string s ) => _invalidVal = s ?? "";
 		public static implicit operator String(string v) => new String(v);
 		public static implicit operator string(String v) => v.ValidVal;
 		

@@ -2,8 +2,8 @@
 {
 	using System;
 	using System.Collections.Generic;
-	using System.Linq;
 	using System.Reflection;
+	using System.Runtime.CompilerServices;
 	using Core;
 	using JetBrains.Annotations;
 	using Reflection;
@@ -14,11 +14,26 @@
 	public static class T3DSerialization
 	{
 		static readonly string StartOfStaticArrayTypeName;
+
+
+
 		static T3DSerialization()
 		{
 			var v = typeof(StaticArray<>).FullName;
 			v = v!.Substring( 0, v.IndexOf( '`' ) );
 			StartOfStaticArrayTypeName = v;
+			Types = new();
+			foreach( Type type in typeof(MEdge.Core.Object).Assembly.GetTypes() )
+			{
+				if( type.Namespace == null || type.Namespace.StartsWith( nameof(MEdge) ) == false )
+					continue;
+				
+				if( type.BaseType == typeof(MulticastDelegate) || type.GetCustomAttribute<CompilerGeneratedAttribute>() != null )
+					continue;
+				
+				var typeName = type.IsNested ? $"{type.DeclaringType.Name}:{type.Name}" : type.Name;
+				Types.Add( (name)typeName, type );
+			}
 		}
 
 
@@ -31,62 +46,71 @@
 		public static object Deserialize( T3DNode root, [ CanBeNull ] Func<Exception, bool> ignoreException, [ CanBeNull ] Action<object> onNodeDeserialized )
 		{
 			var utility = new Utility { IgnoreException = ignoreException, OnNodeDeserialized = onNodeDeserialized };
-			var output = PrepareClassesRef( root, typeof(MEdge.Core.Object).Assembly.GetTypes(), utility );
-
-			foreach( var kvp in utility.NameToObject )
-			{
-				var( obj, objNode, classType ) = kvp.Value;
-				
-				var typeData = ReflectionData.GetDataFor( classType );
-				var cache = typeData.NewCache( obj );
 			
-				foreach( var prop in objNode.Properties )
+			var rootInstance = AllocInstance( root, out _ );
+			Recurse( root, rootInstance, utility );
+
+			return rootInstance;
+			
+
+			static void Recurse( T3DNode node, object instance, Utility utility )
+			{
+				// Prepare child object first
+				string[] children = new string[node.Children.Count];
+				for( int i = 0; i < node.Children.Count; i++ )
+				{
+					var child = node.Children[i];
+					var obj = AllocInstance( child, out var fullname );
+					try
+					{
+						utility.NamedReferences.Add( (name)fullname, obj );
+					}
+					catch( Exception e )
+					{
+						if( utility == null || utility.IgnoreException( e ) == false )
+							throw;
+					}
+					Recurse( child, obj, utility );
+					children[i] = fullname;
+				}
+
+				// Deserialize properties now that child and their refs have been setup
+				var classType = instance.GetType();
+				var typeData = ReflectionData.GetDataFor( classType );
+				var cache = typeData.NewCache( instance );
+				foreach( var prop in node.Properties )
 					HandleProp( prop, classType, typeData, cache, utility );
 
 				if( classType.IsValueType )
 					throw new InvalidOperationException( "Did not expect value type for node object" );
 				
-				utility.OnNodeDeserialized?.Invoke(obj);
+				utility.OnNodeDeserialized?.Invoke(instance);
+				
+				// We're leaving this scope, remove refs we added in
+				for( int i = 0; i < node.Children.Count; i++ )
+					utility.NamedReferences.Remove( (name)children[ i ] );
 			}
-			
-			return output;
+
+			static object AllocInstance( T3DNode node, out string fullname )
+			{
+				var className = node.Definition.Between( " Class=", " ", true );
+				var classType = Types[(name)(className??"")];
+				var classInstance = Activator.CreateInstance( classType );
+				var objName = node.Definition.Between( " ObjName=", " ", true );
+				fullname = $"{className}'{objName}'";
+				return classInstance;
+			}
 		}
 
 
 
-		static object PrepareClassesRef(T3DNode node, Type[] types, Utility utility)
-		{
-			var className = node.Definition.Between( " Class=", " ", true );
-			var classType = types.First( t => t.Name == className );
-			var classInstance = Activator.CreateInstance( classType );
-			var objName = node.Definition.Between( " Name=", " ", true );
-			var fullname = $"{className}'{objName}'";
-
-			try
-			{
-				utility.NameToObject.Add( fullname, (classInstance, node, classType) );
-			}
-			catch( Exception e )
-			{
-				if( utility == null || utility.IgnoreException( e ) == false )
-					throw;
-			}
-
-			foreach( T3DNode child in node.Children )
-				PrepareClassesRef( child, types, utility );
-			
-			return classInstance;
-		}
-
-
-
-		static void InlineStructureDeserialization( ref object structure, string content, Utility utility )
+		static void InlineStructureDeserialization( ref object structure, ReadOnlySpan<char> content, Utility utility )
 		{
 			if( (content.StartsWith( "(" ) && content.EndsWith( ")" )) == false )
 			{
 				try
 				{
-					throw new InvalidOperationException( $"'{content}' is not a valid value to assign to a '{structure.GetType()}'" );
+					throw new InvalidOperationException( $"'{content.ToString()}' is not a valid value to assign to a '{structure.GetType()}'" );
 				}
 				catch( Exception e )
 				{
@@ -97,12 +121,12 @@
 			}
 
 			// Remove '(' & ')'
-			content = content.Substring( 1, content.Length - 2 );
+			content = content.Slice( 1, content.Length - 2 );
 			var classType = structure.GetType();
 			var typeData = ReflectionData.GetDataFor( classType );
 			var cache = typeData.NewCache( structure );
 
-			foreach( var value in ExtractValues( content ) )
+			foreach( var value in ExtractValues( content.ToString() ) )
 				HandleProp( value, classType, typeData, cache, utility );
 
 			structure = cache.ContainerAsObj;
@@ -113,26 +137,26 @@
 
 
 
-		static void HandleProp( string prop, Type classType, ReflectionData typeData, CachedContainer cache, Utility utility )
+		static void HandleProp( ReadOnlySpan<char> prop, Type classType, ReflectionData typeData, CachedContainer cache, Utility utility )
 		{
 			var equalSignPos = prop.IndexOf( '=' );
-			var propName = prop.Substring( 0, equalSignPos );
+			var propName = prop[ ..equalSignPos ];
 
 			int? arrayIndex = null;
 			if( propName.EndsWith( ")" ) )
 			{
 				var fullName = propName;
-				propName = propName.Substring( 0, propName.LastIndexOf( '(' ) );
-				var indexAndParen = fullName.Remove( 0, propName.Length );
-				arrayIndex = int.Parse(indexAndParen.Substring( 1, indexAndParen.Length - 2 ));
+				propName = propName[ ..propName.LastIndexOf( '(' ) ];
+				var indexAndParen = fullName[ propName.Length.. ];
+				arrayIndex = int.Parse(indexAndParen.Slice( 1, indexAndParen.Length - 2 ));
 			}
 
-			var matchingField = typeData.FindField( propName );
+			var matchingField = typeData.FindField( propName.ToString() );
 			if( matchingField == null )
 			{
 				try
 				{
-					throw new MissingFieldException( $"Could not find field '{propName}' within '{classType}'" );
+					throw new MissingFieldException( $"Could not find field '{propName.ToString()}' within '{classType}'" );
 				}
 				catch( Exception e )
 				{
@@ -142,14 +166,20 @@
 				return;
 			}
 
-			var value = prop.Substring( equalSignPos + 1 );
+			var value = prop[ (equalSignPos + 1).. ];
 			AssignToField( matchingField, value, arrayIndex, cache, utility );
 		}
 
 
 
-		static void AssignToField( IField field, string value, int? arrayIndex, CachedContainer cache, Utility utility )
+		static unsafe void AssignToField( IField field, ReadOnlySpan<char> value, int? arrayIndex, CachedContainer cache, Utility utility )
 		{
+			if( value.Length == 0 )
+			{
+				field.SetValueToDefault( cache );
+				return;
+			}
+			
 			switch( field )
 			{
 				case IField<Boolean> fBoolean: fBoolean.Ref( cache ) = Boolean.Parse( value ); return;
@@ -163,12 +193,12 @@
 				case IField<UInt64> fUInt64: fUInt64.Ref( cache ) = UInt64.Parse( value ); return;
 				case IField<Single> fSingle: fSingle.Ref( cache ) = Single.Parse( value ); return;
 				case IField<Double> fDouble: fDouble.Ref( cache ) = Double.Parse( value ); return;
-				case IField<Char> fChar: fChar.Ref( cache ) = Char.Parse( value ); return;
+				case IField<Char> fChar: fChar.Ref( cache ) = value.Length == 1 ? value[0] : throw new Exception(); return;
 				case IField<DateTime> fDateTime: fDateTime.Ref( cache ) = DateTime.Parse( value ); return;
 				case IField<Decimal> fDecimal: fDecimal.Ref( cache ) = Decimal.Parse( value ); return;
-				case IField<MEdge.Core.name> fName: fName.Ref( cache ) = StripQuotes(value); return;
-				case IField<MEdge.Core.String> fString: fString.Ref( cache ) = StripQuotes(value); return;
-				case IField<string> fString: fString.Ref( cache ) = StripQuotes(value); return;
+				case IField<MEdge.Core.name> fName: fName.Ref( cache ) = StripQuotes(value).ToString(); return;
+				case IField<MEdge.Core.String> fString: fString.Ref( cache ) = StripQuotes(value).ToString(); return;
+				case IField<string> fString: fString.Ref( cache ) = StripQuotes(value).ToString(); return;
 				default: break;
 			}
 			
@@ -177,29 +207,35 @@
 			var fieldType = field.Info.FieldType;
 			if( field.IsReferenceType )
 			{
+				char* testingData2 = stackalloc char[ value.Length ];
 				// Reference to object
-				if( utility.NameToObject.TryGetValue( value, out var nodeRef ) )
+				if( utility.NamedReferences.TryGetValue( unsafe_namePtr.PrepareStackallocForUnsafeTest(value, testingData2), out var nodeRef ) )
 				{
-					field.SetValueSlow( cache, nodeRef.obj );
-				} 
+					field.SetValueSlow( cache, nodeRef );
+				}
+				else if( value.Equals("none", StringComparison.InvariantCultureIgnoreCase) )
+				{
+					field.SetValueToDefault( cache );
+				}
 				// new default object or asset reference
 				else if( value.IndexOf( '\'' ) is int firstQuote 
 				         && firstQuote != - 1 
-				         && value[ value.Length - 1 ] == '\'' 
+				         && value[ ^1 ] == '\'' 
 				         && firstQuote != value.Length - 1 )
 				{
-					var paramFull = value.Substring( firstQuote + 1, value.Length - firstQuote - 2 );
-					var assemblyToSearchIn = typeof(Core.Object).Assembly;
-					if( paramFull.Contains( ".Default__" ) )
+					var paramFull = value.Slice( firstQuote + 1, value.Length - firstQuote - 2 );
+					if( paramFull.Contains( ".Default__", StringComparison.InvariantCultureIgnoreCase ) )
 					{
-						var partialType = paramFull.Replace( ".Default__", "." );
-						var param = $"{nameof( MEdge )}.{partialType}";
-						var type = assemblyToSearchIn.GetType( param ) ?? assemblyToSearchIn.GetTypes().FirstOrDefault( x => x.Name == partialType );
-						if( type == null )
+						var partialType = FromLastIndexOf( paramFull, '.' );
+						if( partialType.Contains( "Default__", StringComparison.InvariantCultureIgnoreCase ) )
+							partialType = partialType[ (partialType.IndexOf( "Default__" ) + "Default__".Length).. ];
+
+						char* testingData = stackalloc char[ partialType.Length ];
+						if( Types.TryGetValue( unsafe_namePtr.PrepareStackallocForUnsafeTest(partialType, testingData), out var type ) == false )
 						{
 							try
 							{
-								throw new MissingMemberException( $"Could not find type '{param}' inside assembly '{assemblyToSearchIn}'" );
+								throw new MissingMemberException( $"Could not find type '{partialType.ToString()}' inside assembly '{nameof(MEdge)}'" );
 							}
 							catch( Exception e )
 							{
@@ -213,14 +249,14 @@
 					}
 					else
 					{
-						var partialType = value.Substring( 0, firstQuote );
-						var prefixType = $"{nameof( MEdge )}.{partialType}";;
-						var genericType = assemblyToSearchIn.GetType( prefixType ) ?? assemblyToSearchIn.GetTypes().FirstOrDefault( x => x.Name == partialType );
-						if( genericType == null )
+						var partialType = FromLastIndexOf( value[ ..firstQuote ], '.');
+						
+						char* testingData = stackalloc char[ partialType.Length ];
+						if( Types.TryGetValue( unsafe_namePtr.PrepareStackallocForUnsafeTest(partialType, testingData), out var type ) == false )
 						{
 							try
 							{
-								throw new MissingMemberException( $"Could not find type '{prefixType}' inside assembly '{assemblyToSearchIn}'" );
+								throw new MissingMemberException( $"Could not find type '{partialType.ToString()}' inside assembly '{nameof(MEdge)}'" );
 							}
 							catch( Exception e )
 							{
@@ -230,20 +266,20 @@
 							return;
 						}
 						MethodInfo method = typeof(MEdge.Source.Asset).GetMethod(nameof(MEdge.Source.Asset.LoadAsset), BindingFlags.Static | BindingFlags.Public);
-						MethodInfo generic = method.MakeGenericMethod(genericType);
-						var returnValue = generic.Invoke(typeof(MEdge.Source.Asset), new object[]{ (MEdge.Core.String) paramFull } );
+						MethodInfo generic = method.MakeGenericMethod(type);
+						var returnValue = generic.Invoke(typeof(MEdge.Source.Asset), new object[]{ (MEdge.Core.String) paramFull.ToString() } );
 
 						field.SetValueSlow( cache, returnValue );
 					}
 				}
 				else
 				{
-					throw new InvalidOperationException( $"Unknown value scheme '{value}', attempted to assign it to {field}" );
+					throw new InvalidOperationException( $"Unknown value scheme '{value.ToString()}', attempted to assign it to {field}" );
 				}
 			}
 			else if( fieldType.IsEnum )
 			{
-				field.SetValueSlow( cache, Enum.Parse( field.Info.FieldType, value ) );
+				field.SetValueSlow( cache, Enum.Parse( field.Info.FieldType, value.ToString() ) );
 			}
 			else if( fieldType.IsGenericType 
 			         && fieldType.FullName!.StartsWith( StartOfStaticArrayTypeName ) )
@@ -276,7 +312,15 @@
 
 
 
-		static string StripQuotes( string s ) => s.StartsWith( "\"" ) && s.EndsWith( "\"" ) ? s.Substring( 1, s.Length - 2 ) : s;
+		static ReadOnlySpan<char> StripQuotes( ReadOnlySpan<char> s ) => s.StartsWith( "\"" ) && s.EndsWith( "\"" ) ? s.Slice( 1, s.Length - 2 ) : s;
+
+
+
+		static ReadOnlySpan<char> FromLastIndexOf( ReadOnlySpan<char> s, char c )
+		{
+			var i = s.LastIndexOf( c );
+			return i != -1 ? s[ (i+1).. ] : s;
+		}
 
 
 
@@ -327,7 +371,7 @@
 
 
 
-			public abstract void AssignToArrayIndex( ref object array, int? index, string value, Utility utility );
+			public abstract void AssignToArrayIndex( ref object array, int? index, ReadOnlySpan<char> value, Utility utility );
 		}
 
 
@@ -341,7 +385,7 @@
 
 
 
-			public override void AssignToArrayIndex( ref object objArray, int? index, string value, Utility utility )
+			public override void AssignToArrayIndex( ref object objArray, int? index, ReadOnlySpan<char> value, Utility utility )
 			{
 				array<T> outputArray = (array<T>)(objArray ?? new array<T>());
 				var typeData = ReflectionData.GetDataFor<FieldContainer>();
@@ -352,10 +396,10 @@
 				var arrayCopy = outputArray.NewCopy();
 				if( index == null && value.StartsWith( "(" ) && value.EndsWith( ")" ) ) // This is most likely an inline multi-value assignment
 				{
-					value = value.Substring( 1, value.Length - 2 );
+					value = value.Slice( 1, value.Length - 2 );
 
 					outputArray.Remove(0, outputArray.Length);
-					foreach( var subValue in ExtractValues( value ) )
+					foreach( var subValue in ExtractValues( value.ToString() ) )
 					{
 						// Start from the initial constructor values, use serialized data to overwrite those when it has data on it,
 						// it seems like that's how T3D operates, it doesn't print values that are set to default/initial values and expect the engine to fill those in
@@ -385,7 +429,78 @@
 		{
 			public Func<Exception, bool> IgnoreException;
 			public Action<object> OnNodeDeserialized;
-			public Dictionary<string, (object obj, T3DNode node, Type type)> NameToObject = new Dictionary<string, (object, T3DNode, Type)>();
+			public Dictionary<unsafe_namePtr, object> NamedReferences = new();
+		}
+		static readonly Dictionary<unsafe_namePtr, Type> Types;
+
+
+
+		readonly unsafe struct unsafe_namePtr : IEquatable<unsafe_namePtr>
+		{
+			readonly name name;
+			readonly char* ptr;
+			readonly int ptrLength;
+
+
+
+			unsafe_namePtr( name pName, char* pPtr, int pPtrLength)
+			{
+				name = pName;
+				ptr = pPtr;
+				ptrLength = pPtrLength;
+			}
+
+
+
+			public static unsafe_namePtr PrepareStackallocForUnsafeTest( ReadOnlySpan<char> ros, char* pPtr )
+			{
+				if( name.LooksLikeANone( ros ) )
+				{
+					return new unsafe_namePtr( "", default, default );
+				}
+				
+				for( int i = 0; i < ros.Length; i++ )
+					pPtr[ i ] = ros[ i ];
+				
+				return new unsafe_namePtr(default, pPtr, ros.Length);
+			}
+
+
+
+			public static implicit operator unsafe_namePtr( name n )
+			{
+				return new unsafe_namePtr(n, default, default);
+			}
+
+
+
+			public bool Equals( unsafe_namePtr other )
+			{
+				ReadOnlySpan<char> thisSpan = ptr != null ? new ReadOnlySpan<char>( ptr, ptrLength ) : name.Value.ToString();
+				ReadOnlySpan<char> otherSpan = other.ptr != null ? new ReadOnlySpan<char>( other.ptr, other.ptrLength ) : other.name.Value.ToString();
+
+				return otherSpan.Equals( thisSpan, StringComparison.InvariantCultureIgnoreCase );
+			}
+
+
+
+			public override bool Equals( object obj ) => obj is unsafe_namePtr other && Equals( other );
+
+
+
+			public override int GetHashCode()
+			{
+				ReadOnlySpan<char> thisSpan = ptr != null ? new ReadOnlySpan<char>( ptr, ptrLength ) : name.Value.ToString();
+
+				int hc = 0;
+				foreach( char c in thisSpan )
+				{
+					var lc = char.ToLowerInvariant( c );
+					hc = HashCode.Combine( hc, lc );
+				}
+
+				return hc;
+			}
 		}
 	}
 }
