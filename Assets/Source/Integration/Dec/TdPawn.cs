@@ -13,7 +13,7 @@ public partial class TdPawn
     //_E_struct_TArray_float *distanceData; // esi
 
     base.PostBeginPlay();
-    HardWrittenSetter(ref this.SpeedCurve_LightWeapon, ref this.AccelCurve_LightWeapon);
+    HardWrittenSetter(ref this.AccelCurve_LightWeapon, ref this.AccelCurve_HeavyWeapon);
     NativeMarkers.MarkUnimplemented("Replaced with the hard-written setter above");
     //ComputeAccelerationCurve(&this.SpeedCurve_LightWeapon, &this.AccelCurve_LightWeapon, 10);
     //ComputeAccelerationCurve(&this.SpeedCurve_HeavyWeapon, &this.AccelCurve_HeavyWeapon, 10);
