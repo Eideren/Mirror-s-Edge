@@ -485,6 +485,10 @@
 
 					return;
 				}
+				else if( node is SoundNodeLooping or SoundNodeAttenuation or TdSoundNodeRelativePosition )
+				{
+					// Taken care of inside the SoundNodeWave if
+				}
 				else if( node is null )
 				{
 					// Should be reported through missing asset load stuff

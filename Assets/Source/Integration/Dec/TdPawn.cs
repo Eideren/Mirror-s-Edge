@@ -5142,7 +5142,7 @@ public partial class TdPawn
   }
 
   // NOT READY
-  public unsafe void ReplicateCustomAnim(ECustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, bool bRootRotation){ NativeMarkers.MarkUnimplemented(); }
+  public unsafe void ReplicateCustomAnim(ECustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, bool bRootRotation){ NativeMarkers.MarkUnimplemented("Most likely only online related"); }
 //public unsafe void ReplicateCustomAnim(ECustomNodeType Type, name AnimName, float Rate, float BlendInTime, float BlendOutTime, bool bLooping, bool bOverride, bool bRootMotion, int bRootRotation)
 //  {
 //    int *v11; // eax

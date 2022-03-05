@@ -390,10 +390,9 @@ public partial class TdPlayerPawn : TdPawn/*
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? TdPlayerPawn_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => TdPlayerPawn_TakeDamage;
-	public /*event */void TdPlayerPawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor _DamageCauser = default)
+	public /*event */void TdPlayerPawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor DamageCauser = default)
 	{
 		var HitInfo = _HitInfo ?? default;
-		var DamageCauser = _DamageCauser ?? default;
 		if(((InstigatedBy) as TdAIController) != default)
 		{
 			if(!((InstigatedBy) as TdAIController).IsHitRelevant(DamageType, HitInfo.BoneName))
@@ -416,9 +415,8 @@ public partial class TdPlayerPawn : TdPawn/*
 		}
 	}
 	
-	public override /*function */void PlayMeleeImpact(PhysicalMaterial PhysMat, TdPawn.EMeleeImpactType Type, Object.Vector TargetHitLocation, Object.Vector TargetHitNormal, Object.Vector TargetHitMomentum, name TargetHitBone, /*optional */Core.ClassT<DamageType> _DamageType = default)
+	public override /*function */void PlayMeleeImpact(PhysicalMaterial PhysMat, TdPawn.EMeleeImpactType Type, Object.Vector TargetHitLocation, Object.Vector TargetHitNormal, Object.Vector TargetHitMomentum, name TargetHitBone, /*optional */Core.ClassT<DamageType> DamageType = default)
 	{
-		var DamageType = _DamageType ?? default;
 		PlaySound(ObjectConst<SoundCue>("Fist_Head"), false, true, false, TargetHitLocation, default(bool?), default(bool?));
 	}
 	

@@ -119,7 +119,7 @@ public partial class TdMove_LayOnGround : TdPhysicsMove/*
 		PlayerController = ((PawnOwner.Controller) as TdPlayerController);
 		if(PlayerController != default)
 		{
-			PlayerController.StopFire((byte)default(byte?));
+			PlayerController.StopFire(default(byte?));
 		}
 		MovementGroup = TdMove.EMovementGroup.MG_TwoHandsBusy/*2*/;
 		PawnOwner.SetWeaponAnimState(TdPawn.EWeaponAnimState.WS_Relaxed/*1*/);

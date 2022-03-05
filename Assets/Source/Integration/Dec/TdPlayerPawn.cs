@@ -3630,7 +3630,7 @@ public partial class TdPlayerPawn
 //  }
 //
   // NOT READY
-  public unsafe void UpdateReverb_Probably(float a2){ NativeMarkers.MarkUnimplemented(); }
+  public unsafe void UpdateReverb_Probably(float a2){ NativeMarkers.MarkUnimplemented("Audio stuff stripped out"); }
 //public unsafe void UpdateReverb_Probably(float a2)
 //  {
 //    float v3 = default; // xmm0_4

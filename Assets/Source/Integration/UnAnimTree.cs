@@ -189,7 +189,7 @@ namespace MEdge.Engine
 		// Export USkeletalMeshComponent::execFindMorphNode(FFrame&, void* const)
 		public virtual /*native final function */MorphNodeBase FindMorphNode(name InNodeName)
 		{
-			NativeMarkers.MarkUnimplemented();
+			NativeMarkers.MarkUnimplemented("Morphnodes are not important");
 			return default;
 		}
 	

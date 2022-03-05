@@ -953,7 +953,7 @@ public partial class TdPlayerController : GamePlayerController,
 		{
 			((myHUD) as TdHUD).PlayerOwnerRestart();
 		}
-		NativeMarkers.MarkUnimplemented();
+		NativeMarkers.MarkUnimplemented("Stripped out audio stuff");
 		//SetAudioProfileSettings();
 		SetPause(false, default(/*delegate*/PlayerController.CanUnpause));
 		//SetSoundMode(AudioDevice.ESoundMode.SOUNDMODE_NORMAL/*0*/, default(float?), true, 1.50f);

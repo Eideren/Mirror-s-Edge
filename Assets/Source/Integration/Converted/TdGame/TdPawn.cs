@@ -1675,11 +1675,10 @@ public partial class TdPawn : GamePawn/*
 		}
 	}
 	
-	public virtual /*simulated function */void UpdateAnimSets(/*optional */TdWeapon _NewWeapon = default)
+	public virtual /*simulated function */void UpdateAnimSets(/*optional */TdWeapon NewWeapon = default)
 	{
 		/*local */bool bHasFirstPerson = default;
 	
-		var NewWeapon = _NewWeapon ?? default;
 		bHasFirstPerson = Mesh1p != default;
 		if(NewWeapon != default)
 		{
@@ -2043,12 +2042,11 @@ public partial class TdPawn : GamePawn/*
 	
 	public override TakeDamage_del TakeDamage { get => bfield_TakeDamage ?? TdPawn_TakeDamage; set => bfield_TakeDamage = value; } TakeDamage_del bfield_TakeDamage;
 	public override TakeDamage_del global_TakeDamage => TdPawn_TakeDamage;
-	public /*event */void TdPawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor _DamageCauser = default)
+	public /*event */void TdPawn_TakeDamage(int Damage, Controller InstigatedBy, Object.Vector HitLocation, Object.Vector damageMomentum, Core.ClassT<DamageType> DamageType, /*optional */Actor.TraceHitInfo? _HitInfo = default, /*optional */Actor DamageCauser = default)
 	{
 		/*local */Core.ClassT<TdDamageType> CurrentDamageType = default;
 	
 		var HitInfo = _HitInfo ?? default;
-		var DamageCauser = _DamageCauser ?? default;
 		CurrentDamageType = ((DamageType) as ClassT<TdDamageType>);
 		if(CurrentDamageType != default)
 		{
@@ -2526,11 +2524,10 @@ public partial class TdPawn : GamePawn/*
 		return ((PC != default) && PC.PlayerCamera != default) && ((((((((PC.PlayerCamera.CameraStyle == "FreeCam") || PC.PlayerCamera.CameraStyle == "FreeFlight")) || PC.PlayerCamera.CameraStyle == "Fixed")) || PC.PlayerCamera.CameraStyle == "ThirdPerson")) || PC.PlayerCamera.CameraStyle == "FixedPerson");
 	}
 	
-	public override /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon _CurrentWeapon = default)
+	public override /*simulated function */Object.Vector GetWeaponStartTraceLocation(/*optional */Weapon CurrentWeapon = default)
 	{
 		/*local */Object.Vector out_Location = default;
 	
-		var CurrentWeapon = _CurrentWeapon ?? default;
 		if(InCamAimMode())
 		{
 			out_Location = Location;
