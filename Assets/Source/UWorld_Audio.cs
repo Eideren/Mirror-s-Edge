@@ -28,7 +28,7 @@
 
 
 
-		public void PlaySoundCue( SoundCue cue, Actor SourceActor, bool bUseLocation, Vector SourceLocation )
+		public void PlaySoundCue( SoundCue cue, Actor SourceActor, bool bUseLocation, Vector SourceLocation, AudioComponent associatedComp = null )
 		{
 			if( _mixCache.TryPop( out var cleanInstance ) == false )
 			{
@@ -36,8 +36,13 @@
 			}
 
 			cleanInstance.param = ( cue, SourceActor, bUseLocation, SourceLocation );
+			cleanInstance.AssociatedComp = associatedComp;
+			cleanInstance.Setup();
 			_playingMixes.Add(cleanInstance);
-			
+
+			if(associatedComp)
+				return;
+
 			int currentCount = 0;
 			for( int i = _playingMixes.Count - 1; i >= 0; i-- )
 			{
@@ -65,119 +70,283 @@
 		public class Mix
 		{
 			public (SoundCue cue, Actor SourceActor, bool bUseLocation, Vector SourceLocation) param;
-			Dictionary<SoundNodeWave, AudioSource> _waveToSource = new();
-			Dictionary<SoundNodeRandom, int> _randChoice = new();
-			bool _initialRun = true;
-			bool _playing;
+			public AudioComponent AssociatedComp;
+			List<(AudioSource audio, float vol, float pitch)> _sources = new();
+			Dictionary<SoundNodeRandom, SoundNode> _selectedRandom = new();
 
-			static List<SoundNode> _stack = new ();
+			static List<SoundNode> _stack = new();
 			static AudioDevice _fakeAudioDevice = new();
+
+			float _targetVolume = 1f;
+			float _targetDuration = 1f;
+			int _sourceIndex = 0;
+			float _volumeMult = 1f;
+			
 
 
 
 			public void Recycle()
 			{
-				_initialRun = true;
+				if( AssociatedComp )
+					throw new Exception();
+				
+				_selectedRandom.Clear();
 				_playingMixes.Remove(this);
-				foreach( var (_, source) in _waveToSource )
+				foreach( var source in _sources )
 				{
-					source.Stop();
+					source.audio.Stop();
 					if( _sourceCache.Count < 248 )
-						_sourceCache.Push( source );
+						_sourceCache.Push( source.audio );
 					else
-						UnityEngine.Object.Destroy( source.gameObject );
+						UnityEngine.Object.Destroy( source.audio.gameObject );
 				}
-				_waveToSource.Clear();
-				_randChoice.Clear();
+				_sources.Clear();
 				if(_mixCache.Count < 248)
 					_mixCache.Push(this);
+				
+				_targetVolume = 1f;
+				_targetDuration = 1f;
+				_sourceIndex = 0;
+				_volumeMult = 1f;
 			}
 
 
 
 			public void Tick()
 			{
-				try
+				if( AssociatedComp )
 				{
-					_playing = false;
-					if( _initialRun )
-					{
-						Recurse(param.cue.FirstNode, param.SourceActor, param.bUseLocation, param.SourceLocation, param.cue.VolumeMultiplier, param.cue.PitchMultiplier, false);
-					}
-					else
-					{
-						foreach( var (_, source) in _waveToSource )
-						{
-							if( source.isPlaying )
-							{
-								_playing = true;
-								break;
-							}
-						}
-					}
+					_sourceIndex = 0;
+					( SoundCue cue, Actor SourceActor, bool bUseLocation, Vector SourceLocation ) = param;
+					Recurse(cue.FirstNode, SourceActor, bUseLocation, SourceLocation, cue.VolumeMultiplier, cue.PitchMultiplier, 0f);
 				}
-				finally
+
+				_volumeMult = _targetDuration == 0f ? _targetVolume : Mathf.MoveTowards( _volumeMult, _targetVolume, Time.deltaTime / _targetDuration );
+				foreach( var source in _sources )
+					source.audio.volume = _volumeMult * source.vol;
+
+				if( AssociatedComp == null )
 				{
-					_initialRun = false;
-					if(_playing == false)
-						Recycle();
+					// See if finished
+					foreach( var source in _sources )
+					{
+						if( source.audio.isPlaying )
+							return;
+					}
+					Recycle();
 				}
 			}
-			
-			
 
-			void Recurse(SoundNode node, Actor SourceActor, bool bUseLocation, Vector SourceLocation, float volume, float pitch, bool loop)
+
+
+			public void Setup()
+			{
+				( SoundCue cue, Actor SourceActor, bool bUseLocation, Vector SourceLocation ) = param;
+				Recurse(cue.FirstNode, SourceActor, bUseLocation, SourceLocation, cue.VolumeMultiplier, cue.PitchMultiplier, 0f);
+				if( AssociatedComp )
+				{
+					AssociatedComp._Play += () =>
+					{
+						foreach( var source in _sources )
+						{
+							source.audio.Stop();
+							if( _sourceCache.Count < 248 )
+								_sourceCache.Push( source.audio );
+							else
+								UnityEngine.Object.Destroy( source.audio.gameObject );
+						}
+						_sources.Clear();
+						Recurse(cue.FirstNode, SourceActor, bUseLocation, SourceLocation, cue.VolumeMultiplier, cue.PitchMultiplier, 0f);
+					};
+					AssociatedComp._Stop += () =>
+					{
+						foreach( var source in _sources )
+						{
+							source.audio.Stop();
+						}
+					};
+					AssociatedComp._AdjustVolume += ( AdjustVolumeDuration, AdjustVolumeLevel ) =>
+					{
+						_targetVolume = AdjustVolumeLevel;
+						_targetDuration = AdjustVolumeDuration;
+					};
+					AssociatedComp._FadeIn += (FadeInDuration, FadeVolumeLevel) =>
+					{
+						foreach( var source in _sources )
+						{
+							source.audio.Stop();
+							if( _sourceCache.Count < 248 )
+								_sourceCache.Push( source.audio );
+							else
+								UnityEngine.Object.Destroy( source.audio.gameObject );
+						}
+						_sources.Clear();
+						Recurse(cue.FirstNode, SourceActor, bUseLocation, SourceLocation, cue.VolumeMultiplier, cue.PitchMultiplier, 0f);
+						
+						_targetVolume = FadeVolumeLevel;
+						_targetDuration = FadeInDuration;
+					};
+					AssociatedComp._FadeOut += (FadeOutDuration, FadeVolumeLevel) =>
+					{
+						_targetVolume = FadeVolumeLevel;
+						_targetDuration = FadeOutDuration;
+					};
+				}
+			}
+
+
+
+			unsafe void Recurse(SoundNode node, Actor SourceActor, bool bUseLocation, Vector SourceLocation, float volume, float pitch, float delay)
 			{
 				if( node is SoundNodeWave snw )
 				{
 					AudioSource unity;
-					if( _initialRun )
+					
+					if( _sources.Count > _sourceIndex )
 					{
-						if( Asset.Clips.TryGetValue( snw.Name, out var clip ) == false 
-						    && snw.Name.ToString().LastIndexOf('.') is int i && i != -1 )
-						{
-							// snw.Name is a long name, includes package and such, get short part
-							var shortName = snw.Name.ToString().Substring( i+1 );
-							if( Asset.Clips.TryGetValue( shortName, out clip ) )
-							{
-								// Add it in as a duplicate under its full name
-								Asset.Clips.Add(snw.Name, clip);
-							}
-						}
-
-						clip = clip ?? throw new NullReferenceException();
-
-						if( _sourceCache.TryPop( out unity ) == false )
-						{
-							unity = new GameObject("PooledAudioSource").AddComponent<AudioSource>();
-							unity.playOnAwake = false;
-						}
-
-						unity.clip = clip;
-						unity.Play();
+						// Reuse existing source
+						unity = _sources[0].audio;
+						_sources.RemoveAt(0);
+						_sourceIndex++;
+					}
+					else if( _sourceCache.TryPop( out unity ) == false )
+					{
+						unity = new GameObject().AddComponent<AudioSource>();
+						unity.playOnAwake = false;
+					}
+					try
+					{
+						unity.gameObject.name = node.Name;
+						unity.clip = Asset.GetClip( snw.Name ) ?? throw new NullReferenceException();
+						
+						unity.loop = false;
 						unity.spatialBlend = 0f;
+						unity.rolloffMode = AudioRolloffMode.Logarithmic;
+						TdSoundNodeRelativePosition relPos = null;
 						foreach( SoundNode soundNode in _stack )
 						{
 							if( soundNode is SoundNodeAttenuation sna )
 							{
-								if(sna.bSpatialize != sna.bAttenuate)
-									UnityEngine.Debug.LogWarning( $"{sna.bSpatialize} {sna.bAttenuate} {unity.clip}" );
-								unity.spatialBlend = sna.bAttenuate && sna.bSpatialize ? 1f : 0f;
+								if(sna.DistanceModel == SoundNodeAttenuation.SoundDistanceModel.ATTENUATION_Linear)
+									unity.rolloffMode = AudioRolloffMode.Linear;
+								// We ignore sna.bAttenuate here as unity doesn't have a similar concept
+								// And I don't think it makes a lot of sense, why would a spatialized noise' volume not be affected by distance ?
+								unity.spatialBlend = sna.bSpatialize ? 1f : 0f;
+							}
+							else if( soundNode is TdSoundNodeRelativePosition rPos )
+								relPos = rPos;
+							else if( soundNode is SoundNodeLooping )
+								unity.loop = true;
+						}
+
+						Actor actorParent;
+						Vector Location;
+						if( AssociatedComp )
+						{
+							if(AssociatedComp.bUseOwnerLocation == false)
+								throw new Exception(); // Not sure what to do here
+							
+							actorParent = SourceActor;
+							Location = SourceActor.Location;
+						}
+						else if( relPos )
+						{
+							var pawn = (TdPlayerPawn)SourceActor;
+							Location = default;
+							if( relPos.bRelativeToCamera )
+							{
+								// Not sure that's how it works
+								pawn.Rotation.Quaternion().RotateVector(&Location, relPos.RelativePos);
+								Location += pawn.PlayerCameraLocation;
+							}
+							else
+							{
+								pawn.Rotation.Quaternion().RotateVector(&Location, relPos.RelativePos);
+								Location += pawn.Location;
+							}
+
+							actorParent = SourceActor;
+						}
+						else
+						{
+							bool bUseOwnerLocation;
+							if( SourceActor )
+							{
+								bUseOwnerLocation = !bUseLocation;
+								Location = SourceLocation;
+							}
+							else
+							{
+								bUseOwnerLocation = FALSE;
+								if (bUseLocation)
+								{
+									Location = SourceLocation;
+								}
+								else if (SourceActor != NULL)
+								{
+									Location = SourceActor.Location;
+								}
+								else
+								{
+									throw new Exception();
+								}
+							}
+							
+							if(bUseOwnerLocation)
+							{
+								actorParent = SourceActor;
+							}
+							else
+							{
+								actorParent = null;
 							}
 						}
-						_waveToSource.Add( snw, unity );
-						unity.transform.parent = ! bUseLocation && Asset.UScriptToUnity.TryGetValue( SourceActor, out var gObject ) ? ( gObject as GameObject ).transform : null;
-						unity.transform.localPosition = SourceLocation.ToUnityPos();
-						_playing = true;
-					}
-					else
-					{
-						unity = _waveToSource[ snw ];
-						_playing = _playing || unity.isPlaying;
-					}
 
-					unity.volume = volume * snw.Volume;
-					unity.pitch = pitch * snw.Pitch;
+						Transform tParent;
+						if( actorParent != null )
+						{
+							UnityEngine.Object gObject;
+							if( actorParent is TdPlayerPawn tdpawn )
+							{
+								Asset.UScriptToUnity.TryGetValue( tdpawn.Mesh1p.SkeletalMesh, out gObject );
+								tParent = ((UnityEngine.Component)gObject).transform;
+							}
+							else
+							{
+								Asset.UScriptToUnity.TryGetValue( actorParent, out gObject );
+								tParent = ((UnityEngine.GameObject)gObject).transform;
+							}
+						}
+						else
+						{
+							tParent = null;
+						}
+
+						unity.transform.parent = tParent;
+						unity.transform.position = Location.ToUnityPos();
+
+						unity.volume = volume * snw.Volume;
+						unity.pitch = pitch * snw.Pitch;
+
+						if( unity.isPlaying == false && (AssociatedComp == null || AssociatedComp.bAutoDestroy) )
+						{
+							if(delay>0f)
+								unity.PlayDelayed(delay);
+							else
+								unity.Play();
+						}
+						
+						_sources.Add( (unity, unity.volume, unity.pitch) );
+					}
+					catch(Exception e)
+					{
+						_sourceCache.Push(unity);
+						throw;
+					}
+				}
+				else if( node is SoundNodeDelay delayN )
+				{
+					delay += delayN.DelayDuration.Distribution.GetValue(0f, null);
 				}
 				else if( node is SoundNodeModulator mod )
 				{
@@ -217,6 +386,9 @@
 							if( SourceActor is TdPlayerPawn == false ) throw new Exception( "cannot handle non player character as listeners source for velocity" );
 							speedVal = SourceActor.Velocity.Size();
 							break;
+						case TdSoundNodeVelocity.SpeedType.SPEEDTYPE_Relative:
+							NativeMarkers.MarkUnimplemented();
+							goto SKIP;
 						/*case TdSoundNodeVelocity.SpeedType.SPEEDTYPE_Listener: break;
 						case TdSoundNodeVelocity.SpeedType.SPEEDTYPE_Relative: break;
 						case TdSoundNodeVelocity.SpeedType.SPEEDTYPE_Custom: break;
@@ -232,64 +404,74 @@
 					if(vel.bModulatePitch)
 						pitch *= Lerp( vel.PitchAtMinSpeed, vel.PitchAtMaxSpeed, speedAsUnit );
 					NativeMarkers.MarkUnimplemented("Fade*TimeFilter and interpolation");
+					SKIP:{}
 				}
 				else if( node is SoundNodeRandom rand )
 				{
-					// First run ?
-					if( _randChoice.TryGetValue( rand, out var nodeIndex ) == false )
+					if( _selectedRandom.TryGetValue( rand, out var selected ) )
 					{
-						if( rand.Weights.Length != rand.HasBeenUsed.Length )
-							rand.HasBeenUsed.Length = rand.Weights.Length;
-						
-						// reset
-						if( rand.bRandomizeWithoutReplacement && rand.NumRandomUsed >= rand.HasBeenUsed.Length )
-						{
-							rand.NumRandomUsed = 0;
-							for( int i = 0; i < rand.HasBeenUsed.Length; i++ )
-								rand.HasBeenUsed[i] = false;
-						}
-						
-						
-						float weightTotal = 0;
-						for( INT i=0; i<rand.Weights.Num(); i++ )
-						{
-							if( rand.bRandomizeWithoutReplacement == false ) 
-							{
-								weightTotal += rand.Weights[i];
-							}
-							else if( rand.HasBeenUsed[i] != true )
-							{
-								weightTotal += rand.Weights[i];
-							}
-						}
-
-						float weight = appFrand() * weightTotal;
-						for( INT i=0; i<rand.ChildNodes.Num() && i<rand.Weights.Num(); i++ )
-						{
-							if( rand.bRandomizeWithoutReplacement && rand.HasBeenUsed[ i ] )
-								continue;
-
-							if( rand.Weights[ i ] >= weight )
-							{
-								if( rand.bRandomizeWithoutReplacement )
-								{
-									rand.HasBeenUsed[i] = true;
-									rand.NumRandomUsed++;
-								}	
-
-								nodeIndex = i;
-								break;
-							}
-							
-							weight -= rand.Weights[ i ];
-						}
-						
-						_randChoice.Add(rand, nodeIndex);
+						Recurse(selected, SourceActor, bUseLocation, SourceLocation, volume, pitch, delay);
+						return;
 					}
+
+					if( rand.Weights.Length != rand.HasBeenUsed.Length )
+						rand.HasBeenUsed.Length = rand.Weights.Length;
+					
+					// reset
+					if( rand.bRandomizeWithoutReplacement && rand.NumRandomUsed >= rand.HasBeenUsed.Length )
+					{
+						rand.NumRandomUsed = 0;
+						for( int i = 0; i < rand.HasBeenUsed.Length; i++ )
+							rand.HasBeenUsed[i] = false;
+					}
+
+					float weightTotal = 0;
+					for( INT i=0; i<rand.Weights.Num(); i++ )
+					{
+						if( rand.bRandomizeWithoutReplacement == false ) 
+						{
+							weightTotal += rand.Weights[i];
+						}
+						else if( rand.HasBeenUsed[i] != true )
+						{
+							weightTotal += rand.Weights[i];
+						}
+					}
+
+					float weight = appFrand() * weightTotal;
+					int nodeIndex = 0;
+					for( INT i=0; i<rand.ChildNodes.Num() && i<rand.Weights.Num(); i++ )
+					{
+						if( rand.bRandomizeWithoutReplacement && rand.HasBeenUsed[ i ] )
+							continue;
+
+						if( rand.Weights[ i ] >= weight )
+						{
+							if( rand.bRandomizeWithoutReplacement )
+							{
+								rand.HasBeenUsed[i] = true;
+								rand.NumRandomUsed++;
+							}	
+
+							nodeIndex = i;
+							break;
+						}
+						
+						weight -= rand.Weights[ i ];
+					}
+					
 					
 					if( nodeIndex < rand.ChildNodes.Num() && rand.ChildNodes[nodeIndex] )
 					{
-						Recurse(rand.ChildNodes[nodeIndex], SourceActor, bUseLocation, SourceLocation, volume, pitch, false);
+						if( AssociatedComp )
+						{
+							_selectedRandom[rand] = rand.ChildNodes[nodeIndex];
+							// Would just need to figure when the random is rerolled,
+							// probably whenever the playing clip in this branch has finished playing
+							Debug.LogWarning($"Random with {nameof(AssociatedComp)} not implemented");
+						}
+
+						Recurse(rand.ChildNodes[nodeIndex], SourceActor, bUseLocation, SourceLocation, volume, pitch, delay);
 					}
 					
 					return;
@@ -298,11 +480,14 @@
 				{
 					for( int i = 0; i < mixer.ChildNodes.Length; i++ )
 					{
-						var childNode = mixer.ChildNodes[ i ];
-						if(childNode != null)
-							Recurse(childNode, SourceActor, bUseLocation, SourceLocation, volume*mixer.InputVolume[i], pitch, false);
+						Recurse(mixer.ChildNodes[ i ], SourceActor, bUseLocation, SourceLocation, volume*mixer.InputVolume[i], pitch, delay);
 					}
 
+					return;
+				}
+				else if( node is null )
+				{
+					// Should be reported through missing asset load stuff
 					return;
 				}
 				else
@@ -315,8 +500,7 @@
 				{
 					foreach( var childNode in node.ChildNodes )
 					{
-						if(childNode != null)
-							Recurse(childNode, SourceActor, bUseLocation, SourceLocation, volume, pitch, node is SoundNodeLooping);
+						Recurse(childNode, SourceActor, bUseLocation, SourceLocation, volume, pitch, delay);
 					}
 				}
 				finally

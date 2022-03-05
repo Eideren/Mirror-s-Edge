@@ -128,7 +128,7 @@ namespace MEdge
         public bool FindItem(in T item, ref int Index)
         {
             for( Index=0; Index<Count; Index++ )
-                if( EqualityComparer<T>.Default.Equals( this[ Index ], item ) )
+                if( EqualityComparer<T>.Default.Equals( __items[ Index ], item ) )
                     return true;
             Index = -1;
             return false;

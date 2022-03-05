@@ -4217,13 +4217,6 @@ determine how deep in water actor is standing:
 
 
 
-		public class FSceneInterface
-		{
-			
-		}
-
-
-
 		public void UpdateComponent(FSceneInterface InScene,Actor InOwner,in FMatrix InLocalToWorld, UBOOL bCollisionUpdate=FALSE)
 		{
 			#if LOG_DETAILED_COMPONENT_UPDATE_STATS

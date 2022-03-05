@@ -49,8 +49,9 @@
 		                    FixRefsForAnimation( Pawn.Mesh1p, clips, set, _1pPlayer );
                     }
 
+                    var hs = Pawn.Mesh1p.AnimSets[ 0 ].TrackBoneNames.ToHashSet();
                     // Merge lower skinned mesh to the same hierarchy as upper
-                    var nameToBones = _1pPlayer.GetComponentsInChildren<Transform>().ToDictionary( t => (name)t.name );
+                    var nameToBones = _1pPlayer.GetComponentsInChildren<Transform>().Where( x => hs.Contains(x.name) ).ToDictionary( t => (name)t.name );
                     var oldParent = _1pLower.transform.parent;
                     _1pLower.transform.parent = fpUpper.transform.parent;
                     _1pLower.rootBone = nameToBones[ _1pLower.rootBone.name ];
@@ -76,7 +77,8 @@
 							FixRefsForAnimation( Pawn.Mesh3p, clips, set, _3pPlayer );
 	                }
 	                
-	                var nameToBones = _3pPlayer.GetComponentsInChildren<Transform>().ToDictionary( t => (name)t.name );
+                    var hs = Pawn.Mesh3p.AnimSets[ 0 ].TrackBoneNames.ToHashSet();
+	                var nameToBones = _3pPlayer.GetComponentsInChildren<Transform>().Where( x => hs.Contains(x.name) ).ToDictionary( t => (name)t.name );
 	                _3pBones = Pawn.Mesh3p.AnimSets[0].TrackBoneNames.Select( n => nameToBones[ n ] ).ToArray();
 	                
                     // Disable rendering for now, let's focus on 1P first
@@ -199,8 +201,9 @@
 	            if(animSet.Sequences.Count == 0)
 		            return;
 	            
-	            var nameToClip = clips.ToDictionary( x => (name)x.name, x => x ); 
-	            var nameToTransforms = gameObject.GetComponentsInChildren<Transform>().ToDictionary( x => (name)x.name );
+	            var nameToClip = clips.ToDictionary( x => (name)x.name, x => x );
+	            var boneHashSet = animSet.TrackBoneNames.ToHashSet();
+	            var nameToTransforms = gameObject.GetComponentsInChildren<Transform>().Where( x => boneHashSet.Contains(x.name) ).ToDictionary( x => (name)x.name );
 	            var bones = animSet.TrackBoneNames.Select( name => nameToTransforms[ name ] ).ToArray();
 
 	            foreach( AnimSequence sequence in animSet.Sequences )

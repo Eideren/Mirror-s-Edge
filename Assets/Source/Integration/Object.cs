@@ -204,6 +204,13 @@
 		{
 			return (ObjectFlags & FlagsToCheck) != 0 || FlagsToCheck == EObjectFlags.RF_AllFlags;
 		}
+
+
+
+		public class FSceneInterface
+		{
+			
+		}
 		
 		[Flags]
 		public enum EObjectFlags : ulong

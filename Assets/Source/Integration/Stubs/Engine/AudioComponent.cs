@@ -91,47 +91,12 @@ public partial class AudioComponent : ActorComponent/*
 	[Const, export, editinline] public DrawSoundRadiusComponent PreviewSoundRadius;
 	public /*delegate*/AudioComponent.OnAudioFinished __OnAudioFinished__Delegate;
 	
-	// Export UAudioComponent::execPlay(FFrame&, void* const)
-	public virtual /*native final function */void Play()
-	{
-		NativeMarkers.MarkUnimplemented();
-		// stub
-	}
-	
-	// Export UAudioComponent::execStop(FFrame&, void* const)
-	public virtual /*native final function */void Stop()
-	{
-		NativeMarkers.MarkUnimplemented();
-		// stub
-	}
-	
 	// Export UAudioComponent::execIsPlaying(FFrame&, void* const)
 	public virtual /*native final function */bool IsPlaying()
 	{
 		NativeMarkers.MarkUnimplemented();
 		// stub
 		return default;
-	}
-	
-	// Export UAudioComponent::execFadeIn(FFrame&, void* const)
-	public virtual /*native final function */void FadeIn(float FadeInDuration, float FadeVolumeLevel)
-	{
-		NativeMarkers.MarkUnimplemented();
-		// stub
-	}
-	
-	// Export UAudioComponent::execFadeOut(FFrame&, void* const)
-	public virtual /*native final function */void FadeOut(float FadeOutDuration, float FadeVolumeLevel)
-	{
-		NativeMarkers.MarkUnimplemented();
-		// stub
-	}
-	
-	// Export UAudioComponent::execAdjustVolume(FFrame&, void* const)
-	public virtual /*native final function */void AdjustVolume(float AdjustVolumeDuration, float AdjustVolumeLevel)
-	{
-		NativeMarkers.MarkUnimplemented();
-		// stub
 	}
 	
 	// Export UAudioComponent::execAdjustLowPassFiltering(FFrame&, void* const)

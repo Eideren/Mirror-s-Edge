@@ -1063,16 +1063,93 @@ public partial class Actor : Object/*
 	}
 	
 	// Export UActor::execCreateAudioComponent(FFrame&, void* const)
-	public virtual /*native final function */AudioComponent CreateAudioComponent(SoundCue InSoundCue, /*optional */bool? _bPlay = default, /*optional */bool? _bStopWhenOwnerDestroyed = default, /*optional */bool? _bUseLocation = default, /*optional */Object.Vector? _SourceLocation = default, /*optional */bool? _bAttachToSelf = default)
+	public unsafe virtual /*native final function */AudioComponent CreateAudioComponent(SoundCue InSoundCue, /*optional */bool? _bPlay = default, /*optional */bool? _bStopWhenOwnerDestroyed = default, /*optional */bool? _bUseLocation = default, /*optional */Object.Vector? _SourceLocation = default, /*optional */bool? _bAttachToSelf = default)
 	{
-		NativeMarkers.MarkUnimplemented();
-		return default;
+		var bPlay = _bPlay ?? FALSE;
+		var bStopWhenOwnerDestroyed = _bStopWhenOwnerDestroyed ?? FALSE;
+		var bUseLocation = _bUseLocation ?? FALSE;
+		var SourceLocation = _SourceLocation ?? new Vector();
+		var bAttachToSelf = _bAttachToSelf ?? TRUE;
+		
+		var ac = CreateComponent(InSoundCue, /*GWorld->Scene*/null, bAttachToSelf ? this : null, bPlay, bStopWhenOwnerDestroyed, bUseLocation ? &SourceLocation : null);
+		
+		UWorldBridge.GetUWorld().PlaySoundCue(InSoundCue, this, default, default, ac);
+		return ac;
+	}
+	
+	unsafe AudioComponent CreateComponent( SoundCue SoundCue, FSceneInterface Scene, Actor Actor, bool bPlay, bool bStopWhenOwnerDestroyed, Vector* Location )
+	{
+		AudioComponent AudioComponent = null;
+
+		if( SoundCue 
+				/*&&	( !SoundCue->MaxConcurrentPlayCount || ( SoundCue.CurrentPlayCount < SoundCue.MaxConcurrentPlayCount ) ) 
+		&&	GEngine 
+		&&	GEngine->bUseSound*/ )
+		{
+			// Avoid creating component if we're trying to play a sound on an already destroyed actor.
+			if( Actor && Actor.ActorIsPendingKill() )
+			{
+				// Don't create component on destroyed actor.
+			}
+			// Either no actor or actor is still alive.
+			/*else if( !SoundCue.IsAudibleSimple( Location ) )
+			{
+				// Don't create a sound component for short sounds that start out of range of any listener
+				debugfSuppressed( NAME_DevAudio, TEXT( "AudioComponent not created for out of range SoundCue %s" ), *SoundCue->GetName() );
+			}*/
+			else
+			{
+				// Use actor as outer if we have one.
+				if( Actor )
+				{
+					AudioComponent = ClassT<AudioComponent>().New(Actor);// ConstructObject<UAudioComponent>( UAudioComponent::StaticClass(), Actor );
+				}
+				// Let engine pick the outer (transient package).
+				else
+				{
+					AudioComponent = ClassT<AudioComponent>().New();//ConstructObject<UAudioComponent>( UAudioComponent::StaticClass() );
+				}
+				check(AudioComponent);
+
+				AudioComponent.SoundCue = SoundCue;
+				AudioComponent.bUseOwnerLocation = Actor ? true : false;
+				AudioComponent.bAutoPlay = false;
+				AudioComponent.bAutoDestroy = bPlay;
+				AudioComponent.bStopWhenOwnerDestroyed = bStopWhenOwnerDestroyed;
+
+				if( Actor )
+				{
+					// AActor::UpdateComponents calls this as well though we need an initial location as we manually create the component.
+					AudioComponent.ConditionalAttach( Scene, Actor, Actor.LocalToWorld() );
+					// Add this audio component to the actor's components array.
+					Actor.Components.AddItem( AudioComponent );
+				}
+				else
+				{
+					AudioComponent.ConditionalAttach( Scene, null, Matrix.Identity );
+				}
+
+				if( bPlay )
+				{
+					AudioComponent.Play();
+				}
+			}
+		}
+		
+		return( AudioComponent );
 	}
 	
 	// Export UActor::execPlaySound(FFrame&, void* const)
 	public virtual /*native final function */void PlaySound(SoundCue InSoundCue, /*optional */bool? _bNotReplicated = default, /*optional */bool? _bNoRepToOwner = default, /*optional */bool? _bStopWhenOwnerDestroyed = default, /*optional */Object.Vector? _SoundLocation = default, /*optional */bool? _bNoRepToRelevant = default, /*optional */bool? _bPlayOnSelf = default)
 	{
-		NativeMarkers.MarkUnimplemented();
+		var bNotReplicated = _bNotReplicated ?? false;
+		var bNoRepToOwner = _bNoRepToOwner ?? false;
+		var bStopWhenOwnerDestroyed = _bStopWhenOwnerDestroyed ?? false;
+		var bNoRepToRelevant = _bNoRepToRelevant ?? false;
+		var SoundLocation = _SoundLocation ?? Location;
+		
+		NativeMarkers.MarkUnimplemented("Not sure");
+		UWorldBridge.GetUWorld().PlaySoundCue(InSoundCue, this, false, SoundLocation);
 	}
 	
 	// Export UActor::execMakeNoise(FFrame&, void* const)

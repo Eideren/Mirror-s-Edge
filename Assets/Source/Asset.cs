@@ -6,6 +6,7 @@
 	using System.Runtime.CompilerServices;
 	using Core;
 	using Engine;
+	using TdGame;
 	using static UnityEngine.Debug;
 	using Object = Core.Object;
 	using String = Core.String;
@@ -16,7 +17,129 @@
 	{
 		public static HashSet<string> NotImplementedFor = new HashSet<string>();
 		public static ConditionalWeakTable<object, UnityEngine.Object> UScriptToUnity = new();
-		public static Dictionary<name, UnityEngine.AudioClip> Clips;
+		static bool _loadedAllResources = false;
+
+
+		public static UnityEngine.AudioClip GetClip(name path, bool skipLoadAll = false)
+		{
+			path = path.ToString().Replace( '.', '/' );
+			
+			if( _clips.TryGetValue( path, out var clip ) )
+				return clip;
+
+			clip = UnityEngine.Resources.Load<UnityEngine.AudioClip>( path );
+			if( clip != null )
+			{
+				_clips.Add( path, clip );
+				return clip;
+			}
+
+			// Try shortname instead
+			if( path.ToString().LastIndexOf( '.' ) is int i && i != -1 )
+			{
+				name shortName = path.ToString().Substring( i + 1 );
+				if( _clips.TryGetValue( shortName, out clip ) )
+				{
+					_clips.Add( path, clip );
+					return clip;
+				}
+			}
+
+			if( _loadedAllResources )
+			{
+				return null;
+			}
+			else
+			{
+				LogWarning("Force loaded all clips inside resources");
+				_loadedAllResources = true;
+
+				foreach( var c in UnityEngine.Resources.LoadAll<UnityEngine.AudioClip>( "" ) )
+				{
+					_clips.TryAdd( c.name, c );
+				}
+			
+				return GetClip(path);
+			}
+		}
+
+
+
+		static Dictionary<name, UnityEngine.AudioClip> _clips = new();
+
+		static Dictionary<string, PhysicalMaterial> _physMat = new();
+		static Dictionary<string, Material> _Mat = new();
+
+
+
+		public class DummyMaterial : Material
+		{
+			public override Material GetMaterial() => this;
+			public override PhysicalMaterial GetPhysicalMaterial() => this.PhysMaterial;
+		}
+
+
+
+		public static Material GetDefaultMatFor(string matType)
+		{
+			if( _Mat.TryGetValue( matType, out var output ) )
+				return output;
+
+			output = new DummyMaterial {PhysMaterial = GetDefaultPhysMat( matType )};
+			
+			_Mat.Add(matType, output);
+			return output;
+		}
+
+
+
+		public static PhysicalMaterial GetDefaultPhysMat(string matType)
+		{
+			if( _physMat.TryGetValue( matType, out var output ) )
+				return output;
+			
+			output = new PhysicalMaterial
+			{
+				PhysicalMaterialProperty = new TdPhysicalMaterialProperty
+				{
+					TdPhysicalMaterialFootSteps = new TdPhysicalMaterialFootSteps
+					{
+						_01_Female_FootStepCrouch = LoadAsset<SoundCue>( $"A_Material_Footstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._01_Female_FootStepCrouch)}" ),
+						_02_Female_FootStepWalk = LoadAsset<SoundCue>( $"A_Material_Footstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._02_Female_FootStepWalk)}" ),
+						_03_Female_FootStepRun = LoadAsset<SoundCue>( $"A_Material_Footstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._03_Female_FootStepRun)}" ),
+						_04_Female_FootStepSprint = LoadAsset<SoundCue>( $"A_Material_Footstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._04_Female_FootStepSprint)}" ),
+						_05_Female_FootStepSprintRelease = LoadAsset<SoundCue>( $"A_Material_Footstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._05_Female_FootStepSprintRelease)}" ),
+						_06_Female_FootStepWallRun = LoadAsset<SoundCue>( $"A_Material_Footstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._06_Female_FootStepWallRun)}" ),
+						_07_Female_FootStepWallrunRelease = LoadAsset<SoundCue>( $"A_Material_Footstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._07_Female_FootStepWallrunRelease)}" ),
+						_08_Female_FootStepLandSoft = LoadAsset<SoundCue>( $"A_Material_Footstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._08_Female_FootStepLandSoft)}" ),
+						_09_Female_FootStepLandMedium = LoadAsset<SoundCue>( $"A_Material_Footstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._09_Female_FootStepLandMedium)}" ),
+						_10_Female_FootStepLandHard = LoadAsset<SoundCue>( $"A_Material_Footstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._10_Female_FootStepLandHard)}" ),
+						_11_Female_FootStepAttack = LoadAsset<SoundCue>( $"A_Material_Footstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._11_Female_FootStepAttack)}" ),
+						_21_Female_HandStepSoft = LoadAsset<SoundCue>( $"A_Material_Handstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._21_Female_HandStepSoft)}" ),
+						_22_Female_HandStepMedium = LoadAsset<SoundCue>( $"A_Material_Handstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._22_Female_HandStepMedium)}" ),
+						_23_Female_HandStepHard = LoadAsset<SoundCue>( $"A_Material_Handstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._23_Female_HandStepHard)}" ),
+						_24_Female_HandStepLongRelease = LoadAsset<SoundCue>( $"A_Material_Handstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._24_Female_HandStepLongRelease)}" ),
+						_25_Female_HandStepShortRelease = LoadAsset<SoundCue>( $"A_Material_Handstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._25_Female_HandStepShortRelease)}" ),
+						_26_Female_HandStepAttack = LoadAsset<SoundCue>( $"A_Material_Handstep.{matType}.{nameof(TdPhysicalMaterialFootSteps._26_Female_HandStepAttack)}" ),
+						
+						// Not sure where to find those ...
+						_31_Female_BodyAttack = LoadAsset<SoundCue>( $"NO_CLUE_WHERE_THIS_IS.{matType}.{nameof(TdPhysicalMaterialFootSteps._26_Female_HandStepAttack)}" ),
+						_32_Female_BodyLandSoft = LoadAsset<SoundCue>( $"NO_CLUE_WHERE_THIS_IS.{matType}.{nameof(TdPhysicalMaterialFootSteps._26_Female_HandStepAttack)}" ),
+						_33_Female_BodyLandHard = LoadAsset<SoundCue>( $"NO_CLUE_WHERE_THIS_IS.{matType}.{nameof(TdPhysicalMaterialFootSteps._26_Female_HandStepAttack)}" ),
+						_34_Female_BodyLandRoll = LoadAsset<SoundCue>( $"NO_CLUE_WHERE_THIS_IS.{matType}.{nameof(TdPhysicalMaterialFootSteps._26_Female_HandStepAttack)}" ),
+						_35_Female_BodyVault = LoadAsset<SoundCue>( $"NO_CLUE_WHERE_THIS_IS.{matType}.{nameof(TdPhysicalMaterialFootSteps._26_Female_HandStepAttack)}" ),
+						_36_Female_BodySlide = LoadAsset<SoundCue>( $"NO_CLUE_WHERE_THIS_IS.{matType}.{nameof(TdPhysicalMaterialFootSteps._26_Female_HandStepAttack)}" ),
+					}
+				}
+			};
+
+			_physMat.Add( matType, output );
+
+			return output;
+		}
+		
+		
+
 
 
 		public static TClass LoadAsset<TClass>( String assetPath ) where TClass : new()
@@ -29,7 +152,6 @@
 					return (TClass)(object)Get_AS_F3P_Unarmed();
 			}
 			
-
 			var splits = assetPath.ToString().Split( '.' );
 			string path = assetPath.ToString();
 			// Ex: 'AT_C1P.AT_C1P'
@@ -37,23 +159,11 @@
 			{
 				path = splits[ 0 ];
 			}
-			
-			
-			if( typeof(TClass) == typeof(SoundNodeWave) )
+
+			if( typeof(TClass) == typeof(SoundNodeWave) && GetClip( assetPath ) != null )
 			{
-				Clips ??= UnityEngine.Resources.LoadAll<UnityEngine.AudioClip>( "" ).ToDictionary( x => (name) x.name, x => x );
-				
-				if( Clips.TryGetValue( assetPath, out var unityClip ) || 
-				    Clips.TryGetValue( assetPath.ToString().Substring( assetPath.ToString().LastIndexOf('.')+1 ), out unityClip ) )
-				{
-					var snw = new TClass();
-					var unrealClip = snw as SoundNodeWave;
-					unrealClip.Duration = unityClip.length;
-					unrealClip.Name = assetPath;
-					return snw;
-				}
+				goto DEFAULT_FALLBACK;
 			}
-			
 
 			object resourceAsset;
 			try
@@ -63,7 +173,7 @@
 			catch(Exception e)
 			{
 				LogError( e );
-				return new TClass();
+				goto DEFAULT_FALLBACK;
 			}
 
 			if( Class.InSpawningDefault == 0 )
@@ -132,8 +242,13 @@
 
 			NotImplementedFor.Add( assetPath );
 			if(NotImplementedFor.Count == 1)
-				LogWarning($"{nameof(LoadAsset)} not implemented yet, requesting '{assetPath}'. Any other unimplemented request will silently fail but will be logged when exitting play mode.");
-			return new TClass();
+				LogWarning($"{nameof(LoadAsset)} not implemented yet, requesting '{assetPath}'. Any other unimplemented request will silently fail but will be logged when exiting play mode.");
+			
+			DEFAULT_FALLBACK:
+			var output = new TClass();
+			if( output is Object obj )
+				obj.Name = path;
+			return output;
 		}
 		
 		

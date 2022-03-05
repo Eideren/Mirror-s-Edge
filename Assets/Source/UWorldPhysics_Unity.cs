@@ -79,6 +79,8 @@
 						Normal = hit.normal.ToUnrealDir(),
 						Time = hit.distance / totalDistance,
 						Component = component,
+						Material = Asset.GetDefaultMatFor("Concrete"),
+						PhysMaterial = Asset.GetDefaultPhysMat("Concrete"),
 					};
 					current.AssignNext(next);
 					if( count == 0 )
@@ -143,6 +145,9 @@
 						next.Location = (Start.ToUnityPos() + delta.normalized * hit.distance).ToUnrealPos();
 						next.Time = Mathf.Max(hit.distance - defaultContactOffset, 0f) / totalDistance;
 					}
+
+					next.Material = Asset.GetDefaultMatFor( "Concrete" );
+					next.PhysMaterial = next.Material.GetPhysicalMaterial();
 
 					current.AssignNext(next);
 					if( count == 0 )
@@ -268,7 +273,9 @@
 					Actor = actor,
 					Time = 0f,
 					Location = Location + (direction * length).ToUnrealPos(),
-					Normal = direction.ToUnrealDir()
+					Normal = direction.ToUnrealDir(),
+					Material = Asset.GetDefaultMatFor("Concrete"),
+					PhysMaterial = Asset.GetDefaultPhysMat("Concrete"),
 				};
 				current.AssignNext(next);
 				if( count == 0 )

@@ -40,6 +40,6 @@
 		public bool DestroyActor( Actor actor, bool bNetForce=false, bool bShouldModifyLevel=true );
 		public ulong FrameId{ get; }
 		public ActorComponent.FSceneInterface Scene{ get; }
-		public void PlaySoundCue(SoundCue cue, Actor SourceActor, bool bUseLocation, Object.Vector SourceLocation);
+		public void PlaySoundCue(SoundCue cue, Actor SourceActor, bool bUseLocation, Object.Vector SourceLocation, AudioComponent associatedComponent = null);
 	}
 }
