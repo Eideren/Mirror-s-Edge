@@ -962,13 +962,7 @@
 
 
 
-		public static IUWorld GWorld
-		{
-			get;
-			private set;
-		}
-
-		public static void SetWorld( IUWorld w ) => GWorld = w;
+		public static IUWorld GWorld => UWorldBridge.GetUWorld();
 
 
 		public static void SetFromBitfield(ref bool b, int span, uint bitfield)

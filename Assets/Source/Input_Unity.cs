@@ -9,7 +9,7 @@
 	using static UnityEngine.Mathf;
 
 
-	public partial class UWorld
+	public partial class Input_Unity
 	{
 		static HashSet<FieldInfo> fields;
 		public static void SampleInput( TdPlayerInput uInput, TdPlayerController controller, float dt )

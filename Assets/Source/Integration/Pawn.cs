@@ -2733,13 +2733,8 @@ determine how deep in water actor is standing:
 			HitWall(HitNormal, HitActor, null);
 		}
 		
-		ulong lastTickId;
 		public virtual bool Tick( FLOAT DeltaSeconds, ELevelTick TickType )
 		{
-			if( lastTickId != 0 && lastTickId == GWorld.FrameId )
-				throw new Exception();
-			lastTickId = GWorld.FrameId;
-			
 			bTicked = GWorld.Ticked;
 
 			// Ignore actors in stasis

@@ -5,12 +5,11 @@
     using Source;
     using TdGame;
 	using UnityEngine;
-    using static UnityEngine.Debug;
     using Component = UnityEngine.Component;
 
 
 
-    public partial class UWorld
+	public partial class UWorld
 	{
         class PawnLink : IProcessor
         {
@@ -43,10 +42,20 @@
                     
                     _1pPlayer = fpUpper.transform.parent.gameObject;
                     var clips = Resources.LoadAll<AnimationClip>( "Animations/AS_C1P_Unarmed/" );
+                    
+                    var gameObject = Instantiate( _1pPlayer );
+                    gameObject.SetActive(false);
+                    gameObject.name = "AnimTarget1P";
+                    // Cleanup hierarchy
+                    foreach( Component comp in gameObject.GetComponentsInChildren<Component>() )
+                    {
+	                    if(comp is Transform == false)
+		                    UnityEngine.Object.Destroy(comp);
+                    }
                     foreach( var set in Pawn.Mesh1p.AnimSets )
                     {
 	                    if(set!=null)
-		                    FixRefsForAnimation( Pawn.Mesh1p, clips, set, _1pPlayer );
+		                    FixRefsForAnimation( clips, set, gameObject );
                     }
 
                     var hs = Pawn.Mesh1p.AnimSets[ 0 ].TrackBoneNames.ToHashSet();
@@ -71,10 +80,21 @@
                     Asset.UScriptToUnity.TryGetValue( Pawn.Mesh3p.SkeletalMesh, out var tracker );
                     Pawn.Mesh3p.Owner = Pawn; // Shouldn't have to do this here, source has some other system making sure it is set
                     _3pPlayer = ( (SkinnedMeshRenderer) tracker ).transform.parent.gameObject;
+                    
+                    var gameObject = Instantiate( _3pPlayer );
+                    gameObject.SetActive(false);
+                    gameObject.name = "AnimTarget3P";
+                    // Cleanup hierarchy
+                    foreach( Component comp in gameObject.GetComponentsInChildren<Component>() )
+                    {
+	                    if(comp is Transform == false)
+		                    UnityEngine.Object.Destroy(comp);
+                    }
+                    
                     foreach( var set in Pawn.Mesh3p.AnimSets )
                     {
 	                    if(set!=null)
-							FixRefsForAnimation( Pawn.Mesh3p, clips, set, _3pPlayer );
+							FixRefsForAnimation( clips, set, gameObject );
 	                }
 	                
                     var hs = Pawn.Mesh3p.AnimSets[ 0 ].TrackBoneNames.ToHashSet();
@@ -196,7 +216,7 @@
 
 
 
-            static void FixRefsForAnimation(SkeletalMeshComponent skel, AnimationClip[] clips, AnimSet animSet, GameObject gameObject)
+            static void FixRefsForAnimation(AnimationClip[] clips, AnimSet animSet, GameObject gameObject)
             {
 	            if(animSet.Sequences.Count == 0)
 		            return;

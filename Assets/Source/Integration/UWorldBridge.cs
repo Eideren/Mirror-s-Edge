@@ -20,7 +20,6 @@
 		public WorldInfo.ENetMode GetNetMode();
 		public T E_UWorld_SpawnActor<T>( Core.ClassT<T> Class, Core.name InName, Object.Vector Location, Object.Rotator Rotation, Actor Template, bool bNoCollisionFail, int bRemoteOwned, Actor Owner, Pawn Instigator, bool bNoFail ) where T : Actor;
 		public TClass LoadAsset<TClass>( Core.String assetPath ) where TClass : new();
-		public ConditionalWeakTable<object, UnityEngine.Object> UScriptToUnity{ get; }
 		public bool MoveActor( Actor Actor, in Object.Vector Delta, in Object.Rotator NewRotation, uint MoveFlags, ref Source.DecFn.CheckResult Hit );
 		public unsafe bool SingleLineCheck( ref DecFn.CheckResult a2, Actor a3, in Object.Vector a4, in Object.Vector a5, int a6, in Object.Vector a7 = default, int a8 = 0 );
 		public unsafe DecFn.CheckResult* MultiLineCheck( ref int Mem, in Object.Vector End, in Object.Vector Start, in Object.Vector Extent, uint TraceFlags, Actor SourceActor, LightComponent SourceLight );
@@ -38,8 +37,7 @@
 		public unsafe DecFn.CheckResult* ActorEncroachmentCheck( ref int Mem, Actor Actor, Object.Vector Location, Object.Rotator Rotation, int TraceFlags );
 		public bool Ticked{ get; }
 		public bool DestroyActor( Actor actor, bool bNetForce=false, bool bShouldModifyLevel=true );
-		public ulong FrameId{ get; }
-		public ActorComponent.FSceneInterface Scene{ get; }
+		public Object.FSceneInterface Scene{ get; }
 		public void PlaySoundCue(SoundCue cue, Actor SourceActor, bool bUseLocation, Object.Vector SourceLocation, AudioComponent associatedComponent = null);
 	}
 }

@@ -56,12 +56,12 @@
 		
 		
 		
-		void UpdateMixes()
+		void UpdateMixes(float DeltaTime)
 		{
 			var mixes = _playingMixes;
 			for( int i = mixes.Count - 1; i >= 0; i-- )
 			{
-				mixes[i].Tick();
+				mixes[i].Tick(DeltaTime);
 			}
 		}
 
@@ -112,7 +112,7 @@
 
 
 
-			public void Tick()
+			public void Tick(float DeltaTime)
 			{
 				if( AssociatedComp )
 				{
@@ -121,7 +121,7 @@
 					Recurse(cue.FirstNode, SourceActor, bUseLocation, SourceLocation, cue.VolumeMultiplier, cue.PitchMultiplier, 0f);
 				}
 
-				_volumeMult = _targetDuration == 0f ? _targetVolume : Mathf.MoveTowards( _volumeMult, _targetVolume, Time.deltaTime / _targetDuration );
+				_volumeMult = _targetDuration == 0f ? _targetVolume : Mathf.MoveTowards( _volumeMult, _targetVolume, DeltaTime / _targetDuration );
 				foreach( var source in _sources )
 					source.audio.volume = _volumeMult * source.vol;
 

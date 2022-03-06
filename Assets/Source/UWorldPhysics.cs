@@ -984,9 +984,9 @@
 							try
 							{
 								//RootNode.ActorEncroachmentCheck(this, RootNodeBounds);
-								var extent = (ChkBox.Max - ChkBox.Min).ToUnityPos() * 0.5f;
-								var center = (ChkBox.Max + ChkBox.Min).ToUnityPos() * 0.5f;
-								return ActorPointCheck(ref Mem, center.ToUnrealPos(), extent.ToUnrealPos(), (uint)TraceFlags);
+								var extent = (ChkBox.Max - ChkBox.Min) * 0.5f;
+								var center = (ChkBox.Max + ChkBox.Min) * 0.5f;
+								return ActorPointCheck(ref Mem, center, extent, (uint)TraceFlags);
 							}
 							finally
 							{

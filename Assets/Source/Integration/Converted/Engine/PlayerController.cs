@@ -3151,9 +3151,6 @@ using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; usi
 	public virtual PlayerTick_del global_PlayerTick => PlayerController_PlayerTick;
 	public /*event */void PlayerController_PlayerTick(float DeltaTime)
 	{
-		if( lastTickId != 0 && lastTickId == DecFn.GWorld.FrameId )
-			throw new Exception();
-		lastTickId = DecFn.GWorld.FrameId;
 		if(!bShortConnectTimeOut)
 		{
 			bShortConnectTimeOut = true;
