@@ -381,7 +381,7 @@ public partial class Camera : Actor/*
 		/*local */Canvas Canvas = default;
 	
 		Canvas = HUD.Canvas;
-		Canvas.SetDrawColor(255, 255, 255, (byte)default(byte?));
+		Canvas.SetDrawColor(255, 255, 255, default(byte?));
 		Canvas.DrawText((("\\tCamera Style:" + ((CameraStyle)).ToString()) + " " + "main ViewTarget:") + ((ViewTarget.Target)).ToString(), default(bool?), default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);

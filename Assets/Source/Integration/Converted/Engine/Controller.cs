@@ -879,7 +879,7 @@ public partial class Controller : Actor/*
 			base.DisplayDebug(HUD, ref/*probably?*/ out_YL, ref/*probably?*/ out_YPos);
 			return;
 		}
-		Canvas.SetDrawColor(255, 0, 0, (byte)default(byte?));
+		Canvas.SetDrawColor(255, 0, 0, default(byte?));
 		Canvas.DrawText((("CONTROLLER " + (GetItemName(((this)).ToString()))) + " Pawn ") + (GetItemName(((Pawn)).ToString())), default(bool?), default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);

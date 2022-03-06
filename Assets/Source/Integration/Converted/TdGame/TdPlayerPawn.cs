@@ -1476,7 +1476,7 @@ public partial class TdPlayerPawn : TdPawn/*
 		/*local */Canvas Canvas = default;
 	
 		Canvas = HUD.Canvas;
-		Canvas.SetDrawColor(0, 255, 0, (byte)default(byte?));
+		Canvas.SetDrawColor(0, 255, 0, default(byte?));
 		if(HUD.ShouldDisplayDebug("Health"))
 		{
 			out_YPos += out_YL;

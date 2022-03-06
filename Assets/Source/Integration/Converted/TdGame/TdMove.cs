@@ -429,7 +429,7 @@ public partial class TdMove : Object/*
 		PawnOwner.SetIgnoreLookInput(DisableLookTime);
 		if(((PC != default) && PawnOwner.Weapon != default) && ((PawnOwner.Weapon.IsA("TdWeapon_Light") && ((int)MovementGroup) >= ((int)TdMove.EMovementGroup.MG_TwoHandsBusy/*2*/)) || PawnOwner.Weapon.IsA("TdWeapon_Heavy") && ((int)MovementGroup) >= ((int)TdMove.EMovementGroup.MG_OneHandBusy/*1*/)))
 		{
-			PC.StopFire((byte)default(byte?));
+			PC.StopFire(default(byte?));
 		}
 		if(((PC != default) && PawnOwner.Weapon != default) && bShouldUnzoom)
 		{

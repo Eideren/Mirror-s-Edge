@@ -780,7 +780,7 @@ public partial class Pawn : Actor/*
 			PlayerReplicationInfo.DisplayDebug(HUD, ref/*probably?*/ out_YL, ref/*probably?*/ out_YPos);
 		}
 		base.DisplayDebug(HUD, ref/*probably?*/ out_YL, ref/*probably?*/ out_YPos);
-		Canvas.SetDrawColor(255, 255, 255, (byte)default(byte?));
+		Canvas.SetDrawColor(255, 255, 255, default(byte?));
 		Canvas.DrawText("Health " + ((Health)).ToString(), default(bool?), default(float?), default(float?));
 		out_YPos += out_YL;
 		Canvas.SetPos(4.0f, out_YPos);
@@ -824,7 +824,7 @@ public partial class Pawn : Actor/*
 		}
 		if(Controller == default)
 		{
-			Canvas.SetDrawColor(255, 0, 0, (byte)default(byte?));
+			Canvas.SetDrawColor(255, 0, 0, default(byte?));
 			Canvas.DrawText("NO CONTROLLER", default(bool?), default(float?), default(float?));
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
@@ -838,7 +838,7 @@ public partial class Pawn : Actor/*
 		{
 			if(Weapon == default)
 			{
-				Canvas.SetDrawColor(0, 255, 0, (byte)default(byte?));
+				Canvas.SetDrawColor(0, 255, 0, default(byte?));
 				Canvas.DrawText("NO WEAPON", default(bool?), default(float?), default(float?));
 				out_YPos += out_YL;
 				Canvas.SetPos(4.0f, out_YPos);			

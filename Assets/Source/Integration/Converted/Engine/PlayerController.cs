@@ -3690,7 +3690,7 @@ using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; usi
 			}
 			else
 			{
-				HUD.Canvas.SetDrawColor(255, 0, 0, (byte)default(byte?));
+				HUD.Canvas.SetDrawColor(255, 0, 0, default(byte?));
 				HUD.Canvas.DrawText("NO CAMERA", default(bool?), default(float?), default(float?));
 				out_YPos += out_YL;
 				HUD.Canvas.SetPos(4.0f, out_YPos);
@@ -3698,7 +3698,7 @@ using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; usi
 		}
 		if(HUD.ShouldDisplayDebug("Input"))
 		{
-			HUD.Canvas.SetDrawColor(255, 0, 0, (byte)default(byte?));
+			HUD.Canvas.SetDrawColor(255, 0, 0, default(byte?));
 			HUD.Canvas.DrawText((((("Input ignoremove " + ((bIgnoreMoveInput)).ToString()) + " ignore look ") + ((bIgnoreLookInput)).ToString()) + " aForward ") + ((PlayerInput.aForward)).ToString(), default(bool?), default(float?), default(float?));
 			out_YPos += out_YL;
 			HUD.Canvas.SetPos(4.0f, out_YPos);
@@ -4640,7 +4640,7 @@ using TdGame; using TdMenuContent; using TdMpContent; using TdSharedContent; usi
 		if(DebugTextList.Length > 0)
 		{
 			GetPlayerViewPoint(ref/*probably?*/ cameraLoc, ref/*probably?*/ cameraRot);
-			Canvas.SetDrawColor(255, 255, 255, (byte)default(byte?));
+			Canvas.SetDrawColor(255, 255, 255, default(byte?));
 			Canvas.Font = Engine.GetSmallFont();
 			Idx = 0;
 			J0x5E:{}

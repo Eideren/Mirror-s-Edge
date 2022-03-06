@@ -2478,7 +2478,7 @@ public partial class GameInfo : Info/*
 		{
 			if(NotEqual_InterfaceInterface(OnlineSub.PlayerInterface, (default(OnlinePlayerInterface))))
 			{
-				OnlineSub.PlayerInterface.AddLoginChangeDelegate(OnLoginChange, (byte)default(byte?));
+				OnlineSub.PlayerInterface.AddLoginChangeDelegate(OnLoginChange, default(byte?));
 				OnlineSub.PlayerInterface.AddLoginFailedDelegate(0, OnLoginFailed);
 				if(OnlineSub.PlayerInterface.AutoLogin() == false)
 				{
@@ -2495,7 +2495,7 @@ public partial class GameInfo : Info/*
 	{
 		if(NotEqual_InterfaceInterface(OnlineSub.PlayerInterface, (default(OnlinePlayerInterface))))
 		{
-			OnlineSub.PlayerInterface.ClearLoginChangeDelegate(OnLoginChange, (byte)default(byte?));
+			OnlineSub.PlayerInterface.ClearLoginChangeDelegate(OnLoginChange, default(byte?));
 			OnlineSub.PlayerInterface.ClearLoginFailedDelegate(0, OnLoginFailed);
 		}
 	}

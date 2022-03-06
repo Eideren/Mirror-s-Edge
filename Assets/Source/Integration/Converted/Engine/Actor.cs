@@ -1637,7 +1637,7 @@ public partial class Actor : Object/*
 	
 		Canvas = HUD.Canvas;
 		Canvas.SetPos(4.0f, out_YPos);
-		Canvas.SetDrawColor(255, 0, 0, (byte)default(byte?));
+		Canvas.SetDrawColor(255, 0, 0, default(byte?));
 		T = GetDebugName();
 		if(bDeleteMe)
 		{
@@ -1649,7 +1649,7 @@ public partial class Actor : Object/*
 			out_YPos += out_YL;
 			Canvas.SetPos(4.0f, out_YPos);
 		}
-		Canvas.SetDrawColor(255, 255, 255, (byte)default(byte?));
+		Canvas.SetDrawColor(255, 255, 255, default(byte?));
 		if(HUD.ShouldDisplayDebug("net"))
 		{
 			if(((int)WorldInfo.NetMode) != ((int)WorldInfo.ENetMode.NM_Standalone/*0*/))

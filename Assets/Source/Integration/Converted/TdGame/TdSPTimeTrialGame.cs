@@ -119,7 +119,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	
 		OldStretch = ((TdSPTimeTrialGame.ETTStretch)ActiveTTStretch);
 		ActiveTTStretch = ((TdSPTimeTrialGame.ETTStretch)((byte)(Stretch)));
-		TData = CheckpointManager.GetTrackData(Stretch, ChoosePlayerStart(default, (byte)default(byte?)));
+		TData = CheckpointManager.GetTrackData(Stretch, ChoosePlayerStart(default, default(byte?)));
 		ActiveTTStretch = ((TdSPTimeTrialGame.ETTStretch)OldStretch);
 		return TData;
 	}
@@ -440,7 +440,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 	
 		bOldInitailRaceSpawn = bOldInitailRaceSpawn;
 		bInitailRaceSpawn = true;
-		CurrentTackData = CheckpointManager.GetTrackData(((int)Stretch), ChoosePlayerStart(default, (byte)default(byte?)));
+		CurrentTackData = CheckpointManager.GetTrackData(((int)Stretch), ChoosePlayerStart(default, default(byte?)));
 		bInitailRaceSpawn = bOldInitailRaceSpawn;
 		NewTimeData.IntermediateTimes.Insert(0, CurrentTackData.IntermediateDistance.Length);
 		NewTimeData.TotalTime = TimeToBeat;
@@ -527,7 +527,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 		/*local */int Idx = default;
 	
 		bInitailRaceSpawn = true;
-		CurrentTackData = CheckpointManager.GetTrackData(Stretch, ChoosePlayerStart(default, (byte)default(byte?)));
+		CurrentTackData = CheckpointManager.GetTrackData(Stretch, ChoosePlayerStart(default, default(byte?)));
 		bInitailRaceSpawn = false;
 		TargetTTData = TimeTrialData.GetTargetRaceData();
 		CreateTimeData(CurrentTackData, TargetTTData.TotalTime, TargetTTData.IntermediateTimes.NewCopy(), ref/*probably?*/ NewTimeData);
@@ -817,7 +817,7 @@ public partial class TdSPTimeTrialGame : TdSPGame,
 			bRestartLevel = DefaultAs<GameInfo>().bRestartLevel;
 		}
 		bInitailRaceSpawn = true;
-		StartSpot = ChoosePlayerStart(default, (byte)default(byte?));
+		StartSpot = ChoosePlayerStart(default, default(byte?));
 		if(!IsSpectatingGhost())
 		{
 			ResetPlayer(RacingPawn, StartSpot);

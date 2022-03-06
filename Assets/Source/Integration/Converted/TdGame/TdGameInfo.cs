@@ -338,7 +338,7 @@ public partial class TdGameInfo : GameInfo/*
 	
 	public virtual /*event */NavigationPoint GetPlayerStart(Controller PlayerController)
 	{
-		return FindPlayerStart(PlayerController, (byte)default(byte?), default(String?));
+		return FindPlayerStart(PlayerController, default(byte?), default(String?));
 	}
 	
 	// Export UTdGameInfo::execSaveTextureResourceInfo(FFrame&, void* const)

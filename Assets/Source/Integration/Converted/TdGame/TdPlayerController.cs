@@ -1906,7 +1906,7 @@ public partial class TdPlayerController : GamePlayerController,
 		}
 		else
 		{
-			StartFire((byte)default(byte?));
+			StartFire(default(byte?));
 		}
 	}
 	
@@ -1918,7 +1918,7 @@ public partial class TdPlayerController : GamePlayerController,
 		}
 		if(myPawn.HasWeapon())
 		{
-			StopFire((byte)default(byte?));
+			StopFire(default(byte?));
 		}
 	}
 	
