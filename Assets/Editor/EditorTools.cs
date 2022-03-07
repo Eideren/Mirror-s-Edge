@@ -177,7 +177,7 @@
 					for( int i = 0; i < 4; i++ )
 						quat[ i ] = curvesQuat[ i ].Evaluate( copyKey.time );
 					quat = quat.normalized;
-					quat *= rotationOffset;
+					quat = rotationOffset * quat;
 					for( int i = 0; i < 4; i++ )
 					{
 						copyKey.value = quat[ i ];
