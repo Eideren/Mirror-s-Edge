@@ -310,11 +310,22 @@
 
 			public static Quat operator *( Quat A, Quat Q )
 			{
-				A.X = A.W*Q.X + A.X*Q.W + A.Y*Q.Z - A.Z*Q.Y;
-				A.Y = A.W*Q.Y - A.X*Q.Z + A.Y*Q.W + A.Z*Q.X;
-				A.Z = A.W*Q.Z + A.X*Q.Y - A.Y*Q.X + A.Z*Q.W;
-				A.W = A.W*Q.W - A.X*Q.X - A.Y*Q.Y - A.Z*Q.Z;
-				return A; 
+				float T0 = (A.Z - A.Y) * (Q.Y - Q.Z);
+				float T1 = (A.W + A.X) * (Q.W + Q.X);
+				float T2 = (A.W - A.X) * (Q.Y + Q.Z);
+				float T3 = (A.Y + A.Z) * (Q.W - Q.X);
+				float T4 = (A.Z - A.X) * (Q.X - Q.Y);
+				float T5 = (A.Z + A.X) * (Q.X + Q.Y);
+				float T6 = (A.W + A.Y) * (Q.W - Q.Z);
+				float T7 = (A.W - A.Y) * (Q.W + Q.Z);
+				float T8 = T5 + T6 + T7;
+				float T9 = 0.5f * (T4 + T8);
+				
+				A.X = T1 + T9 - T8;
+				A.Y = T2 + T9 - T7;
+				A.Z = T3 + T9 - T6;
+				A.W = T0 + T9 - T5;
+				return A;
 			}
         
 			public static Quat operator -( in Quat Q )
@@ -349,10 +360,24 @@
 				// Make sure we have a non null SquareSum. It shouldn't happen with a quaternion, but better be safe.
 				check(SquareSum > SMALL_NUMBER);
 				float Scale = appInvSqrt(SquareSum);
-				X *= Scale; 
-				Y *= Scale; 
+				X *= Scale;
+				Y *= Scale;
 				Z *= Scale;
 				W *= Scale;
+			}
+
+
+
+			public static bool operator !=( Quat a, Quat b ) => ( a == b ) == false;
+
+
+
+			public static bool operator ==( Quat a, Quat b )
+			{
+				return a.X == b.X &&
+				       a.Y == b.Y &&
+				       a.Z == b.Z &&
+				       a.W == b.W;
 			}
 		}
 
