@@ -123,8 +123,8 @@
 
                 var basePos = Pawn.Location;
                 var baseRot = Pawn.Rotation;
-                _1pPlayer.transform.SetPositionAndRotation( (basePos + Pawn.Mesh1p.Translation).ToUnityPos(), (baseRot + Pawn.Mesh1p.Rotation).ToUnityQuat() );
-                _3pPlayer.transform.SetPositionAndRotation( (basePos + Pawn.Mesh3p.Translation).ToUnityPos(), (baseRot + Pawn.Mesh3p.Rotation).ToUnityQuat() );
+                _1pPlayer.transform.SetPositionAndRotation( basePos.ToUnityPos(), baseRot.ToUnityQuat() );
+                _3pPlayer.transform.SetPositionAndRotation( basePos.ToUnityPos(), baseRot.ToUnityQuat() );
 
                 for( int i = 0; i < Pawn.Mesh1p.LocalAtoms.Length; i++ )
                 {

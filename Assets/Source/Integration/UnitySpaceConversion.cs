@@ -10,21 +10,43 @@
 	
 	public static class V3Extension
 	{
-		public static UnrealV Inplace(this UnityV v, float mult = 100f) => new UnrealV( v.x, v.y, v.z ) * mult;
+		static Object.Matrix UnrealToUnity = new Object.Matrix
+		{
+			PlaneX = new(0f, 0f, 1f, 0f), 
+			PlaneY = new(1f, 0f, 0f, 0f), 
+			PlaneZ = new(0f, 1f, 0f, 0f), 
+			PlaneW = new(0f, 0f, 0f, 1f)
+		}, UnityToUnreal = UnrealToUnity.Inverse();
+		
+		
+		
+		public static UnrealV Inplace(this UnityV v, float mult) => new UnrealV( v.x, v.y, v.z ) * mult;
 		public static UnrealQ Inplace(this UnityQ v) => new UnrealQ( v.x, v.y, v.z, v.w );
 		
 		
 		/// <summary> This vector be rotated and scaled to fit in the proper metric system, I.E.: divided by 100 since 1 unity unit = 100 unreal unit</summary>
-		public static UnityV ToUnityPos(this UnrealV v) => new UnityV( v.Y, v.Z, v.X ) / 100f;
+		public static UnityV ToUnityPos(this UnrealV v) => v.ToUnityDir() / 100f;
 		/// <summary> This vector be rotated and scaled to fit in the proper metric system, I.E.: multiplied by 100 since 1 unity unit = 100 unreal unit</summary>
-		public static UnrealV ToUnrealPos(this UnityV v) => new UnrealV( v.z, v.x, v.y ) * 100f;
+		public static UnrealV ToUnrealPos(this UnityV v) => v.ToUnrealDir() * 100f;
+
+
+
 		/// <summary> This vector should only be rotated to unreal space, not scaled to fit in the proper metric system </summary>
-		public static UnityV ToUnityDir(this UnrealV v) => new UnityV( v.Y, v.Z, v.X );
+		public static UnityV ToUnityDir(this UnrealV v)
+		{
+			v = UnrealToUnity.TransformNormal( v );
+			return new UnityV( v.X, v.Y, v.Z );
+		}
+
+
+
 		/// <summary> This vector should only be rotated to unreal space, not scaled to fit in the proper metric system </summary>
-		public static UnrealV ToUnrealDir(this UnityV v) => new UnrealV( v.z, v.x, v.y );
-		
-		public static UnrealV ToUnrealAnim(this UnityV v, float mult = 100f) => new UnrealV( -v.x, -v.y, v.z ) * mult;
-		public static UnityV ToUnityAnim(this UnrealV v, float mult = 100f) => new UnityV( -v.X, -v.Y, v.Z ) / mult;
+		public static UnrealV ToUnrealDir(this UnityV v) => UnityToUnreal.TransformNormal( v.Inplace(1f) );
+
+
+
+		public static UnrealV ToUnrealAnim(this UnityV v) => new UnrealV( -v.x, -v.y, v.z ) * 100f;
+		public static UnityV ToUnityAnim(this UnrealV v) => new UnityV( -v.X, -v.Y, v.Z ) / 100f;
 		
 		public static UnrealQ ToUnrealAnim( this UnityQ q )
 		{

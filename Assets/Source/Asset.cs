@@ -220,6 +220,9 @@
 					{
 						var bone = trs[bones[i]];
 
+						// var _ref = decFPModelJPos[ i ];
+						// Position won't match ref, not sure why I have to transform it so
+						
 						sm.RefSkeleton[ i ] = new AnimNode.FMeshBone
 						{
 							Name = bone.name,

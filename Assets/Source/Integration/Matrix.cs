@@ -53,7 +53,16 @@
 
 
 
-            public static readonly Matrix Identity = new Matrix {PlaneX = new(1f, 0f, 0f, 0f), PlaneY = new(0f, 1f, 0f, 0f), PlaneZ = new(0f,0f,1f,0f), PlaneW = new(0f,0f,0f,1f)};
+            public static readonly Matrix Identity = new Matrix
+            {
+	            PlaneX = new(1f, 0f, 0f, 0f), 
+	            PlaneY = new(0f, 1f, 0f, 0f), 
+	            PlaneZ = new(0f, 0f, 1f, 0f), 
+	            PlaneW = new(0f, 0f, 0f, 1f)
+            };
+            
+            
+            
             public void SetAxis( int i, in Vector Axis )
             {
                 checkSlow(i >= 0 && i <= 2);
