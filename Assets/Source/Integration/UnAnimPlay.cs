@@ -654,10 +654,10 @@ public virtual void GetAnimationPose(AnimSequence InAnimSeq, ref int InAnimLinku
 				// If doing 'rotation only' case, use ref pose for all non-root bones that are not in the BoneUseAnimTranslation array.
 				#if UNUSED
 				if(	AnimSet.bAnimRotationOnly && !(AnimLinkup.BoneUseAnimTranslation[BoneIndex] != default) )
-				#endif
 				{
 					Atoms[BoneIndex].Translation = RefSkel[BoneIndex].BonePos.Position;
 				}
+				#endif
 
 				// Apply quaternion fix for ActorX-exported quaternions.
 				//Atoms[BoneIndex].Rotation.W *= -1.0f;
