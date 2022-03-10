@@ -56,9 +56,11 @@
 		public static byte HIBYTE( uint i ) => ((byte*) & i)[3];
 		public static sbyte SLOBYTE( int i ) => *(sbyte*)&i;
 		public static sbyte SLOBYTE( uint i ) => *(sbyte*)&i;
+		public static uint _LODWORD( float i ) => *(uint*)&i;
 		public static uint LODWORD( float i ) => *(uint*)&i;
 		public static int SLODWORD( float i ) => *(int*)&i;
 		public static float COERCE_FLOAT( int i ) => *(float*)&i;
+		public static float COERCE_FLOAT( float i ) => i;
 		public static byte BYTE2<T>( T x ) where T : unmanaged => BYTEn( x, 2 );
 		public static byte BYTEn<T>( T x, int n ) where T : unmanaged => ( * ( (byte*) & ( x ) + n ) );
 
@@ -1133,6 +1135,7 @@
 
 
 
+		public static _QWORD __PAIR64__( float a, float b ) => new _QWORD( *(int*)&a, *(int*)&b );
 		public static _QWORD __PAIR64__( int a, int b ) => new _QWORD( a, b );
 		public static _QWORD __PAIR64__( uint a, uint b ) => new _QWORD( (int)a, (int)b );
 		public static Rotator FRotator( int i ) => new Rotator( i, i, i );

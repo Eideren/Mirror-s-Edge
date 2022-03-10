@@ -430,7 +430,7 @@ public partial class TdMove
     if ( MovementLineCheck(ref a2a, &End, &Start, &v35, 9422) && a2a.Time > 0.0f )
     {
       v30.X = v19;
-      *(_QWORD *)&v30.Y = __PAIR64__(LODWORD(v16), LODWORD(v18));
+      *(_QWORD *)&v30.Y = __PAIR64__((v16), (v18));
       v34.Z = a2a.Location.Z;
       E_FLedgeHitInfo_FillWith(ref out_LedgeHit, &a2a, &v34, a2a.Normal, v30);
       return true;
@@ -656,14 +656,14 @@ public partial class TdMove
       v36.Z = a2.Location.Z;
   LABEL_43:
       v29.X = v18;
-      *(_QWORD *)&v29.Y = __PAIR64__(LODWORD(v15), LODWORD(v17));
+      *(_QWORD *)&v29.Y = __PAIR64__((v15), (v17));
       E_FLedgeHitInfo_FillWith(ref out_LedgeHit, &a2, &v36, v29, v31);
       return 1;
     }
     if ( a2.Time > 0.0f )
     {
       v30.X = v18;
-      *(_QWORD *)&v30.Y = __PAIR64__(LODWORD(v15), LODWORD(v17));
+      *(_QWORD *)&v30.Y = __PAIR64__((v15), (v17));
       v36.Z = a2.Location.Z;
       E_FLedgeHitInfo_FillWith(ref out_LedgeHit, &a2, &v36, a2.Normal, v30);
       return 2;
@@ -675,7 +675,7 @@ public partial class TdMove
     if ( MovementLineCheck(ref a2, &End, &Start, &v35, 9422) )
     {
       v31.X = v18;
-      *(_QWORD *)&v31.Y = __PAIR64__(LODWORD(v15), LODWORD(v17));
+      *(_QWORD *)&v31.Y = __PAIR64__((v15), (v17));
       v36.Z = a2.Location.Z;
       if ( a2.Time > 0.0f )
       {
@@ -683,7 +683,7 @@ public partial class TdMove
         return 2;
       }
       v29.X = v18;
-      *(_QWORD *)&v29.Y = __PAIR64__(LODWORD(v15), LODWORD(v17));
+      *(_QWORD *)&v29.Y = __PAIR64__((v15), (v17));
       E_FLedgeHitInfo_FillWith(ref out_LedgeHit, &a2, &v36, v29, v31);
       return 1;
     }
@@ -766,8 +766,8 @@ public partial class TdMove
     v11.Y = v11.X;
     v11.Z = v7.CollisionHeight;
     v10.X = v5;
-    *(_QWORD *)&v10.Y = __PAIR64__(LODWORD(v4), LODWORD(v3));
-    *(_QWORD *)&v9.X = __PAIR64__(LODWORD(v3), LODWORD(v5));
+    *(_QWORD *)&v10.Y = __PAIR64__((v4), (v3));
+    *(_QWORD *)&v9.X = __PAIR64__((v3), (v5));
     v9.Z = (float)((float)(v11.Z * 2.0f) - 122.0f) + v4;
     return default == MovementTraceForBlocking(v9, v10, v11);
   }
@@ -1539,7 +1539,7 @@ public partial class TdMove
     v26.Y = v6 + (float)(v16 * v12);
     v26.Z = v7 + (float)(v11 * v16);
     v25.X = v8;
-    *(_QWORD *)&v25.Y = __PAIR64__(LODWORD(v7), LODWORD(v6));
+    *(_QWORD *)&v25.Y = __PAIR64__((v7), (v6));
     if ( default == FindLedge(ref out_LedgeHit, v25, v26, v15.LedgeFindExtent) )
       return false;
     v17 = out_LedgeHit.LedgeNormal.Y;
@@ -1559,7 +1559,7 @@ public partial class TdMove
     out_MoveNormal.Z = out_LedgeHit.MoveNormal.Z;
     this.PawnOwner.MovementActor = out_LedgeHit.MoveActor;
     v27.X = v22;
-    *(_QWORD *)&v27.Y = __PAIR64__(LODWORD(v18), LODWORD(v21));
+    *(_QWORD *)&v27.Y = __PAIR64__((v18), (v21));
     this.PawnOwner.MovementExclusionVolume = GetMovementExclusionVolume(v27);
     v23 = out_LedgeHit.FeetExcluded.AsBitfield(2) << 9;
     SetFromBitfield(ref this.PawnOwner.bDisableSkelControlSpring, 32, this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ ((this.PawnOwner.bDisableSkelControlSpring.AsBitfield(32) ^ (out_LedgeHit.FeetExcluded.AsBitfield(2) << 7)) & 0x100));

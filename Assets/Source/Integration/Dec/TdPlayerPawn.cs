@@ -1604,13 +1604,13 @@ public partial class TdPlayerPawn
       v85.LODWORD(1);
     v31 = v96.Time == 1.0f || this.WalkableFloorZ > v96.Normal.Z;
     v32 = v100.Time == 1.0f || this.WalkableFloorZ > v100.Normal.Z;
-    if ( !((LODWORD(v85) | (v31 || v32).AsInt()) != default) )
+    if ( !(((*(uint*)&v85) | (v31 || v32).AsInt()) != default) )
       goto LABEL_115;
     v33 = v27.CollisionRadius - 4.0f;
     v34 = this.EdgeCheckDistance * this.EdgeCheckDistance;
     v91 = v33;
     v87 = v34;
-    if ( (v31.AsInt() & LODWORD(v85)) == default )
+    if ( (v31.AsInt() & (*(uint*)&v85)) == default )
     {
       v82 = 0.0f;
       v83 = 0.0f;
@@ -2010,7 +2010,7 @@ public partial class TdPlayerPawn
     }
   }
 
-  public unsafe Vector * SomethingVertigoRelated(Vector *a2, int a3, int a4, int a5, float a6, float a7, float a8, int a9, int a10, int a11, int* a12, int* a13)
+  public unsafe Vector * SomethingVertigoRelated(Vector *a2, Vector a3, Vector a6, Vector a9, ref int a12, ref int a13)
   {
     float v14 = default; // xmm1_4
     Vector *result; // eax
@@ -2059,11 +2059,10 @@ public partial class TdPlayerPawn
       goto LABEL_29;
     if ( (this.Moves[this.MovementState].bDebugMove.AsBitfield(29) & 0x2000) == default )
       goto LABEL_29;
-    v45.X = a6;
-    *(_QWORD *)&v45.Y = __PAIR64__(LODWORD(a8), LODWORD(a7));
+    v45 = a6;
     CheckForLedges_Maybe(&v46, ref v45, ref v53);
     v14 = v46.Y;
-    if ( v46.X == a6 && v46.Y == a7 && v46.Z == a8 )
+    if ( v46.X == a6.X && v46.Y == a6.Y && v46.Z == a6.Z )
       goto LABEL_29;
     if ( this.MovementState == MOVE_Crouch )
     {
@@ -2085,14 +2084,14 @@ public partial class TdPlayerPawn
       v54 = (float)(3.0f - (float)((float)(v19 * a2a.X) * v19)) * (float)(v19 * 0.5f);
       v14 = v46.Y;
     }
-    v20 = a8 - v46.Z;
-    v21 = a7 - v14;
-    v22 = a6 - v46.X;
+    v20 = a6.Z - v46.Z;
+    v21 = a6.Y - v14;
+    v22 = a6.X - v46.X;
     v23 = (float)((float)(v20 * v20) + (float)(v21 * v21)) + (float)(v22 * v22);
     v24 = 0.0f;
-    a2a.X = a6 - v46.X;
+    a2a.X = a6.X - v46.X;
     a2a.Y = v21;
-    a2a.Z = a8 - v46.Z;
+    a2a.Z = a6.Z - v46.Z;
     v46.X = v23;
     if ( v23 == 1.0f )
     {
@@ -2203,9 +2202,9 @@ public partial class TdPlayerPawn
     }
     LABEL_29_Cont:
     result = a2;
-    a2->X = a6;
-    a2->Y = a7;
-    a2->Z = a8;
+    a2->X = a6.X;
+    a2->Y = a6.Y;
+    a2->Z = a6.Z;
     return result;
     
     LABEL_29:
@@ -2952,7 +2951,7 @@ public partial class TdPlayerPawn
       SetFromBitfield(ref this.bCollideComplex, 20, this.bCollideComplex.AsBitfield(20) & (0xFFFFFEFF));
       v51 = this.Velocity.Z;
       v52 = remainingTime - timeTick2;
-      *(_QWORD *)&v158.Y = __PAIR64__(LODWORD(v50), LODWORD(v48));
+      *(_QWORD *)&v158.Y = __PAIR64__((v50), (v48));
       v53 = this.VfTableObject.Dummy;
       v144 = timeTick2;
       v54 = this.Velocity.Y;
@@ -2961,7 +2960,7 @@ public partial class TdPlayerPawn
       v158.X = v49;
       // v56 = *(double (__thiscall **)(TdPlayerPawn ))(v53 + 308);
       v155.X = v55;
-      *(_QWORD *)&v155.Y = __PAIR64__(LODWORD(v51), LODWORD(v54));
+      *(_QWORD *)&v155.Y = __PAIR64__((v51), (v54));
       speed2d2 = this.GetGravityZ();
       v57 = this.Acceleration.Y;
       *(float *)&v58 = this.Acceleration.Z + speed2d2;
@@ -2969,7 +2968,7 @@ public partial class TdPlayerPawn
       v172 = this.Acceleration.X;
       timeTick_8.X = v172;
       v173 = v57;
-      *(_QWORD *)&timeTick_8.Y = __PAIR64__((int)v58, (int)LODWORD(v57));
+      *(_QWORD *)&timeTick_8.Y = __PAIR64__((int)v58, (int)(*(int*)&v57));
       v174 = *(float *)&v58;
       v195 = NewFallVelocity(v155, timeTick_8, v144);
       this.Velocity = v195;
@@ -3469,7 +3468,7 @@ public partial class TdPlayerPawn
         uint dsfsf = (*(uint*) & speed2d2) + 1;
         speed2d2 = * (float*) ( & dsfsf );
       }
-      while ( v61.AsBool() && SLODWORD(speed2d2) < 2 && dword_205684C < 2 );
+      while ( v61.AsBool() && (*(int*)&speed2d2) < 2 && dword_205684C < 2 );
       if ( !(bDoRootMotion2.AsBool()) && (this.bCollideComplex.AsBitfield(20) & 0x100) == default && this.Physics.AsBool() )
       {
         v118 = this.Location.Y - v158.Y;

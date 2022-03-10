@@ -39,5 +39,6 @@
 		public bool DestroyActor( Actor actor, bool bNetForce=false, bool bShouldModifyLevel=true );
 		public Object.FSceneInterface Scene{ get; }
 		public void PlaySoundCue(SoundCue cue, Actor SourceActor, bool bUseLocation, Object.Vector SourceLocation, AudioComponent associatedComponent = null);
+		public bool DrawDebugTraces{ set; }
 	}
 }

@@ -15,6 +15,8 @@
 
 	public partial class UWorld
 	{
+		public bool DrawDebugTraces{ get; set; } = true;
+
 		/// <summary>
 		/// Far from perfect, need to tweak stuff that uses this value
 		/// </summary>
@@ -88,6 +90,16 @@
 					current = next;
 					count++;
 				}
+
+				if( DrawDebugTraces )
+				{
+					for( var ptr = count == 0 ? null : root.Next; ptr != null; ptr = ptr->Next )
+						Debug.DrawRay( ptr->Location.ToUnityPos(), ptr->Normal.ToUnityDir(), Color.yellow, 0.1f );
+			
+					Debug.DrawRay( center, delta, Color.green );
+					if(count != 0)
+						Debug.DrawRay( center, delta * root.Next->Time, Color.red );
+				}
 			}
 			else
 			{
@@ -125,7 +137,7 @@
 					bool penetrating = hit.distance == 0f && hit.point == default;
 					if( penetrating )
 					{
-						if( /*penData.length == 0f && */Vector3.Dot( penData.direction, -delta.normalized ) <= 0.5f )
+						if( /*penData.length == 0f && */Vector3.Dot( penData.direction, -delta.normalized ) < 0f )
 						{
 							// Filtering out hits that are within the starting box and are not exactly in the way of the trace
 							continue;
@@ -137,7 +149,6 @@
 						next.Location = (Start.ToUnityPos() + penData.direction * penData.length).ToUnrealPos();
 						next.bStartPenetrating = true;
 						next.Time = 0f;
-						DrawBox(box, 0.3f);
 					}
 					else
 					{
@@ -155,15 +166,21 @@
 					current = next;
 					count++;
 				}
+
+				if( DrawDebugTraces )
+				{
+					if( count == 0 )
+					{
+						DrawBox(box, delta, 0.05f, new Color(0f, 1f, 0f, 0.25f));
+					}
+					else
+					{
+						DrawBox(box, delta, 0.05f, new Color(1f, 0f, 0f, 0.25f));
+						DrawBox(box, delta * root.Next->Time, 0.05f, new Color(1f, 0f, 0f, 0.5f));
+					}
+				}
 			}
 
-			for( var ptr = count == 0 ? null : root.Next; ptr != null; ptr = ptr->Next )
-				Debug.DrawRay( ptr->Location.ToUnityPos(), ptr->Normal.ToUnityDir(), Color.yellow, 0.1f );
-			
-			Debug.DrawRay( center, delta, Color.green );
-			if(count != 0)
-				Debug.DrawRay( center, delta * root.Next->Time, Color.red );
-			
 			return count == 0 ? null : root.Next;
 			
 			
@@ -283,6 +300,9 @@
 				current = next;
 				count++;
 			}
+			
+			if(DrawDebugTraces)
+				DrawBox(box, default, 0.05f, count == 0 ? Color.cyan : Color.magenta);
 
 			return count == 0 ? null : root.Next;
 
@@ -464,7 +484,6 @@
 				throw new Exception("Disable Physics Backface queries, collision test are likely to misbehave");
 			
 			box = ( unityLoc, unityExtent );
-			DrawBox( box );
 		}
 		
 		
@@ -493,21 +512,41 @@
 
 
 
-		static void DrawBox( in (Vector3 center, Vector3 extent) box, float duration = 0f )
+		static void DrawBox( in (Vector3 center, Vector3 extent) box, Vector3 displacement = default, float duration = 0f, Color? col = null )
 		{
+			Color actualCol = col ?? Color.green;
 			var a = Vector3.forward + Vector3.up + Vector3.right;
 			var b = Vector3.forward + Vector3.up + Vector3.left;
 			var c = Vector3.forward + Vector3.down + Vector3.left;
 			var d = Vector3.forward + Vector3.down + Vector3.right;
+			bool doDisplace = displacement != default;
 			for( int i = 0; i < 4; i++ )
 			{
 				var a2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * a, box.extent);
 				var b2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * b, box.extent);
 				var c2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * c, box.extent);
 				var d2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * d, box.extent);
-				Debug.DrawLine( a2, b2, Color.green, duration );
-				Debug.DrawLine( b2, c2, Color.green, duration );
-				Debug.DrawLine( c2, d2, Color.green, duration );
+				Debug.DrawLine( a2, b2, actualCol, duration * Time.timeScale );
+				Debug.DrawLine( b2, c2, actualCol, duration * Time.timeScale );
+				Debug.DrawLine( c2, d2, actualCol, duration * Time.timeScale );
+				if( doDisplace )
+				{
+					for( int j = 0; j < 4; j++ )
+					{
+						var da2 = a2 + displacement;
+						var db2 = b2 + displacement;
+						var dc2 = c2 + displacement;
+						var dd2 = d2 + displacement;
+						Debug.DrawLine( da2, db2, actualCol, duration * Time.timeScale );
+						Debug.DrawLine( db2, dc2, actualCol, duration * Time.timeScale );
+						Debug.DrawLine( dc2, dd2, actualCol, duration * Time.timeScale );
+						
+						Debug.DrawLine( da2, a2, actualCol, duration * Time.timeScale );
+						Debug.DrawLine( db2, b2, actualCol, duration * Time.timeScale );
+						Debug.DrawLine( dc2, c2, actualCol, duration * Time.timeScale );
+						Debug.DrawLine( dd2, d2, actualCol, duration * Time.timeScale );
+					}
+				}
 			}
 		}
 	}

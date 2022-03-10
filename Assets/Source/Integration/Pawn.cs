@@ -681,7 +681,7 @@ namespace MEdge.Engine
 				startNewPhysics(remainingTime, Iterations);*/
 		}
         
-        public virtual void stepUp(in FVector GravDir, in FVector DesiredDir, in FVector Delta, ref CheckResult Hit)
+        public override void stepUp(in FVector GravDir, in FVector DesiredDir, in FVector Delta, ref CheckResult Hit)
         {
 	        FVector Down = GravDir * (MaxStepHeight + MAXSTEPHEIGHTFUDGE);
 	        UBOOL bStepDown = TRUE;
@@ -2542,7 +2542,7 @@ determine how deep in water actor is standing:
 			}
 		}
 		
-		public void stepUp(in FVector GravDir, in FVector DesiredDir, in FVector Delta, ref FCheckResult Hit)
+		public virtual void stepUp(in FVector GravDir, in FVector DesiredDir, in FVector Delta, ref FCheckResult Hit)
 		{
 			FVector Down = GravDir * UCONST_ACTORMAXSTEPHEIGHT;
 

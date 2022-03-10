@@ -2079,7 +2079,6 @@ public partial class TdPawn
     float v16 = default; // xmm3_4
     float v17 = default; // xmm5_4
     bool v18 = default; // cf
-    Vector *v19; // esi
     float v20 = default; // xmm1_4
     float v21 = default; // xmm0_4
     float v22 = default; // xmm3_4
@@ -2087,11 +2086,9 @@ public partial class TdPawn
     float v24 = default; // xmm5_4
     float v25 = default; // ecx
     float v26 = default; // edx
-    Vector *v27; // esi
     PrimitiveComponent v28 = default; // eax
     float v29 = default; // eax
     float v30 = default; // edx
-    Vector *v31; // eax
     float v32 = default; // xmm0_4
     float v33 = default; // xmm0_4
     float v34 = default; // xmm3_4
@@ -2201,14 +2198,12 @@ public partial class TdPawn
     v109.Z = v11;
     if ( (float)((float)(v16 + v17) * -1.0f) >= 0.079999998d && ((v18 = Hit.Normal.Z < this.WalkableFloorZ) is object && (v107 = Hit.Normal.Z, v18) is object) )
     {
-      var cpy = Delta;
-      v19 = &cpy;
       if ( this.Physics == PHYS_Walking )
         goto LABEL_14;
       v20 = Delta.Y;
       v21 = Delta.Z;
       v111 = Delta.X;
-      v110 = LODWORD(v20);
+      v110 = _LODWORD(v20);
       v114 = v21;
       Deltaa.Y = v20;
       Deltaa.X = v111;
@@ -2226,15 +2221,15 @@ public partial class TdPawn
       Deltaa.X = (float)(v15 * -1.0f) + (float)(v22 * 0.1f);
       Deltaa.Y = (float)(v13 * -1.0f) + (float)(v23 * 0.1f);
       Deltaa.Z = (float)(v11 * -1.0f) + (float)(v24 * 0.1f);
-      GWorld.MoveActor(this, ref Deltaa, ref this.Rotation, 0, ref Hit);
+      GWorld.MoveActor(this, Deltaa, this.Rotation, 0, ref Hit);
       v25 = this.Location.Y;
       v26 = this.Location.Z;
-      var cpy = this.Location;
-      v27 = &cpy;
       v108.X = this.Location.X;
       v108.Y = v25;
       v108.Z = v26;
+      UWorldBridge.GetUWorld().DrawDebugTraces = true;
       GWorld.MoveActor(this, Delta, this.Rotation, 0, ref Hit);
+      UWorldBridge.GetUWorld().DrawDebugTraces = false;
       if ( Hit.Time >= 1.0f || this.WalkableFloorZ > Hit.Normal.Z )
       {
         v118.Item = -1;
@@ -2257,21 +2252,20 @@ public partial class TdPawn
         v119 = default;
         if(v28 != default)
         {
-          a4a.X = v27->X + v28.Translation.X;
+          a4a.X = this.Location.X + v28.Translation.X;
           a4a.Y = this.Location.Y + v28.Translation.Y;
           a4a.Z = this.Location.Z + v28.Translation.Z;
-          v27 = &a4a;
+          this.Location = a4a;
         }
-        v29 = v27->Y;
-        Deltaa.X = v27->X;
-        v30 = v27->Z;
+        v29 = this.Location.Y;
+        Deltaa.X = this.Location.X;
+        v30 = this.Location.Z;
         a4a.X = Deltaa.X + v109.X;
         Deltaa.Y = v29;
         a4a.Y = v29 + v109.Y;
         Deltaa.Z = v30;
         a4a.Z = v30 + v109.Z;
-        v31 = this.GetCylinderExtent(&a2a);
-        GWorld.SingleLineCheck(ref v118, this, a4a, Deltaa, 8415, *v31, 0);
+        GWorld.SingleLineCheck(ref v118, this, a4a, Deltaa, 8415, *this.GetCylinderExtent(&a2a), 0);
         if ( v118.Time < 1.0f && this.WalkableFloorZ > v118.Normal.Z )
         {
           v32 = v108.X;
@@ -2284,23 +2278,21 @@ public partial class TdPawn
           GWorld.MoveActor(this, ref a4a, ref this.Rotation, 0, ref v118);
         }
       }
-      var cpy2 = Delta;
-      v19 = &cpy2;
       v5 = GravDir;
     }
     v12 = Hit;
   LABEL_14:
     v34 = v12.Time;
     if ( v34 >= 1.0f )
-      goto LABEL_98;
-    v35 = v19->Y;
+      goto LABEL_98; // Supposed to go through this to move above obsticle
+    v35 = Delta.Y;
     v36 = (float)((float)(Hit.Normal.Z * v5.Z) + (float)(Hit.Normal.Y * v5.Y)) + (float)(v5.X * Hit.Normal.X);
-    a4a.X = v19->X;
-    v37 = v19->Z;
+    a4a.X = Delta.X;
+    v37 = Delta.Z;
     v111.LODWORD(1);
     a4a.Y = v35;
     a4a.Z = v37;
-    if ( (float)(v36 * -1.0f) < 0.079999998d && (float)((float)((float)((float)(v19->X * v19->X) + (float)(v19->Y * v19->Y)) + (float)(v19->Z * v19->Z)) * v34) > 144.0f )
+    if ( (float)(v36 * -1.0f) < 0.079999998d && (float)((float)((float)((float)(Delta.X * Delta.X) + (float)(Delta.Y * Delta.Y)) + (float)(Delta.Z * Delta.Z)) * v34) > 144.0f )
     {
       if(v110 != default)
       {
@@ -2309,9 +2301,9 @@ public partial class TdPawn
       }
       v38 = 1.0f - v12.Time;
       // v39 = *(void (__thiscall **)(TdPawn , Vector *, Vector *, Vector *, CheckResult *))(this.VfTableObject.Dummy + 528);
-      Deltaa.X = v19->X * v38;
-      Deltaa.Y = v19->Y * v38;
-      Deltaa.Z = v19->Z * v38;
+      Deltaa.X = Delta.X * v38;
+      Deltaa.Y = Delta.Y * v38;
+      Deltaa.Z = Delta.Z * v38;
       this.stepUp( v5, DesiredDir, Deltaa, ref v12);
       return;
     }
@@ -2323,11 +2315,11 @@ public partial class TdPawn
         v12 = Hit;
         goto LABEL_38;
       }
-      v40 = v19->Z;
-      v41 = v19->Y;
-      v42 = (float)((float)(Hit.Normal.Y * v41) + (float)(Hit.Normal.Z * v40)) + (float)(Hit.Normal.X * v19->X);
+      v40 = Delta.Z;
+      v41 = Delta.Y;
+      v42 = (float)((float)(Hit.Normal.Y * v41) + (float)(Hit.Normal.Z * v40)) + (float)(Hit.Normal.X * Delta.X);
       v43 = Hit.Normal.Z * v42;
-      v44 = v19->X - (float)(v14.X * v42);
+      v44 = Delta.X - (float)(v14.X * v42);
       v45 = v41 - (float)(Hit.Normal.Y * v42);
       v46 = (float)(v44 * v44) + (float)(v45 * v45);
       v47 = v40 - v43;
@@ -2428,14 +2420,14 @@ public partial class TdPawn
     v14.X = v53;
     Hit.Normal.Y = v54;
     Hit.Normal.Z = v55;
-    v57 = v19->Z;
-    v58 = v19->Y;
-    v59 = v19->X;
-    v60 = (float)((float)(Hit.Normal.Y * v58) + (float)(Hit.Normal.Z * v57)) + (float)(v19->X * Hit.Normal.X);
+    v57 = Delta.Z;
+    v58 = Delta.Y;
+    v59 = Delta.X;
+    v60 = (float)((float)(Hit.Normal.Y * v58) + (float)(Hit.Normal.Z * v57)) + (float)(Delta.X * Hit.Normal.X);
     v61 = v58 - (float)(Hit.Normal.Y * v60);
     v62 = v57 - (float)(Hit.Normal.Z * v60);
     v63 = 1.0f - Hit.Time;
-    Deltaa.X = (float)(v19->X - (float)(v14.X * v60)) * v63;
+    Deltaa.X = (float)(Delta.X - (float)(v14.X * v60)) * v63;
     Deltaa.Y = v61 * v63;
     a2a.Z = v55;
     v64 = (float)((float)(v59 * v59) + (float)(v58 * v58)) + (float)(v57 * v57);
@@ -2448,9 +2440,9 @@ public partial class TdPawn
     Deltaa.X = v64;
     if ( v64 == 1.0f )
     {
-      v65 = v19->Y;
-      v66 = v19->Z;
-      Deltaa.X = v19->X;
+      v65 = Delta.Y;
+      v66 = Delta.Z;
+      Deltaa.X = Delta.X;
       Deltaa.Y = v65;
       Deltaa.Z = v66;
     }
@@ -2468,9 +2460,9 @@ public partial class TdPawn
       v107 = 0.5f;
       v68 = 1.0f / fsqrt(Deltaa.X);
       v108.X = (float)(3.0f - (float)((float)(v68 * Deltaa.X) * v68)) * (float)(v68 * 0.5f);
-      Deltaa.X = v108.X * v19->X;
-      v69 = v108.X * v19->Z;
-      Deltaa.Y = v108.X * v19->Y;
+      Deltaa.X = v108.X * Delta.X;
+      v69 = v108.X * Delta.Z;
+      Deltaa.Y = v108.X * Delta.Y;
       Deltaa.Z = v69;
     }
     v67 = 0.0f;
@@ -2508,8 +2500,8 @@ public partial class TdPawn
     if ( (float)((float)((float)(v75 * Deltaa.Z) + (float)(v74 * Deltaa.Y)) + (float)(v67 * Deltaa.X)) > 0.70700002d )
     {
       v77 = (float)((float)(v70 * v70) + (float)(v71 * v71)) + (float)(v72 * v72);
-      v78 = v19->Y * v19->Y + v19->X * v19->X;
-      v79 = v19->Z;
+      v78 = Delta.Y * Delta.Y + Delta.X * Delta.X;
+      v79 = Delta.Z;
       v117 = v77;
       v114 = (float)(sqrt(v79 * v79 + v78));
       if ( v77 == 1.0f )
@@ -2547,7 +2539,7 @@ public partial class TdPawn
       a4a.Z = Deltaa.Z;
       v70 = Deltaa.Z;
     }
-    if ( (float)((float)((float)(v72 * v19->X) + (float)(v70 * v19->Z)) + (float)(v71 * v19->Y)) >= 0.0f )
+    if ( (float)((float)((float)(v72 * Delta.X) + (float)(v70 * Delta.Z)) + (float)(v71 * Delta.Y)) >= 0.0f )
     {
       GWorld.MoveActor(this, ref a4a, ref this.Rotation, 0, ref Hit);
       if(v113 != default)
@@ -5296,7 +5288,7 @@ public partial class TdPawn
 
   public override unsafe void physWalking(float DeltaTime, int Iterations)
   {
-    float v4 = default; // xmm1_4
+float v4 = default; // xmm1_4
     float v5 = default; // xmm5_4
     float v6 = default; // xmm0_4
     float v7 = default; // ecx
@@ -5319,17 +5311,15 @@ public partial class TdPawn
     float v24 = default; // xmm5_4
     float v25 = default; // xmm0_4
     float v26 = default; // xmm0_4
-    //Vector *v27; // ecx
-    Vector v28; // eax
     float v29 = default; // xmm0_4
     float v30 = default; // edx
     float v31 = default; // eax
     float v32 = default; // ecx
     float v33 = default; // xmm2_4
     double v34 = default; // st7
-    uint v35 = default; // ecx
-    uint v36 = default; // edx
-    // void (__thiscall *v37)(TdPawn , float *, _DWORD, _DWORD, _DWORD, _DWORD, int, _DWORD); // eax
+    float v35 = default; // ecx
+    float v36 = default; // edx
+    // void (__stdcall *v37)(float *, _DWORD, _DWORD, _DWORD, _DWORD, int, _DWORD); // eax
     PhysicsVolume v38 = default; // ecx
     PhysicsVolume v39 = default; // eax
     float v40 = default; // ecx
@@ -5355,21 +5345,19 @@ public partial class TdPawn
     float v60 = default; // eax
     Actor v61 = default; // ebp
     float v62 = default; // xmm1_4
-    Vector* v63 = default; // eax
+    Vector *v63; // eax
     Controller v64 = default; // ecx
     float v65 = default; // xmm4_4
-    // void (__thiscall *v66)(TdPawn , int *, float *, float *, CheckResult *); // edx
+    // void (__stdcall *v66)(int *, float *, Vector *, CheckResult *); // edx
     Actor v67 = default; // edi
     float v68 = default; // eax
     float v69 = default; // ecx
     float v70 = default; // edx
     float v71 = default; // xmm0_4
     PrimitiveComponent v72 = default; // eax
-    //float *v73; // eax
     float v74 = default; // ecx
     float v75 = default; // edx
     float v76 = default; // eax
-    Vector *v77; // eax
     float v78 = default; // eax
     float v79 = default; // ecx
     float v80 = default; // xmm5_4
@@ -5388,103 +5376,101 @@ public partial class TdPawn
     float v93 = default; // edi
     float v94 = default; // ebx
     float v95 = default; // ebp
-    double v96 = default; // st7
+    float v96 = default; // xmm1_4
     float v97 = default; // xmm1_4
-    float v98 = default; // xmm1_4
-    double v99 = default; // st6
-    double v100 = default; // st5
-    double v101 = default; // st7
+    double v98 = default; // st6
+    double v99 = default; // st5
+    double v100 = default; // st7
+    float v101 = default; // xmm1_4
     float v102 = default; // xmm1_4
-    float v103 = default; // xmm1_4
-    float v104 = default; // xmm0_4
-    float v105 = default; // edx
-    Controller v106 = default; // edi
-    Actor v107 = default; // edi
+    float v103 = default; // xmm0_4
+    float v104 = default; // edx
+    Controller v105 = default; // edi
+    Actor v106 = default; // edi
+    uint v107 = default; // eax
     uint v108 = default; // eax
-    uint v109 = default; // eax
-    Controller v110 = default; // esi
+    Controller v109 = default; // esi
+    double v110 = default; // st7
     double v111 = default; // st7
-    double v112 = default; // st7
-    float v113 = default; // xmm1_4
-    TdBotPawn v114 = default; // edi
-    // void (__thiscall *v115)(TdPawn , int, _DWORD, _DWORD, _DWORD, int); // edx
-    // void (__thiscall *v116)(TdPawn , int, _DWORD, _DWORD, _DWORD, int); // edx
-    int v117 = default; // edi
-    int v118 = default; // eax
+    float v112 = default; // xmm1_4
+    TdBotPawn v113 = default; // edi
+    // void (__stdcall *v114)(int, _DWORD, _DWORD, _DWORD, int); // edx
+    // void (__stdcall *v115)(int, _DWORD, _DWORD, _DWORD, int); // edx
+    int v116 = default; // edi
+    int v117 = default; // eax
+    double v118 = default; // st7
     double v119 = default; // st7
-    double v120 = default; // st7
-    float v121 = default; // xmm1_4
-    float v122 = default; // xmm2_4
-    float v123 = default; // xmm1_4
-    float v124 = default; // xmm2_4
-    Controller v125 = default; // ecx
-    float v126 = default; // [esp+3Ch] [ebp-1E8h]
-    Vector DestLocation = default; // [esp+5Ch] [ebp-1C8h] BYREF
-    float v128 = default; // [esp+68h] [ebp-1BCh]
-    float v129 = default; // [esp+6Ch] [ebp-1B8h]
-    int v130 = default; // [esp+70h] [ebp-1B4h] BYREF
-    int bCheckedFall = default; // [esp+74h] [ebp-1B0h] BYREF
-    float v132 = default; // [esp+78h] [ebp-1ACh]
-    float v133 = default; // [esp+7Ch] [ebp-1A8h]
-    float v134 = default; // [esp+80h] [ebp-1A4h]
-    float v135 = default; // [esp+84h] [ebp-1A0h]
-    float v136 = default; // [esp+88h] [ebp-19Ch]
-    float v137 = default; // [esp+8Ch] [ebp-198h]
-    float v138 = default; // [esp+90h] [ebp-194h]
-    float v139 = default; // [esp+94h] [ebp-190h]
-    float v140 = default; // [esp+98h] [ebp-18Ch]
-    Vector v141 = default; // [esp+9Ch] [ebp-188h] BYREF
-    float v142 = default; // [esp+A8h] [ebp-17Ch]
-    float v143 = default; // [esp+ACh] [ebp-178h]
-    float v144 = default; // [esp+B0h] [ebp-174h]
-    uint v145 = default; // [esp+B4h] [ebp-170h]
-    float v146 = default; // [esp+B8h] [ebp-16Ch]
-    float v147 = default; // [esp+BCh] [ebp-168h]
-    float v148 = default; // [esp+C0h] [ebp-164h]
-    float v149 = default; // [esp+C4h] [ebp-160h]
-    CheckResult Hit = default; // [esp+C8h] [ebp-15Ch] BYREF
-    int v151 = default; // [esp+110h] [ebp-114h]
-    float v152 = default; // [esp+114h] [ebp-110h] BYREF
-    uint v153 = default; // [esp+118h] [ebp-10Ch]
-    uint v154 = default; // [esp+11Ch] [ebp-108h]
-    int a7 = default; // [esp+120h] [ebp-104h] BYREF
-    int v156 = default; // [esp+124h] [ebp-100h]
-    int v157 = default; // [esp+128h] [ebp-FCh]
-    float v158 = default; // [esp+12Ch] [ebp-F8h]
-    int* a2 = stackalloc int[2]; // [esp+130h] [ebp-F4h] BYREF
-    Vector v160 = default; // [esp+138h] [ebp-ECh]
-    int v161 = default; // [esp+144h] [ebp-E0h]
-    Vector v162 = default; // [esp+148h] [ebp-DCh]
-    Vector v163 = default; // [esp+154h] [ebp-D0h] BYREF
-    Vector a5 = default; // [esp+160h] [ebp-C4h] BYREF
-    float v165 = default; // [esp+16Ch] [ebp-B8h]
-    float v167 = default; // [esp+188h] [ebp-9Ch]
-    float v168 = default; // [esp+18Ch] [ebp-98h]
-    float v169 = default; // [esp+190h] [ebp-94h]
-    float* v170 = stackalloc float[4]; // [esp+194h] [ebp-90h] BYREF
-    float v171 = default; // [esp+1A4h] [ebp-80h]
-    float v172 = default; // [esp+1A8h] [ebp-7Ch]
-    int v173 = default; // [esp+1B0h] [ebp-74h] BYREF
-    float v174 = default; // [esp+1B4h] [ebp-70h]
-    Vector v175 = default; // [esp+1B8h] [ebp-6Ch] BYREF
-    float v176 = default; // [esp+1C4h] [ebp-60h]
-    Vector a4 = default; // [esp+1C8h] [ebp-5Ch] BYREF
-    Vector v178 = default; // [esp+1D4h] [ebp-50h] BYREF
-    Vector v179 = default; // [esp+1E0h] [ebp-44h] BYREF
-    float* v179b = stackalloc float[2]; // [esp+1E0h] [ebp-44h] BYREF
-    float v180 = default; // [esp+1F4h] [ebp-30h]
-    float v181 = default; // [esp+200h] [ebp-24h]
-    float v182 = default; // [esp+204h] [ebp-20h]
-    int v183 = default; // [esp+214h] [ebp-10h]
+    float v120 = default; // xmm1_4
+    float v121 = default; // xmm2_4
+    float v122 = default; // xmm1_4
+    float v123 = default; // xmm2_4
+    Controller v124 = default; // ecx
+    float v125 = default; // [esp+28h] [ebp-1E8h]
+    Vector Delta = default; // [esp+4Ch] [ebp-1C4h] BYREF
+    float remainingTime = default; // [esp+58h] [ebp-1B8h]
+    int v128 = default; // [esp+5Ch] [ebp-1B4h] BYREF
+    int v129 = default; // [esp+60h] [ebp-1B0h] BYREF
+    //Actor v130_floatThenActor = default; // [esp+64h] [ebp-1ACh]
+    float v131 = default; // [esp+68h] [ebp-1A8h]
+    float v132 = default; // [esp+6Ch] [ebp-1A4h]
+    float v133 = default; // [esp+70h] [ebp-1A0h]
+    float v134 = default; // [esp+74h] [ebp-19Ch]
+    float timeTick = default; // [esp+78h] [ebp-198h]
+    float v136 = default; // [esp+7Ch] [ebp-194h]
+    float v137 = default; // [esp+80h] [ebp-190h]
+    float v138 = default; // [esp+84h] [ebp-18Ch]
+    Vector DestLocation = default; // [esp+88h] [ebp-188h] BYREF
+    float v140 = default; // [esp+94h] [ebp-17Ch]
+    float v141 = default; // [esp+98h] [ebp-178h]
+    float v142 = default; // [esp+9Ch] [ebp-174h]
+    float v143 = default; // [esp+A0h] [ebp-170h]
+    float v144 = default; // [esp+A4h] [ebp-16Ch]
+    float v145 = default; // [esp+A8h] [ebp-168h]
+    float v146 = default; // [esp+ACh] [ebp-164h]
+    float v147 = default; // [esp+B0h] [ebp-160h]
+    CheckResult Hit = default; // [esp+B4h] [ebp-15Ch] BYREF
+    float v149 = default; // [esp+FCh] [ebp-114h]
+    Vector v150 = default; // [esp+100h] [ebp-110h] BYREF
+    Vector v153 = default; // [esp+10Ch] [ebp-104h] BYREF
+    float v156 = default; // [esp+118h] [ebp-F8h]
+    Vector a2 = default; // [esp+11Ch] [ebp-F4h] BYREF
+    int v158 = default; // [esp+128h] [ebp-E8h]
+    float v159 = default; // [esp+12Ch] [ebp-E4h]
+    int v160 = default; // [esp+130h] [ebp-E0h]
+    Vector v161 = default; // [esp+134h] [ebp-DCh]
+    Vector v162 = default; // [esp+140h] [ebp-D0h] BYREF
+    Vector a5 = default; // [esp+14Ch] [ebp-C4h] BYREF
+    float v164 = default; // [esp+158h] [ebp-B8h]
+    Vector v165 = default; // [esp+168h] [ebp-A8h] BYREF
+    float v166 = default; // [esp+174h] [ebp-9Ch]
+    float v167 = default; // [esp+178h] [ebp-98h]
+    float v168 = default; // [esp+17Ch] [ebp-94h]
+    //float* v169 = stackalloc float[4]; // [esp+180h] [ebp-90h] BYREF
+    Vector v169 = default;
+    float v169_4 = default;
+    float v170 = default; // [esp+190h] [ebp-80h]
+    float v171 = default; // [esp+194h] [ebp-7Ch]
+    Vector v172 = default; // [esp+19Ch] [ebp-74h] BYREF
+    Vector v173 = default; // [esp+1A8h] [ebp-68h] BYREF
+    Vector a4 = default; // [esp+1B4h] [ebp-5Ch] BYREF
+    Vector v175 = default; // [esp+1C0h] [ebp-50h] BYREF
+    //float* v176 = stackalloc float[5]; // [esp+1CCh] [ebp-44h] BYREF
+    Vector v176 = default;
+    float v176_4 = default;
+    float v176_5 = default;
+    float v177 = default; // [esp+1E0h] [ebp-30h]
+    float v178 = default; // [esp+1ECh] [ebp-24h]
+    float v179 = default; // [esp+1F0h] [ebp-20h]
+    int v180 = default; // [esp+200h] [ebp-10h]
   
     if ( !this.Controller && (this.bIsFemale.AsBitfield(20) & 0x8000) == default )
     {
       this.Acceleration.X = 0.0f;
       this.Acceleration.Y = 0.0f;
-      v138 = 0.0f;
-      v139 = 0.0f;
+      v136 = 0.0f;
+      v137 = 0.0f;
       this.Acceleration.Z = 0.0f;
-      v140 = 0.0f;
+      v138 = 0.0f;
       this.Velocity.X = 0.0f;
       this.Velocity.Y = 0.0f;
       this.Velocity.Z = 0.0f;
@@ -5493,65 +5479,65 @@ public partial class TdPawn
     v4 = this.Velocity.Y;
     v5 = this.Velocity.X;
     v6 = (float)(v5 * v5) + (float)(v4 * v4);
-    v170[0] = v6;
+    v169.X = v6;
     if ( v6 == 1.0f )
     {
       if ( this.Velocity.Z == 0.0f )
       {
         v7 = this.Velocity.Y;
         v8 = this.Velocity.Z;
-        v147 = this.Velocity.X;
-        v5 = v147;
-        v148 = v7;
+        v145 = this.Velocity.X;
+        v5 = v145;
+        v146 = v7;
         v9 = v7;
-        v149 = v8;
+        v147 = v8;
         goto LABEL_12;
       }
       v9 = v4;
     }
-    else if ( v6 >= SMALL_NUMBER )
+    else if ( v6 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
-      v165 = 3.0f;
-      v133 = 0.5f;
-      v10 = 1.0f / fsqrt(v170[0]);
-      *(float *)a2 = (float)(3.0f - (float)((float)(v10 * v170[0]) * v10)) * (float)(v10 * 0.5f);
-      v5 = this.Velocity.X * *(float *)a2;
-      v9 = *(float *)a2 * this.Velocity.Y;
+      v164 = 3.0f;
+      v131 = 0.5f;
+      v10 = 1.0f / fsqrt(v169.X);
+      a2.X = (float)(3.0f - (float)((float)(v10 * v169.X) * v10)) * (float)(v10 * 0.5f);
+      v5 = this.Velocity.X * a2.X;
+      v9 = a2.X * this.Velocity.Y;
     }
     else
     {
       v5 = 0.0f;
       v9 = 0.0f;
     }
-    v149 = 0.0f;
+    v147 = 0.0f;
   LABEL_12:
     v11 = this.Floor.Y;
     v12 = this.Floor.X;
     v13 = (float)(v12 * v12) + (float)(v11 * v11);
-    v170[0] = v13;
+    v169.X = v13;
     if ( v13 == 1.0f )
     {
       if ( this.Floor.Z == 0.0f )
       {
         v14 = this.Floor.Y;
         v15 = this.Floor.Z;
-        v138 = this.Floor.X;
-        v12 = v138;
-        v139 = v14;
+        v136 = this.Floor.X;
+        v12 = v136;
+        v137 = v14;
         v11 = v14;
-        v140 = v15;
+        v138 = v15;
         v16 = v15;
         goto LABEL_19;
       }
     }
-    else if ( v13 >= SMALL_NUMBER )
+    else if ( v13 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
     {
-      v165 = 3.0f;
-      v133 = 0.5f;
-      v17 = 1.0f / fsqrt(v170[0]);
-      *(float *)a2 = (float)(3.0f - (float)((float)(v17 * v170[0]) * v17)) * (float)(v17 * 0.5f);
-      v12 = *(float *)a2 * this.Floor.X;
-      v11 = this.Floor.Y * *(float *)a2;
+      v164 = 3.0f;
+      v131 = 0.5f;
+      v17 = 1.0f / fsqrt(v169.X);
+      a2.X = (float)(3.0f - (float)((float)(v17 * v169.X) * v17)) * (float)(v17 * 0.5f);
+      v12 = a2.X * this.Floor.X;
+      v11 = this.Floor.Y * a2.X;
     }
     else
     {
@@ -5560,9 +5546,9 @@ public partial class TdPawn
     }
     v16 = 0.0f;
   LABEL_19:
-    v18 = (float)((float)((float)(-0.0f - v12) * v5) + (float)((float)(-0.0f - v16) * v149)) + (float)((float)(-0.0f - v11) * v9);
+    v18 = (float)((float)((float)(-0.0f - v12) * v5) + (float)((float)(-0.0f - v16) * v147)) + (float)((float)(-0.0f - v11) * v9);
     v19 = this.Floor.Z * this.Floor.Z;
-    v133 = v18;
+    v131 = v18;
     if ( v19 >= 0.0f )
     {
       if ( v19 > 1.0f )
@@ -5572,18 +5558,18 @@ public partial class TdPawn
     {
       v19 = 0.0f;
     }
-    v132 = v19;
+    float v130_float_cpy = v19;
     v20 = this.MovementState;
     v21 = sqrt(1.0f - v19);
     v22 = this.Moves[v20].FrictionModifier;
-    *(float *)&v132 = (float)(v21 * v133);
+    v130_float_cpy = (float)(v21 * v131);
     if ( v20 == MOVE_Slide || v20 == MOVE_RumpSlide || v20 == MOVE_MeleeSlide )
     {
       if ( v18 < 0.0f )
         v26 = this.DownwardSlideFrictionScale;
       else
         v26 = this.UpwardSlideFrictionScale;
-      v25 = (float)((float)(v26 * *(float *)&v132) + 1.0f) * v22;
+      v25 = (float)((float)(v26 * v130_float_cpy) + 1.0f) * v22;
   LABEL_37:
       v24 = v25;
       goto LABEL_38;
@@ -5593,83 +5579,78 @@ public partial class TdPawn
     else
       v23 = this.UpwardWalkFrictionScale;
     v24 = this.MaxWalkFrictionModify;
-    v25 = (float)((float)(v23 * *(float *)&v132) + 1.0f) * v22;
+    v25 = (float)((float)(v23 * v130_float_cpy) + 1.0f) * v22;
     if ( v25 < this.MinWalkFrictionModify )
       v25 = this.MinWalkFrictionModify;
-    if( v24 >= v25 )
-    {
+    if ( v24 >= v25 )
       v24 = v25;
-      goto LABEL_38;
-    }
-
-    LABEL_38:
-    ref var v27 = ref this.Acceleration;
+  LABEL_38:
     this.Velocity.Z = 0.0f;
     this.Acceleration.Z = 0.0f;
+    Vector v28_cpy;
     if ( this.Acceleration.X == 0.0f && this.Acceleration.Y == 0.0f && this.Acceleration.Z == 0.0f )
     {
-      v28 = default;
+      v28_cpy = this.Acceleration;
     }
     else
     {
-      v29 = (float)((float)(v27.X * v27.X) + (float)(this.Acceleration.Y * this.Acceleration.Y)) + (float)(this.Acceleration.Z * this.Acceleration.Z);
-      v170[0] = v29;
+      v29 = (float)((float)(this.Acceleration.X * this.Acceleration.X) + (float)(this.Acceleration.Y * this.Acceleration.Y)) + (float)(this.Acceleration.Z * this.Acceleration.Z);
+      v169.X = v29;
       if ( v29 == 1.0f )
       {
-        v30 = v27.X;
+        v30 = this.Acceleration.X;
         v31 = this.Acceleration.Y;
         v32 = this.Acceleration.Z;
-        DestLocation.Y = v30;
-        DestLocation.Z = v31;
-        v128 = v32;
+        Delta.X = v30;
+        Delta.Y = v31;
+        Delta.Z = v32;
       }
-      else if ( v29 >= SMALL_NUMBER )
+      else if ( v29 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
       {
-        v165 = 3.0f;
-        v133 = 0.5f;
-        v33 = 1.0f / fsqrt(v170[0]);
-        *(float *)a2 = (float)(3.0f - (float)((float)(v33 * v170[0]) * v33)) * (float)(v33 * 0.5f);
-        DestLocation.Y = *(float *)a2 * v27.X;
-        DestLocation.Z = this.Acceleration.Y * *(float *)a2;
-        v128 = this.Acceleration.Z * *(float *)a2;
+        v164 = 3.0f;
+        v131 = 0.5f;
+        v33 = 1.0f / fsqrt(v169.X);
+        a2.X = (float)(3.0f - (float)((float)(v33 * v169.X) * v33)) * (float)(v33 * 0.5f);
+        Delta.X = a2.X * this.Acceleration.X;
+        Delta.Y = this.Acceleration.Y * a2.X;
+        Delta.Z = this.Acceleration.Z * a2.X;
       }
       else
       {
-        DestLocation.Y = 0.0f;
-        DestLocation.Z = 0.0f;
-        v128 = 0.0f;
+        Delta.X = 0.0f;
+        Delta.Y = 0.0f;
+        Delta.Z = 0.0f;
       }
-      v28 = new Vector(DestLocation.Y, DestLocation.Z, v128);
+      v28_cpy = Delta;
     }
     v34 = this.GroundSpeed;
-    v35 = LODWORD(v28.Y);
-    v152 = v28.X;
-    v36 = LODWORD(v28.Z);
-    // v37 = *(void (__thiscall **)(TdPawn , float *, _DWORD, _DWORD, _DWORD, _DWORD, int, _DWORD))(this.VfTableObject.Dummy + 1040);
-    v153 = v35;
+    v35 = v28_cpy.Y;
+    v150.X = v28_cpy.X;
+    v36 = v28_cpy.Z;
+    v150.Y = v35;
     v38 = this.PhysicsVolume;
-    v154 = v36;
-    v126 = (float)v34;
-    this.CalcVelocity(ref *(Vector*)&v152, DeltaTime, v126, v38.GroundFriction * v24, 0, 1, 0);// CalcVelocity
+    v150.Z = v36;
+    v125 = (float)v34;
+    this.CalcVelocity(ref v150, (DeltaTime), (v125), v38.GroundFriction * v24, 0, 1, 0);// CalcVelocity
     v39 = this.PhysicsVolume;
     v40 = this.Location.X;
     v41 = this.Location.Y;
     v42 = this.Velocity.Y + (float)((float)(v39.ZoneVelocity.Y * 25.0f) * DeltaTime);
     v43 = this.MaxStepHeight + 2.0f;
-    v171 = (float)((float)(v39.ZoneVelocity.X * 25.0f) * DeltaTime) + this.Velocity.X;
+    v170 = (float)((float)(v39.ZoneVelocity.X * 25.0f) * DeltaTime) + this.Velocity.X;
     v44 = 0.0f;
     Hit.Item = -1;
     Hit.LevelIndex = -1;
     v45 = this.Location.Z;
-    v141.X = v40;
+    DestLocation.X = v40;
     v46 = this.Floor.X;
-    v149 = v43 * -1.0f;
-    v172 = v42;
-    a7 = default;
-    v156 = default;
-    v157 = -1082130432;
-    v147 = v43 * 0.0f;
-    v148 = v43 * 0.0f;
+    v147 = v43 * -1.0f;
+    v171 = v42;
+    v153.X = default;
+    v153.Y = default;
+    v153.Z = -1f;
+    v145 = v43 * 0.0f;
+    v146 = v43 * 0.0f;
     Hit.Next = default;
     Hit.Actor = default;
     Hit.Location.X = 0.0f;
@@ -5685,23 +5666,23 @@ public partial class TdPawn
     Hit.BoneName = default;
     Hit.Level = default;
     Hit.bStartPenetrating = default;
-    v151 = default;
-    v141.Y = v41;
-    v141.Z = v45;
-    v143 = v46;
+    v149 = 0.0f;
+    DestLocation.Y = v41;
+    DestLocation.Z = v45;
+    v141 = v46;
     v47 = this.Floor.Y;
     v48 = this.Floor.Z;
     v49 = this.Base;
     SetFromBitfield(ref this.bCollideComplex, 20, this.bCollideComplex.AsBitfield(20) & (0xFFFFFEFF));
     v50 = this.Location.Z;
-    v144 = v47;
-    v145 = LODWORD(v48);
-    var v132b = v49;
-    bCheckedFall = default;
-    v130 = default;
+    v142 = v47;
+    v143 = v48;
+    var v130_Actor = v49;
+    v129 = default;
+    v128 = default;
     v51 = DeltaTime;
-    v133 = v50;
-    if( DeltaTime <= 0.0f )
+    v131 = v50;
+    if ( DeltaTime <= 0.0f )
     {
       goto LABEL_188;
     }
@@ -5721,179 +5702,166 @@ public partial class TdPawn
           v53 = (float)(0.050000001d);
       }
       v54 = this.Location.X;
-      v137 = v53;
-      v55 = v171 * v53;
-      ref var v56 = ref this.Location;
-      v138 = v54;
+      timeTick = v53;
+      v55 = v170 * v53;
+      v136 = v54;
       v57 = this.Location.Y;
-      DestLocation.Y = (float)v55;
+      Delta.X = (float)v55;
       v58 = v51 - v53;
       v59 = v42 * v53;
-      v139 = v57;
+      v137 = v57;
       v60 = this.Location.Z;
       v61 = default;
       v62 = v53 * 0.0f;
-      v129 = v58;
-      DestLocation.Z = v59;
-      v128 = v62;
-      v140 = v60;
-      v162.X = 0.0f;
-      v162.Y = 0.0f;
-      v162.Z = 0.0f;
-      if ( fabs(v55) < 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ && fabs(DestLocation.Z) < 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ && fabs(v128) < 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+      remainingTime = v58;
+      Delta.Y = v59;
+      Delta.Z = v62;
+      v138 = v60;
+      v161.X = 0.0f;
+      v161.Y = 0.0f;
+      v161.Z = 0.0f;
+      if ( fabs(v55) < 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ && fabs(Delta.Y) < 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ && fabs(Delta.Z) < 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
       {
-        v161 = 1;
-        v129 = 0.0f;
+        v160 = 1;
+        remainingTime = 0.0f;
         goto LABEL_76;
       }
-      v161 = default;
+      v160 = default;
       if(v52 != default)
       {
-        if ( v52.Pawn != default
-          && (
-            (v63 = (this as TdPlayerPawn).SomethingVertigoRelated( (Vector*)v170, SLODWORD(v152), SLODWORD(v153), SLODWORD(v154), (DestLocation.Y), (DestLocation.Z), ((v128)), a7, v156, v157, &bCheckedFall, &v130))
-            [0] is object &&
-              (DestLocation.Y = v63->X) is object &&
-              (v64 = this.Controller) is object &&
-              (DestLocation.Z = v63->Y) is object &&
-              (v128 = v63->Z) is object &&
+        if ( (v52 as TdPlayerController).Unknown2()// ATdPlayerController::Unknown2
+          && (((v63 = (this as TdPlayerPawn).SomethingVertigoRelated((Vector*)&v169, v150, Delta, v153, ref v129, ref v128)) == v63 && (Delta.X = v63->X) is object && (v64 = this.Controller) is object && (Delta.Y = v63->Y) is object && (Delta.Z = v63->Z) is object) &&
               v64.MoveTimer == -1.0f) )
         {
           v44 = 0.0f;
-          v129 = 0.0f;
+          remainingTime = 0.0f;
         }
         else
         {
           v44 = 0.0f;
         }
-        v59 = DestLocation.Z;
-        v62 = v128;
+        v59 = Delta.Y;
+        v62 = Delta.Z;
       }
       if ( this.Floor.Z < 0.98000002d )
       {
-        v65 = DestLocation.Y;
-        if ( (float)((float)((float)(this.Floor.Z * v62) + (float)(this.Floor.Y * v59)) + (float)(this.Floor.X * DestLocation.Y)) < 0.0f )
+        v65 = Delta.X;
+        if ( (float)((float)((float)(this.Floor.Z * v62) + (float)(this.Floor.Y * v59)) + (float)(this.Floor.X * Delta.X)) < 0.0f )
         {
           Hit.Time = 0.0f;
   LABEL_72:
-          // v66 = *(void (__thiscall **)(TdPawn , int *, float *, float *, CheckResult *))(this.VfTableObject.Dummy + 528);
-          v158 = (float)(sqrt(DestLocation.Y * DestLocation.Y + v128 * v128 + DestLocation.Z * DestLocation.Z));
-          v179.X = (float)(1.0f / v158) * v65;
-          v179.Y = v59 * (float)(1.0f / v158);
-          v179.Z = v62 * (float)(1.0f / v158);
-          v175.Y = (float)(1.0f - v44) * v65;
-          v175.Z = v59 * (float)(1.0f - v44);
-          v176 = v62 * (float)(1.0f - v44);
-          this.stepUp( *(Vector*)&a7, v179, new Vector(v175.Y, v175.Z, v176)/**(Vector*)&v175.Y*/, ref Hit);
+          //v66 = *(void (__stdcall **)(int *, float *, Vector *, CheckResult *))(this.VfTableObject.Dummy + 528);
+          v156 = (float)(sqrt(Delta.X * Delta.X + Delta.Z * Delta.Z + Delta.Y * Delta.Y));
+          v176.X = (float)(1.0f / v156) * v65;
+          v176.Y = v59 * (float)(1.0f / v156);
+          v176.Z = v62 * (float)(1.0f / v156);
+          v173.X = (float)(1.0f - v44) * v65;
+          v173.Y = v59 * (float)(1.0f - v44);
+          v173.Z = v62 * (float)(1.0f - v44);
+          this.stepUp(v153, v176, v173, ref Hit);
           if ( this.Physics == PHYS_Falling )
           {
-            v99 = this.Location.Y - v139;
-            v100 = v56.X - v138;
-            v101 = sqrt(v100 * v100 + v99 * v99) / v158;
-            v146 = (float)v101;
-            if ( v101 < 1.0f )
-              v102 = v146;
+            v98 = this.Location.Y - v137;
+            v99 = this.Location.X - v136;
+            v100 = sqrt(v99 * v99 + v98 * v98) / v156;
+            v144 = (float)v100;
+            if ( v100 < 1.0f )
+              v101 = v144;
             else
-              v102 = 1.0f;
-            v129 = (float)((float)(1.0f - v102) * v137) + v129;
+              v101 = 1.0f;
+            remainingTime = (float)((float)(1.0f - v101) * timeTick) + remainingTime;
             this.Falling();
             if ( this.Physics == PHYS_Flying )
             {
-              v136 = this.AirSpeed;
-              v103 = v136;
+              v134 = this.AirSpeed;
+              v102 = v134;
               this.Velocity.X = 0.0f;
-              v134 = 0.0f;
-              v135 = 0.0f;
-              v104 = this.AccelRate;
+              v132 = 0.0f;
+              v133 = 0.0f;
+              v103 = this.AccelRate;
               this.Velocity.Y = 0.0f;
-              v105 = v135;
-              this.Velocity.Z = v103;
-              v136 = v104;
+              v104 = v133;
+              this.Velocity.Z = v102;
+              v134 = v103;
               this.Acceleration.X = 0.0f;
-              this.Acceleration.Y = v105;
-              this.Acceleration.Z = v104;
+              this.Acceleration.Y = v104;
+              this.Acceleration.Z = v103;
             }
-            this.startNewPhysics( ((v129)), Iterations);// startNewPhysics
-            return;
+            goto LABEL_142;
           }
           if ( Hit.Time < 1.0f )
           {
             v61 = Hit.Actor;
-            v162 = Hit.Normal;
+            v161 = Hit.Normal;
           }
           goto LABEL_75;
         }
       }
-      GWorld.MoveActor(this, new Vector(DestLocation.Y, DestLocation.Z, v128)/*ref *(Vector *)&DestLocation.Y*/, this.Rotation, 0, ref Hit);
+      GWorld.MoveActor(this, Delta, this.Rotation, 0, ref Hit);
       v44 = Hit.Time;
       if ( Hit.Time < 1.0f )
       {
-        v62 = v128;
-        v59 = DestLocation.Z;
-        v65 = DestLocation.Y;
-        // v66 = *(void (__thiscall **)(TdPawn , int *, float *, float *, CheckResult *))(this.VfTableObject.Dummy + 528);
-        v158 = (float)(sqrt(DestLocation.Y * DestLocation.Y + v128 * v128 + DestLocation.Z * DestLocation.Z));
-        v179.X = (float)(1.0f / v158) * v65;
-        v179.Y = v59 * (float)(1.0f / v158);
-        v179.Z = v62 * (float)(1.0f / v158);
-        v175.Y = (float)(1.0f - v44) * v65;
-        v175.Z = v59 * (float)(1.0f - v44);
-        v176 = v62 * (float)(1.0f - v44);
-        this.stepUp( *(Vector*)&a7, v179, new Vector(v175.Y, v175.Z, v176), ref Hit);
+        v62 = Delta.Z;
+        v59 = Delta.Y;
+        v65 = Delta.X;
+        //v66 = *(void (__stdcall **)(int *, float *, Vector *, CheckResult *))(this.VfTableObject.Dummy + 528);
+        v156 = (float)(sqrt(Delta.X * Delta.X + Delta.Z * Delta.Z + Delta.Y * Delta.Y));
+        v176.X = (float)(1.0f / v156) * v65;
+        v176.Y = v59 * (float)(1.0f / v156);
+        v176.Z = v62 * (float)(1.0f / v156);
+        v173.X = (float)(1.0f - v44) * v65;
+        v173.Y = v59 * (float)(1.0f - v44);
+        v173.Z = v62 * (float)(1.0f - v44);
+        this.stepUp(v153, v176, v173, ref Hit);
         if ( this.Physics == PHYS_Falling )
         {
-          v99 = this.Location.Y - v139;
-          v100 = v56.X - v138;
-          v101 = sqrt(v100 * v100 + v99 * v99) / v158;
-          v146 = (float)v101;
-          if ( v101 < 1.0f )
-            v102 = v146;
+          v98 = this.Location.Y - v137;
+          v99 = this.Location.X - v136;
+          v100 = sqrt(v99 * v99 + v98 * v98) / v156;
+          v144 = (float)v100;
+          if ( v100 < 1.0f )
+            v101 = v144;
           else
-            v102 = 1.0f;
-          v129 = (float)((float)(1.0f - v102) * v137) + v129;
+            v101 = 1.0f;
+          remainingTime = (float)((float)(1.0f - v101) * timeTick) + remainingTime;
           this.Falling();
           if ( this.Physics == PHYS_Flying )
           {
-            v136 = this.AirSpeed;
-            v103 = v136;
+            v134 = this.AirSpeed;
+            v102 = v134;
             this.Velocity.X = 0.0f;
-            v134 = 0.0f;
-            v135 = 0.0f;
-            v104 = this.AccelRate;
+            v132 = 0.0f;
+            v133 = 0.0f;
+            v103 = this.AccelRate;
             this.Velocity.Y = 0.0f;
-            v105 = v135;
-            this.Velocity.Z = v103;
-            v136 = v104;
+            v104 = v133;
+            this.Velocity.Z = v102;
+            v134 = v103;
             this.Acceleration.X = 0.0f;
-            this.Acceleration.Y = v105;
-            this.Acceleration.Z = v104;
+            this.Acceleration.Y = v104;
+            this.Acceleration.Z = v103;
           }
-          this.startNewPhysics( ((v129)), Iterations);// startNewPhysics
-          return;
+          goto LABEL_142;
         }
         if ( Hit.Time < 1.0f )
         {
           v61 = Hit.Actor;
-          v162 = Hit.Normal;
+          v161 = Hit.Normal;
         }
         goto LABEL_75;
       }
   LABEL_75:
-      if( this.Physics == PHYS_Swimming )
-      {
-        this.startSwimming(v141, this.Velocity, v137, v129, Iterations);
-        return;
-      }
-
+      if ( this.Physics == PHYS_Swimming )
+        goto LABEL_143;
   LABEL_76:
       v67 = this.Base;
-      if( v67 && ( v67.bForceDemoRelevant.AsBitfield( 32 ) & 0x40000000 ) == default && v67 != GWorld.GetWorldInfo() )
-        this.bForceFloorCheck = true;//SetFromBitfield(ref this.bUpAndOut, 32, this.bUpAndOut.AsBitfield(32) | ((uint)&loc_1000000));// bForceFloorCheck = TRUE;
+      if ( v67 && (v67.bForceDemoRelevant.AsBitfield(32) & 0x40000000) == default && v67 != GWorld.GetWorldInfo() )
+        bForceFloorCheck = TRUE;
       if(v61 != default)
       {
-        v68 = v162.X;
-        v69 = v162.Y;
-        v70 = v162.Z;
+        v68 = v161.X;
+        v69 = v161.Y;
+        v70 = v161.Z;
         Hit.Actor = v61;
   LABEL_82:
         Hit.Time = 0.1f;
@@ -5903,10 +5871,10 @@ public partial class TdPawn
         Hit.Normal.Z = v70;
         goto LABEL_95;
       }
-      if ( v161 != default
-        && v67
+      if ( v160 != default
+        && v67 != default
         && (v67.bExludeHandMoves.AsBitfield(32) & 0x400) != 0
-        && this.RelativeLocation.X == (float)(v56.X - v67.Location.X)
+        && this.RelativeLocation.X == (float)(this.Location.X - v67.Location.X)
         && this.RelativeLocation.Y == (float)(this.Location.Y - v67.Location.Y)
         && this.RelativeLocation.Z == (float)(this.Location.Z - v67.Location.Z)
         && (HIBYTE(this.bUpAndOut.AsBitfield(32)) & 1) == default )
@@ -5926,12 +5894,12 @@ public partial class TdPawn
       SetFromBitfield(ref this.bUpAndOut, 32, this.bUpAndOut.AsBitfield(32) & (0xFEFFFFFF));
       if(v72 != default)
       {
-        *(float *)&v173 = v56.X + v72.Translation.X;
-        v174 = v72.Translation.Y + this.Location.Y;
-        v175.X = v72.Translation.Z + this.Location.Z;
-        v74 = v56.X + v72.Translation.X;
-        v75 = v72.Translation.Y + this.Location.Y;
-        v76 = v72.Translation.Z + this.Location.Z;
+        v172.X = this.Location.X + v72.Translation.X;
+        v172.Y = v72.Translation.Y + this.Location.Y;
+        v172.Z = v72.Translation.Z + this.Location.Z;
+        v74 = v172.X;
+        v75 = v172.Y;
+        v76 = v172.Z;
       }
       else
       {
@@ -5940,46 +5908,41 @@ public partial class TdPawn
         v76 = this.Location.Z;
       }
       a5.X = v74;
-      a4.X = v74 + v147;
+      a4.X = v74 + v145;
       a5.Y = v75;
-      a4.Y = v75 + v148;
+      a4.Y = v75 + v146;
       a5.Z = v76;
-      a4.Z = v76 + v149;
-      v77 = this.GetCylinderExtent((Vector *)a2);
-      GWorld.SingleLineCheck(ref Hit, this, a4, a5, 8415, *v77, 0);
+      a4.Z = v76 + v147;
+      GWorld.SingleLineCheck(ref Hit, this, a4, a5, 8415, *this.GetCylinderExtent(&a2), 0);
       v71 = (float)(this.MaxStepHeight + 2.0f) * Hit.Time;
       v78 = Hit.Normal.Y;
       v79 = Hit.Normal.Z;
       this.Floor.X = Hit.Normal.X;
       this.Floor.Y = v78;
       this.Floor.Z = v79;
-      v142 = v71;
+      v140 = v71;
       CheckForUncontrolledSlide(ref Hit);
       v80 = Hit.Normal.Z;
       if( this.WalkableFloorZ <= Hit.Normal.Z )
       {
         v44 = 0.0f;
-        goto LABEL_99b;
+        goto POST_LABEL_99;
       }
-  LABEL_95:
-      if ( fabs(DestLocation.Y) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(DestLocation.Z) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(v128) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
+
+      LABEL_95:
+      if ( fabs(Delta.X) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(Delta.Y) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ || fabs(Delta.Z) >= 0.000099999997f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
       {
         v44 = 0.0f;
-        if ( (float)((float)((float)(Hit.Normal.X * DestLocation.Y) + (float)(Hit.Normal.Y * DestLocation.Z)) + (float)(v128 * Hit.Normal.Z)) < 0.0f )
+        if ( (float)((float)((float)(Hit.Normal.X * Delta.X) + (float)(Hit.Normal.Y * Delta.Y)) + (float)(Delta.Z * Hit.Normal.Z)) < 0.0f )
         {
           v83 = (float)((float)(Hit.Normal.Y + Hit.Normal.X) * 0.0f) + (float)(this.MaxStepHeight * Hit.Normal.Z);
           v84 = this.MaxStepHeight - (float)(v83 * Hit.Normal.Z);
-          v178.X = (float)(-0.0f - (float)(v83 * Hit.Normal.X)) * -1.0f;
-          v178.Y = (float)(-0.0f - (float)(Hit.Normal.Y * v83)) * -1.0f;
-          v178.Z = v84 * -1.0f;
-          GWorld.MoveActor(this, ref v178, ref this.Rotation, 0, ref Hit);
+          v175.X = (float)(-0.0f - (float)(v83 * Hit.Normal.X)) * -1.0f;
+          v175.Y = (float)(-0.0f - (float)(Hit.Normal.Y * v83)) * -1.0f;
+          v175.Z = v84 * -1.0f;
+          GWorld.MoveActor(this, v175, this.Rotation, 0, ref Hit);
           if ( Hit.Actor != this.Base && this.Physics == PHYS_Walking )
-            this.SetBase(
-              Hit.Actor,
-              Hit.Normal,
-              1,
-              null,
-              default);
+            this.SetBase(Hit.Actor, Hit.Normal, 1, default, default);// SetBase
           v85 = Hit.Normal.Y;
           v86 = Hit.Normal.Z;
           v44 = 0.0f;
@@ -5994,18 +5957,18 @@ public partial class TdPawn
   LABEL_99:
         v44 = 0.0f;
       }
-      LABEL_99b:
-      if ( Hit.Time >= 1.0f || ((v81 = Hit.Actor) is object && Hit.Actor == this.Base) && v142 <= 2.4000001d )
+      POST_LABEL_99:
+      if ( Hit.Time >= 1.0f || ((v81 = Hit.Actor) is object && Hit.Actor == this.Base) && v140 <= 2.4000001d )
       {
-        if ( v142 >= 1.9f )
+        if ( v140 >= 1.9f )
           goto LABEL_123;
         v93 = Hit.Normal.X;
         v94 = Hit.Normal.Y;
         v95 = Hit.Normal.Z;
-        v163.X = 0.0f;
-        v163.Y = 0.0f;
-        v163.Z = (float)(2.1500001d - v142);
-        GWorld.MoveActor(this, ref v163, ref this.Rotation, 0, ref Hit);
+        v162.X = 0.0f;
+        v162.Y = 0.0f;
+        v162.Z = (float)(2.1500001d - v140);
+        GWorld.MoveActor(this, v162, this.Rotation, 0, ref Hit);
         v44 = 0.0f;
         Hit.Time = 0.0f;
         Hit.Normal.X = v93;
@@ -6014,54 +5977,52 @@ public partial class TdPawn
       }
       else
       {
-        if ( (float)(v142 - 2.1500001d) > 0.0f )
-          v82 = (float)(v142 - 2.1500001d);
+        if ( (float)(v140 - 2.1500001d) > 0.0f )
+          v82 = (float)(v140 - 2.1500001d);
         else
           v82 = 0.0f;
         v87 = Hit.Normal.X;
         v88 = Hit.Normal.Y;
-        v89 = (float)((float)(v147 * v147) + (float)(v149 * v149)) + (float)(v148 * v148);
-        v181 = Hit.Normal.Z;
-        v182 = v89;
+        v89 = (float)((float)(v145 * v145) + (float)(v147 * v147)) + (float)(v146 * v146);
+        v178 = Hit.Normal.Z;
+        v179 = v89;
         if ( v89 == 1.0f )
         {
-          v167 = v147;
-          v90 = v147;
-          v168 = v148;
-          v91 = v148;
-          v169 = v149;
-          v44 = v149;
+          v166 = v145;
+          v90 = v145;
+          v167 = v146;
+          v91 = v146;
+          v168 = v147;
+          v44 = v147;
         }
-        else if ( v89 >= SMALL_NUMBER )
+        else if ( v89 >= 0.0000000099999999f/*Doesn't fit in float nor double, dec might not follow IEEE conventions*/ )
         {
-          v183 = 1077936128;
-          v146 = 0.5f;
-          v92 = fsqrt(v182);
-          v165 = (float)(3.0f - (float)((float)((float)(1.0f / v92) * v182) * (float)(1.0f / v92))) * (float)((float)(1.0f / v92) * 0.5f);
-          v90 = v165 * v147;
-          v91 = v148 * v165;
-          v44 = v149 * v165;
+          v180 = 1077936128;
+          v144 = 0.5f;
+          v92 = fsqrt(v179);
+          v164 = (float)(3.0f - (float)((float)((float)(1.0f / v92) * v179) * (float)(1.0f / v92))) * (float)((float)(1.0f / v92) * 0.5f);
+          v90 = v164 * v145;
+          v91 = v146 * v164;
+          v44 = v147 * v164;
         }
         else
         {
           v90 = 0.0f;
           v91 = 0.0f;
         }
-        GWorld.MoveActor(this, new Vector( v90 * v82, v91 * v82, v44 * v82 ), this.Rotation, 0, ref Hit);
+        v165.X = v90 * v82;
+        v165.Y = v91 * v82;
+        v165.Z = v44 * v82;
+        GWorld.MoveActor(this, v165, this.Rotation, 0, ref Hit);
         v44 = 0.0f;
         Hit.Actor = v81;
         Hit.Time = 0.0f;
         Hit.Normal.X = v87;
         Hit.Normal.Y = v88;
-        Hit.Normal.Z = v181;
+        Hit.Normal.Z = v178;
         if ( v81 && v81 != this.Base && this.Physics == PHYS_Walking )
         {
-          this.SetBase(
-            Hit.Actor,
-            Hit.Normal,
-            1,
-            default,
-            default);                                   // SetBase
+          this.SetBase(Hit.Actor, Hit.Normal, 1, default, default);// SetBase
           v44 = 0.0f;
         }
       }
@@ -6069,200 +6030,192 @@ public partial class TdPawn
       v80 = Hit.Normal.Z;
   LABEL_123:
       if ( this.Physics == PHYS_Swimming )
-      {
-        this.startSwimming(v141, this.Velocity, v137, v129, Iterations);
-        return;
-      }
-
-      if( v130 != default )
-      {
-        v107 = v132b;
-        goto LABEL_155b;
-      }
-
+        goto LABEL_143;
+      if(v128 != default)
+        goto LABEL_155;
       if ( Hit.Time >= 1.0f || v80 < this.WalkableFloorZ )
         break;
       if ( v80 < 0.99000001d && (float)(this.PhysicsVolume.GroundFriction * v80) < 3.3f )
       {
         if ( this.PhysicsVolume.GroundFriction > 0.5f )
-          v160.Z = this.PhysicsVolume.GroundFriction;
+          v159 = this.PhysicsVolume.GroundFriction;
         else
-          v160.Z = 0.5f;
-        v96 = this.GetGravityZ();// GetGravityZ
+          v159 = 0.5f;
         v44 = 0.0f;
-        v180 = (float)(v96 * DeltaTime / (v160.Z + v160.Z) * DeltaTime);
-        v97 = (float)((float)(Hit.Normal.Y + Hit.Normal.X) * 0.0f) + (float)(v180 * Hit.Normal.Z);
-        v135 = -0.0f - (float)(Hit.Normal.Y * v97);
-        v98 = v97 * Hit.Normal.Z;
-        v136 = v180 - v98;
-        v134 = -0.0f - (float)((float)((float)((float)(Hit.Normal.Y + Hit.Normal.X) * 0.0f) + (float)(v180 * Hit.Normal.Z)) * Hit.Normal.X);
-        DestLocation.Y = v134;
-        DestLocation.Z = v135;
-        v128 = v180 - v98;
-        if ( (float)((float)((float)(v135 + v134) * 0.0f) + (float)((float)(v180 - v98) * v180)) >= 0.0f )
+        v177 = this.GetGravityZ() * DeltaTime / (v159 + v159) * DeltaTime;// GetGravityZ
+        v96 = (float)((float)(Hit.Normal.Y + Hit.Normal.X) * 0.0f) + (float)(v177 * Hit.Normal.Z);
+        v133 = -0.0f - (float)(Hit.Normal.Y * v96);
+        v97 = v96 * Hit.Normal.Z;
+        v134 = v177 - v97;
+        v132 = -0.0f - (float)((float)((float)((float)(Hit.Normal.Y + Hit.Normal.X) * 0.0f) + (float)(v177 * Hit.Normal.Z)) * Hit.Normal.X);
+        Delta.X = v132;
+        Delta.Y = v133;
+        Delta.Z = v177 - v97;
+        if ( (float)((float)((float)(v133 + v132) * 0.0f) + (float)((float)(v177 - v97) * v177)) >= 0.0f )
         {
-          GWorld.MoveActor(this, /*ref *(Vector *)&DestLocation.Y*/new Vector(DestLocation.Y, DestLocation.Z, v128), this.Rotation, 0, ref Hit);
+          GWorld.MoveActor(this, Delta, this.Rotation, 0, ref Hit);
           v44 = 0.0f;
         }
         if ( this.Physics == PHYS_Swimming )
         {
-  LABEL_143:
-          this.startSwimming(v141, this.Velocity, v137, v129, Iterations);
-          return;
+          goto LABEL_143;
         }
       }
-      v51 = v129;
-      if ( v129 <= 0.0f )
+      v51 = remainingTime;
+      if ( remainingTime <= 0.0f )
         goto LABEL_188;
-      v42 = v172;
+      v42 = v171;
     }
-
-    if( ( this.bUpAndOut.AsBitfield( 32 ) & 0x200 ) == default )
+    if ( (this.bUpAndOut.AsBitfield(32) & 0x200) == default )
+      goto LABEL_151;
+    if ( !(v129 != default) && this.Controller )
     {
-      v107 = v132b;
-      if ( !v132b || (v132b.bForceDemoRelevant.AsBitfield(32) & 0x40000000) == default && v107 != GWorld.GetWorldInfo() )
-        v130 = 1;
-      goto LABEL_155b;
-    }
-    if ( bCheckedFall == default && this.Controller )
-    {
-      v106 = this.Controller;
-      NativeMarkers.MarkUnimplemented("This wouldn't occur in retail, bCheckedFall is tested and would have the wrong value");
-      /*if ( v106.IsProbing(333, 0) )
+      v105 = this.Controller;
+      if ( v105.IsProbing(333, 0) )
       {
-        bCheckedFall = 1;
-        v106.MayFall();
-      }*/
-
-      if( v130 != default )
-      {
-        v107 = v132b;
-        goto LABEL_155b;
+        v129 = 1;
+        v105.MayFall();
       }
+      if(v128 != default)
+        goto LABEL_155;
     }
     if ( (this.bUpAndOut.AsBitfield(32) & 0x200) != default )
     {
-  LABEL_155:
-      v107 = v132b;
+      goto LABEL_155;
     }
     else
     {
-  LABEL_151:
-      v107 = v132b;
-      if ( !v132b || (v132b.bForceDemoRelevant.AsBitfield(32) & 0x40000000) == default && v107 != GWorld.GetWorldInfo() )
-        v130 = 1;
+      goto LABEL_151;
     }
-    LABEL_155b:
-    if ( bCheckedFall != default || (this.bCollideComplex.AsBitfield(20) & 0x100) != default || v130 != default || ((v108 = this.bUpAndOut.AsBitfield(32)) is object && (v108 & 0x200) != 0) && ((v108 & 0x80000) != default || (v108 & 0xA) == 0) )
+  POST_LABEL_155:
+    if ( v129 != default || (this.bCollideComplex.AsBitfield(20) & 0x100) != default || v128 != default || ((v107 = this.bUpAndOut.AsBitfield(32)) is object && (v107 & 0x200) != 0) && ((v107 & 0x80000) != default || (v107 & 0xA) == 0) )
     {
-      v163.X = this.Location.X - v138;
-      v163.Y = this.Location.Y - v139;
-      v111 = sqrt(DestLocation.Y * DestLocation.Y + v128 * v128 + DestLocation.Z * DestLocation.Z);
-      if ( v111 == 0.0f )
+      v162.X = this.Location.X - v136;
+      v162.Y = this.Location.Y - v137;
+      v110 = sqrt(Delta.X * Delta.X + Delta.Z * Delta.Z + Delta.Y * Delta.Y);
+      if ( v110 == 0.0f )
       {
-        v129 = 0.0f;
+        remainingTime = 0.0f;
       }
       else
       {
-        v112 = sqrt(v163.Y * v163.Y + v163.X * v163.X) / v111;
-        v146 = (float)v112;
-        if ( v112 < 1.0f )
-          v113 = v146;
+        v111 = sqrt(v162.Y * v162.Y + v162.X * v162.X) / v110;
+        v144 = (float)v111;
+        if ( v111 < 1.0f )
+          v112 = v144;
         else
-          v113 = 1.0f;
-        v129 = (float)((float)(1.0f - v113) * v137) + v129;
+          v112 = 1.0f;
+        remainingTime = (float)((float)(1.0f - v112) * timeTick) + remainingTime;
       }
       this.Velocity.Z = 0.0f;
       this.Falling();
       if ( this.Physics != PHYS_Walking )
         goto LABEL_142;
-      v114 = E_TryCastTo<TdBotPawn>(this);
-      if(false/*GIsEditor != default*/)
+      v113 = E_TryCastTo<TdBotPawn>(this);
+      if(GIsEditor != default)
       {
         if ( !GWorld.HasBegunPlay() )
           goto LABEL_142;
         if ( GWorld.GetTimeSeconds() < 1.0f )
           goto LABEL_142;
-        // v116 = *(void (__thiscall **)(TdPawn , int, _DWORD, _DWORD, _DWORD, int))(this.VfTableObject.Dummy + 480);
-        v143 = 0.0f;
-        v144 = 0.0f;
-        v145 = 1065353216;
-        this.setPhysics( 2, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));
-        if(v114 != default)
+        v141 = 0.0f;
+        v142 = 0.0f;
+        v143 = 1.0f;
+        this.setPhysics( 2, null, new Vector(0, 0, 1f));
+        if(v113 != default)
         {
-          if ( v142 <= 36.0f )
+          if ( v140 <= 36.0f )
             goto LABEL_142;
         }
-        v160.X = 0.0f;
+        a2.Z = 0.0f;
       }
       else
       {
-        // v115 = *(void (__thiscall **)(TdPawn , int, _DWORD, _DWORD, _DWORD, int))(this.VfTableObject.Dummy + 480);
-        v143 = 0.0f;
-        v144 = 0.0f;
-        v145 = 1065353216;
-        this.setPhysics( 2, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));
-        if ( v114 && (v142 <= 36.0f && this.WalkableFloorZ <= Hit.Normal.Z || this.IsInMove((EMovement)77)) )// IsInMove
+        v141 = 0.0f;
+        v142 = 0.0f;
+        v143 = 1.0f;
+        this.setPhysics( 2, null, new Vector(0, 0, 1f));
+        if ( v113 && (v140 <= 36.0f && this.WalkableFloorZ <= Hit.Normal.Z || this.IsInMove((EMovement)77)) )// IsInMove
           goto LABEL_142;
-        v160.X.LODWORD(1);
+        a2.Z.LODWORD(1);
       }
-      v117 = this.VfTableObject.Dummy;
-      v160.Y = 0.0f;
-      a2[0].LOBYTE(2);
-      a2[1] = default;
-      this.SetMove((EMovement)2);//CallUFunction(, this, v118, a2, 0);
-  LABEL_142:
-      this.startNewPhysics( ((v129)), Iterations);// startNewPhysics
-      return;
+      v116 = this.VfTableObject.Dummy;
+      v158 = default;
+      a2.X.LOBYTE(2);
+      a2.Y = 0.0f;
+      this.SetMove( (EMovement)2 );
+      goto LABEL_142;
     }
     this.Velocity.X = 0.0f;
-    v134 = 0.0f;
+    v132 = 0.0f;
     this.Acceleration.X = 0.0f;
     this.Velocity.Y = 0.0f;
     this.Velocity.Z = 0.0f;
-    v135 = 0.0f;
-    v136 = 0.0f;
+    v133 = 0.0f;
+    v134 = 0.0f;
     this.Acceleration.Y = 0.0f;
     this.Acceleration.Z = 0.0f;
-    GWorld.FarMoveActor(this, v141, default, default, default);
-    if(v107 != default)
+    GWorld.FarMoveActor(this, DestLocation, false, false, false);
+    if(v106 != default)
     {
-      v109 = v107.bExludeHandMoves.AsBitfield(32);
-      if ( (v109 & 8) != default || (v109 & 0x400) != default || (v107.bForceDemoRelevant.AsBitfield(32) & 0x100000) == default )
-        this.SetBase( v107, new Vector(v143, v144, v145), 1, default, default);// SetBase
+      v108 = v106.bExludeHandMoves.AsBitfield(32);
+      if ( (v108 & 8) != default || (v108 & 0x400) != default || (v106.bForceDemoRelevant.AsBitfield(32) & 0x100000) == default )
+        this.SetBase(v106, new Vector(v141, v142, v143), 1, null, default);// SetBase
     }
-    v110 = this.Controller;
-    if(v110 != default)
-      v110.MoveTimer = -1.0f;
+    v109 = this.Controller;
+    if(v109 != default)
+      v109.MoveTimer = -1.0f;
     return;
     
     LABEL_188:
     if ( this.Physics == PHYS_Walking )
     {
-      v119 = this.Location.Z;
-      v158 = this.Location.Z;
-      v120 = fabs(v119 - v133);
-      v146 = (float)v120;
-      if ( v120 > 4.0f && this.MaxStepHeight >= v146 )
-        this.OffsetMeshZ( v133 - v158);// OffsetMeshZ
+      v118 = this.Location.Z;
+      v156 = this.Location.Z;
+      v119 = fabs(v118 - v131);
+      v144 = (float)v119;
+      if ( v119 > 4.0f && this.MaxStepHeight >= v144 )
+        this.OffsetMeshZ(v131 - v156);// OffsetMeshZ
       if ( (this.bCollideComplex.AsBitfield(20) & 0x100) == default )
       {
-        v121 = this.Location.Y;
-        v122 = this.Location.Z;
-        v143 = (float)(1.0f / DeltaTime) * (float)(this.Location.X - v141.X);
-        v123 = (float)(v121 - v141.Y) * (float)(1.0f / DeltaTime);
-        v144 = v123;
-        v124 = (float)(v122 - v141.Z) * (float)(1.0f / DeltaTime);
-        v145 = LODWORD(v124);
-        this.Velocity.X = v143;
-        this.Velocity.Y = v123;
-        this.Velocity.Z = v124;
+        v120 = this.Location.Y;
+        v121 = this.Location.Z;
+        v141 = (float)(1.0f / DeltaTime) * (float)(this.Location.X - DestLocation.X);
+        v122 = (float)(v120 - DestLocation.Y) * (float)(1.0f / DeltaTime);
+        v142 = v122;
+        v123 = (float)(v121 - DestLocation.Z) * (float)(1.0f / DeltaTime);
+        v143 = v123;
+        this.Velocity.X = v141;
+        this.Velocity.Y = v122;
+        this.Velocity.Z = v123;
       }
       this.Velocity.Z = 0.0f;
     }
-    v125 = this.Controller;
-    if(v125 != default)
-      v125.PostPhysWalking((DeltaTime));// PostPhysWalking
+    v124 = this.Controller;
+    if(v124 != default)
+      v124.PostPhysWalking(DeltaTime);// PostPhysWalking
+    return;
+    
+    
+    LABEL_155:
+    v106 = v130_Actor;
+    goto POST_LABEL_155;
+    
+    
+    LABEL_151:
+    v106 = v130_Actor;
+    if ( !v130_Actor || (v130_Actor.bForceDemoRelevant.AsBitfield(32) & 0x40000000) == default && v106 != GWorld.GetWorldInfo() )
+      v128 = 1;
+    goto POST_LABEL_155;
+    
+    
+    LABEL_143:
+    this.startSwimming(DestLocation, this.Velocity, timeTick, remainingTime, Iterations);
+    return;
+    
+    
+    LABEL_142:
+    this.startNewPhysics(remainingTime, Iterations);// startNewPhysics
     return;
   }
 

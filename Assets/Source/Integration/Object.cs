@@ -34,7 +34,23 @@
 		public static void check(bool b) => UnityEngine.Debug.Assert(b);
 		public static void checkf( bool b, params object[] os ) => UnityEngine.Debug.Assert(b);
 		public static void checkSlow(bool b) => UnityEngine.Debug.Assert(b);
-		public static void debugf( string str, params object[] p ) => UnityEngine.Debug.Log( str );
+
+
+
+		public static void debugf( string str, params object[] p )
+		{
+			int objIdx = 0;
+			int ix;
+			while( ( ix = str.IndexOf( "%s" ) ) != - 1 )
+			{
+				str = str.Remove( ix, 2 ).Insert(ix, p[objIdx++].ToString());
+			}
+
+			UnityEngine.Debug.Log( str );
+		}
+
+
+
 		public static string TEXT( string s ) => s;
 		
 		public static implicit operator bool(Object o) => o != null;
