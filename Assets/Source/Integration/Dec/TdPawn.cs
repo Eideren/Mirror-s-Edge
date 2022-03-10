@@ -5604,12 +5604,11 @@ public partial class TdPawn
 
     LABEL_38:
     ref var v27 = ref this.Acceleration;
-    var accelCopy = v27;
     this.Velocity.Z = 0.0f;
     this.Acceleration.Z = 0.0f;
     if ( this.Acceleration.X == 0.0f && this.Acceleration.Y == 0.0f && this.Acceleration.Z == 0.0f )
     {
-      v28 = accelCopy;
+      v28 = default;
     }
     else
     {

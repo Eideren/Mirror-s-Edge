@@ -44,7 +44,7 @@
 	        _instance.LevelStartup();
 	        var player = _classImp<LocalPlayer>.Singleton.New( _instance._engine );
 	        Core.String error = default;
-	        _instance.SpawnPlayActor( player, Actor.ENetRole.ROLE_Authority, ref error, 1 );
+	        _instance.SpawnPlayActor( player, Actor.ENetRole.ROLE_Authority, ref error, 0 );
         }
 
 
