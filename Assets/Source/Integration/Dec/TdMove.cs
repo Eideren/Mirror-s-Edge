@@ -873,7 +873,7 @@ public partial class TdMove
     int v84 = default; // ecx
     int v85 = default; // eax
     int v86 = default; // edi
-    uint v87 = default; // eax
+    int v87 = default; // eax
     Controller v88 = default; // ebx
     int v89 = default; // ecx
     Controller v90 = default; // edx
@@ -1269,7 +1269,7 @@ public partial class TdMove
     {
       v82 = this.PawnOwner;
       v83 = this.PreciseRotationInterpolationTime;
-      vec_then_rotator = (Vector)v82.Rotation;
+      *(Rotator*)&vec_then_rotator = v82.Rotation;
       if ( v83 <= DeltaTime )
       {
         v89 = this.PreciseRotation.Yaw;
@@ -1290,7 +1290,7 @@ public partial class TdMove
           v85 = v85 - (0x10000);
         v86 = (int)(float)((float)v85 * (float)(DeltaTime / v83));
         v87 = (ushort)(v84 + v86);
-        if ( v87 > 0x7FFF )
+        if ( (uint)v87 > 0x7FFF )
           v87 = v87 - (0x10000);
         vec_then_rotator.Y.LODWORD(v87);
         if ( (v81 & 0x1000) == default )
@@ -1323,7 +1323,7 @@ public partial class TdMove
       Delta.X = 0.0f;
       Delta.Y = 0.0f;
       Delta.Z = 0.0f;
-      GWorld.MoveActor(v91, ref Delta, ref *(Rotator *)&vec_then_rotator, 0, ref Hit);
+      GWorld.MoveActor(v91, Delta, *(Rotator *)&vec_then_rotator, 0, ref Hit);
       this.PawnOwner.DesiredRotation.Yaw = this.PawnOwner.Rotation.Yaw;
     }
     v92 = this.bDebugMove.AsBitfield(29);

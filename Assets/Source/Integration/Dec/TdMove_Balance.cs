@@ -92,7 +92,7 @@ public partial class TdMove_Balance
         Delta.Y = (float)(v12 * 10.0f) * v15;
         Delta.Z = (float)(v13 * 10.0f) * v15;
         v14 = E_DirToRotator(v16, &out_a);
-        GWorld.MoveActor(this.PawnOwner, ref Delta, ref *v14, 0, ref Hit);
+        GWorld.MoveActor(this.PawnOwner, Delta, *v14, 0, ref Hit);
       }
     }
   }
@@ -171,7 +171,7 @@ public partial class TdMove_Balance
         v25 = (float)(v12 * v9) + 1.0f;
         a2.Y.LODWORD(v13);
         a2.Z.LODWORD(v14);
-        v15 = (float)(int)E_ClipAmountOfTurns((Rotator *)&a2, &a5)->Yaw * 0.00012207031f;
+        v15 = (float)(int)E_ClipAmountOfTurns(*(Rotator *)&a2, &a5)->Yaw * 0.00012207031f;
         if ( v15 < -1.0f )
         {
           v16 = -1.0f;

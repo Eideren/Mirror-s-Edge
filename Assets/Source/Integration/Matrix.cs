@@ -198,9 +198,8 @@
             
             public static Matrix operator*(in Matrix thiss, in Matrix Other)
             {
-                var m2 = thiss;
-                var m3 = Other;
-                return new Matrix().Mult(&m2, &m3);
+	            Matrix output;
+                return *thiss.Mult_(&output, Other);
                 /*FMatrix Result;
                 VectorMatrixMultiply( &Result, thiss, &Other );
                 return Result;*/
@@ -225,10 +224,86 @@
             // Inverse.
             public readonly Matrix Inverse()
             {
-                Matrix Result = default;
-                Matrix thiss = this;
-                VectorMatrixInverse( &Result, &thiss );
-                return Result;
+	            //typedef FLOAT Float4x4[4][4];
+				Matrix M = this;
+				float* Det = stackalloc float[4];
+				Matrix Result = default;
+				Matrix Tmp = default;
+
+				Tmp[0,0]	= M[2,2] * M[3,3] - M[2,3] * M[3,2];
+				Tmp[0,1]	= M[1,2] * M[3,3] - M[1,3] * M[3,2];
+				Tmp[0,2]	= M[1,2] * M[2,3] - M[1,3] * M[2,2];
+
+				Tmp[1,0]	= M[2,2] * M[3,3] - M[2,3] * M[3,2];
+				Tmp[1,1]	= M[0,2] * M[3,3] - M[0,3] * M[3,2];
+				Tmp[1,2]	= M[0,2] * M[2,3] - M[0,3] * M[2,2];
+
+				Tmp[2,0]	= M[1,2] * M[3,3] - M[1,3] * M[3,2];
+				Tmp[2,1]	= M[0,2] * M[3,3] - M[0,3] * M[3,2];
+				Tmp[2,2]	= M[0,2] * M[1,3] - M[0,3] * M[1,2];
+
+				Tmp[3,0]	= M[1,2] * M[2,3] - M[1,3] * M[2,2];
+				Tmp[3,1]	= M[0,2] * M[2,3] - M[0,3] * M[2,2];
+				Tmp[3,2]	= M[0,2] * M[1,3] - M[0,3] * M[1,2];
+
+				Det[0]		= M[1,1]*Tmp[0,0] - M[2,1]*Tmp[0,1] + M[3,1]*Tmp[0,2];
+				Det[1]		= M[0,1]*Tmp[1,0] - M[2,1]*Tmp[1,1] + M[3,1]*Tmp[1,2];
+				Det[2]		= M[0,1]*Tmp[2,0] - M[1,1]*Tmp[2,1] + M[3,1]*Tmp[2,2];
+				Det[3]		= M[0,1]*Tmp[3,0] - M[1,1]*Tmp[3,1] + M[2,1]*Tmp[3,2];
+
+				float Determinant = M[0,0]*Det[0] - M[1,0]*Det[1] + M[2,0]*Det[2] - M[3,0]*Det[3];
+				float	RDet = 1.0f / Determinant;
+
+				Result[0,0] =  RDet * Det[0];
+				Result[0,1] = -RDet * Det[1];
+				Result[0,2] =  RDet * Det[2];
+				Result[0,3] = -RDet * Det[3];
+				Result[1,0] = -RDet * (M[1,0]*Tmp[0,0] - M[2,0]*Tmp[0,1] + M[3,0]*Tmp[0,2]);
+				Result[1,1] =  RDet * (M[0,0]*Tmp[1,0] - M[2,0]*Tmp[1,1] + M[3,0]*Tmp[1,2]);
+				Result[1,2] = -RDet * (M[0,0]*Tmp[2,0] - M[1,0]*Tmp[2,1] + M[3,0]*Tmp[2,2]);
+				Result[1,3] =  RDet * (M[0,0]*Tmp[3,0] - M[1,0]*Tmp[3,1] + M[2,0]*Tmp[3,2]);
+				Result[2,0] =  RDet * (
+								M[1,0] * (M[2,1] * M[3,3] - M[2,3] * M[3,1]) -
+								M[2,0] * (M[1,1] * M[3,3] - M[1,3] * M[3,1]) +
+								M[3,0] * (M[1,1] * M[2,3] - M[1,3] * M[2,1])
+							);
+				Result[2,1] = -RDet * (
+								M[0,0] * (M[2,1] * M[3,3] - M[2,3] * M[3,1]) -
+								M[2,0] * (M[0,1] * M[3,3] - M[0,3] * M[3,1]) +
+								M[3,0] * (M[0,1] * M[2,3] - M[0,3] * M[2,1])
+							);
+				Result[2,2] =  RDet * (
+								M[0,0] * (M[1,1] * M[3,3] - M[1,3] * M[3,1]) -
+								M[1,0] * (M[0,1] * M[3,3] - M[0,3] * M[3,1]) +
+								M[3,0] * (M[0,1] * M[1,3] - M[0,3] * M[1,1])
+							);
+				Result[2,3] = -RDet * (
+								M[0,0] * (M[1,1] * M[2,3] - M[1,3] * M[2,1]) -
+								M[1,0] * (M[0,1] * M[2,3] - M[0,3] * M[2,1]) +
+								M[2,0] * (M[0,1] * M[1,3] - M[0,3] * M[1,1])
+							);
+				Result[3,0] = -RDet * (
+								M[1,0] * (M[2,1] * M[3,2] - M[2,2] * M[3,1]) -
+								M[2,0] * (M[1,1] * M[3,2] - M[1,2] * M[3,1]) +
+								M[3,0] * (M[1,1] * M[2,2] - M[1,2] * M[2,1])
+							);
+				Result[3,1] =  RDet * (
+								M[0,0] * (M[2,1] * M[3,2] - M[2,2] * M[3,1]) -
+								M[2,0] * (M[0,1] * M[3,2] - M[0,2] * M[3,1]) +
+								M[3,0] * (M[0,1] * M[2,2] - M[0,2] * M[2,1])
+							);
+				Result[3,2] = -RDet * (
+								M[0,0] * (M[1,1] * M[3,2] - M[1,2] * M[3,1]) -
+								M[1,0] * (M[0,1] * M[3,2] - M[0,2] * M[3,1]) +
+								M[3,0] * (M[0,1] * M[1,2] - M[0,2] * M[1,1])
+							);
+				Result[3,3] =  RDet * (
+							M[0,0] * (M[1,1] * M[2,2] - M[1,2] * M[2,1]) -
+							M[1,0] * (M[0,1] * M[2,2] - M[0,2] * M[2,1]) +
+							M[2,0] * (M[0,1] * M[1,2] - M[0,2] * M[1,1])
+						);
+
+				return Result;
             }
             public readonly float RotDeterminant()
             {

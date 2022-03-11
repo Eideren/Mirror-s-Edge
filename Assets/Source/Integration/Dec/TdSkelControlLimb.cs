@@ -29,7 +29,8 @@ public partial class TdSkelControlLimb
     Matrix SrcMatrix = default; // [esp+50h] [ebp-40h] BYREF
   
     DstMatrix = a4.CalcComponentToFrameMatrix(BoneIndex, this.EffectorLocationSpace, this.EffectorSpaceBoneName);
-    v6 = VectorMatrixInverse(&DstMatrix, &SrcMatrix);
+    SrcMatrix = DstMatrix.Inverse();
+    v6 = &SrcMatrix;
     v7 = location.Y;
     v8 = location.Z;
     v9 = (float)((float)((float)(v6->YPlane.X * v7) + (float)(v6->ZPlane.X * v8)) + (float)(v6->XPlane.X * location.X)) + v6->WPlane.X;

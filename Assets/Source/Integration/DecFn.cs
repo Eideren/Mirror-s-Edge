@@ -547,13 +547,12 @@
 
 
 
-		public static Matrix Mult( this Matrix Result, Matrix* mA, Matrix* mB )
+		public static Matrix* Mult_( this Matrix A, Matrix* output, in Matrix B )
 		{
 			//typedef FLOAT Float4x4[4][4];
 			//const Float4x4& A = *((const Float4x4*) Matrix1);
 			//const Float4x4& B = *((const Float4x4*) Matrix2);
-			ref var A = ref * mA;
-			ref var B = ref * mB;
+			ref var Result = ref * output;
 			Result[0, 0] = A[0, 0] * B[0, 0] + A[0, 1] * B[1, 0] + A[0, 2] * B[2, 0] + A[0, 3] * B[3, 0];
 			Result[0, 1] = A[0, 0] * B[0, 1] + A[0, 1] * B[1, 1] + A[0, 2] * B[2, 1] + A[0, 3] * B[3, 1];
 			Result[0, 2] = A[0, 0] * B[0, 2] + A[0, 1] * B[1, 2] + A[0, 2] * B[2, 2] + A[0, 3] * B[3, 2];
@@ -573,7 +572,7 @@
 			Result[3, 1] = A[3, 0] * B[0, 1] + A[3, 1] * B[1, 1] + A[3, 2] * B[2, 1] + A[3, 3] * B[3, 1];
 			Result[3, 2] = A[3, 0] * B[0, 2] + A[3, 1] * B[1, 2] + A[3, 2] * B[2, 2] + A[3, 3] * B[3, 2];
 			Result[3, 3] = A[3, 0] * B[0, 3] + A[3, 1] * B[1, 3] + A[3, 2] * B[2, 3] + A[3, 3] * B[3, 3];
-			return Result;
+			return output;
 			//memcpy( Result, &Temp, 16*sizeof(FLOAT) );
 		}
 		
@@ -856,7 +855,7 @@
 			return out_a;
 		}
 		
-		public static _E_struct_FRotator * E_ClipAmountOfTurns(_E_struct_FRotator *thiss, _E_struct_FRotator *a5)
+		public static _E_struct_FRotator * E_ClipAmountOfTurns(in _E_struct_FRotator thiss, _E_struct_FRotator *a5)
 		{
 			_E_struct_FRotator *result; // eax
 			int v3; // edx
@@ -866,9 +865,9 @@
 			int v7; // ecx
 
 			result = a5;
-			a5->Pitch = thiss->Pitch;
-			v3 = thiss->Yaw;
-			v4 = thiss->Roll;
+			a5->Pitch = thiss.Pitch;
+			v3 = thiss.Yaw;
+			v4 = thiss.Roll;
 			a5->Yaw = v3;
 			a5->Roll = v4;
 			v5 = (System.UInt16)a5->Pitch;
@@ -1168,10 +1167,6 @@
 
 
 		
-		public static unsafe bool MoveActor( this IUWorld w, Actor Actor, ref Object.Vector Delta, ref Object.Rotator NewRotation, uint MoveFlags, ref Source.DecFn.CheckResult Hit )
-		{
-			return w.MoveActor( Actor, Delta, NewRotation, MoveFlags, ref Hit );
-		}
 		
 		public static Matrix FScaleRotationTranslationMatrix(in FVector Scale, in FRotator Rot, in FVector Origin)
 		{

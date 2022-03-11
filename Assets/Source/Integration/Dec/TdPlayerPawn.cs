@@ -97,12 +97,12 @@ public partial class TdPlayerPawn
         v5 = this.Mesh.GetBoneAxis(&output, this.BoneNames1p[1], AXIS_Z);
         v6 = this.Mesh.MatchRefBone("RightForeArm"/*_dword_2056794*/);
         v7 = this.Mesh.GetBoneMatrix(&a2, v6);
-        VectorMatrixInverse(v7, &SrcMatrix);
+        SrcMatrix = v7->Inverse();
         v29 = (float)((float)((float)(SrcMatrix.ZPlane.Y * v5->Z) + (float)(SrcMatrix.YPlane.Y * v5->Y)) + (float)(SrcMatrix.XPlane.Y * v5->X)) + (float)(SrcMatrix.WPlane.Y * 0.0f);
         v8 = this.Mesh.GetBoneAxis(&output, this.BoneNames1p[7], AXIS_Z);
         v9 = this.Mesh.MatchRefBone("LeftForeArm");
         v10 = this.Mesh.GetBoneMatrix(&a2, v9);
-        VectorMatrixInverse(v10, &SrcMatrix);
+        SrcMatrix = v10->Inverse();
         v11 = (float)((float)(SrcMatrix.XPlane.Y * v8->X) + (float)(SrcMatrix.ZPlane.Y * v8->Z)) + (float)(SrcMatrix.YPlane.Y * v8->Y);
         v12 = this.BoneNames1p.Data;
         v30.Y = v11 + (float)(SrcMatrix.WPlane.Y * 0.0f);
@@ -316,10 +316,9 @@ public partial class TdPlayerPawn
         v25 = v62.Location.Z;
         this.AgainstWallRightHand.X = v62.Location.X;
         this.AgainstWallRightHand.Y = v24;
-        ref var v26 = ref this.Controller.Rotation;
         v18 = 1;
         this.AgainstWallRightHand.Z = v25;
-        v27 = v26.Vector(&v58);
+        v27 = this.Controller.Rotation.Vector(&v58);
         v28 = 0.0f;
         if ( (float)((float)((float)(v27->Y + v27->X) * 0.0f) + v27->Z) < 0.0f )
           v28 = (float)((float)(v27->Y + v27->X) * 0.0f) + v27->Z;
@@ -366,10 +365,9 @@ public partial class TdPlayerPawn
       v41 = v62.Location.Z;
       this.AgainstWallLeftHand.X = v62.Location.X;
       this.AgainstWallLeftHand.Y = v40;
-      ref var v42 = ref this.Controller.Rotation;
       v17 = 1;
       this.AgainstWallLeftHand.Z = v41;
-      v43 = v42.Vector(&v58);
+      v43 = this.Controller.Rotation.Vector(&v58);
       v44 = (float)((float)(v43->Y + v43->X) * 0.0f) + v43->Z;
       if ( v44 >= 0.0f )
         v44 = 0.0f;
@@ -1142,7 +1140,7 @@ public partial class TdPlayerPawn
       {
         if ( !(a8 != default) )
           return false;
-        GWorld.MoveActor(Actor, ref a7, ref Actor.Rotation, 0, ref Hit);
+        GWorld.MoveActor(Actor, a7, Actor.Rotation, 0, ref Hit);
         if ( Hit.Time == 1.0f )
         {
           // v42 = *(void (__thiscall **)(TdPlayerPawn , _DWORD, _DWORD, _DWORD, int))(Actor.VfTableObject.Dummy + 1060);
@@ -1156,7 +1154,7 @@ public partial class TdPlayerPawn
         a2.X = (float)(-0.0f - a7.X) * Hit.Time;
         a2.Y = (float)(-0.0f - a7.Y) * Hit.Time;
         a2.Z = (float)(-0.0f - a7.Z) * Hit.Time;
-        GWorld.MoveActor(Actor, ref a2, ref Actor.Rotation, 0, ref Hit);
+        GWorld.MoveActor(Actor, a2, Actor.Rotation, 0, ref Hit);
       }
     }
     return true;
@@ -3030,7 +3028,7 @@ public partial class TdPlayerPawn
       speed2d2 = 0.0f;
       do
       {
-        GWorld.MoveActor(this, ref v142, ref this.Rotation, 4u, ref Hit);
+        GWorld.MoveActor(this, v142, this.Rotation, 4u, ref Hit);
         if( ( this.bExludeHandMoves.AsBitfield( 32 ) & 0x40 ) != default )
         {
           --dword_205684C;
@@ -3117,7 +3115,7 @@ public partial class TdPlayerPawn
                   a4.X = (float)((float)(a4.X * v97) * (float)(1.0f / v161)) + a4.X;
                   a4.Y = a4.Y + (float)((float)(a4.Y * v97) * (float)(1.0f / v161));
                   a4.Z = a4.Z + (float)((float)(a4.Z * v97) * (float)(1.0f / v161));
-                  GWorld.MoveActor(this, ref a4, ref this.Rotation, 0, ref Hit);
+                  GWorld.MoveActor(this, a4, this.Rotation, 0, ref Hit);
                   if ( Hit.Time >= 1.0f || Hit.Time < 0.0f )
                   {
                     SetFromBitfield(ref this.bCollideComplex, 20, this.bCollideComplex.AsBitfield(20) | (0x100u));
@@ -3127,7 +3125,7 @@ public partial class TdPlayerPawn
                     v198.X = (float)(-0.0f - a4.X) * Hit.Time;
                     v198.Y = (float)(-0.0f - a4.Y) * Hit.Time;
                     v198.Z = (float)(-0.0f - a4.Z) * Hit.Time;
-                    GWorld.MoveActor(this, ref v198, ref this.Rotation, 0, ref Hit);
+                    GWorld.MoveActor(this, v198, this.Rotation, 0, ref Hit);
                   }
                 }
               }
@@ -3152,7 +3150,7 @@ public partial class TdPlayerPawn
             //v99 = ref this.Rotation;
             v182 = this.Location.Y + v152.Y;
             v190 = this.Location.Z + v152.Z;
-            GWorld.MoveActor(this, ref v152, ref this.Rotation, 0, ref Hit);
+            GWorld.MoveActor(this, v152, this.Rotation, 0, ref Hit);
             v100 = default;
             v101 = (float)((float)(v152.Y * v152.Y) + (float)(v152.X * v152.X)) + (float)(v152.Z * v152.Z);
             v211 = v101;
@@ -3184,7 +3182,7 @@ public partial class TdPlayerPawn
                 v200.X = v192 - this.Location.X;
                 v200.Y = v104;
                 v200.Z = v105;
-                GWorld.MoveActor(this, ref v200, ref this.Rotation, 0, ref Hit);
+                GWorld.MoveActor(this, v200, this.Rotation, 0, ref Hit);
                 goto LABEL_131;
               }
   LABEL_171:
@@ -3207,7 +3205,7 @@ public partial class TdPlayerPawn
                 v199.X = 0.0f;
                 v199.Y = 0.0f;
                 v199.Z = -1.9f;
-                GWorld.MoveActor(this, ref v199, ref this.Rotation, 0, ref Hit);
+                GWorld.MoveActor(this, v199, this.Rotation, 0, ref Hit);
               }
               v61 = v159;
               v116 = (float)(1.0f / v144) * (float)(this.Location.X - v158.X);
@@ -3260,7 +3258,7 @@ public partial class TdPlayerPawn
               }
               TwoWallAdjust(ColLocation2, ref v152, Hit.Normal, v145, Hit.Time);
               v115 = v145.Z > 0.0f && Hit.Normal.Z > 0.0f && v152.Z == 0.0f && (float)((float)((float)(v145.Z * Hit.Normal.Z) + (float)(Hit.Normal.Y * v145.Y)) + (float)(v145.X * Hit.Normal.X)) < 0.0f;
-              GWorld.MoveActor(this, ref v152, ref this.Rotation, 0, ref Hit);
+              GWorld.MoveActor(this, v152, this.Rotation, 0, ref Hit);
               if ( v115 || Hit.Normal.Z >= this.WalkableFloorZ )
               {
   LABEL_147:

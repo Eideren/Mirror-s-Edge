@@ -172,7 +172,7 @@ fixed(Vector* ptr4 =&v9.Location)
     v9.Z = a1.Z - this.SwingLocation.Z;
     v2 = E_DirToRotator( this.SwingDirection, (Rotator *)&rot_then_vec);
     FRotationMatrix(&SrcMatrix, *v2);
-    VectorMatrixInverse(&SrcMatrix, &DstMatrix);
+    DstMatrix = SrcMatrix.Inverse();
     rot_then_vec.Z = (float)((float)((float)(DstMatrix.XPlane.Z * v9.X) + (float)(DstMatrix.ZPlane.Z * v9.Z)) + (float)(DstMatrix.YPlane.Z * v9.Y)) + DstMatrix.WPlane.Z;
     rot_then_vec.X = (float)((float)((float)(DstMatrix.ZPlane.X * v9.Z) + (float)(DstMatrix.XPlane.X * v9.X)) + (float)(DstMatrix.YPlane.X * v9.Y)) + DstMatrix.WPlane.X;
     rot_then_vec.Y = (float)((float)((float)(DstMatrix.XPlane.Y * v9.X) + (float)(DstMatrix.ZPlane.Y * v9.Z)) + (float)(DstMatrix.YPlane.Y * v9.Y)) + DstMatrix.WPlane.Y;

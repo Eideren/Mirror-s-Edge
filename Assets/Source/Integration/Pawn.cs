@@ -500,7 +500,7 @@ namespace MEdge.Engine
 				}
 				FVector Adjusted = (Velocity + PhysicsVolume.ZoneVelocity) * timeTick;
 
-				GWorld.MoveActor(this, ref Adjusted, ref Rotation, (int)MOVE_TraceHitMaterial, ref Hit);
+				GWorld.MoveActor(this, Adjusted, Rotation, (int)MOVE_TraceHitMaterial, ref Hit);
 				if( bDeleteMe )
 				{
 					return;
@@ -543,7 +543,7 @@ namespace MEdge.Engine
 
 						if( (Delta | Adjusted) >= 0f )
 						{
-							GWorld.MoveActor(this, ref Delta, ref Rotation, 0, ref Hit);
+							GWorld.MoveActor(this, Delta, Rotation, 0, ref Hit);
 							if (Hit.Time < 1f) //hit second wall
 							{
 								if ( Hit.Normal.Z >= WalkableFloorZ )
@@ -564,7 +564,7 @@ namespace MEdge.Engine
 								FVector DesiredDir = Adjusted.SafeNormal();
 								TwoWallAdjust(DesiredDir, ref Delta, Hit.Normal, OldHitNormal, Hit.Time);
 								bool bDitch = ( (OldHitNormal.Z > 0f) && (Hit.Normal.Z > 0f) && (Delta.Z == 0f) && ((Hit.Normal | OldHitNormal) < 0f) );
-								GWorld.MoveActor(this, ref Delta, ref Rotation, 0, ref Hit);
+								GWorld.MoveActor(this, Delta, Rotation, 0, ref Hit);
 								if ( bDitch || (Hit.Normal.Z >= WalkableFloorZ) )
 								{
 									remainingTime = 0f;

@@ -325,7 +325,7 @@ public partial class TdPawn
     Delta.X = a2->X * 32.0f;
     Delta.Y = a2->Y * 32.0f;
     Delta.Z = a2->Z * 32.0f;
-    GWorld.MoveActor(this, ref Delta, ref this.Rotation, 0, ref a6);
+    GWorld.MoveActor(this, Delta, this.Rotation, 0, ref a6);
     v19 = a6.Time;
     if ( v19 >= 1.0f || v19 < 0.0f )
     {
@@ -390,7 +390,7 @@ public partial class TdPawn
       a5->Z = a5->Z * (float)(1.0f - v46);
       Delta.X = 0.0f;
       Delta.Y = 0.0f;
-      GWorld.MoveActor(this, ref *a5, ref this.Rotation, 0, ref a6);
+      GWorld.MoveActor(this, *a5, this.Rotation, 0, ref a6);
       v31 = a6.Time;
       v48 = v31;
       v32 = v31;
@@ -400,7 +400,7 @@ public partial class TdPawn
       {
         if(a3 != default)
         {
-          GWorld.MoveActor(this, ref Delta, ref this.Rotation, 0, ref a6);
+          GWorld.MoveActor(this, Delta, this.Rotation, 0, ref a6);
           v33 = a6.Time;
           v31 = v33;
           if ( v33 <= 0.050000001d )
@@ -409,7 +409,7 @@ public partial class TdPawn
           }
           else
           {
-            GWorld.MoveActor(this, ref *a5, ref this.Rotation, 0, ref a6);
+            GWorld.MoveActor(this, *a5, this.Rotation, 0, ref a6);
             v31 = a6.Time;
             v45 = v31 <= 0.050000001d;
             v32 = v31;
@@ -426,7 +426,7 @@ public partial class TdPawn
         a2a.X = (float)(-0.0f - Delta.X) * v33;
         a2a.Y = (float)(-0.0f - Delta.Y) * v33;
         a2a.Z = (float)(-0.0f - Delta.Z) * v33;
-        GWorld.MoveActor(this, ref a2a, ref this.Rotation, 0, ref a6);
+        GWorld.MoveActor(this, a2a, this.Rotation, 0, ref a6);
       }
       v34 = -0.0f - a2->Y;
       v35 = -0.0f - a2->Z;
@@ -443,7 +443,7 @@ public partial class TdPawn
     Delta.Z = (float)(v21 * 32.0f) * v19;
     v41 = &Delta;
   LABEL_33:
-    GWorld.MoveActor(this, ref *v41, ref this.Rotation, 0, ref a6);
+    GWorld.MoveActor(this, *v41, this.Rotation, 0, ref a6);
     v36 = v53;
     v37 = v52;
     SetFromBitfield(
@@ -1626,14 +1626,14 @@ public partial class TdPawn
       Delta.X = v8 * -1.0f;
       Delta.Y = v9 * -1.0f;
       Delta.Z = v10 * -1.0f;
-      GWorld.MoveActor(Actor, ref Delta, ref Actor.Rotation, 0, ref a6);
-      GWorld.MoveActor(Actor, ref a5, ref Actor.Rotation, 0, ref a6);
+      GWorld.MoveActor(Actor, Delta, Actor.Rotation, 0, ref a6);
+      GWorld.MoveActor(Actor, a5, Actor.Rotation, 0, ref a6);
     }
     if ( a6.Time < 1.0f )
     {
       if ( (float)((float)((float)(a6.Normal.Z * Actor.Floor.Z) + (float)(a6.Normal.Y * Actor.Floor.Y)) + (float)(Actor.Floor.X * a6.Normal.X)) < 0.40000001d )
       {
-        GWorld.MoveActor(Actor, ref v50, ref Actor.Rotation, 0, ref a6);
+        GWorld.MoveActor(Actor, v50, Actor.Rotation, 0, ref a6);
         Actor.FallingOffWall();
         // v15 = *(void (__thiscall **)(TdPawn , int, _DWORD, _DWORD, _DWORD, int))(Actor.VfTableObject.Dummy + 480);
         Delta.X = 0.0f;
@@ -1726,10 +1726,10 @@ public partial class TdPawn
       if ( (float)((float)(v41 + v42) + (float)(v32 * Delta.X)) >= 0.0f )
       {
         SetFromBitfield(ref Actor.bCollideComplex, 20, Actor.bCollideComplex.AsBitfield(20) | (0x100u));
-        GWorld.MoveActor(Actor, ref v48, ref Actor.Rotation, 0, ref a6);
+        GWorld.MoveActor(Actor, v48, Actor.Rotation, 0, ref a6);
       }
     }
-    GWorld.MoveActor(Actor, ref v50,  ref Actor.Rotation, 0, ref a6);
+    GWorld.MoveActor(Actor, v50, Actor.Rotation, 0, ref a6);
   }
 
   public unsafe void WallClimbingStepUp_maybe(ref Vector a3, ref Vector a4, ref Vector a5, ref CheckResult a6)
@@ -1757,7 +1757,7 @@ public partial class TdPawn
     v8 = Actor.Floor.Z;
     Delta.Z = v7;
     if ( (float)((float)((float)(v8 * a6.Normal.Z) + (float)(Actor.Floor.Y * a6.Normal.Y)) + (float)(Actor.Floor.X * a6.Normal.X)) >= 0.94999999d
-      || ((GWorld.MoveActor(Actor, ref Delta, ref Actor.Rotation, 0, ref a6) is object) && (GWorld.MoveActor(Actor, ref a5, ref Actor.Rotation, 0, ref a6) is object) && (v9 = a6.Time) is object && v9 >= 1.0f)
+      || ((GWorld.MoveActor(Actor, Delta, Actor.Rotation, 0, ref a6) is object) && (GWorld.MoveActor(Actor, a5, Actor.Rotation, 0, ref a6) is object) && (v9 = a6.Time) is object && v9 >= 1.0f)
       || (float)((float)((float)(Actor.Floor.Z * a6.Normal.Z) + (float)(Actor.Floor.Y * a6.Normal.Y)) + (float)(a6.Normal.X * Actor.Floor.X)) >= 0.94999999d )
     {
       if ( a6.Time < 1.0f && (float)((float)((float)(Actor.Floor.Z * a6.Normal.Z) + (float)(Actor.Floor.Y * a6.Normal.Y)) + (float)(a6.Normal.X * Actor.Floor.X)) < 0.94999999d )
@@ -1771,7 +1771,7 @@ public partial class TdPawn
         v19.X = a5.X - (float)(Actor.Floor.X * v17);
         v19.Y = v14 - (float)(v15 * v17);
         v19.Z = v13 - (float)(v16 * v17);
-        GWorld.MoveActor(Actor, ref v19, ref Actor.Rotation, 0, ref a6);
+        GWorld.MoveActor(Actor, v19, Actor.Rotation, 0, ref a6);
       }
     }
     else
@@ -1781,11 +1781,11 @@ public partial class TdPawn
       v19.X = (float)(-0.0f - a5.X) * (float)(1.0f - v9);
       v19.Y = v10;
       v19.Z = v11;
-      GWorld.MoveActor(Actor, ref v19, ref Actor.Rotation, 0, ref a6);
+      GWorld.MoveActor(Actor, v19, Actor.Rotation, 0, ref a6);
       v19.X = -0.0f - Delta.X;
       v19.Y = -0.0f - Delta.Y;
       v19.Z = -0.0f - Delta.Z;
-      GWorld.MoveActor(Actor, ref v19, ref Actor.Rotation, 0, ref a6);
+      GWorld.MoveActor(Actor, v19, Actor.Rotation, 0, ref a6);
       if ( Actor.Physics == PHYS_WallClimbing )
       {
         Actor.FallingOffWall();
@@ -1828,8 +1828,9 @@ public partial class TdPawn
       //qmemcpy(&a1, &v6.SpaceBases.Data[v5], sizeof(a1));
       v17 = this.Mesh.SpaceBases.Data[v6.MatchRefBone("CameraJoint")];
       //qmemcpy(&v17, &this.Mesh.SpaceBases.Data[v6.MatchRefBone("CameraJoint")], sizeof(v17));
-      v7 = VectorMatrixInverse(&a1, &SrcMatrix);
-      v17 = v17.Mult(&outval, v7);
+      SrcMatrix = a1.Inverse();
+      v7 = &SrcMatrix;
+      v17 = *v17.Mult_(&outval, *v7);
       //qmemcpy(&v17, v17.Mult(&out, v7), sizeof(v17));
       E_MatrixToRotator(&a1, &a2);
       E_MatrixToRotator(&v17, &v16);
@@ -2209,7 +2210,7 @@ public partial class TdPawn
       Deltaa.X = v111;
       a2a.Z = (float)sqrt(v111 * v111 + v20 * v20 + v21 * v21) * v107;
       Deltaa.Z = a2a.Z + v21;
-      GWorld.MoveActor(this, ref Deltaa, ref this.Rotation, 0, ref Hit);
+      GWorld.MoveActor(this, Deltaa, this.Rotation, 0, ref Hit);
       v110 = default;
     }
     else
@@ -2275,7 +2276,7 @@ public partial class TdPawn
           v33 = v108.Z - this.Location.Z;
           v113 = default;
           a4a.Z = v33;
-          GWorld.MoveActor(this, ref a4a, ref this.Rotation, 0, ref v118);
+          GWorld.MoveActor(this, a4a, this.Rotation, 0, ref v118);
         }
       }
       v5 = GravDir;
@@ -2296,7 +2297,7 @@ public partial class TdPawn
     {
       if(v110 != default)
       {
-        GWorld.MoveActor(this, ref v109, ref this.Rotation, 0, ref v12);
+        GWorld.MoveActor(this, v109, this.Rotation, 0, ref v12);
         v12 = Hit;
       }
       v38 = 1.0f - v12.Time;
@@ -2541,7 +2542,7 @@ public partial class TdPawn
     }
     if ( (float)((float)((float)(v72 * Delta.X) + (float)(v70 * Delta.Z)) + (float)(v71 * Delta.Y)) >= 0.0f )
     {
-      GWorld.MoveActor(this, ref a4a, ref this.Rotation, 0, ref Hit);
+      GWorld.MoveActor(this, a4a, this.Rotation, 0, ref Hit);
       if(v113 != default)
       {
         if ( Hit.Time < 1.0f )
@@ -2582,7 +2583,7 @@ public partial class TdPawn
     v12 = Hit;
   LABEL_98:
     if(v110 != default)
-      GWorld.MoveActor(this, ref v109, ref this.Rotation, 0, ref v12);
+      GWorld.MoveActor(this, v109, this.Rotation, 0, ref v12);
     return;
     LABEL_74:
     Deltaa.Z = 0.0f;
@@ -2683,7 +2684,7 @@ public partial class TdPawn
       if ( this.Physics == PHYS_Falling )
         return;
       TwoWallAdjust(DesiredDir, ref a4a, v14, a2a, Hit.Time);
-      GWorld.MoveActor(this, ref a4a, ref this.Rotation, 0, ref Hit);
+      GWorld.MoveActor(this, a4a, this.Rotation, 0, ref Hit);
       v12 = Hit;
       goto LABEL_98;
     }
@@ -2745,7 +2746,7 @@ public partial class TdPawn
     FRotationMatrix(&DstMatrix, this.Rotation);
     if(bWorldSpace != default)
     {
-      VectorMatrixInverse(&DstMatrix, &SrcMatrix);
+      SrcMatrix = DstMatrix.Inverse();
       v16.X = (float)((float)((float)(SrcMatrix.XPlane.X * Offset.X) + (float)(SrcMatrix.ZPlane.X * Offset.Z)) + (float)(SrcMatrix.YPlane.X * Offset.Y)) + SrcMatrix.WPlane.X;
       v16.Y = (float)((float)((float)(SrcMatrix.XPlane.Y * Offset.X) + (float)(SrcMatrix.ZPlane.Y * Offset.Z)) + (float)(SrcMatrix.YPlane.Y * Offset.Y)) + SrcMatrix.WPlane.Y;
       v16.Z = (float)((float)((float)(SrcMatrix.XPlane.Z * Offset.X) + (float)(SrcMatrix.ZPlane.Z * Offset.Z)) + (float)(SrcMatrix.YPlane.Z * Offset.Y)) + SrcMatrix.WPlane.Z;
@@ -3176,7 +3177,6 @@ public partial class TdPawn
   {
     uint v3 = default; // eax
     Matrix *v4; // eax
-    Matrix *v5; // [esp-4h] [ebp-A4h]
     Rotator a2 = default; // [esp+14h] [ebp-8Ch] BYREF
     Matrix outM = default; // [esp+20h] [ebp-80h] BYREF
     Matrix v8 = default; // [esp+60h] [ebp-40h] BYREF
@@ -3187,12 +3187,8 @@ public partial class TdPawn
     a2.Pitch = (int)v3;
     a2.Yaw = default;
     a2.Roll = default;
-    fixed( Matrix* ptr = & this.Mesh.LocalToWorld )
-    {
-      v5 = ptr;
-      v4 = FRotationMatrix(&v8, a2);
-      qmemcpy(ref this.Mesh.LocalToLegRotatedWorld, v4->Mult(&outM, v5), sizeof(Matrix));
-    }
+    v4 = FRotationMatrix(&v8, a2);
+    qmemcpy(ref this.Mesh.LocalToLegRotatedWorld, *v4->Mult_(&outM, this.Mesh.LocalToWorld), sizeof(Matrix));
   }
 
   public unsafe float GetAIAimingPenalty()
@@ -4077,7 +4073,7 @@ public partial class TdPawn
         Delta.X = v103 * v26;
         Delta.Y = v104 * v26;
         Delta.Z = v105 * v26;
-        GWorld.MoveActor(this, ref Delta, ref this.Rotation, 0, ref Hit);
+        GWorld.MoveActor(this, Delta, this.Rotation, 0, ref Hit);
         v27 = Hit.Time;
         if( Hit.Time >= 1.0f )
         {
@@ -4105,14 +4101,14 @@ public partial class TdPawn
           v128.X = (float)(1.0f - Hit.Time) * Delta.X;
           v128.Y = Delta.Y * (float)(1.0f - Hit.Time);
           v128.Z = Delta.Z * (float)(1.0f - Hit.Time);
-          GWorld.MoveActor(this, ref v110, ref this.Rotation, 0, ref Hit);
-          GWorld.MoveActor(this, ref v128, ref this.Rotation, 0, ref Hit);
+          GWorld.MoveActor(this, v110, this.Rotation, 0, ref Hit);
+          GWorld.MoveActor(this, v128, this.Rotation, 0, ref Hit);
           if ( this.WalkableFloorZ > Hit.Normal.Z && Hit.Time < 1.0f )
             v98 = Hit.Normal;
           v129.X = -0.0f - v110.X;
           v129.Y = -0.0f - v110.Y;
           v129.Z = -0.0f - v110.Z;
-          GWorld.MoveActor(this, ref v129, ref this.Rotation, 0, ref Hit);
+          GWorld.MoveActor(this, v129, this.Rotation, 0, ref Hit);
           v27 = Hit.Time;
           v28 = 0.0f;
         }
@@ -4121,8 +4117,8 @@ public partial class TdPawn
           v130.X = Delta.X * (float)(1.0f - v27);
           v130.Y = Delta.Y * (float)(1.0f - v27);
           v130.Z = Delta.Z * (float)(1.0f - v27);
-          GWorld.MoveActor(this, ref v110, ref this.Rotation, 0, ref Hit);
-          GWorld.MoveActor(this, ref v130, ref this.Rotation, 0, ref Hit);
+          GWorld.MoveActor(this, v110, this.Rotation, 0, ref Hit);
+          GWorld.MoveActor(this, v130, this.Rotation, 0, ref Hit);
           if ( this.WalkableFloorZ > Hit.Normal.Z && Hit.Time < 1.0f )
           {
             v30 = (float)((float)(this.Velocity.Y * Hit.Normal.Y) + (float)(this.Velocity.Z * Hit.Normal.Z)) + (float)(this.Velocity.X * Hit.Normal.X);
@@ -4151,7 +4147,7 @@ public partial class TdPawn
           v127.X = -0.0f - v110.X;
           v127.Y = -0.0f - v110.Y;
           v127.Z = -0.0f - v110.Z;
-          GWorld.MoveActor(this, ref v127, ref this.Rotation, 0, ref Hit);
+          GWorld.MoveActor(this, v127, this.Rotation, 0, ref Hit);
           v28 = 0.0f;
           goto LABEL_40;
         }
@@ -4249,7 +4245,7 @@ public partial class TdPawn
             v115.X = (float)(v4.X * -1.0f) * v59;
             v115.Y = (float)(v57 * -1.0f) * v59;
             v115.Z = (float)(v58 * -1.0f) * v59;
-            GWorld.MoveActor(this, ref v115, ref this.Rotation, 0, ref Hit);
+            GWorld.MoveActor(this, v115, this.Rotation, 0, ref Hit);
             v60 = Hit.Normal.Y;
             v61 = Hit.Normal.Z;
             v4.X = Hit.Normal.X;
@@ -4373,7 +4369,7 @@ public partial class TdPawn
       v115.X = 0.0f;
       v115.Y = 0.0f;
       v115.Z = 0.0f;
-      GWorld.MoveActor(this, ref v115, ref *((Rotator *)&v97), 0, ref Hit);
+      GWorld.MoveActor(this, v115, *((Rotator *)&v97), 0, ref Hit);
       v83 = (float)(this.Location.Y - v108) * (float)(1.0f / a2);
       v84 = (float)(1.0f / a2) * (float)(this.Location.X - v107);
       v85 = this.Velocity.X;
@@ -4603,7 +4599,7 @@ public partial class TdPawn
             v68.X = v72 * v27;
             v68.Y = v73 * v27;
             v68.Z = v74 * v27;
-            GWorld.MoveActor(this, ref v68, ref this.Rotation, 0, ref Hit);
+            GWorld.MoveActor(this, v68, this.Rotation, 0, ref Hit);
             if ( Hit.Time < 1.0f )
             {
               if ( (this.bDisableSkelControlSpring.AsBitfield(32) & 1024) != default )
@@ -4725,14 +4721,14 @@ public partial class TdPawn
               a4.Z = (float)(v50 * -1.0f) * v51;
               if ( fabs(Hit.Normal.Z) > 0.2f )
               {
-                GWorld.MoveActor(this, ref a4, ref this.Rotation, 0, ref Hit);
+                GWorld.MoveActor(this, a4, this.Rotation, 0, ref Hit);
                 if ( this.Physics == PHYS_WallClimbing )
                   this.setPhysics( 2, default, new Vector(0, 0, COERCE_FLOAT(1065353216)));// setPhysics
                 this.FallingOffWall();
                 startNewPhysics((a2), v25);
                 return;
               }
-              GWorld.MoveActor(this, ref a4, ref this.Rotation, 0, ref Hit);
+              GWorld.MoveActor(this, a4, this.Rotation, 0, ref Hit);
               v52 = Hit.Normal.Y;
               v53 = Hit.Normal.Z;
               this.Floor.X = Hit.Normal.X;

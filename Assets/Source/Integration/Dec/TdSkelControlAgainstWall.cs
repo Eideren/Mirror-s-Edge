@@ -52,7 +52,7 @@ public partial class TdSkelControlAgainstWall
         output.X = this.HandOffset.X + v14.Z;
         output.Y = this.HandOffset.Y + v14.Y;
         output.Z = this.HandOffset.Z + v14.X;
-        SrcMatrix = VectorMatrixInverse( v3.LocalToWorld );
+        SrcMatrix = v3.LocalToWorld.Inverse();
         v15 = &SrcMatrix;
         v16 = (float)((float)((float)(v15->ZPlane.Y * output.Z) + (float)(v15->YPlane.Y * output.Y)) + (float)(v15->XPlane.Y * output.X)) + v15->WPlane.Y;
         v17 = (float)((float)((float)(v15->ZPlane.Z * output.Z) + (float)(v15->YPlane.Z * output.Y)) + (float)(v15->XPlane.Z * output.X)) + v15->WPlane.Z;

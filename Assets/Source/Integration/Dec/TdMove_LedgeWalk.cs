@@ -238,8 +238,7 @@ public partial class TdMove_LedgeWalk
     Hit.Normal.Y = 0.0f;
     Hit.Normal.Z = 0.0f;
     Hit.Time = 1.0f;
-fixed(Rotator* ptr4 =&v41.Rotation)
-    GWorld.MoveActor(v41, ref Delta,  ref *ptr4, 0, ref Hit);
+    GWorld.MoveActor(v41, Delta,  v41.Rotation, 0, ref Hit);
   }
 }
 }

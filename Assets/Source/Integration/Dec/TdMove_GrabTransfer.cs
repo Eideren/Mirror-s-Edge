@@ -88,17 +88,15 @@ public partial class TdMove_GrabTransfer
     rot_then_vec.Y.LODWORD(v9.Rotation.Yaw);
     v45 = v8;
     rot_then_vec.Z.LODWORD(v9.Rotation.Roll);
-fixed(Rotator* ptr1 =&v9.Rotation)
-    v11 = E_ClipAmountOfTurns( ptr1, (Rotator *)&rot_then_vec3);
-fixed(Rotator* ptr2 =&v9.Controller.Rotation)
-    v12 = E_ClipAmountOfTurns( ptr2, (Rotator *)&rot_then_vec2);
+    v11 = E_ClipAmountOfTurns( v9.Rotation, (Rotator *)&rot_then_vec3);
+    v12 = E_ClipAmountOfTurns( v9.Controller.Rotation, (Rotator *)&rot_then_vec2);
     v13.LODWORD(v12->Pitch - v11->Pitch);
     v14.LODWORD(v12->Yaw - v11->Yaw);
     v15.LODWORD(v12->Roll - v11->Roll);
     rot_then_vec2.X = v13;
     rot_then_vec2.Y = v14;
     rot_then_vec2.Z = v15;
-    v16 = E_ClipAmountOfTurns((Rotator *)&rot_then_vec2, (Rotator *)&rot_then_vec3);
+    v16 = E_ClipAmountOfTurns(*(Rotator *)&rot_then_vec2, (Rotator *)&rot_then_vec3);
     v17 = this.TransferHint == MAH_None;
     v18 = v16->Pitch;
     v19 = v16->Yaw;
@@ -471,16 +469,14 @@ fixed(Rotator* ptr2 =&v9.Controller.Rotation)
       }
     }
     v10 = this.PawnOwner;
-fixed(Rotator* ptr1 =&v10.Rotation)
-    v11 = E_ClipAmountOfTurns( ptr1, &a5a);
-fixed(Rotator* ptr2 =&v10.Controller.Rotation)
-    v12 = E_ClipAmountOfTurns( ptr2, &v20);
+    v11 = E_ClipAmountOfTurns( v10.Rotation, &a5a);
+    v12 = E_ClipAmountOfTurns( v10.Controller.Rotation, &v20);
     v13 = v12->Pitch - v11->Pitch;
     v14 = v12->Yaw - v11->Yaw;
     a5a.Roll = v12->Roll - v11->Roll;
     a5a.Pitch = v13;
     a5a.Yaw = v14;
-    v15 = E_ClipAmountOfTurns(&a5a, &v20);
+    v15 = E_ClipAmountOfTurns(a5a, &v20);
     v16 = v15->Roll;
     a5a.Pitch = v15->Pitch;
     v17 = v15->Yaw;

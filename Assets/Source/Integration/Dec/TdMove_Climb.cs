@@ -32,7 +32,7 @@ public partial class TdMove_Climb
     v8 = v5.Rotation.Roll - v4.Rotation.Roll;
     v12.Yaw = v7;
     v12.Roll = v8;
-    v9 = E_ClipAmountOfTurns(&v12, &a5)->Yaw;
+    v9 = E_ClipAmountOfTurns(v12, &a5)->Yaw;
     v10 = this.StartTurningAngle;
     if ( v9 > v10 )
       return (EMoveAimMode)1;

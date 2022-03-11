@@ -34,7 +34,7 @@ public partial class TdMove_Grab
     v8 = v5.Rotation.Roll - v4.Rotation.Roll;
     v12.Yaw = v7;
     v12.Roll = v8;
-    v9 = (float)(int)E_ClipAmountOfTurns(&v12, &a5)->Yaw;
+    v9 = (float)(int)E_ClipAmountOfTurns(v12, &a5)->Yaw;
     v10 = this.StartTurningAngle;
     if ( v9 > v10 )
       return (EMoveAimMode)1;
@@ -568,7 +568,7 @@ public partial class TdMove_Grab
           vect_then_rotator2.Y.LODWORD(this.TargetYaw);
           vect_then_rotator2.X = 0.0f;
           vect_then_rotator2.Z = 0.0f;
-          v57 = *E_ClipAmountOfTurns((Rotator *)&vect_then_rotator2, (Rotator *)&vect_then_rotator);
+          v57 = *E_ClipAmountOfTurns(*(Rotator *)&vect_then_rotator2, (Rotator *)&vect_then_rotator);
           if ( this.FindAutoMoveLedge(ref a2, ref a3, ref a4, this.TargetLocation, v57, this.HandPlantCheckDistance, 0) == 2 )
           {
             this.PawnOwner.MoveLedgeLocation = a2;

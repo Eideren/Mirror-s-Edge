@@ -166,7 +166,7 @@
                 {
 	                cam.UpdateCamera(deltaTime);
                     var camPov = cam.CameraCache.POV;
-                    _unityCam.transform.SetPositionAndRotation( camPov.Location.ToUnityPos(), camPov.Rotation.ToUnityQuat() * Quaternion.Euler(90f, 0f, 0f)/* Not too sure why we need to change this, perhaps unreal cameras points downwards by default instead of horizontally ? */ );
+                    _unityCam.transform.SetPositionAndRotation( camPov.Location.ToUnityPos(), camPov.Rotation.ToUnityQuat() );
                 }
             }
 

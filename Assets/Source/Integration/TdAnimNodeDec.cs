@@ -376,12 +376,11 @@ public partial class TdAnimNodeAimOffset
           controller = E_TryCastTo<Controller>(pawn2.Controller);
           if ( controller )
           {
-            ref var pawnRotation = ref pawn2.Rotation;
             Rotator diffSource;
             if ( this.bAimSourceIsLegRotation )
             {
               legRotation_1 = pawn2.LegRotation;
-              utilRotator.Pitch = pawnRotation.Pitch;
+              utilRotator.Pitch = pawn2.Rotation.Pitch;
               utilRotator.Roll = pawn2.Rotation.Roll;
               utilRotator.Yaw = legRotation_1;
               diffSource = utilRotator;
@@ -414,7 +413,7 @@ public partial class TdAnimNodeAimOffset
                 {
                   legRotation = pawn2.LegRotation;
                   pawnRoll = pawn2.Rotation.Roll;
-                  utilRotator.Pitch = pawnRotation.Pitch;
+                  utilRotator.Pitch = pawn2.Rotation.Pitch;
                   utilRotator.Yaw = legRotation;
                   utilRotator.Roll = pawnRoll;
                   refToRot = utilRotator;
@@ -1118,7 +1117,7 @@ LABEL_11:
         vel.Z = 0.0f;
         vel.Normalize();
         rotMat = FRotationMatrix(pawn2.Rotation);
-        invRotMat = VectorMatrixInverse(rotMat);
+        invRotMat = rotMat.Inverse();
         newY = (float)((float)((float)(invRotMat.YPlane.X * vel.Y) + (float)(invRotMat.XPlane.X * vel.X))
                      + (float)(invRotMat.ZPlane.X * vel.Z))
              + invRotMat.WPlane.X;

@@ -96,8 +96,7 @@ public partial class TdMove_AirBarge
         Hit.bStartPenetrating = default;
         v21 = default;
         Delta.Z = v19;
-fixed(Rotator* ptr1 =&v13.Rotation)
-        GWorld.MoveActor(v13, ref Delta, ref *ptr1, 0, ref Hit);
+        GWorld.MoveActor(v13, Delta, v13.Rotation, 0, ref Hit);
       }
       else
       {
