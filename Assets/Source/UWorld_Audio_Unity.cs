@@ -73,6 +73,7 @@
 			public AudioComponent AssociatedComp;
 			List<(AudioSource audio, float vol, float pitch)> _sources = new();
 			Dictionary<SoundNodeRandom, SoundNode> _selectedRandom = new();
+			Dictionary<TdSoundNodeVelocity, float> _fadeTimer = new();
 
 			static List<SoundNode> _stack = new();
 			static AudioDevice _fakeAudioDevice = new();
@@ -81,6 +82,7 @@
 			float _targetDuration = 1f;
 			int _sourceIndex = 0;
 			float _volumeMult = 1f;
+			float _deltaTime;
 			
 
 
@@ -89,7 +91,9 @@
 			{
 				if( AssociatedComp )
 					throw new Exception();
-				
+
+				_deltaTime = 0f;
+				_fadeTimer.Clear();
 				_selectedRandom.Clear();
 				_playingMixes.Remove(this);
 				foreach( var source in _sources )
@@ -118,6 +122,7 @@
 				{
 					_sourceIndex = 0;
 					( SoundCue cue, Actor SourceActor, bool bUseLocation, Vector SourceLocation ) = param;
+					_deltaTime = DeltaTime;
 					Recurse(cue.FirstNode, SourceActor, bUseLocation, SourceLocation, cue.VolumeMultiplier, cue.PitchMultiplier, 0f);
 				}
 
@@ -398,6 +403,15 @@
 
 					float speedAsUnit = (speedVal - vel.MinSpeed) / (vel.MaxSpeed - vel.MinSpeed);
 					speedAsUnit = FClamp( speedAsUnit, 0f, 1f );
+
+					#warning not sure that's how it works but it's good enough for now, I'll investigate later
+					if( AssociatedComp )
+					{
+						_fadeTimer.TryAdd( vel, 0f );
+						var currentT = _fadeTimer[vel];
+
+						_fadeTimer[ vel ] = speedAsUnit = Mathf.MoveTowards( currentT, speedAsUnit, (currentT > speedAsUnit ? vel.FadeOutTimeFilter : vel.FadeInTimeFilter) * _deltaTime );
+					}
 
 					if(vel.bModulateVolume)
 						volume *= Lerp( vel.VolumeAtMinSpeed, vel.VolumeAtMaxSpeed, speedAsUnit );
