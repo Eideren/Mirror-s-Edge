@@ -175,11 +175,8 @@
         /// </summary>
         public static Vector ShiftL( Vector A, Rotator B )
         {
-	        unsafe
-	        {
-		        var v = TransformNormal( Transpose(FRotationMatrix(B)), A );
-		        return *(Vector*)&v;
-	        }
+	        var v = TransformNormal( Transpose(FRotationMatrix(B)), A );
+	        return v;
         }
 
 
@@ -192,11 +189,8 @@
         /// </summary>
         public static Vector ShiftR( Vector A, Rotator B )
         {
-	        unsafe
-	        {
-		        var v = TransformNormal( FRotationMatrix( B ), A );
-		        return *(Vector*)&v;
-	        }
+	        var v = TransformNormal( FRotationMatrix( B ), A );
+	        return v;
         }
 
         

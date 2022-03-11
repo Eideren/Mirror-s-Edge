@@ -4457,9 +4457,7 @@ public partial class TdPawn
     float Delta_8a = default; // [esp+50h] [ebp-148h]
     float Delta_8b = default; // [esp+50h] [ebp-148h]
     float v64 = default; // [esp+54h] [ebp-144h]
-    float v65 = default; // [esp+58h] [ebp-140h] BYREF
-    float v66 = default; // [esp+5Ch] [ebp-13Ch]
-    float v67 = default; // [esp+60h] [ebp-138h]
+    Vector v65 = default; // [esp+58h] [ebp-140h] BYREF
     Vector v68 = default; // [esp+64h] [ebp-134h] BYREF
     float v69 = default; // [esp+70h] [ebp-128h]
     float v70 = default; // [esp+74h] [ebp-124h]
@@ -4515,24 +4513,18 @@ public partial class TdPawn
         {
           v8 = this.Acceleration.Y;
           v9 = this.Acceleration.Z;
-          v65 = this.Acceleration.X;
-          v66 = v8;
-          v67 = v9;
+          v65 = this.Acceleration;
         }
         else if ( v7 >= SMALL_NUMBER )
         {
           v91 = 3.0f;
           v10 = 1.0f / fsqrt(a4.X);
           a2a.X = (float)(3.0f - (float)((float)(v10 * a4.X) * v10)) * (float)(v10 * 0.5f);
-          v65 = this.Acceleration.X * a2a.X;
-          v66 = this.Acceleration.Y * a2a.X;
-          v67 = this.Acceleration.Z * a2a.X;
+          v65 = this.Acceleration * a2a.X;
         }
         else
         {
-          v65 = 0.0f;
-          v66 = 0.0f;
-          v67 = 0.0f;
+          v65 = default;
         }
         v11 = this.Velocity.Z;
         v12 = this.Velocity.X;
@@ -4543,7 +4535,7 @@ public partial class TdPawn
         v15 = this.Moves[v14].FrictionModifier;
         v69 = v12;
         v58 = (float)v15;
-        this.CalcVelocity( ref *(Vector*)&v65, (a2), (v13), (v58), 0, 0, 0);// CalcVelocity
+        this.CalcVelocity( ref v65, (a2), (v13), (v58), 0, 0, 0);// CalcVelocity
         v16 = this.Velocity.Z;
         v17 = this.Velocity.X;
         v18 = this.Velocity.Y;
@@ -5730,7 +5722,7 @@ float v4 = default; // xmm1_4
       if(v52 != default)
       {
         if ( (v52 as TdPlayerController).Unknown2()// ATdPlayerController::Unknown2
-          && (((v63 = (this as TdPlayerPawn).SomethingVertigoRelated((Vector*)&v169, v150, Delta, v153, ref v129, ref v128)) == v63 && (Delta.X = v63->X) is object && (v64 = this.Controller) is object && (Delta.Y = v63->Y) is object && (Delta.Z = v63->Z) is object) &&
+          && (((v63 = (this as TdPlayerPawn).SomethingVertigoRelated(&v169, v150, Delta, v153, ref v129, ref v128)) == v63 && (Delta.X = v63->X) is object && (v64 = this.Controller) is object && (Delta.Y = v63->Y) is object && (Delta.Z = v63->Z) is object) &&
               v64.MoveTimer == -1.0f) )
         {
           v44 = 0.0f;

@@ -411,7 +411,7 @@ fixed(Rotator* ptr2 =&v9.Controller.Rotation)
     v35 = v34 < 0 ? 0 : v34;
     if ( v35 > v33 )
       v35 = v33;
-    a2 = *(Vector *)this.TransferLadder.GetLadderLocation( &a2a, v35);// GetLadderLocation
+    a2 = *this.TransferLadder.GetLadderLocation( &a2a, v35);// GetLadderLocation
     v36 = this.TransferLadder;
     v37 = v36.WallNormal.X;
     //v36 = (TdLadderVolume )((byte *)v36 + 0x244);// ptr to WallNormal

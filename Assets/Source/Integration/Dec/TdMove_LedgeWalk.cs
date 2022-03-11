@@ -78,7 +78,7 @@ public partial class TdMove_LedgeWalk
       ref a4,
        ref this.CurrentParamOnCurve,
       (int)v6);                                   // ATdMovementVolume::FindClosestPointOnDSpline
-    v8 = (Vector *)this.Volume.GetSlopeOnSpline(&a2, this.CurrentParamOnCurve / (float)this.Volume.SplineLocations.Count);// ATdMovementVolume::GetSlopeOnSpline
+    v8 = this.Volume.GetSlopeOnSpline(&a2, this.CurrentParamOnCurve / (float)this.Volume.SplineLocations.Count);// ATdMovementVolume::GetSlopeOnSpline
     v9 = v8->X;
     v10 = v8->Y;
     v11 = v8->Z;

@@ -76,11 +76,9 @@ public partial class TdPlayerPawn
     Vector *v25; // [esp+9Ch] [ebp-B0h]
     float v26 = default; // [esp+9Ch] [ebp-B0h]
     Vector *v27; // [esp+9Ch] [ebp-B0h]
-    Vector *v28; // [esp+9Ch] [ebp-B0h]
+    //Vector *v28; // [esp+9Ch] [ebp-B0h]
     float v29 = default; // [esp+A0h] [ebp-ACh]
-    float v30 = default; // [esp+A0h] [ebp-ACh]
-    float v31 = default; // [esp+A4h] [ebp-A8h]
-    float v32 = default; // [esp+A4h] [ebp-A8h]
+    Vector v30 = default; // [esp+A0h] [ebp-ACh]
     Vector *v33; // [esp+A8h] [ebp-A4h]
     float v34 = default; // [esp+A8h] [ebp-A4h]
     float v35 = default; // [esp+ACh] [ebp-A0h]
@@ -107,7 +105,7 @@ public partial class TdPlayerPawn
         VectorMatrixInverse(v10, &SrcMatrix);
         v11 = (float)((float)(SrcMatrix.XPlane.Y * v8->X) + (float)(SrcMatrix.ZPlane.Y * v8->Z)) + (float)(SrcMatrix.YPlane.Y * v8->Y);
         v12 = this.BoneNames1p.Data;
-        v31 = v11 + (float)(SrcMatrix.WPlane.Y * 0.0f);
+        v30.Y = v11 + (float)(SrcMatrix.WPlane.Y * 0.0f);
         v23 = this.Mesh.GetBoneAxis(&output, v12[3], AXIS_Y);
         v13 = this.Mesh.GetBoneAxis(&v38, v12[2], AXIS_Y);
         if ( (float)((float)((float)(v23->Z * v13->Z) + (float)(v23->Y * v13->Y)) + (float)(v13->X * v23->X)) > 0.0f )
@@ -145,10 +143,10 @@ public partial class TdPlayerPawn
           v29 = -1.0f;
         }
         v20 = -1082130432;
-        v30 = (float)(asin(v29) * 0.63661975f);
-        if ( v31 < -1.0f || ((v20 = 1065353216) is object && v31 >= 1.0f) )
-          v31 = *(float *)&v20;
-        v32 = (float)(asin(v31) * 0.63661975f);
+        v30.X = (float)(asin(v29) * 0.63661975f);
+        if ( v30.Y < -1.0f || ((v20 = 1065353216) is object && v30.Y >= 1.0f) )
+          v30.Y = *(float *)&v20;
+        v30.Z = (float)(asin(v30.Y) * 0.63661975f);
         v4.SetScalarParameterValue( this.HandNormalMapNames1p[0], v35);// SetScalarParameterValue
         v4.SetScalarParameterValue( this.HandNormalMapNames1p[1], v35);// SetScalarParameterValue
         v4.SetScalarParameterValue( this.HandNormalMapNames1p[2], v35);// SetScalarParameterValue
@@ -161,22 +159,14 @@ public partial class TdPlayerPawn
         v4.SetScalarParameterValue( this.HandNormalMapNames1p[9], v26);// SetScalarParameterValue
         if ( (this.bHasMorphNodes.AsBitfield(7) & 1) != default )
         {
-          if ( v30 > 0.0f )
-            v27 = (Vector*)(&v30);
-          else
-            v27 = default;
-          this.MorphNodeWeight1p.Data[0].SetNodeWeight(v27->X);// SetNodeWeight
-          v21 = v30;
-          if ( v30 >= 0.0f )
+          this.MorphNodeWeight1p.Data[0].SetNodeWeight(v30.X > 0f ? v30.X : 0f);// SetNodeWeight
+          v21 = v30.X;
+          if ( v30.X >= 0.0f )
             v21 = 0.0f;
           this.MorphNodeWeight1p.Data[1].SetNodeWeight(v21 * -1.0f);// UMorphNodeWeight::SetNodeWeight
-          if ( v32 > 0.0f )
-            v28 = (Vector*)(&v32);
-          else
-            v28 = default;
-          this.MorphNodeWeight1p.Data[2].SetNodeWeight(v28->X);// UMorphNodeWeight::SetNodeWeight
-          v22 = v32;
-          if ( v32 >= 0.0f )
+          this.MorphNodeWeight1p.Data[2].SetNodeWeight(v30.Z > 0.0f ? v30.Z : 0f);// UMorphNodeWeight::SetNodeWeight
+          v22 = v30.Z;
+          if ( v30.Z >= 0.0f )
             v22 = 0.0f;
           this.MorphNodeWeight1p.Data[3].SetNodeWeight(v22 * -1.0f);// UMorphNodeWeight::SetNodeWeight
         }
@@ -2648,9 +2638,7 @@ public partial class TdPlayerPawn
     Vector v145 = default; // [esp+A4h] [ebp-26Ch] BYREF
     float speed2d2 = default; // [esp+B0h] [ebp-260h]
     Vector a4 = default; // [esp+B4h] [ebp-25Ch] BYREF
-    float v148 = default; // [esp+C0h] [ebp-250h] BYREF
-    float v149 = default; // [esp+C4h] [ebp-24Ch]
-    float v150 = default; // [esp+C8h] [ebp-248h]
+    Vector v148 = default; // [esp+C0h] [ebp-250h] BYREF
     float v151 = default; // [esp+CCh] [ebp-244h]
     Vector v152 = default; // [esp+D0h] [ebp-240h] BYREF
     float v153 = default; // [esp+DCh] [ebp-234h]
@@ -2769,11 +2757,9 @@ public partial class TdPlayerPawn
       bDoRootMotion2 = default;
     }
     v14 = this.Acceleration.Y;
-    v148 = this.Acceleration.X;
-    v150 = this.Acceleration.Z;
+    v148 = this.Acceleration;
     Hit.Time = 1.0f;
     TickAirControl = this.AirControl;
-    v149 = v14;
     Hit.Next = default;
     Hit.Actor = default;
     Hit.Location.X = 0.0f;
@@ -3064,7 +3050,7 @@ public partial class TdPlayerPawn
         {
           if ( Hit.Normal.Z < this.WalkableFloorZ )
           {
-            if ( v148 != 0.0f || v149 != 0.0f || v150 != 0.0f || (v87 = this.Controller) == default || !v87.AirControlFromWall(((v144)), ref *(Vector*)&v148) )// AirControlFromWall
+            if ( v148.X != 0.0f || v148.Y != 0.0f || v148.Z != 0.0f || (v87 = this.Controller) == default || !v87.AirControlFromWall(((v144)), ref v148) )// AirControlFromWall
             {
               this.processHitWall(
                 Hit.Normal,
@@ -3552,9 +3538,9 @@ public partial class TdPlayerPawn
     v137 = this.Controller;
     if(v137 != default)
       v137.PostAirSteering((DeltaTime));// PostAirSteering
-    v138 = v149;
-    v139 = v150;
-    this.Acceleration.X = v148;
+    v138 = v148.Y;
+    v139 = v148.Z;
+    this.Acceleration.X = v148.X;
     this.Acceleration.Y = v138;
     this.Acceleration.Z = v139;
   }
