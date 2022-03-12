@@ -30,10 +30,9 @@
 
 		public void PlaySoundCue( SoundCue cue, Actor SourceActor, bool bUseLocation, Vector SourceLocation, AudioComponent associatedComp = null )
 		{
-			if( _mixCache.TryPop( out var cleanInstance ) == false )
-			{
-				cleanInstance = new Mix();
-			}
+			if( cue == null )
+				return;
+			var cleanInstance = _mixCache.TryPop( out var _t ) ? _t : new Mix();
 
 			cleanInstance.param = ( cue, SourceActor, bUseLocation, SourceLocation );
 			cleanInstance.AssociatedComp = associatedComp;

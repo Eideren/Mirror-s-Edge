@@ -164,7 +164,6 @@
 
                 if( ( Pawn.Controller as PlayerController ).PlayerCamera is Camera cam )
                 {
-	                cam.UpdateCamera(deltaTime);
                     var camPov = cam.CameraCache.POV;
                     _unityCam.transform.SetPositionAndRotation( camPov.Location.ToUnityPos(), camPov.Rotation.ToUnityQuat() );
                 }

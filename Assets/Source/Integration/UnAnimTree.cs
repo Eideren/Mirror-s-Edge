@@ -220,9 +220,8 @@ namespace MEdge.Engine
 			int BoneIndex = MatchRefBone(BoneName);
 			if( BoneIndex == INDEX_NONE )
 			{
-				throw new Exception();
-				/*debugf( TEXT("USkeletalMeshComponent::GetBoneLocation : Could not find bone: %s"), *BoneName.ToString() );
-				return FVector(0,0,0);*/
+				debugf( TEXT("USkeletalMeshComponent::GetBoneLocation : Could not find bone: %s"), BoneName.ToString() );
+				return FVector(0,0,0);
 			}
 
 			// If space == Local
