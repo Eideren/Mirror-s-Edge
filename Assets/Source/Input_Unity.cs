@@ -11,48 +11,69 @@
 
 	public partial class Input_Unity
 	{
-		static HashSet<FieldInfo> fields;
+		static HashSet<FieldInfo> axisFields;
+
+
+
+		static float AsAxisDelta( KeyCode code )
+		{
+			return UnityEngine.Input.GetKey( code ) ? 1f : 0f;
+			/*float output = 0f;
+			if( UnityEngine.Input.GetKeyUp( code ) )
+				output += -1f;
+			if( UnityEngine.Input.GetKeyDown( code ) )
+				output += 1f;
+			return output;*/
+		}
+
+
+
 		public static void SampleInput( TdPlayerInput uInput, TdPlayerController controller, float dt )
         {
-	        if( fields == null )
+	        uInput.bEnableMouseSmoothing = false;
+	        
+	        if( axisFields == null )
 	        {
-		        fields = new HashSet<FieldInfo>();
+		        axisFields = new HashSet<FieldInfo>();
 
-		        // Variables marked as 'input' are reset every frame afaict
 		        ReflectionData.ForeachField( ref controller, ( field, container ) =>
 		        {
-			        if( field.Info.GetCustomAttributes( typeof(inputAttribute), false ).Any() )
+			        if( IsAxisField( field ) )
 			        {
-				        fields.Add( field.Info );
+				        axisFields.Add( field.Info );
 			        }
 		        } );
 		        ReflectionData.ForeachField( ref uInput, ( field, container ) =>
 		        {
-			        if( field.Info.GetCustomAttributes( typeof(inputAttribute), false ).Any() )
+			        if( IsAxisField( field ) )
 			        {
-				        fields.Add( field.Info );
+				        axisFields.Add( field.Info );
 			        }
 		        } );
+
+		        static bool IsAxisField( IField field )
+		        {
+			        return field.Info.GetCustomAttributes( typeof(inputAttribute), false ).Any() && field.Info.Name[0] == 'a';
+		        }
 	        }
 	        
-
-	        // Variables marked as 'input' are reset every frame afaict
+	        // Axis variables marked as 'input' are set to zero every frame afaict
 	        ReflectionData.ForeachField( ref controller, ( field, container ) =>
 	        {
-		        if( fields.Contains( field.Info ) )
+		        if( axisFields.Contains( field.Info ) )
 		        {
 			        field.SetValueToDefault( container );
 		        }
 	        } );
 	        ReflectionData.ForeachField( ref uInput, ( field, container ) =>
 	        {
-		        if( fields.Contains( field.Info ) )
+		        if( axisFields.Contains( field.Info ) )
 		        {
 			        field.SetValueToDefault( container );
 		        }
 	        } );
 
-			var mouseDelta = (
+	        var mouseDelta = (
 				x: UnityEngine.Input.GetAxisRaw( "Mouse X" ),
 				y: UnityEngine.Input.GetAxisRaw( "Mouse Y" )
 			);
@@ -61,14 +82,14 @@
 	        // (Name:"GBA_StrafeRight",Command:"Axis aStrafe Speed=+1.0",Control:false,Shift:false,Alt:false),
 	        // (Name:"A",Command:"GBA_StrafeLeft",Control:false,Shift:false,Alt:false),
 	        // (Name:"GBA_StrafeLeft",Command:"Axis aStrafe Speed=-1.0",Control:false,Shift:false,Alt:false),
-	        UpdateAxisValue(ref uInput.aStrafe, UnityEngine.Input.GetKey( KeyCode.D ) ? 1f : 0f, dt, Speed:1f);
-	        UpdateAxisValue(ref uInput.aStrafe, UnityEngine.Input.GetKey( KeyCode.A ) ? 1f : 0f, dt, Speed:-1f);
+	        UpdateAxisValue(ref uInput.aStrafe, AsAxisDelta( KeyCode.D ), dt, Speed:1f);
+	        UpdateAxisValue(ref uInput.aStrafe, AsAxisDelta( KeyCode.A ), dt, Speed:-1f);
 	        // (Name:"S",Command:"GBA_MoveBackward",Control:false,Shift:false,Alt:false),
 	        // (Name:"GBA_MoveBackward",Command:"Axis aBaseY Speed=-1.0",Control:false,Shift:false,Alt:false),
 	        // (Name:"W",Command:"GBA_MoveForward",Control:false,Shift:false,Alt:false),
 	        // (Name:"GBA_MoveForward",Command:"Axis aBaseY Speed=1.0",Control:false,Shift:false,Alt:false),
-	        UpdateAxisValue(ref uInput.aBaseY, UnityEngine.Input.GetKey( KeyCode.S ) ? 1f : 0f, dt, Speed:-1f);
-	        UpdateAxisValue(ref uInput.aBaseY, UnityEngine.Input.GetKey( KeyCode.W ) ? 1f : 0f, dt, Speed:1f);
+	        UpdateAxisValue(ref uInput.aBaseY, AsAxisDelta( KeyCode.S ), dt, Speed:-1f);
+	        UpdateAxisValue(ref uInput.aBaseY, AsAxisDelta( KeyCode.W ), dt, Speed:1f);
 
 	        //( Name: "MouseX", Command: "GBA_Look_MouseX", Control: false, Shift: false, Alt: false ),
             //( Name: "GBA_Look_MouseX", Command: "Count bXAxis | Axis aMouseX", Control: false, Shift: false, Alt: false ),
@@ -84,12 +105,12 @@
             
             //( Name: "SpaceBar", Command: "GBA_Jump | SkipCutscene", Control: false, Shift: false, Alt: false ),
             //( Name: "GBA_Jump", Command: "Jump | OnRelease StopJump | Axis aUp Speed=1.0  AbsoluteAxis=100 | PrevStaticViewTarget", Control: false, Shift: false, Alt: false ),
-            UpdateAxisValue( ref uInput.aUp, UnityEngine.Input.GetKey( KeyCode.Space ) ? 1f : 0f, dt, Speed: 1f, AbsoluteAxis: 100f );
+            UpdateAxisValue( ref uInput.aUp, AsAxisDelta( KeyCode.Space ), dt, Speed: 1f, AbsoluteAxis: 100f );
             
             if( UnityEngine.Input.GetKeyDown( KeyCode.Space ) )
             {
-	            controller.PrevStaticViewTarget();
 	            uInput.Jump();
+	            controller.PrevStaticViewTarget();
 	            controller.SkipCutscene();
             }
             if( UnityEngine.Input.GetKeyUp( KeyCode.Space ) )
