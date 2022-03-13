@@ -995,7 +995,7 @@ namespace MEdge.Engine
 						GWorld.GetTimeSeconds(), *Owner.GetName(), ExtractedRootMotionDelta.Translation.Size(), *ExtractedRootMotionDelta.Translation.ToString(), *RootMotionAccelScale.ToString());
 		#endif
 					// Transform mesh space root delta translation to world space
-					ExtractedRootMotionDelta.Translation = LocalToWorld.TransformNormal(ExtractedRootMotionDelta.Translation);
+					ExtractedRootMotionDelta.Translation = (bUseLegRotationHack1 ? LocalToLegRotatedWorld : LocalToWorld).TransformNormal(ExtractedRootMotionDelta.Translation);
 
 					// Scale RootMotion translation in Mesh Space.
 					if( RootMotionAccelScale != FVector(1f) )
