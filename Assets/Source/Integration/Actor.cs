@@ -183,7 +183,7 @@
 			{
 				if (NewOwner != NULL && NewOwner.IsOwnedBy(this))
 				{
-					debugf("NAME_Error", TEXT("SetOwner(): Failed to set '%s' owner of '%s' because it would cause an Owner loop"), NewOwner.Name, NewOwner.Name);
+					debugf(/*"NAME_Error",*/ TEXT("SetOwner(): Failed to set '%s' owner of '%s' because it would cause an Owner loop"), NewOwner.Name, NewOwner.Name);
 					return;
 				}
 
@@ -247,7 +247,7 @@
 			
 			if (bStatic)
 			{
-				debugf("NAME_Error", TEXT("SetTimer() called on bStatic Actor %s"), Name);
+				debugf(/*"NAME_Error",*/ TEXT("SetTimer() called on bStatic Actor %s"), Name);
 			}
 			else
 			{
@@ -380,7 +380,7 @@
 					{
 						if( Func == NULL ) 
 						{
-							debugf("NAME_Warning",
+							debugf(/*"NAME_Warning",*/
 								TEXT("Failed to find function %s for timer in actor %s"),
 								Timers[Idx].FuncName.ToString(), TimerObj.Name );
 						}

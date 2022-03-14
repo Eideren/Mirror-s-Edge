@@ -2898,7 +2898,7 @@ public virtual void /*exec*/PlayOneShotAnim(MEdge.Core.name AnimSeqName, /*optio
 	// Make sure AnimSeqName exists
 	if( SkelComponent.FindAnimSequence( AnimSeqName ) == null )
 	{
-		debugf( "NAME_Warning",TEXT("%s - Failed to find animsequence '%s' on SkeletalMeshComponent: '%s' whose owner is: '%s' and is of type %s" ),
+		debugf( /*"NAME_Warning",*/TEXT("%s - Failed to find animsequence '%s' on SkeletalMeshComponent: '%s' whose owner is: '%s' and is of type %s" ),
 			Name,
 			AnimSeqName.ToString(),
 			SkelComponent.Name, 
@@ -2943,7 +2943,7 @@ public virtual void /*exec*/BlendToLoopingAnim(name AnimSeqName, /*optional */fl
 	// Make sure AnimSeqName exists
 	if( SkelComponent.FindAnimSequence( AnimSeqName ) == null )
 	{
-		debugf( "NAME_Warning",TEXT("%s - Failed to find animsequence '%s' on SkeletalMeshComponent: '%s' whose owner is: '%s' and is of type %s" ),
+		debugf( /*"NAME_Warning",*/TEXT("%s - Failed to find animsequence '%s' on SkeletalMeshComponent: '%s' whose owner is: '%s' and is of type %s" ),
 			Name,
 			AnimSeqName.ToString(),
 			SkelComponent.Name, 
