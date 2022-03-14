@@ -54,7 +54,7 @@
 				LogWarning("Force loaded all clips inside resources");
 				_loadedAllResources = true;
 
-				foreach( var c in UnityEngine.Resources.LoadAll<UnityEngine.AudioClip>( "" ) )
+				foreach( var c in UnityEngine.Resources.LoadAll<UnityEngine.AudioClip>( "AudioClip/" ) )
 				{
 					_clips.TryAdd( c.name, c );
 				}
@@ -196,21 +196,20 @@
 					// Default offsets for the character meshes, as seen in ME's editor
 					sm.Origin.Y = 94f;
 					sm.RotOrigin = new (0, -16384, 16384); // 16384 is 90 degrees
-					    
-					TdGame.TdAnimSet set;
+
+					name[] bones;
 					switch( path )
 					{
 						case "CH_TKY_Crim_Fixer_1P.SK_UpperBody":
 						case "CH_TKY_Crim_Fixer_1P.SK_LowerBody":
-							set = Get_AS_C1P_Unarmed();
+							bones = TrackBoneNames_1P;
 							break;
 						case "CH_TKY_Crim_Fixer.SK_TKY_Crim_Fixer":
-							set = Get_AS_F3P_Unarmed();
+							bones = TrackBoneNames_3P;
 							break;
 						default: 
 							throw new Exception();
 					}
-					var bones = set.TrackBoneNames.ToArray();
 					var nonDicTrs = usm.transform.parent.GetComponentsInChildren<UnityEngine.Transform>();
 					var trs = nonDicTrs.Where(t => t != usm.transform && t != usm.transform.parent).ToDictionary( trs => (name)trs.name );
 					trs[ "root" ].localRotation = UnityEngine.Quaternion.identity;
@@ -351,6 +350,158 @@
 			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 672604262, 3274062260, 1090583925 )},
 			new() {Orientation = FromUInt4( 0, 2147483648, 0, 3212836864 ), Position = FromUInt( 311427072, 2147483648, 654311424 )},
 		};
-		
+
+		static name[] TrackBoneNames_3P = new name[]
+		{
+			(name) "root",
+			(name) "Hips",
+			(name) "Spine",
+			(name) "Spine1",
+			(name) "Spine2",
+			(name) "Neck",
+			(name) "Head",
+			(name) "LeftShoulder",
+			(name) "LeftArm",
+			(name) "LeftForeArm",
+			(name) "LeftHand",
+			(name) "LeftWeapon",
+			(name) "LeftHandMiddle0",
+			(name) "LeftHandMiddle1",
+			(name) "LeftHandMiddle2",
+			(name) "LeftHandMiddle3",
+			(name) "LeftHandRing0",
+			(name) "LeftHandRing1",
+			(name) "LeftHandRing2",
+			(name) "LeftHandRing3",
+			(name) "LeftHandPinky0",
+			(name) "LeftHandPinky1",
+			(name) "LeftHandPinky2",
+			(name) "LeftHandPinky3",
+			(name) "LeftHandIndex0",
+			(name) "LeftHandIndex1",
+			(name) "LeftHandIndex2",
+			(name) "LeftHandIndex3",
+			(name) "LeftHandThumb1",
+			(name) "LeftHandThumb2",
+			(name) "LeftHandThumb3",
+			(name) "LeftForeArmRoll",
+			(name) "LeftArmRoll",
+			(name) "RightShoulder",
+			(name) "RightArm",
+			(name) "RightForeArm",
+			(name) "RightHand",
+			(name) "RightWeapon",
+			(name) "RightHandMiddle0",
+			(name) "RightHandMiddle1",
+			(name) "RightHandMiddle2",
+			(name) "RightHandMiddle3",
+			(name) "RightHandRing0",
+			(name) "RightHandRing1",
+			(name) "RightHandRing2",
+			(name) "RightHandRing3",
+			(name) "RightHandPinky0",
+			(name) "RightHandPinky1",
+			(name) "RightHandPinky2",
+			(name) "RightHandPinky3",
+			(name) "RightHandIndex0",
+			(name) "RightHandIndex1",
+			(name) "RightHandIndex2",
+			(name) "RightHandIndex3",
+			(name) "RightHandThumb1",
+			(name) "RightHandThumb2",
+			(name) "RightHandThumb3",
+			(name) "LeftHand_GameIK",
+			(name) "RightForeArmRoll",
+			(name) "RightArmRoll",
+			(name) "LeftUpLeg",
+			(name) "LeftLeg",
+			(name) "LeftFoot",
+			(name) "LeftToeBase",
+			(name) "LeftUpLegRoll",
+			(name) "RightUpLeg",
+			(name) "RightLeg",
+			(name) "RightFoot",
+			(name) "RightToeBase",
+			(name) "RightUpLegRoll",
+		};
+
+		static name[] TrackBoneNames_1P = new name[]
+		{
+			(name) "root",
+			(name) "Hips",
+			(name) "Spine",
+			(name) "Spine1",
+			(name) "LeftUpLeg",
+			(name) "LeftLeg",
+			(name) "LeftFoot",
+			(name) "LeftToeBase",
+			(name) "LeftUpLegRoll",
+			(name) "RightUpLeg",
+			(name) "RightLeg",
+			(name) "RightFoot",
+			(name) "RightToeBase",
+			(name) "RightUpLegRoll",
+			(name) "SpineX",
+			(name) "SpineXLeft",
+			(name) "LeftShoulder",
+			(name) "LeftArm",
+			(name) "LeftForeArm",
+			(name) "LeftHand",
+			(name) "LeftWeapon",
+			(name) "LeftHandMiddle0",
+			(name) "LeftHandMiddle1",
+			(name) "LeftHandMiddle2",
+			(name) "LeftHandMiddle3",
+			(name) "LeftHandRing0",
+			(name) "LeftHandRing1",
+			(name) "LeftHandRing2",
+			(name) "LeftHandRing3",
+			(name) "LeftHandPinky0",
+			(name) "LeftHandPinky1",
+			(name) "LeftHandPinky2",
+			(name) "LeftHandPinky3",
+			(name) "LeftHandIndex0",
+			(name) "LeftHandIndex1",
+			(name) "LeftHandIndex2",
+			(name) "LeftHandIndex3",
+			(name) "LeftHandThumb1",
+			(name) "LeftHandThumb2",
+			(name) "LeftHandThumb3",
+			(name) "LeftWristRoll",
+			(name) "LeftForeArmRoll",
+			(name) "Neck",
+			(name) "Head",
+			(name) "SpineXRight",
+			(name) "RightShoulder",
+			(name) "RightArm",
+			(name) "RightForeArm",
+			(name) "RightHand",
+			(name) "RightWeapon",
+			(name) "RightHandMiddle0",
+			(name) "RightHandMiddle1",
+			(name) "RightHandMiddle2",
+			(name) "RightHandMiddle3",
+			(name) "RightHandRing0",
+			(name) "RightHandRing1",
+			(name) "RightHandRing2",
+			(name) "RightHandRing3",
+			(name) "RightHandPinky0",
+			(name) "RightHandPinky1",
+			(name) "RightHandPinky2",
+			(name) "RightHandPinky3",
+			(name) "RightHandIndex0",
+			(name) "RightHandIndex1",
+			(name) "RightHandIndex2",
+			(name) "RightHandIndex3",
+			(name) "RightHandThumb1",
+			(name) "RightHandThumb2",
+			(name) "RightHandThumb3",
+			(name) "RightWristRoll",
+			(name) "LeftHand_GameIK",
+			(name) "RightForeArmRoll",
+			(name) "EyeJoint",
+			(name) "CameraJoint",
+		};
+
 	}
 }
