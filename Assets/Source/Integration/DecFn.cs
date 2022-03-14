@@ -549,10 +549,28 @@
 
 		public static Matrix* Mult_( this Matrix A, Matrix* output, in Matrix B )
 		{
-			//typedef FLOAT Float4x4[4][4];
-			//const Float4x4& A = *((const Float4x4*) Matrix1);
-			//const Float4x4& B = *((const Float4x4*) Matrix2);
-			ref var Result = ref * output;
+			// Inlined to improve performances
+			output->Vals[0*4 + 0] = A.Vals[0*4 + 0] * B.Vals[0*4 + 0] + A.Vals[0*4 + 1] * B.Vals[1*4 + 0] + A.Vals[0*4 + 2] * B.Vals[2*4 + 0] + A.Vals[0*4 + 3] * B.Vals[3*4 + 0];
+			output->Vals[0*4 + 1] = A.Vals[0*4 + 0] * B.Vals[0*4 + 1] + A.Vals[0*4 + 1] * B.Vals[1*4 + 1] + A.Vals[0*4 + 2] * B.Vals[2*4 + 1] + A.Vals[0*4 + 3] * B.Vals[3*4 + 1];
+			output->Vals[0*4 + 2] = A.Vals[0*4 + 0] * B.Vals[0*4 + 2] + A.Vals[0*4 + 1] * B.Vals[1*4 + 2] + A.Vals[0*4 + 2] * B.Vals[2*4 + 2] + A.Vals[0*4 + 3] * B.Vals[3*4 + 2];
+			output->Vals[0*4 + 3] = A.Vals[0*4 + 0] * B.Vals[0*4 + 3] + A.Vals[0*4 + 1] * B.Vals[1*4 + 3] + A.Vals[0*4 + 2] * B.Vals[2*4 + 3] + A.Vals[0*4 + 3] * B.Vals[3*4 + 3];
+
+			output->Vals[1*4 + 0] = A.Vals[1*4 + 0] * B.Vals[0*4 + 0] + A.Vals[1*4 + 1] * B.Vals[1*4 + 0] + A.Vals[1*4 + 2] * B.Vals[2*4 + 0] + A.Vals[1*4 + 3] * B.Vals[3*4 + 0];
+			output->Vals[1*4 + 1] = A.Vals[1*4 + 0] * B.Vals[0*4 + 1] + A.Vals[1*4 + 1] * B.Vals[1*4 + 1] + A.Vals[1*4 + 2] * B.Vals[2*4 + 1] + A.Vals[1*4 + 3] * B.Vals[3*4 + 1];
+			output->Vals[1*4 + 2] = A.Vals[1*4 + 0] * B.Vals[0*4 + 2] + A.Vals[1*4 + 1] * B.Vals[1*4 + 2] + A.Vals[1*4 + 2] * B.Vals[2*4 + 2] + A.Vals[1*4 + 3] * B.Vals[3*4 + 2];
+			output->Vals[1*4 + 3] = A.Vals[1*4 + 0] * B.Vals[0*4 + 3] + A.Vals[1*4 + 1] * B.Vals[1*4 + 3] + A.Vals[1*4 + 2] * B.Vals[2*4 + 3] + A.Vals[1*4 + 3] * B.Vals[3*4 + 3];
+
+			output->Vals[2*4 + 0] = A.Vals[2*4 + 0] * B.Vals[0*4 + 0] + A.Vals[2*4 + 1] * B.Vals[1*4 + 0] + A.Vals[2*4 + 2] * B.Vals[2*4 + 0] + A.Vals[2*4 + 3] * B.Vals[3*4 + 0];
+			output->Vals[2*4 + 1] = A.Vals[2*4 + 0] * B.Vals[0*4 + 1] + A.Vals[2*4 + 1] * B.Vals[1*4 + 1] + A.Vals[2*4 + 2] * B.Vals[2*4 + 1] + A.Vals[2*4 + 3] * B.Vals[3*4 + 1];
+			output->Vals[2*4 + 2] = A.Vals[2*4 + 0] * B.Vals[0*4 + 2] + A.Vals[2*4 + 1] * B.Vals[1*4 + 2] + A.Vals[2*4 + 2] * B.Vals[2*4 + 2] + A.Vals[2*4 + 3] * B.Vals[3*4 + 2];
+			output->Vals[2*4 + 3] = A.Vals[2*4 + 0] * B.Vals[0*4 + 3] + A.Vals[2*4 + 1] * B.Vals[1*4 + 3] + A.Vals[2*4 + 2] * B.Vals[2*4 + 3] + A.Vals[2*4 + 3] * B.Vals[3*4 + 3];
+
+			output->Vals[3*4 + 0] = A.Vals[3*4 + 0] * B.Vals[0*4 + 0] + A.Vals[3*4 + 1] * B.Vals[1*4 + 0] + A.Vals[3*4 + 2] * B.Vals[2*4 + 0] + A.Vals[3*4 + 3] * B.Vals[3*4 + 0];
+			output->Vals[3*4 + 1] = A.Vals[3*4 + 0] * B.Vals[0*4 + 1] + A.Vals[3*4 + 1] * B.Vals[1*4 + 1] + A.Vals[3*4 + 2] * B.Vals[2*4 + 1] + A.Vals[3*4 + 3] * B.Vals[3*4 + 1];
+			output->Vals[3*4 + 2] = A.Vals[3*4 + 0] * B.Vals[0*4 + 2] + A.Vals[3*4 + 1] * B.Vals[1*4 + 2] + A.Vals[3*4 + 2] * B.Vals[2*4 + 2] + A.Vals[3*4 + 3] * B.Vals[3*4 + 2];
+			output->Vals[3*4 + 3] = A.Vals[3*4 + 0] * B.Vals[0*4 + 3] + A.Vals[3*4 + 1] * B.Vals[1*4 + 3] + A.Vals[3*4 + 2] * B.Vals[2*4 + 3] + A.Vals[3*4 + 3] * B.Vals[3*4 + 3];
+			return output;
+			/*ref var Result = ref * output;
 			Result[0, 0] = A[0, 0] * B[0, 0] + A[0, 1] * B[1, 0] + A[0, 2] * B[2, 0] + A[0, 3] * B[3, 0];
 			Result[0, 1] = A[0, 0] * B[0, 1] + A[0, 1] * B[1, 1] + A[0, 2] * B[2, 1] + A[0, 3] * B[3, 1];
 			Result[0, 2] = A[0, 0] * B[0, 2] + A[0, 1] * B[1, 2] + A[0, 2] * B[2, 2] + A[0, 3] * B[3, 2];
@@ -572,8 +590,7 @@
 			Result[3, 1] = A[3, 0] * B[0, 1] + A[3, 1] * B[1, 1] + A[3, 2] * B[2, 1] + A[3, 3] * B[3, 1];
 			Result[3, 2] = A[3, 0] * B[0, 2] + A[3, 1] * B[1, 2] + A[3, 2] * B[2, 2] + A[3, 3] * B[3, 2];
 			Result[3, 3] = A[3, 0] * B[0, 3] + A[3, 1] * B[1, 3] + A[3, 2] * B[2, 3] + A[3, 3] * B[3, 3];
-			return output;
-			//memcpy( Result, &Temp, 16*sizeof(FLOAT) );
+			return output;*/
 		}
 		
 		
