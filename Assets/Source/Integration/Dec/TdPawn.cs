@@ -2228,9 +2228,7 @@ public partial class TdPawn
       v108.X = this.Location.X;
       v108.Y = v25;
       v108.Z = v26;
-      UWorldBridge.GetUWorld().DrawDebugTraces = true;
       GWorld.MoveActor(this, Delta, this.Rotation, 0, ref Hit);
-      UWorldBridge.GetUWorld().DrawDebugTraces = false;
       if ( Hit.Time >= 1.0f || this.WalkableFloorZ > Hit.Normal.Z )
       {
         v118.Item = -1;
