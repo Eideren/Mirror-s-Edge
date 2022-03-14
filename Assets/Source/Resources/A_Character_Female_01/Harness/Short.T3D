@@ -1,5 +1,0 @@
-Begin Object Class=SoundCue Name=Short ObjName=Short Archetype=SoundCue'Engine.Default__SoundCue'
-   SoundGroup="InGameSFX"
-   Name="Short"
-   ObjectArchetype=SoundCue'Engine.Default__SoundCue'
-End Object

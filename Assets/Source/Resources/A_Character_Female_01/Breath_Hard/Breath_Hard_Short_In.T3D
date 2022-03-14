@@ -1,5 +1,0 @@
-Begin Object Class=SoundCue Name=Breath_Hard_Short_In ObjName=Breath_Hard_Short_In Archetype=SoundCue'Engine.Default__SoundCue'
-   SoundGroup="FaithBreath"
-   Name="Breath_Hard_Short_In"
-   ObjectArchetype=SoundCue'Engine.Default__SoundCue'
-End Object

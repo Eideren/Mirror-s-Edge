@@ -1,5 +1,0 @@
-Begin Object Class=SoundCue Name=Long ObjName=Long Archetype=SoundCue'Engine.Default__SoundCue'
-   SoundGroup="InGameSFX"
-   Name="Long"
-   ObjectArchetype=SoundCue'Engine.Default__SoundCue'
-End Object
