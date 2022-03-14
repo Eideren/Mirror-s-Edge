@@ -7,7 +7,14 @@
     public readonly struct name : IEquatable<name>
     {
         public readonly String Value;
-        public name(String v) => Value = string.Equals(v, "none", StringComparison.InvariantCultureIgnoreCase) || string.Equals(v, "", StringComparison.InvariantCultureIgnoreCase) ? "" : v;
+        static readonly String NoneValue = "";
+
+
+
+        public name( String v )
+        {
+            Value = LooksLikeANone( v.ToString() ) ? NoneValue : v;
+        }
         public static implicit operator String(name v) => v.Value;
         public static implicit operator string(name v) => v.Value.ToString();
         public static implicit operator name(String v) => new name(v);
@@ -21,7 +28,9 @@
 
         public static bool operator ==( name a, name b )
         {
-            return string.Equals(a.Value, b.Value, StringComparison.InvariantCultureIgnoreCase);
+            var sA = a.ToString();
+            var sB = b.ToString();
+            return sA.Length == sB.Length && (ReferenceEquals(sA, sB) || string.Equals(sA, sB, StringComparison.InvariantCultureIgnoreCase));
         }
 
 
