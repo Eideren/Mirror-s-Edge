@@ -252,7 +252,7 @@
 			UBOOL bBegunPlay = HasBegunPlay;
 
 			// Make sure this class is spawnable.
-			if( !(Class != null) )
+			if( Class == null )
 			{
 				//debugf( NAME_Warning, TEXT("SpawnActor failed because no class was specified") );
 				System.Diagnostics.Debugger.Break();
@@ -269,13 +269,13 @@
 				//debugf( NAME_Warning, TEXT("SpawnActor failed because class %s is abstract"), *Class->GetName() );
 				Break();
 				return null;
-			}*/
-			else if( /*!Class.IsChildOf(AActor::StaticClass())*/Class.DefaultAs<Actor>() == null )
+			}
+			else if( Class is ClassT<Actor> == false )
 			{
 				//debugf( NAME_Warning, TEXT("SpawnActor failed because %s is not an actor class"), *Class->GetName() );
 				System.Diagnostics.Debugger.Break();
 				return null;
-			}
+			}*/
 			else if( bBegunPlay && (Class.DefaultAs<Actor>().bStatic || Class.DefaultAs<Actor>().bNoDelete) )
 			{
 				System.Diagnostics.Debugger.Break();
