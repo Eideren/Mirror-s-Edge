@@ -16,6 +16,7 @@
 
 	public interface IUWorld
 	{
+		public static bool AllowImprovements{ get; set; }
 		public float GetDeltaSeconds();
 		public WorldInfo.ENetMode GetNetMode();
 		public T E_UWorld_SpawnActor<T>( Core.ClassT<T> Class, Core.name InName, Object.Vector Location, Object.Rotator Rotation, Actor Template, bool bNoCollisionFail, int bRemoteOwned, Actor Owner, Pawn Instigator, bool bNoFail ) where T : Actor;

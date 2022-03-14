@@ -89,6 +89,10 @@
                 Yaw = NormalizeRotAxis(Yaw);
                 Roll = NormalizeRotAxis(Roll);
             }
+
+
+
+            public override string ToString() => $"{{{Pitch}, {Yaw}, {Roll}}}";
         }
     }
 }

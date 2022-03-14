@@ -137,7 +137,9 @@
             foreach( var actor in _actorsThisFrame.Values )
             {
                 if( actor is PlayerController PC && PC.PlayerCamera )
+                {
                     PC.PlayerCamera.UpdateCamera(deltaTime);
+                }
             }
             
             foreach( var actor in _actorsThisFrame.Values )

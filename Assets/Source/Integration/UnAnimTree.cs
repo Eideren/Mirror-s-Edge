@@ -1090,6 +1090,13 @@ namespace MEdge.Engine
 						// Transform mesh directly. Doesn't take in-game physics into account.
 						CheckResult Hit = new(1f);
 						GWorld.MoveActor(Owner, InstantTranslation, Owner.Rotation + InstantRotation, 0, ref Hit);
+						if( Owner is Pawn p && p.Controller != null )
+						{
+							if(IUWorld.AllowImprovements)
+								p.Controller.Rotation.Yaw += InstantRotation.Yaw; // Allow players to still retain some control over 'yaw'
+							else
+								p.Controller.Rotation.Yaw = p.Rotation.Yaw; // This is another 'hack' mirror's edge introduced to UE3
+						}
 
 						// If we have used translation, reset the accumulator.
 						if( bCanDoTranslation )
