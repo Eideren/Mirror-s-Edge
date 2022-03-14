@@ -137,21 +137,52 @@ namespace MEdge.Engine
 		// Export USkeletalMeshComponent::execFindAnimNode(FFrame&, void* const)
 		public virtual /*native final function */AnimNode FindAnimNode(name InNodeName)
 		{
-			foreach( var node in EnumerateAllNodes( Animations ) )
-			{
-				if( node.NodeName == InNodeName )
-					return node;
-			}
+			return Search( Animations, InNodeName );
 
-			return default;
+			static AnimNode Search( AnimNode an, name InNodeName )
+			{
+				if( an == null )
+					return null;
+				
+				if( an.NodeName == InNodeName )
+					return an;
+				
+				if( an is AnimNodeBlendBase anbb )
+				{
+					foreach( var child in anbb.Children )
+					{
+						if( Search( child.Anim, InNodeName ) is AnimNode n )
+							return n;
+					}
+				}
+
+				return null;
+			}
 		}
 
-		public virtual /*native final iterator function */System.Collections.Generic.IEnumerable<AnimNode/* Node*/> AllAnimNodes(Core.ClassT<AnimNode> BaseClass)
+		public virtual /*native final iterator function */System.Collections.Generic.HashSet<AnimNode/* Node*/> AllAnimNodes(Core.ClassT<AnimNode> BaseClass)
 		{
-			foreach( var node in EnumerateAllNodes( Animations ) )
+			HashSet<AnimNode> _set = new();
+			Collect( Animations, _set, BaseClass );
+			return _set;
+
+			static void Collect( AnimNode an, HashSet<AnimNode> set, Core.ClassT<AnimNode> BaseClass )
 			{
-				if( BaseClass.IsBaseOf( node.Class ) )
-					yield return node;
+				if( an == null )
+					return;
+				
+				if( set.Contains( an ) || BaseClass.IsBaseOf( an.Class ) == false )
+					return;
+				
+				set.Add( an );
+				
+				if( an is AnimNodeBlendBase anbb )
+				{
+					foreach( var child in anbb.Children )
+					{
+						Collect( child.Anim, set, BaseClass );
+					}
+				}
 			}
 		}
 		
@@ -380,8 +411,9 @@ namespace MEdge.Engine
 			{
 				InitAnimTree();
 
-				UpdateSkelPose();
-				ConditionalUpdateTransform();
+				NativeMarkers.MarkUnimplemented("Skipping sample at play, it creates a bunch of garbage logs as it's missing a couple of stuff that is set later");
+				/*UpdateSkelPose();
+				ConditionalUpdateTransform();*/
 			}
 
 			// Call BeginPlay on any attached components.
