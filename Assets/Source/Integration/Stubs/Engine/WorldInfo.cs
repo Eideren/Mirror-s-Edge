@@ -307,7 +307,7 @@ public partial class WorldInfo : ZoneInfo/*
 	{
 		NativeMarkers.MarkUnimplemented();
 		// stub
-		return default;
+		return new();
 	}
 	
 	// Export UWorldInfo::execSetLevelRBGravity(FFrame&, void* const)

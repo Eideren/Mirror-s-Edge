@@ -13,7 +13,7 @@
 		// Export UAudioComponent::execPlay(FFrame&, void* const)
 		public virtual /*native final function */void Play()
 		{
-			_Play();
+			_Play?.Invoke();
 			// stub
 		}
 	
