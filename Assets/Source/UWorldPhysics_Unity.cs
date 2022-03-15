@@ -2,7 +2,6 @@
 {
 	using System;
 	using System.Collections.Generic;
-	using System.Linq;
 	using System.Runtime.CompilerServices;
 	using Core;
 	using Source;
@@ -23,6 +22,7 @@
 		static float defaultContactOffset => 0*Physics.defaultContactOffset;
 		static Collider[] _colliderCache = new Collider[16];
 		static RaycastHit[] _hitCache = new RaycastHit[16];
+		static (RaycastHit hit, (float length, Vector3 dir) pen)[] _sortCache = new (RaycastHit, (float, Vector3))[16];
 		static ConditionalWeakTable<UnityEngine.Object, Core.Object> _mappingTable = new ConditionalWeakTable<UnityEngine.Object, Core.Object>();
 		static RaycastComparer _raycastComparer = new();
 
@@ -61,7 +61,7 @@
 			{
 				center = Start.ToUnityPos();
 				var hits = Physics.RaycastNonAlloc( Start.ToUnityPos(), delta.normalized, _hitCache, totalDistance, -1, testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
-				Array.Sort(_hitCache, 0, hits, _raycastComparer );
+				Array.Sort(_hitCache, 0, hits, _raycastComparer);
 				var current = root;
 				//foreach( var hit in hits )
 				for( int i = 0; i < hits; i++ )
@@ -105,25 +105,63 @@
 			{
 				UnrealToUnityBox( Start, Extent, out var box );
 
-				center = box.center;
-				
 				var hits = Physics.BoxCastNonAlloc( box.center, box.extent, delta.normalized, _hitCache, Quaternion.identity, totalDistance, -1, QueryTriggerInteraction.Ignore );
 
-				var hitsFiltered = _hitCache
-					.Take( hits )
-					.Where( x => x.collider.isTrigger == testTrigger )
-					.Select( x =>
-					{
-						float length = 0f;
-						Vector3 direction = default;
-						bool b = x.distance == 0f && x.point == default && ComputePenetration( x.collider, box, out length, out direction );
-						return (hit:x, pen:(length, direction));
-					} ).OrderBy( x => x, _penComparer);
-				
-				
-				var current = root;
-				foreach( var(hit, penData) in hitsFiltered )
+				// Makes sure hits are sorted
+				// We also need to sort based on how much this box is already penetrating objects at the starting point
+				int sortCacheLength = 0;
+				for( int i = 0; i < hits; i++ )
 				{
+					ref var hit = ref _hitCache[i];
+					if( hit.collider.isTrigger != testTrigger )
+						continue;
+					
+					float length = 0f;
+					Vector3 direction = default;
+					if( hit.distance == 0f && hit.point == default )
+					{
+						ComputePenetration( hit.collider, box, out length, out direction );
+						if( Vector3.Dot( direction, -delta.normalized ) < 0f )
+						{
+							// Filtering out hits that are within the starting box and are not exactly in the way of the trace
+							continue;
+						}
+					}
+
+					int sortPos;
+					// Loop in the array in reverse as this hit is more likely to be at the end of the array than the start
+					// Since boxcast is already sorting by distance
+					for( sortPos = sortCacheLength-1; sortPos >= 0; sortPos-- )
+					{
+						ref var other = ref _sortCache[sortPos];
+						if( other.hit.distance < hit.distance )
+						{
+							// Going in reverse so insert right after the distance smaller to this one
+							break;
+						}
+
+						if( other.hit.distance == hit.distance && other.pen.length >= length )
+						{
+							// Going in reverse so insert after the one with a larger penetration, that one is more significant
+							break;
+						}
+					}
+
+					sortPos += 1; // Going in reverse so we have to increase by one
+					if (sortPos < sortCacheLength) // If we're actually inserting in the array make space for this value
+						Array.Copy(_sortCache, sortPos, _sortCache, sortPos + 1, sortCacheLength - sortPos);
+					_sortCache[ sortPos ].hit = hit;
+					_sortCache[ sortPos ].pen.dir = direction;
+					_sortCache[ sortPos ].pen.length = length;
+					
+					sortCacheLength++;
+				}
+
+				var current = root;
+				for( int i = 0; i < sortCacheLength; i++ )
+				{
+					var ( hit, penData ) = _sortCache[ i ];
+
 					if( ExtractMappingData( hit.collider, out var component, out var actor ) == false )
 						continue;
 					
@@ -137,16 +175,9 @@
 					bool penetrating = hit.distance == 0f && hit.point == default;
 					if( penetrating )
 					{
-						if( /*penData.length == 0f && */Vector3.Dot( penData.direction, -delta.normalized ) < 0f )
-						{
-							// Filtering out hits that are within the starting box and are not exactly in the way of the trace
-							continue;
-						}
-
-						// Actually penetrating, not just bounds against bounds
 						// Looks to be this value when looking at the source, I'm not sure to be honest
 						next.Normal = (-delta).normalized.ToUnrealDir();
-						next.Location = (Start.ToUnityPos() + penData.direction * penData.length).ToUnrealPos();
+						next.Location = (Start.ToUnityPos() + penData.dir * penData.length).ToUnrealPos();
 						next.bStartPenetrating = true;
 						next.Time = 0f;
 					}
