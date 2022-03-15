@@ -965,7 +965,8 @@ namespace MEdge.Engine
 					BoneAtomBlendStats.Empty();
 		#endif
 					//debugf(TEXT("%2.3f: %s GetBoneAtoms(), owner: %s"),GWorld.GetTimeSeconds(),*GetPathName(),*Owner.GetName());
-					Animations.GetBoneAtoms(ref LocalAtoms, ref RequiredBones, ref ExtractedRootMotionDelta, ref bHasRootMotion);
+					var _LocalAtoms = new Span<BoneAtom>(LocalAtoms._items, 0, LocalAtoms.Length);
+					Animations.GetBoneAtoms(ref _LocalAtoms, ref RequiredBones, ref ExtractedRootMotionDelta, ref bHasRootMotion);
 					
 		#if ENABLE_GETBONEATOM_STATS
 					if(GShouldLogOutAFrameOfSkelCompTick)
@@ -984,7 +985,8 @@ namespace MEdge.Engine
 				}
 				else
 				{
-					AnimNode.FillWithRefPose(ref LocalAtoms, RequiredBones, SkeletalMesh.RefSkeleton);
+					var _LocalAtoms = new Span<BoneAtom>(LocalAtoms._items, 0, LocalAtoms.Length);
+					AnimNode.FillWithRefPose(ref _LocalAtoms, RequiredBones, SkeletalMesh.RefSkeleton);
 				}
 			}
 
@@ -1892,9 +1894,9 @@ public virtual void AnimSetsUpdated()
 /// @param DesiredBones		Indices of bones we want to modify. Parents must occur before children.
 /// @param RefSkel			Input reference skeleton to create atoms from.
 /// </summary>
-public static void FillWithRefPose(ref MEdge.array<BoneAtom> OutAtoms,  in MEdge.array<byte> DesiredBones,  in MEdge.array<FMeshBone> RefSkel)
+public static void FillWithRefPose(ref Span<BoneAtom> OutAtoms,  in MEdge.array<byte> DesiredBones,  in MEdge.array<FMeshBone> RefSkel)
 {
-	check( OutAtoms.Num() == RefSkel.Num() );
+	check( OutAtoms.Length == RefSkel.Num() );
 
 	for(int i=0; i<DesiredBones.Num(); i++)
 	{
@@ -1961,7 +1963,7 @@ public static void EnsureParentsPresent(ref MEdge.array<byte> BoneIndices, ref S
 /// @param	Atoms			Output array of bone transforms. Must be correct size when calling function - that is one entry for each bone. Contents will be erased by function though.
 /// @param	DesiredBones	Indices of bones that we want to return. Note that bones not in this array will not be modified, so are not safe to access! Parents must occur before children.
 /// </summary>
-public virtual void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
+public virtual void GetBoneAtoms(ref Span<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	// START_GETBONEATOM_TIMER
 
@@ -1970,7 +1972,7 @@ public virtual void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.arr
 	bHasRootMotion	= false;
 
 	 int NumAtoms = SkelComponent.SkeletalMesh.RefSkeleton.Num();
-	check(NumAtoms == Atoms.Num());
+	check(NumAtoms == Atoms.Length);
 	FillWithRefPose(ref Atoms, DesiredBones, SkelComponent.SkeletalMesh.RefSkeleton);
 }
 
@@ -1978,13 +1980,13 @@ public virtual void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.arr
 /// 	Will copy the cached results into the OutAtoms array if they are up to date and return true 
 /// 	If cache is not up to date, does nothing and returns false.
 /// </summary>
-protected bool GetCachedResults(ref MEdge.array<BoneAtom> OutAtoms, ref BoneAtom OutRootMotionDelta, ref bool bOutHasRootMotion)
+protected bool GetCachedResults(ref Span<BoneAtom> OutAtoms, ref BoneAtom OutRootMotionDelta, ref bool bOutHasRootMotion)
 {
 	check(SkelComponent);
 
 	// See if results are cached, and cached array is the same size as the target array.
 	if( NodeCachedAtomsTag == SkelComponent.CachedAtomsTag && 
-		CachedBoneAtoms.Num() == OutAtoms.Num() )
+		CachedBoneAtoms.Num() == OutAtoms.Length )
 	{
 		for( int i = 0; i < OutAtoms.Length; i++ )
 			OutAtoms[i] = CachedBoneAtoms[i];
@@ -2007,7 +2009,7 @@ protected bool ShouldSaveCachedResults()
 /// <summary>
 /// Save the supplied array of BoneAtoms in the CachedBoneAtoms. 
 /// </summary>
-public virtual void SaveCachedResults( ref MEdge.array<BoneAtom> NewAtoms,  ref BoneAtom NewRootMotionDelta, bool bNewHasRootMotion)
+public virtual void SaveCachedResults( ref Span<BoneAtom> NewAtoms,  ref BoneAtom NewRootMotionDelta, bool bNewHasRootMotion)
 {
 	check(SkelComponent);
 
@@ -2312,7 +2314,7 @@ public override void GetNodesInternal(ref MEdge.array<AnimNode> Nodes)
 /// @param	DesiredBones	Indices of bones that we want to return. Note that bones not in this array will not be modified, so are not safe to access! 
 /// 							This array must be in strictly increasing order.
 /// </summary>
-public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
+public override void GetBoneAtoms(ref Span<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	// START_GETBONEATOM_TIMER
 
@@ -2356,7 +2358,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 #endif
 
 	 int NumAtoms = SkelComponent.SkeletalMesh.RefSkeleton.Num();
-	check( NumAtoms == Atoms.Num() );
+	check( NumAtoms == Atoms.Length );
 
 	// Find index of the last child with a non-zero weight.
 	int LastChildIndex = INDEX_NONE;
@@ -2400,7 +2402,8 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	check(LastChildIndex != INDEX_NONE);
 
 	// We don't allocate this array until we need it.
-	MEdge.array<BoneAtom> ChildAtoms = new array<BoneAtom>();
+	Span<BoneAtom> ChildAtoms = stackalloc BoneAtom[NumAtoms];
+	bool init = false;
 	bool bNoChildrenYet = true;
 
 	bHasRootMotion						= false;
@@ -2414,9 +2417,9 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 		if( Children[i].Weight > ZERO_ANIMWEIGHT_THRESH )
 		{
 			// Do need to request atoms, so allocate array here.
-			if( ChildAtoms.Num() == 0 )
+			if( init == false )
 			{
-				ChildAtoms.AddCount(NumAtoms);
+				init = true;
 				for( int j = 0; j < ChildAtoms.Length; j++ )
 					ChildAtoms[j] = BoneAtom.Identity;
 			}
@@ -2538,17 +2541,17 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 /// Get mirrored bone atoms from desired child index. 
 /// Bones are mirrored using the SkelMirrorTable.
 /// </summary>
-public virtual void GetMirroredBoneAtoms(ref MEdge.array<BoneAtom> Atoms, int ChildIndex, ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
+public virtual void GetMirroredBoneAtoms(ref Span<BoneAtom> Atoms, int ChildIndex, ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	ref SkeletalMesh SkelMesh = ref SkelComponent.SkeletalMesh;
 	check(SkelMesh);
 
 	// If mirroring is enabled, and the mirror info array is initialized correctly.
-	if( SkelMesh.SkelMirrorTable.Num() == Atoms.Num() )
+	if( SkelMesh.SkelMirrorTable.Num() == Atoms.Length )
 	{
 		// Get atoms from SourceNode.
-		MEdge.array<BoneAtom> ChildAtoms = new();
-		ChildAtoms.AddCount(Atoms.Num());
+		Span<BoneAtom> ChildAtoms = stackalloc BoneAtom[Atoms.Length];
+		//ChildAtoms.AddCount(Atoms.Num());
 		for( int j = 0; j < ChildAtoms.Length; j++ )
 			ChildAtoms[j] = BoneAtom.Identity;
 
@@ -2598,7 +2601,7 @@ public virtual void GetMirroredBoneAtoms(ref MEdge.array<BoneAtom> Atoms, int Ch
 
 			// Make array of flags to track which bones have already been mirrored.
 			MEdge.array<bool> BoneMirrored = new();
-			BoneMirrored.InsertZeroed(0, Atoms.Num());
+			BoneMirrored.InsertZeroed(0, Atoms.Length);
 
 			for(int i=0; i<DesiredBones.Num(); i++)
 			{
@@ -3137,7 +3140,7 @@ static MEdge.array<MEdge.Core.Object.Matrix> ResultCompSpace;
 /// <summary>
 /// see AnimNode.GetBoneAtoms. 
 ///</summary>
-public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
+public override void GetBoneAtoms(ref Span<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	// START_GETBONEATOM_TIMER
 
@@ -3167,12 +3170,12 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	}
 
 	ref MEdge.array<FMeshBone> RefSkel = ref SkelComponent.SkeletalMesh.RefSkeleton;
-	 int NumAtoms = RefSkel.Num();
+	int NumAtoms = RefSkel.Num();
 
-	MEdge.array<BoneAtom> Child1Atoms = new(), Child2Atoms = new();
+	Span<BoneAtom> Child1Atoms = stackalloc BoneAtom[NumAtoms], Child2Atoms = stackalloc BoneAtom[NumAtoms];
 
 	// Get bone atoms from each child (if no child - use ref pose).
-	Child1Atoms.AddCount(NumAtoms);
+	//Child1Atoms.AddCount(NumAtoms);
 	for( int j = 0; j < Child1Atoms.Length; j++ )
 		Child1Atoms[j] = BoneAtom.Identity;
 	BoneAtom	Child1RMD				= BoneAtom.Identity;
@@ -3188,7 +3191,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	}
 
 	// Get only the necessary bones from child2. The ones that have a Child2PerBoneWeight[BoneIndex] > 0
-	Child2Atoms.AddCount(NumAtoms);
+	//Child2Atoms.AddCount(NumAtoms);
 	for( int j = 0; j < Child2Atoms.Length; j++ )
 		Child2Atoms[j] = BoneAtom.Identity;
 	BoneAtom	Child2RMD				= BoneAtom.Identity;
@@ -3797,7 +3800,7 @@ float CalcSpeed()
 
 public partial class AnimNodeMirror
 {
-public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
+public override void GetBoneAtoms(ref Span<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	// START_GETBONEATOM_TIMER
 
@@ -4571,7 +4574,7 @@ public virtual void SetTargetStartBone( int TargetIdx, MEdge.Core.name StartBone
 /// <summary>
 /// see AnimNode.GetBoneAtoms. 
 /// </summary>
-public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
+public override void GetBoneAtoms(ref Span<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	// START_GETBONEATOM_TIMER
 
@@ -4590,7 +4593,7 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	}
 
 	int NumAtoms = SkelComponent.SkeletalMesh.RefSkeleton.Num();
-	check( NumAtoms == Atoms.Num() );
+	check( NumAtoms == Atoms.Length );
 
 	// Find index of the last child with a non-zero weight.
 	int LastChildIndex = INDEX_NONE;
@@ -4604,7 +4607,8 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 	check(LastChildIndex != INDEX_NONE);
 
 	// We don't allocate this array until we need it.
-	MEdge.array<BoneAtom> ChildAtoms = new();
+	Span<BoneAtom> ChildAtoms = stackalloc BoneAtom[NumAtoms];
+	bool init = false;
 	if( LastChildIndex == 0 )
 	{
 		if( Children[0].Anim )
@@ -4646,9 +4650,10 @@ public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.ar
 
 
 				// Do need to request atoms, so allocate array here.
-				if( ChildAtoms.Num() == 0 )
+				if( init == false )
 				{
-					ChildAtoms.AddCount(NumAtoms);
+					init = true;
+					//ChildAtoms.AddCount(NumAtoms);
 					for( int k = 0; k < ChildAtoms.Length; k++ )
 						ChildAtoms[k] = BoneAtom.Identity;
 				}
@@ -4848,7 +4853,7 @@ static MEdge.array<MEdge.Core.Object.Matrix> AimOffsetBoneTM;
 
 public virtual void PostAimProcessing(ref Vector2D AimOffsetPct) {}
 const float DELTA = ( 0.00001f );
-public override void GetBoneAtoms(ref MEdge.array<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
+public override void GetBoneAtoms(ref Span<BoneAtom> Atoms,  ref MEdge.array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	// START_GETBONEATOM_TIMER
 
@@ -5439,16 +5444,16 @@ public virtual void BakeOffsetsFromAnimations()
 
 	appMsgf(AMT_OK, TEXT(" Export finished, check log for details."));*/
 }
-public virtual void ExtractOffsets(ref MEdge.array<BoneAtom> RefBoneAtoms, ref MEdge.array<BoneAtom> BoneAtoms, EAnimAimDir InAimDir)
+public virtual void ExtractOffsets(ref Span<BoneAtom> RefBoneAtoms, ref Span<BoneAtom> BoneAtoms, EAnimAimDir InAimDir)
 {
 	MEdge.array<MEdge.Core.Object.Matrix>	TargetTM = new();
-	TargetTM.AddCount(BoneAtoms.Num());
+	TargetTM.AddCount(BoneAtoms.Length);
 	for( int i = 0; i < TargetTM.Length; i++ )
 	{
 		TargetTM[i] = Matrix.Identity;
 	}
 
-	for(int i=0; i<BoneAtoms.Num(); i++)
+	for(int i=0; i<BoneAtoms.Length; i++)
 	{
 		// Transform target pose into mesh space
 		BoneAtoms[i].ToTransform(ref TargetTM[i]);
@@ -5607,7 +5612,7 @@ bool ExtractAnimationData(AnimNodeSequence SeqNode, MEdge.Core.name AnimationNam
 	 int				NumBones = SkelMesh.RefSkeleton.Num();
 
 	// initialize Bone Atoms array
-	if( BoneAtoms.Num() != NumBones )
+	if( BoneAtoms.Length != NumBones )
 	{
 		BoneAtoms.Empty();
 		BoneAtoms.AddCount(NumBones);
@@ -5625,7 +5630,8 @@ bool ExtractAnimationData(AnimNodeSequence SeqNode, MEdge.Core.name AnimationNam
 	// Extract bone atoms from animation data
 	BoneAtom	RootMotionDelta = default;
 	bool		bHasRootMotion = false;
-	SeqNode.GetBoneAtoms(ref BoneAtoms, ref DesiredBones, ref RootMotionDelta, ref bHasRootMotion);
+	var _BonesAtoms = new Span<BoneAtom>( BoneAtoms._items, 0, BoneAtoms.Num() );
+	SeqNode.GetBoneAtoms(ref _BonesAtoms, ref DesiredBones, ref RootMotionDelta, ref bHasRootMotion);
 
 	return true;
 }

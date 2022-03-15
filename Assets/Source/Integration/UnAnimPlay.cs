@@ -337,7 +337,7 @@ public virtual void OnAnimEnd(float PlayedTime, float ExcessTime)
 	}
 }
 
-public override void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
+public override void GetBoneAtoms(ref Span<BoneAtom> Atoms, ref array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	//START_GETBONEATOM_TIMER
 
@@ -353,7 +353,7 @@ public override void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> Des
 }
 
 
-public virtual void GetAnimationPose(AnimSequence InAnimSeq, ref int InAnimLinkupIndex, ref array<BoneAtom> Atoms, ref array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
+public virtual void GetAnimationPose(AnimSequence InAnimSeq, ref int InAnimLinkupIndex, ref Span<BoneAtom> Atoms, ref array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	//SCOPE_CYCLE_COUNTER(STAT_GetAnimationPose);
 
@@ -380,7 +380,7 @@ public virtual void GetAnimationPose(AnimSequence InAnimSeq, ref int InAnimLinku
 	// Get the reference skeleton
 	ref array<FMeshBone> RefSkel = ref SkelComponent.SkeletalMesh.RefSkeleton;
 	int NumBones = RefSkel.Num();
-	check(NumBones == Atoms.Num());
+	check(NumBones == Atoms.Length);
 	
 	#if UNUSED
 	AnimSet AnimSet = InAnimSeq.GetAnimSet();
@@ -1295,7 +1295,7 @@ public virtual void SetAnimInfo(name InSequenceName, ref AnimInfo InAnimInfo)
 /// @param	DesiredBones	Indices of bones that we want to return. Note that bones not in this array will not be modified, so are not safe to access! 
 /// 							This array must be in strictly increasing order.
 ///</summary>
-public override void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
+public override void GetBoneAtoms(ref Span<BoneAtom> Atoms, ref array<byte> DesiredBones, ref BoneAtom RootMotionDelta, ref bool bHasRootMotion)
 {
 	// See if results are cached.
 	if( GetCachedResults(ref Atoms, ref RootMotionDelta, ref bHasRootMotion) )
@@ -1363,7 +1363,8 @@ public override void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> Des
 	check(LastChildIndex != INDEX_NONE);
 
 	// We don't allocate this array until we need it.
-	array<BoneAtom> ChildAtoms = new();
+	Span<BoneAtom> ChildAtoms = stackalloc BoneAtom[SkelComponent.SkeletalMesh.RefSkeleton.Num()];
+	bool init = false;
 	bool bNoChildrenYet = TRUE;
 
 	// Root Motion
@@ -1376,16 +1377,17 @@ public override void GetBoneAtoms(ref array<BoneAtom> Atoms, ref array<byte> Des
 		if( Anims[i].Weight > ZERO_ANIMWEIGHT_THRESH )
 		{
 			// Do need to request atoms, so allocate array here.
-			if( ChildAtoms.Num() == 0 )
+			if( init == false )
 			{
+				init = true;
 				int NumAtoms = SkelComponent.SkeletalMesh.RefSkeleton.Num();
-				check(NumAtoms == Atoms.Num());
-				ChildAtoms.AddCount(NumAtoms);
+				check(NumAtoms == Atoms.Length);
+				//ChildAtoms.AddCount(NumAtoms);
 				for( int j = 0; j < ChildAtoms.Length; j++ )
 					ChildAtoms[j] = BoneAtom.Identity;
 			}
 
-			check(ChildAtoms.Num() == Atoms.Num());
+			check(ChildAtoms.Length == Atoms.Length);
 
 			// Get Animation pose
 			GetAnimationPose(Anims[i].AnimInfo.AnimSeq, ref Anims[i].AnimInfo.AnimLinkupIndex, ref ChildAtoms, ref DesiredBones, ref ExtractedRootMotion, ref bHasRootMotion);
