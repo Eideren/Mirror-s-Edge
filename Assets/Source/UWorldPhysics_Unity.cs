@@ -188,8 +188,9 @@
 					}
 					else
 					{
-						DrawBox(box, delta, 0.05f, new Color(1f, 0f, 0f, 0.25f));
-						DrawBox(box, delta * root.Next->Time, 0.05f, new Color(1f, 0f, 0f, 0.5f));
+						DrawBox(box, delta, 0.05f, new Color(1f, 0f, 0f, 0.125f));
+						box.center += delta * root.Next->Time;
+						DrawBox(box, duration:0.05f, col:new Color(1f, 0f, 0f, 0.5f));
 					}
 				}
 			}
@@ -533,15 +534,16 @@
 			var c = Vector3.forward + Vector3.down + Vector3.left;
 			var d = Vector3.forward + Vector3.down + Vector3.right;
 			bool doDisplace = displacement != default;
+			duration *= Time.timeScale; 
 			for( int i = 0; i < 4; i++ )
 			{
 				var a2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * a, box.extent);
 				var b2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * b, box.extent);
 				var c2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * c, box.extent);
 				var d2 = box.center + Vector3.Scale( Quaternion.AngleAxis(i * 90f, Vector3.up) * d, box.extent);
-				Debug.DrawLine( a2, b2, actualCol, duration * Time.timeScale );
-				Debug.DrawLine( b2, c2, actualCol, duration * Time.timeScale );
-				Debug.DrawLine( c2, d2, actualCol, duration * Time.timeScale );
+				Debug.DrawLine( a2, b2, actualCol, duration );
+				Debug.DrawLine( b2, c2, actualCol, duration );
+				Debug.DrawLine( c2, d2, actualCol, duration );
 				if( doDisplace )
 				{
 					for( int j = 0; j < 4; j++ )
@@ -550,14 +552,12 @@
 						var db2 = b2 + displacement;
 						var dc2 = c2 + displacement;
 						var dd2 = d2 + displacement;
-						Debug.DrawLine( da2, db2, actualCol, duration * Time.timeScale );
-						Debug.DrawLine( db2, dc2, actualCol, duration * Time.timeScale );
-						Debug.DrawLine( dc2, dd2, actualCol, duration * Time.timeScale );
+						Debug.DrawLine( da2, db2, actualCol, duration );
+						Debug.DrawLine( db2, dc2, actualCol, duration );
+						Debug.DrawLine( dc2, dd2, actualCol, duration );
 						
-						Debug.DrawLine( da2, a2, actualCol, duration * Time.timeScale );
-						Debug.DrawLine( db2, b2, actualCol, duration * Time.timeScale );
-						Debug.DrawLine( dc2, c2, actualCol, duration * Time.timeScale );
-						Debug.DrawLine( dd2, d2, actualCol, duration * Time.timeScale );
+						Debug.DrawLine( db2, b2, actualCol, duration );
+						Debug.DrawLine( dc2, c2, actualCol, duration );
 					}
 				}
 			}
