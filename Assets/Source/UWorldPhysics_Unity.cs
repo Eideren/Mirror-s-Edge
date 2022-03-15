@@ -25,25 +25,7 @@
 		static (RaycastHit hit, (float length, Vector3 dir) pen)[] _sortCache = new (RaycastHit, (float, Vector3))[16];
 		static ConditionalWeakTable<UnityEngine.Object, Core.Object> _mappingTable = new ConditionalWeakTable<UnityEngine.Object, Core.Object>();
 		static RaycastComparer _raycastComparer = new();
-
-
-
-
-		BoxCollider BoxForTests;
-
-
-
-		static PenComparer _penComparer = new PenComparer();
-		class PenComparer : IComparer<(RaycastHit hit, (float length, Vector3 dir) pen)>
-		{
-			public int Compare( (RaycastHit hit, (float length, Vector3 dir) pen) x, (RaycastHit hit, (float length, Vector3 dir) pen) y )
-			{
-				if( x.hit.distance != y.hit.distance )
-					return x.hit.distance.CompareTo(y.hit.distance); // Smallest dist first
-				// Then when dist is zero, largest penetration length must be first
-				return y.pen.length.CompareTo( x.pen.length );
-			}
-		}
+		static BoxCollider BoxForTests;
 
 
 
