@@ -51,10 +51,11 @@
 			}
 			else
 			{
-				LogWarning("Force loaded all clips inside resources");
+				// Basically this occurs because T3D files contain relative asset paths afaict, other things are more important right now
+				LogWarning($"Force loaded all clips inside resources as we couldn't find {path} under 'Resources/'");
 				_loadedAllResources = true;
 
-				foreach( var c in UnityEngine.Resources.LoadAll<UnityEngine.AudioClip>( "AudioClip/" ) )
+				foreach( var c in UnityEngine.Resources.LoadAll<UnityEngine.AudioClip>( "" ) )
 				{
 					_clips.TryAdd( c.name, c );
 				}
