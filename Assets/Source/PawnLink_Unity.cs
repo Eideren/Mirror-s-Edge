@@ -19,6 +19,8 @@
             SkinnedMeshRenderer _1pLower;
             IAnimNodeEditorWindow _window;
             UnityEngine.Camera _unityCam;
+            Vector3 _lastPos;
+            Quaternion _lastRot;
 
 
 
@@ -68,6 +70,8 @@
                     Destroy(oldParent.gameObject);
                     
                     _1pBones = Pawn.Mesh1p.AnimSets[0].TrackBoneNames.Select( n => nameToBones[ n ] ).ToArray();
+                    _lastPos = _1pPlayer.transform.position;
+                    _lastRot = _1pPlayer.transform.rotation;
                 }
 
                 if( _3pPlayer == null )
@@ -121,10 +125,23 @@
 	                }
                 }
 
+
+                var unityTransform = _1pPlayer.transform;
+                if( _lastPos != unityTransform.position || _lastRot != unityTransform.rotation )
+                {
+	                DecFn.CheckResult _chck = new DecFn.CheckResult();
+	                UWorldBridge.GetUWorld().MoveActor( Pawn, (unityTransform.position - _lastPos).ToUnrealPos(), unityTransform.rotation.ToUnrealRot(), 0, ref _chck );
+                }
+
                 var basePos = Pawn.Location;
                 var baseRot = Pawn.Rotation;
+                
                 _1pPlayer.transform.SetPositionAndRotation( basePos.ToUnityPos(), baseRot.ToUnityQuat() );
                 _3pPlayer.transform.SetPositionAndRotation( basePos.ToUnityPos(), baseRot.ToUnityQuat() );
+
+                _lastPos = _1pPlayer.transform.position;
+                _lastRot = _1pPlayer.transform.rotation;
+
 
                 for( int i = 0; i < Pawn.Mesh1p.LocalAtoms.Length; i++ )
                 {
