@@ -146,22 +146,22 @@
                 for( int i = 0; i < Pawn.Mesh1p.LocalAtoms.Length; i++ )
                 {
 	                ref var atom = ref Pawn.Mesh1p.LocalAtoms[i];
-	                // Temporary as world to ensure that transformation differences between unity and unreal are properly dealt with
-	                _1pBones[i].position = Pawn.Mesh1p.GetBoneLocation(_1pBones[i].gameObject.name, 0).ToUnityPos();
-	                _1pBones[i].rotation = Pawn.Mesh1p.GetBoneQuaternion(_1pBones[i].gameObject.name, 0).ToUnity();
-	                
-	                //_1pBones[i].localRotation = atom.Rotation.ToUnity();
-	                //_1pBones[i].localPosition = atom.Translation.ToUnityPos();
+	                _1pBones[i].localPosition = atom.Translation.ToUnityAnim();
+	                _1pBones[i].localRotation = atom.Rotation.ToUnityAnim();
 	                _1pBones[i].localScale = Vector3.one * atom.Scale;
                 }
                 
-                for( int i = 0; i < Pawn.Mesh3p.LocalAtoms.Length; i++ )
+                for( int i = 1; i < Pawn.Mesh3p.LocalAtoms.Length; i++ )
                 {
 	                ref var atom = ref Pawn.Mesh3p.LocalAtoms[i];
-	                _3pBones[i].localPosition = atom.Translation.ToUnityPos();
-	                _3pBones[i].localRotation = atom.Rotation.ToUnity();
+	                _3pBones[i].localPosition = atom.Translation.ToUnityAnim();
+	                _3pBones[i].localRotation = atom.Rotation.ToUnityAnim();
 	                _3pBones[i].localScale = Vector3.one * atom.Scale;
                 }
+                
+                // Skeleton has a base offset inside of their owner, just makes sure it's taken care of here
+                _1pBones[ 0 ].position = Pawn.Mesh1p.GetBoneLocation(_1pBones[ 0 ].name).ToUnityPos();
+                _3pBones[ 0 ].position = Pawn.Mesh3p.GetBoneLocation(_3pBones[ 0 ].name).ToUnityPos();
                 
                 if( _unityCam == null )
                 {
