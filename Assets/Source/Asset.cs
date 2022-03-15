@@ -237,6 +237,9 @@
 						};
 					}
 
+					var link = usm.gameObject.AddComponent<UnrealObjectLink>();
+					if(link != null)
+						link.Object = (Object) (object) unrealObj;
 					lock( UScriptToUnity )
 						UScriptToUnity.Add( unrealObj, usm );
 					return unrealObj;

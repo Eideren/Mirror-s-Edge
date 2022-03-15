@@ -70,6 +70,10 @@
                     Destroy(oldParent.gameObject);
                     
                     _1pBones = Pawn.Mesh1p.AnimSets[0].TrackBoneNames.Select( n => nameToBones[ n ] ).ToArray();
+
+                    var uol = _1pPlayer.AddComponent<UnrealObjectLink>();
+                    uol.Object = Pawn;
+                    
                     _lastPos = _1pPlayer.transform.position;
                     _lastRot = _1pPlayer.transform.rotation;
                 }
@@ -107,6 +111,9 @@
 	                
                     // Disable rendering for now, let's focus on 1P first
                     ( (SkinnedMeshRenderer)tracker ).enabled = false;
+                    
+                    var uol = _3pPlayer.AddComponent<UnrealObjectLink>();
+                    uol.Object = Pawn;
                 }
 
                 if( UnityEngine.Input.GetKey( KeyCode.M ) )
