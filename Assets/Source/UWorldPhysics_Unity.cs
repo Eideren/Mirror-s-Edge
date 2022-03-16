@@ -555,8 +555,6 @@
 
 			if( unityExtent.x < 0 || unityExtent.y < 0 || unityExtent.z < 0 )
 				throw new Exception();
-			if( Physics.queriesHitBackfaces )
-				throw new Exception("Disable Physics Backface queries, collision test are likely to misbehave");
 			
 			box = ( unityLoc, unityExtent );
 		}
