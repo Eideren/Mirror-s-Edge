@@ -101,6 +101,19 @@ public partial class TdMovementVolume : PhysicsVolume/*
 	{
 		var Default__TdMovementVolume_BrushComponent0 = new BrushComponent
 		{
+			// Object Offset:0x002B234A
+			bAcceptsLights = true,
+			LightingChannels = new LightComponent.LightingChannelContainer
+			{
+				bInitialized = true,
+				Dynamic = true,
+			},
+			CollideActors = true,
+			BlockNonZeroExtent = true,
+			AlwaysLoadOnClient = true,
+			AlwaysLoadOnServer = true,
+			// Object Offset:0x0030CA5E
+			BlockZeroExtent = true,
 		}/* Reference: BrushComponent'Default__TdMovementVolume.BrushComponent0' */;
 		var Default__TdMovementVolume_WallDir = new ArrowComponent
 		{

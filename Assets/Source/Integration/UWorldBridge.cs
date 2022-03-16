@@ -24,6 +24,7 @@
 		public bool MoveActor( Actor Actor, in Object.Vector Delta, in Object.Rotator NewRotation, uint MoveFlags, ref Source.DecFn.CheckResult Hit );
 		public unsafe bool SingleLineCheck( ref DecFn.CheckResult a2, Actor a3, in Object.Vector a4, in Object.Vector a5, int a6, in Object.Vector a7 = default, int a8 = 0 );
 		public unsafe DecFn.CheckResult* MultiLineCheck( ref int Mem, in Object.Vector End, in Object.Vector Start, in Object.Vector Extent, uint TraceFlags, Actor SourceActor, LightComponent SourceLight );
+		public unsafe bool PointCheck( PrimitiveComponent comp, ref DecFn.CheckResult Result, in Object.Vector Location, in Object.Vector Extent, Object.ETraceFlags TraceFlags );
 		public unsafe bool FindSpot( in Object.Vector Extent, ref Object.Vector Location, bool bUseComplexCollision );
 		public unsafe bool FarMoveActor( Actor Actor, in Object.Vector DestLocation, bool test = false, bool bNoCheck = false, bool bAttachedMove = false );
 		public unsafe bool EncroachingWorldGeometry( ref DecFn.CheckResult Hit, in Object.Vector Location, in Object.Vector Extent, bool bUseComplexCollision );

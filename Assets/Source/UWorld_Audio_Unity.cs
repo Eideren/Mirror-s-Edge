@@ -345,7 +345,7 @@
 					catch(Exception e)
 					{
 						_sourceCache.Push(unity);
-						throw;
+						throw e;
 					}
 				}
 				else if( node is SoundNodeDelay delayN )
@@ -397,7 +397,10 @@
 						case TdSoundNodeVelocity.SpeedType.SPEEDTYPE_Relative: break;
 						case TdSoundNodeVelocity.SpeedType.SPEEDTYPE_Custom: break;
 						case TdSoundNodeVelocity.SpeedType.SPEEDTYPE_MAX: break;*/
-						default: throw new NotImplementedException();
+						default: 
+							NativeMarkers.MarkUnimplemented($"{vel.TypeOfSpeed.ToString()} not implemented");
+							speedVal = vel.MinSpeed;
+							break;
 					}
 
 					float speedAsUnit = (speedVal - vel.MinSpeed) / (vel.MaxSpeed - vel.MinSpeed);

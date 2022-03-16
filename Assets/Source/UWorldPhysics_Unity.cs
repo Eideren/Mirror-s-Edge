@@ -5,10 +5,12 @@
 	using System.Runtime.CompilerServices;
 	using Core;
 	using Source;
+	using TdGame;
 	using UnityEngine;
 	using Color = UnityEngine.Color;
 	using FCheckResult = Source.DecFn.CheckResult;
 	using FVector = MEdge.Core.Object.Vector;
+	using ETraceFlags = Core.Object.ETraceFlags;
 
 
 
@@ -23,15 +25,16 @@
 		static Collider[] _colliderCache = new Collider[16];
 		static RaycastHit[] _hitCache = new RaycastHit[16];
 		static (RaycastHit hit, (float length, Vector3 dir) pen)[] _sortCache = new (RaycastHit, (float, Vector3))[16];
-		static ConditionalWeakTable<UnityEngine.Object, Core.Object> _mappingTable = new ConditionalWeakTable<UnityEngine.Object, Core.Object>();
+		static ConditionalWeakTable<object, object> _collMappingTable = new();
 		static RaycastComparer _raycastComparer = new();
-		static BoxCollider BoxForTests;
+		static BoxCollider _boxForTests;
 
 
 
-		public unsafe FCheckResult* MultiLineCheck( ref int Mem, in FVector End, in FVector Start, in FVector Extent, uint TraceFlags, Actor SourceActor, LightComponent SourceLight = null )
+		public unsafe FCheckResult* MultiLineCheck( ref int Mem, in FVector End, in FVector Start, in FVector Extent, uint _TraceFlags, Actor SourceActor, LightComponent SourceLight = null )
 		{
-			bool testTrigger = ( TraceFlags & TRACE_PhysicsVolumes ) != default;
+			var TraceFlags = (ETraceFlags) _TraceFlags;
+			var includeTrigger = ( TraceFlags & (ETraceFlags.TRACE_Volumes | ETraceFlags.TRACE_Blocking) ) == ETraceFlags.TRACE_Volumes ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore;
 
 			var delta = End.ToUnityPos() - Start.ToUnityPos();
 
@@ -42,7 +45,7 @@
 			if( Extent == default )
 			{
 				center = Start.ToUnityPos();
-				var hits = Physics.RaycastNonAlloc( Start.ToUnityPos(), delta.normalized, _hitCache, totalDistance, -1, testTrigger ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore );
+				var hits = Physics.RaycastNonAlloc( Start.ToUnityPos(), delta.normalized, _hitCache, totalDistance, -1, includeTrigger );
 				Array.Sort(_hitCache, 0, hits, _raycastComparer);
 				var current = root;
 				//foreach( var hit in hits )
@@ -50,8 +53,6 @@
 				{
 					var hit = _hitCache[i];
 					var unityColl = hit.collider;
-					if( unityColl.isTrigger != testTrigger )
-						continue;
 				
 					if( ExtractMappingData( unityColl, out var component, out var actor ) == false )
 						continue;
@@ -87,7 +88,7 @@
 			{
 				UnrealToUnityBox( Start, Extent, out var box );
 
-				var hits = Physics.BoxCastNonAlloc( box.center, box.extent, delta.normalized, _hitCache, Quaternion.identity, totalDistance, -1, QueryTriggerInteraction.Ignore );
+				var hits = Physics.BoxCastNonAlloc( box.center, box.extent, delta.normalized, _hitCache, Quaternion.identity, totalDistance, -1, includeTrigger );
 
 				// Makes sure hits are sorted
 				// We also need to sort based on how much this box is already penetrating objects at the starting point
@@ -95,8 +96,6 @@
 				for( int i = 0; i < hits; i++ )
 				{
 					ref var hit = ref _hitCache[i];
-					if( hit.collider.isTrigger != testTrigger )
-						continue;
 					
 					float length = 0f;
 					Vector3 direction = default;
@@ -146,7 +145,7 @@
 
 					if( ExtractMappingData( hit.collider, out var component, out var actor ) == false )
 						continue;
-					
+
 					var next = new FCheckResult
 					{
 						Actor = actor,
@@ -278,10 +277,10 @@
 			// Make a list of all actors which overlap with a cylinder at Location
 			// with the given collision size.
 
-			bool testTrigger = ( TraceFlags & TRACE_PhysicsVolumes ) != default;
+			var includeTrigger = ( (ETraceFlags)TraceFlags & ETraceFlags.TRACE_Volumes ) != default ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore;
 
 			UnrealToUnityBox( Location, Extent, out var box );
-			var colliderCount = Physics.OverlapBoxNonAlloc( box.center, box.extent, _colliderCache, Quaternion.identity, -1, QueryTriggerInteraction.Ignore );
+			var colliderCount = Physics.OverlapBoxNonAlloc( box.center, box.extent, _colliderCache, Quaternion.identity, -1, includeTrigger );
 			
 			var root = new FCheckResult();
 			var current = root;
@@ -289,8 +288,6 @@
 			for( int i = 0; i < colliderCount; i++ )
 			{
 				var coll = _colliderCache[i];
-				if( coll.isTrigger != testTrigger )
-					continue;
 
 				if( ExtractMappingData( coll, out var component, out var actor ) == false )
 					continue;
@@ -404,31 +401,33 @@
 
 		bool ComputePenetration(Collider otherCollider, (Vector3 center, Vector3 extent) box, out float length, out Vector3 direction)
 		{
-			if( BoxForTests == null )
+			if( _boxForTests == null )
 			{
-				BoxForTests ??= new GameObject(nameof(BoxForTests)).AddComponent<BoxCollider>();
-				BoxForTests.gameObject.SetActive(false);
+				_boxForTests ??= new GameObject(nameof(_boxForTests)).AddComponent<BoxCollider>();
+				_boxForTests.gameObject.SetActive(false);
 			}
 				
 			// Epsilon otherwise hits considered as intersecting are not detected as such through ComputePenetration 
-			BoxForTests.size = box.extent * 2f + Vector3.one * defaultContactOffset;
+			_boxForTests.size = box.extent * 2f + Vector3.one * defaultContactOffset;
 			
-			BoxForTests.gameObject.SetActive(true);
-			
+			_boxForTests.gameObject.SetActive(true);
+
 			bool boxTest = Physics.ComputePenetration(
-				BoxForTests, box.center, Quaternion.identity,
+				_boxForTests, box.center, Quaternion.identity,
 				otherCollider, otherCollider.transform.position, otherCollider.transform.rotation, 
 				out direction, out length
 			);
 			if( boxTest == false )
 			{
 				// Get an accurate direction for the rest of the logic by enlarging it
-				BoxForTests.size = box.extent * 2.1f + Vector3.one * defaultContactOffset;
-				Physics.ComputePenetration(
-					BoxForTests, box.center, Quaternion.identity,
+				_boxForTests.size = box.extent * 2.1f + Vector3.one * defaultContactOffset;
+				boxTest = Physics.ComputePenetration(
+					_boxForTests, box.center, Quaternion.identity,
 					otherCollider, otherCollider.transform.position, otherCollider.transform.rotation, 
 					out direction, out _
 				);
+				if( boxTest == false )
+					direction = default; // Unity returns garbage data when false ...
 			}
 
 			/*if( boxTest == false )
@@ -439,33 +438,77 @@
 				throw new Exception();
 			}*/
 						
-			BoxForTests.gameObject.SetActive(false);
+			_boxForTests.gameObject.SetActive(false);
 			return boxTest;
+		}
+
+
+
+		public unsafe bool PointCheck( PrimitiveComponent comp, ref DecFn.CheckResult Result, in FVector Location, in FVector Extent, ETraceFlags TraceFlags )
+		{
+			if( _collMappingTable.TryGetValue( comp, out var unityComp ) )
+			{
+				UnrealToUnityBox( Location, Extent, out var box );
+
+				bool penetrates;
+				/*if( box.extent == default )
+				{
+					penetrates = ( (Collider) unityComp ).ClosestPoint( box.center ) == box.center;
+				}
+				else*/
+				{
+					penetrates = ComputePenetration( (Collider) unityComp, box, out _, out var dir ) || dir != default;
+				}
+
+				return penetrates == false;
+			}
+
+			return false;
 		}
 
 
 
 		static bool ExtractMappingData( Collider unityColl, out PrimitiveComponent component, out Actor actor )
 		{
-			if( _mappingTable.TryGetValue( unityColl.gameObject, out var GO ) )
+			if( _collMappingTable.TryGetValue( unityColl.gameObject, out var GO ) )
 				actor = (Actor)GO;
 			else
-				_mappingTable.Add( unityColl.gameObject, actor = new Actor
+			{
+				if( unityColl.isTrigger && unityColl.GetComponent<UnityTdSwingVolume>() is UnityTdSwingVolume uSwingVol )
 				{
-					Name = unityColl.gameObject.name, 
-					Location = unityColl.transform.position.ToUnrealPos(),
-					Rotation = unityColl.transform.rotation.ToUnrealRot(),
-					bWorldGeometry = true,
-					bBlockActors = true
-				} );
+					actor = uSwingVol.GetUnrealObject;
+				}
+				else if( unityColl.isTrigger )
+				{
+					actor = null;
+					component = null;
+					return false;
+				}
+				else
+				{
+					actor = new Actor
+					{
+						Name = unityColl.gameObject.name, 
+						Location = unityColl.transform.position.ToUnrealPos(),
+						Rotation = unityColl.transform.rotation.ToUnrealRot(),
+						bWorldGeometry = true,
+						bBlockActors = true
+					};
+				}
 
-			if( _mappingTable.TryGetValue( unityColl, out var value ) )
+				_collMappingTable.Add( unityColl.gameObject, actor );
+				_collMappingTable.Add( actor, unityColl.gameObject );
+			}
+
+			if( _collMappingTable.TryGetValue( unityColl, out var value ) )
 			{
 				component = (PrimitiveComponent) value;
 			}
 			else
 			{
-				if( unityColl is BoxCollider bColl )
+				if( actor is TdSwingVolume )
+					component = actor.CollisionComponent;
+				else if( unityColl is BoxCollider bColl )
 					component = new BrushComponent();
 				else if( unityColl is CapsuleCollider capsule )
 					component = new CylinderComponent();
@@ -477,9 +520,27 @@
 					actor = null;
 					return false;
 				}
-
-				component.BlockActors = true;
-				_mappingTable.Add( unityColl, component );
+				
+				if( actor.CollisionComponent != null )
+				{
+					for( int i = 0; i < actor.Components.Length; i++ )
+					{
+						if( ReferenceEquals( actor.Components[ i ], actor.CollisionComponent ) )
+						{
+							actor.Components[i] = component;
+							break;
+						}
+					}
+				}
+				else
+				{
+					actor.Components.Add( component );
+				}
+				actor.CollisionComponent = component;
+				
+				component.BlockActors = actor is not TdSwingVolume;
+				_collMappingTable.Add( unityColl, component );
+				_collMappingTable.Add( component, unityColl );
 			}
 
 			return true;

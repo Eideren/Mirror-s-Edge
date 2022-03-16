@@ -41,13 +41,38 @@ public partial class TdBarbedWireVolume : TdMovementVolume/*
 	{
 		var Default__TdBarbedWireVolume_BrushComponent0 = new BrushComponent
 		{
-		}/* Reference: BrushComponent'Default__TdBarbedWireVolume.BrushComponent0' */;
+			// Object Offset:0x002B234A
+			bAcceptsLights = true,
+			LightingChannels = new LightComponent.LightingChannelContainer
+			{
+				bInitialized = true,
+				Dynamic = true,
+			},
+			CollideActors = true,
+			BlockNonZeroExtent = true,
+			AlwaysLoadOnClient = true,
+			AlwaysLoadOnServer = true,
+			// Object Offset:0x0030CA5E
+			BlockZeroExtent = true,
+		}/* Reference: BrushComponent'Default__TdMovementVolume.BrushComponent0' */;
 		var Default__TdBarbedWireVolume_WallDir = new ArrowComponent
 		{
-		}/* Reference: ArrowComponent'Default__TdBarbedWireVolume.WallDir' */;
+			// Object Offset:0x0050E0F3
+			ArrowColor = new Color
+			{
+				R=150,
+				G=100,
+				B=150,
+				A=255
+			},
+			ArrowSize = 5.0f,
+		}/* Reference: ArrowComponent'Default__TdMovementVolume.WallDir' */;
 		var Default__TdBarbedWireVolume_MovementMesh = new TdMoveVolumeRenderComponent
 		{
-		}/* Reference: TdMoveVolumeRenderComponent'Default__TdBarbedWireVolume.MovementMesh' */;
+			// Object Offset:0x0050E14B
+			bUseAsOccluder = false,
+			bUsePrecomputedShadows = false,
+		}/* Reference: TdMoveVolumeRenderComponent'Default__TdMovementVolume.MovementMesh' */;
 		// Object Offset:0x0050E83A
 		bPainCausing = true;
 		DamagePerSec = 35.0f;

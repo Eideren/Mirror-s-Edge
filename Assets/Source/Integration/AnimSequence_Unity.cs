@@ -36,7 +36,7 @@
 			// Make sure to normalize it within the unity clip's duration instead of the unreal one
 			Time = Time / SequenceLength * _unityClip.length;
 
-			if( Time <= 0f )
+			if( Time <= 0f || NumFrames == 1/*small hack as unity animations have two frames instead of just one like source does*/ )
 			{
 				OutAtom = _unityPoses.start[ TrackIndex ];
 				return;

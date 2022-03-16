@@ -29,10 +29,26 @@ public partial class TdFallHeightVolume : TdMovementVolume/*
 	{
 		var Default__TdFallHeightVolume_BrushComponent0 = new BrushComponent
 		{
-		}/* Reference: BrushComponent'Default__TdFallHeightVolume.BrushComponent0' */;
+			// Object Offset:0x002B234A
+			bAcceptsLights = true,
+			LightingChannels = new LightComponent.LightingChannelContainer
+			{
+				bInitialized = true,
+				Dynamic = true,
+			},
+			CollideActors = true,
+			BlockNonZeroExtent = true,
+			AlwaysLoadOnClient = true,
+			AlwaysLoadOnServer = true,
+			// Object Offset:0x0030CA5E
+			BlockZeroExtent = true,
+		}/* Reference: BrushComponent'Default__TdMovementVolume.BrushComponent0' */;
 		var Default__TdFallHeightVolume_MovementMesh = new TdMoveVolumeRenderComponent
 		{
-		}/* Reference: TdMoveVolumeRenderComponent'Default__TdFallHeightVolume.MovementMesh' */;
+			// Object Offset:0x0050E14B
+			bUseAsOccluder = false,
+			bUsePrecomputedShadows = false,
+		}/* Reference: TdMoveVolumeRenderComponent'Default__TdMovementVolume.MovementMesh' */;
 		// Object Offset:0x005454BD
 		BrushComponent = Default__TdFallHeightVolume_BrushComponent0/*Ref BrushComponent'Default__TdFallHeightVolume.BrushComponent0'*/;
 		Components = new array</*export editinline */ActorComponent>

@@ -140,14 +140,10 @@ public partial class TdMove_Swing
       if ( v9.ActiveMovementVolume )
       {
         Line = FRotationMatrix(&v17, v9.ActiveMovementVolume.Rotation)->YPlane.Vector;
-fixed(Vector* ptr2 =&this.SwingLocation)
-fixed(Vector* ptr3 =&v9.ActiveMovementVolume.Location)
-fixed(Vector* ptr4 =&v9.Location)
-        Source.DecFn.PointDistToLine( ptr4, &Line,  ptr3,  ptr2);
+        Source.DecFn.PointDistToLine( v9.Location, Line,  v9.ActiveMovementVolume.Location, out this.SwingLocation);
         this.SwingDirection = *this.PawnOwner.Rotation.Vector(&a2a);
       }
-      this.SwingAngle = this.GetPawnAngle(
-                           this.PawnOwner.Location);
+      this.SwingAngle = this.GetPawnAngle(this.PawnOwner.Location);
     }
     v10 = this.VfTableObject.Dummy;
     v14 = this.SwingAngle;

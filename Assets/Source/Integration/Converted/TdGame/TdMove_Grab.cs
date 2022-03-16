@@ -628,6 +628,11 @@ public partial class TdMove_Grab : TdPhysicsMove/*
 			PawnOwner.SetPhysics(Actor.EPhysics.PHYS_Flying/*4*/);
 			PlayMoveAnim(TdPawn.CustomNodeType.CNT_FullBody/*2*/, ((IsHangingFree()) ? ((MoveLeft) ? "HangFreeStrafeLeft" : "HangFreeStrafe") : ((MoveLeft) ? "HangStrafeLeft" : "HangStrafeRight")), 1.0f, 0.20f, 0.0f, default(bool?), default(bool?));
 			CustomAnimNode = ((PawnOwner.GetCustomAnimation(TdPawn.CustomNodeType.CNT_FullBody/*2*/)) as TdAnimNodeSequence);
+			if( CustomAnimNode == null )
+			{
+				// This occured a couple of time, need to look at why
+				System.Diagnostics.Debugger.Break();
+			}
 		}
 	}
 	

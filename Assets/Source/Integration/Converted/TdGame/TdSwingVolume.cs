@@ -35,12 +35,37 @@ public partial class TdSwingVolume : TdMovementVolume/*
 	{
 		var Default__TdSwingVolume_BrushComponent0 = new BrushComponent
 		{
+			// Object Offset:0x002B234A
+			bAcceptsLights = true,
+			LightingChannels = new LightComponent.LightingChannelContainer
+			{
+				bInitialized = true,
+				Dynamic = true,
+			},
+			CollideActors = true,
+			BlockNonZeroExtent = true,
+			AlwaysLoadOnClient = true,
+			AlwaysLoadOnServer = true,
+			// Object Offset:0x0030CA5E
+			BlockZeroExtent = true,
 		}/* Reference: BrushComponent'Default__TdSwingVolume.BrushComponent0' */;
 		var Default__TdSwingVolume_WallDir = new ArrowComponent
 		{
+			// Object Offset:0x0050E0F3
+			ArrowColor = new Color
+			{
+				R=150,
+				G=100,
+				B=150,
+				A=255
+			},
+			ArrowSize = 5.0f,
 		}/* Reference: ArrowComponent'Default__TdSwingVolume.WallDir' */;
 		var Default__TdSwingVolume_MovementMesh = new TdMoveVolumeRenderComponent
 		{
+			// Object Offset:0x0050E14B
+			bUseAsOccluder = false,
+			bUsePrecomputedShadows = false,
 		}/* Reference: TdMoveVolumeRenderComponent'Default__TdSwingVolume.MovementMesh' */;
 		// Object Offset:0x006740FD
 		bThickGrip = true;

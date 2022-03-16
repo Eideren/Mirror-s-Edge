@@ -19,6 +19,10 @@
         static UWorld _instance;
         
         SortedList<Actor, Actor> _actorsThisFrame = new SortedList<Actor, Actor>(new ActorTickComparer());
+        /// <summary> The maximum amount of frames before an action is processed </summary>
+        public static int MaxFramesForLowFreqUpdate = 10;
+        public readonly List<Action> LowFrequencyUpdate = new();
+        int _lowFreqIndx;
 
 
 
@@ -97,6 +101,15 @@
 
         void Update()
         {
+            // Amount of iterations is at least one
+            var actionsThisFrame = Math.Max( LowFrequencyUpdate.Count / MaxFramesForLowFreqUpdate, 1 );
+            actionsThisFrame = Math.Min( LowFrequencyUpdate.Count, actionsThisFrame);
+            for( int count = 0; count < actionsThisFrame; count++, _lowFreqIndx = (_lowFreqIndx+1) % LowFrequencyUpdate.Count )
+            {
+                LowFrequencyUpdate[_lowFreqIndx]();
+            }
+            
+            
             // See UWorld::Tick
             
 	        DecFn.CheckResult.Clear();

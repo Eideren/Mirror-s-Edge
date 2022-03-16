@@ -14,12 +14,12 @@ using FCheckResult = MEdge.Source.DecFn.CheckResult;
 using static MEdge.Engine.SkeletalMeshComponent.ERootMotionMode;
 using static MEdge.Engine.Actor.ENetRole;
 using static MEdge.Engine.Actor.EPhysics;
-using static MEdge.Source.DecFn.ETraceFlags;
 using static MEdge.Source.DecFn.EMoveFlags;
 using static MEdge.Core.Object.EObjectFlags;
 using System;
 using MEdge.Core;
 using Object = MEdge.Core.Object;
+using static MEdge.Core.Object.ETraceFlags;
 
 namespace MEdge.Engine
 {
@@ -3016,12 +3016,11 @@ determine how deep in water actor is standing:
 					PrimitiveComponent PrimComp = (PrimitiveActor.Components[ComponentIndex]) as PrimitiveComponent;
 					if(PrimComp && PrimComp.CollideActors && PrimComp.BlockNonZeroExtent)
 					{
-						throw new NotImplementedException();
-						/*if( PrimComp.PointCheck(*Hit, BoxCenter, BoxExtent, (BoxActor.bCollideComplex && !bForceSimpleCollision) ? TRACE_ComplexCollision : 0) == 0 )
+						if( UWorldBridge.GetUWorld().PointCheck(PrimComp, ref Hit, BoxCenter, BoxExtent, (BoxActor.bCollideComplex && !bForceSimpleCollision) ? TRACE_ComplexCollision : 0) == false )
 						{
 							HitComponent = PrimComp;
 							break;
-						}*/
+						}
 					}
 				}
 			}
@@ -5145,9 +5144,9 @@ determine how deep in water actor is standing:
 			if ( !PhysicsVolume )
 			{
 				PhysicsVolume = (PhysicsVolume)(GWorld.SpawnActor(ClassT<DefaultPhysicsVolume>()));
-				PhysicsVolume.Priority = -1000000;
-				PhysicsVolume.bNoDelete = true;
 			}
+			PhysicsVolume.Priority = -1000000;
+			PhysicsVolume.bNoDelete = true;
 			return PhysicsVolume;
 		}
 		public unsafe PhysicsVolume GetPhysicsVolume( in FVector Loc, Actor A, UBOOL bUseTouch )

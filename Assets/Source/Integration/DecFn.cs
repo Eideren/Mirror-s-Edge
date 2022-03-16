@@ -685,19 +685,20 @@
 
 
 
-		public static float PointDistToLine( _E_struct_FVector* Point, _E_struct_FVector* Direction, _E_struct_FVector* Origin, _E_struct_FVector* OutClosestPoint )
+		public static float PointDistToLine( in _E_struct_FVector Point, in _E_struct_FVector Direction, in _E_struct_FVector Origin, out _E_struct_FVector OutClosestPoint )
 		{
-			Vector SafeDir = Direction->SafeNormal();
-			*OutClosestPoint = *Origin + (SafeDir * (Dot((*Point-*Origin), SafeDir)));
-			return (*OutClosestPoint-*Point).Size();
+			Vector SafeDir = Direction.SafeNormal();
+			OutClosestPoint = Origin + (SafeDir * (Dot((Point-Origin), SafeDir)));
+			return (OutClosestPoint-Point).Size();
 		}
 
 
 
-		public static bool Encompasses( this Volume thiss, Vector vec )
+		public static bool Encompasses( this Volume thiss, Vector Point )
 		{
+			CheckResult r = default;
 			NativeMarkers.MarkUnimplemented();
-			return false;
+			return !UWorldBridge.GetUWorld.Invoke().PointCheck( thiss.CollisionComponent, ref r, Point, default, default );
 			/*check(CollisionComponent);
 
 			CheckResult Hit = new(1f);
@@ -1504,41 +1505,6 @@
 			{
 			}
 		}
-
-
-
-		[System.Flags]
-		public enum ETraceFlags
-		{
-			// Bitflags.
-			TRACE_Pawns					= 0x00001, // Check collision with pawns.
-			TRACE_Movers				= 0x00002, // Check collision with movers.
-			TRACE_Level					= 0x00004, // Check collision with BSP level geometry.
-			TRACE_Volumes				= 0x00008, // Check collision with soft volume boundaries.
-			TRACE_Others				= 0x00010, // Check collision with all other kinds of actors.
-			TRACE_OnlyProjActor			= 0x00020, // Check collision with other actors only if they are projectile targets
-			TRACE_Blocking				= 0x00040, // Check collision with other actors only if they block the check actor
-			TRACE_LevelGeometry			= 0x00080, // Check collision with other actors which are static level geometry
-			TRACE_ShadowCast			= 0x00100, // Check collision with shadow casting actors
-			TRACE_StopAtAnyHit			= 0x00200, // Stop when find any collision (for visibility checks)
-			TRACE_SingleResult			= 0x00400, // Stop when find guaranteed first nearest collision (for SingleLineCheck)
-			TRACE_Material				= 0x00800, // Request that Hit.Material return the material the trace hit.
-			TRACE_Visible				= 0x01000,
-			TRACE_Terrain				= 0x02000, // Check collision with terrain
-			TRACE_Tesselation			= 0x04000, // Check collision against highest tessellation level (not valid for box checks)  (no longer used)
-			TRACE_PhysicsVolumes		= 0x08000, // Check collision with physics volumes
-			TRACE_TerrainIgnoreHoles	= 0x10000, // Ignore terrain holes when checking collision
-			TRACE_ComplexCollision		= 0x20000, // Ignore simple collision on static meshes and always do per poly
-			TRACE_AllComponents			= 0x40000, // Don't discard collision results of actors that have already been tagged.  Currently adhered to only by ActorOverlapCheck.
-
-			// Combinations.
-			TRACE_Hash					= TRACE_Pawns	|	TRACE_Movers |	TRACE_Volumes	|	TRACE_Others			|	TRACE_Terrain	|	TRACE_LevelGeometry,
-			TRACE_Actors				= TRACE_Pawns	|	TRACE_Movers |	TRACE_Others	|	TRACE_LevelGeometry		|	TRACE_Terrain,
-			TRACE_World					= TRACE_Level	|	TRACE_Movers |	TRACE_Terrain	|	TRACE_LevelGeometry,
-			TRACE_AllColliding			= TRACE_Level	|	TRACE_Actors |	TRACE_Volumes,
-			TRACE_ProjTargets			= TRACE_AllColliding	| TRACE_OnlyProjActor,
-			TRACE_AllBlocking			= TRACE_Blocking		| TRACE_AllColliding,
-		};
 		
 		[System.Flags]
 		public enum EMoveFlags
