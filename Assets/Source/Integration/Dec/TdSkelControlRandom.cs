@@ -16,7 +16,7 @@ public partial class TdSkelControlRandom
     int v11 = default; // edx
     float v12 = default; // xmm0_4
     float v13 = default; // xmm0_4
-    int v14 = default; // xmm1_4
+    float v14 = default; // xmm1_4
     int v15 = default; // ecx
     float v16 = default; // xmm0_4
     int v17 = default; // eax
@@ -67,8 +67,8 @@ public partial class TdSkelControlRandom
           v12 = v20;
         v13 = v12 / this.MaxVelocity;
         v14 = default;
-        if ( v13 < 0.0f || ((v14 = 1065353216) is object && v13 > 1.0f) )
-          v13 = *(float *)&v14;
+        if ( v13 < 0.0f || ((v14 = 1f) is object && v13 > 1.0f) )
+          v13 = v14;
         this.TargetAngle = (int)(float)((float)this.TargetAngle * v13);
       }
       if ( v5 && (v5.GetWeaponType() == EWT_Heavy || v5.WeaponAnimState == EWeaponAnimState.WS_Ready) )

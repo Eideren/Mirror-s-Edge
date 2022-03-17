@@ -450,8 +450,11 @@ public partial class TdMove_ZipLine
           }
           v89 = 20.0f;
         }
-        *((float *)&v127 + 1) = (float)(v92 * v89) + v129;
-        *(float *)&v127 = (float)(v91 * v89) + v126;
+        // Not sure what/why I wrote this stuff 
+        //*((float *)&v127 + 1) = (float)(v92 * v89) + v129;
+        //*(float *)&v127 = (float)(v91 * v89) + v126;
+        v127.Item2 = (float)(v92 * v89) + v129;
+        v127.Item1 = (float)(v91 * v89) + v126;
         v80 = v132.X + (float)(v90 * v89);
       }
       else

@@ -51,12 +51,7 @@ public partial class TdSkelControlAim1p
           v11 = a2.PlayerCameraRotation.Yaw;
           a5.Pitch = a2.PlayerCameraRotation.Pitch;
           a5.Roll = v10;
-          *(Vector*)&rollThenVector = a2.SwanNeck1p.GetSwanNeckPos(new Rotator(0, v11, 0));// GetSwanNeckPos
-          v13 = *(float *)&rollThenVector.Yaw;
-          v14 = *(float *)&rollThenVector.Roll;
-          this.BoneTranslation.X.LODWORD(rollThenVector.Pitch);
-          this.BoneTranslation.Y = v13;
-          this.BoneTranslation.Z = v14;
+          this.BoneTranslation = a2.SwanNeck1p.GetSwanNeckPos(new Rotator(0, v11, 0));
           this.BoneTranslationSpace = EBoneControlSpace.BCS_WorldSpace;
         }
       }

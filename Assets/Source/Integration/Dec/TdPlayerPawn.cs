@@ -68,7 +68,7 @@ public partial class TdPlayerPawn
     Vector *v17; // eax
     name[] v18; // ebx
     Vector *v19; // eax
-    int v20 = default; // xmm1_4
+    float v20 = default; // xmm1_4
     float v21 = default; // xmm0_4
     float v22 = default; // xmm0_4
     Vector *v23; // [esp+9Ch] [ebp-B0h]
@@ -142,10 +142,10 @@ public partial class TdPlayerPawn
         {
           v29 = -1.0f;
         }
-        v20 = -1082130432;
+        v20 = -1f;
         v30.X = (float)(asin(v29) * 0.63661975f);
-        if ( v30.Y < -1.0f || ((v20 = 1065353216) is object && v30.Y >= 1.0f) )
-          v30.Y = *(float *)&v20;
+        if ( v30.Y < -1.0f || ((v20 = 1f) is object && v30.Y >= 1.0f) )
+          v30.Y = v20;
         v30.Z = (float)(asin(v30.Y) * 0.63661975f);
         v4.SetScalarParameterValue( this.HandNormalMapNames1p[0], v35);// SetScalarParameterValue
         v4.SetScalarParameterValue( this.HandNormalMapNames1p[1], v35);// SetScalarParameterValue
@@ -2546,7 +2546,7 @@ public partial class TdPlayerPawn
     float v55 = default; // xmm0_4
     // double (__thiscall *v56)(TdPlayerPawn ); // eax
     float v57 = default; // xmm2_4
-    uint v58 = default; // xmm0_4
+    float v58 = default; // xmm0_4
     float v59 = default; // ebx
     Controller v60 = default; // eax
     int v61 = default; // edi
@@ -2947,13 +2947,15 @@ public partial class TdPlayerPawn
       *(_QWORD *)&v155.Y = __PAIR64__((v51), (v54));
       speed2d2 = this.GetGravityZ();
       v57 = this.Acceleration.Y;
-      *(float *)&v58 = this.Acceleration.Z + speed2d2;
+      v58 = this.Acceleration.Z + speed2d2;
       v59 = v155.X;
       v172 = this.Acceleration.X;
       timeTick_8.X = v172;
       v173 = v57;
-      *(_QWORD *)&timeTick_8.Y = __PAIR64__((int)v58, (int)(*(int*)&v57));
-      v174 = *(float *)&v58;
+      //*(_QWORD *)&timeTick_8.Y = __PAIR64__((int)v58, (int)(*(int*)&v57));
+      timeTick_8.Y = v57;
+      timeTick_8.Z = v58;
+      v174 = v58;
       v195 = NewFallVelocity(v155, timeTick_8, v144);
       this.Velocity = v195;
       v60 = this.Controller;
@@ -3095,7 +3097,7 @@ public partial class TdPlayerPawn
                 while ( v95 < 4 );
                 ++v93;
                 a2.Z = a2.Z + 4.0f;
-                *(float *)&v91 = v160;
+                v91 = v160;
                 if ( v93 >= 2 )
                 {
                   bForceRMVelocity_False = v92 == 0;
@@ -3105,11 +3107,11 @@ public partial class TdPlayerPawn
               if ( !bForceRMVelocity_False )
               {
                 v191 = (float)((float)(a4.Z * a4.Z) + (float)(a4.Y * a4.Y)) + (float)(a4.X * a4.X);
-                if ( (float)(*(float *)&v91 * *(float *)&v91) >= v191 )
+                if ( (float)(v91 * v91) >= v191 )
                 {
                   v97 = 5.0f;
                   v161 = (float)(sqrt(v191));
-                  v98 = *(float *)&v91 - v161;
+                  v98 = v91 - v161;
                   if ( v98 < 5.0f )
                     v97 = v98;
                   a4.X = (float)((float)(a4.X * v97) * (float)(1.0f / v161)) + a4.X;
@@ -3388,7 +3390,7 @@ public partial class TdPlayerPawn
           v79 = this.MovementState;
           if ( v79 != MOVE_FallingUncontrolled )
           {
-            if ( (float)(this.EnterFallingHeight - this.Location.Z) > *(float *)&v75 || (v77 & v76) != default || v79 == MOVE_180TurnInAir )
+            if ( (float)(this.EnterFallingHeight - this.Location.Z) > v75 || (v77 & v76) != default || v79 == MOVE_180TurnInAir )
             {
               if ( v142.Z != 0.0f
                 && !this.CheckValidFloor(
@@ -3449,8 +3451,7 @@ public partial class TdPlayerPawn
           }
         }
   LABEL_172:
-        uint dsfsf = (*(uint*) & speed2d2) + 1;
-        speed2d2 = * (float*) ( & dsfsf );
+        *(uint*)&speed2d2 += 1;
       }
       while ( v61.AsBool() && (*(int*)&speed2d2) < 2 && dword_205684C < 2 );
       if ( !(bDoRootMotion2.AsBool()) && (this.bCollideComplex.AsBitfield(20) & 0x100) == default && this.Physics.AsBool() )

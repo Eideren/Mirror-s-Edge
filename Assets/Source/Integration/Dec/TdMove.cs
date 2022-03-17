@@ -812,9 +812,9 @@ public partial class TdMove
     float v23 = default; // xmm2_4
     //Vector *v24; // eax
     //Vector *v25; // eax
-    int v26 = default; // xmm5_4
+    float v26 = default; // xmm5_4
     float v27 = default; // xmm4_4
-    int v28 = default; // xmm1_4
+    float v28 = default; // xmm1_4
     float v29 = default; // xmm0_4
     float v30 = default; // xmm1_4
     float v31 = default; // xmm2_4
@@ -823,9 +823,9 @@ public partial class TdMove
     //Vector *v34; // eax
     //Vector *v35; // eax
     double v36 = default; // st7
-    int v37 = default; // xmm5_4
+    float v37 = default; // xmm5_4
     float v38 = default; // xmm4_4
-    int v39 = default; // xmm1_4
+    float v39 = default; // xmm1_4
     float v40 = default; // xmm0_4
     float v41 = default; // xmm0_4
     float v42 = default; // xmm2_4
@@ -838,9 +838,9 @@ public partial class TdMove
     float v49 = default; // xmm0_4
     //Vector *v50; // eax
     double v51 = default; // st7
-    int v52 = default; // xmm5_4
+    float v52 = default; // xmm5_4
     float v53 = default; // xmm4_4
-    int v54 = default; // xmm1_4
+    float v54 = default; // xmm1_4
     float v55 = default; // xmm0_4
     float v56 = default; // xmm0_4
     float v57 = default; // xmm2_4
@@ -855,9 +855,9 @@ public partial class TdMove
     double v66 = default; // st7
     float v67 = default; // xmm0_4
     double v68 = default; // st7
-    int v69 = default; // xmm5_4
+    float v69 = default; // xmm5_4
     float v70 = default; // xmm4_4
-    int v71 = default; // xmm1_4
+    float v71 = default; // xmm1_4
     float v72 = default; // xmm0_4
     float v73 = default; // xmm1_4
     float v74 = default; // xmm2_4
@@ -985,17 +985,17 @@ public partial class TdMove
             break;
           case (int)PLM_Walk:
             v116 = Min(v118 / DeltaTime, this.PreciseLocationSpeed);
-            *(float *)&v26 = this.PreciseLocation.X - v4.Location.X;
+            v26 = this.PreciseLocation.X - v4.Location.X;
             v27 = this.PreciseLocation.Y - v4.Location.Y;
-            *(float *)&v28 = this.PreciseLocation.Z - v4.Location.Z;
-            v29 = (float)(v27 * v27) + (float)(*(float *)&v26 * *(float *)&v26);
-            vec_then_rotator.X = *(float *)&v26;
+            v28 = this.PreciseLocation.Z - v4.Location.Z;
+            v29 = (v27 * v27) + (v26 * v26);
+            vec_then_rotator.X = v26;
             vec_then_rotator.Y = v27;
-            vec_then_rotator.Z.LODWORD(v28);
+            vec_then_rotator.Z = v28;
             v120 = v29;
             if ( v29 == 1.0f )
             {
-              if ( *(float *)&v28 == 0.0f )
+              if ( v28 == 0.0f )
               {
                 Delta = vec_then_rotator;
                 v30 = vec_then_rotator.X;
@@ -1003,7 +1003,7 @@ public partial class TdMove
                 v31 = vec_then_rotator.Z;
                 goto LABEL_22;
               }
-              v30 = *(float *)&v26;
+              v30 = v26;
             }
             else if ( v29 >= SMALL_NUMBER )
             {
@@ -1012,7 +1012,7 @@ public partial class TdMove
               v32 = 1.0f / fsqrt(v120);
               vec_then_rotator.X = (float)(3.0f - (float)((float)(v32 * v120) * v32)) * (float)(v32 * 0.5f);
               v27 = v27 * vec_then_rotator.X;
-              v30 = vec_then_rotator.X * *(float *)&v26;
+              v30 = vec_then_rotator.X * v26;
             }
             else
             {
@@ -1039,17 +1039,17 @@ public partial class TdMove
             v117 = 1.0f / DeltaTime;
             v109 = (float)v36;
             v115 = Min((float)(1.0f / DeltaTime) * v118, v109);
-            *(float *)&v37 = this.PreciseLocation.X - v4.Location.X;
+            v37 = this.PreciseLocation.X - v4.Location.X;
             v38 = this.PreciseLocation.Y - v4.Location.Y;
-            *(float *)&v39 = this.PreciseLocation.Z - v4.Location.Z;
-            v40 = (float)(v38 * v38) + (float)(*(float *)&v37 * *(float *)&v37);
-            vec_then_rotator.X = *(float *)&v37;
+            v39 = this.PreciseLocation.Z - v4.Location.Z;
+            v40 = (v38 * v38) + (v37 * v37);
+            vec_then_rotator.X = v37;
             vec_then_rotator.Y = v38;
-            vec_then_rotator.Z.LODWORD(v39);
+            vec_then_rotator.Z = v39;
             v120 = v40;
             if ( v40 == 1.0f )
             {
-              if ( *(float *)&v39 == 0.0f )
+              if ( v39 == 0.0f )
               {
                 Delta = vec_then_rotator;
                 v41 = vec_then_rotator.X;
@@ -1057,7 +1057,7 @@ public partial class TdMove
               }
               else
               {
-                v41 = *(float *)&v37;
+                v41 = v37;
               }
             }
             else if ( v40 >= SMALL_NUMBER )
@@ -1066,7 +1066,7 @@ public partial class TdMove
               v113 = 0.5f;
               v42 = 1.0f / fsqrt(v120);
               vec_then_rotator.X = (float)(3.0f - (float)((float)(v42 * v120) * v42)) * (float)(v42 * 0.5f);
-              v41 = vec_then_rotator.X * *(float *)&v37;
+              v41 = vec_then_rotator.X * v37;
               v38 = v38 * vec_then_rotator.X;
             }
             else
@@ -1106,17 +1106,17 @@ public partial class TdMove
             v117 = 1.0f / DeltaTime;
             v110 = (float)v51;
             v116 = Min((float)(1.0f / DeltaTime) * v118, v110);
-            *(float *)&v52 = this.PreciseLocation.X - v4.Location.X;
+            v52 = this.PreciseLocation.X - v4.Location.X;
             v53 = this.PreciseLocation.Y - v4.Location.Y;
-            *(float *)&v54 = this.PreciseLocation.Z - v4.Location.Z;
-            v55 = (float)(v53 * v53) + (float)(*(float *)&v52 * *(float *)&v52);
-            vec_then_rotator.X = *(float *)&v52;
+            v54 = this.PreciseLocation.Z - v4.Location.Z;
+            v55 = (float)(v53 * v53) + (float)(v52 * v52);
+            vec_then_rotator.X = v52;
             vec_then_rotator.Y = v53;
-            vec_then_rotator.Z.LODWORD(v54);
+            vec_then_rotator.Z = v54;
             v120 = v55;
             if ( v55 == 1.0f )
             {
-              if ( *(float *)&v54 == 0.0f )
+              if ( v54 == 0.0f )
               {
                 Delta = vec_then_rotator;
                 v56 = vec_then_rotator.X;
@@ -1124,7 +1124,7 @@ public partial class TdMove
               }
               else
               {
-                v56 = *(float *)&v52;
+                v56 = v52;
               }
             }
             else if ( v55 >= SMALL_NUMBER )
@@ -1133,7 +1133,7 @@ public partial class TdMove
               v113 = 0.5f;
               v57 = 1.0f / fsqrt(v120);
               vec_then_rotator.X = (float)(3.0f - (float)((float)(v57 * v120) * v57)) * (float)(v57 * 0.5f);
-              v56 = vec_then_rotator.X * *(float *)&v52;
+              v56 = vec_then_rotator.X * v52;
               v53 = v53 * vec_then_rotator.X;
             }
             else
@@ -1185,17 +1185,17 @@ public partial class TdMove
             v117 = 1.0f / DeltaTime;
             v111 = (float)v68;
             v116 = Min((float)(1.0f / DeltaTime) * v118, v111);
-            *(float *)&v69 = this.PreciseLocation.X - v4.Location.X;
+            v69 = this.PreciseLocation.X - v4.Location.X;
             v70 = this.PreciseLocation.Y - v4.Location.Y;
-            *(float *)&v71 = this.PreciseLocation.Z - v4.Location.Z;
-            v72 = (float)(v70 * v70) + (float)(*(float *)&v69 * *(float *)&v69);
-            vec_then_rotator.X = *(float *)&v69;
+            v71 = this.PreciseLocation.Z - v4.Location.Z;
+            v72 = (float)(v70 * v70) + (float)(v69 * v69);
+            vec_then_rotator.X = v69;
             vec_then_rotator.Y = v70;
-            vec_then_rotator.Z.LODWORD(v71);
+            vec_then_rotator.Z = v71;
             v120 = v72;
             if ( v72 == 1.0f )
             {
-              if ( *(float *)&v71 == 0.0f )
+              if ( v71 == 0.0f )
               {
                 Delta = vec_then_rotator;
                 v73 = vec_then_rotator.X;
@@ -1203,7 +1203,7 @@ public partial class TdMove
               }
               else
               {
-                v73 = *(float *)&v69;
+                v73 = v69;
               }
             }
             else if ( v72 >= SMALL_NUMBER )
@@ -1213,7 +1213,7 @@ public partial class TdMove
               v74 = 1.0f / fsqrt(v120);
               vec_then_rotator.X = (float)(3.0f - (float)((float)(v74 * v120) * v74)) * (float)(v74 * 0.5f);
               v70 = v70 * vec_then_rotator.X;
-              v73 = vec_then_rotator.X * *(float *)&v69;
+              v73 = vec_then_rotator.X * v69;
             }
             else
             {

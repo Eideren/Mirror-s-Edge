@@ -67,7 +67,7 @@ public partial class TdMove_Grab
     float v10 = default; // xmm2_4
     float v11 = default; // xmm1_4
     TdPawn v12 = default; // eax
-    int v13 = default; // xmm2_4
+    float v13 = default; // xmm2_4
     float v14 = default; // xmm0_4
     int v15 = default; // edi
     int v16 = default; // eax
@@ -126,8 +126,8 @@ public partial class TdMove_Grab
     //v12 = (TdPawn )((byte *)v12 + 0x100);// ptr to Velocity
     v12.Velocity.X = v8 * v11;
     v22 = v5 * v11;
-    *(float *)&v13 = v9 * v11;
-    v23 = (uint)v13;
+    v13 = v9 * v11;
+    //v23 = (uint)v13;
     v12.Velocity.Y = v5 * v11;
     v12.Velocity.Z = v13;
     v14 = this.ShimmyTime - DeltaTime;
