@@ -39,14 +39,36 @@
 
 		public static void debugf( string str, params object[] p )
 		{
+			// Slow but doesn't matter enough
 			int objIdx = 0;
 			int ix;
-			while( ( ix = str.IndexOf( "%s" ) ) != - 1 )
+			while( ( ix = NextClosestMarker( str ) ) != - 1 )
 			{
 				str = str.Remove( ix, 2 ).Insert(ix, p[objIdx++].ToString());
 			}
 
 			UnityEngine.Debug.Log( str );
+
+
+			static int NextClosestMarker( string str )
+			{
+				Span<int> result = stackalloc int[ 3 ]
+				{
+					str.IndexOf( "%s", StringComparison.Ordinal ),
+					str.IndexOf( "%d", StringComparison.Ordinal ),
+					str.IndexOf( "%f", StringComparison.Ordinal )
+				};
+				int min = int.MaxValue;
+				foreach( int i in result )
+				{
+					if( i != - 1 && i < min )
+					{
+						min = i;
+					}
+				}
+
+				return min == int.MaxValue ? -1 : min;
+			}
 		}
 
 
