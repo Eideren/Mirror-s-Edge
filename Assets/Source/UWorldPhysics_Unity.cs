@@ -471,12 +471,14 @@
 		static bool ExtractMappingData( Collider unityColl, out PrimitiveComponent component, out Actor actor )
 		{
 			if( _collMappingTable.TryGetValue( unityColl.gameObject, out var GO ) )
+			{
 				actor = (Actor)GO;
+			}
 			else
 			{
-				if( unityColl.isTrigger && unityColl.GetComponent<UnityTdSwingVolume>() is UnityTdSwingVolume uSwingVol )
+				if( unityColl.isTrigger && unityColl.GetComponent<VolumeProxy>() is VolumeProxy proxy )
 				{
-					actor = uSwingVol.GetUnrealObject;
+					actor = proxy.UnrealVolume;
 				}
 				else if( unityColl.isTrigger )
 				{
@@ -506,7 +508,7 @@
 			}
 			else
 			{
-				if( actor is TdSwingVolume )
+				if( actor is Volume )
 					component = actor.CollisionComponent;
 				else if( unityColl is BoxCollider bColl )
 					component = new BrushComponent();

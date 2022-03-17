@@ -1,47 +1,23 @@
 ﻿namespace MEdge.Source
 {
-	using Core;
-	using Engine;
 	using TdGame;
 	using UnityEngine;
 
 
 
-	public class UnityTdSwingVolume : MonoBehaviour
+	public class UnityTdSwingVolume : VolumeProxy<TdSwingVolume>
 	{
 		public bool bSnapToCenter;
 		public bool bThickGrip;
-		TdSwingVolume _unrealInstance;
 
 
 
-		void SyncTdSwingVolume()
+		protected override void SyncVolume(TdSwingVolume volume)
 		{
 			// Of course I have to do this kind of bullshit as unity doesn't handle property in the editor
 			// Otherwise I would just sync when property changes ...
-			_unrealInstance.bThickGrip = bThickGrip;
-			_unrealInstance.bSnapToCenter = bSnapToCenter;
-			_unrealInstance.Rotation = this.transform.rotation.ToUnrealRot();
-			_unrealInstance.Location = this.transform.position.ToUnrealPos();
-		}
-
-
-
-		public TdSwingVolume GetUnrealObject
-		{
-			get
-			{
-				if( _unrealInstance != null )
-					return _unrealInstance;
-				
-				UWorld.Instance.LowFrequencyUpdate.Add( SyncTdSwingVolume );
-				_unrealInstance = new TdSwingVolume
-				{
-					Name = $"TdSwingVolume_{gameObject.name}",
-				};
-				SyncTdSwingVolume();
-				return _unrealInstance;
-			}
+			volume.bThickGrip = bThickGrip;
+			volume.bSnapToCenter = bSnapToCenter;
 		}
 
 
