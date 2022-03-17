@@ -50,6 +50,8 @@
 			if( SplineControls.Count < 2 )
 				return;
 			
+			Gizmos.color = Color.blue;
+			
 			Vector3 previous = default;
 			for( int i = 0; i < SplineControls.Count; i++ )
 			{

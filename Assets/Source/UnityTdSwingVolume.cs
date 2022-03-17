@@ -24,6 +24,8 @@
 
 		void OnDrawGizmos()
 		{
+			Gizmos.color = Color.magenta;
+			
 			var subdiv = 16;
 			
 			var thisPos = transform.position;
