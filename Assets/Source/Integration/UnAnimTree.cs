@@ -6718,8 +6718,10 @@ int FindBestChildToPlayAnim(MEdge.Core.name AnimToPlay)
 /// </summary>
 public float PlayCustomAnim(name AnimName, float Rate, /*optional */float? _BlendInTime = default, /*optional */float? _BlendOutTime = default, /*optional */bool? _bLooping = default, /*optional */bool? _bOverride = default)
 {
+	// MEdge source is different here compared to unreal source
+	
 	// Pre requisites
-	if( AnimName == NAME_None || Rate <= 0f )
+	if( AnimName == NAME_None || Rate == 0f )
 	{
 		return 0f;
 	}
@@ -6764,7 +6766,10 @@ public float PlayCustomAnim(name AnimName, float Rate, /*optional */float? _Blen
 			}
 
 			// Play the animation
-			SeqNode.PlayAnim(_bLooping??false, Rate, 0f);
+			if( Rate >= 0f )
+				SeqNode.PlayAnim(_bLooping??false, Rate, 0f);
+			else 
+				SeqNode.PlayAnim(_bLooping??false, Rate, SeqNode.AnimSeq.SequenceLength);
 		}
 
 		SetActiveChild(CustomChildIndex, _BlendInTime ?? 0f);

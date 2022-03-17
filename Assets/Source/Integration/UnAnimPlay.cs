@@ -1105,12 +1105,25 @@ public virtual float GetAnimPlaybackLength()
 ///</summary>
 public virtual float GetTimeLeft()
 {
+	// MEdge source is different here compared to unreal source
+	
 	if( AnimSeq )
 	{
 		float GlobalPlayRate = GetGlobalPlayRate();
 		if( GlobalPlayRate > 0f )
 		{
 			return Max(AnimSeq.SequenceLength - CurrentTime, 0f) / GlobalPlayRate;
+		}
+		else
+		{
+			var v5 = GlobalPlayRate;
+			if ( v5 >= 0.0f )
+				return 0.0f;
+			var v4 = this.CurrentTime;
+			if ( v4 < 0.0f )
+				return -(0.0f / GlobalPlayRate);
+			else
+				return -(v4 / GlobalPlayRate);
 		}
 	}
 
