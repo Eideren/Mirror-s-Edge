@@ -111,12 +111,11 @@
 
 			// Draw climbing side arrow
 			{
-				var start = SplineControls[ 0 ];
-				var end = SplineControls[ ^1 ];
+				var start = TransformNoScale( SplineControls[ 0 ] );
+				var end = TransformNoScale( SplineControls[ ^1 ] );
 				var mid = (start + end) * 0.5f;
 				var dir = Vector3.Normalize(end - start);
 				
-				mid = TransformNoScale( mid );
 				mid += WallNormal * 0.2f;
 
 				start = mid - dir*0.5f;

@@ -5,7 +5,7 @@
 	
 	
 	[CustomEditor(typeof(UnityTdLadderVolume))]
-	public class HandlesForTd : Editor
+	public class HandlesForTdLadder : Editor
 	{
 		public void OnSceneGUI()
 		{
