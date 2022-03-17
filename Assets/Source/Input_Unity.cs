@@ -157,6 +157,17 @@
 	            controller.LookAtPress();
             if( UnityEngine.Input.GetKeyUp( KeyCode.LeftAlt ) )
 	            controller.LookAtRelease();
+			
+            //(Name:"GBA_Fire",Command:"AttackPress | OnRelease AttackRelease | NextViewTarget",Control:false,Shift:false,Alt:false),
+            //(Name:"XboxTypeS_RightTrigger",Command:"GBA_Fire",Control:false,Shift:false,Alt:false),
+            //(Name:"LeftMouseButton",Command:"GBA_Fire",Control:false,Shift:false,Alt:false),
+            if( UnityEngine.Input.GetMouseButtonDown( 0 ) )
+            {
+	            controller.AttackPress();
+	            controller.NextViewTarget();
+            }
+            if( UnityEngine.Input.GetMouseButtonUp( 0 ) )
+	            controller.AttackRelease();
         }
 
 
@@ -219,7 +230,7 @@
 			(Name:"GBA_Turn_Gamepad",Command:"Axis aTurn Speed=1.0 DeadZone=0.3",Control:false,Shift:false,Alt:false),
 			(Name:"GBA_InGameMenu",Command:"OnRelease SkipCutscene | OnRelease OpenIngameMenu",Control:false,Shift:false,Alt:false),
 			
-			(Name:"GBA_Fire",Command:"AttackPress | OnRelease AttackRelease | NextViewTarget",Control:false,Shift:false,Alt:false),
+			//(Name:"GBA_Fire",Command:"AttackPress | OnRelease AttackRelease | NextViewTarget",Control:false,Shift:false,Alt:false),
 
 			(Name:"F5",Command:"quicksave",Control:false,Shift:false,Alt:false),
 			(Name:"F6",Command:"quickload",Control:false,Shift:false,Alt:false),
@@ -244,7 +255,7 @@
 			(Name:"XboxTypeS_RightThumbstick",Command:"GBA_ZoomWeapon",Control:false,Shift:false,Alt:false),
 			(Name:"XboxTypeS_LeftTrigger",Command:"GBA_Crouch",Control:false,Shift:false,Alt:false),
 			(Name:"XboxTypeS_LeftShoulder",Command:"GBA_Jump",Control:false,Shift:false,Alt:false),
-			(Name:"XboxTypeS_RightTrigger",Command:"GBA_Fire",Control:false,Shift:false,Alt:false),
+			//(Name:"XboxTypeS_RightTrigger",Command:"GBA_Fire",Control:false,Shift:false,Alt:false),
 			(Name:"XboxTypeS_RightShoulder",Command:"GBA_LookBehind",Control:false,Shift:false,Alt:false),
 			(Name:"XboxTypeS_RightY",Command:"GBA_Look_Gamepad",Control:false,Shift:false,Alt:false),
 			(Name:"XboxTypeS_RightX",Command:"GBA_Turn_Gamepad",Control:false,Shift:false,Alt:false),
@@ -252,7 +263,7 @@
 			(Name:"XboxTypeS_LeftX",Command:"GBA_Strafe_Gamepad",Control:false,Shift:false,Alt:false),
 			
 			(Name:"F",Command:"GBA_ZoomWeapon",Control:false,Shift:false,Alt:false),
-			(Name:"LeftMouseButton",Command:"GBA_Fire",Control:false,Shift:false,Alt:false),
+			//(Name:"LeftMouseButton",Command:"GBA_Fire",Control:false,Shift:false,Alt:false),
 			(Name:"RightMouseButton",Command:"GBA_SwitchWeapon",Control:false,Shift:false,Alt:false),
 			
 			(Name:"TAB",Command:"GBA_InGameMenu",Control:false,Shift:false,Alt:false),
