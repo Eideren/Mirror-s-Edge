@@ -78,6 +78,9 @@
 				y: UnityEngine.Input.GetAxisRaw( "Mouse Y" )
 			);
 
+	        UnityEngine.Cursor.visible = false;
+	        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+
 	        // (Name:"D",Command:"GBA_StrafeRight",Control:false,Shift:false,Alt:false),
 	        // (Name:"GBA_StrafeRight",Command:"Axis aStrafe Speed=+1.0",Control:false,Shift:false,Alt:false),
 	        // (Name:"A",Command:"GBA_StrafeLeft",Control:false,Shift:false,Alt:false),
