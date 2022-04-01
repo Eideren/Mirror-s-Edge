@@ -510,14 +510,15 @@
 			{
 				if( actor is Volume )
 					component = actor.CollisionComponent;
-				else if( unityColl is BoxCollider bColl )
+				else if( unityColl is BoxCollider )
 					component = new BrushComponent();
-				else if( unityColl is CapsuleCollider capsule )
+				else if( unityColl is CapsuleCollider )
 					component = new CylinderComponent();
-				else if( unityColl is MeshCollider meshColl )
+				else if (unityColl is MeshCollider or TerrainCollider)
 					component = new StaticMeshComponent();
 				else
 				{
+					Debug.LogWarning($"Unknown collider type:{unityColl.GetType()}");
 					component = null;
 					actor = null;
 					return false;
