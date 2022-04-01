@@ -255,6 +255,7 @@
 			if( Class == null )
 			{
 				//debugf( NAME_Warning, TEXT("SpawnActor failed because no class was specified") );
+				LogError("SpawnActor failed because no class was specified");
 				System.Diagnostics.Debugger.Break();
 				return null;
 			}
@@ -280,6 +281,7 @@
 			{
 				System.Diagnostics.Debugger.Break();
 				//debugf( NAME_Warning, TEXT("SpawnActor failed because class %s has bStatic or bNoDelete"), *Class->GetName() );
+				LogError($"SpawnActor failed because class {Class.Name} has bStatic or bNoDelete");
 				if ( !bNoFail )
 					return null;		
 			}
@@ -287,6 +289,7 @@
 			{
 				System.Diagnostics.Debugger.Break();
 				//debugf(NAME_Warning, TEXT("SpawnActor failed because template class (%s) does not match spawn class (%s)"), *Template->GetClass()->GetName(), *Class->GetName());
+				LogError($"SpawnActor failed because template class ({Template.Class.Name}) does not match spawn class ({Class.Name})");
 				if (!bNoFail)
 				{
 					return null;
@@ -298,6 +301,7 @@
 			if (InTick /*&& TickGroup == TG_DuringAsyncWork*/&& false && Class.DefaultAs<Actor>().bBlockActors)
 			{
 				//debugf(NAME_Error,TEXT("Can't spawn collidable actor (%s) during async work!"),*Class->GetName());
+				LogError($"Can't spawn collidable actor ({Class.Name}) during async work!");
 				System.Diagnostics.Debugger.Break();
 			}
 		#endif
@@ -316,6 +320,7 @@
 				if (!FindSpot(Template.GetCylinderExtent(), ref NewLocation, Template.bCollideComplex))
 				{
 					//debugfSuppressed( NAME_DevSpawn, TEXT("SpawnActor failed because of collision at the spawn location [%s]"), *Class->GetName() );
+					LogError($"SpawnActor failed because of collision at the spawn location [{Class.Name}]");
 					System.Diagnostics.Debugger.Break();
 					return null;
 				}
@@ -382,10 +387,12 @@
 				if ( bBegunPlay )
 				{
 					//appErrorf(TEXT("Spawned actor %s with a collision component %s that is not in the Components array."),*Actor->GetFullName(),*Actor->CollisionComponent->GetFullName());
+					LogError($"Spawned actor {Actor.Name} with a collision component {Actor.CollisionComponent.Name} that is not in the Components array.");
 				}
 				else
 				{
 					//debugf( NAME_Warning, TEXT("Spawned actor %s with a collision component %s that is not in the Components array."),*Actor->GetFullName(),*Actor->CollisionComponent->GetFullName() );
+					LogError($"Spawned actor {Actor.Name} with a collision component {Actor.CollisionComponent.Name} that is not in the Components array.");
 				}
 			}
 
@@ -458,6 +465,7 @@
 				{
 					System.Diagnostics.Debugger.Break();
 					//debugf(NAME_DevSpawn, TEXT("SpawnActor destroyed [%s] after spawning because it was encroaching on another Actor"), *Actor->GetName());
+					LogError($"SpawnActor destroyed {Actor.Name} after spawning because it was encroaching on another Actor");
 					DestroyActor( Actor );
 					return null;
 				}
