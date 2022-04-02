@@ -82,8 +82,15 @@
                 {
                     // We don't need the preview mesh
                     Asset.UScriptToUnity.TryGetValue( (Pawn.Mesh3p.Animations as AnimTree)?.PreviewSkelMesh, out var previewMesh );
-                    Destroy(((Component)previewMesh).transform.parent.gameObject);
-                    
+                    try
+                    {
+	                    Destroy( ( (Component) previewMesh ).transform.parent.gameObject );
+                    }
+                    catch(System.Exception)
+                    {
+	                    System.Diagnostics.Debugger.Break();
+                    }
+
                     var clips = Resources.LoadAll<AnimationClip>( "Animations/AS_F3P_Unarmed/" );
                     Asset.UScriptToUnity.TryGetValue( Pawn.Mesh3p.SkeletalMesh, out var tracker );
                     Pawn.Mesh3p.Owner = Pawn; // Shouldn't have to do this here, source has some other system making sure it is set
