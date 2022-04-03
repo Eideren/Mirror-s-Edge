@@ -14,14 +14,14 @@ public partial class AnimNotify_Script : AnimNotify/*
 		Actor Owner = NodeSeq.SkelComponent.GetOwner();
 		if( Owner && NotifyName != NAME_None )
 		{
+			UWorldBridge.GetUWorld().BuildCallableFunction(NotifyName, Owner).Invoke();
 			/*if( !GWorld->HasBegunPlay() )
 			{
 				debugf( NAME_Log, TEXT("Editor: skipping AnimNotify_Script %s"), *NotifyName.ToString() );
 			}
-			else*/
+			else
 			{
-				throw new NotImplementedException();
-				/*Function Function = Owner.FindFunction( NotifyName );
+				Function Function = Owner.FindFunction( NotifyName );
 				if( Function )
 				{
 					if( Function.FunctionFlags & FUNC_Delegate )
@@ -34,8 +34,8 @@ public partial class AnimNotify_Script : AnimNotify/*
 					{
 						Owner.ProcessEvent( Function, NULL );								
 					}
-				}*/
-			}
+				}
+			}*/
 		}
 
 	}

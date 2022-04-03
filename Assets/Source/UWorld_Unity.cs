@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
     using System.Runtime.CompilerServices;
     using Core;
     using Source;
@@ -176,9 +177,32 @@
             
             _actorsThisFrame.Clear();
         }
-        
-        
-        
+
+
+        public Actor.Timer_del BuildCallableFunction(string name, object TimerObj)
+        {
+            // We should build something better here, quite unoptimized.
+            var flags = BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance | BindingFlags.NonPublic;
+            if( TimerObj is Actor a && name == "Timer" )
+            {
+                return a.Timer;
+            } 
+            else if( TimerObj.GetType().GetProperty( name, flags ) is PropertyInfo p && p.GetValue( TimerObj ) is Delegate d )
+            {
+                return () => d.DynamicInvoke();
+            }
+            else if( TimerObj.GetType().GetMethod( name, flags ) is MethodInfo m )
+            {
+                return () => m.Invoke( TimerObj, null );
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
+
+
+
         static void LogWarning( string str ) => UnityEngine.Debug.LogWarning( str );
         static void Log( string str ) => UnityEngine.Debug.Log( str );
         static void LogError( string str ) => UnityEngine.Debug.LogError( str );

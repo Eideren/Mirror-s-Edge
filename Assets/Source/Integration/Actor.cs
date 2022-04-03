@@ -1,7 +1,5 @@
 ﻿namespace MEdge.Engine
 {
-	using System;
-	using System.Reflection;
 	using Core;
 	using static UnityEngine.Debug;
     using Object = Core.Object;
@@ -352,27 +350,7 @@
 					// (for large delta times on looping timers)
 					int CallCount = Timers[Idx].bLoop ? (int)(Timers[Idx].Count/Timers[Idx].Rate) : 1;
 					
-					// lookup the function to call
-					var flags = BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance | BindingFlags.NonPublic;
-
-
-					Timer_del Func;
-					if( TimerObj is Actor a && Timers[ Idx ].FuncName == "Timer" )
-					{
-						Func = a.Timer;
-					} 
-					else if( TimerObj.GetType().GetProperty( Timers[ Idx ].FuncName, flags ) is PropertyInfo p && p.GetValue( TimerObj ) is Delegate d )
-					{
-						Func = () => d.DynamicInvoke();
-					}
-					else if( TimerObj.GetType().GetMethod( Timers[ Idx ].FuncName, flags ) is MethodInfo m )
-					{
-						Func = () => m.Invoke( TimerObj, null );
-					}
-					else
-					{
-						throw new Exception();
-					}
+					Timer_del Func = UWorldBridge.GetUWorld().BuildCallableFunction(Timers[Idx].FuncName, TimerObj);
 					//Function Func = TimerObj.FindFunction();
 					// if we didn't find the function, or it's not looping
 					if( Func == NULL ||
