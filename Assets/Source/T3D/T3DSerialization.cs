@@ -2,6 +2,7 @@
 {
 	using System;
 	using System.Collections.Generic;
+	using System.Globalization;
 	using System.Reflection;
 	using System.Runtime.CompilerServices;
 	using Core;
@@ -45,12 +46,23 @@
 		/// <returns>The deserialized root</returns>
 		public static object Deserialize( T3DNode root, [ CanBeNull ] Func<Exception, bool> ignoreException, [ CanBeNull ] Action<object> onNodeDeserialized )
 		{
-			var utility = new Utility { IgnoreException = ignoreException, OnNodeDeserialized = onNodeDeserialized };
-			
-			var rootInstance = AllocInstance( root, out _ );
-			Recurse( root, rootInstance, utility );
+			var prevCulture = System.Threading.Thread.CurrentThread.CurrentCulture;
+			try
+			{
+				// T3D data format is in invariant, Parse as invariant
+				System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
 
-			return rootInstance;
+				var utility = new Utility { IgnoreException = ignoreException, OnNodeDeserialized = onNodeDeserialized };
+				
+				var rootInstance = AllocInstance( root, out _ );
+				Recurse( root, rootInstance, utility );
+
+				return rootInstance;
+			}
+			finally
+			{
+				System.Threading.Thread.CurrentThread.CurrentCulture = prevCulture;
+			}
 			
 
 			static void Recurse( T3DNode node, object instance, Utility utility )
@@ -182,7 +194,6 @@
 				field.SetValueToDefault( cache );
 				return;
 			}
-			
 			switch( field )
 			{
 				case IField<Boolean> fBoolean: fBoolean.Ref( cache ) = Boolean.Parse( value ); return;
@@ -195,7 +206,7 @@
 				case IField<UInt32> fUInt32: fUInt32.Ref( cache ) = UInt32.Parse( value ); return;
 				case IField<UInt64> fUInt64: fUInt64.Ref( cache ) = UInt64.Parse( value ); return;
 				case IField<Single> fSingle: fSingle.Ref( cache ) = Single.Parse( value ); return;
-				case IField<Double> fDouble: fDouble.Ref( cache ) = Double.Parse( value ); return;
+				case IField<Double> fDouble: fDouble.Ref( cache ) = Double.Parse( value, NumberStyles.Float ); return;
 				case IField<Char> fChar: fChar.Ref( cache ) = value.Length == 1 ? value[0] : throw new Exception(); return;
 				case IField<DateTime> fDateTime: fDateTime.Ref( cache ) = DateTime.Parse( value ); return;
 				case IField<Decimal> fDecimal: fDecimal.Ref( cache ) = Decimal.Parse( value ); return;
