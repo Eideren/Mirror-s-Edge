@@ -168,8 +168,8 @@
                 for( int i = 1; i < Pawn.Mesh3p.LocalAtoms.Length; i++ )
                 {
 	                ref var atom = ref Pawn.Mesh3p.LocalAtoms[i];
-	                _3pBones[i].localPosition = atom.Translation.ToUnityAnim();
-	                _3pBones[i].localRotation = atom.Rotation.ToUnityAnim();
+	                _3pBones[i].localPosition = atom.Translation.ToUnityAnim().LogAndZeroNaN();
+	                _3pBones[i].localRotation = atom.Rotation.ToUnityAnim().LogAndZeroNaN();
 	                _3pBones[i].localScale = Vector3.one * atom.Scale;
                 }
                 

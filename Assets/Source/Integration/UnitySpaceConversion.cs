@@ -47,7 +47,28 @@
 
 		public static UnrealV ToUnrealAnim(this UnityV v) => new UnrealV( -v.x, -v.y, v.z ) * 100f;
 		public static UnityV ToUnityAnim(this UnrealV v) => new UnityV( -v.X, -v.Y, v.Z ) / 100f;
-		
+
+		public static UnityV LogAndZeroNaN(this UnityV v)
+		{
+			if (float.IsNaN(v.x) || float.IsNaN(v.y) || float.IsNaN(v.z))
+			{
+				UnityEngine.Debug.LogWarning("Zeroed NaN vector");
+				return default;
+			}
+
+			return v;
+		}
+		public static UnityQ LogAndZeroNaN(this UnityQ v)
+		{
+			if (float.IsNaN(v.x) || float.IsNaN(v.y) || float.IsNaN(v.z) || float.IsNaN(v.w))
+			{
+				UnityEngine.Debug.LogWarning("Zeroed NaN quaternion");
+				return UnityQ.identity;
+			}
+
+			return v;
+		}
+
 		public static UnrealQ ToUnrealAnim( this UnityQ q )
 		{
 			var m = Object.FQuatRotationTranslationMatrix( q.Inplace(), default );

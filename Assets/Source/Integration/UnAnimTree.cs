@@ -411,9 +411,8 @@ namespace MEdge.Engine
 			{
 				InitAnimTree();
 
-				NativeMarkers.MarkUnimplemented("Skipping sample at play, it creates a bunch of garbage logs as it's missing a couple of stuff that is set later");
-				/*UpdateSkelPose();
-				ConditionalUpdateTransform();*/
+				UpdateSkelPose();
+				ConditionalUpdateTransform();
 			}
 
 			// Call BeginPlay on any attached components.
