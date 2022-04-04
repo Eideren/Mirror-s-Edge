@@ -5,12 +5,17 @@ This is a source-only repo to contribute to this project. You need to download a
 The repo should be at https://bitbucket.org/Eideren/stillalive/src if you want to contribute your changes.
 Here's a video showing it in action https://www.youtube.com/watch?v=W6-_Lgdt0zg
 
-## Work left to do:
+## Work left to be done:
 - Fix bugs in character controller
 	+ Step up is too lenient 
-	+ Walking towards inclines is too rigid 
-		* compare with source to see whether this is expected behavior 
+	+ Walking towards inclines is too rigid
+		* compare with source to see whether this is expected behavior
 	+ Heisenbug, random null ref exception in `PawnLink_Unity.Update`, `if( _3pPlayer == null )` branch
+- Improvements to the character controller
+	+ Ensure gameplay doesn't run at unexpected framerate (it was reported that framerate above 62 can break gameplay)
+		* Would have to investigate if it is possible to lockstep gameplay while animations and pawn translations operate at a higher framerate
+	+ Fix 'stuck floating' in certain cases, this was reported as happening in the original as well
+- Look into feasibility of publishing unitypackages
 - Tooling to import UE3 maps
 	+ Some work for UE4 as already been done over here https://github.com/Eideren/Cartographer and could be used as reference
 - Material extractor and importer from .upkg
