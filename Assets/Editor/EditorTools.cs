@@ -138,7 +138,7 @@
 				}
 
 				// Check curves to avoid losing data when converting
-				if(curvesQuat.Any(x => x.keys.Length != curvesQuat[ 0 ].keys.Length) || curvesPos.Any(x => x.keys.Length != curvesQuat[ 0 ].keys.Length))
+				if(curvesQuat.Any(x => x.keys.Length != curvesQuat[ 0 ].keys.Length) || curvesPos.Any(x => x.keys.Length != curvesPos[ 0 ].keys.Length))
 				{
 					LogError( $"{nameof(FixupRootRotation)}: {clip} {propName}'s curves, properties of this struct don't have the same amount of keys in the curve" );
 					goto NEXT_CLIP;
