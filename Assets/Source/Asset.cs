@@ -17,51 +17,35 @@
 	{
 		public static HashSet<string> NotImplementedFor = new HashSet<string>();
 		public static ConditionalWeakTable<object, UnityEngine.Object> UScriptToUnity = new();
-		static bool _loadedAllResources = false;
+		private static AssetDB _assetDB;
 
 
 		public static UnityEngine.AudioClip GetClip(name path, bool skipLoadAll = false)
 		{
 			path = path.ToString().Replace( '.', '/' );
+
+			UnityEngine.AudioClip clip = null;
 			
-			if( _clips.TryGetValue( path, out var clip ) )
+			if( _clips.TryGetValue( path, out clip ) )
 				return clip;
-
-			clip = UnityEngine.Resources.Load<UnityEngine.AudioClip>( path );
-			if( clip != null )
-			{
-				_clips.Add( path, clip );
-				return clip;
-			}
-
-			// Try shortname instead
-			if( path.ToString().LastIndexOf( '.' ) is int i && i != -1 )
+			
+			clip ??= UnityEngine.Resources.Load<UnityEngine.AudioClip>( path );
+			
+			_assetDB ??= UnityEngine.Resources.Load<AssetDB>("AssetDB");
+			if (clip == null && _assetDB.NameToPath.TryGetValue(path, out var actualPath))
+				clip = UnityEngine.Resources.Load<UnityEngine.AudioClip>( actualPath );
+			
+			if(clip == null && path.ToString().LastIndexOf( '.' ) is int i && i != -1 )
 			{
 				name shortName = path.ToString().Substring( i + 1 );
-				if( _clips.TryGetValue( shortName, out clip ) )
-				{
-					_clips.Add( path, clip );
-					return clip;
-				}
+				_clips.TryGetValue(shortName, out clip);
+				
+				if (clip == null && _assetDB.NameToPath.TryGetValue(shortName, out actualPath))
+					clip = UnityEngine.Resources.Load<UnityEngine.AudioClip>( actualPath );
 			}
-
-			if( _loadedAllResources )
-			{
-				return null;
-			}
-			else
-			{
-				// Basically this occurs because T3D files contain relative asset paths afaict, other things are more important right now
-				LogWarning($"Force loaded all clips inside resources as we couldn't find {path} under 'Resources/'");
-				_loadedAllResources = true;
-
-				foreach( var c in UnityEngine.Resources.LoadAll<UnityEngine.AudioClip>( "" ) )
-				{
-					_clips.TryAdd( c.name, c );
-				}
 			
-				return GetClip(path);
-			}
+			_clips.Add( path, clip );
+			return clip;
 		}
 
 
