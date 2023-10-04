@@ -1,17 +1,15 @@
 # Still Alive
-A port of Mirror's Edge (2008) in Unity 2022.1.0b7.2715.
+A port of Mirror's Edge (2008) to Unity 2022.3.
 
 For cease and desist or any other inquires, please contact me by email (contact at eideren.com) or over on discord (Eideren 4893).
 
-This is a source-only repo to contribute to this project. You need to download assets from here first: https://mega.nz/folder/48hnGBTY#jIfGg36zOBKYF1eVuT71sQ, pick **either** the .7z file **or** the folder.
-
-The repo should be at https://bitbucket.org/Eideren/stillalive/src if you want to contribute your changes.
+The repo should be at https://github.com/Eideren/Mirror-s-Edge if you want to contribute your changes.
 
 Here's a video showing it in action https://www.youtube.com/watch?v=W6-_Lgdt0zg
 
 ## Work left to be done:
 - Fix bugs in character controller
-	+ Step up is too lenient 
+	+ Step up is too lenient
 	+ Walking towards inclines is too rigid
 		* compare with source to see whether this is expected behavior
 	+ Heisenbug, random null ref exception in `PawnLink_Unity.Update`, `if( _3pPlayer == null )` branch

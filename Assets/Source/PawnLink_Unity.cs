@@ -43,7 +43,8 @@
                     _1pLower = (SkinnedMeshRenderer)unityObjectLower;
                     
                     _1pPlayer = fpUpper.transform.parent.gameObject;
-                    var clips = Resources.LoadAll<AnimationClip>( "Animations/AS_C1P_Unarmed/" );
+                    var clips = Resources.LoadAll<AnimationClip>( "AS_C1P_Unarmed" );
+                    var animator = _1pPlayer.GetComponent<Animator>();
                     
                     var gameObject = Instantiate( _1pPlayer );
                     gameObject.SetActive(false);
@@ -51,13 +52,13 @@
                     // Cleanup hierarchy
                     foreach( Component comp in gameObject.GetComponentsInChildren<Component>() )
                     {
-	                    if(comp is Transform == false)
+	                    if(comp is not Transform)
 		                    UnityEngine.Object.Destroy(comp);
                     }
                     foreach( var set in Pawn.Mesh1p.AnimSets )
                     {
 	                    if(set!=null)
-		                    FixRefsForAnimation( clips, set, gameObject );
+		                    FixRefsForAnimation( clips, set, animator );
                     }
 
                     var hs = Pawn.Mesh1p.AnimSets[ 0 ].TrackBoneNames.ToHashSet();
@@ -91,10 +92,11 @@
 	                    System.Diagnostics.Debugger.Break();
                     }
 
-                    var clips = Resources.LoadAll<AnimationClip>( "Animations/AS_F3P_Unarmed/" );
+                    var clips = Resources.LoadAll<AnimationClip>( "AS_F3P_Unarmed" );
                     Asset.UScriptToUnity.TryGetValue( Pawn.Mesh3p.SkeletalMesh, out var tracker );
                     Pawn.Mesh3p.Owner = Pawn; // Shouldn't have to do this here, source has some other system making sure it is set
                     _3pPlayer = ( (SkinnedMeshRenderer) tracker ).transform.parent.gameObject;
+                    var animator = _3pPlayer.GetComponent<Animator>();
                     
                     var gameObject = Instantiate( _3pPlayer );
                     gameObject.SetActive(false);
@@ -102,14 +104,14 @@
                     // Cleanup hierarchy
                     foreach( Component comp in gameObject.GetComponentsInChildren<Component>() )
                     {
-	                    if(comp is Transform == false)
+	                    if(comp is not Transform)
 		                    UnityEngine.Object.Destroy(comp);
                     }
                     
                     foreach( var set in Pawn.Mesh3p.AnimSets )
                     {
 	                    if(set!=null)
-							FixRefsForAnimation( clips, set, gameObject );
+							FixRefsForAnimation( clips, set, animator );
 	                }
 	                
                     var hs = Pawn.Mesh3p.AnimSets[ 0 ].TrackBoneNames.ToHashSet();
@@ -248,14 +250,14 @@
 
 
 
-            static void FixRefsForAnimation(AnimationClip[] clips, AnimSet animSet, GameObject gameObject)
+            static void FixRefsForAnimation(AnimationClip[] clips, AnimSet animSet, Animator animator)
             {
 	            if(animSet.Sequences.Count == 0)
 		            return;
 	            
 	            var nameToClip = clips.ToDictionary( x => (name)x.name, x => x );
 	            var boneHashSet = animSet.TrackBoneNames.ToHashSet();
-	            var nameToTransforms = gameObject.GetComponentsInChildren<Transform>().Where( x => boneHashSet.Contains(x.name) ).ToDictionary( x => (name)x.name );
+	            var nameToTransforms = animator.GetComponentsInChildren<Transform>().Where( x => boneHashSet.Contains(x.name) ).ToDictionary( x => (name)x.name );
 	            var bones = animSet.TrackBoneNames.Select( name => nameToTransforms[ name ] ).ToArray();
 
 	            foreach( AnimSequence sequence in animSet.Sequences )
@@ -267,14 +269,14 @@
 		            }
 
 		            sequence._unityBones = bones;
-		            sequence._unityClipTarget = gameObject;
+		            sequence._unityClipTarget = animator;
 		            sequence._unityClip = clip;
 					
 		            clip.wrapMode = WrapMode.Default;
-		            clip.SampleAnimation( gameObject, 0f );
+		            clip.EvaluateArbitrarily( 0f, animator );
 		            sequence._unityPoses.start = bones.Select( bone => new AnimNode.BoneAtom( bone.localRotation.ToUnrealAnim(), bone.localPosition.ToUnrealAnim(), 1f ) ).ToArray();
 					
-		            clip.SampleAnimation( gameObject, clip.length );
+		            clip.EvaluateArbitrarily( 0f, animator );
 		            sequence._unityPoses.end = bones.Select( bone => new AnimNode.BoneAtom( bone.localRotation.ToUnrealAnim(), bone.localPosition.ToUnrealAnim(), 1f ) ).ToArray();
 	            }
             }
