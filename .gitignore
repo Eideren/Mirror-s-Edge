@@ -10,7 +10,5 @@ UserSettings/
 Build/
 *.csproj
 *.sln
-*.anim
-*.FBX
-*.tga
-*.ogg
+*.vs
+*.vsconfig
