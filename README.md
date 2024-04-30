@@ -1,6 +1,8 @@
 # Still Alive
 A port of Mirror's Edge (2008) to Unity 2022.3.
 
+***Do not download as zip***, this repo contains Git LFS files, you must clone it through git client or command line, see https://www.wikihow.com/Clone-a-Repository-on-Github
+
 For cease and desist or any other inquires, please contact me by email (contact at eideren.com) or over on discord (Eideren 4893).
 
 The repo should be at https://github.com/Eideren/Mirror-s-Edge if you want to contribute your changes.
